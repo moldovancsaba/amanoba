@@ -40,15 +40,13 @@ const AchievementUnlockSchema = new Schema<IAchievementUnlock>(
       type: Schema.Types.ObjectId,
       ref: 'Player',
       required: [true, 'Player ID is required'],
-      index: true,
-      // Why: Query player's achievements
+      // Why: Query player's achievements (index defined at schema level)
     },
     achievementId: {
       type: Schema.Types.ObjectId,
       ref: 'Achievement',
       required: [true, 'Achievement ID is required'],
-      index: true,
-      // Why: Query all unlocks for an achievement
+      // Why: Query all unlocks for an achievement (index defined at schema level)
     },
     unlockedAt: {
       type: Date,

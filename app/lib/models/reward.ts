@@ -80,8 +80,7 @@ const RewardSchema = new Schema<IReward>(
         message: 'Category must be valid',
       },
       required: [true, 'Category is required'],
-      index: true,
-      // Why: Organizes rewards by type
+      // Why: Organizes rewards by type (index defined at schema level)
     },
     type: {
       type: String,
@@ -96,8 +95,7 @@ const RewardSchema = new Schema<IReward>(
       type: Number,
       required: [true, 'Points cost is required'],
       min: [1, 'Points cost must be at least 1'],
-      index: true,
-      // Why: How many points to redeem
+      // Why: How many points to redeem (index defined at schema level)
     },
     stock: {
       isLimited: {

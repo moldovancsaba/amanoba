@@ -53,15 +53,13 @@ const RewardRedemptionSchema = new Schema<IRewardRedemption>(
       type: Schema.Types.ObjectId,
       ref: 'Player',
       required: [true, 'Player ID is required'],
-      index: true,
-      // Why: Query player's redemption history
+      // Why: Query player's redemption history (index defined at schema level)
     },
     rewardId: {
       type: Schema.Types.ObjectId,
       ref: 'Reward',
       required: [true, 'Reward ID is required'],
-      index: true,
-      // Why: Track redemptions per reward
+      // Why: Track redemptions per reward (index defined at schema level)
     },
     transactionId: {
       type: Schema.Types.ObjectId,
@@ -78,8 +76,7 @@ const RewardRedemptionSchema = new Schema<IRewardRedemption>(
       },
       required: [true, 'Status is required'],
       default: 'pending',
-      index: true,
-      // Why: Tracks redemption lifecycle
+      // Why: Tracks redemption lifecycle (index defined at schema level)
     },
     pointsCost: {
       type: Number,

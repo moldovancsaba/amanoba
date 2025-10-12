@@ -45,14 +45,12 @@ const EventLogSchema = new Schema<IEventLog>(
     playerId: {
       type: Schema.Types.ObjectId,
       ref: 'Player',
-      index: true,
-      // Why: Query events by player (null for system events)
+      // Why: Query events by player (null for system events, index defined at schema level)
     },
     brandId: {
       type: Schema.Types.ObjectId,
       ref: 'Brand',
-      index: true,
-      // Why: Brand-specific analytics
+      // Why: Brand-specific analytics (index defined at schema level)
     },
     eventType: {
       type: String,
@@ -61,9 +59,8 @@ const EventLogSchema = new Schema<IEventLog>(
         message: 'Event type must be valid',
       },
       required: [true, 'Event type is required'],
-      index: true,
       immutable: true,
-      // Why: Categorizes events for filtering and analytics
+      // Why: Categorizes events for filtering and analytics (index defined at schema level)
     },
     eventData: {
       type: Schema.Types.Mixed,
@@ -75,9 +72,8 @@ const EventLogSchema = new Schema<IEventLog>(
       type: Date,
       required: [true, 'Timestamp is required'],
       default: () => new Date(),
-      index: true,
       immutable: true,
-      // Why: ISO 8601 timestamp for time-series analytics
+      // Why: ISO 8601 timestamp for time-series analytics (index defined at schema level)
     },
     context: {
       sessionId: {

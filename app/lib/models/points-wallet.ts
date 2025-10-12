@@ -41,9 +41,7 @@ const PointsWalletSchema = new Schema<IPointsWallet>(
       type: Schema.Types.ObjectId,
       ref: 'Player',
       required: [true, 'Player ID is required'],
-      unique: true,
-      index: true,
-      // Why: One wallet per player
+      // Why: One wallet per player (unique index defined at schema level)
     },
     currentBalance: {
       type: Number,

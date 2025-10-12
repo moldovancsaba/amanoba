@@ -55,16 +55,13 @@ const ReferralTrackingSchema = new Schema<IReferralTracking>(
       type: Schema.Types.ObjectId,
       ref: 'Player',
       required: [true, 'Referrer ID is required'],
-      index: true,
-      // Why: Query referrals by referrer
+      // Why: Query referrals by referrer (index defined at schema level)
     },
     refereeId: {
       type: Schema.Types.ObjectId,
       ref: 'Player',
       required: [true, 'Referee ID is required'],
-      unique: true,
-      index: true,
-      // Why: One referral record per referee (prevent double rewards)
+      // Why: One referral record per referee (prevent double rewards, unique index defined at schema level)
     },
     referralCode: {
       type: String,
@@ -72,9 +69,8 @@ const ReferralTrackingSchema = new Schema<IReferralTracking>(
       trim: true,
       uppercase: true,
       maxlength: [20, 'Referral code cannot exceed 20 characters'],
-      index: true,
       immutable: true,
-      // Why: Code used for tracking (e.g., "PLAYER123")
+      // Why: Code used for tracking (e.g., "PLAYER123", index defined at schema level)
     },
     status: {
       type: String,
@@ -84,8 +80,7 @@ const ReferralTrackingSchema = new Schema<IReferralTracking>(
       },
       required: [true, 'Status is required'],
       default: 'pending',
-      index: true,
-      // Why: Tracks referral lifecycle
+      // Why: Tracks referral lifecycle (index defined at schema level)
     },
     rewards: {
       referrerPoints: {

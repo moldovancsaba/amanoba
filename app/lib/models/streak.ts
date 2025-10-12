@@ -48,8 +48,7 @@ const StreakSchema = new Schema<IStreak>(
       type: Schema.Types.ObjectId,
       ref: 'Player',
       required: [true, 'Player ID is required'],
-      index: true,
-      // Why: Query player's streaks
+      // Why: Query player's streaks (index defined at schema level)
     },
     type: {
       type: String,

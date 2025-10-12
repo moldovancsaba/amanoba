@@ -87,9 +87,7 @@ const PlayerProgressionSchema = new Schema<IPlayerProgression>(
       type: Schema.Types.ObjectId,
       ref: 'Player',
       required: [true, 'Player ID is required'],
-      unique: true,
-      index: true,
-      // Why: One progression record per player
+      // Why: One progression record per player (unique index defined at schema level)
     },
     level: {
       type: Number,
