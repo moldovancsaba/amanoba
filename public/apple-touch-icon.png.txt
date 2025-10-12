@@ -1,0 +1,2 @@
+This is a placeholder. Proper Apple Touch Icon will be created in Phase 9 (PWA Configuration).
+For now, the browser will use the favicon or default icon.
