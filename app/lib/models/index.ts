@@ -40,4 +40,14 @@ export { default as SystemVersion, type ISystemVersion } from './system-version'
 // Referral System Model (1)
 export { default as ReferralTracking, type IReferralTracking } from './referral-tracking';
 
-// Total: 17 models
+// Daily Challenges Models (2)
+export { 
+  DailyChallenge, 
+  PlayerChallengeProgress,
+  type IDailyChallenge,
+  type IPlayerChallengeProgress,
+  type ChallengeType,
+  type ChallengeDifficulty
+} from './daily-challenge';
+
+// Total: 19 models
