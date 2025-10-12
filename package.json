@@ -18,8 +18,10 @@
     "release:patch": "node scripts/versioning/bump-version.mjs --type patch --reason \"Patch release\" && git add -A && git commit -m \"release: v$(node scripts/versioning/get-version.mjs) — Patch release\"",
     "release:minor": "node scripts/versioning/bump-version.mjs --type minor --reason \"Minor release\" && git add -A && git commit -m \"release: v$(node scripts/versioning/get-version.mjs) — Minor release\"",
     "release:major": "node scripts/versioning/bump-version.mjs --type major --reason \"Major release\" && git add -A && git commit -m \"release: v$(node scripts/versioning/get-version.mjs) — Major release\"",
-    "db:init": "node scripts/init-db-indexes.mjs",
-    "db:seed": "node scripts/seed-database.mjs"
+    "seed": "tsx scripts/seed-all.ts",
+    "seed:core": "tsx scripts/seed-core-data.ts",
+    "seed:achievements": "tsx scripts/seed-achievements.ts",
+    "seed:rewards": "tsx scripts/seed-rewards.ts"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",
@@ -76,6 +78,7 @@
     "pino-pretty": "^13.1.2",
     "postcss": "^8.4.47",
     "tailwindcss": "^3.4.11",
+    "tsx": "^4.20.6",
     "typescript": "^5"
   },
   "overrides": {
