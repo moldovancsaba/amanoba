@@ -9,7 +9,6 @@
     "npm": ">=9.0.0"
   },
   "scripts": {
-    "predev": "node scripts/versioning/bump-version.mjs --type patch --reason \"Automatic predev patch bump\"",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
