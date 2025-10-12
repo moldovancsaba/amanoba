@@ -50,4 +50,16 @@ export {
   type ChallengeDifficulty
 } from './daily-challenge';
 
-// Total: 19 models
+// Quest System Models (2)
+export {
+  Quest,
+  PlayerQuestProgress,
+  type IQuest,
+  type IPlayerQuestProgress,
+  type IQuestStep,
+  type QuestCategory,
+  type QuestStepType,
+  type StepDependency
+} from './quest';
+
+// Total: 21 models
