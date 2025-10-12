@@ -48,3 +48,12 @@ export {
   getPlayerStreaks,
   expireOldStreaks,
 } from './streak-manager';
+
+// Game Session Manager
+export {
+  startGameSession,
+  completeGameSession,
+  type SessionStartInput,
+  type SessionCompleteInput,
+  type SessionCompleteResult,
+} from './session-manager';
