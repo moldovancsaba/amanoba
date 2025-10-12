@@ -1,0 +1,123 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* What: Global CSS variables and base styles for Amanoba */
+/* Why: Provides consistent theming and utilities across the entire platform */
+
+:root {
+  --foreground-rgb: 17, 24, 39; /* gray-900 */
+  --background-start-rgb: 249, 250, 251; /* gray-50 */
+  --background-end-rgb: 255, 255, 255;
+  
+  /* Amanoba brand colors */
+  --primary: 99, 102, 241; /* indigo-500 */
+  --secondary: 236, 72, 153; /* pink-500 */
+  --accent: 168, 85, 247; /* purple-500 */
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 243, 244, 246; /* gray-100 */
+    --background-start-rgb: 17, 24, 39; /* gray-900 */
+    --background-end-rgb: 31, 41, 55; /* gray-800 */
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+/* Utility classes for text balance and accessibility */
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  /* Focus visible for keyboard navigation - accessibility compliance */
+  .focus-visible-ring {
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2;
+  }
+  
+  /* Screen reader only content */
+  .sr-only {
+    @apply absolute w-px h-px p-0 -m-px overflow-hidden whitespace-nowrap border-0;
+  }
+}
+
+/* Custom scrollbar styling */
+@layer base {
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    @apply bg-gray-100 dark:bg-gray-800;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    @apply bg-gray-300 dark:bg-gray-600 rounded-full;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-gray-400 dark:bg-gray-500;
+  }
+}
+
+/* Animation presets for gamification elements */
+@keyframes achievement-pop {
+  0% {
+    transform: scale(0) rotate(-180deg);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.2) rotate(10deg);
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+@keyframes level-up {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+  }
+  25% {
+    transform: translateY(-20px) scale(1.1);
+  }
+  75% {
+    transform: translateY(-10px) scale(1.05);
+  }
+}
+
+@keyframes points-counter {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Apply animations to specific classes */
+.animate-achievement-pop {
+  animation: achievement-pop 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.animate-level-up {
+  animation: level-up 0.8s ease-out;
+}
+
+.animate-points-counter {
+  animation: points-counter 0.3s ease-out;
+}
