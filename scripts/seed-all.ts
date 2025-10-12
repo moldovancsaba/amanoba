@@ -7,6 +7,12 @@
  * Usage: npm run seed
  */
 
+import { config } from 'dotenv';
+import { resolve } from 'path';
+
+// Why: Load environment variables from .env.local
+config({ path: resolve(process.cwd(), '.env.local') });
+
 import logger from '../app/lib/logger';
 import seedCoreData from './seed-core-data';
 import seedAchievements from './seed-achievements';

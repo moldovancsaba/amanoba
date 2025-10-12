@@ -1,10 +1,14 @@
 import Link from 'next/link';
+import { auth } from '@/auth';
 
 /**
  * What: Home page for Amanoba unified game platform
  * Why: Landing page showcasing platform features, games, and gamification system
  */
-export default function HomePage() {
+export default async function HomePage() {
+  // Get authentication session
+  // Why: Show personalized content based on auth status
+  const session = await auth();
   return (
     <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-pink-50">
       {/* Header */}
@@ -19,6 +23,28 @@ export default function HomePage() {
                 </h1>
                 <p className="text-sm text-gray-600">Unified Game Platform</p>
               </div>
+            </div>
+            <div className="flex items-center gap-4">
+              {session?.user ? (
+                <>
+                  <Link
+                    href="/dashboard"
+                    className="px-6 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors font-medium"
+                  >
+                    Dashboard
+                  </Link>
+                  <span className="text-sm text-gray-600">
+                    {session.user.name}
+                  </span>
+                </>
+              ) : (
+                <Link
+                  href="/auth/signin"
+                  className="px-6 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors font-medium"
+                >
+                  Sign In
+                </Link>
+              )}
             </div>
           </div>
         </div>
@@ -37,19 +63,39 @@ export default function HomePage() {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Link 
-              href="/games" 
-              className="bg-gradient-to-r from-indigo-600 to-pink-600 text-white px-8 py-4 rounded-lg hover:from-indigo-700 hover:to-pink-700 transition-all transform hover:scale-105 shadow-lg font-medium text-lg"
-            >
-              🎮 Start Playing
-            </Link>
-            
-            <Link 
-              href="/admin" 
-              className="text-gray-600 hover:text-gray-900 transition-colors font-medium text-lg"
-            >
-              🛠️ Admin Dashboard
-            </Link>
+            {session?.user ? (
+              <>
+                <Link 
+                  href="/games" 
+                  className="bg-gradient-to-r from-indigo-600 to-pink-600 text-white px-8 py-4 rounded-lg hover:from-indigo-700 hover:to-pink-700 transition-all transform hover:scale-105 shadow-lg font-medium text-lg"
+                >
+                  🎮 Start Playing
+                </Link>
+                
+                <Link 
+                  href="/dashboard" 
+                  className="text-gray-600 hover:text-gray-900 transition-colors font-medium text-lg"
+                >
+                  📊 My Dashboard
+                </Link>
+              </>
+            ) : (
+              <>
+                <Link 
+                  href="/auth/signin" 
+                  className="bg-gradient-to-r from-indigo-600 to-pink-600 text-white px-8 py-4 rounded-lg hover:from-indigo-700 hover:to-pink-700 transition-all transform hover:scale-105 shadow-lg font-medium text-lg"
+                >
+                  🎮 Sign In to Play
+                </Link>
+                
+                <Link 
+                  href="#features" 
+                  className="text-gray-600 hover:text-gray-900 transition-colors font-medium text-lg"
+                >
+                  Learn More ↓
+                </Link>
+              </>
+            )}
           </div>
         </div>
 

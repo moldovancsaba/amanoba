@@ -7,6 +7,12 @@
  * Usage: npm run seed:core
  */
 
+import { config } from 'dotenv';
+import { resolve } from 'path';
+
+// Why: Load environment variables from .env.local
+config({ path: resolve(process.cwd(), '.env.local') });
+
 import mongoose from 'mongoose';
 import { Brand, Game, GameBrandConfig } from '../app/lib/models';
 import logger from '../app/lib/logger';
@@ -90,106 +96,100 @@ async function seedGames() {
   
   const games = [
     {
+      gameId: 'QUIZZZ',
       name: 'QUIZZZ',
       type: 'QUIZZZ',
       description: 'Fast-paced trivia game with multiple categories. Test your knowledge and compete for the highest score!',
-      category: 'trivia',
-      icon: '❓',
-      displayOrder: 1,
-      rules: {
-        timeLimit: 180, // 3 minutes
-        maxAttempts: 1,
-        difficultyLevels: ['easy', 'medium', 'hard'],
-        scoringSystem: 'Points based on speed and accuracy',
+      rules: '• Answer all questions before time runs out\n• Each correct answer earns points\n• Faster answers get bonus points\n• Get 60% or more correct to win',
+      thumbnail: '🧠',
+      isActive: true,
+      requiresAuth: false,
+      isPremium: false,
+      minPlayers: 1,
+      maxPlayers: 1,
+      averageDurationSeconds: 180,
+      pointsConfig: {
+        winPoints: 500,
+        losePoints: 100,
+        participationPoints: 50,
+        perfectGameBonus: 200,
       },
-      scoring: {
-        basePoints: 100,
-        timeBonus: true,
-        accuracyMultiplier: 1.5,
-        streakBonus: true,
+      xpConfig: {
+        winXP: 100,
+        loseXP: 25,
+        participationXP: 10,
       },
-      features: {
-        hasHints: false,
-        hasLifelines: false,
-        supportsSinglePlayer: true,
-        supportsMultiplayer: false,
-      },
+      difficultyLevels: ['easy', 'medium', 'hard'],
       metadata: {
-        createdAt: new Date(),
-        updatedAt: new Date(),
-        isActive: true,
-        isPremiumOnly: false,
+        category: 'trivia',
+        icon: '🧠',
       },
     },
     {
+      gameId: 'WHACKPOP',
       name: 'WHACKPOP',
       type: 'WHACKPOP',
       description: 'Reflex-based arcade game. Pop the targets as fast as you can before time runs out!',
-      category: 'arcade',
-      icon: '🎯',
-      displayOrder: 2,
-      rules: {
-        timeLimit: 60, // 1 minute
-        maxAttempts: 3,
-        difficultyLevels: ['easy', 'medium', 'hard', 'expert'],
-        scoringSystem: 'Points per successful hit with combo multipliers',
+      rules: '• Click targets as they appear\n• Targets disappear after 1 second\n• Get 20+ hits to win\n• Misses reduce your score',
+      thumbnail: '🎯',
+      isActive: true,
+      requiresAuth: false,
+      isPremium: false,
+      minPlayers: 1,
+      maxPlayers: 1,
+      averageDurationSeconds: 30,
+      pointsConfig: {
+        winPoints: 400,
+        losePoints: 80,
+        participationPoints: 40,
+        perfectGameBonus: 150,
       },
-      scoring: {
-        basePoints: 10,
-        timeBonus: false,
-        accuracyMultiplier: 2.0,
-        streakBonus: true,
+      xpConfig: {
+        winXP: 80,
+        loseXP: 20,
+        participationXP: 10,
       },
-      features: {
-        hasHints: false,
-        hasLifelines: false,
-        supportsSinglePlayer: true,
-        supportsMultiplayer: false,
-      },
+      difficultyLevels: ['easy', 'medium', 'hard', 'expert'],
       metadata: {
-        createdAt: new Date(),
-        updatedAt: new Date(),
-        isActive: true,
-        isPremiumOnly: false,
+        category: 'arcade',
+        icon: '🎯',
       },
     },
     {
+      gameId: 'MADOKU',
       name: 'Madoku',
       type: 'MADOKU',
       description: 'Strategic number puzzle game. Fill the grid following Sudoku rules with increasing difficulty levels.',
-      category: 'puzzle',
-      icon: '🔢',
-      displayOrder: 3,
-      rules: {
-        timeLimit: 1800, // 30 minutes
-        maxAttempts: null, // Unlimited
-        difficultyLevels: ['easy', 'medium', 'hard', 'expert'],
-        scoringSystem: 'Based on time, hints used, and difficulty',
+      rules: '• Fill 9x9 grid with numbers 1-9\n• Each row, column, and 3x3 box must contain all digits\n• Use hints sparingly for best score\n• Premium feature - unlock to play',
+      thumbnail: '🔢',
+      isActive: true,
+      requiresAuth: true,
+      isPremium: true,
+      minPlayers: 1,
+      maxPlayers: 1,
+      averageDurationSeconds: 900,
+      pointsConfig: {
+        winPoints: 1000,
+        losePoints: 200,
+        participationPoints: 100,
+        perfectGameBonus: 500,
       },
-      scoring: {
-        basePoints: 500,
-        timeBonus: true,
-        accuracyMultiplier: 1.0,
-        streakBonus: false,
+      xpConfig: {
+        winXP: 200,
+        loseXP: 50,
+        participationXP: 25,
       },
-      features: {
-        hasHints: true,
-        hasLifelines: true,
-        supportsSinglePlayer: true,
-        supportsMultiplayer: false,
-      },
+      difficultyLevels: ['easy', 'medium', 'hard', 'expert'],
       metadata: {
-        createdAt: new Date(),
-        updatedAt: new Date(),
-        isActive: true,
-        isPremiumOnly: true, // Premium gated as per requirements
+        category: 'puzzle',
+        icon: '🔢',
       },
     },
   ];
   
   for (const gameData of games) {
     await Game.findOneAndUpdate(
-      { type: gameData.type },
+      { gameId: gameData.gameId },
       gameData,
       { upsert: true, new: true }
     );

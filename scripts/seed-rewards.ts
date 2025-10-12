@@ -7,6 +7,12 @@
  * Usage: npm run seed:rewards
  */
 
+import { config } from 'dotenv';
+import { resolve } from 'path';
+
+// Why: Load environment variables from .env.local
+config({ path: resolve(process.cwd(), '.env.local') });
+
 import mongoose from 'mongoose';
 import { Reward } from '../app/lib/models';
 import logger from '../app/lib/logger';
