@@ -1,7 +1,7 @@
 # Amanoba Task List
 
-**Version**: 1.0.0  
-**Last Updated**: 2025-10-10T11:02:31.000Z
+**Version**: 1.5.0  
+**Last Updated**: 2025-10-12T19:24:00.000Z
 
 ---
 
@@ -27,8 +27,8 @@ Tasks are listed in priority order. Upon completion, tasks are moved to RELEASE_
 | ID | Task | Owner | Expected Delivery | Status |
 |----|------|-------|-------------------|--------|
 | 2.1 | MongoDB connection and logger setup | AI | 2025-10-10 | ✅ DONE |
-| 2.2 | Define 17 Mongoose models with validation | AI | 2025-10-12 | ⏳ PENDING |
-| 2.3 | Database seed scripts and initialization | AI | 2025-10-13 | ⏳ PENDING |
+| 2.2 | Define 21 Mongoose models with validation | AI | 2025-10-12 | ✅ DONE |
+| 2.3 | Database seed scripts and initialization | AI | 2025-10-12 | ✅ DONE |
 
 ---
 
@@ -36,11 +36,11 @@ Tasks are listed in priority order. Upon completion, tasks are moved to RELEASE_
 
 | ID | Task | Owner | Expected Delivery | Status |
 |----|------|-------|-------------------|--------|
-| 3.1 | Points system core and API | AI | 2025-10-15 | ⏳ PENDING |
-| 3.2 | Achievement system library and UI | AI | 2025-10-16 | ⏳ PENDING |
-| 3.3 | XP and leveling system with titles | AI | 2025-10-17 | ⏳ PENDING |
-| 3.4 | Streak system and rewards | AI | 2025-10-18 | ⏳ PENDING |
-| 3.5 | Progressive disclosure gating | AI | 2025-10-19 | ⏳ PENDING |
+| 3.1 | Points system core and API | AI | 2025-10-12 | ✅ DONE |
+| 3.2 | Achievement system library and UI | AI | 2025-10-12 | ✅ DONE |
+| 3.3 | XP and leveling system with titles | AI | 2025-10-12 | ✅ DONE |
+| 3.4 | Streak system and rewards | AI | 2025-10-12 | ✅ DONE |
+| 3.5 | Progressive disclosure gating | AI | 2025-10-12 | ✅ DONE |
 
 ---
 
@@ -48,10 +48,11 @@ Tasks are listed in priority order. Upon completion, tasks are moved to RELEASE_
 
 | ID | Task | Owner | Expected Delivery | Status |
 |----|------|-------|-------------------|--------|
-| 4.1 | Port QUIZZZ and WHACKPOP from PlayMass | AI | 2025-10-22 | ⏳ PENDING |
-| 4.2 | Port Madoku engine with premium gating | AI | 2025-10-24 | ⏳ PENDING |
-| 4.3 | Unified game session API | AI | 2025-10-26 | ⏳ PENDING |
-| 4.4 | Game launcher and navigation | AI | 2025-10-27 | ⏳ PENDING |
+| 4.1 | Port QUIZZZ and WHACKPOP from PlayMass | AI | 2025-10-12 | ✅ DONE |
+| 4.2 | Port Madoku engine with premium gating | AI | 2025-10-12 | ✅ DONE |
+| 4.3 | Unified game session API | AI | 2025-10-12 | ✅ DONE |
+| 4.4 | Game launcher and navigation | AI | 2025-10-12 | ✅ DONE |
+| 4.5 | Facebook OAuth authentication system | AI | 2025-10-12 | ✅ DONE |
 
 ---
 
@@ -59,9 +60,9 @@ Tasks are listed in priority order. Upon completion, tasks are moved to RELEASE_
 
 | ID | Task | Owner | Expected Delivery | Status |
 |----|------|-------|-------------------|--------|
-| 5.1 | Leaderboards with daily cron | AI | 2025-10-30 | ⏳ PENDING |
-| 5.2 | Daily challenges system | AI | 2025-11-01 | ⏳ PENDING |
-| 5.3 | Quest system | AI | 2025-11-03 | ⏳ PENDING |
+| 5.1 | Leaderboards with daily cron | AI | 2025-10-12 | ✅ DONE |
+| 5.2 | Daily challenges system | AI | 2025-10-12 | ✅ DONE |
+| 5.3 | Quest system | AI | 2025-10-12 | ✅ DONE |
 
 ---
 
