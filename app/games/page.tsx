@@ -46,6 +46,16 @@ const AVAILABLE_GAMES: GameInfo[] = [
     estimatedTime: '1-2 min',
   },
   {
+    id: 'memory',
+    name: 'Memory Match',
+    description: 'Find matching pairs in this card-flipping memory game!',
+    icon: '🃏',
+    route: '/games/memory',
+    isPremium: false,
+    requiredLevel: 1,
+    estimatedTime: '2-5 min',
+  },
+  {
     id: 'madoku',
     name: 'Madoku',
     description: 'Classic Sudoku puzzles with progressive difficulty',
