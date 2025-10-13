@@ -19,6 +19,7 @@ export interface IPlayer extends Document {
   profilePicture?: string;
   isPremium: boolean;
   premiumExpiresAt?: Date;
+  isAnonymous: boolean; // Guest account flag
   brandId: mongoose.Types.ObjectId;
   locale: string;
   timezone?: string;
@@ -88,6 +89,14 @@ const PlayerSchema = new Schema<IPlayer>(
     // Why: Premium subscriptions expire, need to track when
     premiumExpiresAt: {
       type: Date,
+      index: true,
+    },
+
+    // Anonymous guest account flag
+    // Why: Identify guest accounts for conversion tracking and analytics
+    isAnonymous: {
+      type: Boolean,
+      default: false,
       index: true,
     },
 
