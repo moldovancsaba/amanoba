@@ -32,6 +32,7 @@ export const logger = pino({
   
   // Transport configuration for pretty printing in development
   // Why: JSON logs are hard to read during development
+  // Note: Using sync mode to avoid worker thread issues in Next.js dev
   transport:
     process.env.NODE_ENV !== 'production'
       ? {
@@ -41,6 +42,7 @@ export const logger = pino({
             translateTime: 'HH:MM:ss Z', // Human-readable timestamps
             ignore: 'pid,hostname', // Hide unnecessary fields in dev
             singleLine: false,
+            sync: true, // Prevent worker thread issues
           },
         }
       : undefined,

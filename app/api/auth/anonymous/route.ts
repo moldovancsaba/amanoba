@@ -9,7 +9,7 @@
 
 import { NextRequest, NextResponse } from 'next/server';
 import connectDB from '@/lib/mongodb';
-import { generateAnonymousUsername, createAnonymousPlayer } from '@/lib/utils/anonymous-auth';
+import { getRandomGuestUsername, createAnonymousPlayer } from '@/lib/utils/anonymous-auth';
 import logger from '@/lib/logger';
 
 export const runtime = 'nodejs';
@@ -17,14 +17,18 @@ export const dynamic = 'force-dynamic';
 
 export async function POST(req: NextRequest) {
   try {
-    await connectDB();
+    logger.info('Starting anonymous login request');
     
-    // Generate random 3-word username
-    const username = await generateAnonymousUsername();
-    logger.info(`Generated anonymous username: ${username}`);
+    await connectDB();
+    logger.info('Database connected');
+    
+    // Get random pre-generated guest username
+    const username = await getRandomGuestUsername();
+    logger.info(`Selected guest username: ${username}`);
     
     // Create or retrieve player
     const { player, isNew } = await createAnonymousPlayer(username);
+    logger.info(`Player ${isNew ? 'created' : 'retrieved'}: ${username}`);
     
     // Return player data
     if (!player) {
@@ -45,11 +49,18 @@ export async function POST(req: NextRequest) {
     }, { status: 200 });
     
   } catch (error) {
-    logger.error(`Anonymous login failed: ${error}`);
+    const errorMessage = error instanceof Error ? error.message : String(error);
+    const errorStack = error instanceof Error ? error.stack : undefined;
+    logger.error(`Anonymous login failed: ${errorMessage}`);
+    if (errorStack) {
+      logger.error(`Stack trace: ${errorStack}`);
+    }
+    
     return NextResponse.json(
       { 
         success: false, 
-        error: 'Failed to create anonymous session' 
+        error: 'Failed to create anonymous session',
+        details: process.env.NODE_ENV === 'development' ? errorMessage : undefined,
       },
       { status: 500 }
     );

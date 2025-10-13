@@ -40,8 +40,9 @@ export { default as SystemVersion, type ISystemVersion } from './system-version'
 // Referral System Model (1)
 export { default as ReferralTracking, type IReferralTracking } from './referral-tracking';
 
-// Anonymous Auth Model (1)
+// Anonymous Auth Models (2)
 export { AnonymousNameWord, type IAnonymousNameWord } from './anonymous-name-word';
+export { GuestUsername, type IGuestUsername } from './guest-username';
 
 // Daily Challenges Models (2)
 export { 

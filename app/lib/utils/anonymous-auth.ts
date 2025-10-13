@@ -11,41 +11,45 @@
  * - Full player capabilities - guests get progression, points, achievements
  */
 
-import { AnonymousNameWord } from '@/lib/models/anonymous-name-word';
+import { GuestUsername } from '@/lib/models/guest-username';
 import { Player, PlayerProgression, PointsWallet, Streak, Brand } from '@/lib/models';
 import logger from '@/lib/logger';
 
 /**
- * Generate a random 3-word username
+ * Get a random pre-generated guest username
  * Returns: "London Snake Africa" format
  */
-export async function generateAnonymousUsername(): Promise<string> {
+export async function getRandomGuestUsername(): Promise<string> {
   try {
-    // Get all active words
-    const words = await AnonymousNameWord.find({ isActive: true }).lean();
+    // Get count of active usernames
+    const count = await GuestUsername.countDocuments({ isActive: true });
     
-    if (words.length < 3) {
-      throw new Error('Not enough words in database for name generation');
+    if (count === 0) {
+      throw new Error('No guest usernames available in database. Run: npm run seed:guest-usernames');
     }
     
-    // Shuffle and pick 3 random words
-    const shuffled = [...words].sort(() => Math.random() - 0.5);
-    const selectedWords = shuffled.slice(0, 3);
+    // Pick a random username
+    const randomIndex = Math.floor(Math.random() * count);
+    const guestUsername = await GuestUsername.findOne({ isActive: true })
+      .skip(randomIndex)
+      .lean() as { _id: any; username: string; usageCount: number; lastUsedAt: Date; isActive: boolean } | null;
     
-    // Increment usage count for selected words
-    await Promise.all(
-      selectedWords.map(word =>
-        AnonymousNameWord.findByIdAndUpdate(
-          word._id,
-          { $inc: { usageCount: 1 } }
-        )
-      )
+    if (!guestUsername) {
+      throw new Error('Failed to retrieve guest username');
+    }
+    
+    // Increment usage count
+    await GuestUsername.findByIdAndUpdate(
+      guestUsername._id,
+      { 
+        $inc: { usageCount: 1 },
+        $set: { lastUsedAt: new Date() }
+      }
     );
     
-    // Return formatted name
-    return selectedWords.map(w => w.word).join(' ');
+    return guestUsername.username;
   } catch (error) {
-    logger.error(`Failed to generate anonymous username: ${error}`);
+    logger.error(`Failed to get guest username: ${error}`);
     throw error;
   }
 }
@@ -58,7 +62,7 @@ export async function generateAnonymousUsername(): Promise<string> {
 export async function createAnonymousPlayer(username: string) {
   try {
     // Check if player with this username already exists
-    let player = await Player.findOne({ displayName: username }).lean();
+    let player = await Player.findOne({ displayName: username }).lean() as any;
     
     if (player) {
       logger.info(`Returning existing anonymous player: ${username}`);
@@ -96,7 +100,7 @@ export async function createAnonymousPlayer(username: string) {
     });
     
     // Convert to lean object for consistent return type
-    player = await Player.findById(newPlayer._id).lean();
+    player = await Player.findById(newPlayer._id).lean() as any;
     
     if (!player) {
       throw new Error('Failed to retrieve created player');

@@ -21,7 +21,7 @@
     "seed:core": "tsx scripts/seed-core-data.ts",
     "seed:achievements": "tsx scripts/seed-achievements.ts",
     "seed:rewards": "tsx scripts/seed-rewards.ts",
-    "seed:anonymous-words": "tsx scripts/seed-anonymous-words.ts"
+    "seed:guest-usernames": "tsx --env-file=.env.local scripts/seed-guest-usernames.ts"
   },
   "dependencies": {
     "@auth/mongodb-adapter": "^3.11.0",
