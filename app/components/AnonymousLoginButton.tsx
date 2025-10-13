@@ -26,13 +26,16 @@ export function AnonymousLoginButton() {
       const data = await response.json();
       
       if (data.success) {
-        // Store anonymous player info in localStorage
+        // Store anonymous player info in localStorage for quick access
         localStorage.setItem('amanoba_anonymous_player', JSON.stringify(data.player));
         
+        // Refresh to load new session
+        router.refresh();
+        
         // Redirect to games
-        router.push('/games');
+        router.push(data.redirectUrl || '/games');
       } else {
-        alert('Failed to create anonymous session. Please try again.');
+        alert(data.error || 'Failed to create anonymous session. Please try again.');
       }
     } catch (error) {
       console.error('Anonymous login failed:', error);

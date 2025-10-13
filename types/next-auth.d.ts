@@ -17,11 +17,12 @@ declare module 'next-auth' {
   interface Session {
     user: {
       id: string;
-      facebookId: string;
+      facebookId: string | null;
       name?: string | null;
       email?: string | null;
       image?: string | null;
       locale: string;
+      isAnonymous: boolean;
     };
   }
 
@@ -33,6 +34,7 @@ declare module 'next-auth' {
   interface User {
     id: string;
     facebookId?: string;
+    isAnonymous?: boolean;
   }
 }
 
@@ -44,7 +46,8 @@ declare module 'next-auth/jwt' {
    */
   interface JWT {
     id: string;
-    facebookId: string;
+    facebookId: string | null;
     locale: string;
+    isAnonymous: boolean;
   }
 }

@@ -1,15 +1,17 @@
 /**
  * Anonymous Guest Login API
  * 
- * Creates or retrieves an anonymous guest player account.
- * Returns session token for immediate gameplay.
+ * Creates or retrieves an anonymous guest player account and signs them in.
+ * Uses NextAuth session for consistency with Facebook login.
  * 
  * Why: Frictionless onboarding - let users play without registration
  */
 
 import { NextRequest, NextResponse } from 'next/server';
+import { signIn } from '@/auth';
 import connectDB from '@/lib/mongodb';
 import { getRandomGuestUsername, createAnonymousPlayer } from '@/lib/utils/anonymous-auth';
+import { logAuthEvent } from '@/lib/analytics';
 import logger from '@/lib/logger';
 
 export const runtime = 'nodejs';
@@ -30,15 +32,36 @@ export async function POST(req: NextRequest) {
     const { player, isNew } = await createAnonymousPlayer(username);
     logger.info(`Player ${isNew ? 'created' : 'retrieved'}: ${username}`);
     
-    // Return player data
     if (!player) {
       throw new Error('Failed to create player');
     }
     
+    // Log authentication event
+    await logAuthEvent(
+      player._id.toString(),
+      (player.brandId as any).toString(),
+      'login' // Log as login for both new and returning anonymous users
+    );
+    
+    // Create credentials for NextAuth Credentials provider
+    // Why: Use NextAuth's built-in session management
+    const playerId = player._id.toString();
+    
+    // Sign in using NextAuth with anonymous credentials
+    // This creates a proper session cookie that works with our middleware
+    const result = await signIn('credentials', {
+      redirect: false,
+      playerId,
+      displayName: player.displayName,
+      isAnonymous: 'true',
+    });
+    
+    logger.info(`Session created for anonymous player: ${username}`);
+    
     return NextResponse.json({
       success: true,
       player: {
-        id: player._id.toString(),
+        id: playerId,
         displayName: player.displayName,
         isAnonymous: true,
         isNew,
@@ -46,6 +69,7 @@ export async function POST(req: NextRequest) {
       message: isNew 
         ? `Welcome, ${player.displayName}!` 
         : `Welcome back, ${player.displayName}!`,
+      redirectUrl: '/games',
     }, { status: 200 });
     
   } catch (error) {
