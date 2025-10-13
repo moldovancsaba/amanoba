@@ -428,6 +428,107 @@ export async function completeGameSession(
       'Game session completed successfully'
     );
     
+    // 13a. Log game completion event
+    await EventLog.create({
+      playerId: session.playerId,
+      brandId: session.brandId,
+      eventType: 'game_played',
+      eventData: {
+        gameId: session.gameId,
+        gameName: (game as any).name,
+        sessionId: session._id,
+        outcome: input.outcome,
+        score: input.score,
+        duration,
+        completed: true,
+      },
+      timestamp: new Date(),
+      metadata: {
+        isPremium: player.isPremium,
+        brandId: session.brandId.toString(),
+        gameId: session.gameId.toString(),
+        pointsEarned: pointsResult.totalPoints,
+      },
+    });
+    
+    // 13b. Log points earned event
+    await EventLog.create({
+      playerId: session.playerId,
+      brandId: session.brandId,
+      eventType: 'points_earned',
+      eventData: {
+        amount: pointsResult.totalPoints,
+        source: 'game_session',
+        gameId: session.gameId,
+        sessionId: session._id,
+      },
+      timestamp: new Date(),
+      metadata: {
+        brandId: session.brandId.toString(),
+        amount: pointsResult.totalPoints,
+      },
+    });
+    
+    // 13c. Log level up events
+    if (xpProcessResult.leveledUp) {
+      await EventLog.create({
+        playerId: session.playerId,
+        brandId: session.brandId,
+        eventType: 'level_up',
+        eventData: {
+          previousLevel,
+          newLevel: xpProcessResult.finalLevel,
+          levelsGained: xpProcessResult.levelsGained,
+          xpEarned: xpResult.totalXP,
+        },
+        timestamp: new Date(),
+        metadata: {
+          brandId: session.brandId.toString(),
+          newLevel: xpProcessResult.finalLevel,
+        },
+      });
+    }
+    
+    // 13d. Log achievement unlock events
+    for (const ach of newAchievements) {
+      await EventLog.create({
+        playerId: session.playerId,
+        brandId: session.brandId,
+        eventType: 'achievement_unlocked',
+        eventData: {
+          achievementId: ach.achievement._id,
+          achievementName: ach.achievement.name,
+          tier: ach.achievement.tier,
+          rewards: ach.rewards,
+        },
+        timestamp: new Date(),
+        metadata: {
+          brandId: session.brandId.toString(),
+          achievementId: (ach.achievement._id as any).toString(),
+        },
+      });
+    }
+    
+    // 13e. Log streak milestone events
+    if (streakResult.milestoneReached) {
+      await EventLog.create({
+        playerId: session.playerId,
+        brandId: session.brandId,
+        eventType: 'streak_milestone',
+        eventData: {
+          type: 'win',
+          milestone: streakResult.milestoneReached,
+          currentStreak: streakResult.currentStreak,
+          bestStreak: streakResult.bestStreak,
+        },
+        timestamp: new Date(),
+        metadata: {
+          brandId: session.brandId.toString(),
+          milestone: streakResult.milestoneReached,
+        },
+      });
+    }
+    
     // 14. Build result
     const result: SessionCompleteResult = {
       sessionId: session._id as mongoose.Types.ObjectId,

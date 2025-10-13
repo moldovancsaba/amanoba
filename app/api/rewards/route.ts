@@ -10,6 +10,7 @@ import {
   Player,
 } from '@/lib/models';
 import mongoose from 'mongoose';
+import { logRewardRedemption } from '@/lib/analytics';
 
 /**
  * GET /api/rewards
@@ -227,6 +228,18 @@ export async function POST(request: NextRequest) {
         redemptionId: redemption[0]._id,
       },
       'Reward redeemed successfully'
+    );
+    
+    // Log reward redemption event
+    await logRewardRedemption(
+      validatedData.playerId,
+      player.brandId.toString(),
+      {
+        rewardId: (reward._id as any).toString(),
+        rewardName: reward.name,
+        pointsCost: reward.pointsCost,
+        category: reward.category,
+      }
     );
 
     return NextResponse.json(

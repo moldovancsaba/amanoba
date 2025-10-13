@@ -11,6 +11,7 @@ import connectDB from '@/lib/mongodb';
 import { Player } from '@/lib/models';
 import { Brand } from '@/lib/models';
 import logger from '@/lib/logger';
+import { logPlayerRegistration, logAuthEvent } from '@/lib/analytics';
 
 /**
  * NextAuth Instance
@@ -65,6 +66,13 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
           await player.save();
           
           logger.info({ playerId: player._id, facebookId }, 'Player logged in');
+          
+          // Log login event
+          await logAuthEvent(
+            (player._id as any).toString(),
+            (player.brandId as any).toString(),
+            'login'
+          );
         } else {
           // Create new player
           // Why: First-time user needs a Player record
@@ -138,6 +146,12 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
           });
 
           logger.info({ playerId: player._id }, 'Initialized player progression, wallet, and streaks');
+          
+          // Log player registration event
+          await logPlayerRegistration(
+            (player._id as any).toString(),
+            (defaultBrand._id as any).toString()
+          );
         }
 
         // Add player ID to user object for callbacks

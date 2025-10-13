@@ -1,11 +1,195 @@
 # Amanoba Release Notes
 
-**Current Version**: 1.5.0  
-**Last Updated**: 2025-10-12T19:24:00.000Z
+**Current Version**: 1.6.0  
+**Last Updated**: 2025-10-13T06:12:37.000Z
 
 ---
 
 All completed tasks are documented here in reverse chronological order. This file follows the Changelog format and is updated with every version bump.
+
+---
+
+## [v1.6.0] — 2025-10-13
+
+**Status**: In Development - Phase 6 Complete (Analytics System)  
+**Phases Completed**: 1-6 of 10
+
+### 📊 Phase 6: Analytics Complete ✅
+
+This release delivers a comprehensive analytics and event tracking system with real-time dashboards, pre-aggregated metrics, and complete event sourcing capabilities.
+
+---
+
+#### **6.1 — Event Logging Infrastructure**
+- Created comprehensive event logger with 15+ event types
+- Privacy-preserving IP hashing for security
+- Platform detection from user agents
+- Typed events with metadata for queryability
+- Helper functions for common event patterns
+- Integration with all existing APIs (auth, sessions, rewards)
+
+**Event Types Supported**:
+- `player_registered`, `login`, `logout`
+- `game_played`, `achievement_unlocked`, `level_up`
+- `points_earned`, `points_spent`, `reward_redeemed`
+- `streak_started`, `streak_broken`, `streak_milestone`
+- `challenge_completed`, `quest_started`, `quest_completed`
+- `premium_purchased`, `system`
+
+#### **6.2 — Event Aggregation Pipelines**
+- MongoDB aggregation pipelines for 6 metric categories
+- **Active Users**: DAU/WAU/MAU with new vs returning segmentation
+- **Game Sessions**: Count, duration, completion rate, points by game
+- **Revenue Metrics**: Redemptions, points economy, top rewards
+- **Retention Cohorts**: 1-day, 7-day, 30-day retention tracking
+- **Engagement Metrics**: Sessions per user, play time, achievement rate
+- **Conversion Metrics**: Free to premium, achievement completion rates
+- Efficient parallel processing and date range support
+
+#### **6.3 — Analytics Snapshot Cron System**
+- Scheduled aggregation endpoint `/api/cron/analytics-snapshot`
+- Processes all brands in parallel for performance
+- Stores pre-calculated metrics in AnalyticsSnapshot collection
+- Protected by authorization bearer token
+- Supports daily, weekly, and monthly periods
+- Smart date range calculation (yesterday, last week, last month)
+- Comprehensive error handling and logging
+
+#### **6.4 — Admin Analytics API Routes**
+- **Historical Data API**: `/api/admin/analytics`
+  - Fetches pre-aggregated snapshots by metric type, period, date range
+  - Supports filtering by brand and game
+  - Optimized for dashboard visualization
+- **Real-time Stats API**: `/api/admin/analytics/realtime`
+  - Live metrics from last 24 hours and last 1 hour
+  - Active sessions count
+  - Top games by sessions
+  - Recent activity feed (last 20 events)
+  - Auto-refreshes for up-to-the-minute data
+
+#### **6.5 — Admin Analytics Dashboard UI**
+- Comprehensive dashboard at `/admin/analytics`
+- **Real-time Stats Cards**: Active users, sessions, points, achievements
+- **Interactive Charts** (Recharts):
+  - Line charts: Active users trend, player engagement
+  - Bar charts: Game sessions & points earned
+  - Area charts: Reward redemptions, revenue
+- **Period Controls**: Daily/Weekly/Monthly with custom date ranges
+- **Top Games Leaderboard**: Session count and points earned (24h)
+- **Recent Activity Feed**: Live event stream with color-coded types
+- Auto-refreshing every 60 seconds
+- Responsive design with glassmorphism effects
+
+#### **6.6 — Event Logging Integration**
+- **Authentication Events**: Registration and login tracking
+- **Game Session Events**: Start, completion, points, XP, achievements
+- **Reward Events**: Redemption tracking with category
+- **Progression Events**: Level ups, streaks, milestones
+- **Achievement Events**: Unlocks with tier and rewards
+- All events include brand context for multi-tenant analytics
+
+---
+
+### 📈 Statistics
+
+**Code Added**:
+- ~2,150 lines of analytics and event tracking code
+- 3 MongoDB aggregation pipeline functions
+- 2 API route files with 3 endpoints
+- 1 comprehensive admin dashboard (421 lines)
+- 15+ event logging helper functions
+
+**Files Created**:
+- `app/lib/analytics/event-logger.ts` (480 lines)
+- `app/lib/analytics/aggregation-pipelines.ts` (734 lines)
+- `app/lib/analytics/index.ts` (8 lines)
+- `app/api/cron/analytics-snapshot/route.ts` (350 lines)
+- `app/api/admin/analytics/route.ts` (113 lines)
+- `app/api/admin/analytics/realtime/route.ts` (183 lines)
+- `app/admin/analytics/page.tsx` (425 lines)
+
+**Files Modified**:
+- `auth.ts` - Added registration and login event logging
+- `app/api/rewards/route.ts` - Added redemption event logging
+- `app/lib/gamification/session-manager.ts` - Added comprehensive session event logging
+
+**Features Delivered**:
+- ✅ Complete event sourcing architecture
+- ✅ 6 metric categories with aggregation pipelines
+- ✅ Pre-aggregated snapshot system for performance
+- ✅ Real-time and historical analytics APIs
+- ✅ Interactive admin dashboard with charts
+- ✅ Event logging across all user actions
+- ✅ Privacy-preserving data collection
+- ✅ Multi-brand analytics support
+
+**Build Status**: ✅ Clean build with 0 errors, 0 warnings
+
+---
+
+## [v1.5.0] — 2025-10-12
+
+**Status**: In Development - Major Milestone (60% Complete)  
+**Phases Completed**: 1-5 of 10
+
+### 🎉 Major Milestone: Phases 2-5 Complete
+
+This release represents the completion of the core platform infrastructure, database layer, complete gamification engine, games integration, authentication system, and advanced features including leaderboards, daily challenges, and quest systems.
+
+---
+
+### Phase 2: Database Layer ✅
+
+**2.1 — MongoDB Connection & Logger**
+- Implemented MongoDB connection singleton with Next.js hot reload handling
+- Created structured Pino logger with environment-based levels and pretty-printing
+- Built `/api/health` endpoint for system health checks
+- Comprehensive logging with PII redaction support
+
+**2.2 — 21 Mongoose Models** (was 17, added 4)
+- Brand, Game, GameBrandConfig (configuration)
+- Player, PlayerSession, PlayerProgression (players)
+- PointsWallet, PointsTransaction (economy)
+- Achievement, AchievementUnlock, Streak, LeaderboardEntry (gamification)
+- Reward, RewardRedemption (rewards)
+- EventLog, AnalyticsSnapshot, SystemVersion (analytics)
+- ReferralTracking (referrals)
+- **DailyChallenge, PlayerChallengeProgress** (daily challenges) ✨ NEW
+- **Quest, PlayerQuestProgress** (quest system) ✨ NEW
+- All models with validation, indexes, hooks, virtuals, and comprehensive comments
+- Removed duplicate Mongoose index definitions for clean builds
+
+**2.3 — Database Seed Scripts**
+- Core data seeder (brands, games, game-brand configs)
+- Achievement seeder (18 achievements across 4 categories)
+- Reward seeder (9 reward types)
+- Master seed script with dotenv configuration
+
+---
+
+### Phase 3: Gamification Core ✅
+
+**3.1 — Points System**
+- Points Calculator with multipliers and detailed breakdown
+- Win/loss bonuses, streak multipliers, difficulty scaling
+- Performance bonuses and time-based adjustments
+
+**3.2 — Achievement System**
+- Achievement Engine with 4 criteria types (count, threshold, cumulative, conditional)
+- Automatic unlock checking and progress tracking
+- 18 pre-defined achievements (milestone, streak, skill, consistency)
+
+**3.3 — XP & Leveling System**
+- 50-level progression with exponential XP curve
+- Cascading level-ups with reward distribution
+- Level milestone rewards and title unlocks
+
+**3.4 — Streak System**
+- Win streak and daily login streak tracking
+- Streak milestone rewards with logarithmic bonuses
+- Automatic streak expiration and reset logic
+
+**3.5 — Progressive Disclosure**
 
 ---
 
