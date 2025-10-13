@@ -10,11 +10,78 @@
 import { useEffect, useState, useCallback } from 'react';
 import { useRouter } from 'next/navigation';
 
+type Difficulty = 'EASY' | 'MEDIUM' | 'HARD' | 'EXPERT';
+
 interface Target {
   id: number;
   position: number;
   emoji: string;
 }
+
+interface DifficultyConfig {
+  duration: number; // seconds
+  targetLifetime: number; // ms
+  maxTargets: number;
+  spawnIntervalMin: number; // ms
+  spawnIntervalMax: number; // ms
+  hitsToWin: number;
+  pointsPerHit: number;
+  pointsMultiplier: number;
+  requiredLevel: number;
+  isPremium: boolean;
+}
+
+// Why: Difficulty configurations for progressive challenge
+const DIFFICULTY_CONFIGS: Record<Difficulty, DifficultyConfig> = {
+  EASY: {
+    duration: 30,
+    targetLifetime: 1500,
+    maxTargets: 2,
+    spawnIntervalMin: 800,
+    spawnIntervalMax: 1200,
+    hitsToWin: 15,
+    pointsPerHit: 10,
+    pointsMultiplier: 1,
+    requiredLevel: 1,
+    isPremium: false,
+  },
+  MEDIUM: {
+    duration: 45,
+    targetLifetime: 1200,
+    maxTargets: 3,
+    spawnIntervalMin: 600,
+    spawnIntervalMax: 1000,
+    hitsToWin: 30,
+    pointsPerHit: 15,
+    pointsMultiplier: 1.5,
+    requiredLevel: 1,
+    isPremium: false,
+  },
+  HARD: {
+    duration: 60,
+    targetLifetime: 1000,
+    maxTargets: 4,
+    spawnIntervalMin: 400,
+    spawnIntervalMax: 800,
+    hitsToWin: 50,
+    pointsPerHit: 20,
+    pointsMultiplier: 2,
+    requiredLevel: 5,
+    isPremium: false,
+  },
+  EXPERT: {
+    duration: 60,
+    targetLifetime: 800,
+    maxTargets: 5,
+    spawnIntervalMin: 300,
+    spawnIntervalMax: 600,
+    hitsToWin: 70,
+    pointsPerHit: 30,
+    pointsMultiplier: 3,
+    requiredLevel: 10,
+    isPremium: true,
+  },
+};
 
 // Why: Various emojis for targets to make game more engaging
 const TARGET_EMOJIS = ['🐹', '🐰', '🐭', '🐻', '🐼', '🐨', '🦊', '🦝'];
@@ -22,6 +89,7 @@ const TARGET_EMOJIS = ['🐹', '🐰', '🐭', '🐻', '🐼', '🐨', '🦊', '
 export default function WhackPopGame() {
   const router = useRouter();
   const [gameState, setGameState] = useState<'ready' | 'playing' | 'finished'>('ready');
+  const [difficulty, setDifficulty] = useState<Difficulty>('MEDIUM');
   const [score, setScore] = useState(0);
   const [hits, setHits] = useState(0);
   const [misses, setMisses] = useState(0);
@@ -29,10 +97,13 @@ export default function WhackPopGame() {
   const [targets, setTargets] = useState<Target[]>([]);
   const [sessionId, setSessionId] = useState<string | null>(null);
   const [rewards, setRewards] = useState<any>(null);
-  const [difficulty, setDifficulty] = useState(1);
+  const [playerLevel, setPlayerLevel] = useState(1);
+  const [isPremium, setIsPremium] = useState(false);
 
   // Why: Start game session
   const startGame = async () => {
+    const config = DIFFICULTY_CONFIGS[difficulty];
+    
     try {
       const mockPlayerId = '507f1f77bcf86cd799439011';
       const mockGameId = '507f1f77bcf86cd799439014'; // Different game ID for WHACKPOP
@@ -45,6 +116,7 @@ export default function WhackPopGame() {
           playerId: mockPlayerId,
           gameId: mockGameId,
           brandId: mockBrandId,
+          difficulty,
         }),
       });
 
@@ -57,7 +129,7 @@ export default function WhackPopGame() {
     }
 
     setGameState('playing');
-    setTimeLeft(30);
+    setTimeLeft(config.duration);
     setScore(0);
     setHits(0);
     setMisses(0);
@@ -66,21 +138,24 @@ export default function WhackPopGame() {
 
   // Why: Spawn targets randomly during gameplay
   const spawnTarget = useCallback(() => {
+    const config = DIFFICULTY_CONFIGS[difficulty];
     const id = Date.now();
     const position = Math.floor(Math.random() * 9); // 9 positions (3x3 grid)
     const emoji = TARGET_EMOJIS[Math.floor(Math.random() * TARGET_EMOJIS.length)];
     
     setTargets((prev) => {
-      // Why: Limit to 3 targets at once to avoid overwhelming player
-      if (prev.length >= 3) return prev;
+      // Why: Limit targets based on difficulty to avoid overwhelming player
+      if (prev.length >= config.maxTargets) return prev;
       return [...prev, { id, position, emoji }];
     });
 
-    // Why: Remove target after 1 second if not clicked
+    // Why: Remove target based on difficulty lifetime if not clicked
     setTimeout(() => {
       setTargets((prev) => prev.filter((t) => t.id !== id));
-    }, 1000);
-  }, []);
+      // Track missed targets
+      setMisses((prev) => prev + 1);
+    }, config.targetLifetime);
+  }, [difficulty]);
 
   // Why: Game timer countdown
   useEffect(() => {
@@ -99,47 +174,62 @@ export default function WhackPopGame() {
     return () => clearInterval(timer);
   }, [gameState]);
 
-  // Why: Spawn targets at increasing frequency
+  // Why: Spawn targets at difficulty-based frequency
   useEffect(() => {
     if (gameState !== 'playing') return;
 
-    // Why: Spawn faster as game progresses
-    const baseInterval = 1000;
-    const speedIncrease = Math.min(400, score * 20);
-    const spawnInterval = Math.max(400, baseInterval - speedIncrease);
+    const config = DIFFICULTY_CONFIGS[difficulty];
+    // Why: Random spawn interval within difficulty range for unpredictability
+    const getRandomInterval = () => {
+      const range = config.spawnIntervalMax - config.spawnIntervalMin;
+      return config.spawnIntervalMin + Math.random() * range;
+    };
 
-    const spawner = setInterval(spawnTarget, spawnInterval);
-    return () => clearInterval(spawner);
-  }, [gameState, score, spawnTarget]);
+    const scheduleNextSpawn = () => {
+      const interval = getRandomInterval();
+      return setTimeout(() => {
+        spawnTarget();
+        scheduleNextSpawn();
+      }, interval);
+    };
+
+    const timeout = scheduleNextSpawn();
+    return () => clearTimeout(timeout);
+  }, [gameState, difficulty, spawnTarget]);
 
   // Why: Handle target hit
   const handleHit = (targetId: number) => {
+    const config = DIFFICULTY_CONFIGS[difficulty];
     setTargets((prev) => prev.filter((t) => t.id !== targetId));
     setHits((prev) => prev + 1);
-    setScore((prev) => prev + 10);
+    setScore((prev) => prev + config.pointsPerHit);
   };
 
   // Why: Handle miss (clicking empty space)
   const handleMiss = () => {
-    setMisses((prev) => prev + 1);
-    setScore((prev) => Math.max(0, prev - 2)); // Small penalty
+    // No penalty for clicking empty space - only missed targets count
   };
 
   // Why: Complete game session
   const finishGame = async () => {
     setGameState('finished');
+    const config = DIFFICULTY_CONFIGS[difficulty];
 
     if (sessionId) {
       try {
-        const accuracy = hits + misses > 0 ? Math.round((hits / (hits + misses)) * 100) : 0;
+        const totalTargets = hits + misses;
+        const accuracy = totalTargets > 0 ? Math.round((hits / totalTargets) * 100) : 0;
+        const isWin = hits >= config.hitsToWin;
+        const finalScore = Math.round(score * config.pointsMultiplier);
+        
         const response = await fetch('/api/game-sessions/complete', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
             sessionId,
-            score,
-            isWin: hits >= 20, // Need 20 hits to win
-            duration: 30,
+            score: finalScore,
+            isWin,
+            duration: config.duration,
             accuracy,
           }),
         });
@@ -156,6 +246,9 @@ export default function WhackPopGame() {
 
   // Ready screen
   if (gameState === 'ready') {
+    const config = DIFFICULTY_CONFIGS[difficulty];
+    const canPlayDifficulty = !config.isPremium || isPremium;
+
     return (
       <div className="min-h-screen bg-gradient-to-br from-orange-500 via-red-500 to-pink-500 flex items-center justify-center p-4">
         <div className="bg-white rounded-2xl shadow-2xl p-8 max-w-2xl w-full">
@@ -166,20 +259,55 @@ export default function WhackPopGame() {
               Click the targets as fast as you can!
             </p>
 
+            {/* Difficulty Selection */}
+            <div className="mb-8">
+              <h3 className="font-bold text-gray-900 mb-4">Select Difficulty:</h3>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+                {(['EASY', 'MEDIUM', 'HARD', 'EXPERT'] as Difficulty[]).map(diff => {
+                  const diffConfig = DIFFICULTY_CONFIGS[diff];
+                  const isLocked = diffConfig.isPremium && !isPremium;
+                  const isSelected = difficulty === diff;
+
+                  return (
+                    <button
+                      key={diff}
+                      onClick={() => !isLocked && setDifficulty(diff)}
+                      disabled={isLocked}
+                      className={`
+                        p-4 rounded-xl font-bold transition-all transform hover:scale-105
+                        ${isSelected
+                          ? 'bg-gradient-to-br from-orange-600 to-red-600 text-white shadow-lg'
+                          : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                        }
+                        ${isLocked ? 'opacity-50 cursor-not-allowed' : ''}
+                      `}
+                    >
+                      {isLocked && '🔒 '}
+                      {diff}
+                      <div className="text-xs mt-1 opacity-80">
+                        {diffConfig.duration}s • {diffConfig.hitsToWin} hits
+                      </div>
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+
             <div className="bg-orange-50 rounded-lg p-6 mb-8">
               <h3 className="font-bold text-gray-900 mb-4">How to Play:</h3>
               <ul className="text-left text-gray-700 space-y-2">
                 <li>• Click targets before they disappear</li>
-                <li>• 30 seconds to get the highest score</li>
-                <li>• +10 points per hit</li>
-                <li>• Misses cost -2 points</li>
-                <li>• Get 20+ hits to win!</li>
+                <li>• {config.duration} seconds gameplay</li>
+                <li>• +{config.pointsPerHit} points per hit</li>
+                <li>• Targets last {config.targetLifetime}ms</li>
+                <li>• Get {config.hitsToWin}+ hits to win!</li>
               </ul>
             </div>
 
             <button
               onClick={startGame}
-              className="bg-gradient-to-r from-orange-600 to-red-600 text-white px-12 py-4 rounded-xl font-bold text-xl hover:from-orange-700 hover:to-red-700 transform hover:scale-105 transition-all shadow-lg"
+              disabled={!canPlayDifficulty}
+              className="bg-gradient-to-r from-orange-600 to-red-600 text-white px-12 py-4 rounded-xl font-bold text-xl hover:from-orange-700 hover:to-red-700 transform hover:scale-105 transition-all shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
             >
               Start Game 🚀
             </button>
@@ -248,15 +376,17 @@ export default function WhackPopGame() {
 
         {/* Instructions */}
         <div className="max-w-4xl mx-auto mt-6 text-center text-white text-lg font-medium">
-          Click the targets! Game gets faster as you score more 🎯
+          Click the targets quickly! Difficulty: {difficulty} 🎯
         </div>
       </div>
     );
   }
 
   // Finished screen
-  const isWin = hits >= 20;
+  const config = DIFFICULTY_CONFIGS[difficulty];
+  const isWin = hits >= config.hitsToWin;
   const accuracy = hits + misses > 0 ? Math.round((hits / (hits + misses)) * 100) : 0;
+  const finalScore = Math.round(score * config.pointsMultiplier);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-orange-500 via-red-500 to-pink-500 flex items-center justify-center p-4">
@@ -268,9 +398,9 @@ export default function WhackPopGame() {
           </h2>
 
           <div className="bg-gray-50 rounded-xl p-6 mb-6">
-            <div className="grid grid-cols-3 gap-4">
+            <div className="grid grid-cols-4 gap-4">
               <div>
-                <div className="text-3xl font-bold text-orange-600">{score}</div>
+                <div className="text-3xl font-bold text-orange-600">{finalScore}</div>
                 <div className="text-gray-600">Score</div>
               </div>
               <div>
@@ -280,6 +410,10 @@ export default function WhackPopGame() {
               <div>
                 <div className="text-3xl font-bold text-pink-600">{accuracy}%</div>
                 <div className="text-gray-600">Accuracy</div>
+              </div>
+              <div>
+                <div className="text-2xl font-bold text-purple-600">{difficulty}</div>
+                <div className="text-gray-600">Difficulty</div>
               </div>
             </div>
           </div>
