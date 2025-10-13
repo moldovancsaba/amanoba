@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, Noto_Sans } from "next/font/google";
+import { ThemeProvider } from "@/components/providers/ThemeProvider";
 import "./globals.css";
 
 // What: Font configuration for Amanoba platform
@@ -60,12 +61,19 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${notoSans.variable} ${inter.variable}`}>
+    <html lang="en" className={`${notoSans.variable} ${inter.variable}`} suppressHydrationWarning>
       <body className="font-sans antialiased bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100">
-        {/* Main content wrapper */}
-        <div className="min-h-screen flex flex-col">
-          {children}
-        </div>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          {/* Main content wrapper */}
+          <div className="min-h-screen flex flex-col">
+            {children}
+          </div>
+        </ThemeProvider>
       </body>
     </html>
   );
