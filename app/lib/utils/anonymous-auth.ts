@@ -12,7 +12,7 @@
  */
 
 import { AnonymousNameWord } from '@/lib/models/anonymous-name-word';
-import { Player, PlayerProgression, PointsWallet, Streak } from '@/lib/models';
+import { Player, PlayerProgression, PointsWallet, Streak, Brand } from '@/lib/models';
 import logger from '@/lib/logger';
 
 /**
@@ -68,6 +68,21 @@ export async function createAnonymousPlayer(username: string) {
       };
     }
     
+    // Get or create default brand for anonymous users
+    let defaultBrand = await Brand.findOne({ slug: 'amanoba' });
+    if (!defaultBrand) {
+      // Create default brand if it doesn't exist
+      defaultBrand = await Brand.create({
+        name: 'Amanoba',
+        slug: 'amanoba',
+        domain: 'amanoba.com',
+        primaryColor: '#6366f1',
+        secondaryColor: '#ec4899',
+        logo: '🎮',
+        isActive: true,
+      });
+    }
+    
     // Create new anonymous player
     const newPlayer = await Player.create({
       facebookId: `anon_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`,
@@ -76,6 +91,7 @@ export async function createAnonymousPlayer(username: string) {
       avatarUrl: null,
       isPremium: false,
       isAnonymous: true, // Flag to identify guest accounts
+      brandId: defaultBrand._id,
       registeredAt: new Date(),
     });
     
