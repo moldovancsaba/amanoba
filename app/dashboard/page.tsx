@@ -8,6 +8,7 @@
  */
 
 import { useEffect, useState } from 'react';
+import { useSession, signOut } from 'next-auth/react';
 import Link from 'next/link';
 
 interface PlayerData {
@@ -46,17 +47,27 @@ interface PlayerData {
 }
 
 export default function Dashboard() {
+  const { data: session, status } = useSession();
   const [playerData, setPlayerData] = useState<PlayerData | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  // Why: Fetch player data on mount
+  // Why: Fetch player data when session is available
   useEffect(() => {
     const fetchPlayerData = async () => {
+      if (status === 'loading') {
+        return;
+      }
+      
+      if (!session?.user?.id) {
+        setError('No session found. Please sign in again.');
+        setLoading(false);
+        return;
+      }
+      
       try {
-        // TODO: Replace with actual player ID from auth
-        const mockPlayerId = '507f1f77bcf86cd799439011';
-        const response = await fetch(`/api/players/${mockPlayerId}`);
+        const playerId = (session.user as any).id;
+        const response = await fetch(`/api/players/${playerId}`);
         
         if (response.ok) {
           const data = await response.json();
@@ -73,7 +84,7 @@ export default function Dashboard() {
     };
 
     fetchPlayerData();
-  }, []);
+  }, [session, status]);
 
   if (loading) {
     return (
@@ -125,6 +136,12 @@ export default function Dashboard() {
               >
                 🎮 Play Games
               </Link>
+              <button
+                onClick={() => signOut({ callbackUrl: '/' })}
+                className="bg-red-500/80 backdrop-blur-sm text-white px-4 py-2 rounded-lg hover:bg-red-600 transition-colors font-medium"
+              >
+                🚪 Logout
+              </button>
               <Link
                 href="/"
                 className="bg-white/20 backdrop-blur-sm text-white px-4 py-2 rounded-lg hover:bg-white/30 transition-colors font-medium"
