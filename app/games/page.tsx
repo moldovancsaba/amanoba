@@ -62,7 +62,7 @@ const AVAILABLE_GAMES: GameInfo[] = [
     icon: '🔢',
     route: '/games/madoku',
     isPremium: true,
-    requiredLevel: 5,
+    requiredLevel: 1,
     estimatedTime: '5-15 min',
   },
 ];
