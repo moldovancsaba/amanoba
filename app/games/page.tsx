@@ -71,29 +71,17 @@ export default function GamesLauncher() {
   const router = useRouter();
   const [playerLevel, setPlayerLevel] = useState<number>(1);
   const [isPremium, setIsPremium] = useState<boolean>(false);
-  const [loading, setLoading] = useState<boolean>(true);
+  const [loading, setLoading] = useState<boolean>(false);
+  const [isTestMode, setIsTestMode] = useState<boolean>(false);
 
   // Why: Fetch player info to determine available games
   useEffect(() => {
-    // TODO: Replace with actual player ID from auth
-    const mockPlayerId = '507f1f77bcf86cd799439011';
-    
-    const fetchPlayerInfo = async () => {
-      try {
-        const response = await fetch(`/api/players/${mockPlayerId}`);
-        if (response.ok) {
-          const data = await response.json();
-          setPlayerLevel(data.progression?.level || 1);
-          setIsPremium(data.player?.isPremium || false);
-        }
-      } catch (error) {
-        console.error('Failed to fetch player info:', error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchPlayerInfo();
+    // Allow playing without authentication
+    setIsTestMode(true);
+    setPlayerLevel(1);
+    setIsPremium(false);
+    setLoading(false);
+    console.log('Games launcher in test mode - all games available');
   }, []);
 
   // Why: Determine if a game is accessible based on player progression
@@ -126,6 +114,11 @@ export default function GamesLauncher() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500">
+      {isTestMode && (
+        <div className="fixed top-4 left-1/2 transform -translate-x-1/2 bg-yellow-400 text-black px-6 py-3 rounded-full font-bold shadow-lg z-50 animate-pulse">
+          🧪 TEST MODE - Playing without login
+        </div>
+      )}
       {/* Why: Header with branding and stats */}
       <header className="bg-white/10 backdrop-blur-md border-b border-white/20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
@@ -213,12 +206,21 @@ export default function GamesLauncher() {
 
         {/* Why: Back to dashboard link */}
         <div className="mt-12 text-center">
-          <Link
-            href="/dashboard"
-            className="inline-block bg-white/20 backdrop-blur-md text-white px-6 py-3 rounded-lg hover:bg-white/30 transition-colors"
-          >
-            ← Back to Dashboard
-          </Link>
+          {isTestMode ? (
+            <Link
+              href="/auth/signin"
+              className="inline-block bg-white/20 backdrop-blur-md text-white px-6 py-3 rounded-lg hover:bg-white/30 transition-colors"
+            >
+              ← Sign In to Save Progress
+            </Link>
+          ) : (
+            <Link
+              href="/dashboard"
+              className="inline-block bg-white/20 backdrop-blur-md text-white px-6 py-3 rounded-lg hover:bg-white/30 transition-colors"
+            >
+              ← Back to Dashboard
+            </Link>
+          )}
         </div>
       </main>
     </div>
