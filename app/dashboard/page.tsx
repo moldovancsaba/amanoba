@@ -10,6 +10,7 @@
 import { useEffect, useState } from 'react';
 import { useSession, signOut } from 'next-auth/react';
 import Link from 'next/link';
+import { ReferralCard } from '@/components/ReferralCard';
 
 interface PlayerData {
   player: {
@@ -250,8 +251,8 @@ export default function Dashboard() {
           </div>
         </div>
 
-        {/* Streaks and Achievements Row */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        {/* Streaks and Referrals Row */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
           {/* Streaks Card */}
           <div className="bg-white rounded-xl shadow-lg p-6">
             <h3 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
@@ -283,32 +284,35 @@ export default function Dashboard() {
             </div>
           </div>
 
-          {/* Quick Actions Card */}
-          <div className="bg-white rounded-xl shadow-lg p-6">
-            <h3 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
-              <span>🎯</span>
-              Quick Actions
-            </h3>
-            <div className="space-y-3">
-              <Link
-                href="/games"
-                className="block bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-6 py-3 rounded-lg font-bold text-center hover:from-indigo-700 hover:to-purple-700 transition-all"
-              >
-                🎮 Play Games
-              </Link>
-              <Link
-                href={`/api/players/${playerData.player.displayName}/achievements`}
-                className="block bg-gradient-to-r from-pink-600 to-red-600 text-white px-6 py-3 rounded-lg font-bold text-center hover:from-pink-700 hover:to-red-700 transition-all"
-              >
-                🏆 View Achievements
-              </Link>
-              <Link
-                href="/api/rewards"
-                className="block bg-gradient-to-r from-yellow-600 to-orange-600 text-white px-6 py-3 rounded-lg font-bold text-center hover:from-yellow-700 hover:to-orange-700 transition-all"
-              >
-                🎁 Redeem Rewards
-              </Link>
-            </div>
+          {/* Referral Card */}
+          <ReferralCard />
+        </div>
+
+        {/* Quick Actions */}
+        <div className="bg-white rounded-xl shadow-lg p-6">
+          <h3 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+            <span>🎯</span>
+            Quick Actions
+          </h3>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+            <Link
+              href="/games"
+              className="block bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-6 py-3 rounded-lg font-bold text-center hover:from-indigo-700 hover:to-purple-700 transition-all"
+            >
+              🎮 Play Games
+            </Link>
+            <Link
+              href={`/api/players/${playerData.player.displayName}/achievements`}
+              className="block bg-gradient-to-r from-pink-600 to-red-600 text-white px-6 py-3 rounded-lg font-bold text-center hover:from-pink-700 hover:to-red-700 transition-all"
+            >
+              🏆 View Achievements
+            </Link>
+            <Link
+              href="/api/rewards"
+              className="block bg-gradient-to-r from-yellow-600 to-orange-600 text-white px-6 py-3 rounded-lg font-bold text-center hover:from-yellow-700 hover:to-orange-700 transition-all"
+            >
+              🎁 Redeem Rewards
+            </Link>
           </div>
         </div>
       </main>
