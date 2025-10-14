@@ -214,7 +214,7 @@ export default function GamesLauncher() {
         {/* Why: Back to dashboard link */}
         <div className="mt-12 text-center">
           <Link
-            href="/"
+            href="/dashboard"
             className="inline-block bg-white/20 backdrop-blur-md text-white px-6 py-3 rounded-lg hover:bg-white/30 transition-colors"
           >
             ← Back to Dashboard

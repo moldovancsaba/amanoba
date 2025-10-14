@@ -137,17 +137,11 @@ export default function Dashboard() {
                 🎮 Play Games
               </Link>
               <button
-                onClick={() => signOut({ callbackUrl: '/' })}
+                onClick={() => signOut({ callbackUrl: '/auth/signin' })}
                 className="bg-red-500/80 backdrop-blur-sm text-white px-4 py-2 rounded-lg hover:bg-red-600 transition-colors font-medium"
               >
                 🚪 Logout
               </button>
-              <Link
-                href="/"
-                className="bg-white/20 backdrop-blur-sm text-white px-4 py-2 rounded-lg hover:bg-white/30 transition-colors font-medium"
-              >
-                🏠 Home
-              </Link>
             </div>
           </div>
         </div>
