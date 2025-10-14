@@ -14,6 +14,7 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import { signIn } from 'next-auth/react';
 
 export function AnonymousLoginButton() {
   const [loading, setLoading] = useState(false);
@@ -22,24 +23,40 @@ export function AnonymousLoginButton() {
   const handleAnonymousLogin = async () => {
     setLoading(true);
     try {
-      const response = await fetch('/api/auth/anonymous', { method: 'POST' });
+      // Call API to create anonymous player
+      const response = await fetch('/api/auth/anonymous', { 
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+      });
+      
       const data = await response.json();
       
-      if (data.success) {
+      if (data.success && data.credentials) {
         // Store anonymous player info in localStorage for quick access
         localStorage.setItem('amanoba_anonymous_player', JSON.stringify(data.player));
         
-        // Refresh to load new session
-        router.refresh();
+        // Use NextAuth signIn with credentials provider
+        const result = await signIn('credentials', {
+          playerId: data.credentials.playerId,
+          displayName: data.credentials.displayName,
+          isAnonymous: data.credentials.isAnonymous,
+          redirect: false,
+        });
         
-        // Redirect to games
-        router.push(data.redirectUrl || '/games');
+        if (result?.ok) {
+          // Successful login - redirect to dashboard
+          router.push('/dashboard');
+          router.refresh();
+        } else {
+          throw new Error('Failed to create session');
+        }
       } else {
-        alert(data.error || 'Failed to create anonymous session. Please try again.');
+        throw new Error(data.error || 'Failed to create anonymous player');
       }
     } catch (error) {
       console.error('Anonymous login failed:', error);
-      alert('Failed to create anonymous session. Please try again.');
+      const errorMessage = error instanceof Error ? error.message : 'Unknown error';
+      alert(`Failed to create anonymous session: ${errorMessage}`);
     } finally {
       setLoading(false);
     }
