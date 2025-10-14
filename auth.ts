@@ -31,6 +31,17 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
      */
     async signIn({ user, account, profile }) {
       try {
+        // Skip this callback for credentials provider (anonymous login)
+        // Why: Credentials provider doesn't need database player creation
+        if (account?.provider === 'credentials') {
+          return true;
+        }
+        
+        // Only run for Facebook provider
+        if (account?.provider !== 'facebook') {
+          return true;
+        }
+        
         // Connect to database
         await connectDB();
 
