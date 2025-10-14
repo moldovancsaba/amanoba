@@ -93,26 +93,39 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
           logger.info({ playerId: player._id, facebookId }, 'New player created');
 
           // Initialize PlayerProgression for new player
-          // Why: Every player needs progression tracking
+          // Why: Every player needs progression tracking with all required fields
           const { PlayerProgression } = await import('@/lib/models');
           await PlayerProgression.create({
             playerId: player._id,
             level: 1,
-            xp: 0,
+            currentXP: 0,
+            totalXP: 0,
             xpToNextLevel: 100,
             title: 'Rookie',
+            unlockedTitles: ['Rookie'],
             statistics: {
-              gamesPlayed: 0,
-              gamesWon: 0,
-              gamesLost: 0,
+              totalGamesPlayed: 0,
+              totalWins: 0,
+              totalLosses: 0,
+              totalDraws: 0,
               totalPlayTime: 0,
-              averageScore: 0,
-              highestScore: 0,
-              perfectGames: 0,
+              averageSessionTime: 0,
+              bestStreak: 0,
+              currentStreak: 0,
+              dailyLoginStreak: 1,
+              lastLoginDate: new Date(),
             },
-            features: {
-              unlockedGames: [],
-              unlockedFeatures: [],
+            gameSpecificStats: new Map(),
+            achievements: {
+              totalUnlocked: 0,
+              totalAvailable: 0,
+              recentUnlocks: [],
+            },
+            milestones: [],
+            metadata: {
+              createdAt: new Date(),
+              updatedAt: new Date(),
+              lastXPGain: new Date(),
             },
           });
 
@@ -131,7 +144,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
           const { Streak } = await import('@/lib/models');
           await Streak.create({
             playerId: player._id,
-            type: 'win',
+            type: 'WIN_STREAK',
             currentStreak: 0,
             longestStreak: 0,
             lastActivityAt: new Date(),
@@ -139,9 +152,9 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
 
           await Streak.create({
             playerId: player._id,
-            type: 'daily',
-            currentStreak: 0,
-            longestStreak: 0,
+            type: 'DAILY_LOGIN',
+            currentStreak: 1, // First login
+            longestStreak: 1,
             lastActivityAt: new Date(),
           });
 
