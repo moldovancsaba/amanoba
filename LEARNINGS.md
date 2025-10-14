@@ -1,7 +1,7 @@
 # Amanoba Learnings
 
-**Version**: 1.0.0  
-**Last Updated**: 2025-10-10T11:04:06.000Z
+**Version**: 2.0.0  
+**Last Updated**: 2025-01-23T10:30:00.000Z
 
 ---
 
@@ -61,6 +61,37 @@ if (!cached) {
 **Why It Matters**: Avoids connection exhaustion and development errors.
 
 **Applied In**: `app/lib/mongodb.ts`
+
+---
+
+### Pino Logger Worker Threads in Next.js
+
+**Context**: Pino logger with `pino-pretty` transport was causing "worker thread exited" errors in Next.js development server.
+
+**Problem**: Pino's pretty printing uses worker threads by default, which conflicts with Next.js hot reload and Edge runtime environments, causing:
+- "Error: Cannot find module .../worker.js"
+- "Error: the worker thread exited"
+- 500 errors in API routes during development
+
+**Learning**: For Next.js applications, avoid Pino's transport system entirely:
+- Created custom logger wrapper with same interface as Pino
+- Uses simple console methods with structured formatting
+- Maintains JSON output in production, pretty printing in development
+- No worker threads, no async logging complexity
+- Supports child loggers for context
+
+```typescript
+// Simple logger implementation
+const logger = {
+  info: (msg: string) => console.log(`[${timestamp}] INFO: ${msg}`),
+  error: (msg: string) => console.error(`[${timestamp}] ERROR: ${msg}`),
+  child: (context) => createSimpleLogger(context),
+};
+```
+
+**Why It Matters**: Prevents runtime crashes, enables reliable logging in all Next.js runtime environments (Node.js, Edge, development).
+
+**Applied In**: `app/lib/logger.ts` - Complete rewrite to avoid worker threads while maintaining API compatibility.
 
 ---
 
