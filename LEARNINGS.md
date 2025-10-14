@@ -112,6 +112,33 @@ const logger = {
 
 ---
 
+### PlayerProgression Schema: Keep Initialization Code Synchronized
+
+**Context**: Facebook OAuth and anonymous login both create PlayerProgression records for new players.
+
+**Problem**: After updating PlayerProgression schema with additional required fields, the initialization code in `auth.ts` (Facebook OAuth) became outdated, causing "Server Configuration Error" on login:
+- Missing `currentXP`, `totalXP` fields
+- Old field names (`gamesPlayed` instead of `statistics.totalGamesPlayed`)
+- Missing nested structures (`achievements`, `milestones`, `gameSpecificStats`)
+- Wrong Streak type values (`'win'` instead of `'WIN_STREAK'`)
+
+**Learning**: When updating Mongoose models with new required fields:
+1. Search codebase for all places that create documents of that model
+2. Update ALL creation points simultaneously
+3. Common places to check:
+   - Auth callbacks (`auth.ts` signIn callback)
+   - Anonymous login utilities (`anonymous-auth.ts`)
+   - Seed scripts
+   - API route handlers
+4. Use TypeScript interfaces to catch mismatches early
+5. Test both auth flows after schema changes
+
+**Why It Matters**: Prevents production login failures, ensures data consistency, catches issues before deployment.
+
+**Applied In**: `auth.ts` (Facebook OAuth signIn callback), `app/lib/utils/anonymous-auth.ts` (guest login).
+
+---
+
 ### Event-Sourcing for Analytics
 
 **Context**: Need to track player behavior and system events for analytics without blocking game logic.
