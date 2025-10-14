@@ -8,7 +8,6 @@
  */
 
 import { NextRequest, NextResponse } from 'next/server';
-import { signIn } from '@/auth';
 import connectDB from '@/lib/mongodb';
 import { getRandomGuestUsername, createAnonymousPlayer } from '@/lib/utils/anonymous-auth';
 import { logAuthEvent } from '@/lib/analytics';
@@ -43,23 +42,19 @@ export async function POST(req: NextRequest) {
       'login' // Log as login for both new and returning anonymous users
     );
     
-    // Create credentials for NextAuth Credentials provider
-    // Why: Use NextAuth's built-in session management
     const playerId = player._id.toString();
     
-    // Sign in using NextAuth with anonymous credentials
-    // This creates a proper session cookie that works with our middleware
-    const result = await signIn('credentials', {
-      redirect: false,
-      playerId,
-      displayName: player.displayName,
-      isAnonymous: 'true',
-    });
+    logger.info(`Anonymous player ready: ${username}`);
     
-    logger.info(`Session created for anonymous player: ${username}`);
-    
+    // Return player credentials for client-side signIn
+    // Why: Client will call NextAuth signIn with these credentials
     return NextResponse.json({
       success: true,
+      credentials: {
+        playerId,
+        displayName: player.displayName,
+        isAnonymous: 'true',
+      },
       player: {
         id: playerId,
         displayName: player.displayName,
@@ -69,7 +64,6 @@ export async function POST(req: NextRequest) {
       message: isNew 
         ? `Welcome, ${player.displayName}!` 
         : `Welcome back, ${player.displayName}!`,
-      redirectUrl: '/games',
     }, { status: 200 });
     
   } catch (error) {

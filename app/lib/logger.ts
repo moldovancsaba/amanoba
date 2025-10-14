@@ -1,16 +1,15 @@
 /**
- * Structured Logger using Pino
+ * Structured Logger
  * 
- * Why: console.log is insufficient for production debugging. Pino provides:
- * - Structured JSON output for machine parsing
- * - High performance (async logging)
+ * Why: console.log is insufficient for production debugging. This provides:
+ * - Structured JSON output for machine parsing in production
+ * - Pretty console output in development
  * - Log levels for filtering
  * - Child loggers for component-specific context
+ * - NO WORKER THREADS to avoid Next.js issues
  * 
  * What: Centralized logging utility used throughout the application
  */
-
-import pino from 'pino';
 
 /**
  * Environment-based log level
@@ -20,51 +19,83 @@ import pino from 'pino';
  * - Production: 'info' reduces noise, focuses on important events
  */
 const logLevel = process.env.NODE_ENV === 'production' ? 'info' : 'debug';
+const isDev = process.env.NODE_ENV !== 'production';
+
+interface LogData {
+  [key: string]: any;
+}
+
+interface Logger {
+  trace(msg: string): void;
+  trace(data: LogData, msg: string): void;
+  debug(msg: string): void;
+  debug(data: LogData, msg: string): void;
+  info(msg: string): void;
+  info(data: LogData, msg: string): void;
+  warn(msg: string): void;
+  warn(data: LogData, msg: string): void;
+  error(msg: string | unknown): void;
+  error(data: LogData, msg: string): void;
+  fatal(msg: string): void;
+  fatal(data: LogData, msg: string): void;
+  child(context: Record<string, any>): Logger;
+}
+
+function createSimpleLogger(context: Record<string, any> = {}): Logger {
+  const formatMessage = (level: string, msg: string, data?: LogData) => {
+    const timestamp = new Date().toISOString();
+    const contextStr = Object.keys(context).length > 0 ? ` ${JSON.stringify(context)}` : '';
+    const dataStr = data ? ` ${JSON.stringify(data)}` : '';
+    return isDev
+      ? `[${timestamp}] ${level.toUpperCase()}${contextStr}: ${msg}${dataStr}`
+      : JSON.stringify({ time: timestamp, level, ...context, ...data, msg });
+  };
+
+  const log = (level: string, ...args: any[]) => {
+    const [first, second] = args;
+    const msg = typeof first === 'string' ? first : second || '';
+    const data = typeof first === 'object' ? first : undefined;
+    
+    const formatted = formatMessage(level, msg, data);
+    
+    switch (level) {
+      case 'trace':
+      case 'debug':
+        if (isDev) console.log(formatted);
+        break;
+      case 'info':
+        console.log(formatted);
+        break;
+      case 'warn':
+        console.warn(formatted);
+        break;
+      case 'error':
+      case 'fatal':
+        console.error(formatted);
+        break;
+    }
+  };
+
+  return {
+    trace: (...args: any[]) => log('trace', ...args),
+    debug: (...args: any[]) => log('debug', ...args),
+    info: (...args: any[]) => log('info', ...args),
+    warn: (...args: any[]) => log('warn', ...args),
+    error: (...args: any[]) => log('error', ...args),
+    fatal: (...args: any[]) => log('fatal', ...args),
+    child: (childContext: Record<string, any>) => 
+      createSimpleLogger({ ...context, ...childContext }),
+  } as Logger;
+}
 
 /**
- * Pino logger instance
+ * Main logger instance
  * 
  * What: Configured logger with appropriate formatting and level
  * Why: Single logger instance shared across application
+ * Note: Uses simple console-based logging to avoid worker thread issues
  */
-export const logger = pino({
-  level: logLevel,
-  
-  // Transport configuration for pretty printing in development
-  // Why: JSON logs are hard to read during development
-  // Note: Using sync mode to avoid worker thread issues in Next.js dev
-  transport:
-    process.env.NODE_ENV !== 'production'
-      ? {
-          target: 'pino-pretty',
-          options: {
-            colorize: true,
-            translateTime: 'HH:MM:ss Z', // Human-readable timestamps
-            ignore: 'pid,hostname', // Hide unnecessary fields in dev
-            singleLine: false,
-            sync: true, // Prevent worker thread issues
-          },
-        }
-      : undefined,
-
-  // Base fields added to every log
-  // Why: Consistent metadata for correlation and filtering
-  base: {
-    env: process.env.NODE_ENV || 'development',
-  },
-
-  // Timestamp format
-  // Why: ISO 8601 with milliseconds per project standards
-  timestamp: () => `,"time":"${new Date().toISOString()}"`,
-
-  // Serializers for common objects
-  // Why: Format standard objects consistently
-  serializers: {
-    err: pino.stdSerializers.err, // Format errors with stack traces
-    req: pino.stdSerializers.req, // Format HTTP requests
-    res: pino.stdSerializers.res, // Format HTTP responses
-  },
-});
+export const logger = createSimpleLogger();
 
 /**
  * Create child logger with additional context
@@ -79,7 +110,7 @@ export const logger = pino({
  * const gameLogger = createLogger({ component: 'GameSession', gameId: 'quizzz' });
  * gameLogger.info('Game started'); // Includes component and gameId in log
  */
-export function createLogger(context: Record<string, any>): pino.Logger {
+export function createLogger(context: Record<string, any>): Logger {
   return logger.child(context);
 }
 

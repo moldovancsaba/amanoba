@@ -76,13 +76,21 @@ export async function createAnonymousPlayer(username: string) {
     let defaultBrand = await Brand.findOne({ slug: 'amanoba' });
     if (!defaultBrand) {
       // Create default brand if it doesn't exist
+      // Why: Anonymous users need a brand assignment for multi-tenant architecture
       defaultBrand = await Brand.create({
         name: 'Amanoba',
         slug: 'amanoba',
-        domain: 'amanoba.com',
-        primaryColor: '#6366f1',
-        secondaryColor: '#ec4899',
+        displayName: 'Amanoba',
+        description: 'Unified gamification platform',
         logo: '🎮',
+        themeColors: {
+          primary: '#6366f1',
+          secondary: '#ec4899',
+          accent: '#a855f7',
+        },
+        allowedDomains: ['amanoba.com', 'localhost'],
+        supportedLanguages: ['en'],
+        defaultLanguage: 'en',
         isActive: true,
       });
     }
