@@ -8,6 +8,7 @@
  */
 
 import { useEffect, useState, useCallback } from 'react';
+import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 
 type Difficulty = 'EASY' | 'MEDIUM' | 'HARD' | 'EXPERT';
@@ -87,6 +88,7 @@ const DIFFICULTY_CONFIGS: Record<Difficulty, DifficultyConfig> = {
 const TARGET_EMOJIS = ['🐹', '🐰', '🐭', '🐻', '🐼', '🐨', '🦊', '🦝'];
 
 export default function WhackPopGame() {
+  const { data: session, status } = useSession();
   const router = useRouter();
   const [gameState, setGameState] = useState<'ready' | 'playing' | 'finished'>('ready');
   const [difficulty, setDifficulty] = useState<Difficulty>('MEDIUM');
@@ -102,20 +104,22 @@ export default function WhackPopGame() {
 
   // Why: Start game session
   const startGame = async () => {
+    if (!session?.user) {
+      console.error('No session found');
+      return;
+    }
+
     const config = DIFFICULTY_CONFIGS[difficulty];
     
     try {
-      const mockPlayerId = '507f1f77bcf86cd799439011';
-      const mockGameId = '507f1f77bcf86cd799439014'; // Different game ID for WHACKPOP
-      const mockBrandId = '507f1f77bcf86cd799439013';
+      const playerId = (session.user as any).playerId;
 
       const response = await fetch('/api/game-sessions/start', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          playerId: mockPlayerId,
-          gameId: mockGameId,
-          brandId: mockBrandId,
+          playerId,
+          gameId: 'whackpop',
           difficulty,
         }),
       });
@@ -243,6 +247,20 @@ export default function WhackPopGame() {
       }
     }
   };
+
+  // Auth check
+  if (status === 'loading') {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-orange-500 via-red-500 to-pink-500 flex items-center justify-center">
+        <div className="text-white text-2xl">Loading...</div>
+      </div>
+    );
+  }
+
+  if (!session) {
+    router.push('/auth/signin');
+    return null;
+  }
 
   // Ready screen
   if (gameState === 'ready') {

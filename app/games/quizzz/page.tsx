@@ -8,6 +8,7 @@
  */
 
 import { useEffect, useState } from 'react';
+import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 
 type Difficulty = 'EASY' | 'MEDIUM' | 'HARD' | 'EXPERT';
@@ -114,6 +115,7 @@ const ALL_QUESTIONS: Question[] = [
 ];
 
 export default function QuizzzGame() {
+  const { data: session, status } = useSession();
   const router = useRouter();
   const [gameState, setGameState] = useState<'ready' | 'playing' | 'finished'>('ready');
   const [difficulty, setDifficulty] = useState<Difficulty>('MEDIUM');
@@ -173,23 +175,24 @@ export default function QuizzzGame() {
 
   // Why: Start game session when player clicks play
   const startGame = async () => {
+    if (!session?.user) {
+      console.error('No session found');
+      return;
+    }
+
     const selectedQuestions = selectQuestions(difficulty);
     setQuestions(selectedQuestions);
     setTimeLeft(DIFFICULTY_CONFIGS[difficulty].timePerQuestion);
 
     try {
-      // TODO: Replace with actual player/game IDs from auth and database
-      const mockPlayerId = '507f1f77bcf86cd799439011';
-      const mockGameId = '507f1f77bcf86cd799439012';
-      const mockBrandId = '507f1f77bcf86cd799439013';
+      const playerId = (session.user as any).playerId;
 
       const response = await fetch('/api/game-sessions/start', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          playerId: mockPlayerId,
-          gameId: mockGameId,
-          brandId: mockBrandId,
+          playerId,
+          gameId: 'quizzz',
           difficulty,
         }),
       });
@@ -263,6 +266,20 @@ export default function QuizzzGame() {
       }
     }
   };
+
+  // Auth check
+  if (status === 'loading') {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 flex items-center justify-center">
+        <div className="text-white text-2xl">Loading...</div>
+      </div>
+    );
+  }
+
+  if (!session) {
+    router.push('/auth/signin');
+    return null;
+  }
 
   // Why: Render appropriate screen based on game state
   if (gameState === 'ready') {

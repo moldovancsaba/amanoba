@@ -12,8 +12,6 @@
 
 import { redirect } from 'next/navigation';
 import { auth } from '@/auth';
-import connectDB from '@/lib/mongodb';
-import { Player } from '@/lib/models';
 import MemoryGame from '@/components/games/MemoryGame';
 import { Card } from '@/components/ui/card';
 
@@ -25,17 +23,14 @@ export const metadata = {
 export default async function MemoryGamePage() {
   // Check authentication
   const session = await auth();
-  if (!session?.user?.id) {
+  if (!session?.user) {
     redirect('/auth/signin');
   }
 
-  // Connect to database
-  await connectDB();
-
-  // Fetch player data
-  const player = await Player.findOne({ facebookId: session.user.id }).lean();
+  const playerId = (session.user as any).playerId;
+  const isPremium = (session.user as any).isPremium || false;
   
-  if (!player) {
+  if (!playerId) {
     redirect('/auth/signin');
   }
 
@@ -43,9 +38,8 @@ export default async function MemoryGamePage() {
     <div className="container mx-auto px-4 py-8">
       <Card className="p-6 md:p-8">
         <MemoryGame
-          playerId={player._id.toString()}
-          brandId="default"
-          isPremium={player.isPremium || false}
+          playerId={playerId}
+          isPremium={isPremium}
         />
       </Card>
     </div>

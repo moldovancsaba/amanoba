@@ -43,14 +43,12 @@ import {
 
 interface MemoryGameProps {
   playerId: string;
-  brandId: string;
   isPremium: boolean;
   onGameComplete?: (score: number, stats: any) => void;
 }
 
 export default function MemoryGame({
   playerId,
-  brandId,
   isPremium,
   onGameComplete,
 }: MemoryGameProps) {
@@ -86,20 +84,19 @@ export default function MemoryGame({
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           playerId,
-          brandId,
-          gameId: 'memory-match',
+          gameId: 'memory',
           difficulty,
         }),
       });
       
       if (response.ok) {
         const data = await response.json();
-        setSessionId(data.session._id);
+        setSessionId(data.sessionId);
       }
     } catch (error) {
       console.error('Failed to start session:', error);
     }
-  }, [difficulty, playerId, brandId]);
+  }, [difficulty, playerId]);
 
   // Timer effect
   useEffect(() => {
