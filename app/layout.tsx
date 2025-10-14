@@ -3,6 +3,7 @@ import { Inter, Noto_Sans } from "next/font/google";
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
 import SessionProvider from "@/components/session-provider";
 import "./globals.css";
+import "./mobile-styles.css";
 
 // What: Font configuration for Amanoba platform
 // Why: Noto Sans provides broad unicode coverage including latin-ext, Inter as secondary for UI consistency
