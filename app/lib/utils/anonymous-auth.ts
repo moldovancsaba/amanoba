@@ -114,15 +114,39 @@ export async function createAnonymousPlayer(username: string) {
       throw new Error('Failed to retrieve created player');
     }
     
-    // Initialize player progression
+    // Initialize player progression with all required fields
     await PlayerProgression.create({
       playerId: player._id,
       level: 1,
-      xp: 0,
+      currentXP: 0,
+      totalXP: 0,
+      xpToNextLevel: 100,
       title: 'Beginner',
-      gamesPlayed: 0,
-      gamesWon: 0,
-      totalScore: 0,
+      unlockedTitles: ['Beginner'],
+      statistics: {
+        totalGamesPlayed: 0,
+        totalWins: 0,
+        totalLosses: 0,
+        totalDraws: 0,
+        totalPlayTime: 0,
+        averageSessionTime: 0,
+        bestStreak: 0,
+        currentStreak: 0,
+        dailyLoginStreak: 1, // First login
+        lastLoginDate: new Date(),
+      },
+      gameSpecificStats: new Map(),
+      achievements: {
+        totalUnlocked: 0,
+        totalAvailable: 0,
+        recentUnlocks: [],
+      },
+      milestones: [],
+      metadata: {
+        createdAt: new Date(),
+        updatedAt: new Date(),
+        lastXPGain: new Date(),
+      },
     });
     
     // Initialize points wallet
