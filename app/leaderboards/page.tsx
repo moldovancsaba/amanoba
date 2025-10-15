@@ -65,7 +65,7 @@ export default function LeaderboardsPage() {
       return;
     }
     
-    setCurrentPlayerId((session.user as any).playerId);
+    setCurrentPlayerId(session.user.id);
   }, [session, status, router]);
 
   useEffect(() => {
@@ -76,14 +76,29 @@ export default function LeaderboardsPage() {
       setError(null);
       
       try {
-        const response = await fetch(`/api/leaderboards/${selectedGame}?period=${selectedPeriod}`);
+        const response = await fetch(`/api/leaderboards/${selectedGame}?period=${selectedPeriod}&playerId=${currentPlayerId}`);
         
         if (!response.ok) {
           throw new Error('Failed to load leaderboard');
         }
         
-        const data = await response.json();
-        setLeaderboardData(data);
+        const raw = await response.json();
+        const mapped = {
+          entries: (raw.entries || []).map((e: any) => ({
+            playerId: e.player?.id?.toString() || 'unknown',
+            playerName: e.player?.displayName || 'Unknown Player',
+            rank: e.rank,
+            previousRank: e.previousRank,
+            value: e.score,
+            metadata: undefined,
+          })),
+          leaderboardType: 'score',
+          period: (raw.metadata?.period || selectedPeriod).toString().toLowerCase(),
+          gameId: selectedGame,
+          totalPlayers: raw.metadata?.totalEntries || 0,
+          lastUpdated: raw.metadata?.lastUpdated || new Date().toISOString(),
+        } as LeaderboardData;
+        setLeaderboardData(mapped);
       } catch (err) {
         setError(err instanceof Error ? err.message : 'Unknown error');
       } finally {

@@ -91,7 +91,7 @@ export default function MadokuGame() {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
-            playerId: (session.user as any).playerId,
+            playerId: session.user.id,
             gameId: 'madoku',
             difficulty: difficulty.toUpperCase(),
           }),
@@ -216,46 +216,8 @@ export default function MadokuGame() {
     return null;
   }
   
-  // Premium gate
-  if (!isPremium) {
-    return (
-      <div className="min-h-screen bg-gradient-to-br from-purple-600 via-indigo-600 to-blue-600 flex items-center justify-center p-4">
-        <div className="max-w-2xl w-full bg-white/10 backdrop-blur-lg rounded-3xl shadow-2xl p-8 text-center">
-          <div className="inline-flex items-center gap-2 bg-yellow-400 text-black px-4 py-2 rounded-full font-bold mb-6">
-            <Lock className="w-5 h-5" />
-            PREMIUM ONLY
-          </div>
-          
-          <h1 className="text-5xl font-bold text-white mb-4">🎯 Madoku</h1>
-          <p className="text-2xl text-white/90 mb-8">Premium Sudoku Experience</p>
-          
-          <div className="bg-white/20 rounded-2xl p-6 mb-8">
-            <p className="text-white/90 text-lg leading-relaxed mb-4">
-              <strong className="text-white">Madoku features:</strong>
-            </p>
-            
-            <ul className="text-white/90 text-left space-y-2 max-w-md mx-auto">
-              <li className="flex items-center gap-2"><Check className="w-5 h-5" /> 4 difficulty levels</li>
-              <li className="flex items-center gap-2"><Check className="w-5 h-5" /> Unlimited hints</li>
-              <li className="flex items-center gap-2"><Check className="w-5 h-5" /> Real-time validation</li>
-              <li className="flex items-center gap-2"><Check className="w-5 h-5" /> Best time tracking</li>
-              <li className="flex items-center gap-2"><Check className="w-5 h-5" /> Premium achievements</li>
-            </ul>
-          </div>
-          
-          <div className="space-x-4">
-            <Link href="/games" className="inline-block bg-white text-indigo-600 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition-colors">
-              Back to Games
-            </Link>
-            
-            <button onClick={() => alert('Premium subscription coming soon!')} className="inline-block bg-yellow-400 text-black px-8 py-3 rounded-full font-semibold hover:bg-yellow-300 transition-colors">
-              Upgrade to Premium
-            </button>
-          </div>
-        </div>
-      </div>
-    );
-  }
+  // Premium notice (no blocking for non-premium users)
+  // Free users get limited hints; premium users get unlimited hints and extras.
   
   // Difficulty selection
   if (!gameStarted || !puzzle) {

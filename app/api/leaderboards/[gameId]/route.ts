@@ -28,11 +28,16 @@ export async function GET(
     const { gameId } = params;
     const searchParams = request.nextUrl.searchParams;
     
-    const period = (searchParams.get('period') || 'ALL_TIME') as
-      | 'DAILY'
-      | 'WEEKLY'
-      | 'MONTHLY'
-      | 'ALL_TIME';
+    const periodParam = (searchParams.get('period') || 'ALL_TIME').toString().toLowerCase();
+    const periodMap: Record<string, 'DAILY' | 'WEEKLY' | 'MONTHLY' | 'ALL_TIME'> = {
+      daily: 'DAILY',
+      weekly: 'WEEKLY',
+      monthly: 'MONTHLY',
+      alltime: 'ALL_TIME',
+      'all_time': 'ALL_TIME',
+      all: 'ALL_TIME',
+    };
+    const period = periodMap[periodParam] || 'ALL_TIME';
     const limit = Math.min(parseInt(searchParams.get('limit') || '100'), 500);
     const playerId = searchParams.get('playerId');
 

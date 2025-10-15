@@ -62,7 +62,7 @@ const AVAILABLE_GAMES: GameInfo[] = [
     description: 'Classic Sudoku puzzles with progressive difficulty',
     icon: '🔢',
     route: '/games/madoku',
-    isPremium: true,
+    isPremium: false,
     requiredLevel: 1,
     estimatedTime: '5-15 min',
   },
@@ -87,7 +87,7 @@ export default function GamesLauncher() {
     // Why: Fetch player progression data to determine game availability
     const fetchPlayerData = async () => {
       try {
-        const playerId = (session.user as any).playerId;
+        const playerId = session.user.id;
         const response = await fetch(`/api/players/${playerId}`);
         
         if (response.ok) {
