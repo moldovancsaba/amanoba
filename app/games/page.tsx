@@ -66,6 +66,16 @@ const AVAILABLE_GAMES: GameInfo[] = [
     requiredLevel: 1,
     estimatedTime: '5-15 min',
   },
+  {
+    id: 'madoku',
+    name: 'Madoku',
+    description: 'Competitive number-picking strategy game against AI',
+    icon: '🎯',
+    route: '/games/madoku',
+    isPremium: false,
+    requiredLevel: 1,
+    estimatedTime: '3-8 min',
+  },
 ];
 
 export default function GamesLauncher() {
