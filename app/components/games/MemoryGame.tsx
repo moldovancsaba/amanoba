@@ -180,6 +180,9 @@ export default function MemoryGame({
       const finalScore = calculateScore(gameState, config);
       const stats = getGameStats(gameState, config);
       
+      // Why: Calculate if player won (completed all pairs)
+      const isWin = gameState.matchedPairs === gameState.totalPairs;
+      
       try {
         const response = await fetch('/api/game-sessions/complete', {
           method: 'POST',
@@ -187,7 +190,11 @@ export default function MemoryGame({
           body: JSON.stringify({
             sessionId,
             score: finalScore,
-            metrics: stats,
+            isWin,
+            duration: gameState.timeElapsed,
+            moves: gameState.moves,
+            accuracy: stats.accuracy,
+            metadata: stats,
           }),
         });
         

@@ -49,6 +49,7 @@ export default function MadokuGame() {
   const [hintsUsed, setHintsUsed] = useState(0);
   const [timer, setTimer] = useState(0);
   const [isComplete, setIsComplete] = useState(false);
+  const [sessionId, setSessionId] = useState<string | null>(null);
   
   // Premium check
   const isPremium = (session?.user as any)?.isPremium || false;
@@ -71,7 +72,7 @@ export default function MadokuGame() {
   }, [gameStarted, isComplete]);
   
   // Start new game
-  const startNewGame = () => {
+  const startNewGame = async () => {
     const { puzzle: newPuzzle, solution: newSolution } = generatePuzzle(difficulty);
     setPuzzle(cloneGrid(newPuzzle));
     setSolution(newSolution);
@@ -82,6 +83,28 @@ export default function MadokuGame() {
     setHintsUsed(0);
     setTimer(0);
     setIsComplete(false);
+    
+    // Why: Start game session for rewards tracking
+    if (session) {
+      try {
+        const response = await fetch('/api/game-sessions/start', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            playerId: (session.user as any).playerId,
+            gameId: 'madoku',
+            difficulty: difficulty.toUpperCase(),
+          }),
+        });
+        
+        if (response.ok) {
+          const data = await response.json();
+          setSessionId(data.sessionId);
+        }
+      } catch (error) {
+        console.error('Failed to start game session:', error);
+      }
+    }
   };
   
   // Handle cell changes
@@ -134,21 +157,23 @@ export default function MadokuGame() {
   
   // Complete game
   const completeGame = async (won: boolean) => {
-    if (!session) return;
+    if (!session || !sessionId) return;
     
     try {
+      // Why: Calculate score based on time and hints penalty
+      const finalScore = won ? Math.max(1000 - timer - (hintsUsed * 50), 100) : 0;
+      
       await fetch('/api/game-sessions/complete', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          playerId: (session.user as any).playerId,
-          gameId: 'madoku',
-          won,
-          score: won ? Math.max(1000 - timer - (hintsUsed * 50), 100) : 0,
+          sessionId,
+          score: finalScore,
+          isWin: won,
+          duration: timer,
+          hintsUsed,
           metadata: {
             difficulty,
-            time: timer,
-            hintsUsed,
             completion: puzzle ? getCompletionPercentage(puzzle) : 0,
           },
         }),
