@@ -14,7 +14,7 @@ import Link from 'next/link';
 import { Trophy, Lock, CheckCircle, ChevronLeft, Sparkles } from 'lucide-react';
 
 interface Achievement {
-  _id: string;
+  id: string;
   name: string;
   description: string;
   icon: string;
@@ -24,11 +24,8 @@ interface Achievement {
   xp: number;
   isUnlocked: boolean;
   unlockedAt?: string;
-  progress?: {
-    current: number;
-    target: number;
-    percentage: number;
-  };
+  progress?: number;
+  progressPercentage?: number;
 }
 
 interface AchievementsData {
@@ -37,10 +34,6 @@ interface AchievementsData {
     total: number;
     unlocked: number;
     percentage: number;
-    totalPoints: number;
-    earnedPoints: number;
-    totalXP: number;
-    earnedXP: number;
   };
 }
 
@@ -158,7 +151,7 @@ export default function AchievementsPage() {
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Stats Overview */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
           <div className="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg p-6">
             <div className="text-purple-600 text-3xl mb-2">🏆</div>
             <div className="text-3xl font-bold text-gray-900">
@@ -178,17 +171,9 @@ export default function AchievementsPage() {
           <div className="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg p-6">
             <div className="text-indigo-600 text-3xl mb-2">💎</div>
             <div className="text-3xl font-bold text-gray-900">
-              {stats.earnedPoints.toLocaleString()}
+              {achievements.filter(a => a.isUnlocked).reduce((sum, a) => sum + a.points, 0).toLocaleString()}
             </div>
             <div className="text-gray-600">Points Earned</div>
-          </div>
-          
-          <div className="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg p-6">
-            <div className="text-pink-600 text-3xl mb-2">⚡</div>
-            <div className="text-3xl font-bold text-gray-900">
-              {stats.earnedXP.toLocaleString()}
-            </div>
-            <div className="text-gray-600">XP Earned</div>
           </div>
         </div>
 
@@ -221,7 +206,7 @@ export default function AchievementsPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {unlockedAchievements.map(achievement => (
                 <div
-                  key={achievement._id}
+                  key={achievement.id}
                   className="bg-white rounded-xl shadow-lg p-6 border-2 border-green-500 relative overflow-hidden"
                 >
                   <div className="absolute top-0 right-0 bg-green-500 text-white px-3 py-1 rounded-bl-lg font-bold text-sm">
@@ -271,7 +256,7 @@ export default function AchievementsPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {lockedAchievements.map(achievement => (
                 <div
-                  key={achievement._id}
+                  key={achievement.id}
                   className="bg-white/60 backdrop-blur-sm rounded-xl shadow-lg p-6 border-2 border-gray-300 relative"
                 >
                   <div className="absolute top-0 right-0 bg-gray-400 text-white px-3 py-1 rounded-bl-lg font-bold text-sm">
@@ -292,16 +277,16 @@ export default function AchievementsPage() {
                     {achievement.description}
                   </p>
                   
-                  {achievement.progress && (
+                  {achievement.progressPercentage !== undefined && achievement.progressPercentage > 0 && !achievement.isUnlocked && (
                     <div className="mb-4">
                       <div className="flex justify-between text-xs text-gray-600 mb-1">
                         <span>Progress</span>
-                        <span>{achievement.progress.current} / {achievement.progress.target}</span>
+                        <span>{achievement.progressPercentage}%</span>
                       </div>
                       <div className="bg-gray-200 rounded-full h-2 overflow-hidden">
                         <div
                           className="bg-gradient-to-r from-purple-500 to-indigo-500 h-full transition-all"
-                          style={{ width: `${achievement.progress.percentage}%` }}
+                          style={{ width: `${achievement.progressPercentage}%` }}
                         />
                       </div>
                     </div>
