@@ -156,28 +156,40 @@ export default function Dashboard() {
             <span>🎯</span>
             Quick Actions
           </h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
             <Link
               href="/games"
-              className="block bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-6 py-3 rounded-lg font-bold text-center hover:from-indigo-700 hover:to-purple-700 transition-all"
+              className="block bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-4 py-3 rounded-lg font-bold text-center hover:from-indigo-700 hover:to-purple-700 transition-all text-sm"
             >
-              🎮 Play Games
+              🎮 Games
             </Link>
             <Link
               href="/leaderboards"
-              className="block bg-gradient-to-r from-blue-600 to-cyan-600 text-white px-6 py-3 rounded-lg font-bold text-center hover:from-blue-700 hover:to-cyan-700 transition-all"
+              className="block bg-gradient-to-r from-blue-600 to-cyan-600 text-white px-4 py-3 rounded-lg font-bold text-center hover:from-blue-700 hover:to-cyan-700 transition-all text-sm"
             >
-              🏆 Leaderboards
+              🏆 Ranks
+            </Link>
+            <Link
+              href="/challenges"
+              className="block bg-gradient-to-r from-green-600 to-teal-600 text-white px-4 py-3 rounded-lg font-bold text-center hover:from-green-700 hover:to-teal-700 transition-all text-sm"
+            >
+              🎯 Daily
+            </Link>
+            <Link
+              href="/quests"
+              className="block bg-gradient-to-r from-purple-600 to-pink-600 text-white px-4 py-3 rounded-lg font-bold text-center hover:from-purple-700 hover:to-pink-700 transition-all text-sm"
+            >
+              🗺️ Quests
             </Link>
             <Link
               href="/achievements"
-              className="block bg-gradient-to-r from-pink-600 to-red-600 text-white px-6 py-3 rounded-lg font-bold text-center hover:from-pink-700 hover:to-red-700 transition-all"
+              className="block bg-gradient-to-r from-pink-600 to-red-600 text-white px-4 py-3 rounded-lg font-bold text-center hover:from-pink-700 hover:to-red-700 transition-all text-sm"
             >
-              🏅 Achievements
+              🏅 Achieve
             </Link>
             <Link
               href="/rewards"
-              className="block bg-gradient-to-r from-yellow-600 to-orange-600 text-white px-6 py-3 rounded-lg font-bold text-center hover:from-yellow-700 hover:to-orange-700 transition-all"
+              className="block bg-gradient-to-r from-yellow-600 to-orange-600 text-white px-4 py-3 rounded-lg font-bold text-center hover:from-yellow-700 hover:to-orange-700 transition-all text-sm"
             >
               🎁 Rewards
             </Link>
