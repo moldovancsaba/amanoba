@@ -11,12 +11,14 @@ import { PlayerSession } from '@/lib/models';
 const CompleteSessionSchema = z.object({
   sessionId: z.string().min(1, 'Session ID is required'),
   score: z.number().min(0, 'Score must be non-negative'),
-  isWin: z.boolean(),
+  isWin: z.boolean().optional(), // Optional if outcome is provided
+  outcome: z.enum(['win', 'loss', 'draw']).optional(), // Accept explicit outcome
   duration: z.number().min(0, 'Duration must be non-negative'),
   moves: z.number().int().min(0).optional(),
   accuracy: z.number().min(0).max(100).optional(),
   hintsUsed: z.number().int().min(0).optional(),
   powerUpsUsed: z.number().int().min(0).optional(),
+  difficulty: z.string().optional(), // Accept difficulty level
   metadata: z.record(z.string(), z.any()).optional(),
 });
 
@@ -73,15 +75,27 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    // Why: Determine outcome from explicit outcome field or isWin boolean
+    let outcome: 'win' | 'loss' | 'draw';
+    if (validatedData.outcome) {
+      outcome = validatedData.outcome;
+    } else if (validatedData.isWin !== undefined) {
+      outcome = validatedData.isWin ? 'win' : 'loss';
+    } else {
+      // Default to loss if neither provided
+      outcome = 'loss';
+    }
+    
     // Why: Use the session manager to handle all reward calculations and updates
     const result = await completeGameSession({
       sessionId: new mongoose.Types.ObjectId(validatedData.sessionId),
       score: validatedData.score,
       maxScore: 1000, // TODO: Get from game config
-      outcome: validatedData.isWin ? 'win' : 'loss',
+      outcome,
       accuracy: validatedData.accuracy,
       moves: validatedData.moves,
       hints: validatedData.hintsUsed,
+      difficulty: validatedData.difficulty,
       rawData: validatedData.metadata,
     });
 

@@ -12,7 +12,7 @@ const StartSessionSchema = z.object({
   playerId: z.string().min(1, 'Player ID is required'),
   gameId: z.string().min(1, 'Game ID or key is required'), // Accepts Game._id, Game.gameId (e.g., QUIZZZ), or route key (e.g., quizzz)
   brandId: z.string().optional(), // If omitted, derived from player.brandId
-  difficulty: z.enum(['EASY', 'MEDIUM', 'HARD', 'EXPERT']).optional(),
+  difficulty: z.string().optional(), // Flexible difficulty string (EASY, MEDIUM, HARD, EXPERT, AI_LEVEL_1, etc.)
 });
 
 /**
