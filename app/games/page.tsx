@@ -8,6 +8,7 @@
  */
 
 import { useEffect, useState } from 'react';
+import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 
@@ -68,21 +69,41 @@ const AVAILABLE_GAMES: GameInfo[] = [
 ];
 
 export default function GamesLauncher() {
+  const { data: session, status } = useSession();
   const router = useRouter();
   const [playerLevel, setPlayerLevel] = useState<number>(1);
   const [isPremium, setIsPremium] = useState<boolean>(false);
-  const [loading, setLoading] = useState<boolean>(false);
-  const [isTestMode, setIsTestMode] = useState<boolean>(false);
+  const [loading, setLoading] = useState<boolean>(true);
 
-  // Why: Fetch player info to determine available games
+  // Why: Redirect to sign-in if not authenticated
   useEffect(() => {
-    // Allow playing without authentication
-    setIsTestMode(true);
-    setPlayerLevel(1);
-    setIsPremium(false);
-    setLoading(false);
-    console.log('Games launcher in test mode - all games available');
-  }, []);
+    if (status === 'loading') return;
+    
+    if (!session) {
+      router.push('/auth/signin');
+      return;
+    }
+
+    // Why: Fetch player progression data to determine game availability
+    const fetchPlayerData = async () => {
+      try {
+        const playerId = (session.user as any).playerId;
+        const response = await fetch(`/api/players/${playerId}`);
+        
+        if (response.ok) {
+          const data = await response.json();
+          setPlayerLevel(data.progression?.level || 1);
+          setIsPremium(data.player?.isPremium || false);
+        }
+      } catch (error) {
+        console.error('Failed to fetch player data:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchPlayerData();
+  }, [session, status, router]);
 
   // Why: Determine if a game is accessible based on player progression
   const isGameAvailable = (game: GameInfo): boolean => {
@@ -102,7 +123,7 @@ export default function GamesLauncher() {
     return null;
   };
 
-  if (loading) {
+  if (status === 'loading' || loading) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500">
         <div className="text-white text-2xl font-bold animate-pulse">
@@ -114,11 +135,6 @@ export default function GamesLauncher() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500">
-      {isTestMode && (
-        <div className="fixed top-4 left-1/2 transform -translate-x-1/2 bg-yellow-400 text-black px-6 py-3 rounded-full font-bold shadow-lg z-50 animate-pulse">
-          🧪 TEST MODE - Playing without login
-        </div>
-      )}
       {/* Why: Header with branding and stats */}
       <header className="bg-white/10 backdrop-blur-md border-b border-white/20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
@@ -206,21 +222,12 @@ export default function GamesLauncher() {
 
         {/* Why: Back to dashboard link */}
         <div className="mt-12 text-center">
-          {isTestMode ? (
-            <Link
-              href="/auth/signin"
-              className="inline-block bg-white/20 backdrop-blur-md text-white px-6 py-3 rounded-lg hover:bg-white/30 transition-colors"
-            >
-              ← Sign In to Save Progress
-            </Link>
-          ) : (
-            <Link
-              href="/dashboard"
-              className="inline-block bg-white/20 backdrop-blur-md text-white px-6 py-3 rounded-lg hover:bg-white/30 transition-colors"
-            >
-              ← Back to Dashboard
-            </Link>
-          )}
+          <Link
+            href="/dashboard"
+            className="inline-block bg-white/20 backdrop-blur-md text-white px-6 py-3 rounded-lg hover:bg-white/30 transition-colors"
+          >
+            ← Back to Dashboard
+          </Link>
         </div>
       </main>
     </div>

@@ -180,35 +180,41 @@ export default function QuizzzGame() {
 
   // Why: Start game session when player clicks play
   const startGame = async () => {
+    if (!session?.user) {
+      console.error('Cannot start game without authentication');
+      router.push('/auth/signin');
+      return;
+    }
+
     const selectedQuestions = selectQuestions(difficulty);
     setQuestions(selectedQuestions);
     setTimeLeft(DIFFICULTY_CONFIGS[difficulty].timePerQuestion);
     setGameState('playing');
     setStartTime(Date.now());
 
-    // Try to start backend session (optional - game works without it)
-    if (session?.user) {
-      try {
-        const playerId = (session.user as any).playerId;
+    // Why: Start backend session to track progress and award rewards
+    try {
+      const playerId = (session.user as any).playerId;
 
-        const response = await fetch('/api/game-sessions/start', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            playerId,
-            gameId: 'quizzz',
-            difficulty,
-          }),
-        });
+      const response = await fetch('/api/game-sessions/start', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          playerId,
+          gameId: 'quizzz',
+          difficulty,
+        }),
+      });
 
-        if (response.ok) {
-          const data = await response.json();
-          setSessionId(data.sessionId);
-          console.log('Game session started:', data.sessionId);
-        }
-      } catch (error) {
-        console.error('Failed to start game session (continuing anyway):', error);
+      if (response.ok) {
+        const data = await response.json();
+        setSessionId(data.sessionId);
+        console.log('Game session started:', data.sessionId);
+      } else {
+        console.error('Failed to start game session');
       }
+    } catch (error) {
+      console.error('Failed to start game session:', error);
     }
   };
 
@@ -244,46 +250,38 @@ export default function QuizzzGame() {
     const config = DIFFICULTY_CONFIGS[difficulty];
     const isWin = score >= config.minCorrect;
 
-    // Try to complete backend session (optional)
-    if (sessionId && session?.user) {
-      try {
-        const response = await fetch('/api/game-sessions/complete', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            sessionId,
-            score: Math.round(score * 100 * config.pointsMultiplier),
-            isWin,
-            duration,
-            accuracy,
-          }),
-        });
+    // Why: Complete backend session and award real rewards
+    if (!sessionId) {
+      console.error('No session ID found');
+      return;
+    }
 
-        if (response.ok) {
-          const data = await response.json();
-          setRewards(data.rewards);
-          console.log('Game session completed with rewards:', data.rewards);
-        }
-      } catch (error) {
-        console.error('Failed to complete session (continuing anyway):', error);
-        // Show mock rewards for testing
-        setRewards({
-          xp: score * 10,
-          points: Math.round(score * 100 * config.pointsMultiplier),
-          levelsGained: 0,
-        });
-      }
-    } else {
-      // Show mock rewards for testing when no session
-      setRewards({
-        xp: score * 10,
-        points: Math.round(score * 100 * config.pointsMultiplier),
-        levelsGained: 0,
+    try {
+      const response = await fetch('/api/game-sessions/complete', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          sessionId,
+          score: Math.round(score * 100 * config.pointsMultiplier),
+          isWin,
+          duration,
+          accuracy,
+        }),
       });
+
+      if (response.ok) {
+        const data = await response.json();
+        setRewards(data.rewards);
+        console.log('Game session completed with rewards:', data.rewards);
+      } else {
+        console.error('Failed to complete game session');
+      }
+    } catch (error) {
+      console.error('Failed to complete session:', error);
     }
   };
 
-  // Auth check (relaxed for testing)
+  // Why: Redirect to sign-in if not authenticated
   if (status === 'loading') {
     return (
       <div className="min-h-screen bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 flex items-center justify-center">
@@ -292,10 +290,9 @@ export default function QuizzzGame() {
     );
   }
 
-  // Allow playing without auth for testing
-  const isTestMode = !session;
-  if (isTestMode) {
-    console.log('Running in test mode without authentication');
+  if (!session) {
+    router.push('/auth/signin');
+    return null;
   }
 
   // Why: Render appropriate screen based on game state
@@ -305,11 +302,6 @@ export default function QuizzzGame() {
 
     return (
       <div className="min-h-screen bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 flex items-center justify-center p-4">
-        {isTestMode && (
-          <div className="fixed top-4 left-1/2 transform -translate-x-1/2 bg-yellow-400 text-black px-6 py-3 rounded-full font-bold shadow-lg z-50 animate-pulse">
-            🧪 TEST MODE - Playing without login
-          </div>
-        )}
         <div className="bg-white rounded-2xl shadow-2xl p-8 max-w-2xl w-full">
           <div className="text-center">
             <div className="text-6xl mb-4">🧠</div>
@@ -392,11 +384,6 @@ export default function QuizzzGame() {
 
     return (
       <div className="min-h-screen bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 p-4">
-        {isTestMode && (
-          <div className="fixed top-4 left-1/2 transform -translate-x-1/2 bg-yellow-400 text-black px-4 py-2 rounded-full font-bold shadow-lg z-50 text-sm">
-            🧪 TEST MODE
-          </div>
-        )}
         {/* Timer and Progress */}
         <div className="max-w-4xl mx-auto mb-4 space-y-2">
           {/* Timer Bar */}
@@ -494,11 +481,6 @@ export default function QuizzzGame() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 flex items-center justify-center p-4">
-      {isTestMode && (
-        <div className="fixed top-4 left-1/2 transform -translate-x-1/2 bg-yellow-400 text-black px-4 py-2 rounded-full font-bold shadow-lg z-50 text-sm">
-          🧪 TEST MODE
-        </div>
-      )}
       <div className="bg-white rounded-2xl shadow-2xl p-8 max-w-2xl w-full">
         <div className="text-center">
           <div className="text-6xl mb-4">{isWin ? '🏆' : '💪'}</div>
