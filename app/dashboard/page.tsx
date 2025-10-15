@@ -156,12 +156,18 @@ export default function Dashboard() {
             <span>🎯</span>
             Quick Actions
           </h3>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-7 gap-3">
             <Link
               href="/games"
               className="block bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-4 py-3 rounded-lg font-bold text-center hover:from-indigo-700 hover:to-purple-700 transition-all text-sm"
             >
               🎮 Games
+            </Link>
+            <Link
+              href="/stats"
+              className="block bg-gradient-to-r from-cyan-600 to-blue-600 text-white px-4 py-3 rounded-lg font-bold text-center hover:from-cyan-700 hover:to-blue-700 transition-all text-sm"
+            >
+              📊 Stats
             </Link>
             <Link
               href="/leaderboards"
