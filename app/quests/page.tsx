@@ -64,10 +64,9 @@ export default function QuestsPage() {
 
     const fetchQuests = async () => {
       try {
-        const playerId = (session.user as any).playerId;
+        const playerId = session.user.id;
         setIsPremium((session.user as any).isPremium || false);
         
-        // Note: This endpoint needs to be created
         const response = await fetch(`/api/quests?playerId=${playerId}`);
         
         if (!response.ok) {

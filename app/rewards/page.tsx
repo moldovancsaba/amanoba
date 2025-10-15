@@ -47,7 +47,7 @@ export default function RewardsPage() {
 
     const fetchData = async () => {
       try {
-        const playerId = (session.user as any).playerId;
+        const playerId = session.user.id;
         
         // Fetch rewards
         const rewardsResponse = await fetch('/api/rewards');
@@ -84,7 +84,7 @@ export default function RewardsPage() {
     setRedeemSuccess(null);
     
     try {
-      const playerId = (session!.user as any).playerId;
+      const playerId = session!.user.id;
       const response = await fetch('/api/rewards', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },

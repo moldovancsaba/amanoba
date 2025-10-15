@@ -68,7 +68,7 @@ export default function AchievementsPage() {
 
     const fetchAchievements = async () => {
       try {
-        const playerId = (session.user as any).playerId;
+        const playerId = session.user.id;
         const response = await fetch(`/api/players/${playerId}/achievements`);
         
         if (!response.ok) {

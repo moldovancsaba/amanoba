@@ -60,9 +60,8 @@ export default function ChallengesPage() {
 
     const fetchChallenges = async () => {
       try {
-        const playerId = (session.user as any).playerId;
+        const playerId = session.user.id;
         
-        // Note: This endpoint needs to be created
         const response = await fetch(`/api/challenges?playerId=${playerId}`);
         
         if (!response.ok) {
