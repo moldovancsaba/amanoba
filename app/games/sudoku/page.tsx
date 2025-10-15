@@ -1,7 +1,7 @@
 'use client';
 
 /**
- * Madoku Game Page
+ * Sudoku Game Page
  * Complete Sudoku implementation with premium features
  * Version: 2.1.0
  */
@@ -22,7 +22,7 @@ import {
   getCompletionPercentage,
 } from '@/app/lib/games/sudoku-engine';
 
-export default function MadokuGame() {
+export default function SudokuGame() {
   let session = null;
   let status = 'loading';
   
@@ -93,7 +93,7 @@ export default function MadokuGame() {
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
             playerId: session.user.id,
-            gameId: 'madoku',
+            gameId: 'sudoku',
             difficulty: difficulty.toUpperCase(),
           }),
         });
@@ -232,7 +232,7 @@ export default function MadokuGame() {
               PREMIUM
             </div>
             
-            <h1 className="text-5xl font-bold text-white mb-4">🎯 Madoku</h1>
+            <h1 className="text-5xl font-bold text-white mb-4">🔢 Sudoku</h1>
             <p className="text-xl text-white/90">Choose your difficulty level</p>
           </div>
           
@@ -282,7 +282,7 @@ export default function MadokuGame() {
       <div className="max-w-4xl mx-auto">
         <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-4 mb-4 flex items-center justify-between">
           <h1 className="text-2xl font-bold text-white flex items-center gap-2">
-            🎯 Madoku <span className="text-sm font-normal bg-white/20 px-3 py-1 rounded-full capitalize">{difficulty}</span>
+            🔢 Sudoku <span className="text-sm font-normal bg-white/20 px-3 py-1 rounded-full capitalize">{difficulty}</span>
           </h1>
           
           <div className="flex items-center gap-4">
