@@ -40,6 +40,7 @@ export async function GET(
     const period = periodMap[periodParam] || 'ALL_TIME';
     const limit = Math.min(parseInt(searchParams.get('limit') || '100'), 500);
     const playerId = searchParams.get('playerId');
+    const metric = (searchParams.get('metric') || 'score').toString();
 
     if (!gameId) {
       return NextResponse.json(
@@ -55,7 +56,7 @@ export async function GET(
     const topEntries = await LeaderboardEntry.find({
       gameId,
       period,
-      metric: 'score', // TODO: Make metric configurable via query param
+      metric,
     })
       .sort({ rank: 1 })
       .limit(limit)
@@ -95,7 +96,7 @@ export async function GET(
       const playerEntry = await LeaderboardEntry.findOne({
         gameId,
         period,
-        metric: 'score',
+        metric,
         playerId,
       }).lean();
 

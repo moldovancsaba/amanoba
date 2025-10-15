@@ -34,6 +34,12 @@ import {
   type XPCalculationInput,
   type AchievementCheckContext,
 } from './index';
+import {
+  calculateEloChange,
+  getKFactor,
+  getAiElo,
+  getGameResult,
+} from './elo-calculator';
 import logger from '../logger';
 
 /**
@@ -239,6 +245,9 @@ export async function completeGameSession(
     // 3. Calculate session duration
     const sessionEnd = new Date();
     const duration = sessionEnd.getTime() - session.sessionStart.getTime();
+
+    // Ghost/Practice mode: if flagged, do not award XP/points or achievements
+    const isGhost = !!(input.rawData && (input.rawData as any).ghost);
     
     // 4. Update win streak
     const streakResult = await updateWinStreak(session.playerId, input.outcome);
@@ -260,7 +269,9 @@ export async function completeGameSession(
       },
     };
     
-    const pointsResult = calculatePoints(pointsInput);
+    const pointsResult = isGhost
+      ? { totalPoints: 0, formula: 'ghost_mode_no_points' } as any
+      : calculatePoints(pointsInput);
     
     // 6. Calculate XP
     const xpInput: XPCalculationInput = {
@@ -278,31 +289,41 @@ export async function completeGameSession(
       },
     };
     
-    const xpResult = calculateXP(xpInput);
+    const xpResult = isGhost
+      ? { totalXP: 0 } as any
+      : calculateXP(xpInput);
     
     // 7. Process XP and level ups
     const previousLevel = progression.level;
-    const xpProcessResult = processXPGain(
-      {
-        level: progression.level,
-        currentXP: progression.currentXP,
-        xpToNextLevel: progression.xpToNextLevel,
-      },
-      xpResult.totalXP
-    );
+    const xpProcessResult = isGhost
+      ? { leveledUp: false, finalLevel: progression.level, finalCurrentXP: progression.currentXP, finalXPToNextLevel: progression.xpToNextLevel, levelsGained: 0, levelUpResults: [] } as any
+      : processXPGain(
+          {
+            level: progression.level,
+            currentXP: progression.currentXP,
+            xpToNextLevel: progression.xpToNextLevel,
+          },
+          xpResult.totalXP
+        );
     
-    // 8. Update progression
-    progression.level = xpProcessResult.finalLevel;
-    progression.currentXP = xpProcessResult.finalCurrentXP;
-    progression.totalXP += xpResult.totalXP;
+    // 8. Update progression (skip in ghost mode)
+    if (!isGhost) {
+      progression.level = xpProcessResult.finalLevel;
+      progression.currentXP = xpProcessResult.finalCurrentXP;
+      progression.totalXP += xpResult.totalXP;
+    }
     progression.xpToNextLevel = xpProcessResult.finalXPToNextLevel;
-    progression.statistics.totalGamesPlayed += 1;
+    if (!isGhost) {
+      progression.statistics.totalGamesPlayed += 1;
+    }
     progression.statistics.totalPlayTime += duration;
     progression.statistics.averageSessionTime =
       progression.statistics.totalPlayTime /
       progression.statistics.totalGamesPlayed;
-    progression.statistics.currentStreak = streakResult.currentStreak;
-    progression.statistics.bestStreak = streakResult.bestStreak;
+    if (!isGhost) {
+      progression.statistics.currentStreak = streakResult.currentStreak;
+      progression.statistics.bestStreak = streakResult.bestStreak;
+    }
     progression.metadata.lastXPGain = new Date();
     
     if (input.outcome === 'win') {
@@ -317,7 +338,56 @@ export async function completeGameSession(
       progression.metadata.lastLevelUp = new Date();
     }
     
-    await progression.save({ session: sessionDb });
+    // 8a. Update ELO rating for Madoku games
+    const isMadoku = (game as any).gameId === 'MADOKU' || (game as any).name?.toLowerCase().includes('madoku');
+    if (isMadoku && !isGhost) {
+      // Get current ELO or initialize to 1200
+      const gameKey = (game as any).gameId || String(game._id);
+      const currentStats = progression.gameSpecificStats.get(gameKey) || {
+        gamesPlayed: 0,
+        wins: 0,
+        losses: 0,
+        draws: 0,
+        bestScore: 0,
+        averageScore: 0,
+        totalPoints: 0,
+        elo: 1200, // Starting ELO
+      };
+      
+      const currentElo = currentStats.elo || 1200;
+      
+      // Get opponent ELO (AI difficulty or default)
+      const difficulty = (input.difficulty || 'medium') as 'easy' | 'medium' | 'hard' | 'expert';
+      const opponentElo = getAiElo(difficulty);
+      
+      // Calculate game result
+      const gameResult = getGameResult(input.outcome === 'win', input.outcome === 'draw');
+      
+      // Calculate ELO change
+      const kFactor = getKFactor(currentElo);
+      const { newElo, change } = calculateEloChange(currentElo, opponentElo, gameResult, kFactor);
+      
+      // Update game-specific stats with new ELO
+      currentStats.elo = newElo;
+      progression.gameSpecificStats.set(gameKey, currentStats);
+      
+      logger.info(
+        {
+          playerId: session.playerId,
+          gameKey,
+          previousElo: currentElo,
+          newElo,
+          change,
+          difficulty,
+          outcome: input.outcome,
+        },
+        'ELO rating updated for Madoku'
+      );
+    }
+    
+    if (!isGhost) {
+      await progression.save({ session: sessionDb });
+    }
     
     // 9. Update or create points wallet
     let wallet = await PointsWallet.findOne({ playerId: session.playerId }).session(
@@ -340,15 +410,14 @@ export async function completeGameSession(
       });
     }
     
-    const balanceBefore = wallet.currentBalance;
-    wallet.currentBalance += pointsResult.totalPoints;
-    wallet.lifetimeEarned += pointsResult.totalPoints;
-    wallet.lastTransaction = new Date();
-    
-    await wallet.save({ session: sessionDb });
-    
-    // 10. Create points transaction
-    await PointsTransaction.create(
+    if (!isGhost) {
+      const balanceBefore = wallet.currentBalance;
+      wallet.currentBalance += pointsResult.totalPoints;
+      wallet.lifetimeEarned += pointsResult.totalPoints;
+      wallet.lastTransaction = new Date();
+      await wallet.save({ session: sessionDb });
+      // 10. Create points transaction
+      await PointsTransaction.create(
       [
         {
           playerId: session.playerId,
@@ -369,6 +438,7 @@ export async function completeGameSession(
       ],
       { session: sessionDb }
     );
+    }
     
     // 11. Check achievements
     const achievementContext: AchievementCheckContext = {
@@ -384,7 +454,7 @@ export async function completeGameSession(
       },
     };
     
-    const newAchievements = await checkAndUnlockAchievements(achievementContext);
+    const newAchievements = isGhost ? [] : await checkAndUnlockAchievements(achievementContext);
     
     // 12. Update session
     session.sessionEnd = sessionEnd;
@@ -452,10 +522,11 @@ export async function completeGameSession(
     });
     
     // 13b. Log points earned event
-    await EventLog.create({
-      playerId: session.playerId,
-      brandId: session.brandId,
-      eventType: 'points_earned',
+    if (!isGhost) {
+      await EventLog.create({
+        playerId: session.playerId,
+        brandId: session.brandId,
+        eventType: 'points_earned',
       eventData: {
         amount: pointsResult.totalPoints,
         source: 'game_session',
@@ -468,9 +539,10 @@ export async function completeGameSession(
         amount: pointsResult.totalPoints,
       },
     });
+    }
     
     // 13c. Log level up events
-    if (xpProcessResult.leveledUp) {
+    if (!isGhost && xpProcessResult.leveledUp) {
       await EventLog.create({
         playerId: session.playerId,
         brandId: session.brandId,
@@ -543,7 +615,7 @@ export async function completeGameSession(
         leveledUp: xpProcessResult.leveledUp,
         newLevel: xpProcessResult.finalLevel,
         levelsGained: xpProcessResult.levelsGained,
-        levelUpRewards: xpProcessResult.levelUpResults.map(r => r.rewards),
+        levelUpRewards: (xpProcessResult.levelUpResults || []).map((r: any) => r.rewards),
       },
       achievements: {
         newUnlocks: newAchievements.length,

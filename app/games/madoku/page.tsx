@@ -40,6 +40,7 @@ export default function MadokuGame() {
   
   // Game state
   const [difficulty, setDifficulty] = useState<SudokuDifficulty>('medium');
+  const [ghostMode, setGhostMode] = useState(false);
   const [gameStarted, setGameStarted] = useState(false);
   const [puzzle, setPuzzle] = useState<SudokuGrid | null>(null);
   const [solution, setSolution] = useState<SudokuGrid | null>(null);
@@ -175,6 +176,7 @@ export default function MadokuGame() {
           metadata: {
             difficulty,
             completion: puzzle ? getCompletionPercentage(puzzle) : 0,
+            ghost: ghostMode,
           },
         }),
       });
@@ -256,6 +258,11 @@ export default function MadokuGame() {
             ))}
           </div>
           
+          {/* Ghost/Practice mode toggle */}
+          <label className="flex items-center gap-3 mb-4 text-white/90">
+            <input type="checkbox" checked={ghostMode} onChange={(e) => setGhostMode(e.target.checked)} />
+            <span>Practice (Ghost) mode — no XP/points, just practice</span>
+          </label>
           <button onClick={startNewGame} className="w-full bg-white text-indigo-600 px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-100 transition-colors flex items-center justify-center gap-2">
             <Play className="w-6 h-6" />
             Start Game

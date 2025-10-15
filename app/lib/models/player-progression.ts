@@ -53,6 +53,7 @@ export interface IPlayerProgression extends Document {
       totalPoints: number;
       fastestWin?: number; // milliseconds
       highestAccuracy?: number; // percentage
+      elo?: number; // ELO rating for competitive games (e.g., Madoku)
     }
   >;
   achievements: {
@@ -201,9 +202,10 @@ const PlayerProgressionSchema = new Schema<IPlayerProgression>(
         totalPoints: { type: Number, default: 0, min: 0 },
         fastestWin: { type: Number, min: 0 },
         highestAccuracy: { type: Number, min: 0, max: 100 },
+        elo: { type: Number, default: 1200, min: 0 }, // ELO rating starting at 1200
       },
       default: () => new Map(),
-      // Why: Per-game statistics for detailed analytics
+      // Why: Per-game statistics for detailed analytics and competitive ranking
     },
     achievements: {
       totalUnlocked: {

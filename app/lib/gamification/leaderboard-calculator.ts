@@ -27,7 +27,8 @@ export type LeaderboardType =
   | 'win_streak'         // Current win streak
   | 'daily_streak'       // Current daily login streak
   | 'games_won'          // Total games won
-  | 'win_rate';          // Win percentage
+  | 'win_rate'           // Win percentage
+  | 'elo';               // Madoku ELO rating
 
 /**
  * Time Period Types
@@ -103,6 +104,9 @@ export async function calculateLeaderboard(
         break;
       case 'win_rate':
         rankings = await calculateWinRateLeaderboard(brandId, limit, dateRange);
+        break;
+      case 'elo':
+        rankings = await calculateEloLeaderboard(brandId, limit);
         break;
       default:
         throw new Error(`Unknown leaderboard type: ${type}`);
@@ -180,6 +184,9 @@ export async function calculateAllLeaderboards(brandId?: string): Promise<{
     // Monthly leaderboards
     { type: 'games_won', period: 'monthly', brandId },
     { type: 'win_rate', period: 'monthly', brandId },
+
+    // Madoku ELO (all-time)
+    { type: 'elo', period: 'all_time', brandId },
   ];
 
   for (const config of leaderboards) {
@@ -199,6 +206,88 @@ export async function calculateAllLeaderboards(brandId?: string): Promise<{
 // ============================================================================
 // HELPER FUNCTIONS FOR EACH LEADERBOARD TYPE
 // ============================================================================
+
+/**
+ * Madoku ELO Leaderboard
+ * 
+ * Why: Shows top champions by ELO
+ */
+/**
+ * ELO Rating Leaderboard (Madoku)
+ * 
+ * Why: Shows competitive rankings for Madoku based on ELO rating system
+ */
+async function calculateEloLeaderboard(
+  brandId?: string,
+  limit: number = 100
+): Promise<Array<{ playerId: string; value: number; rank: number }>> {
+  // Find all player progressions with Madoku ELO ratings
+  const progressions = await PlayerProgression.find({})
+    .populate('playerId', 'displayName isActive isBanned brandId')
+    .lean();
+
+  // Extract ELO ratings for Madoku game
+  const eloData: Array<{ playerId: string; value: number }> = [];
+  
+  for (const prog of progressions) {
+    const player = prog.playerId as any;
+    
+    // Skip inactive or banned players
+    if (!player || !player.isActive || player.isBanned) {
+      continue;
+    }
+    
+    // Filter by brand if specified
+    if (brandId && player.brandId?.toString() !== brandId) {
+      continue;
+    }
+    
+    // Look for Madoku ELO in gameSpecificStats
+    // gameSpecificStats is a Map, but when lean() is used, it becomes a plain object
+    const gameStats = (prog.gameSpecificStats as any) || {};
+    
+    // Try both 'MADOKU' key and any key that might represent Madoku
+    let madokuElo: number | undefined;
+    
+    // Check if it's a Map or plain object
+    if (gameStats instanceof Map) {
+      madokuElo = gameStats.get('MADOKU')?.elo || gameStats.get('madoku')?.elo;
+    } else {
+      // Plain object from lean()
+      madokuElo = gameStats['MADOKU']?.elo || gameStats['madoku']?.elo;
+      
+      // If not found, iterate through all game stats to find any ELO
+      if (!madokuElo) {
+        for (const key of Object.keys(gameStats)) {
+          if (gameStats[key]?.elo) {
+            madokuElo = gameStats[key].elo;
+            break;
+          }
+        }
+      }
+    }
+    
+    // Only include players who have played Madoku (have an ELO rating)
+    if (madokuElo !== undefined && madokuElo > 0) {
+      eloData.push({
+        playerId: (prog.playerId as any)._id.toString(),
+        value: madokuElo,
+      });
+    }
+  }
+  
+  // Sort by ELO descending
+  eloData.sort((a, b) => b.value - a.value);
+  
+  // Limit results
+  const limitedResults = eloData.slice(0, limit);
+  
+  // Add rank
+  return limitedResults.map((entry, index) => ({
+    ...entry,
+    rank: index + 1,
+  }));
+}
 
 /**
  * Points Balance Leaderboard
