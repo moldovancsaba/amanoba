@@ -182,21 +182,28 @@ export async function POST(request: NextRequest) {
     }
 
     // Why: Deduct points from wallet
+    const balanceBefore = wallet.currentBalance;
     wallet.currentBalance -= reward.pointsCost;
     wallet.lifetimeSpent += reward.pointsCost;
     await wallet.save({ session });
 
-    // Why: Create points transaction for audit trail
+    // Why: Create points transaction for audit trail (schema-compliant)
     await PointsTransaction.create(
       [
         {
-          playerId: validatedData.playerId,
+          playerId: wallet.playerId,
+          walletId: wallet._id,
+          type: 'spend',
           amount: -reward.pointsCost,
-          type: 'SPEND',
-          reason: 'REWARD_REDEMPTION',
+          balanceBefore,
+          balanceAfter: wallet.currentBalance,
+          source: {
+            type: 'reward_redemption',
+            referenceId: reward._id as any,
+            description: `Redeemed: ${reward.name}`,
+          },
           metadata: {
-            rewardId: reward._id,
-            rewardName: reward.name,
+            createdAt: new Date(),
           },
         },
       ],

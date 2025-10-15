@@ -14,6 +14,7 @@ import { ReferralCard } from '@/components/ReferralCard';
 
 interface PlayerData {
   player: {
+    id: string;
     displayName: string;
     isPremium: boolean;
     createdAt: string;
@@ -67,7 +68,7 @@ export default function Dashboard() {
       }
       
       try {
-        const playerId = (session.user as any).id;
+        const playerId = (session.user as any).playerId || (session.user as any).id;
         const response = await fetch(`/api/players/${playerId}`);
         
         if (response.ok) {
@@ -163,7 +164,7 @@ export default function Dashboard() {
               🎮 Play Games
             </Link>
             <Link
-              href={`/api/players/${playerData.player.displayName}/achievements`}
+              href={`/api/players/${playerData.player.id}/achievements`}
               className="block bg-gradient-to-r from-pink-600 to-red-600 text-white px-6 py-3 rounded-lg font-bold text-center hover:from-pink-700 hover:to-red-700 transition-all"
             >
               🏆 View Achievements
