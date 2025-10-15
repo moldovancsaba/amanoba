@@ -95,16 +95,18 @@ export async function createAnonymousPlayer(username: string) {
       });
     }
     
-    // Create new anonymous player
+    // Create new anonymous player (match Player schema)
     const newPlayer = await Player.create({
       facebookId: `anon_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`,
       displayName: username,
-      email: null,
-      avatarUrl: null,
       isPremium: false,
-      isAnonymous: true, // Flag to identify guest accounts
+      isAnonymous: true,
       brandId: defaultBrand._id,
-      registeredAt: new Date(),
+      locale: 'en',
+      isActive: true,
+      isBanned: false,
+      lastLoginAt: new Date(),
+      lastSeenAt: new Date(),
     });
     
     // Convert to lean object for consistent return type
@@ -152,26 +154,47 @@ export async function createAnonymousPlayer(username: string) {
     // Initialize points wallet
     await PointsWallet.create({
       playerId: player._id,
-      balance: 0,
+      currentBalance: 0,
       lifetimeEarned: 0,
       lifetimeSpent: 0,
+      pendingBalance: 0,
+      lastTransaction: new Date(),
+      metadata: {
+        createdAt: new Date(),
+        updatedAt: new Date(),
+        lastBalanceCheck: new Date(),
+      },
     });
     
-    // Initialize streaks
+    // Initialize streaks (match Streak schema)
     await Streak.create({
       playerId: player._id,
-      type: 'WIN_STREAK',
+      type: 'win',
       currentStreak: 0,
-      longestStreak: 0,
-      lastActivityAt: new Date(),
+      bestStreak: 0,
+      lastActivity: new Date(),
+      streakStart: new Date(),
+      bonusMultiplier: 1.0,
+      milestones: [],
+      metadata: {
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
     });
     
     await Streak.create({
       playerId: player._id,
-      type: 'DAILY_LOGIN',
+      type: 'daily_login',
       currentStreak: 1, // First login
-      longestStreak: 1,
-      lastActivityAt: new Date(),
+      bestStreak: 1,
+      lastActivity: new Date(),
+      streakStart: new Date(),
+      bonusMultiplier: 1.0,
+      milestones: [],
+      metadata: {
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
     });
     
     logger.info(`Created new anonymous player: ${username}`);
