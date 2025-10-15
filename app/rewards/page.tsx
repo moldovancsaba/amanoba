@@ -14,24 +14,18 @@ import Link from 'next/link';
 import { Gift, ChevronLeft, Sparkles, ShoppingCart, Check, AlertCircle } from 'lucide-react';
 
 interface Reward {
-  _id: string;
+  id: string;
   name: string;
   description: string;
   icon: string;
   category: string;
   pointsCost: number;
-  tier: 'common' | 'rare' | 'epic' | 'legendary';
+  type?: string;
   isActive: boolean;
   stock?: number;
-  isPremiumOnly: boolean;
+  premiumOnly?: boolean;
 }
 
-const TIER_COLORS = {
-  common: 'from-gray-400 to-gray-600',
-  rare: 'from-blue-400 to-blue-600',
-  epic: 'from-purple-400 to-purple-600',
-  legendary: 'from-yellow-400 to-yellow-600',
-};
 
 export default function RewardsPage() {
   const { data: session, status } = useSession();
@@ -218,17 +212,17 @@ export default function RewardsPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {filteredRewards.map(reward => {
               const canAfford = playerPoints >= reward.pointsCost;
-              const isRedeeming = redeeming === reward._id;
-              const wasRedeemed = redeemSuccess === reward._id;
+              const isRedeeming = redeeming === reward.id;
+              const wasRedeemed = redeemSuccess === reward.id;
 
               return (
                 <div
-                  key={reward._id}
+                  key={reward.id}
                   className={`bg-white rounded-xl shadow-lg p-6 relative overflow-hidden transition-all ${
                     canAfford ? 'border-2 border-green-500' : 'border-2 border-gray-300 opacity-75'
                   }`}
                 >
-                  {reward.isPremiumOnly && (
+                  {reward.premiumOnly && (
                     <div className="absolute top-0 left-0 bg-yellow-400 text-black px-3 py-1 rounded-br-lg font-bold text-xs">
                       ⭐ PREMIUM
                     </div>
@@ -243,9 +237,11 @@ export default function RewardsPage() {
                   
                   <div className="text-6xl mb-4 text-center">{reward.icon}</div>
                   
-                  <div className={`inline-block px-3 py-1 rounded-full text-xs font-bold mb-3 bg-gradient-to-r ${TIER_COLORS[reward.tier]} text-white`}>
-                    {reward.tier.toUpperCase()}
-                  </div>
+                  {reward.type && (
+                    <div className="inline-block px-3 py-1 rounded-full text-xs font-bold mb-3 bg-gradient-to-r from-indigo-500 to-purple-500 text-white">
+                      {reward.type.toUpperCase()}
+                    </div>
+                  )}
                   
                   <h3 className="text-xl font-bold text-gray-900 mb-2">
                     {reward.name}
@@ -271,7 +267,7 @@ export default function RewardsPage() {
                   </div>
                   
                   <button
-                    onClick={() => handleRedeem(reward._id, reward.pointsCost)}
+                    onClick={() => handleRedeem(reward.id, reward.pointsCost)}
                     disabled={!canAfford || isRedeeming || wasRedeemed}
                     className={`w-full py-3 rounded-lg font-bold transition-all flex items-center justify-center gap-2 ${
                       canAfford && !wasRedeemed
