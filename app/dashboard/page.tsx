@@ -156,7 +156,7 @@ export default function Dashboard() {
             <span>🎯</span>
             Quick Actions
           </h3>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
             <Link
               href="/games"
               className="block bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-6 py-3 rounded-lg font-bold text-center hover:from-indigo-700 hover:to-purple-700 transition-all"
@@ -164,16 +164,22 @@ export default function Dashboard() {
               🎮 Play Games
             </Link>
             <Link
+              href="/leaderboards"
+              className="block bg-gradient-to-r from-blue-600 to-cyan-600 text-white px-6 py-3 rounded-lg font-bold text-center hover:from-blue-700 hover:to-cyan-700 transition-all"
+            >
+              🏆 Leaderboards
+            </Link>
+            <Link
               href="/achievements"
               className="block bg-gradient-to-r from-pink-600 to-red-600 text-white px-6 py-3 rounded-lg font-bold text-center hover:from-pink-700 hover:to-red-700 transition-all"
             >
-              🏆 View Achievements
+              🏅 Achievements
             </Link>
             <Link
               href="/rewards"
               className="block bg-gradient-to-r from-yellow-600 to-orange-600 text-white px-6 py-3 rounded-lg font-bold text-center hover:from-yellow-700 hover:to-orange-700 transition-all"
             >
-              🎁 Redeem Rewards
+              🎁 Rewards
             </Link>
           </div>
         </div>
