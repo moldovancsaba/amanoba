@@ -164,13 +164,13 @@ export default function Dashboard() {
               🎮 Play Games
             </Link>
             <Link
-              href={`/api/players/${playerData.player.id}/achievements`}
+              href="/achievements"
               className="block bg-gradient-to-r from-pink-600 to-red-600 text-white px-6 py-3 rounded-lg font-bold text-center hover:from-pink-700 hover:to-red-700 transition-all"
             >
               🏆 View Achievements
             </Link>
             <Link
-              href="/api/rewards"
+              href="/rewards"
               className="block bg-gradient-to-r from-yellow-600 to-orange-600 text-white px-6 py-3 rounded-lg font-bold text-center hover:from-yellow-700 hover:to-orange-700 transition-all"
             >
               🎁 Redeem Rewards
