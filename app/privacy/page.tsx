@@ -75,7 +75,7 @@ export default function PrivacyPage() {
             <h2 className="text-2xl font-bold text-gray-900 mb-4">5. Facebook Login</h2>
             <p>
               When you sign in using Facebook, we receive basic profile information (name, email, profile picture) 
-              as permitted by Facebook's OAuth system. We do not post to your Facebook account without your explicit 
+              as permitted by Facebook&apos;s OAuth system. We do not post to your Facebook account without your explicit 
               permission. You can manage Facebook app permissions in your Facebook settings at any time.
             </p>
           </section>
@@ -113,7 +113,7 @@ export default function PrivacyPage() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">8. Children's Privacy</h2>
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">8. Children&apos;s Privacy</h2>
             <p>
               Our platform is not intended for children under 13 years of age. We do not knowingly collect 
               personal information from children under 13. If you believe we have collected information from 
