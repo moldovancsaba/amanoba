@@ -92,7 +92,7 @@ export default async function SignInPage({
           {/* Additional Info */}
           <div className="mt-8 text-center text-sm text-gray-500">
             <p>
-              By continuing, you agree to Amanoba's{' '}
+              By continuing, you agree to Amanoba&apos;s{' '}
               <a href="/terms" className="text-indigo-600 hover:text-indigo-700 underline">
                 Terms of Service
               </a>{' '}

@@ -11,7 +11,7 @@ import { useEffect, useState } from 'react';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
-import { Calendar, ChevronLeft, Target, Clock, Gift, CheckCircle, Lock } from 'lucide-react';
+import { Calendar, ChevronLeft, Target } from 'lucide-react';
 
 interface Challenge {
   _id: string;
@@ -37,6 +37,7 @@ const DIFFICULTY_COLORS = {
   expert: 'from-red-500 to-red-600',
 };
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const DIFFICULTY_TEXT = {
   easy: 'text-green-700',
   medium: 'text-yellow-700',

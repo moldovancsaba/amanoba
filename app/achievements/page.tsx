@@ -44,6 +44,7 @@ const TIER_COLORS = {
   platinum: 'from-purple-400 to-purple-600',
 };
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const TIER_TEXT_COLORS = {
   bronze: 'text-amber-700',
   silver: 'text-gray-700',
