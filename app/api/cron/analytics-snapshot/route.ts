@@ -99,12 +99,18 @@ export async function POST(request: NextRequest) {
       });
     }
 
-    const results: any[] = [];
+    const results: Array<{
+      brandId: string;
+      brandName: string;
+      snapshotsCreated?: number;
+      success: boolean;
+      error?: string;
+    }> = [];
 
     // Process each brand
     for (const brand of brands) {
       try {
-        const brandId = (brand._id as any).toString();
+        const brandId = String(brand._id);
         logger.info({ brandId }, `Processing brand: ${brand.name}`);
 
         // Run all aggregations in parallel
@@ -272,7 +278,7 @@ export async function POST(request: NextRequest) {
           success: true,
         });
       } catch (error) {
-        const brandId = (brand._id as any).toString();
+        const brandId = String(brand._id);
         logger.error(
           { error, brandId },
           `Failed to process brand: ${brand.name}`

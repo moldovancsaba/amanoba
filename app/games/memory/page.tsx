@@ -29,7 +29,7 @@ export default function MemoryGamePage() {
   }
 
   const playerId = (session.user as { id: string }).id;
-  const isPremium = (session.user as any).isPremium || false;
+  const isPremium = (session.user as { isPremium?: boolean }).isPremium || false;
 
   return (
     <div className="container mx-auto px-4 py-8">
