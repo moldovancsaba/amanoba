@@ -220,7 +220,7 @@ export default function ProfilePage({ params }: { params: Promise<{ playerId: st
             return (
               <button
                 key={tab.id}
-                onClick={() => setActiveTab(tab.id as any)}
+                onClick={() => setActiveTab(tab.id as 'overview' | 'achievements' | 'activity')}
                 className={`flex items-center gap-2 px-6 py-3 rounded-lg font-semibold transition-all ${
                   activeTab === tab.id
                     ? 'bg-indigo-600 text-white'

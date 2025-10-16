@@ -22,7 +22,7 @@ export interface IEventLog extends Document {
   playerId?: mongoose.Types.ObjectId; // Null for system events
   brandId?: mongoose.Types.ObjectId;
   eventType: 'player_registered' | 'game_played' | 'achievement_unlocked' | 'points_earned' | 'points_spent' | 'level_up' | 'streak_started' | 'streak_broken' | 'reward_redeemed' | 'premium_purchased' | 'login' | 'logout' | 'system';
-  eventData: Record<string, any>; // Flexible event-specific data
+  eventData: Record<string, unknown>; // Flexible event-specific data
   timestamp: Date;
   context: {
     sessionId?: string;

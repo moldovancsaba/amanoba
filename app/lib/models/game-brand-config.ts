@@ -34,7 +34,7 @@ export interface IGameBrandConfig extends Document {
     maxAttempts?: number;
     pointsMultiplier?: number;
     difficultyLevel?: 'easy' | 'medium' | 'hard' | 'expert';
-    customSettings?: Record<string, any>; // Game-specific settings
+    customSettings?: Record<string, unknown>; // Game-specific settings
   };
   displayOrder: number; // For sorting games in UI
   featuredUntil?: Date; // Optional featured promotion period

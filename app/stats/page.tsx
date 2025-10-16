@@ -73,7 +73,7 @@ export default function StatsPage() {
   const fetchStats = async () => {
     try {
       setLoading(true);
-      const playerId = (session?.user as any)?.id;
+      const playerId = session?.user?.id;
       
       if (!playerId) {
         throw new Error('No player ID found');

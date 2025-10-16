@@ -36,7 +36,7 @@ export interface IPlayerSession extends Document {
     difficulty?: string;
     level?: number;
     outcome: 'win' | 'loss' | 'draw' | 'incomplete';
-    rawData?: Record<string, any>; // Game-specific data (e.g., Madoku grid state)
+    rawData?: Record<string, unknown>; // Game-specific data (e.g., Madoku grid state)
   };
   rewards: {
     pointsEarned: number;

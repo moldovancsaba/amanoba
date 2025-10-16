@@ -80,7 +80,7 @@ export function calculateXP(input: XPCalculationInput): XPCalculationResult {
   const { game, sessionData, playerContext } = input;
   
   // 1. Base XP (typically 50% of points base value)
-  const baseXP = ((game as any).scoring?.basePoints || 100) * 0.5;
+  const baseXP = ((game as { scoring?: { basePoints?: number } }).scoring?.basePoints || 100) * 0.5;
   
   // 2. Outcome Multiplier
   // Why: Wins give full XP, losses give partial XP
