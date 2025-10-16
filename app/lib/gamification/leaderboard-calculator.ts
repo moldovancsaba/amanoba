@@ -230,7 +230,7 @@ async function calculateEloLeaderboard(
   const eloData: Array<{ playerId: string; value: number }> = [];
   
   for (const prog of progressions) {
-    const player = prog.playerId as any;
+    const player = prog.playerId as { _id: unknown; displayName?: string; isActive?: boolean; isBanned?: boolean; brandId?: unknown };
     
     // Skip inactive or banned players
     if (!player || !player.isActive || player.isBanned) {
@@ -244,7 +244,7 @@ async function calculateEloLeaderboard(
     
     // Look for Madoku ELO in gameSpecificStats
     // gameSpecificStats is a Map, but when lean() is used, it becomes a plain object
-    const gameStats = (prog.gameSpecificStats as any) || {};
+    const gameStats = (prog.gameSpecificStats as Map<string, { elo?: number }> | Record<string, { elo?: number }>) || {};
     
     // Try both 'MADOKU' key and any key that might represent Madoku
     let madokuElo: number | undefined;
@@ -270,7 +270,7 @@ async function calculateEloLeaderboard(
     // Only include players who have played Madoku (have an ELO rating)
     if (madokuElo !== undefined && madokuElo > 0) {
       eloData.push({
-        playerId: (prog.playerId as any)._id.toString(),
+        playerId: String(player._id),
         value: madokuElo,
       });
     }

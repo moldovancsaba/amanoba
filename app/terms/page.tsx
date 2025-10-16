@@ -200,7 +200,7 @@ export default function TermsPage() {
           <section>
             <h2 className="text-2xl font-bold text-gray-900 mb-4">10. Disclaimers</h2>
             <div className="bg-yellow-50 border-l-4 border-yellow-600 p-6">
-              <p className="font-semibold mb-2">THE SERVICE IS PROVIDED &quot;AS IS&quot; AND "AS AVAILABLE" WITHOUT WARRANTIES OF ANY KIND.</p>
+              <p className="font-semibold mb-2">THE SERVICE IS PROVIDED &quot;AS IS&quot; AND &quot;AS AVAILABLE&quot; WITHOUT WARRANTIES OF ANY KIND.</p>
               <p className="mt-2">We disclaim all warranties, express or implied, including:</p>
               <ul className="list-disc pl-6 space-y-2 mt-2">
                 <li>Warranties of merchantability or fitness for a particular purpose</li>
@@ -293,7 +293,7 @@ export default function TermsPage() {
             </p>
             <ul className="list-disc pl-6 space-y-2 mt-2">
               <li>Posting the updated Terms on this page</li>
-              <li>Updating the "Last Updated" date</li>
+              <li>Updating the &quot;Last Updated&quot; date</li>
               <li>Sending an email notification (for significant changes)</li>
             </ul>
             <p className="mt-4">

@@ -75,7 +75,7 @@ export function calculatePoints(input: PointsCalculationInput): PointsCalculatio
   const { game, gameBrandConfig, sessionData, playerContext } = input;
   
   // 1. Base Points (from game configuration)
-  const basePoints = (game as any).scoring?.basePoints || 100;
+  const basePoints = (game as { scoring?: { basePoints?: number } }).scoring?.basePoints || 100;
   
   // 2. Score Multiplier (how well player performed)
   // Why: Reward higher scores proportionally
@@ -87,16 +87,18 @@ export function calculatePoints(input: PointsCalculationInput): PointsCalculatio
   // 3. Accuracy Bonus (for games with accuracy tracking)
   // Why: Reward precision play
   let accuracyBonus = 0;
-  if (sessionData.accuracy !== undefined && (game as any).scoring?.accuracyMultiplier) {
+  if (sessionData.accuracy !== undefined && (game as { scoring?: { accuracyMultiplier?: number } }).scoring?.accuracyMultiplier) {
     const accuracyPercentage = sessionData.accuracy / 100;
-    accuracyBonus = basePoints * accuracyPercentage * ((game as any).scoring.accuracyMultiplier - 1);
+    const accuracyMult = (game as { scoring?: { accuracyMultiplier?: number } }).scoring?.accuracyMultiplier || 1;
+    accuracyBonus = basePoints * accuracyPercentage * (accuracyMult - 1);
   }
   
   // 4. Speed Bonus (for games with time limits)
   // Why: Reward quick completion
   let speedBonus = 0;
-  if ((game as any).scoring?.timeBonus && (game as any).rules?.timeLimit) {
-    const timeLimit = (game as any).rules.timeLimit * 1000; // Convert to milliseconds
+  const gameWithScoring = game as { scoring?: { timeBonus?: boolean }; rules?: { timeLimit?: number } };
+  if (gameWithScoring.scoring?.timeBonus && gameWithScoring.rules?.timeLimit) {
+    const timeLimit = gameWithScoring.rules.timeLimit * 1000; // Convert to milliseconds
     const timeTaken = sessionData.duration;
     const timePercentage = Math.max(0, 1 - (timeTaken / timeLimit));
     
@@ -109,7 +111,7 @@ export function calculatePoints(input: PointsCalculationInput): PointsCalculatio
   // 5. Streak Bonus (from active win streaks)
   // Why: Reward consistent performance
   let streakBonus = 0;
-  if ((game as any).scoring?.streakBonus && playerContext.currentWinStreak) {
+  if ((game as { scoring?: { streakBonus?: boolean } }).scoring?.streakBonus && playerContext.currentWinStreak) {
     const streak = playerContext.currentWinStreak;
     // Exponential bonus: 10 points per streak level, with diminishing returns
     streakBonus = Math.floor(10 * Math.log(streak + 1) * streak);
@@ -178,7 +180,7 @@ export function calculatePoints(input: PointsCalculationInput): PointsCalculatio
  * Build human-readable formula string
  * Why: Helps players understand how points were calculated
  */
-function buildFormulaString(breakdown: any): string {
+function buildFormulaString(breakdown: PointsCalculationResult['breakdown'] & { totalPoints: number }): string {
   const parts: string[] = [];
   
   parts.push(`${breakdown.basePoints} base`);
@@ -224,7 +226,7 @@ export function calculateConsolationPoints(
   game: IGame,
   isPremium: boolean
 ): number {
-  const basePoints = (game as any).scoring?.basePoints || 100;
+  const basePoints = (game as { scoring?: { basePoints?: number } }).scoring?.basePoints || 100;
   const consolation = Math.floor(basePoints * 0.1); // 10% of base
   const premiumBonus = isPremium ? Math.floor(consolation * 0.1) : 0;
   
@@ -241,7 +243,7 @@ export function validatePointsInput(input: PointsCalculationInput): {
 } {
   const errors: string[] = [];
   
-  if (!input.game || !(input.game as any).scoring) {
+  if (!input.game || !(input.game as { scoring?: unknown }).scoring) {
     errors.push('Game or scoring configuration missing');
   }
   

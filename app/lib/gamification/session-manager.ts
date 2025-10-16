@@ -31,9 +31,12 @@ import {
   checkAndUnlockAchievements,
   updateWinStreak,
   type PointsCalculationInput,
+  type PointsCalculationResult,
   type XPCalculationInput,
   type AchievementCheckContext,
 } from './index';
+import type { IGame } from '../models/game';
+import type { IGameBrandConfig } from '../models/game-brand-config';
 import {
   calculateEloChange,
   getKFactor,
@@ -70,7 +73,7 @@ export interface SessionCompleteInput {
   hints?: number;
   difficulty?: string;
   level?: number;
-  rawData?: Record<string, any>;
+  rawData?: Record<string, unknown>;
 }
 
 /**
@@ -90,11 +93,11 @@ export interface SessionCompleteResult {
     leveledUp: boolean;
     newLevel?: number;
     levelsGained?: number;
-    levelUpRewards?: any[];
+    levelUpRewards?: unknown[];
   };
   achievements: {
     newUnlocks: number;
-    achievements: any[];
+    achievements: unknown[];
   };
   streak: {
     current: number;
@@ -168,7 +171,7 @@ export async function startGameSession(
       eventType: 'game_played',
       eventData: {
         gameId: input.gameId,
-        gameName: (game as any).name,
+        gameName: (game as { name: string }).name,
         sessionId: session._id,
       },
       timestamp: new Date(),
@@ -275,25 +278,25 @@ export async function completeGameSession(
     const gameBrandConfig = gameBrandConfigRaw || ({
       brandId: session.brandId,
       gameId: session.gameId,
-      pointsConfig: (game as any).pointsConfig,
-      xpConfig: (game as any).xpConfig,
-      difficultySettings: (game as any).difficultyLevels || ['normal'],
-    } as any);
+      pointsConfig: (game as { pointsConfig?: Record<string, unknown> }).pointsConfig,
+      xpConfig: (game as { xpConfig?: Record<string, unknown> }).xpConfig,
+      difficultySettings: (game as { difficultyLevels?: string[] }).difficultyLevels || ['normal'],
+    } as IGameBrandConfig);
     
     // 3. Calculate session duration
     const sessionEnd = new Date();
     const duration = sessionEnd.getTime() - session.sessionStart.getTime();
 
     // Ghost/Practice mode: if flagged, do not award XP/points or achievements
-    const isGhost = !!(input.rawData && (input.rawData as any).ghost);
+    const isGhost = !!(input.rawData && (input.rawData as { ghost?: boolean }).ghost);
     
     // 4. Update win streak
     const streakResult = await updateWinStreak(session.playerId, input.outcome);
     
     // 5. Calculate points
     const pointsInput: PointsCalculationInput = {
-      game: game as any,
-      gameBrandConfig: gameBrandConfig as any,
+      game: game as IGame,
+      gameBrandConfig: gameBrandConfig as IGameBrandConfig,
       sessionData: {
         score: input.score,
         maxScore: input.maxScore,
@@ -308,12 +311,12 @@ export async function completeGameSession(
     };
     
     const pointsResult = isGhost
-      ? { totalPoints: 0, formula: 'ghost_mode_no_points' } as any
+      ? { totalPoints: 0, formula: 'ghost_mode_no_points', breakdown: {} as PointsCalculationResult['breakdown'] }
       : calculatePoints(pointsInput);
     
     // 6. Calculate XP
     const xpInput: XPCalculationInput = {
-      game: game as any,
+      game: game as IGame,
       sessionData: {
         outcome: input.outcome,
         score: input.score,
@@ -328,13 +331,13 @@ export async function completeGameSession(
     };
     
     const xpResult = isGhost
-      ? { totalXP: 0 } as any
+      ? { totalXP: 0, baseXP: 0, bonusXP: 0, multipliers: {} }
       : calculateXP(xpInput);
     
     // 7. Process XP and level ups
     const previousLevel = progression.level;
     const xpProcessResult = isGhost
-      ? { leveledUp: false, finalLevel: progression.level, finalCurrentXP: progression.currentXP, finalXPToNextLevel: progression.xpToNextLevel, levelsGained: 0, levelUpResults: [] } as any
+      ? { leveledUp: false, finalLevel: progression.level, finalCurrentXP: progression.currentXP, finalXPToNextLevel: progression.xpToNextLevel, levelsGained: 0, levelUpResults: [] }
       : processXPGain(
           {
             level: progression.level,
@@ -377,10 +380,10 @@ export async function completeGameSession(
     }
     
     // 8a. Update ELO rating for Madoku games
-    const isMadoku = (game as any).gameId === 'MADOKU' || (game as any).name?.toLowerCase().includes('madoku');
+    const isMadoku = (game as { gameId?: string; name?: string }).gameId === 'MADOKU' || (game as { name?: string }).name?.toLowerCase().includes('madoku');
     if (isMadoku && !isGhost) {
       // Get current ELO or initialize to 1200
-      const gameKey = (game as any).gameId || String(game._id);
+      const gameKey = (game as { gameId?: string }).gameId || String(game._id);
       const currentStats = progression.gameSpecificStats.get(gameKey) || {
         gamesPlayed: 0,
         wins: 0,
@@ -467,7 +470,7 @@ export async function completeGameSession(
           source: {
             type: 'game_session',
             referenceId: session._id,
-            description: `${(game as any).name} - ${input.outcome}`,
+            description: `${(game as { name?: string }).name || 'Game'} - ${input.outcome}`,
           },
           metadata: {
             createdAt: new Date(),
@@ -543,7 +546,7 @@ export async function completeGameSession(
       eventType: 'game_played',
       eventData: {
         gameId: session.gameId,
-        gameName: (game as any).name,
+        gameName: (game as { name?: string }).name || 'Game',
         sessionId: session._id,
         outcome: input.outcome,
         score: input.score,
@@ -653,7 +656,7 @@ export async function completeGameSession(
         leveledUp: xpProcessResult.leveledUp,
         newLevel: xpProcessResult.finalLevel,
         levelsGained: xpProcessResult.levelsGained,
-        levelUpRewards: (xpProcessResult.levelUpResults || []).map((r: any) => r.rewards),
+        levelUpRewards: (xpProcessResult.levelUpResults || []).map((r: { rewards: unknown }) => r.rewards),
       },
       achievements: {
         newUnlocks: newAchievements.length,

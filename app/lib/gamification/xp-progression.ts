@@ -231,7 +231,11 @@ export function getLevelUpRewards(level: number): {
   title?: string;
   unlocks?: string[];
 } {
-  const rewards: any = {};
+  const rewards: {
+    points?: number;
+    title?: string;
+    unlocks?: string[];
+  } = {};
   
   // Points reward (scales with level)
   rewards.points = level * 50;

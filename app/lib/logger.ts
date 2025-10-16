@@ -22,7 +22,7 @@ const logLevel = process.env.NODE_ENV === 'production' ? 'info' : 'debug';
 const isDev = process.env.NODE_ENV !== 'production';
 
 interface LogData {
-  [key: string]: any;
+  [key: string]: unknown;
 }
 
 interface Logger {
@@ -38,10 +38,10 @@ interface Logger {
   error(data: LogData, msg: string): void;
   fatal(msg: string): void;
   fatal(data: LogData, msg: string): void;
-  child(context: Record<string, any>): Logger;
+  child(context: Record<string, unknown>): Logger;
 }
 
-function createSimpleLogger(context: Record<string, any> = {}): Logger {
+function createSimpleLogger(context: Record<string, unknown> = {}): Logger {
   const formatMessage = (level: string, msg: string, data?: LogData) => {
     const timestamp = new Date().toISOString();
     const contextStr = Object.keys(context).length > 0 ? ` ${JSON.stringify(context)}` : '';
@@ -51,7 +51,7 @@ function createSimpleLogger(context: Record<string, any> = {}): Logger {
       : JSON.stringify({ time: timestamp, level, ...context, ...data, msg });
   };
 
-  const log = (level: string, ...args: any[]) => {
+  const log = (level: string, ...args: unknown[]) => {
     const [first, second] = args;
     const msg = typeof first === 'string' ? first : second || '';
     const data = typeof first === 'object' ? first : undefined;
@@ -77,13 +77,13 @@ function createSimpleLogger(context: Record<string, any> = {}): Logger {
   };
 
   return {
-    trace: (...args: any[]) => log('trace', ...args),
-    debug: (...args: any[]) => log('debug', ...args),
-    info: (...args: any[]) => log('info', ...args),
-    warn: (...args: any[]) => log('warn', ...args),
-    error: (...args: any[]) => log('error', ...args),
-    fatal: (...args: any[]) => log('fatal', ...args),
-    child: (childContext: Record<string, any>) => 
+    trace: (...args: unknown[]) => log('trace', ...args),
+    debug: (...args: unknown[]) => log('debug', ...args),
+    info: (...args: unknown[]) => log('info', ...args),
+    warn: (...args: unknown[]) => log('warn', ...args),
+    error: (...args: unknown[]) => log('error', ...args),
+    fatal: (...args: unknown[]) => log('fatal', ...args),
+    child: (childContext: Record<string, unknown>) => 
       createSimpleLogger({ ...context, ...childContext }),
   } as Logger;
 }
@@ -110,7 +110,7 @@ export const logger = createSimpleLogger();
  * const gameLogger = createLogger({ component: 'GameSession', gameId: 'quizzz' });
  * gameLogger.info('Game started'); // Includes component and gameId in log
  */
-export function createLogger(context: Record<string, any>): Logger {
+export function createLogger(context: Record<string, unknown>): Logger {
   return logger.child(context);
 }
 

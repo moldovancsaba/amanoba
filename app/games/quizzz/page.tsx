@@ -614,7 +614,7 @@ export default function QuizzzGame() {
             <div className="mt-6 text-center">
               {timeLeft === 0 ? (
                 <div className="text-2xl text-orange-600 font-bold">
-                  Time's Up! ⏰
+                  Time&apos;s Up! ⏰
                 </div>
               ) : (() => {
                   const correctIndex = questionsWithAnswers.find(q => q.id === question.id)?.correctIndex ?? -1;
