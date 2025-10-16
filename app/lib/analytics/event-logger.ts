@@ -61,7 +61,7 @@ export interface LogEventOptions {
   playerId?: string;
   brandId?: string;
   eventType: EventType;
-  eventData: Record<string, any>;
+  eventData: Record<string, unknown>;
   context?: EventContext;
   appVersion?: string;
 }

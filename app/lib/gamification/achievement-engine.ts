@@ -92,7 +92,7 @@ export async function checkAndUnlockAchievements(
       
       // Evaluate achievement criteria
       const evaluation = evaluateAchievementCriteria(
-        achievement as any,
+        achievement as IAchievement,
         context
       );
       

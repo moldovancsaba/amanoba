@@ -183,10 +183,10 @@ export async function aggregateActiveUsers(
       date: parsePeriodToDate(r._id, period),
       brandId,
       totalUsers: r.totalUsers,
-      newUsers: r.users.filter((u: any) => 
+      newUsers: r.users.filter((u: { playerId: string; firstEvent: Date }) => 
         u.firstEvent >= dateRange.start && u.firstEvent <= dateRange.end
       ).length,
-      returningUsers: r.totalUsers - r.users.filter((u: any) => 
+      returningUsers: r.totalUsers - r.users.filter((u: { playerId: string; firstEvent: Date }) =>
         u.firstEvent >= dateRange.start && u.firstEvent <= dateRange.end
       ).length,
       premiumUsers: r.premiumUsers,

@@ -341,13 +341,13 @@ export function getNewlyUnlockedFeatures(
   isPremium: boolean
 ): Feature[] {
   // Create mock progression objects for comparison
-  const previousProgression: any = {
+  const previousProgression: Partial<IPlayerProgression> = {
     level: previousLevel,
-    statistics: { totalGamesPlayed: previousGamesPlayed },
-    achievements: { totalUnlocked: previousAchievements },
+    statistics: { totalGamesPlayed: previousGamesPlayed } as IPlayerProgression['statistics'],
+    achievements: { totalUnlocked: previousAchievements } as IPlayerProgression['achievements'],
   };
   
-  const currentProgression: any = {
+  const currentProgression: Partial<IPlayerProgression> = {
     level: currentLevel,
     statistics: { totalGamesPlayed: currentGamesPlayed },
     achievements: { totalUnlocked: currentAchievements },
