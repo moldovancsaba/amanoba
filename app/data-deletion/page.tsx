@@ -67,7 +67,7 @@ export default function DataDeletionPage() {
                   info@amanoba.com
                 </a>
               </p>
-              <p className="mt-2 text-sm">Subject: "Data Deletion Request"</p>
+              <p className="mt-2 text-sm">Subject: &quot;Data Deletion Request&quot;</p>
               <p className="mt-2">Include in your email:</p>
               <ul className="list-disc pl-6 mt-2 space-y-1">
                 <li>Your registered email address</li>
@@ -91,9 +91,9 @@ export default function DataDeletionPage() {
               </p>
               <ol className="list-decimal pl-6 space-y-2">
                 <li>Go to your Facebook Settings & Privacy</li>
-                <li>Click "Settings"</li>
-                <li>Click "Apps and Websites"</li>
-                <li>Find "Amanoba" in the list</li>
+                <li>Click &quot;Settings&quot;</li>
+                <li>Click &quot;Apps and Websites&quot;</li>
+                <li>Find &quot;Amanoba&quot; in the list</li>
                 <li>Click &quot;Remove&quot; to disconnect and request data deletion</li>
               </ol>
               <p className="mt-4 text-sm font-semibold">

@@ -53,7 +53,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Why: Resolve game by ObjectId, gameId (enum), or route key
-    let game = null as any;
+    let game: (typeof Game extends Model<infer T> ? T & { _id: mongoose.Types.ObjectId } : never) | null = null;
     const rawGameId = validatedData.gameId;
     const isObjectId = mongoose.isValidObjectId(rawGameId);
 
@@ -73,7 +73,14 @@ export async function POST(request: NextRequest) {
       // Auto-create known games if missing (SUDOKU, MEMORY, MADOKU, QUIZZZ, WHACKPOP)
       if (!game && ['SUDOKU', 'MEMORY', 'MADOKU', 'QUIZZZ', 'WHACKPOP'].includes(keyUpper)) {
         const { GameType } = await import('@/lib/models/game');
-        const defaults: Record<string, any> = {
+        const defaults: Record<string, {
+          name: string;
+          description: string;
+          averageDurationSeconds: number;
+          pointsConfig: Record<string, number>;
+          xpConfig: Record<string, number>;
+          difficultyLevels: string[];
+        }> = {
           SUDOKU: {
             name: 'Sudoku',
             description: 'Number puzzle — complete the grid',
@@ -120,7 +127,7 @@ export async function POST(request: NextRequest) {
         game = await Game.create({
           gameId: keyUpper,
           name: def.name,
-          type: keyUpper as any,
+          type: keyUpper as GameType,
           description: def.description,
           isActive: true,
           requiresAuth: true,

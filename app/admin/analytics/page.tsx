@@ -74,6 +74,7 @@ interface AnalyticsSnapshot {
 
 // Force dynamic rendering - this page requires runtime data
 export const dynamic = 'force-dynamic';
+export const runtime = 'nodejs';
 
 export default function AdminAnalyticsPage() {
   // Why: All hooks must be called unconditionally at the top level

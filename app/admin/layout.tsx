@@ -10,6 +10,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import {
   LayoutDashboard,
   Gamepad2,
@@ -29,7 +30,7 @@ import {
 interface NavItem {
   label: string;
   href: string;
-  icon: any;
+  icon: React.ComponentType<{ className?: string }>;
   badge?: string;
 }
 
@@ -45,6 +46,16 @@ const navigation: NavItem[] = [
   { label: 'Settings', href: '/admin/settings', icon: Settings },
 ];
 
+// Create a client outside the component to avoid recreating on every render
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: 60 * 1000, // 1 minute
+      retry: 1,
+    },
+  },
+});
+
 export default function AdminLayout({
   children,
 }: {
@@ -54,7 +65,8 @@ export default function AdminLayout({
   const pathname = usePathname();
 
   return (
-    <div className="min-h-screen bg-gray-900">
+    <QueryClientProvider client={queryClient}>
+      <div className="min-h-screen bg-gray-900">
       {/* Sidebar */}
       <aside
         className={`fixed top-0 left-0 z-40 h-screen transition-transform ${
@@ -143,5 +155,6 @@ export default function AdminLayout({
         <main className="p-6">{children}</main>
       </div>
     </div>
+    </QueryClientProvider>
   );
 }
