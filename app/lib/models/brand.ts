@@ -35,7 +35,7 @@ export interface IBrand extends Document {
     instagram?: string;
   };
   contactEmail?: string;
-  metadata?: Record<string, any>;
+  metadata?: Record<string, unknown>;
   createdAt: Date;
   updatedAt: Date;
 }

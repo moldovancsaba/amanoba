@@ -98,7 +98,7 @@ export default function QuizzzGame() {
   const [startTime, setStartTime] = useState<number>(0);
   const [timeLeft, setTimeLeft] = useState<number>(0);
   const [sessionId, setSessionId] = useState<string | null>(null);
-  const [rewards, setRewards] = useState<any>(null);
+  const [rewards, setRewards] = useState<{ xp: number; points: number } | null>(null);
   const [playerLevel, setPlayerLevel] = useState(1);
   const [isPremium, setIsPremium] = useState(false);
   const [isLoadingQuestions, setIsLoadingQuestions] = useState(false);

@@ -84,7 +84,7 @@ export default function LeaderboardsPage() {
         
         const raw = await response.json();
         const mapped = {
-          entries: (raw.entries || []).map((e: any) => ({
+          entries: (raw.entries || []).map((e: Record<string, unknown>) => ({
             playerId: e.player?.id?.toString() || 'unknown',
             playerName: e.player?.displayName || 'Unknown Player',
             rank: e.rank,

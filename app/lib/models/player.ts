@@ -29,7 +29,7 @@ export interface IPlayer extends Document {
   isBanned: boolean;
   banReason?: string;
   bannedAt?: Date;
-  metadata?: Record<string, any>;
+  metadata?: Record<string, unknown>;
   createdAt: Date;
   updatedAt: Date;
 }

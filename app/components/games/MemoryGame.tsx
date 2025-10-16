@@ -44,7 +44,7 @@ import {
 interface MemoryGameProps {
   playerId: string;
   isPremium: boolean;
-  onGameComplete?: (score: number, stats: any) => void;
+  onGameComplete?: (score: number, stats: Record<string, unknown>) => void;
 }
 
 export default function MemoryGame({

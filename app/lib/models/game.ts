@@ -50,7 +50,7 @@ export interface IGame extends Document {
     participationXP: number;
   };
   difficultyLevels?: string[];
-  metadata?: Record<string, any>;
+  metadata?: Record<string, unknown>;
   createdAt: Date;
   updatedAt: Date;
 }

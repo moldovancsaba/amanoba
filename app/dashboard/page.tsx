@@ -68,7 +68,8 @@ export default function Dashboard() {
       }
       
       try {
-        const playerId = (session.user as any).playerId || (session.user as any).id;
+        const user = session.user as { id?: string; playerId?: string };
+        const playerId = user.playerId || user.id;
         const response = await fetch(`/api/players/${playerId}`);
         
         if (response.ok) {

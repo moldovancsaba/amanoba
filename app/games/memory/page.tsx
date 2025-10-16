@@ -28,7 +28,7 @@ export default function MemoryGamePage() {
     return null;
   }
 
-  const playerId = (session.user as any).id;
+  const playerId = (session.user as { id: string }).id;
   const isPremium = (session.user as any).isPremium || false;
 
   return (

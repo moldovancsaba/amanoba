@@ -100,7 +100,7 @@ export default function WhackPopGame() {
   const [timeLeft, setTimeLeft] = useState(30);
   const [targets, setTargets] = useState<Target[]>([]);
   const [sessionId, setSessionId] = useState<string | null>(null);
-  const [rewards, setRewards] = useState<any>(null);
+  const [rewards, setRewards] = useState<{ xp: number; points: number } | null>(null);
   const [playerLevel, setPlayerLevel] = useState(1);
   const [isPremium, setIsPremium] = useState(false);
   const [emojis, setEmojis] = useState<string[]>([]);
