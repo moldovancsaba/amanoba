@@ -18,7 +18,7 @@ export default function PrivacyPage() {
           <section>
             <h2 className="text-2xl font-bold text-gray-900 mb-4">1. Introduction</h2>
             <p>
-              Welcome to Amanoba ("we," "our," or "us"). We are committed to protecting your privacy 
+              Welcome to Amanoba (&quot;we,&quot; &quot;our,&quot; or &quot;us&quot;). We are committed to protecting your privacy 
               and ensuring the security of your personal information. This Privacy Policy explains how 
               we collect, use, disclose, and safeguard your information when you use our gaming platform.
             </p>
@@ -156,7 +156,7 @@ export default function PrivacyPage() {
             <h2 className="text-2xl font-bold text-gray-900 mb-4">12. Changes to This Policy</h2>
             <p>
               We may update this Privacy Policy from time to time. We will notify you of significant changes 
-              by posting the new policy on this page and updating the "Last Updated" date. Your continued use 
+              by posting the new policy on this page and updating the &quot;Last Updated&quot; date. Your continued use 
               of the platform after changes constitutes acceptance of the updated policy.
             </p>
           </section>

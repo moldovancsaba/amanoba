@@ -18,8 +18,8 @@ export default function TermsPage() {
           <section>
             <h2 className="text-2xl font-bold text-gray-900 mb-4">1. Acceptance of Terms</h2>
             <p>
-              Welcome to Amanoba ("we," "our," or "us"). By accessing or using our gaming platform 
-              (the "Service"), you agree to be bound by these Terms of Service ("Terms"). If you do 
+              Welcome to Amanoba (&quot;we,&quot; &quot;our,&quot; or &quot;us&quot;). By accessing or using our gaming platform 
+              (the &quot;Service&quot;), you agree to be bound by these Terms of Service (&quot;Terms&quot;). If you do 
               not agree to these Terms, please do not use the Service.
             </p>
             <p className="mt-2">
@@ -130,7 +130,7 @@ export default function TermsPage() {
             <ul className="list-disc pl-6 space-y-2">
               <li>Charges are made in advance for each billing period</li>
               <li>No refunds for partial periods or unused features</li>
-              <li>Prices may change with 30 days' notice</li>
+              <li>Prices may change with 30 days&apos; notice</li>
               <li>Failed payments may result in service suspension</li>
             </ul>
 
@@ -198,7 +198,7 @@ export default function TermsPage() {
           <section>
             <h2 className="text-2xl font-bold text-gray-900 mb-4">10. Disclaimers</h2>
             <div className="bg-yellow-50 border-l-4 border-yellow-600 p-6">
-              <p className="font-semibold mb-2">THE SERVICE IS PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTIES OF ANY KIND.</p>
+              <p className="font-semibold mb-2">THE SERVICE IS PROVIDED &quot;AS IS&quot; AND "AS AVAILABLE" WITHOUT WARRANTIES OF ANY KIND.</p>
               <p className="mt-2">We disclaim all warranties, express or implied, including:</p>
               <ul className="list-disc pl-6 space-y-2 mt-2">
                 <li>Warranties of merchantability or fitness for a particular purpose</li>
