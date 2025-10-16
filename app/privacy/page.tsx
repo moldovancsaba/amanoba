@@ -4,6 +4,8 @@
  * Required for Facebook OAuth and platform compliance
  */
 
+import Link from 'next/link';
+
 export default function PrivacyPage() {
   return (
     <div className="min-h-screen bg-gray-50 py-12 px-4">
@@ -175,7 +177,7 @@ export default function PrivacyPage() {
 
         <div className="mt-12 pt-8 border-t border-gray-200">
           <p className="text-center text-gray-600">
-            <a href="/" className="text-indigo-600 hover:underline mr-4">Back to Home</a>
+            <Link href="/" className="text-indigo-600 hover:underline mr-4">Back to Home</Link>
             <a href="/terms" className="text-indigo-600 hover:underline mr-4">Terms of Service</a>
             <a href="/data-deletion" className="text-indigo-600 hover:underline">Data Deletion</a>
           </p>

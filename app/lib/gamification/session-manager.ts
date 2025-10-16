@@ -614,7 +614,7 @@ export async function completeGameSession(
         timestamp: new Date(),
         metadata: {
           brandId: session.brandId.toString(),
-          achievementId: (ach.achievement._id as any).toString(),
+          achievementId: (ach.achievement._id).toString(),
         },
       });
     }
