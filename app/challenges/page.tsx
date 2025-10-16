@@ -11,7 +11,7 @@ import { useEffect, useState } from 'react';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
-import { Calendar, ChevronLeft, Target } from 'lucide-react';
+import { Calendar, ChevronLeft, Target, Clock, Gift, CheckCircle } from 'lucide-react';
 
 interface Challenge {
   _id: string;

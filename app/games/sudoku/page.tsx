@@ -8,7 +8,7 @@
 
 import { useState, useEffect } from 'react';
 import { useSession } from 'next-auth/react';
-import { Lock, Play, RotateCcw, Lightbulb, Check, X, Clock, Trophy, Zap } from 'lucide-react';
+import { Play, RotateCcw, Lightbulb, X, Clock, Trophy, Zap } from 'lucide-react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import {
@@ -53,7 +53,7 @@ export default function SudokuGame() {
   const [sessionId, setSessionId] = useState<string | null>(null);
   
   // Premium check
-  const isPremium = (session?.user as any)?.isPremium || false;
+  const isPremium = (session?.user as Record<string, unknown>)?.isPremium as boolean || false;
   const maxFreeHints = 3;
   
   // Client-side mounting check

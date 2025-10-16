@@ -9,7 +9,7 @@
 import { useState, useEffect } from 'react';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
-import { Trophy, RotateCcw, Home } from 'lucide-react';
+import { RotateCcw, Home } from 'lucide-react';
 import {
   type MadokuGameState,
   createInitialState,
@@ -37,7 +37,7 @@ export default function MadokuGame() {
   const [isClient, setIsClient] = useState(false);
   
   // Player info
-  const playerName = (session?.user as any)?.name || (session?.user as any)?.displayName || 'You';
+  const playerName = (session?.user as Record<string, unknown>)?.name as string || (session?.user as Record<string, unknown>)?.displayName as string || 'You';
   
   useEffect(() => {
     setIsClient(true);
@@ -64,7 +64,7 @@ export default function MadokuGame() {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
-            playerId: (session.user as any).id,
+            playerId: (session.user as Record<string, unknown>).id as string,
             gameId: 'madoku',
             difficulty: `AI_LEVEL_${level}`,
           }),
@@ -192,7 +192,7 @@ export default function MadokuGame() {
   if (!gameState || !aiLevel) {
     const onAutoMatch = async () => {
       try {
-        const res = await fetch(`/api/players/${(session!.user as any).id}/rank`);
+        const res = await fetch(`/api/players/${(session!.user as Record<string, unknown>).id as string}/rank`);
         if (!res.ok) throw new Error('rank fetch failed');
         const data = await res.json();
         setGhostMode(data.recommended.isGhost);

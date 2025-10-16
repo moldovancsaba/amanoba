@@ -4,6 +4,8 @@
  * Required for Facebook OAuth compliance
  */
 
+import Link from 'next/link';
+
 export default function DataDeletionPage() {
   return (
     <div className="min-h-screen bg-gray-50 py-12 px-4">
@@ -92,7 +94,7 @@ export default function DataDeletionPage() {
                 <li>Click "Settings"</li>
                 <li>Click "Apps and Websites"</li>
                 <li>Find "Amanoba" in the list</li>
-                <li>Click "Remove" to disconnect and request data deletion</li>
+                <li>Click &quot;Remove&quot; to disconnect and request data deletion</li>
               </ol>
               <p className="mt-4 text-sm font-semibold">
                 Note: This will disconnect Amanoba from Facebook and trigger our data deletion process.
@@ -208,9 +210,9 @@ export default function DataDeletionPage() {
 
         <div className="mt-12 pt-8 border-t border-gray-200">
           <p className="text-center text-gray-600">
-            <a href="/" className="text-indigo-600 hover:underline mr-4">Back to Home</a>
-            <a href="/privacy" className="text-indigo-600 hover:underline mr-4">Privacy Policy</a>
-            <a href="/terms" className="text-indigo-600 hover:underline">Terms of Service</a>
+            <Link href="/" className="text-indigo-600 hover:underline mr-4">Back to Home</Link>
+            <Link href="/privacy" className="text-indigo-600 hover:underline mr-4">Privacy Policy</Link>
+            <Link href="/terms" className="text-indigo-600 hover:underline">Terms of Service</Link>
           </p>
         </div>
       </div>
