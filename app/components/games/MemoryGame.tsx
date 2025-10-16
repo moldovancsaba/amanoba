@@ -153,10 +153,10 @@ export default function MemoryGame({
           const checkedState = checkMatch(prev);
           
           // If no match, reset cards after another delay
-          if (checkedState.moves > prev.moves && checkedState.flippedCards.length === 0) {
-            // This means a move was made but no match
+          if (checkedState.moves > prev.moves && checkedState.flippedCards.length === 2) {
+            // Why: A move was made and two cards remain flipped => it's a non-match, so flip them back after a brief delay for UX
             setTimeout(() => {
-              setGameState(current => current ? resetFlippedCards(current) : current);
+              setGameState(current => (current ? resetFlippedCards(current) : current));
             }, 800);
           }
           

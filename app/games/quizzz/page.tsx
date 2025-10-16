@@ -222,7 +222,8 @@ export default function QuizzzGame() {
           repeated.push(...pool);
         }
         const answers = repeated.slice(0, targetCount);
-        const apiQuestions: Question[] = answers.map(({ correctIndex, ...rest }, idx) => ({ ...rest, id: `${rest.id}-${idx}` }));
+        // Why: Keep the same IDs so answer validation works correctly
+        const apiQuestions: Question[] = answers.map(({ correctIndex, ...rest }) => ({ ...rest }));
 
         const cacheKey = `quizzz_questions_${diff}_${targetCount}`;
         sessionStorage.setItem(
