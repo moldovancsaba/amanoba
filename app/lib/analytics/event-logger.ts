@@ -121,7 +121,7 @@ export async function logEvent(options: LogEventOptions): Promise<string> {
       'Event logged'
     );
 
-    return (eventLog._id as any).toString();
+    return String(eventLog._id);
   } catch (error) {
     logger.error({ error, eventType, playerId }, 'Failed to log event');
     throw error;
@@ -408,7 +408,7 @@ export async function logAuthEvent(
  * Why: Track system health, cron jobs, and maintenance
  */
 export async function logSystemEvent(
-  eventData: Record<string, any>,
+  eventData: Record<string, unknown>,
   brandId?: string
 ): Promise<string> {
   return logEvent({

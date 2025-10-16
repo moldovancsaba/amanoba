@@ -86,7 +86,7 @@ export async function GET(
     // Get featured achievements (highest tier, most recent)
     const featuredAchievements = achievements
       .slice(0, 6)
-      .map((unlock: any) => ({
+      .map((unlock: { achievementId: Record<string, unknown>; unlockedAt: Date }) => ({
         id: unlock.achievementId._id,
         name: unlock.achievementId.name,
         description: unlock.achievementId.description,
@@ -101,11 +101,11 @@ export async function GET(
     const winRate = totalGames > 0 ? Math.round((wins / totalGames) * 100) : 0;
 
     // Get current streaks
-    const winStreak = streaks.find((s: any) => s.type === 'win');
-    const dailyStreak = streaks.find((s: any) => s.type === 'daily');
+    const winStreak = streaks.find((s: Record<string, unknown>) => s.type === 'win');
+    const dailyStreak = streaks.find((s: Record<string, unknown>) => s.type === 'daily');
 
     // Format recent activity
-    const recentActivity = recentSessions.map((session: any) => ({
+    const recentActivity = recentSessions.map((session: Record<string, unknown>) => ({
       gameId: session.gameId?._id,
       gameName: session.gameId?.name || 'Unknown Game',
       gameIcon: session.gameId?.icon,

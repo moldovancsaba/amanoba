@@ -199,7 +199,7 @@ export default function WhackPopGame() {
     const config = DIFFICULTY_CONFIGS[difficulty];
     
     try {
-      const playerId = (session.user as any).id;
+      const playerId = (session.user as { id: string }).id;
 
       const response = await fetch('/api/game-sessions/start', {
         method: 'POST',

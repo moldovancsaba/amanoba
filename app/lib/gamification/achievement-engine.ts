@@ -100,7 +100,7 @@ export async function checkAndUnlockAchievements(
         // Unlock or update achievement
         const result = await unlockAchievement(
           context.playerId,
-          achievement as any,
+          achievement as IAchievement,
           evaluation.currentValue,
           context.recentSession
             ? new mongoose.Types.ObjectId() // Source session ID
@@ -418,7 +418,7 @@ export async function getPlayerAchievementsByCategory(
     unlocks.map(u => [u.achievementId.toString(), u])
   );
   
-  const grouped = new Map<string, any[]>();
+  const grouped = new Map<string, Array<{ playerId: string; achievementId: string; unlockedAt: Date }>>();
   
   for (const achievement of achievements) {
     const unlock = unlockMap.get(achievement._id.toString());
