@@ -182,9 +182,61 @@ export default function QuizzzGame() {
 
     } catch (error) {
       console.error('Error fetching questions:', error);
-      setFetchError(error instanceof Error ? error.message : 'Failed to load questions');
-      setIsLoadingQuestions(false);
-      return null;
+      // Fallback: use a built-in minimal question set so the game is always playable
+      try {
+        const fallbackPool: Record<Difficulty, QuestionWithAnswer[]> = {
+          EASY: [
+            { id: 'e1', question: 'What is 2 + 2?', options: ['3','4','5','6'], correctIndex: 1, difficulty: 'EASY', category: 'Math' },
+            { id: 'e2', question: 'What color is the sky on a clear day?', options: ['Green','Blue','Red','Yellow'], correctIndex: 1, difficulty: 'EASY', category: 'General Knowledge' },
+            { id: 'e3', question: 'How many days are in a week?', options: ['5','6','7','8'], correctIndex: 2, difficulty: 'EASY', category: 'General Knowledge' },
+            { id: 'e4', question: 'Which animal says "meow"?', options: ['Dog','Cat','Cow','Bird'], correctIndex: 1, difficulty: 'EASY', category: 'General Knowledge' },
+            { id: 'e5', question: 'What is the capital of France?', options: ['London','Berlin','Paris','Madrid'], correctIndex: 2, difficulty: 'EASY', category: 'Geography' },
+          ],
+          MEDIUM: [
+            { id: 'm1', question: 'What is 7 × 8?', options: ['54','56','63','72'], correctIndex: 1, difficulty: 'MEDIUM', category: 'Math' },
+            { id: 'm2', question: 'Who painted the Mona Lisa?', options: ['Michelangelo','Leonardo da Vinci','Raphael','Donatello'], correctIndex: 1, difficulty: 'MEDIUM', category: 'Arts & Literature' },
+            { id: 'm3', question: 'Largest ocean on Earth?', options: ['Atlantic','Indian','Arctic','Pacific'], correctIndex: 3, difficulty: 'MEDIUM', category: 'Geography' },
+            { id: 'm4', question: 'Chemical symbol for gold?', options: ['Go','Gd','Au','Ag'], correctIndex: 2, difficulty: 'MEDIUM', category: 'Science' },
+            { id: 'm5', question: 'Square root of 64?', options: ['6','7','8','9'], correctIndex: 2, difficulty: 'MEDIUM', category: 'Math' },
+          ],
+          HARD: [
+            { id: 'h1', question: 'What is the speed of light (approx)?', options: ['299,792 km/s','300,000 km/s','299,792,458 m/s','Both A and C'], correctIndex: 3, difficulty: 'HARD', category: 'Science' },
+            { id: 'h2', question: 'Atomic number 79 element?', options: ['Silver','Gold','Platinum','Mercury'], correctIndex: 1, difficulty: 'HARD', category: 'Science' },
+            { id: 'h3', question: 'Year Declaration of Independence signed?', options: ['1774','1775','1776','1777'], correctIndex: 2, difficulty: 'HARD', category: 'History' },
+            { id: 'h4', question: 'Capital of Kazakhstan?', options: ['Almaty','Astana (Nur-Sultan)','Bishkek','Tashkent'], correctIndex: 1, difficulty: 'HARD', category: 'Geography' },
+            { id: 'h5', question: 'Thus Spoke Zarathustra author?', options: ['Kant','Hegel','Nietzsche','Schopenhauer'], correctIndex: 2, difficulty: 'HARD', category: 'Arts & Literature' },
+          ],
+          EXPERT: [
+            { id: 'x1', question: 'Planck\'s constant (approx)?', options: ['6.626 × 10⁻³⁴ J⋅s','1.616 × 10⁻³⁵ m','1.055 × 10⁻³⁴ J⋅s','9.109 × 10⁻³¹ kg'], correctIndex: 0, difficulty: 'EXPERT', category: 'Science' },
+            { id: 'x2', question: 'Theorem relating primes to complex analysis?', options: ['Fermat\'s Last Theorem','Riemann Hypothesis','Gödel\'s Incompleteness','Prime Number Theorem'], correctIndex: 3, difficulty: 'EXPERT', category: 'Math' },
+            { id: 'x3', question: 'Half-life of Carbon-14?', options: ['5,730 years','10,000 years','1,200 years','50,000 years'], correctIndex: 0, difficulty: 'EXPERT', category: 'Science' },
+            { id: 'x4', question: 'Who proved Four Color Theorem?', options: ['Appel & Haken','Wiles','Perelman','Tao'], correctIndex: 0, difficulty: 'EXPERT', category: 'Math' },
+            { id: 'x5', question: 'Avogadro constant?', options: ['6.022 × 10²³','6.626 × 10⁻³⁴','1.616 × 10⁻³⁵','8.314 J/(mol·K)'], correctIndex: 0, difficulty: 'EXPERT', category: 'Science' },
+          ],
+        };
+
+        const targetCount = QUESTION_COUNTS[diff];
+        const pool = fallbackPool[diff];
+        const repeated: QuestionWithAnswer[] = [];
+        while (repeated.length < targetCount) {
+          repeated.push(...pool);
+        }
+        const answers = repeated.slice(0, targetCount);
+        const apiQuestions: Question[] = answers.map(({ correctIndex, ...rest }, idx) => ({ ...rest, id: `${rest.id}-${idx}` }));
+
+        const cacheKey = `quizzz_questions_${diff}_${targetCount}`;
+        sessionStorage.setItem(
+          cacheKey,
+          JSON.stringify({ questions: apiQuestions, answers, timestamp: Date.now() })
+        );
+
+        setIsLoadingQuestions(false);
+        return { questions: apiQuestions, answers };
+      } catch (fallbackError) {
+        setFetchError(error instanceof Error ? error.message : 'Failed to load questions');
+        setIsLoadingQuestions(false);
+        return null;
+      }
     }
   };
 
