@@ -354,7 +354,7 @@ export async function aggregateRevenue(
     return results.map((r) => {
       // Count reward occurrences
       const rewardMap = new Map<string, number>();
-      r.rewardCounts.forEach((rc: any) => {
+      r.rewardCounts.forEach((rc: { rewardId: string }) => {
         const count = rewardMap.get(rc.rewardId) || 0;
         rewardMap.set(rc.rewardId, count + 1);
       });

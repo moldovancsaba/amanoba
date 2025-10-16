@@ -298,7 +298,7 @@ async function calculatePointsBalanceLeaderboard(
   brandId?: string,
   limit: number = 100
 ): Promise<Array<{ playerId: string; value: number; rank: number }>> {
-  const pipeline: any[] = [
+  const pipeline: Record<string, unknown>[] = [
     {
       $lookup: {
         from: 'players',
@@ -333,7 +333,7 @@ async function calculatePointsLifetimeLeaderboard(
   brandId?: string,
   limit: number = 100
 ): Promise<Array<{ playerId: string; value: number; rank: number }>> {
-  const pipeline: any[] = [
+  const pipeline: Record<string, unknown>[] = [
     {
       $lookup: {
         from: 'players',
@@ -368,7 +368,7 @@ async function calculateXPLeaderboard(
   brandId?: string,
   limit: number = 100
 ): Promise<Array<{ playerId: string; value: number; rank: number }>> {
-  const pipeline: any[] = [
+  const pipeline: Record<string, unknown>[] = [
     {
       $lookup: {
         from: 'players',
@@ -403,7 +403,7 @@ async function calculateLevelLeaderboard(
   brandId?: string,
   limit: number = 100
 ): Promise<Array<{ playerId: string; value: number; rank: number }>> {
-  const pipeline: any[] = [
+  const pipeline: Record<string, unknown>[] = [
     {
       $lookup: {
         from: 'players',
@@ -438,7 +438,7 @@ async function calculateWinStreakLeaderboard(
   brandId?: string,
   limit: number = 100
 ): Promise<Array<{ playerId: string; value: number; rank: number }>> {
-  const pipeline: any[] = [
+  const pipeline: Record<string, unknown>[] = [
     { $match: { type: 'win' } },
     {
       $lookup: {
@@ -474,7 +474,7 @@ async function calculateDailyStreakLeaderboard(
   brandId?: string,
   limit: number = 100
 ): Promise<Array<{ playerId: string; value: number; rank: number }>> {
-  const pipeline: any[] = [
+  const pipeline: Record<string, unknown>[] = [
     { $match: { type: 'daily_login' } },
     {
       $lookup: {
@@ -511,7 +511,7 @@ async function calculateGamesWonLeaderboard(
   limit: number = 100,
   dateRange?: { start: Date; end: Date }
 ): Promise<Array<{ playerId: string; value: number; rank: number }>> {
-  const pipeline: any[] = [
+  const pipeline: Record<string, unknown>[] = [
     {
       $lookup: {
         from: 'players',
@@ -547,7 +547,7 @@ async function calculateWinRateLeaderboard(
   limit: number = 100,
   dateRange?: { start: Date; end: Date }
 ): Promise<Array<{ playerId: string; value: number; rank: number }>> {
-  const pipeline: any[] = [
+  const pipeline: Record<string, unknown>[] = [
     {
       $lookup: {
         from: 'players',

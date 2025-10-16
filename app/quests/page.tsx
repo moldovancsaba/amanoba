@@ -65,7 +65,7 @@ export default function QuestsPage() {
     const fetchQuests = async () => {
       try {
         const playerId = session.user.id;
-        setIsPremium((session.user as any).isPremium || false);
+        setIsPremium((session.user as { isPremium?: boolean }).isPremium || false);
         
         const response = await fetch(`/api/quests?playerId=${playerId}`);
         
@@ -286,7 +286,7 @@ export default function QuestsPage() {
                           {quest.rewards.title && (
                             <div className="flex items-center gap-2">
                               <span className="text-yellow-600 text-xl">👑</span>
-                              <span className="font-bold text-yellow-600">Title: "{quest.rewards.title}"</span>
+                              <span className="font-bold text-yellow-600">Title: &quot;{quest.rewards.title}&quot;</span>
                             </div>
                           )}
                         </div>
