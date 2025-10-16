@@ -155,8 +155,34 @@ export default function WhackPopGame() {
 
       } catch (error) {
         console.error('Error fetching emojis:', error);
-        setFetchError(error instanceof Error ? error.message : 'Failed to load emojis');
-        setIsLoadingEmojis(false);
+        // Why: Fallback to built-in emoji set if database is unavailable
+        // This ensures the game is always playable
+        try {
+          const fallbackEmojis = [
+            '🎯', '⚡', '🔥', '💥', '⭐', '🌟', '💫', '✨',
+            '🎨', '🎭', '🎪', '🎬', '🎮', '🎲', '🎰', '🎸',
+            '🍎', '🍊', '🍋', '🍌', '🍉', '🍇', '🍓', '🍒',
+            '⚽', '🏀', '🏈', '⚾', '🎾', '🏐', '🏉', '🎱'
+          ];
+          
+          console.log('Using fallback emoji set');
+          setEmojis(fallbackEmojis);
+          
+          // Why: Cache fallback emojis
+          sessionStorage.setItem(
+            'whackpop_emojis',
+            JSON.stringify({
+              emojis: fallbackEmojis,
+              timestamp: Date.now(),
+            })
+          );
+          
+          setIsLoadingEmojis(false);
+        } catch (fallbackError) {
+          console.error('Fallback emojis failed:', fallbackError);
+          setFetchError(error instanceof Error ? error.message : 'Failed to load emojis');
+          setIsLoadingEmojis(false);
+        }
       }
     };
 
