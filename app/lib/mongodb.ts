@@ -40,7 +40,7 @@ declare global {
 
 // Initialize cached connection
 // Why: On first import, ensure cache exists
-let cached: MongooseCache = global.mongoose || { conn: null, promise: null };
+const cached: MongooseCache = global.mongoose || { conn: null, promise: null };
 
 if (!global.mongoose) {
   global.mongoose = cached;

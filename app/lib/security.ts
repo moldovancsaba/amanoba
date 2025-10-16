@@ -6,6 +6,7 @@
 
 import { RateLimiterMemory } from 'rate-limiter-flexible';
 import { NextRequest, NextResponse } from 'next/server';
+import crypto from 'crypto';
 import logger from './logger';
 
 /**
@@ -231,7 +232,6 @@ export function isValidObjectId(id: string): boolean {
  * What: Cryptographically secure random token generation
  */
 export function generateSecureToken(length: number = 32): string {
-  const crypto = require('crypto');
   return crypto.randomBytes(length).toString('hex');
 }
 
@@ -240,7 +240,6 @@ export function generateSecureToken(length: number = 32): string {
  * What: SHA-256 hashing utility
  */
 export function hashString(input: string): string {
-  const crypto = require('crypto');
   return crypto.createHash('sha256').update(input).digest('hex');
 }
 
@@ -296,8 +295,6 @@ export function logSecurityEvent(
  * What: Constant-time string comparison
  */
 export function secureCompare(a: string, b: string): boolean {
-  const crypto = require('crypto');
-  
   if (a.length !== b.length) {
     return false;
   }
