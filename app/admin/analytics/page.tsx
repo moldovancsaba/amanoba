@@ -58,7 +58,7 @@ interface RealTimeStats {
     eventType: string;
     playerId: string;
     timestamp: string;
-    metadata: any;
+    metadata: Record<string, unknown>;
   }>;
 }
 
@@ -69,18 +69,14 @@ interface AnalyticsSnapshot {
   period: string;
   date: string;
   gameId?: string;
-  data: any;
+  data: Record<string, unknown>;
 }
 
 // Force dynamic rendering - this page requires runtime data
 export const dynamic = 'force-dynamic';
 
 export default function AdminAnalyticsPage() {
-  // Skip during SSR/build
-  if (typeof window === 'undefined') {
-    return <div>Loading...</div>;
-  }
-  
+  // Why: All hooks must be called unconditionally at the top level
   // Default to first brand for demo (in production, would use brand selector)
   const [brandId] = useState('679fca17f0f9b3c0e8c5a8a0'); // Amanoba brand ID from seed
   const [period, setPeriod] = useState<'daily' | 'weekly' | 'monthly'>('daily');
@@ -169,6 +165,7 @@ export default function AdminAnalyticsPage() {
   });
 
   // Fetch conversion data
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { data: conversionsData } = useQuery<AnalyticsSnapshot[]>({
     queryKey: ['analytics', 'conversions', brandId, period, dateRange],
     queryFn: async () => {
@@ -188,22 +185,22 @@ export default function AdminAnalyticsPage() {
   // Transform data for charts
   const activeUsersChartData = activeUsersData?.map((snapshot) => ({
     date: new Date(snapshot.date).toLocaleDateString(),
-    totalUsers: snapshot.data.totalUsers,
-    newUsers: snapshot.data.newUsers,
-    premiumUsers: snapshot.data.premiumUsers,
+    totalUsers: (snapshot.data.totalUsers as number) || 0,
+    newUsers: (snapshot.data.newUsers as number) || 0,
+    premiumUsers: (snapshot.data.premiumUsers as number) || 0,
   }));
 
   const gameSessionsChartData = gameSessionsData?.reduce((acc, snapshot) => {
     const dateKey = new Date(snapshot.date).toLocaleDateString();
     const existing = acc.find((item) => item.date === dateKey);
     if (existing) {
-      existing.sessions += snapshot.data.totalSessions;
-      existing.points += snapshot.data.totalPoints;
+      existing.sessions += (snapshot.data.totalSessions as number) || 0;
+      existing.points += (snapshot.data.totalPoints as number) || 0;
     } else {
       acc.push({
         date: dateKey,
-        sessions: snapshot.data.totalSessions,
-        points: snapshot.data.totalPoints,
+        sessions: (snapshot.data.totalSessions as number) || 0,
+        points: (snapshot.data.totalPoints as number) || 0,
       });
     }
     return acc;
@@ -211,14 +208,14 @@ export default function AdminAnalyticsPage() {
 
   const revenueChartData = revenueData?.map((snapshot) => ({
     date: new Date(snapshot.date).toLocaleDateString(),
-    redemptions: snapshot.data.totalRedemptions,
-    pointsRedeemed: snapshot.data.pointsRedeemed,
+    redemptions: (snapshot.data.totalRedemptions as number) || 0,
+    pointsRedeemed: (snapshot.data.pointsRedeemed as number) || 0,
   }));
 
   const engagementChartData = engagementData?.map((snapshot) => ({
     date: new Date(snapshot.date).toLocaleDateString(),
-    sessionsPerUser: snapshot.data.sessionsPerUser,
-    avgDuration: snapshot.data.averageSessionDuration,
+    sessionsPerUser: (snapshot.data.sessionsPerUser as number) || 0,
+    avgDuration: (snapshot.data.averageSessionDuration as number) || 0,
   }));
 
   return (
@@ -235,7 +232,7 @@ export default function AdminAnalyticsPage() {
             <label className="block text-white text-sm mb-1">Period</label>
             <select
               value={period}
-              onChange={(e) => setPeriod(e.target.value as any)}
+              onChange={(e) => setPeriod(e.target.value as 'daily' | 'weekly' | 'monthly')}
               className="px-4 py-2 rounded-lg bg-white/20 text-white border border-white/30"
             >
               <option value="daily">Daily</option>
