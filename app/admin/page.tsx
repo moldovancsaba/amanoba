@@ -7,7 +7,6 @@
 
 'use client';
 
-import { useQuery } from '@tanstack/react-query';
 import Link from 'next/link';
 import {
   Users,
@@ -15,9 +14,7 @@ import {
   Trophy,
   TrendingUp,
   Activity,
-  DollarSign,
   ArrowUpRight,
-  ArrowDownRight,
   Plus,
 } from 'lucide-react';
 
@@ -50,7 +47,7 @@ export default function AdminDashboardPage() {
       {/* Page Header */}
       <div>
         <h1 className="text-3xl font-bold text-white mb-2">Admin Dashboard</h1>
-        <p className="text-gray-400">Welcome back! Here's what's happening with your platform.</p>
+        <p className="text-gray-400">Welcome back! Here&apos;s what&apos;s happening with your platform.</p>
       </div>
 
       {/* Stats Grid */}

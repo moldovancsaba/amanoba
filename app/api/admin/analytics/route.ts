@@ -8,7 +8,7 @@
  */
 
 import { NextRequest, NextResponse } from 'next/server';
-import { AnalyticsSnapshot, EventLog } from '../../../lib/models';
+import { AnalyticsSnapshot } from '../../../lib/models';
 import { logger } from '../../../lib/logger';
 import connectDB from '../../../lib/mongodb';
 
@@ -76,7 +76,7 @@ export async function GET(request: NextRequest) {
     await connectDB();
 
     // Build query
-    const query: any = {
+    const query: Record<string, unknown> = {
       brandId,
       metricType,
       period,
