@@ -16,6 +16,8 @@ export enum GameType {
   QUIZZZ = 'QUIZZZ',
   WHACKPOP = 'WHACKPOP',
   MADOKU = 'MADOKU',
+  SUDOKU = 'SUDOKU',
+  MEMORY = 'MEMORY',
 }
 
 /**

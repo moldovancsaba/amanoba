@@ -226,7 +226,7 @@ export async function completeGameSession(
     }
     
     // 2. Get related data
-    const [player, game, gameBrandConfig, progression] = await Promise.all([
+    const [player, game, gameBrandConfigRaw, progressionRaw] = await Promise.all([
       Player.findById(session.playerId).session(sessionDb),
       Game.findById(session.gameId).session(sessionDb),
       GameBrandConfig.findOne({
@@ -238,9 +238,47 @@ export async function completeGameSession(
       ),
     ]);
     
-    if (!player || !game || !gameBrandConfig || !progression) {
+    if (!player || !game) {
       throw new Error('Required data not found');
     }
+
+    // Ensure progression exists (auto-create if missing)
+    let progression = progressionRaw;
+    if (!progression) {
+      progression = new PlayerProgression({
+        playerId: session.playerId,
+        level: 1,
+        currentXP: 0,
+        totalXP: 0,
+        xpToNextLevel: 100,
+        unlockedTitles: [],
+        statistics: {
+          totalGamesPlayed: 0,
+          totalWins: 0,
+          totalLosses: 0,
+          totalDraws: 0,
+          totalPlayTime: 0,
+          averageSessionTime: 0,
+          bestStreak: 0,
+          currentStreak: 0,
+          dailyLoginStreak: 0,
+          lastLoginDate: new Date(),
+        },
+        gameSpecificStats: new Map(),
+        achievements: { totalUnlocked: 0, totalAvailable: 0, recentUnlocks: [] },
+        milestones: [],
+        metadata: { createdAt: new Date(), updatedAt: new Date(), lastXPGain: new Date() },
+      });
+    }
+
+    // Fallback GameBrandConfig (use Game defaults) if missing
+    const gameBrandConfig = gameBrandConfigRaw || ({
+      brandId: session.brandId,
+      gameId: session.gameId,
+      pointsConfig: (game as any).pointsConfig,
+      xpConfig: (game as any).xpConfig,
+      difficultySettings: (game as any).difficultyLevels || ['normal'],
+    } as any);
     
     // 3. Calculate session duration
     const sessionEnd = new Date();

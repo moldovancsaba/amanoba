@@ -164,15 +164,17 @@ export default function SudokuGame() {
       // Why: Calculate score based on time and hints penalty
       const finalScore = won ? Math.max(1000 - timer - (hintsUsed * 50), 100) : 0;
       
-      await fetch('/api/game-sessions/complete', {
+      const res = await fetch('/api/game-sessions/complete', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           sessionId,
           score: finalScore,
           isWin: won,
+          outcome: won ? 'win' : 'loss',
           duration: timer,
           hintsUsed,
+          difficulty: difficulty.toUpperCase(),
           metadata: {
             difficulty,
             completion: puzzle ? getCompletionPercentage(puzzle) : 0,
@@ -180,6 +182,10 @@ export default function SudokuGame() {
           },
         }),
       });
+      if (res.ok) {
+        const data = await res.json();
+        alert(`✅ Game recorded! +${data.rewards.points} pts, +${data.rewards.xp} XP`);
+      }
     } catch (error) {
       console.error('Failed to complete game:', error);
     }

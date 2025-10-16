@@ -112,7 +112,7 @@ export default function WhackPopGame() {
     const config = DIFFICULTY_CONFIGS[difficulty];
     
     try {
-      const playerId = (session.user as any).playerId;
+      const playerId = (session.user as any).id;
 
       const response = await fetch('/api/game-sessions/start', {
         method: 'POST',
@@ -233,8 +233,11 @@ export default function WhackPopGame() {
             sessionId,
             score: finalScore,
             isWin,
+            outcome: isWin ? 'win' : 'loss',
             duration: config.duration,
             accuracy,
+            difficulty,
+            metadata: { hits, misses },
           }),
         });
 
@@ -337,6 +340,31 @@ export default function WhackPopGame() {
               ← Back to Games
             </button>
           </div>
+        </div>
+      </div>
+    );
+  }
+
+  // Finished screen
+  if (gameState === 'finished') {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-orange-500 via-red-500 to-pink-500 flex items-center justify-center p-4">
+        <div className="bg-white rounded-2xl shadow-2xl p-8 max-w-md w-full text-center">
+          <div className="text-6xl mb-4">{(rewards?.points ?? 0) > 0 ? '🏆' : '🎮'}</div>
+          <h2 className="text-2xl font-bold text-gray-900 mb-2">Game Over</h2>
+          <p className="text-gray-700 mb-4">Score: {score}</p>
+          {rewards && (
+            <div className="bg-orange-50 rounded-lg p-4 mb-4">
+              <div className="font-semibold">Rewards</div>
+              <div className="text-sm text-gray-700">+{rewards.points} points • +{rewards.xp} XP</div>
+            </div>
+          )}
+          <button onClick={() => setGameState('ready')} className="bg-gradient-to-r from-orange-600 to-red-600 text-white px-6 py-3 rounded-xl font-bold hover:from-orange-700 hover:to-red-700 transition-all">
+            Play Again
+          </button>
+          <button onClick={() => router.push('/games')} className="mt-3 block w-full text-gray-700 hover:text-gray-900">
+            ← Back to Games
+          </button>
         </div>
       </div>
     );

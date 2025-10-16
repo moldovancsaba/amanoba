@@ -1,46 +1,40 @@
+'use client';
+
 /**
- * Memory Match Game Page
+ * Memory Match Game Page (Client)
  * 
- * Full-page route for the Memory card matching game.
- * Requires authentication and fetches player data.
- * 
- * Why this structure:
- * - Server component for auth check and data fetching
- * - Client game component handles interactivity
- * - Premium status passed down for feature gating
+ * Why: Use client-side session to avoid SSR auth redirect loops that send users back to dashboard.
  */
 
-import { redirect } from 'next/navigation';
-import { auth } from '@/auth';
+import { useRouter } from 'next/navigation';
+import { useSession } from 'next-auth/react';
 import MemoryGame from '@/components/games/MemoryGame';
 import { Card } from '@/components/ui/card';
 
-export const metadata = {
-  title: 'Memory Match | Amanoba',
-  description: 'Test your memory with our card matching game',
-};
+export default function MemoryGamePage() {
+  const { data: session, status } = useSession();
+  const router = useRouter();
 
-export default async function MemoryGamePage() {
-  // Check authentication
-  const session = await auth();
+  if (status === 'loading') {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500">
+        <div className="text-white text-2xl font-bold animate-pulse">Loading...</div>
+      </div>
+    );
+  }
+
   if (!session?.user) {
-    redirect('/auth/signin');
+    router.push('/auth/signin');
+    return null;
   }
 
-  const playerId = (session.user as any).playerId;
+  const playerId = (session.user as any).id;
   const isPremium = (session.user as any).isPremium || false;
-  
-  if (!playerId) {
-    redirect('/auth/signin');
-  }
 
   return (
     <div className="container mx-auto px-4 py-8">
       <Card className="p-6 md:p-8">
-        <MemoryGame
-          playerId={playerId}
-          isPremium={isPremium}
-        />
+        <MemoryGame playerId={playerId} isPremium={isPremium} />
       </Card>
     </div>
   );

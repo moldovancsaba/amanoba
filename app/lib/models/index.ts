@@ -66,4 +66,8 @@ export {
   type StepDependency
 } from './quest';
 
-// Total: 21 models
+// Game Content Models (2)
+export { default as QuizQuestion, type IQuizQuestion, QuestionDifficulty } from './quiz-question';
+export { default as WhackPopEmoji, type IWhackPopEmoji } from './whackpop-emoji';
+
+// Total: 23 models

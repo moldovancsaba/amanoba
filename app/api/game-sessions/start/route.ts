@@ -61,7 +61,78 @@ export async function POST(request: NextRequest) {
       game = await Game.findById(rawGameId);
     } else {
       const keyUpper = rawGameId.trim().toUpperCase();
-      game = await Game.findOne({ $or: [{ gameId: keyUpper }, { name: keyUpper }] });
+      // Try by gameId, exact name, or case-insensitive name
+      game = await Game.findOne({
+        $or: [
+          { gameId: keyUpper },
+          { name: keyUpper },
+          { name: { $regex: `^${keyUpper}$`, $options: 'i' } },
+        ],
+      });
+
+      // Auto-create known games if missing (SUDOKU, MEMORY, MADOKU, QUIZZZ, WHACKPOP)
+      if (!game && ['SUDOKU', 'MEMORY', 'MADOKU', 'QUIZZZ', 'WHACKPOP'].includes(keyUpper)) {
+        const { GameType } = await import('@/lib/models/game');
+        const defaults: Record<string, any> = {
+          SUDOKU: {
+            name: 'Sudoku',
+            description: 'Number puzzle — complete the grid',
+            averageDurationSeconds: 600,
+            pointsConfig: { winPoints: 50, losePoints: 0, participationPoints: 5, perfectGameBonus: 50 },
+            xpConfig: { winXP: 40, loseXP: 5, participationXP: 5 },
+            difficultyLevels: ['easy','medium','hard','expert'],
+          },
+          MEMORY: {
+            name: 'Memory Match',
+            description: 'Flip cards to find matching pairs',
+            averageDurationSeconds: 180,
+            pointsConfig: { winPoints: 40, losePoints: 0, participationPoints: 5, perfectGameBonus: 30 },
+            xpConfig: { winXP: 30, loseXP: 5, participationXP: 5 },
+            difficultyLevels: ['EASY','MEDIUM','HARD','EXPERT'],
+          },
+          MADOKU: {
+            name: 'Madoku',
+            description: 'Competitive number-picking strategy game against AI',
+            averageDurationSeconds: 240,
+            pointsConfig: { winPoints: 60, losePoints: 10, participationPoints: 5, perfectGameBonus: 40 },
+            xpConfig: { winXP: 50, loseXP: 10, participationXP: 5 },
+            difficultyLevels: ['AI_LEVEL_1','AI_LEVEL_2','AI_LEVEL_3'],
+          },
+          QUIZZZ: {
+            name: 'QUIZZZ',
+            description: 'Rapid-fire trivia quiz',
+            averageDurationSeconds: 180,
+            pointsConfig: { winPoints: 45, losePoints: 5, participationPoints: 5, perfectGameBonus: 25 },
+            xpConfig: { winXP: 35, loseXP: 5, participationXP: 5 },
+            difficultyLevels: ['EASY','MEDIUM','HARD','EXPERT'],
+          },
+          WHACKPOP: {
+            name: 'WHACKPOP',
+            description: 'Fast-action target clicking game',
+            averageDurationSeconds: 60,
+            pointsConfig: { winPoints: 50, losePoints: 5, participationPoints: 5, perfectGameBonus: 20 },
+            xpConfig: { winXP: 40, loseXP: 5, participationXP: 5 },
+            difficultyLevels: ['EASY','MEDIUM','HARD','EXPERT'],
+          },
+        };
+
+        const def = defaults[keyUpper];
+        game = await Game.create({
+          gameId: keyUpper,
+          name: def.name,
+          type: keyUpper as any,
+          description: def.description,
+          isActive: true,
+          requiresAuth: true,
+          isPremium: false,
+          minPlayers: 1,
+          maxPlayers: 1,
+          averageDurationSeconds: def.averageDurationSeconds,
+          pointsConfig: def.pointsConfig,
+          xpConfig: def.xpConfig,
+          difficultyLevels: def.difficultyLevels,
+        });
+      }
     }
 
     if (!game) {
@@ -72,10 +143,23 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Why: Determine brandId (prefer request body, else player's brand)
-    const brandObjectId = validatedData.brandId && mongoose.isValidObjectId(validatedData.brandId)
-      ? new mongoose.Types.ObjectId(validatedData.brandId)
-      : player.brandId;
+    // Why: Determine brandId (prefer request body, else player's brand, else fallback to first brand)
+    let brandObjectId: mongoose.Types.ObjectId | null = null;
+    if (validatedData.brandId && mongoose.isValidObjectId(validatedData.brandId)) {
+      brandObjectId = new mongoose.Types.ObjectId(validatedData.brandId);
+    } else if (player.brandId) {
+      brandObjectId = player.brandId as mongoose.Types.ObjectId;
+    } else {
+      const { default: Brand } = await import('@/lib/models/brand');
+      const fallbackBrand = await Brand.findOne({ isActive: true });
+      if (!fallbackBrand) {
+        return NextResponse.json({ error: 'No brand available' }, { status: 500 });
+      }
+      brandObjectId = fallbackBrand._id as mongoose.Types.ObjectId;
+      // Persist brand to player for future sessions
+      player.brandId = brandObjectId;
+      await player.save();
+    }
 
     // Why: Use the session manager to handle all gamification logic
     const sessionId = await startGameSession({

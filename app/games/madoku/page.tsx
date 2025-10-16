@@ -47,7 +47,13 @@ export default function MadokuGame() {
   const startNewGame = async (level: AILevel) => {
     setAiLevel(level);
     setAiPersona(getRandomAIPersona(level));
-    const newState = createInitialState();
+    let newState = createInitialState();
+    // Apply Ghost Mode transformation: randomly negate numbers to increase cognitive load ("Ghost Chili")
+    if (ghostMode) {
+      // Lazy import to avoid increasing initial bundle for non-ghost games
+      const { applyGhost } = await import('@/lib/games/madoku-engine');
+      newState = { ...newState, board: applyGhost(newState.board) };
+    }
     setGameState(newState);
     setShowGameOver(false);
     
@@ -184,6 +190,20 @@ export default function MadokuGame() {
   
   // Difficulty selection
   if (!gameState || !aiLevel) {
+    const onAutoMatch = async () => {
+      try {
+        const res = await fetch(`/api/players/${(session!.user as any).id}/rank`);
+        if (!res.ok) throw new Error('rank fetch failed');
+        const data = await res.json();
+        setGhostMode(data.recommended.isGhost);
+        await startNewGame(data.recommended.aiLevel as AILevel);
+      } catch (e) {
+        console.error('Auto-match failed, falling back to Medium', e);
+        setGhostMode(false);
+        await startNewGame(2);
+      }
+    };
+
     return (
       <div className="min-h-screen bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900 flex items-center justify-center p-4">
         <div className="max-w-2xl w-full bg-white/10 backdrop-blur-lg rounded-3xl shadow-2xl p-8">
@@ -221,11 +241,19 @@ export default function MadokuGame() {
               <div className="text-sm opacity-80">3+ move lookahead</div>
             </button>
           </div>
-          
-          <label className="flex items-center justify-center gap-3 mb-4 text-white/90">
-            <input type="checkbox" checked={ghostMode} onChange={(e) => setGhostMode(e.target.checked)} className="w-4 h-4" />
-            <span>🌙 Ghost Mode (practice, no rewards)</span>
-          </label>
+
+          <div className="mb-4">
+            <label className="flex items-center justify-center gap-3 mb-2 text-white/90">
+              <input type="checkbox" checked={ghostMode} onChange={(e) => setGhostMode(e.target.checked)} className="w-4 h-4" />
+              <span>🌶️ Ghost Chili Mode — random negative numbers (practice, no rewards)</span>
+            </label>
+            <button
+              onClick={onAutoMatch}
+              className="w-full mt-2 bg-gradient-to-r from-indigo-500 to-purple-600 text-white px-6 py-3 rounded-xl font-semibold hover:from-indigo-600 hover:to-purple-700 transition-colors"
+            >
+              🌙 Auto-Match (Rank-Based)
+            </button>
+          </div>
           
           <button
             onClick={() => router.push('/games')}

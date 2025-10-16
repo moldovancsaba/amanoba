@@ -194,7 +194,7 @@ export default function QuizzzGame() {
 
     // Why: Start backend session to track progress and award rewards
     try {
-      const playerId = (session.user as any).playerId;
+      const playerId = (session.user as any).id;
 
       const response = await fetch('/api/game-sessions/start', {
         method: 'POST',

@@ -20,6 +20,21 @@ export type MadokuBoard = SudokuGrid; // 9x9 grid with numbers 1-9 or null
 export type PickMode = 'row' | 'col';
 export type CellPosition = { row: number; col: number };
 
+/**
+ * Ghost Mode Transformation
+ * 
+ * What: Randomly flips the sign of non-null cells so values become a mix of positive/negative.
+ * Why: Increases difficulty without changing move legality (mirrors original Madoku "Ghost" behavior).
+ */
+export function applyGhost(board: MadokuBoard): MadokuBoard {
+  // Functional: produce a new board; do not mutate input
+  return board.map(row => row.map(cell => {
+    if (cell == null) return null;
+    const sign = Math.random() < 0.5 ? -1 : 1; // Strategic: 50/50 sign flip per cell for unpredictable pattern
+    return cell * sign;
+  })) as MadokuBoard;
+}
+
 export interface MadokuMove {
   player: number;
   row: number;

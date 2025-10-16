@@ -1,6 +1,6 @@
 {
   "name": "amanoba",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "private": true,
   "description": "Unified game platform combining PlayMass infrastructure with Madoku gamification — built for engagement, retention, and viral growth",
   "author": "Narimato",
@@ -21,7 +21,9 @@
     "seed:core": "tsx scripts/seed-core-data.ts",
     "seed:achievements": "tsx scripts/seed-achievements.ts",
     "seed:rewards": "tsx scripts/seed-rewards.ts",
-    "seed:guest-usernames": "tsx --env-file=.env.local scripts/seed-guest-usernames.ts"
+    "seed:guest-usernames": "tsx --env-file=.env.local scripts/seed-guest-usernames.ts",
+    "seed:quiz-questions": "tsx scripts/seed-quiz-questions.ts",
+    "seed:whackpop-emojis": "tsx scripts/seed-whackpop-emojis.ts"
   },
   "dependencies": {
     "@auth/mongodb-adapter": "^3.11.0",

@@ -324,4 +324,156 @@ Created comprehensive 43-task execution plan covering 10 phases over 70 days:
 
 ---
 
+## 2025-10-16T11:41:41.000Z — Game Content Database Migration Planning
+
+### Context
+
+User requested migration of hardcoded game content to MongoDB Atlas with intelligent usage tracking:
+
+**Current State**:
+1. **QUIZZZ Game** (`app/games/quizzz/page.tsx`)
+   - ~40 questions hardcoded as const array
+   - 4 difficulty levels: EASY, MEDIUM, HARD, EXPERT
+   - No tracking of question usage or difficulty
+
+2. **WHACKPOP Game** (`app/games/whackpop/page.tsx`)
+   - 8 emojis hardcoded as const array
+   - No rotation or tracking
+
+**User Requirements**:
+1. Move 40 existing QUIZZZ questions to MongoDB
+2. Create 80 NEW questions (total 120 questions)
+3. Implement intelligent question selection:
+   - **Priority 1**: Show questions with lowest `showCount`
+   - **Priority 2** (tie-breaker): Show questions with lowest `correctCount` 
+   - **Priority 3** (tie-breaker): Alphabetical order by question text
+4. Track usage stats:
+   - `showCount`: How many times question appeared in games
+   - `correctCount`: How many times answered correctly
+5. Move 8 WHACKPOP emojis to MongoDB
+6. Create APIs for content fetching and tracking
+
+### Implementation Plan (12 Tasks)
+
+**Data Models**:
+1. **QuizQuestion Model** (`app/lib/models/quiz-question.ts`)
+   - question: string
+   - options: string[4]
+   - correctIndex: number (0-3)
+   - difficulty: enum ['EASY', 'MEDIUM', 'HARD', 'EXPERT']
+   - category: string
+   - showCount: number (default 0)
+   - correctCount: number (default 0)
+   - isActive: boolean (default true)
+   - Indexes: `{ difficulty, isActive, showCount, correctCount, question }`
+
+2. **WhackPopEmoji Model** (`app/lib/models/whackpop-emoji.ts`)
+   - emoji: string (unique)
+   - name: string
+   - category: string
+   - isActive: boolean
+   - weight: number
+   - Indexes: `{ emoji }` (unique), `{ isActive }`
+
+**API Endpoints**:
+1. `GET /api/games/quizzz/questions?difficulty=MEDIUM&count=10`
+   - Intelligent selection algorithm with triple-tier sorting
+   - Atomically increments `showCount` for selected questions
+   - Returns questions without `correctIndex` (security)
+
+2. `POST /api/games/quizzz/questions/track`
+   - Tracks correct answers
+   - Bulk updates `correctCount` for answered questions
+
+3. `GET /api/games/whackpop/emojis`
+   - Returns all active emojis
+   - Cached for 1 hour
+
+**Seed Scripts**:
+1. `scripts/seed-quiz-questions.ts`
+   - Migrates 40 existing questions
+   - Adds 80 NEW questions across 8 categories:
+     - Science (20), History (20), Geography (15)
+     - Math (15), Technology (15), Arts & Literature (10)
+     - Sports (10), General Knowledge (15)
+   - Difficulty distribution: 30 EASY, 30 MEDIUM, 30 HARD, 30 EXPERT
+
+2. `scripts/seed-whackpop-emojis.ts`
+   - Migrates 8 existing emojis with metadata
+
+**Game Component Updates**:
+1. `app/games/quizzz/page.tsx`
+   - Remove hardcoded `ALL_QUESTIONS` array
+   - Fetch questions from API on game start
+   - Track correct answers during gameplay
+   - Send tracking data on game completion
+
+2. `app/games/whackpop/page.tsx`
+   - Remove hardcoded `TARGET_EMOJIS` array
+   - Fetch emojis from API on mount
+   - Cache in sessionStorage
+
+### Task Breakdown
+
+| ID | Task | Expected Delivery |
+|----|------|------------------|
+| 1 | Audit current game content storage | 2025-10-16 |
+| 2 | Design MongoDB schemas for game content | 2025-10-16 |
+| 3 | Create seed script for QUIZZZ questions (120 total) | 2025-10-16 |
+| 4 | Create seed script for WHACKPOP emojis | 2025-10-16 |
+| 5 | Implement intelligent question selection API | 2025-10-16 |
+| 6 | Implement question tracking API | 2025-10-16 |
+| 7 | Implement WHACKPOP emojis API | 2025-10-16 |
+| 8 | Update QUIZZZ game component | 2025-10-16 |
+| 9 | Update WHACKPOP game component | 2025-10-16 |
+| 10 | Run seed scripts and verify database | 2025-10-16 |
+| 11 | Manual QA testing | 2025-10-16 |
+| 12 | Update documentation and commit | 2025-10-16 |
+
+### Technical Decisions
+
+**Selection Algorithm Optimization**:
+- Use MongoDB aggregation pipeline for multi-tier sorting
+- Compound index: `{ difficulty: 1, isActive: 1, showCount: 1, correctCount: 1, question: 1 }`
+- Atomic `$inc` operations to prevent race conditions
+
+**Security Considerations**:
+- Never return `correctIndex` to client until answer submitted
+- Rate limiting on all endpoints (100 req/min)
+- Input validation with Zod schemas
+
+**Performance Optimizations**:
+- Cache WHACKPOP emojis for 1 hour (rarely change)
+- SessionStorage fallback for offline support
+- Bulk writes for tracking updates
+
+**Content Quality Standards**:
+- All 80 new questions must be:
+  - Factually accurate and verifiable
+  - Unambiguous with one clear correct answer
+  - Well-distributed across categories and difficulties
+  - Appropriate for target audience
+
+### Success Criteria
+
+- ✅ 120 QUIZZZ questions in database (40 migrated + 80 new)
+- ✅ 8 WHACKPOP emojis in database
+- ✅ 3 API endpoints functional and tested
+- ✅ Games work with database content (no hardcoding)
+- ✅ Intelligent selection algorithm working correctly
+- ✅ Usage tracking updating correctly
+- ✅ All documentation updated
+- ✅ Version bumped to 2.1.0
+
+### Next Steps
+
+1. Begin with task #1: Audit current game content
+2. Create Mongoose models (task #2)
+3. Create comprehensive seed scripts (tasks #3-4)
+4. Implement API layer (tasks #5-7)
+5. Update game components (tasks #8-9)
+6. QA and documentation (tasks #10-12)
+
+---
+
 *This log will be updated throughout the development lifecycle. All timestamps use ISO 8601 format with milliseconds in UTC.*
