@@ -11,6 +11,7 @@
 
 import { NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
+import mongoose from 'mongoose';
 import connectDB from '@/app/lib/mongodb';
 import { QuizQuestion } from '@/app/lib/models';
 import logger from '@/app/lib/logger';
@@ -81,26 +82,20 @@ export async function POST(request: NextRequest) {
     // Why: Connect to database
     await connectDB();
 
-    // Why: Use bulkWrite for efficient batch updates
-    // Only increment correctCount for correctly answered questions
-    if (correctAnswers.length > 0) {
-      const result = await QuizQuestion.bulkWrite(
-        correctAnswers.map(id => ({
-          updateOne: {
-            filter: { _id: id },
-            update: { $inc: { correctCount: 1 } },
-          },
-        }))
-      );
-
+    // Why: Filter out invalid ObjectIDs (fallback questions)
+    // Only track real database questions to prevent CastError
+    const validCorrectAnswers = correctAnswers.filter(id => mongoose.Types.ObjectId.isValid(id));
+    
+    if (validCorrectAnswers.length === 0) {
+      // Why: No valid database questions to track (using fallback questions)
       logger.info(
         {
           totalQuestions: questionIds.length,
           correctCount: correctAnswers.length,
-          accuracy: Math.round((correctAnswers.length / questionIds.length) * 100),
-          modifiedCount: result.modifiedCount,
+          validCount: 0,
+          message: 'Skipped tracking - using fallback questions',
         },
-        'Question tracking completed'
+        'Question tracking skipped (fallback mode)'
       );
 
       return NextResponse.json({
@@ -109,32 +104,45 @@ export async function POST(request: NextRequest) {
           tracked: {
             totalQuestions: questionIds.length,
             correctAnswers: correctAnswers.length,
-            updatedCount: result.modifiedCount,
-          },
-        },
-      });
-    } else {
-      // Why: No correct answers to track (all wrong or skipped)
-      logger.info(
-        {
-          totalQuestions: questionIds.length,
-          correctCount: 0,
-        },
-        'Question tracking completed (no correct answers)'
-      );
-
-      return NextResponse.json({
-        ok: true,
-        data: {
-          tracked: {
-            totalQuestions: questionIds.length,
-            correctAnswers: 0,
             updatedCount: 0,
+            fallbackMode: true,
           },
         },
       });
     }
 
+    // Why: Use bulkWrite for efficient batch updates
+    // Only increment correctCount for correctly answered questions
+    const result = await QuizQuestion.bulkWrite(
+      validCorrectAnswers.map(id => ({
+        updateOne: {
+          filter: { _id: id },
+          update: { $inc: { correctCount: 1 } },
+        },
+      }))
+    );
+
+    logger.info(
+      {
+        totalQuestions: questionIds.length,
+        correctCount: correctAnswers.length,
+        validCount: validCorrectAnswers.length,
+        accuracy: Math.round((correctAnswers.length / questionIds.length) * 100),
+        modifiedCount: result.modifiedCount,
+      },
+      'Question tracking completed'
+    );
+
+    return NextResponse.json({
+      ok: true,
+      data: {
+        tracked: {
+          totalQuestions: questionIds.length,
+          correctAnswers: validCorrectAnswers.length,
+          updatedCount: result.modifiedCount,
+        },
+      },
+    });
   } catch (error) {
     logger.error({ error }, 'Error tracking quiz questions');
     return NextResponse.json(
