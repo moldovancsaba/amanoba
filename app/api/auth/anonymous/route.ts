@@ -38,7 +38,7 @@ export async function POST(req: NextRequest) {
     // Log authentication event
     await logAuthEvent(
       player._id.toString(),
-      (player.brandId as any).toString(),
+      String(player.brandId),
       'login' // Log as login for both new and returning anonymous users
     );
     

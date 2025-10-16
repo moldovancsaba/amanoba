@@ -199,7 +199,7 @@ export async function POST(request: NextRequest) {
           balanceAfter: wallet.currentBalance,
           source: {
             type: 'reward_redemption',
-            referenceId: reward._id as any,
+            referenceId: reward._id,
             description: `Redeemed: ${reward.name}`,
           },
           metadata: {
@@ -242,7 +242,7 @@ export async function POST(request: NextRequest) {
       validatedData.playerId,
       player.brandId.toString(),
       {
-        rewardId: (reward._id as any).toString(),
+        rewardId: reward._id.toString(),
         rewardName: reward.name,
         pointsCost: reward.pointsCost,
         category: reward.category,

@@ -64,19 +64,20 @@ export async function GET(
 
       if (completedSessions.length > 0 && (!progression || progression.totalXP === 0)) {
         // Aggregate totals
-        const totalXP = completedSessions.reduce((sum: number, s: any) => sum + (s.rewards?.xpEarned || 0), 0);
-        const totalPoints = completedSessions.reduce((sum: number, s: any) => sum + (s.rewards?.pointsEarned || 0), 0);
-        const totalPlayTime = completedSessions.reduce((sum: number, s: any) => sum + (s.duration || 0), 0);
+        type SessionData = { rewards?: { xpEarned?: number; pointsEarned?: number }; duration?: number; gameData?: { outcome?: string } };
+        const totalXP = completedSessions.reduce((sum: number, s: SessionData) => sum + (s.rewards?.xpEarned || 0), 0);
+        const totalPoints = completedSessions.reduce((sum: number, s: SessionData) => sum + (s.rewards?.pointsEarned || 0), 0);
+        const totalPlayTime = completedSessions.reduce((sum: number, s: SessionData) => sum + (s.duration || 0), 0);
         const totalGamesPlayed = completedSessions.length;
-        const totalWins = completedSessions.filter((s: any) => s.gameData?.outcome === 'win').length;
-        const totalLosses = completedSessions.filter((s: any) => s.gameData?.outcome === 'loss').length;
-        const totalDraws = completedSessions.filter((s: any) => s.gameData?.outcome === 'draw').length;
+        const totalWins = completedSessions.filter((s: SessionData) => s.gameData?.outcome === 'win').length;
+        const totalLosses = completedSessions.filter((s: SessionData) => s.gameData?.outcome === 'loss').length;
+        const totalDraws = completedSessions.filter((s: SessionData) => s.gameData?.outcome === 'draw').length;
 
         // Recompute level/currentXP/xpToNextLevel from totalXP using xp-progression utilities
         const { calculateXPToNextLevel, processXPGain } = await import('@/lib/gamification');
-        let level = 1;
-        let currentXP = 0;
-        let xpToNextLevel = calculateXPToNextLevel(level);
+        const level = 1;
+        const currentXP = 0;
+        const xpToNextLevel = calculateXPToNextLevel(level);
         const res = processXPGain({ level, currentXP, xpToNextLevel }, totalXP);
 
         const baseDoc = progression || new PlayerProgression({ playerId });
@@ -96,11 +97,11 @@ export async function GET(
           currentStreak: baseDoc.statistics?.currentStreak || 0,
           dailyLoginStreak: baseDoc.statistics?.dailyLoginStreak || 0,
           lastLoginDate: baseDoc.statistics?.lastLoginDate || new Date(),
-        } as any;
+        };
         baseDoc.gameSpecificStats = baseDoc.gameSpecificStats || new Map();
-        baseDoc.achievements = baseDoc.achievements || { totalUnlocked: 0, totalAvailable: 0, recentUnlocks: [] } as any;
-        baseDoc.milestones = baseDoc.milestones || [] as any;
-        baseDoc.metadata = baseDoc.metadata || { createdAt: new Date(), updatedAt: new Date(), lastXPGain: new Date() } as any;
+        baseDoc.achievements = baseDoc.achievements || { totalUnlocked: 0, totalAvailable: 0, recentUnlocks: [] };
+        baseDoc.milestones = baseDoc.milestones || [];
+        baseDoc.metadata = baseDoc.metadata || { createdAt: new Date(), updatedAt: new Date(), lastXPGain: new Date() };
         await baseDoc.save();
         progression = baseDoc;
 
@@ -114,7 +115,7 @@ export async function GET(
             pendingBalance: 0,
             lastTransaction: new Date(),
             metadata: { createdAt: new Date(), updatedAt: new Date(), lastBalanceCheck: new Date() },
-          } as any);
+          });
           await wallet.save();
         }
       }

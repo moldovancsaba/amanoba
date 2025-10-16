@@ -11,7 +11,7 @@ import logger from '@/lib/logger';
  */
 export async function GET(
   request: NextRequest,
-  context: any
+  context: { params: { playerId: string } }
 ) {
   try {
     const { playerId } = context.params;
@@ -24,7 +24,7 @@ export async function GET(
     }
 
     const gameKey = 'MADOKU';
-    const stats = (progression.gameSpecificStats as Map<string, any>).get?.(gameKey) || {};
+    const stats = (progression.gameSpecificStats as Map<string, unknown>).get?.(gameKey) as Record<string, unknown> || {};
     const elo: number = typeof stats.elo === 'number' ? stats.elo : 1200;
 
     // Total players with an ELO entry for Madoku

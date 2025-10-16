@@ -72,8 +72,8 @@ export async function GET(request: NextRequest) {
 
       const toInsert = base.map((b) => ({
         date: today,
-        type: b.type as any,
-        difficulty: b.difficulty as any,
+        type: b.type,
+        difficulty: b.difficulty,
         title: b.title,
         description: b.description,
         requirement: { target: b.target },

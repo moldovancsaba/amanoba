@@ -60,16 +60,17 @@ export async function GET(request: NextRequest) {
       .lean();
 
     // Calculate stats
+    type ReferralData = { status: string; rewardDetails?: { pointsEarned?: number }; _id: unknown; referredPlayerId?: { _id: unknown; displayName?: string; profilePicture?: string; createdAt?: Date }; completedAt?: Date; createdAt?: Date };
     const totalReferrals = referrals.length;
-    const pendingRewards = referrals.filter((r: any) => r.status === 'pending').length;
-    const completedRewards = referrals.filter((r: any) => r.status === 'completed').length;
+    const pendingRewards = referrals.filter((r: ReferralData) => r.status === 'pending').length;
+    const completedRewards = referrals.filter((r: ReferralData) => r.status === 'completed').length;
     const totalPointsEarned = referrals.reduce(
-      (sum: number, r: any) => sum + (r.rewardDetails?.pointsEarned || 0),
+      (sum: number, r: ReferralData) => sum + (r.rewardDetails?.pointsEarned || 0),
       0
     );
 
     // Format referral data
-    const referralData = referrals.map((ref: any) => ({
+    const referralData = referrals.map((ref: ReferralData) => ({
       id: ref._id,
       referredPlayer: {
         id: ref.referredPlayerId?._id,
