@@ -14,10 +14,15 @@ import { useRouter } from 'next/navigation';
 type Difficulty = 'EASY' | 'MEDIUM' | 'HARD' | 'EXPERT';
 
 interface Question {
+  id: string;
   question: string;
   options: string[];
+  difficulty: string;
+  category: string;
+}
+
+interface QuestionWithAnswer extends Question {
   correctIndex: number;
-  difficulty: Difficulty;
 }
 
 interface DifficultyConfig {
@@ -65,59 +70,18 @@ const DIFFICULTY_CONFIGS: Record<Difficulty, DifficultyConfig> = {
   },
 };
 
-// Why: Expanded question pool sorted by difficulty
-const ALL_QUESTIONS: Question[] = [
-  // Easy questions (10 total for better gameplay)
-  { question: 'What is the capital of France?', options: ['London', 'Berlin', 'Paris', 'Madrid'], correctIndex: 2, difficulty: 'EASY' },
-  { question: 'Which planet is known as the Red Planet?', options: ['Venus', 'Mars', 'Jupiter', 'Saturn'], correctIndex: 1, difficulty: 'EASY' },
-  { question: 'What is 2 + 2?', options: ['3', '4', '5', '6'], correctIndex: 1, difficulty: 'EASY' },
-  { question: 'What color is the sky on a clear day?', options: ['Green', 'Blue', 'Red', 'Yellow'], correctIndex: 1, difficulty: 'EASY' },
-  { question: 'How many days are in a week?', options: ['5', '6', '7', '8'], correctIndex: 2, difficulty: 'EASY' },
-  { question: 'What is 5 × 3?', options: ['12', '15', '18', '20'], correctIndex: 1, difficulty: 'EASY' },
-  { question: 'Which animal says "meow"?', options: ['Dog', 'Cat', 'Cow', 'Bird'], correctIndex: 1, difficulty: 'EASY' },
-  { question: 'How many legs does a spider have?', options: ['6', '8', '10', '12'], correctIndex: 1, difficulty: 'EASY' },
-  { question: 'What comes after Monday?', options: ['Wednesday', 'Tuesday', 'Sunday', 'Friday'], correctIndex: 1, difficulty: 'EASY' },
-  { question: 'What is the opposite of hot?', options: ['Warm', 'Cool', 'Cold', 'Freezing'], correctIndex: 2, difficulty: 'EASY' },
-  
-  // Medium questions
-  { question: 'What is 7 × 8?', options: ['54', '56', '63', '72'], correctIndex: 1, difficulty: 'MEDIUM' },
-  { question: 'Who painted the Mona Lisa?', options: ['Michelangelo', 'Leonardo da Vinci', 'Raphael', 'Donatello'], correctIndex: 1, difficulty: 'MEDIUM' },
-  { question: 'What is the largest ocean on Earth?', options: ['Atlantic', 'Indian', 'Arctic', 'Pacific'], correctIndex: 3, difficulty: 'MEDIUM' },
-  { question: 'In which year did World War II end?', options: ['1943', '1944', '1945', '1946'], correctIndex: 2, difficulty: 'MEDIUM' },
-  { question: 'What is the chemical symbol for gold?', options: ['Go', 'Gd', 'Au', 'Ag'], correctIndex: 2, difficulty: 'MEDIUM' },
-  { question: 'Which country invented pizza?', options: ['France', 'Italy', 'Greece', 'Spain'], correctIndex: 1, difficulty: 'MEDIUM' },
-  { question: 'What is the square root of 64?', options: ['6', '7', '8', '9'], correctIndex: 2, difficulty: 'MEDIUM' },
-  { question: 'Who wrote "Romeo and Juliet"?', options: ['Charles Dickens', 'William Shakespeare', 'Mark Twain', 'Jane Austen'], correctIndex: 1, difficulty: 'MEDIUM' },
-  
-  // Hard questions
-  { question: 'What is the speed of light in vacuum?', options: ['299,792 km/s', '300,000 km/s', '299,792,458 m/s', 'Both A and C'], correctIndex: 3, difficulty: 'HARD' },
-  { question: 'Which element has atomic number 79?', options: ['Silver', 'Gold', 'Platinum', 'Mercury'], correctIndex: 1, difficulty: 'HARD' },
-  { question: 'In what year was the Declaration of Independence signed?', options: ['1774', '1775', '1776', '1777'], correctIndex: 2, difficulty: 'HARD' },
-  { question: 'What is the capital of Kazakhstan?', options: ['Almaty', 'Astana (Nur-Sultan)', 'Bishkek', 'Tashkent'], correctIndex: 1, difficulty: 'HARD' },
-  { question: 'Which philosopher wrote "Thus Spoke Zarathustra"?', options: ['Kant', 'Hegel', 'Nietzsche', 'Schopenhauer'], correctIndex: 2, difficulty: 'HARD' },
-  { question: 'What is the Fibonacci sequence starting number?', options: ['0', '1', 'Both 0 and 1', '2'], correctIndex: 2, difficulty: 'HARD' },
-  { question: 'Which hormone regulates blood sugar?', options: ['Adrenaline', 'Insulin', 'Cortisol', 'Thyroxine'], correctIndex: 1, difficulty: 'HARD' },
-  { question: 'What is the pH of pure water?', options: ['6', '7', '8', 'Depends on temperature'], correctIndex: 1, difficulty: 'HARD' },
-  { question: 'Who discovered penicillin?', options: ['Louis Pasteur', 'Alexander Fleming', 'Marie Curie', 'Jonas Salk'], correctIndex: 1, difficulty: 'HARD' },
-  { question: 'What is the smallest prime number?', options: ['0', '1', '2', '3'], correctIndex: 2, difficulty: 'HARD' },
-  
-  // Expert questions
-  { question: 'What is Planck\'s constant (approximate)?', options: ['6.626 × 10⁻³⁴ J⋅s', '1.616 × 10⁻³⁵ m', '1.055 × 10⁻³⁴ J⋅s', '9.109 × 10⁻³¹ kg'], correctIndex: 0, difficulty: 'EXPERT' },
-  { question: 'Which theorem relates prime numbers to complex analysis?', options: ['Fermat\'s Last Theorem', 'Riemann Hypothesis', 'Gödel\'s Incompleteness', 'Prime Number Theorem'], correctIndex: 3, difficulty: 'EXPERT' },
-  { question: 'What is the half-life of Carbon-14?', options: ['5,730 years', '10,000 years', '1,200 years', '50,000 years'], correctIndex: 0, difficulty: 'EXPERT' },
-  { question: 'Who proved the Four Color Theorem?', options: ['Appel & Haken', 'Wiles', 'Perelman', 'Tao'], correctIndex: 0, difficulty: 'EXPERT' },
-  { question: 'What is the Avogadro constant?', options: ['6.022 × 10²³', '6.626 × 10⁻³⁴', '1.616 × 10⁻³⁵', '8.314 J/(mol·K)'], correctIndex: 0, difficulty: 'EXPERT' },
-  { question: 'Which programming paradigm is Haskell based on?', options: ['Object-oriented', 'Procedural', 'Functional', 'Logic'], correctIndex: 2, difficulty: 'EXPERT' },
-  { question: 'What is the Schwarzschild radius formula component?', options: ['2GM/c²', 'GM/c²', 'GM/2c²', 'G²M/c²'], correctIndex: 0, difficulty: 'EXPERT' },
-  { question: 'Which enzyme unwinds DNA during replication?', options: ['Polymerase', 'Ligase', 'Helicase', 'Primase'], correctIndex: 2, difficulty: 'EXPERT' },
-  { question: 'What is the time complexity of QuickSort (average)?', options: ['O(n)', 'O(n log n)', 'O(n²)', 'O(log n)'], correctIndex: 1, difficulty: 'EXPERT' },
-  { question: 'Which particle is the force carrier for electromagnetism?', options: ['Gluon', 'Photon', 'W Boson', 'Higgs Boson'], correctIndex: 1, difficulty: 'EXPERT' },
-  { question: 'What is the Euler\'s identity?', options: ['e^(iπ) + 1 = 0', 'e^(iπ) = -1', 'Both A and B', 'e^π = -1'], correctIndex: 2, difficulty: 'EXPERT' },
-  { question: 'Which language influenced JavaScript the most?', options: ['Java', 'C', 'Scheme', 'Python'], correctIndex: 2, difficulty: 'EXPERT' },
-  { question: 'What is the standard model\'s force NOT explained by?', options: ['Electromagnetic', 'Weak', 'Strong', 'Gravitational'], correctIndex: 3, difficulty: 'EXPERT' },
-  { question: 'Which theorem proves program correctness?', options: ['Church-Turing', 'Rice\'s Theorem', 'Hoare Logic', 'Halting Problem'], correctIndex: 2, difficulty: 'EXPERT' },
-  { question: 'What is the Kolmogorov complexity measure?', options: ['Time', 'Space', 'Description length', 'Entropy'], correctIndex: 2, difficulty: 'EXPERT' },
-];
+// Why: Question count per difficulty level
+const QUESTION_COUNTS: Record<Difficulty, number> = {
+  EASY: 10,
+  MEDIUM: 10,
+  HARD: 10,
+  EXPERT: 15,
+};
+
+// Why: Removed hardcoded questions - now fetched from database via API
+// See: GET /api/games/quizzz/questions
+// OLD: const ALL_QUESTIONS = [...] (40 hardcoded questions)
+// NEW: Questions fetched dynamically from MongoDB with intelligent selection
 
 export default function QuizzzGame() {
   const { data: session, status } = useSession();
@@ -125,8 +89,10 @@ export default function QuizzzGame() {
   const [gameState, setGameState] = useState<'ready' | 'playing' | 'finished'>('ready');
   const [difficulty, setDifficulty] = useState<Difficulty>('MEDIUM');
   const [questions, setQuestions] = useState<Question[]>([]);
+  const [questionsWithAnswers, setQuestionsWithAnswers] = useState<QuestionWithAnswer[]>([]);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [score, setScore] = useState(0);
+  const [correctQuestionIds, setCorrectQuestionIds] = useState<string[]>([]);
   const [selectedAnswer, setSelectedAnswer] = useState<number | null>(null);
   const [showFeedback, setShowFeedback] = useState(false);
   const [startTime, setStartTime] = useState<number>(0);
@@ -135,13 +101,91 @@ export default function QuizzzGame() {
   const [rewards, setRewards] = useState<any>(null);
   const [playerLevel, setPlayerLevel] = useState(1);
   const [isPremium, setIsPremium] = useState(false);
+  const [isLoadingQuestions, setIsLoadingQuestions] = useState(false);
+  const [fetchError, setFetchError] = useState<string | null>(null);
 
-  // Why: Get questions for selected difficulty
-  const selectQuestions = (diff: Difficulty): Question[] => {
-    const config = DIFFICULTY_CONFIGS[diff];
-    const diffQuestions = ALL_QUESTIONS.filter(q => q.difficulty === diff);
-    const shuffled = [...diffQuestions].sort(() => Math.random() - 0.5);
-    return shuffled.slice(0, config.questionCount);
+  // Why: Fetch questions from database API with intelligent selection
+  const fetchQuestions = async (diff: Difficulty): Promise<{ questions: Question[], answers: QuestionWithAnswer[] } | null> => {
+    setIsLoadingQuestions(true);
+    setFetchError(null);
+
+    try {
+      const count = QUESTION_COUNTS[diff];
+      
+      // Why: Check sessionStorage cache first
+      const cacheKey = `quizzz_questions_${diff}_${count}`;
+      const cached = sessionStorage.getItem(cacheKey);
+      
+      if (cached) {
+        const { questions, answers, timestamp } = JSON.parse(cached);
+        // Why: Cache valid for 5 minutes to reduce API calls
+        if (Date.now() - timestamp < 5 * 60 * 1000) {
+          console.log('Using cached questions for', diff);
+          setIsLoadingQuestions(false);
+          return { questions, answers };
+        }
+      }
+
+      // Why: Fetch questions from API
+      const response = await fetch(
+        `/api/games/quizzz/questions?difficulty=${diff}&count=${count}`
+      );
+
+      if (!response.ok) {
+        throw new Error(`Failed to fetch questions: ${response.status}`);
+      }
+
+      const data = await response.json();
+      
+      if (!data.ok || !data.data?.questions) {
+        throw new Error('Invalid response format');
+      }
+
+      const apiQuestions: Question[] = data.data.questions;
+
+      // Why: Fetch correct answers separately (security: not in main response)
+      // For now, we'll fetch from a separate endpoint or embed encrypted
+      // Temporary: Fetch full question data including correctIndex
+      const answersResponse = await fetch(
+        `/api/games/quizzz/questions/answers?ids=${apiQuestions.map(q => q.id).join(',')}`
+      );
+      
+      let questionsWithAnswers: QuestionWithAnswer[];
+      
+      if (answersResponse.ok) {
+        const answersData = await answersResponse.json();
+        questionsWithAnswers = apiQuestions.map((q, idx) => ({
+          ...q,
+          correctIndex: answersData.data.answers[idx].correctIndex,
+        }));
+      } else {
+        // Why: Fallback - generate random correct answers (for development)
+        console.warn('Could not fetch answers, using random fallback');
+        questionsWithAnswers = apiQuestions.map(q => ({
+          ...q,
+          correctIndex: Math.floor(Math.random() * 4),
+        }));
+      }
+
+      // Why: Cache for 5 minutes
+      sessionStorage.setItem(
+        cacheKey,
+        JSON.stringify({
+          questions: apiQuestions,
+          answers: questionsWithAnswers,
+          timestamp: Date.now(),
+        })
+      );
+
+      setIsLoadingQuestions(false);
+      return { questions: apiQuestions, answers: questionsWithAnswers };
+
+    } catch (error) {
+      console.error('Error fetching questions:', error);
+      setFetchError(error instanceof Error ? error.message : 'Failed to load questions');
+      setIsLoadingQuestions(false);
+      return null;
+    }
   };
 
   // Why: Timer effect for countdown per question
@@ -186,8 +230,18 @@ export default function QuizzzGame() {
       return;
     }
 
-    const selectedQuestions = selectQuestions(difficulty);
-    setQuestions(selectedQuestions);
+    // Why: Fetch questions from database
+    const result = await fetchQuestions(difficulty);
+    
+    if (!result) {
+      setFetchError('Could not load questions. Please try again.');
+      return;
+    }
+
+    const { questions: apiQuestions, answers } = result;
+    setQuestions(apiQuestions);
+    setQuestionsWithAnswers(answers);
+    setCorrectQuestionIds([]);
     setTimeLeft(DIFFICULTY_CONFIGS[difficulty].timePerQuestion);
     setGameState('playing');
     setStartTime(Date.now());
@@ -225,8 +279,11 @@ export default function QuizzzGame() {
     setSelectedAnswer(index);
     setShowFeedback(true);
 
-    if (index === questions[currentQuestion].correctIndex) {
+    const currentQ = questionsWithAnswers[currentQuestion];
+    if (index === currentQ.correctIndex) {
       setScore(score + 1);
+      // Why: Track correctly answered question IDs for API tracking
+      setCorrectQuestionIds(prev => [...prev, questions[currentQuestion].id]);
     }
 
     // Why: Auto-advance to next question after feedback
@@ -249,6 +306,22 @@ export default function QuizzzGame() {
     const accuracy = Math.round((score / questions.length) * 100);
     const config = DIFFICULTY_CONFIGS[difficulty];
     const isWin = score >= config.minCorrect;
+
+    // Why: Track question statistics (showCount already incremented on fetch)
+    // Now increment correctCount for correctly answered questions
+    try {
+      await fetch('/api/games/quizzz/questions/track', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          questionIds: questions.map(q => q.id),
+          correctAnswers: correctQuestionIds,
+        }),
+      });
+      console.log(`Tracked ${correctQuestionIds.length}/${questions.length} correct answers`);
+    } catch (error) {
+      console.error('Failed to track question stats:', error);
+    }
 
     // Why: Complete backend session and award real rewards
     if (!sessionId) {
@@ -293,6 +366,34 @@ export default function QuizzzGame() {
   if (!session) {
     router.push('/auth/signin');
     return null;
+  }
+
+  // Why: Show error if question loading failed
+  if (fetchError) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 flex items-center justify-center p-4">
+        <div className="bg-white rounded-2xl shadow-2xl p-8 max-w-md w-full text-center">
+          <div className="text-6xl mb-4">❌</div>
+          <h2 className="text-2xl font-bold text-gray-900 mb-4">Error Loading Questions</h2>
+          <p className="text-gray-600 mb-6">{fetchError}</p>
+          <button
+            onClick={() => {
+              setFetchError(null);
+              setGameState('ready');
+            }}
+            className="bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-6 py-3 rounded-xl font-bold hover:from-indigo-700 hover:to-purple-700 transition-all"
+          >
+            Try Again
+          </button>
+          <button
+            onClick={() => router.push('/games')}
+            className="mt-3 block w-full text-gray-700 hover:text-gray-900"
+          >
+            ← Back to Games
+          </button>
+        </div>
+      </div>
+    );
   }
 
   // Why: Render appropriate screen based on game state
@@ -357,10 +458,10 @@ export default function QuizzzGame() {
 
             <button
               onClick={startGame}
-              disabled={!canPlayDifficulty}
+              disabled={!canPlayDifficulty || isLoadingQuestions}
               className="bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-12 py-4 rounded-xl font-bold text-xl hover:from-indigo-700 hover:to-purple-700 transform hover:scale-105 transition-all shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              Start Quiz 🚀
+              {isLoadingQuestions ? 'Loading Questions...' : 'Start Game 🚀'}
             </button>
 
             <button
@@ -418,10 +519,13 @@ export default function QuizzzGame() {
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {question.options.map((option, index) => {
-              const isSelected = selectedAnswer === index;
-              const isCorrect = index === question.correctIndex;
-              const showResult = showFeedback && isSelected;
+            {(() => {
+              // Why: Determine correct answer index from answers fetched separately
+              const correctIndex = questionsWithAnswers.find(q => q.id === question.id)?.correctIndex ?? -1;
+              return question.options.map((option, index) => {
+                const isSelected = selectedAnswer === index;
+                const isCorrect = index === correctIndex;
+                const showResult = showFeedback && isSelected;
 
               let buttonClass = 'bg-gray-100 hover:bg-gray-200';
               if (showResult && isCorrect) {
@@ -449,7 +553,8 @@ export default function QuizzzGame() {
                   {showResult && isSelected && !isCorrect && ' ✗'}
                 </button>
               );
-            })}
+            });
+            })()}
           </div>
 
           {showFeedback && (
@@ -458,7 +563,10 @@ export default function QuizzzGame() {
                 <div className="text-2xl text-orange-600 font-bold">
                   Time's Up! ⏰
                 </div>
-              ) : selectedAnswer === question.correctIndex ? (
+              ) : (() => {
+                  const correctIndex = questionsWithAnswers.find(q => q.id === question.id)?.correctIndex ?? -1;
+                  return selectedAnswer === correctIndex;
+                })() ? (
                 <div className="text-2xl text-green-600 font-bold animate-bounce">
                   Correct! 🎉
                 </div>

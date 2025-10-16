@@ -7,6 +7,7 @@ import {
   PointsWallet,
   Streak,
   AchievementUnlock,
+  PlayerSession,
 } from '@/lib/models';
 
 /**
@@ -41,17 +42,85 @@ export async function GET(
     await connectToDatabase();
 
     // Why: Fetch all player-related data in parallel for performance
-    const [player, progression, wallet, streaks, achievementCount, totalAchievements] =
+    const [player, progressionRaw, walletRaw, streaks, achievementCount, totalAchievements] =
       await Promise.all([
         Player.findById(playerId),
         PlayerProgression.findOne({ playerId }),
         PointsWallet.findOne({ playerId }),
         Streak.find({ playerId, currentStreak: { $gt: 0 } }),
         AchievementUnlock.countDocuments({ playerId }),
-        // Why: Count achievements from a hypothetical Achievement model
-        // Note: This assumes achievements are defined; adjust if needed
-        17, // Placeholder: total achievements in system
+        // TODO: Replace with Achievement.countDocuments when model is final
+        17,
       ]);
+
+    let progression = progressionRaw;
+    let wallet = walletRaw;
+
+    // Backfill: if progression or wallet are missing or zeroed, rebuild from PlayerSession history
+    try {
+      const completedSessions = await PlayerSession.find({ playerId, status: 'completed' })
+        .select('rewards duration gameData.outcome')
+        .lean();
+
+      if (completedSessions.length > 0 && (!progression || progression.totalXP === 0)) {
+        // Aggregate totals
+        const totalXP = completedSessions.reduce((sum: number, s: any) => sum + (s.rewards?.xpEarned || 0), 0);
+        const totalPoints = completedSessions.reduce((sum: number, s: any) => sum + (s.rewards?.pointsEarned || 0), 0);
+        const totalPlayTime = completedSessions.reduce((sum: number, s: any) => sum + (s.duration || 0), 0);
+        const totalGamesPlayed = completedSessions.length;
+        const totalWins = completedSessions.filter((s: any) => s.gameData?.outcome === 'win').length;
+        const totalLosses = completedSessions.filter((s: any) => s.gameData?.outcome === 'loss').length;
+        const totalDraws = completedSessions.filter((s: any) => s.gameData?.outcome === 'draw').length;
+
+        // Recompute level/currentXP/xpToNextLevel from totalXP using xp-progression utilities
+        const { calculateXPToNextLevel, processXPGain } = await import('@/lib/gamification');
+        let level = 1;
+        let currentXP = 0;
+        let xpToNextLevel = calculateXPToNextLevel(level);
+        const res = processXPGain({ level, currentXP, xpToNextLevel }, totalXP);
+
+        const baseDoc = progression || new PlayerProgression({ playerId });
+        baseDoc.level = res.finalLevel;
+        baseDoc.currentXP = res.finalCurrentXP;
+        baseDoc.xpToNextLevel = res.finalXPToNextLevel;
+        baseDoc.totalXP = totalXP;
+        baseDoc.unlockedTitles = baseDoc.unlockedTitles || [];
+        baseDoc.statistics = {
+          totalGamesPlayed,
+          totalWins,
+          totalLosses,
+          totalDraws,
+          totalPlayTime,
+          averageSessionTime: totalGamesPlayed > 0 ? Math.floor(totalPlayTime / totalGamesPlayed) : 0,
+          bestStreak: baseDoc.statistics?.bestStreak || 0,
+          currentStreak: baseDoc.statistics?.currentStreak || 0,
+          dailyLoginStreak: baseDoc.statistics?.dailyLoginStreak || 0,
+          lastLoginDate: baseDoc.statistics?.lastLoginDate || new Date(),
+        } as any;
+        baseDoc.gameSpecificStats = baseDoc.gameSpecificStats || new Map();
+        baseDoc.achievements = baseDoc.achievements || { totalUnlocked: 0, totalAvailable: 0, recentUnlocks: [] } as any;
+        baseDoc.milestones = baseDoc.milestones || [] as any;
+        baseDoc.metadata = baseDoc.metadata || { createdAt: new Date(), updatedAt: new Date(), lastXPGain: new Date() } as any;
+        await baseDoc.save();
+        progression = baseDoc;
+
+        // Ensure wallet exists; if missing, initialize with lifetimeEarned from sessions
+        if (!wallet) {
+          wallet = new PointsWallet({
+            playerId,
+            currentBalance: totalPoints,
+            lifetimeEarned: totalPoints,
+            lifetimeSpent: 0,
+            pendingBalance: 0,
+            lastTransaction: new Date(),
+            metadata: { createdAt: new Date(), updatedAt: new Date(), lastBalanceCheck: new Date() },
+          } as any);
+          await wallet.save();
+        }
+      }
+    } catch (e) {
+      logger.warn({ e, playerId }, 'Backfill progression/wallet from sessions failed');
+    }
 
     if (!player) {
       logger.warn({ playerId }, 'Player not found');

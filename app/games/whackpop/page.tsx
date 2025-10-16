@@ -84,8 +84,10 @@ const DIFFICULTY_CONFIGS: Record<Difficulty, DifficultyConfig> = {
   },
 };
 
-// Why: Various emojis for targets to make game more engaging
-const TARGET_EMOJIS = ['🐹', '🐰', '🐭', '🐻', '🐼', '🐨', '🦊', '🦝'];
+// Why: Removed hardcoded emojis - now fetched from database via API
+// See: GET /api/games/whackpop/emojis  
+// OLD: const TARGET_EMOJIS = [...] (8 hardcoded emojis)
+// NEW: Emojis fetched dynamically from MongoDB
 
 export default function WhackPopGame() {
   const { data: session, status } = useSession();
@@ -101,6 +103,65 @@ export default function WhackPopGame() {
   const [rewards, setRewards] = useState<any>(null);
   const [playerLevel, setPlayerLevel] = useState(1);
   const [isPremium, setIsPremium] = useState(false);
+  const [emojis, setEmojis] = useState<string[]>([]);
+  const [isLoadingEmojis, setIsLoadingEmojis] = useState(true);
+  const [fetchError, setFetchError] = useState<string | null>(null);
+
+  // Why: Fetch emojis from database on component mount
+  useEffect(() => {
+    const fetchEmojis = async () => {
+      try {
+        // Why: Check sessionStorage cache first
+        const cached = sessionStorage.getItem('whackpop_emojis');
+        
+        if (cached) {
+          const { emojis: cachedEmojis, timestamp } = JSON.parse(cached);
+          // Why: Cache valid for 1 hour (emojis rarely change)
+          if (Date.now() - timestamp < 60 * 60 * 1000) {
+            console.log('Using cached emojis');
+            setEmojis(cachedEmojis);
+            setIsLoadingEmojis(false);
+            return;
+          }
+        }
+
+        // Why: Fetch from API
+        const response = await fetch('/api/games/whackpop/emojis');
+        
+        if (!response.ok) {
+          throw new Error(`Failed to fetch emojis: ${response.status}`);
+        }
+
+        const data = await response.json();
+        
+        if (!data.ok || !data.data?.emojis) {
+          throw new Error('Invalid response format');
+        }
+
+        const fetchedEmojis = data.data.emojis.map((e: { emoji: string }) => e.emoji);
+        setEmojis(fetchedEmojis);
+
+        // Why: Cache for 1 hour
+        sessionStorage.setItem(
+          'whackpop_emojis',
+          JSON.stringify({
+            emojis: fetchedEmojis,
+            timestamp: Date.now(),
+          })
+        );
+
+        setIsLoadingEmojis(false);
+        console.log(`Loaded ${fetchedEmojis.length} emojis from database`);
+
+      } catch (error) {
+        console.error('Error fetching emojis:', error);
+        setFetchError(error instanceof Error ? error.message : 'Failed to load emojis');
+        setIsLoadingEmojis(false);
+      }
+    };
+
+    fetchEmojis();
+  }, []);
 
   // Why: Start game session
   const startGame = async () => {
@@ -142,10 +203,12 @@ export default function WhackPopGame() {
 
   // Why: Spawn targets randomly during gameplay
   const spawnTarget = useCallback(() => {
+    if (emojis.length === 0) return; // Why: Wait for emojis to load
+    
     const config = DIFFICULTY_CONFIGS[difficulty];
     const id = Date.now();
     const position = Math.floor(Math.random() * 9); // 9 positions (3x3 grid)
-    const emoji = TARGET_EMOJIS[Math.floor(Math.random() * TARGET_EMOJIS.length)];
+    const emoji = emojis[Math.floor(Math.random() * emojis.length)];
     
     setTargets((prev) => {
       // Why: Limit targets based on difficulty to avoid overwhelming player
@@ -159,7 +222,7 @@ export default function WhackPopGame() {
       // Track missed targets
       setMisses((prev) => prev + 1);
     }, config.targetLifetime);
-  }, [difficulty]);
+  }, [difficulty, emojis]);
 
   // Why: Game timer countdown
   useEffect(() => {
@@ -199,7 +262,7 @@ export default function WhackPopGame() {
 
     const timeout = scheduleNextSpawn();
     return () => clearTimeout(timeout);
-  }, [gameState, difficulty, spawnTarget]);
+  }, [gameState, difficulty, spawnTarget, emojis]);
 
   // Why: Handle target hit
   const handleHit = (targetId: number) => {
@@ -250,6 +313,40 @@ export default function WhackPopGame() {
       }
     }
   };
+
+  // Why: Show loading while fetching emojis
+  if (isLoadingEmojis) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-orange-500 via-red-500 to-pink-500 flex items-center justify-center">
+        <div className="text-white text-2xl">Loading emojis...</div>
+      </div>
+    );
+  }
+
+  // Why: Show error if emoji loading failed
+  if (fetchError) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-orange-500 via-red-500 to-pink-500 flex items-center justify-center p-4">
+        <div className="bg-white rounded-2xl shadow-2xl p-8 max-w-md w-full text-center">
+          <div className="text-6xl mb-4">❌</div>
+          <h2 className="text-2xl font-bold text-gray-900 mb-4">Error Loading Game</h2>
+          <p className="text-gray-600 mb-6">{fetchError}</p>
+          <button
+            onClick={() => window.location.reload()}
+            className="bg-gradient-to-r from-orange-600 to-red-600 text-white px-6 py-3 rounded-xl font-bold hover:from-orange-700 hover:to-red-700 transition-all"
+          >
+            Reload Page
+          </button>
+          <button
+            onClick={() => router.push('/games')}
+            className="mt-3 block w-full text-gray-700 hover:text-gray-900"
+          >
+            ← Back to Games
+          </button>
+        </div>
+      </div>
+    );
+  }
 
   // Auth check
   if (status === 'loading') {

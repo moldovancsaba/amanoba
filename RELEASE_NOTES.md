@@ -1,11 +1,197 @@
 # Amanoba Release Notes
 
-**Current Version**: 2.0.0  
-**Last Updated**: 2025-01-13T10:00:00.000Z
+**Current Version**: 2.1.0  
+**Last Updated**: 2025-10-16T12:10:00.000Z
 
 ---
 
 All completed tasks are documented here in reverse chronological order. This file follows the Changelog format and is updated with every version bump.
+
+---
+
+## [v2.1.0] — 2025-10-16 🎮
+
+**Status**: ENHANCEMENT - Game Content Database Migration  
+**Type**: Feature Enhancement
+
+### 🗄️ Game Content Database Migration
+
+Migrated all hardcoded game content (QUIZZZ questions and WHACKPOP emojis) from frontend constants to MongoDB Atlas with intelligent selection algorithms and usage tracking.
+
+---
+
+#### **2.1.1 — Database Models**
+
+**QuizQuestion Model** (`app/lib/models/quiz-question.ts` - 249 lines):
+- **Fields**: question, options[4], correctIndex, difficulty, category, showCount, correctCount, isActive, metadata
+- **Difficulty Enum**: EASY, MEDIUM, HARD, EXPERT
+- **8 Categories**: Science, History, Geography, Math, Technology, Arts & Literature, Sports, General Knowledge
+- **Compound Index**: `{ difficulty: 1, isActive: 1, showCount: 1, correctCount: 1, question: 1 }`
+- **Why**: Supports intelligent selection algorithm with efficient multi-field sorting
+
+**WhackPopEmoji Model** (`app/lib/models/whackpop-emoji.ts` - 173 lines):
+- **Fields**: emoji (unique), name, category, isActive, weight, metadata
+- **Unique Index**: emoji field
+- **Why**: Ensures emoji uniqueness and supports future weighted selection
+
+---
+
+#### **2.1.2 — Seed Scripts**
+
+**Quiz Questions Seeding** (`scripts/seed-quiz-questions.ts` - 328 lines):
+- **Total Questions**: 120 (40 existing + 80 new)
+- **Distribution by Difficulty**:
+  - EASY: 30 questions
+  - MEDIUM: 30 questions
+  - HARD: 30 questions
+  - EXPERT: 30 questions
+- **Distribution by Category**:
+  - Science: 20 questions
+  - History: 20 questions
+  - Geography: 15 questions
+  - Math: 15 questions
+  - Technology: 15 questions
+  - Arts & Literature: 10 questions
+  - Sports: 10 questions
+  - General Knowledge: 15 questions
+- **npm command**: `npm run seed:quiz-questions`
+- **Why**: Provides rich question pool with balanced difficulty and category distribution
+
+**WhackPop Emojis Seeding** (`scripts/seed-whackpop-emojis.ts` - 106 lines):
+- **Total Emojis**: 8 animal emojis (🐹 🐰 🐭 🐻 🐼 🐨 🦊 🦝)
+- **Names**: Hamster, Rabbit, Mouse, Bear, Panda, Koala, Fox, Raccoon
+- **Category**: All Animals with weight: 1
+- **npm command**: `npm run seed:whackpop-emojis`
+- **Why**: Maintains existing game experience while enabling future emoji expansion
+
+---
+
+#### **2.1.3 — API Endpoints**
+
+**GET /api/games/quizzz/questions** (`app/api/games/quizzz/questions/route.ts` - 171 lines):
+- **Purpose**: Intelligent question selection with usage tracking
+- **Algorithm** (3-tier sorting):
+  1. `showCount` ASC (prioritize least shown questions)
+  2. `correctCount` ASC (prioritize harder questions)
+  3. `question` ASC (alphabetical tiebreaker)
+- **Query Params**: `difficulty` (EASY|MEDIUM|HARD|EXPERT), `count` (1-50)
+- **Atomic Operations**: Increments `showCount` and updates `lastShownAt` for selected questions
+- **Security**: Returns questions WITHOUT `correctIndex` to prevent cheating
+- **Validation**: Zod schema for query parameters
+- **Why**: Ensures players see varied content and naturally adjusts difficulty based on success rates
+
+**POST /api/games/quizzz/questions/track** (`app/api/games/quizzz/questions/track/route.ts` - 151 lines):
+- **Purpose**: Track correct answers to update question difficulty metrics
+- **Request Body**: `questionIds[]`, `correctAnswers[]`
+- **Validation**: Ensures correctAnswers are subset of questionIds
+- **Atomic Operations**: Uses `bulkWrite` for efficient batch updates of `correctCount`
+- **Why**: Enables adaptive difficulty by identifying which questions players find challenging
+
+**GET /api/games/quizzz/questions/answers** (`app/api/games/quizzz/questions/answers/route.ts` - 91 lines):
+- **Purpose**: Fetch correctIndex values for game logic validation
+- **Query Params**: `ids` (comma-separated)
+- **Returns**: Array of `{ id, correctIndex }`
+- **Security Note**: MVP solution; exposes answers but acceptable for current scope
+- **Why**: Separates sensitive answer data from main question API for better security posture
+
+**GET /api/games/whackpop/emojis** (`app/api/games/whackpop/emojis/route.ts` - 106 lines):
+- **Purpose**: Fetch active emojis from database
+- **Query**: `{ isActive: true }`
+- **Caching**: `Cache-Control: public, max-age=3600` (1 hour)
+- **Why**: Simple emoji fetching with efficient caching for rarely-changing content
+
+---
+
+#### **2.1.4 — Game Component Updates**
+
+**QUIZZZ Game** (`app/games/quizzz/page.tsx`):
+- **Removed**: ~40 hardcoded questions (lines 69-120)
+- **Added**: Database integration with intelligent fetching
+- **Features**:
+  - Fetches questions from `/api/games/quizzz/questions?difficulty=${diff}&count=${count}`
+  - Fetches answers from `/api/games/quizzz/questions/answers?ids=${ids}`
+  - SessionStorage caching (5 minute TTL) for performance
+  - Tracks correctly answered questions
+  - Calls tracking API on game completion
+  - Loading and error states with retry functionality
+- **Question Counts**: EASY: 10, MEDIUM: 10, HARD: 10, EXPERT: 15
+- **Why**: Provides players with fresh content and enables usage analytics
+
+**WHACKPOP Game** (`app/games/whackpop/page.tsx`):
+- **Removed**: Hardcoded `TARGET_EMOJIS` array (line 88)
+- **Added**: Database integration with emoji fetching
+- **Features**:
+  - Fetches emojis from `/api/games/whackpop/emojis` on component mount
+  - SessionStorage caching (1 hour TTL) for performance
+  - Waits for emojis to load before spawning targets
+  - Loading and error states with reload functionality
+  - Graceful error handling with user-friendly messages
+- **Why**: Maintains game experience while enabling future emoji expansion
+
+---
+
+#### **2.1.5 — Technical Achievements**
+
+**Database Population**:
+- ✅ 120 trivia questions seeded successfully
+- ✅ 8 WhackPop emojis seeded successfully
+- ✅ All metadata fields populated correctly
+- ✅ Indexes created and verified
+
+**Code Quality**:
+- ✅ Zero hardcoded game content remaining
+- ✅ Comprehensive error handling
+- ✅ TypeScript strict mode compliance
+- ✅ Clean build with no warnings
+- ✅ Proper commenting (What + Why) throughout
+
+**Performance**:
+- ✅ SessionStorage caching reduces API calls
+- ✅ Efficient MongoDB queries with compound indexes
+- ✅ Atomic operations for showCount/correctCount updates
+- ✅ HTTP caching headers for emoji API (1 hour)
+
+---
+
+#### **2.1.6 — Files Modified**
+
+**New Files (11)**:
+- `app/lib/models/quiz-question.ts` (249 lines)
+- `app/lib/models/whackpop-emoji.ts` (173 lines)
+- `scripts/seed-quiz-questions.ts` (328 lines)
+- `scripts/seed-whackpop-emojis.ts` (106 lines)
+- `app/api/games/quizzz/questions/route.ts` (171 lines)
+- `app/api/games/quizzz/questions/track/route.ts` (151 lines)
+- `app/api/games/quizzz/questions/answers/route.ts` (91 lines)
+- `app/api/games/whackpop/emojis/route.ts` (106 lines)
+
+**Modified Files (4)**:
+- `app/lib/models/index.ts` (added exports for 2 new models)
+- `app/games/quizzz/page.tsx` (extensively refactored for API integration)
+- `app/games/whackpop/page.tsx` (refactored for API integration)
+- `package.json` (added 2 seed scripts)
+
+**Total**: 1,375+ new lines of production code
+
+---
+
+#### **2.1.7 — Breaking Changes**
+
+**None** — This change is transparent to end users. Games continue to function identically while now powered by database content.
+
+---
+
+#### **2.1.8 — Future Enhancements**
+
+**Enabled by this migration**:
+- ✨ Admin dashboard for question/emoji management
+- ✨ A/B testing different questions
+- ✨ User-submitted questions (moderated)
+- ✨ Seasonal/themed emoji packs
+- ✨ Question difficulty auto-adjustment based on player performance
+- ✨ Advanced analytics on question effectiveness
+- ✨ Multi-language question support
+- ✨ Emoji rarity and weighted selection
 
 ---
 
