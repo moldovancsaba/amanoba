@@ -86,11 +86,59 @@ export async function POST(request: NextRequest) {
       outcome = 'loss';
     }
     
+    // Why: Get actual game data to determine maxScore and other config
+    const { Game } = await import('@/lib/models');
+    const game = await Game.findById(session.gameId);
+    
+    if (!game) {
+      logger.error({ gameId: session.gameId }, 'Game not found for session');
+      return NextResponse.json(
+        { error: 'Game not found' },
+        { status: 404 }
+      );
+    }
+    
+    // Why: Determine maxScore based on game type and metadata
+    // Different games have different scoring systems
+    let maxScore = 1000; // Default fallback
+    
+    if (game.gameId === 'QUIZZZ') {
+      // QUIZZZ: maxScore is always 100 per question
+      // Frontend sends actual score (number of correct answers * 100)
+      maxScore = validatedData.score <= 100 ? 100 : Math.ceil(validatedData.score / 100) * 100;
+    } else if (game.gameId === 'WHACKPOP') {
+      // WHACKPOP: Variable maxScore based on difficulty and duration
+      maxScore = validatedData.metadata?.maxScore as number || 1000;
+    } else if (game.gameId === 'MADOKU') {
+      // MADOKU: Fixed maxScore
+      maxScore = 500;
+    } else if (game.gameId === 'SUDOKU') {
+      // SUDOKU: Score based on time, maxScore is ideal completion
+      maxScore = 1000;
+    } else if (game.gameId === 'MEMORY') {
+      // MEMORY: Score based on moves and time
+      maxScore = 1000;
+    } else if (game.metadata?.maxScore) {
+      // Use game-specific maxScore from metadata if available
+      maxScore = game.metadata.maxScore as number;
+    }
+    
+    logger.info(
+      { 
+        gameId: game.gameId, 
+        gameName: game.name,
+        score: validatedData.score, 
+        maxScore,
+        outcome 
+      }, 
+      'Processing game completion with calculated maxScore'
+    );
+    
     // Why: Use the session manager to handle all reward calculations and updates
     const result = await completeGameSession({
       sessionId: new mongoose.Types.ObjectId(validatedData.sessionId),
       score: validatedData.score,
-      maxScore: 1000, // TODO: Get from game config
+      maxScore, // Now using calculated maxScore per game type
       outcome,
       accuracy: validatedData.accuracy,
       moves: validatedData.moves,

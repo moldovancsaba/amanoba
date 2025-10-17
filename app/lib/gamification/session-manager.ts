@@ -574,6 +574,76 @@ export async function completeGameSession(
       }
     }
     
+    // 13g. Update leaderboards (async, non-blocking)
+    // Why: Keep competitive rankings up-to-date after each game
+    if (!isGhost) {
+      // Why: Import leaderboard calculator dynamically to avoid circular dependencies
+      const { calculateLeaderboard } = await import('./leaderboard-calculator');
+      
+      // Why: Update relevant leaderboards asynchronously (don't block response)
+      Promise.all([
+        // Update points leaderboard
+        calculateLeaderboard({
+          type: 'points_balance',
+          period: 'all_time',
+          brandId: session.brandId.toString(),
+          limit: 100,
+        }).catch(err => logger.error({ err, type: 'points_balance' }, 'Failed to update leaderboard')),
+        
+        // Update XP leaderboard
+        calculateLeaderboard({
+          type: 'xp_total',
+          period: 'all_time',
+          brandId: session.brandId.toString(),
+          limit: 100,
+        }).catch(err => logger.error({ err, type: 'xp_total' }, 'Failed to update leaderboard')),
+        
+        // Update level leaderboard
+        calculateLeaderboard({
+          type: 'level',
+          period: 'all_time',
+          brandId: session.brandId.toString(),
+          limit: 100,
+        }).catch(err => logger.error({ err, type: 'level' }, 'Failed to update leaderboard')),
+        
+        // Update win streak if this was a win
+        ...(input.outcome === 'win' ? [
+          calculateLeaderboard({
+            type: 'win_streak',
+            period: 'all_time',
+            brandId: session.brandId.toString(),
+            limit: 100,
+          }).catch(err => logger.error({ err, type: 'win_streak' }, 'Failed to update leaderboard')),
+        ] : []),
+        
+        // Update games won leaderboard
+        calculateLeaderboard({
+          type: 'games_won',
+          period: 'all_time',
+          brandId: session.brandId.toString(),
+          limit: 100,
+        }).catch(err => logger.error({ err, type: 'games_won' }, 'Failed to update leaderboard')),
+        
+        // Update Madoku ELO leaderboard if it's a Madoku game
+        ...((game as { gameId?: string }).gameId === 'MADOKU' ? [
+          calculateLeaderboard({
+            type: 'elo',
+            period: 'all_time',
+            brandId: session.brandId.toString(),
+            limit: 100,
+          }).catch(err => logger.error({ err, type: 'elo' }, 'Failed to update leaderboard')),
+        ] : []),
+      ]).catch(err => {
+        // Why: Log but don't fail the request if leaderboard updates fail
+        logger.error({ err, sessionId: session._id }, 'Error updating leaderboards');
+      });
+      
+      logger.debug(
+        { sessionId: session._id, playerId: session.playerId },
+        'Triggered leaderboard updates (async)'
+      );
+    }
+    
     // 13a. Log game completion event
     await EventLog.create({
       playerId: session.playerId,
