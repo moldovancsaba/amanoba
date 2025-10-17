@@ -98,7 +98,24 @@ export default function QuizzzGame() {
   const [startTime, setStartTime] = useState<number>(0);
   const [timeLeft, setTimeLeft] = useState<number>(0);
   const [sessionId, setSessionId] = useState<string | null>(null);
-  const [rewards, setRewards] = useState<{ xp: number; points: number } | null>(null);
+  const [rewards, setRewards] = useState<{
+    xp: number;
+    points: number;
+  } | null>(null);
+  const [progression, setProgression] = useState<{
+    levelsGained: number;
+    newLevel: number;
+    newTitle?: string;
+  } | null>(null);
+  const [achievements, setAchievements] = useState<Array<{
+    name: string;
+    tier: string;
+    rewards: { points: number; xp: number };
+  }>>([]);
+  const [completedChallenges, setCompletedChallenges] = useState<Array<{
+    title: string;
+    rewardsEarned: { points: number; xp: number };
+  }>>([]);
   const [playerLevel, setPlayerLevel] = useState(1);
   const [isPremium, setIsPremium] = useState(false);
   const [isLoadingQuestions, setIsLoadingQuestions] = useState(false);
@@ -432,10 +449,13 @@ export default function QuizzzGame() {
           }),
         });
 
-        if (response.ok) {
-          const data = await response.json();
-          setRewards(data.rewards);
-          console.log('✅ Game session completed with rewards:', data.rewards);
+      if (response.ok) {
+        const data = await response.json();
+        setRewards(data.rewards);
+        setProgression(data.progression);
+        setAchievements(data.achievements || []);
+        // Note: completedChallenges come from session manager logs, not returned directly
+        console.log('✅ Game session completed with rewards:', data);
         } else {
           const errorText = await response.text();
           console.error('❌ Failed to complete game session:', response.status, errorText);
@@ -705,17 +725,80 @@ export default function QuizzzGame() {
             </div>
           </div>
 
+          {/* Rewards Section */}
           {rewards && (
-            <div className="bg-indigo-50 rounded-xl p-6 mb-6">
-              <h3 className="font-bold text-gray-900 mb-4">Rewards Earned!</h3>
-              <div className="space-y-2 text-lg">
-                <div>⭐ +{rewards.xp || 0} XP</div>
-                <div>💎 +{rewards.points || 0} Points</div>
-                {rewards.levelsGained > 0 && (
-                  <div className="text-green-600 font-bold">
-                    🎉 Level Up! (+{rewards.levelsGained})
+            <div className="space-y-4 mb-6">
+              {/* Main Rewards */}
+              <div className="bg-gradient-to-r from-indigo-50 to-purple-50 rounded-xl p-6">
+                <h3 className="font-bold text-gray-900 mb-4 text-xl">💰 Rewards Earned</h3>
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="bg-white rounded-lg p-4 text-center">
+                    <div className="text-3xl font-bold text-indigo-600">+{rewards.points || 0}</div>
+                    <div className="text-gray-600">💎 Points</div>
                   </div>
-                )}
+                  <div className="bg-white rounded-lg p-4 text-center">
+                    <div className="text-3xl font-bold text-purple-600">+{rewards.xp || 0}</div>
+                    <div className="text-gray-600">⭐ XP</div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Level Up */}
+              {progression && progression.levelsGained > 0 && (
+                <div className="bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl p-6">
+                  <div className="text-center">
+                    <div className="text-5xl mb-2">🎉</div>
+                    <h3 className="font-bold text-green-700 text-2xl mb-2">
+                      Level Up!
+                    </h3>
+                    <div className="text-lg text-gray-700">
+                      You're now <span className="font-bold text-green-600">Level {progression.newLevel}</span>
+                      {progression.newTitle && (
+                        <div className="mt-1 text-sm">
+                          New Title: <span className="font-bold text-purple-600">{progression.newTitle}</span>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {/* Achievements */}
+              {achievements.length > 0 && (
+                <div className="bg-gradient-to-r from-yellow-50 to-orange-50 rounded-xl p-6">
+                  <h3 className="font-bold text-gray-900 mb-4 text-xl flex items-center gap-2">
+                    🏆 Achievements Unlocked!
+                  </h3>
+                  <div className="space-y-3">
+                    {achievements.map((ach, idx) => (
+                      <div key={idx} className="bg-white rounded-lg p-4 flex justify-between items-center">
+                        <div>
+                          <div className="font-bold text-gray-900">{ach.name}</div>
+                          <div className="text-sm text-gray-600">
+                            {ach.tier} • +{ach.rewards.points}pts • +{ach.rewards.xp}xp
+                          </div>
+                        </div>
+                        <div className="text-3xl">🏅</div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Streak Bonus */}
+              {rewards.streakBonus && rewards.streakBonus > 0 && (
+                <div className="bg-gradient-to-r from-orange-50 to-red-50 rounded-xl p-4 text-center">
+                  <div className="font-bold text-orange-700">
+                    🔥 Streak Bonus: +{Math.round(rewards.streakBonus * 100)}% rewards!
+                  </div>
+                </div>
+              )}
+
+              {/* Daily Challenges Note */}
+              <div className="bg-gradient-to-r from-green-50 to-teal-50 rounded-xl p-4 text-center">
+                <div className="text-sm text-gray-700">
+                  🎯 Check <a href="/challenges" className="font-bold text-teal-600 hover:underline">Daily Challenges</a> to see your progress!
+                </div>
               </div>
             </div>
           )}
@@ -732,6 +815,9 @@ export default function QuizzzGame() {
                 setTimeLeft(0);
                 setSessionId(null);
                 setRewards(null);
+                setProgression(null);
+                setAchievements([]);
+                setCompletedChallenges([]);
               }}
               className="flex-1 bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-6 py-3 rounded-xl font-bold hover:from-indigo-700 hover:to-purple-700 transition-all"
             >
