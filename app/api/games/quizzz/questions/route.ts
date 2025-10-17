@@ -88,10 +88,18 @@ export async function GET(request: NextRequest) {
 
     const { difficulty, count, exclude, runId } = validation.data;
 
-    // Parse exclude ids
+    // Parse exclude ids (robust handling of invalid IDs)
     const excludeIds = (exclude ? exclude.split(',') : [])
       .map(id => id?.trim())
-      .filter(Boolean);
+      .filter(Boolean)
+      .filter(id => {
+        try {
+          const mongoose = require('mongoose');
+          return mongoose.isValidObjectId(id);
+        } catch {
+          return false;
+        }
+      });
 
     // Why: Connect to database
     await connectDB();
@@ -103,7 +111,12 @@ export async function GET(request: NextRequest) {
       isActive: true,
     };
     if (excludeIds.length > 0) {
-      matchStage._id = { $nin: excludeIds.map(id => new (require('mongoose').Types.ObjectId)(id)) };
+      try {
+        const mongoose = require('mongoose');
+        matchStage._id = { $nin: excludeIds.map(id => new mongoose.Types.ObjectId(id)) };
+      } catch (err) {
+        logger.warn({ error: err, excludeIds }, 'Failed to parse exclude IDs, ignoring exclude filter');
+      }
     }
 
     const questionsPool = await QuizQuestion.aggregate([
@@ -133,6 +146,20 @@ export async function GET(request: NextRequest) {
     
     // Why: If we need more questions, fill from remaining pool
     const questions = selectedQuestions.slice(0, count);
+
+    // Why: Log pool exhaustion warning if we couldn't get requested count
+    if (questions.length < count && excludeIds.length > 0) {
+      logger.warn(
+        { 
+          difficulty, 
+          requestedCount: count, 
+          foundCount: questions.length,
+          excludedCount: excludeIds.length,
+          runId 
+        }, 
+        'Pool exhaustion detected - fewer questions available than requested after exclusions'
+      );
+    }
 
     // Why: Check if we have enough questions
     if (questions.length === 0) {

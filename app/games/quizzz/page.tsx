@@ -132,11 +132,12 @@ export default function QuizzzGame() {
       // Generate unique runId for this game (for variance and debugging)
       const runId = (globalThis.crypto?.randomUUID?.() || `${Date.now()}_${Math.random()}`).toString();
 
-      // Exclude questions from last run for this difficulty (avoid immediate repeats)
-      const lastKey = `quizzz:lastIds:${diff}`;
-      const lastIdsRaw = sessionStorage.getItem(lastKey);
-      const lastIds: string[] = lastIdsRaw ? JSON.parse(lastIdsRaw) : [];
-      const excludeParam = lastIds.slice(0, 50).join(',');
+      // Why: Track ALL seen questions for this difficulty, not just last game
+      // Reset only when pool is exhausted to ensure no repeats until all questions seen
+      const seenKey = `quizzz:seenIds:${diff}`;
+      const seenIdsRaw = sessionStorage.getItem(seenKey);
+      let seenIds: string[] = seenIdsRaw ? JSON.parse(seenIdsRaw) : [];
+      const excludeParam = seenIds.slice(0, 200).join(','); // Limit to 200 for URL safety
       
       // Why: NO CACHING + exclude + runId
       const url = `/api/games/quizzz/questions?difficulty=${diff}&count=${count}&runId=${encodeURIComponent(runId)}${excludeParam ? `&exclude=${encodeURIComponent(excludeParam)}` : ''}&t=${Date.now()}`;
@@ -160,11 +161,26 @@ export default function QuizzzGame() {
 
       const apiQuestions: Question[] = data.data.questions;
 
-      // Persist these IDs to avoid immediate repetition on next run
+      // Why: Accumulate ALL seen question IDs for this difficulty
+      // If we got fewer questions than requested, pool is exhausted - reset the seen list
       try {
-        const lastKey = `quizzz:lastIds:${diff}`;
-        sessionStorage.setItem(lastKey, JSON.stringify(apiQuestions.map(q => q.id)));
-      } catch {}
+        const seenKey = `quizzz:seenIds:${diff}`;
+        const newIds = apiQuestions.map(q => q.id);
+        
+        // Why: If API returned fewer questions than requested, we've exhausted the pool
+        // Reset seen list so questions can repeat on next game
+        if (apiQuestions.length < count) {
+          console.log(`⚠️ Pool exhausted for ${diff} - got ${apiQuestions.length}/${count} questions. Resetting seen list.`);
+          sessionStorage.setItem(seenKey, JSON.stringify(newIds));
+        } else {
+          // Why: Add new questions to accumulated seen list
+          const updated = [...new Set([...seenIds, ...newIds])];
+          sessionStorage.setItem(seenKey, JSON.stringify(updated));
+          console.log(`✅ Tracking ${updated.length} total seen questions for ${diff}`);
+        }
+      } catch (err) {
+        console.warn('Failed to update seen questions:', err);
+      }
 
       // Why: Fetch correct answers separately (security: not in main response)
       const answersResponse = await fetch(

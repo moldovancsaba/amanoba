@@ -74,7 +74,7 @@ export async function updateDailyChallengeProgress(
     const endOfDay = new Date(startOfDay);
     endOfDay.setUTCDate(endOfDay.getUTCDate() + 1);
     
-    const activeChallenges = await DailyChallenge.find({
+let activeChallenges = await DailyChallenge.find({
       'availability.startTime': { $lte: now },
       'availability.endTime': { $gte: now },
       'availability.isActive': true,
@@ -92,15 +92,22 @@ export async function updateDailyChallengeProgress(
       'Checking daily challenges for player'
     );
     
-    if (activeChallenges.length === 0) {
-      logger.warn(
-        {
-          playerId: context.playerId,
-          dateRange: { start: startOfDay.toISOString(), end: endOfDay.toISOString() },
-        },
-        'No active daily challenges found'
-      );
-      return [];
+if (activeChallenges.length === 0) {
+      // Why: Ensure today's challenges exist (progress may occur before challenges page is visited)
+      const { ensureDailyChallengesForToday } = await import('./daily-challenge-service');
+      const ensured = await ensureDailyChallengesForToday(session);
+      activeChallenges = ensured.challenges.filter(c => c.availability.startTime <= now && c.availability.endTime > now);
+
+      if (activeChallenges.length === 0) {
+        logger.warn(
+          {
+            playerId: context.playerId,
+            dateRange: { start: startOfDay.toISOString(), end: endOfDay.toISOString() },
+          },
+          'No active daily challenges found even after ensuring creation'
+        );
+        return [];
+      }
     }
     
     const completedChallenges: ChallengeCompletionResult[] = [];
