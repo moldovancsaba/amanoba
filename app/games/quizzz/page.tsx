@@ -212,9 +212,20 @@ export default function QuizzzGame() {
       return { questions: apiQuestions, answers: questionsWithAnswers };
 
     } catch (error) {
-      console.error('Error fetching questions:', error);
-      // Fallback: use a built-in minimal question set so the game is always playable
-      try {
+      console.error('🚨 API FETCH FAILED - Questions could not be loaded from database:', error);
+      setIsLoadingQuestions(false);
+      
+      // Log the exact error details for debugging
+      if (error instanceof Error) {
+        console.error('Error message:', error.message);
+        console.error('Error stack:', error.stack);
+      }
+      
+      setFetchError(`Failed to load questions from database: ${error instanceof Error ? error.message : 'Unknown error'}`);
+      return null;
+      
+      // FALLBACK REMOVED - We need to fix the API, not hide the problem
+      /*try {
         // Why: Emergency fallback questions (only if API completely fails)
         const fallbackPool: Record<Difficulty, QuestionWithAnswer[]> = {
           EASY: [
@@ -304,13 +315,7 @@ export default function QuizzzGame() {
         // Why: Keep the same IDs so answer validation works correctly
         const apiQuestions: Question[] = answers.map(({ correctIndex, ...rest }) => ({ ...rest }));
 
-        setIsLoadingQuestions(false);
-        return { questions: apiQuestions, answers };
-      } catch (fallbackError) {
-        setFetchError(error instanceof Error ? error.message : 'Failed to load questions');
-        setIsLoadingQuestions(false);
-        return null;
-      }
+      */
     }
   };
 
@@ -666,13 +671,13 @@ export default function QuizzzGame() {
                 const isCorrect = index === correctIndex;
                 const showResult = showFeedback && isSelected;
 
-              let buttonClass = 'bg-gray-100 hover:bg-gray-200';
+              let buttonClass = 'bg-gray-100 hover:bg-gray-200 text-gray-900';
               if (showResult && isCorrect) {
                 buttonClass = 'bg-green-500 text-white';
               } else if (showResult && !isCorrect) {
                 buttonClass = 'bg-red-500 text-white';
               } else if (isSelected) {
-                buttonClass = 'bg-indigo-200';
+                buttonClass = 'bg-indigo-200 text-gray-900';
               }
 
               return (
