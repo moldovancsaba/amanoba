@@ -1,7 +1,7 @@
 # Amanoba Learnings
 
-**Version**: 2.1.1  
-**Last Updated**: 2025-10-17T12:01:00.000Z
+**Version**: 2.1.2  
+**Last Updated**: 2025-10-17T12:10:00.000Z
 
 ---
 
@@ -79,6 +79,63 @@ endOfDay.setUTCDate(endOfDay.getUTCDate() + 1);
 **Why It Matters**: Date mismatches silently fail - queries return empty results with no errors, making debugging difficult.
 
 **Applied In**: `app/lib/gamification/daily-challenge-tracker.ts` (lines 71-75), enhanced logging throughout challenge tracking.
+
+---
+
+### Question Repetition: Aggressive Cache Busting Required
+
+**Context**: QUIZZZ game showing same 10 questions repeatedly despite 200 questions in database.
+
+**Root Cause**: Browser and Next.js were caching API responses:
+- Frontend fetch had no `cache: 'no-store'` directive
+- No timestamp parameter to bust URL-based caching
+- API responses had no `Cache-Control` headers
+- Next.js default behavior caches fetch responses
+
+**Problem Code**:
+```typescript
+// ❌ Wrong: Gets cached by browser and Next.js
+const response = await fetch(
+  `/api/games/quizzz/questions?difficulty=${diff}&count=${count}`
+);
+```
+
+**Solution**:
+```typescript
+// ✅ Correct: Triple cache-busting strategy
+// 1. Timestamp in URL (browser cache)
+const response = await fetch(
+  `/api/games/quizzz/questions?difficulty=${diff}&count=${count}&t=${Date.now()}`,
+  {
+    cache: 'no-store', // 2. Next.js cache directive
+  }
+);
+
+// 3. Server-side headers in API response
+return NextResponse.json(data, {
+  headers: {
+    'Cache-Control': 'no-store, no-cache, must-revalidate, max-age=0',
+    'Pragma': 'no-cache',
+  },
+});
+```
+
+**Learning**: For dynamic game content that must be fresh every time:
+1. **URL-based cache busting**: Add `&t=${Date.now()}` to query string
+2. **Next.js cache control**: Set `cache: 'no-store'` in fetch options
+3. **HTTP cache headers**: Set aggressive `Cache-Control` in API responses
+4. **All three are needed** - relying on just one isn't enough
+
+**Why It Matters**: 
+- Cached responses completely break content rotation logic
+- `showCount` increments in DB but user never sees new questions
+- No error messages - silently returns stale data
+- Affects user experience dramatically (same questions every game)
+
+**Applied In**: 
+- `app/games/quizzz/page.tsx` (lines 120-124, 142-146)
+- `app/api/games/quizzz/questions/route.ts` (lines 209-213)
+- `app/api/games/quizzz/questions/answers/route.ts` (lines 78-82)
 
 ---
 

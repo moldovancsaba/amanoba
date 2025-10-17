@@ -68,12 +68,20 @@ export async function GET(request: NextRequest) {
 
     logger.info({ count: answers.length }, 'Question answers fetched');
 
-    return NextResponse.json({
-      ok: true,
-      data: {
-        answers,
+    return NextResponse.json(
+      {
+        ok: true,
+        data: {
+          answers,
+        },
       },
-    });
+      {
+        headers: {
+          'Cache-Control': 'no-store, no-cache, must-revalidate, max-age=0',
+          'Pragma': 'no-cache',
+        },
+      }
+    );
 
   } catch (error) {
     logger.error({ error }, 'Error fetching question answers');

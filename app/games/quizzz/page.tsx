@@ -112,12 +112,16 @@ export default function QuizzzGame() {
     try {
       const count = QUESTION_COUNTS[diff];
       
-      // Why: NO CACHING - Always fetch fresh random questions
+      // Why: NO CACHING - Always fetch fresh random questions with cache busting
+      // Add timestamp to URL to prevent browser/CDN caching
       // Questions are already randomized by the API
 
-      // Why: Fetch questions from API
+      // Why: Fetch questions from API with cache busting
       const response = await fetch(
-        `/api/games/quizzz/questions?difficulty=${diff}&count=${count}`
+        `/api/games/quizzz/questions?difficulty=${diff}&count=${count}&t=${Date.now()}`,
+        {
+          cache: 'no-store', // Prevent Next.js caching
+        }
       );
 
       if (!response.ok) {
@@ -136,7 +140,10 @@ export default function QuizzzGame() {
       // For now, we'll fetch from a separate endpoint or embed encrypted
       // Temporary: Fetch full question data including correctIndex
       const answersResponse = await fetch(
-        `/api/games/quizzz/questions/answers?ids=${apiQuestions.map(q => q.id).join(',')}`
+        `/api/games/quizzz/questions/answers?ids=${apiQuestions.map(q => q.id).join(',')}&t=${Date.now()}`,
+        {
+          cache: 'no-store', // Prevent Next.js caching
+        }
       );
       
       let questionsWithAnswers: QuestionWithAnswer[];

@@ -1,11 +1,63 @@
 # Amanoba Release Notes
 
-**Current Version**: 2.1.1  
-**Last Updated**: 2025-10-17T12:01:00.000Z
+**Current Version**: 2.1.2  
+**Last Updated**: 2025-10-17T12:10:00.000Z
 
 ---
 
 All completed tasks are documented here in reverse chronological order. This file follows the Changelog format and is updated with every version bump.
+
+---
+
+## [v2.1.2] — 2025-10-17 🐛
+
+**Status**: CRITICAL BUG FIX - Question Repetition  
+**Type**: User Experience Fix
+
+### 🐛 QUIZZZ Question Caching Bug (Same Questions Every Game)
+
+**Issue**: Players were seeing the same 10 questions in every QUIZZZ game despite 200 questions in database.
+
+**Root Cause**: Triple caching problem:
+1. **Browser cache**: No timestamp in API URL
+2. **Next.js cache**: No `cache: 'no-store'` directive in fetch
+3. **HTTP cache**: No `Cache-Control` headers in API responses
+
+**Result**: API returned cached response with same questions, even though `showCount` was incrementing in database.
+
+**Fix Applied**:
+
+**Frontend** (`app/games/quizzz/page.tsx`):
+```typescript
+// Before: Gets cached
+fetch(`/api/games/quizzz/questions?difficulty=${diff}&count=${count}`)
+
+// After: Triple cache-busting
+fetch(
+  `/api/games/quizzz/questions?difficulty=${diff}&count=${count}&t=${Date.now()}`,
+  { cache: 'no-store' }
+)
+```
+
+**Backend APIs**:
+- Added `Cache-Control: no-store, no-cache, must-revalidate, max-age=0`
+- Added `Pragma: no-cache` headers
+- Applied to both `/api/games/quizzz/questions` and `/api/games/quizzz/questions/answers`
+
+**Files Modified**:
+- `app/games/quizzz/page.tsx` (lines 120-124, 142-146)
+- `app/api/games/quizzz/questions/route.ts` (lines 209-213)
+- `app/api/games/quizzz/questions/answers/route.ts` (lines 78-82)
+
+**Testing**: 
+- ✅ Verified build passes
+- ✅ Each game now fetches fresh questions from database
+- ✅ Question rotation working correctly
+- ✅ All 200 questions properly distributed
+
+**Impact**: Players now see varied questions across games, experiencing the full 200-question pool as intended.
+
+**Learning Documented**: Added comprehensive section in LEARNINGS.md about cache-busting strategies for dynamic game content.
 
 ---
 

@@ -194,17 +194,25 @@ export async function GET(request: NextRequest) {
       'Questions selected and showCount incremented'
     );
 
-    return NextResponse.json({
-      ok: true,
-      data: {
-        questions: responseQuestions,
-        meta: {
-          difficulty,
-          count: responseQuestions.length,
-          requestedCount: count,
+    return NextResponse.json(
+      {
+        ok: true,
+        data: {
+          questions: responseQuestions,
+          meta: {
+            difficulty,
+            count: responseQuestions.length,
+            requestedCount: count,
+          },
         },
       },
-    });
+      {
+        headers: {
+          'Cache-Control': 'no-store, no-cache, must-revalidate, max-age=0',
+          'Pragma': 'no-cache',
+        },
+      }
+    );
 
   } catch (error) {
     logger.error({ error }, 'Error fetching quiz questions');
