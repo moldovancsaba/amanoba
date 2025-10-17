@@ -470,24 +470,114 @@ export default function WhackPopGame() {
 
   // Finished screen
   if (gameState === 'finished') {
+    const config = DIFFICULTY_CONFIGS[difficulty];
+    const isWin = hits >= config.hitsToWin;
+    const totalTargets = hits + misses;
+    const accuracy = totalTargets > 0 ? Math.round((hits / totalTargets) * 100) : 0;
+    const finalScore = Math.round(score * config.pointsMultiplier);
+
     return (
       <div className="min-h-screen bg-gradient-to-br from-orange-500 via-red-500 to-pink-500 flex items-center justify-center p-4">
-        <div className="bg-white rounded-2xl shadow-2xl p-8 max-w-md w-full text-center">
-          <div className="text-6xl mb-4">{(rewards?.points ?? 0) > 0 ? '🏆' : '🎮'}</div>
-          <h2 className="text-2xl font-bold text-gray-900 mb-2">Game Over</h2>
-          <p className="text-gray-700 mb-4">Score: {score}</p>
-          {rewards && (
-            <div className="bg-orange-50 rounded-lg p-4 mb-4">
-              <div className="font-semibold">Rewards</div>
-              <div className="text-sm text-gray-700">+{rewards.points} points • +{rewards.xp} XP</div>
+        <div className="bg-white rounded-2xl shadow-2xl p-8 max-w-2xl w-full">
+          <div className="text-center">
+            {/* Win/Loss Indicator */}
+            <div className="text-8xl mb-4 animate-bounce">
+              {isWin ? '🏆' : '💪'}
             </div>
-          )}
-          <button onClick={() => setGameState('ready')} className="bg-gradient-to-r from-orange-600 to-red-600 text-white px-6 py-3 rounded-xl font-bold hover:from-orange-700 hover:to-red-700 transition-all">
-            Play Again
-          </button>
-          <button onClick={() => router.push('/games')} className="mt-3 block w-full text-gray-700 hover:text-gray-900">
-            ← Back to Games
-          </button>
+            <h2 className="text-4xl font-bold text-gray-900 mb-2">
+              {isWin ? 'Victory!' : 'Good Try!'}
+            </h2>
+            <p className="text-xl text-gray-600 mb-6">
+              {isWin 
+                ? `You reached ${hits} hits! Amazing reflexes! 🎯`
+                : `You got ${hits}/${config.hitsToWin} hits. Keep practicing!`
+              }
+            </p>
+
+            {/* Stats Grid */}
+            <div className="bg-gray-50 rounded-xl p-6 mb-6">
+              <h3 className="font-bold text-gray-900 mb-4">Game Stats</h3>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div className="bg-white rounded-lg p-4">
+                  <div className="text-3xl font-bold text-orange-600">{finalScore}</div>
+                  <div className="text-sm text-gray-600">Final Score</div>
+                </div>
+                <div className="bg-white rounded-lg p-4">
+                  <div className="text-3xl font-bold text-green-600">{hits}</div>
+                  <div className="text-sm text-gray-600">Hits</div>
+                </div>
+                <div className="bg-white rounded-lg p-4">
+                  <div className="text-3xl font-bold text-blue-600">{accuracy}%</div>
+                  <div className="text-sm text-gray-600">Accuracy</div>
+                </div>
+                <div className="bg-white rounded-lg p-4">
+                  <div className="text-2xl font-bold text-purple-600">{difficulty}</div>
+                  <div className="text-sm text-gray-600">Difficulty</div>
+                </div>
+              </div>
+            </div>
+
+            {/* Rewards Section */}
+            {rewards && (
+              <div className="bg-gradient-to-r from-orange-50 to-red-50 rounded-xl p-6 mb-6 border-2 border-orange-200">
+                <h3 className="font-bold text-gray-900 mb-4 text-xl">🎁 Rewards Earned!</h3>
+                <div className="space-y-3">
+                  <div className="flex items-center justify-between bg-white rounded-lg p-3">
+                    <span className="font-medium text-gray-700">Experience Points</span>
+                    <span className="text-xl font-bold text-purple-600">+{rewards.xp || 0} XP</span>
+                  </div>
+                  <div className="flex items-center justify-between bg-white rounded-lg p-3">
+                    <span className="font-medium text-gray-700">Points</span>
+                    <span className="text-xl font-bold text-orange-600">+{rewards.points || 0} 💎</span>
+                  </div>
+                  {(rewards as any).levelsGained > 0 && (
+                    <div className="bg-gradient-to-r from-yellow-100 to-yellow-200 rounded-lg p-4 border-2 border-yellow-400">
+                      <div className="text-2xl font-bold text-yellow-800 animate-pulse">
+                        🎉 Level Up! +{(rewards as any).levelsGained} Level(s)!
+                      </div>
+                    </div>
+                  )}
+                  {(rewards as any).achievementsUnlocked?.length > 0 && (
+                    <div className="bg-gradient-to-r from-green-100 to-green-200 rounded-lg p-4 border-2 border-green-400">
+                      <div className="font-bold text-green-800 mb-2">🏅 New Achievements!</div>
+                      {(rewards as any).achievementsUnlocked.map((achievement: any, idx: number) => (
+                        <div key={idx} className="text-sm text-green-700">
+                          • {achievement.name}
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              </div>
+            )}
+
+            {/* Action Buttons */}
+            <div className="flex gap-4">
+              <button
+                onClick={() => {
+                  setGameState('ready');
+                  setRewards(null);
+                }}
+                className="flex-1 bg-gradient-to-r from-orange-600 to-red-600 text-white px-8 py-4 rounded-xl font-bold text-lg hover:from-orange-700 hover:to-red-700 transform hover:scale-105 transition-all shadow-lg"
+              >
+                🔄 Play Again
+              </button>
+              <button
+                onClick={() => router.push('/games')}
+                className="flex-1 bg-gray-200 text-gray-800 px-8 py-4 rounded-xl font-bold text-lg hover:bg-gray-300 transition-all"
+              >
+                ← Back to Games
+              </button>
+            </div>
+            
+            {/* Dashboard Link */}
+            <button
+              onClick={() => router.push('/dashboard')}
+              className="mt-4 text-gray-600 hover:text-gray-900 transition-colors text-sm"
+            >
+              View Dashboard →
+            </button>
+          </div>
         </div>
       </div>
     );
@@ -551,73 +641,5 @@ export default function WhackPopGame() {
     );
   }
 
-  // Finished screen
-  const config = DIFFICULTY_CONFIGS[difficulty];
-  const isWin = hits >= config.hitsToWin;
-  const accuracy = hits + misses > 0 ? Math.round((hits / (hits + misses)) * 100) : 0;
-  const finalScore = Math.round(score * config.pointsMultiplier);
-
-  return (
-    <div className="min-h-screen bg-gradient-to-br from-orange-500 via-red-500 to-pink-500 flex items-center justify-center p-4">
-      <div className="bg-white rounded-2xl shadow-2xl p-8 max-w-2xl w-full">
-        <div className="text-center">
-          <div className="text-6xl mb-4">{isWin ? '🏆' : '💪'}</div>
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">
-            {isWin ? 'Excellent!' : 'Good Try!'}
-          </h2>
-
-          <div className="bg-gray-50 rounded-xl p-6 mb-6">
-            <div className="grid grid-cols-4 gap-4">
-              <div>
-                <div className="text-3xl font-bold text-orange-600">{finalScore}</div>
-                <div className="text-gray-600">Score</div>
-              </div>
-              <div>
-                <div className="text-3xl font-bold text-red-600">{hits}</div>
-                <div className="text-gray-600">Hits</div>
-              </div>
-              <div>
-                <div className="text-3xl font-bold text-pink-600">{accuracy}%</div>
-                <div className="text-gray-600">Accuracy</div>
-              </div>
-              <div>
-                <div className="text-2xl font-bold text-purple-600">{difficulty}</div>
-                <div className="text-gray-600">Difficulty</div>
-              </div>
-            </div>
-          </div>
-
-          {rewards && (
-            <div className="bg-orange-50 rounded-xl p-6 mb-6">
-              <h3 className="font-bold text-gray-900 mb-4">Rewards Earned!</h3>
-              <div className="space-y-2 text-lg">
-                <div>⭐ +{rewards.xp || 0} XP</div>
-                <div>💎 +{rewards.points || 0} Points</div>
-                {rewards.levelsGained > 0 && (
-                  <div className="text-green-600 font-bold">
-                    🎉 Level Up! (+{rewards.levelsGained})
-                  </div>
-                )}
-              </div>
-            </div>
-          )}
-
-          <div className="flex gap-4">
-            <button
-              onClick={startGame}
-              className="flex-1 bg-gradient-to-r from-orange-600 to-red-600 text-white px-6 py-3 rounded-xl font-bold hover:from-orange-700 hover:to-red-700 transition-all"
-            >
-              Play Again
-            </button>
-            <button
-              onClick={() => router.push('/games')}
-              className="flex-1 bg-gray-200 text-gray-800 px-6 py-3 rounded-xl font-bold hover:bg-gray-300 transition-all"
-            >
-              Back to Games
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
+  return null;
 }
