@@ -28,6 +28,9 @@ import { AnalyticsSnapshot, Brand } from '../../../lib/models';
 import { logger } from '../../../lib/logger';
 import connectDB from '../../../lib/mongodb';
 
+export const runtime = 'nodejs';
+export const dynamic = 'force-dynamic';
+
 /**
  * POST /api/cron/analytics-snapshot
  * 

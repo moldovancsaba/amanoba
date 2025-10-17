@@ -20,6 +20,9 @@ import {
 import type { IAchievement } from '@/lib/models/achievement';
 import { logger } from '@/lib/logger';
 
+export const runtime = 'nodejs';
+export const dynamic = 'force-dynamic';
+
 /**
  * GET /api/profile/[playerId]
  * 

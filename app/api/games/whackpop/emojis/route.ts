@@ -12,6 +12,9 @@ import connectDB from '@/app/lib/mongodb';
 import { WhackPopEmoji } from '@/app/lib/models';
 import logger from '@/app/lib/logger';
 
+export const runtime = 'nodejs';
+export const dynamic = 'force-dynamic';
+
 /**
  * Response Emoji Interface
  * Why: Defines structure returned to client

@@ -16,12 +16,6 @@ import { logger } from './logger';
 const MONGODB_URI = process.env.MONGODB_URI;
 const DB_NAME = process.env.DB_NAME || 'amanoba';
 
-if (!MONGODB_URI) {
-  throw new Error(
-    'Please define the MONGODB_URI environment variable inside .env.local'
-  );
-}
-
 /**
  * Global cache for Mongoose connection
  * 
@@ -55,54 +49,69 @@ if (!global.mongoose) {
  * @returns Promise resolving to Mongoose instance
  */
 async function connectDB(): Promise<typeof mongoose> {
+  const start = Date.now();
+
+  if (!MONGODB_URI) {
+    const msg = 'MONGODB_URI is not defined. Set it in your environment (.env.local or platform env).';
+    logger.error({ msg }, 'MongoDB configuration error');
+    throw new Error(msg);
+  }
+
   // Return cached connection if available
-  // Why: Reuse existing connection to avoid overhead
   if (cached.conn) {
-    logger.debug('Using cached MongoDB connection');
+    logger.debug({ ms: Date.now() - start }, 'Using cached MongoDB connection');
     return cached.conn;
   }
 
-  // If no cached connection but connection attempt in progress, await it
-  // Why: Prevent multiple simultaneous connection attempts
+  // If a connection is already being established, await it
   if (!cached.promise) {
     const opts: mongoose.ConnectOptions = {
       dbName: DB_NAME,
-      bufferCommands: false, // Disable buffering for faster failure
-      maxPoolSize: 10, // Maximum 10 concurrent connections in pool
-      serverSelectionTimeoutMS: 5000, // Timeout after 5s if no server available
-      socketTimeoutMS: 45000, // Close sockets after 45s of inactivity
+      bufferCommands: false,
+      maxPoolSize: 10,
+      minPoolSize: 2,
+      serverSelectionTimeoutMS: 10000,
+      socketTimeoutMS: 45000,
+      keepAlive: true,
     };
 
-    logger.info({ dbName: DB_NAME }, 'Connecting to MongoDB...');
+    // Retry with exponential backoff (3 attempts)
+    const attemptConnect = async (attempt = 1): Promise<typeof mongoose> => {
+      try {
+        logger.info({ dbName: DB_NAME, attempt }, 'Connecting to MongoDB...');
+        const m = await mongoose.connect(MONGODB_URI!, opts);
 
-    // Create new connection promise
-    // Why: Store promise globally so multiple imports don't create multiple connections
-    cached.promise = mongoose
-      .connect(MONGODB_URI!, opts)
-      .then((mongoose) => {
+        // Wire connection events once
+        const conn = m.connection;
+        conn.on('connected', () => logger.info({ name: conn.name }, 'MongoDB connected'));
+        conn.on('disconnected', () => logger.warn({ name: conn.name }, 'MongoDB disconnected'));
+        conn.on('error', (err) => logger.error({ err: String(err) }, 'MongoDB connection error'));
+
         logger.info(
           {
-            host: mongoose.connection.host,
-            name: mongoose.connection.name,
-            readyState: mongoose.connection.readyState,
+            host: conn.host,
+            name: conn.name,
+            readyState: conn.readyState,
+            ms: Date.now() - start,
           },
           'MongoDB connected successfully'
         );
-        return mongoose;
-      })
-      .catch((error) => {
-        logger.error({ error: error.message }, 'MongoDB connection failed');
-        throw error;
-      });
+        return m;
+      } catch (error) {
+        logger.warn({ attempt, error: (error as Error).message }, 'MongoDB connect attempt failed');
+        if (attempt >= 3) throw error;
+        const delay = 500 * Math.pow(2, attempt - 1);
+        await new Promise((r) => setTimeout(r, delay));
+        return attemptConnect(attempt + 1);
+      }
+    };
+
+    cached.promise = attemptConnect();
   }
 
   try {
-    // Await connection and cache it
-    // Why: Once connected, cache for future requests
     cached.conn = await cached.promise;
   } catch (error) {
-    // If connection fails, clear promise so next call can retry
-    // Why: Don't permanently cache failures
     cached.promise = null;
     throw error;
   }
@@ -140,6 +149,13 @@ export async function disconnectDB(): Promise<void> {
  */
 export function getConnectionState(): number {
   return mongoose.connection.readyState;
+}
+
+/**
+ * Helper: Is DB Connected
+ */
+export function isDbConnected(): boolean {
+  return getConnectionState() === 1;
 }
 
 // Export default connection function

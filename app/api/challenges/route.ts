@@ -2,6 +2,9 @@ import { NextRequest, NextResponse } from 'next/server';
 import connectToDatabase from '@/lib/mongodb';
 import logger from '@/lib/logger';
 import { DailyChallenge, PlayerChallengeProgress } from '@/lib/models/daily-challenge';
+
+export const runtime = 'nodejs';
+export const dynamic = 'force-dynamic';
 import { ensureDailyChallengesForToday } from '@/lib/gamification/daily-challenge-service';
 
 /**

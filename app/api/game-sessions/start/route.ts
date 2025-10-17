@@ -3,6 +3,9 @@ import { z } from 'zod';
 import mongoose, { Document } from 'mongoose';
 import connectToDatabase from '@/lib/mongodb';
 import logger from '@/lib/logger';
+
+export const runtime = 'nodejs';
+export const dynamic = 'force-dynamic';
 import { startGameSession } from '@/lib/gamification';
 import { Player, Game } from '@/lib/models';
 import type { IGame } from '@/lib/models/game';

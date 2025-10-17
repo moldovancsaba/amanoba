@@ -4,6 +4,9 @@ import connectToDatabase from '@/lib/mongodb';
 import logger from '@/lib/logger';
 import { Achievement, AchievementUnlock } from '@/lib/models';
 
+export const runtime = 'nodejs';
+export const dynamic = 'force-dynamic';
+
 /**
  * GET /api/players/[playerId]/achievements
  * 

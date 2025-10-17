@@ -2,6 +2,9 @@ import { NextRequest, NextResponse } from 'next/server';
 import connectToDatabase from '@/lib/mongodb';
 import logger from '@/lib/logger';
 import { Quest, PlayerQuestProgress } from '@/lib/models/quest';
+
+export const runtime = 'nodejs';
+export const dynamic = 'force-dynamic';
 import { Player } from '@/lib/models';
 
 /**

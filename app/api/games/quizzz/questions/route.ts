@@ -16,7 +16,7 @@
 
 import { NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
-import connectDB from '@/app/lib/mongodb';
+import connectDB, { getConnectionState } from '@/app/lib/mongodb';
 import { QuizQuestion, QuestionDifficulty } from '@/app/lib/models';
 import logger from '@/app/lib/logger';
 
@@ -106,6 +106,15 @@ export async function GET(request: NextRequest) {
 
     // Why: Connect to database
     await connectDB();
+    if (getConnectionState() !== 1) {
+      return NextResponse.json(
+        {
+          ok: false,
+          error: { code: 'DB_UNAVAILABLE', message: 'Database not connected' },
+        },
+        { status: 503 }
+      );
+    }
 
     // Why: Fetch MORE questions than needed to ensure category diversity
     // Use aggregation to randomize within same showCount using $rand, and support excludeIds

@@ -3,6 +3,9 @@ import connectToDatabase from '@/lib/mongodb';
 import logger from '@/lib/logger';
 import { LeaderboardEntry, Player } from '@/lib/models';
 
+export const runtime = 'nodejs';
+export const dynamic = 'force-dynamic';
+
 /**
  * GET /api/leaderboards/[gameId]
  * 

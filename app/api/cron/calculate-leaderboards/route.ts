@@ -13,6 +13,9 @@ import { calculateAllLeaderboards } from '@/lib/gamification/leaderboard-calcula
 import connectDB from '@/lib/mongodb';
 import logger from '@/lib/logger';
 
+export const runtime = 'nodejs';
+export const dynamic = 'force-dynamic';
+
 /**
  * POST /api/cron/calculate-leaderboards
  * 

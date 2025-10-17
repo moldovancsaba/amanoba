@@ -16,6 +16,9 @@ import {
   PointsTransaction,
 } from '@/lib/models';
 import { logger } from '@/lib/logger';
+
+export const runtime = 'nodejs';
+export const dynamic = 'force-dynamic';
 import mongoose from 'mongoose';
 
 /**
