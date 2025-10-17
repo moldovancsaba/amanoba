@@ -20,6 +20,9 @@ import connectDB from '@/app/lib/mongodb';
 import { QuizQuestion, QuestionDifficulty } from '@/app/lib/models';
 import logger from '@/app/lib/logger';
 
+export const runtime = 'nodejs';
+export const dynamic = 'force-dynamic';
+
 /**
  * Query Parameters Schema
  * Why: Type-safe validation of request parameters
