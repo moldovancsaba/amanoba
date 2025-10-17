@@ -1,7 +1,7 @@
 # Amanoba Learnings
 
-**Version**: 2.1.0  
-**Last Updated**: 2025-10-16T12:10:00.000Z
+**Version**: 2.1.1  
+**Last Updated**: 2025-10-17T12:01:00.000Z
 
 ---
 
@@ -40,6 +40,45 @@ This document captures actual issues faced, solutions implemented, and best prac
 **Why It Matters**: Prevents overwhelming new players and increases premium conversion by building habit first.
 
 **Applied In**: Phase 3.5, PlayerProgression model, frontend game launcher logic.
+
+---
+
+### Daily Challenge Progress: UTC Timezone Consistency
+
+**Context**: Challenge progress wasn't updating after games were completed, showing 0/2 despite games played.
+
+**Root Cause**: Timezone mismatch between challenge creation and progress tracking:
+- Challenge API (`/api/challenges`) correctly uses UTC for date ranges
+- Daily challenge tracker used **local timezone** (e.g. `new Date(now.getFullYear(), now.getMonth(), now.getDate())`)
+- Result: Challenges created with UTC dates weren't matched by local date queries
+
+**Problem Code**:
+```typescript
+// ❌ Wrong: Uses local timezone
+const startOfDay = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+const endOfDay = new Date(startOfDay);
+endOfDay.setDate(endOfDay.getDate() + 1);
+```
+
+**Solution**:
+```typescript
+// ✅ Correct: Uses UTC to match challenge creation
+const startOfDay = new Date();
+startOfDay.setUTCHours(0, 0, 0, 0);
+const endOfDay = new Date(startOfDay);
+endOfDay.setUTCDate(endOfDay.getUTCDate() + 1);
+```
+
+**Learning**: When working with date-based queries across multiple modules:
+1. **Choose one timezone** for all date logic (preferably UTC)
+2. Document the timezone choice in comments
+3. Use `.setUTCHours()` not `.setHours()` for UTC consistency
+4. Test with users in different timezones
+5. Add logging with `.toISOString()` to verify actual UTC values being compared
+
+**Why It Matters**: Date mismatches silently fail - queries return empty results with no errors, making debugging difficult.
+
+**Applied In**: `app/lib/gamification/daily-challenge-tracker.ts` (lines 71-75), enhanced logging throughout challenge tracking.
 
 ---
 

@@ -68,10 +68,11 @@ export async function updateDailyChallengeProgress(
   try {
     const now = new Date();
     
-    // Why: Get all active daily challenges for today
-    const startOfDay = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+    // Why: Get all active daily challenges for today (using UTC to match challenge creation)
+    const startOfDay = new Date();
+    startOfDay.setUTCHours(0, 0, 0, 0);
     const endOfDay = new Date(startOfDay);
-    endOfDay.setDate(endOfDay.getDate() + 1);
+    endOfDay.setUTCDate(endOfDay.getUTCDate() + 1);
     
     const activeChallenges = await DailyChallenge.find({
       'availability.startTime': { $lte: now },
@@ -80,8 +81,25 @@ export async function updateDailyChallengeProgress(
       date: { $gte: startOfDay, $lt: endOfDay },
     }).session(session || null);
     
+    logger.info(
+      {
+        playerId: context.playerId,
+        activeChallengesFound: activeChallenges.length,
+        startOfDay: startOfDay.toISOString(),
+        endOfDay: endOfDay.toISOString(),
+        now: now.toISOString(),
+      },
+      'Checking daily challenges for player'
+    );
+    
     if (activeChallenges.length === 0) {
-      logger.debug({ playerId: context.playerId }, 'No active daily challenges found');
+      logger.warn(
+        {
+          playerId: context.playerId,
+          dateRange: { start: startOfDay.toISOString(), end: endOfDay.toISOString() },
+        },
+        'No active daily challenges found'
+      );
       return [];
     }
     
@@ -91,7 +109,23 @@ export async function updateDailyChallengeProgress(
     for (const challenge of activeChallenges) {
       const progressUpdate = calculateProgressIncrement(challenge, context);
       
+      logger.info(
+        {
+          playerId: context.playerId,
+          challengeId: challenge._id,
+          challengeType: challenge.type,
+          challengeTitle: challenge.title,
+          progressUpdate,
+          currentProgress: 'will fetch',
+        },
+        'Challenge progress calculation'
+      );
+      
       if (progressUpdate === 0) {
+        logger.debug(
+          { challengeId: challenge._id, type: challenge.type },
+          'Challenge not applicable to this session'
+        );
         continue; // This challenge doesn't apply to this session
       }
       

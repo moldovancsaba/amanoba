@@ -1,11 +1,54 @@
 # Amanoba Release Notes
 
-**Current Version**: 2.1.0  
-**Last Updated**: 2025-10-16T12:10:00.000Z
+**Current Version**: 2.1.1  
+**Last Updated**: 2025-10-17T12:01:00.000Z
 
 ---
 
 All completed tasks are documented here in reverse chronological order. This file follows the Changelog format and is updated with every version bump.
+
+---
+
+## [v2.1.1] — 2025-10-17 🐛
+
+**Status**: BUG FIX - Challenge Progress Tracking  
+**Type**: Critical Fix
+
+### 🐛 Daily Challenge Progress Timezone Bug
+
+**Issue**: Challenge progress remained at 0/2 despite games being completed.
+
+**Root Cause**: 
+- Challenge creation API used UTC dates correctly
+- Challenge tracker used **local timezone** for date queries
+- Resulted in date range mismatch - challenges were never found for progress updates
+
+**Fix Applied**:
+```typescript
+// Before (local timezone)
+const startOfDay = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+
+// After (UTC to match challenge creation)
+const startOfDay = new Date();
+startOfDay.setUTCHours(0, 0, 0, 0);
+```
+
+**Improvements**:
+- ✅ Fixed timezone consistency in `daily-challenge-tracker.ts`
+- ✅ Added comprehensive logging for challenge matching
+- ✅ Added progress calculation logging
+- ✅ Added debug logs for non-applicable challenges
+
+**Files Modified**:
+- `app/lib/gamification/daily-challenge-tracker.ts` (lines 71-75, 84-128)
+- Enhanced logging throughout challenge tracking flow
+
+**Testing**: 
+- ✅ Verified build passes
+- ✅ Challenges now update progress correctly after game completion
+- ✅ Timezone-independent behavior confirmed
+
+**Impact**: Players can now complete daily challenges and see progress update in real-time.
 
 ---
 
