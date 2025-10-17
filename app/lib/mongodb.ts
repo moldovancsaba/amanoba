@@ -72,7 +72,6 @@ async function connectDB(): Promise<typeof mongoose> {
       minPoolSize: 2,
       serverSelectionTimeoutMS: 10000,
       socketTimeoutMS: 45000,
-      keepAlive: true,
     };
 
     // Retry with exponential backoff (3 attempts)

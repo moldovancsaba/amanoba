@@ -115,12 +115,24 @@ export default function Dashboard() {
             Unable to Load Dashboard
           </h2>
           <p className="text-gray-600 mb-6">{error}</p>
-          <Link
-            href="/"
-            className="inline-block bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-6 py-3 rounded-xl font-bold hover:from-indigo-700 hover:to-purple-700 transition-all"
-          >
-            Back to Home
-          </Link>
+          <div className="flex flex-col sm:flex-row gap-3 justify-center">
+            <button
+              onClick={() => {
+                setError(null);
+                setLoading(true);
+                fetchPlayerData();
+              }}
+              className="inline-block bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-6 py-3 rounded-xl font-bold hover:from-indigo-700 hover:to-purple-700 transition-all"
+            >
+              Retry
+            </button>
+            <button
+              onClick={() => signOut({ callbackUrl: '/auth/signin' })}
+              className="inline-block bg-red-500 text-white px-6 py-3 rounded-xl font-bold hover:bg-red-600 transition-colors"
+            >
+              Sign out
+            </button>
+          </div>
         </div>
       </div>
     );
