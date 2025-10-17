@@ -73,6 +73,12 @@ export const authConfig = {
     // Why: Protect routes that require authentication
     authorized({ auth, request: { nextUrl } }) {
       const isLoggedIn = !!auth?.user;
+      
+      // Why: API routes should always be accessible (they handle their own auth if needed)
+      if (nextUrl.pathname.startsWith('/api')) {
+        return true;
+      }
+      
       const isOnProtectedRoute = 
         nextUrl.pathname.startsWith('/dashboard') ||
         nextUrl.pathname.startsWith('/games') ||
