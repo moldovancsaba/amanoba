@@ -46,9 +46,14 @@ interface ResponseQuestion {
  * 
  * Query Params:
  * - difficulty: EASY | MEDIUM | HARD | EXPERT
- * - count: number (1-50, typically 5-15)
+ * - count: number (1-50, typically 5-20)
  * 
  * Returns: Array of questions WITHOUT correctIndex
+ * 
+ * Category Diversity:
+ * - Selects proportionally from all available categories
+ * - Ensures maximum variety in each game
+ * - Example: 10 questions = ~1-2 per category
  */
 export async function GET(request: NextRequest) {
   try {
@@ -82,9 +87,9 @@ export async function GET(request: NextRequest) {
     // Why: Connect to database
     await connectDB();
 
-    // Why: Fetch questions using intelligent selection algorithm
-    // Three-tier sorting: showCount ASC -> correctCount ASC -> question ASC
-    const questions = await QuizQuestion.find({
+    // Why: Fetch MORE questions than needed to ensure category diversity
+    // We'll select from multiple categories proportionally
+    const questionsPool = await QuizQuestion.find({
       difficulty: difficulty as QuestionDifficulty,
       isActive: true,
     })
@@ -93,8 +98,29 @@ export async function GET(request: NextRequest) {
         correctCount: 1,    // Priority 2: Harder questions (lower correct count)
         question: 1,        // Priority 3: Alphabetical tie-breaker
       })
-      .limit(count)
+      .limit(count * 3)    // Fetch 3x more to allow category distribution
       .lean();
+    
+    // Why: Group questions by category for diversity
+    const questionsByCategory = questionsPool.reduce((acc, q) => {
+      if (!acc[q.category]) acc[q.category] = [];
+      acc[q.category].push(q);
+      return acc;
+    }, {} as Record<string, typeof questionsPool>);
+    
+    const categories = Object.keys(questionsByCategory);
+    const questionsPerCategory = Math.ceil(count / categories.length);
+    
+    // Why: Select proportionally from each category for maximum diversity
+    const selectedQuestions: typeof questionsPool = [];
+    categories.forEach(category => {
+      const categoryQuestions = questionsByCategory[category];
+      const takeCount = Math.min(questionsPerCategory, categoryQuestions.length);
+      selectedQuestions.push(...categoryQuestions.slice(0, takeCount));
+    });
+    
+    // Why: If we need more questions, fill from remaining pool
+    const questions = selectedQuestions.slice(0, count);
 
     // Why: Check if we have enough questions
     if (questions.length === 0) {

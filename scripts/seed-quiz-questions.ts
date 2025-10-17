@@ -1,20 +1,25 @@
 /**
  * Quiz Questions Seed Script
  * 
- * Purpose: Seeds 120 QUIZZZ trivia questions across 8 categories and 4 difficulty levels
- * Why: Migrates existing 40 questions + adds 80 NEW questions with balanced distribution
+ * Purpose: Seeds 200 QUIZZZ trivia questions across 8 categories and 4 difficulty levels
+ * Why: Comprehensive question pool with balanced category distribution for maximum variety
  * 
  * Distribution:
- * - Difficulty: 30 EASY, 30 MEDIUM, 30 HARD, 30 EXPERT (120 total)
- * - Categories:
- *   - Science (20 questions)
- *   - History (20 questions)
- *   - Geography (15 questions)
- *   - Math (15 questions)
- *   - Technology (15 questions)
- *   - Arts & Literature (10 questions)
- *   - Sports (10 questions)
- *   - General Knowledge (15 questions)
+ * - Difficulty: 50 EASY, 50 MEDIUM, 50 HARD, 50 EXPERT (200 total)
+ * - Categories (balanced distribution):
+ *   - Science (~30 questions)
+ *   - History (~30 questions)
+ *   - Geography (~25 questions)
+ *   - Math (~25 questions)
+ *   - Technology (~25 questions)
+ *   - Arts & Literature (~20 questions)
+ *   - Sports (~20 questions)
+ *   - General Knowledge (~25 questions)
+ * 
+ * Category Diversity:
+ * - API selects proportionally from all categories
+ * - Ensures every game has questions from multiple topics
+ * - Prevents category clustering
  * 
  * Usage: npm run seed:quiz-questions
  */
@@ -26,8 +31,8 @@ import { resolve } from 'path';
 config({ path: resolve(process.cwd(), '.env.local') });
 
 import mongoose from 'mongoose';
-import { QuizQuestion, QuestionDifficulty } from '../app/lib/models';
-import logger from '../app/lib/logger';
+import QuizQuestion, { QuestionDifficulty } from '../app/lib/models/quiz-question.js';
+import logger from '../app/lib/logger.js';
 
 /**
  * Question Data Structure
@@ -247,14 +252,104 @@ const questions: QuestionData[] = [
   { question: 'What is the standard model\'s force NOT explained by?', options: ['Electromagnetic', 'Weak', 'Strong', 'Gravitational'], correctIndex: 3, difficulty: QuestionDifficulty.EXPERT, category: 'General Knowledge' },
   { question: 'Which theorem proves program correctness?', options: ['Church-Turing', 'Rice\'s Theorem', 'Hoare Logic', 'Halting Problem'], correctIndex: 2, difficulty: QuestionDifficulty.EXPERT, category: 'General Knowledge' },
   { question: 'What is the rarest blood type?', options: ['AB-', 'AB+', 'O-', 'B-'], correctIndex: 0, difficulty: QuestionDifficulty.EXPERT, category: 'General Knowledge' },
+  
+  // ========== ADDITIONAL 80 QUESTIONS FOR CATEGORY BALANCE ==========
+  
+  // EASY - Additional questions (+20)
+  { question: 'What is the freezing point of water in Celsius?', options: ['0°C', '32°C', '100°C', '-273°C'], correctIndex: 0, difficulty: QuestionDifficulty.EASY, category: 'Science' },
+  { question: 'Which gas do humans breathe in?', options: ['Carbon dioxide', 'Oxygen', 'Nitrogen', 'Helium'], correctIndex: 1, difficulty: QuestionDifficulty.EASY, category: 'Science' },
+  { question: 'How many continents start with the letter A?', options: ['1', '2', '3', '4'], correctIndex: 3, difficulty: QuestionDifficulty.EASY, category: 'Geography' },
+  { question: 'What is the largest desert in the world?', options: ['Sahara', 'Antarctic', 'Arabian', 'Gobi'], correctIndex: 1, difficulty: QuestionDifficulty.EASY, category: 'Geography' },
+  { question: 'What is 12 + 8?', options: ['18', '19', '20', '21'], correctIndex: 2, difficulty: QuestionDifficulty.EASY, category: 'Math' },
+  { question: 'How many minutes are in an hour?', options: ['30', '45', '60', '90'], correctIndex: 2, difficulty: QuestionDifficulty.EASY, category: 'Math' },
+  { question: 'Who was the first person to walk on the moon?', options: ['Yuri Gagarin', 'Neil Armstrong', 'Buzz Aldrin', 'John Glenn'], correctIndex: 1, difficulty: QuestionDifficulty.EASY, category: 'History' },
+  { question: 'In which country were the pyramids of Giza built?', options: ['Mexico', 'Peru', 'Egypt', 'Sudan'], correctIndex: 2, difficulty: QuestionDifficulty.EASY, category: 'History' },
+  { question: 'What does WWW stand for?', options: ['World Wide Web', 'World Web Wide', 'Wide World Web', 'Web World Wide'], correctIndex: 0, difficulty: QuestionDifficulty.EASY, category: 'Technology' },
+  { question: 'What is the name of Apple\'s voice assistant?', options: ['Alexa', 'Siri', 'Cortana', 'Google'], correctIndex: 1, difficulty: QuestionDifficulty.EASY, category: 'Technology' },
+  { question: 'How many strings does a standard guitar have?', options: ['4', '5', '6', '7'], correctIndex: 2, difficulty: QuestionDifficulty.EASY, category: 'Arts & Literature' },
+  { question: 'Who painted the Sistine Chapel ceiling?', options: ['Leonardo da Vinci', 'Michelangelo', 'Raphael', 'Botticelli'], correctIndex: 1, difficulty: QuestionDifficulty.EASY, category: 'Arts & Literature' },
+  { question: 'How many players are on a basketball team?', options: ['4', '5', '6', '7'], correctIndex: 1, difficulty: QuestionDifficulty.EASY, category: 'Sports' },
+  { question: 'What sport uses a puck?', options: ['Football', 'Basketball', 'Hockey', 'Baseball'], correctIndex: 2, difficulty: QuestionDifficulty.EASY, category: 'Sports' },
+  { question: 'What is the largest mammal in the world?', options: ['Elephant', 'Blue Whale', 'Giraffe', 'Polar Bear'], correctIndex: 1, difficulty: QuestionDifficulty.EASY, category: 'General Knowledge' },
+  { question: 'How many teeth do adult humans typically have?', options: ['28', '30', '32', '34'], correctIndex: 2, difficulty: QuestionDifficulty.EASY, category: 'General Knowledge' },
+  { question: 'What color are emeralds?', options: ['Blue', 'Red', 'Green', 'Yellow'], correctIndex: 2, difficulty: QuestionDifficulty.EASY, category: 'General Knowledge' },
+  { question: 'What is the boiling point of water?', options: ['50°C', '75°C', '100°C', '150°C'], correctIndex: 2, difficulty: QuestionDifficulty.EASY, category: 'Science' },
+  { question: 'Which planet is known as the "Blue Planet"?', options: ['Neptune', 'Uranus', 'Earth', 'Mercury'], correctIndex: 2, difficulty: QuestionDifficulty.EASY, category: 'Science' },
+  { question: 'What is the smallest prime number greater than 10?', options: ['11', '12', '13', '15'], correctIndex: 0, difficulty: QuestionDifficulty.EASY, category: 'Math' },
+  
+  // MEDIUM - Additional questions (+20)
+  { question: 'What is the largest organ in the human body?', options: ['Heart', 'Brain', 'Liver', 'Skin'], correctIndex: 3, difficulty: QuestionDifficulty.MEDIUM, category: 'Science' },
+  { question: 'What is the chemical formula for water?', options: ['H2O', 'CO2', 'O2', 'H2O2'], correctIndex: 0, difficulty: QuestionDifficulty.MEDIUM, category: 'Science' },
+  { question: 'Which planet has the most moons?', options: ['Jupiter', 'Saturn', 'Uranus', 'Neptune'], correctIndex: 1, difficulty: QuestionDifficulty.MEDIUM, category: 'Science' },
+  { question: 'What is the capital of Canada?', options: ['Toronto', 'Vancouver', 'Ottawa', 'Montreal'], correctIndex: 2, difficulty: QuestionDifficulty.MEDIUM, category: 'Geography' },
+  { question: 'Which ocean lies on the east coast of the United States?', options: ['Pacific', 'Atlantic', 'Indian', 'Arctic'], correctIndex: 1, difficulty: QuestionDifficulty.MEDIUM, category: 'Geography' },
+  { question: 'What is the currency of Japan?', options: ['Yuan', 'Won', 'Yen', 'Rupee'], correctIndex: 2, difficulty: QuestionDifficulty.MEDIUM, category: 'Geography' },
+  { question: 'What is 20% of 50?', options: ['5', '8', '10', '12'], correctIndex: 2, difficulty: QuestionDifficulty.MEDIUM, category: 'Math' },
+  { question: 'What is the next number in the sequence: 2, 4, 8, 16...?', options: ['24', '28', '32', '36'], correctIndex: 2, difficulty: QuestionDifficulty.MEDIUM, category: 'Math' },
+  { question: 'Who was the first president to appear on television?', options: ['Franklin D. Roosevelt', 'Harry Truman', 'Dwight Eisenhower', 'John F. Kennedy'], correctIndex: 0, difficulty: QuestionDifficulty.MEDIUM, category: 'History' },
+  { question: 'In which year did the Cold War officially end?', options: ['1989', '1990', '1991', '1992'], correctIndex: 2, difficulty: QuestionDifficulty.MEDIUM, category: 'History' },
+  { question: 'What was the name of the first space shuttle?', options: ['Discovery', 'Challenger', 'Columbia', 'Endeavour'], correctIndex: 2, difficulty: QuestionDifficulty.MEDIUM, category: 'History' },
+  { question: 'What programming language is known for web development?', options: ['Python', 'JavaScript', 'C++', 'Swift'], correctIndex: 1, difficulty: QuestionDifficulty.MEDIUM, category: 'Technology' },
+  { question: 'What does USB stand for?', options: ['Universal Serial Bus', 'Universal System Bus', 'Unified Serial Bus', 'Unified System Bus'], correctIndex: 0, difficulty: QuestionDifficulty.MEDIUM, category: 'Technology' },
+  { question: 'Who wrote "Pride and Prejudice"?', options: ['Emily Brontë', 'Jane Austen', 'Charlotte Brontë', 'Mary Shelley'], correctIndex: 1, difficulty: QuestionDifficulty.MEDIUM, category: 'Arts & Literature' },
+  { question: 'What is the most widely spoken language in the world?', options: ['English', 'Mandarin Chinese', 'Spanish', 'Hindi'], correctIndex: 1, difficulty: QuestionDifficulty.MEDIUM, category: 'Arts & Literature' },
+  { question: 'How many holes are there in a standard round of golf?', options: ['9', '12', '18', '21'], correctIndex: 2, difficulty: QuestionDifficulty.MEDIUM, category: 'Sports' },
+  { question: 'What is the diameter of a basketball hoop in inches?', options: ['16', '18', '20', '22'], correctIndex: 1, difficulty: QuestionDifficulty.MEDIUM, category: 'Sports' },
+  { question: 'What is the main ingredient in guacamole?', options: ['Tomato', 'Avocado', 'Lime', 'Pepper'], correctIndex: 1, difficulty: QuestionDifficulty.MEDIUM, category: 'General Knowledge' },
+  { question: 'How many time zones does Russia have?', options: ['7', '9', '11', '13'], correctIndex: 2, difficulty: QuestionDifficulty.MEDIUM, category: 'General Knowledge' },
+  { question: 'What is the national animal of Australia?', options: ['Koala', 'Kangaroo', 'Emu', 'Platypus'], correctIndex: 1, difficulty: QuestionDifficulty.MEDIUM, category: 'General Knowledge' },
+  
+  // HARD - Additional questions (+20)
+  { question: 'What is the atomic number of carbon?', options: ['4', '6', '8', '12'], correctIndex: 1, difficulty: QuestionDifficulty.HARD, category: 'Science' },
+  { question: 'Which scientist developed the three laws of motion?', options: ['Albert Einstein', 'Isaac Newton', 'Galileo Galilei', 'Nikola Tesla'], correctIndex: 1, difficulty: QuestionDifficulty.HARD, category: 'Science' },
+  { question: 'What is the most abundant gas in Earth\'s atmosphere?', options: ['Oxygen', 'Carbon Dioxide', 'Nitrogen', 'Hydrogen'], correctIndex: 2, difficulty: QuestionDifficulty.HARD, category: 'Science' },
+  { question: 'Which African country has the highest population?', options: ['Egypt', 'Nigeria', 'South Africa', 'Ethiopia'], correctIndex: 1, difficulty: QuestionDifficulty.HARD, category: 'Geography' },
+  { question: 'What is the smallest country in Asia?', options: ['Singapore', 'Maldives', 'Bahrain', 'Brunei'], correctIndex: 1, difficulty: QuestionDifficulty.HARD, category: 'Geography' },
+  { question: 'Which sea is the saltiest body of water on Earth?', options: ['Dead Sea', 'Red Sea', 'Mediterranean Sea', 'Caspian Sea'], correctIndex: 0, difficulty: QuestionDifficulty.HARD, category: 'Geography' },
+  { question: 'What is the sum of all angles in a triangle?', options: ['90°', '180°', '270°', '360°'], correctIndex: 1, difficulty: QuestionDifficulty.HARD, category: 'Math' },
+  { question: 'What is the square root of 144?', options: ['10', '11', '12', '13'], correctIndex: 2, difficulty: QuestionDifficulty.HARD, category: 'Math' },
+  { question: 'Who assassinated Julius Caesar?', options: ['Mark Antony', 'Brutus and conspirators', 'Cleopatra', 'Octavian'], correctIndex: 1, difficulty: QuestionDifficulty.HARD, category: 'History' },
+  { question: 'What year did the Roman Empire fall?', options: ['410 AD', '476 AD', '500 AD', '536 AD'], correctIndex: 1, difficulty: QuestionDifficulty.HARD, category: 'History' },
+  { question: 'Who was the first woman to win a Nobel Prize?', options: ['Marie Curie', 'Rosalind Franklin', 'Dorothy Hodgkin', 'Ada Lovelace'], correctIndex: 0, difficulty: QuestionDifficulty.HARD, category: 'History' },
+  { question: 'What does RAM stand for in computing?', options: ['Random Access Memory', 'Read Access Memory', 'Rapid Access Memory', 'Remote Access Memory'], correctIndex: 0, difficulty: QuestionDifficulty.HARD, category: 'Technology' },
+  { question: 'Which company developed the Java programming language?', options: ['Microsoft', 'Oracle', 'Sun Microsystems', 'IBM'], correctIndex: 2, difficulty: QuestionDifficulty.HARD, category: 'Technology' },
+  { question: 'What is the base of the binary number system?', options: ['2', '8', '10', '16'], correctIndex: 0, difficulty: QuestionDifficulty.HARD, category: 'Technology' },
+  { question: 'Who composed "The Four Seasons"?', options: ['Bach', 'Vivaldi', 'Mozart', 'Handel'], correctIndex: 1, difficulty: QuestionDifficulty.HARD, category: 'Arts & Literature' },
+  { question: 'What is the longest river in South America?', options: ['Orinoco', 'Amazon', 'Paraná', 'São Francisco'], correctIndex: 1, difficulty: QuestionDifficulty.HARD, category: 'Geography' },
+  { question: 'In tennis, what is a score of zero called?', options: ['Nil', 'Zero', 'Love', 'Duck'], correctIndex: 2, difficulty: QuestionDifficulty.HARD, category: 'Sports' },
+  { question: 'Which country has won the most FIFA World Cups?', options: ['Germany', 'Argentina', 'Brazil', 'Italy'], correctIndex: 2, difficulty: QuestionDifficulty.HARD, category: 'Sports' },
+  { question: 'What is the hardest natural mineral?', options: ['Quartz', 'Diamond', 'Topaz', 'Corundum'], correctIndex: 1, difficulty: QuestionDifficulty.HARD, category: 'General Knowledge' },
+  { question: 'How many keys does a standard piano have?', options: ['76', '82', '88', '92'], correctIndex: 2, difficulty: QuestionDifficulty.HARD, category: 'Arts & Literature' },
+  
+  // EXPERT - Additional questions (+20)
+  { question: 'What is the name of the supercontinent that existed 300 million years ago?', options: ['Laurasia', 'Gondwana', 'Pangaea', 'Rodinia'], correctIndex: 2, difficulty: QuestionDifficulty.EXPERT, category: 'Science' },
+  { question: 'What is the name of the theoretical boundary around a black hole?', options: ['Event Horizon', 'Singularity', 'Schwarzschild Radius', 'Photon Sphere'], correctIndex: 0, difficulty: QuestionDifficulty.EXPERT, category: 'Science' },
+  { question: 'Which organelle is known as the powerhouse of the cell?', options: ['Nucleus', 'Ribosome', 'Mitochondria', 'Chloroplast'], correctIndex: 2, difficulty: QuestionDifficulty.EXPERT, category: 'Science' },
+  { question: 'What is the study of earthquakes called?', options: ['Meteorology', 'Seismology', 'Geology', 'Volcanology'], correctIndex: 1, difficulty: QuestionDifficulty.EXPERT, category: 'Science' },
+  { question: 'Which country has the longest coastline?', options: ['Australia', 'Russia', 'Canada', 'Indonesia'], correctIndex: 2, difficulty: QuestionDifficulty.EXPERT, category: 'Geography' },
+  { question: 'What is the highest mountain in Africa?', options: ['Mount Kenya', 'Mount Kilimanjaro', 'Mount Stanley', 'Atlas Mountains'], correctIndex: 1, difficulty: QuestionDifficulty.EXPERT, category: 'Geography' },
+  { question: 'Which landlocked country has a navy?', options: ['Switzerland', 'Austria', 'Bolivia', 'Mongolia'], correctIndex: 2, difficulty: QuestionDifficulty.EXPERT, category: 'Geography' },
+  { question: 'What is the Riemann Hypothesis concerned with?', options: ['Prime numbers', 'Geometry', 'Calculus', 'Algebra'], correctIndex: 0, difficulty: QuestionDifficulty.EXPERT, category: 'Math' },
+  { question: 'What is Fermat\'s Last Theorem?', options: ['a^n + b^n = c^n has no solutions for n>2', 'Every even integer is sum of two primes', 'π is irrational', 'e^(iπ) = -1'], correctIndex: 0, difficulty: QuestionDifficulty.EXPERT, category: 'Math' },
+  { question: 'What is the derivative of e^x?', options: ['e^x', 'x*e^(x-1)', 'ln(x)', '1/x'], correctIndex: 0, difficulty: QuestionDifficulty.EXPERT, category: 'Math' },
+  { question: 'Which empire was ruled by Suleiman the Magnificent?', options: ['Persian', 'Mughal', 'Ottoman', 'Safavid'], correctIndex: 2, difficulty: QuestionDifficulty.EXPERT, category: 'History' },
+  { question: 'In which year did the Battle of Waterloo take place?', options: ['1805', '1812', '1815', '1821'], correctIndex: 2, difficulty: QuestionDifficulty.EXPERT, category: 'History' },
+  { question: 'Who was the first programmer?', options: ['Charles Babbage', 'Ada Lovelace', 'Alan Turing', 'Grace Hopper'], correctIndex: 1, difficulty: QuestionDifficulty.EXPERT, category: 'Technology' },
+  { question: 'What does REST stand for in web development?', options: ['Representational State Transfer', 'Remote State Transfer', 'Resource State Transfer', 'Representational System Transfer'], correctIndex: 0, difficulty: QuestionDifficulty.EXPERT, category: 'Technology' },
+  { question: 'What is the time complexity of binary search?', options: ['O(1)', 'O(log n)', 'O(n)', 'O(n log n)'], correctIndex: 1, difficulty: QuestionDifficulty.EXPERT, category: 'Technology' },
+  { question: 'Who wrote "War and Peace"?', options: ['Fyodor Dostoevsky', 'Anton Chekhov', 'Leo Tolstoy', 'Nikolai Gogol'], correctIndex: 2, difficulty: QuestionDifficulty.EXPERT, category: 'Arts & Literature' },
+  { question: 'Which musical term means "gradually getting louder"?', options: ['Diminuendo', 'Crescendo', 'Fortissimo', 'Pianissimo'], correctIndex: 1, difficulty: QuestionDifficulty.EXPERT, category: 'Arts & Literature' },
+  { question: 'What is the official language of Brazil?', options: ['Spanish', 'Portuguese', 'French', 'Italian'], correctIndex: 1, difficulty: QuestionDifficulty.EXPERT, category: 'General Knowledge' },
+  { question: 'How many chambers does a human heart have?', options: ['2', '3', '4', '5'], correctIndex: 2, difficulty: QuestionDifficulty.EXPERT, category: 'General Knowledge' },
+  { question: 'What is the speed of sound in air at sea level?', options: ['299 m/s', '343 m/s', '1200 m/s', '3000 m/s'], correctIndex: 1, difficulty: QuestionDifficulty.EXPERT, category: 'Science' },
 ];
 
 /**
  * Seed Questions
- * Why: Populates database with all 120 questions
+ * Why: Populates database with all 200 questions
  */
 async function seedQuestions() {
-  logger.info('Seeding 120 quiz questions...');
+  logger.info('Seeding 200 quiz questions...');
   
   // Why: Clear existing questions to ensure clean state
   await QuizQuestion.deleteMany({});
