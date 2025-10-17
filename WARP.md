@@ -1,7 +1,7 @@
 # Amanoba – AI Assistant Guide (WARP.md)
 
-**Version**: 1.0.0  
-**Last Updated**: 2025-10-10T11:08:01.000Z
+**Version**: 2.2.0  
+**Last Updated**: 2025-10-17T16:08:30.000Z
 
 ---
 

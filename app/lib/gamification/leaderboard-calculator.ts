@@ -50,6 +50,7 @@ export interface LeaderboardCalculationOptions {
   type: LeaderboardType;
   period: LeaderboardPeriod;
   brandId?: string;  // Optional: brand-specific leaderboard
+  gameId?: string;   // Optional: game-specific leaderboard
   limit?: number;    // Max number of entries (default: 100)
 }
 
@@ -65,7 +66,7 @@ export interface LeaderboardCalculationOptions {
 export async function calculateLeaderboard(
   options: LeaderboardCalculationOptions
 ): Promise<number> {
-  const { type, period, brandId, limit = 100 } = options;
+  const { type, period, brandId, gameId, limit = 100 } = options;
 
   try {
     logger.info({ type, period, brandId }, 'Calculating leaderboard');
@@ -119,13 +120,24 @@ export async function calculateLeaderboard(
           playerId: entry.playerId,
           metric: type,
           period,
-          ...(brandId && { brandId }),
+          ...(gameId && { gameId }),
         },
         update: {
           $set: {
             value: entry.value,
             rank: index + 1,
             lastCalculated: new Date(),
+            'metadata.lastCalculated': new Date(),
+            'metadata.periodStart': dateRange.start,
+            'metadata.periodEnd': dateRange.end,
+          },
+          $setOnInsert: {
+            playerId: entry.playerId,
+            ...(gameId && { gameId }),
+            metric: type,
+            period,
+            'metadata.createdAt': new Date(),
+            'metadata.updatedAt': new Date(),
           },
         },
         upsert: true,

@@ -1,7 +1,7 @@
 # Amanoba Learnings
 
-**Version**: 2.1.2  
-**Last Updated**: 2025-10-17T12:10:00.000Z
+**Version**: 2.2.0  
+**Last Updated**: 2025-10-17T16:08:30.000Z
 
 ---
 
@@ -40,6 +40,113 @@ This document captures actual issues faced, solutions implemented, and best prac
 **Why It Matters**: Prevents overwhelming new players and increases premium conversion by building habit first.
 
 **Applied In**: Phase 3.5, PlayerProgression model, frontend game launcher logic.
+
+---
+
+### Leaderboard Entries: Always Include Foreign Keys
+
+**Context**: Leaderboards showed empty even after playing games and earning points.
+
+**Root Cause**: Missing `gameId` field in leaderboard entries:
+- Leaderboard calculator created entries with `playerId`, `metric`, `period` but **not** `gameId`
+- Leaderboard API queried: `{ gameId, period, metric }` expecting entries to have `gameId`
+- Result: Query returned 0 results because entries had `null` gameId
+
+**Problem Code**:
+```typescript
+// ❌ Wrong: Missing gameId in filter and upsert
+const bulkOps = rankings.map((entry, index) => ({
+  updateOne: {
+    filter: {
+      playerId: entry.playerId,
+      metric: type,
+      period,
+      // gameId missing!
+    },
+    update: { $set: { value: entry.value, rank: index + 1 } },
+    upsert: true,
+  },
+}));
+```
+
+**Solution**:
+```typescript
+// ✅ Correct: Include gameId in both filter and $setOnInsert
+const bulkOps = rankings.map((entry, index) => ({
+  updateOne: {
+    filter: {
+      playerId: entry.playerId,
+      metric: type,
+      period,
+      ...(gameId && { gameId }), // NEW
+    },
+    update: {
+      $set: {
+        value: entry.value,
+        rank: index + 1,
+        'metadata.lastCalculated': new Date(),
+      },
+      $setOnInsert: {
+        playerId: entry.playerId,
+        ...(gameId && { gameId }), // NEW
+        metric: type,
+        period,
+        'metadata.createdAt': new Date(),
+      },
+    },
+    upsert: true,
+  },
+}));
+```
+
+**Learning**: When creating leaderboard or ranking systems:
+1. **Always include all foreign keys** (gameId, brandId, etc.) in both filter and insert
+2. Use `$setOnInsert` for immutable fields that should only be set on creation
+3. Test queries match the exact filter structure used in upserts
+4. Verify data exists with proper fields before assuming API logic is broken
+
+**Why It Matters**: Missing foreign keys cause silent failures - queries return empty arrays with no errors, making users think the feature doesn't work.
+
+**Applied In**: 
+- `app/lib/gamification/leaderboard-calculator.ts` (lines 49-143)
+- `app/lib/gamification/session-manager.ts` (lines 583-599)
+
+---
+
+### Anonymous Login: Seed Data Dependencies
+
+**Context**: Users couldn't log in anonymously despite "Continue Without Registration" button being visible.
+
+**Root Cause**: `GuestUsername` collection was empty:
+- Anonymous login calls `getRandomGuestUsername()` which queries `GuestUsername` collection
+- When count is 0, function throws error: "No guest usernames available"
+- Error was caught but not displayed to user - login silently failed
+- No player was created, no session started, no games could be played
+
+**Solution**:
+```bash
+npm run seed:guest-usernames
+```
+
+This populates 104 random 3-word usernames like "London Snake Africa".
+
+**Learning**: For features that depend on seed data:
+1. **Check seed data exists** before enabling feature in production
+2. **Document seed requirements** in deployment checklist
+3. **Show helpful error messages** when seed data is missing (don't fail silently)
+4. **Create diagnostic scripts** to verify all required collections have data
+5. Consider **auto-seeding** critical data on first deployment
+
+**Prevention**:
+- Created diagnostic scripts: `check-guest-usernames.ts`, `check-brand.ts`, `check-player-data.ts`
+- These scripts can be run to verify database state before deployment
+
+**Why It Matters**: Missing seed data breaks core user flows with no visible errors, making it impossible to debug without direct database access.
+
+**Applied In**: 
+- Anonymous login flow (`app/api/auth/anonymous/route.ts`)
+- Guest username utility (`app/lib/utils/anonymous-auth.ts`)
+- Seed script (`scripts/seed-guest-usernames.ts`)
 
 ---
 

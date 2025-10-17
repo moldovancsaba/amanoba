@@ -582,21 +582,21 @@ export async function completeGameSession(
       
       // Why: Update relevant leaderboards asynchronously (don't block response)
       Promise.all([
-        // Update points leaderboard
+        // Update game-specific points leaderboard
         calculateLeaderboard({
           type: 'points_balance',
           period: 'all_time',
-          brandId: session.brandId.toString(),
+          gameId: session.gameId.toString(),
           limit: 100,
-        }).catch(err => logger.error({ err, type: 'points_balance' }, 'Failed to update leaderboard')),
+        }).catch(err => logger.error({ err, type: 'points_balance', gameId: session.gameId }, 'Failed to update leaderboard')),
         
-        // Update XP leaderboard
+        // Update game-specific XP leaderboard
         calculateLeaderboard({
           type: 'xp_total',
           period: 'all_time',
-          brandId: session.brandId.toString(),
+          gameId: session.gameId.toString(),
           limit: 100,
-        }).catch(err => logger.error({ err, type: 'xp_total' }, 'Failed to update leaderboard')),
+        }).catch(err => logger.error({ err, type: 'xp_total', gameId: session.gameId }, 'Failed to update leaderboard')),
         
         // Update level leaderboard
         calculateLeaderboard({

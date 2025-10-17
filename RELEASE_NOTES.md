@@ -1,11 +1,117 @@
 # Amanoba Release Notes
 
-**Current Version**: 2.1.2  
-**Last Updated**: 2025-10-17T12:10:00.000Z
+**Current Version**: 2.2.0  
+**Last Updated**: 2025-10-17T16:08:30.000Z
 
 ---
 
 All completed tasks are documented here in reverse chronological order. This file follows the Changelog format and is updated with every version bump.
+
+---
+
+## [v2.2.0] — 2025-10-17 🐛
+
+**Status**: CRITICAL BUG FIX - Empty Leaderboards  
+**Type**: Critical Fix
+
+### 🐛 Leaderboard Entries Missing gameId
+
+**Issue**: Leaderboards displayed empty even after playing games and earning points.
+
+**Root Causes**:
+1. **Missing gameId in leaderboard entries**: Leaderboard calculator wasn't including `gameId` when creating entries
+2. **API query mismatch**: Leaderboard API queried by `gameId` but entries had `null` gameId
+3. **Missing guest usernames**: Anonymous login failed silently when no guest usernames existed in database
+
+**Fix Applied**:
+
+**Leaderboard Calculator** (`app/lib/gamification/leaderboard-calculator.ts`):
+```typescript
+// Added gameId parameter
+export interface LeaderboardCalculationOptions {
+  type: LeaderboardType;
+  period: LeaderboardPeriod;
+  brandId?: string;
+  gameId?: string;   // NEW: game-specific leaderboard
+  limit?: number;
+}
+
+// Include gameId in filter and metadata
+const bulkOps = rankings.map((entry, index) => ({
+  updateOne: {
+    filter: {
+      playerId: entry.playerId,
+      metric: type,
+      period,
+      ...(gameId && { gameId }), // NEW
+    },
+    update: {
+      $set: {
+        value: entry.value,
+        rank: index + 1,
+        'metadata.lastCalculated': new Date(),
+        'metadata.periodStart': dateRange.start,
+        'metadata.periodEnd': dateRange.end,
+      },
+      $setOnInsert: {
+        playerId: entry.playerId,
+        ...(gameId && { gameId }), // NEW
+        metric: type,
+        period,
+        'metadata.createdAt': new Date(),
+      },
+    },
+    upsert: true,
+  },
+}));
+```
+
+**Session Manager** (`app/lib/gamification/session-manager.ts`):
+```typescript
+// Pass gameId when calculating leaderboards
+Promise.all([
+  calculateLeaderboard({
+    type: 'points_balance',
+    period: 'all_time',
+    gameId: session.gameId.toString(), // NEW: was brandId before
+    limit: 100,
+  }),
+  calculateLeaderboard({
+    type: 'xp_total',
+    period: 'all_time',
+    gameId: session.gameId.toString(), // NEW
+    limit: 100,
+  }),
+]);
+```
+
+**Guest Username Seeding**:
+- Ran `npm run seed:guest-usernames` to populate 104 guest usernames
+- Anonymous login now works correctly
+
+**New Diagnostic Scripts**:
+- `scripts/check-brand.ts` - Verify Brand exists
+- `scripts/check-guest-usernames.ts` - Check guest username availability
+- `scripts/check-player-data.ts` - Verify player data exists
+- `scripts/check-sessions.ts` - Check game sessions
+- `scripts/rebuild-leaderboards.ts` - Rebuild all leaderboards with proper gameId
+
+**Files Modified**:
+- `app/lib/gamification/leaderboard-calculator.ts` (lines 49-143)
+- `app/lib/gamification/session-manager.ts` (lines 583-599)
+
+**Testing**: 
+- ✅ Verified build passes
+- ✅ Guest usernames seeded (104 entries)
+- ✅ Leaderboard entries now include gameId
+- ✅ Anonymous login functional
+
+**Impact**: 
+- Players now appear on leaderboards after playing games
+- Game-specific leaderboards properly track per-game rankings
+- Anonymous players can log in and play
+
+**Deployment Note**: Must redeploy application for fixes to take effect.
 
 ---
 
