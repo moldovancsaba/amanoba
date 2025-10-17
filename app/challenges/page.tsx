@@ -11,7 +11,7 @@ import { useEffect, useState } from 'react';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
-import { Calendar, ChevronLeft, Target, Clock, Gift, CheckCircle } from 'lucide-react';
+import { Calendar, ChevronLeft, Target, Clock, Gift, CheckCircle, RefreshCw } from 'lucide-react';
 
 interface Challenge {
   _id: string;
@@ -84,6 +84,30 @@ export default function ChallengesPage() {
     };
 
     fetchChallenges();
+    
+    // Why: Refresh challenges when user returns to page (after playing a game)
+    const handleVisibilityChange = () => {
+      if (document.visibilityState === 'visible') {
+        console.log('Page became visible, refreshing challenges...');
+        fetchChallenges();
+      }
+    };
+    
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+    
+    // Why: Also refresh on window focus (user returns from another tab/window)
+    const handleFocus = () => {
+      console.log('Window focused, refreshing challenges...');
+      fetchChallenges();
+    };
+    
+    window.addEventListener('focus', handleFocus);
+    
+    // Why: Cleanup event listeners
+    return () => {
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
+      window.removeEventListener('focus', handleFocus);
+    };
   }, [session, status, router]);
 
   const getTimeRemaining = (expiresAt: string): string => {
@@ -148,13 +172,43 @@ export default function ChallengesPage() {
               </h1>
               <p className="text-white/80 mt-1">Complete challenges for bonus rewards</p>
             </div>
-            <Link
-              href="/dashboard"
-              className="bg-white/20 backdrop-blur-sm text-white px-4 py-2 rounded-lg hover:bg-white/30 transition-colors font-medium flex items-center gap-2"
-            >
-              <ChevronLeft className="w-5 h-5" />
-              Dashboard
-            </Link>
+            <div className="flex gap-2">
+              <button
+                onClick={() => {
+                  setLoading(true);
+                  const fetchChallenges = async () => {
+                    try {
+                      if (!session) return;
+                      const playerId = session.user.id;
+                      const response = await fetch(`/api/challenges?playerId=${playerId}&t=${Date.now()}`, {
+                        cache: 'no-store',
+                      });
+                      if (response.ok) {
+                        const data = await response.json();
+                        setChallenges(data.challenges || []);
+                      }
+                    } catch (err) {
+                      console.error('Refresh error:', err);
+                    } finally {
+                      setLoading(false);
+                    }
+                  };
+                  fetchChallenges();
+                }}
+                className="bg-white/20 backdrop-blur-sm text-white px-4 py-2 rounded-lg hover:bg-white/30 transition-colors font-medium flex items-center gap-2"
+                title="Refresh challenges"
+              >
+                <RefreshCw className="w-5 h-5" />
+                Refresh
+              </button>
+              <Link
+                href="/dashboard"
+                className="bg-white/20 backdrop-blur-sm text-white px-4 py-2 rounded-lg hover:bg-white/30 transition-colors font-medium flex items-center gap-2"
+              >
+                <ChevronLeft className="w-5 h-5" />
+                Dashboard
+              </Link>
+            </div>
           </div>
         </div>
       </header>
