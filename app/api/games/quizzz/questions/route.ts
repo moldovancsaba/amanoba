@@ -27,6 +27,8 @@ import logger from '@/app/lib/logger';
 const QuerySchema = z.object({
   difficulty: z.enum(['EASY', 'MEDIUM', 'HARD', 'EXPERT']),
   count: z.string().transform(Number).pipe(z.number().min(1).max(50)),
+  exclude: z.string().optional(), // comma-separated ids to exclude
+  runId: z.string().optional(),   // unique per-game id for debugging/variance
 });
 
 /**
@@ -62,6 +64,8 @@ export async function GET(request: NextRequest) {
     const rawParams = {
       difficulty: searchParams.get('difficulty'),
       count: searchParams.get('count') || '10',
+      exclude: searchParams.get('exclude') || undefined,
+      runId: searchParams.get('runId') || undefined,
     };
 
     // Why: Validate parameters with Zod
@@ -82,24 +86,32 @@ export async function GET(request: NextRequest) {
       );
     }
 
-    const { difficulty, count } = validation.data;
+    const { difficulty, count, exclude, runId } = validation.data;
+
+    // Parse exclude ids
+    const excludeIds = (exclude ? exclude.split(',') : [])
+      .map(id => id?.trim())
+      .filter(Boolean);
 
     // Why: Connect to database
     await connectDB();
 
     // Why: Fetch MORE questions than needed to ensure category diversity
-    // We'll select from multiple categories proportionally
-    const questionsPool = await QuizQuestion.find({
+    // Use aggregation to randomize within same showCount using $rand, and support excludeIds
+    const matchStage: Record<string, unknown> = {
       difficulty: difficulty as QuestionDifficulty,
       isActive: true,
-    })
-      .sort({ 
-        showCount: 1,      // Priority 1: Least shown first
-        correctCount: 1,    // Priority 2: Harder questions (lower correct count)
-        question: 1,        // Priority 3: Alphabetical tie-breaker
-      })
-      .limit(count * 3)    // Fetch 3x more to allow category distribution
-      .lean();
+    };
+    if (excludeIds.length > 0) {
+      matchStage._id = { $nin: excludeIds.map(id => new (require('mongoose').Types.ObjectId)(id)) };
+    }
+
+    const questionsPool = await QuizQuestion.aggregate([
+      { $match: matchStage },
+      { $addFields: { __rand: { $rand: {} } } },
+      { $sort: { showCount: 1, correctCount: 1, __rand: 1 } },
+      { $limit: count * 3 },
+    ]);
     
     // Why: Group questions by category for diversity
     const questionsByCategory = questionsPool.reduce((acc, q) => {
@@ -187,7 +199,9 @@ export async function GET(request: NextRequest) {
 
     logger.info(
       { 
-        difficulty, 
+        difficulty,
+        runId,
+        excludeCount: excludeIds.length,
         count: responseQuestions.length,
         requestedCount: count 
       }, 

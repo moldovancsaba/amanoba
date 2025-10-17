@@ -129,13 +129,20 @@ export default function QuizzzGame() {
     try {
       const count = QUESTION_COUNTS[diff];
       
-      // Why: NO CACHING - Always fetch fresh random questions with cache busting
-      // Add timestamp to URL to prevent browser/CDN caching
-      // Questions are already randomized by the API
+      // Generate unique runId for this game (for variance and debugging)
+      const runId = (globalThis.crypto?.randomUUID?.() || `${Date.now()}_${Math.random()}`).toString();
 
-      // Why: Fetch questions from API with cache busting
+      // Exclude questions from last run for this difficulty (avoid immediate repeats)
+      const lastKey = `quizzz:lastIds:${diff}`;
+      const lastIdsRaw = sessionStorage.getItem(lastKey);
+      const lastIds: string[] = lastIdsRaw ? JSON.parse(lastIdsRaw) : [];
+      const excludeParam = lastIds.slice(0, 50).join(',');
+      
+      // Why: NO CACHING + exclude + runId
+      const url = `/api/games/quizzz/questions?difficulty=${diff}&count=${count}&runId=${encodeURIComponent(runId)}${excludeParam ? `&exclude=${encodeURIComponent(excludeParam)}` : ''}&t=${Date.now()}`;
+
       const response = await fetch(
-        `/api/games/quizzz/questions?difficulty=${diff}&count=${count}&t=${Date.now()}`,
+        url,
         {
           cache: 'no-store', // Prevent Next.js caching
         }
@@ -153,9 +160,13 @@ export default function QuizzzGame() {
 
       const apiQuestions: Question[] = data.data.questions;
 
+      // Persist these IDs to avoid immediate repetition on next run
+      try {
+        const lastKey = `quizzz:lastIds:${diff}`;
+        sessionStorage.setItem(lastKey, JSON.stringify(apiQuestions.map(q => q.id)));
+      } catch {}
+
       // Why: Fetch correct answers separately (security: not in main response)
-      // For now, we'll fetch from a separate endpoint or embed encrypted
-      // Temporary: Fetch full question data including correctIndex
       const answersResponse = await fetch(
         `/api/games/quizzz/questions/answers?ids=${apiQuestions.map(q => q.id).join(',')}&t=${Date.now()}`,
         {
