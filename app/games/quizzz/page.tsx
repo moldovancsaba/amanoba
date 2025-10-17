@@ -331,6 +331,7 @@ export default function QuizzzGame() {
     // Why: Start backend session to track progress and award rewards
     try {
       const playerId = (session.user as { id: string }).id;
+      console.log('Starting game session...', { playerId, gameId: 'quizzz', difficulty });
 
       const response = await fetch('/api/game-sessions/start', {
         method: 'POST',
@@ -345,12 +346,15 @@ export default function QuizzzGame() {
       if (response.ok) {
         const data = await response.json();
         setSessionId(data.sessionId);
-        console.log('Game session started:', data.sessionId);
+        console.log('✅ Game session started:', data.sessionId);
       } else {
-        console.error('Failed to start game session');
+        const errorText = await response.text();
+        console.error('❌ Failed to start game session:', response.status, errorText);
+        console.error('This means game results will NOT be recorded!');
       }
     } catch (error) {
-      console.error('Failed to start game session:', error);
+      console.error('❌ Failed to start game session:', error);
+      console.error('This means game results will NOT be recorded!');
     }
   };
 
@@ -407,32 +411,38 @@ export default function QuizzzGame() {
 
     // Why: Complete backend session and award real rewards
     if (!sessionId) {
-      console.error('No session ID found');
-      return;
+      console.error('❌ CRITICAL: No session ID found - session start must have failed!');
+      console.error('Game played but NOT RECORDED: score=' + score + ', isWin=' + isWin);
+      console.error('This means: NO points, NO XP, NO challenge progress, NO leaderboard');
+      // Don't return - at least show the game ended, even without rewards
     }
 
-    try {
-      const response = await fetch('/api/game-sessions/complete', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          sessionId,
-          score: Math.round(score * 100 * config.pointsMultiplier),
-          isWin,
-          duration,
-          accuracy,
-        }),
-      });
+    if (sessionId) {
+      try {
+        console.log('Completing session...', { sessionId, score, isWin, duration, accuracy });
+        const response = await fetch('/api/game-sessions/complete', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            sessionId,
+            score: Math.round(score * 100 * config.pointsMultiplier),
+            isWin,
+            duration,
+            accuracy,
+          }),
+        });
 
-      if (response.ok) {
-        const data = await response.json();
-        setRewards(data.rewards);
-        console.log('Game session completed with rewards:', data.rewards);
-      } else {
-        console.error('Failed to complete game session');
+        if (response.ok) {
+          const data = await response.json();
+          setRewards(data.rewards);
+          console.log('✅ Game session completed with rewards:', data.rewards);
+        } else {
+          const errorText = await response.text();
+          console.error('❌ Failed to complete game session:', response.status, errorText);
+        }
+      } catch (error) {
+        console.error('❌ Failed to complete session:', error);
       }
-    } catch (error) {
-      console.error('Failed to complete session:', error);
     }
   };
 
