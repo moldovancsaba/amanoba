@@ -43,6 +43,10 @@ import {
   getAiElo,
   getGameResult,
 } from './elo-calculator';
+import {
+  updateDailyChallengeProgress,
+  type ChallengeProgressContext,
+} from './daily-challenge-tracker';
 import logger from '../logger';
 
 /**
@@ -538,6 +542,37 @@ export async function completeGameSession(
       },
       'Game session completed successfully'
     );
+    
+    // 13f. Update daily challenge progress (after transaction commits)
+    // Why: Track challenge progress and award bonus rewards
+    if (!isGhost) {
+      const challengeContext: ChallengeProgressContext = {
+        playerId: session.playerId,
+        brandId: session.brandId,
+        gameId: session.gameId,
+        sessionData: {
+          outcome: input.outcome,
+          pointsEarned: pointsResult.totalPoints,
+          xpEarned: xpResult.totalXP,
+          isPerfect: input.accuracy === 100,
+        },
+        streakData: {
+          currentStreak: streakResult.currentStreak,
+        },
+      };
+      
+      const completedChallenges = await updateDailyChallengeProgress(challengeContext);
+      
+      if (completedChallenges.length > 0) {
+        logger.info(
+          {
+            playerId: session.playerId,
+            completedChallenges: completedChallenges.map(c => c.title),
+          },
+          'Daily challenges completed during session'
+        );
+      }
+    }
     
     // 13a. Log game completion event
     await EventLog.create({

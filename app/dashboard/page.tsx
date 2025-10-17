@@ -54,38 +54,45 @@ export default function Dashboard() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  // Why: Fetch player data when session is available
-  useEffect(() => {
-    const fetchPlayerData = async () => {
-      if (status === 'loading') {
-        return;
-      }
+  // Why: Fetch player data when session is available or on manual refresh
+  const fetchPlayerData = async () => {
+    if (status === 'loading') {
+      return;
+    }
+    
+    if (!session?.user?.id) {
+      setError('No session found. Please sign in again.');
+      setLoading(false);
+      return;
+    }
+    
+    try {
+      const user = session.user as { id?: string; playerId?: string };
+      const playerId = user.playerId || user.id;
+      // Why: Add timestamp to bust any caching
+      const response = await fetch(`/api/players/${playerId}?t=${Date.now()}`, {
+        cache: 'no-store',
+        headers: {
+          'Cache-Control': 'no-cache',
+        },
+      });
       
-      if (!session?.user?.id) {
-        setError('No session found. Please sign in again.');
-        setLoading(false);
-        return;
+      if (response.ok) {
+        const data = await response.json();
+        setPlayerData(data);
+        console.log('Dashboard data refreshed:', data);
+      } else {
+        setError('Failed to load player data');
       }
-      
-      try {
-        const user = session.user as { id?: string; playerId?: string };
-        const playerId = user.playerId || user.id;
-        const response = await fetch(`/api/players/${playerId}`);
-        
-        if (response.ok) {
-          const data = await response.json();
-          setPlayerData(data);
-        } else {
-          setError('Failed to load player data');
-        }
-      } catch (err) {
-        setError('Network error');
-        console.error('Failed to fetch player data:', err);
-      } finally {
-        setLoading(false);
-      }
-    };
+    } catch (err) {
+      setError('Network error');
+      console.error('Failed to fetch player data:', err);
+    } finally {
+      setLoading(false);
+    }
+  };
 
+  useEffect(() => {
     fetchPlayerData();
   }, [session, status]);
 
@@ -133,6 +140,15 @@ export default function Dashboard() {
               <p className="text-white/80 mt-1">Your progress at a glance</p>
             </div>
             <div className="flex gap-3">
+              <button
+                onClick={() => {
+                  setLoading(true);
+                  fetchPlayerData();
+                }}
+                className="bg-green-500/80 backdrop-blur-sm text-white px-4 py-2 rounded-lg hover:bg-green-600 transition-colors font-medium"
+              >
+                🔄 Refresh
+              </button>
               <Link
                 href="/games"
                 className="bg-white/20 backdrop-blur-sm text-white px-4 py-2 rounded-lg hover:bg-white/30 transition-colors font-medium"

@@ -186,7 +186,15 @@ export async function GET(
 
     logger.info({ playerId }, 'Player profile fetched successfully');
 
-    return NextResponse.json(response, { status: 200 });
+    // Why: Prevent caching to ensure fresh data after games
+    return NextResponse.json(response, { 
+      status: 200,
+      headers: {
+        'Cache-Control': 'no-store, no-cache, must-revalidate, max-age=0',
+        'Pragma': 'no-cache',
+        'Expires': '0',
+      },
+    });
   } catch (error) {
     // Why: Log unexpected errors for debugging
     logger.error({ error }, 'Error fetching player profile');
