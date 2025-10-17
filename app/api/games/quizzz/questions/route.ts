@@ -125,8 +125,26 @@ export async function GET(request: NextRequest) {
       { $set: { 'metadata.lastShownAt': now } }
     );
 
+    // Why: Ensure no duplicates (deduplicate by question text)
+    const uniqueQuestions = questions.filter((q, index, self) => 
+      index === self.findIndex((t) => t.question === q.question)
+    );
+    
+    // Why: Log warning if duplicates were found
+    if (uniqueQuestions.length < questions.length) {
+      logger.warn(
+        { 
+          difficulty, 
+          requested: count, 
+          found: questions.length, 
+          unique: uniqueQuestions.length 
+        },
+        'Duplicate questions detected and removed'
+      );
+    }
+    
     // Why: Shuffle questions for randomization (Fisher-Yates algorithm)
-    const shuffled = [...questions];
+    const shuffled = [...uniqueQuestions];
     for (let i = shuffled.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
       [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];

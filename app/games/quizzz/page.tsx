@@ -164,6 +164,7 @@ export default function QuizzzGame() {
       console.error('Error fetching questions:', error);
       // Fallback: use a built-in minimal question set so the game is always playable
       try {
+        // Why: Emergency fallback questions (only if API completely fails)
         const fallbackPool: Record<Difficulty, QuestionWithAnswer[]> = {
           EASY: [
             { id: 'e1', question: 'What is 2 + 2?', options: ['3','4','5','6'], correctIndex: 1, difficulty: 'EASY', category: 'Math' },
@@ -171,6 +172,11 @@ export default function QuizzzGame() {
             { id: 'e3', question: 'How many days are in a week?', options: ['5','6','7','8'], correctIndex: 2, difficulty: 'EASY', category: 'General Knowledge' },
             { id: 'e4', question: 'Which animal says "meow"?', options: ['Dog','Cat','Cow','Bird'], correctIndex: 1, difficulty: 'EASY', category: 'General Knowledge' },
             { id: 'e5', question: 'What is the capital of France?', options: ['London','Berlin','Paris','Madrid'], correctIndex: 2, difficulty: 'EASY', category: 'Geography' },
+            { id: 'e6', question: 'What is 5 × 3?', options: ['12','15','18','20'], correctIndex: 1, difficulty: 'EASY', category: 'Math' },
+            { id: 'e7', question: 'What is 10 ÷ 2?', options: ['3','4','5','6'], correctIndex: 2, difficulty: 'EASY', category: 'Math' },
+            { id: 'e8', question: 'How many sides does a triangle have?', options: ['2','3','4','5'], correctIndex: 1, difficulty: 'EASY', category: 'Math' },
+            { id: 'e9', question: 'What is 100 - 50?', options: ['40','45','50','55'], correctIndex: 2, difficulty: 'EASY', category: 'Math' },
+            { id: 'e10', question: 'What is half of 20?', options: ['5','8','10','15'], correctIndex: 2, difficulty: 'EASY', category: 'Math' },
           ],
           MEDIUM: [
             { id: 'm1', question: 'What is 7 × 8?', options: ['54','56','63','72'], correctIndex: 1, difficulty: 'MEDIUM', category: 'Math' },
@@ -178,6 +184,11 @@ export default function QuizzzGame() {
             { id: 'm3', question: 'Largest ocean on Earth?', options: ['Atlantic','Indian','Arctic','Pacific'], correctIndex: 3, difficulty: 'MEDIUM', category: 'Geography' },
             { id: 'm4', question: 'Chemical symbol for gold?', options: ['Go','Gd','Au','Ag'], correctIndex: 2, difficulty: 'MEDIUM', category: 'Science' },
             { id: 'm5', question: 'Square root of 64?', options: ['6','7','8','9'], correctIndex: 2, difficulty: 'MEDIUM', category: 'Math' },
+            { id: 'm6', question: 'What is 15% of 200?', options: ['20','25','30','35'], correctIndex: 2, difficulty: 'MEDIUM', category: 'Math' },
+            { id: 'm7', question: 'Who wrote 1984?', options: ['Aldous Huxley','George Orwell','Ray Bradbury','Kurt Vonnegut'], correctIndex: 1, difficulty: 'MEDIUM', category: 'Arts & Literature' },
+            { id: 'm8', question: 'What is the capital of Australia?', options: ['Sydney','Melbourne','Canberra','Brisbane'], correctIndex: 2, difficulty: 'MEDIUM', category: 'Geography' },
+            { id: 'm9', question: 'How many bones in human body?', options: ['186','206','226','246'], correctIndex: 1, difficulty: 'MEDIUM', category: 'Science' },
+            { id: 'm10', question: 'Who founded Microsoft?', options: ['Steve Jobs','Bill Gates','Mark Zuckerberg','Larry Page'], correctIndex: 1, difficulty: 'MEDIUM', category: 'Technology' },
           ],
           HARD: [
             { id: 'h1', question: 'What is the speed of light (approx)?', options: ['299,792 km/s','300,000 km/s','299,792,458 m/s','Both A and C'], correctIndex: 3, difficulty: 'HARD', category: 'Science' },
@@ -185,6 +196,16 @@ export default function QuizzzGame() {
             { id: 'h3', question: 'Year Declaration of Independence signed?', options: ['1774','1775','1776','1777'], correctIndex: 2, difficulty: 'HARD', category: 'History' },
             { id: 'h4', question: 'Capital of Kazakhstan?', options: ['Almaty','Astana (Nur-Sultan)','Bishkek','Tashkent'], correctIndex: 1, difficulty: 'HARD', category: 'Geography' },
             { id: 'h5', question: 'Thus Spoke Zarathustra author?', options: ['Kant','Hegel','Nietzsche','Schopenhauer'], correctIndex: 2, difficulty: 'HARD', category: 'Arts & Literature' },
+            { id: 'h6', question: 'Who discovered penicillin?', options: ['Louis Pasteur','Alexander Fleming','Marie Curie','Jonas Salk'], correctIndex: 1, difficulty: 'HARD', category: 'Science' },
+            { id: 'h7', question: 'What is the pH of pure water?', options: ['6','7','8','Depends'], correctIndex: 1, difficulty: 'HARD', category: 'Science' },
+            { id: 'h8', question: 'Who was last Tsar of Russia?', options: ['Alexander III','Nicholas II','Peter the Great','Ivan'], correctIndex: 1, difficulty: 'HARD', category: 'History' },
+            { id: 'h9', question: 'Deepest point in ocean?', options: ['Puerto Rico Trench','Java Trench','Mariana Trench','Philippine Trench'], correctIndex: 2, difficulty: 'HARD', category: 'Geography' },
+            { id: 'h10', question: 'What is smallest prime?', options: ['0','1','2','3'], correctIndex: 2, difficulty: 'HARD', category: 'Math' },
+            { id: 'h11', question: 'What does SQL stand for?', options: ['Structured Query Language','Standard Query Language','Structured Question Language','Standard Question Language'], correctIndex: 0, difficulty: 'HARD', category: 'Technology' },
+            { id: 'h12', question: 'Who invented WWW?', options: ['Bill Gates','Tim Berners-Lee','Steve Jobs','Vint Cerf'], correctIndex: 1, difficulty: 'HARD', category: 'Technology' },
+            { id: 'h13', question: 'First iPhone year?', options: ['2005','2006','2007','2008'], correctIndex: 2, difficulty: 'HARD', category: 'Technology' },
+            { id: 'h14', question: 'Who wrote The Odyssey?', options: ['Virgil','Homer','Ovid','Sophocles'], correctIndex: 1, difficulty: 'HARD', category: 'Arts & Literature' },
+            { id: 'h15', question: 'Which composer became deaf?', options: ['Mozart','Bach','Beethoven','Chopin'], correctIndex: 2, difficulty: 'HARD', category: 'Arts & Literature' },
           ],
           EXPERT: [
             { id: 'x1', question: 'Planck\'s constant (approx)?', options: ['6.626 × 10⁻³⁴ J⋅s','1.616 × 10⁻³⁵ m','1.055 × 10⁻³⁴ J⋅s','9.109 × 10⁻³¹ kg'], correctIndex: 0, difficulty: 'EXPERT', category: 'Science' },
@@ -192,17 +213,38 @@ export default function QuizzzGame() {
             { id: 'x3', question: 'Half-life of Carbon-14?', options: ['5,730 years','10,000 years','1,200 years','50,000 years'], correctIndex: 0, difficulty: 'EXPERT', category: 'Science' },
             { id: 'x4', question: 'Who proved Four Color Theorem?', options: ['Appel & Haken','Wiles','Perelman','Tao'], correctIndex: 0, difficulty: 'EXPERT', category: 'Math' },
             { id: 'x5', question: 'Avogadro constant?', options: ['6.022 × 10²³','6.626 × 10⁻³⁴','1.616 × 10⁻³⁵','8.314 J/(mol·K)'], correctIndex: 0, difficulty: 'EXPERT', category: 'Science' },
+            { id: 'x6', question: 'Schwarzschild radius formula?', options: ['2GM/c²','GM/c²','GM/2c²','G²M/c²'], correctIndex: 0, difficulty: 'EXPERT', category: 'Math' },
+            { id: 'x7', question: 'Euler\'s identity?', options: ['e^(iπ) + 1 = 0','e^(iπ) = -1','Both A and B','e^π = -1'], correctIndex: 2, difficulty: 'EXPERT', category: 'Math' },
+            { id: 'x8', question: 'Kolmogorov complexity measures?', options: ['Time','Space','Description length','Entropy'], correctIndex: 2, difficulty: 'EXPERT', category: 'Math' },
+            { id: 'x9', question: 'Prime Number Theorem relates to?', options: ['Fermat','Riemann','Gödel','Prime distribution'], correctIndex: 3, difficulty: 'EXPERT', category: 'Math' },
+            { id: 'x10', question: 'Integral of 1/x?', options: ['x²/2','ln|x| + C','1/x²','e^x + C'], correctIndex: 1, difficulty: 'EXPERT', category: 'Math' },
+            { id: 'x11', question: 'Helicase function in DNA?', options: ['Joins','Copies','Unwinds','Seals'], correctIndex: 2, difficulty: 'EXPERT', category: 'Science' },
+            { id: 'x12', question: 'Photon is force carrier for?', options: ['Gravity','Electromagnetism','Strong','Weak'], correctIndex: 1, difficulty: 'EXPERT', category: 'Science' },
+            { id: 'x13', question: 'Byzantine Empire capital?', options: ['Athens','Constantinople','Rome','Alexandria'], correctIndex: 1, difficulty: 'EXPERT', category: 'History' },
+            { id: 'x14', question: 'Treaty ending WWI?', options: ['Versailles','Paris','Vienna','Westphalia'], correctIndex: 0, difficulty: 'EXPERT', category: 'History' },
+            { id: 'x15', question: 'First Holy Roman Emperor?', options: ['Otto I','Charlemagne','Frederick I','Henry II'], correctIndex: 1, difficulty: 'EXPERT', category: 'History' },
+            { id: 'x16', question: 'Haskell paradigm?', options: ['OOP','Procedural','Functional','Logic'], correctIndex: 2, difficulty: 'EXPERT', category: 'Technology' },
+            { id: 'x17', question: 'QuickSort avg complexity?', options: ['O(n)','O(n log n)','O(n²)','O(log n)'], correctIndex: 1, difficulty: 'EXPERT', category: 'Technology' },
+            { id: 'x18', question: 'ACID in databases means?', options: ['Atomicity, Consistency, Isolation, Durability','Availability, Consistency, Integrity, Durability','Atomicity, Centralization, Isolation, Data','Availability, Coordination, Integrity, Distribution'], correctIndex: 0, difficulty: 'EXPERT', category: 'Technology' },
+            { id: 'x19', question: 'Who created Linux?', options: ['Richard Stallman','Linus Torvalds','Dennis Ritchie','Ken Thompson'], correctIndex: 1, difficulty: 'EXPERT', category: 'Technology' },
+            { id: 'x20', question: 'Language of Divine Comedy?', options: ['Latin','Italian','Greek','French'], correctIndex: 1, difficulty: 'EXPERT', category: 'Arts & Literature' },
           ],
         };
 
         const targetCount = QUESTION_COUNTS[diff];
         const pool = fallbackPool[diff];
-        const repeated: QuestionWithAnswer[] = [];
-        while (repeated.length < targetCount) {
-          repeated.push(...pool);
+        
+        // Why: NEVER REPEAT - Only use available unique questions
+        const availableCount = Math.min(pool.length, targetCount);
+        
+        // Why: Shuffle THEN slice to get random selection without duplicates
+        const shuffledPool = [...pool];
+        for (let i = shuffledPool.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [shuffledPool[i], shuffledPool[j]] = [shuffledPool[j], shuffledPool[i]];
         }
-        // Why: Shuffle fallback questions too
-        const answers = repeated.slice(0, targetCount);
+        
+        const answers = shuffledPool.slice(0, availableCount);
         for (let i = answers.length - 1; i > 0; i--) {
           const j = Math.floor(Math.random() * (i + 1));
           [answers[i], answers[j]] = [answers[j], answers[i]];
