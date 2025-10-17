@@ -135,7 +135,12 @@ export async function GET(request: NextRequest) {
         challenges: challengesWithProgress,
         date: today.toISOString(),
       },
-      { status: 200 }
+      { 
+        status: 200,
+        headers: {
+          'Cache-Control': 'no-store, no-cache, must-revalidate',
+        },
+      }
     );
   } catch (error) {
     logger.error({ error }, 'Error fetching challenges');

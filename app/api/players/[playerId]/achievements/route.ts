@@ -110,7 +110,12 @@ export async function GET(
         achievements: achievementsWithStatus,
         stats,
       },
-      { status: 200 }
+      { 
+        status: 200,
+        headers: {
+          'Cache-Control': 'no-store, no-cache, must-revalidate',
+        },
+      }
     );
   } catch (error) {
     // Why: Log unexpected errors for debugging

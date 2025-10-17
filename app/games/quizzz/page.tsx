@@ -112,19 +112,8 @@ export default function QuizzzGame() {
     try {
       const count = QUESTION_COUNTS[diff];
       
-      // Why: Check sessionStorage cache first
-      const cacheKey = `quizzz_questions_${diff}_${count}`;
-      const cached = sessionStorage.getItem(cacheKey);
-      
-      if (cached) {
-        const { questions, answers, timestamp } = JSON.parse(cached);
-        // Why: Cache valid for 5 minutes to reduce API calls
-        if (Date.now() - timestamp < 5 * 60 * 1000) {
-          console.log('Using cached questions for', diff);
-          setIsLoadingQuestions(false);
-          return { questions, answers };
-        }
-      }
+      // Why: NO CACHING - Always fetch fresh random questions
+      // Questions are already randomized by the API
 
       // Why: Fetch questions from API
       const response = await fetch(
@@ -167,16 +156,7 @@ export default function QuizzzGame() {
         }));
       }
 
-      // Why: Cache for 5 minutes
-      sessionStorage.setItem(
-        cacheKey,
-        JSON.stringify({
-          questions: apiQuestions,
-          answers: questionsWithAnswers,
-          timestamp: Date.now(),
-        })
-      );
-
+      // Why: NO CACHING - This ensures fresh random questions every game
       setIsLoadingQuestions(false);
       return { questions: apiQuestions, answers: questionsWithAnswers };
 
@@ -221,15 +201,15 @@ export default function QuizzzGame() {
         while (repeated.length < targetCount) {
           repeated.push(...pool);
         }
+        // Why: Shuffle fallback questions too
         const answers = repeated.slice(0, targetCount);
+        for (let i = answers.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [answers[i], answers[j]] = [answers[j], answers[i]];
+        }
+        
         // Why: Keep the same IDs so answer validation works correctly
         const apiQuestions: Question[] = answers.map(({ correctIndex, ...rest }) => ({ ...rest }));
-
-        const cacheKey = `quizzz_questions_${diff}_${targetCount}`;
-        sessionStorage.setItem(
-          cacheKey,
-          JSON.stringify({ questions: apiQuestions, answers, timestamp: Date.now() })
-        );
 
         setIsLoadingQuestions(false);
         return { questions: apiQuestions, answers };

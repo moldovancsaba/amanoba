@@ -79,36 +79,39 @@ export default function StatsPage() {
         throw new Error('No player ID found');
       }
 
-      const response = await fetch(`/api/profile/${playerId}`);
+      const response = await fetch(`/api/profile/${playerId}?t=${Date.now()}`, {
+        cache: 'no-store',
+      });
       
       if (!response.ok) {
         throw new Error('Failed to fetch player stats');
       }
 
       const data = await response.json();
+      const profile = data.profile || data; // Handle both wrapped and unwrapped response
       
       // Transform API response to PlayerStats structure
       setStats({
         overall: {
-          totalGamesPlayed: data.progression?.statistics?.totalGamesPlayed || 0,
-          totalWins: data.progression?.statistics?.totalWins || 0,
-          totalLosses: data.progression?.statistics?.totalLosses || 0,
-          totalDraws: data.progression?.statistics?.totalDraws || 0,
-          winRate: data.progression?.statistics?.totalGamesPlayed > 0
-            ? parseFloat(((data.progression.statistics.totalWins / data.progression.statistics.totalGamesPlayed) * 100).toFixed(1))
-            : 0,
-          averageSessionTime: data.progression?.statistics?.averageSessionTime || 0,
-          totalPlayTime: data.progression?.statistics?.totalPlayTime || 0,
-          currentStreak: data.streaks?.win?.currentStreak || 0,
-          bestStreak: data.streaks?.win?.bestStreak || 0,
+          totalGamesPlayed: profile.statistics?.totalGamesPlayed || 0,
+          totalWins: profile.statistics?.totalWins || 0,
+          totalLosses: profile.statistics?.totalLosses || 0,
+          totalDraws: profile.statistics?.totalDraws || 0,
+          winRate: profile.statistics?.winRate || 0,
+          averageSessionTime: profile.statistics?.averageSessionTime || 0,
+          totalPlayTime: profile.statistics?.totalPlayTime || 0,
+          currentStreak: profile.streaks?.win?.current || 0,
+          bestStreak: profile.streaks?.win?.longest || 0,
         },
-        gameSpecific: data.progression?.gameSpecificStats || {},
-        level: data.progression?.level || 1,
-        currentXP: data.progression?.currentXP || 0,
-        totalXP: data.progression?.totalXP || 0,
-        achievementsUnlocked: data.achievements?.unlockedCount || 0,
-        achievementsTotal: data.achievements?.totalCount || 0,
+        gameSpecific: profile.progression?.gameSpecificStats || {},
+        level: profile.progression?.level || 1,
+        currentXP: profile.progression?.currentXP || 0,
+        totalXP: profile.progression?.totalXP || 0,
+        achievementsUnlocked: profile.achievements?.unlocked || 0,
+        achievementsTotal: profile.achievements?.total || 0,
       });
+      
+      console.log('Stats loaded:', stats);
       
       setError(null);
     } catch (err) {

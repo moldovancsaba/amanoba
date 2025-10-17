@@ -125,8 +125,15 @@ export async function GET(request: NextRequest) {
       { $set: { 'metadata.lastShownAt': now } }
     );
 
+    // Why: Shuffle questions for randomization (Fisher-Yates algorithm)
+    const shuffled = [...questions];
+    for (let i = shuffled.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+    
     // Why: Transform questions for response (remove correctIndex for security)
-    const responseQuestions: ResponseQuestion[] = questions.map(q => ({
+    const responseQuestions: ResponseQuestion[] = shuffled.map(q => ({
       id: q._id.toString(),
       question: q.question,
       options: q.options,

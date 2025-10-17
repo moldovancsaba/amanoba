@@ -176,6 +176,10 @@ export async function GET(
     return NextResponse.json({
       success: true,
       profile: profileData,
+    }, {
+      headers: {
+        'Cache-Control': 'no-store, no-cache, must-revalidate',
+      },
     });
   } catch (error) {
     logger.error({ error }, 'Failed to fetch player profile');

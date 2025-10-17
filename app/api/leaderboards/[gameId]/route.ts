@@ -141,7 +141,12 @@ export async function GET(
           lastUpdated: topEntries[0]?.metadata?.updatedAt || null,
         },
       },
-      { status: 200 }
+      { 
+        status: 200,
+        headers: {
+          'Cache-Control': 'no-store, no-cache, must-revalidate',
+        },
+      }
     );
   } catch (error) {
     // Why: Log unexpected errors for debugging

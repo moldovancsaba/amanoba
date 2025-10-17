@@ -76,9 +76,12 @@ export default function LeaderboardsPage() {
       setError(null);
       
       try {
-        const response = await fetch(`/api/leaderboards/${selectedGame}?period=${selectedPeriod}&playerId=${currentPlayerId}`);
+        const response = await fetch(`/api/leaderboards/${selectedGame}?period=${selectedPeriod}&playerId=${currentPlayerId}&t=${Date.now()}`, {
+          cache: 'no-store',
+        });
         
         if (!response.ok) {
+          console.error('Failed to fetch leaderboard:', response.status);
           throw new Error('Failed to load leaderboard');
         }
         

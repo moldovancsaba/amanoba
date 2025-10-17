@@ -63,15 +63,20 @@ export default function ChallengesPage() {
       try {
         const playerId = session.user.id;
         
-        const response = await fetch(`/api/challenges?playerId=${playerId}`);
+        const response = await fetch(`/api/challenges?playerId=${playerId}&t=${Date.now()}`, {
+          cache: 'no-store',
+        });
         
         if (!response.ok) {
+          console.error('Failed to fetch challenges:', response.status);
           throw new Error('Failed to load challenges');
         }
         
         const data = await response.json();
+        console.log('Challenges loaded:', data);
         setChallenges(data.challenges || []);
       } catch (err) {
+        console.error('Challenge fetch error:', err);
         setError(err instanceof Error ? err.message : 'Unknown error');
       } finally {
         setLoading(false);

@@ -70,15 +70,20 @@ export default function AchievementsPage() {
     const fetchAchievements = async () => {
       try {
         const playerId = session.user.id;
-        const response = await fetch(`/api/players/${playerId}/achievements`);
+        const response = await fetch(`/api/players/${playerId}/achievements?t=${Date.now()}`, {
+          cache: 'no-store',
+        });
         
         if (!response.ok) {
+          console.error('Failed to fetch achievements:', response.status);
           throw new Error('Failed to load achievements');
         }
         
         const data = await response.json();
+        console.log('Achievements loaded:', data);
         setAchievementsData(data);
       } catch (err) {
+        console.error('Achievement fetch error:', err);
         setError(err instanceof Error ? err.message : 'Unknown error');
       } finally {
         setLoading(false);
