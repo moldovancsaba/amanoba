@@ -242,7 +242,7 @@ export async function POST(request: NextRequest) {
       validatedData.playerId,
       player.brandId.toString(),
       {
-        rewardId: reward._id.toString(),
+        rewardId: (reward._id as mongoose.Types.ObjectId).toString(),
         rewardName: reward.name,
         pointsCost: reward.pointsCost,
         category: reward.category,

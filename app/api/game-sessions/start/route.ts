@@ -1,10 +1,11 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
-import mongoose from 'mongoose';
+import mongoose, { Document } from 'mongoose';
 import connectToDatabase from '@/lib/mongodb';
 import logger from '@/lib/logger';
 import { startGameSession } from '@/lib/gamification';
 import { Player, Game } from '@/lib/models';
+import type { IGame } from '@/lib/models/game';
 
 // Why: Validate incoming request data to ensure type safety and data integrity
 // What: Zod schema for starting a new game session
@@ -53,7 +54,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Why: Resolve game by ObjectId, gameId (enum), or route key
-    let game: (typeof Game extends Model<infer T> ? T & { _id: mongoose.Types.ObjectId } : never) | null = null;
+    let game: (Document<unknown, {}, IGame> & IGame & { _id: mongoose.Types.ObjectId }) | null = null;
     const rawGameId = validatedData.gameId;
     const isObjectId = mongoose.isValidObjectId(rawGameId);
 
@@ -72,7 +73,6 @@ export async function POST(request: NextRequest) {
 
       // Auto-create known games if missing (SUDOKU, MEMORY, MADOKU, QUIZZZ, WHACKPOP)
       if (!game && ['SUDOKU', 'MEMORY', 'MADOKU', 'QUIZZZ', 'WHACKPOP'].includes(keyUpper)) {
-        const { GameType } = await import('@/lib/models/game');
         const defaults: Record<string, {
           name: string;
           description: string;
@@ -124,10 +124,10 @@ export async function POST(request: NextRequest) {
         };
 
         const def = defaults[keyUpper];
-        game = await Game.create({
+        const createdGame = await Game.create({
           gameId: keyUpper,
           name: def.name,
-          type: keyUpper as GameType,
+          type: keyUpper,
           description: def.description,
           isActive: true,
           requiresAuth: true,
@@ -139,6 +139,8 @@ export async function POST(request: NextRequest) {
           xpConfig: def.xpConfig,
           difficultyLevels: def.difficultyLevels,
         });
+        // Cast to correct type after creation
+        game = createdGame as unknown as (Document<unknown, {}, IGame> & IGame & { _id: mongoose.Types.ObjectId });
       }
     }
 

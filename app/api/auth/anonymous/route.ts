@@ -8,6 +8,7 @@
  */
 
 import { NextRequest, NextResponse } from 'next/server';
+import mongoose from 'mongoose';
 import connectDB from '@/lib/mongodb';
 import { getRandomGuestUsername, createAnonymousPlayer } from '@/lib/utils/anonymous-auth';
 import { logAuthEvent } from '@/lib/analytics';
@@ -36,13 +37,14 @@ export async function POST(req: NextRequest) {
     }
     
     // Log authentication event
+    const playerId = (player._id as mongoose.Types.ObjectId).toString();
+    const brandId = (player.brandId as mongoose.Types.ObjectId).toString();
+    
     await logAuthEvent(
-      player._id.toString(),
-      String(player.brandId),
+      playerId,
+      brandId,
       'login' // Log as login for both new and returning anonymous users
     );
-    
-    const playerId = player._id.toString();
     
     logger.info(`Anonymous player ready: ${username}`);
     

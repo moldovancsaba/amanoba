@@ -11,10 +11,10 @@ import logger from '@/lib/logger';
  */
 export async function GET(
   request: NextRequest,
-  context: { params: { playerId: string } }
+  context: { params: Promise<{ playerId: string }> }
 ) {
   try {
-    const { playerId } = context.params;
+    const { playerId } = await context.params;
     await connectDB();
 
     // Fetch player's progression

@@ -62,7 +62,7 @@ export async function getRandomGuestUsername(): Promise<string> {
 export async function createAnonymousPlayer(username: string) {
   try {
     // Check if player with this username already exists
-    let player = await Player.findOne({ displayName: username }).lean() as { _id: unknown; displayName: string; isPremium: boolean } | null;
+    let player = await Player.findOne({ displayName: username }).lean() as { _id: unknown; displayName: string; isPremium: boolean; brandId: unknown } | null;
     
     if (player) {
       logger.info(`Returning existing anonymous player: ${username}`);
@@ -110,7 +110,7 @@ export async function createAnonymousPlayer(username: string) {
     });
     
     // Convert to lean object for consistent return type
-    player = await Player.findById(newPlayer._id).lean() as { _id: unknown; displayName: string; isPremium: boolean } | null;
+    player = await Player.findById(newPlayer._id).lean() as { _id: unknown; displayName: string; isPremium: boolean; brandId: unknown } | null;
     
     if (!player) {
       throw new Error('Failed to retrieve created player');

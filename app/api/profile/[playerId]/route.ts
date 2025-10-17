@@ -6,6 +6,7 @@
  */
 
 import { NextRequest, NextResponse } from 'next/server';
+import mongoose from 'mongoose';
 import connectDB from '@/lib/mongodb';
 import {
   Player,
@@ -16,6 +17,7 @@ import {
   PlayerSession,
   Streak,
 } from '@/lib/models';
+import type { IAchievement } from '@/lib/models/achievement';
 import { logger } from '@/lib/logger';
 
 /**
@@ -86,14 +88,17 @@ export async function GET(
     // Get featured achievements (highest tier, most recent)
     const featuredAchievements = achievements
       .slice(0, 6)
-      .map((unlock: { achievementId: Record<string, unknown>; unlockedAt: Date }) => ({
-        id: unlock.achievementId._id,
-        name: unlock.achievementId.name,
-        description: unlock.achievementId.description,
-        tier: unlock.achievementId.tier,
-        icon: unlock.achievementId.display?.icon,
-        unlockedAt: unlock.unlockedAt,
-      }));
+      .map((unlock) => {
+        const achievement = unlock.achievementId as unknown as IAchievement & { display?: { icon?: string } };
+        return {
+          id: (achievement._id as mongoose.Types.ObjectId).toString(),
+          name: achievement.name,
+          description: achievement.description,
+          tier: achievement.tier,
+          icon: achievement.display?.icon,
+          unlockedAt: unlock.unlockedAt,
+        };
+      });
 
     // Calculate win rate
     const totalGames = progression?.statistics?.totalGamesPlayed || 0;
@@ -101,20 +106,25 @@ export async function GET(
     const winRate = totalGames > 0 ? Math.round((wins / totalGames) * 100) : 0;
 
     // Get current streaks
-    const winStreak = streaks.find((s: Record<string, unknown>) => s.type === 'win');
-    const dailyStreak = streaks.find((s: Record<string, unknown>) => s.type === 'daily');
+    const winStreak = streaks.find((s) => s.type === 'win');
+    const dailyStreak = streaks.find((s) => s.type === 'daily_login');
 
     // Format recent activity
-    const recentActivity = recentSessions.map((session: Record<string, unknown>) => ({
-      gameId: session.gameId?._id,
-      gameName: session.gameId?.name || 'Unknown Game',
-      gameIcon: session.gameId?.icon,
-      outcome: session.gameData?.outcome,
-      score: session.gameData?.score,
-      pointsEarned: session.rewards?.pointsEarned || 0,
-      playedAt: session.sessionEnd,
-      duration: session.duration,
-    }));
+    const recentActivity = recentSessions.map((session) => {
+      const gameInfo = (typeof session.gameId === 'object' && session.gameId !== null && '_id' in session.gameId)
+        ? session.gameId as unknown as { _id: mongoose.Types.ObjectId; name: string; icon?: string }
+        : null;
+      return {
+        gameId: gameInfo?._id?.toString(),
+        gameName: gameInfo?.name || 'Unknown Game',
+        gameIcon: gameInfo?.icon,
+        outcome: session.gameData?.outcome,
+        score: session.gameData?.score,
+        pointsEarned: session.rewards?.pointsEarned || 0,
+        playedAt: session.sessionEnd,
+        duration: session.duration,
+      };
+    });
 
     // Build response
     const profileData = {
