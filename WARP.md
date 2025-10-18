@@ -1,7 +1,7 @@
 # Amanoba – AI Assistant Guide (WARP.md)
 
-**Version**: 2.2.0  
-**Last Updated**: 2025-10-17T16:08:30.000Z
+**Version**: 2.4.0  
+**Last Updated**: 2025-10-18T09:16:20.000Z
 
 ---
 
@@ -14,7 +14,7 @@ This document provides essential context for AI assistants working on the Amanob
 **Amanoba** is a unified gamification platform created by merging PlayMass (v4.11.2) and Madoku (v1.5.0) into a single, centralized Next.js application.
 
 **Key Facts**:
-- **Current Version**: 1.0.0
+- **Current Version**: 2.4.0
 - **Tech Stack**: Next.js 15.5.2, TypeScript, MongoDB Atlas, Mongoose 8.18.0
 - **Repository**: https://github.com/moldovancsaba/amanoba
 - **Database**: madoku-cluster.kqamwf8.mongodb.net/amanoba

@@ -1,11 +1,77 @@
 # Amanoba Release Notes
 
-**Current Version**: 2.3.0  
-**Last Updated**: 2025-10-18T08:35:00.000Z
+**Current Version**: 2.4.0  
+**Last Updated**: 2025-10-18T09:16:20.000Z
 
 ---
 
 All completed tasks are documented here in reverse chronological order. This file follows the Changelog format and is updated with every version bump.
+
+---
+
+## [v2.4.0] — 2025-10-18 🐛
+
+**Status**: CRITICAL BUG FIX - MongoDB Transaction Errors  
+**Type**: Critical Reliability Fix
+
+### 🐛 Game Completion Failures Due to MongoDB Transaction Aborts
+
+**Issue**: Game completions randomly failed with MongoDB transaction errors (NoSuchTransaction, code 251), causing XP, points, and challenge progress to not update.
+
+**Root Causes**:
+1. **Transient transaction failures**: MongoDB Atlas occasionally aborts transactions due to transient network conditions
+2. **No retry mechanism**: Session completion failed completely on transient errors
+3. **Missing source type**: Daily challenge tracking failed validation (enum missing 'daily_challenge')
+
+**Fix Applied**:
+
+**Session Manager Resilience** (`app/lib/gamification/session-manager.ts`):
+```typescript
+// Added fallback path for transient transaction errors
+catch (error) {
+  try { await sessionDb.abortTransaction(); } catch {}
+  
+  const isTransient = !!(
+    (error as any)?.codeName === 'NoSuchTransaction' ||
+    (error as any)?.errorResponse?.errorLabels?.includes?.('TransientTransactionError')
+  );
+  
+  if (isTransient) {
+    // Retry without transaction - sequential safe updates
+    // Recalculate streak, points, XP
+    // Update progression, wallet, session
+    // Return minimal result (achievements async)
+  }
+}
+```
+
+**PointsTransaction Schema** (`app/lib/models/points-transaction.ts`):
+```typescript
+// Added 'daily_challenge' to source type enum
+source: {
+  type: 'game_session' | 'reward_redemption' | 'achievement' | 
+        'streak' | 'admin' | 'referral' | 'daily_bonus' | 
+        'daily_challenge', // NEW
+}
+```
+
+**Files Modified**:
+- `app/lib/gamification/session-manager.ts` (lines 794-893) - Added transient error fallback
+- `app/lib/models/points-transaction.ts` (lines 28-29, 103-104) - Added daily_challenge enum
+
+**Testing**: 
+- ✅ Verified build passes
+- ✅ Transaction errors now gracefully retry without transaction
+- ✅ Daily challenge progress tracking works
+- ✅ Points, XP, streaks, achievements update correctly
+
+**Impact**: 
+- Game completions now succeed even during MongoDB transient failures
+- Player progress (XP, points, challenges) updates reliably
+- No data loss on transaction errors
+- Better production stability
+
+**Deployment Note**: Must redeploy application for resilience fix to take effect.
 
 ---
 

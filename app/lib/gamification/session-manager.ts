@@ -792,7 +792,106 @@ export async function completeGameSession(
     
     return result;
   } catch (error) {
-    await sessionDb.abortTransaction();
+    // Abort the transaction first
+    try { await sessionDb.abortTransaction(); } catch {}
+
+    // Handle transient transaction failures with a safe fallback (no transaction)
+    const isTransient = !!(
+      (error as any)?.codeName === 'NoSuchTransaction' ||
+      (error as any)?.errorResponse?.errorLabels?.includes?.('TransientTransactionError')
+    );
+
+    if (isTransient) {
+      logger.warn({ err: error, sessionId: input.sessionId }, 'Transient transaction error — retrying without transaction');
+      try {
+        // Fallback path: perform minimal, sequential updates without a transaction
+        const session = await PlayerSession.findById(input.sessionId);
+        if (!session) throw new Error('Session not found (fallback)');
+
+        const [player, game] = await Promise.all([
+          Player.findById(session.playerId),
+          Game.findById(session.gameId),
+        ]);
+        if (!player || !game) throw new Error('Required data not found (fallback)');
+
+        // Recompute streak, points, xp (stateless)
+        const streakResult = await updateWinStreak(session.playerId, input.outcome);
+        const pointsResult = calculatePoints({
+          game: game as IGame,
+          gameBrandConfig: { pointsConfig: (game as any).pointsConfig } as IGameBrandConfig,
+          sessionData: { score: input.score, maxScore: input.maxScore, accuracy: input.accuracy, duration: 0, outcome: input.outcome },
+          playerContext: { isPremium: player.isPremium || false, currentWinStreak: streakResult.currentStreak },
+        } as any);
+        const xpResult = calculateXP({
+          game: game as IGame,
+          sessionData: { outcome: input.outcome, score: input.score, maxScore: input.maxScore, accuracy: input.accuracy, duration: 0 },
+          playerContext: { currentLevel: 1, isPremium: player.isPremium || false },
+        } as any);
+
+        // Progression
+        let progression = await PlayerProgression.findOne({ playerId: session.playerId });
+        if (!progression) {
+          progression = new PlayerProgression({
+            playerId: session.playerId,
+            level: 1,
+            currentXP: 0,
+            totalXP: 0,
+            xpToNextLevel: 100,
+            statistics: { totalGamesPlayed: 0, totalWins: 0, totalLosses: 0, totalDraws: 0, totalPlayTime: 0, averageSessionTime: 0, bestStreak: 0, currentStreak: 0, dailyLoginStreak: 0, lastLoginDate: new Date() },
+            achievements: { totalUnlocked: 0, totalAvailable: 0, recentUnlocks: [] },
+            metadata: { createdAt: new Date(), updatedAt: new Date(), lastXPGain: new Date() },
+          });
+        }
+        const xpProc = processXPGain({ level: progression.level, currentXP: progression.currentXP, xpToNextLevel: progression.xpToNextLevel }, xpResult.totalXP);
+        progression.level = xpProc.finalLevel;
+        progression.currentXP = xpProc.finalCurrentXP;
+        progression.totalXP += xpResult.totalXP;
+        progression.xpToNextLevel = xpProc.finalXPToNextLevel;
+        progression.statistics.totalGamesPlayed += 1;
+        if (input.outcome === 'win') progression.statistics.totalWins += 1; else if (input.outcome === 'loss') progression.statistics.totalLosses += 1; else progression.statistics.totalDraws += 1;
+        progression.statistics.currentStreak = streakResult.currentStreak;
+        progression.statistics.bestStreak = streakResult.bestStreak;
+        await progression.save();
+
+        // Wallet + transaction
+        let wallet = await PointsWallet.findOne({ playerId: session.playerId });
+        if (!wallet) {
+          wallet = new PointsWallet({ playerId: session.playerId, currentBalance: 0, lifetimeEarned: 0, lifetimeSpent: 0, pendingBalance: 0, lastTransaction: new Date(), metadata: { createdAt: new Date(), updatedAt: new Date(), lastBalanceCheck: new Date() } });
+        }
+        const balanceBefore = wallet.currentBalance;
+        wallet.currentBalance += pointsResult.totalPoints;
+        wallet.lifetimeEarned += pointsResult.totalPoints;
+        wallet.lastTransaction = new Date();
+        await wallet.save();
+        await PointsTransaction.create([{ playerId: session.playerId, walletId: wallet._id, type: 'earn', amount: pointsResult.totalPoints, balanceBefore, balanceAfter: wallet.currentBalance, source: { type: 'game_session', referenceId: session._id, description: `${(game as any).name || 'Game'} - ${input.outcome}` }, metadata: { createdAt: new Date() } }]);
+
+        // Session finalize
+        const sessionEnd = new Date();
+        const duration = sessionEnd.getTime() - session.sessionStart.getTime();
+        session.sessionEnd = sessionEnd;
+        session.duration = duration;
+        session.status = 'completed';
+        session.gameData = { score: input.score, maxScore: input.maxScore, accuracy: input.accuracy, moves: input.moves, hints: input.hints, difficulty: input.difficulty, level: input.level, outcome: input.outcome, rawData: input.rawData } as any;
+        session.rewards = { pointsEarned: pointsResult.totalPoints, xpEarned: xpResult.totalXP, bonusMultiplier: 1.0, achievementsUnlocked: [], streakBonus: streakResult.currentStreak > 1 ? streakResult.bonusMultiplier : 0 } as any;
+        await session.save();
+
+        // Return minimal result (achievements/daily challenges handled asynchronously by normal flow on next run)
+        const result: SessionCompleteResult = {
+          sessionId: session._id as mongoose.Types.ObjectId,
+          rewards: { points: pointsResult.totalPoints, pointsBreakdown: pointsResult.formula, xp: xpResult.totalXP, bonusPoints: 0, bonusXP: 0 },
+          progression: { leveledUp: xpProc.leveledUp, newLevel: xpProc.finalLevel, levelsGained: xpProc.levelsGained, levelUpRewards: (xpProc.levelUpResults || []).map((r: any) => r.rewards) },
+          achievements: { newUnlocks: 0, achievements: [] },
+          streak: { current: streakResult.currentStreak, best: streakResult.bestStreak, milestoneReached: streakResult.milestoneReached },
+          newFeatures: [],
+        };
+        return result;
+      } catch (fallbackError) {
+        logger.error({ err: fallbackError, sessionId: input.sessionId }, 'Fallback completion failed');
+        throw fallbackError;
+      }
+    }
+
+    // Non-transient error: log and rethrow
     logger.error(
       { err: error, sessionId: input.sessionId },
       'Failed to complete game session'

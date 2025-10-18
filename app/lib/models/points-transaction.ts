@@ -26,7 +26,7 @@ export interface IPointsTransaction extends Document {
   balanceBefore: number;
   balanceAfter: number;
   source: {
-    type: 'game_session' | 'reward_redemption' | 'achievement' | 'streak' | 'admin' | 'referral' | 'daily_bonus';
+    type: 'game_session' | 'reward_redemption' | 'achievement' | 'streak' | 'admin' | 'referral' | 'daily_bonus' | 'daily_challenge';
     referenceId?: mongoose.Types.ObjectId; // ID of related document (session, reward, etc.)
     description: string;
   };
@@ -101,7 +101,7 @@ const PointsTransactionSchema = new Schema<IPointsTransaction>(
       type: {
         type: String,
         enum: {
-          values: ['game_session', 'reward_redemption', 'achievement', 'streak', 'admin', 'referral', 'daily_bonus'],
+          values: ['game_session', 'reward_redemption', 'achievement', 'streak', 'admin', 'referral', 'daily_bonus', 'daily_challenge'],
           message: 'Source type must be valid',
         },
         required: [true, 'Source type is required'],

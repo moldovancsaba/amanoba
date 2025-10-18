@@ -1,7 +1,7 @@
 # Amanoba — Unified Game Platform
 
-**Current Version**: 1.0.0  
-**Last Updated**: 2025-10-10T09:14:06.000Z  
+**Current Version**: 2.4.0  
+**Last Updated**: 2025-10-18T09:16:20.000Z  
 **Status**: In Development
 
 ## 🎮 Overview
