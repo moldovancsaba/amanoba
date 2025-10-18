@@ -50,14 +50,15 @@ interface QuestionData {
  * Connect to MongoDB
  */
 async function connectDB() {
+  const dbName = process.env.DB_NAME || 'amanoba';
   const mongoUri = process.env.MONGODB_URI;
   
   if (!mongoUri) {
     throw new Error('MONGODB_URI environment variable is not defined');
   }
   
-  await mongoose.connect(mongoUri);
-  logger.info('Connected to MongoDB for seeding quiz questions');
+  await mongoose.connect(mongoUri, { dbName });
+  logger.info(`Connected to MongoDB database: ${dbName}`);
 }
 
 /**
