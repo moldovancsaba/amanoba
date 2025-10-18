@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
+import mongoose from 'mongoose';
 import connectToDatabase from '@/lib/mongodb';
 import logger from '@/lib/logger';
 import { DailyChallenge, PlayerChallengeProgress } from '@/lib/models/daily-challenge';
@@ -37,10 +38,20 @@ export async function GET(request: NextRequest) {
     const ensured = await ensureDailyChallengesForToday();
     let challenges = ensured.challenges;
 
-    // Fetch player's progress on these challenges
+    // Fetch player's progress on these challenges (ensure ObjectId match)
     const challengeIds = challenges.map(c => c._id);
+    let playerObjectId: mongoose.Types.ObjectId | null = null;
+    try {
+      playerObjectId = new mongoose.Types.ObjectId(playerId);
+    } catch (e) {
+      return NextResponse.json(
+        { error: 'Invalid playerId' },
+        { status: 400 }
+      );
+    }
+
     const progressRecords = await PlayerChallengeProgress.find({
-      playerId,
+      playerId: playerObjectId,
       challengeId: { $in: challengeIds },
     });
 
