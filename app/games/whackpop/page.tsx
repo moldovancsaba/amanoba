@@ -100,7 +100,9 @@ export default function WhackPopGame() {
   const [timeLeft, setTimeLeft] = useState(30);
   const [targets, setTargets] = useState<Target[]>([]);
   const [sessionId, setSessionId] = useState<string | null>(null);
-  const [rewards, setRewards] = useState<{ xp: number; points: number } | null>(null);
+  const [rewards, setRewards] = useState<{ xp: number; points: number; streakBonus?: number } | null>(null);
+  const [completedChallenges, setCompletedChallenges] = useState<Array<{ title: string; rewardsEarned: { points: number; xp: number } }>>([]);
+  const [isCompleting, setIsCompleting] = useState(false);
   const [playerLevel, setPlayerLevel] = useState(1);
   const [isPremium, setIsPremium] = useState(false);
   const [emojis, setEmojis] = useState<string[]>([]);
@@ -310,6 +312,7 @@ export default function WhackPopGame() {
 
     if (sessionId) {
       try {
+        setIsCompleting(true);
         const totalTargets = hits + misses;
         const accuracy = totalTargets > 0 ? Math.round((hits / totalTargets) * 100) : 0;
         const isWin = hits >= config.hitsToWin;
@@ -329,13 +332,32 @@ export default function WhackPopGame() {
             metadata: { hits, misses },
           }),
         });
-
+        
         if (response.ok) {
           const data = await response.json();
           setRewards(data.rewards);
+          // Fetch updated challenges
+          try {
+            const playerId = (session?.user as { id?: string })?.id;
+            if (playerId) {
+              const chRes = await fetch(`/api/challenges?playerId=${playerId}&t=${Date.now()}`, { cache: 'no-store' });
+              if (chRes.ok) {
+                const ch = await chRes.json();
+                const completed = (ch.challenges || []).filter((c: any) => c.isCompleted).map((c: any) => ({
+                  title: c.name,
+                  rewardsEarned: { points: c.rewards?.points || 0, xp: c.rewards?.xp || 0 },
+                }));
+                setCompletedChallenges(completed);
+              }
+            }
+          } catch (e) {
+            console.warn('Challenges refresh failed', e);
+          }
         }
       } catch (error) {
         console.error('Failed to complete session:', error);
+      } finally {
+        setIsCompleting(false);
       }
     }
   };
@@ -517,39 +539,38 @@ export default function WhackPopGame() {
               </div>
             </div>
 
-            {/* Rewards Section */}
-            {rewards && (
-              <div className="bg-gradient-to-r from-orange-50 to-red-50 rounded-xl p-6 mb-6 border-2 border-orange-200">
-                <h3 className="font-bold text-gray-900 mb-4 text-xl">🎁 Rewards Earned!</h3>
-                <div className="space-y-3">
-                  <div className="flex items-center justify-between bg-white rounded-lg p-3">
-                    <span className="font-medium text-gray-700">Experience Points</span>
-                    <span className="text-xl font-bold text-purple-600">+{rewards.xp || 0} XP</span>
-                  </div>
-                  <div className="flex items-center justify-between bg-white rounded-lg p-3">
-                    <span className="font-medium text-gray-700">Points</span>
-                    <span className="text-xl font-bold text-orange-600">+{rewards.points || 0} 💎</span>
-                  </div>
-                  {(rewards as any).levelsGained > 0 && (
-                    <div className="bg-gradient-to-r from-yellow-100 to-yellow-200 rounded-lg p-4 border-2 border-yellow-400">
-                      <div className="text-2xl font-bold text-yellow-800 animate-pulse">
-                        🎉 Level Up! +{(rewards as any).levelsGained} Level(s)!
-                      </div>
-                    </div>
-                  )}
-                  {(rewards as any).achievementsUnlocked?.length > 0 && (
-                    <div className="bg-gradient-to-r from-green-100 to-green-200 rounded-lg p-4 border-2 border-green-400">
-                      <div className="font-bold text-green-800 mb-2">🏅 New Achievements!</div>
-                      {(rewards as any).achievementsUnlocked.map((achievement: any, idx: number) => (
-                        <div key={idx} className="text-sm text-green-700">
-                          • {achievement.name}
-                        </div>
-                      ))}
-                    </div>
-                  )}
+            {/* Rewards & Challenges (always visible) */}
+            <div className="bg-gradient-to-r from-orange-50 to-red-50 rounded-xl p-6 mb-6 border-2 border-orange-200">
+              <h3 className="font-bold text-gray-900 mb-4 text-xl">
+                🎁 Rewards Earned {isCompleting && <span className="text-sm text-gray-500">Calculating…</span>}
+              </h3>
+              <div className="space-y-3">
+                <div className="flex items-center justify-between bg-white rounded-lg p-3">
+                  <span className="font-medium text-gray-700">Experience Points</span>
+                  <span className="text-xl font-bold text-purple-600">{rewards ? `+${rewards.xp || 0} XP` : '—'}</span>
                 </div>
+                <div className="flex items-center justify-between bg-white rounded-lg p-3">
+                  <span className="font-medium text-gray-700">Points</span>
+                  <span className="text-xl font-bold text-orange-600">{rewards ? `+${rewards.points || 0} 💎` : '—'}</span>
+                </div>
+                {rewards?.streakBonus && rewards.streakBonus > 0 && (
+                  <div className="bg-orange-100 rounded-lg p-3 text-orange-800 font-medium">
+                    🔥 Streak Bonus: +{Math.round(rewards.streakBonus * 100)}%
+                  </div>
+                )}
+                {completedChallenges.length > 0 && (
+                  <div className="bg-green-100 rounded-lg p-4 border border-green-300">
+                    <div className="font-bold text-green-800 mb-2">🎯 Daily Challenges Completed</div>
+                    {completedChallenges.map((c, idx) => (
+                      <div key={idx} className="flex items-center justify-between text-sm text-green-700">
+                        <span>• {c.title}</span>
+                        <span>+{c.rewardsEarned.points}pts • +{c.rewardsEarned.xp}xp</span>
+                      </div>
+                    ))}
+                  </div>
+                )}
               </div>
-            )}
+            </div>
 
             {/* Action Buttons */}
             <div className="flex gap-4">

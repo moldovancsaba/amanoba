@@ -51,6 +51,9 @@ export default function SudokuGame() {
   const [timer, setTimer] = useState(0);
   const [isComplete, setIsComplete] = useState(false);
   const [sessionId, setSessionId] = useState<string | null>(null);
+  const [rewards, setRewards] = useState<{ points: number; xp: number; streakBonus?: number } | null>(null);
+  const [completedChallenges, setCompletedChallenges] = useState<Array<{ title: string; rewardsEarned: { points: number; xp: number } }>>([]);
+  const [isCompleting, setIsCompleting] = useState(false);
   
   // Premium check
   const isPremium = (session?.user as Record<string, unknown>)?.isPremium as boolean || false;
@@ -161,6 +164,7 @@ export default function SudokuGame() {
     if (!session || !sessionId) return;
     
     try {
+      setIsCompleting(true);
       // Why: Calculate score based on time and hints penalty
       const finalScore = won ? Math.max(1000 - timer - (hintsUsed * 50), 100) : 0;
       
@@ -184,10 +188,27 @@ export default function SudokuGame() {
       });
       if (res.ok) {
         const data = await res.json();
-        alert(`✅ Game recorded! +${data.rewards.points} pts, +${data.rewards.xp} XP`);
+        setRewards(data.rewards);
+        // Fetch updated challenges
+        try {
+          const playerId = (session.user as { id: string }).id;
+          const chRes = await fetch(`/api/challenges?playerId=${playerId}&t=${Date.now()}`, { cache: 'no-store' });
+          if (chRes.ok) {
+            const ch = await chRes.json();
+            const completed = (ch.challenges || []).filter((c: any) => c.isCompleted).map((c: any) => ({
+              title: c.name,
+              rewardsEarned: { points: c.rewards?.points || 0, xp: c.rewards?.xp || 0 },
+            }));
+            setCompletedChallenges(completed);
+          }
+        } catch (e) {
+          console.warn('Challenges refresh failed', e);
+        }
       }
     } catch (error) {
       console.error('Failed to complete game:', error);
+    } finally {
+      setIsCompleting(false);
     }
   };
   
@@ -366,11 +387,43 @@ export default function SudokuGame() {
         </div>
         
         {isComplete && (
-          <div className="bg-green-500 text-white rounded-2xl p-6 text-center animate-bounce-in">
-            <Trophy className="w-16 h-16 mx-auto mb-4" />
-            <h2 className="text-3xl font-bold mb-2">Puzzle Complete!</h2>
-            <p className="text-xl mb-4">Time: {formatTime(timer)}</p>
-            <p className="text-lg">Hints used: {hintsUsed}</p>
+          <div className="bg-white rounded-2xl p-6 text-center shadow-2xl">
+            <div className="text-6xl mb-2">🏆</div>
+            <h2 className="text-3xl font-bold mb-2 text-gray-900">Puzzle Complete!</h2>
+            <p className="text-lg text-gray-700 mb-4">Time: {formatTime(timer)} • Hints: {hintsUsed}</p>
+
+            {/* Rewards */}
+            <div className="bg-gradient-to-r from-indigo-50 to-purple-50 rounded-xl p-6 mb-4">
+              <div className="font-bold text-gray-900 mb-2 text-xl">Rewards {isCompleting && <span className="text-sm text-gray-500">Calculating…</span>}</div>
+              <div className="grid grid-cols-2 gap-3">
+                <div className="bg-white rounded-lg p-3">
+                  <div className="text-2xl font-bold text-purple-600">{rewards ? `+${rewards.xp || 0}` : '—'}</div>
+                  <div className="text-sm text-gray-600">XP</div>
+                </div>
+                <div className="bg-white rounded-lg p-3">
+                  <div className="text-2xl font-bold text-indigo-600">{rewards ? `+${rewards.points || 0}` : '—'}</div>
+                  <div className="text-sm text-gray-600">Points</div>
+                </div>
+              </div>
+              {rewards?.streakBonus && rewards.streakBonus > 0 && (
+                <div className="mt-2 text-orange-700 font-medium">🔥 Streak Bonus: +{Math.round(rewards.streakBonus * 100)}%</div>
+              )}
+            </div>
+
+            {/* Daily challenges */}
+            {completedChallenges.length > 0 && (
+              <div className="bg-gradient-to-r from-green-50 to-teal-50 rounded-xl p-4 mb-4">
+                <div className="font-bold text-gray-900 mb-2">Daily Challenges Completed</div>
+                <div className="space-y-1 text-sm">
+                  {completedChallenges.map((c, idx) => (
+                    <div key={idx} className="flex justify-between">
+                      <span>• {c.title}</span>
+                      <span>+{c.rewardsEarned.points}pts • +{c.rewardsEarned.xp}xp</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
         )}
       </div>

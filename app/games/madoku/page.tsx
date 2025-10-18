@@ -35,6 +35,9 @@ export default function MadokuGame() {
   const [sessionId, setSessionId] = useState<string | null>(null);
   const [showGameOver, setShowGameOver] = useState(false);
   const [isClient, setIsClient] = useState(false);
+  const [rewards, setRewards] = useState<{ points: number; xp: number; streakBonus?: number } | null>(null);
+  const [completedChallenges, setCompletedChallenges] = useState<Array<{ title: string; rewardsEarned: { points: number; xp: number } }>>([]);
+  const [isCompleting, setIsCompleting] = useState(false);
   
   // Player info
   const playerName = (session?.user as Record<string, unknown>)?.name as string || (session?.user as Record<string, unknown>)?.displayName as string || 'You';
@@ -135,10 +138,11 @@ export default function MadokuGame() {
     if (!session || !sessionId || ghostMode) return;
     
     try {
+      setIsCompleting(true);
       const won = finalState.winner === 0;
       const score = finalState.p1Score;
       
-      await fetch('/api/game-sessions/complete', {
+      const res = await fetch('/api/game-sessions/complete', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -157,8 +161,29 @@ export default function MadokuGame() {
           },
         }),
       });
+      if (res.ok) {
+        const data = await res.json();
+        setRewards(data.rewards);
+        // Fetch updated challenges
+        try {
+          const playerId = (session.user as { id: string }).id;
+          const chRes = await fetch(`/api/challenges?playerId=${playerId}&t=${Date.now()}`, { cache: 'no-store' });
+          if (chRes.ok) {
+            const ch = await chRes.json();
+            const completed = (ch.challenges || []).filter((c: any) => c.isCompleted).map((c: any) => ({
+              title: c.name,
+              rewardsEarned: { points: c.rewards?.points || 0, xp: c.rewards?.xp || 0 },
+            }));
+            setCompletedChallenges(completed);
+          }
+        } catch (e) {
+          console.warn('Challenges refresh failed', e);
+        }
+      }
     } catch (error) {
       console.error('Failed to complete session:', error);
+    } finally {
+      setIsCompleting(false);
     }
   };
   
@@ -366,11 +391,11 @@ export default function MadokuGame() {
                 {gameState.winner === 0 ? '🏆' : gameState.winner === 1 ? '😞' : '🤝'}
               </div>
               
-              <h2 className="text-3xl font-bold mb-4 text-gray-900">
+              <h2 className="text-3xl font-bold mb-2 text-gray-900">
                 {gameState.winner === 0 ? 'You Win!' : gameState.winner === 1 ? 'AI Wins!' : "It's a Tie!"}
               </h2>
               
-              <div className="bg-gray-100 rounded-xl p-4 mb-6">
+              <div className="bg-gray-100 rounded-xl p-4 mb-4">
                 <div className="flex justify-between items-center mb-2">
                   <span className="text-lg font-semibold">{playerName}</span>
                   <span className="text-2xl font-bold text-indigo-600">{gameState.p1Score}</span>
@@ -381,9 +406,38 @@ export default function MadokuGame() {
                 </div>
               </div>
               
-              <div className="text-sm text-gray-600 mb-6">
-                Game lasted {gameState.totalTurns} turns
+              {/* Rewards */}
+              <div className="bg-gradient-to-r from-indigo-50 to-purple-50 rounded-xl p-4 mb-4">
+                <div className="font-bold text-gray-900 mb-2">
+                  Rewards {isCompleting && <span className="text-sm text-gray-500">Calculating…</span>}
+                </div>
+                <div className="flex justify-between">
+                  <span>XP</span>
+                  <span className="font-bold text-purple-600">{rewards ? `+${rewards.xp || 0}` : '—'}</span>
+                </div>
+                <div className="flex justify-between">
+                  <span>Points</span>
+                  <span className="font-bold text-indigo-600">{rewards ? `+${rewards.points || 0}` : '—'}</span>
+                </div>
+                {rewards?.streakBonus && rewards.streakBonus > 0 && (
+                  <div className="text-sm text-orange-700 mt-2">🔥 Streak Bonus: +{Math.round(rewards.streakBonus * 100)}%</div>
+                )}
               </div>
+              
+              {/* Daily challenges */}
+              {completedChallenges.length > 0 && (
+                <div className="bg-gradient-to-r from-green-50 to-teal-50 rounded-xl p-4 mb-4 text-left">
+                  <div className="font-bold text-gray-900 mb-2">Daily Challenges Completed</div>
+                  <div className="space-y-1 text-sm">
+                    {completedChallenges.map((c, idx) => (
+                      <div key={idx} className="flex justify-between">
+                        <span>• {c.title}</span>
+                        <span>+{c.rewardsEarned.points}pts • +{c.rewardsEarned.xp}xp</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
               
               <div className="flex gap-3">
                 <button

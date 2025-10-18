@@ -62,6 +62,9 @@ export default function MemoryGame({
   const [gameState, setGameState] = useState<MemoryGameState | null>(null);
   const [gameStarted, setGameStarted] = useState(false);
   const [sessionId, setSessionId] = useState<string | null>(null);
+  const [rewards, setRewards] = useState<{ points: number; xp: number; streakBonus?: number } | null>(null);
+  const [completedChallenges, setCompletedChallenges] = useState<Array<{ title: string; rewardsEarned: { points: number; xp: number } }>>([]);
+  const [isCompleting, setIsCompleting] = useState(false);
   
   // Timer
   const timerRef = useRef<NodeJS.Timeout | null>(null);
@@ -184,6 +187,7 @@ export default function MemoryGame({
       const isWin = gameState.matchedPairs === gameState.totalPairs;
       
       try {
+        setIsCompleting(true);
         const response = await fetch('/api/game-sessions/complete', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
@@ -200,10 +204,28 @@ export default function MemoryGame({
         
         if (response.ok) {
           const data = await response.json();
+          setRewards(data.rewards);
           onGameComplete?.(finalScore, data);
+          // Fetch updated challenges for the player
+          try {
+            const playerIdParam = playerId;
+            const chRes = await fetch(`/api/challenges?playerId=${playerIdParam}&t=${Date.now()}`, { cache: 'no-store' });
+            if (chRes.ok) {
+              const ch = await chRes.json();
+              const completed = (ch.challenges || []).filter((c: any) => c.isCompleted).map((c: any) => ({
+                title: c.name,
+                rewardsEarned: { points: c.rewards?.points || 0, xp: c.rewards?.xp || 0 },
+              }));
+              setCompletedChallenges(completed);
+            }
+          } catch (e) {
+            console.warn('Challenges refresh failed', e);
+          }
         }
       } catch (error) {
         console.error('Failed to complete session:', error);
+      } finally {
+        setIsCompleting(false);
       }
     };
     
@@ -417,6 +439,39 @@ export default function MemoryGame({
                 <span>Time:</span>
                 <span className="font-bold">{Math.floor(gameState.timeElapsed / 60)}:{(gameState.timeElapsed % 60).toString().padStart(2, '0')}</span>
               </div>
+            </div>
+            
+            {/* Rewards & Challenges */}
+            <div className="space-y-3">
+              <div className="bg-gradient-to-r from-indigo-50 to-purple-50 rounded-lg p-4">
+                <div className="font-bold text-gray-900 mb-2">
+                  Rewards {isCompleting && <span className="text-sm text-gray-500">Calculating…</span>}
+                </div>
+                <div className="flex justify-between">
+                  <span>XP</span>
+                  <span className="font-bold text-purple-600">{rewards ? `+${rewards.xp || 0}` : '—'}</span>
+                </div>
+                <div className="flex justify-between">
+                  <span>Points</span>
+                  <span className="font-bold text-indigo-600">{rewards ? `+${rewards.points || 0}` : '—'}</span>
+                </div>
+                {rewards?.streakBonus && rewards.streakBonus > 0 && (
+                  <div className="text-sm text-orange-700 mt-2">🔥 Streak Bonus: +{Math.round(rewards.streakBonus * 100)}%</div>
+                )}
+              </div>
+              {completedChallenges.length > 0 && (
+                <div className="bg-gradient-to-r from-green-50 to-teal-50 rounded-lg p-4">
+                  <div className="font-bold text-gray-900 mb-2">Daily Challenges Completed</div>
+                  <div className="space-y-1 text-sm">
+                    {completedChallenges.map((c, idx) => (
+                      <div key={idx} className="flex justify-between">
+                        <span>• {c.title}</span>
+                        <span>+{c.rewardsEarned.points}pts • +{c.rewardsEarned.xp}xp</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
             </div>
             
             <div className="space-y-2">
