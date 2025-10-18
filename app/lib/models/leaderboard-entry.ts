@@ -67,12 +67,16 @@ const LeaderboardEntrySchema = new Schema<ILeaderboardEntry>(
     metric: {
       type: String,
       enum: {
-        values: ['score', 'wins', 'points', 'xp', 'streak', 'accuracy'],
+        values: [
+          'score', 'wins', 'points', 'xp', 'streak', 'accuracy', // Legacy values
+          'points_balance', 'points_lifetime', 'xp_total', 'level', // Current wallet/progression metrics
+          'win_streak', 'daily_streak', 'games_won', 'win_rate', 'elo' // Competitive metrics
+        ],
         message: 'Metric must be valid',
       },
       required: [true, 'Metric is required'],
       index: true,
-      // Why: What statistic the leaderboard is sorted by
+      // Why: What statistic the leaderboard is sorted by (expanded to match leaderboard-calculator.ts types)
     },
     rank: {
       type: Number,

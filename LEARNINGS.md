@@ -189,6 +189,163 @@ endOfDay.setUTCDate(endOfDay.getUTCDate() + 1);
 
 ---
 
+### Game Completion Flow: Silent Schema Validation Failures
+
+**Context**: All five games (QUIZZZ, SUDOKU, MEMORY, WHACKPOP, MADOKU) were completing but NOT recording statistics, XP, points, daily challenges, or leaderboard rankings. Players reported "playing but nothing updates."
+
+**Timestamp**: 2025-10-18T08:30:00.000Z  
+**Severity**: CRITICAL - Complete gamification system failure  
+**Fixed In**: v2.2.0
+
+**Root Causes Identified**:
+
+#### 1. EventLog Missing Required `metadata.version` Field
+
+**Problem**: 5 EventLog.create() calls in session-manager.ts were missing the **required** `metadata.version` field:
+- Game completion event (line 648)
+- Points earned event (line 672)
+- Level up event (line 692)
+- Achievement unlock event (line 712)
+- Streak milestone event (line 732)
+- Challenge completion event in daily-challenge-tracker.ts (line 349)
+
+**Result**: MongoDB validation silently failed, EventLog records were never created, but transaction continued as if successful. No analytics, no audit trail.
+
+**Problem Code**:
+```typescript
+// ❌ Wrong: Missing required metadata.version
+await EventLog.create({
+  playerId: session.playerId,
+  brandId: session.brandId,
+  eventType: 'game_played',
+  eventData: { /* ... */ },
+  timestamp: new Date(),
+  metadata: {
+    isPremium: player.isPremium, // metadata object exists BUT missing version!
+    brandId: session.brandId.toString(),
+    pointsEarned: pointsResult.totalPoints,
+  },
+});
+```
+
+**Solution**:
+```typescript
+// ✅ Correct: Include required metadata.version and createdAt
+await EventLog.create({
+  playerId: session.playerId,
+  brandId: session.brandId,
+  eventType: 'game_played',
+  eventData: { /* ... */ },
+  timestamp: new Date(),
+  metadata: {
+    createdAt: new Date(), // Required
+    version: '2.2.0',      // Required
+    isPremium: player.isPremium,
+    brandId: session.brandId.toString(),
+    pointsEarned: pointsResult.totalPoints,
+  },
+});
+```
+
+#### 2. LeaderboardEntry Metric Enum Mismatch
+
+**Problem**: LeaderboardEntry schema enum values did NOT match the metric types used by leaderboard-calculator.ts:
+
+**Schema allowed**:
+```typescript
+enum: ['score', 'wins', 'points', 'xp', 'streak', 'accuracy']
+```
+
+**Code actually used**:
+```typescript
+'points_balance', 'points_lifetime', 'xp_total', 'level', 'win_streak',
+'daily_streak', 'games_won', 'win_rate', 'elo'
+```
+
+**Result**: Every leaderboard update silently failed validation. LeaderboardEntry.bulkWrite() succeeded with 0 records written. Leaderboards stayed empty despite games being played.
+
+**Solution**: Updated LeaderboardEntry schema to include ALL actual metric types:
+```typescript
+metric: {
+  type: String,
+  enum: {
+    values: [
+      'score', 'wins', 'points', 'xp', 'streak', 'accuracy', // Legacy
+      'points_balance', 'points_lifetime', 'xp_total', 'level', // Current wallet/progression
+      'win_streak', 'daily_streak', 'games_won', 'win_rate', 'elo' // Competitive
+    ],
+  },
+},
+```
+
+#### 3. EventLog Missing Event Types
+
+**Problem**: EventLog schema enum was missing 'streak_milestone' and 'challenge_completed' event types that were being used in code.
+
+**Solution**: Expanded EventLog.eventType enum to include both missing types.
+
+---
+
+**Key Learnings**:
+
+1. **Schema-Code Alignment is Critical**:
+   - When schema enums are defined, code MUST use exactly matching values
+   - Schema validation failures are often **silent** - operations succeed but write 0 records
+   - Always validate enum additions in both schema AND implementation files
+
+2. **Required Fields Must Always Be Present**:
+   - Mongoose schema with `required: [true, 'message']` will fail silently in some contexts
+   - Always include ALL required fields, even in nested objects like `metadata`
+   - Version tracking should use a constant imported from package.json, not hardcoded strings
+
+3. **Transaction Boundaries Don't Catch Validation Errors**:
+   - MongoDB transactions commit successfully even if some operations fail validation
+   - Use comprehensive logging AFTER transactions to verify records were created
+   - Add debug endpoints to verify expected records exist after operations
+
+4. **Testing Must Include Database Verification**:
+   - Don't trust API 200 responses - verify MongoDB records were actually created
+   - Check EventLog, LeaderboardEntry, PointsTransaction, PlayerProgression after every game
+   - Use MongoDB Compass or database scripts to inspect actual data
+
+5. **Progressive Failure Detection**:
+   - Users first notice: "points aren't updating"
+   - Then: "leaderboards are empty"
+   - Then: "challenges don't progress"
+   - **All symptoms trace to same root cause**: schema validation failures
+
+**Prevention Checklist** (to avoid similar issues):
+
+- [ ] When adding new enum values to schemas, grep entire codebase for usages
+- [ ] When creating model instances, use TypeScript interfaces to enforce field presence
+- [ ] Add post-transaction verification queries in critical flows
+- [ ] Enable MongoDB query logging in development to see actual write results
+- [ ] Create diagnostic endpoints that verify data integrity: `/api/debug/verify-game-completion`
+- [ ] Add comprehensive test coverage including database state verification
+- [ ] Use schema validation error handlers to log failures prominently
+
+**Files Modified**:
+- `app/lib/models/leaderboard-entry.ts` (expanded metric enum)
+- `app/lib/models/event-log.ts` (expanded eventType enum)
+- `app/lib/gamification/session-manager.ts` (added metadata.version to 5 EventLog.create calls)
+- `app/lib/gamification/daily-challenge-tracker.ts` (added metadata.version to 1 EventLog.create call)
+
+**Verification Steps** (manual testing checklist):
+1. Play QUIZZZ - verify PlayerSession created, points/XP awarded, stats updated
+2. Play SUDOKU - verify same
+3. Play MEMORY - verify same
+4. Play WHACKPOP - verify same
+5. Play MADOKU - verify same + ELO rating updated
+6. Complete daily challenge - verify progress increments and rewards awarded
+7. Check leaderboards - verify entries exist and rankings are accurate
+8. Query EventLog - verify all game events are logged with version='2.2.0'
+9. Query PointsTransaction - verify audit trail exists for all earnings
+10. Check PlayerProgression - verify XP, level, totalGamesPlayed, wins/losses increment
+
+**Impact**: This fix restores the entire gamification loop. Before fix: games playable but meaningless (no progression). After fix: complete engagement loop with points, XP, challenges, leaderboards, achievements.
+
+---
+
 ### Question Repetition: Aggressive Cache Busting Required
 
 **Context**: QUIZZZ game showing same 10 questions repeatedly despite 200 questions in database.

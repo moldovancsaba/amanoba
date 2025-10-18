@@ -1,7 +1,7 @@
 # Amanoba Release Notes
 
-**Current Version**: 2.2.0  
-**Last Updated**: 2025-10-17T16:08:30.000Z
+**Current Version**: 2.3.0  
+**Last Updated**: 2025-10-18T08:35:00.000Z
 
 ---
 

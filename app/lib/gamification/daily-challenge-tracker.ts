@@ -360,6 +360,8 @@ async function awardChallengeRewards(
         },
         timestamp: new Date(),
         metadata: {
+          createdAt: new Date(),
+          version: '2.3.0',
           challengeType: challenge.type,
           difficulty: challenge.difficulty,
           pointsEarned: points,

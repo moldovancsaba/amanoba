@@ -660,6 +660,8 @@ export async function completeGameSession(
       },
       timestamp: new Date(),
       metadata: {
+        createdAt: new Date(),
+        version: '2.3.0',
         isPremium: player.isPremium,
         brandId: session.brandId.toString(),
         gameId: session.gameId.toString(),
@@ -681,6 +683,8 @@ export async function completeGameSession(
       },
       timestamp: new Date(),
       metadata: {
+        createdAt: new Date(),
+        version: '2.3.0',
         brandId: session.brandId.toString(),
         amount: pointsResult.totalPoints,
       },
@@ -701,6 +705,8 @@ export async function completeGameSession(
         },
         timestamp: new Date(),
         metadata: {
+          createdAt: new Date(),
+          version: '2.3.0',
           brandId: session.brandId.toString(),
           newLevel: xpProcessResult.finalLevel,
         },
@@ -721,6 +727,8 @@ export async function completeGameSession(
         },
         timestamp: new Date(),
         metadata: {
+          createdAt: new Date(),
+          version: '2.3.0',
           brandId: session.brandId.toString(),
           achievementId: (ach.achievement._id).toString(),
         },
@@ -741,6 +749,8 @@ export async function completeGameSession(
         },
         timestamp: new Date(),
         metadata: {
+          createdAt: new Date(),
+          version: '2.3.0',
           brandId: session.brandId.toString(),
           milestone: streakResult.milestoneReached,
         },
