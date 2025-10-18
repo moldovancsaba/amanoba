@@ -120,6 +120,7 @@ export default function QuizzzGame() {
   const [isPremium, setIsPremium] = useState(false);
   const [isLoadingQuestions, setIsLoadingQuestions] = useState(false);
   const [fetchError, setFetchError] = useState<string | null>(null);
+  const [isCompleting, setIsCompleting] = useState(false);
 
   // Why: Fetch questions from database API with intelligent selection
   const fetchQuestions = async (diff: Difficulty): Promise<{ questions: Question[], answers: QuestionWithAnswer[] } | null> => {
@@ -468,6 +469,7 @@ export default function QuizzzGame() {
 
     if (sessionId) {
       try {
+        setIsCompleting(true);
         const finalScore = Math.round(score * 100 * config.pointsMultiplier);
         console.log('Completing session...', { sessionId, score, finalScore, isWin, duration, accuracy });
         
@@ -490,7 +492,25 @@ export default function QuizzzGame() {
           console.log('✅ Game session completed with rewards:', data);
           setRewards(data.rewards);
           setProgression(data.progression);
-          setAchievements(data.achievements || []);
+          setAchievements(data.achievements?.achievements || []);
+
+          // Fetch updated challenges to reflect progress immediately
+          try {
+            const playerId = (session?.user as { id: string })?.id;
+            if (playerId) {
+              const challengesRes = await fetch(`/api/challenges?playerId=${playerId}&t=${Date.now()}`, { cache: 'no-store' });
+              if (challengesRes.ok) {
+                const ch = await challengesRes.json();
+                const completed = (ch.challenges || []).filter((c: any) => c.isCompleted).map((c: any) => ({
+                  title: c.name,
+                  rewardsEarned: { points: c.rewards?.points || 0, xp: c.rewards?.xp || 0 },
+                }));
+                setCompletedChallenges(completed);
+              }
+            }
+          } catch (e) {
+            console.warn('Failed to refresh challenges after completion', e);
+          }
         } else {
           const errorText = await response.text();
           console.error('❌ Failed to complete game session:', response.status, errorText);
@@ -498,9 +518,10 @@ export default function QuizzzGame() {
         }
       } catch (error) {
         console.error('❌ Exception completing session:', error);
-        console.error('Request was for sessionId:', sessionId);
+      } finally {
+        setIsCompleting(false);
       }
-    }
+      }
   };
 
   // Why: Redirect to sign-in if not authenticated
@@ -762,83 +783,105 @@ export default function QuizzzGame() {
             </div>
           </div>
 
-          {/* Rewards Section */}
-          {rewards && (
-            <div className="space-y-4 mb-6">
-              {/* Main Rewards */}
-              <div className="bg-gradient-to-r from-indigo-50 to-purple-50 rounded-xl p-6">
-                <h3 className="font-bold text-gray-900 mb-4 text-xl">💰 Rewards Earned</h3>
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="bg-white rounded-lg p-4 text-center">
-                    <div className="text-3xl font-bold text-indigo-600">+{rewards.points || 0}</div>
-                    <div className="text-gray-600">💎 Points</div>
+          {/* Rewards & Progress Section (always visible) */}
+          <div className="space-y-4 mb-6">
+            {/* Main Rewards */}
+            <div className="bg-gradient-to-r from-indigo-50 to-purple-50 rounded-xl p-6">
+              <h3 className="font-bold text-gray-900 mb-4 text-xl flex items-center gap-2">
+                💰 Rewards Earned
+                {isCompleting && <span className="text-sm text-gray-500">Calculating…</span>}
+              </h3>
+              <div className="grid grid-cols-2 gap-4">
+                <div className="bg-white rounded-lg p-4 text-center">
+                  <div className="text-3xl font-bold text-indigo-600">
+                    {rewards ? `+${rewards.points || 0}` : '—'}
                   </div>
-                  <div className="bg-white rounded-lg p-4 text-center">
-                    <div className="text-3xl font-bold text-purple-600">+{rewards.xp || 0}</div>
-                    <div className="text-gray-600">⭐ XP</div>
-                  </div>
+                  <div className="text-gray-600">💎 Points</div>
                 </div>
-              </div>
-
-              {/* Level Up */}
-              {progression && progression.levelsGained > 0 && (
-                <div className="bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl p-6">
-                  <div className="text-center">
-                    <div className="text-5xl mb-2">🎉</div>
-                    <h3 className="font-bold text-green-700 text-2xl mb-2">
-                      Level Up!
-                    </h3>
-                    <div className="text-lg text-gray-700">
-                      You're now <span className="font-bold text-green-600">Level {progression.newLevel}</span>
-                      {progression.newTitle && (
-                        <div className="mt-1 text-sm">
-                          New Title: <span className="font-bold text-purple-600">{progression.newTitle}</span>
-                        </div>
-                      )}
-                    </div>
+                <div className="bg-white rounded-lg p-4 text-center">
+                  <div className="text-3xl font-bold text-purple-600">
+                    {rewards ? `+${rewards.xp || 0}` : '—'}
                   </div>
-                </div>
-              )}
-
-              {/* Achievements */}
-              {achievements.length > 0 && (
-                <div className="bg-gradient-to-r from-yellow-50 to-orange-50 rounded-xl p-6">
-                  <h3 className="font-bold text-gray-900 mb-4 text-xl flex items-center gap-2">
-                    🏆 Achievements Unlocked!
-                  </h3>
-                  <div className="space-y-3">
-                    {achievements.map((ach, idx) => (
-                      <div key={idx} className="bg-white rounded-lg p-4 flex justify-between items-center">
-                        <div>
-                          <div className="font-bold text-gray-900">{ach.name}</div>
-                          <div className="text-sm text-gray-600">
-                            {ach.tier} • +{ach.rewards.points}pts • +{ach.rewards.xp}xp
-                          </div>
-                        </div>
-                        <div className="text-3xl">🏅</div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              )}
-
-              {/* Streak Bonus */}
-              {rewards.streakBonus && rewards.streakBonus > 0 && (
-                <div className="bg-gradient-to-r from-orange-50 to-red-50 rounded-xl p-4 text-center">
-                  <div className="font-bold text-orange-700">
-                    🔥 Streak Bonus: +{Math.round(rewards.streakBonus * 100)}% rewards!
-                  </div>
-                </div>
-              )}
-
-              {/* Daily Challenges Note */}
-              <div className="bg-gradient-to-r from-green-50 to-teal-50 rounded-xl p-4 text-center">
-                <div className="text-sm text-gray-700">
-                  🎯 Check <a href="/challenges" className="font-bold text-teal-600 hover:underline">Daily Challenges</a> to see your progress!
+                  <div className="text-gray-600">⭐ XP</div>
                 </div>
               </div>
             </div>
-          )}
+
+            {/* Level Up */}
+            {progression && progression.levelsGained > 0 && (
+              <div className="bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl p-6">
+                <div className="text-center">
+                  <div className="text-5xl mb-2">🎉</div>
+                  <h3 className="font-bold text-green-700 text-2xl mb-2">
+                    Level Up!
+                  </h3>
+                  <div className="text-lg text-gray-700">
+                    You're now <span className="font-bold text-green-600">Level {progression.newLevel}</span>
+                    {progression.newTitle && (
+                      <div className="mt-1 text-sm">
+                        New Title: <span className="font-bold text-purple-600">{progression.newTitle}</span>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {/* Achievements */}
+            {achievements.length > 0 && (
+              <div className="bg-gradient-to-r from-yellow-50 to-orange-50 rounded-xl p-6">
+                <h3 className="font-bold text-gray-900 mb-4 text-xl flex items-center gap-2">
+                  🏆 Achievements Unlocked!
+                </h3>
+                <div className="space-y-3">
+                  {achievements.map((ach, idx) => (
+                    <div key={idx} className="bg-white rounded-lg p-4 flex justify-between items-center">
+                      <div>
+                        <div className="font-bold text-gray-900">{ach.name}</div>
+                        <div className="text-sm text-gray-600">
+                          {ach.tier} • +{ach.rewards.points}pts • +{ach.rewards.xp}xp
+                        </div>
+                      </div>
+                      <div className="text-3xl">🏅</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Newly Completed Daily Challenges */}
+            {completedChallenges.length > 0 && (
+              <div className="bg-gradient-to-r from-teal-50 to-green-50 rounded-xl p-6">
+                <h3 className="font-bold text-gray-900 mb-4 text-xl flex items-center gap-2">
+                  🎯 Daily Challenges Completed
+                </h3>
+                <div className="space-y-2">
+                  {completedChallenges.map((c, idx) => (
+                    <div key={idx} className="bg-white rounded-lg p-4 flex justify-between items-center">
+                      <div className="font-bold text-gray-900">{c.title}</div>
+                      <div className="text-sm text-gray-600">+{c.rewardsEarned.points}pts • +{c.rewardsEarned.xp}xp</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Streak Bonus */}
+            {rewards && (rewards as any).streakBonus && (rewards as any).streakBonus > 0 && (
+              <div className="bg-gradient-to-r from-orange-50 to-red-50 rounded-xl p-4 text-center">
+                <div className="font-bold text-orange-700">
+                  🔥 Streak Bonus: +{Math.round((rewards as any).streakBonus * 100)}% rewards!
+                </div>
+              </div>
+            )}
+
+            {/* Daily Challenges CTA */}
+            <div className="bg-gradient-to-r from-green-50 to-teal-50 rounded-xl p-4 text-center">
+              <div className="text-sm text-gray-700">
+                🎯 View <a href="/challenges" className="font-bold text-teal-600 hover:underline">Daily Challenges</a> to track progress.
+              </div>
+            </div>
+          </div>
 
           <div className="flex gap-4">
             <button
