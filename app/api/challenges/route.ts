@@ -3,6 +3,7 @@ import mongoose from 'mongoose';
 import connectToDatabase from '@/lib/mongodb';
 import logger from '@/lib/logger';
 import { DailyChallenge, PlayerChallengeProgress } from '@/lib/models/daily-challenge';
+import { PlayerSession } from '@/lib/models';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -50,10 +51,78 @@ export async function GET(request: NextRequest) {
       );
     }
 
-    const progressRecords = await PlayerChallengeProgress.find({
+    let progressRecords = await PlayerChallengeProgress.find({
       playerId: playerObjectId,
       challengeId: { $in: challengeIds },
     });
+
+    // Optional backfill: if progress is missing or zero, compute from today's sessions
+    try {
+      const today = new Date();
+      today.setUTCHours(0, 0, 0, 0);
+      const tomorrow = new Date(today);
+      tomorrow.setUTCDate(tomorrow.getUTCDate() + 1);
+
+      const sessions = await PlayerSession.find({
+        playerId: playerObjectId,
+        status: 'completed',
+        sessionEnd: { $gte: today, $lt: tomorrow },
+      }).select('rewards pointsEarned gameData.outcome outcome');
+
+      if (sessions.length > 0) {
+        const totals = {
+          gamesPlayed: sessions.length,
+          gamesWon: sessions.filter((s: any) => (s.gameData?.outcome || (s as any).outcome) === 'win').length,
+          pointsEarned: sessions.reduce((sum: number, s: any) => sum + (s.rewards?.pointsEarned || 0), 0),
+          xpEarned: sessions.reduce((sum: number, s: any) => sum + (s.rewards?.xpEarned || 0), 0),
+        };
+
+        for (const ch of challenges) {
+          const target = ch.requirement.target;
+          let value = 0;
+          switch (ch.type) {
+            case 'games_played':
+              value = totals.gamesPlayed;
+              break;
+            case 'games_won':
+              value = totals.gamesWon;
+              break;
+            case 'points_earned':
+              value = totals.pointsEarned;
+              break;
+            case 'xp_earned':
+              value = totals.xpEarned;
+              break;
+            default:
+              value = 0;
+          }
+
+          if (value > 0) {
+            await PlayerChallengeProgress.findOneAndUpdate(
+              { playerId: playerObjectId, challengeId: ch._id },
+              {
+                $setOnInsert: {
+                  metadata: { createdAt: new Date(), updatedAt: new Date() },
+                  rewardsClaimed: false,
+                  isCompleted: false,
+                },
+                $set: { 'metadata.updatedAt': new Date() },
+                $max: { progress: value },
+              },
+              { upsert: true, new: true }
+            );
+          }
+        }
+
+        // Re-load progress records after backfill
+        progressRecords = await PlayerChallengeProgress.find({
+          playerId: playerObjectId,
+          challengeId: { $in: challengeIds },
+        });
+      }
+    } catch (backfillErr) {
+      logger.warn({ backfillErr }, 'Challenge progress backfill skipped');
+    }
 
     // Create a map for quick lookup
     const progressMap = new Map(

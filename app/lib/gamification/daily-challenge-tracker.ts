@@ -22,6 +22,7 @@ import {
 } from '../models';
 import type { IDailyChallenge, ChallengeType } from '../models/daily-challenge';
 import logger from '../logger';
+import { ensureDailyChallengesForToday } from './daily-challenge-service';
 
 /**
  * Interface: Challenge Progress Context
@@ -73,8 +74,11 @@ export async function updateDailyChallengeProgress(
     startOfDay.setUTCHours(0, 0, 0, 0);
     const endOfDay = new Date(startOfDay);
     endOfDay.setUTCDate(endOfDay.getUTCDate() + 1);
+
+    // Always ensure today's challenges exist before reading, to avoid race conditions
+    await ensureDailyChallengesForToday(session);
     
-let activeChallenges = await DailyChallenge.find({
+    let activeChallenges = await DailyChallenge.find({
       'availability.startTime': { $lte: now },
       'availability.endTime': { $gte: now },
       'availability.isActive': true,
@@ -93,8 +97,7 @@ let activeChallenges = await DailyChallenge.find({
     );
     
 if (activeChallenges.length === 0) {
-      // Why: Ensure today's challenges exist (progress may occur before challenges page is visited)
-      const { ensureDailyChallengesForToday } = await import('./daily-challenge-service');
+      // Double-check in case of creation lag
       const ensured = await ensureDailyChallengesForToday(session);
       activeChallenges = ensured.challenges.filter(c => c.availability.startTime <= now && c.availability.endTime > now);
 

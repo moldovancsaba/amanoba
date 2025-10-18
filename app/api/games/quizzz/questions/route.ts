@@ -7,8 +7,8 @@
  * Selection Algorithm (Priority Order):
  * 1. Filter by difficulty and isActive
  * 2. Sort by showCount ASC (least shown first)
- * 3. Sort by correctCount ASC (harder questions first when showCount equal)
- * 4. Sort by question text alphabetically (tie-breaker)
+ * 3. Sort by correctnessRate ASC (correctCount/showCount) among equal showCount
+ * 4. Randomize within ties to avoid repetition bias
  * 5. Atomically increment showCount for selected questions
  * 
  * Security: Never returns correctIndex to prevent cheating
@@ -133,8 +133,19 @@ export async function GET(request: NextRequest) {
 
     const questionsPool = await QuizQuestion.aggregate([
       { $match: matchStage },
-      { $addFields: { __rand: { $rand: {} } } },
-      { $sort: { showCount: 1, correctCount: 1, __rand: 1 } },
+      { 
+        $addFields: { 
+          __rand: { $rand: {} },
+          correctnessRate: {
+            $cond: [
+              { $gt: ["$showCount", 0] },
+              { $divide: ["$correctCount", "$showCount"] },
+              0.5
+            ]
+          }
+        } 
+      },
+      { $sort: { showCount: 1, correctnessRate: 1, __rand: 1 } },
       { $limit: count * 3 },
     ]);
     

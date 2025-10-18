@@ -278,6 +278,63 @@ const questions: QuestionData[] = [
   { question: 'Which planet is known as the "Blue Planet"?', options: ['Neptune', 'Uranus', 'Earth', 'Mercury'], correctIndex: 2, difficulty: QuestionDifficulty.EASY, category: 'Science' },
   { question: 'What is the smallest prime number greater than 10?', options: ['11', '12', '13', '15'], correctIndex: 0, difficulty: QuestionDifficulty.EASY, category: 'Math' },
   
+  
+  // EASY - New intellectual and knowledge-based questions (+50, non-math)
+  { question: 'Which language is primarily spoken in Brazil?', options: ['Spanish', 'Portuguese', 'French', 'Italian'], correctIndex: 1, difficulty: QuestionDifficulty.EASY, category: 'General Knowledge' },
+  { question: 'Who wrote "The Hobbit"?', options: ['J.R.R. Tolkien', 'C.S. Lewis', 'J.K. Rowling', 'George R.R. Martin'], correctIndex: 0, difficulty: QuestionDifficulty.EASY, category: 'Arts & Literature' },
+  { question: 'Who invented the printing press in Europe?', options: ['Johannes Gutenberg', 'Isaac Newton', 'Galileo Galilei', 'Leonardo da Vinci'], correctIndex: 0, difficulty: QuestionDifficulty.EASY, category: 'History' },
+  { question: 'What does URL stand for?', options: ['Uniform Resource Locator', 'Universal Remote Link', 'Unified Resource Link', 'Universal Resource Locator'], correctIndex: 0, difficulty: QuestionDifficulty.EASY, category: 'Technology' },
+  { question: 'What is the tallest land animal?', options: ['Elephant', 'Giraffe', 'Camel', 'Hippopotamus'], correctIndex: 1, difficulty: QuestionDifficulty.EASY, category: 'General Knowledge' },
+  { question: 'What do bees make?', options: ['Silk', 'Honey', 'Wax', 'Jam'], correctIndex: 1, difficulty: QuestionDifficulty.EASY, category: 'General Knowledge' },
+  { question: 'H2O is commonly known as what?', options: ['Salt', 'Water', 'Sugar', 'Oxygen'], correctIndex: 1, difficulty: QuestionDifficulty.EASY, category: 'Science' },
+  { question: 'What does a thermometer measure?', options: ['Speed', 'Temperature', 'Weight', 'Height'], correctIndex: 1, difficulty: QuestionDifficulty.EASY, category: 'Science' },
+  { question: 'Magnets usually stick to which metal?', options: ['Gold', 'Aluminum', 'Iron', 'Copper'], correctIndex: 2, difficulty: QuestionDifficulty.EASY, category: 'Science' },
+  { question: 'Which organ helps you see?', options: ['Ears', 'Eyes', 'Nose', 'Skin'], correctIndex: 1, difficulty: QuestionDifficulty.EASY, category: 'Science' },
+  { question: 'Which company makes PlayStation consoles?', options: ['Nintendo', 'Microsoft', 'Sony', 'Sega'], correctIndex: 2, difficulty: QuestionDifficulty.EASY, category: 'Technology' },
+  { question: 'Which planet is famous for its rings?', options: ['Mars', 'Saturn', 'Jupiter', 'Venus'], correctIndex: 1, difficulty: QuestionDifficulty.EASY, category: 'Science' },
+  { question: 'What is the smallest ocean on Earth?', options: ['Pacific', 'Indian', 'Arctic', 'Atlantic'], correctIndex: 2, difficulty: QuestionDifficulty.EASY, category: 'Geography' },
+  { question: 'Where are books borrowed and read quietly?', options: ['Library', 'Museum', 'Theater', 'Bakery'], correctIndex: 0, difficulty: QuestionDifficulty.EASY, category: 'General Knowledge' },
+  { question: 'Who is known for the theory of relativity?', options: ['Isaac Newton', 'Albert Einstein', 'Niels Bohr', 'Marie Curie'], correctIndex: 1, difficulty: QuestionDifficulty.EASY, category: 'History' },
+  { question: 'What is Japan often called due to its sunrise?', options: ['Land of the Midnight Sun', 'Land of the Rising Sun', 'Land of Ice and Fire', 'Land of Thousand Lakes'], correctIndex: 1, difficulty: QuestionDifficulty.EASY, category: 'Geography' },
+  { question: 'Which city is nicknamed the "Big Apple"?', options: ['Los Angeles', 'New York City', 'Chicago', 'Miami'], correctIndex: 1, difficulty: QuestionDifficulty.EASY, category: 'Geography' },
+  { question: 'Who was the famous ancient queen of Egypt?', options: ['Cleopatra', 'Nefertiti', 'Hatshepsut', 'Zenobia'], correctIndex: 0, difficulty: QuestionDifficulty.EASY, category: 'History' },
+  { question: 'What is the official language of the United Kingdom?', options: ['German', 'French', 'English', 'Spanish'], correctIndex: 2, difficulty: QuestionDifficulty.EASY, category: 'General Knowledge' },
+  { question: 'Which constellation is named after a hunter?', options: ['Orion', 'Ursa Major', 'Cassiopeia', 'Lyra'], correctIndex: 0, difficulty: QuestionDifficulty.EASY, category: 'Science' },
+  { question: 'Which animal is known as the "king of the jungle"?', options: ['Tiger', 'Lion', 'Leopard', 'Jaguar'], correctIndex: 1, difficulty: QuestionDifficulty.EASY, category: 'General Knowledge' },
+  { question: 'Which planet is third from the Sun?', options: ['Venus', 'Earth', 'Mars', 'Mercury'], correctIndex: 1, difficulty: QuestionDifficulty.EASY, category: 'Science' },
+  { question: 'Which country lies in both Europe and Asia?', options: ['Egypt', 'Turkey', 'Morocco', 'Spain'], correctIndex: 1, difficulty: QuestionDifficulty.EASY, category: 'Geography' },
+  { question: 'Which Indian festival is known for colorful powders?', options: ['Diwali', 'Holi', 'Eid', 'Vesak'], correctIndex: 1, difficulty: QuestionDifficulty.EASY, category: 'General Knowledge' },
+  { question: 'What is the main ingredient in bread?', options: ['Rice', 'Flour', 'Corn', 'Potato'], correctIndex: 1, difficulty: QuestionDifficulty.EASY, category: 'General Knowledge' },
+  { question: 'Who is famous for the theory of gravity and an apple story?', options: ['Albert Einstein', 'Isaac Newton', 'Galileo Galilei', 'Nikola Tesla'], correctIndex: 1, difficulty: QuestionDifficulty.EASY, category: 'History' },
+  { question: 'Which symbol represents a percentage?', options: ['#', '%', '&', '@'], correctIndex: 1, difficulty: QuestionDifficulty.EASY, category: 'General Knowledge' },
+  { question: 'What is the study of living organisms called?', options: ['Chemistry', 'Biology', 'Physics', 'Geology'], correctIndex: 1, difficulty: QuestionDifficulty.EASY, category: 'Science' },
+  { question: 'Who is credited with inventing the light bulb?', options: ['Nikola Tesla', 'Thomas Edison', 'James Watt', 'Michael Faraday'], correctIndex: 1, difficulty: QuestionDifficulty.EASY, category: 'History' },
+  { question: 'What is the capital of Spain?', options: ['Barcelona', 'Madrid', 'Seville', 'Valencia'], correctIndex: 1, difficulty: QuestionDifficulty.EASY, category: 'Geography' },
+  { question: 'Who pioneered the telephone?', options: ['Guglielmo Marconi', 'Alexander Graham Bell', 'Samuel Morse', 'Heinrich Hertz'], correctIndex: 1, difficulty: QuestionDifficulty.EASY, category: 'Technology' },
+  { question: 'Which sea lies between Europe and Africa?', options: ['Caribbean Sea', 'Mediterranean Sea', 'Black Sea', 'Baltic Sea'], correctIndex: 1, difficulty: QuestionDifficulty.EASY, category: 'Geography' },
+  { question: 'Which bird cannot fly?', options: ['Eagle', 'Sparrow', 'Penguin', 'Crow'], correctIndex: 2, difficulty: QuestionDifficulty.EASY, category: 'General Knowledge' },
+  { question: 'What is the largest land animal?', options: ['Giraffe', 'Hippopotamus', 'Elephant', 'Rhinoceros'], correctIndex: 2, difficulty: QuestionDifficulty.EASY, category: 'General Knowledge' },
+  { question: 'What is the main ingredient in chocolate?', options: ['Vanilla', 'Cocoa beans', 'Sugar', 'Milk'], correctIndex: 1, difficulty: QuestionDifficulty.EASY, category: 'General Knowledge' },
+  { question: 'Which country is known as the "Land of the Rising Sun"?', options: ['China', 'Japan', 'Thailand', 'Korea'], correctIndex: 1, difficulty: QuestionDifficulty.EASY, category: 'Geography' },
+  { question: 'What is the closest star to Earth?', options: ['Sirius', 'The Sun', 'Alpha Centauri', 'Betelgeuse'], correctIndex: 1, difficulty: QuestionDifficulty.EASY, category: 'Science' },
+  { question: 'Which gas do humans exhale?', options: ['Oxygen', 'Nitrogen', 'Carbon Dioxide', 'Hydrogen'], correctIndex: 2, difficulty: QuestionDifficulty.EASY, category: 'Science' },
+  { question: 'Which shape has four equal sides?', options: ['Rectangle', 'Triangle', 'Square', 'Circle'], correctIndex: 2, difficulty: QuestionDifficulty.EASY, category: 'General Knowledge' },
+  { question: 'Which animal has black and white stripes?', options: ['Zebra', 'Tiger', 'Skunk', 'Panda'], correctIndex: 0, difficulty: QuestionDifficulty.EASY, category: 'General Knowledge' },
+  { question: 'Which device is used to take photographs?', options: ['Microscope', 'Camera', 'Telescope', 'Calculator'], correctIndex: 1, difficulty: QuestionDifficulty.EASY, category: 'Technology' },
+  { question: 'Who wrote the "Harry Potter" series?', options: ['J.R.R. Tolkien', 'J.K. Rowling', 'Suzanne Collins', 'Stephen King'], correctIndex: 1, difficulty: QuestionDifficulty.EASY, category: 'Arts & Literature' },
+  { question: 'Which continent is Brazil located in?', options: ['Africa', 'Asia', 'South America', 'Europe'], correctIndex: 2, difficulty: QuestionDifficulty.EASY, category: 'Geography' },
+  { question: 'Which famous scientist developed E = mc^2?', options: ['Isaac Newton', 'Albert Einstein', 'Max Planck', 'Erwin Schrödinger'], correctIndex: 1, difficulty: QuestionDifficulty.EASY, category: 'History' },
+  { question: 'What is the name of our galaxy?', options: ['Andromeda', 'Milky Way', 'Whirlpool', 'Sombrero'], correctIndex: 1, difficulty: QuestionDifficulty.EASY, category: 'Science' },
+  { question: 'Which device is used to browse websites?', options: ['Compiler', 'Browser', 'Editor', 'Printer'], correctIndex: 1, difficulty: QuestionDifficulty.EASY, category: 'Technology' },
+  { question: 'Which monument in India is made of white marble?', options: ['Red Fort', 'Taj Mahal', 'Qutub Minar', 'Gateway of India'], correctIndex: 1, difficulty: QuestionDifficulty.EASY, category: 'History' },
+  { question: 'What do we call a scientist who studies fossils?', options: ['Botanist', 'Paleontologist', 'Geographer', 'Astronomer'], correctIndex: 1, difficulty: QuestionDifficulty.EASY, category: 'Science' },
+  { question: 'Which city is the capital of Italy?', options: ['Milan', 'Rome', 'Naples', 'Turin'], correctIndex: 1, difficulty: QuestionDifficulty.EASY, category: 'Geography' },
+  { question: 'Which author wrote "The Little Prince"?', options: ['Antoine de Saint-Exupéry', 'Victor Hugo', 'Albert Camus', 'Gustave Flaubert'], correctIndex: 0, difficulty: QuestionDifficulty.EASY, category: 'Arts & Literature' },
+  { question: 'What do we call the imaginary line that divides Earth into North and South?', options: ['Prime Meridian', 'Equator', 'Tropic of Cancer', 'International Date Line'], correctIndex: 1, difficulty: QuestionDifficulty.EASY, category: 'Geography' },
+  { question: 'Who painted "The Last Supper"?', options: ['Michelangelo', 'Leonardo da Vinci', 'Raphael', 'Titian'], correctIndex: 1, difficulty: QuestionDifficulty.EASY, category: 'Arts & Literature' },
+  { question: 'Which instrument is known for black and white keys?', options: ['Guitar', 'Flute', 'Piano', 'Violin'], correctIndex: 2, difficulty: QuestionDifficulty.EASY, category: 'Arts & Literature' },
+  { question: 'Which animal is known for its long trunk?', options: ['Elephant', 'Giraffe', 'Camel', 'Horse'], correctIndex: 0, difficulty: QuestionDifficulty.EASY, category: 'General Knowledge' },
+  
   // MEDIUM - Additional questions (+20)
   { question: 'What is the largest organ in the human body?', options: ['Heart', 'Brain', 'Liver', 'Skin'], correctIndex: 3, difficulty: QuestionDifficulty.MEDIUM, category: 'Science' },
   { question: 'What is the chemical formula for water?', options: ['H2O', 'CO2', 'O2', 'H2O2'], correctIndex: 0, difficulty: QuestionDifficulty.MEDIUM, category: 'Science' },
@@ -350,7 +407,7 @@ const questions: QuestionData[] = [
  * Why: Populates database with all 200 questions
  */
 async function seedQuestions() {
-  logger.info('Seeding 200 quiz questions...');
+  logger.info(`Seeding ${questions.length} quiz questions...`);
   
   // Why: Clear existing questions to ensure clean state
   await QuizQuestion.deleteMany({});

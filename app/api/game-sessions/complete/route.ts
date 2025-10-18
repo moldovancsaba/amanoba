@@ -8,6 +8,7 @@ export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
 import { completeGameSession } from '@/lib/gamification';
 import { PlayerSession } from '@/lib/models';
+import { ensureDailyChallengesForToday } from '@/lib/gamification/daily-challenge-service';
 
 // Why: Validate incoming game completion data with comprehensive performance metrics
 // What: Zod schema for completing a game session
@@ -55,6 +56,9 @@ export async function POST(request: NextRequest) {
 
     // Why: Connect to database before any operations
     await connectToDatabase();
+
+    // Proactively ensure daily challenges exist for today (avoid race at first completion)
+    try { await ensureDailyChallengesForToday(); } catch {}
 
     // Why: Verify that the session exists and is still in progress
     const session = await PlayerSession.findById(validatedData.sessionId);
