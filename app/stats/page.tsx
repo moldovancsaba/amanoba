@@ -79,12 +79,21 @@ export default function StatsPage() {
         throw new Error('No player ID found');
       }
 
+      // Why: Add timeout to prevent infinite loading
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 10000); // 10s timeout
+
       const response = await fetch(`/api/profile/${playerId}?t=${Date.now()}`, {
         cache: 'no-store',
+        signal: controller.signal,
       });
       
+      clearTimeout(timeoutId);
+      
       if (!response.ok) {
-        throw new Error('Failed to fetch player stats');
+        const errorText = await response.text();
+        console.error('Failed to fetch stats:', response.status, errorText);
+        throw new Error(`Failed to fetch player stats: ${response.status}`);
       }
 
       const data = await response.json();
@@ -116,7 +125,11 @@ export default function StatsPage() {
       setError(null);
     } catch (err) {
       console.error('Failed to fetch stats:', err);
-      setError((err as Error).message);
+      if (err instanceof Error && err.name === 'AbortError') {
+        setError('Request timed out. Please try again.');
+      } else {
+        setError((err as Error).message);
+      }
     } finally {
       setLoading(false);
     }

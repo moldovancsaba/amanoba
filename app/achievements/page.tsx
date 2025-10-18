@@ -70,13 +70,22 @@ export default function AchievementsPage() {
     const fetchAchievements = async () => {
       try {
         const playerId = session.user.id;
+        
+        // Why: Add timeout to prevent infinite loading
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 10000); // 10s timeout
+        
         const response = await fetch(`/api/players/${playerId}/achievements?t=${Date.now()}`, {
           cache: 'no-store',
+          signal: controller.signal,
         });
         
+        clearTimeout(timeoutId);
+        
         if (!response.ok) {
-          console.error('Failed to fetch achievements:', response.status);
-          throw new Error('Failed to load achievements');
+          const errorText = await response.text();
+          console.error('Failed to fetch achievements:', response.status, errorText);
+          throw new Error(`Failed to load achievements: ${response.status}`);
         }
         
         const data = await response.json();
@@ -84,7 +93,11 @@ export default function AchievementsPage() {
         setAchievementsData(data);
       } catch (err) {
         console.error('Achievement fetch error:', err);
-        setError(err instanceof Error ? err.message : 'Unknown error');
+        if (err instanceof Error && err.name === 'AbortError') {
+          setError('Request timed out. Please try again.');
+        } else {
+          setError(err instanceof Error ? err.message : 'Failed to load achievements');
+        }
       } finally {
         setLoading(false);
       }

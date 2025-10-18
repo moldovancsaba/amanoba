@@ -63,13 +63,21 @@ export default function ChallengesPage() {
       try {
         const playerId = session.user.id;
         
+        // Why: Add timeout to prevent infinite loading
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 10000); // 10s timeout
+        
         const response = await fetch(`/api/challenges?playerId=${playerId}&t=${Date.now()}`, {
           cache: 'no-store',
+          signal: controller.signal,
         });
         
+        clearTimeout(timeoutId);
+        
         if (!response.ok) {
-          console.error('Failed to fetch challenges:', response.status);
-          throw new Error('Failed to load challenges');
+          const errorText = await response.text();
+          console.error('Failed to fetch challenges:', response.status, errorText);
+          throw new Error(`Failed to load challenges: ${response.status}`);
         }
         
         const data = await response.json();
@@ -77,7 +85,11 @@ export default function ChallengesPage() {
         setChallenges(data.challenges || []);
       } catch (err) {
         console.error('Challenge fetch error:', err);
-        setError(err instanceof Error ? err.message : 'Unknown error');
+        if (err instanceof Error && err.name === 'AbortError') {
+          setError('Request timed out. Please try again.');
+        } else {
+          setError(err instanceof Error ? err.message : 'Failed to load challenges');
+        }
       } finally {
         setLoading(false);
       }
