@@ -468,32 +468,37 @@ export default function QuizzzGame() {
 
     if (sessionId) {
       try {
-        console.log('Completing session...', { sessionId, score, isWin, duration, accuracy });
+        const finalScore = Math.round(score * 100 * config.pointsMultiplier);
+        console.log('Completing session...', { sessionId, score, finalScore, isWin, duration, accuracy });
+        
         const response = await fetch('/api/game-sessions/complete', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
             sessionId,
-            score: Math.round(score * 100 * config.pointsMultiplier),
+            score: finalScore,
             isWin,
             duration,
             accuracy,
           }),
         });
 
-      if (response.ok) {
-        const data = await response.json();
-        setRewards(data.rewards);
-        setProgression(data.progression);
-        setAchievements(data.achievements || []);
-        // Note: completedChallenges come from session manager logs, not returned directly
-        console.log('✅ Game session completed with rewards:', data);
+        console.log('📡 Complete API response status:', response.status, response.statusText);
+
+        if (response.ok) {
+          const data = await response.json();
+          console.log('✅ Game session completed with rewards:', data);
+          setRewards(data.rewards);
+          setProgression(data.progression);
+          setAchievements(data.achievements || []);
         } else {
           const errorText = await response.text();
           console.error('❌ Failed to complete game session:', response.status, errorText);
+          console.error('Request payload was:', { sessionId, score: finalScore, isWin, duration, accuracy });
         }
       } catch (error) {
-        console.error('❌ Failed to complete session:', error);
+        console.error('❌ Exception completing session:', error);
+        console.error('Request was for sessionId:', sessionId);
       }
     }
   };
