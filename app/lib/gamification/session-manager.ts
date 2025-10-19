@@ -689,105 +689,107 @@ export async function completeGameSession(
       }
     }
     
-    // 13c. Update leaderboards (async, non-blocking)
-    // Why: Keep competitive rankings up-to-date without blocking session completion
+    // 13c. Update leaderboards (async, non-blocking with retry via queue)
+    // Why: Keep competitive rankings up-to-date with reliable retry mechanism
     if (!isGhost) {
-      // Why: Fire-and-forget leaderboard updates (will be replaced by job queue in Phase 4)
-      (async () => {
-        try {
-          // Why: Import leaderboard calculator dynamically to avoid circular dependencies
-          const { calculateLeaderboard } = await import('./leaderboard-calculator');
-          
-          // Why: Update relevant leaderboards asynchronously
-          await Promise.all([
-            // Update game-specific points leaderboard
-            calculateLeaderboard({
-              type: 'points_balance',
-              period: 'all_time',
-              gameId: session.gameId.toString(),
-              limit: 100,
-            }).catch(err => {
-              logger.warn({ err, type: 'points_balance', gameId: session.gameId }, 'Leaderboard update failed');
-              // TODO Phase 4: Queue for retry
-            }),
-            
-            // Update game-specific XP leaderboard
-            calculateLeaderboard({
-              type: 'xp_total',
-              period: 'all_time',
-              gameId: session.gameId.toString(),
-              limit: 100,
-            }).catch(err => {
-              logger.warn({ err, type: 'xp_total', gameId: session.gameId }, 'Leaderboard update failed');
-              // TODO Phase 4: Queue for retry
-            }),
-            
-            // Update level leaderboard
-            calculateLeaderboard({
-              type: 'level',
-              period: 'all_time',
-              brandId: session.brandId.toString(),
-              limit: 100,
-            }).catch(err => {
-              logger.warn({ err, type: 'level' }, 'Leaderboard update failed');
-              // TODO Phase 4: Queue for retry
-            }),
-            
-            // Update win streak if this was a win
-            ...(input.outcome === 'win' ? [
-              calculateLeaderboard({
-                type: 'win_streak',
-                period: 'all_time',
-                brandId: session.brandId.toString(),
-                limit: 100,
-              }).catch(err => {
-                logger.warn({ err, type: 'win_streak' }, 'Leaderboard update failed');
-                // TODO Phase 4: Queue for retry
-              }),
-            ] : []),
-            
-            // Update games won leaderboard
-            calculateLeaderboard({
-              type: 'games_won',
-              period: 'all_time',
-              brandId: session.brandId.toString(),
-              limit: 100,
-            }).catch(err => {
-              logger.warn({ err, type: 'games_won' }, 'Leaderboard update failed');
-              // TODO Phase 4: Queue for retry
-            }),
+      try {
+        // Why: Import leaderboard worker to enqueue jobs instead of fire-and-forget
+        const { enqueueLeaderboardUpdate } = await import('../queue/workers/leaderboard-worker');
         
-            // Update Madoku ELO leaderboard if it's a Madoku game
-            ...((game as { gameId?: string }).gameId === 'MADOKU' ? [
-              calculateLeaderboard({
-                type: 'elo',
-                period: 'all_time',
-                brandId: session.brandId.toString(),
-                limit: 100,
-              }).catch(err => {
-                logger.warn({ err, type: 'elo' }, 'Leaderboard update failed');
-                // TODO Phase 4: Queue for retry
-              }),
-            ] : []),
-          ]);
+        // Why: Enqueue leaderboard update jobs for async processing with retry
+        const leaderboardJobs: Array<Promise<string>> = [
+          // Update game-specific points leaderboard
+          enqueueLeaderboardUpdate({
+            type: 'points_balance',
+            period: 'all_time',
+            gameId: session.gameId.toString(),
+            limit: 100,
+          }),
           
-          logger.debug(
-            { sessionId: session._id, playerId: session.playerId },
-            'Leaderboards updated successfully'
+          // Update game-specific XP leaderboard
+          enqueueLeaderboardUpdate({
+            type: 'xp_total',
+            period: 'all_time',
+            gameId: session.gameId.toString(),
+            limit: 100,
+          }),
+          
+          // Update level leaderboard
+          enqueueLeaderboardUpdate({
+            type: 'level',
+            period: 'all_time',
+            brandId: session.brandId.toString(),
+            limit: 100,
+          }),
+          
+          // Update games won leaderboard
+          enqueueLeaderboardUpdate({
+            type: 'games_won',
+            period: 'all_time',
+            brandId: session.brandId.toString(),
+            limit: 100,
+          }),
+        ];
+        
+        // Add win streak leaderboard if this was a win
+        if (input.outcome === 'win') {
+          leaderboardJobs.push(
+            enqueueLeaderboardUpdate({
+              type: 'win_streak',
+              period: 'all_time',
+              brandId: session.brandId.toString(),
+              limit: 100,
+            })
           );
-        } catch (error) {
-          // Why: Log error but don't fail the entire session
-          logger.error(
-            { 
-              err: error, 
-              sessionId: session._id, 
-              playerId: session.playerId 
-            },
-            'Phase 2 failure: Leaderboard updates failed (game data still saved)'
-          );
-          // TODO Phase 4: Queue all failed leaderboard updates for retry
         }
-      })(); // Execute async IIFE immediately
+        
+        // Add Madoku ELO leaderboard if it's a Madoku game
+        if ((game as { gameId?: string }).gameId === 'MADOKU') {
+          leaderboardJobs.push(
+            enqueueLeaderboardUpdate({
+              type: 'elo',
+              period: 'all_time',
+              brandId: session.brandId.toString(),
+              limit: 100,
+            })
+          );
+        }
+        
+        // Why: Enqueue all jobs (non-blocking, no await)
+        Promise.all(leaderboardJobs)
+          .then(jobIds => {
+            logger.debug(
+              { 
+                sessionId: session._id, 
+                playerId: session.playerId,
+                jobCount: jobIds.length,
+                jobIds,
+              },
+              'Leaderboard update jobs enqueued successfully'
+            );
+          })
+          .catch(error => {
+            // Why: Log queue errors but don't fail the session
+            logger.error(
+              { 
+                err: error, 
+                sessionId: session._id, 
+                playerId: session.playerId 
+              },
+              'Failed to enqueue leaderboard update jobs'
+            );
+          });
+      } catch (error) {
+        // Why: Log error but don't fail the entire session
+        logger.error(
+          { 
+            err: error, 
+            sessionId: session._id, 
+            playerId: session.playerId 
+          },
+          'Phase 2 failure: Leaderboard job enqueueing failed (game data still saved)'
+        );
+      }
     }
     
     // 13d. Log analytics events (async, non-blocking)

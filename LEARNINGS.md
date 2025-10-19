@@ -1201,6 +1201,107 @@ Version must be synchronized across:
 
 ---
 
+### Background Job Queue for Reliability
+
+**Context**: Leaderboard updates and achievement checks were failing silently with fire-and-forget async calls.
+
+**Timestamp**: 2025-10-18T12:00:00.000Z  
+**Fixed In**: Phase 6, v2.7.0
+
+**Problem**: Fire-and-forget pattern with `.catch()` that only logs errors:
+```typescript
+// ❌ Wrong: Silent failure, no retry
+calculateLeaderboard({ type: 'points', period: 'all_time' })
+  .catch(err => logger.warn({ err }, 'Leaderboard update failed'));
+```
+
+This approach caused:
+- Leaderboard rankings becoming stale
+- No notification when updates fail
+- No automatic retry mechanism
+- Lost data integrity between game sessions and leaderboards
+
+**Solution**: Implemented MongoDB-backed job queue system:
+
+1. **Job Queue Model** (`app/lib/models/job-queue.ts`):
+   - Stores queued, processing, completed, and failed jobs
+   - Supports exponential backoff retry (max 5 attempts)
+   - TTL indexes for automatic cleanup (7 days completed, 30 days failed)
+   - Dead letter queue for permanently failed jobs
+
+2. **Leaderboard Worker** (`app/lib/queue/workers/leaderboard-worker.ts`):
+   - Processes leaderboard calculation jobs asynchronously
+   - Automatic retry with exponential backoff
+   - Configurable concurrency and poll interval
+   - Detailed structured logging for observability
+
+3. **Session Manager Integration**:
+   - Replaced fire-and-forget calls with `enqueueLeaderboardUpdate()`
+   - Session completion succeeds even if leaderboard enqueue fails
+   - Leaderboard updates processed independently with retry
+
+4. **Admin Endpoints** (`app/api/admin/leaderboards/recalculate/route.ts`):
+   - GET: Check leaderboard staleness
+   - POST: Manually trigger recalculation (immediate or queued)
+   - Supports bulk recalculation of all leaderboards
+
+5. **Background Worker Process** (`scripts/start-workers.ts`):
+   - Runs achievement and leaderboard workers in parallel
+   - Graceful shutdown on SIGTERM/SIGINT
+   - Environment-configurable concurrency and polling
+
+**Learning**: For non-critical async operations that must eventually succeed:
+1. **Never use fire-and-forget** - Always queue for retry
+2. **Separate critical from optional** - Transaction for critical data, queue for optional
+3. **Make failures visible** - Admin endpoints to detect and repair stale data
+4. **Implement idempotent workers** - Jobs can be retried safely
+5. **Use structured logging** - Track job lifecycle and performance
+6. **Provide manual controls** - Admins can force recalculation if needed
+
+**Architecture Pattern**:
+```typescript
+// Session completion flow (two-phase commit)
+Phase 1: Critical transactional updates (session, points, XP, progression)
+  ↓ (must succeed, uses MongoDB transaction)
+Phase 2: Optional async updates (achievements, leaderboards, challenges)
+  ↓ (enqueue jobs, don't block on success)
+Background Workers: Process queued jobs with retry
+  ↓ (exponential backoff, dead letter queue for permanent failures)
+```
+
+**Why It Matters**: Ensures eventual consistency for gamification features without blocking critical game session completion. Players' game data is always saved, and leaderboards/achievements update reliably in the background.
+
+**Applied In**:
+- Phase 6: Leaderboard reliability refactor
+- `app/lib/models/job-queue.ts`
+- `app/lib/queue/workers/leaderboard-worker.ts`
+- `app/lib/queue/workers/achievement-worker.ts`
+- `app/lib/gamification/session-manager.ts` (lines 692-792)
+- `app/api/admin/leaderboards/recalculate/route.ts`
+- `scripts/start-workers.ts`
+- npm script: `npm run workers`
+
+**Usage**:
+```bash
+# Start background workers (run in separate terminal or as daemon)
+npm run workers
+
+# Check leaderboard staleness
+curl http://localhost:3000/api/admin/leaderboards/recalculate
+
+# Manually recalculate all leaderboards (queued)
+curl -X POST http://localhost:3000/api/admin/leaderboards/recalculate \
+  -H "Content-Type: application/json" \
+  -d '{"calculateAll": true}'
+
+# Manually recalculate specific leaderboard (immediate)
+curl -X POST http://localhost:3000/api/admin/leaderboards/recalculate \
+  -H "Content-Type: application/json" \
+  -d '{"type": "points_balance", "period": "all_time", "immediate": true}'
+```
+
+---
+
 ## ⚠️ What to Avoid
 
 ### ❌ Breadcrumb Navigation

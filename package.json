@@ -21,6 +21,8 @@
     "seed:core": "tsx scripts/seed-core-data.ts",
     "seed:achievements": "tsx scripts/seed-achievements.ts",
     "seed:rewards": "tsx scripts/seed-rewards.ts",
+    "repair:stats": "tsx scripts/repair-stats.ts",
+    "workers": "tsx --env-file=.env.local scripts/start-workers.ts",
     "seed:guest-usernames": "tsx --env-file=.env.local scripts/seed-guest-usernames.ts",
     "seed:quiz-questions": "tsx scripts/seed-quiz-questions.ts",
     "seed:whackpop-emojis": "tsx scripts/seed-whackpop-emojis.ts"

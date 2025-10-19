@@ -2,8 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import mongoose from 'mongoose';
 import connectToDatabase from '@/lib/mongodb';
 import logger from '@/lib/logger';
-import { Achievement, AchievementUnlock, PlayerProgression } from '@/lib/models';
-import { checkAndUnlockAchievements } from '@/lib/gamification/achievement-engine';
+import { Achievement, AchievementUnlock } from '@/lib/models';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -37,16 +36,8 @@ export async function GET(
     // Why: Connect to database before any operations
     await connectToDatabase();
 
-    // Opportunistic re-check: ensure incremental achievements unlock if missed earlier
-    try {
-      const prog = await PlayerProgression.findOne({ playerId: new mongoose.Types.ObjectId(playerId) }).lean();
-      if (prog) {
-        await checkAndUnlockAchievements({
-          playerId: new mongoose.Types.ObjectId(playerId),
-          progression: prog as any,
-        });
-      }
-    } catch {}
+    // Why: Only fetch achievement status, don't re-check (that happens during game completion)
+    // Removed opportunistic check that was causing false unlocks with incomplete context
 
     // Why: Fetch all achievements and player's unlocks in parallel
     const [allAchievements, playerUnlocks] = await Promise.all([

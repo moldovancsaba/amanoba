@@ -98,6 +98,16 @@ export async function checkAndUnlockAchievements(
       
       if (evaluation.meetsRequirements) {
         // Unlock or update achievement
+        logger.info(
+          {
+            achievement: achievement.name,
+            currentValue: evaluation.currentValue,
+            targetValue: evaluation.targetValue,
+            playerId: context.playerId,
+          },
+          '🎉 UNLOCKING ACHIEVEMENT'
+        );
+        
         const result = await unlockAchievement(
           context.playerId,
           achievement as IAchievement,
@@ -216,24 +226,25 @@ export function evaluateAchievementCriteria(
   const progress = targetValue > 0 ? Math.min(100, (currentValue / targetValue) * 100) : 0;
   const meetsRequirements = currentValue >= targetValue;
   
-  // Why: Debug logging to diagnose false unlock issue
-  if (meetsRequirements) {
-    logger.debug(
-      {
-        achievement: achievement.name,
-        criteriaType: criteria.type,
-        currentValue,
-        targetValue,
-        meetsRequirements,
-        stats: {
-          gamesPlayed: context.progression.statistics.totalGamesPlayed,
-          wins: context.progression.statistics.totalWins,
-          streak: context.progression.statistics.currentStreak,
-        },
+  // Why: Debug logging to diagnose false unlock issue - LOG EVERYTHING
+  logger.info(
+    {
+      achievement: achievement.name,
+      criteriaType: criteria.type,
+      currentValue,
+      targetValue,
+      meetsRequirements,
+      comparison: `${currentValue} >= ${targetValue} = ${meetsRequirements}`,
+      stats: {
+        gamesPlayed: context.progression.statistics.totalGamesPlayed,
+        wins: context.progression.statistics.totalWins,
+        losses: context.progression.statistics.totalLosses,
+        streak: context.progression.statistics.currentStreak,
+        level: context.progression.level,
       },
-      'Achievement criteria met'
-    );
-  }
+    },
+    meetsRequirements ? '✅ Achievement criteria MET' : '❌ Achievement criteria NOT MET'
+  );
   
   return {
     meetsRequirements,

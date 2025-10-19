@@ -13,11 +13,11 @@
  */
 
 import mongoose from 'mongoose';
-import Job Queue, { type IJobQueue } from '../../models/job-queue';
+import JobQueue, { type IJobQueue } from '../../models/job-queue';
 import PlayerSession from '../../models/player-session';
 import PlayerProgression from '../../models/player-progression';
 import { checkAndUnlockAchievements, type AchievementCheckContext } from '../../gamification/achievement-engine';
-import { logger } from '../../logger';
+import logger from '../../logger';
 
 // Why: Interface for achievement job payload
 export interface AchievementJobPayload {
@@ -226,7 +226,64 @@ export async function processAchievementBatch(batchSize: number = 10): Promise<n
   }
 }
 
+/**
+ * Start Achievement Worker
+ * 
+ * What: Continuously processes achievement jobs from the queue
+ * Why: Ensures achievement unlocks are eventually consistent
+ * 
+ * Usage: Call this in a background process or cron job
+ * 
+ * @param concurrency - Number of jobs to process in parallel (default: 5)
+ * @param pollInterval - Time between queue polls in ms (default: 5000)
+ */
+export async function startAchievementWorker(
+  concurrency: number = 5,
+  pollInterval: number = 5000
+): Promise<void> {
+  logger.info(
+    { concurrency, pollInterval },
+    'Starting achievement worker'
+  );
+
+  const processJobs = async () => {
+    try {
+      const jobs = await JobQueue.find({
+        jobType: 'achievement',
+        status: 'pending',
+        nextRetryAt: { $lte: new Date() },
+      })
+        .sort({ nextRetryAt: 1 })
+        .limit(concurrency);
+
+      if (jobs.length === 0) {
+        return;
+      }
+
+      logger.info({ count: jobs.length }, 'Fetched achievement jobs');
+
+      // Process jobs in parallel
+      await Promise.all(
+        jobs.map(async (job) => {
+          await processAchievementJob(job);
+        })
+      );
+    } catch (error) {
+      logger.error({ error }, 'Error in achievement worker loop');
+    }
+  };
+
+  // Run initial batch
+  await processJobs();
+
+  // Set up polling interval
+  setInterval(processJobs, pollInterval);
+
+  logger.info('Achievement worker started successfully');
+}
+
 export default {
   processAchievementJob,
   processAchievementBatch,
+  startAchievementWorker,
 };
