@@ -210,12 +210,22 @@ export async function startGameSession(
 /**
  * Complete a game session and award all rewards
  * 
- * What: Orchestrates all gamification systems for session completion
- * Why: Ensures consistent rewards and proper data updates
+ * What: Orchestrates all gamification systems for session completion using two-phase commit
+ * Why: Separates critical data persistence (must succeed) from optional updates (best effort)
+ * 
+ * Phase 1 (CRITICAL): PlayerSession, Points, XP, Progression, Streaks - all or nothing transaction
+ * Phase 2 (BEST EFFORT): Achievements, Challenges, Leaderboards - async with retry (will use job queue in Phase 4)
+ * 
+ * This architecture prevents one optional system failure from destroying all game data.
  */
 export async function completeGameSession(
   input: SessionCompleteInput
 ): Promise<SessionCompleteResult> {
+  // ========================================
+  // PHASE 1: CRITICAL DATA PERSISTENCE
+  // ========================================
+  // Why: This transaction ONLY contains data that MUST be saved for game integrity
+  // If this fails, the entire session is lost and client should retry
   const sessionDb = await mongoose.startSession();
   sessionDb.startTransaction();
   
@@ -485,23 +495,7 @@ export async function completeGameSession(
     );
     }
     
-    // 11. Check achievements
-    const achievementContext: AchievementCheckContext = {
-      playerId: session.playerId,
-      gameId: session.gameId,
-      progression,
-      recentSession: {
-        score: input.score,
-        maxScore: input.maxScore,
-        accuracy: input.accuracy,
-        duration,
-        outcome: input.outcome,
-      },
-    };
-    
-    const newAchievements = isGhost ? [] : await checkAndUnlockAchievements(achievementContext);
-    
-    // 12. Update session
+    // 11. Update session document (CRITICAL - must save game results)
     session.sessionEnd = sessionEnd;
     session.duration = duration;
     session.status = 'completed';
@@ -520,13 +514,15 @@ export async function completeGameSession(
       pointsEarned: pointsResult.totalPoints,
       xpEarned: xpResult.totalXP,
       bonusMultiplier: 1.0,
-      achievementsUnlocked: newAchievements.map(a => a.achievement._id as mongoose.Types.ObjectId),
+      achievementsUnlocked: [], // Will be populated in Phase 2
       streakBonus: streakResult.currentStreak > 1 ? streakResult.bonusMultiplier : 0,
     };
     
     await session.save({ session: sessionDb });
     
-    // 13. Commit transaction
+    // 12. COMMIT CRITICAL TRANSACTION
+    // Why: All critical data is now saved. If this succeeds, game results are persisted.
+    // Achievements, challenges, and leaderboards will be handled in Phase 2 (non-blocking).
     await sessionDb.commitTransaction();
     
     logger.info(
@@ -538,226 +534,356 @@ export async function completeGameSession(
         xp: xpResult.totalXP,
         leveledUp: xpProcessResult.leveledUp,
         newLevel: xpProcessResult.finalLevel,
-        achievements: newAchievements.length,
       },
-      'Game session completed successfully'
+      'Phase 1 complete: Critical game data persisted successfully'
     );
     
-    // 13f. Update daily challenge progress (after transaction commits)
-    // Why: Track challenge progress and award bonus rewards
+    // ========================================
+    // PHASE 2: OPTIONAL UPDATES (BEST EFFORT)
+    // ========================================
+    // Why: These operations are not critical. If they fail, game data is still saved.
+    // Failures here will be logged and can be retried via background jobs (Phase 4).
+    
+    let newAchievements: any[] = [];
+    
+    // 13a. Check and unlock achievements (async, non-blocking)
+    // Why: Achievement unlocking should not block session completion or cause rollbacks
     if (!isGhost) {
-      const challengeContext: ChallengeProgressContext = {
-        playerId: session.playerId,
-        brandId: session.brandId,
-        gameId: session.gameId,
-        sessionData: {
-          outcome: input.outcome,
-          pointsEarned: pointsResult.totalPoints,
-          xpEarned: xpResult.totalXP,
-          isPerfect: input.accuracy === 100,
-        },
-        streakData: {
-          currentStreak: streakResult.currentStreak,
-        },
-      };
-      
-      const completedChallenges = await updateDailyChallengeProgress(challengeContext);
-      
-      if (completedChallenges.length > 0) {
-        logger.info(
-          {
-            playerId: session.playerId,
-            completedChallenges: completedChallenges.map(c => c.title),
+      try {
+        const achievementContext: AchievementCheckContext = {
+          playerId: session.playerId,
+          gameId: session.gameId,
+          progression,
+          recentSession: {
+            score: input.score,
+            maxScore: input.maxScore,
+            accuracy: input.accuracy,
+            duration,
+            outcome: input.outcome,
           },
-          'Daily challenges completed during session'
+        };
+        
+        newAchievements = await checkAndUnlockAchievements(achievementContext);
+        
+        // Why: Update session with achievement IDs for client display
+        if (newAchievements.length > 0) {
+          await PlayerSession.updateOne(
+            { _id: session._id },
+            { 
+              $set: { 
+                'rewards.achievementsUnlocked': newAchievements.map(a => a.achievement._id as mongoose.Types.ObjectId)
+              }
+            }
+          );
+          
+          logger.info(
+            {
+              sessionId: session._id,
+              playerId: session.playerId,
+              achievementsUnlocked: newAchievements.length,
+            },
+            'Achievements unlocked'
+          );
+        }
+      } catch (error) {
+        // Why: Log error but don't fail the entire session
+        logger.error(
+          { 
+            err: error, 
+            sessionId: session._id, 
+            playerId: session.playerId 
+          },
+          'Phase 2 failure: Achievement checking failed (game data still saved)'
         );
+        // TODO Phase 4: Queue achievement check for retry
       }
     }
     
-    // 13g. Update leaderboards (async, non-blocking)
-    // Why: Keep competitive rankings up-to-date after each game
+    // 13b. Update daily challenge progress (async, non-blocking)
+    // Why: Track challenge progress without blocking session completion
     if (!isGhost) {
-      // Why: Import leaderboard calculator dynamically to avoid circular dependencies
-      const { calculateLeaderboard } = await import('./leaderboard-calculator');
-      
-      // Why: Update relevant leaderboards asynchronously (don't block response)
-      Promise.all([
-        // Update game-specific points leaderboard
-        calculateLeaderboard({
-          type: 'points_balance',
-          period: 'all_time',
-          gameId: session.gameId.toString(),
-          limit: 100,
-        }).catch(err => logger.error({ err, type: 'points_balance', gameId: session.gameId }, 'Failed to update leaderboard')),
+      try {
+        const challengeContext: ChallengeProgressContext = {
+          playerId: session.playerId,
+          brandId: session.brandId,
+          gameId: session.gameId,
+          sessionData: {
+            outcome: input.outcome,
+            pointsEarned: pointsResult.totalPoints,
+            xpEarned: xpResult.totalXP,
+            isPerfect: input.accuracy === 100,
+          },
+          streakData: {
+            currentStreak: streakResult.currentStreak,
+          },
+        };
         
-        // Update game-specific XP leaderboard
-        calculateLeaderboard({
-          type: 'xp_total',
-          period: 'all_time',
-          gameId: session.gameId.toString(),
-          limit: 100,
-        }).catch(err => logger.error({ err, type: 'xp_total', gameId: session.gameId }, 'Failed to update leaderboard')),
+        const completedChallenges = await updateDailyChallengeProgress(challengeContext);
         
-        // Update level leaderboard
-        calculateLeaderboard({
-          type: 'level',
-          period: 'all_time',
-          brandId: session.brandId.toString(),
-          limit: 100,
-        }).catch(err => logger.error({ err, type: 'level' }, 'Failed to update leaderboard')),
-        
-        // Update win streak if this was a win
-        ...(input.outcome === 'win' ? [
-          calculateLeaderboard({
-            type: 'win_streak',
-            period: 'all_time',
-            brandId: session.brandId.toString(),
-            limit: 100,
-          }).catch(err => logger.error({ err, type: 'win_streak' }, 'Failed to update leaderboard')),
-        ] : []),
-        
-        // Update games won leaderboard
-        calculateLeaderboard({
-          type: 'games_won',
-          period: 'all_time',
-          brandId: session.brandId.toString(),
-          limit: 100,
-        }).catch(err => logger.error({ err, type: 'games_won' }, 'Failed to update leaderboard')),
-        
-        // Update Madoku ELO leaderboard if it's a Madoku game
-        ...((game as { gameId?: string }).gameId === 'MADOKU' ? [
-          calculateLeaderboard({
-            type: 'elo',
-            period: 'all_time',
-            brandId: session.brandId.toString(),
-            limit: 100,
-          }).catch(err => logger.error({ err, type: 'elo' }, 'Failed to update leaderboard')),
-        ] : []),
-      ]).catch(err => {
-        // Why: Log but don't fail the request if leaderboard updates fail
-        logger.error({ err, sessionId: session._id }, 'Error updating leaderboards');
-      });
-      
-      logger.debug(
-        { sessionId: session._id, playerId: session.playerId },
-        'Triggered leaderboard updates (async)'
-      );
+        if (completedChallenges.length > 0) {
+          logger.info(
+            {
+              sessionId: session._id,
+              playerId: session.playerId,
+              completedChallenges: completedChallenges.map(c => c.title),
+            },
+            'Daily challenges completed'
+          );
+        }
+      } catch (error) {
+        // Why: Log error but don't fail the entire session
+        logger.error(
+          { 
+            err: error, 
+            sessionId: session._id, 
+            playerId: session.playerId 
+          },
+          'Phase 2 failure: Daily challenge update failed (game data still saved)'
+        );
+        // TODO Phase 4: Queue challenge progress update for retry
+      }
     }
     
-    // 13a. Log game completion event
-    await EventLog.create({
-      playerId: session.playerId,
-      brandId: session.brandId,
-      eventType: 'game_played',
-      eventData: {
-        gameId: session.gameId,
-        gameName: (game as { name?: string }).name || 'Game',
-        sessionId: session._id,
-        outcome: input.outcome,
-        score: input.score,
-        duration,
-        completed: true,
-      },
-      timestamp: new Date(),
-      metadata: {
-        createdAt: new Date(),
-        version: '2.3.0',
-        isPremium: player.isPremium,
-        brandId: session.brandId.toString(),
-        gameId: session.gameId.toString(),
-        pointsEarned: pointsResult.totalPoints,
-      },
-    });
-    
-    // 13b. Log points earned event
+    // 13c. Update leaderboards (async, non-blocking)
+    // Why: Keep competitive rankings up-to-date without blocking session completion
     if (!isGhost) {
-      await EventLog.create({
-        playerId: session.playerId,
-        brandId: session.brandId,
-        eventType: 'points_earned',
-      eventData: {
-        amount: pointsResult.totalPoints,
-        source: 'game_session',
-        gameId: session.gameId,
-        sessionId: session._id,
-      },
-      timestamp: new Date(),
-      metadata: {
-        createdAt: new Date(),
-        version: '2.3.0',
-        brandId: session.brandId.toString(),
-        amount: pointsResult.totalPoints,
-      },
-    });
+      // Why: Fire-and-forget leaderboard updates (will be replaced by job queue in Phase 4)
+      (async () => {
+        try {
+          // Why: Import leaderboard calculator dynamically to avoid circular dependencies
+          const { calculateLeaderboard } = await import('./leaderboard-calculator');
+          
+          // Why: Update relevant leaderboards asynchronously
+          await Promise.all([
+            // Update game-specific points leaderboard
+            calculateLeaderboard({
+              type: 'points_balance',
+              period: 'all_time',
+              gameId: session.gameId.toString(),
+              limit: 100,
+            }).catch(err => {
+              logger.warn({ err, type: 'points_balance', gameId: session.gameId }, 'Leaderboard update failed');
+              // TODO Phase 4: Queue for retry
+            }),
+            
+            // Update game-specific XP leaderboard
+            calculateLeaderboard({
+              type: 'xp_total',
+              period: 'all_time',
+              gameId: session.gameId.toString(),
+              limit: 100,
+            }).catch(err => {
+              logger.warn({ err, type: 'xp_total', gameId: session.gameId }, 'Leaderboard update failed');
+              // TODO Phase 4: Queue for retry
+            }),
+            
+            // Update level leaderboard
+            calculateLeaderboard({
+              type: 'level',
+              period: 'all_time',
+              brandId: session.brandId.toString(),
+              limit: 100,
+            }).catch(err => {
+              logger.warn({ err, type: 'level' }, 'Leaderboard update failed');
+              // TODO Phase 4: Queue for retry
+            }),
+            
+            // Update win streak if this was a win
+            ...(input.outcome === 'win' ? [
+              calculateLeaderboard({
+                type: 'win_streak',
+                period: 'all_time',
+                brandId: session.brandId.toString(),
+                limit: 100,
+              }).catch(err => {
+                logger.warn({ err, type: 'win_streak' }, 'Leaderboard update failed');
+                // TODO Phase 4: Queue for retry
+              }),
+            ] : []),
+            
+            // Update games won leaderboard
+            calculateLeaderboard({
+              type: 'games_won',
+              period: 'all_time',
+              brandId: session.brandId.toString(),
+              limit: 100,
+            }).catch(err => {
+              logger.warn({ err, type: 'games_won' }, 'Leaderboard update failed');
+              // TODO Phase 4: Queue for retry
+            }),
+        
+            // Update Madoku ELO leaderboard if it's a Madoku game
+            ...((game as { gameId?: string }).gameId === 'MADOKU' ? [
+              calculateLeaderboard({
+                type: 'elo',
+                period: 'all_time',
+                brandId: session.brandId.toString(),
+                limit: 100,
+              }).catch(err => {
+                logger.warn({ err, type: 'elo' }, 'Leaderboard update failed');
+                // TODO Phase 4: Queue for retry
+              }),
+            ] : []),
+          ]);
+          
+          logger.debug(
+            { sessionId: session._id, playerId: session.playerId },
+            'Leaderboards updated successfully'
+          );
+        } catch (error) {
+          // Why: Log error but don't fail the entire session
+          logger.error(
+            { 
+              err: error, 
+              sessionId: session._id, 
+              playerId: session.playerId 
+            },
+            'Phase 2 failure: Leaderboard updates failed (game data still saved)'
+          );
+          // TODO Phase 4: Queue all failed leaderboard updates for retry
+        }
+      })(); // Execute async IIFE immediately
     }
     
-    // 13c. Log level up events
-    if (!isGhost && xpProcessResult.leveledUp) {
-      await EventLog.create({
-        playerId: session.playerId,
-        brandId: session.brandId,
-        eventType: 'level_up',
-        eventData: {
-          previousLevel,
-          newLevel: xpProcessResult.finalLevel,
-          levelsGained: xpProcessResult.levelsGained,
-          xpEarned: xpResult.totalXP,
-        },
-        timestamp: new Date(),
-        metadata: {
-          createdAt: new Date(),
-          version: '2.3.0',
-          brandId: session.brandId.toString(),
-          newLevel: xpProcessResult.finalLevel,
-        },
-      });
-    }
+    // 13d. Log analytics events (async, non-blocking)
+    // Why: Analytics events are important but not critical for game completion
+    (async () => {
+      try {
+        // Log game completion event
+        await EventLog.create({
+          playerId: session.playerId,
+          brandId: session.brandId,
+          eventType: 'game_completed',
+          eventData: {
+            gameId: session.gameId,
+            gameName: (game as { name?: string }).name || 'Game',
+            sessionId: session._id,
+            outcome: input.outcome,
+            score: input.score,
+            duration,
+            completed: true,
+          },
+          timestamp: new Date(),
+          metadata: {
+            createdAt: new Date(),
+            version: '2.5.0',
+            isPremium: player.isPremium,
+            brandId: session.brandId.toString(),
+            gameId: session.gameId.toString(),
+            pointsEarned: pointsResult.totalPoints,
+          },
+        });
+        
+        // Log points earned event
+        if (!isGhost && pointsResult.totalPoints > 0) {
+          await EventLog.create({
+            playerId: session.playerId,
+            brandId: session.brandId,
+            eventType: 'points_earned',
+            eventData: {
+              amount: pointsResult.totalPoints,
+              source: 'game_session',
+              gameId: session.gameId,
+              sessionId: session._id,
+            },
+            timestamp: new Date(),
+            metadata: {
+              createdAt: new Date(),
+              version: '2.5.0',
+              brandId: session.brandId.toString(),
+              amount: pointsResult.totalPoints,
+            },
+          });
+        }
+        
+        // Log level up events
+        if (!isGhost && xpProcessResult.leveledUp) {
+          await EventLog.create({
+            playerId: session.playerId,
+            brandId: session.brandId,
+            eventType: 'level_up',
+            eventData: {
+              previousLevel,
+              newLevel: xpProcessResult.finalLevel,
+              levelsGained: xpProcessResult.levelsGained,
+              xpEarned: xpResult.totalXP,
+            },
+            timestamp: new Date(),
+            metadata: {
+              createdAt: new Date(),
+              version: '2.5.0',
+              brandId: session.brandId.toString(),
+              newLevel: xpProcessResult.finalLevel,
+            },
+          });
+        }
+        
+        // Log achievement unlock events
+        for (const ach of newAchievements) {
+          await EventLog.create({
+            playerId: session.playerId,
+            brandId: session.brandId,
+            eventType: 'achievement_unlocked',
+            eventData: {
+              achievementId: ach.achievement._id,
+              achievementName: ach.achievement.name,
+              tier: ach.achievement.tier,
+              rewards: ach.rewards,
+            },
+            timestamp: new Date(),
+            metadata: {
+              createdAt: new Date(),
+              version: '2.5.0',
+              brandId: session.brandId.toString(),
+              achievementId: (ach.achievement._id).toString(),
+            },
+          });
+        }
+        
+        // Log streak milestone events
+        if (streakResult.milestoneReached) {
+          await EventLog.create({
+            playerId: session.playerId,
+            brandId: session.brandId,
+            eventType: 'streak_milestone',
+            eventData: {
+              type: 'win',
+              milestone: streakResult.milestoneReached,
+              currentStreak: streakResult.currentStreak,
+              bestStreak: streakResult.bestStreak,
+            },
+            timestamp: new Date(),
+            metadata: {
+              createdAt: new Date(),
+              version: '2.5.0',
+              brandId: session.brandId.toString(),
+              milestone: streakResult.milestoneReached,
+            },
+          });
+        }
+        
+        logger.debug(
+          { sessionId: session._id, playerId: session.playerId },
+          'Analytics events logged successfully'
+        );
+      } catch (error) {
+        // Why: Log error but don't fail the entire session
+        logger.error(
+          { 
+            err: error, 
+            sessionId: session._id, 
+            playerId: session.playerId 
+          },
+          'Phase 2 failure: Analytics event logging failed (game data still saved)'
+        );
+      }
+    })(); // Execute async IIFE immediately
     
-    // 13d. Log achievement unlock events
-    for (const ach of newAchievements) {
-      await EventLog.create({
-        playerId: session.playerId,
-        brandId: session.brandId,
-        eventType: 'achievement_unlocked',
-        eventData: {
-          achievementId: ach.achievement._id,
-          achievementName: ach.achievement.name,
-          tier: ach.achievement.tier,
-          rewards: ach.rewards,
-        },
-        timestamp: new Date(),
-        metadata: {
-          createdAt: new Date(),
-          version: '2.3.0',
-          brandId: session.brandId.toString(),
-          achievementId: (ach.achievement._id).toString(),
-        },
-      });
-    }
-    
-    // 13e. Log streak milestone events
-    if (streakResult.milestoneReached) {
-      await EventLog.create({
-        playerId: session.playerId,
-        brandId: session.brandId,
-        eventType: 'streak_milestone',
-        eventData: {
-          type: 'win',
-          milestone: streakResult.milestoneReached,
-          currentStreak: streakResult.currentStreak,
-          bestStreak: streakResult.bestStreak,
-        },
-        timestamp: new Date(),
-        metadata: {
-          createdAt: new Date(),
-          version: '2.3.0',
-          brandId: session.brandId.toString(),
-          milestone: streakResult.milestoneReached,
-        },
-      });
-    }
-    
-    // 14. Build result
+    // ========================================
+    // RETURN RESULT TO CLIENT
+    // ========================================
+    // Why: Phase 1 is complete, all critical data saved. Return immediately.
+    // Phase 2 operations (achievements, challenges, leaderboards, analytics) run in background.
     const result: SessionCompleteResult = {
       sessionId: session._id as mongoose.Types.ObjectId,
       rewards: {
@@ -792,8 +918,18 @@ export async function completeGameSession(
     
     return result;
   } catch (error) {
+    // ========================================
+    // PHASE 1 FAILURE HANDLING
+    // ========================================
+    // Why: If we reach this catch block, Phase 1 (critical transaction) failed.
+    // This means no game data was saved. Client should be notified to retry.
+    
     // Abort the transaction first
-    try { await sessionDb.abortTransaction(); } catch {}
+    try { 
+      await sessionDb.abortTransaction(); 
+    } catch (abortError) {
+      logger.warn({ err: abortError }, 'Failed to abort transaction (may already be aborted)');
+    }
 
     // Handle transient transaction failures with a safe fallback (no transaction)
     const isTransient = !!(
@@ -802,7 +938,13 @@ export async function completeGameSession(
     );
 
     if (isTransient) {
-      logger.warn({ err: error, sessionId: input.sessionId }, 'Transient transaction error — retrying without transaction');
+      logger.warn(
+        { 
+          err: error, 
+          sessionId: input.sessionId 
+        }, 
+        'Phase 1 transient failure: Retrying without transaction'
+      );
       try {
         // Fallback path: perform minimal, sequential updates without a transaction
         const session = await PlayerSession.findById(input.sessionId);
@@ -893,8 +1035,12 @@ export async function completeGameSession(
 
     // Non-transient error: log and rethrow
     logger.error(
-      { err: error, sessionId: input.sessionId },
-      'Failed to complete game session'
+      { 
+        err: error, 
+        sessionId: input.sessionId,
+        phase: 'Phase 1 (CRITICAL)',
+      },
+      'Phase 1 failure: Critical game data persistence failed - no data saved'
     );
     throw error;
   } finally {

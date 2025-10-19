@@ -630,6 +630,347 @@ question ASC
 
 ---
 
+### Stats Recording System: Critical Architecture Failure
+
+**Context**: After fixing schema validation issues (v2.2.0), games recorded to `PlayerSession` but stats still not appearing in leaderboards, challenges, or achievements.
+
+**Timestamp**: 2025-10-19T10:16:00.000Z  
+**Severity**: CRITICAL - Complete gamification feedback loop broken  
+**Status**: Root cause identified, refactor plan created
+
+#### Root Cause Analysis
+
+**Problem**: Games ARE recording to database, but gamification systems (leaderboards, achievements, challenges) are NOT using that data.
+
+**Symptoms Reported**:
+1. Games complete successfully with 200 OK response
+2. `PlayerSession` documents created with correct data
+3. `PlayerProgression.statistics` updated (games played, wins, losses)
+4. `PointsWallet` balance increased correctly
+5. `PointsTransaction` audit trail exists
+6. **BUT**: Leaderboards show empty, challenges show 0 progress, achievements never unlock
+
+#### Specific Issues Identified
+
+##### 1. Leaderboard Fire-and-Forget Pattern
+
+**Location**: `app/lib/gamification/session-manager.ts` (lines 577-645)
+
+**Problem**: Leaderboard updates wrapped in Promise.all().catch() that silently swallows failures:
+
+```typescript
+// ❌ WRONG: Fire-and-forget with silent failure
+Promise.all([
+  calculateLeaderboard({ type: 'points_balance', period: 'all_time', gameId, limit: 100 })
+    .catch(err => logger.error({ err }, 'Failed to update leaderboard')),
+  calculateLeaderboard({ type: 'xp_total', period: 'all_time', gameId, limit: 100 })
+    .catch(err => logger.error({ err }, 'Failed to update leaderboard')),
+  // ... 5 more leaderboards
+]).catch(err => {
+  logger.error({ err }, 'Error updating leaderboards');
+});
+```
+
+**Why It Fails**:
+- `.catch()` prevents errors from propagating
+- Session completion returns success to client even if ALL leaderboards fail
+- No retry mechanism - failed updates lost forever
+- Logs show errors but user sees "success" with no leaderboard update
+
+**Impact**: Leaderboards never update, players don't see competitive rankings
+
+##### 2. Achievement System Missing Prerequisites
+
+**Location**: `app/lib/gamification/achievement-engine.ts` (lines 58-134)
+
+**Problem**: Achievement unlock logic assumes achievements exist in database:
+
+```typescript
+const achievements = await Achievement.find({ 'metadata.isActive': true }).lean();
+// If collection is empty, achievements.length === 0
+// checkAndUnlockAchievements() returns empty array
+// Session completes "successfully" with 0 achievements
+```
+
+**Why It Fails**:
+- No seed data for `Achievement` collection
+- No default achievements created on initialization
+- Empty collection = no achievements to check = appears to work but does nothing
+
+**Impact**: Players never unlock achievements regardless of progress
+
+##### 3. Daily Challenges May Not Exist
+
+**Location**: `app/lib/gamification/daily-challenge-tracker.ts` (lines 79-114)
+
+**Problem**: Challenges created on-demand during first access of the day:
+
+```typescript
+let activeChallenges = await DailyChallenge.find({
+  'availability.startTime': { $lte: now },
+  'availability.endTime': { $gte: now },
+  'availability.isActive': true,
+});
+
+if (activeChallenges.length === 0) {
+  // Only creates challenges if missing
+  const ensured = await ensureDailyChallengesForToday();
+  activeChallenges = ensured.challenges;
+}
+```
+
+**Why It Fails**:
+- If `ensureDailyChallengesForToday()` fails (DB timeout, transaction conflict), no challenges exist
+- Challenge progress update silently skips with return []
+- Session completion succeeds but challenges don't update
+- Race condition: Multiple concurrent sessions may all try to create challenges
+
+**Impact**: Daily challenges show 0 progress despite games played
+
+##### 4. MongoDB Transaction All-or-Nothing Rollback
+
+**Location**: `app/lib/gamification/session-manager.ts` (lines 219-903)
+
+**Problem**: Entire session completion wrapped in single MongoDB transaction:
+
+```typescript
+const sessionDb = await mongoose.startSession();
+sessionDb.startTransaction();
+
+try {
+  // CRITICAL: Save PlayerSession, points, progression ✓
+  // OPTIONAL: Check achievements (may fail) ❌
+  // OPTIONAL: Update challenges (may fail) ❌
+  // OPTIONAL: Update leaderboards (async, may fail) ❌
+  
+  await sessionDb.commitTransaction(); // If ANY fails, ROLLBACK ALL
+} catch (error) {
+  await sessionDb.abortTransaction(); // Loses ALL data including critical session
+  throw error;
+}
+```
+
+**Why It Fails**:
+- Achievement check fails → entire transaction rolls back → PlayerSession NOT saved
+- Challenge update fails → entire transaction rolls back → Points NOT awarded
+- One optional feature failure destroys all game results
+- Client shows "success" but database has NOTHING
+
+**Impact**: Games appear to complete but NO DATA persisted anywhere
+
+##### 5. No Background Job Queue
+
+**Problem**: All gamification updates attempted synchronously during session completion.
+
+**Why It Fails**:
+- Network latency to MongoDB (100-200ms per operation)
+- Achievement checks query entire Achievement collection
+- Leaderboard calculations aggregate over all PlayerProgression documents
+- Challenge updates query and update multiple collections
+- **Total time**: 500-1000ms blocking the API response
+- If any operation times out (>30s), entire request fails
+
+**Impact**: Slow API responses, high failure rate, no retry mechanism
+
+##### 6. Silent Failures with Success Response
+
+**Location**: `app/api/game-sessions/complete/route.ts` (lines 145-180)
+
+**Problem**: API returns 200 OK even if gamification systems fail:
+
+```typescript
+const result = await completeGameSession({ sessionId, score, isWin });
+
+// Result includes fields that may be empty due to failures
+return NextResponse.json({
+  success: true, // ❌ ALWAYS returns success
+  rewards: result.rewards, // May be 0 if transaction rolled back
+  achievements: result.achievements, // May be empty if no achievements exist
+  streak: result.streak, // May be 0 if streak update failed
+}, { status: 200 });
+```
+
+**Why It Fails**:
+- Client believes game completed successfully
+- Frontend shows rewards screen with 0 points, 0 XP
+- User thinks system is broken, not that it failed silently
+- No way for client to detect and retry
+
+**Impact**: Poor UX, players lose trust in system reliability
+
+#### Architecture Flaws Summary
+
+| Component | Current Behavior | Failure Mode | Impact |
+|-----------|-----------------|--------------|--------|
+| **PlayerSession** | Saved in transaction | Transaction rollback if any optional update fails | All game data lost |
+| **Leaderboards** | Async fire-and-forget | Errors caught and logged, no retry | Never updates |
+| **Achievements** | Checked during transaction | Empty collection = no unlocks | Never unlocks |
+| **Challenges** | Updated during transaction | Missing challenges = skip update | Progress not tracked |
+| **API Response** | Always returns 200 OK | Client can't detect failures | Silent failures |
+
+#### Why This Design Pattern Fails
+
+**Critical Data + Optional Updates in Same Transaction = Fragile System**
+
+1. **Tight Coupling**: PlayerSession (critical) coupled to achievements (optional)
+2. **No Separation of Concerns**: Core game data treated same as leaderboard rankings
+3. **No Fault Tolerance**: One failure cascades to complete data loss
+4. **No Retry Logic**: Transient failures (network, timeout) are permanent
+5. **No Observability**: Clients see "success" but can't verify data persisted
+
+#### Correct Architecture Pattern: Two-Phase Commit
+
+**Phase 1 - CRITICAL (Must Succeed)**:
+```typescript
+// Start MongoDB transaction
+const session = await mongoose.startSession();
+session.startTransaction();
+
+try {
+  // Only critical, non-optional operations
+  await PlayerSession.create(sessionData, { session });
+  await PlayerProgression.updateOne(query, update, { session });
+  await PointsWallet.updateOne(query, update, { session });
+  await PointsTransaction.create(transactionData, { session });
+  await Streak.updateOne(query, update, { session });
+  await EventLog.create(eventData, { session });
+  
+  await session.commitTransaction(); // ONLY commit critical data
+  
+  return { success: true, sessionId, points, xp }; // Return immediately
+} catch (error) {
+  await session.abortTransaction();
+  throw error; // Fail fast, client knows to retry
+}
+```
+
+**Phase 2 - BEST EFFORT (Async, with Retry)**:
+```typescript
+// After Phase 1 succeeds, queue optional updates
+const jobs = [
+  { type: 'achievement', playerId, sessionId, payload: { progression } },
+  { type: 'leaderboard', playerId, sessionId, payload: { gameId, score } },
+  { type: 'challenge', playerId, sessionId, payload: { outcome, points } },
+];
+
+for (const job of jobs) {
+  await JobQueue.create({
+    ...job,
+    status: 'pending',
+    attempts: 0,
+    maxAttempts: 5,
+    nextRetryAt: new Date(),
+  });
+}
+
+// Background worker processes jobs with exponential backoff
+// Failed jobs retry: 1min → 5min → 15min → 1hr → 24hr
+```
+
+**Benefits**:
+1. **Critical data always persists** - Game results never lost
+2. **Optional updates retry automatically** - Transient failures recovered
+3. **Fast API response** - Client not blocked by slow aggregations
+4. **Better error handling** - Phase 1 failure = clear error, Phase 2 failure = retry
+5. **Observable** - Job queue status visible to admins
+
+#### Files Requiring Refactor
+
+**Critical Priority**:
+1. `app/lib/gamification/session-manager.ts` - Split into two phases
+2. `app/lib/queue/job-queue.ts` - Create job queue system (NEW)
+3. `app/lib/queue/workers/` - Create worker processors (NEW)
+4. `app/api/game-sessions/complete/route.ts` - Update response handling
+5. `scripts/repair-stats.ts` - Create repair script for existing data (NEW)
+
+**High Priority**:
+6. `app/lib/gamification/leaderboard-calculator.ts` - Remove fire-and-forget, use queue
+7. `app/lib/gamification/daily-challenge-tracker.ts` - Make async with queue
+8. `app/lib/gamification/achievement-engine.ts` - Make async with queue
+9. `scripts/seed-achievements.ts` - Create default achievements
+10. `app/lib/startup/initialization.ts` - Pre-create challenges (NEW)
+
+**Supporting**:
+11. `app/api/admin/stats/verify/route.ts` - Health check endpoint (NEW)
+12. `app/api/admin/stats/repair/route.ts` - Manual repair trigger (NEW)
+13. `app/lib/models/job-queue.ts` - Job queue model (NEW)
+14. `app/lib/models/player-session.ts` - Add tracking fields
+15. `app/lib/models/leaderboard-entry.ts` - Add staleness fields
+
+#### Data Repair Strategy
+
+**Problem**: Existing games played but not reflected in leaderboards/challenges/achievements.
+
+**Solution**: Rebuild from source of truth (PlayerSession):
+
+```typescript
+// For each player
+const sessions = await PlayerSession.find({ playerId, status: 'completed' });
+
+// Aggregate totals
+const stats = {
+  gamesPlayed: sessions.length,
+  wins: sessions.filter(s => s.gameData.outcome === 'win').length,
+  totalPoints: sessions.reduce((sum, s) => sum + s.rewards.pointsEarned, 0),
+  totalXP: sessions.reduce((sum, s) => sum + s.rewards.xpEarned, 0),
+};
+
+// Update PlayerProgression
+await PlayerProgression.updateOne({ playerId }, { $set: { statistics: stats } });
+
+// Recalculate leaderboards
+await calculateLeaderboard({ type: 'points_balance', period: 'all_time' });
+
+// Backfill challenge progress
+for (const challenge of todaysChallenges) {
+  const relevantSessions = filterSessionsForChallenge(sessions, challenge);
+  await updateChallengeProgress(playerId, challenge, relevantSessions);
+}
+```
+
+**CLI Script**: `npm run repair:stats -- --players all`
+
+#### Prevention Checklist
+
+**To prevent similar architecture issues**:
+
+- [ ] **Separate critical from optional** - Core data persistence isolated from gamification
+- [ ] **Use background jobs** for non-blocking operations
+- [ ] **Implement retry logic** - Exponential backoff for transient failures
+- [ ] **Create health checks** - Verify system integrity regularly
+- [ ] **Add repair scripts** - Rebuild stats from source of truth
+- [ ] **Seed required data** - Achievements, challenges created on init
+- [ ] **Monitor job queue** - Alert on high failure rate
+- [ ] **Log comprehensively** - Make failures visible, not silent
+- [ ] **Test failure scenarios** - Simulate DB timeouts, network issues
+- [ ] **Verify in database** - Don't trust API 200 responses
+
+#### Implementation Plan
+
+**14-phase refactor plan created** in TODO list with:
+- Root cause analysis documentation ✓ (this entry)
+- Health check endpoint creation
+- Two-phase commit refactor
+- Background job queue system
+- Stats repair script
+- Leaderboard reliability fixes
+- Challenge guarantee system
+- Achievement seeding
+- Comprehensive logging
+- Model field additions for sync tracking
+- API error handling improvements
+- Testing & verification
+- Documentation updates
+- Commit & deploy
+
+**Estimated Timeline**: 2-3 days full refactor + testing
+
+**Risk**: High - Core gamification system overhaul  
+**Priority**: CRITICAL - Must fix before user adoption  
+**Version**: Will increment to 3.0.0 (breaking change in architecture)
+
+---
+
 ## 🔐 Security
 
 ### Environment Variable Validation
