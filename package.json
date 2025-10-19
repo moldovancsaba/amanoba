@@ -20,6 +20,7 @@
     "seed": "tsx scripts/seed-all.ts",
     "seed:core": "tsx scripts/seed-core-data.ts",
     "seed:achievements": "tsx scripts/seed-achievements.ts",
+    "seed:achievements-v2": "tsx --env-file=.env.local scripts/seed-achievements-v2.ts",
     "seed:rewards": "tsx scripts/seed-rewards.ts",
     "repair:stats": "tsx scripts/repair-stats.ts",
     "workers": "tsx --env-file=.env.local scripts/start-workers.ts",
