@@ -595,7 +595,52 @@ export async function completeGameSession(
           },
           'Phase 2 failure: Achievement checking failed (game data still saved)'
         );
-        // TODO Phase 4: Queue achievement check for retry
+        
+        // Why: Queue achievement check for retry (Phase 4 integration)
+        try {
+          const { enqueueJob } = await import('../queue/job-queue-manager');
+          await enqueueJob({
+            jobType: 'achievement',
+            playerId: session.playerId,
+            sessionId: session._id,
+            brandId: session.brandId,
+            gameId: session.gameId,
+            payload: {
+              playerId: session.playerId.toString(),
+              gameId: session.gameId.toString(),
+              progression: {
+                level: progression.level,
+                currentXP: progression.currentXP,
+                totalXP: progression.totalXP,
+                statistics: {
+                  totalGamesPlayed: progression.statistics.totalGamesPlayed,
+                  wins: progression.statistics.wins,
+                  losses: progression.statistics.losses,
+                  draws: progression.statistics.draws,
+                  currentStreak: progression.statistics.currentStreak,
+                  bestStreak: progression.statistics.bestStreak,
+                },
+              },
+              recentSession: {
+                score: input.score,
+                maxScore: input.maxScore,
+                accuracy: input.accuracy,
+                duration,
+                outcome: input.outcome,
+              },
+            },
+          });
+          
+          logger.info(
+            { sessionId: session._id, playerId: session.playerId },
+            'Achievement check queued for retry'
+          );
+        } catch (queueError) {
+          logger.error(
+            { err: queueError, sessionId: session._id },
+            'Failed to queue achievement check for retry'
+          );
+        }
       }
     }
     

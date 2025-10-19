@@ -216,6 +216,25 @@ export function evaluateAchievementCriteria(
   const progress = targetValue > 0 ? Math.min(100, (currentValue / targetValue) * 100) : 0;
   const meetsRequirements = currentValue >= targetValue;
   
+  // Why: Debug logging to diagnose false unlock issue
+  if (meetsRequirements) {
+    logger.debug(
+      {
+        achievement: achievement.name,
+        criteriaType: criteria.type,
+        currentValue,
+        targetValue,
+        meetsRequirements,
+        stats: {
+          gamesPlayed: context.progression.statistics.totalGamesPlayed,
+          wins: context.progression.statistics.totalWins,
+          streak: context.progression.statistics.currentStreak,
+        },
+      },
+      'Achievement criteria met'
+    );
+  }
+  
   return {
     meetsRequirements,
     currentValue,
