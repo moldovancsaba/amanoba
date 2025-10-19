@@ -20,7 +20,7 @@
  */
 
 import { NextRequest, NextResponse } from 'next/server';
-import { getServerSession } from 'next-auth';
+import { auth } from '@/auth';
 import logger from '@/lib/logger';
 import { 
   enqueueLeaderboardUpdate, 
@@ -45,7 +45,7 @@ export async function POST(request: NextRequest) {
 
   try {
     // Auth check (basic example - implement proper admin auth)
-    const session = await getServerSession();
+    const session = await auth();
     if (!session) {
       return NextResponse.json(
         { error: 'Unauthorized' },
@@ -190,7 +190,7 @@ export async function GET() {
 
   try {
     // Auth check
-    const session = await getServerSession();
+    const session = await auth();
     if (!session) {
       return NextResponse.json(
         { error: 'Unauthorized' },
