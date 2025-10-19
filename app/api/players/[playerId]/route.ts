@@ -9,6 +9,7 @@ import {
   PlayerProgression,
   PointsWallet,
   Streak,
+  Achievement,
   AchievementUnlock,
   PlayerSession,
 } from '@/lib/models';
@@ -52,8 +53,7 @@ export async function GET(
         PointsWallet.findOne({ playerId }),
         Streak.find({ playerId, currentStreak: { $gt: 0 } }),
         AchievementUnlock.countDocuments({ playerId }),
-        // TODO: Replace with Achievement.countDocuments when model is final
-        17,
+        Achievement.countDocuments({ 'metadata.isActive': true }),
       ]);
 
     let progression = progressionRaw;
