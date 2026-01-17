@@ -1183,6 +1183,95 @@ Version must be synchronized across:
 
 ---
 
+## 🌐 Internationalization (i18n)
+
+### next-intl Locale Configuration: getRequestConfig Parameter Handling
+
+**Context**: Production error "Application error: a server-side exception has occurred" with digest 1377699040. The error was "No locale was returned from `getRequestConfig`".
+
+**Timestamp**: 2025-01-17T17:15:00.000Z  
+**Severity**: CRITICAL - Complete application failure in production  
+**Fixed In**: v2.7.0
+
+**Root Cause**: The `getRequestConfig` function in `i18n.ts` was not handling the locale parameter correctly. When `locale` was undefined or not properly extracted from the URL, the function would fail silently or throw an error, causing the entire application to crash.
+
+**Problem Code**:
+```typescript
+// ❌ Wrong: No fallback if locale is missing
+export default getRequestConfig(async ({ locale }) => {
+  if (!locales.includes(locale as Locale)) {
+    notFound();
+  }
+  return {
+    messages: (await import(`./messages/${locale}.json`)).default,
+  };
+});
+```
+
+**Issues Identified**:
+1. **No locale fallback**: If `locale` is undefined, the function would fail
+2. **Silent failures**: `notFound()` was called but error wasn't properly handled
+3. **Missing locale in response**: next-intl requires locale to be returned explicitly
+4. **Middleware routing confusion**: With `localePrefix: 'always'`, locale extraction needed verification
+
+**Solution**:
+```typescript
+// ✅ Correct: Safe fallback with explicit locale return
+export default getRequestConfig(async ({ locale }) => {
+  // Ensure locale is always defined - fallback to defaultLocale if missing
+  const resolvedLocale = (locale && locales.includes(locale as Locale)) 
+    ? locale 
+    : defaultLocale;
+
+  // Validate that the locale is valid
+  if (!resolvedLocale || !locales.includes(resolvedLocale as Locale)) {
+    // This should never happen, but provide a safe fallback
+    return {
+      locale: defaultLocale,
+      messages: (await import(`./messages/${defaultLocale}.json`)).default,
+    };
+  }
+
+  return {
+    locale: resolvedLocale,  // NEW: Explicitly return locale
+    messages: (await import(`./messages/${resolvedLocale}.json`)).default,
+  };
+});
+```
+
+**Additional Fixes**:
+1. **Layout component**: Pass locale explicitly to `getMessages({ locale })` to ensure it's available
+2. **Middleware configuration**: Changed `localePrefix` from `'as-needed'` to `'always'` for consistent routing
+3. **Root route handling**: Removed conflicting `app/page.tsx` to prevent redirect loops
+4. **Static file exclusion**: Added explicit exclusion in middleware for `manifest.json` and other static assets
+
+**Learning**: When using next-intl with Next.js 15 App Router:
+1. **Always provide locale fallback**: Never assume locale will be present
+2. **Explicitly return locale**: next-intl requires locale in the response object
+3. **Validate before use**: Check locale validity before importing messages
+4. **Test with undefined locale**: Ensure graceful handling when locale extraction fails
+5. **Use consistent localePrefix**: `'always'` is more predictable than `'as-needed'` for production
+6. **Pass locale explicitly**: When calling `getMessages()`, pass locale explicitly: `getMessages({ locale })`
+
+**Why It Matters**: Locale configuration errors cause complete application failure in production. Without proper fallbacks, a single routing issue can crash the entire site.
+
+**Applied In**:
+- `i18n.ts` (getRequestConfig function)
+- `app/[locale]/layout.tsx` (getMessages call)
+- `middleware.ts` (localePrefix configuration)
+- `app/[locale]/page.tsx` (root route redirect)
+
+**Prevention Checklist**:
+- [ ] Always provide defaultLocale fallback in getRequestConfig
+- [ ] Explicitly return locale in getRequestConfig response
+- [ ] Test with undefined/missing locale scenarios
+- [ ] Use consistent localePrefix strategy (prefer 'always')
+- [ ] Pass locale explicitly to getMessages() in layouts
+- [ ] Verify middleware routing doesn't conflict with locale extraction
+- [ ] Test production builds, not just dev server
+
+---
+
 ## 🔄 Process Improvements
 
 ### Automated Version Bumping

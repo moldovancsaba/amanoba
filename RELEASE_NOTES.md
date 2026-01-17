@@ -1,11 +1,164 @@
 # Amanoba Release Notes
 
-**Current Version**: 2.4.0  
-**Last Updated**: 2025-10-18T09:16:20.000Z
+**Current Version**: 2.7.0  
+**Last Updated**: 2025-01-17T17:30:00.000Z
 
 ---
 
 All completed tasks are documented here in reverse chronological order. This file follows the Changelog format and is updated with every version bump.
+
+---
+
+## [v2.7.0] — 2025-01-17 🐛✨
+
+**Status**: CRITICAL FIX + PHASE 1 COMPLETE  
+**Type**: Bug Fix + Feature Completion
+
+### 🐛 Production Error Fix: i18n Locale Configuration
+
+**Issue**: Production application crashed with "Application error: a server-side exception has occurred" (digest: 1377699040). Error: "No locale was returned from `getRequestConfig`".
+
+**Root Causes**:
+1. **Missing locale fallback**: `getRequestConfig` didn't handle undefined locale
+2. **Missing locale in response**: next-intl requires locale to be explicitly returned
+3. **Middleware routing confusion**: `localePrefix: 'as-needed'` caused inconsistent locale extraction
+4. **Redirect loops**: Conflicting root page and locale routing
+
+**Fix Applied**:
+
+**i18n Configuration** (`i18n.ts`):
+```typescript
+// Added safe fallback and explicit locale return
+export default getRequestConfig(async ({ locale }) => {
+  const resolvedLocale = (locale && locales.includes(locale as Locale)) 
+    ? locale 
+    : defaultLocale;
+  
+  return {
+    locale: resolvedLocale,  // Explicitly return locale
+    messages: (await import(`./messages/${resolvedLocale}.json`)).default,
+  };
+});
+```
+
+**Layout Component** (`app/[locale]/layout.tsx`):
+```typescript
+// Pass locale explicitly to getMessages
+const messages = await getMessages({ locale });
+```
+
+**Middleware** (`middleware.ts`):
+- Changed `localePrefix` from `'as-needed'` to `'always'` for consistent routing
+- All routes now have locale prefix: `/hu/...`, `/en/...`
+- Root route (`/`) redirects to `/hu` (default locale)
+
+**Static File Handling**:
+- Added explicit exclusion in middleware for `manifest.json` and static assets
+- Prevents middleware from interfering with Next.js static file serving
+
+**Files Modified**:
+- `i18n.ts` - Added locale fallback and explicit return
+- `app/[locale]/layout.tsx` - Pass locale explicitly to getMessages
+- `middleware.ts` - Changed localePrefix to 'always', fixed static file exclusion
+- `app/[locale]/page.tsx` - Updated redirect paths for locale prefix
+
+**Testing**: 
+- ✅ Production build successful
+- ✅ Root route redirects correctly
+- ✅ Locale routes work properly
+- ✅ Static files served correctly
+- ✅ No redirect loops
+- ✅ Application loads successfully
+
+**Impact**: 
+- Production application now stable and loading correctly
+- All locale routes functional
+- No more server-side exceptions
+- Clean routing with predictable behavior
+
+---
+
+### ✨ Phase 1: Foundation & Data Models Complete
+
+**Status**: ✅ COMPLETE  
+**Timeline**: Weeks 1-2 (Completed 2025-01-17)
+
+#### 1.1 Course & Lesson Data Models ✅
+- ✅ **Course Model** - 30-day course structure with multi-language support
+- ✅ **Lesson Model** - Day-based lessons with email templates
+- ✅ **CourseProgress Model** - Student progress tracking
+- ✅ **AssessmentResult Model** - Game session → course assessment linking
+- ✅ **Game Model Extended** - Assessment mode support
+- ✅ **Player Model Extended** - Email preferences
+
+#### 1.2 Email Service Integration ✅
+- ✅ Resend API integration
+- ✅ 4 email functions (lesson, welcome, completion, reminder)
+- ✅ Multi-language email support
+- ✅ Email preferences checking
+
+#### 1.3 Internationalization (i18n) ✅
+- ✅ next-intl integration
+- ✅ Hungarian as default language
+- ✅ English support
+- ✅ All pages migrated to `app/[locale]/` structure
+- ✅ Core pages translated
+- ✅ LocaleLink and LanguageSwitcher components
+
+#### 1.4 Design System Update ✅
+- ✅ New brand colors (Black, DarkGrey, White, Accent Yellow #FAB908)
+- ✅ Logo component created and integrated
+- ✅ All core pages redesigned
+- ✅ Tailwind config updated
+
+#### 1.5 Build & Quality ✅
+- ✅ Build runs error-free
+- ✅ TypeScript compilation successful
+- ✅ No linter errors
+- ✅ JSON translation files validated
+
+**Deliverables**:
+- ✅ 4 new Mongoose models (Course, Lesson, CourseProgress, AssessmentResult)
+- ✅ Email service with Resend integration
+- ✅ Complete i18n setup with Hungarian default
+- ✅ New design system with logo
+- ✅ Production-ready build
+
+**Files Created**:
+- `app/lib/models/course.ts`
+- `app/lib/models/lesson.ts`
+- `app/lib/models/course-progress.ts`
+- `app/lib/models/assessment-result.ts`
+- `app/lib/email/email-service.ts`
+- `app/lib/email/index.ts`
+- `i18n.ts`
+- `messages/hu.json`
+- `messages/en.json`
+- `components/Logo.tsx`
+- `components/LocaleLink.tsx`
+- `components/LanguageSwitcher.tsx`
+- `app/[locale]/layout.tsx`
+- `app/[locale]/page.tsx`
+
+**Files Modified**:
+- `app/lib/models/Game.ts` - Added assessment fields
+- `app/lib/models/Player.ts` - Added email preferences
+- `app/lib/models/index.ts` - Exported new models
+- `middleware.ts` - Integrated i18n routing
+- `next.config.ts` - Added next-intl plugin
+- `tailwind.config.ts` - Updated brand colors
+- `app/globals.css` - Updated CSS variables
+- All core pages moved to `app/[locale]/` structure
+
+**Statistics**:
+- **New Models**: 4
+- **Extended Models**: 2
+- **New API Routes**: 0 (Phase 2)
+- **New Pages**: 15+ (migrated to locale structure)
+- **Translation Files**: 2
+- **New Components**: 3
+
+**Next Steps**: Phase 2 - Course Builder & Student Dashboard (Weeks 3-4)
 
 ---
 
