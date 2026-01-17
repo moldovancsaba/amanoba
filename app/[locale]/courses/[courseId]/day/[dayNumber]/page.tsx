@@ -1,0 +1,288 @@
+/**
+ * Daily Lesson Viewer Page
+ * 
+ * What: Display lesson content for a specific day
+ * Why: Students read and complete daily lessons
+ */
+
+'use client';
+
+import { useState, useEffect } from 'react';
+import { useSession } from 'next-auth/react';
+import { useRouter } from 'next/navigation';
+import { useLocale } from 'next-intl';
+import { LocaleLink } from '@/components/LocaleLink';
+import {
+  ArrowLeft,
+  ArrowRight,
+  CheckCircle,
+  Lock,
+  Award,
+  Play,
+  Calendar,
+} from 'lucide-react';
+
+interface Lesson {
+  _id: string;
+  lessonId: string;
+  dayNumber: number;
+  title: string;
+  content: string;
+  assessmentGameId?: string;
+  pointsReward: number;
+  xpReward: number;
+  isUnlocked: boolean;
+  isCompleted: boolean;
+}
+
+interface Navigation {
+  previous: { day: number; title: string } | null;
+  next: { day: number; title: string } | null;
+}
+
+export default function DailyLessonPage({
+  params,
+}: {
+  params: Promise<{ courseId: string; dayNumber: string }>;
+}) {
+  const { data: session } = useSession();
+  const router = useRouter();
+  const locale = useLocale();
+  const [lesson, setLesson] = useState<Lesson | null>(null);
+  const [navigation, setNavigation] = useState<Navigation | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [completing, setCompleting] = useState(false);
+  const [courseId, setCourseId] = useState<string>('');
+  const [dayNumber, setDayNumber] = useState<number>(0);
+
+  useEffect(() => {
+    const loadData = async () => {
+      const resolvedParams = await params;
+      const cid = resolvedParams.courseId;
+      const day = parseInt(resolvedParams.dayNumber);
+      setCourseId(cid);
+      setDayNumber(day);
+      await fetchLesson(cid, day);
+    };
+    loadData();
+  }, [params]);
+
+  const fetchLesson = async (cid: string, day: number) => {
+    try {
+      setLoading(true);
+      const response = await fetch(`/api/courses/${cid}/day/${day}`);
+      const data = await response.json();
+
+      if (data.success) {
+        setLesson(data.lesson);
+        setNavigation(data.navigation);
+      } else {
+        alert(data.error || 'Failed to load lesson');
+      }
+    } catch (error) {
+      console.error('Failed to fetch lesson:', error);
+      alert('Failed to load lesson');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleComplete = async () => {
+    if (!lesson || completing) return;
+
+    setCompleting(true);
+    try {
+      const response = await fetch(`/api/courses/${courseId}/day/${dayNumber}`, {
+        method: 'POST',
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        // Refresh lesson to show completed state
+        await fetchLesson(courseId, dayNumber);
+        alert('Lesson completed! You earned points and XP.');
+      } else {
+        alert(data.error || 'Failed to complete lesson');
+      }
+    } catch (error) {
+      console.error('Failed to complete lesson:', error);
+      alert('Failed to complete lesson');
+    } finally {
+      setCompleting(false);
+    }
+  };
+
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-brand-black flex items-center justify-center">
+        <div className="text-brand-white text-xl">Loading lesson...</div>
+      </div>
+    );
+  }
+
+  if (!lesson) {
+    return (
+      <div className="min-h-screen bg-brand-black flex items-center justify-center">
+        <div className="text-center">
+          <h2 className="text-2xl font-bold text-brand-white mb-4">Lesson not found</h2>
+          <LocaleLink
+            href="/my-courses"
+            className="inline-block bg-brand-accent text-brand-black px-6 py-3 rounded-lg font-bold hover:bg-brand-primary-400"
+          >
+            Back to My Courses
+          </LocaleLink>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="min-h-screen bg-brand-black">
+      {/* Header */}
+      <header className="bg-brand-darkGrey border-b-2 border-brand-accent">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+          <div className="flex items-center justify-between">
+            <LocaleLink
+              href={`/courses/${courseId}`}
+              className="inline-flex items-center gap-2 text-brand-white hover:text-brand-accent"
+            >
+              <ArrowLeft className="w-5 h-5" />
+              Back to Course
+            </LocaleLink>
+            <div className="flex items-center gap-2 text-brand-white">
+              <Calendar className="w-5 h-5" />
+              <span className="font-bold">Day {lesson.dayNumber}</span>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        {/* Lesson Header */}
+        <div className="bg-brand-white rounded-xl p-6 border-2 border-brand-accent mb-6">
+          <div className="flex items-start justify-between mb-4">
+            <div className="flex-1">
+              <div className="flex items-center gap-3 mb-2">
+                {lesson.isCompleted ? (
+                  <CheckCircle className="w-6 h-6 text-green-500" />
+                ) : !lesson.isUnlocked ? (
+                  <Lock className="w-6 h-6 text-brand-darkGrey" />
+                ) : null}
+                <h1 className="text-3xl font-bold text-brand-black">{lesson.title}</h1>
+              </div>
+              {!lesson.isUnlocked && (
+                <div className="bg-brand-darkGrey/20 border border-brand-darkGrey rounded-lg p-3 mt-3">
+                  <p className="text-brand-darkGrey">
+                    Complete previous lessons to unlock this lesson.
+                  </p>
+                </div>
+              )}
+            </div>
+          </div>
+
+          {lesson.isUnlocked && (
+            <div className="flex items-center gap-4 text-sm text-brand-darkGrey">
+              <div className="flex items-center gap-1">
+                <Award className="w-4 h-4" />
+                <span>{lesson.pointsReward} points</span>
+              </div>
+              <div className="flex items-center gap-1">
+                <Award className="w-4 h-4" />
+                <span>{lesson.xpReward} XP</span>
+              </div>
+            </div>
+          )}
+        </div>
+
+        {/* Lesson Content */}
+        {lesson.isUnlocked ? (
+          <>
+            <div className="bg-brand-white rounded-xl p-8 border-2 border-brand-accent mb-6">
+              <div
+                className="prose prose-lg max-w-none text-brand-black"
+                dangerouslySetInnerHTML={{ __html: lesson.content }}
+              />
+            </div>
+
+            {/* Actions */}
+            <div className="flex items-center justify-between gap-4">
+              {navigation?.previous && (
+                <LocaleLink
+                  href={`/courses/${courseId}/day/${navigation.previous.day}`}
+                  className="flex items-center gap-2 bg-brand-darkGrey text-brand-white px-6 py-3 rounded-lg font-bold hover:bg-brand-secondary-700 transition-colors"
+                >
+                  <ArrowLeft className="w-5 h-5" />
+                  Previous Day
+                </LocaleLink>
+              )}
+
+              <div className="flex-1" />
+
+              {!lesson.isCompleted ? (
+                <button
+                  onClick={handleComplete}
+                  disabled={completing}
+                  className="flex items-center gap-2 bg-brand-accent text-brand-black px-6 py-3 rounded-lg font-bold hover:bg-brand-primary-400 transition-colors disabled:opacity-50"
+                >
+                  <CheckCircle className="w-5 h-5" />
+                  {completing ? 'Completing...' : 'Mark as Complete'}
+                </button>
+              ) : (
+                <div className="flex items-center gap-2 bg-green-500 text-white px-6 py-3 rounded-lg font-bold">
+                  <CheckCircle className="w-5 h-5" />
+                  Completed
+                </div>
+              )}
+
+              {navigation?.next && (
+                <LocaleLink
+                  href={`/courses/${courseId}/day/${navigation.next.day}`}
+                  className="flex items-center gap-2 bg-brand-accent text-brand-black px-6 py-3 rounded-lg font-bold hover:bg-brand-primary-400 transition-colors"
+                >
+                  Next Day
+                  <ArrowRight className="w-5 h-5" />
+                </LocaleLink>
+              )}
+            </div>
+
+            {/* Assessment Game */}
+            {lesson.assessmentGameId && lesson.isCompleted && (
+              <div className="bg-brand-accent/20 border-2 border-brand-accent rounded-xl p-6 mt-6">
+                <h3 className="text-xl font-bold text-brand-black mb-2 flex items-center gap-2">
+                  <Play className="w-6 h-6" />
+                  Test Your Knowledge
+                </h3>
+                <p className="text-brand-darkGrey mb-4">
+                  Complete the assessment game to reinforce what you learned.
+                </p>
+                <LocaleLink
+                  href={`/games/${lesson.assessmentGameId}`}
+                  className="inline-block bg-brand-accent text-brand-black px-6 py-3 rounded-lg font-bold hover:bg-brand-primary-400 transition-colors"
+                >
+                  Play Assessment →
+                </LocaleLink>
+              </div>
+            )}
+          </>
+        ) : (
+          <div className="bg-brand-darkGrey rounded-xl p-12 text-center border-2 border-brand-accent">
+            <Lock className="w-16 h-16 text-brand-white/30 mx-auto mb-4" />
+            <h3 className="text-xl font-bold text-brand-white mb-2">Lesson Locked</h3>
+            <p className="text-brand-white/70 mb-6">
+              Complete the previous lessons to unlock this one.
+            </p>
+            {navigation?.previous && (
+              <LocaleLink
+                href={`/courses/${courseId}/day/${navigation.previous.day}`}
+                className="inline-block bg-brand-accent text-brand-black px-6 py-3 rounded-lg font-bold hover:bg-brand-primary-400 transition-colors"
+              >
+                Go to Day {navigation.previous.day}
+              </LocaleLink>
+            )}
+          </div>
+        )}
+      </main>
+    </div>
+  );
+}

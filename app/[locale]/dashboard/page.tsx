@@ -193,7 +193,19 @@ export default function Dashboard() {
             <span>🎯</span>
             Quick Actions
           </h3>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-7 gap-3">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-9 gap-3">
+            <LocaleLink
+              href="/courses"
+              className="block bg-brand-accent text-brand-black px-4 py-3 rounded-lg font-bold text-center hover:bg-brand-primary-400 transition-all text-sm"
+            >
+              📚 Courses
+            </LocaleLink>
+            <LocaleLink
+              href="/my-courses"
+              className="block bg-brand-darkGrey text-brand-white px-4 py-3 rounded-lg font-bold text-center hover:bg-brand-secondary-700 transition-all text-sm"
+            >
+              📖 My Courses
+            </LocaleLink>
             <LocaleLink
               href="/games"
               className="block bg-brand-accent text-brand-black px-4 py-3 rounded-lg font-bold text-center hover:bg-brand-primary-400 transition-all text-sm"
