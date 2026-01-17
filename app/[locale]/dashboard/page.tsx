@@ -156,7 +156,7 @@ export default function Dashboard() {
               <Logo size="md" showText={true} linkTo="/dashboard" />
               <div>
                 <h1 className="text-3xl font-bold text-brand-white">{t('title')}</h1>
-                <p className="text-brand-white/80 mt-1">{t('welcome')}</p>
+                <p className="text-brand-white/80 mt-1">{t('yourLearningJourney')}</p>
               </div>
             </div>
             <div className="flex gap-3">
@@ -187,11 +187,11 @@ export default function Dashboard() {
       </header>
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        {/* Quick Actions */}
+        {/* Quick Actions - Learning First */}
         <div className="bg-brand-white rounded-xl shadow-lg p-6 mb-8 border-2 border-brand-accent">
           <h3 className="text-xl font-bold text-brand-black mb-4 flex items-center gap-2">
-            <span>🎯</span>
-            {t('quickActions')}
+            <span>📚</span>
+            {t('startLearning')}
           </h3>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-9 gap-3">
             <LocaleLink
@@ -338,16 +338,16 @@ export default function Dashboard() {
             </div>
           </div>
 
-          {/* Win Rate Card */}
+          {/* Course Progress Card */}
           <div className="bg-brand-white rounded-xl shadow-lg p-6 border-2 border-brand-accent">
-            <div className="text-brand-accent text-4xl mb-2">📊</div>
+            <div className="text-brand-accent text-4xl mb-2">📈</div>
             <div className="text-3xl font-bold text-brand-black">
-              {progression?.winRate.toFixed(1) || 0}%
+              {progression?.totalGamesPlayed || 0}
             </div>
-            <div className="text-brand-darkGrey">{t('winRate')}</div>
+            <div className="text-brand-darkGrey">{t('assessmentsCompleted')}</div>
             {progression && (
               <div className="text-xs text-brand-darkGrey mt-4">
-                {progression.totalGamesWon} {t('wins')} {progression.totalGamesPlayed} {t('games')}
+                {t('keepLearning')}
               </div>
             )}
           </div>
