@@ -92,7 +92,8 @@ export default async function LocaleLayout({
   }
 
   // Fetch messages for the locale
-  const messages = await getMessages();
+  // Why: Explicitly pass locale to getMessages to ensure it uses the correct locale
+  const messages = await getMessages({ locale });
 
   // Determine HTML lang attribute
   const htmlLang = locale === 'hu' ? 'hu' : locale;
