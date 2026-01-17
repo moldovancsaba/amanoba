@@ -31,6 +31,18 @@ export default auth((req) => {
   const isLoggedIn = !!req.auth?.user;
   const pathname = req.nextUrl.pathname;
 
+  // CRITICAL: Skip middleware for static files in public/ folder
+  // Why: Next.js serves these files directly, middleware should not process them
+  // Static files include: manifest.json, icons, images, etc.
+  if (
+    pathname.startsWith('/manifest.json') ||
+    pathname.startsWith('/icon-') ||
+    pathname.startsWith('/apple-touch-icon') ||
+    pathname.match(/\.(ico|png|svg|jpg|jpeg|gif|webp|json)$/i)
+  ) {
+    return NextResponse.next();
+  }
+
   // Get the actual pathname before i18n processing for route checking
   // Why: Need to check the real path for auth protection
   let actualPathname = pathname;
