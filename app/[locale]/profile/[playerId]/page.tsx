@@ -119,16 +119,16 @@ export default function ProfilePage({ params }: { params: Promise<{ playerId: st
 
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-gray-900 via-indigo-900 to-purple-900 flex items-center justify-center">
-        <div className="text-white text-xl">Loading profile...</div>
+      <div className="page-shell flex items-center justify-center">
+        <div className="text-brand-white text-xl">Loading profile...</div>
       </div>
     );
   }
 
   if (error || !data?.success) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-gray-900 via-indigo-900 to-purple-900 flex items-center justify-center">
-        <div className="text-white text-xl">Failed to load profile</div>
+      <div className="page-shell flex items-center justify-center">
+        <div className="text-brand-white text-xl">Failed to load profile</div>
       </div>
     );
   }
@@ -137,10 +137,10 @@ export default function ProfilePage({ params }: { params: Promise<{ playerId: st
   const xpProgress = (profile.progression.currentXP / profile.progression.xpToNextLevel) * 100;
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-indigo-900 to-purple-900 p-6">
+    <div className="page-shell p-6">
       <div className="max-w-6xl mx-auto">
         {/* Profile Header */}
-        <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 mb-6">
+        <div className="page-card-dark rounded-2xl p-8 mb-6">
           <div className="flex flex-col md:flex-row items-center md:items-start gap-6">
             {/* Avatar */}
             <PlayerAvatar
@@ -163,23 +163,23 @@ export default function ProfilePage({ params }: { params: Promise<{ playerId: st
                   </span>
                 )}
               </div>
-              <p className="text-2xl text-indigo-300 font-semibold mb-4">{profile.progression.title}</p>
+              <p className="text-2xl text-brand-accent font-semibold mb-4">{profile.progression.title}</p>
 
               {/* Stats Row */}
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                <div className="bg-white/5 rounded-lg p-3">
+                <div className="bg-brand-black/20 rounded-lg p-3">
                   <div className="text-gray-400 text-sm">Level</div>
                   <div className="text-white text-2xl font-bold">{profile.progression.level}</div>
                 </div>
-                <div className="bg-white/5 rounded-lg p-3">
+                <div className="bg-brand-black/20 rounded-lg p-3">
                   <div className="text-gray-400 text-sm">Games Played</div>
                   <div className="text-white text-2xl font-bold">{profile.statistics.totalGamesPlayed}</div>
                 </div>
-                <div className="bg-white/5 rounded-lg p-3">
+                <div className="bg-brand-black/20 rounded-lg p-3">
                   <div className="text-gray-400 text-sm">Win Rate</div>
                   <div className="text-white text-2xl font-bold">{profile.statistics.winRate}%</div>
                 </div>
-                <div className="bg-white/5 rounded-lg p-3">
+                <div className="bg-brand-black/20 rounded-lg p-3">
                   <div className="text-gray-400 text-sm">Achievements</div>
                   <div className="text-white text-2xl font-bold">
                     {profile.achievements.unlocked}/{profile.achievements.total}
@@ -193,9 +193,9 @@ export default function ProfilePage({ params }: { params: Promise<{ playerId: st
                   <span>Level {profile.progression.level}</span>
                   <span>{profile.progression.currentXP} / {profile.progression.xpToNextLevel} XP</span>
                 </div>
-                <div className="h-3 bg-gray-700 rounded-full overflow-hidden">
+                <div className="h-3 bg-brand-black/40 rounded-full overflow-hidden">
                   <div
-                    className="h-full bg-gradient-to-r from-indigo-500 to-purple-500 transition-all duration-500"
+                    className="h-full bg-brand-accent transition-all duration-500"
                     style={{ width: `${xpProgress}%` }}
                   />
                 </div>
@@ -223,8 +223,8 @@ export default function ProfilePage({ params }: { params: Promise<{ playerId: st
                 onClick={() => setActiveTab(tab.id as 'overview' | 'achievements' | 'activity')}
                 className={`flex items-center gap-2 px-6 py-3 rounded-lg font-semibold transition-all ${
                   activeTab === tab.id
-                    ? 'bg-indigo-600 text-white'
-                    : 'bg-white/10 text-gray-300 hover:bg-white/20'
+                    ? 'bg-brand-accent text-brand-black'
+                    : 'bg-brand-darkGrey text-brand-white/70 hover:bg-brand-black/20'
                 }`}
               >
                 <Icon className="w-5 h-5" />
@@ -240,7 +240,7 @@ export default function ProfilePage({ params }: { params: Promise<{ playerId: st
             <>
               {/* Streaks */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6">
+                <div className="page-card-dark p-6">
                   <div className="flex items-center gap-3 mb-4">
                     <div className="w-12 h-12 bg-orange-500 rounded-lg flex items-center justify-center">
                       <Flame className="w-6 h-6 text-white" />
@@ -266,7 +266,7 @@ export default function ProfilePage({ params }: { params: Promise<{ playerId: st
                   </div>
                 </div>
 
-                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6">
+                <div className="page-card-dark p-6">
                   <div className="flex items-center gap-3 mb-4">
                     <div className="w-12 h-12 bg-green-500 rounded-lg flex items-center justify-center">
                       <Calendar className="w-6 h-6 text-white" />
@@ -295,7 +295,7 @@ export default function ProfilePage({ params }: { params: Promise<{ playerId: st
 
               {/* Wallet & Stats */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6">
+                <div className="page-card-dark p-6">
                   <div className="flex items-center gap-3 mb-4">
                     <div className="w-12 h-12 bg-purple-500 rounded-lg flex items-center justify-center">
                       <Coins className="w-6 h-6 text-white" />
@@ -318,7 +318,7 @@ export default function ProfilePage({ params }: { params: Promise<{ playerId: st
                   </div>
                 </div>
 
-                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6">
+                <div className="page-card-dark p-6">
                   <div className="flex items-center gap-3 mb-4">
                     <div className="w-12 h-12 bg-indigo-500 rounded-lg flex items-center justify-center">
                       <Target className="w-6 h-6 text-white" />
@@ -347,7 +347,7 @@ export default function ProfilePage({ params }: { params: Promise<{ playerId: st
           )}
 
           {activeTab === 'achievements' && (
-            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6">
+            <div className="page-card-dark p-6">
               <div className="mb-6">
                 <div className="flex justify-between items-center mb-2">
                   <h3 className="text-2xl font-bold text-white">Achievement Progress</h3>
@@ -355,9 +355,9 @@ export default function ProfilePage({ params }: { params: Promise<{ playerId: st
                     {profile.achievements.progress}% Complete
                   </span>
                 </div>
-                <div className="h-3 bg-gray-700 rounded-full overflow-hidden">
+                <div className="h-3 bg-brand-black/40 rounded-full overflow-hidden">
                   <div
-                    className="h-full bg-gradient-to-r from-indigo-500 to-purple-500"
+                    className="h-full bg-brand-accent"
                     style={{ width: `${profile.achievements.progress}%` }}
                   />
                 </div>
@@ -365,9 +365,9 @@ export default function ProfilePage({ params }: { params: Promise<{ playerId: st
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {profile.achievements.featured.map((achievement) => (
-                  <div key={achievement.id} className="bg-white/5 rounded-lg p-4">
+                  <div key={achievement.id} className="bg-brand-black/20 rounded-lg p-4">
                     <div className="flex items-start gap-3">
-                      <div className="w-12 h-12 bg-indigo-600 rounded-lg flex items-center justify-center text-2xl">
+                      <div className="w-12 h-12 bg-brand-accent rounded-lg flex items-center justify-center text-2xl text-brand-black">
                         {achievement.icon || '🏆'}
                       </div>
                       <div className="flex-1">
@@ -395,11 +395,11 @@ export default function ProfilePage({ params }: { params: Promise<{ playerId: st
           )}
 
           {activeTab === 'activity' && (
-            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6">
+            <div className="page-card-dark p-6">
               <h3 className="text-2xl font-bold text-white mb-6">Recent Activity</h3>
               <div className="space-y-3">
                 {profile.recentActivity.map((activity, index) => (
-                  <div key={index} className="bg-white/5 rounded-lg p-4 flex items-center justify-between">
+                  <div key={index} className="bg-brand-black/20 rounded-lg p-4 flex items-center justify-between">
                     <div className="flex items-center gap-4">
                       <div className="text-3xl">{activity.gameIcon || '🎮'}</div>
                       <div>

@@ -58,7 +58,7 @@ const lessonPlan = [
 <h2>{{dayNumber}}. nap: {{lessonTitle}}</h2>
 <p>Üdvözölünk az AI 30 Napos kurzusban! Ma az alapokkal kezdünk.</p>
 <div>{{lessonContent}}</div>
-<p><a href="${appUrl}/courses/${COURSE_ID}/day/{{dayNumber}}">Olvasd el a teljes leckét →</a></p>`
+<p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Olvasd el a teljes leckét →</a></p>`
   },
   {
     day: 2,
@@ -94,7 +94,7 @@ const lessonPlan = [
     emailBody: `<h1>AI 30 Nap – 2. nap</h1>
 <h2>A jó prompt 4 eleme</h2>
 <p>Ma megtanulod, hogyan építs fel egy jó promptot. Ez az első "aha" pillanat: miért kapsz más választ ugyanarra a kérdésre.</p>
-<p><a href="${appUrl}/courses/${COURSE_ID}/day/{{dayNumber}}">Olvasd el a teljes leckét →</a></p>`
+<p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Olvasd el a teljes leckét →</a></p>`
   },
   {
     day: 3,
@@ -130,7 +130,7 @@ const lessonPlan = [
     emailBody: `<h1>AI 30 Nap – 3. nap</h1>
 <h2>Hogyan kérdezz vissza az AI-tól?</h2>
 <p>Ma megtanulod az iterációt és a pontosítást. Ez kulcsfontosságú, hogy egyre jobb válaszokat kapj.</p>
-<p><a href="${appUrl}/courses/${COURSE_ID}/day/{{dayNumber}}">Olvasd el a teljes leckét →</a></p>`
+<p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Olvasd el a teljes leckét →</a></p>`
   },
   {
     day: 4,
@@ -166,7 +166,7 @@ const lessonPlan = [
     emailBody: `<h1>AI 30 Nap – 4. nap</h1>
 <h2>Stílus és hang – tanítsd meg "úgy írni, mint te"</h2>
 <p>Ma megtanulod, hogyan tanítsd meg az AI-nak a saját írási stílusodat. Ez kulcsfontosságú a konzisztens kommunikációhoz.</p>
-<p><a href="${appUrl}/courses/${COURSE_ID}/day/{{dayNumber}}">Olvasd el a teljes leckét →</a></p>`
+<p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Olvasd el a teljes leckét →</a></p>`
   },
   {
     day: 5,
@@ -211,7 +211,7 @@ const lessonPlan = [
     emailBody: `<h1>AI 30 Nap – 5. nap</h1>
 <h2>Biztonság & etika a gyakorlatban</h2>
 <p>Ma megtanulod, mit nem adunk be az AI-nak és hogyan anonimizálunk. Ez kritikus fontosságú a biztonságos használathoz.</p>
-<p><a href="${appUrl}/courses/${COURSE_ID}/day/{{dayNumber}}">Olvasd el a teljes leckét →</a></p>`
+<p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Olvasd el a teljes leckét →</a></p>`
   },
   // 6-10. nap · Napi munka megkönnyítése
   {
@@ -249,7 +249,7 @@ const lessonPlan = [
     emailBody: `<h1>AI 30 Nap – 6. nap</h1>
 <h2>Email percek alatt – profi hangon</h2>
 <p>Ma megtanulod, hogyan írsz gyorsan professzionális emaileket. Ez az egyik legnagyobb időmegtakarítás.</p>
-<p><a href="${appUrl}/courses/${COURSE_ID}/day/{{dayNumber}}">Olvasd el a teljes leckét →</a></p>`
+<p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Olvasd el a teljes leckét →</a></p>`
   },
   {
     day: 7,
@@ -285,7 +285,7 @@ const lessonPlan = [
     emailBody: `<h1>AI 30 Nap – 7. nap</h1>
 <h2>Meeting jegyzetből teendőlista</h2>
 <p>Ma megtanulod, hogyan alakítasz át meeting jegyzeteket strukturált teendőlistává. Ez rengeteg időt takarít meg.</p>
-<p><a href="${appUrl}/courses/${COURSE_ID}/day/{{dayNumber}}">Olvasd el a teljes leckét →</a></p>`
+<p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Olvasd el a teljes leckét →</a></p>`
   },
   {
     day: 8,
@@ -322,7 +322,7 @@ const lessonPlan = [
     emailBody: `<h1>AI 30 Nap – 8. nap</h1>
 <h2>Dokumentumok: brief, váz, összefoglaló</h2>
 <p>Ma megtanulod, hogyan készítesz briefeket, vázlatokat és összefoglalókat. Ezek a dokumentumok sok időt vesznek igénybe manuálisan.</p>
-<p><a href="${appUrl}/courses/${COURSE_ID}/day/{{dayNumber}}">Olvasd el a teljes leckét →</a></p>`
+<p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Olvasd el a teljes leckét →</a></p>`
   },
   {
     day: 9,
@@ -358,7 +358,7 @@ const lessonPlan = [
     emailBody: `<h1>AI 30 Nap – 9. nap</h1>
 <h2>Táblázat-gondolkodás AI-val</h2>
 <p>Ma megtanulod, hogyan alakítasz át szöveges információkat táblázatokká. Ez nagyon hasznos adatok strukturálásához.</p>
-<p><a href="${appUrl}/courses/${COURSE_ID}/day/{{dayNumber}}">Olvasd el a teljes leckét →</a></p>`
+<p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Olvasd el a teljes leckét →</a></p>`
   },
   {
     day: 10,
@@ -407,7 +407,7 @@ const lessonPlan = [
     emailBody: `<h1>AI 30 Nap – 10. nap</h1>
 <h2>Ismétlés & prompt-debug nap</h2>
 <p>Ma ismételed az elmúlt 5 nap anyagát és gyakorlod a prompt debugolást. Ez fontos a fejlődéshez.</p>
-<p><a href="${appUrl}/courses/${COURSE_ID}/day/{{dayNumber}}">Olvasd el a teljes leckét →</a></p>`
+<p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Olvasd el a teljes leckét →</a></p>`
   },
   // 11-15. nap · Rendszerépítés
   {
@@ -446,7 +446,7 @@ const lessonPlan = [
     emailBody: `<h1>AI 30 Nap – 11. nap</h1>
 <h2>Saját prompt könyvtár létrehozása</h2>
 <p>Ma létrehozod a saját prompt könyvtáradat. Ez rengeteg időt takarít meg a jövőben.</p>
-<p><a href="${appUrl}/courses/${COURSE_ID}/day/{{dayNumber}}">Olvasd el a teljes leckét →</a></p>`
+<p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Olvasd el a teljes leckét →</a></p>`
   },
   {
     day: 12,
@@ -482,7 +482,7 @@ const lessonPlan = [
     emailBody: `<h1>AI 30 Nap – 12. nap</h1>
 <h2>Workflow: input → feldolgozás → output</h2>
 <p>Ma kialakítasz egy hatékony workflow-t. Ez kulcsfontosságú a hatékonysághoz.</p>
-<p><a href="${appUrl}/courses/${COURSE_ID}/day/{{dayNumber}}">Olvasd el a teljes leckét →</a></p>`
+<p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Olvasd el a teljes leckét →</a></p>`
   },
   {
     day: 13,
@@ -527,7 +527,7 @@ const lessonPlan = [
     emailBody: `<h1>AI 30 Nap – 13. nap</h1>
 <h2>Hibák, hallucinációk kezelése</h2>
 <p>Ma megtanulod, hogyan ismersz fel és kezelsz hibákat. Ez kritikus fontosságú a megbízható használathoz.</p>
-<p><a href="${appUrl}/courses/${COURSE_ID}/day/{{dayNumber}}">Olvasd el a teljes leckét →</a></p>`
+<p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Olvasd el a teljes leckét →</a></p>`
   },
   {
     day: 14,
@@ -564,7 +564,7 @@ const lessonPlan = [
     emailBody: `<h1>AI 30 Nap – 14. nap</h1>
 <h2>Személyes "AI-asszisztens" hang kialakítása</h2>
 <p>Ma kialakítod a saját AI-asszisztens hangodat. Ez segít a konzisztens kommunikációban.</p>
-<p><a href="${appUrl}/courses/${COURSE_ID}/day/{{dayNumber}}">Olvasd el a teljes leckét →</a></p>`
+<p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Olvasd el a teljes leckét →</a></p>`
   },
   {
     day: 15,
@@ -608,7 +608,7 @@ const lessonPlan = [
     emailBody: `<h1>AI 30 Nap – 15. nap</h1>
 <h2>Ismétlés: rossz prompt → jó prompt</h2>
 <p>Ma ismételed a prompt írás készségeidet. Ez fontos a fejlődéshez.</p>
-<p><a href="${appUrl}/courses/${COURSE_ID}/day/{{dayNumber}}">Olvasd el a teljes leckét →</a></p>`
+<p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Olvasd el a teljes leckét →</a></p>`
   },
   // 16-20. nap · Szerep-specifikus használat
   {
@@ -646,7 +646,7 @@ const lessonPlan = [
     emailBody: `<h1>AI 30 Nap – 16. nap</h1>
 <h2>Marketing / Sales / PM / Dev – belépő nap</h2>
 <p>Ma megtanulod, hogyan használhatod az AI-t a saját szerepedben. Ez személyre szabja a tanulást.</p>
-<p><a href="${appUrl}/courses/${COURSE_ID}/day/{{dayNumber}}">Olvasd el a teljes leckét →</a></p>`
+<p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Olvasd el a teljes leckét →</a></p>`
   },
   {
     day: 17,
@@ -683,7 +683,7 @@ const lessonPlan = [
     emailBody: `<h1>AI 30 Nap – 17. nap</h1>
 <h2>Szerephez illesztett sabloncsomag I.</h2>
 <p>Ma készítesz szerep-specifikus prompt sablonokat. Ez személyre szabja az AI használatodat.</p>
-<p><a href="${appUrl}/courses/${COURSE_ID}/day/{{dayNumber}}">Olvasd el a teljes leckét →</a></p>`
+<p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Olvasd el a teljes leckét →</a></p>`
   },
   {
     day: 18,
@@ -719,7 +719,7 @@ const lessonPlan = [
     emailBody: `<h1>AI 30 Nap – 18. nap</h1>
 <h2>Szerephez illesztett sabloncsomag II.</h2>
 <p>Ma bővíted a sabloncsomagodat haladó promptokkal. Ez még hatékonyabbá teszi az AI használatodat.</p>
-<p><a href="${appUrl}/courses/${COURSE_ID}/day/{{dayNumber}}">Olvasd el a teljes leckét →</a></p>`
+<p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Olvasd el a teljes leckét →</a></p>`
   },
   {
     day: 19,
@@ -756,7 +756,7 @@ const lessonPlan = [
     emailBody: `<h1>AI 30 Nap – 19. nap</h1>
 <h2>Tipikus csapdák az adott szerepben</h2>
 <p>Ma megtanulod, hogyan kerüld el a tipikus csapdákat. Ez segít a megbízható használatban.</p>
-<p><a href="${appUrl}/courses/${COURSE_ID}/day/{{dayNumber}}">Olvasd el a teljes leckét →</a></p>`
+<p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Olvasd el a teljes leckét →</a></p>`
   },
   {
     day: 20,
@@ -793,7 +793,7 @@ const lessonPlan = [
     emailBody: `<h1>AI 30 Nap – 20. nap</h1>
 <h2>Skill-check & szintlépés</h2>
 <p>Ma ellenőrzöd a fejlődésedet és meghatározod a következő szintet. Ez fontos a folyamatos fejlődéshez.</p>
-<p><a href="${appUrl}/courses/${COURSE_ID}/day/{{dayNumber}}">Olvasd el a teljes leckét →</a></p>`
+<p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Olvasd el a teljes leckét →</a></p>`
   },
   // 21-25. nap · AI a bevételhez
   {
@@ -832,7 +832,7 @@ const lessonPlan = [
     emailBody: `<h1>AI 30 Nap – 21. nap</h1>
 <h2>Ötletvalidálás AI-val</h2>
 <p>Ma megtanulod, hogyan validálod az ötleteidet. Ez segít a jó döntések meghozatalában.</p>
-<p><a href="${appUrl}/courses/${COURSE_ID}/day/{{dayNumber}}">Olvasd el a teljes leckét →</a></p>`
+<p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Olvasd el a teljes leckét →</a></p>`
   },
   {
     day: 22,
@@ -869,7 +869,7 @@ const lessonPlan = [
     emailBody: `<h1>AI 30 Nap – 22. nap</h1>
 <h2>Persona & értékajánlat</h2>
 <p>Ma megtanulod, hogyan készítesz personát és értékajánlatot. Ez kulcsfontosságú a marketinghez és értékesítéshez.</p>
-<p><a href="${appUrl}/courses/${COURSE_ID}/day/{{dayNumber}}">Olvasd el a teljes leckét →</a></p>`
+<p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Olvasd el a teljes leckét →</a></p>`
   },
   {
     day: 23,
@@ -906,7 +906,7 @@ const lessonPlan = [
     emailBody: `<h1>AI 30 Nap – 23. nap</h1>
 <h2>Landing váz és szöveg</h2>
 <p>Ma megtanulod, hogyan készítesz landing page vázlatot és szöveget. Ez hasznos a marketinghez.</p>
-<p><a href="${appUrl}/courses/${COURSE_ID}/day/{{dayNumber}}">Olvasd el a teljes leckét →</a></p>`
+<p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Olvasd el a teljes leckét →</a></p>`
   },
   {
     day: 24,
@@ -944,7 +944,7 @@ const lessonPlan = [
     emailBody: `<h1>AI 30 Nap – 24. nap</h1>
 <h2>Árazás alapjai</h2>
 <p>Ma megtanulod, hogyan gondolkodsz árazásról. Ez fontos a bevételhez.</p>
-<p><a href="${appUrl}/courses/${COURSE_ID}/day/{{dayNumber}}">Olvasd el a teljes leckét →</a></p>`
+<p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Olvasd el a teljes leckét →</a></p>`
   },
   {
     day: 25,
@@ -982,7 +982,7 @@ const lessonPlan = [
     emailBody: `<h1>AI 30 Nap – 25. nap</h1>
 <h2>MVP gondolkodás – mit NEM csinálunk</h2>
 <p>Ma megtanulod az MVP gondolkodást. Ez segít a fókuszban és a prioritásokban.</p>
-<p><a href="${appUrl}/courses/${COURSE_ID}/day/{{dayNumber}}">Olvasd el a teljes leckét →</a></p>`
+<p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Olvasd el a teljes leckét →</a></p>`
   },
   // 26-30. nap · Lezárás & következő szint
   {
@@ -1020,7 +1020,7 @@ const lessonPlan = [
     emailBody: `<h1>AI 30 Nap – 26. nap</h1>
 <h2>Saját AI-rutin kialakítása</h2>
 <p>Ma kialakítod a saját napi AI-rutinodat. Ez segít a következetes használatban.</p>
-<p><a href="${appUrl}/courses/${COURSE_ID}/day/{{dayNumber}}">Olvasd el a teljes leckét →</a></p>`
+<p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Olvasd el a teljes leckét →</a></p>`
   },
   {
     day: 27,
@@ -1057,7 +1057,7 @@ const lessonPlan = [
     emailBody: `<h1>AI 30 Nap – 27. nap</h1>
 <h2>60 másodperces pitch AI-val</h2>
 <p>Ma megtanulod, hogyan készítesz 60 másodperces pitch-et. Ez hasznos a prezentációkhoz és értékesítéshez.</p>
-<p><a href="${appUrl}/courses/${COURSE_ID}/day/{{dayNumber}}">Olvasd el a teljes leckét →</a></p>`
+<p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Olvasd el a teljes leckét →</a></p>`
   },
   {
     day: 28,
@@ -1095,7 +1095,7 @@ const lessonPlan = [
     emailBody: `<h1>AI 30 Nap – 28. nap</h1>
 <h2>Portfólió-szintű kimenetek</h2>
 <p>Ma megtanulod, hogyan készítesz portfólió-szintű kimeneteket. Ezek megmutathatók és használhatók.</p>
-<p><a href="${appUrl}/courses/${COURSE_ID}/day/{{dayNumber}}">Olvasd el a teljes leckét →</a></p>`
+<p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Olvasd el a teljes leckét →</a></p>`
   },
   {
     day: 29,
@@ -1133,7 +1133,7 @@ const lessonPlan = [
     emailBody: `<h1>AI 30 Nap – 29. nap</h1>
 <h2>Személyes fejlődési térkép</h2>
 <p>Ma készítesz egy személyes fejlődési térképet. Ez segít a folyamatos fejlődésben.</p>
-<p><a href="${appUrl}/courses/${COURSE_ID}/day/{{dayNumber}}">Olvasd el a teljes leckét →</a></p>`
+<p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Olvasd el a teljes leckét →</a></p>`
   },
   {
     day: 30,
@@ -1192,7 +1192,7 @@ const lessonPlan = [
 <h2>Zárás – merre tovább?</h2>
 <p>Gratulálunk! Elvégezted a 30 napos AI kurzust! 🎉</p>
 <p>Ma lezárjuk a kurzust és meghatározzuk a következő lépéseket.</p>
-<p><a href="${appUrl}/courses/${COURSE_ID}/day/{{dayNumber}}">Olvasd el a teljes leckét →</a></p>
+<p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Olvasd el a teljes leckét →</a></p>
 <p>Köszönjük, hogy elvégezted a kurzust! Folytasd a tanulást! 🚀</p>`
   }
 ];
@@ -1210,6 +1210,18 @@ async function seed() {
   }
 
   const appUrl = process.env.NEXT_PUBLIC_APP_URL || 'https://www.amanoba.com';
+
+  // Process email bodies to replace placeholders with actual values
+  // This needs to happen after appUrl is defined
+  for (const entry of lessonPlan) {
+    if (entry.emailBody) {
+      entry.emailBody = entry.emailBody.replace(/\{\{APP_URL\}\}/g, appUrl);
+      entry.emailBody = entry.emailBody.replace(/\{\{COURSE_ID\}\}/g, COURSE_ID);
+      // Replace hardcoded day numbers with placeholder
+      entry.emailBody = entry.emailBody.replace(new RegExp(`/day/${entry.day}"`, 'g'), '/day/{{dayNumber}}"');
+      entry.emailBody = entry.emailBody.replace(new RegExp(`/day/${entry.day}>`, 'g'), '/day/{{dayNumber}}>');
+    }
+  }
 
   await mongoose.connect(mongoUri);
   console.log('✅ Connected to MongoDB');
@@ -1286,7 +1298,7 @@ async function seed() {
     // Keep {{dayNumber}}, {{courseName}}, {{lessonTitle}}, {{lessonContent}} for email service
     let emailBody = entry.emailBody;
     if (emailBody) {
-      // Replace ${appUrl} and ${COURSE_ID} with actual values (they appear as literal strings in the template)
+      // Replace {{APP_URL}} and ${COURSE_ID} with actual values (they appear as literal strings in the template)
       emailBody = emailBody.replace(/\$\{appUrl\}/g, appUrl);
       emailBody = emailBody.replace(/\$\{COURSE_ID\}/g, COURSE_ID);
       // Replace any hardcoded day numbers in URLs with placeholder
@@ -1298,7 +1310,7 @@ async function seed() {
         `<h1>{{courseName}}</h1>`,
         `<h2>{{dayNumber}}. nap: {{lessonTitle}}</h2>`,
         '<div>{{lessonContent}}</div>',
-        `<p><a href="${appUrl}/courses/${COURSE_ID}/day/{{dayNumber}}">Megnyitom a leckét →</a></p>`
+        `<p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Megnyitom a leckét →</a></p>`
       ].join('');
     }
 

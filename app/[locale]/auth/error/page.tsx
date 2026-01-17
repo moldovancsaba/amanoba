@@ -74,17 +74,20 @@ const errorMessages: Record<string, { title: string; description: string }> = {
  */
 export default async function AuthErrorPage({
   searchParams,
+  params,
 }: {
   searchParams: Promise<{ error?: string }>;
+  params: Promise<{ locale: string }>;
 }) {
-  const params = await searchParams;
-  const errorType = params.error || 'default';
+  const search = await searchParams;
+  const { locale } = await params;
+  const errorType = search.error || 'default';
   const errorInfo = errorMessages[errorType] || errorMessages.default;
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-600 p-4">
+    <div className="page-shell flex items-center justify-center p-4">
       <div className="w-full max-w-md">
-        <div className="bg-white rounded-2xl shadow-2xl p-8">
+        <div className="page-card rounded-2xl p-8">
           {/* Error Icon */}
           <div className="text-center mb-6">
             <div className="inline-flex items-center justify-center w-16 h-16 bg-red-100 rounded-full mb-4">
@@ -102,10 +105,10 @@ export default async function AuthErrorPage({
                 />
               </svg>
             </div>
-            <h1 className="text-2xl font-bold text-gray-900 mb-2">
+            <h1 className="text-2xl font-bold text-brand-black mb-2">
               {errorInfo.title}
             </h1>
-            <p className="text-gray-600">
+            <p className="text-brand-darkGrey">
               {errorInfo.description}
             </p>
           </div>
@@ -113,26 +116,26 @@ export default async function AuthErrorPage({
           {/* Actions */}
           <div className="space-y-3">
             <Link
-              href="/auth/signin"
-              className="block w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 px-6 rounded-lg text-center transition-colors duration-200"
+              href={`/${locale}/auth/signin`}
+              className="page-button-primary w-full text-center"
             >
               Try Again
             </Link>
             <Link
-              href="/"
-              className="block w-full bg-gray-100 hover:bg-gray-200 text-gray-700 font-semibold py-3 px-6 rounded-lg text-center transition-colors duration-200"
+              href={`/${locale}`}
+              className="page-button-secondary w-full text-center"
             >
               Go to Homepage
             </Link>
           </div>
 
           {/* Support Info */}
-          <div className="mt-6 text-center text-sm text-gray-500">
+          <div className="mt-6 text-center text-sm text-brand-darkGrey">
             <p>
               Need help?{' '}
               <a
                 href="mailto:csaba@doneisbetter.com"
-                className="text-indigo-600 hover:text-indigo-700 underline"
+                className="text-brand-accent hover:text-brand-primary-600 underline"
               >
                 Contact Support
               </a>
@@ -141,8 +144,8 @@ export default async function AuthErrorPage({
 
           {/* Debug Info (development only) */}
           {process.env.NODE_ENV === 'development' && (
-            <div className="mt-6 p-4 bg-gray-50 rounded-lg">
-              <p className="text-xs font-mono text-gray-600">
+            <div className="mt-6 p-4 bg-brand-darkGrey/10 rounded-lg">
+              <p className="text-xs font-mono text-brand-darkGrey">
                 Error Type: {errorType}
               </p>
             </div>

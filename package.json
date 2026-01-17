@@ -27,7 +27,8 @@
     "seed:guest-usernames": "tsx --env-file=.env.local scripts/seed-guest-usernames.ts",
     "seed:quiz-questions": "tsx scripts/seed-quiz-questions.ts",
     "seed:whackpop-emojis": "tsx scripts/seed-whackpop-emojis.ts",
-    "seed:translations": "tsx scripts/seed-translations-direct.ts"
+    "seed:translations": "tsx scripts/seed-translations-direct.ts",
+    "seed:ai-course": "tsx --env-file=.env.local scripts/seed-ai-30-nap-course.ts"
   },
   "dependencies": {
     "@auth/mongodb-adapter": "^3.11.0",

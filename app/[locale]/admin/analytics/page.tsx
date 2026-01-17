@@ -248,21 +248,21 @@ export default function AdminAnalyticsPage() {
   }));
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-indigo-900 to-purple-900 p-6">
-      <div className="max-w-7xl mx-auto">
+    <div className="page-shell p-6">
+      <div className="page-container">
         <header className="mb-8">
-          <h1 className="text-4xl font-bold text-white mb-2">Analytics Dashboard</h1>
-          <p className="text-gray-300">Comprehensive metrics and insights</p>
+          <h1 className="text-4xl font-bold text-brand-white mb-2">Analytics Dashboard</h1>
+          <p className="text-brand-white/70">Comprehensive metrics and insights</p>
         </header>
 
         {/* Controls */}
-        <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 mb-6 flex gap-4 flex-wrap">
+        <div className="page-card-dark p-4 mb-6 flex gap-4 flex-wrap">
           <div>
-            <label className="block text-white text-sm mb-1">Period</label>
+            <label className="block text-brand-white text-sm mb-1">Period</label>
             <select
               value={period}
               onChange={(e) => setPeriod(e.target.value as 'daily' | 'weekly' | 'monthly')}
-              className="px-4 py-2 rounded-lg bg-white/20 text-white border border-white/30"
+              className="px-4 py-2 rounded-lg bg-brand-black/30 text-brand-white border border-brand-darkGrey/50"
             >
               <option value="daily">Daily</option>
               <option value="weekly">Weekly</option>
@@ -270,28 +270,28 @@ export default function AdminAnalyticsPage() {
             </select>
           </div>
           <div>
-            <label className="block text-white text-sm mb-1">Start Date</label>
+            <label className="block text-brand-white text-sm mb-1">Start Date</label>
             <input
               type="date"
               value={dateRange.startDate}
               onChange={(e) => setDateRange({ ...dateRange, startDate: e.target.value })}
-              className="px-4 py-2 rounded-lg bg-white/20 text-white border border-white/30"
+              className="px-4 py-2 rounded-lg bg-brand-black/30 text-brand-white border border-brand-darkGrey/50"
             />
           </div>
           <div>
-            <label className="block text-white text-sm mb-1">End Date</label>
+            <label className="block text-brand-white text-sm mb-1">End Date</label>
             <input
               type="date"
               value={dateRange.endDate}
               onChange={(e) => setDateRange({ ...dateRange, endDate: e.target.value })}
-              className="px-4 py-2 rounded-lg bg-white/20 text-white border border-white/30"
+              className="px-4 py-2 rounded-lg bg-brand-black/30 text-brand-white border border-brand-darkGrey/50"
             />
           </div>
         </div>
 
         {/* Real-time Stats */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-          <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6">
+          <div className="page-card-dark p-6">
             <div className="text-gray-300 text-sm mb-1">Active Users (24h)</div>
             <div className="text-4xl font-bold text-white">
               {realtimeData?.last24Hours.activeUsers || 0}
@@ -300,7 +300,7 @@ export default function AdminAnalyticsPage() {
               {realtimeData?.last1Hour.activeUsers || 0} in last hour
             </div>
           </div>
-          <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6">
+          <div className="page-card-dark p-6">
             <div className="text-gray-300 text-sm mb-1">Game Sessions (24h)</div>
             <div className="text-4xl font-bold text-white">
               {realtimeData?.last24Hours.gameSessions || 0}
@@ -309,13 +309,13 @@ export default function AdminAnalyticsPage() {
               {realtimeData?.current.activeSessions || 0} active now
             </div>
           </div>
-          <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6">
+          <div className="page-card-dark p-6">
             <div className="text-gray-300 text-sm mb-1">Points Earned (24h)</div>
             <div className="text-4xl font-bold text-white">
               {realtimeData?.last24Hours.totalPointsEarned?.toLocaleString() || 0}
             </div>
           </div>
-          <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6">
+          <div className="page-card-dark p-6">
             <div className="text-gray-300 text-sm mb-1">Achievements (24h)</div>
             <div className="text-4xl font-bold text-white">
               {realtimeData?.last24Hours.achievementUnlocks || 0}
@@ -326,7 +326,7 @@ export default function AdminAnalyticsPage() {
         {/* Charts */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           {/* Active Users Chart */}
-          <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6">
+          <div className="page-card-dark p-6">
             <h3 className="text-xl font-bold text-white mb-4">Active Users Trend</h3>
             <ResponsiveContainer width="100%" height={300}>
               <LineChart data={activeUsersChartData}>
@@ -343,7 +343,7 @@ export default function AdminAnalyticsPage() {
           </div>
 
           {/* Game Sessions Chart */}
-          <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6">
+          <div className="page-card-dark p-6">
             <h3 className="text-xl font-bold text-white mb-4">Game Sessions & Points</h3>
             <ResponsiveContainer width="100%" height={300}>
               <BarChart data={gameSessionsChartData}>
@@ -359,7 +359,7 @@ export default function AdminAnalyticsPage() {
           </div>
 
           {/* Revenue Chart */}
-          <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6">
+          <div className="page-card-dark p-6">
             <h3 className="text-xl font-bold text-white mb-4">Reward Redemptions</h3>
             <ResponsiveContainer width="100%" height={300}>
               <AreaChart data={revenueChartData}>
@@ -375,7 +375,7 @@ export default function AdminAnalyticsPage() {
           </div>
 
           {/* Engagement Chart */}
-          <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6">
+          <div className="page-card-dark p-6">
             <h3 className="text-xl font-bold text-white mb-4">Player Engagement</h3>
             <ResponsiveContainer width="100%" height={300}>
               <LineChart data={engagementChartData}>
@@ -392,7 +392,7 @@ export default function AdminAnalyticsPage() {
         </div>
 
         {/* Top Games */}
-        <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 mt-6">
+        <div className="page-card-dark p-6 mt-6">
           <h3 className="text-xl font-bold text-white mb-4">Top Games (24h)</h3>
           <div className="space-y-3">
             {realtimeData?.topGames.map((game, index) => (
@@ -414,7 +414,7 @@ export default function AdminAnalyticsPage() {
         </div>
 
         {/* Recent Activity */}
-        <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 mt-6">
+        <div className="page-card-dark p-6 mt-6">
           <h3 className="text-xl font-bold text-white mb-4">Recent Activity</h3>
           <div className="space-y-2">
             {realtimeData?.recentEvents.slice(0, 10).map((event) => (
