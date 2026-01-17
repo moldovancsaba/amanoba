@@ -44,14 +44,12 @@ export default auth((req) => {
   }
 
   // FIRST: Let intlMiddleware handle ALL locale routing
-  // This rewrites / to /hu internally (with localePrefix: 'as-needed', URL stays /)
-  // For /en/... it keeps /en/...
+  // With localePrefix: 'always', / redirects to /hu
   // This MUST happen first before any other processing
   const response = intlMiddleware(req);
   
   // Get the actual pathname for route checking (after locale processing)
-  // For root path (/), intlMiddleware rewrites to /hu internally but URL stays /
-  // We need to extract the path without locale for route protection checks
+  // Extract the path without locale for route protection checks
   let actualPathname = pathname;
   
   // Remove locale prefix if present for route checking
@@ -60,13 +58,6 @@ export default auth((req) => {
       actualPathname = pathname.replace(`/${locale}`, '') || '/';
       break;
     }
-  }
-  
-  // For root path, let it through to app/page.tsx
-  // That page will redirect to /auth/signin
-  // The intlMiddleware has already rewritten / to /hu internally
-  if (actualPathname === '/' || actualPathname === '') {
-    return response;
   }
 
   // Define protected routes (without locale prefix)
@@ -117,9 +108,8 @@ export default auth((req) => {
         break;
       }
     }
-    const dashboardPath = locale === defaultLocale
-      ? `/dashboard` // No prefix for default locale
-      : `/${locale}/dashboard`;
+    // With localePrefix: 'always', all routes have locale prefix
+    const dashboardPath = `/${locale}/dashboard`;
     return NextResponse.redirect(new URL(dashboardPath, req.url));
   }
 

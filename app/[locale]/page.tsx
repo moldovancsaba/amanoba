@@ -18,11 +18,7 @@ export default async function LocaleRootPage({
   const { locale } = await params;
   
   // Always redirect to signin for this locale
-  // For default locale (hu), path is /auth/signin (no prefix)
-  // For other locales (en), path is /en/auth/signin
-  const signInPath = locale === defaultLocale 
-    ? '/auth/signin' 
-    : `/${locale}/auth/signin`;
-  
-  redirect(signInPath);
+  // With localePrefix: 'always', all routes have locale prefix
+  // /hu → /hu/auth/signin, /en → /en/auth/signin
+  redirect(`/${locale}/auth/signin`);
 }
