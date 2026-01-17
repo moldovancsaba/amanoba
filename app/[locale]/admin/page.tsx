@@ -302,6 +302,12 @@ export default function AdminDashboardPage() {
         </div>
 
         {/* Platform Health */}
+        {/* NOTE: These metrics are currently placeholder values. To implement real metrics, we would need:
+            - API response time tracking (middleware or monitoring service)
+            - Database query performance monitoring (MongoDB Atlas metrics or custom tracking)
+            - Error rate calculation (from EventLog or error tracking service)
+            - Active connections monitoring (MongoDB connection pool metrics)
+            This would require integration with a monitoring system like DataDog, New Relic, or custom EventLog analysis */}
         <div className="bg-gray-800 rounded-xl p-6 border border-gray-700">
           <h2 className="text-xl font-bold text-white mb-4">{t('platformHealth')}</h2>
           <div className="space-y-4">
