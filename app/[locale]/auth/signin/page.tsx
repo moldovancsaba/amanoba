@@ -9,6 +9,8 @@ import { signIn } from '@/auth';
 import { redirect } from 'next/navigation';
 import { auth } from '@/auth';
 import { AnonymousLoginButton } from '@/components/AnonymousLoginButton';
+import { getTranslations } from 'next-intl/server';
+import { LocaleLink } from '@/components/LocaleLink';
 
 /**
  * Sign In Page Component
@@ -17,17 +19,23 @@ import { AnonymousLoginButton } from '@/components/AnonymousLoginButton';
  */
 export default async function SignInPage({
   searchParams,
+  params,
 }: {
   searchParams: Promise<{ callbackUrl?: string }>;
+  params: Promise<{ locale: string }>;
 }) {
-  const params = await searchParams;
+  const { locale } = await params;
+  const searchParamsResolved = await searchParams;
+  const t = await getTranslations('auth');
+  const tCommon = await getTranslations('common');
   
   // Check if user is already authenticated
   const session = await auth();
   
   if (session?.user) {
     // Redirect authenticated users to dashboard
-    redirect(params.callbackUrl || '/dashboard');
+    const callbackUrl = searchParamsResolved.callbackUrl || `/${locale}/dashboard`;
+    redirect(callbackUrl);
   }
 
   return (
@@ -39,7 +47,7 @@ export default async function SignInPage({
           <div className="text-center mb-8">
             <div className="text-6xl mb-4">🎮</div>
             <h1 className="text-3xl font-bold text-gray-900 mb-2">
-              Welcome to Amanoba
+              {t('welcome')} {tCommon('appName')}
             </h1>
             <p className="text-gray-600">
               Play. Compete. Achieve.
@@ -50,9 +58,10 @@ export default async function SignInPage({
           <form
             action={async () => {
               'use server';
-              const params = await searchParams;
+              const resolvedParams = await params;
+              const resolvedSearchParams = await searchParams;
               await signIn('facebook', { 
-                redirectTo: params.callbackUrl || '/dashboard' 
+                redirectTo: resolvedSearchParams.callbackUrl || `/${resolvedParams.locale}/dashboard` 
               });
             }}
           >
@@ -72,7 +81,7 @@ export default async function SignInPage({
                   clipRule="evenodd"
                 />
               </svg>
-              Continue with Facebook
+              {t('signInWithFacebook')}
             </button>
           </form>
 
@@ -92,14 +101,14 @@ export default async function SignInPage({
           {/* Additional Info */}
           <div className="mt-8 text-center text-sm text-gray-500">
             <p>
-              By continuing, you agree to Amanoba&apos;s{' '}
-              <a href="/terms" className="text-indigo-600 hover:text-indigo-700 underline">
+              By continuing, you agree to {tCommon('appName')}&apos;s{' '}
+              <Link href={`/${locale}/terms`} className="text-indigo-600 hover:text-indigo-700 underline">
                 Terms of Service
-              </a>{' '}
+              </Link>{' '}
               and{' '}
-              <a href="/privacy" className="text-indigo-600 hover:text-indigo-700 underline">
+              <Link href={`/${locale}/privacy`} className="text-indigo-600 hover:text-indigo-700 underline">
                 Privacy Policy
-              </a>
+              </Link>
             </p>
           </div>
         </div>
@@ -110,15 +119,15 @@ export default async function SignInPage({
           <div className="grid grid-cols-3 gap-4">
             <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
               <div className="text-3xl mb-2">🎯</div>
-              <p className="text-sm font-medium">Multiple Games</p>
+              <p className="text-sm font-medium">{tCommon('games.title')}</p>
             </div>
             <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
               <div className="text-3xl mb-2">🏆</div>
-              <p className="text-sm font-medium">Achievements</p>
+              <p className="text-sm font-medium">{tCommon('achievements.title')}</p>
             </div>
             <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
               <div className="text-3xl mb-2">⭐</div>
-              <p className="text-sm font-medium">Leaderboards</p>
+              <p className="text-sm font-medium">{tCommon('leaderboard.title')}</p>
             </div>
           </div>
         </div>

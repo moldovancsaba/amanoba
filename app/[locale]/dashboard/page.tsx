@@ -9,7 +9,8 @@
 
 import { useEffect, useState } from 'react';
 import { useSession, signOut } from 'next-auth/react';
-import Link from 'next/link';
+import { useTranslations, useLocale } from 'next-intl';
+import { LocaleLink } from '@/components/LocaleLink';
 import { ReferralCard } from '@/components/ReferralCard';
 
 interface PlayerData {
@@ -50,6 +51,9 @@ interface PlayerData {
 
 export default function Dashboard() {
   const { data: session, status } = useSession();
+  const locale = useLocale();
+  const t = useTranslations('dashboard');
+  const tCommon = useTranslations('common');
   const [playerData, setPlayerData] = useState<PlayerData | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -100,7 +104,7 @@ export default function Dashboard() {
     return (
       <div className="min-h-screen bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 flex items-center justify-center">
         <div className="text-white text-2xl font-bold animate-pulse">
-          Loading Dashboard...
+          {t('loading')}
         </div>
       </div>
     );
@@ -112,7 +116,7 @@ export default function Dashboard() {
         <div className="bg-white rounded-2xl shadow-2xl p-8 max-w-md w-full text-center">
           <div className="text-6xl mb-4">😕</div>
           <h2 className="text-2xl font-bold text-gray-900 mb-4">
-            Unable to Load Dashboard
+            {t('unableToLoad')}
           </h2>
           <p className="text-gray-600 mb-6">{error}</p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
@@ -124,13 +128,13 @@ export default function Dashboard() {
               }}
               className="inline-block bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-6 py-3 rounded-xl font-bold hover:from-indigo-700 hover:to-purple-700 transition-all"
             >
-              Retry
+              {t('retry')}
             </button>
             <button
-              onClick={() => signOut({ callbackUrl: '/auth/signin' })}
+              onClick={() => signOut({ callbackUrl: `/${locale}/auth/signin` })}
               className="inline-block bg-red-500 text-white px-6 py-3 rounded-xl font-bold hover:bg-red-600 transition-colors"
             >
-              Sign out
+              {tCommon('auth.signOut')}
             </button>
           </div>
         </div>
@@ -148,8 +152,8 @@ export default function Dashboard() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex justify-between items-center">
             <div>
-              <h1 className="text-3xl font-bold text-white">Dashboard</h1>
-              <p className="text-white/80 mt-1">Your progress at a glance</p>
+              <h1 className="text-3xl font-bold text-white">{t('title')}</h1>
+              <p className="text-white/80 mt-1">{t('welcome')}</p>
             </div>
             <div className="flex gap-3">
               <button
@@ -161,18 +165,18 @@ export default function Dashboard() {
               >
                 🔄 Refresh
               </button>
-              <Link
+              <LocaleLink
                 href="/games"
                 className="bg-white/20 backdrop-blur-sm text-white px-4 py-2 rounded-lg hover:bg-white/30 transition-colors font-medium"
               >
-                🎮 Play Games
-              </Link>
-              <button
-                onClick={() => signOut({ callbackUrl: '/auth/signin' })}
-                className="bg-red-500/80 backdrop-blur-sm text-white px-4 py-2 rounded-lg hover:bg-red-600 transition-colors font-medium"
-              >
-                🚪 Logout
-              </button>
+                🎮 {tCommon('games.playNow')}
+              </LocaleLink>
+            <button
+              onClick={() => signOut({ callbackUrl: `/${locale}/auth/signin` })}
+              className="bg-red-500/80 backdrop-blur-sm text-white px-4 py-2 rounded-lg hover:bg-red-600 transition-colors font-medium"
+            >
+              🚪 {tCommon('auth.signOut')}
+            </button>
             </div>
           </div>
         </div>
@@ -186,48 +190,48 @@ export default function Dashboard() {
             Quick Actions
           </h3>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-7 gap-3">
-            <Link
+            <LocaleLink
               href="/games"
               className="block bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-4 py-3 rounded-lg font-bold text-center hover:from-indigo-700 hover:to-purple-700 transition-all text-sm"
             >
-              🎮 Games
-            </Link>
-            <Link
+              🎮 {tCommon('games.title')}
+            </LocaleLink>
+            <LocaleLink
               href="/stats"
               className="block bg-gradient-to-r from-cyan-600 to-blue-600 text-white px-4 py-3 rounded-lg font-bold text-center hover:from-cyan-700 hover:to-blue-700 transition-all text-sm"
             >
-              📊 Stats
-            </Link>
-            <Link
+              📊 {t('statistics')}
+            </LocaleLink>
+            <LocaleLink
               href="/leaderboards"
               className="block bg-gradient-to-r from-blue-600 to-cyan-600 text-white px-4 py-3 rounded-lg font-bold text-center hover:from-blue-700 hover:to-cyan-700 transition-all text-sm"
             >
-              🏆 Ranks
-            </Link>
-            <Link
+              🏆 {tCommon('leaderboard.title')}
+            </LocaleLink>
+            <LocaleLink
               href="/challenges"
               className="block bg-gradient-to-r from-green-600 to-teal-600 text-white px-4 py-3 rounded-lg font-bold text-center hover:from-green-700 hover:to-teal-700 transition-all text-sm"
             >
-              🎯 Daily
-            </Link>
-            <Link
+              🎯 {tCommon('challenges.title')}
+            </LocaleLink>
+            <LocaleLink
               href="/quests"
               className="block bg-gradient-to-r from-purple-600 to-pink-600 text-white px-4 py-3 rounded-lg font-bold text-center hover:from-purple-700 hover:to-pink-700 transition-all text-sm"
             >
-              🗺️ Quests
-            </Link>
-            <Link
+              🗺️ {tCommon('quests.title')}
+            </LocaleLink>
+            <LocaleLink
               href="/achievements"
               className="block bg-gradient-to-r from-pink-600 to-red-600 text-white px-4 py-3 rounded-lg font-bold text-center hover:from-pink-700 hover:to-red-700 transition-all text-sm"
             >
-              🏅 Achieve
-            </Link>
-            <Link
+              🏅 {tCommon('achievements.title')}
+            </LocaleLink>
+            <LocaleLink
               href="/rewards"
               className="block bg-gradient-to-r from-yellow-600 to-orange-600 text-white px-4 py-3 rounded-lg font-bold text-center hover:from-yellow-700 hover:to-orange-700 transition-all text-sm"
             >
-              🎁 Rewards
-            </Link>
+              🎁 {tCommon('rewards.title')}
+            </LocaleLink>
           </div>
         </div>
 

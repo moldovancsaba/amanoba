@@ -50,6 +50,14 @@ export interface IGame extends Document {
     participationXP: number;
   };
   difficultyLevels?: string[];
+  isAssessment?: boolean; // Flag to indicate game can be used as assessment
+  assessmentConfig?: {
+    learningObjectives?: string[]; // What this assessment measures
+    questionCategories?: string[]; // Categories for QUIZZZ assessments
+    difficultyMapping?: Record<string, string>; // Map game difficulty to learning level
+    resultsInterpretation?: string; // How to interpret results
+    minScoreForPass?: number; // Minimum score to pass assessment
+  };
   metadata?: Record<string, unknown>;
   createdAt: Date;
   updatedAt: Date;
@@ -214,6 +222,39 @@ const GameSchema = new Schema<IGame>(
     difficultyLevels: {
       type: [String],
       default: ['normal'],
+    },
+
+    // Assessment mode flag
+    // Why: Indicates game can be used as course assessment
+    isAssessment: {
+      type: Boolean,
+      default: false,
+      index: true,
+    },
+
+    // Assessment configuration
+    // Why: Settings for when game is used as assessment
+    assessmentConfig: {
+      learningObjectives: {
+        type: [String],
+        default: [],
+      },
+      questionCategories: {
+        type: [String],
+        default: [],
+      },
+      difficultyMapping: {
+        type: Schema.Types.Mixed,
+        default: {},
+      },
+      resultsInterpretation: {
+        type: String,
+        trim: true,
+      },
+      minScoreForPass: {
+        type: Number,
+        min: [0, 'Min score for pass cannot be negative'],
+      },
     },
 
     // Flexible metadata field for game-specific config

@@ -1,8 +1,8 @@
 /**
  * Next.js Middleware
  * 
- * What: Request interceptor for authentication and route protection
- * Why: Protect routes that require authentication before page load
+ * What: Request interceptor for authentication, route protection, and i18n routing
+ * Why: Protect routes that require authentication and handle language routing
  * 
  * Note: This middleware runs in Edge Runtime, so it cannot import Mongoose/MongoDB
  */
@@ -10,45 +10,81 @@
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 import { authEdge as auth } from '@/auth.edge';
+import createIntlMiddleware from 'next-intl/middleware';
+import { locales, defaultLocale } from './i18n';
+
+// Create next-intl middleware for language routing
+const intlMiddleware = createIntlMiddleware({
+  locales,
+  defaultLocale,
+  localePrefix: 'as-needed', // Only show locale prefix when not default (hu)
+});
 
 /**
  * Middleware Handler
  * 
- * Why: Check authentication status and redirect unauthenticated users
+ * Why: Check authentication status, handle i18n routing, and redirect unauthenticated users
  */
 export default auth((req) => {
   const isLoggedIn = !!req.auth?.user;
+  const pathname = req.nextUrl.pathname;
 
-  // Define protected routes
+  // First, handle i18n routing
+  // Why: Language routing should happen before auth checks
+  const response = intlMiddleware(req);
+  
+  // Get the actual pathname after i18n processing
+  // Why: Need to check the real path for auth protection
+  let actualPathname = pathname;
+  
+  // Remove locale prefix if present for route checking
+  for (const locale of locales) {
+    if (pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`) {
+      actualPathname = pathname.replace(`/${locale}`, '') || '/';
+      break;
+    }
+  }
+
+  // Define protected routes (without locale prefix)
   // Why: These routes require authentication
   const isProtectedRoute =
-    req.nextUrl.pathname.startsWith('/dashboard') ||
-    req.nextUrl.pathname.startsWith('/games') ||
-    req.nextUrl.pathname.startsWith('/profile') ||
-    req.nextUrl.pathname.startsWith('/rewards');
+    actualPathname.startsWith('/dashboard') ||
+    actualPathname.startsWith('/games') ||
+    actualPathname.startsWith('/profile') ||
+    actualPathname.startsWith('/rewards') ||
+    actualPathname.startsWith('/courses') ||
+    actualPathname.startsWith('/my-courses') ||
+    actualPathname.startsWith('/admin');
 
   // Define public routes
   // Why: These routes should redirect authenticated users
   const isAuthRoute =
-    req.nextUrl.pathname.startsWith('/auth/signin') ||
-    req.nextUrl.pathname.startsWith('/auth/signup');
+    actualPathname.startsWith('/auth/signin') ||
+    actualPathname.startsWith('/auth/signup');
 
   // Redirect unauthenticated users to sign in
   // Why: Protect content that requires authentication
   if (isProtectedRoute && !isLoggedIn) {
-    const callbackUrl = encodeURIComponent(req.nextUrl.pathname + req.nextUrl.search);
+    const callbackUrl = encodeURIComponent(pathname + req.nextUrl.search);
+    const signInPath = pathname.startsWith(`/${defaultLocale}`) 
+      ? `/auth/signin` 
+      : `/${defaultLocale}/auth/signin`;
     return NextResponse.redirect(
-      new URL(`/auth/signin?callbackUrl=${callbackUrl}`, req.nextUrl)
+      new URL(`${signInPath}?callbackUrl=${callbackUrl}`, req.url)
     );
   }
 
   // Redirect authenticated users from auth pages
   // Why: No need for logged-in users to see sign in page
   if (isAuthRoute && isLoggedIn) {
-    return NextResponse.redirect(new URL('/dashboard', req.nextUrl));
+    const dashboardPath = pathname.startsWith(`/${defaultLocale}`)
+      ? '/dashboard'
+      : `/${defaultLocale}/dashboard`;
+    return NextResponse.redirect(new URL(dashboardPath, req.url));
   }
 
-  return NextResponse.next();
+  // Return the i18n response (which may have rewritten the URL)
+  return response || NextResponse.next();
 });
 
 /**

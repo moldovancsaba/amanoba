@@ -1,7 +1,11 @@
 import type { NextConfig } from "next";
+import createNextIntlPlugin from 'next-intl/plugin';
 
 // What: Next.js configuration for Amanoba platform
 // Why: Provides runtime configuration, headers, and optimizations for the unified game platform
+
+const withNextIntl = createNextIntlPlugin('./i18n.ts');
+
 const nextConfig: NextConfig = {
   // Enable React strict mode for better development experience
   reactStrictMode: true,
@@ -51,4 +55,4 @@ const nextConfig: NextConfig = {
   },
 };
 
-export default nextConfig;
+export default withNextIntl(nextConfig);

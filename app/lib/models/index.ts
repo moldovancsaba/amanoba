@@ -70,4 +70,10 @@ export {
 export { default as QuizQuestion, type IQuizQuestion, QuestionDifficulty } from './quiz-question';
 export { default as WhackPopEmoji, type IWhackPopEmoji } from './whackpop-emoji';
 
-// Total: 23 models
+// Learning Platform Models (4)
+export { default as Course, type ICourse } from './course';
+export { default as Lesson, type ILesson } from './lesson';
+export { default as CourseProgress, type ICourseProgress, CourseProgressStatus } from './course-progress';
+export { default as AssessmentResult, type IAssessmentResult } from './assessment-result';
+
+// Total: 27 models

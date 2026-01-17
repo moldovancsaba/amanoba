@@ -29,6 +29,12 @@ export interface IPlayer extends Document {
   isBanned: boolean;
   banReason?: string;
   bannedAt?: Date;
+  emailPreferences?: {
+    receiveLessonEmails: boolean;
+    emailFrequency: 'daily' | 'weekly' | 'never';
+    preferredEmailTime?: number; // Hour of day (0-23)
+    timezone?: string; // User timezone for email scheduling
+  };
   metadata?: Record<string, unknown>;
   createdAt: Date;
   updatedAt: Date;
@@ -113,9 +119,10 @@ const PlayerSchema = new Schema<IPlayer>(
     // Why: Used for i18n and localization
     locale: {
       type: String,
-      default: 'en',
+      default: 'hu', // Hungarian as default
       trim: true,
       lowercase: true,
+      index: true,
     },
 
     // Player timezone
@@ -166,6 +173,30 @@ const PlayerSchema = new Schema<IPlayer>(
     // Why: Track when ban was applied
     bannedAt: {
       type: Date,
+    },
+
+    // Email preferences for course lessons
+    // Why: Control how and when students receive lesson emails
+    emailPreferences: {
+      receiveLessonEmails: {
+        type: Boolean,
+        default: true,
+      },
+      emailFrequency: {
+        type: String,
+        enum: ['daily', 'weekly', 'never'],
+        default: 'daily',
+      },
+      preferredEmailTime: {
+        type: Number,
+        min: [0, 'Preferred email time must be between 0 and 23'],
+        max: [23, 'Preferred email time must be between 0 and 23'],
+        default: 8, // 8 AM default
+      },
+      timezone: {
+        type: String,
+        trim: true,
+      },
     },
 
     // Flexible metadata field for player-specific data

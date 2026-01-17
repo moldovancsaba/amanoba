@@ -1,11 +1,13 @@
-import { redirect } from 'next/navigation';
-
 /**
- * Root Landing Page
+ * Root Landing Page (Legacy)
  * 
- * What: Redirects to signin page as main entry point
- * Why: Users go directly to signin, partners page moved to /partners
+ * What: Redirects to locale-based signin page
+ * Why: Maintains backward compatibility while using i18n structure
  */
+
+import { redirect } from 'next/navigation';
+import { defaultLocale } from '@/i18n';
+
 export default function RootPage() {
-  redirect('/auth/signin');
+  redirect(`/${defaultLocale}/auth/signin`);
 }

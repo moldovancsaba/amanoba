@@ -10,7 +10,8 @@
 import { useEffect, useState } from 'react';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
-import Link from 'next/link';
+import { useTranslations, useLocale } from 'next-intl';
+import { LocaleLink } from '@/components/LocaleLink';
 
 // Why: Type-safe game definitions
 interface GameInfo {
@@ -81,6 +82,9 @@ const AVAILABLE_GAMES: GameInfo[] = [
 export default function GamesLauncher() {
   const { data: session, status } = useSession();
   const router = useRouter();
+  const locale = useLocale();
+  const t = useTranslations('games');
+  const tCommon = useTranslations('common');
   const [playerLevel, setPlayerLevel] = useState<number>(1);
   const [isPremium, setIsPremium] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(true);
@@ -90,7 +94,7 @@ export default function GamesLauncher() {
     if (status === 'loading') return;
     
     if (!session) {
-      router.push('/auth/signin');
+      router.push(`/${locale}/auth/signin`);
       return;
     }
 
@@ -125,10 +129,10 @@ export default function GamesLauncher() {
   // Why: Provide user feedback on why a game is locked
   const getLockReason = (game: GameInfo): string | null => {
     if (game.isPremium && !isPremium) {
-      return 'Premium Only';
+      return t('premiumOnly');
     }
     if (game.requiredLevel > playerLevel) {
-      return `Unlock at Level ${game.requiredLevel}`;
+      return t('unlockAtLevel', { level: game.requiredLevel });
     }
     return null;
   };
@@ -137,7 +141,7 @@ export default function GamesLauncher() {
     return (
       <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500">
         <div className="text-white text-2xl font-bold animate-pulse">
-          Loading Games...
+          {t('loading')}
         </div>
       </div>
     );
@@ -151,9 +155,9 @@ export default function GamesLauncher() {
           <div className="flex justify-between items-center">
             <div>
               <h1 className="text-3xl font-bold text-white flex items-center gap-2">
-                🎮 Amanoba Games
+                🎮 {tCommon('appName')} {t('title')}
               </h1>
-              <p className="text-white/80 mt-1">Choose your challenge</p>
+              <p className="text-white/80 mt-1">{t('chooseChallenge')}</p>
             </div>
             <div className="flex items-center gap-4">
               <div className="bg-white/20 px-4 py-2 rounded-lg text-white">
@@ -186,7 +190,7 @@ export default function GamesLauncher() {
                 `}
                 onClick={() => {
                   if (available) {
-                    router.push(game.route);
+                    router.push(`/${locale}${game.route}`);
                   }
                 }}
               >
@@ -195,7 +199,7 @@ export default function GamesLauncher() {
                   <div className="absolute inset-0 bg-black/50 backdrop-blur-sm z-10 flex items-center justify-center">
                     <div className="text-center text-white">
                       <div className="text-4xl mb-2">🔒</div>
-                      <div className="font-bold">{lockReason}</div>
+                      <div className="font-bold">{lockReason || t('locked')}</div>
                     </div>
                   </div>
                 )}
@@ -222,7 +226,7 @@ export default function GamesLauncher() {
                 {/* Why: Play button */}
                 {available && (
                   <div className="bg-gradient-to-r from-indigo-500 to-purple-500 p-4 text-center">
-                    <span className="text-white font-bold">Play Now →</span>
+                    <span className="text-white font-bold">{t('playNow')} →</span>
                   </div>
                 )}
               </div>
@@ -232,12 +236,12 @@ export default function GamesLauncher() {
 
         {/* Why: Back to dashboard link */}
         <div className="mt-12 text-center">
-          <Link
+          <LocaleLink
             href="/dashboard"
             className="inline-block bg-white/20 backdrop-blur-md text-white px-6 py-3 rounded-lg hover:bg-white/30 transition-colors"
           >
-            ← Back to Dashboard
-          </Link>
+            ← {t('backToDashboard')}
+          </LocaleLink>
         </div>
       </main>
     </div>
