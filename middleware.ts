@@ -125,9 +125,11 @@ export const config = {
      * - _next/static (static files)
      * - _next/image (image optimization)
      * - favicon.ico (favicon file)
-     * - public folder
+     * - manifest.json (PWA manifest)
+     * - icon files (apple-touch-icon, icon-*.png, etc.)
+     * - public folder files
      * - api routes (handled separately)
      */
-    '/((?!_next/static|_next/image|favicon.ico|public|api).*)',
+    '/((?!_next/static|_next/image|favicon.ico|manifest.json|icon-|apple-touch-icon|.*\\.(ico|png|svg|jpg|jpeg|gif|webp)|api).*)',
   ],
 };
