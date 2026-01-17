@@ -1,4 +1,5 @@
 import { redirect } from 'next/navigation';
+import { defaultLocale } from '@/i18n';
 
 /**
  * Locale Root Page
@@ -12,6 +13,10 @@ export default async function LocaleRootPage({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
-  // Redirect to signin for this locale
-  redirect(`/${locale}/auth/signin`);
+  // Redirect to signin - respect localePrefix: 'as-needed'
+  // Default locale (hu) has no prefix, others do
+  const signInPath = locale === defaultLocale 
+    ? '/auth/signin' 
+    : `/${locale}/auth/signin`;
+  redirect(signInPath);
 }
