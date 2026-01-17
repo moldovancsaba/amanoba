@@ -2,7 +2,7 @@
   "name": "amanoba",
   "version": "2.7.0",
   "private": true,
-  "description": "Unified game platform combining PlayMass infrastructure with Madoku gamification — built for engagement, retention, and viral growth",
+  "description": "Unified 30-day learning platform with gamified education, email-based lesson delivery, and interactive assessments — built for engagement, retention, and student success",
   "author": "Narimato",
   "engines": {
     "node": ">=20.0.0",

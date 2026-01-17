@@ -1,28 +1,30 @@
-# Amanoba — Unified Game Platform
+# Amanoba — Unified 30-Day Learning Platform
 
-**Current Version**: 2.4.0  
-**Last Updated**: 2025-10-18T09:16:20.000Z  
-**Status**: In Development
+**Current Version**: 2.7.0  
+**Last Updated**: 2025-01-14T12:00:00.000Z  
+**Status**: In Development — Transforming to Learning Platform
 
-## 🎮 Overview
+## 🎓 Overview
 
-Amanoba is a unified multi-game platform that combines the best of PlayMass infrastructure and Madoku's comprehensive gamification system. Built on Next.js 15 with full TypeScript support, Amanoba provides an engaging game experience with progressive disclosure, achievement systems, leaderboards, and premium content.
+Amanoba is transforming into a **unified 30-day learning platform** that combines structured education with gamified engagement. Built on Next.js 15 with full TypeScript support, Amanoba delivers daily lessons via email, uses interactive games as student assessments, and maintains a comprehensive gamification system with achievements, leaderboards, and rewards.
 
 ### Core Features
 
-- **Multi-Game Platform**: QUIZZZ, WHACKPOP, and premium Madoku Sudoku
-- **Comprehensive Gamification**:
-  - 18 achievements across 4 categories
+- **30-Day Course System**: Structured learning with daily lessons delivered via email
+- **Interactive Assessments**: Games (QUIZZZ, WHACKPOP, Madoku) repurposed as student assessment tools
+- **Email-First Learning**: Daily lessons sent to students' email with in-platform access
+- **Course Builder**: Admin interface to create 30-day courses (similar to game creation)
+- **Comprehensive Gamification** (Retained):
+  - 18+ achievements across 4 categories (including course-specific)
   - 50-level XP system with titles
   - Daily challenges and quests
   - Win and login streaks with milestones
   - Points economy with rewards
-- **Progressive Disclosure**: Gamification unlocks after 3 games (configurable)
-- **Advanced Analytics**: 6 chart types, activity heatmaps, ELO rankings
-- **Premium Features**: Madoku Sudoku with AI opponents and Ghost Mode
-- **Referral System**: Viral growth with points rewards
-- **PWA Support**: Offline play, push notifications, installable
-- **Security**: Rate limiting, XSS protection, anti-cheat, structured logging
+- **Progressive Disclosure**: Gamification unlocks after 3 activities (configurable)
+- **Advanced Analytics**: 6 chart types, activity heatmaps, course progress tracking
+- **Student Dashboard**: Track course progress, view lessons, see assessment results
+- **PWA Support**: Offline access, push notifications, installable
+- **Security**: Rate limiting, XSS protection, structured logging
 
 ## 🛠️ Tech Stack
 
