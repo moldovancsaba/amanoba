@@ -89,9 +89,8 @@ export default auth((req) => {
         break;
       }
     }
-    const signInPath = locale === defaultLocale 
-      ? `/auth/signin` // No prefix for default locale
-      : `/${locale}/auth/signin`;
+    // With localePrefix: 'always', all routes have locale prefix
+    const signInPath = `/${locale}/auth/signin`;
     return NextResponse.redirect(
       new URL(`${signInPath}?callbackUrl=${callbackUrl}`, req.url)
     );
