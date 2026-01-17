@@ -43,8 +43,15 @@ export default auth((req) => {
     return NextResponse.next();
   }
 
-  // Get the actual pathname before i18n processing for route checking
-  // Why: Need to check the real path for auth protection
+  // FIRST: Let intlMiddleware handle ALL locale routing
+  // This rewrites / to /hu internally (with localePrefix: 'as-needed', URL stays /)
+  // For /en/... it keeps /en/...
+  // This MUST happen first before any other processing
+  const response = intlMiddleware(req);
+  
+  // Get the actual pathname for route checking (after locale processing)
+  // For root path (/), intlMiddleware rewrites to /hu internally but URL stays /
+  // We need to extract the path without locale for route protection checks
   let actualPathname = pathname;
   
   // Remove locale prefix if present for route checking
@@ -55,14 +62,11 @@ export default auth((req) => {
     }
   }
   
-  // Handle root path - let intlMiddleware rewrite to [locale] route
-  // With localePrefix: 'as-needed' and defaultLocale: 'hu', / becomes /hu internally
-  // Then app/[locale]/page.tsx will handle the redirect to signin
-  const response = intlMiddleware(req);
-  
-  // If root path, the intlMiddleware rewrites it to /hu (or /[locale])
-  // app/[locale]/page.tsx will then redirect to /auth/signin
-  // No need for special handling here
+  // For root path, let it through to app/[locale]/page.tsx
+  // That page will redirect to /auth/signin (no loop)
+  if (actualPathname === '/' || actualPathname === '') {
+    return response;
+  }
 
   // Define protected routes (without locale prefix)
   // Why: These routes require authentication
