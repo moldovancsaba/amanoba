@@ -7,7 +7,7 @@
 
 import { Resend } from 'resend';
 import { logger } from '../logger';
-import { connectToDatabase } from '../mongodb';
+import { connectDB } from '../mongodb';
 import { Player, Course, Lesson } from '@/app/lib/models';
 import type { ILesson } from '@/app/lib/models/lesson';
 import type { Locale } from '@/i18n';
@@ -46,7 +46,7 @@ export async function sendLessonEmail(
   locale?: Locale
 ): Promise<{ success: boolean; messageId?: string; error?: string }> {
   try {
-    await connectToDatabase();
+    await connectDB();
 
     // Fetch player and course for email personalization
     const player = await Player.findById(playerId);
@@ -155,7 +155,7 @@ export async function sendWelcomeEmail(
   courseId: string
 ): Promise<{ success: boolean; messageId?: string; error?: string }> {
   try {
-    await connectToDatabase();
+    await connectDB();
 
     const player = await Player.findById(playerId);
     const course = await Course.findById(courseId);
@@ -227,7 +227,7 @@ export async function sendCompletionEmail(
   courseId: string
 ): Promise<{ success: boolean; messageId?: string; error?: string }> {
   try {
-    await connectToDatabase();
+    await connectDB();
 
     const player = await Player.findById(playerId);
     const course = await Course.findById(courseId);
@@ -297,7 +297,7 @@ export async function sendReminderEmail(
   dayNumber: number
 ): Promise<{ success: boolean; messageId?: string; error?: string }> {
   try {
-    await connectToDatabase();
+    await connectDB();
 
     const player = await Player.findById(playerId);
     const course = await Course.findById(courseId);
