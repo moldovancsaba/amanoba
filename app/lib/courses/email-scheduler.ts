@@ -6,7 +6,7 @@
  */
 
 import { logger } from '../logger';
-import { connectDB } from '../mongodb';
+import connectDB from '../mongodb';
 import { CourseProgress, Player, Course, Lesson } from '../models';
 import { sendLessonEmail, sendReminderEmail } from '../email/email-service';
 import type { ILesson } from '../models/lesson';

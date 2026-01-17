@@ -7,7 +7,7 @@
 
 import { Resend } from 'resend';
 import { logger } from '../logger';
-import { connectDB } from '../mongodb';
+import connectDB from '../mongodb';
 import { Player, Course, Lesson } from '@/app/lib/models';
 import type { ILesson } from '@/app/lib/models/lesson';
 import type { Locale } from '@/i18n';
