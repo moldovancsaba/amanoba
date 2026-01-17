@@ -1,11 +1,11 @@
 {
-  "name": "Amanoba",
+  "name": "Amanoba - Unified Learning Platform",
   "short_name": "Amanoba",
-  "description": "Play. Compete. Achieve. - Unified game platform with gamification",
+  "description": "30-day learning platform with gamified education, email-based lesson delivery, and interactive assessments",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#6366f1",
+  "background_color": "#000000",
+  "theme_color": "#FAB908",
   "orientation": "portrait",
   "icons": [
     {
@@ -21,14 +21,14 @@
       "purpose": "any maskable"
     }
   ],
-  "categories": ["games", "entertainment"],
+  "categories": ["education", "learning", "courses"],
   "screenshots": [],
   "shortcuts": [
     {
-      "name": "Play Games",
-      "short_name": "Games",
-      "description": "Start playing games",
-      "url": "/games",
+      "name": "Browse Courses",
+      "short_name": "Courses",
+      "description": "Browse available courses",
+      "url": "/courses",
       "icons": [
         {
           "src": "/icon-192.png",
@@ -37,10 +37,10 @@
       ]
     },
     {
-      "name": "Dashboard",
-      "short_name": "Dashboard",
-      "description": "View your progress",
-      "url": "/dashboard",
+      "name": "My Courses",
+      "short_name": "My Courses",
+      "description": "View your learning progress",
+      "url": "/my-courses",
       "icons": [
         {
           "src": "/icon-192.png",

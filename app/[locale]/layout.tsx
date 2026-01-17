@@ -18,16 +18,19 @@ import "../mobile-styles.css";
 
 // What: Font configuration for Amanoba platform
 // Why: Noto Sans provides broad unicode coverage including latin-ext, Inter as secondary for UI consistency
+// Note: display: "swap" prevents font preload warnings by allowing text to render with fallback fonts
 const inter = Inter({
   subsets: ["latin", "latin-ext"],
   display: "swap",
   variable: "--font-inter",
+  preload: true,
 });
 
 const notoSans = Noto_Sans({
   subsets: ["latin", "latin-ext"],
   display: "swap",
   variable: "--font-noto-sans",
+  preload: true,
 });
 
 // What: SEO and social media metadata for Amanoba

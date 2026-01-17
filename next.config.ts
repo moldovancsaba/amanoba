@@ -51,6 +51,20 @@ const nextConfig: NextConfig = {
           },
         ],
       },
+      {
+        // Ensure manifest.json is accessible
+        source: '/manifest.json',
+        headers: [
+          {
+            key: 'Content-Type',
+            value: 'application/manifest+json'
+          },
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=3600'
+          },
+        ],
+      },
     ];
   },
 };
