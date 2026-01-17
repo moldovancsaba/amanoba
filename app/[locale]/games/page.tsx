@@ -139,8 +139,8 @@ export default function GamesLauncher() {
 
   if (status === 'loading' || loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500">
-        <div className="text-white text-2xl font-bold animate-pulse">
+      <div className="min-h-screen flex items-center justify-center bg-brand-black">
+        <div className="text-brand-white text-2xl font-bold animate-pulse">
           {t('loading')}
         </div>
       </div>
@@ -148,23 +148,23 @@ export default function GamesLauncher() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500">
+    <div className="min-h-screen bg-brand-black">
       {/* Why: Header with branding and stats */}
-      <header className="bg-white/10 backdrop-blur-md border-b border-white/20">
+      <header className="bg-brand-darkGrey border-b-2 border-brand-accent">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex justify-between items-center">
             <div>
-              <h1 className="text-3xl font-bold text-white flex items-center gap-2">
+              <h1 className="text-3xl font-bold text-brand-white flex items-center gap-2">
                 🎮 {tCommon('appName')} {t('title')}
               </h1>
-              <p className="text-white/80 mt-1">{t('chooseChallenge')}</p>
+              <p className="text-brand-white/80 mt-1">{t('chooseChallenge')}</p>
             </div>
             <div className="flex items-center gap-4">
-              <div className="bg-white/20 px-4 py-2 rounded-lg text-white">
-                <span className="font-bold">Level {playerLevel}</span>
+              <div className="bg-brand-accent text-brand-black px-4 py-2 rounded-lg font-bold">
+                Level {playerLevel}
               </div>
               {isPremium && (
-                <div className="bg-yellow-500/80 px-4 py-2 rounded-lg text-white font-bold">
+                <div className="bg-brand-accent text-brand-black px-4 py-2 rounded-lg font-bold">
                   ⭐ Premium
                 </div>
               )}
@@ -184,9 +184,9 @@ export default function GamesLauncher() {
               <div
                 key={game.id}
                 className={`
-                  relative bg-white rounded-2xl shadow-xl overflow-hidden
+                  relative bg-brand-white rounded-2xl shadow-xl overflow-hidden border-2
                   transform transition-all duration-300 hover:scale-105
-                  ${available ? 'cursor-pointer' : 'opacity-60 cursor-not-allowed'}
+                  ${available ? 'cursor-pointer border-brand-accent' : 'opacity-60 cursor-not-allowed border-brand-darkGrey'}
                 `}
                 onClick={() => {
                   if (available) {
@@ -196,8 +196,8 @@ export default function GamesLauncher() {
               >
                 {/* Why: Lock overlay for unavailable games */}
                 {!available && (
-                  <div className="absolute inset-0 bg-black/50 backdrop-blur-sm z-10 flex items-center justify-center">
-                    <div className="text-center text-white">
+                  <div className="absolute inset-0 bg-brand-black/80 backdrop-blur-sm z-10 flex items-center justify-center">
+                    <div className="text-center text-brand-white">
                       <div className="text-4xl mb-2">🔒</div>
                       <div className="font-bold">{lockReason || t('locked')}</div>
                     </div>
@@ -207,16 +207,16 @@ export default function GamesLauncher() {
                 {/* Why: Game content */}
                 <div className="p-6">
                   <div className="text-6xl mb-4">{game.icon}</div>
-                  <h3 className="text-2xl font-bold text-gray-900 mb-2">
+                  <h3 className="text-2xl font-bold text-brand-black mb-2">
                     {game.name}
                   </h3>
-                  <p className="text-gray-600 mb-4">{game.description}</p>
+                  <p className="text-brand-darkGrey mb-4">{game.description}</p>
                   
                   {/* Why: Game metadata */}
                   <div className="flex items-center justify-between text-sm">
-                    <span className="text-gray-500">⏱️ {game.estimatedTime}</span>
+                    <span className="text-brand-darkGrey">⏱️ {game.estimatedTime}</span>
                     {game.isPremium && (
-                      <span className="bg-yellow-100 text-yellow-800 px-2 py-1 rounded">
+                      <span className="bg-brand-accent text-brand-black px-2 py-1 rounded font-bold">
                         Premium
                       </span>
                     )}
@@ -225,8 +225,8 @@ export default function GamesLauncher() {
 
                 {/* Why: Play button */}
                 {available && (
-                  <div className="bg-gradient-to-r from-indigo-500 to-purple-500 p-4 text-center">
-                    <span className="text-white font-bold">{t('playNow')} →</span>
+                  <div className="bg-brand-accent p-4 text-center">
+                    <span className="text-brand-black font-bold">{t('playNow')} →</span>
                   </div>
                 )}
               </div>
@@ -238,7 +238,7 @@ export default function GamesLauncher() {
         <div className="mt-12 text-center">
           <LocaleLink
             href="/dashboard"
-            className="inline-block bg-white/20 backdrop-blur-md text-white px-6 py-3 rounded-lg hover:bg-white/30 transition-colors"
+            className="inline-block bg-brand-accent text-brand-black px-6 py-3 rounded-lg hover:bg-brand-primary-400 transition-colors font-bold"
           >
             ← {t('backToDashboard')}
           </LocaleLink>

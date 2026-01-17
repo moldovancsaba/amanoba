@@ -63,7 +63,7 @@ export const viewport: Viewport = {
   initialScale: 1,
   maximumScale: 5,
   userScalable: true,
-  themeColor: "#6366f1",
+  themeColor: "#FAB908",
 };
 
 /**
@@ -93,7 +93,7 @@ export default async function LocaleLayout({
 
   return (
     <html lang={htmlLang} className={`${notoSans.variable} ${inter.variable}`} suppressHydrationWarning>
-      <body className="font-sans antialiased bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100">
+      <body className="font-sans antialiased bg-brand-white dark:bg-brand-black text-brand-black dark:text-brand-white">
         <NextIntlClientProvider messages={messages}>
           <SessionProvider>
             <ThemeProvider

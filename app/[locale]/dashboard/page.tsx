@@ -12,6 +12,7 @@ import { useSession, signOut } from 'next-auth/react';
 import { useTranslations, useLocale } from 'next-intl';
 import { LocaleLink } from '@/components/LocaleLink';
 import { ReferralCard } from '@/components/ReferralCard';
+import Logo from '@/components/Logo';
 
 interface PlayerData {
   player: {
@@ -102,8 +103,8 @@ export default function Dashboard() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 flex items-center justify-center">
-        <div className="text-white text-2xl font-bold animate-pulse">
+      <div className="min-h-screen bg-brand-black flex items-center justify-center">
+        <div className="text-brand-white text-2xl font-bold animate-pulse">
           {t('loading')}
         </div>
       </div>
@@ -112,13 +113,13 @@ export default function Dashboard() {
 
   if (error || !playerData) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 flex items-center justify-center p-4">
-        <div className="bg-white rounded-2xl shadow-2xl p-8 max-w-md w-full text-center">
+      <div className="min-h-screen bg-brand-black flex items-center justify-center p-4">
+        <div className="bg-brand-white rounded-2xl shadow-2xl p-8 max-w-md w-full text-center border-2 border-brand-accent">
           <div className="text-6xl mb-4">😕</div>
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">
+          <h2 className="text-2xl font-bold text-brand-black mb-4">
             {t('unableToLoad')}
           </h2>
-          <p className="text-gray-600 mb-6">{error}</p>
+          <p className="text-brand-darkGrey mb-6">{error}</p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <button
               onClick={() => {
@@ -126,13 +127,13 @@ export default function Dashboard() {
                 setLoading(true);
                 fetchPlayerData();
               }}
-              className="inline-block bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-6 py-3 rounded-xl font-bold hover:from-indigo-700 hover:to-purple-700 transition-all"
+              className="inline-block bg-brand-accent text-brand-black px-6 py-3 rounded-xl font-bold hover:bg-brand-primary-400 transition-all"
             >
               {t('retry')}
             </button>
             <button
               onClick={() => signOut({ callbackUrl: `/${locale}/auth/signin` })}
-              className="inline-block bg-red-500 text-white px-6 py-3 rounded-xl font-bold hover:bg-red-600 transition-colors"
+              className="inline-block bg-brand-darkGrey text-brand-white px-6 py-3 rounded-xl font-bold hover:bg-brand-secondary-700 transition-colors"
             >
               {tCommon('auth.signOut')}
             </button>
@@ -146,14 +147,17 @@ export default function Dashboard() {
   const xpProgress = progression ? (progression.currentXP / progression.xpToNextLevel) * 100 : 0;
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500">
+    <div className="min-h-screen bg-brand-black">
       {/* Header */}
-      <header className="bg-white/10 backdrop-blur-md border-b border-white/20">
+      <header className="bg-brand-darkGrey border-b-2 border-brand-accent">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex justify-between items-center">
-            <div>
-              <h1 className="text-3xl font-bold text-white">{t('title')}</h1>
-              <p className="text-white/80 mt-1">{t('welcome')}</p>
+            <div className="flex items-center gap-4">
+              <Logo size="md" showText={true} linkTo="/dashboard" />
+              <div>
+                <h1 className="text-3xl font-bold text-brand-white">{t('title')}</h1>
+                <p className="text-brand-white/80 mt-1">{t('welcome')}</p>
+              </div>
             </div>
             <div className="flex gap-3">
               <button
@@ -161,22 +165,22 @@ export default function Dashboard() {
                   setLoading(true);
                   fetchPlayerData();
                 }}
-                className="bg-green-500/80 backdrop-blur-sm text-white px-4 py-2 rounded-lg hover:bg-green-600 transition-colors font-medium"
+                className="bg-brand-accent text-brand-black px-4 py-2 rounded-lg hover:bg-brand-primary-400 transition-colors font-medium font-bold"
               >
                 🔄 Refresh
               </button>
               <LocaleLink
                 href="/games"
-                className="bg-white/20 backdrop-blur-sm text-white px-4 py-2 rounded-lg hover:bg-white/30 transition-colors font-medium"
+                className="bg-brand-accent text-brand-black px-4 py-2 rounded-lg hover:bg-brand-primary-400 transition-colors font-medium font-bold"
               >
                 🎮 {tCommon('games.playNow')}
               </LocaleLink>
-            <button
-              onClick={() => signOut({ callbackUrl: `/${locale}/auth/signin` })}
-              className="bg-red-500/80 backdrop-blur-sm text-white px-4 py-2 rounded-lg hover:bg-red-600 transition-colors font-medium"
-            >
-              🚪 {tCommon('auth.signOut')}
-            </button>
+              <button
+                onClick={() => signOut({ callbackUrl: `/${locale}/auth/signin` })}
+                className="bg-brand-darkGrey text-brand-white px-4 py-2 rounded-lg hover:bg-brand-secondary-700 transition-colors font-medium"
+              >
+                🚪 {tCommon('auth.signOut')}
+              </button>
             </div>
           </div>
         </div>
@@ -184,51 +188,51 @@ export default function Dashboard() {
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Quick Actions */}
-        <div className="bg-white rounded-xl shadow-lg p-6 mb-8">
-          <h3 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+        <div className="bg-brand-white rounded-xl shadow-lg p-6 mb-8 border-2 border-brand-accent">
+          <h3 className="text-xl font-bold text-brand-black mb-4 flex items-center gap-2">
             <span>🎯</span>
             Quick Actions
           </h3>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-7 gap-3">
             <LocaleLink
               href="/games"
-              className="block bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-4 py-3 rounded-lg font-bold text-center hover:from-indigo-700 hover:to-purple-700 transition-all text-sm"
+              className="block bg-brand-accent text-brand-black px-4 py-3 rounded-lg font-bold text-center hover:bg-brand-primary-400 transition-all text-sm"
             >
               🎮 {tCommon('games.title')}
             </LocaleLink>
             <LocaleLink
               href="/stats"
-              className="block bg-gradient-to-r from-cyan-600 to-blue-600 text-white px-4 py-3 rounded-lg font-bold text-center hover:from-cyan-700 hover:to-blue-700 transition-all text-sm"
+              className="block bg-brand-darkGrey text-brand-white px-4 py-3 rounded-lg font-bold text-center hover:bg-brand-secondary-700 transition-all text-sm"
             >
               📊 {t('statistics')}
             </LocaleLink>
             <LocaleLink
               href="/leaderboards"
-              className="block bg-gradient-to-r from-blue-600 to-cyan-600 text-white px-4 py-3 rounded-lg font-bold text-center hover:from-blue-700 hover:to-cyan-700 transition-all text-sm"
+              className="block bg-brand-accent text-brand-black px-4 py-3 rounded-lg font-bold text-center hover:bg-brand-primary-400 transition-all text-sm"
             >
               🏆 {tCommon('leaderboard.title')}
             </LocaleLink>
             <LocaleLink
               href="/challenges"
-              className="block bg-gradient-to-r from-green-600 to-teal-600 text-white px-4 py-3 rounded-lg font-bold text-center hover:from-green-700 hover:to-teal-700 transition-all text-sm"
+              className="block bg-brand-darkGrey text-brand-white px-4 py-3 rounded-lg font-bold text-center hover:bg-brand-secondary-700 transition-all text-sm"
             >
               🎯 {tCommon('challenges.title')}
             </LocaleLink>
             <LocaleLink
               href="/quests"
-              className="block bg-gradient-to-r from-purple-600 to-pink-600 text-white px-4 py-3 rounded-lg font-bold text-center hover:from-purple-700 hover:to-pink-700 transition-all text-sm"
+              className="block bg-brand-accent text-brand-black px-4 py-3 rounded-lg font-bold text-center hover:bg-brand-primary-400 transition-all text-sm"
             >
               🗺️ {tCommon('quests.title')}
             </LocaleLink>
             <LocaleLink
               href="/achievements"
-              className="block bg-gradient-to-r from-pink-600 to-red-600 text-white px-4 py-3 rounded-lg font-bold text-center hover:from-pink-700 hover:to-red-700 transition-all text-sm"
+              className="block bg-brand-darkGrey text-brand-white px-4 py-3 rounded-lg font-bold text-center hover:bg-brand-secondary-700 transition-all text-sm"
             >
               🏅 {tCommon('achievements.title')}
             </LocaleLink>
             <LocaleLink
               href="/rewards"
-              className="block bg-gradient-to-r from-yellow-600 to-orange-600 text-white px-4 py-3 rounded-lg font-bold text-center hover:from-yellow-700 hover:to-orange-700 transition-all text-sm"
+              className="block bg-brand-accent text-brand-black px-4 py-3 rounded-lg font-bold text-center hover:bg-brand-primary-400 transition-all text-sm"
             >
               🎁 {tCommon('rewards.title')}
             </LocaleLink>
@@ -236,28 +240,28 @@ export default function Dashboard() {
         </div>
 
         {/* Player Header Card */}
-        <div className="bg-white rounded-2xl shadow-xl p-6 mb-8">
+        <div className="bg-brand-white rounded-2xl shadow-xl p-6 mb-8 border-2 border-brand-accent">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-4">
-              <div className="w-20 h-20 bg-gradient-to-br from-indigo-500 to-purple-500 rounded-full flex items-center justify-center text-4xl">
+              <div className="w-20 h-20 bg-brand-accent rounded-full flex items-center justify-center text-4xl">
                 👤
               </div>
               <div>
-                <h2 className="text-2xl font-bold text-gray-900">
+                <h2 className="text-2xl font-bold text-brand-black">
                   {player.displayName || 'Player'}
                 </h2>
                 {progression?.currentTitle && (
-                  <div className="text-purple-600 font-medium">
+                  <div className="text-brand-accent font-medium">
                     {progression.currentTitle}
                   </div>
                 )}
-                <div className="text-gray-600 text-sm">
+                <div className="text-brand-darkGrey text-sm">
                   Member since {new Date(player.createdAt).toLocaleDateString()}
                 </div>
               </div>
             </div>
             {player.isPremium && (
-              <div className="bg-yellow-100 text-yellow-800 px-4 py-2 rounded-lg font-bold flex items-center gap-2">
+              <div className="bg-brand-accent text-brand-black px-4 py-2 rounded-lg font-bold flex items-center gap-2">
                 <span className="text-2xl">⭐</span>
                 <span>Premium</span>
               </div>
@@ -268,21 +272,21 @@ export default function Dashboard() {
         {/* Main Stats Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
           {/* Level Card */}
-          <div className="bg-white rounded-xl shadow-lg p-6">
-            <div className="text-indigo-600 text-4xl mb-2">⚡</div>
-            <div className="text-3xl font-bold text-gray-900">
+          <div className="bg-brand-white rounded-xl shadow-lg p-6 border-2 border-brand-accent">
+            <div className="text-brand-accent text-4xl mb-2">⚡</div>
+            <div className="text-3xl font-bold text-brand-black">
               {progression?.level || 1}
             </div>
-            <div className="text-gray-600">Level</div>
+            <div className="text-brand-darkGrey">Level</div>
             {progression && (
               <>
-                <div className="mt-4 bg-gray-200 rounded-full h-2 overflow-hidden">
+                <div className="mt-4 bg-brand-darkGrey/20 rounded-full h-2 overflow-hidden">
                   <div
-                    className="bg-gradient-to-r from-indigo-500 to-purple-500 h-full transition-all"
+                    className="bg-brand-accent h-full transition-all"
                     style={{ width: `${xpProgress}%` }}
                   />
                 </div>
-                <div className="text-xs text-gray-500 mt-1">
+                <div className="text-xs text-brand-darkGrey mt-1">
                   {progression.currentXP} / {progression.xpToNextLevel} XP
                 </div>
               </>
@@ -290,14 +294,14 @@ export default function Dashboard() {
           </div>
 
           {/* Points Card */}
-          <div className="bg-white rounded-xl shadow-lg p-6">
-            <div className="text-purple-600 text-4xl mb-2">💎</div>
-            <div className="text-3xl font-bold text-gray-900">
+          <div className="bg-brand-white rounded-xl shadow-lg p-6 border-2 border-brand-accent">
+            <div className="text-brand-accent text-4xl mb-2">💎</div>
+            <div className="text-3xl font-bold text-brand-black">
               {wallet?.currentBalance.toLocaleString() || 0}
             </div>
-            <div className="text-gray-600">Points</div>
+            <div className="text-brand-darkGrey">Points</div>
             {wallet && (
-              <div className="text-xs text-gray-500 mt-4">
+              <div className="text-xs text-brand-darkGrey mt-4">
                 Earned: {wallet.lifetimeEarned.toLocaleString()} • 
                 Spent: {wallet.lifetimeSpent.toLocaleString()}
               </div>
@@ -305,32 +309,32 @@ export default function Dashboard() {
           </div>
 
           {/* Achievements Card */}
-          <div className="bg-white rounded-xl shadow-lg p-6">
-            <div className="text-pink-600 text-4xl mb-2">🏆</div>
-            <div className="text-3xl font-bold text-gray-900">
+          <div className="bg-brand-white rounded-xl shadow-lg p-6 border-2 border-brand-accent">
+            <div className="text-brand-accent text-4xl mb-2">🏆</div>
+            <div className="text-3xl font-bold text-brand-black">
               {achievementStats.unlocked}/{achievementStats.total}
             </div>
-            <div className="text-gray-600">Achievements</div>
-            <div className="mt-4 bg-gray-200 rounded-full h-2 overflow-hidden">
+            <div className="text-brand-darkGrey">Achievements</div>
+            <div className="mt-4 bg-brand-darkGrey/20 rounded-full h-2 overflow-hidden">
               <div
-                className="bg-gradient-to-r from-pink-500 to-red-500 h-full transition-all"
+                className="bg-brand-accent h-full transition-all"
                 style={{ width: `${achievementStats.percentage}%` }}
               />
             </div>
-            <div className="text-xs text-gray-500 mt-1">
+            <div className="text-xs text-brand-darkGrey mt-1">
               {achievementStats.percentage}% Complete
             </div>
           </div>
 
           {/* Win Rate Card */}
-          <div className="bg-white rounded-xl shadow-lg p-6">
-            <div className="text-green-600 text-4xl mb-2">📊</div>
-            <div className="text-3xl font-bold text-gray-900">
+          <div className="bg-brand-white rounded-xl shadow-lg p-6 border-2 border-brand-accent">
+            <div className="text-brand-accent text-4xl mb-2">📊</div>
+            <div className="text-3xl font-bold text-brand-black">
               {progression?.winRate.toFixed(1) || 0}%
             </div>
-            <div className="text-gray-600">Win Rate</div>
+            <div className="text-brand-darkGrey">Win Rate</div>
             {progression && (
-              <div className="text-xs text-gray-500 mt-4">
+              <div className="text-xs text-brand-darkGrey mt-4">
                 {progression.totalGamesWon} wins in {progression.totalGamesPlayed} games
               </div>
             )}
@@ -340,8 +344,8 @@ export default function Dashboard() {
         {/* Streaks and Referrals Row */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
           {/* Streaks Card */}
-          <div className="bg-white rounded-xl shadow-lg p-6">
-            <h3 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+          <div className="bg-brand-white rounded-xl shadow-lg p-6 border-2 border-brand-accent">
+            <h3 className="text-xl font-bold text-brand-black mb-4 flex items-center gap-2">
               <span>🔥</span>
               Streaks
             </h3>
@@ -350,20 +354,20 @@ export default function Dashboard() {
                 streaks.map((streak, index) => (
                   <div key={index} className="flex justify-between items-center">
                     <div>
-                      <div className="font-medium text-gray-900 capitalize">
+                      <div className="font-medium text-brand-black capitalize">
                         {streak.type.replace('_', ' ')} Streak
                       </div>
-                      <div className="text-sm text-gray-600">
+                      <div className="text-sm text-brand-darkGrey">
                         Best: {streak.bestCount}
                       </div>
                     </div>
-                    <div className="text-2xl font-bold text-orange-600">
+                    <div className="text-2xl font-bold text-brand-accent">
                       {streak.count}
                     </div>
                   </div>
                 ))
               ) : (
-                <p className="text-gray-500 text-center py-4">
+                <p className="text-brand-darkGrey text-center py-4">
                   No active streaks yet. Start playing to build streaks!
                 </p>
               )}

@@ -45,7 +45,10 @@ export function AnonymousLoginButton() {
         
         if (result?.ok) {
           // Successful login - redirect to dashboard
-          router.push('/dashboard');
+          // Get locale from pathname or default to 'hu'
+          const pathname = window.location.pathname;
+          const locale = pathname.split('/')[1] || 'hu';
+          router.push(`/${locale}/dashboard`);
           router.refresh();
         } else {
           throw new Error('Failed to create session');
@@ -67,7 +70,7 @@ export function AnonymousLoginButton() {
       <button
         onClick={handleAnonymousLogin}
         disabled={loading}
-        className="w-full bg-gray-100 hover:bg-gray-200 text-gray-900 font-semibold py-4 px-6 rounded-lg transition-colors duration-200 flex items-center justify-center gap-3 shadow hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
+        className="w-full bg-brand-darkGrey hover:bg-brand-secondary-700 text-brand-white font-semibold py-4 px-6 rounded-lg transition-colors duration-200 flex items-center justify-center gap-3 shadow hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
       >
         {loading ? (
           <>
@@ -86,7 +89,7 @@ export function AnonymousLoginButton() {
           </>
         )}
       </button>
-      <p className="mt-2 text-center text-xs text-gray-500">
+      <p className="mt-2 text-center text-xs text-brand-darkGrey">
         Try games instantly with a random username
       </p>
     </>

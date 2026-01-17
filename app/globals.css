@@ -8,21 +8,24 @@
 /* Why: Provides consistent theming and utilities across the entire platform */
 
 :root {
-  --foreground-rgb: 17, 24, 39; /* gray-900 */
-  --background-start-rgb: 249, 250, 251; /* gray-50 */
+  --foreground-rgb: 0, 0, 0; /* Black */
+  --background-start-rgb: 255, 255, 255; /* White */
   --background-end-rgb: 255, 255, 255;
   
   /* Amanoba brand colors */
-  --primary: 99, 102, 241; /* indigo-500 */
-  --secondary: 236, 72, 153; /* pink-500 */
-  --accent: 168, 85, 247; /* purple-500 */
+  --primary: 250, 185, 8; /* #FAB908 - Accent yellow/gold */
+  --secondary: 45, 45, 45; /* #2D2D2D - Dark grey */
+  --accent: 250, 185, 8; /* #FAB908 - Accent yellow/gold */
+  --black: 0, 0, 0;
+  --dark-grey: 45, 45, 45;
+  --white: 255, 255, 255;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --foreground-rgb: 243, 244, 246; /* gray-100 */
-    --background-start-rgb: 17, 24, 39; /* gray-900 */
-    --background-end-rgb: 31, 41, 55; /* gray-800 */
+    --foreground-rgb: 255, 255, 255; /* White */
+    --background-start-rgb: 0, 0, 0; /* Black */
+    --background-end-rgb: 45, 45, 45; /* Dark grey */
   }
 }
 

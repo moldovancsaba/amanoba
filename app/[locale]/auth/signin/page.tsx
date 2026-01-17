@@ -8,9 +8,11 @@
 import { signIn } from '@/auth';
 import { redirect } from 'next/navigation';
 import { auth } from '@/auth';
-import { AnonymousLoginButton } from '@/components/AnonymousLoginButton';
+import { AnonymousLoginButton } from '@/app/components/AnonymousLoginButton';
 import { getTranslations } from 'next-intl/server';
 import { LocaleLink } from '@/components/LocaleLink';
+import Logo from '@/components/Logo';
+import Image from 'next/image';
 
 /**
  * Sign In Page Component
@@ -39,17 +41,26 @@ export default async function SignInPage({
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-600 p-4">
+    <div className="min-h-screen flex items-center justify-center bg-brand-black p-4">
       <div className="w-full max-w-md">
         {/* Sign In Card */}
-        <div className="bg-white rounded-2xl shadow-2xl p-8">
+        <div className="bg-brand-white rounded-2xl shadow-2xl p-8 border-2 border-brand-accent">
           {/* Logo and Branding */}
           <div className="text-center mb-8">
-            <div className="text-6xl mb-4">🎮</div>
-            <h1 className="text-3xl font-bold text-gray-900 mb-2">
+            <div className="flex justify-center mb-4">
+              <Image
+                src="/AMANOBA.png"
+                alt="Amanoba Logo"
+                width={120}
+                height={120}
+                className="h-24 w-auto"
+                priority
+              />
+            </div>
+            <h1 className="text-3xl font-bold text-brand-black mb-2">
               {t('welcome')} {tCommon('appName')}
             </h1>
-            <p className="text-gray-600">
+            <p className="text-brand-darkGrey">
               Play. Compete. Achieve.
             </p>
           </div>
@@ -67,7 +78,7 @@ export default async function SignInPage({
           >
             <button
               type="submit"
-              className="w-full bg-[#1877F2] hover:bg-[#166FE5] text-white font-semibold py-4 px-6 rounded-lg transition-colors duration-200 flex items-center justify-center gap-3 shadow-lg hover:shadow-xl"
+              className="w-full bg-[#1877F2] hover:bg-[#166FE5] text-brand-white font-semibold py-4 px-6 rounded-lg transition-colors duration-200 flex items-center justify-center gap-3 shadow-lg hover:shadow-xl"
             >
               <svg
                 className="w-6 h-6"
@@ -88,10 +99,10 @@ export default async function SignInPage({
           {/* Divider */}
           <div className="relative my-6">
             <div className="absolute inset-0 flex items-center">
-              <div className="w-full border-t border-gray-300"></div>
+              <div className="w-full border-t border-brand-darkGrey"></div>
             </div>
             <div className="relative flex justify-center text-sm">
-              <span className="px-2 bg-white text-gray-500">Or</span>
+              <span className="px-2 bg-brand-white text-brand-darkGrey">Or</span>
             </div>
           </div>
 
@@ -99,33 +110,33 @@ export default async function SignInPage({
           <AnonymousLoginButton />
 
           {/* Additional Info */}
-          <div className="mt-8 text-center text-sm text-gray-500">
+          <div className="mt-8 text-center text-sm text-brand-darkGrey">
             <p>
               By continuing, you agree to {tCommon('appName')}&apos;s{' '}
-              <Link href={`/${locale}/terms`} className="text-indigo-600 hover:text-indigo-700 underline">
+              <LocaleLink href={`/${locale}/terms`} className="text-brand-accent hover:text-brand-primary-600 underline">
                 Terms of Service
-              </Link>{' '}
+              </LocaleLink>{' '}
               and{' '}
-              <Link href={`/${locale}/privacy`} className="text-indigo-600 hover:text-indigo-700 underline">
+              <LocaleLink href={`/${locale}/privacy`} className="text-brand-accent hover:text-brand-primary-600 underline">
                 Privacy Policy
-              </Link>
+              </LocaleLink>
             </p>
           </div>
         </div>
 
         {/* Benefits Section */}
-        <div className="mt-8 text-white text-center">
+        <div className="mt-8 text-brand-white text-center">
           <h2 className="text-xl font-semibold mb-4">Why Join Amanoba?</h2>
           <div className="grid grid-cols-3 gap-4">
-            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
+            <div className="bg-brand-darkGrey/80 backdrop-blur-sm rounded-lg p-4 border border-brand-accent/30">
               <div className="text-3xl mb-2">🎯</div>
               <p className="text-sm font-medium">{tCommon('games.title')}</p>
             </div>
-            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
+            <div className="bg-brand-darkGrey/80 backdrop-blur-sm rounded-lg p-4 border border-brand-accent/30">
               <div className="text-3xl mb-2">🏆</div>
               <p className="text-sm font-medium">{tCommon('achievements.title')}</p>
             </div>
-            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
+            <div className="bg-brand-darkGrey/80 backdrop-blur-sm rounded-lg p-4 border border-brand-accent/30">
               <div className="text-3xl mb-2">⭐</div>
               <p className="text-sm font-medium">{tCommon('leaderboard.title')}</p>
             </div>
