@@ -1,316 +1,310 @@
-# Amanoba Platform Status
+# Amanoba Current Status
 
-**Version**: 2.0.0  
-**Status**: 🚀 PRODUCTION READY  
-**Last Updated**: 2025-01-13T09:37:00.000Z
-
----
-
-## 🎉 Major Milestone Achieved
-
-**ALL 10 DEVELOPMENT PHASES COMPLETE!**
-
-The Amanoba platform has successfully completed all planned development phases and is ready for production deployment. This represents the successful merge and enhancement of PlayMass and Madoku into a unified, world-class gamification platform.
+**Last Updated**: 2025-01-17T16:30:00.000Z  
+**Version**: 2.7.0  
+**Status**: ✅ Phase 1 Complete - Ready for Phase 2
 
 ---
 
-## ✅ Completed Development Phases
+## 🎯 Current State Summary
 
-### Phase 1: Foundation (Days 1-7) ✅
-- Repository initialization and Git setup
-- Next.js 15 App Router structure
-- Environment configuration
-- Core documentation framework
+Amanoba has successfully completed **Phase 1** of the transformation from a game platform to a **30-day learning platform**. The foundation is now in place with data models, email service, internationalization, and a new design system.
 
-### Phase 2: Database Layer (Days 8-14) ✅
-- MongoDB connection singleton with connection pooling
-- Pino structured logger with PII redaction
-- 21 Mongoose models with full validation and indexes
-- Database seed scripts for initial data
+---
 
-### Phase 3: Gamification Core (Days 15-21) ✅
-- Points calculation system with multipliers
-- Achievement engine with 4 criteria types
-- XP and leveling system (50 levels)
-- Streak tracking (win streaks, login streaks)
-- Progressive disclosure gating system
+## ✅ Completed Work
 
-### Phase 4: Games Integration (Days 22-28) ✅
-- QUIZZZ trivia game (ported from PlayMass)
-- WHACKPOP action game (ported from PlayMass)
-- Madoku placeholder with premium gating
-- Unified game session API
-- Game launcher with progressive disclosure
-- Facebook OAuth authentication (NextAuth.js v5)
-- Player dashboard with stats and progression
+### Phase 1: Foundation & Data Models ✅ COMPLETE
 
-### Phase 5: Advanced Features (Days 29-35) ✅
-- Leaderboard system (8 types × 4 periods)
-- Daily challenges (8 challenge types)
-- Quest system (multi-step with dependencies)
-- Cron job for leaderboard calculations
+#### 1. Data Models (✅ Complete)
+- ✅ **Course Model** (`app/lib/models/course.ts`)
+  - 30-day course structure
+  - Points and XP configuration
+  - Premium course support
+  - Multi-language support (language field + translations)
+  - Full TypeScript interfaces
 
-### Phase 6: Analytics (Days 36-42) ✅
-- Event logging system (15+ event types)
-- MongoDB aggregation pipelines (6 metric categories)
-- Analytics snapshot cron job
-- Admin analytics API (historical + real-time)
-- Interactive admin dashboard with charts
+- ✅ **Lesson Model** (`app/lib/models/lesson.ts`)
+  - Day-based structure (1-30)
+  - HTML/markdown content support
+  - Email templates (subject + body)
+  - Assessment game linking
+  - Multi-language support
+  - Unlock conditions
 
-### Phase 7: Profile & Social (Days 43-49) ✅
-- Public player profile pages
-- PlayerAvatar component with level badges
-- Referral system with tracking
-- Activity feed integration
+- ✅ **CourseProgress Model** (`app/lib/models/course-progress.ts`)
+  - Student progress tracking
+  - Current day tracking
+  - Completed lessons tracking
+  - Assessment results linking
+  - Status management
 
-### Phase 8: Admin Tools (Days 50-56) ✅
-- Admin dashboard layout with sidebar navigation
-- Platform metrics overview
-- Activity feed for monitoring
-- Admin route protection
+- ✅ **AssessmentResult Model** (`app/lib/models/assessment-result.ts`)
+  - Game session → course assessment linking
+  - Score and accuracy tracking
+  - Insights and recommendations fields
 
-### Phase 9: Polish (Days 57-63) ✅
-- Comprehensive design system (674 lines)
-- 12 keyframe animations
-- UI component library
-- PWA with service worker
-- Offline support
-- WCAG AA accessibility compliance
+- ✅ **Game Model Extended** (`app/lib/models/Game.ts`)
+  - `isAssessment` flag
+  - `assessmentConfig` object
 
-### Phase 10: Launch (Days 64-70) ✅
-- Security hardening (rate limiting, CSP, XSS protection)
-- Security module (343 lines)
+- ✅ **Player Model Extended** (`app/lib/models/Player.ts`)
+  - `emailPreferences` object
+  - Default locale (Hungarian)
+
+#### 2. Email Service (✅ Complete)
+- ✅ Resend integration (`app/lib/email/email-service.ts`)
+- ✅ 4 email functions:
+  - `sendLessonEmail()` - Daily lesson delivery
+  - `sendWelcomeEmail()` - Course enrollment
+  - `sendCompletionEmail()` - Course completion
+  - `sendReminderEmail()` - Daily reminders
+- ✅ Multi-language email support
+- ✅ Email preferences checking
+
+#### 3. Internationalization (✅ Complete)
+- ✅ next-intl integration
+- ✅ Hungarian as default language
+- ✅ English support
+- ✅ All pages migrated to `app/[locale]/` structure
+- ✅ Core pages translated (signin, dashboard, games)
+- ✅ LocaleLink component for navigation
+- ✅ Language switcher component
+- ✅ Translation files: `messages/hu.json`, `messages/en.json`
+
+#### 4. Design System (✅ Complete)
+- ✅ New brand colors:
+  - Black (#000000)
+  - Dark Grey (#2D2D2D)
+  - White (#FFFFFF)
+  - Accent Yellow (#FAB908)
+- ✅ Logo component (`components/Logo.tsx`)
+- ✅ Logo integrated in signin and dashboard
+- ✅ All core pages redesigned with new colors
+- ✅ Tailwind config updated
+- ✅ Global CSS variables updated
+
+#### 5. Build & Quality (✅ Complete)
+- ✅ Build runs error-free
+- ✅ JSON translation files validated
+- ✅ TypeScript compilation successful
+- ✅ No linter errors
+
+---
+
+## 📊 Current Statistics
+
+### Codebase
+- **Total Models**: 27 (4 new course-related models)
+- **Email Functions**: 4
+- **Translation Files**: 2 (Hungarian, English)
+- **Translated Pages**: 3/15 core pages
+- **New Components**: 2 (Logo, LocaleLink)
+
+### Database Collections
+- **New Collections**: 4 (courses, lessons, course_progress, assessment_results)
+- **Extended Collections**: 2 (games, players)
+
+### Dependencies
+- **New**: `resend`, `next-intl`
+- **Updated**: All existing dependencies
+
+---
+
+## 🚧 In Progress
+
+### None - Phase 1 Complete
+
+---
+
+## 📋 Next Steps: Phase 2
+
+### 2.1 Course Builder Admin Interface
+**Priority**: HIGH  
+**Timeline**: Week 3-4
+
+**Tasks**:
+1. Create admin course management pages
+   - `/admin/courses` - Course list
+   - `/admin/courses/new` - Create course
+   - `/admin/courses/[courseId]` - Edit course
+   - `/admin/courses/[courseId]/lessons` - Manage lessons
+
+2. Build 30-day lesson builder UI
+   - Drag-and-drop lesson reordering
+   - Lesson editor for each day
+   - Rich text editor for content
+   - Email template editor
+   - Assessment game selection
+
+3. Course preview functionality
+4. Publish/unpublish workflow
+
+**Deliverables**:
+- ✅ Admin course management pages
+- ✅ 30-day lesson builder interface
+- ✅ Rich text editor integration
+- ✅ Course preview
+- ✅ Publish workflow
+
+### 2.2 Student Course Dashboard
+**Priority**: HIGH  
+**Timeline**: Week 3-4
+
+**Tasks**:
+1. Course listing and enrollment
+   - `/courses` - Available courses
+   - `/courses/[courseId]` - Course overview
+   - Enrollment functionality
+
+2. Student course dashboard
+   - `/my-courses` - Enrolled courses
+   - Progress visualization (30-day timeline)
+   - Completed days tracking
+
+3. Daily lesson viewer
+   - `/courses/[courseId]/day/[dayNumber]` - Lesson view
+   - Mark as complete functionality
+   - Previous/Next navigation
+
+4. Assessment game integration
+   - Launch assessment from lesson
+   - Link game session to course
+
+**Deliverables**:
+- ✅ Course listing and enrollment
+- ✅ Student course dashboard
+- ✅ Daily lesson viewer
+- ✅ Assessment integration
+
+---
+
+## 🎯 Phase 3: Email Automation (Weeks 5-6)
+
+### 3.1 Daily Email Scheduler
+- Cron job for daily lesson emails
+- Timezone-aware scheduling
+- Email delivery tracking
+- Catch-up email logic
+
+### 3.2 Email Preferences UI
+- Email settings page
+- Unsubscribe functionality
+- Email delivery history
+
+---
+
+## 🎯 Phase 4: Assessment Integration (Weeks 7-8)
+
+### 4.1 Game-to-Assessment Bridge
+- Assessment launcher
+- Game session → course linking
+- Assessment results processing
+
+### 4.2 Assessment Analytics
+- Admin analytics dashboard
+- Student assessment results view
+- Performance insights
+
+---
+
+## 🎯 Phase 5: Gamification Integration (Weeks 9-10)
+
+### 5.1 Course-Specific Achievements
+- Course achievement triggers
+- Course completion badges
+
+### 5.2 Course Leaderboards
+- Course-specific leaderboards
+- Leaderboard calculation
+
+---
+
+## 🎯 Phase 6: Polish & Launch (Weeks 11-12)
+
+### 6.1 UI/UX Polish
+- Course card designs
+- Lesson viewer improvements
+- Mobile responsiveness
+
+### 6.2 Documentation & Testing
+- Course creation documentation
+- End-to-end testing
 - Performance optimization
-- Monitoring and logging
-- Complete deployment documentation
-- Production readiness verification
 
 ---
 
-## 📊 Platform Statistics
+## 🔧 Environment Variables Required
 
-**Codebase**:
-- Total Lines: ~15,000+
-- TypeScript Files: 100+
-- React Components: 30+
-- API Endpoints: 20+
-
-**Database**:
-- Mongoose Models: 21
-- Seed Scripts: 4
-- Collections: ~21
-
-**Features**:
-- Games: 3 (QUIZZZ, WHACKPOP, Madoku)
-- Achievements: 18 pre-defined
-- Rewards: 9 types
-- Leaderboard Types: 8 × 4 periods = 32 leaderboards
-- Challenge Types: 8
-- Quest Step Types: 10
-- Event Types: 15+
-- Metric Categories: 6
-
-**Quality Metrics**:
-- Build Status: ✅ Clean (0 errors, 0 warnings)
-- TypeScript: ✅ Strict mode enforced
-- Security: ✅ Hardened and tested
-- Performance: ✅ Optimized
-- Accessibility: ✅ WCAG AA compliant
-- Documentation: ✅ Complete and synchronized
-
----
-
-## 🗄️ Database Status
-
-**Connection**: MongoDB Atlas (Madoku cluster)  
-**Database**: amanoba  
-**Seeding Status**: ✅ Complete
-
-**Seeded Data**:
-- ✅ 1 Brand (Amanoba)
-- ✅ 3 Games (QUIZZZ, WHACKPOP, Madoku)
-- ✅ 3 Game-Brand Configurations
-- ✅ 18 Achievements (across 4 categories)
-- ✅ 9 Rewards
-
----
-
-## 🔐 Security Features
-
-- ✅ Rate limiting on all API routes (4 pre-configured limiters)
-- ✅ Content Security Policy (CSP) headers
-- ✅ XSS protection via input sanitization
-- ✅ CSRF protection via origin validation
-- ✅ SQL/NoSQL injection prevention
-- ✅ Secure session management (JWT, 30-day expiry)
-- ✅ HTTPS enforcement in production
-- ✅ Clickjacking prevention (X-Frame-Options: DENY)
-- ✅ MIME sniffing protection
-- ✅ Referrer policy configuration
-- ✅ Security event audit logging
-- ✅ Bearer token authentication for cron jobs
-
----
-
-## 🎨 Design & UX
-
-**Design System**:
-- CSS Custom Properties: 100+
-- Color Palettes: 4 (primary, secondary, accent, semantic)
-- Typography Scale: 10 sizes
-- Spacing Scale: 13 values
-- Shadow Tokens: 10
-- Animation Keyframes: 12
-- Transition Presets: 4
-
-**Accessibility**:
-- WCAG AA Compliance: ✅
-- Color Contrast: ✅ 4.5:1 minimum
-- Keyboard Navigation: ✅ Full support
-- Focus Management: ✅ Visible outlines
-- Reduced Motion: ✅ Respects user preference
-- Screen Reader: ✅ Semantic HTML
-
-**PWA**:
-- Service Worker: ✅ Configured
-- Offline Support: ✅ Full
-- Caching Strategy: ✅ Multi-tier
-- Push Notifications: ✅ Ready
-- Background Sync: ✅ Implemented
-- Install Prompt: ✅ Available
-
----
-
-## 🚀 Deployment Readiness
-
-### ✅ Completed Pre-Launch Tasks
-
-- [x] All 10 development phases complete
-- [x] Clean build verification (0 errors, 0 warnings)
-- [x] Database schema finalized
-- [x] Database seeded with initial data
-- [x] Security hardening implemented
-- [x] Performance optimizations applied
-- [x] PWA configured
-- [x] Accessibility compliance verified
-- [x] Documentation complete and synchronized
-- [x] Git version tagged (v2.0.0)
-- [x] GitHub repository updated
-
-### 🔄 Ready for User Action
-
-- [ ] Run development server (`npm run dev`)
-- [ ] Manual QA testing
-- [ ] Configure production environment on Vercel
-- [ ] Deploy to Vercel
-- [ ] Configure cron jobs (leaderboards, analytics)
-- [ ] Update Facebook OAuth redirect URLs
-- [ ] Enable monitoring and analytics
-- [ ] Production smoke tests
-- [ ] Official launch announcement
-
----
-
-## 📝 Key Files & Locations
-
-**Configuration**:
-- Environment: `.env.local` (local dev) / Vercel (production)
-- Next.js Config: `next.config.ts`
-- TypeScript Config: `tsconfig.json`
-- Tailwind Config: `tailwind.config.ts`
-
-**Core Application**:
-- MongoDB Connection: `app/lib/mongodb.ts`
-- Logger: `app/lib/logger.ts`
-- Security: `app/lib/security.ts`
-- Models: `app/lib/models/` (21 models)
-- Gamification: `app/lib/gamification/`
-- Analytics: `app/lib/analytics/`
-
-**Design**:
-- Design System: `app/design-system.css`
-- Global Styles: `app/globals.css`
-- Service Worker: `public/service-worker.js`
-- Offline Page: `public/offline.html`
-
-**Documentation**:
-- Architecture: `ARCHITECTURE.md`
-- Tech Stack: `TECH_STACK.md`
-- Deployment: `DEPLOYMENT.md`
-- Task List: `TASKLIST.md`
-- Release Notes: `RELEASE_NOTES.md`
-- Naming Guide: `NAMING_GUIDE.md`
-- Contributing: `CONTRIBUTING.md`
-- AI Guide: `WARP.md`
-- Learnings: `LEARNINGS.md`
-- Roadmap: `ROADMAP.md`
-
----
-
-## 🎯 Next Immediate Steps
-
-### 1. Local Development Testing
+### Email Service
 ```bash
-npm run dev
+RESEND_API_KEY=re_xxxxx
+EMAIL_FROM=noreply@amanoba.com
+EMAIL_FROM_NAME=Amanoba Learning
+EMAIL_REPLY_TO=support@amanoba.com
 ```
-- Open http://localhost:3000
-- Test Facebook OAuth login
-- Play all three games
-- Test gamification features
-- Verify admin dashboard
 
-### 2. Production Deployment
-Follow the comprehensive guide in `DEPLOYMENT.md`:
-- Configure Vercel project
-- Set environment variables
-- Deploy via CLI or dashboard
-- Configure cron jobs
-- Update OAuth redirect URLs
-- Enable monitoring
-
-### 3. Post-Launch Monitoring
-- Set up Vercel Analytics
-- Monitor error logs
-- Track performance metrics
-- Review user feedback
-- Plan iterative improvements
+### Application
+```bash
+NEXT_PUBLIC_APP_URL=https://amanoba.com
+```
 
 ---
 
-## 🐛 Known Issues / Future Enhancements
+## 📁 Key Files & Locations
 
-**Current Limitations**:
-- Madoku game is placeholder only (premium feature, full implementation pending)
-- Manual QA testing not yet performed
-- Production environment not yet deployed
+### Models
+- `app/lib/models/course.ts` - Course model
+- `app/lib/models/lesson.ts` - Lesson model
+- `app/lib/models/course-progress.ts` - Progress tracking
+- `app/lib/models/assessment-result.ts` - Assessment results
 
-**Future Enhancements** (see ROADMAP.md):
-- Dark mode theme
-- Additional game types
-- Social features (friend system, messaging)
-- Advanced analytics (cohort analysis, A/B testing)
-- Mobile apps (React Native)
-- Internationalization (i18n)
-- Payment integration for premium subscriptions
+### Email Service
+- `app/lib/email/email-service.ts` - Email functions
+- `app/lib/email/index.ts` - Exports
 
----
+### i18n
+- `i18n.ts` - i18n configuration
+- `messages/hu.json` - Hungarian translations
+- `messages/en.json` - English translations
+- `components/LocaleLink.tsx` - Locale-aware links
 
-## 📞 Support & Resources
-
-**Repository**: https://github.com/moldovancsaba/amanoba  
-**Database**: madoku-cluster.kqamwf8.mongodb.net/amanoba  
-**Documentation**: All `.md` files in project root  
-**Contact**: csaba@doneisbetter.com  
+### Design
+- `components/Logo.tsx` - Logo component
+- `tailwind.config.ts` - Brand colors
+- `app/globals.css` - CSS variables
 
 ---
 
-## 🎉 Conclusion
+## ✅ Quality Checks
 
-The Amanoba platform is **production-ready** and represents a significant achievement in merging and enhancing two separate game platforms into a unified, scalable, and feature-rich system. All planned phases are complete, the codebase is clean and well-documented, and the platform is ready for deployment and launch.
+- ✅ Build: Error-free
+- ✅ TypeScript: Compiles successfully
+- ✅ Linter: No errors
+- ✅ JSON: Valid translation files
+- ✅ Models: All indexed and validated
 
-**Congratulations on reaching this major milestone!** 🚀
+---
+
+## 🚀 Ready For
+
+- ✅ Phase 2: Course Builder & Student Dashboard
+- ✅ Creating courses in Hungarian (default)
+- ✅ Creating courses in English
+- ✅ Multi-language course content
+
+---
+
+## 📝 Notes
+
+- All existing gamification features remain intact
+- Games can still be played outside of courses
+- Courses are opt-in feature
+- Backward compatible with existing data
+- Build is production-ready
 
 ---
 
 **Maintained By**: Narimato  
-**Review Cycle**: Updated at major milestones
+**Next Review**: Phase 2 kickoff  
+**Status**: ✅ Ready for Phase 2

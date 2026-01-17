@@ -1,8 +1,8 @@
 # Amanoba — Unified 30-Day Learning Platform
 
 **Current Version**: 2.7.0  
-**Last Updated**: 2025-01-14T12:00:00.000Z  
-**Status**: In Development — Transforming to Learning Platform
+**Last Updated**: 2025-01-17T16:30:00.000Z  
+**Status**: Phase 1 Complete — Ready for Phase 2 (Course Builder)
 
 ## 🎓 Overview
 
@@ -31,7 +31,9 @@ Amanoba is transforming into a **unified 30-day learning platform** that combine
 - **Framework**: Next.js 15.5.2 (App Router)
 - **Database**: MongoDB Atlas with Mongoose 8.18.0
 - **Language**: TypeScript 5
-- **Styling**: Tailwind CSS 3.4.1
+- **Styling**: Tailwind CSS 3.4.1 (with custom brand colors)
+- **Email**: Resend API for lesson delivery
+- **i18n**: next-intl for multi-language support (Hungarian default, English)
 - **Animation**: Framer Motion 10.18.0
 - **UI Components**: Radix UI primitives
 - **Charts**: Recharts 3.2.1
@@ -81,21 +83,26 @@ See `.env.local.example` for required configuration including:
 
 ```
 app/
-├── admin/              # Admin dashboard and management tools
-├── api/                # API routes (games, gamification, analytics)
-├── components/         # React components
+├── [locale]/          # Locale-based pages (hu, en)
+│   ├── admin/         # Admin dashboard (i18n)
+│   ├── auth/          # Authentication pages (i18n)
+│   ├── dashboard/     # Student dashboard (i18n)
+│   ├── games/         # Game gallery (i18n)
+│   └── ...            # All other pages (i18n)
+├── api/               # API routes (no locale needed)
+├── components/        # React components
 │   ├── gamification/  # Achievement, XP, streak components
 │   ├── games/         # Game-specific components
 │   ├── charts/        # Analytics chart components
 │   └── ui/            # Reusable UI primitives
-├── games/             # Game gallery and play pages
 ├── lib/               # Utilities, models, and business logic
-│   ├── models/       # 17 Mongoose schemas
-│   ├── gamification/ # Points, achievements, XP, streaks
-│   ├── madoku/       # Sudoku engine and AI
-│   └── analytics/    # Event logging and aggregations
-├── profile/           # Player profile pages
-└── leaderboard/       # Leaderboard pages
+│   ├── models/        # 27 Mongoose schemas (4 new course models)
+│   ├── email/         # Email service (Resend)
+│   ├── gamification/  # Points, achievements, XP, streaks
+│   ├── madoku/        # Sudoku engine and AI
+│   └── analytics/     # Event logging and aggregations
+messages/              # Translation files (hu.json, en.json)
+public/                # Static assets (logo, etc.)
 ```
 
 ## 📊 Game Types
