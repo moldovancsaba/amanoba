@@ -31,8 +31,8 @@ export async function GET(request: NextRequest) {
     let brands;
     if (defaultOnly) {
       // Get the first active brand (default)
-      brands = await Brand.find({ 'metadata.isActive': true })
-        .sort({ 'metadata.createdAt': 1 })
+      brands = await Brand.find({ isActive: true })
+        .sort({ createdAt: 1 })
         .limit(1)
         .lean();
     } else {
