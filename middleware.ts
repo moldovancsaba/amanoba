@@ -38,7 +38,8 @@ export default auth((req) => {
     pathname.startsWith('/manifest.json') ||
     pathname.startsWith('/icon-') ||
     pathname.startsWith('/apple-touch-icon') ||
-    pathname.match(/\.(ico|png|svg|jpg|jpeg|gif|webp|json)$/i)
+    pathname.startsWith('/admin-docs/') ||
+    pathname.match(/\.(ico|png|svg|jpg|jpeg|gif|webp|json|md)$/i)
   ) {
     return NextResponse.next();
   }
@@ -71,6 +72,8 @@ export default auth((req) => {
     actualPathname.startsWith('/my-courses') ||
     actualPathname.startsWith('/admin');
 
+  const isPublicAdminDoc = actualPathname.startsWith('/admin/docs/course-creation');
+
   // Define public routes
   // Why: These routes should redirect authenticated users
   const isAuthRoute =
@@ -79,7 +82,7 @@ export default auth((req) => {
 
   // Redirect unauthenticated users to sign in
   // Why: Protect content that requires authentication
-  if (isProtectedRoute && !isLoggedIn) {
+  if (isProtectedRoute && !isLoggedIn && !isPublicAdminDoc) {
     const callbackUrl = encodeURIComponent(pathname + req.nextUrl.search);
     // Determine locale from pathname
     let locale = defaultLocale;

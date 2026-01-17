@@ -27,6 +27,7 @@ import {
   Crown,
   Shield,
   BookOpen,
+  FileText,
 } from 'lucide-react';
 
 interface NavItem {
@@ -41,6 +42,7 @@ const navigationItems = [
   { key: 'dashboard', href: '/admin', icon: LayoutDashboard },
   { key: 'analytics', href: '/admin/analytics', icon: BarChart3 },
   { key: 'courses', href: '/admin/courses', icon: BookOpen },
+  { key: 'courseGuide', href: '/admin/docs/course-creation', icon: FileText },
   { key: 'players', href: '/admin/players', icon: Users },
   { key: 'games', href: '/admin/games', icon: Gamepad2 },
   { key: 'achievements', href: '/admin/achievements', icon: Trophy },

@@ -32,7 +32,9 @@
     "createdAt": "Létrehozva",
     "updatedAt": "Frissítve",
     "total": "Összesen",
-    "count": "Darabszám"
+    "count": "Darabszám",
+    "copied": "Másolva!",
+    "points": "pont"
   },
   "auth": {
     "signIn": "Bejelentkezés",
@@ -54,7 +56,23 @@
     "backToDashboard": "Vissza az irányítópulthoz",
     "loading": "Irányítópult betöltése...",
     "unableToLoad": "Nem sikerült betölteni az irányítópultot",
-    "retry": "Újrapróbálás"
+    "retry": "Újrapróbálás",
+    "quickActions": "Gyors műveletek",
+    "courses": "Kurzusok",
+    "myCourses": "Kurzusaim",
+    "memberSince": "Tag",
+    "level": "Szint",
+    "points": "Pontok",
+    "earned": "Szerzett",
+    "spent": "Elköltött",
+    "achievements": "Eredmények",
+    "complete": "Befejezve",
+    "winRate": "Győzelmi arány",
+    "wins": "győzelem",
+    "games": "játékban",
+    "streaks": "Sorozatok",
+    "noActiveStreaks": "Még nincs aktív sorozat. Kezdj el játszani, hogy sorozatokat építs!",
+    "refresh": "Frissítés"
   },
   "courses": {
     "title": "Kurzusok",
@@ -171,6 +189,7 @@
     "dashboardTitle": "Admin Irányítópult",
     "dashboardDescription": "Üdvözöljük! Íme, mi történik a platformon.",
     "courses": "Kurzusok kezelése",
+    "courseGuide": "Kurzus létrehozási útmutató",
     "lessons": "Leckék kezelése",
     "players": "Játékosok kezelése",
     "analytics": "Elemzések",

@@ -167,7 +167,7 @@ export default function Dashboard() {
                 }}
                 className="bg-brand-accent text-brand-black px-4 py-2 rounded-lg hover:bg-brand-primary-400 transition-colors font-medium font-bold"
               >
-                🔄 Refresh
+                🔄 {t('refresh')}
               </button>
               <LocaleLink
                 href="/games"
@@ -191,20 +191,20 @@ export default function Dashboard() {
         <div className="bg-brand-white rounded-xl shadow-lg p-6 mb-8 border-2 border-brand-accent">
           <h3 className="text-xl font-bold text-brand-black mb-4 flex items-center gap-2">
             <span>🎯</span>
-            Quick Actions
+            {t('quickActions')}
           </h3>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-9 gap-3">
             <LocaleLink
               href="/courses"
               className="block bg-brand-accent text-brand-black px-4 py-3 rounded-lg font-bold text-center hover:bg-brand-primary-400 transition-all text-sm"
             >
-              📚 Courses
+              📚 {t('courses')}
             </LocaleLink>
             <LocaleLink
               href="/my-courses"
               className="block bg-brand-darkGrey text-brand-white px-4 py-3 rounded-lg font-bold text-center hover:bg-brand-secondary-700 transition-all text-sm"
             >
-              📖 My Courses
+              📖 {t('myCourses')}
             </LocaleLink>
             <LocaleLink
               href="/games"
@@ -268,14 +268,14 @@ export default function Dashboard() {
                   </div>
                 )}
                 <div className="text-brand-darkGrey text-sm">
-                  Member since {new Date(player.createdAt).toLocaleDateString()}
+                  {t('memberSince')} {new Date(player.createdAt).toLocaleDateString('hu-HU')}
                 </div>
               </div>
             </div>
             {player.isPremium && (
               <div className="bg-brand-accent text-brand-black px-4 py-2 rounded-lg font-bold flex items-center gap-2">
                 <span className="text-2xl">⭐</span>
-                <span>Premium</span>
+                <span>{tCommon('premium')}</span>
               </div>
             )}
           </div>
@@ -289,7 +289,7 @@ export default function Dashboard() {
             <div className="text-3xl font-bold text-brand-black">
               {progression?.level || 1}
             </div>
-            <div className="text-brand-darkGrey">Level</div>
+            <div className="text-brand-darkGrey">{t('level')}</div>
             {progression && (
               <>
                 <div className="mt-4 bg-brand-darkGrey/20 rounded-full h-2 overflow-hidden">
@@ -311,11 +311,11 @@ export default function Dashboard() {
             <div className="text-3xl font-bold text-brand-black">
               {wallet?.currentBalance.toLocaleString() || 0}
             </div>
-            <div className="text-brand-darkGrey">Points</div>
+            <div className="text-brand-darkGrey">{t('points')}</div>
             {wallet && (
               <div className="text-xs text-brand-darkGrey mt-4">
-                Earned: {wallet.lifetimeEarned.toLocaleString()} • 
-                Spent: {wallet.lifetimeSpent.toLocaleString()}
+                {t('earned')}: {wallet.lifetimeEarned.toLocaleString()} • 
+                {t('spent')}: {wallet.lifetimeSpent.toLocaleString()}
               </div>
             )}
           </div>
@@ -326,7 +326,7 @@ export default function Dashboard() {
             <div className="text-3xl font-bold text-brand-black">
               {achievementStats.unlocked}/{achievementStats.total}
             </div>
-            <div className="text-brand-darkGrey">Achievements</div>
+            <div className="text-brand-darkGrey">{t('achievements')}</div>
             <div className="mt-4 bg-brand-darkGrey/20 rounded-full h-2 overflow-hidden">
               <div
                 className="bg-brand-accent h-full transition-all"
@@ -334,7 +334,7 @@ export default function Dashboard() {
               />
             </div>
             <div className="text-xs text-brand-darkGrey mt-1">
-              {achievementStats.percentage}% Complete
+              {achievementStats.percentage}% {t('complete')}
             </div>
           </div>
 
@@ -344,10 +344,10 @@ export default function Dashboard() {
             <div className="text-3xl font-bold text-brand-black">
               {progression?.winRate.toFixed(1) || 0}%
             </div>
-            <div className="text-brand-darkGrey">Win Rate</div>
+            <div className="text-brand-darkGrey">{t('winRate')}</div>
             {progression && (
               <div className="text-xs text-brand-darkGrey mt-4">
-                {progression.totalGamesWon} wins in {progression.totalGamesPlayed} games
+                {progression.totalGamesWon} {t('wins')} {progression.totalGamesPlayed} {t('games')}
               </div>
             )}
           </div>
@@ -359,7 +359,7 @@ export default function Dashboard() {
           <div className="bg-brand-white rounded-xl shadow-lg p-6 border-2 border-brand-accent">
             <h3 className="text-xl font-bold text-brand-black mb-4 flex items-center gap-2">
               <span>🔥</span>
-              Streaks
+              {t('streaks')}
             </h3>
             <div className="space-y-4">
               {streaks && streaks.length > 0 ? (
@@ -367,10 +367,10 @@ export default function Dashboard() {
                   <div key={index} className="flex justify-between items-center">
                     <div>
                       <div className="font-medium text-brand-black capitalize">
-                        {streak.type.replace('_', ' ')} Streak
+                        {streak.type.replace('_', ' ')} {t('streaks')}
                       </div>
                       <div className="text-sm text-brand-darkGrey">
-                        Best: {streak.bestCount}
+                        Legjobb: {streak.bestCount}
                       </div>
                     </div>
                     <div className="text-2xl font-bold text-brand-accent">
@@ -380,7 +380,7 @@ export default function Dashboard() {
                 ))
               ) : (
                 <p className="text-brand-darkGrey text-center py-4">
-                  No active streaks yet. Start playing to build streaks!
+                  {t('noActiveStreaks')}
                 </p>
               )}
             </div>

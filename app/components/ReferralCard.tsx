@@ -9,6 +9,7 @@
 
 import { useEffect, useState } from 'react';
 import { useSession } from 'next-auth/react';
+import { useTranslations } from 'next-intl';
 
 interface ReferralData {
   referralCode: string;
@@ -35,6 +36,8 @@ interface ReferralData {
 
 export function ReferralCard() {
   const { data: session } = useSession();
+  const t = useTranslations('referral');
+  const tCommon = useTranslations('common');
   const [referralData, setReferralData] = useState<ReferralData | null>(null);
   const [loading, setLoading] = useState(true);
   const [copied, setCopied] = useState(false);
@@ -104,24 +107,24 @@ export function ReferralCard() {
   }
 
   return (
-    <div className="bg-white rounded-xl shadow-lg p-6">
-      <h3 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+    <div className="bg-brand-white rounded-xl shadow-lg p-6 border-2 border-brand-accent">
+      <h3 className="text-xl font-bold text-brand-black mb-4 flex items-center gap-2">
         <span>🎁</span>
-        Invite Friends
+        {t('inviteFriends')}
       </h3>
 
       {/* Referral Code Display */}
-      <div className="bg-gradient-to-r from-indigo-50 to-purple-50 rounded-lg p-4 mb-4">
-        <p className="text-sm text-gray-600 mb-2">Your Referral Code</p>
+      <div className="bg-brand-darkGrey/10 rounded-lg p-4 mb-4">
+        <p className="text-sm text-brand-darkGrey mb-2">{t('yourReferralCode')}</p>
         <div className="flex items-center gap-2">
-          <code className="flex-1 text-2xl font-bold text-indigo-600 tracking-wider">
+          <code className="flex-1 text-2xl font-bold text-brand-accent tracking-wider">
             {referralData.referralCode}
           </code>
           <button
             onClick={() => copyToClipboard(referralData.referralCode)}
-            className="px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors text-sm font-medium"
+            className="px-4 py-2 bg-brand-accent text-brand-black rounded-lg hover:bg-brand-primary-400 transition-colors text-sm font-medium font-bold"
           >
-            {copied ? '✓ Copied!' : 'Copy'}
+            {copied ? '✓ ' + tCommon('copied') : t('copy')}
           </button>
         </div>
       </div>
@@ -130,21 +133,21 @@ export function ReferralCard() {
       <div className="grid grid-cols-2 gap-3 mb-4">
         <button
           onClick={() => copyToClipboard(referralData.shareUrl)}
-          className="flex items-center justify-center gap-2 px-4 py-3 bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors font-medium text-gray-700"
+          className="flex items-center justify-center gap-2 px-4 py-3 bg-brand-darkGrey hover:bg-brand-secondary-700 rounded-lg transition-colors font-medium text-brand-white font-bold"
         >
           <span>🔗</span>
-          Copy Link
+          {t('copyLink')}
         </button>
         <button
           onClick={shareViaWhatsApp}
-          className="flex items-center justify-center gap-2 px-4 py-3 bg-green-500 hover:bg-green-600 text-white rounded-lg transition-colors font-medium"
+          className="flex items-center justify-center gap-2 px-4 py-3 bg-green-500 hover:bg-green-600 text-white rounded-lg transition-colors font-medium font-bold"
         >
           <span>📱</span>
           WhatsApp
         </button>
         <button
           onClick={shareViaEmail}
-          className="flex items-center justify-center gap-2 px-4 py-3 bg-blue-500 hover:bg-blue-600 text-white rounded-lg transition-colors font-medium"
+          className="flex items-center justify-center gap-2 px-4 py-3 bg-blue-500 hover:bg-blue-600 text-white rounded-lg transition-colors font-medium font-bold"
         >
           <span>✉️</span>
           Email
@@ -153,68 +156,68 @@ export function ReferralCard() {
           onClick={() => {
             if (navigator.share) {
               navigator.share({
-                title: 'Join Amanoba!',
-                text: `Use my referral code: ${referralData.referralCode}`,
+                title: tCommon('appName'),
+                text: `${t('shareMessage')}: ${referralData.referralCode}`,
                 url: referralData.shareUrl,
               });
             }
           }}
-          className="flex items-center justify-center gap-2 px-4 py-3 bg-purple-500 hover:bg-purple-600 text-white rounded-lg transition-colors font-medium"
+          className="flex items-center justify-center gap-2 px-4 py-3 bg-brand-accent hover:bg-brand-primary-400 text-brand-black rounded-lg transition-colors font-medium font-bold"
         >
           <span>📤</span>
-          Share
+          {t('share')}
         </button>
       </div>
 
       {/* Stats Grid */}
       <div className="grid grid-cols-2 gap-4 mb-4">
-        <div className="bg-indigo-50 rounded-lg p-3 text-center">
-          <div className="text-2xl font-bold text-indigo-600">
+        <div className="bg-brand-darkGrey/10 rounded-lg p-3 text-center">
+          <div className="text-2xl font-bold text-brand-accent">
             {referralData.stats.totalReferrals}
           </div>
-          <div className="text-xs text-gray-600">Friends Invited</div>
+          <div className="text-xs text-brand-darkGrey">{t('friendsInvited')}</div>
         </div>
-        <div className="bg-purple-50 rounded-lg p-3 text-center">
-          <div className="text-2xl font-bold text-purple-600">
+        <div className="bg-brand-darkGrey/10 rounded-lg p-3 text-center">
+          <div className="text-2xl font-bold text-brand-accent">
             {referralData.stats.totalPointsEarned}
           </div>
-          <div className="text-xs text-gray-600">Points Earned</div>
+          <div className="text-xs text-brand-darkGrey">{t('pointsEarned')}</div>
         </div>
       </div>
 
       {/* Referred Friends List */}
       {referralData.referrals.length > 0 && (
         <div>
-          <h4 className="text-sm font-semibold text-gray-700 mb-2">
-            Referred Friends ({referralData.referrals.length})
+          <h4 className="text-sm font-semibold text-brand-black mb-2">
+            {t('referredFriends')} ({referralData.referrals.length})
           </h4>
           <div className="space-y-2 max-h-48 overflow-y-auto">
             {referralData.referrals.map((referral) => (
               <div
                 key={referral.id}
-                className="flex items-center justify-between p-3 bg-gray-50 rounded-lg"
+                className="flex items-center justify-between p-3 bg-brand-darkGrey/10 rounded-lg"
               >
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-gradient-to-br from-indigo-400 to-purple-400 rounded-full flex items-center justify-center text-white font-bold">
+                  <div className="w-10 h-10 bg-brand-accent rounded-full flex items-center justify-center text-brand-black font-bold">
                     {referral.referredPlayer.displayName.charAt(0)}
                   </div>
                   <div>
-                    <div className="font-medium text-gray-900 text-sm">
+                    <div className="font-medium text-brand-black text-sm">
                       {referral.referredPlayer.displayName}
                     </div>
-                    <div className="text-xs text-gray-500">
-                      {new Date(referral.referredPlayer.joinedAt).toLocaleDateString()}
+                    <div className="text-xs text-brand-darkGrey">
+                      {new Date(referral.referredPlayer.joinedAt).toLocaleDateString('hu-HU')}
                     </div>
                   </div>
                 </div>
                 <div className="text-right">
                   {referral.status === 'completed' ? (
                     <div className="text-green-600 text-sm font-medium">
-                      +{referral.rewardDetails?.pointsEarned || 0} pts
+                      +{referral.rewardDetails?.pointsEarned || 0} {tCommon('points')}
                     </div>
                   ) : (
                     <div className="text-yellow-600 text-xs">
-                      Pending
+                      {t('pending')}
                     </div>
                   )}
                 </div>
@@ -226,12 +229,12 @@ export function ReferralCard() {
 
       {/* How it Works */}
       {referralData.referrals.length === 0 && (
-        <div className="bg-blue-50 rounded-lg p-4 text-sm text-blue-900">
-          <p className="font-semibold mb-2">🎯 How it works:</p>
+        <div className="bg-brand-darkGrey/10 rounded-lg p-4 text-sm text-brand-black">
+          <p className="font-semibold mb-2">🎯 {t('howItWorks')}</p>
           <ol className="list-decimal list-inside space-y-1 text-xs">
-            <li>Share your referral code with friends</li>
-            <li>They sign up using your code</li>
-            <li>You both earn bonus points!</li>
+            <li>{t('step1')}</li>
+            <li>{t('step2')}</li>
+            <li>{t('step3')}</li>
           </ol>
         </div>
       )}
