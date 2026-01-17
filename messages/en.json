@@ -79,14 +79,7 @@
     "premiumOnly": "Premium Only",
     "unlockAtLevel": "Unlock at Level {{level}}",
     "locked": "Locked",
-    "backToDashboard": "Back to Dashboard"
-  },
-  "challenges": {
-    "title": "Challenges"
-  },
-  "quests": {
-    "title": "Quests"
-  },
+    "backToDashboard": "Back to Dashboard",
     "score": "Score",
     "highScore": "High Score",
     "level": "Level",
@@ -95,6 +88,12 @@
     "medium": "Medium",
     "hard": "Hard",
     "expert": "Expert"
+  },
+  "challenges": {
+    "title": "Challenges"
+  },
+  "quests": {
+    "title": "Quests"
   },
   "achievements": {
     "title": "Achievements",

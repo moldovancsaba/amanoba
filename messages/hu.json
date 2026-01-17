@@ -79,14 +79,7 @@
     "premiumOnly": "Csak prémium",
     "unlockAtLevel": "Feloldás {{level}}. szinten",
     "locked": "Zárolva",
-    "backToDashboard": "Vissza az irányítópulthoz"
-  },
-  "challenges": {
-    "title": "Kihívások"
-  },
-  "quests": {
-    "title": "Küldetések"
-  },
+    "backToDashboard": "Vissza az irányítópulthoz",
     "score": "Pontszám",
     "highScore": "Rekord",
     "level": "Szint",
@@ -95,6 +88,12 @@
     "medium": "Közepes",
     "hard": "Nehéz",
     "expert": "Szakértő"
+  },
+  "challenges": {
+    "title": "Kihívások"
+  },
+  "quests": {
+    "title": "Küldetések"
   },
   "achievements": {
     "title": "Eredmények",
