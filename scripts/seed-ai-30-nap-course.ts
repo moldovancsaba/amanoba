@@ -1281,12 +1281,26 @@ async function seed() {
     
     // Default email templates if not provided
     const emailSubject = entry.emailSubject || `{{courseName}} – {{dayNumber}}. nap: {{lessonTitle}}`;
-    const emailBody = entry.emailBody || [
-      `<h1>{{courseName}}</h1>`,
-      `<h2>{{dayNumber}}. nap: {{lessonTitle}}</h2>`,
-      '<div>{{lessonContent}}</div>',
-      `<p><a href="${appUrl}/courses/${COURSE_ID}/day/{{dayNumber}}">Megnyitom a leckét →</a></p>`
-    ].join('');
+    
+    // Process email body: replace template literal placeholders with actual values
+    // Keep {{dayNumber}}, {{courseName}}, {{lessonTitle}}, {{lessonContent}} for email service
+    let emailBody = entry.emailBody;
+    if (emailBody) {
+      // Replace ${appUrl} and ${COURSE_ID} with actual values (they appear as literal strings in the template)
+      emailBody = emailBody.replace(/\$\{appUrl\}/g, appUrl);
+      emailBody = emailBody.replace(/\$\{COURSE_ID\}/g, COURSE_ID);
+      // Replace any hardcoded day numbers in URLs with placeholder
+      emailBody = emailBody.replace(new RegExp(`/day/${entry.day}"`, 'g'), '/day/{{dayNumber}}"');
+      emailBody = emailBody.replace(new RegExp(`/day/${entry.day}>`, 'g'), '/day/{{dayNumber}}>');
+    } else {
+      // Default template
+      emailBody = [
+        `<h1>{{courseName}}</h1>`,
+        `<h2>{{dayNumber}}. nap: {{lessonTitle}}</h2>`,
+        '<div>{{lessonContent}}</div>',
+        `<p><a href="${appUrl}/courses/${COURSE_ID}/day/{{dayNumber}}">Megnyitom a leckét →</a></p>`
+      ].join('');
+    }
 
     const existing = await Lesson.findOne({ lessonId });
     const result = await Lesson.findOneAndUpdate(
