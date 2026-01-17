@@ -62,8 +62,9 @@ export default auth((req) => {
     }
   }
   
-  // For root path, let it through to app/[locale]/page.tsx
-  // That page will redirect to /auth/signin (no loop)
+  // For root path, let it through to app/page.tsx
+  // That page will redirect to /auth/signin
+  // The intlMiddleware has already rewritten / to /hu internally
   if (actualPathname === '/' || actualPathname === '') {
     return response;
   }
