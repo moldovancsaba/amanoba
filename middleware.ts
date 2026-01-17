@@ -18,6 +18,8 @@ const intlMiddleware = createIntlMiddleware({
   locales,
   defaultLocale,
   localePrefix: 'as-needed', // Only show locale prefix when not default (hu)
+  // Always prefix: false means default locale has no prefix
+  // This means / becomes /hu internally but shows as /
 });
 
 /**
@@ -29,11 +31,7 @@ export default auth((req) => {
   const isLoggedIn = !!req.auth?.user;
   const pathname = req.nextUrl.pathname;
 
-  // First, handle i18n routing
-  // Why: Language routing should happen before auth checks
-  const response = intlMiddleware(req);
-  
-  // Get the actual pathname after i18n processing
+  // Get the actual pathname before i18n processing for route checking
   // Why: Need to check the real path for auth protection
   let actualPathname = pathname;
   
@@ -44,6 +42,15 @@ export default auth((req) => {
       break;
     }
   }
+  
+  // Handle root path - let intlMiddleware rewrite it, then app/[locale]/page.tsx handles redirect
+  if (pathname === '/' || pathname === '') {
+    return intlMiddleware(req);
+  }
+
+  // First, handle i18n routing for all other paths
+  // Why: Language routing should happen before auth checks
+  const response = intlMiddleware(req);
 
   // Define protected routes (without locale prefix)
   // Why: These routes require authentication
@@ -66,9 +73,17 @@ export default auth((req) => {
   // Why: Protect content that requires authentication
   if (isProtectedRoute && !isLoggedIn) {
     const callbackUrl = encodeURIComponent(pathname + req.nextUrl.search);
-    const signInPath = pathname.startsWith(`/${defaultLocale}`) 
-      ? `/auth/signin` 
-      : `/${defaultLocale}/auth/signin`;
+    // Determine locale from pathname
+    let locale = defaultLocale;
+    for (const loc of locales) {
+      if (pathname.startsWith(`/${loc}/`) || pathname === `/${loc}`) {
+        locale = loc;
+        break;
+      }
+    }
+    const signInPath = locale === defaultLocale 
+      ? `/auth/signin` // No prefix for default locale
+      : `/${locale}/auth/signin`;
     return NextResponse.redirect(
       new URL(`${signInPath}?callbackUrl=${callbackUrl}`, req.url)
     );
@@ -77,9 +92,17 @@ export default auth((req) => {
   // Redirect authenticated users from auth pages
   // Why: No need for logged-in users to see sign in page
   if (isAuthRoute && isLoggedIn) {
-    const dashboardPath = pathname.startsWith(`/${defaultLocale}`)
-      ? '/dashboard'
-      : `/${defaultLocale}/dashboard`;
+    // Determine locale from pathname
+    let locale = defaultLocale;
+    for (const loc of locales) {
+      if (pathname.startsWith(`/${loc}/`) || pathname === `/${loc}`) {
+        locale = loc;
+        break;
+      }
+    }
+    const dashboardPath = locale === defaultLocale
+      ? `/dashboard` // No prefix for default locale
+      : `/${locale}/dashboard`;
     return NextResponse.redirect(new URL(dashboardPath, req.url));
   }
 

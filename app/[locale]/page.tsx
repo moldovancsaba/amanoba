@@ -1,17 +1,17 @@
 import { redirect } from 'next/navigation';
-import { getTranslations } from 'next-intl/server';
 
 /**
- * Root Landing Page
+ * Locale Root Page
  * 
- * What: Redirects to signin page as main entry point
- * Why: Users go directly to signin, partners page moved to /partners
+ * What: Redirects to signin page for the locale
+ * Why: Main entry point for locale-based routes
  */
-export default async function RootPage({
+export default async function LocaleRootPage({
   params,
 }: {
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
+  // Redirect to signin for this locale
   redirect(`/${locale}/auth/signin`);
 }

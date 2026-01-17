@@ -1,25 +1,25 @@
 /**
- * Root Layout (Legacy)
+ * Root Layout
  * 
- * What: Legacy root layout for backward compatibility
- * Why: Redirects to locale-based layout structure
+ * What: Root layout that delegates to locale-based layout
+ * Why: Next.js requires a root layout, but we use locale-based layouts
  * 
- * Note: This file is kept for backward compatibility. New pages should use app/[locale]/layout.tsx
+ * Note: This layout should not redirect - let middleware handle routing
  */
 
-import { redirect } from 'next/navigation';
-import { defaultLocale } from '@/i18n';
+import { ReactNode } from 'react';
 
 /**
  * Root Layout
  * 
- * Why: Redirects to default locale structure
+ * Why: Pass-through layout - actual layout is in app/[locale]/layout.tsx
  */
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: ReactNode;
 }>) {
-  // Redirect to default locale
-  redirect(`/${defaultLocale}`);
+  // Don't redirect here - middleware handles routing
+  // This is just a pass-through for Next.js requirements
+  return <>{children}</>;
 }
