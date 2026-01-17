@@ -14,7 +14,10 @@ import type { Locale } from '@/i18n';
 
 // Initialize Resend client
 // Why: Resend is modern, developer-friendly email service
-const resend = new Resend(process.env.RESEND_API_KEY);
+// Note: API key may be missing during build - will fail gracefully at runtime
+const resend = process.env.RESEND_API_KEY
+  ? new Resend(process.env.RESEND_API_KEY)
+  : null;
 
 /**
  * Email Configuration
@@ -114,6 +117,12 @@ export async function sendLessonEmail(
       .replace('{{lessonTitle}}', lessonTitle)
       .replace('{{lessonContent}}', lessonContent);
 
+    // Check if Resend is initialized
+    if (!resend) {
+      logger.error({ playerId, courseId }, 'Resend API key not configured');
+      return { success: false, error: 'Email service not configured' };
+    }
+
     // Send email via Resend
     const { data, error } = await resend.emails.send({
       from: `${EMAIL_CONFIG.fromName} <${EMAIL_CONFIG.from}>`,
@@ -191,6 +200,12 @@ export async function sendWelcomeEmail(
       </html>
     `;
 
+    // Check if Resend is initialized
+    if (!resend) {
+      logger.error({ playerId, courseId }, 'Resend API key not configured');
+      return { success: false, error: 'Email service not configured' };
+    }
+
     const { data, error } = await resend.emails.send({
       from: `${EMAIL_CONFIG.fromName} <${EMAIL_CONFIG.from}>`,
       to: player.email,
@@ -259,6 +274,12 @@ export async function sendCompletionEmail(
       </html>
     `;
 
+    // Check if Resend is initialized
+    if (!resend) {
+      logger.error({ playerId, courseId }, 'Resend API key not configured');
+      return { success: false, error: 'Email service not configured' };
+    }
+
     const { data, error } = await resend.emails.send({
       from: `${EMAIL_CONFIG.fromName} <${EMAIL_CONFIG.from}>`,
       to: player.email,
@@ -323,6 +344,12 @@ export async function sendReminderEmail(
         </body>
       </html>
     `;
+
+    // Check if Resend is initialized
+    if (!resend) {
+      logger.error({ playerId, courseId, dayNumber }, 'Resend API key not configured');
+      return { success: false, error: 'Email service not configured' };
+    }
 
     const { data, error } = await resend.emails.send({
       from: `${EMAIL_CONFIG.fromName} <${EMAIL_CONFIG.from}>`,
