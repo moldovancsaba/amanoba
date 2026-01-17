@@ -17,7 +17,51 @@
     "search": "Search",
     "filter": "Filter",
     "sort": "Sort",
-    "actions": "Actions"
+    "actions": "Actions",
+    "view": "View",
+    "active": "Active",
+    "inactive": "Inactive",
+    "premium": "Premium",
+    "free": "Free",
+    "yes": "Yes",
+    "no": "No",
+    "status": "Status",
+    "type": "Type",
+    "name": "Name",
+    "description": "Description",
+    "createdAt": "Created At",
+    "updatedAt": "Updated At",
+    "total": "Total",
+    "count": "Count",
+    "copied": "Copied!",
+    "points": "points",
+    "retry": "Retry",
+    "noDataFound": "No data found",
+    "auth": {
+      "signIn": "Sign In",
+      "signOut": "Sign Out"
+    },
+    "courses": {
+      "title": "Courses"
+    },
+    "games": {
+      "title": "Games"
+    },
+    "leaderboard": {
+      "title": "Leaderboard"
+    },
+    "challenges": {
+      "title": "Challenges"
+    },
+    "quests": {
+      "title": "Quests"
+    },
+    "achievements": {
+      "title": "Achievements"
+    },
+    "rewards": {
+      "title": "Rewards"
+    }
   },
   "auth": {
     "signIn": "Sign In",
@@ -39,7 +83,28 @@
     "backToDashboard": "Back to Dashboard",
     "loading": "Loading Dashboard...",
     "unableToLoad": "Unable to Load Dashboard",
-    "retry": "Retry"
+    "retry": "Retry",
+    "yourLearningJourney": "Your learning journey",
+    "refresh": "Refresh",
+    "browseCourses": "Browse courses",
+    "startLearning": "Start learning",
+    "courses": "Courses",
+    "myCourses": "My courses",
+    "memberSince": "Member since",
+    "learningLevel": "Learning level",
+    "learningPoints": "learning points",
+    "points": "Points",
+    "earned": "Earned",
+    "spent": "Spent",
+    "achievements": "Achievements",
+    "complete": "complete",
+    "assessmentsCompleted": "assessments completed",
+    "keepLearning": "Keep learning!",
+    "streaks": "Streaks",
+    "noActiveStreaks": "No active streaks yet. Enroll in a course to start learning!",
+    "enrollInCourse": "Enroll in a course",
+    "trackLearningProgress": "Track your learning progress",
+    "noCoursesEnrolled": "You are not enrolled in any courses yet. Browse courses and start learning!"
   },
   "courses": {
     "title": "Courses",
@@ -68,7 +133,18 @@
     "xpEarned": "XP Earned",
     "assessment": "Assessment",
     "takeAssessment": "Take Assessment",
-    "assessmentResults": "Assessment Results"
+    "assessmentResults": "Assessment Results",
+    "reviewCourse": "Review Course",
+    "browseAndEnroll": "Browse and enroll",
+    "searchCourses": "Search courses",
+    "noCoursesAvailable": "No courses available",
+    "checkBackSoon": "Check back soon",
+    "viewCourse": "View course",
+    "loadingCourses": "Loading courses...",
+    "signInToView": "Please sign in to view courses",
+    "progress": "Progress",
+    "dayOf": "Day {{currentDay}} of {{totalDays}}",
+    "daysCompleted": "{{count}} completed"
   },
   "games": {
     "title": "Games",
@@ -122,6 +198,23 @@
     "pointsCost": "Points Cost",
     "yourBalance": "Your Balance",
     "insufficientPoints": "Insufficient Points"
+  },
+  "referral": {
+    "inviteFriends": "Invite friends",
+    "shareMessage": "Use my referral code",
+    "emailBody": "Join me on Amanoba! Use my referral code to sign up.",
+    "yourReferralCode": "Your referral code",
+    "copy": "Copy",
+    "copyLink": "Copy link",
+    "share": "Share",
+    "friendsInvited": "Friends invited",
+    "pointsEarned": "Points earned",
+    "referredFriends": "Referred friends",
+    "pending": "Pending",
+    "howItWorks": "How it works",
+    "step1": "Share your referral code with friends.",
+    "step2": "They sign up and start learning.",
+    "step3": "You earn points when they complete their first course."
   },
   "profile": {
     "title": "Profile",

@@ -10,8 +10,10 @@
 import { useEffect, useState } from 'react';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
+import { useTranslations, useLocale } from 'next-intl';
 import Link from 'next/link';
 import { Trophy, ChevronLeft, Crown, Medal, Award, TrendingUp, TrendingDown } from 'lucide-react';
+import LocaleLink from '@/components/LocaleLink';
 
 interface LeaderboardEntry {
   playerId: string;
@@ -34,23 +36,29 @@ interface LeaderboardData {
   lastUpdated: string;
 }
 
+// Games will be translated dynamically
 const GAMES = [
-  { id: 'quizzz', name: 'QUIZZZ', icon: '🧠' },
-  { id: 'whackpop', name: 'WHACKPOP', icon: '🎯' },
-  { id: 'memory', name: 'Memory', icon: '🃏' },
-  { id: 'madoku', name: 'Madoku', icon: '🔢' },
+  { id: 'quizzz', nameKey: 'quizzz', icon: '🧠' },
+  { id: 'whackpop', nameKey: 'whackpop', icon: '🎯' },
+  { id: 'memory', nameKey: 'memory', icon: '🃏' },
+  { id: 'madoku', nameKey: 'madoku', icon: '🔢' },
 ];
 
+// Periods will be translated dynamically
 const PERIODS = [
-  { id: 'alltime', name: 'All Time', icon: '♾️' },
-  { id: 'monthly', name: 'This Month', icon: '📅' },
-  { id: 'weekly', name: 'This Week', icon: '📊' },
-  { id: 'daily', name: 'Today', icon: '📈' },
+  { id: 'alltime', nameKey: 'allTime', icon: '♾️' },
+  { id: 'monthly', nameKey: 'thisMonth', icon: '📅' },
+  { id: 'weekly', nameKey: 'thisWeek', icon: '📊' },
+  { id: 'daily', nameKey: 'today', icon: '📈' },
 ];
 
 export default function LeaderboardsPage() {
   const { data: session, status } = useSession();
   const router = useRouter();
+  const locale = useLocale();
+  const t = useTranslations('leaderboard');
+  const tCommon = useTranslations('common');
+  const tGames = useTranslations('games');
   const [selectedGame, setSelectedGame] = useState('quizzz');
   const [selectedPeriod, setSelectedPeriod] = useState('alltime');
   const [leaderboardData, setLeaderboardData] = useState<LeaderboardData | null>(null);
@@ -116,7 +124,7 @@ export default function LeaderboardsPage() {
   if (status === 'loading' || !currentPlayerId) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-blue-500 via-indigo-500 to-purple-500 flex items-center justify-center">
-        <div className="text-white text-2xl">Loading leaderboards...</div>
+        <div className="text-white text-2xl">{t('loading')}</div>
       </div>
     );
   }
@@ -145,17 +153,17 @@ export default function LeaderboardsPage() {
             <div>
               <h1 className="text-3xl font-bold text-white flex items-center gap-3">
                 <Trophy className="w-10 h-10" />
-                Leaderboards
+                {t('title')}
               </h1>
-              <p className="text-white/80 mt-1">Compete for the top spot</p>
+              <p className="text-white/80 mt-1">{t('subtitle')}</p>
             </div>
-            <Link
+            <LocaleLink
               href="/dashboard"
               className="bg-white/20 backdrop-blur-sm text-white px-4 py-2 rounded-lg hover:bg-white/30 transition-colors font-medium flex items-center gap-2"
             >
               <ChevronLeft className="w-5 h-5" />
-              Dashboard
-            </Link>
+              {tCommon('dashboard')}
+            </LocaleLink>
           </div>
         </div>
       </header>
@@ -163,7 +171,7 @@ export default function LeaderboardsPage() {
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Game Selection */}
         <div className="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg p-4 mb-6">
-          <h3 className="font-bold text-gray-900 mb-3">Select Game</h3>
+          <h3 className="font-bold text-gray-900 mb-3">{t('selectGame')}</h3>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
             {GAMES.map(game => (
               <button
@@ -176,7 +184,7 @@ export default function LeaderboardsPage() {
                 }`}
               >
                 <div className="text-3xl mb-2">{game.icon}</div>
-                <div className="text-sm">{game.name}</div>
+                <div className="text-sm">{tGames(game.nameKey)}</div>
               </button>
             ))}
           </div>
@@ -184,7 +192,7 @@ export default function LeaderboardsPage() {
 
         {/* Period Selection */}
         <div className="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg p-4 mb-6">
-          <h3 className="font-bold text-gray-900 mb-3">Time Period</h3>
+          <h3 className="font-bold text-gray-900 mb-3">{t('timePeriod')}</h3>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
             {PERIODS.map(period => (
               <button
@@ -197,7 +205,7 @@ export default function LeaderboardsPage() {
                 }`}
               >
                 <span className="text-xl mr-2">{period.icon}</span>
-                {period.name}
+                {t(period.nameKey)}
               </button>
             ))}
           </div>
@@ -207,25 +215,25 @@ export default function LeaderboardsPage() {
         {loading ? (
           <div className="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg p-12 text-center">
             <div className="text-6xl mb-4 animate-bounce">🏆</div>
-            <p className="text-gray-600">Loading rankings...</p>
+            <p className="text-gray-600">{t('loadingRankings')}</p>
           </div>
         ) : error || !leaderboardData ? (
           <div className="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg p-12 text-center">
             <div className="text-6xl mb-4">😕</div>
-            <h3 className="text-2xl font-bold text-gray-900 mb-2">Unable to Load Leaderboard</h3>
-            <p className="text-gray-600">{error || 'No data available'}</p>
+            <h3 className="text-2xl font-bold text-gray-900 mb-2">{t('unableToLoad')}</h3>
+            <p className="text-gray-600">{error || t('noDataAvailable')}</p>
           </div>
         ) : leaderboardData.entries.length === 0 ? (
           <div className="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg p-12 text-center">
             <div className="text-6xl mb-4">🎮</div>
-            <h3 className="text-2xl font-bold text-gray-900 mb-2">No Rankings Yet</h3>
-            <p className="text-gray-600">Be the first to play and claim the #1 spot!</p>
-            <Link
+            <h3 className="text-2xl font-bold text-gray-900 mb-2">{t('noRankingsYet')}</h3>
+            <p className="text-gray-600">{t('beFirstToPlay')}</p>
+            <LocaleLink
               href="/games"
               className="inline-block mt-6 bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-6 py-3 rounded-lg font-bold hover:from-blue-700 hover:to-indigo-700 transition-all"
             >
-              Play Now
-            </Link>
+              {tGames('playNow')}
+            </LocaleLink>
           </div>
         ) : (
           <div className="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg overflow-hidden">
@@ -234,10 +242,10 @@ export default function LeaderboardsPage() {
               <div className="flex items-center justify-between">
                 <div>
                   <h2 className="text-2xl font-bold">
-                    {GAMES.find(g => g.id === selectedGame)?.name} Rankings
+                    {tGames(GAMES.find(g => g.id === selectedGame)?.nameKey || 'quizzz')} {t('rankings')}
                   </h2>
                   <p className="text-white/80 text-sm mt-1">
-                    {PERIODS.find(p => p.id === selectedPeriod)?.name} • {leaderboardData.totalPlayers} players
+                    {t(PERIODS.find(p => p.id === selectedPeriod)?.nameKey || 'allTime')} • {leaderboardData.totalPlayers} {t('players')}
                   </p>
                 </div>
                 <Trophy className="w-12 h-12 opacity-50" />
@@ -270,12 +278,12 @@ export default function LeaderboardsPage() {
                         <div className="flex items-center gap-2">
                           <h3 className={`font-bold ${isCurrentPlayer ? 'text-blue-600' : 'text-gray-900'}`}>
                             {entry.playerName}
-                            {isCurrentPlayer && <span className="text-sm font-normal text-blue-600"> (You)</span>}
+                            {isCurrentPlayer && <span className="text-sm font-normal text-blue-600"> ({t('you')})</span>}
                           </h3>
                           {getRankChange(entry)}
                         </div>
                         {entry.metadata?.level && (
-                          <p className="text-sm text-gray-600">Level {entry.metadata.level}</p>
+                          <p className="text-sm text-gray-600">{t('level')} {entry.metadata.level}</p>
                         )}
                       </div>
                     </div>
@@ -287,7 +295,7 @@ export default function LeaderboardsPage() {
                       </div>
                       {entry.metadata?.gamesPlayed && (
                         <p className="text-xs text-gray-500">
-                          {entry.metadata.gamesPlayed} {entry.metadata.gamesPlayed === 1 ? 'game' : 'games'}
+                          {entry.metadata.gamesPlayed} {entry.metadata.gamesPlayed === 1 ? t('game') : t('games')}
                         </p>
                       )}
                     </div>
@@ -298,7 +306,7 @@ export default function LeaderboardsPage() {
 
             {/* Footer */}
             <div className="bg-gray-50 p-4 text-center text-sm text-gray-600">
-              Last updated: {new Date(leaderboardData.lastUpdated).toLocaleString()}
+              {t('lastUpdated')}: {new Date(leaderboardData.lastUpdated).toLocaleString('hu-HU')}
             </div>
           </div>
         )}

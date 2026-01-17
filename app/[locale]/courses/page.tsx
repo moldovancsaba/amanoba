@@ -9,7 +9,7 @@
 
 import { useState, useEffect } from 'react';
 import { useSession } from 'next-auth/react';
-import { useLocale } from 'next-intl';
+import { useTranslations } from 'next-intl';
 import { LocaleLink } from '@/components/LocaleLink';
 import {
   BookOpen,
@@ -43,9 +43,9 @@ interface Course {
 
 export default function CoursesPage() {
   const { data: session } = useSession();
-  const locale = useLocale();
   const t = useTranslations('courses');
   const tCommon = useTranslations('common');
+  const tAuth = useTranslations('auth');
   const [courses, setCourses] = useState<Course[]>([]);
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState('');
@@ -89,12 +89,12 @@ export default function CoursesPage() {
     return (
       <div className="min-h-screen bg-brand-black flex items-center justify-center">
         <div className="text-center">
-          <h2 className="text-2xl font-bold text-brand-white mb-4">Please sign in to view courses</h2>
+          <h2 className="text-2xl font-bold text-brand-white mb-4">{t('signInToView')}</h2>
           <LocaleLink
             href="/auth/signin"
             className="inline-block bg-brand-accent text-brand-black px-6 py-3 rounded-lg font-bold hover:bg-brand-primary-400"
           >
-            Sign In
+            {tAuth('signIn')}
           </LocaleLink>
         </div>
       </div>
@@ -136,7 +136,7 @@ export default function CoursesPage() {
         {/* Courses Grid */}
         {loading ? (
           <div className="text-center py-12">
-            <div className="text-brand-white text-lg">Loading courses...</div>
+            <div className="text-brand-white text-lg">{t('loadingCourses')}</div>
           </div>
         ) : courses.length === 0 ? (
           <div className="bg-brand-darkGrey rounded-xl p-12 text-center border-2 border-brand-accent">
@@ -173,11 +173,15 @@ export default function CoursesPage() {
                 <div className="flex items-center gap-4 text-sm text-brand-darkGrey mb-4">
                   <div className="flex items-center gap-1">
                     <Calendar className="w-4 h-4" />
-                    <span>{course.durationDays} days</span>
+                    <span>
+                      {course.durationDays} {t('days')}
+                    </span>
                   </div>
                   <div className="flex items-center gap-1">
                     <Award className="w-4 h-4" />
-                    <span>{course.pointsConfig.completionPoints} pts</span>
+                    <span>
+                      {course.pointsConfig.completionPoints} {tCommon('points')}
+                    </span>
                   </div>
                 </div>
                 <div className="bg-brand-accent text-brand-black px-4 py-2 rounded-lg font-bold text-center hover:bg-brand-primary-400 transition-colors">

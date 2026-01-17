@@ -9,7 +9,7 @@
 
 import { useState, useEffect } from 'react';
 import { useSession } from 'next-auth/react';
-import { useLocale } from 'next-intl';
+import { useTranslations } from 'next-intl';
 import { LocaleLink } from '@/components/LocaleLink';
 import {
   BookOpen,
@@ -42,9 +42,9 @@ interface CourseProgress {
 
 export default function MyCoursesPage() {
   const { data: session } = useSession();
-  const locale = useLocale();
   const t = useTranslations('dashboard');
   const tCourses = useTranslations('courses');
+  const tAuth = useTranslations('auth');
   const [courses, setCourses] = useState<CourseProgress[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -74,12 +74,12 @@ export default function MyCoursesPage() {
     return (
       <div className="min-h-screen bg-brand-black flex items-center justify-center">
         <div className="text-center">
-          <h2 className="text-2xl font-bold text-brand-white mb-4">Please sign in to view your courses</h2>
+          <h2 className="text-2xl font-bold text-brand-white mb-4">{tCourses('signInToView')}</h2>
           <LocaleLink
             href="/auth/signin"
             className="inline-block bg-brand-accent text-brand-black px-6 py-3 rounded-lg font-bold hover:bg-brand-primary-400"
           >
-            Sign In
+            {tAuth('signIn')}
           </LocaleLink>
         </div>
       </div>
@@ -93,16 +93,16 @@ export default function MyCoursesPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <h1 className="text-3xl font-bold text-brand-white flex items-center gap-2">
             <BookOpen className="w-8 h-8" />
-            My Courses
+            {tCourses('myCourses')}
           </h1>
-          <p className="text-brand-white/80 mt-1">Track your learning progress</p>
+          <p className="text-brand-white/80 mt-1">{t('trackLearningProgress')}</p>
         </div>
       </header>
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {loading ? (
           <div className="text-center py-12">
-            <div className="text-brand-white text-lg">Loading your courses...</div>
+            <div className="text-brand-white text-lg">{tCourses('loadingCourses')}</div>
           </div>
         ) : courses.length === 0 ? (
           <div className="bg-brand-darkGrey rounded-xl p-12 text-center border-2 border-brand-accent">
@@ -148,7 +148,7 @@ export default function MyCoursesPage() {
                 {/* Progress */}
                 <div className="mb-4">
                   <div className="flex items-center justify-between text-sm mb-2">
-                    <span className="text-brand-darkGrey">Progress</span>
+                    <span className="text-brand-darkGrey">{tCourses('progress')}</span>
                     <span className="font-bold text-brand-black">
                       {item.progress.progressPercentage}%
                     </span>
@@ -160,8 +160,13 @@ export default function MyCoursesPage() {
                     />
                   </div>
                   <div className="flex items-center justify-between text-xs text-brand-darkGrey mt-2">
-                    <span>Day {item.progress.currentDay} of {item.progress.totalDays}</span>
-                    <span>{item.progress.completedDays} completed</span>
+                    <span>
+                      {tCourses('dayOf', {
+                        currentDay: item.progress.currentDay,
+                        totalDays: item.progress.totalDays,
+                      })}
+                    </span>
+                    <span>{tCourses('daysCompleted', { count: item.progress.completedDays })}</span>
                   </div>
                 </div>
 
@@ -170,7 +175,9 @@ export default function MyCoursesPage() {
                   href={`/courses/${item.course.courseId}/day/${item.progress.currentDay}`}
                   className="block w-full bg-brand-accent text-brand-black px-4 py-3 rounded-lg font-bold text-center hover:bg-brand-primary-400 transition-colors"
                 >
-                  {item.progress.isCompleted ? 'Review Course' : 'Continue Learning →'}
+                  {item.progress.isCompleted
+                    ? tCourses('reviewCourse')
+                    : `${tCourses('continueLearning')} →`}
                 </LocaleLink>
               </div>
             ))}
