@@ -1,100 +1,196 @@
-# Amanoba - Elso kurzus letrehozas checklist
+# Amanoba – Első kurzus létrehozásának útmutatója (HU)
 
-Version: 1.0
-Last updated: 2026-01-17
+Verzió: 1.1
+Frissítve: 2026-01-17
 
-This guide is based on the current Amanoba codebase. It mirrors the real model names,
-API routes, and admin UI screens.
+Ez az útmutató a jelenlegi Amanoba kód alapján készült. A modellek, API-k és admin UI név szerint a repóban található kódrészeket követik.
 
-## 0) Elofeltetelek
+---
 
-- Admin felulet elerese: /{locale}/admin
-- MongoDB kapcsolat beallitva (MONGODB_URI)
-- Email kuldeshez: RESEND_API_KEY, EMAIL_FROM, EMAIL_REPLY_TO, NEXT_PUBLIC_APP_URL
-- Napi emailekhez: CRON_SECRET + Vercel cron (POST /api/cron/send-daily-lessons)
+## 0) Rövid áttekintés – hogyan épül fel a kurzusrendszer
 
-## 1) Kurzus letrehozasa (Course)
+A kurzusok dokumentumokként vannak tárolva MongoDB-ben, Mongoose sémákkal:
 
-UI: /{locale}/admin/courses/new
-API: POST /api/admin/courses
+- **Course**: kurzus metaadatok (név, leírás, nyelv, pont/XP config, státusz)
+- **Lesson**: napi lecke (1–30), tartalom + email tárgy/szöveg
+- **CourseProgress**: felhasználói haladás (melyik napon jár, mit teljesített)
 
-Kotelezo mezok:
-- courseId (csupa nagybetu, szam, alahuzas; pl. AI_30_NAP)
-- name
-- description
+Fájlok:
+- `app/lib/models/course.ts`
+- `app/lib/models/lesson.ts`
+- `app/lib/models/course-progress.ts`
 
-Fontos beallitasok:
-- language: hu / en (alapertelmezett: hu)
-- durationDays: alapertelmezetten 30
-- isActive: letrehozas utan draft (false)
-- pointsConfig + xpConfig
-- requiresPremium: opcionlis
+A publikálás kulcsa: **Course.isActive = true** és **Lesson.isActive = true**.
 
-Megjegyzes:
-- A Course model nem tarolja a leckeket tombben. A leckek a Lesson kolekcioban vannak.
-- Admin API jelenleg brandId-t general, ha nincs megadva. Ha brand alapu szures lesz,
-  erdemes brandId-t kuldeni vagy az API-t javitani.
+---
 
-## 2) 30 lecke letrehozasa (Lesson)
+## 1) Előfeltételek
 
-UI: /{locale}/admin/courses/{courseId}
-API: POST /api/admin/courses/{courseId}/lessons
+- Admin felület elérés: `/{locale}/admin`
+- DB beállítva: `MONGODB_URI`
+- Email küldés: `RESEND_API_KEY`, `EMAIL_FROM`, `EMAIL_REPLY_TO`, `NEXT_PUBLIC_APP_URL`
+- Napi emailekhez: `CRON_SECRET` + Vercel cron (POST `/api/cron/send-daily-lessons`)
 
-Minden naphoz 1 lecke (dayNumber 1-30).
-Kotelezo mezok:
-- lessonId (egyedi)
-- dayNumber (1-30)
-- title
-- content
-- emailSubject
-- emailBody
+---
 
-Opcionlis mezok:
-- assessmentGameId (ha van ertekelesi jatek)
-- pointsReward / xpReward (alapertelmezett a Course config)
-- language (alapertelmezett a Course language)
-- translations (i18n)
-- metadata (pl. promptTemplate, task, tags)
+## 2) Kurzus létrehozása (Course)
 
-Javasolt ID minta:
-- courseId: AI_30_NAP
-- lessonId: AI_30_NAP_DAY_01
+**UI:** `/{locale}/admin/courses/new`
+**API:** `POST /api/admin/courses`
 
-## 3) Publikacio (Draft -> Published)
+### Kötelező mezők
+- `courseId` – csupa nagybetű, szám, aláhúzás (pl. `AI_30_NAP`)
+- `name` – kurzus neve
+- `description` – rövid leírás
 
-UI: /{locale}/admin/courses/{courseId}
+### Ajánlott beállítások
+- `language`: `hu` / `en` (alapértelmezett: `hu`)
+- `durationDays`: 30
+- `requiresPremium`: csak ha valóban prémium
+- `pointsConfig` és `xpConfig`
 
-- Kapcsold Published allapotba (isActive = true)
-- Ezutan jelenik meg a publikus kurzus listaban: /{locale}/courses
+### Mintapélda (Course)
+```json
+{
+  "courseId": "AI_30_NAP",
+  "name": "AI 30 Nap – mindennapi munkában",
+  "description": "Gyakorlati, napi 10-15 perces AI rutinok...",
+  "language": "hu",
+  "thumbnail": "https://.../cover.jpg",
+  "requiresPremium": false,
+  "pointsConfig": {
+    "completionPoints": 1000,
+    "lessonPoints": 50,
+    "perfectCourseBonus": 500
+  },
+  "xpConfig": {
+    "completionXP": 500,
+    "lessonXP": 25
+  }
+}
+```
 
-## 4) Teszt es enroll
+Megjegyzés: a Course nem tárolja a leckéket tömbben, minden lecke külön Lesson rekord.
 
-- Nyisd meg a kurzus oldalat: /{locale}/courses/{courseId}
-- Enroll: POST /api/courses/{courseId}/enroll
-- Napi lecke nezese: GET /api/courses/{courseId}/day/1
-- UI lecke oldal: /{locale}/courses/{courseId}/day/1
+---
 
-## 5) Email kuldes teszt
+## 3) 30 lecke létrehozása (Lesson)
 
-Dev mod:
-- GET /api/cron/send-daily-lessons (csak dev)
+**UI:** `/{locale}/admin/courses/{courseId}`
+**API:** `POST /api/admin/courses/{courseId}/lessons`
 
-Prod mod:
-- POST /api/cron/send-daily-lessons
-  Header: Authorization: Bearer <CRON_SECRET>
+### Kötelező mezők (minden napra)
+- `lessonId` – egyedi (javasolt: `AI_30_NAP_DAY_01`)
+- `dayNumber` – 1–30
+- `title`
+- `content` – HTML vagy Markdown
+- `emailSubject`
+- `emailBody` – HTML
 
-A lecke email az aktualis dayNumber alapjan megy ki.
+### Opcionális mezők
+- `assessmentGameId`
+- `pointsReward`, `xpReward` (ha eltér a kurzus alapértéktől)
+- `translations`
+- `metadata` – itt tárolhatsz extra mezőket (pl. prompt sablon, napi feladat)
 
-## 6) Ismert eltetesek (fontos)
+### Mintapélda (Lesson)
+```json
+{
+  "lessonId": "AI_30_NAP_DAY_01",
+  "dayNumber": 1,
+  "title": "Mi az AI a napi munkában?",
+  "content": "<h2>Bevezetés</h2><p>...</p>",
+  "emailSubject": "1. nap: Mi az AI a napi munkában?",
+  "emailBody": "<p>Ma ezt fogjuk csinálni...</p>",
+  "metadata": {
+    "promptTemplate": "Adj 3 példát...",
+    "task": "Készíts 1 rövid promptot a napi feladatodra"
+  }
+}
+```
 
-- A CourseProgress schema mezoi: completedDays, status, lastAccessedAt, emailSentDays.
-  A jelenlegi enroll/lesson route-ok viszont lessonsCompleted, isCompleted, lastActivityAt
-  mezoket hasznalnak. Ezt erdemes javitani, kulonben a haladas es emailek nem lesznek
-  konzisztensen kezelve.
+---
 
-## 7) Tartalom import (opcionalis)
+## 4) Publikálás (Draft → Published)
 
-- A 30 napos tartalmat tarolhatjatok Markdown/JSON formaban es seedelhetitek
-  a Lesson API-val vagy egy script-tel.
-- UI-bol is feltoltheto, de 30 lecke kezzel idos.
+**UI:** `/{locale}/admin/courses/{courseId}`
+
+Kapcsold `Published` állapotba (ez `Course.isActive = true`).
+
+Ekkor a kurzus megjelenik a publikus listában:
+- `/{locale}/courses`
+
+---
+
+## 5) Tesztelés / Enroll
+
+**Beiratkozás:** `POST /api/courses/{courseId}/enroll`
+
+**Lecke lekérés (nap 1):** `GET /api/courses/{courseId}/day/1`
+
+**UI oldal:** `/{locale}/courses/{courseId}/day/1`
+
+Ha valami nem jelenik meg, ellenőrizd:
+- `Course.isActive = true`
+- `Lesson.isActive = true`
+- `dayNumber` 1–30
+
+---
+
+## 6) Email küldés teszt (Resend)
+
+**Dev mód:**
+- `GET /api/cron/send-daily-lessons`
+
+**Prod mód:**
+- `POST /api/cron/send-daily-lessons`
+- Header: `Authorization: Bearer <CRON_SECRET>`
+
+Az email a `CourseProgress.currentDay` alapján megy ki.
+
+---
+
+## 7) Ismert eltérések (fontos!)
+
+A `CourseProgress` sémában ezek a mezők léteznek:
+- `completedDays`, `status`, `lastAccessedAt`, `emailSentDays`
+
+A jelenlegi API-k viszont ezeket a mezőket használják:
+- `lessonsCompleted`, `isCompleted`, `lastActivityAt`
+
+Ez inkonzisztens. Javasolt a route-ok javítása, különben:
+- a haladás nem lesz megbízható
+- az email küldés hibás lehet
+
+---
+
+## 8) Többnyelvűség (i18n)
+
+Mind a Course, mind a Lesson tartalmaz `translations` mezőt.
+A jelenlegi API-k nem fordítanak automatikusan, ezért:
+
+- ha HU tartalom kell: a `content`, `title`, `emailBody` legyen HU
+- ha többnyelvű kell: bővítés szükséges az API/Frontend oldalon
+
+---
+
+## 9) Tartalom import (gyorsabb workflow)
+
+A 30 napos tartalmat előre megírhatjátok Markdown/JSON-ben, majd:
+
+- seed script
+- vagy admin API (POST `/api/admin/courses/{courseId}/lessons`)
+
+Ez gyorsabb, mint UI-ból kézzel feltölteni 30 leckét.
+
+---
+
+## 10) Gyors checklist
+
+- [ ] Course létrehozva (Course.isActive = false)
+- [ ] 30 Lesson létrehozva (mind `isActive = true`)
+- [ ] Course publikálva (Course.isActive = true)
+- [ ] Kurzus megjelenik a /courses listában
+- [ ] Enroll és Day 1 lecke elérhető
+- [ ] Cron email teszt lefut
 

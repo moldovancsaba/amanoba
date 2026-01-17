@@ -170,10 +170,10 @@ export default function Dashboard() {
                 🔄 {t('refresh')}
               </button>
               <LocaleLink
-                href="/games"
+                href="/courses"
                 className="bg-brand-accent text-brand-black px-4 py-2 rounded-lg hover:bg-brand-primary-400 transition-colors font-medium font-bold"
               >
-                🎮 {tCommon('games.playNow')}
+                📚 {t('browseCourses')}
               </LocaleLink>
               <button
                 onClick={() => signOut({ callbackUrl: `/${locale}/auth/signin` })}
@@ -196,19 +196,19 @@ export default function Dashboard() {
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-9 gap-3">
             <LocaleLink
               href="/courses"
-              className="block bg-brand-accent text-brand-black px-4 py-3 rounded-lg font-bold text-center hover:bg-brand-primary-400 transition-all text-sm"
+              className="block bg-brand-accent text-brand-black px-4 py-3 rounded-lg font-bold text-center hover:bg-brand-primary-400 transition-all text-sm transform hover:scale-105"
             >
               📚 {t('courses')}
             </LocaleLink>
             <LocaleLink
               href="/my-courses"
-              className="block bg-brand-darkGrey text-brand-white px-4 py-3 rounded-lg font-bold text-center hover:bg-brand-secondary-700 transition-all text-sm"
+              className="block bg-brand-accent text-brand-black px-4 py-3 rounded-lg font-bold text-center hover:bg-brand-primary-400 transition-all text-sm transform hover:scale-105"
             >
               📖 {t('myCourses')}
             </LocaleLink>
             <LocaleLink
               href="/games"
-              className="block bg-brand-accent text-brand-black px-4 py-3 rounded-lg font-bold text-center hover:bg-brand-primary-400 transition-all text-sm"
+              className="block bg-brand-darkGrey text-brand-white px-4 py-3 rounded-lg font-bold text-center hover:bg-brand-secondary-700 transition-all text-sm"
             >
               🎮 {tCommon('games.title')}
             </LocaleLink>
@@ -283,13 +283,13 @@ export default function Dashboard() {
 
         {/* Main Stats Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-          {/* Level Card */}
+          {/* Learning Level Card */}
           <div className="bg-brand-white rounded-xl shadow-lg p-6 border-2 border-brand-accent">
-            <div className="text-brand-accent text-4xl mb-2">⚡</div>
+            <div className="text-brand-accent text-4xl mb-2">📚</div>
             <div className="text-3xl font-bold text-brand-black">
               {progression?.level || 1}
             </div>
-            <div className="text-brand-darkGrey">{t('level')}</div>
+            <div className="text-brand-darkGrey">{t('learningLevel')}</div>
             {progression && (
               <>
                 <div className="mt-4 bg-brand-darkGrey/20 rounded-full h-2 overflow-hidden">
@@ -299,7 +299,7 @@ export default function Dashboard() {
                   />
                 </div>
                 <div className="text-xs text-brand-darkGrey mt-1">
-                  {progression.currentXP} / {progression.xpToNextLevel} XP
+                  {progression.currentXP} / {progression.xpToNextLevel} {t('learningPoints')}
                 </div>
               </>
             )}
@@ -379,9 +379,15 @@ export default function Dashboard() {
                   </div>
                 ))
               ) : (
-                <p className="text-brand-darkGrey text-center py-4">
-                  {t('noActiveStreaks')}
-                </p>
+                <div className="text-brand-darkGrey text-center py-4">
+                  <p className="mb-3">{t('noActiveStreaks')}</p>
+                  <LocaleLink
+                    href="/courses"
+                    className="inline-block bg-brand-accent text-brand-black px-4 py-2 rounded-lg font-bold hover:bg-brand-primary-400 transition-colors text-sm"
+                  >
+                    📚 {t('enrollInCourse')}
+                  </LocaleLink>
+                </div>
               )}
             </div>
           </div>

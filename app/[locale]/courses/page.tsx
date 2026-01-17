@@ -44,6 +44,8 @@ interface Course {
 export default function CoursesPage() {
   const { data: session } = useSession();
   const locale = useLocale();
+  const t = useTranslations('courses');
+  const tCommon = useTranslations('common');
   const [courses, setCourses] = useState<Course[]>([]);
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState('');
@@ -108,9 +110,9 @@ export default function CoursesPage() {
             <div>
               <h1 className="text-3xl font-bold text-brand-white flex items-center gap-2">
                 <BookOpen className="w-8 h-8" />
-                Available Courses
+                {t('availableCourses')}
               </h1>
-              <p className="text-brand-white/80 mt-1">Browse and enroll in 30-day learning courses</p>
+              <p className="text-brand-white/80 mt-1">{t('browseAndEnroll')}</p>
             </div>
           </div>
         </div>
@@ -123,7 +125,7 @@ export default function CoursesPage() {
             <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-brand-white/50" />
             <input
               type="text"
-              placeholder="Search courses..."
+              placeholder={t('searchCourses')}
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               className="w-full pl-10 pr-4 py-3 bg-brand-darkGrey border-2 border-brand-accent/30 rounded-lg text-brand-white placeholder-brand-white/50 focus:outline-none focus:border-brand-accent"
@@ -139,8 +141,8 @@ export default function CoursesPage() {
         ) : courses.length === 0 ? (
           <div className="bg-brand-darkGrey rounded-xl p-12 text-center border-2 border-brand-accent">
             <BookOpen className="w-16 h-16 text-brand-white/30 mx-auto mb-4" />
-            <h3 className="text-xl font-bold text-brand-white mb-2">No courses available</h3>
-            <p className="text-brand-white/70">Check back soon for new courses!</p>
+            <h3 className="text-xl font-bold text-brand-white mb-2">{t('noCoursesAvailable')}</h3>
+            <p className="text-brand-white/70">{t('checkBackSoon')}</p>
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -179,7 +181,7 @@ export default function CoursesPage() {
                   </div>
                 </div>
                 <div className="bg-brand-accent text-brand-black px-4 py-2 rounded-lg font-bold text-center hover:bg-brand-primary-400 transition-colors">
-                  View Course →
+                  {t('viewCourse')} →
                 </div>
               </LocaleLink>
             ))}

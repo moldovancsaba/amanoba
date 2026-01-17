@@ -43,6 +43,8 @@ interface CourseProgress {
 export default function MyCoursesPage() {
   const { data: session } = useSession();
   const locale = useLocale();
+  const t = useTranslations('dashboard');
+  const tCourses = useTranslations('courses');
   const [courses, setCourses] = useState<CourseProgress[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -105,13 +107,13 @@ export default function MyCoursesPage() {
         ) : courses.length === 0 ? (
           <div className="bg-brand-darkGrey rounded-xl p-12 text-center border-2 border-brand-accent">
             <BookOpen className="w-16 h-16 text-brand-white/30 mx-auto mb-4" />
-            <h3 className="text-xl font-bold text-brand-white mb-2">No courses enrolled</h3>
-            <p className="text-brand-white/70 mb-6">Browse available courses and start learning!</p>
+            <h3 className="text-xl font-bold text-brand-white mb-2">{t('noCoursesEnrolled')}</h3>
+            <p className="text-brand-white/70 mb-6">{t('noCoursesEnrolled')}</p>
             <LocaleLink
               href="/courses"
               className="inline-block bg-brand-accent text-brand-black px-6 py-3 rounded-lg font-bold hover:bg-brand-primary-400 transition-colors"
             >
-              Browse Courses
+              📚 {t('browseCourses')}
             </LocaleLink>
           </div>
         ) : (

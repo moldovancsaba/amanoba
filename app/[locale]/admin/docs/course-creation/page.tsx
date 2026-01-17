@@ -45,15 +45,15 @@ export default function CourseCreationGuidePage() {
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-3xl font-bold text-white">Course Creation Guide</h1>
-          <p className="text-gray-400">Public admin doc for the first course</p>
+          <h1 className="text-3xl font-bold text-white">Kurzus létrehozási útmutató</h1>
+          <p className="text-gray-400">Publikus admin útmutató az első kurzushoz</p>
         </div>
         <div className="flex items-center gap-3">
           <Link
             href={`/${locale}/admin/courses`}
             className="px-4 py-2 rounded-lg bg-brand-darkGrey text-brand-white hover:bg-brand-secondary-700"
           >
-            Back to Courses
+            Vissza a kurzusokhoz
           </Link>
           <a
             href={DOC_PATH}
@@ -61,17 +61,17 @@ export default function CourseCreationGuidePage() {
             rel="noreferrer"
             className="px-4 py-2 rounded-lg bg-brand-accent text-brand-black hover:bg-brand-primary-400"
           >
-            Open Raw File
+            Nyers fájl megnyitása
           </a>
         </div>
       </div>
 
       <div className="bg-brand-white rounded-xl p-6 border-2 border-brand-accent">
         {status === 'loading' && (
-          <div className="text-brand-darkGrey">Loading guide...</div>
+          <div className="text-brand-darkGrey">Útmutató betöltése...</div>
         )}
         {status === 'error' && (
-          <div className="text-red-600">Failed to load guide. Check the file path.</div>
+          <div className="text-red-600">Nem sikerült betölteni az útmutatót. Ellenőrizd az elérési utat.</div>
         )}
         {status === 'ready' && (
           <pre className="whitespace-pre-wrap text-sm leading-6 text-brand-black">

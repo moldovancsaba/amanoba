@@ -61,7 +61,7 @@ export default async function SignInPage({
               {t('welcome')} {tCommon('appName')}
             </h1>
             <p className="text-brand-darkGrey">
-              Play. Compete. Achieve.
+              {t('tagline')}
             </p>
           </div>
 
@@ -126,19 +126,19 @@ export default async function SignInPage({
 
         {/* Benefits Section */}
         <div className="mt-8 text-brand-white text-center">
-          <h2 className="text-xl font-semibold mb-4">Why Join Amanoba?</h2>
+          <h2 className="text-xl font-semibold mb-4">{t('whyJoin')}</h2>
           <div className="grid grid-cols-3 gap-4">
             <div className="bg-brand-darkGrey/80 backdrop-blur-sm rounded-lg p-4 border border-brand-accent/30">
+              <div className="text-3xl mb-2">📚</div>
+              <p className="text-sm font-medium">{tCommon('courses.title')}</p>
+            </div>
+            <div className="bg-brand-darkGrey/80 backdrop-blur-sm rounded-lg p-4 border border-brand-accent/30">
+              <div className="text-3xl mb-2">📧</div>
+              <p className="text-sm font-medium">{t('dailyLessons')}</p>
+            </div>
+            <div className="bg-brand-darkGrey/80 backdrop-blur-sm rounded-lg p-4 border border-brand-accent/30">
               <div className="text-3xl mb-2">🎯</div>
-              <p className="text-sm font-medium">{tCommon('games.title')}</p>
-            </div>
-            <div className="bg-brand-darkGrey/80 backdrop-blur-sm rounded-lg p-4 border border-brand-accent/30">
-              <div className="text-3xl mb-2">🏆</div>
-              <p className="text-sm font-medium">{tCommon('achievements.title')}</p>
-            </div>
-            <div className="bg-brand-darkGrey/80 backdrop-blur-sm rounded-lg p-4 border border-brand-accent/30">
-              <div className="text-3xl mb-2">⭐</div>
-              <p className="text-sm font-medium">{tCommon('leaderboard.title')}</p>
+              <p className="text-sm font-medium">{t('interactiveAssessments')}</p>
             </div>
           </div>
         </div>

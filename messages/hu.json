@@ -45,7 +45,11 @@
     "welcome": "Üdvözöljük",
     "email": "Email",
     "password": "Jelszó",
-    "forgotPassword": "Elfelejtett jelszó"
+    "forgotPassword": "Elfelejtett jelszó",
+    "tagline": "Tanulj. Növekedj. Érj el célokat.",
+    "whyJoin": "Miért csatlakozz az Amanobához?",
+    "dailyLessons": "Napi leckék",
+    "interactiveAssessments": "Interaktív értékelések"
   },
   "dashboard": {
     "title": "Irányítópult",
@@ -71,8 +75,27 @@
     "wins": "győzelem",
     "games": "játékban",
     "streaks": "Sorozatok",
-    "noActiveStreaks": "Még nincs aktív sorozat. Kezdj el játszani, hogy sorozatokat építs!",
-    "refresh": "Frissítés"
+    "noActiveStreaks": "Még nincs aktív sorozat. Iratkozz fel egy kurzusra, hogy elkezdhesd a tanulást!",
+    "refresh": "Frissítés",
+    "enrollInCourse": "Iratkozz fel kurzusra",
+    "browseCourses": "Kurzusok böngészése",
+    "startLearning": "Kezdd el a tanulást",
+    "continueLearning": "Folytasd a tanulást",
+    "yourLearningJourney": "Tanulási utazásod",
+    "noCoursesEnrolled": "Még nincs feliratkozott kurzusod. Böngészd a kurzusokat és kezdj el tanulni!",
+    "completeYourFirstCourse": "Fejezd be az első kurzusodat",
+    "dailyProgress": "Napi előrehaladás",
+    "trackLearningProgress": "Kövesd a tanulási előrehaladásodat",
+    "learningProgress": "Tanulási előrehaladás",
+    "assessmentsCompleted": "értékelés teljesítve",
+    "student": "Tanuló",
+    "learningLevel": "Tanulási szint",
+    "learningPoints": "tanulási pont",
+    "rewardPoints": "Jutalom pontok",
+    "learningMilestones": "Tanulási mérföldkövek",
+    "keepLearning": "Folytasd a tanulást!",
+    "learningStreaks": "Tanulási sorozatok",
+    "assessments": "Értékelések"
   },
   "courses": {
     "title": "Kurzusok",
@@ -101,7 +124,8 @@
     "xpEarned": "Szerzett tapasztalati pontok",
     "assessment": "Értékelés",
     "takeAssessment": "Értékelés elvégzése",
-    "assessmentResults": "Értékelési eredmények"
+    "assessmentResults": "Értékelési eredmények",
+    "reviewCourse": "Kurzus áttekintése"
   },
   "games": {
     "title": "Játékok",
