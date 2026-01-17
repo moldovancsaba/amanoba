@@ -55,17 +55,14 @@ export default auth((req) => {
     }
   }
   
-  // Handle root path - force default locale (hu), then app/[locale]/page.tsx handles redirect
-  if (pathname === '/' || pathname === '') {
-    // With localeDetection: false, intlMiddleware should use defaultLocale (hu)
-    // This rewrites / to /hu internally (no URL change with localePrefix: 'as-needed')
-    const response = intlMiddleware(req);
-    return response;
-  }
-
-  // First, handle i18n routing for all other paths
-  // Why: Language routing should happen before auth checks
+  // Handle root path - let intlMiddleware rewrite to [locale] route
+  // With localePrefix: 'as-needed' and defaultLocale: 'hu', / becomes /hu internally
+  // Then app/[locale]/page.tsx will handle the redirect to signin
   const response = intlMiddleware(req);
+  
+  // If root path, the intlMiddleware rewrites it to /hu (or /[locale])
+  // app/[locale]/page.tsx will then redirect to /auth/signin
+  // No need for special handling here
 
   // Define protected routes (without locale prefix)
   // Why: These routes require authentication
