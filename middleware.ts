@@ -17,9 +17,9 @@ import { locales, defaultLocale } from './i18n';
 const intlMiddleware = createIntlMiddleware({
   locales,
   defaultLocale,
-  localePrefix: 'as-needed', // Only show locale prefix when not default (hu)
+  localePrefix: 'always', // Always show locale prefix: /hu/..., /en/...
   localeDetection: false, // Disable automatic locale detection - always use default (hu)
-  // This means / always uses /hu (default locale) unless explicitly /en
+  // This means / redirects to /hu, all routes have locale prefix
 });
 
 /**
