@@ -7,7 +7,7 @@
 
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useLocale, useTranslations } from 'next-intl';
@@ -68,7 +68,22 @@ export default function AdminLayout({
   const locale = useLocale();
   const t = useTranslations('admin');
   const [sidebarOpen, setSidebarOpen] = useState(true);
+  const [version, setVersion] = useState<string>('2.7.0');
   const pathname = usePathname();
+
+  useEffect(() => {
+    // Fetch version from package.json via API
+    fetch('/api/admin/system-info')
+      .then(res => res.json())
+      .then(data => {
+        if (data.success && data.systemInfo?.version) {
+          setVersion(data.systemInfo.version);
+        }
+      })
+      .catch(() => {
+        // Fallback to default if API fails
+      });
+  }, []);
   
   // Build navigation with translations
   const navigation = navigationItems.map(item => ({
@@ -131,7 +146,7 @@ export default function AdminLayout({
         {/* Footer */}
         <div className="absolute bottom-0 left-0 right-0 p-4 border-t border-gray-700">
           <div className="text-xs text-gray-500 text-center">
-            v1.7.0 | Admin Mode
+            v{version} | Admin Mode
           </div>
         </div>
       </aside>

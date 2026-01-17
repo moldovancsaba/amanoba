@@ -56,10 +56,29 @@ export default function AdminDashboardPage() {
   const [stats, setStats] = useState<DashboardStats | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [systemInfo, setSystemInfo] = useState<{
+    version: string;
+    environment: string;
+    database: string;
+    uptime: string;
+  } | null>(null);
 
   useEffect(() => {
     fetchStats();
+    fetchSystemInfo();
   }, []);
+
+  const fetchSystemInfo = async () => {
+    try {
+      const response = await fetch('/api/admin/system-info');
+      const data = await response.json();
+      if (data.success) {
+        setSystemInfo(data.systemInfo);
+      }
+    } catch (err) {
+      console.error('Failed to fetch system info:', err);
+    }
+  };
 
   const fetchStats = async () => {
     try {
@@ -329,28 +348,38 @@ export default function AdminDashboardPage() {
         </div>
       </div>
 
-      {/* System Info */}
-      <div className="bg-gray-800 rounded-xl p-6 border border-gray-700">
-        <h2 className="text-xl font-bold text-white mb-4">{t('systemInformation')}</h2>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          <div>
-            <div className="text-gray-400 text-sm mb-1">{t('version')}</div>
-            <div className="text-white font-mono">v1.7.0</div>
-          </div>
-          <div>
-            <div className="text-gray-400 text-sm mb-1">{t('environment')}</div>
-            <div className="text-white">{t('development')}</div>
-          </div>
-          <div>
-            <div className="text-gray-400 text-sm mb-1">{t('database')}</div>
-            <div className="text-green-500">{t('connected')}</div>
-          </div>
-          <div>
-            <div className="text-gray-400 text-sm mb-1">{t('uptime')}</div>
-            <div className="text-white">99.9%</div>
+        {/* System Info */}
+        <div className="bg-gray-800 rounded-xl p-6 border border-gray-700">
+          <h2 className="text-xl font-bold text-white mb-4">{t('systemInformation')}</h2>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div>
+              <div className="text-gray-400 text-sm mb-1">{t('version')}</div>
+              <div className="text-white font-mono">
+                v{systemInfo?.version || '2.7.0'}
+              </div>
+            </div>
+            <div>
+              <div className="text-gray-400 text-sm mb-1">{t('environment')}</div>
+              <div className="text-white capitalize">
+                {systemInfo?.environment || 'development'}
+              </div>
+            </div>
+            <div>
+              <div className="text-gray-400 text-sm mb-1">{t('database')}</div>
+              <div className={`${
+                systemInfo?.database === 'connected' ? 'text-green-500' : 'text-red-500'
+              }`}>
+                {systemInfo?.database === 'connected' ? t('connected') : t('disconnected')}
+              </div>
+            </div>
+            <div>
+              <div className="text-gray-400 text-sm mb-1">{t('uptime')}</div>
+              <div className="text-white">
+                {systemInfo?.uptime || '99.9%'}
+              </div>
+            </div>
           </div>
         </div>
-      </div>
     </div>
   );
 }

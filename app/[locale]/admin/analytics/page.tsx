@@ -16,7 +16,7 @@
 
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import {
   LineChart,
@@ -78,22 +78,40 @@ export const runtime = 'nodejs';
 
 export default function AdminAnalyticsPage() {
   // Why: All hooks must be called unconditionally at the top level
-  // Default to first brand for demo (in production, would use brand selector)
-  const [brandId] = useState('679fca17f0f9b3c0e8c5a8a0'); // Amanoba brand ID from seed
+  // Fetch brand ID from database (default brand)
+  const [brandId, setBrandId] = useState<string | null>(null);
   const [period, setPeriod] = useState<'daily' | 'weekly' | 'monthly'>('daily');
   const [dateRange, setDateRange] = useState({
     startDate: new Date(Date.now() - 30 * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
     endDate: new Date().toISOString().split('T')[0],
   });
 
-  // Fetch real-time stats
+  // Fetch default brand ID on mount
+  useEffect(() => {
+    const fetchBrandId = async () => {
+      try {
+        const res = await fetch('/api/admin/brands?default=true');
+        const json = await res.json();
+        if (json.success && json.brands && json.brands.length > 0) {
+          setBrandId(json.brands[0]._id);
+        }
+      } catch (error) {
+        console.error('Failed to fetch brand ID:', error);
+      }
+    };
+    fetchBrandId();
+  }, []);
+
+  // Fetch real-time stats (only if brandId is available)
   const { data: realtimeData } = useQuery<RealTimeStats>({
     queryKey: ['analytics', 'realtime', brandId],
     queryFn: async () => {
+      if (!brandId) return null;
       const res = await fetch(`/api/admin/analytics/realtime?brandId=${brandId}`);
       const json = await res.json();
       return json.data;
     },
+    enabled: !!brandId,
     refetchInterval: 60000, // Refresh every minute
   });
 
@@ -101,6 +119,7 @@ export default function AdminAnalyticsPage() {
   const { data: activeUsersData } = useQuery<AnalyticsSnapshot[]>({
     queryKey: ['analytics', 'active_users', brandId, period, dateRange],
     queryFn: async () => {
+      if (!brandId) return [];
       const params = new URLSearchParams({
         brandId,
         metricType: 'active_users',
@@ -112,12 +131,14 @@ export default function AdminAnalyticsPage() {
       const json = await res.json();
       return json.data;
     },
+    enabled: !!brandId,
   });
 
   // Fetch game sessions data
   const { data: gameSessionsData } = useQuery<AnalyticsSnapshot[]>({
     queryKey: ['analytics', 'game_sessions', brandId, period, dateRange],
     queryFn: async () => {
+      if (!brandId) return [];
       const params = new URLSearchParams({
         brandId,
         metricType: 'game_sessions',
@@ -129,12 +150,14 @@ export default function AdminAnalyticsPage() {
       const json = await res.json();
       return json.data;
     },
+    enabled: !!brandId,
   });
 
   // Fetch revenue data
   const { data: revenueData } = useQuery<AnalyticsSnapshot[]>({
     queryKey: ['analytics', 'revenue', brandId, period, dateRange],
     queryFn: async () => {
+      if (!brandId) return [];
       const params = new URLSearchParams({
         brandId,
         metricType: 'revenue',
@@ -146,12 +169,14 @@ export default function AdminAnalyticsPage() {
       const json = await res.json();
       return json.data;
     },
+    enabled: !!brandId,
   });
 
   // Fetch engagement data
   const { data: engagementData } = useQuery<AnalyticsSnapshot[]>({
     queryKey: ['analytics', 'engagement', brandId, period, dateRange],
     queryFn: async () => {
+      if (!brandId) return [];
       const params = new URLSearchParams({
         brandId,
         metricType: 'engagement',
@@ -163,6 +188,7 @@ export default function AdminAnalyticsPage() {
       const json = await res.json();
       return json.data;
     },
+    enabled: !!brandId,
   });
 
   // Fetch conversion data
@@ -170,6 +196,7 @@ export default function AdminAnalyticsPage() {
   const { data: conversionsData } = useQuery<AnalyticsSnapshot[]>({
     queryKey: ['analytics', 'conversions', brandId, period, dateRange],
     queryFn: async () => {
+      if (!brandId) return [];
       const params = new URLSearchParams({
         brandId,
         metricType: 'conversions',
@@ -181,6 +208,7 @@ export default function AdminAnalyticsPage() {
       const json = await res.json();
       return json.data;
     },
+    enabled: !!brandId,
   });
 
   // Transform data for charts
