@@ -11,7 +11,6 @@ import { useEffect, useState } from 'react';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import { useTranslations, useLocale } from 'next-intl';
-import Link from 'next/link';
 import { Trophy, ChevronLeft, Crown, Medal, Award, TrendingUp, TrendingDown } from 'lucide-react';
 import LocaleLink from '@/components/LocaleLink';
 
@@ -69,11 +68,12 @@ export default function LeaderboardsPage() {
   useEffect(() => {
     if (status === 'loading') return;
     if (!session) {
-      router.push('/auth/signin');
+      router.push(`/${locale}/auth/signin`);
       return;
     }
     
-    setCurrentPlayerId(session.user.id);
+    const user = session.user as { id?: string; playerId?: string };
+    setCurrentPlayerId(user.playerId || user.id || null);
   }, [session, status, router]);
 
   useEffect(() => {
@@ -123,8 +123,8 @@ export default function LeaderboardsPage() {
   // Loading or auth check
   if (status === 'loading' || !currentPlayerId) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-blue-500 via-indigo-500 to-purple-500 flex items-center justify-center">
-        <div className="text-white text-2xl">{t('loading')}</div>
+      <div className="page-shell flex items-center justify-center">
+        <div className="text-brand-white text-2xl">{t('loading')}</div>
       </div>
     );
   }
@@ -145,21 +145,21 @@ export default function LeaderboardsPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-500 via-indigo-500 to-purple-500">
+    <div className="page-shell">
       {/* Header */}
-      <header className="bg-white/10 backdrop-blur-md border-b border-white/20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+      <header className="page-header">
+        <div className="page-container py-6">
           <div className="flex justify-between items-center">
             <div>
-              <h1 className="text-3xl font-bold text-white flex items-center gap-3">
+              <h1 className="text-3xl font-bold text-brand-white flex items-center gap-3">
                 <Trophy className="w-10 h-10" />
                 {t('title')}
               </h1>
-              <p className="text-white/80 mt-1">{t('subtitle')}</p>
+              <p className="text-brand-white/80 mt-1">{t('subtitle')}</p>
             </div>
             <LocaleLink
               href="/dashboard"
-              className="bg-white/20 backdrop-blur-sm text-white px-4 py-2 rounded-lg hover:bg-white/30 transition-colors font-medium flex items-center gap-2"
+              className="page-button-secondary border-2 border-brand-accent flex items-center gap-2"
             >
               <ChevronLeft className="w-5 h-5" />
               {tCommon('dashboard')}
@@ -168,19 +168,19 @@ export default function LeaderboardsPage() {
         </div>
       </header>
 
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <main className="page-container py-8">
         {/* Game Selection */}
-        <div className="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg p-4 mb-6">
-          <h3 className="font-bold text-gray-900 mb-3">{t('selectGame')}</h3>
+        <div className="page-card p-4 mb-6">
+          <h3 className="font-bold text-brand-black mb-3">{t('selectGame')}</h3>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
             {GAMES.map(game => (
               <button
                 key={game.id}
                 onClick={() => setSelectedGame(game.id)}
-                className={`p-4 rounded-lg font-medium transition-all ${
+                className={`p-4 rounded-lg font-medium transition-all border-2 ${
                   selectedGame === game.id
-                    ? 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-lg transform scale-105'
-                    : 'bg-white text-gray-700 hover:bg-gray-100'
+                    ? 'bg-brand-accent text-brand-black border-brand-accent shadow-md scale-105'
+                    : 'bg-brand-white text-brand-darkGrey border-brand-darkGrey/20 hover:border-brand-accent'
                 }`}
               >
                 <div className="text-3xl mb-2">{game.icon}</div>
@@ -191,17 +191,17 @@ export default function LeaderboardsPage() {
         </div>
 
         {/* Period Selection */}
-        <div className="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg p-4 mb-6">
-          <h3 className="font-bold text-gray-900 mb-3">{t('timePeriod')}</h3>
+        <div className="page-card p-4 mb-6">
+          <h3 className="font-bold text-brand-black mb-3">{t('timePeriod')}</h3>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
             {PERIODS.map(period => (
               <button
                 key={period.id}
                 onClick={() => setSelectedPeriod(period.id)}
-                className={`p-3 rounded-lg font-medium transition-all ${
+                className={`p-3 rounded-lg font-medium transition-all border-2 ${
                   selectedPeriod === period.id
-                    ? 'bg-gradient-to-r from-indigo-600 to-purple-600 text-white shadow-lg'
-                    : 'bg-white text-gray-700 hover:bg-gray-100'
+                    ? 'bg-brand-accent text-brand-black border-brand-accent shadow-md'
+                    : 'bg-brand-white text-brand-darkGrey border-brand-darkGrey/20 hover:border-brand-accent'
                 }`}
               >
                 <span className="text-xl mr-2">{period.icon}</span>
@@ -213,47 +213,47 @@ export default function LeaderboardsPage() {
 
         {/* Leaderboard */}
         {loading ? (
-          <div className="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg p-12 text-center">
+          <div className="page-card p-12 text-center">
             <div className="text-6xl mb-4 animate-bounce">🏆</div>
-            <p className="text-gray-600">{t('loadingRankings')}</p>
+            <p className="text-brand-darkGrey">{t('loadingRankings')}</p>
           </div>
         ) : error || !leaderboardData ? (
-          <div className="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg p-12 text-center">
+          <div className="page-card p-12 text-center">
             <div className="text-6xl mb-4">😕</div>
-            <h3 className="text-2xl font-bold text-gray-900 mb-2">{t('unableToLoad')}</h3>
-            <p className="text-gray-600">{error || t('noDataAvailable')}</p>
+            <h3 className="text-2xl font-bold text-brand-black mb-2">{t('unableToLoad')}</h3>
+            <p className="text-brand-darkGrey">{error || t('noDataAvailable')}</p>
           </div>
         ) : leaderboardData.entries.length === 0 ? (
-          <div className="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg p-12 text-center">
+          <div className="page-card p-12 text-center">
             <div className="text-6xl mb-4">🎮</div>
-            <h3 className="text-2xl font-bold text-gray-900 mb-2">{t('noRankingsYet')}</h3>
-            <p className="text-gray-600">{t('beFirstToPlay')}</p>
+            <h3 className="text-2xl font-bold text-brand-black mb-2">{t('noRankingsYet')}</h3>
+            <p className="text-brand-darkGrey">{t('beFirstToPlay')}</p>
             <LocaleLink
               href="/games"
-              className="inline-block mt-6 bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-6 py-3 rounded-lg font-bold hover:from-blue-700 hover:to-indigo-700 transition-all"
+              className="inline-block mt-6 page-button-primary"
             >
               {tGames('playNow')}
             </LocaleLink>
           </div>
         ) : (
-          <div className="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg overflow-hidden">
+          <div className="page-card overflow-hidden">
             {/* Leaderboard Header */}
-            <div className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white p-6">
+            <div className="bg-brand-accent text-brand-black p-6">
               <div className="flex items-center justify-between">
                 <div>
                   <h2 className="text-2xl font-bold">
                     {tGames(GAMES.find(g => g.id === selectedGame)?.nameKey || 'quizzz')} {t('rankings')}
                   </h2>
-                  <p className="text-white/80 text-sm mt-1">
+                  <p className="text-brand-black/80 text-sm mt-1">
                     {t(PERIODS.find(p => p.id === selectedPeriod)?.nameKey || 'allTime')} • {leaderboardData.totalPlayers} {t('players')}
                   </p>
                 </div>
-                <Trophy className="w-12 h-12 opacity-50" />
+                <Trophy className="w-12 h-12 opacity-50 text-brand-black" />
               </div>
             </div>
 
             {/* Leaderboard Entries */}
-            <div className="divide-y divide-gray-200">
+            <div className="divide-y divide-brand-darkGrey/20">
               {leaderboardData.entries.map((entry, index) => {
                 const isCurrentPlayer = entry.playerId === currentPlayerId;
                 
@@ -261,14 +261,14 @@ export default function LeaderboardsPage() {
                   <div
                     key={entry.playerId}
                     className={`p-4 flex items-center justify-between transition-colors ${
-                      isCurrentPlayer ? 'bg-blue-50 border-l-4 border-blue-600' : 'hover:bg-gray-50'
+                      isCurrentPlayer ? 'bg-brand-accent/20 border-l-4 border-brand-accent' : 'hover:bg-brand-darkGrey/5'
                     }`}
                   >
                     {/* Rank & Name */}
                     <div className="flex items-center gap-4 flex-1">
                       <div className="flex items-center justify-center w-12 h-12">
                         {getRankIcon(entry.rank) || (
-                          <div className="text-2xl font-bold text-gray-600">
+                          <div className="text-2xl font-bold text-brand-darkGrey">
                             {entry.rank}
                           </div>
                         )}
@@ -276,25 +276,25 @@ export default function LeaderboardsPage() {
                       
                       <div className="flex-1">
                         <div className="flex items-center gap-2">
-                          <h3 className={`font-bold ${isCurrentPlayer ? 'text-blue-600' : 'text-gray-900'}`}>
+                          <h3 className={`font-bold ${isCurrentPlayer ? 'text-brand-black' : 'text-brand-black'}`}>
                             {entry.playerName}
-                            {isCurrentPlayer && <span className="text-sm font-normal text-blue-600"> ({t('you')})</span>}
+                            {isCurrentPlayer && <span className="text-sm font-normal text-brand-accent"> ({t('you')})</span>}
                           </h3>
                           {getRankChange(entry)}
                         </div>
                         {entry.metadata?.level && (
-                          <p className="text-sm text-gray-600">{t('level')} {entry.metadata.level}</p>
+                          <p className="text-sm text-brand-darkGrey">{t('level')} {entry.metadata.level}</p>
                         )}
                       </div>
                     </div>
 
                     {/* Score */}
                     <div className="text-right">
-                      <div className="text-2xl font-bold text-indigo-600">
+                      <div className="text-2xl font-bold text-brand-black">
                         {entry.value.toLocaleString()}
                       </div>
                       {entry.metadata?.gamesPlayed && (
-                        <p className="text-xs text-gray-500">
+                        <p className="text-xs text-brand-darkGrey">
                           {entry.metadata.gamesPlayed} {entry.metadata.gamesPlayed === 1 ? t('game') : t('games')}
                         </p>
                       )}
@@ -305,7 +305,7 @@ export default function LeaderboardsPage() {
             </div>
 
             {/* Footer */}
-            <div className="bg-gray-50 p-4 text-center text-sm text-gray-600">
+            <div className="bg-brand-darkGrey/5 p-4 text-center text-sm text-brand-darkGrey">
               {t('lastUpdated')}: {new Date(leaderboardData.lastUpdated).toLocaleString('hu-HU')}
             </div>
           </div>

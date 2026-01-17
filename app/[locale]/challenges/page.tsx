@@ -10,8 +10,9 @@
 import { useEffect, useState } from 'react';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
-import Link from 'next/link';
+import { useLocale } from 'next-intl';
 import { Calendar, ChevronLeft, Target, Clock, Gift, CheckCircle, RefreshCw } from 'lucide-react';
+import { LocaleLink } from '@/components/LocaleLink';
 
 interface Challenge {
   _id: string;
@@ -48,6 +49,7 @@ const DIFFICULTY_TEXT = {
 export default function ChallengesPage() {
   const { data: session, status } = useSession();
   const router = useRouter();
+  const locale = useLocale();
   const [challenges, setChallenges] = useState<Challenge[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -55,13 +57,14 @@ export default function ChallengesPage() {
   useEffect(() => {
     if (status === 'loading') return;
     if (!session) {
-      router.push('/auth/signin');
+      router.push(`/${locale}/auth/signin`);
       return;
     }
 
     const fetchChallenges = async () => {
       try {
-        const playerId = session.user.id;
+        const user = session.user as { id?: string; playerId?: string };
+        const playerId = user.playerId || user.id;
         
         // Why: Add timeout to prevent infinite loading
         const controller = new AbortController();
@@ -143,8 +146,8 @@ export default function ChallengesPage() {
   // Loading state
   if (loading || status === 'loading') {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-green-500 via-teal-500 to-cyan-500 flex items-center justify-center">
-        <div className="text-white text-2xl">Loading challenges...</div>
+      <div className="page-shell flex items-center justify-center">
+        <div className="text-brand-white text-2xl">Loading challenges...</div>
       </div>
     );
   }
@@ -152,17 +155,17 @@ export default function ChallengesPage() {
   // Error state
   if (error) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-green-500 via-teal-500 to-cyan-500 flex items-center justify-center p-4">
-        <div className="bg-white rounded-2xl shadow-2xl p-8 max-w-md w-full text-center">
+      <div className="page-shell flex items-center justify-center p-4">
+        <div className="page-card p-8 max-w-md w-full text-center">
           <div className="text-6xl mb-4">😕</div>
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">Unable to Load Challenges</h2>
-          <p className="text-gray-600 mb-6">{error}</p>
-          <Link
+          <h2 className="text-2xl font-bold text-brand-black mb-4">Unable to Load Challenges</h2>
+          <p className="text-brand-darkGrey mb-6">{error}</p>
+          <LocaleLink
             href="/dashboard"
-            className="inline-block bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-6 py-3 rounded-xl font-bold hover:from-indigo-700 hover:to-purple-700 transition-all"
+            className="page-button-primary inline-block"
           >
             Back to Dashboard
-          </Link>
+          </LocaleLink>
         </div>
       </div>
     );
@@ -172,17 +175,17 @@ export default function ChallengesPage() {
   const completedChallenges = challenges.filter(c => c.isCompleted);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-green-500 via-teal-500 to-cyan-500">
+    <div className="page-shell">
       {/* Header */}
-      <header className="bg-white/10 backdrop-blur-md border-b border-white/20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+      <header className="page-header">
+        <div className="page-container py-6">
           <div className="flex justify-between items-center">
             <div>
-              <h1 className="text-3xl font-bold text-white flex items-center gap-3">
+              <h1 className="text-3xl font-bold text-brand-white flex items-center gap-3">
                 <Calendar className="w-10 h-10" />
                 Daily Challenges
               </h1>
-              <p className="text-white/80 mt-1">Complete challenges for bonus rewards</p>
+              <p className="text-brand-white/80 mt-1">Complete challenges for bonus rewards</p>
             </div>
             <div className="flex gap-2">
               <button
@@ -191,7 +194,8 @@ export default function ChallengesPage() {
                   const fetchChallenges = async () => {
                     try {
                       if (!session) return;
-                      const playerId = session.user.id;
+                      const user = session.user as { id?: string; playerId?: string };
+                      const playerId = user.playerId || user.id;
                       const response = await fetch(`/api/challenges?playerId=${playerId}&t=${Date.now()}`, {
                         cache: 'no-store',
                       });
@@ -207,56 +211,56 @@ export default function ChallengesPage() {
                   };
                   fetchChallenges();
                 }}
-                className="bg-white/20 backdrop-blur-sm text-white px-4 py-2 rounded-lg hover:bg-white/30 transition-colors font-medium flex items-center gap-2"
+                className="page-button-secondary border-2 border-brand-accent flex items-center gap-2"
                 title="Refresh challenges"
               >
                 <RefreshCw className="w-5 h-5" />
                 Refresh
               </button>
-              <Link
+              <LocaleLink
                 href="/dashboard"
-                className="bg-white/20 backdrop-blur-sm text-white px-4 py-2 rounded-lg hover:bg-white/30 transition-colors font-medium flex items-center gap-2"
+                className="page-button-secondary border-2 border-brand-accent flex items-center gap-2"
               >
                 <ChevronLeft className="w-5 h-5" />
                 Dashboard
-              </Link>
+              </LocaleLink>
             </div>
           </div>
         </div>
       </header>
 
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <main className="page-container py-8">
         {/* Stats Overview */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-          <div className="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg p-6">
-            <div className="text-green-600 text-3xl mb-2">🎯</div>
-            <div className="text-3xl font-bold text-gray-900">
+          <div className="page-card p-6">
+            <div className="text-brand-accent text-3xl mb-2">🎯</div>
+            <div className="text-3xl font-bold text-brand-black">
               {activeChallenges.length}
             </div>
-            <div className="text-gray-600">Active</div>
+            <div className="text-brand-darkGrey">Active</div>
           </div>
           
-          <div className="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg p-6">
-            <div className="text-blue-600 text-3xl mb-2">✅</div>
-            <div className="text-3xl font-bold text-gray-900">
+          <div className="page-card p-6">
+            <div className="text-brand-accent text-3xl mb-2">✅</div>
+            <div className="text-3xl font-bold text-brand-black">
               {completedChallenges.length}
             </div>
-            <div className="text-gray-600">Completed Today</div>
+            <div className="text-brand-darkGrey">Completed Today</div>
           </div>
           
-          <div className="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg p-6">
-            <div className="text-yellow-600 text-3xl mb-2">💎</div>
-            <div className="text-3xl font-bold text-gray-900">
+          <div className="page-card p-6">
+            <div className="text-brand-accent text-3xl mb-2">💎</div>
+            <div className="text-3xl font-bold text-brand-black">
               {completedChallenges.reduce((sum, c) => sum + c.rewards.points, 0).toLocaleString()}
             </div>
-            <div className="text-gray-600">Points Earned</div>
+            <div className="text-brand-darkGrey">Points Earned</div>
           </div>
         </div>
 
         {/* Active Challenges */}
         {activeChallenges.length > 0 && (
           <div className="mb-8">
-            <h2 className="text-2xl font-bold text-white mb-4 flex items-center gap-2">
+            <h2 className="text-2xl font-bold text-brand-white mb-4 flex items-center gap-2">
               <Target className="w-7 h-7" />
               Active Challenges ({activeChallenges.length})
             </h2>
@@ -268,7 +272,7 @@ export default function ChallengesPage() {
                 return (
                   <div
                     key={challenge._id}
-                    className="bg-white rounded-xl shadow-lg p-6 relative overflow-hidden"
+                    className="page-card p-6 relative overflow-hidden"
                   >
                     {/* Difficulty Badge */}
                     <div className={`absolute top-0 right-0 px-4 py-1 rounded-bl-lg bg-gradient-to-r ${DIFFICULTY_COLORS[challenge.difficulty]} text-white font-bold text-sm`}>
@@ -276,25 +280,25 @@ export default function ChallengesPage() {
                     </div>
                     
                     {/* Time Remaining */}
-                    <div className="flex items-center gap-2 text-orange-600 mb-4 mt-6">
+                    <div className="flex items-center gap-2 text-brand-darkGrey mb-4 mt-6">
                       <Clock className="w-4 h-4" />
                       <span className="text-sm font-medium">{timeLeft} remaining</span>
                     </div>
                     
-                    <h3 className="text-xl font-bold text-gray-900 mb-2">
+                    <h3 className="text-xl font-bold text-brand-black mb-2">
                       {challenge.name}
                     </h3>
-                    <p className="text-gray-600 text-sm mb-4">
+                    <p className="text-brand-darkGrey text-sm mb-4">
                       {challenge.description}
                     </p>
                     
                     {/* Progress */}
                     <div className="mb-4">
-                      <div className="flex justify-between text-sm text-gray-600 mb-2">
+                      <div className="flex justify-between text-sm text-brand-darkGrey mb-2">
                         <span>Progress</span>
                         <span className="font-bold">{challenge.currentProgress} / {challenge.targetValue}</span>
                       </div>
-                      <div className="bg-gray-200 rounded-full h-3 overflow-hidden">
+                      <div className="bg-brand-darkGrey/20 rounded-full h-3 overflow-hidden">
                         <div
                           className={`h-full transition-all bg-gradient-to-r ${DIFFICULTY_COLORS[challenge.difficulty]}`}
                           style={{ width: `${progress}%` }}
@@ -303,24 +307,21 @@ export default function ChallengesPage() {
                     </div>
                     
                     {/* Rewards */}
-                    <div className="flex items-center justify-between pt-4 border-t border-gray-200">
+                    <div className="flex items-center justify-between pt-4 border-t border-brand-darkGrey/20">
                       <div className="flex items-center gap-4">
                         <div className="flex items-center gap-1">
-                          <Gift className="w-4 h-4 text-purple-600" />
-                          <span className="font-bold text-purple-600">{challenge.rewards.points} pts</span>
+                          <Gift className="w-4 h-4 text-brand-accent" />
+                          <span className="font-bold text-brand-accent">{challenge.rewards.points} pts</span>
                         </div>
                         <div className="flex items-center gap-1">
-                          <span className="text-indigo-600">⚡</span>
-                          <span className="font-bold text-indigo-600">{challenge.rewards.xp} XP</span>
+                          <span className="text-brand-darkGrey">⚡</span>
+                          <span className="font-bold text-brand-darkGrey">{challenge.rewards.xp} XP</span>
                         </div>
                       </div>
                       
-                      <Link
-                        href="/games"
-                        className="bg-gradient-to-r from-green-600 to-teal-600 text-white px-4 py-2 rounded-lg font-medium hover:from-green-700 hover:to-teal-700 transition-all text-sm"
-                      >
+                      <LocaleLink href="/games" className="page-button-primary text-sm">
                         Play Now
-                      </Link>
+                      </LocaleLink>
                     </div>
                   </div>
                 );
@@ -332,7 +333,7 @@ export default function ChallengesPage() {
         {/* Completed Challenges */}
         {completedChallenges.length > 0 && (
           <div className="mb-8">
-            <h2 className="text-2xl font-bold text-white mb-4 flex items-center gap-2">
+            <h2 className="text-2xl font-bold text-brand-white mb-4 flex items-center gap-2">
               <CheckCircle className="w-7 h-7" />
               Completed Today ({completedChallenges.length})
             </h2>
@@ -340,34 +341,34 @@ export default function ChallengesPage() {
               {completedChallenges.map(challenge => (
                 <div
                   key={challenge._id}
-                  className="bg-white/60 backdrop-blur-sm rounded-xl shadow-lg p-6 border-2 border-green-500 relative"
+                  className="page-card p-6 border-2 border-brand-accent relative"
                 >
-                  <div className="absolute top-0 right-0 bg-green-500 text-white px-4 py-1 rounded-bl-lg font-bold text-sm">
+                  <div className="absolute top-0 right-0 bg-brand-accent text-brand-black px-4 py-1 rounded-bl-lg font-bold text-sm">
                     <CheckCircle className="w-4 h-4 inline mr-1" />
                     COMPLETE
                   </div>
                   
-                  <h3 className="text-xl font-bold text-gray-900 mb-2 mt-6">
+                  <h3 className="text-xl font-bold text-brand-black mb-2 mt-6">
                     {challenge.name}
                   </h3>
-                  <p className="text-gray-600 text-sm mb-4">
+                  <p className="text-brand-darkGrey text-sm mb-4">
                     {challenge.description}
                   </p>
                   
                   {/* Rewards Earned */}
-                  <div className="flex items-center gap-4 pt-4 border-t border-gray-200">
+                  <div className="flex items-center gap-4 pt-4 border-t border-brand-darkGrey/20">
                     <div className="flex items-center gap-1">
-                      <Gift className="w-4 h-4 text-purple-600" />
-                      <span className="font-bold text-purple-600">+{challenge.rewards.points} pts</span>
+                      <Gift className="w-4 h-4 text-brand-accent" />
+                      <span className="font-bold text-brand-accent">+{challenge.rewards.points} pts</span>
                     </div>
                     <div className="flex items-center gap-1">
-                      <span className="text-indigo-600">⚡</span>
-                      <span className="font-bold text-indigo-600">+{challenge.rewards.xp} XP</span>
+                      <span className="text-brand-darkGrey">⚡</span>
+                      <span className="font-bold text-brand-darkGrey">+{challenge.rewards.xp} XP</span>
                     </div>
                   </div>
                   
                   {challenge.completedAt && (
-                    <p className="text-xs text-gray-500 mt-2">
+                    <p className="text-xs text-brand-darkGrey mt-2">
                       Completed {new Date(challenge.completedAt).toLocaleTimeString()}
                     </p>
                   )}
@@ -379,20 +380,20 @@ export default function ChallengesPage() {
 
         {/* Empty State */}
         {challenges.length === 0 && (
-          <div className="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg p-12 text-center">
+          <div className="page-card p-12 text-center">
             <div className="text-6xl mb-4">📅</div>
-            <h3 className="text-2xl font-bold text-gray-900 mb-2">
+            <h3 className="text-2xl font-bold text-brand-black mb-2">
               No Challenges Available
             </h3>
-            <p className="text-gray-600 mb-6">
+            <p className="text-brand-darkGrey mb-6">
               Daily challenges refresh every 24 hours. Check back tomorrow!
             </p>
-            <Link
+            <LocaleLink
               href="/games"
-              className="inline-block bg-gradient-to-r from-green-600 to-teal-600 text-white px-6 py-3 rounded-lg font-bold hover:from-green-700 hover:to-teal-700 transition-all"
+              className="inline-block page-button-primary"
             >
               Play Games
-            </Link>
+            </LocaleLink>
           </div>
         )}
       </main>

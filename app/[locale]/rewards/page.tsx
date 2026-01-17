@@ -10,8 +10,9 @@
 import { useEffect, useState } from 'react';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
-import Link from 'next/link';
+import { useLocale } from 'next-intl';
 import { Gift, ChevronLeft, Sparkles, ShoppingCart, Check, AlertCircle } from 'lucide-react';
+import { LocaleLink } from '@/components/LocaleLink';
 
 interface Reward {
   id: string;
@@ -30,6 +31,7 @@ interface Reward {
 export default function RewardsPage() {
   const { data: session, status } = useSession();
   const router = useRouter();
+  const locale = useLocale();
   const [rewards, setRewards] = useState<Reward[]>([]);
   const [playerPoints, setPlayerPoints] = useState(0);
   const [loading, setLoading] = useState(true);
@@ -41,13 +43,14 @@ export default function RewardsPage() {
   useEffect(() => {
     if (status === 'loading') return;
     if (!session) {
-      router.push('/auth/signin');
+      router.push(`/${locale}/auth/signin`);
       return;
     }
 
     const fetchData = async () => {
       try {
-        const playerId = session.user.id;
+        const user = session.user as { id?: string; playerId?: string };
+        const playerId = user.playerId || user.id;
         
         // Fetch rewards
         const rewardsResponse = await fetch('/api/rewards');
@@ -84,7 +87,8 @@ export default function RewardsPage() {
     setRedeemSuccess(null);
     
     try {
-      const playerId = session!.user.id;
+      const user = session!.user as { id?: string; playerId?: string };
+      const playerId = user.playerId || user.id;
       const response = await fetch('/api/rewards', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -114,8 +118,8 @@ export default function RewardsPage() {
   // Loading state
   if (loading || status === 'loading') {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-yellow-500 via-orange-500 to-red-500 flex items-center justify-center">
-        <div className="text-white text-2xl">Loading rewards...</div>
+      <div className="page-shell flex items-center justify-center">
+        <div className="text-brand-white text-2xl">Loading rewards...</div>
       </div>
     );
   }
@@ -123,17 +127,17 @@ export default function RewardsPage() {
   // Error state
   if (error) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-yellow-500 via-orange-500 to-red-500 flex items-center justify-center p-4">
-        <div className="bg-white rounded-2xl shadow-2xl p-8 max-w-md w-full text-center">
+      <div className="page-shell flex items-center justify-center p-4">
+        <div className="page-card p-8 max-w-md w-full text-center">
           <div className="text-6xl mb-4">😕</div>
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">Unable to Load Rewards</h2>
-          <p className="text-gray-600 mb-6">{error}</p>
-          <Link
+          <h2 className="text-2xl font-bold text-brand-black mb-4">Unable to Load Rewards</h2>
+          <p className="text-brand-darkGrey mb-6">{error}</p>
+          <LocaleLink
             href="/dashboard"
-            className="inline-block bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-6 py-3 rounded-xl font-bold hover:from-indigo-700 hover:to-purple-700 transition-all"
+            className="page-button-primary inline-block"
           >
             Back to Dashboard
-          </Link>
+          </LocaleLink>
         </div>
       </div>
     );
@@ -145,42 +149,42 @@ export default function RewardsPage() {
     : rewards.filter(r => r.isActive && r.category === filterCategory);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-yellow-500 via-orange-500 to-red-500">
+    <div className="page-shell">
       {/* Header */}
-      <header className="bg-white/10 backdrop-blur-md border-b border-white/20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+      <header className="page-header">
+        <div className="page-container py-6">
           <div className="flex justify-between items-center">
             <div>
-              <h1 className="text-3xl font-bold text-white flex items-center gap-3">
+              <h1 className="text-3xl font-bold text-brand-white flex items-center gap-3">
                 <Gift className="w-10 h-10" />
                 Rewards Store
               </h1>
-              <p className="text-white/80 mt-1">Redeem your points for awesome rewards</p>
+              <p className="text-brand-white/80 mt-1">Redeem your points for awesome rewards</p>
             </div>
-            <Link
+            <LocaleLink
               href="/dashboard"
-              className="bg-white/20 backdrop-blur-sm text-white px-4 py-2 rounded-lg hover:bg-white/30 transition-colors font-medium flex items-center gap-2"
+              className="page-button-secondary border-2 border-brand-accent flex items-center gap-2"
             >
               <ChevronLeft className="w-5 h-5" />
               Dashboard
-            </Link>
+            </LocaleLink>
           </div>
         </div>
       </header>
 
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <main className="page-container py-8">
         {/* Points Balance */}
-        <div className="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg p-6 mb-8">
+        <div className="page-card p-6 mb-8">
           <div className="flex items-center justify-between">
             <div>
-              <h2 className="text-2xl font-bold text-gray-900 mb-1">Your Points Balance</h2>
-              <p className="text-gray-600">Use your points to redeem rewards</p>
+              <h2 className="text-2xl font-bold text-brand-black mb-1">Your Points Balance</h2>
+              <p className="text-brand-darkGrey">Use your points to redeem rewards</p>
             </div>
             <div className="text-right">
-              <div className="text-5xl font-bold text-purple-600">
+              <div className="text-5xl font-bold text-brand-black">
                 {playerPoints.toLocaleString()}
               </div>
-              <div className="text-gray-600 flex items-center gap-2 justify-end">
+              <div className="text-brand-darkGrey flex items-center gap-2 justify-end">
                 <span className="text-2xl">💎</span>
                 <span>Points</span>
               </div>
@@ -189,16 +193,16 @@ export default function RewardsPage() {
         </div>
 
         {/* Category Filter */}
-        <div className="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg p-4 mb-6">
+        <div className="page-card p-4 mb-6">
           <div className="flex flex-wrap gap-2">
             {categories.map(category => (
               <button
                 key={category}
                 onClick={() => setFilterCategory(category)}
-                className={`px-4 py-2 rounded-lg font-medium transition-all capitalize ${
+                className={`px-4 py-2 rounded-lg font-medium transition-all capitalize border-2 ${
                   filterCategory === category
-                    ? 'bg-gradient-to-r from-orange-600 to-red-600 text-white shadow-lg'
-                    : 'bg-white text-gray-700 hover:bg-gray-100'
+                    ? 'bg-brand-accent text-brand-black border-brand-accent shadow-md'
+                    : 'bg-brand-white text-brand-darkGrey border-brand-darkGrey/20 hover:border-brand-accent'
                 }`}
               >
                 {category}

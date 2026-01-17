@@ -56,6 +56,37 @@ body {
   }
 }
 
+/* Unified page primitives */
+@layer components {
+  .page-shell {
+    @apply min-h-screen bg-brand-black text-brand-white;
+  }
+
+  .page-header {
+    @apply bg-brand-darkGrey border-b-2 border-brand-accent;
+  }
+
+  .page-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .page-card {
+    @apply bg-brand-white text-brand-black rounded-xl border-2 border-brand-accent shadow-lg;
+  }
+
+  .page-card-dark {
+    @apply bg-brand-darkGrey text-brand-white rounded-xl border-2 border-brand-accent;
+  }
+
+  .page-button-primary {
+    @apply bg-brand-accent text-brand-black px-4 py-2 rounded-lg font-bold hover:bg-brand-primary-400 transition-colors;
+  }
+
+  .page-button-secondary {
+    @apply bg-brand-darkGrey text-brand-white px-4 py-2 rounded-lg font-medium hover:bg-brand-secondary-700 transition-colors;
+  }
+}
+
 /* Custom scrollbar styling */
 @layer base {
   ::-webkit-scrollbar {

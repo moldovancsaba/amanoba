@@ -10,8 +10,9 @@
 import { useEffect, useState } from 'react';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
-import Link from 'next/link';
+import { useLocale } from 'next-intl';
 import { Map, ChevronLeft, CheckCircle, Circle, Lock, Trophy, Sparkles } from 'lucide-react';
+import { LocaleLink } from '@/components/LocaleLink';
 
 interface QuestStep {
   stepNumber: number;
@@ -50,6 +51,7 @@ const DIFFICULTY_COLORS = {
 export default function QuestsPage() {
   const { data: session, status } = useSession();
   const router = useRouter();
+  const locale = useLocale();
   const [quests, setQuests] = useState<Quest[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -58,14 +60,15 @@ export default function QuestsPage() {
   useEffect(() => {
     if (status === 'loading') return;
     if (!session) {
-      router.push('/auth/signin');
+      router.push(`/${locale}/auth/signin`);
       return;
     }
 
     const fetchQuests = async () => {
       try {
-        const playerId = session.user.id;
-        setIsPremium((session.user as { isPremium?: boolean }).isPremium || false);
+        const user = session.user as { id?: string; playerId?: string; isPremium?: boolean };
+        const playerId = user.playerId || user.id;
+        setIsPremium(user.isPremium || false);
         
         const response = await fetch(`/api/quests?playerId=${playerId}`);
         
@@ -92,8 +95,8 @@ export default function QuestsPage() {
   // Loading state
   if (loading || status === 'loading') {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-purple-500 via-pink-500 to-rose-500 flex items-center justify-center">
-        <div className="text-white text-2xl">Loading quests...</div>
+      <div className="page-shell flex items-center justify-center">
+        <div className="text-brand-white text-2xl">Loading quests...</div>
       </div>
     );
   }
@@ -101,17 +104,17 @@ export default function QuestsPage() {
   // Error state
   if (error) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-purple-500 via-pink-500 to-rose-500 flex items-center justify-center p-4">
-        <div className="bg-white rounded-2xl shadow-2xl p-8 max-w-md w-full text-center">
+      <div className="page-shell flex items-center justify-center p-4">
+        <div className="page-card p-8 max-w-md w-full text-center">
           <div className="text-6xl mb-4">😕</div>
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">Unable to Load Quests</h2>
-          <p className="text-gray-600 mb-6">{error}</p>
-          <Link
+          <h2 className="text-2xl font-bold text-brand-black mb-4">Unable to Load Quests</h2>
+          <p className="text-brand-darkGrey mb-6">{error}</p>
+          <LocaleLink
             href="/dashboard"
-            className="inline-block bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-6 py-3 rounded-xl font-bold hover:from-indigo-700 hover:to-purple-700 transition-all"
+            className="page-button-primary inline-block"
           >
             Back to Dashboard
-          </Link>
+          </LocaleLink>
         </div>
       </div>
     );
@@ -122,61 +125,61 @@ export default function QuestsPage() {
   const completedQuests = quests.filter(q => q.isCompleted);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-500 via-pink-500 to-rose-500">
+    <div className="page-shell">
       {/* Header */}
-      <header className="bg-white/10 backdrop-blur-md border-b border-white/20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+      <header className="page-header">
+        <div className="page-container py-6">
           <div className="flex justify-between items-center">
             <div>
-              <h1 className="text-3xl font-bold text-white flex items-center gap-3">
+              <h1 className="text-3xl font-bold text-brand-white flex items-center gap-3">
                 <Map className="w-10 h-10" />
                 Quest Log
               </h1>
-              <p className="text-white/80 mt-1">Epic multi-step adventures await</p>
+              <p className="text-brand-white/80 mt-1">Epic multi-step adventures await</p>
             </div>
-            <Link
+            <LocaleLink
               href="/dashboard"
-              className="bg-white/20 backdrop-blur-sm text-white px-4 py-2 rounded-lg hover:bg-white/30 transition-colors font-medium flex items-center gap-2"
+              className="page-button-secondary border-2 border-brand-accent flex items-center gap-2"
             >
               <ChevronLeft className="w-5 h-5" />
               Dashboard
-            </Link>
+            </LocaleLink>
           </div>
         </div>
       </header>
 
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <main className="page-container py-8">
         {/* Stats Overview */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-          <div className="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg p-6">
-            <div className="text-purple-600 text-3xl mb-2">🎯</div>
-            <div className="text-3xl font-bold text-gray-900">
+          <div className="page-card p-6">
+            <div className="text-brand-accent text-3xl mb-2">🎯</div>
+            <div className="text-3xl font-bold text-brand-black">
               {activeQuests.length}
             </div>
-            <div className="text-gray-600">Active</div>
+            <div className="text-brand-darkGrey">Active</div>
           </div>
           
-          <div className="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg p-6">
-            <div className="text-blue-600 text-3xl mb-2">✨</div>
-            <div className="text-3xl font-bold text-gray-900">
+          <div className="page-card p-6">
+            <div className="text-brand-accent text-3xl mb-2">✨</div>
+            <div className="text-3xl font-bold text-brand-black">
               {availableQuests.length}
             </div>
-            <div className="text-gray-600">Available</div>
+            <div className="text-brand-darkGrey">Available</div>
           </div>
           
-          <div className="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg p-6">
-            <div className="text-green-600 text-3xl mb-2">🏆</div>
-            <div className="text-3xl font-bold text-gray-900">
+          <div className="page-card p-6">
+            <div className="text-brand-accent text-3xl mb-2">🏆</div>
+            <div className="text-3xl font-bold text-brand-black">
               {completedQuests.length}
             </div>
-            <div className="text-gray-600">Completed</div>
+            <div className="text-brand-darkGrey">Completed</div>
           </div>
         </div>
 
         {/* Active Quests */}
         {activeQuests.length > 0 && (
           <div className="mb-8">
-            <h2 className="text-2xl font-bold text-white mb-4 flex items-center gap-2">
+            <h2 className="text-2xl font-bold text-brand-white mb-4 flex items-center gap-2">
               <Sparkles className="w-7 h-7" />
               Active Quests ({activeQuests.length})
             </h2>
@@ -187,7 +190,7 @@ export default function QuestsPage() {
                 return (
                   <div
                     key={quest._id}
-                    className="bg-white rounded-xl shadow-lg overflow-hidden"
+                    className="page-card overflow-hidden"
                   >
                     {/* Quest Header */}
                     <div className={`bg-gradient-to-r ${DIFFICULTY_COLORS[quest.difficulty]} text-white p-6`}>
@@ -223,7 +226,7 @@ export default function QuestsPage() {
                     
                     {/* Quest Steps */}
                     <div className="p-6">
-                      <h4 className="font-bold text-gray-900 mb-4">Quest Steps:</h4>
+                      <h4 className="font-bold text-brand-black mb-4">Quest Steps:</h4>
                       <div className="space-y-3">
                         {quest.steps.map((step, index) => (
                           <div
@@ -242,12 +245,12 @@ export default function QuestsPage() {
                               ) : index === quest.currentStep ? (
                                 <Circle className="w-5 h-5 text-blue-600" />
                               ) : (
-                                <Circle className="w-5 h-5 text-gray-400" />
+                                <Circle className="w-5 h-5 text-brand-darkGrey" />
                               )}
                             </div>
                             <div className="flex-1">
                               <div className="flex items-center gap-2">
-                                <span className="font-medium text-gray-900">
+                                <span className="font-medium text-brand-black">
                                   Step {step.stepNumber}:
                                 </span>
                                 {index === quest.currentStep && !step.isCompleted && (
@@ -257,12 +260,12 @@ export default function QuestsPage() {
                                 )}
                               </div>
                               <p className={`text-sm mt-1 ${
-                                step.isCompleted ? 'text-green-700' : 'text-gray-600'
+                                step.isCompleted ? 'text-green-700' : 'text-brand-darkGrey'
                               }`}>
                                 {step.description}
                               </p>
                               {step.completedAt && (
-                                <p className="text-xs text-gray-500 mt-1">
+                                <p className="text-xs text-brand-darkGrey mt-1">
                                   ✓ Completed {new Date(step.completedAt).toLocaleString()}
                                 </p>
                               )}
@@ -272,16 +275,16 @@ export default function QuestsPage() {
                       </div>
                       
                       {/* Rewards */}
-                      <div className="mt-6 pt-6 border-t border-gray-200">
-                        <h4 className="font-bold text-gray-900 mb-3">Quest Rewards:</h4>
+                      <div className="mt-6 pt-6 border-t border-brand-darkGrey/20">
+                        <h4 className="font-bold text-brand-black mb-3">Quest Rewards:</h4>
                         <div className="flex items-center gap-6">
                           <div className="flex items-center gap-2">
-                            <Trophy className="w-5 h-5 text-purple-600" />
-                            <span className="font-bold text-purple-600">{quest.rewards.points} Points</span>
+                            <Trophy className="w-5 h-5 text-brand-accent" />
+                            <span className="font-bold text-brand-accent">{quest.rewards.points} Points</span>
                           </div>
                           <div className="flex items-center gap-2">
-                            <span className="text-indigo-600 text-xl">⚡</span>
-                            <span className="font-bold text-indigo-600">{quest.rewards.xp} XP</span>
+                            <span className="text-brand-darkGrey text-xl">⚡</span>
+                            <span className="font-bold text-brand-darkGrey">{quest.rewards.xp} XP</span>
                           </div>
                           {quest.rewards.title && (
                             <div className="flex items-center gap-2">
@@ -292,12 +295,12 @@ export default function QuestsPage() {
                         </div>
                       </div>
                       
-                      <Link
+                      <LocaleLink
                         href="/games"
-                        className="mt-4 block w-full bg-gradient-to-r from-purple-600 to-pink-600 text-white px-6 py-3 rounded-lg font-bold text-center hover:from-purple-700 hover:to-pink-700 transition-all"
+                        className="mt-4 block w-full page-button-primary text-center"
                       >
                         Continue Quest
-                      </Link>
+                      </LocaleLink>
                     </div>
                   </div>
                 );
@@ -309,7 +312,7 @@ export default function QuestsPage() {
         {/* Available Quests */}
         {availableQuests.length > 0 && (
           <div className="mb-8">
-            <h2 className="text-2xl font-bold text-white mb-4">
+            <h2 className="text-2xl font-bold text-brand-white mb-4">
               Available Quests ({availableQuests.length})
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -319,9 +322,7 @@ export default function QuestsPage() {
                 return (
                   <div
                     key={quest._id}
-                    className={`bg-white rounded-xl shadow-lg overflow-hidden ${
-                      isLocked ? 'opacity-60' : ''
-                    }`}
+                    className={`page-card overflow-hidden ${isLocked ? 'opacity-60' : ''}`}
                   >
                     <div className={`bg-gradient-to-r ${DIFFICULTY_COLORS[quest.difficulty]} text-white p-6`}>
                       <div className="flex items-center justify-between mb-2">
@@ -337,12 +338,12 @@ export default function QuestsPage() {
                     <div className="p-6">
                       <div className="flex items-center gap-4 mb-4">
                         <div className="flex items-center gap-1">
-                          <Trophy className="w-4 h-4 text-purple-600" />
-                          <span className="font-bold text-purple-600">{quest.rewards.points} pts</span>
+                          <Trophy className="w-4 h-4 text-brand-accent" />
+                          <span className="font-bold text-brand-accent">{quest.rewards.points} pts</span>
                         </div>
                         <div className="flex items-center gap-1">
-                          <span className="text-indigo-600">⚡</span>
-                          <span className="font-bold text-indigo-600">{quest.rewards.xp} XP</span>
+                          <span className="text-brand-darkGrey">⚡</span>
+                          <span className="font-bold text-brand-darkGrey">{quest.rewards.xp} XP</span>
                         </div>
                       </div>
                       
@@ -350,8 +351,8 @@ export default function QuestsPage() {
                         disabled={isLocked}
                         className={`w-full py-3 rounded-lg font-bold transition-all ${
                           isLocked
-                            ? 'bg-gray-300 text-gray-500 cursor-not-allowed'
-                            : 'bg-gradient-to-r from-purple-600 to-pink-600 text-white hover:from-purple-700 hover:to-pink-700'
+                            ? 'bg-brand-darkGrey/20 text-brand-darkGrey cursor-not-allowed'
+                            : 'bg-brand-accent text-brand-black hover:bg-brand-primary-400'
                         }`}
                       >
                         {isLocked ? (
@@ -374,7 +375,7 @@ export default function QuestsPage() {
         {/* Completed Quests */}
         {completedQuests.length > 0 && (
           <div className="mb-8">
-            <h2 className="text-2xl font-bold text-white mb-4 flex items-center gap-2">
+            <h2 className="text-2xl font-bold text-brand-white mb-4 flex items-center gap-2">
               <Trophy className="w-7 h-7" />
               Completed Quests ({completedQuests.length})
             </h2>
@@ -382,12 +383,12 @@ export default function QuestsPage() {
               {completedQuests.map(quest => (
                 <div
                   key={quest._id}
-                  className="bg-white/80 backdrop-blur-sm rounded-xl shadow-lg p-6 border-2 border-green-500"
+                  className="page-card p-6 border-2 border-brand-accent"
                 >
                   <div className="flex items-start justify-between mb-4">
                     <div>
-                      <h3 className="text-xl font-bold text-gray-900">{quest.name}</h3>
-                      <p className="text-gray-600 text-sm mt-1">{quest.description}</p>
+                      <h3 className="text-xl font-bold text-brand-black">{quest.name}</h3>
+                      <p className="text-brand-darkGrey text-sm mt-1">{quest.description}</p>
                     </div>
                     <CheckCircle className="w-8 h-8 text-green-600 flex-shrink-0" />
                   </div>
@@ -397,7 +398,7 @@ export default function QuestsPage() {
                   </div>
                   
                   {quest.completedAt && (
-                    <p className="text-xs text-gray-500 mt-2">
+                    <p className="text-xs text-brand-darkGrey mt-2">
                       Completed {new Date(quest.completedAt).toLocaleDateString()}
                     </p>
                   )}
@@ -409,20 +410,17 @@ export default function QuestsPage() {
 
         {/* Empty State */}
         {quests.length === 0 && (
-          <div className="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg p-12 text-center">
+          <div className="page-card p-12 text-center">
             <div className="text-6xl mb-4">🗺️</div>
-            <h3 className="text-2xl font-bold text-gray-900 mb-2">
+            <h3 className="text-2xl font-bold text-brand-black mb-2">
               No Quests Available
             </h3>
-            <p className="text-gray-600 mb-6">
+            <p className="text-brand-darkGrey mb-6">
               New quests are added regularly. Check back soon for epic adventures!
             </p>
-            <Link
-              href="/games"
-              className="inline-block bg-gradient-to-r from-purple-600 to-pink-600 text-white px-6 py-3 rounded-lg font-bold hover:from-purple-700 hover:to-pink-700 transition-all"
-            >
+            <LocaleLink href="/games" className="inline-block page-button-primary">
               Play Games
-            </Link>
+            </LocaleLink>
           </div>
         )}
       </main>
