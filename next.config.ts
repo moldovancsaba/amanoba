@@ -52,7 +52,7 @@ const nextConfig: NextConfig = {
         ],
       },
       {
-        // Ensure manifest.json is accessible
+        // Ensure manifest.json and other public files are accessible
         source: '/manifest.json',
         headers: [
           {
@@ -62,6 +62,16 @@ const nextConfig: NextConfig = {
           {
             key: 'Cache-Control',
             value: 'public, max-age=3600'
+          },
+        ],
+      },
+      {
+        // Ensure public static files bypass middleware
+        source: '/(manifest.json|icon-.*|apple-touch-icon.*|.*\\.(ico|png|svg|jpg|jpeg|gif|webp))',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable'
           },
         ],
       },

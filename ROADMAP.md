@@ -164,7 +164,7 @@ Extend Game model to support assessment mode:
 
 ## 📅 Phase 2: Course Builder & Admin Tools (Weeks 3-4)
 
-### Priority: HIGH  
+### Priority: HIGH
 **Status**: 🚧 READY TO START
 
 #### 2.1 Course Builder Admin Interface

@@ -18,12 +18,14 @@ import "../mobile-styles.css";
 
 // What: Font configuration for Amanoba platform
 // Why: Noto Sans provides broad unicode coverage including latin-ext, Inter as secondary for UI consistency
-// Note: display: "swap" prevents font preload warnings by allowing text to render with fallback fonts immediately
+// Note: display: "swap" allows text to render with fallback fonts immediately, then swaps when custom fonts load
+// Note: Next.js automatically preloads fonts for performance - browser warnings about unused preloads are informational only
 const inter = Inter({
   subsets: ["latin", "latin-ext"],
   display: "swap",
   variable: "--font-inter",
   adjustFontFallback: true,
+  preload: false, // Disable automatic preload to reduce warnings
 });
 
 const notoSans = Noto_Sans({
@@ -31,6 +33,7 @@ const notoSans = Noto_Sans({
   display: "swap",
   variable: "--font-noto-sans",
   adjustFontFallback: true,
+  preload: false, // Disable automatic preload to reduce warnings
 });
 
 // What: SEO and social media metadata for Amanoba
