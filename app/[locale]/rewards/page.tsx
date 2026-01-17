@@ -222,8 +222,8 @@ export default function RewardsPage() {
               return (
                 <div
                   key={reward.id}
-                  className={`bg-white rounded-xl shadow-lg p-6 relative overflow-hidden transition-all ${
-                    canAfford ? 'border-2 border-green-500' : 'border-2 border-gray-300 opacity-75'
+                  className={`page-card p-6 relative overflow-hidden transition-all ${
+                    canAfford ? 'border-2 border-brand-accent' : 'border-2 border-brand-darkGrey/30 opacity-75'
                   }`}
                 >
                   {reward.premiumOnly && (
@@ -233,7 +233,7 @@ export default function RewardsPage() {
                   )}
                   
                   {wasRedeemed && (
-                    <div className="absolute top-0 right-0 bg-green-500 text-white px-3 py-1 rounded-bl-lg font-bold text-sm animate-pulse">
+                    <div className="absolute top-0 right-0 bg-brand-accent text-brand-black px-3 py-1 rounded-bl-lg font-bold text-sm animate-pulse">
                       <Check className="w-4 h-4 inline mr-1" />
                       Redeemed!
                     </div>
@@ -247,25 +247,25 @@ export default function RewardsPage() {
                     </div>
                   )}
                   
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">
+                  <h3 className="text-xl font-bold text-brand-black mb-2">
                     {reward.name}
                   </h3>
-                  <p className="text-gray-600 text-sm mb-4">
+                  <p className="text-brand-darkGrey text-sm mb-4">
                     {reward.description}
                   </p>
                   
                   {reward.stock !== undefined && reward.stock > 0 && (
-                    <div className="text-xs text-orange-600 font-medium mb-3">
+                    <div className="text-xs text-brand-darkGrey font-medium mb-3">
                       <AlertCircle className="w-3 h-3 inline mr-1" />
                       Only {reward.stock} left in stock!
                     </div>
                   )}
                   
                   <div className="flex items-center justify-between mb-4">
-                    <span className="text-2xl font-bold text-purple-600">
+                    <span className="text-2xl font-bold text-brand-accent">
                       💎 {reward.pointsCost.toLocaleString()}
                     </span>
-                    <span className="text-sm text-gray-600 capitalize">
+                    <span className="text-sm text-brand-darkGrey capitalize">
                       {reward.category}
                     </span>
                   </div>
@@ -275,8 +275,8 @@ export default function RewardsPage() {
                     disabled={!canAfford || isRedeeming || wasRedeemed}
                     className={`w-full py-3 rounded-lg font-bold transition-all flex items-center justify-center gap-2 ${
                       canAfford && !wasRedeemed
-                        ? 'bg-gradient-to-r from-orange-600 to-red-600 text-white hover:from-orange-700 hover:to-red-700 transform hover:scale-105'
-                        : 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                        ? 'bg-brand-accent text-brand-black hover:bg-brand-primary-400 transform hover:scale-105'
+                        : 'bg-brand-darkGrey/20 text-brand-darkGrey cursor-not-allowed'
                     }`}
                   >
                     {isRedeeming ? (
@@ -306,12 +306,12 @@ export default function RewardsPage() {
             })}
           </div>
         ) : (
-          <div className="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg p-12 text-center">
-            <Sparkles className="w-16 h-16 text-orange-500 mx-auto mb-4" />
-            <h3 className="text-2xl font-bold text-gray-900 mb-2">
+          <div className="page-card p-12 text-center">
+            <Sparkles className="w-16 h-16 text-brand-accent mx-auto mb-4" />
+            <h3 className="text-2xl font-bold text-brand-black mb-2">
               No rewards available
             </h3>
-            <p className="text-gray-600">
+            <p className="text-brand-darkGrey">
               {filterCategory === 'all'
                 ? 'Check back later for new rewards!'
                 : 'Try selecting a different category or check back later!'}
