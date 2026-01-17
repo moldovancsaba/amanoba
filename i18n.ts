@@ -25,18 +25,24 @@ export const defaultLocale: Locale = 'hu';
  * Note: The locale is automatically extracted from the URL by next-intl middleware
  * With localePrefix: 'always', the locale is always in the URL path
  */
-export default getRequestConfig(async ({ requestLocale }) => {
-  // Use requestLocale if available, otherwise fallback to defaultLocale
-  // This handles cases where locale might not be in the request context
-  let locale = requestLocale || defaultLocale;
-  
+export default getRequestConfig(async ({ locale }) => {
+  // Ensure locale is always defined - fallback to defaultLocale if missing
+  // This handles edge cases where locale might not be extracted correctly
+  const resolvedLocale = (locale && locales.includes(locale as Locale)) 
+    ? locale 
+    : defaultLocale;
+
   // Validate that the locale is valid
-  if (!locale || !locales.includes(locale as Locale)) {
-    locale = defaultLocale;
+  if (!resolvedLocale || !locales.includes(resolvedLocale as Locale)) {
+    // This should never happen, but provide a safe fallback
+    return {
+      locale: defaultLocale,
+      messages: (await import(`./messages/${defaultLocale}.json`)).default,
+    };
   }
 
   return {
-    locale,
-    messages: (await import(`./messages/${locale}.json`)).default,
+    locale: resolvedLocale,
+    messages: (await import(`./messages/${resolvedLocale}.json`)).default,
   };
 });
