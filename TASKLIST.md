@@ -1,13 +1,44 @@
 # Amanoba Task List
 
-**Version**: 2.0.0  
-**Last Updated**: 2025-01-13T10:00:00.000Z
+**Version**: 2.7.0  
+**Last Updated**: 2025-01-17T17:30:00.000Z
 
 ---
 
 ## Active Tasks
 
 Tasks are listed in priority order. Upon completion, tasks are moved to RELEASE_NOTES.md.
+
+---
+
+## 🎓 30-Day Learning Platform Transformation
+
+### Phase 1: Foundation & Data Models ✅ COMPLETE
+
+| ID | Task | Owner | Expected Delivery | Status |
+|----|------|-------|-------------------|--------|
+| 1.1 | Course & Lesson Data Models | AI | 2025-01-14 | ✅ DONE |
+| 1.2 | Email Service Integration | AI | 2025-01-14 | ✅ DONE |
+| 1.3 | Game Repurposing for Assessments | AI | 2025-01-14 | ✅ DONE |
+| 1.4 | Internationalization (i18n) Setup | AI | 2025-01-14 | ✅ DONE |
+| 1.5 | Design System Update | AI | 2025-01-17 | ✅ DONE |
+| 1.6 | Production Error Fixes (i18n) | AI | 2025-01-17 | ✅ DONE |
+
+---
+
+### Phase 2: Course Builder & Admin Tools 🚧 IN PROGRESS
+
+| ID | Task | Owner | Expected Delivery | Status |
+|----|------|-------|-------------------|--------|
+| 2.1 | Admin Course Management Pages | AI | Week 3 | ✅ DONE |
+| 2.2 | 30-Day Lesson Builder UI | AI | Week 3 | ✅ DONE |
+| 2.3 | Rich Text Editor Integration | AI | Week 3 | ⏳ PENDING |
+| 2.4 | Course Preview Functionality | AI | Week 3 | ⏳ PENDING |
+| 2.5 | Publish/Unpublish Workflow | AI | Week 3 | ⏳ PENDING |
+| 2.6 | Student Course Listing & Enrollment | AI | Week 4 | ✅ DONE |
+| 2.7 | Student Course Dashboard | AI | Week 4 | ✅ DONE |
+| 2.8 | Daily Lesson Viewer | AI | Week 4 | ✅ DONE |
+| 2.9 | Assessment Game Integration | AI | Week 4 | ⏳ PENDING |
 
 ---
 
