@@ -77,26 +77,26 @@ export function ReferralCard() {
   const shareViaWhatsApp = () => {
     if (!referralData) return;
     const message = encodeURIComponent(
-      `Join me on Amanoba! 🎮 Play games, earn achievements, and have fun! Use my referral code: ${referralData.referralCode}\n\n${referralData.shareUrl}`
+      `${t('shareMessage')}: ${referralData.referralCode}\n\n${referralData.shareUrl}`
     );
     window.open(`https://wa.me/?text=${message}`, '_blank');
   };
 
   const shareViaEmail = () => {
     if (!referralData) return;
-    const subject = encodeURIComponent('Join me on Amanoba! 🎮');
+    const subject = encodeURIComponent(`${tCommon('appName')} - ${t('inviteFriends')}`);
     const body = encodeURIComponent(
-      `Hi!\n\nI've been playing games on Amanoba and thought you might enjoy it too!\n\nUse my referral code: ${referralData.referralCode}\nOr click here: ${referralData.shareUrl}\n\nSee you in the games!\n`
+      `${t('emailBody')}\n\n${t('shareMessage')}: ${referralData.referralCode}\n${referralData.shareUrl}\n`
     );
     window.location.href = `mailto:?subject=${subject}&body=${body}`;
   };
 
   if (loading) {
     return (
-      <div className="bg-white rounded-xl shadow-lg p-6">
+      <div className="bg-brand-white rounded-xl shadow-lg p-6 border-2 border-brand-accent">
         <div className="animate-pulse">
-          <div className="h-6 bg-gray-200 rounded w-1/3 mb-4"></div>
-          <div className="h-20 bg-gray-200 rounded"></div>
+          <div className="h-6 bg-brand-darkGrey/20 rounded w-1/3 mb-4"></div>
+          <div className="h-20 bg-brand-darkGrey/20 rounded"></div>
         </div>
       </div>
     );
