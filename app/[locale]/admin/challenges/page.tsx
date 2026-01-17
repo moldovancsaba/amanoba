@@ -9,7 +9,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { useLocale } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import {
   Search,
   Calendar,
@@ -44,6 +44,8 @@ interface Challenge {
 
 export default function AdminChallengesPage() {
   const locale = useLocale();
+  const t = useTranslations('admin');
+  const tCommon = useTranslations('common');
   const [challenges, setChallenges] = useState<Challenge[]>([]);
   const [loading, setLoading] = useState(true);
   const [dateFilter, setDateFilter] = useState<string>(
@@ -82,7 +84,7 @@ export default function AdminChallengesPage() {
   if (loading) {
     return (
       <div className="flex items-center justify-center min-h-[400px]">
-        <div className="text-white text-xl">Loading challenges...</div>
+        <div className="text-white text-xl">{tCommon('loading')}</div>
       </div>
     );
   }
@@ -98,8 +100,8 @@ export default function AdminChallengesPage() {
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-3xl font-bold text-white mb-2">Daily Challenges Management</h1>
-          <p className="text-gray-400">View and manage daily challenges</p>
+          <h1 className="text-3xl font-bold text-white mb-2">{t('challengesManagement')}</h1>
+          <p className="text-gray-400">{t('challengesDescription')}</p>
         </div>
       </div>
 
@@ -119,10 +121,10 @@ export default function AdminChallengesPage() {
           onChange={(e) => setDifficultyFilter(e.target.value)}
           className="px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white focus:outline-none focus:border-indigo-500"
         >
-          <option value="all">All Difficulties</option>
-          <option value="easy">Easy</option>
-          <option value="medium">Medium</option>
-          <option value="hard">Hard</option>
+          <option value="all">{t('allDifficulties')}</option>
+          <option value="easy">{t('easy')}</option>
+          <option value="medium">{t('medium')}</option>
+          <option value="hard">{t('hard')}</option>
         </select>
       </div>
 
@@ -130,7 +132,7 @@ export default function AdminChallengesPage() {
       <div className="space-y-4">
         {challenges.length === 0 ? (
           <div className="text-center py-12 text-gray-400">
-            No challenges found for this date
+            {tCommon('noDataFound')}
           </div>
         ) : (
           challenges.map((challenge) => (
@@ -150,45 +152,45 @@ export default function AdminChallengesPage() {
                   <p className="text-gray-400 text-sm mb-3">{challenge.description}</p>
                   <div className="flex items-center gap-4 text-sm">
                     <div>
-                      <span className="text-gray-400">Type: </span>
+                      <span className="text-gray-400">{tCommon('type')}: </span>
                       <span className="text-white capitalize">{challenge.type.replace(/_/g, ' ')}</span>
                     </div>
                     <div>
-                      <span className="text-gray-400">Target: </span>
+                      <span className="text-gray-400">Cél: </span>
                       <span className="text-white font-bold">{challenge.requirement.target}</span>
                     </div>
                     <div>
-                      <span className="text-gray-400">Rewards: </span>
+                      <span className="text-gray-400">{t('rewards')}: </span>
                       <span className="text-white">
-                        {challenge.rewards.points} pts, {challenge.rewards.xp} XP
+                        {challenge.rewards.points} pont, {challenge.rewards.xp} XP
                       </span>
                     </div>
                   </div>
                 </div>
                 <div className="text-right">
-                  <div className="text-gray-400 text-sm mb-1">Completion Rate</div>
+                  <div className="text-gray-400 text-sm mb-1">{t('completionRate')}</div>
                   <div className="text-2xl font-bold text-green-400">
                     {challenge.completions.percentage.toFixed(1)}%
                   </div>
                   <div className="text-gray-400 text-xs mt-1">
-                    {challenge.completions.total} players
+                    {challenge.completions.total} {t('players')}
                   </div>
                 </div>
               </div>
 
               <div className="flex items-center justify-between pt-4 border-t border-gray-700">
                 <div className="text-xs text-gray-500">
-                  {new Date(challenge.availability.startTime).toLocaleString()} -{' '}
-                  {new Date(challenge.availability.endTime).toLocaleString()}
+                  {new Date(challenge.availability.startTime).toLocaleString('hu-HU')} -{' '}
+                  {new Date(challenge.availability.endTime).toLocaleString('hu-HU')}
                 </div>
                 <div className="flex items-center gap-2">
                   {challenge.availability.isActive ? (
                     <span className="px-3 py-1 bg-green-500/20 text-green-400 rounded-full text-xs font-medium">
-                      Active
+                      {tCommon('active')}
                     </span>
                   ) : (
                     <span className="px-3 py-1 bg-gray-500/20 text-gray-400 rounded-full text-xs font-medium">
-                      Inactive
+                      {tCommon("inactive")}
                     </span>
                   )}
                 </div>
@@ -201,17 +203,17 @@ export default function AdminChallengesPage() {
       {/* Stats */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         <div className="bg-gray-800 rounded-xl p-4 border border-gray-700">
-          <div className="text-gray-400 text-sm mb-1">Total Challenges</div>
+          <div className="text-gray-400 text-sm mb-1">{t('totalChallenges')}</div>
           <div className="text-2xl font-bold text-white">{challenges.length}</div>
         </div>
         <div className="bg-gray-800 rounded-xl p-4 border border-gray-700">
-          <div className="text-gray-400 text-sm mb-1">Active</div>
+          <div className="text-gray-400 text-sm mb-1">{tCommon('active')}</div>
           <div className="text-2xl font-bold text-green-400">
             {challenges.filter((c) => c.availability.isActive).length}
           </div>
         </div>
         <div className="bg-gray-800 rounded-xl p-4 border border-gray-700">
-          <div className="text-gray-400 text-sm mb-1">Avg Completion</div>
+          <div className="text-gray-400 text-sm mb-1">{t('avgCompletion')}</div>
           <div className="text-2xl font-bold text-yellow-400">
             {challenges.length > 0
               ? (

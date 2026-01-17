@@ -9,7 +9,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { useLocale } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import {
   Plus,
   Search,
@@ -46,6 +46,8 @@ interface Reward {
 
 export default function AdminRewardsPage() {
   const locale = useLocale();
+  const t = useTranslations('admin');
+  const tCommon = useTranslations('common');
   const [rewards, setRewards] = useState<Reward[]>([]);
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState('');
@@ -82,7 +84,7 @@ export default function AdminRewardsPage() {
   if (loading) {
     return (
       <div className="flex items-center justify-center min-h-[400px]">
-        <div className="text-white text-xl">Loading rewards...</div>
+        <div className="text-white text-xl">{tCommon('loading')}</div>
       </div>
     );
   }
@@ -92,15 +94,15 @@ export default function AdminRewardsPage() {
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-3xl font-bold text-white mb-2">Rewards Management</h1>
-          <p className="text-gray-400">Manage all rewards in the platform</p>
+          <h1 className="text-3xl font-bold text-white mb-2">{t('rewardsManagement')}</h1>
+          <p className="text-gray-400">{t('rewardsDescription')}</p>
         </div>
         <Link
           href={`/${locale}/admin/rewards/new`}
           className="flex items-center gap-2 bg-indigo-600 text-white px-4 py-2 rounded-lg font-bold hover:bg-indigo-700 transition-colors"
         >
           <Plus className="w-5 h-5" />
-          Add Reward
+          {t('addReward')}
         </Link>
       </div>
 
@@ -110,7 +112,7 @@ export default function AdminRewardsPage() {
           <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
           <input
             type="text"
-            placeholder="Search rewards..."
+            placeholder={t('searchRewards')}
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             className="w-full pl-10 pr-4 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-indigo-500"
@@ -121,7 +123,7 @@ export default function AdminRewardsPage() {
           onChange={(e) => setCategoryFilter(e.target.value)}
           className="px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white focus:outline-none focus:border-indigo-500"
         >
-          <option value="all">All Categories</option>
+          <option value="all">{t('allCategories')}</option>
           <option value="game_unlock">Game Unlock</option>
           <option value="cosmetic">Cosmetic</option>
           <option value="boost">Boost</option>
@@ -135,7 +137,7 @@ export default function AdminRewardsPage() {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {rewards.length === 0 ? (
           <div className="col-span-full text-center py-12 text-gray-400">
-            No rewards found
+            {tCommon('noDataFound')}
           </div>
         ) : (
           rewards.map((reward) => (
@@ -176,23 +178,23 @@ export default function AdminRewardsPage() {
 
               <div className="space-y-2 mb-4">
                 <div className="flex items-center justify-between text-sm">
-                  <span className="text-gray-400">Cost:</span>
-                  <span className="text-white font-bold">{reward.pointsCost} points</span>
+                  <span className="text-gray-400">{t('cost')}:</span>
+                  <span className="text-white font-bold">{reward.pointsCost} pont</span>
                 </div>
                 <div className="flex items-center justify-between text-sm">
-                  <span className="text-gray-400">Type:</span>
+                  <span className="text-gray-400">{tCommon('type')}:</span>
                   <span className="text-white capitalize">{reward.type}</span>
                 </div>
                 {reward.stock.isLimited && (
                   <div className="flex items-center justify-between text-sm">
-                    <span className="text-gray-400">Stock:</span>
+                    <span className="text-gray-400">{t('stock')}:</span>
                     <span className="text-white">
                       {reward.stock.currentStock || 0} / {reward.stock.maxStock || 0}
                     </span>
                   </div>
                 )}
                 <div className="flex items-center justify-between text-sm">
-                  <span className="text-gray-400">Redemptions:</span>
+                  <span className="text-gray-400">{t('redemptions')}:</span>
                   <span className="text-white">{reward.metadata.totalRedemptions}</span>
                 </div>
               </div>
@@ -203,11 +205,11 @@ export default function AdminRewardsPage() {
                   className="flex-1 flex items-center justify-center gap-2 bg-gray-700 hover:bg-gray-600 text-white px-3 py-2 rounded-lg text-sm font-medium transition-colors"
                 >
                   <Edit className="w-4 h-4" />
-                  Edit
+                  {tCommon('edit')}
                 </Link>
                 <button
                   className="p-2 bg-gray-700 hover:bg-red-600 rounded-lg transition-colors"
-                  title="Delete reward"
+                  title={tCommon('delete')}
                 >
                   <Trash2 className="w-4 h-4 text-gray-300" />
                 </button>
@@ -220,23 +222,23 @@ export default function AdminRewardsPage() {
       {/* Stats */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
         <div className="bg-gray-800 rounded-xl p-4 border border-gray-700">
-          <div className="text-gray-400 text-sm mb-1">Total Rewards</div>
+          <div className="text-gray-400 text-sm mb-1">{t('totalRewards')}</div>
           <div className="text-2xl font-bold text-white">{rewards.length}</div>
         </div>
         <div className="bg-gray-800 rounded-xl p-4 border border-gray-700">
-          <div className="text-gray-400 text-sm mb-1">Active</div>
+          <div className="text-gray-400 text-sm mb-1">{tCommon('active')}</div>
           <div className="text-2xl font-bold text-green-400">
             {rewards.filter((r) => r.availability.isActive).length}
           </div>
         </div>
         <div className="bg-gray-800 rounded-xl p-4 border border-gray-700">
-          <div className="text-gray-400 text-sm mb-1">Total Redemptions</div>
+          <div className="text-gray-400 text-sm mb-1">{t('totalRedemptions')}</div>
           <div className="text-2xl font-bold text-yellow-400">
             {rewards.reduce((sum, r) => sum + r.metadata.totalRedemptions, 0)}
           </div>
         </div>
         <div className="bg-gray-800 rounded-xl p-4 border border-gray-700">
-          <div className="text-gray-400 text-sm mb-1">Premium Only</div>
+          <div className="text-gray-400 text-sm mb-1">{t('premiumOnly')}</div>
           <div className="text-2xl font-bold text-blue-400">
             {rewards.filter((r) => r.availability.premiumOnly).length}
           </div>

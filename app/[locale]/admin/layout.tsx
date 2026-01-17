@@ -10,6 +10,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { useLocale, useTranslations } from 'next-intl';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import {
   LayoutDashboard,
@@ -35,17 +36,18 @@ interface NavItem {
   badge?: string;
 }
 
-const navigation: NavItem[] = [
-  { label: 'Dashboard', href: '/admin', icon: LayoutDashboard },
-  { label: 'Analytics', href: '/admin/analytics', icon: BarChart3 },
-  { label: 'Courses', href: '/admin/courses', icon: BookOpen },
-  { label: 'Players', href: '/admin/players', icon: Users },
-  { label: 'Games', href: '/admin/games', icon: Gamepad2 },
-  { label: 'Achievements', href: '/admin/achievements', icon: Trophy },
-  { label: 'Rewards', href: '/admin/rewards', icon: Gift },
-  { label: 'Challenges', href: '/admin/challenges', icon: Target },
-  { label: 'Quests', href: '/admin/quests', icon: Scroll },
-  { label: 'Settings', href: '/admin/settings', icon: Settings },
+// Navigation items will be translated in the component
+const navigationItems = [
+  { key: 'dashboard', href: '/admin', icon: LayoutDashboard },
+  { key: 'analytics', href: '/admin/analytics', icon: BarChart3 },
+  { key: 'courses', href: '/admin/courses', icon: BookOpen },
+  { key: 'players', href: '/admin/players', icon: Users },
+  { key: 'games', href: '/admin/games', icon: Gamepad2 },
+  { key: 'achievements', href: '/admin/achievements', icon: Trophy },
+  { key: 'rewards', href: '/admin/rewards', icon: Gift },
+  { key: 'challenges', href: '/admin/challenges', icon: Target },
+  { key: 'quests', href: '/admin/quests', icon: Scroll },
+  { key: 'settings', href: '/admin/settings', icon: Settings },
 ];
 
 // Create a client outside the component to avoid recreating on every render
@@ -64,8 +66,17 @@ export default function AdminLayout({
   children: React.ReactNode;
 }) {
   const locale = useLocale();
+  const t = useTranslations('admin');
   const [sidebarOpen, setSidebarOpen] = useState(true);
   const pathname = usePathname();
+  
+  // Build navigation with translations
+  const navigation = navigationItems.map(item => ({
+    ...item,
+    label: t(item.key),
+    href: item.href,
+    icon: item.icon,
+  }));
 
   return (
     <QueryClientProvider client={queryClient}>

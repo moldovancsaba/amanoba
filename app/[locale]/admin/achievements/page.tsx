@@ -9,7 +9,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { useLocale } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import {
   Plus,
   Search,
@@ -43,6 +43,8 @@ interface Achievement {
 
 export default function AdminAchievementsPage() {
   const locale = useLocale();
+  const t = useTranslations('admin');
+  const tCommon = useTranslations('common');
   const [achievements, setAchievements] = useState<Achievement[]>([]);
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState('');
@@ -79,7 +81,7 @@ export default function AdminAchievementsPage() {
   if (loading) {
     return (
       <div className="flex items-center justify-center min-h-[400px]">
-        <div className="text-white text-xl">Loading achievements...</div>
+        <div className="text-white text-xl">{tCommon('loading')}</div>
       </div>
     );
   }
@@ -96,15 +98,15 @@ export default function AdminAchievementsPage() {
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-3xl font-bold text-white mb-2">Achievements Management</h1>
-          <p className="text-gray-400">Manage all achievements in the platform</p>
+          <h1 className="text-3xl font-bold text-white mb-2">{t('achievementsManagement')}</h1>
+          <p className="text-gray-400">{t('achievementsDescription')}</p>
         </div>
         <Link
           href={`/${locale}/admin/achievements/new`}
           className="flex items-center gap-2 bg-indigo-600 text-white px-4 py-2 rounded-lg font-bold hover:bg-indigo-700 transition-colors"
         >
           <Plus className="w-5 h-5" />
-          Add Achievement
+          {t('addAchievement')}
         </Link>
       </div>
 
@@ -114,7 +116,7 @@ export default function AdminAchievementsPage() {
           <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
           <input
             type="text"
-            placeholder="Search achievements..."
+            placeholder={t('searchAchievements')}
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             className="w-full pl-10 pr-4 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-indigo-500"
@@ -125,7 +127,7 @@ export default function AdminAchievementsPage() {
           onChange={(e) => setCategoryFilter(e.target.value)}
           className="px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white focus:outline-none focus:border-indigo-500"
         >
-          <option value="all">All Categories</option>
+          <option value="all">{t('allCategories')}</option>
           <option value="gameplay">Gameplay</option>
           <option value="progression">Progression</option>
           <option value="social">Social</option>
@@ -140,7 +142,7 @@ export default function AdminAchievementsPage() {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {achievements.length === 0 ? (
           <div className="col-span-full text-center py-12 text-gray-400">
-            No achievements found
+            {tCommon('noDataFound')}
           </div>
         ) : (
           achievements.map((achievement) => (
@@ -160,7 +162,7 @@ export default function AdminAchievementsPage() {
                 </div>
                 {achievement.isHidden && (
                   <span className="px-2 py-1 bg-gray-700 text-gray-300 rounded text-xs">
-                    Hidden
+                    {t('hidden')}
                   </span>
                 )}
               </div>
@@ -169,24 +171,24 @@ export default function AdminAchievementsPage() {
 
               <div className="space-y-2 mb-4">
                 <div className="flex items-center justify-between text-sm">
-                  <span className="text-gray-400">Category:</span>
+                  <span className="text-gray-400">{t('category')}:</span>
                   <span className="text-white capitalize">{achievement.category}</span>
                 </div>
                 <div className="flex items-center justify-between text-sm">
-                  <span className="text-gray-400">Criteria:</span>
+                  <span className="text-gray-400">{t('criteria')}:</span>
                   <span className="text-white">
                     {achievement.criteria.type.replace(/_/g, ' ')} ({achievement.criteria.target})
                   </span>
                 </div>
                 <div className="flex items-center justify-between text-sm">
-                  <span className="text-gray-400">Rewards:</span>
+                  <span className="text-gray-400">{t('rewards')}:</span>
                   <span className="text-white">
                     {achievement.rewards.points} pts, {achievement.rewards.xp} XP
                   </span>
                 </div>
                 <div className="flex items-center justify-between text-sm">
-                  <span className="text-gray-400">Unlocked:</span>
-                  <span className="text-white">{achievement.metadata.unlockCount} players</span>
+                  <span className="text-gray-400">{t('unlocked')}:</span>
+                  <span className="text-white">{achievement.metadata.unlockCount} {t('players')}</span>
                 </div>
               </div>
 
@@ -196,11 +198,11 @@ export default function AdminAchievementsPage() {
                   className="flex-1 flex items-center justify-center gap-2 bg-gray-700 hover:bg-gray-600 text-white px-3 py-2 rounded-lg text-sm font-medium transition-colors"
                 >
                   <Edit className="w-4 h-4" />
-                  Edit
+                  {tCommon('edit')}
                 </Link>
                 <button
                   className="p-2 bg-gray-700 hover:bg-red-600 rounded-lg transition-colors"
-                  title="Delete achievement"
+                  title={tCommon('delete')}
                 >
                   <Trash2 className="w-4 h-4 text-gray-300" />
                 </button>
@@ -213,23 +215,23 @@ export default function AdminAchievementsPage() {
       {/* Stats */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
         <div className="bg-gray-800 rounded-xl p-4 border border-gray-700">
-          <div className="text-gray-400 text-sm mb-1">Total Achievements</div>
+          <div className="text-gray-400 text-sm mb-1">{t('totalAchievements')}</div>
           <div className="text-2xl font-bold text-white">{achievements.length}</div>
         </div>
         <div className="bg-gray-800 rounded-xl p-4 border border-gray-700">
-          <div className="text-gray-400 text-sm mb-1">Active</div>
+          <div className="text-gray-400 text-sm mb-1">{tCommon('active')}</div>
           <div className="text-2xl font-bold text-green-400">
             {achievements.filter((a) => a.metadata.isActive).length}
           </div>
         </div>
         <div className="bg-gray-800 rounded-xl p-4 border border-gray-700">
-          <div className="text-gray-400 text-sm mb-1">Total Unlocks</div>
+          <div className="text-gray-400 text-sm mb-1">{t('totalUnlocks')}</div>
           <div className="text-2xl font-bold text-yellow-400">
             {achievements.reduce((sum, a) => sum + a.metadata.unlockCount, 0)}
           </div>
         </div>
         <div className="bg-gray-800 rounded-xl p-4 border border-gray-700">
-          <div className="text-gray-400 text-sm mb-1">Hidden</div>
+          <div className="text-gray-400 text-sm mb-1">{t('hidden')}</div>
           <div className="text-2xl font-bold text-blue-400">
             {achievements.filter((a) => a.isHidden).length}
           </div>

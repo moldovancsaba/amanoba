@@ -76,4 +76,7 @@ export { default as Lesson, type ILesson } from './lesson';
 export { default as CourseProgress, type ICourseProgress, CourseProgressStatus } from './course-progress';
 export { default as AssessmentResult, type IAssessmentResult } from './assessment-result';
 
-// Total: 27 models
+// Translation Model (1)
+export { default as Translation, type ITranslation } from './translation';
+
+// Total: 28 models

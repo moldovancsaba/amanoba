@@ -9,7 +9,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { useLocale } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import {
   Plus,
   Search,
@@ -37,6 +37,8 @@ interface Game {
 
 export default function AdminGamesPage() {
   const locale = useLocale();
+  const t = useTranslations('admin');
+  const tCommon = useTranslations('common');
   const [games, setGames] = useState<Game[]>([]);
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState('');
@@ -83,7 +85,7 @@ export default function AdminGamesPage() {
   if (loading) {
     return (
       <div className="flex items-center justify-center min-h-[400px]">
-        <div className="text-white text-xl">Loading games...</div>
+        <div className="text-white text-xl">{tCommon('loading')}</div>
       </div>
     );
   }
@@ -93,15 +95,15 @@ export default function AdminGamesPage() {
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-3xl font-bold text-white mb-2">Games Management</h1>
-          <p className="text-gray-400">Manage all games in the platform</p>
+          <h1 className="text-3xl font-bold text-white mb-2">{t('gamesManagement')}</h1>
+          <p className="text-gray-400">{t('gamesDescription')}</p>
         </div>
         <Link
           href={`/${locale}/admin/games/new`}
           className="flex items-center gap-2 bg-indigo-600 text-white px-4 py-2 rounded-lg font-bold hover:bg-indigo-700 transition-colors"
         >
           <Plus className="w-5 h-5" />
-          Add Game
+          {t('addGame')}
         </Link>
       </div>
 
@@ -111,7 +113,7 @@ export default function AdminGamesPage() {
           <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
           <input
             type="text"
-            placeholder="Search games..."
+            placeholder={t('searchGames')}
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             className="w-full pl-10 pr-4 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-indigo-500"
@@ -126,22 +128,22 @@ export default function AdminGamesPage() {
             <thead className="bg-gray-700">
               <tr>
                 <th className="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">
-                  Game
+                  {t('game')}
                 </th>
                 <th className="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">
-                  Type
+                  {tCommon('type')}
                 </th>
                 <th className="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">
-                  Status
+                  {tCommon('status')}
                 </th>
                 <th className="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">
-                  Premium
+                  {tCommon('premium')}
                 </th>
                 <th className="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">
-                  Assessment
+                  {t('assessment')}
                 </th>
                 <th className="px-6 py-3 text-right text-xs font-medium text-gray-300 uppercase tracking-wider">
-                  Actions
+                  {tCommon('actions')}
                 </th>
               </tr>
             </thead>
@@ -149,7 +151,7 @@ export default function AdminGamesPage() {
               {games.length === 0 ? (
                 <tr>
                   <td colSpan={6} className="px-6 py-12 text-center text-gray-400">
-                    No games found
+                    {tCommon('noDataFound')}
                   </td>
                 </tr>
               ) : (
@@ -189,12 +191,12 @@ export default function AdminGamesPage() {
                         {game.isActive ? (
                           <>
                             <Eye className="w-3 h-3" />
-                            Active
+                            {tCommon('active')}
                           </>
                         ) : (
                           <>
                             <EyeOff className="w-3 h-3" />
-                            Inactive
+                            {tCommon('inactive')}
                           </>
                         )}
                       </button>
@@ -202,16 +204,16 @@ export default function AdminGamesPage() {
                     <td className="px-6 py-4">
                       {game.isPremium ? (
                         <span className="px-3 py-1 bg-yellow-500/20 text-yellow-400 rounded-full text-xs font-medium">
-                          Premium
+                          {tCommon('premium')}
                         </span>
                       ) : (
-                        <span className="text-gray-400 text-sm">Free</span>
+                        <span className="text-gray-400 text-sm">{tCommon('free')}</span>
                       )}
                     </td>
                     <td className="px-6 py-4">
                       {game.isAssessment ? (
                         <span className="px-3 py-1 bg-blue-500/20 text-blue-400 rounded-full text-xs font-medium">
-                          Assessment
+                          {t('assessment')}
                         </span>
                       ) : (
                         <span className="text-gray-400 text-sm">-</span>
@@ -222,13 +224,13 @@ export default function AdminGamesPage() {
                         <Link
                           href={`/${locale}/admin/games/${game._id}`}
                           className="p-2 bg-gray-700 hover:bg-gray-600 rounded-lg transition-colors"
-                          title="Edit game"
+                          title={tCommon('edit')}
                         >
                           <Edit className="w-4 h-4 text-gray-300" />
                         </Link>
                         <button
                           className="p-2 bg-gray-700 hover:bg-red-600 rounded-lg transition-colors"
-                          title="Delete game"
+                          title={tCommon('delete')}
                         >
                           <Trash2 className="w-4 h-4 text-gray-300" />
                         </button>
@@ -245,17 +247,17 @@ export default function AdminGamesPage() {
       {/* Stats */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         <div className="bg-gray-800 rounded-xl p-4 border border-gray-700">
-          <div className="text-gray-400 text-sm mb-1">Total Games</div>
+          <div className="text-gray-400 text-sm mb-1">{t('totalGames')}</div>
           <div className="text-2xl font-bold text-white">{games.length}</div>
         </div>
         <div className="bg-gray-800 rounded-xl p-4 border border-gray-700">
-          <div className="text-gray-400 text-sm mb-1">Active Games</div>
+          <div className="text-gray-400 text-sm mb-1">{t('activeGames')}</div>
           <div className="text-2xl font-bold text-green-400">
             {games.filter((g) => g.isActive).length}
           </div>
         </div>
         <div className="bg-gray-800 rounded-xl p-4 border border-gray-700">
-          <div className="text-gray-400 text-sm mb-1">Assessment Games</div>
+          <div className="text-gray-400 text-sm mb-1">{t('assessmentGames')}</div>
           <div className="text-2xl font-bold text-blue-400">
             {games.filter((g) => g.isAssessment).length}
           </div>

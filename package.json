@@ -26,7 +26,8 @@
     "workers": "tsx --env-file=.env.local scripts/start-workers.ts",
     "seed:guest-usernames": "tsx --env-file=.env.local scripts/seed-guest-usernames.ts",
     "seed:quiz-questions": "tsx scripts/seed-quiz-questions.ts",
-    "seed:whackpop-emojis": "tsx scripts/seed-whackpop-emojis.ts"
+    "seed:whackpop-emojis": "tsx scripts/seed-whackpop-emojis.ts",
+    "seed:translations": "tsx scripts/seed-translations.ts"
   },
   "dependencies": {
     "@auth/mongodb-adapter": "^3.11.0",
@@ -70,6 +71,7 @@
     "react-hook-form": "^7.53.0",
     "recharts": "^3.2.1",
     "resend": "^6.7.0",
+    "server-only": "^0.0.1",
     "sonner": "^1.5.0",
     "source-map-js": "1.2.1",
     "tailwind-merge": "^2.5.2",

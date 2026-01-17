@@ -9,7 +9,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { useLocale } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import {
   Search,
   Users,
@@ -33,6 +33,8 @@ interface Player {
 
 export default function AdminPlayersPage() {
   const locale = useLocale();
+  const t = useTranslations('admin');
+  const tCommon = useTranslations('common');
   const [players, setPlayers] = useState<Player[]>([]);
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState('');
@@ -84,7 +86,7 @@ export default function AdminPlayersPage() {
   if (loading) {
     return (
       <div className="flex items-center justify-center min-h-[400px]">
-        <div className="text-white text-xl">Loading players...</div>
+        <div className="text-white text-xl">{tCommon('loading')}</div>
       </div>
     );
   }
@@ -94,8 +96,8 @@ export default function AdminPlayersPage() {
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-3xl font-bold text-white mb-2">Players Management</h1>
-          <p className="text-gray-400">View and manage all players in the platform</p>
+          <h1 className="text-3xl font-bold text-white mb-2">{t('playersManagement')}</h1>
+          <p className="text-gray-400">{t('playersDescription')}</p>
         </div>
       </div>
 
@@ -105,7 +107,7 @@ export default function AdminPlayersPage() {
           <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
           <input
             type="text"
-            placeholder="Search by name, email, or ID..."
+            placeholder={t('searchPlayers')}
             value={search}
             onChange={(e) => {
               setSearch(e.target.value);
@@ -122,9 +124,9 @@ export default function AdminPlayersPage() {
           }}
           className="px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white focus:outline-none focus:border-indigo-500"
         >
-          <option value="all">All Players</option>
-          <option value="true">Premium Only</option>
-          <option value="false">Free Only</option>
+          <option value="all">{t('allPlayers')}</option>
+          <option value="true">{t('premiumOnly')}</option>
+          <option value="false">{t('freeOnly')}</option>
         </select>
         <select
           value={filters.isActive}
@@ -134,9 +136,9 @@ export default function AdminPlayersPage() {
           }}
           className="px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white focus:outline-none focus:border-indigo-500"
         >
-          <option value="all">All Status</option>
-          <option value="true">Active Only</option>
-          <option value="false">Inactive Only</option>
+          <option value="all">{t('allStatus')}</option>
+          <option value="true">{t('activeOnly')}</option>
+          <option value="false">{t('inactiveOnly')}</option>
         </select>
       </div>
 
@@ -147,25 +149,25 @@ export default function AdminPlayersPage() {
             <thead className="bg-gray-700">
               <tr>
                 <th className="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">
-                  Player
+                  {t('player')}
                 </th>
                 <th className="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">
                   Email
                 </th>
                 <th className="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">
-                  Status
+                  {tCommon('status')}
                 </th>
                 <th className="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">
-                  Type
+                  {tCommon('type')}
                 </th>
                 <th className="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">
-                  Joined
+                  {t('joined')}
                 </th>
                 <th className="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">
-                  Last Login
+                  {t('lastLogin')}
                 </th>
                 <th className="px-6 py-3 text-right text-xs font-medium text-gray-300 uppercase tracking-wider">
-                  Actions
+                  {tCommon('actions')}
                 </th>
               </tr>
             </thead>
@@ -173,7 +175,7 @@ export default function AdminPlayersPage() {
               {players.length === 0 ? (
                 <tr>
                   <td colSpan={7} className="px-6 py-12 text-center text-gray-400">
-                    No players found
+                    {tCommon('noDataFound')}
                   </td>
                 </tr>
               ) : (
@@ -197,12 +199,12 @@ export default function AdminPlayersPage() {
                       {player.isActive ? (
                         <span className="flex items-center gap-1 px-3 py-1 bg-green-500/20 text-green-400 rounded-full text-xs font-medium">
                           <CheckCircle className="w-3 h-3" />
-                          Active
+                          {tCommon('active')}
                         </span>
                       ) : (
                         <span className="flex items-center gap-1 px-3 py-1 bg-gray-500/20 text-gray-400 rounded-full text-xs font-medium">
                           <XCircle className="w-3 h-3" />
-                          Inactive
+                          {tCommon('inactive')}
                         </span>
                       )}
                     </td>
@@ -211,26 +213,26 @@ export default function AdminPlayersPage() {
                         {player.isPremium && (
                           <span className="px-2 py-1 bg-yellow-500/20 text-yellow-400 rounded text-xs font-medium flex items-center gap-1">
                             <Crown className="w-3 h-3" />
-                            Premium
+                            {tCommon('premium')}
                           </span>
                         )}
                         {player.isAnonymous && (
                           <span className="px-2 py-1 bg-gray-500/20 text-gray-400 rounded text-xs">
-                            Guest
+                            Vendég
                           </span>
                         )}
                       </div>
                     </td>
                     <td className="px-6 py-4">
                       <span className="text-gray-300 text-sm">
-                        {new Date(player.createdAt).toLocaleDateString()}
+                        {new Date(player.createdAt).toLocaleDateString('hu-HU')}
                       </span>
                     </td>
                     <td className="px-6 py-4">
                       <span className="text-gray-300 text-sm">
                         {player.lastLoginAt
-                          ? new Date(player.lastLoginAt).toLocaleDateString()
-                          : 'Never'}
+                          ? new Date(player.lastLoginAt).toLocaleDateString('hu-HU')
+                          : t('never')}
                       </span>
                     </td>
                     <td className="px-6 py-4 text-right">
@@ -238,7 +240,7 @@ export default function AdminPlayersPage() {
                         href={`/${locale}/profile/${player._id}`}
                         className="text-indigo-400 hover:text-indigo-300 text-sm font-medium"
                       >
-                        View Profile →
+                        {t('viewProfile')} →
                       </Link>
                     </td>
                   </tr>
@@ -253,9 +255,9 @@ export default function AdminPlayersPage() {
       {pagination.pages > 1 && (
         <div className="flex items-center justify-between">
           <div className="text-gray-400 text-sm">
-            Showing {((pagination.page - 1) * pagination.limit) + 1} to{' '}
-            {Math.min(pagination.page * pagination.limit, pagination.total)} of{' '}
-            {pagination.total} players
+            {t('showing')} {((pagination.page - 1) * pagination.limit) + 1} {t('to')}{' '}
+            {Math.min(pagination.page * pagination.limit, pagination.total)} {t('of')}{' '}
+            {pagination.total} {t('players')}
           </div>
           <div className="flex items-center gap-2">
             <button
@@ -263,17 +265,17 @@ export default function AdminPlayersPage() {
               disabled={pagination.page === 1}
               className="px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white hover:bg-gray-700 disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              Previous
+              {tCommon('previous')}
             </button>
             <span className="text-gray-400 text-sm">
-              Page {pagination.page} of {pagination.pages}
+              {t('page')} {pagination.page} {t('of')} {pagination.pages}
             </span>
             <button
               onClick={() => setPagination({ ...pagination, page: pagination.page + 1 })}
               disabled={pagination.page >= pagination.pages}
               className="px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white hover:bg-gray-700 disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              Next
+              {tCommon('next')}
             </button>
           </div>
         </div>
@@ -282,23 +284,23 @@ export default function AdminPlayersPage() {
       {/* Stats */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
         <div className="bg-gray-800 rounded-xl p-4 border border-gray-700">
-          <div className="text-gray-400 text-sm mb-1">Total Players</div>
+          <div className="text-gray-400 text-sm mb-1">{t('totalPlayers')}</div>
           <div className="text-2xl font-bold text-white">{pagination.total}</div>
         </div>
         <div className="bg-gray-800 rounded-xl p-4 border border-gray-700">
-          <div className="text-gray-400 text-sm mb-1">Active Players</div>
+          <div className="text-gray-400 text-sm mb-1">{t('activePlayers')}</div>
           <div className="text-2xl font-bold text-green-400">
             {players.filter((p) => p.isActive).length}
           </div>
         </div>
         <div className="bg-gray-800 rounded-xl p-4 border border-gray-700">
-          <div className="text-gray-400 text-sm mb-1">Premium Players</div>
+          <div className="text-gray-400 text-sm mb-1">{t('premiumPlayers')}</div>
           <div className="text-2xl font-bold text-yellow-400">
             {players.filter((p) => p.isPremium).length}
           </div>
         </div>
         <div className="bg-gray-800 rounded-xl p-4 border border-gray-700">
-          <div className="text-gray-400 text-sm mb-1">Guest Players</div>
+          <div className="text-gray-400 text-sm mb-1">{t('guestPlayers')}</div>
           <div className="text-2xl font-bold text-blue-400">
             {players.filter((p) => p.isAnonymous).length}
           </div>

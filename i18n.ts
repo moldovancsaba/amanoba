@@ -3,6 +3,9 @@
  * 
  * What: Internationalization configuration for next-intl
  * Why: Centralized language configuration with Hungarian as default
+ * 
+ * Note: Translations are now loaded from MongoDB Atlas database
+ * Falls back to JSON files if database is unavailable
  */
 
 import { notFound } from 'next/navigation';
@@ -24,6 +27,8 @@ export const defaultLocale: Locale = 'hu';
  * 
  * Note: The locale is automatically extracted from the URL by next-intl middleware
  * With localePrefix: 'always', the locale is always in the URL path
+ * 
+ * Translations are loaded from MongoDB Atlas database first, with fallback to JSON files
  */
 export default getRequestConfig(async ({ locale }) => {
   // Ensure locale is always defined - fallback to defaultLocale if missing
@@ -41,6 +46,39 @@ export default getRequestConfig(async ({ locale }) => {
     };
   }
 
+  // Try to load translations from MongoDB database (server-side only, runtime only)
+  // Skip during build to prevent webpack from bundling mongoose
+  // Only attempt at runtime when MONGODB_URI is available
+  if (
+    typeof window === 'undefined' && 
+    process.env.MONGODB_URI && 
+    process.env.NEXT_RUNTIME !== undefined // Only at runtime, not during build
+  ) {
+    try {
+      // Dynamic import with string literal to prevent static analysis
+      const translationModule = await import(
+        /* webpackIgnore: true */ 
+        '@/app/lib/i18n/translation-service'
+      );
+      const dbTranslations = await translationModule.getTranslationsForLocale(resolvedLocale);
+      
+      // If we have translations from database, use them
+      if (dbTranslations && Object.keys(dbTranslations).length > 0) {
+        return {
+          locale: resolvedLocale,
+          messages: dbTranslations,
+        };
+      }
+    } catch (error) {
+      // If database fetch fails, fall back to JSON files
+      // Silently fail - JSON files are the reliable fallback
+      if (process.env.NODE_ENV === 'development') {
+        console.warn(`Failed to load translations from database for locale ${resolvedLocale}, falling back to JSON files:`, error);
+      }
+    }
+  }
+
+  // Fallback to JSON files if database is unavailable or empty
   return {
     locale: resolvedLocale,
     messages: (await import(`./messages/${resolvedLocale}.json`)).default,

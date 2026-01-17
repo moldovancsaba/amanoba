@@ -8,7 +8,7 @@
 'use client';
 
 import { useState } from 'react';
-import { useLocale } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import {
   Save,
   Settings,
@@ -20,6 +20,8 @@ import {
 
 export default function AdminSettingsPage() {
   const locale = useLocale();
+  const t = useTranslations('admin');
+  const tCommon = useTranslations('common');
   const [saving, setSaving] = useState(false);
   const [saved, setSaved] = useState(false);
 
@@ -37,8 +39,8 @@ export default function AdminSettingsPage() {
     <div className="space-y-6">
       {/* Header */}
       <div>
-        <h1 className="text-3xl font-bold text-white mb-2">Platform Settings</h1>
-        <p className="text-gray-400">Configure system-wide settings and preferences</p>
+        <h1 className="text-3xl font-bold text-white mb-2">{t('settingsTitle')}</h1>
+        <p className="text-gray-400">{t('settingsDescription')}</p>
       </div>
 
       {/* Settings Sections */}
@@ -47,12 +49,12 @@ export default function AdminSettingsPage() {
         <div className="bg-gray-800 rounded-xl p-6 border border-gray-700">
           <div className="flex items-center gap-3 mb-4">
             <Settings className="w-6 h-6 text-indigo-500" />
-            <h2 className="text-xl font-bold text-white">General Settings</h2>
+            <h2 className="text-xl font-bold text-white">{t('generalSettings')}</h2>
           </div>
           <div className="space-y-4">
             <div>
               <label className="block text-sm font-medium text-gray-300 mb-2">
-                Platform Name
+                {t('platformName')}
               </label>
               <input
                 type="text"
@@ -62,11 +64,11 @@ export default function AdminSettingsPage() {
             </div>
             <div>
               <label className="block text-sm font-medium text-gray-300 mb-2">
-                Default Language
+                {t('defaultLanguage')}
               </label>
               <select className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white focus:outline-none focus:border-indigo-500">
-                <option value="hu">Hungarian</option>
-                <option value="en">English</option>
+                <option value="hu">{t('hungarian')}</option>
+                <option value="en">{t('english')}</option>
               </select>
             </div>
           </div>
@@ -76,21 +78,21 @@ export default function AdminSettingsPage() {
         <div className="bg-gray-800 rounded-xl p-6 border border-gray-700">
           <div className="flex items-center gap-3 mb-4">
             <Database className="w-6 h-6 text-indigo-500" />
-            <h2 className="text-xl font-bold text-white">Database</h2>
+            <h2 className="text-xl font-bold text-white">{t('database')}</h2>
           </div>
           <div className="space-y-4">
             <div>
               <label className="block text-sm font-medium text-gray-300 mb-2">
-                Connection Status
+                {t('connectionStatus')}
               </label>
               <div className="flex items-center gap-2">
                 <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-                <span className="text-white">Connected</span>
+                <span className="text-white">{t('connected')}</span>
               </div>
             </div>
             <div>
               <label className="block text-sm font-medium text-gray-300 mb-2">
-                Database Name
+                {t('databaseName')}
               </label>
               <input
                 type="text"
@@ -106,12 +108,12 @@ export default function AdminSettingsPage() {
         <div className="bg-gray-800 rounded-xl p-6 border border-gray-700">
           <div className="flex items-center gap-3 mb-4">
             <Mail className="w-6 h-6 text-indigo-500" />
-            <h2 className="text-xl font-bold text-white">Email Configuration</h2>
+            <h2 className="text-xl font-bold text-white">{t('emailConfiguration')}</h2>
           </div>
           <div className="space-y-4">
             <div>
               <label className="block text-sm font-medium text-gray-300 mb-2">
-                From Email
+                {t('fromEmail')}
               </label>
               <input
                 type="email"
@@ -121,7 +123,7 @@ export default function AdminSettingsPage() {
             </div>
             <div>
               <label className="block text-sm font-medium text-gray-300 mb-2">
-                From Name
+                {t('fromName')}
               </label>
               <input
                 type="text"
@@ -131,7 +133,7 @@ export default function AdminSettingsPage() {
             </div>
             <div>
               <label className="block text-sm font-medium text-gray-300 mb-2">
-                Email Service
+                Email szolgáltatás
               </label>
               <select className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white focus:outline-none focus:border-indigo-500">
                 <option value="resend">Resend</option>
@@ -145,12 +147,12 @@ export default function AdminSettingsPage() {
         <div className="bg-gray-800 rounded-xl p-6 border border-gray-700">
           <div className="flex items-center gap-3 mb-4">
             <Shield className="w-6 h-6 text-indigo-500" />
-            <h2 className="text-xl font-bold text-white">Security</h2>
+            <h2 className="text-xl font-bold text-white">{t('security')}</h2>
           </div>
           <div className="space-y-4">
             <div>
               <label className="block text-sm font-medium text-gray-300 mb-2">
-                Admin Password
+                {t('adminPassword')}
               </label>
               <input
                 type="password"
@@ -160,7 +162,7 @@ export default function AdminSettingsPage() {
             </div>
             <div>
               <label className="block text-sm font-medium text-gray-300 mb-2">
-                Session Timeout (minutes)
+                {t('sessionTimeout')}
               </label>
               <input
                 type="number"
@@ -175,31 +177,31 @@ export default function AdminSettingsPage() {
         <div className="bg-gray-800 rounded-xl p-6 border border-gray-700">
           <div className="flex items-center gap-3 mb-4">
             <Globe className="w-6 h-6 text-indigo-500" />
-            <h2 className="text-xl font-bold text-white">Internationalization</h2>
+            <h2 className="text-xl font-bold text-white">{t('internationalization')}</h2>
           </div>
           <div className="space-y-4">
             <div>
               <label className="block text-sm font-medium text-gray-300 mb-2">
-                Supported Languages
+                {t('supportedLanguages')}
               </label>
               <div className="flex items-center gap-4">
                 <label className="flex items-center gap-2">
                   <input type="checkbox" defaultChecked className="rounded" />
-                  <span className="text-white">Hungarian (hu)</span>
+                  <span className="text-white">{t('hungarian')} (hu)</span>
                 </label>
                 <label className="flex items-center gap-2">
                   <input type="checkbox" defaultChecked className="rounded" />
-                  <span className="text-white">English (en)</span>
+                  <span className="text-white">{t('english')} (en)</span>
                 </label>
               </div>
             </div>
             <div>
               <label className="block text-sm font-medium text-gray-300 mb-2">
-                Default Locale
+                {t('defaultLocale')}
               </label>
               <select className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white focus:outline-none focus:border-indigo-500">
-                <option value="hu">Hungarian</option>
-                <option value="en">English</option>
+                <option value="hu">{t('hungarian')}</option>
+                <option value="en">{t('english')}</option>
               </select>
             </div>
           </div>
@@ -210,7 +212,7 @@ export default function AdminSettingsPage() {
       <div className="flex items-center justify-end gap-4 pt-4">
         {saved && (
           <div className="flex items-center gap-2 text-green-500">
-            <span className="font-medium">Settings saved!</span>
+            <span className="font-medium">{t('settingsSaved')}</span>
           </div>
         )}
         <button
@@ -219,7 +221,7 @@ export default function AdminSettingsPage() {
           className="flex items-center gap-2 bg-indigo-600 text-white px-6 py-3 rounded-lg font-bold hover:bg-indigo-700 transition-colors disabled:opacity-50"
         >
           <Save className="w-5 h-5" />
-          {saving ? 'Saving...' : 'Save Settings'}
+          {saving ? t('saving') : t('saveSettings')}
         </button>
       </div>
     </div>
