@@ -29,6 +29,7 @@ interface Lesson {
   title: string;
   content: string;
   assessmentGameId?: string;
+  assessmentGameRoute?: string; // Game route for navigation (e.g., '/games/quizzz')
   pointsReward: number;
   xpReward: number;
   isUnlocked: boolean;
@@ -254,14 +255,49 @@ export default function DailyLessonPage({
                   Test Your Knowledge
                 </h3>
                 <p className="text-brand-darkGrey mb-4">
-                  Complete the assessment game to reinforce what you learned.
+                  Complete the assessment game to reinforce what you learned. Your results will be linked to this lesson.
                 </p>
-                <LocaleLink
-                  href={`/games/${lesson.assessmentGameId}`}
-                  className="inline-block bg-brand-accent text-brand-black px-6 py-3 rounded-lg font-bold hover:bg-brand-primary-400 transition-colors"
-                >
-                  Play Assessment →
-                </LocaleLink>
+                {lesson.assessmentGameRoute ? (
+                  <LocaleLink
+                    href={`${lesson.assessmentGameRoute}?courseId=${courseId}&lessonDay=${dayNumber}&assessment=true`}
+                    className="inline-block bg-brand-accent text-brand-black px-6 py-3 rounded-lg font-bold hover:bg-brand-primary-400 transition-colors"
+                  >
+                    Play Assessment →
+                  </LocaleLink>
+                ) : (
+                  <button
+                    onClick={async () => {
+                      try {
+                        // Start game session with course context
+                        const sessionResponse = await fetch('/api/game-sessions/start', {
+                          method: 'POST',
+                          headers: { 'Content-Type': 'application/json' },
+                          body: JSON.stringify({
+                            playerId: session?.user?.id,
+                            gameId: lesson.assessmentGameId,
+                            courseId: courseId,
+                            lessonDay: dayNumber,
+                          }),
+                        });
+
+                        const sessionData = await sessionResponse.json();
+
+                        if (sessionData.success && lesson.assessmentGameRoute) {
+                          // Navigate to game with session context
+                          router.push(`${lesson.assessmentGameRoute}?sessionId=${sessionData.sessionId}&courseId=${courseId}&lessonDay=${dayNumber}&assessment=true`);
+                        } else {
+                          alert('Failed to start assessment. Please try again.');
+                        }
+                      } catch (error) {
+                        console.error('Failed to start assessment:', error);
+                        alert('Failed to start assessment. Please try again.');
+                      }
+                    }}
+                    className="inline-block bg-brand-accent text-brand-black px-6 py-3 rounded-lg font-bold hover:bg-brand-primary-400 transition-colors"
+                  >
+                    Play Assessment →
+                  </button>
+                )}
               </div>
             )}
           </>

@@ -22,6 +22,7 @@ import {
   BookOpen,
   Gamepad2,
 } from 'lucide-react';
+import RichTextEditor from '@/app/components/ui/rich-text-editor';
 
 interface Course {
   _id: string;
@@ -205,6 +206,16 @@ export default function CourseEditorPage({
         </div>
         <div className="flex items-center gap-3">
           <button
+            onClick={() => {
+              const previewUrl = `/${locale}/courses/${course.courseId}`;
+              window.open(previewUrl, '_blank');
+            }}
+            className="flex items-center gap-2 bg-brand-darkGrey text-brand-white px-4 py-2 rounded-lg font-bold hover:bg-brand-secondary-700 transition-colors"
+          >
+            <Eye className="w-5 h-5" />
+            Preview
+          </button>
+          <button
             onClick={handleToggleActive}
             className={`px-4 py-2 rounded-lg font-bold transition-colors ${
               course.isActive
@@ -212,7 +223,7 @@ export default function CourseEditorPage({
                 : 'bg-brand-darkGrey text-brand-white hover:bg-brand-secondary-700'
             }`}
           >
-            {course.isActive ? 'Active' : 'Draft'}
+            {course.isActive ? 'Published' : 'Draft'}
           </button>
           <button
             onClick={handleSaveCourse}
@@ -304,6 +315,16 @@ export default function CourseEditorPage({
                       {lesson.content.substring(0, 100)}...
                     </p>
                     <div className="flex items-center gap-2">
+                      <button
+                        onClick={() => {
+                          const previewUrl = `/${locale}/courses/${course.courseId}/day/${day}`;
+                          window.open(previewUrl, '_blank');
+                        }}
+                        className="flex items-center justify-center gap-1 bg-brand-darkGrey text-brand-white px-2 py-1 rounded text-sm font-bold hover:bg-brand-secondary-700"
+                        title="Preview lesson"
+                      >
+                        <Eye className="w-3 h-3" />
+                      </button>
                       <button
                         onClick={() => setEditingLesson(day)}
                         className="flex-1 flex items-center justify-center gap-1 bg-brand-accent text-brand-black px-2 py-1 rounded text-sm font-bold hover:bg-brand-primary-400"
@@ -461,13 +482,10 @@ function LessonFormModal({
             <label className="block text-sm font-medium text-brand-black mb-2">
               Content *
             </label>
-            <textarea
-              required
-              value={formData.content}
-              onChange={(e) => setFormData({ ...formData, content: e.target.value })}
-              rows={8}
-              className="w-full px-4 py-2 bg-brand-white border-2 border-brand-darkGrey rounded-lg text-brand-black focus:outline-none focus:border-brand-accent"
-              placeholder="Lesson content (HTML/markdown supported)..."
+            <RichTextEditor
+              content={formData.content}
+              onChange={(content) => setFormData({ ...formData, content })}
+              placeholder="Start typing your lesson content... (Supports headings, lists, links, and formatting)"
             />
           </div>
 
