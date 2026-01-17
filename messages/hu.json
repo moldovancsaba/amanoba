@@ -366,5 +366,22 @@
     "completionSubject": "🎉 Gratulálunk! Befejezted a {{courseName}} kurzust!",
     "lessonSubject": "{{dayNumber}}. nap: {{lessonTitle}}",
     "reminderSubject": "📚 Ne hagyd ki a {{courseName}} {{dayNumber}}. napját"
+  },
+  "referral": {
+    "inviteFriends": "Barátok meghívása",
+    "yourReferralCode": "A te ajánlókódod",
+    "copy": "Másolás",
+    "copyLink": "Link másolása",
+    "share": "Megosztás",
+    "friendsInvited": "Meghívott barátok",
+    "pointsEarned": "Szerzett pontok",
+    "howItWorks": "Hogyan működik?",
+    "step1": "Oszd meg az ajánlókódodat barátaiddal",
+    "step2": "Ők regisztrálnak a kódod használatával",
+    "step3": "Mindketten bónusz pontokat kaptok",
+    "referredFriends": "Meghívott barátok",
+    "pending": "Folyamatban",
+    "shareMessage": "Csatlakozz az Amanobához és kezdj el tanulni! Az ajánlókódom:",
+    "emailBody": "Szia!\n\nSzeretnélek meghívni, hogy csatlakozz az Amanobához - egy 30 napos tanulási platformhoz, ahol hasznos kurzusokat vehetsz igénybe.\n\nAz ajánlókódommal mindketten bónusz pontokat kapsz!"
   }
 }

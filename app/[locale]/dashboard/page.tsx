@@ -55,6 +55,13 @@ export default function Dashboard() {
   const locale = useLocale();
   const t = useTranslations('dashboard');
   const tCommon = useTranslations('common');
+  const tAuth = useTranslations('auth');
+  const tGames = useTranslations('games');
+  const tLeaderboard = useTranslations('leaderboard');
+  const tChallenges = useTranslations('challenges');
+  const tQuests = useTranslations('quests');
+  const tAchievements = useTranslations('achievements');
+  const tRewards = useTranslations('rewards');
   const [playerData, setPlayerData] = useState<PlayerData | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -135,7 +142,7 @@ export default function Dashboard() {
               onClick={() => signOut({ callbackUrl: `/${locale}/auth/signin` })}
               className="inline-block bg-brand-darkGrey text-brand-white px-6 py-3 rounded-xl font-bold hover:bg-brand-secondary-700 transition-colors"
             >
-              {tCommon('auth.signOut')}
+              {tAuth('signOut')}
             </button>
           </div>
         </div>
@@ -179,7 +186,7 @@ export default function Dashboard() {
                 onClick={() => signOut({ callbackUrl: `/${locale}/auth/signin` })}
                 className="bg-brand-darkGrey text-brand-white px-4 py-2 rounded-lg hover:bg-brand-secondary-700 transition-colors font-medium"
               >
-                🚪 {tCommon('auth.signOut')}
+                🚪 {tAuth('signOut')}
               </button>
             </div>
           </div>
@@ -210,7 +217,7 @@ export default function Dashboard() {
               href="/games"
               className="block bg-brand-darkGrey text-brand-white px-4 py-3 rounded-lg font-bold text-center hover:bg-brand-secondary-700 transition-all text-sm"
             >
-              🎮 {tCommon('games.title')}
+              🎮 {tGames('title')}
             </LocaleLink>
             <LocaleLink
               href="/stats"
@@ -222,31 +229,31 @@ export default function Dashboard() {
               href="/leaderboards"
               className="block bg-brand-accent text-brand-black px-4 py-3 rounded-lg font-bold text-center hover:bg-brand-primary-400 transition-all text-sm"
             >
-              🏆 {tCommon('leaderboard.title')}
+              🏆 {tLeaderboard('title')}
             </LocaleLink>
             <LocaleLink
               href="/challenges"
               className="block bg-brand-darkGrey text-brand-white px-4 py-3 rounded-lg font-bold text-center hover:bg-brand-secondary-700 transition-all text-sm"
             >
-              🎯 {tCommon('challenges.title')}
+              🎯 {tChallenges('title')}
             </LocaleLink>
             <LocaleLink
               href="/quests"
               className="block bg-brand-accent text-brand-black px-4 py-3 rounded-lg font-bold text-center hover:bg-brand-primary-400 transition-all text-sm"
             >
-              🗺️ {tCommon('quests.title')}
+              🗺️ {tQuests('title')}
             </LocaleLink>
             <LocaleLink
               href="/achievements"
               className="block bg-brand-darkGrey text-brand-white px-4 py-3 rounded-lg font-bold text-center hover:bg-brand-secondary-700 transition-all text-sm"
             >
-              🏅 {tCommon('achievements.title')}
+              🏅 {tAchievements('title')}
             </LocaleLink>
             <LocaleLink
               href="/rewards"
               className="block bg-brand-accent text-brand-black px-4 py-3 rounded-lg font-bold text-center hover:bg-brand-primary-400 transition-all text-sm"
             >
-              🎁 {tCommon('rewards.title')}
+              🎁 {tRewards('title')}
             </LocaleLink>
           </div>
         </div>
