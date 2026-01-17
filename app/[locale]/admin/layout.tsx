@@ -63,6 +63,7 @@ export default function AdminLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const locale = useLocale();
   const [sidebarOpen, setSidebarOpen] = useState(true);
   const pathname = usePathname();
 
@@ -78,7 +79,7 @@ export default function AdminLayout({
       >
         {/* Logo */}
         <div className="h-16 flex items-center justify-between px-4 border-b border-gray-700">
-          <Link href="/admin" className="flex items-center gap-2">
+          <Link href={`/${locale}/admin`} className="flex items-center gap-2">
             <Shield className="w-8 h-8 text-indigo-500" />
             <div>
               <div className="text-white font-bold text-lg">Amanoba</div>
@@ -91,12 +92,13 @@ export default function AdminLayout({
         <nav className="p-4 space-y-1">
           {navigation.map((item) => {
             const Icon = item.icon;
-            const isActive = pathname === item.href;
+            const fullPath = `/${locale}${item.href}`;
+            const isActive = pathname === fullPath || pathname.startsWith(fullPath + '/');
 
             return (
               <Link
                 key={item.href}
-                href={item.href}
+                href={`/${locale}${item.href}`}
                 className={`flex items-center gap-3 px-4 py-3 rounded-lg transition-all ${
                   isActive
                     ? 'bg-indigo-600 text-white'

@@ -8,6 +8,7 @@
 'use client';
 
 import Link from 'next/link';
+import { useLocale } from 'next-intl';
 import {
   Users,
   Gamepad2,
@@ -22,6 +23,8 @@ import {
 export const dynamic = 'force-dynamic';
 
 export default function AdminDashboardPage() {
+  const locale = useLocale();
+  
   // In a real implementation, this would fetch from an admin API
   // For now, using mock data to demonstrate the UI
   const stats = {
@@ -122,7 +125,7 @@ export default function AdminDashboardPage() {
         <h2 className="text-xl font-bold text-white mb-4">Quick Actions</h2>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           <Link
-            href="/admin/games"
+            href={`/${locale}/admin/games`}
             className="flex flex-col items-center gap-2 p-4 bg-gray-700 hover:bg-gray-600 rounded-lg transition-colors"
           >
             <div className="w-12 h-12 bg-indigo-500 rounded-lg flex items-center justify-center">
@@ -132,7 +135,7 @@ export default function AdminDashboardPage() {
           </Link>
 
           <Link
-            href="/admin/achievements"
+            href={`/${locale}/admin/achievements`}
             className="flex flex-col items-center gap-2 p-4 bg-gray-700 hover:bg-gray-600 rounded-lg transition-colors"
           >
             <div className="w-12 h-12 bg-yellow-500 rounded-lg flex items-center justify-center">
@@ -142,7 +145,7 @@ export default function AdminDashboardPage() {
           </Link>
 
           <Link
-            href="/admin/rewards"
+            href={`/${locale}/admin/rewards`}
             className="flex flex-col items-center gap-2 p-4 bg-gray-700 hover:bg-gray-600 rounded-lg transition-colors"
           >
             <div className="w-12 h-12 bg-pink-500 rounded-lg flex items-center justify-center">
@@ -152,7 +155,7 @@ export default function AdminDashboardPage() {
           </Link>
 
           <Link
-            href="/admin/players"
+            href={`/${locale}/admin/players`}
             className="flex flex-col items-center gap-2 p-4 bg-gray-700 hover:bg-gray-600 rounded-lg transition-colors"
           >
             <div className="w-12 h-12 bg-purple-500 rounded-lg flex items-center justify-center">
@@ -187,7 +190,7 @@ export default function AdminDashboardPage() {
             ))}
           </div>
           <Link
-            href="/admin/analytics"
+            href={`/${locale}/admin/analytics`}
             className="block mt-4 text-center text-indigo-400 hover:text-indigo-300 text-sm font-medium"
           >
             View All Activity →
