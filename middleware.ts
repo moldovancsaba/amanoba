@@ -125,11 +125,11 @@ export const config = {
      * - _next/static (static files)
      * - _next/image (image optimization)
      * - favicon.ico (favicon file)
-     * - manifest.json (PWA manifest)
-     * - icon files (apple-touch-icon, icon-*.png, etc.)
-     * - public folder files
+     * - manifest.json (PWA manifest - handled by Next.js static file serving)
      * - api routes (handled separately)
+     * 
+     * Note: Static files in public/ folder are automatically excluded by Next.js
      */
-    '/((?!_next/static|_next/image|favicon.ico|manifest.json|icon-|apple-touch-icon|.*\\.(ico|png|svg|jpg|jpeg|gif|webp)|api).*)',
+    '/((?!_next/static|_next/image|favicon.ico|manifest.json|api).*)',
   ],
 };
