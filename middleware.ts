@@ -18,8 +18,8 @@ const intlMiddleware = createIntlMiddleware({
   locales,
   defaultLocale,
   localePrefix: 'as-needed', // Only show locale prefix when not default (hu)
-  // Always prefix: false means default locale has no prefix
-  // This means / becomes /hu internally but shows as /
+  localeDetection: false, // Disable automatic locale detection - always use default (hu)
+  // This means / always uses /hu (default locale) unless explicitly /en
 });
 
 /**
@@ -43,9 +43,12 @@ export default auth((req) => {
     }
   }
   
-  // Handle root path - let intlMiddleware rewrite it, then app/[locale]/page.tsx handles redirect
+  // Handle root path - force default locale (hu), then app/[locale]/page.tsx handles redirect
   if (pathname === '/' || pathname === '') {
-    return intlMiddleware(req);
+    // With localeDetection: false, intlMiddleware should use defaultLocale (hu)
+    // This rewrites / to /hu internally (no URL change with localePrefix: 'as-needed')
+    const response = intlMiddleware(req);
+    return response;
   }
 
   // First, handle i18n routing for all other paths
