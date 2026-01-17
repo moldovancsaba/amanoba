@@ -7,6 +7,7 @@
 
 'use client';
 
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useLocale, useTranslations } from 'next-intl';
 import {
@@ -22,30 +23,90 @@ import {
 // Force dynamic rendering
 export const dynamic = 'force-dynamic';
 
+interface DashboardStats {
+  totalPlayers: number;
+  activePlayers: number;
+  totalGames: number;
+  totalSessions: number;
+  sessionsThisMonth: number;
+  pointsEarned: number;
+  pointsThisMonth: number;
+  achievementsUnlocked: number;
+  achievementsThisMonth: number;
+  revenueThisMonth: number;
+  growthRate: {
+    players: number;
+    sessions: number;
+    achievements: number;
+    points: number;
+  };
+  activeSessions: number;
+  recentActivity?: Array<{
+    type: string;
+    message: string;
+    time: string;
+  }>;
+}
+
 export default function AdminDashboardPage() {
   const locale = useLocale();
   const t = useTranslations('admin');
   const tCommon = useTranslations('common');
   
-  // In a real implementation, this would fetch from an admin API
-  // For now, using mock data to demonstrate the UI
-  const stats = {
-    totalPlayers: 1247,
-    activePlayers: 342,
-    totalGames: 3,
-    totalSessions: 5821,
-    pointsEarned: 125340,
-    achievementsUnlocked: 892,
-    revenueThisMonth: 0, // Not monetized yet
-    growthRate: 23.5,
+  const [stats, setStats] = useState<DashboardStats | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    fetchStats();
+  }, []);
+
+  const fetchStats = async () => {
+    try {
+      setLoading(true);
+      const response = await fetch('/api/admin/stats');
+      const data = await response.json();
+
+      if (data.success) {
+        setStats(data.stats);
+      } else {
+        setError(data.error || 'Failed to load statistics');
+      }
+    } catch (err) {
+      console.error('Failed to fetch stats:', err);
+      setError('Failed to load statistics');
+    } finally {
+      setLoading(false);
+    }
   };
 
-  const recentActivity = [
-    { type: 'player', message: 'New player registered: John Doe', time: '2 min ago' },
-    { type: 'achievement', message: 'Achievement unlocked: First Win (x15)', time: '5 min ago' },
-    { type: 'game', message: 'QUIZZZ played 47 times in last hour', time: '1 hour ago' },
-    { type: 'reward', message: '8 rewards redeemed today', time: '2 hours ago' },
-  ];
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center min-h-[400px]">
+        <div className="text-white text-xl">{tCommon('loading')}</div>
+      </div>
+    );
+  }
+
+  if (error || !stats) {
+    return (
+      <div className="flex flex-col items-center justify-center min-h-[400px]">
+        <div className="text-red-400 text-xl mb-4">{error || tCommon('error')}</div>
+        <button
+          onClick={fetchStats}
+          className="px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700"
+        >
+          {tCommon('retry')}
+        </button>
+      </div>
+    );
+  }
+
+  // Format growth rate for display
+  const formatGrowthRate = (rate: number) => {
+    const sign = rate >= 0 ? '+' : '';
+    return `${sign}${rate.toFixed(1)}%`;
+  };
 
   return (
     <div className="space-y-6">
@@ -63,10 +124,14 @@ export default function AdminDashboardPage() {
             <div className="w-12 h-12 bg-indigo-500/20 rounded-lg flex items-center justify-center">
               <Users className="w-6 h-6 text-indigo-500" />
             </div>
-            <div className="flex items-center gap-1 text-green-500 text-sm">
-              <ArrowUpRight className="w-4 h-4" />
-              <span>+12%</span>
-            </div>
+            {stats.growthRate.players !== 0 && (
+              <div className={`flex items-center gap-1 text-sm ${
+                stats.growthRate.players >= 0 ? 'text-green-500' : 'text-red-500'
+              }`}>
+                <ArrowUpRight className="w-4 h-4" />
+                <span>{formatGrowthRate(stats.growthRate.players)}</span>
+              </div>
+            )}
           </div>
           <div className="text-2xl font-bold text-white mb-1">{stats.totalPlayers.toLocaleString()}</div>
           <div className="text-gray-400 text-sm">{t('totalPlayers')}</div>
@@ -79,14 +144,18 @@ export default function AdminDashboardPage() {
             <div className="w-12 h-12 bg-purple-500/20 rounded-lg flex items-center justify-center">
               <Gamepad2 className="w-6 h-6 text-purple-500" />
             </div>
-            <div className="flex items-center gap-1 text-green-500 text-sm">
-              <ArrowUpRight className="w-4 h-4" />
-              <span>+23%</span>
-            </div>
+            {stats.growthRate.sessions !== 0 && (
+              <div className={`flex items-center gap-1 text-sm ${
+                stats.growthRate.sessions >= 0 ? 'text-green-500' : 'text-red-500'
+              }`}>
+                <ArrowUpRight className="w-4 h-4" />
+                <span>{formatGrowthRate(stats.growthRate.sessions)}</span>
+              </div>
+            )}
           </div>
           <div className="text-2xl font-bold text-white mb-1">{stats.totalSessions.toLocaleString()}</div>
           <div className="text-gray-400 text-sm">{t('totalSessions')}</div>
-          <div className="mt-2 text-xs text-gray-500">Ez a hónap</div>
+          <div className="mt-2 text-xs text-gray-500">{stats.sessionsThisMonth.toLocaleString()} ez a hónap</div>
         </div>
 
         {/* Achievements */}
@@ -95,14 +164,18 @@ export default function AdminDashboardPage() {
             <div className="w-12 h-12 bg-yellow-500/20 rounded-lg flex items-center justify-center">
               <Trophy className="w-6 h-6 text-yellow-500" />
             </div>
-            <div className="flex items-center gap-1 text-green-500 text-sm">
-              <ArrowUpRight className="w-4 h-4" />
-              <span>+18%</span>
-            </div>
+            {stats.growthRate.achievements !== 0 && (
+              <div className={`flex items-center gap-1 text-sm ${
+                stats.growthRate.achievements >= 0 ? 'text-green-500' : 'text-red-500'
+              }`}>
+                <ArrowUpRight className="w-4 h-4" />
+                <span>{formatGrowthRate(stats.growthRate.achievements)}</span>
+              </div>
+            )}
           </div>
           <div className="text-2xl font-bold text-white mb-1">{stats.achievementsUnlocked.toLocaleString()}</div>
           <div className="text-gray-400 text-sm">{t('achievementsUnlocked')}</div>
-          <div className="mt-2 text-xs text-gray-500">Ez a hónap</div>
+          <div className="mt-2 text-xs text-gray-500">{stats.achievementsThisMonth.toLocaleString()} ez a hónap</div>
         </div>
 
         {/* Points Economy */}
@@ -111,14 +184,18 @@ export default function AdminDashboardPage() {
             <div className="w-12 h-12 bg-pink-500/20 rounded-lg flex items-center justify-center">
               <TrendingUp className="w-6 h-6 text-pink-500" />
             </div>
-            <div className="flex items-center gap-1 text-green-500 text-sm">
-              <ArrowUpRight className="w-4 h-4" />
-              <span>+31%</span>
-            </div>
+            {stats.growthRate.points !== 0 && (
+              <div className={`flex items-center gap-1 text-sm ${
+                stats.growthRate.points >= 0 ? 'text-green-500' : 'text-red-500'
+              }`}>
+                <ArrowUpRight className="w-4 h-4" />
+                <span>{formatGrowthRate(stats.growthRate.points)}</span>
+              </div>
+            )}
           </div>
           <div className="text-2xl font-bold text-white mb-1">{stats.pointsEarned.toLocaleString()}</div>
           <div className="text-gray-400 text-sm">{t('pointsEarned')}</div>
-          <div className="mt-2 text-xs text-gray-500">Ez a hónap</div>
+          <div className="mt-2 text-xs text-gray-500">{stats.pointsThisMonth.toLocaleString()} ez a hónap</div>
         </div>
       </div>
 
@@ -177,19 +254,25 @@ export default function AdminDashboardPage() {
             <Activity className="w-5 h-5 text-gray-400" />
           </div>
           <div className="space-y-3">
-            {recentActivity.map((activity, index) => (
-              <div key={index} className="flex items-start gap-3 p-3 bg-gray-700 rounded-lg">
-                <div className={`w-2 h-2 rounded-full mt-2 ${
-                  activity.type === 'player' ? 'bg-green-500' :
-                  activity.type === 'achievement' ? 'bg-yellow-500' :
-                  activity.type === 'game' ? 'bg-blue-500' : 'bg-pink-500'
-                }`} />
-                <div className="flex-1">
-                  <p className="text-white text-sm">{activity.message}</p>
-                  <p className="text-gray-400 text-xs mt-1">{activity.time}</p>
+            {stats.recentActivity && stats.recentActivity.length > 0 ? (
+              stats.recentActivity.map((activity, index) => (
+                <div key={index} className="flex items-start gap-3 p-3 bg-gray-700 rounded-lg">
+                  <div className={`w-2 h-2 rounded-full mt-2 ${
+                    activity.type === 'player' ? 'bg-green-500' :
+                    activity.type === 'achievement' ? 'bg-yellow-500' :
+                    activity.type === 'game' ? 'bg-blue-500' : 'bg-pink-500'
+                  }`} />
+                  <div className="flex-1">
+                    <p className="text-white text-sm">{activity.message}</p>
+                    <p className="text-gray-400 text-xs mt-1">{activity.time}</p>
+                  </div>
                 </div>
+              ))
+            ) : (
+              <div className="text-gray-400 text-sm text-center py-4">
+                Nincs legutóbbi tevékenység
               </div>
-            ))}
+            )}
           </div>
           <Link
             href={`/${locale}/admin/analytics`}
