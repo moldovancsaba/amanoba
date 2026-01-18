@@ -174,6 +174,72 @@ export default function CourseEditorPage({
     }
   };
 
+  const handleExportCourse = async () => {
+    if (!courseId) return;
+
+    try {
+      const response = await fetch(`/api/admin/courses/${courseId}/export`);
+      if (!response.ok) {
+        const error = await response.json();
+        alert(error.error || 'Failed to export course');
+        return;
+      }
+
+      const data = await response.json();
+      
+      // Create a blob and download
+      const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `${courseId}_export_${new Date().toISOString().split('T')[0]}.json`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    } catch (error) {
+      console.error('Failed to export course:', error);
+      alert('Failed to export course');
+    }
+  };
+
+  const handleImportCourse = async (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (!file) return;
+
+    if (!confirm('This will overwrite the current course. Are you sure?')) {
+      event.target.value = '';
+      return;
+    }
+
+    try {
+      const text = await file.text();
+      const courseData = JSON.parse(text);
+
+      const response = await fetch('/api/admin/courses/import', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ courseData, overwrite: true }),
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        alert(`Course imported successfully!\n\nLessons: ${data.stats.lessonsCreated} created, ${data.stats.lessonsUpdated} updated\nQuestions: ${data.stats.questionsCreated} created, ${data.stats.questionsUpdated} updated`);
+        // Reload the page to show updated data
+        window.location.reload();
+      } else {
+        alert(data.error || 'Failed to import course');
+      }
+    } catch (error) {
+      console.error('Failed to import course:', error);
+      alert('Failed to import course. Please check the file format.');
+    } finally {
+      // Reset file input
+      event.target.value = '';
+    }
+  };
+
   if (loading) {
     return (
       <div className="flex items-center justify-center min-h-screen">
