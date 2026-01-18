@@ -8,7 +8,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { auth } from '@/auth';
 import connectDB from '@/lib/mongodb';
-import { Course, CourseProgress, Player } from '@/lib/models';
+import { Course, CourseProgress, Player, CourseProgressStatus } from '@/lib/models';
 import { logger } from '@/lib/logger';
 
 /**
@@ -76,7 +76,7 @@ export async function POST(
       startedAt: new Date(),
       currentDay: 1,
       completedDays: [],
-      status: 'IN_PROGRESS',
+      status: CourseProgressStatus.IN_PROGRESS,
       lastAccessedAt: new Date(),
     });
 
