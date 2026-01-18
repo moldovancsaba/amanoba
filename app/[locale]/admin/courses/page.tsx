@@ -197,7 +197,10 @@ export default function AdminCoursesPage() {
                   <span>{course.pointsConfig.completionPoints} points</span>
                 </div>
                 {course.requiresPremium && (
-                  <div className="text-xs text-brand-accent font-bold">⭐ Premium</div>
+                  <div className="text-xs text-brand-accent font-bold flex items-center gap-1">
+                    <Icon icon={MdStar} size={14} />
+                    Premium
+                  </div>
                 )}
               </div>
 

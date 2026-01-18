@@ -152,7 +152,7 @@ export default function LeaderboardsPage() {
           <div className="flex justify-between items-center">
             <div>
               <h1 className="text-3xl font-bold text-brand-white flex items-center gap-3">
-                <Trophy className="w-10 h-10" />
+                <Icon icon={MdEmojiEvents} size={40} />
                 {t('title')}
               </h1>
               <p className="text-brand-white/80 mt-1">{t('subtitle')}</p>

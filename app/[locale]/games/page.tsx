@@ -204,7 +204,7 @@ export default function GamesLauncher() {
                 {!available && (
                   <div className="absolute inset-0 bg-brand-black/80 backdrop-blur-sm z-10 flex items-center justify-center">
                     <div className="text-center text-brand-white">
-                      <div className="text-4xl mb-2">🔒</div>
+                      <Icon icon={MdLock} size={40} className="mb-2 mx-auto" />
                       <div className="font-bold">{lockReason || t('locked')}</div>
                     </div>
                   </div>
@@ -220,7 +220,10 @@ export default function GamesLauncher() {
                   
                   {/* Why: Game metadata */}
                   <div className="flex items-center justify-between text-sm">
-                    <span className="text-brand-darkGrey">⏱️ {game.estimatedTime}</span>
+                    <span className="text-brand-darkGrey flex items-center gap-1">
+                      <Icon icon={MdAccessTime} size={16} />
+                      {game.estimatedTime}
+                    </span>
                     {game.isPremium && (
                       <span className="bg-brand-accent text-brand-black px-2 py-1 rounded font-bold">
                         Premium

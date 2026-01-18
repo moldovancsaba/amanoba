@@ -13,7 +13,7 @@ import { useRouter } from 'next/navigation';
 import { useLocale, useTranslations } from 'next-intl';
 import { ChevronLeft, CheckCircle, Circle, Lock } from 'lucide-react';
 import { LocaleLink } from '@/components/LocaleLink';
-import Icon, { MdMap, MdTarget, MdAutoAwesome, MdEmojiEvents, MdSentimentDissatisfied, MdBolt, MdStars, MdCardGiftcard } from '@/components/Icon';
+import Icon, { MdMap, MdMyLocation, MdAutoAwesome, MdEmojiEvents, MdSentimentDissatisfied, MdBolt, MdStars, MdCardGiftcard, MdCheckCircle } from '@/components/Icon';
 
 interface QuestStep {
   stepNumber: number;
@@ -156,7 +156,7 @@ export default function QuestsPage() {
         {/* Stats Overview */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
           <div className="page-card p-6">
-            <Icon icon={MdTarget} size={36} className="text-brand-accent mb-2" />
+            <Icon icon={MdMyLocation} size={36} className="text-brand-accent mb-2" />
             <div className="text-3xl font-bold text-brand-black">
               {activeQuests.length}
             </div>

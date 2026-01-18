@@ -254,11 +254,13 @@ export default function AchievementsPage() {
                   </p>
                   
                   <div className="flex items-center justify-between text-sm">
-                    <span className="text-brand-accent font-bold">
-                      💎 {achievement.points} pts
+                    <span className="text-brand-accent font-bold flex items-center gap-1">
+                      <Icon icon={MdDiamond} size={16} />
+                      {achievement.points} pts
                     </span>
-                    <span className="text-brand-darkGrey font-bold">
-                      ⚡ {achievement.xp} XP
+                    <span className="text-brand-darkGrey font-bold flex items-center gap-1">
+                      <Icon icon={MdBolt} size={16} />
+                      {achievement.xp} XP
                     </span>
                     {achievement.unlockedAt && (
                       <span className="text-brand-darkGrey text-xs">
