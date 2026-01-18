@@ -11,14 +11,20 @@ import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 import { authEdge as auth } from '@/auth.edge';
 import createIntlMiddleware from 'next-intl/middleware';
-import { locales, defaultLocale } from './i18n';
+import { locales, defaultLocale, type Locale } from './i18n';
+
+// Default locales for different route types
+// Why: Public routes default to Hungarian, admin routes default to English
+const publicDefaultLocale: Locale = 'hu';
+const adminDefaultLocale: Locale = 'en';
 
 // Create next-intl middleware for language routing
+// Note: We'll handle admin-specific defaults in the middleware handler
 const intlMiddleware = createIntlMiddleware({
   locales,
-  defaultLocale,
+  defaultLocale: publicDefaultLocale, // Default for public routes
   localePrefix: 'always', // Always show locale prefix: /hu/..., /en/...
-  localeDetection: false, // Disable automatic locale detection - always use default (hu)
+  localeDetection: false, // Disable automatic locale detection
   // This means / redirects to /hu, all routes have locale prefix
 });
 
@@ -44,6 +50,22 @@ export default auth((req) => {
     return NextResponse.next();
   }
 
+  // Check if this is an admin route BEFORE locale processing
+  // Why: Admin routes should default to English, public routes to Hungarian
+  const isAdminRoute = pathname === '/admin' || 
+                       pathname.startsWith('/admin/') ||
+                       (!pathname.startsWith('/hu/') && 
+                        !pathname.startsWith('/en/') && 
+                        pathname.startsWith('/admin'));
+  
+  // Handle admin route default locale (English)
+  // Why: Admin interface should default to English for better international admin experience
+  if (isAdminRoute && !pathname.startsWith('/hu/') && !pathname.startsWith('/en/')) {
+    // Redirect /admin to /en/admin
+    const adminPath = pathname.replace('/admin', '') || '/';
+    return NextResponse.redirect(new URL(`/en/admin${adminPath}${req.nextUrl.search}`, req.url));
+  }
+  
   // FIRST: Let intlMiddleware handle ALL locale routing
   // With localePrefix: 'always', / redirects to /hu
   // This MUST happen first before any other processing
@@ -59,6 +81,13 @@ export default auth((req) => {
       actualPathname = pathname.replace(`/${locale}`, '') || '/';
       break;
     }
+  }
+  
+  // Ensure admin routes use English locale
+  // Why: If admin route is accessed with Hungarian locale, redirect to English
+  if (actualPathname.startsWith('/admin') && pathname.startsWith('/hu/')) {
+    const adminPath = actualPathname;
+    return NextResponse.redirect(new URL(`/en${adminPath}${req.nextUrl.search}`, req.url));
   }
 
   // Define protected routes (without locale prefix)
@@ -85,7 +114,8 @@ export default auth((req) => {
   if (isProtectedRoute && !isLoggedIn && !isPublicAdminDoc) {
     const callbackUrl = encodeURIComponent(pathname + req.nextUrl.search);
     // Determine locale from pathname
-    let locale = defaultLocale;
+    // Admin routes should use English, public routes use Hungarian
+    let locale = actualPathname.startsWith('/admin') ? adminDefaultLocale : publicDefaultLocale;
     for (const loc of locales) {
       if (pathname.startsWith(`/${loc}/`) || pathname === `/${loc}`) {
         locale = loc;
