@@ -41,7 +41,7 @@ export async function GET(request: NextRequest) {
     // Calculate progress for each course
     const courses = progressList.map((progress: any) => {
       const course = progress.courseId;
-      const completedDays = progress.lessonsCompleted?.length || 0;
+      const completedDays = progress.completedDays?.length || 0;
       const totalDays = course?.durationDays || 30;
       const progressPercentage = (completedDays / totalDays) * 100;
 
@@ -59,9 +59,9 @@ export async function GET(request: NextRequest) {
           completedDays,
           totalDays,
           progressPercentage: Math.round(progressPercentage),
-          isCompleted: progress.isCompleted,
+          isCompleted: progress.status === 'COMPLETED',
           startedAt: progress.startedAt,
-          lastActivityAt: progress.lastActivityAt,
+          lastAccessedAt: progress.lastAccessedAt,
         },
       };
     });
