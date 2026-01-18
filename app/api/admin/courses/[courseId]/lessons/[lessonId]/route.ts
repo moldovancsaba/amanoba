@@ -72,8 +72,17 @@ export async function PATCH(
     const body = await request.json();
 
     // Handle assessmentGameId conversion if provided
-    if (body.assessmentGameId) {
+    // If empty string, set to null/undefined to remove the assessment
+    if (body.assessmentGameId === '' || body.assessmentGameId === null) {
+      body.assessmentGameId = undefined;
+    } else if (body.assessmentGameId && mongoose.Types.ObjectId.isValid(body.assessmentGameId)) {
       body.assessmentGameId = new mongoose.Types.ObjectId(body.assessmentGameId);
+    } else if (body.assessmentGameId) {
+      // Invalid ObjectId format
+      return NextResponse.json(
+        { error: 'Invalid assessmentGameId format' },
+        { status: 400 }
+      );
     }
 
     // Find course by courseId to get its ObjectId

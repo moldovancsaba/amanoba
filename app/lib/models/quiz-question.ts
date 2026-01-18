@@ -37,6 +37,11 @@ export interface IQuizQuestion extends Document {
   showCount: number;
   correctCount: number;
   isActive: boolean;
+  // Course/Lesson context (for lesson-specific assessments)
+  // Why: Allows questions to be tied to specific lessons/courses
+  lessonId?: string; // Lesson ID this question belongs to (if course-specific)
+  courseId?: mongoose.Types.ObjectId; // Course ID this question belongs to (if course-specific)
+  isCourseSpecific: boolean; // Whether this question is for a course/lesson (true) or general QUIZZZ (false)
   metadata: {
     createdAt: Date;
     updatedAt: Date;
@@ -146,6 +151,24 @@ const QuizQuestionSchema = new Schema<IQuizQuestion>(
       index: true, // Why: Always filter by active status
     },
 
+    // Course/Lesson context for lesson-specific assessments
+    // Why: Allows questions to be tied to specific lessons for course assessments
+    lessonId: {
+      type: String,
+      trim: true,
+      index: true, // Why: Used to filter questions by lesson
+    },
+    courseId: {
+      type: Schema.Types.ObjectId,
+      ref: 'Course',
+      index: true, // Why: Used to filter questions by course
+    },
+    isCourseSpecific: {
+      type: Boolean,
+      default: false,
+      index: true, // Why: Used to separate general QUIZZZ questions from course-specific ones
+    },
+
     // Metadata
     // Why: Audit trail and temporal tracking
     metadata: {
@@ -205,6 +228,20 @@ QuizQuestionSchema.index(
 QuizQuestionSchema.index(
   { category: 1, difficulty: 1, isActive: 1 },
   { name: 'category_difficulty' }
+);
+
+/**
+ * Index for Course/Lesson-Specific Questions
+ * Why: Enables efficient querying of lesson-specific quiz questions
+ */
+QuizQuestionSchema.index(
+  { lessonId: 1, isCourseSpecific: 1, isActive: 1 },
+  { name: 'lesson_quiz_questions' }
+);
+
+QuizQuestionSchema.index(
+  { courseId: 1, isCourseSpecific: 1, isActive: 1 },
+  { name: 'course_quiz_questions' }
 );
 
 /**

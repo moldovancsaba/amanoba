@@ -27,7 +27,14 @@ export interface ILesson extends Document {
     emailSubject: string;
     emailBody: string;
   }>; // Multi-language support
-  assessmentGameId?: mongoose.Types.ObjectId; // Optional game to play after lesson
+  assessmentGameId?: mongoose.Types.ObjectId; // Optional game to play after lesson (DEPRECATED - use quizConfig)
+  quizConfig?: {
+    enabled: boolean;
+    successThreshold: number; // Percentage (0-100) required to pass
+    questionCount: number; // Number of questions to show
+    poolSize: number; // Number of questions in pool (system selects questionCount from this)
+    required: boolean; // Whether quiz is required to complete lesson
+  };
   unlockConditions?: {
     requirePreviousLesson?: boolean; // Must complete previous lesson
     requireMinimumDay?: number; // Must be at least day X
@@ -145,12 +152,47 @@ const LessonSchema = new Schema<ILesson>(
       default: new Map(),
     },
 
-    // Optional assessment game
+    // Optional assessment game (DEPRECATED - use quizConfig instead)
     // Why: Game to play after lesson (QUIZZZ, WHACKPOP, etc.)
+    // Note: This is kept for backward compatibility but lesson assessments should use quizConfig
     assessmentGameId: {
       type: Schema.Types.ObjectId,
       ref: 'Game',
       index: true,
+    },
+
+    // Quiz/Survey configuration for lesson assessment
+    // Why: Configures QUIZZZ-based assessment at the end of lessons
+    quizConfig: {
+      enabled: {
+        type: Boolean,
+        default: false,
+      },
+      // Success threshold (percentage of correct answers required to pass)
+      successThreshold: {
+        type: Number,
+        min: [0, 'Success threshold must be between 0 and 100'],
+        max: [100, 'Success threshold must be between 0 and 100'],
+        default: 70, // 70% correct answers required
+      },
+      // Number of questions to show to the student
+      questionCount: {
+        type: Number,
+        min: [1, 'Must show at least 1 question'],
+        max: [50, 'Cannot show more than 50 questions'],
+        default: 5,
+      },
+      // Number of questions in the pool (system randomly selects questionCount from this pool)
+      poolSize: {
+        type: Number,
+        min: [1, 'Pool must have at least 1 question'],
+        default: 10,
+      },
+      // Whether quiz is required to complete the lesson
+      required: {
+        type: Boolean,
+        default: true,
+      },
     },
 
     // Unlock conditions for lesson

@@ -28,10 +28,13 @@ export const dynamic = 'force-dynamic';
  * Why: Type-safe validation of request parameters
  */
 const QuerySchema = z.object({
-  difficulty: z.enum(['EASY', 'MEDIUM', 'HARD', 'EXPERT']),
+  difficulty: z.enum(['EASY', 'MEDIUM', 'HARD', 'EXPERT']).optional(),
   count: z.string().transform(Number).pipe(z.number().min(1).max(50)),
   exclude: z.string().optional(), // comma-separated ids to exclude
   runId: z.string().optional(),   // unique per-game id for debugging/variance
+  // Lesson-specific quiz mode
+  lessonId: z.string().optional(), // Lesson ID for course-specific assessments
+  courseId: z.string().optional(), // Course ID for course-specific assessments
 });
 
 /**
@@ -65,10 +68,12 @@ export async function GET(request: NextRequest) {
     // Why: Extract and validate query parameters
     const searchParams = request.nextUrl.searchParams;
     const rawParams = {
-      difficulty: searchParams.get('difficulty'),
+      difficulty: searchParams.get('difficulty') || undefined,
       count: searchParams.get('count') || '10',
       exclude: searchParams.get('exclude') || undefined,
       runId: searchParams.get('runId') || undefined,
+      lessonId: searchParams.get('lessonId') || undefined,
+      courseId: searchParams.get('courseId') || undefined,
     };
 
     // Why: Validate parameters with Zod
@@ -89,7 +94,7 @@ export async function GET(request: NextRequest) {
       );
     }
 
-    const { difficulty, count, exclude, runId } = validation.data;
+    const { difficulty, count, exclude, runId, lessonId, courseId } = validation.data;
 
     // Parse exclude ids (robust handling of invalid IDs)
     const excludeIds = (exclude ? exclude.split(',') : [])
@@ -116,12 +121,49 @@ export async function GET(request: NextRequest) {
       );
     }
 
+    // Why: Determine if this is a lesson-specific quiz or general QUIZZZ
+    const isLessonMode = !!(lessonId || courseId);
+
     // Why: Fetch MORE questions than needed to ensure category diversity
     // Use aggregation to randomize within same showCount using $rand, and support excludeIds
     const matchStage: Record<string, unknown> = {
-      difficulty: difficulty as QuestionDifficulty,
       isActive: true,
     };
+
+    // Lesson-specific mode: filter by lesson/course
+    if (isLessonMode) {
+      matchStage.isCourseSpecific = true;
+      if (lessonId) {
+        matchStage.lessonId = lessonId;
+      }
+      if (courseId) {
+        const mongoose = require('mongoose');
+        if (mongoose.Types.ObjectId.isValid(courseId)) {
+          matchStage.courseId = new mongoose.Types.ObjectId(courseId);
+        }
+      }
+      // In lesson mode, difficulty is optional (can be any difficulty)
+      if (difficulty) {
+        matchStage.difficulty = difficulty as QuestionDifficulty;
+      }
+    } else {
+      // General QUIZZZ mode: only general questions, difficulty required
+      matchStage.isCourseSpecific = false;
+      if (!difficulty) {
+        return NextResponse.json(
+          {
+            ok: false,
+            error: {
+              code: 'MISSING_DIFFICULTY',
+              message: 'Difficulty is required for general QUIZZZ mode',
+            },
+          },
+          { status: 400 }
+        );
+      }
+      matchStage.difficulty = difficulty as QuestionDifficulty;
+    }
+
     if (excludeIds.length > 0) {
       try {
         const mongoose = require('mongoose');
