@@ -103,7 +103,7 @@ export default async function SignInPage({
               <div className="w-full border-t border-brand-darkGrey"></div>
             </div>
             <div className="relative flex justify-center text-sm">
-              <span className="px-2 bg-brand-white text-brand-darkGrey">Or</span>
+              <span className="px-2 bg-brand-white text-brand-darkGrey">{t('or')}</span>
             </div>
           </div>
 
@@ -113,13 +113,13 @@ export default async function SignInPage({
           {/* Additional Info */}
           <div className="mt-8 text-center text-sm text-brand-darkGrey">
             <p>
-              By continuing, you agree to {tCommon('appName')}&apos;s{' '}
+              {tCommon('byContinuing', { appName: tCommon('appName') })}{' '}
               <LocaleLink href={`/${locale}/terms`} className="text-brand-accent hover:text-brand-primary-600 underline">
-                Terms of Service
+                {tCommon('termsOfService')}
               </LocaleLink>{' '}
-              and{' '}
+              {tCommon('and')}{' '}
               <LocaleLink href={`/${locale}/privacy`} className="text-brand-accent hover:text-brand-primary-600 underline">
-                Privacy Policy
+                {tCommon('privacyPolicy')}
               </LocaleLink>
             </p>
           </div>

@@ -38,7 +38,15 @@
     "points": "pont",
     "retry": "Újrapróbálás",
     "noDataFound": "Nincs adat",
-    "dashboard": "Irányítópult"
+    "dashboard": "Irányítópult",
+    "courses": {
+      "title": "Kurzusok"
+    },
+    "or": "vagy",
+    "termsOfService": "Felhasználási feltételek",
+    "privacyPolicy": "Adatvédelmi irányelvek",
+    "byContinuing": "A folytatással elfogadod az {{appName}}",
+    "and": "és"
   },
   "auth": {
     "signIn": "Bejelentkezés",
@@ -53,7 +61,10 @@
     "tagline": "Tanulj. Növekedj. Érj el célokat.",
     "whyJoin": "Miért csatlakozz az Amanobához?",
     "dailyLessons": "Napi leckék",
-    "interactiveAssessments": "Interaktív értékelések"
+    "interactiveAssessments": "Interaktív értékelések",
+    "or": "vagy",
+    "tryGamesInstantly": "Próbáld ki a játékokat azonnal véletlenszerű felhasználónévvel",
+    "creatingAccount": "Fiók létrehozása..."
   },
   "dashboard": {
     "title": "Irányítópult",

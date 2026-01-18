@@ -391,32 +391,55 @@ const lessonPlan = [
     day: 7,
     title: 'Meeting jegyzetből teendőlista',
     content: `<h2>Napi cél</h2>
-<p>Megtanulod, hogyan alakítasz át meeting jegyzeteket strukturált teendőlistává.</p>
-
-<h2>Meeting jegyzetek feldolgozása</h2>
-<p>A meeting jegyzetekből gyorsan készíthetsz:</p>
+<p>Ma megtanulod, hogyan lesz nyers meeting jegyzetből tiszta összefoglaló és teendőlista felelőssel, határidővel.</p>
 <ul>
-<li><strong>Összefoglalót</strong> – Fő pontok, döntések, következő lépések</li>
-<li><strong>Teendőlistát</strong> – Felelőssel, határidővel</li>
-<li><strong>Döntések listáját</strong> – Mi dőlt el, ki döntött</li>
-<li><strong>Következő lépéseket</strong> – Mit kell tenni, kinek, mikorra</li>
+<li>3 blokkban gondolkodsz: Összefoglaló – Döntések – Teendők</li>
+<li>feladatokra felelős + határidő + státusz kerül</li>
+<li>kevésbé használható jegyzetből is akcióképes listát készítesz</li>
 </ul>
 
-<h2>Gyakorlat</h2>
-<p>Adj meg 5-10 sor meeting jegyzetet (vagy készíts egy példát) és kérj:</p>
-<ol>
-<li>Rövid összefoglalót (3-5 fő pont)</li>
-<li>Teendőlistát felelőssel és határidővel</li>
-<li>Döntések listáját</li>
-</ol>
+<hr />
+<h2>Mi legyen a kimenet?</h2>
+<ul>
+<li><strong>Összefoglaló</strong>: 3–5 fő pont (tények, kontextus)</li>
+<li><strong>Döntések</strong>: mi dőlt el, ki döntött</li>
+<li><strong>Teendők</strong>: feladat | felelős | határidő | státusz/next</li>
+</ul>
 
+<h2>Jó bemenet: mit adj meg?</h2>
+<ul>
+<li>nyers jegyzet (bullet vagy transcript részlet)</li>
+<li>résztvevők/felelősök neve</li>
+<li>határidők, ha elhangzottak (vagy kérd, hogy javasoljon)</li>
+<li>projekt/téma neve</li>
+</ul>
+
+<hr />
+<h2>Példa: gyenge vs. jó prompt</h2>
+<p><strong>Gyenge:</strong> „Foglaljad össze a meetinget.”</p>
+<p><strong>Jó:</strong> „Foglaljad össze 3–5 pontban. Adj külön szekciót: Döntések, Teendők (feladat | felelős | határidő | státusz). Jegyzet: [szöveg]. Projekt: [név].”</p>
+
+<hr />
+<h2>Gyakorlat 1 – Saját jegyzet</h2>
+<p>Adj meg 5–10 sor jegyzetet (vagy kreálj példát) és kérd a 3 szekciós kimenetet.</p>
+
+<h2>Gyakorlat 2 – Hiányzó határidő</h2>
+<p>Ha nincs határidő, kérd: „Javasolj reális határidőt és felelőst” – majd ellenőrizd és módosítsd.</p>
+
+<hr />
 <h2>Prompt minta</h2>
 <blockquote>
-<p>Feldolgozd ezeket a meeting jegyzeteket: [jegyzetek]. Készíts: 1) rövid összefoglalót 3-5 fő pontban, 2) teendőlistát felelőssel és határidővel, 3) döntések listáját. Formátum: strukturált lista.</p>
+<p>Jegyzet: [szöveg]. Készíts 3 szekciót: 1) Összefoglaló (3–5 pont), 2) Döntések (döntés | döntéshozó), 3) Teendők (feladat | felelős | határidő | státusz/next). Rövid, bullet formátum.</p>
 </blockquote>
 
 <h2>Tipp</h2>
-<p>Kérj külön "Döntések" és "Teendők" szekciót. A felelősök és határidők nélkül a teendőlista kevésbé hasznos.</p>`,
+<p>Kérd külön a „Döntések” blokkot, hogy ne vesszen el; a teendő mindig kapjon felelőst és határidőt.</p>
+
+<h2>Opcionális mélyítés</h2>
+<ul>
+<li>Használj meeting template-et (Agenda, Notes, Decisions, Action Items)</li>
+<li>Adj státusz jelzést: TODO / IN PROGRESS / BLOCKED / DONE</li>
+</ul>`,
     emailSubject: 'AI 30 Nap – 7. nap: Meeting jegyzetből teendőlista',
     emailBody: `<h1>AI 30 Nap – 7. nap</h1>
 <h2>Meeting jegyzetből teendőlista</h2>
@@ -427,33 +450,58 @@ const lessonPlan = [
     day: 8,
     title: 'Dokumentumok: brief, váz, összefoglaló',
     content: `<h2>Napi cél</h2>
-<p>Megtanulod, hogyan készítesz briefeket, vázlatokat és összefoglalókat AI segítségével.</p>
-
-<h2>Dokumentumok készítése</h2>
-<p>Az AI segíthet különböző dokumentumok készítésében:</p>
+<p>Ma megtanulod, hogyan kérsz AI-tól briefet, vázlatot és összefoglalót: gyors váz → pontosítás → kész verzió.</p>
 <ul>
-<li><strong>Brief</strong> – Projekt leírás, célok, elvárások</li>
-<li><strong>Vázlat</strong> – Dokumentum struktúrája, fő pontok</li>
-<li><strong>Összefoglaló</strong> – Hosszú dokumentum rövidítése</li>
-<li><strong>Kivonat</strong> – Fő üzenetek kiemelése</li>
+<li>brief: cél, kontextus, elvárás, kizárás</li>
+<li>vázlat: fő pontok sorrendje</li>
+<li>összefoglaló: lényeg 5 pontban, döntések, következő lépések</li>
 </ul>
 
-<h2>Gyakorlat</h2>
-<p>Készíts egy projekt briefet AI segítségével:</p>
+<hr />
+<h2>Miért kezdj vázlattal?</h2>
+<ul>
+<li>gyorsan látod, hiányzik-e valami</li>
+<li>könnyebb iterálni struktúrán, mint kész szövegen</li>
+<li>csökken az „elszállt” tartalom kockázata</li>
+</ul>
+
+<h2>Brief kötelező elemei</h2>
+<ul>
+<li>Cél, Kontextus, Célközönség</li>
+<li>Elvárások (scope), Kizárások</li>
+<li>Határidők, Mérőszámok</li>
+</ul>
+
+<hr />
+<h2>Példa prompt – Brief</h2>
+<p>„Készíts projekt briefet: [projekt]. Struktúra: 1) Cél, 2) Kontextus, 3) Célközönség, 4) Elvárások, 5) Kizárások, 6) Határidők/Mérőszámok. Stílus: tömör, bullet first.”</p>
+
+<h2>Példa prompt – Vázlat</h2>
+<p>„Adj vázlatot egy blogposzthoz [téma], max 6 pont, mindegyikhez 1 mondat.”</p>
+
+<h2>Példa prompt – Összefoglaló</h2>
+<p>„Foglalj össze 5 pontban: fő üzenetek, döntések, következő lépések. Hossz: max 120 szó.”</p>
+
+<hr />
+<h2>Gyakorlat 1 – Brief iteráció</h2>
 <ol>
-<li>Add meg a projekt célját és kontextusát</li>
-<li>Kérj egy brief vázlatot struktúrával</li>
-<li>Pontosítsd a részleteket</li>
-<li>Kérj egy végső verziót</li>
+<li>Kérj brief vázlatot a saját projektedhez.</li>
+<li>Adj feedbacket: mi hiányzik, mi felesleges.</li>
+<li>Kérj végső briefet.</li>
 </ol>
 
-<h2>Prompt minta</h2>
-<blockquote>
-<p>Készíts egy projekt briefet a következő projekthez: [projekt leírás]. Struktúra: 1) Cél, 2) Kontextus, 3) Elvárások, 4) Határidők, 5) Kizárások. Stílus: professzionális, rövid bekezdések.</p>
-</blockquote>
+<h2>Gyakorlat 2 – Összefoglaló</h2>
+<p>Válassz egy 2–3 bekezdéses szöveget, kérj 5 pontos összefoglalót + 1 döntés/1 következő lépés kiemelést.</p>
 
+<hr />
 <h2>Tipp</h2>
-<p>Kezdj vázlattal, majd pontosíts. A briefek és vázlatok iteratív folyamatok – az első verzió ritkán tökéletes.</p>`,
+<p>Kezdd vázlattal, majd pontosíts. A brief/outline/summary hármasával gyorsan variálhatsz tartalmat.</p>
+
+<h2>Opcionális mélyítés</h2>
+<ul>
+<li>Struktúra-sablonok: PRD, kreatív brief, kampány brief</li>
+<li>„Too long; didn’t read” összefoglalók külön vezetői nézetre</li>
+</ul>`,
     emailSubject: 'AI 30 Nap – 8. nap: Dokumentumok készítése',
     emailBody: `<h1>AI 30 Nap – 8. nap</h1>
 <h2>Dokumentumok: brief, váz, összefoglaló</h2>
@@ -464,32 +512,49 @@ const lessonPlan = [
     day: 9,
     title: 'Táblázat-gondolkodás AI-val',
     content: `<h2>Napi cél</h2>
-<p>Megtanulod, hogyan alakítasz át szöveges információkat táblázatokká AI segítségével.</p>
-
-<h2>Táblázat készítés</h2>
-<p>Az AI segíthet táblázatok készítésében:</p>
+<p>Ma megtanulod, hogyan rendezed szöveges adatot táblázatba: gyors struktúra, összehasonlítás, export (CSV).</p>
 <ul>
-<li><strong>Lista → Táblázat</strong> – "Alakítsd táblázattá: Feladat | Felelős | Határidő"</li>
-<li><strong>Adatok strukturálása</strong> – Szétszórt információk rendezése</li>
-<li><strong>Összehasonlítás</strong> – Pro/kontra táblázatok</li>
-<li><strong>CSV export</strong> – "Készíts CSV formátumot"</li>
+<li>oszlopok definiálása (címkék előre)</li>
+<li>feladat → felelős → határidő → státusz/prioritás</li>
+<li>összehasonlító/pro-kontra táblák</li>
 </ul>
 
-<h2>Gyakorlat</h2>
-<p>Készíts 5 feladatot és kérj táblázatot:</p>
+<hr />
+<h2>Alap minta</h2>
+<p>„Alakítsd táblázattá: [oszlop1] | [oszlop2] | … Adatok: [lista]. Adj CSV-t is.”</p>
+
+<h2>Oszlopok, amik működnek</h2>
+<ul>
+<li>Feladat | Felelős | Határidő | Prioritás | Státusz</li>
+<li>Opció | Előny | Hátrány | Kockázat | Ajánlás</li>
+<li>Feature | Impact | Effort | ETA | Owner</li>
+</ul>
+
+<hr />
+<h2>Példa: gyenge vs. jó prompt</h2>
+<p><strong>Gyenge:</strong> „Csinálj táblázatot.”</p>
+<p><strong>Jó:</strong> „Alakítsd táblázattá: Feladat | Felelős | Határidő | Prioritás | Státusz. Adatok: [lista]. Adj CSV-t is exporthoz.”</p>
+
+<hr />
+<h2>Gyakorlat 1 – Feladatlista táblázat</h2>
 <ol>
-<li>Írd le a 5 feladatot szöveges formában</li>
-<li>Kérj táblázatot: Feladat | Felelős | Határidő | Prioritás</li>
-<li>Kérj CSV formátumot is</li>
+<li>Írj 5 feladatot szövegben.</li>
+<li>Kérj táblázatot a fenti oszlopokkal.</li>
+<li>Kérj CSV-t, majd ellenőrizd a pontos oszlopneveket.</li>
 </ol>
 
-<h2>Prompt minta</h2>
-<blockquote>
-<p>Alakítsd táblázattá: Feladat | Felelős | Határidő | Prioritás. Adatok: [feladatok listája]. Készíts CSV formátumot is exportáláshoz.</p>
-</blockquote>
+<h2>Gyakorlat 2 – Pro/kontra tábla</h2>
+<p>Válassz egy döntést (pl. eszközválasztás) és kérj pro/kontra táblát + ajánlást.</p>
 
+<hr />
 <h2>Tipp</h2>
-<p>Kérj CSV formátumot, ha exportálni szeretnéd. A táblázatok jól strukturált információkat adnak, amit könnyen tovább lehet dolgozni.</p>`,
+<p>Előre definiált oszlopnevek = kevesebb utómunka. Mindig kérj CSV-t, ha exportálnád.</p>
+
+<h2>Opcionális mélyítés</h2>
+<ul>
+<li>Táblázat → JSON/CSV konverzió</li>
+<li>Rendezés/szűrés: „Rendezd prioritás szerint”</li>
+</ul>`,
     emailSubject: 'AI 30 Nap – 9. nap: Táblázat-gondolkodás',
     emailBody: `<h1>AI 30 Nap – 9. nap</h1>
 <h2>Táblázat-gondolkodás AI-val</h2>
@@ -500,45 +565,50 @@ const lessonPlan = [
     day: 10,
     title: 'Ismétlés & prompt-debug nap',
     content: `<h2>Napi cél</h2>
-<p>Ismételed az elmúlt 5 nap anyagát és gyakorlod a prompt debugolást.</p>
-
-<h2>Ismétlés</h2>
-<p>Az elmúlt 5 napban megtanultál:</p>
+<p>Ma visszanézed az első hét anyagát, és megtanulod a prompt-debug lépéseit: miért rossz, hogyan javítsd.</p>
 <ul>
-<li>Email írás AI-val</li>
-<li>Meeting jegyzetek feldolgozását</li>
-<li>Dokumentumok készítését</li>
-<li>Táblázatok létrehozását</li>
+<li>azonosítod a tipikus hibákat (hiányzó kontextus, cél, forma, stílus)</li>
+<li>3 lépéses debug folyamatot használsz</li>
+<li>jó/rossz példákat hasonlítasz össze</li>
 </ul>
 
-<h2>Prompt debug</h2>
-<p>Ha nem kapsz jó választ, próbáld ki ezeket:</p>
+<hr />
+<h2>Tipikus hibák</h2>
+<ul>
+<li>túl általános: „Írj emailt”</li>
+<li>nincs kontextus: miről, kinek, mikorra?</li>
+<li>nincs forma: bullet vs. bekezdés</li>
+<li>nincs stílus: üzleti, empatikus, tömör?</li>
+</ul>
+
+<h2>Debug lépések (3)</h2>
 <ol>
-<li><strong>Pontosíts</strong> – "Ez túl hosszú, rövidítsd 50%-kal"</li>
-<li><strong>Kérj példát</strong> – "Adj egy konkrét példát"</li>
-<li><strong>Változtasd a formátumot</strong> – "Ne bekezdésben, hanem bullet pointsban"</li>
-<li><strong>Kérj magyarázatot</strong> – "Magyarázd el, miért ezt javaslod"</li>
-<li><strong>Kezdj újra</strong> – "Kezdjük újra, de most [módosítás]"</li>
+<li><strong>Diagnózis</strong>: mi hiányzik? (cél/kontextus/forma/stílus/hossz)</li>
+<li><strong>Pontosítás</strong>: adj konkrét kérést (pl. „max 4 mondat”, „bullet”, „empatikus”)</li>
+<li><strong>Validálás</strong>: hasonlítsd össze a két választ, kérj újrát, ha kell</li>
 </ol>
 
-<h2>Gyakorlat</h2>
-<p>Válassz egy rossz promptot (vagy készíts egyet szándékosan rosszul) és:</p>
-<ol>
-<li>Futtasd le</li>
-<li>Elemezd, mi a probléma</li>
-<li>Javítsd ki a promptot</li>
-<li>Futtasd le újra</li>
-<li>Hasonlítsd össze a két választ</li>
-</ol>
+<hr />
+<h2>Gyakorlat 1 – Rossz → Jó</h2>
+<p>Válassz egy rossz promptot, írd át 4 elemre, futtasd mindkettőt, hasonlítsd.</p>
 
+<h2>Gyakorlat 2 – Formátum váltás</h2>
+<p>Ugyanaz a tartalom: kérd először bekezdésben, majd bulletben; melyik használhatóbb?</p>
+
+<hr />
 <h2>Prompt minta</h2>
 <blockquote>
-<p>Rossz prompt: "Írj emailt"</p>
-<p>Jó prompt: "Írj rövid, udvarias emailt időpont-egyeztetéshez. Kontextus: 30 perces online meeting jövő hét kedden 10:00-kor. Stílus: üzleti. Hossz: max 4 mondat."</p>
+<p>Rossz: „Írj emailt.”<br/>Jó: „Írj rövid, udvarias emailt időpont-egyeztetéshez. Kontextus: 30 perces meeting jövő hét kedden 10:00-kor. Stílus: üzleti. Hossz: max 4 mondat. Adj CTA-t a visszajelzésre.”</p>
 </blockquote>
 
 <h2>Tipp</h2>
-<p>Ismétlés: rossz prompt → jó prompt. A debugolás része a tanulásnak – ne félj kísérletezni!</p>`,
+<p>A debug is tanulás: mondd meg, mi hiányzik (túl hosszú, nincs CTA), és kérd újra. A legjobb prompt iterációval készül.</p>
+
+<h2>Opcionális mélyítés</h2>
+<ul>
+<li>Prompt checklist: Cél, Kontextus, Forma, Stílus, Hossz, CTA</li>
+<li>A/B tesztelj 2 promptot, mérd az eredményt</li>
+</ul>`,
     emailSubject: 'AI 30 Nap – 10. nap: Ismétlés & prompt-debug',
     emailBody: `<h1>AI 30 Nap – 10. nap</h1>
 <h2>Ismétlés & prompt-debug nap</h2>
@@ -1706,6 +1776,730 @@ function generateQuizQuestions(
           'Pontosítunk',
           'Kérünk példákat',
           'Megadjuk a korlátokat'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.HARD,
+        category: 'Course Specific'
+      }
+    );
+  } else if (day === 4) {
+    // Day 4: Stílus és hang – tanítsd meg "úgy írni, mint te"
+    questions.push(
+      {
+        question: 'Miért tanítsd meg az AI-nak a stílusodat?',
+        options: [
+          'Következetes márkahang és kevesebb kézi átírás',
+          'Hogy az AI önállóan döntsön helyetted',
+          'Hogy hosszabb szövegeket írjon',
+          'Hogy ne kelljen példát adnod'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.EASY,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Mi az első lépés stílustanításnál?',
+        options: [
+          'Adj 1-2 saját mintaszöveget példának',
+          'Azonnal kérj új szöveget',
+          'Csak egy szóban írd le a hangot',
+          'Kérj forrást a modellhez'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.EASY,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Melyik jó stílus brief?',
+        options: [
+          '„Írj úgy, mint ebben a példában: [szöveg]. Hang: barátságos, tömör, példákkal. Struktúra: probléma, 3 bullet megoldás, CTA.”',
+          '„Írj úgy, mint én.”',
+          '„Legyen jobb a szöveg.”',
+          '„Ne írj semmit.”'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.MEDIUM,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Miért adj struktúrát (pl. bevezető–fő rész–zárás)?',
+        options: [
+          'Hogy az AI ne improvizáljon formátumot és kevesebb legyen az utómunka',
+          'Hogy hosszabb legyen a szöveg',
+          'Hogy elkerüld a CTA-t',
+          'Hogy ne kelljen példát adni'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.MEDIUM,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Melyik a jó visszajelzés stílus finomítására?',
+        options: [
+          '„Túl hivatalos, legyen közvetlenebb és rövidebb.”',
+          '„Nem tetszik.”',
+          '„Írj mást.”',
+          '„Hosszabb legyen, de nem tudom hogyan.”'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.MEDIUM,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Mi tartozik egy stílusprofilhoz?',
+        options: [
+          'Hang, mondathossz, szóhasználat, forma',
+          'Csak a témakör',
+          'Csak a CTA',
+          'Csak a képek felsorolása'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.MEDIUM,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Mit kérj a modell elemzésétől a mintaszövegre?',
+        options: [
+          'Hang, formalitás, mondathossz, szóhasználat, szókincs',
+          'Csak a szavak számát',
+          'Csak a dátumot',
+          'Csak a címet'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.EASY,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Mi a jó gyakorlat a stílustanításnál?',
+        options: [
+          'Adj több mintát, nevezd meg a hangot, adj struktúrát, majd adj feedbacket',
+          'Ne adj mintát, csak kérést',
+          'Kerüld a visszajelzést',
+          'Mindig újrakezdés minta nélkül'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.HARD,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Mi a haszna a „hang útmutatónak”?',
+        options: [
+          'Újrahasználható brief, hogy konzisztensen úgy írjon, mint te',
+          'Csak egyszeri szöveghez jó',
+          'Csak kézzel írható',
+          'Nem érdemes elmenteni'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.HARD,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Mit jelez egy jó stílus briefben a „CTA” rész?',
+        options: [
+          'Milyen cselekvést kérsz a végén (pl. válasz, időpont, letöltés)',
+          'Hogy mennyi legyen a szöveg hossza',
+          'Hogy milyen legyen a dátumformátum',
+          'Hogy mit ne írjon bele'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.MEDIUM,
+        category: 'Course Specific'
+      }
+    );
+  } else if (day === 5) {
+    // Day 5: Biztonság & etika a gyakorlatban
+    questions.push(
+      {
+        question: 'Melyik adatot nem adod be az AI-nak?',
+        options: [
+          'Jelszavak, tokenek, bankkártyaadatok',
+          'Publikus marketing szöveg',
+          'Általános iparági trendek',
+          'Fikciós karakter neve'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.EASY,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Mi a helyes anonimizálás névre?',
+        options: [
+          '"Kovács János" → "[Név]"',
+          '"Kovács János" → "Jani barátom"',
+          '"Kovács János" → "XY cég"',
+          '"Kovács János" → "random"'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.EASY,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Melyik közepes kockázatú tartalom?',
+        options: [
+          'Belső folyamatleírás anonimizálva',
+          'Publikus blogcikk',
+          'Bankkártyaszám',
+          'Jelszólista'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.MEDIUM,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Mikor kerüld az AI használatát?',
+        options: [
+          'Ha HR/jogi/pénzügyi döntést hoznál emberi felülvizsgálat nélkül',
+          'Ha publikus szöveget akarsz összefoglalni',
+          'Ha bullet listát kérsz saját jegyzethez',
+          'Ha tárgyötleteket gyűjtesz'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.MEDIUM,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Miért kérd meg az AI-t is anonimizálásra?',
+        options: [
+          'Kettős védelem: te is cserélsz, az AI is figyel, hogy ne idézze vissza a nyerset',
+          'Felesleges, csak te tudod megoldani',
+          'Hosszabb szöveg lesz tőle',
+          'Így nem kell kontextust adni'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.MEDIUM,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Mi az alap szabály, ha bizonytalan vagy?',
+        options: [
+          'Ne add be, vagy anonimizálj és rövidíts',
+          'Mindig add be nyersen',
+          'Kérj döntést az AI-tól',
+          'Másold be a teljes adatbázist'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.EASY,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Melyik jó prompt-rész biztonsághoz?',
+        options: [
+          '„Ne tárold és ne idézd vissza a nyers adatot; csak összefoglalót adj.”',
+          '„Írj bármit, forrás nélkül.”',
+          '„Használd a neveket pontosan.”',
+          '„Adj meg minél több személyes adatot.”'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.MEDIUM,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Miért jobb összefoglalót kérni nyers szöveg helyett?',
+        options: [
+          'Kevesebb adatot osztasz meg, kisebb a kitettség',
+          'Hosszabb lesz a válasz',
+          'Több személyes adat marad benne',
+          'Nem lehet vele iterálni'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.MEDIUM,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Melyik a helyes placeholder párosítás?',
+        options: [
+          'Email → [Email], Telefonszám → [Telefon]',
+          'Email → [Cég], Telefonszám → [Dátum]',
+          'Email → [Token], Telefonszám → [Jelszó]',
+          'Email → [Ár], Telefonszám → [Összeg]'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.EASY,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Melyik alacsony kockázatú tartalom?',
+        options: [
+          'Publikus blogbejegyzés újrafogalmazása',
+          'HR döntés személyes adattal',
+          'Szerződés nyers másolata',
+          'Titkos pénzügyi előrejelzés'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.HARD,
+        category: 'Course Specific'
+      }
+    );
+  } else if (day === 6) {
+    // Day 6: Email percek alatt – profi hangon
+    questions.push(
+      {
+        question: 'Mi tartozik egy jó email promptba?',
+        options: [
+          'Cél, kontextus, forma, stílus, hossz',
+          'Csak a téma',
+          'Csak a hossz',
+          'Csak a köszönés'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.EASY,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Miért kérj CTA-t az email végére?',
+        options: [
+          'Hogy a címzett tudja, mit tegyen (válasz, időpont, jóváhagyás)',
+          'Hogy hosszabb legyen az email',
+          'Hogy elkerüld a válaszadást',
+          'Csak dísznek'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.MEDIUM,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Melyik jó prompt határidő módosításra?',
+        options: [
+          '„Írj udvarias, rövid emailt a határidő módosításáról. Kontextus: 2 nap csúszás, ok: beszállító. Stílus: empatikus, de határozott. Hossz: max 4 mondat. Adj új dátumot és CTA-t.”',
+          '„Írj emailt a határidőről.”',
+          '„Írj valamit.”',
+          '„Írj hosszú regényt a csúszásról.”'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.MEDIUM,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Miért jó két hangnemet kérni ugyanarra az emailre?',
+        options: [
+          'Hogy választhass a stílusok közül és pontosíthass',
+          'Csak duplázza a munkát',
+          'Felesleges, mert az első mindig jó',
+          'Hogy elkerüld a CTA-t'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.MEDIUM,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Mi egy jó projekt státusz email struktúrája?',
+        options: [
+          'Bevezető, helyzet, kockázat, következő lépés/CTA',
+          'Csak köszönés és aláírás',
+          'Csak dátum',
+          'Hosszú történet kontextus nélkül'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.MEDIUM,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Mikor használsz bullet listát emailben?',
+        options: [
+          'Ha teendőket, kockázatokat vagy opciókat kell tisztán felsorolni',
+          'Ha nincs információ',
+          'Ha regényt akarsz',
+          'Ha el akarod rejteni a lényeget'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.MEDIUM,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Mi a jó lépés, ha túl hosszú az AI emailje?',
+        options: [
+          'Kérd, hogy rövidítse X%-kal vagy max N mondatra',
+          'Fogadd el és küldd el',
+          'Dobd ki az egészet',
+          'Írj egy teljesen más témát'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.EASY,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Miért érdemes sign-off alternatívákat kérni?',
+        options: [
+          'Hogy illeszkedjen a címzetthez és a helyzethez',
+          'Hogy hosszabb legyen a levél',
+          'Hogy elkerüld a CTA-t',
+          'Csak díszítésként'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.HARD,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Mi gyorsítja az email írást legjobban?',
+        options: [
+          'Prompt sablon cél/kontextus/stílus/hossz változókkal',
+          'Mindig nulláról kezdeni',
+          'Hosszú magyarázat nélkül',
+          'Csak a tárgy megadása'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.MEDIUM,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Mi a legfontosabb megadni email promptnál?',
+        options: [
+          'Mit akarsz elérni és kinek szól (cél + kontextus)',
+          'Csak a formátumot',
+          'Csak a dátumot',
+          'Csak az aláírást'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.EASY,
+        category: 'Course Specific'
+      }
+    );
+  } else if (day === 7) {
+    // Day 7: Meeting jegyzetből teendőlista
+    questions.push(
+      {
+        question: 'Melyik a három ajánlott kimeneti blokk meeting jegyzetből?',
+        options: [
+          'Összefoglaló, Döntések, Teendők',
+          'Bevezető, Marketing, Footer',
+          'Csak egy hosszú bekezdés',
+          'Kizárólag teendők'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.EASY,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Mi legyen a teendő sorban?',
+        options: [
+          'Feladat | Felelős | Határidő | Státusz/Next',
+          'Csak a feladat neve',
+          'Csak a dátum',
+          'Csak a felelős'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.MEDIUM,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Miért fontos külön „Döntések” szekció?',
+        options: [
+          'Hogy ne keveredjen a teendőkkel és visszakereshető legyen, mi dőlt el',
+          'Hogy hosszabb legyen a dokumentum',
+          'Hogy ne kelljen teendőket írni',
+          'Csak díszítés miatt'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.MEDIUM,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Mi a jó prompt minta meeting összefoglalóra?',
+        options: [
+          '„Összefoglaló 3–5 pontban, külön Döntések, külön Teendők (feladat | felelős | határidő | státusz). Jegyzet: [szöveg].”',
+          '„Foglalj össze mindent.”',
+          '„Írj valamit.”',
+          '„Adj egy random listát.”'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.MEDIUM,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Miért érdemes hiányzó határidőt javasoltatni az AI-val?',
+        options: [
+          'Gyors baseline, amit ember átnéz és jóváhagy',
+          'Hogy az AI döntsön helyetted véglegesen',
+          'Hogy elkerüld a felelős kijelölését',
+          'Mert mindegy, mikorra készül el'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.HARD,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Melyik input segít jó kimenetet adni?',
+        options: [
+          'Résztvevők/felelősök neve, téma, jegyzetek',
+          'Csak a meeting címe',
+          'Semmi, elég egy szó',
+          'Csak a dátum'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.EASY,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Mikor hasznos státusz mező (TODO/IN PROGRESS/BLOCKED)?',
+        options: [
+          'Ha követni akarod a feladat állapotát az akciólista mellett',
+          'Ha nincs feladat',
+          'Csak kreatív íráshoz',
+          'Sosem hasznos'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.HARD,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Miért jobb bullet formát kérni?',
+        options: [
+          'Átláthatóbb, gyorsan scannelhető',
+          'Mindig hosszabb lesz',
+          'Csak esztétika miatt',
+          'Nem jobb, mindig bekezdés kell'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.MEDIUM,
+        category: 'Course Specific'
+      }
+    );
+  } else if (day === 8) {
+    // Day 8: Dokumentumok: brief, váz, összefoglaló
+    questions.push(
+      {
+        question: 'Miért kezdj vázlattal dokumentumkészítéskor?',
+        options: [
+          'Könnyebb iterálni a szerkezeten és hiányokat felismerni',
+          'Hogy az AI hosszabb szöveget írjon',
+          'Csak időpazarlás',
+          'Mert kötelező szabály'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.EASY,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Melyik elem kötelező egy briefben?',
+        options: [
+          'Cél, Kontextus, Célközönség, Elvárások, Kizárások, Határidők',
+          'Csak cím',
+          'Csak határidő',
+          'Csak egy bekezdésnyi leírás'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.MEDIUM,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Mi a jó prompt egy blogvázlathoz?',
+        options: [
+          '„Adj vázlatot [téma] témában, max 6 pont, mindegyikhez 1 mondat.”',
+          '„Írj blogot.”',
+          '„Adj egy hosszú szöveget.”',
+          '„Csak címet adj.”'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.EASY,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Mi legyen egy jó összefoglalóban?',
+        options: [
+          'Fő üzenetek, döntések, következő lépések, tömör terjedelem',
+          'Minden részlet szó szerint',
+          'Semmi konkrétum',
+          'Csak vélemények'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.MEDIUM,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Miért kérj kizárásokat a briefben?',
+        options: [
+          'Hogy tiszta legyen, mi <em>nem</em scope, csökkenjen a félreértés',
+          'Hogy hosszabb legyen',
+          'Mert kötelező űrlap',
+          'Hogy ne legyen cél megadva'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.MEDIUM,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Melyik jó struktúra prompt briefhez?',
+        options: [
+          '„Struktúra: Cél, Kontextus, Célközönség, Elvárások, Kizárások, Határidők/Mérőszámok.”',
+          '„Írj valamit erről.”',
+          '„Csak kontextust írj.”',
+          '„Adj egy sort.”'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.MEDIUM,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Miért hasznos 5 pontos összefoglalót kérni?',
+        options: [
+          'Rövid, scannelhető, a lényegre fókuszál',
+          'Hosszabb szöveget ad',
+          'Csak esztétika',
+          'Mert mindig jobb, ha sok szó van'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.HARD,
+        category: 'Course Specific'
+      }
+    );
+  } else if (day === 9) {
+    // Day 9: Táblázat-gondolkodás AI-val
+    questions.push(
+      {
+        question: 'Mi az első lépés táblázat kérésénél?',
+        options: [
+          'Oszlopok definiálása (fejlécek)',
+          'Azonnal CSV export kérése oszlopok nélkül',
+          'Véletlenszerű formátum',
+          'Nincs szükség bemenetre'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.EASY,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Melyik oszlopkészlet ad jó feladat táblát?',
+        options: [
+          'Feladat | Felelős | Határidő | Prioritás | Státusz',
+          'Csak Feladat',
+          'Csak Határidő',
+          'Csak Prioritás'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.EASY,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Miért kérj CSV-t is?',
+        options: [
+          'Könnyű export/spreadsheet import',
+          'Hosszabb szövegért',
+          'Hogy elrejtsd az adatot',
+          'Nem érdemes kérni'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.MEDIUM,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Mi a jó prompt pro/kontra táblára?',
+        options: [
+          '„Adj pro/kontra táblát: Opció | Előny | Hátrány | Kockázat | Ajánlás.”',
+          '„Írj valamit.”',
+          '„Csak előnyöket írj.”',
+          '„Csak hátrányokat írj.”'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.MEDIUM,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Miért hasznos előre megadni prioritást/státuszt oszlopként?',
+        options: [
+          'Jobban átlátható és azonnal használható, kevesebb kézi munka',
+          'Hogy több hibát okozzon',
+          'Csak dísz',
+          'Nem hasznos'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.HARD,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Mitől lesz használható a táblázat?',
+        options: [
+          'Pontos oszlopnevek, teljes sorok, jól formázott adat',
+          'Véletlenszerű elrendezés',
+          'Hiányzó felelősök',
+          'Csak szöveges bekezdés'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.MEDIUM,
+        category: 'Course Specific'
+      }
+    );
+  } else if (day === 10) {
+    // Day 10: Ismétlés & prompt-debug nap
+    questions.push(
+      {
+        question: 'Mi a leggyakoribb prompt hiba?',
+        options: [
+          'Hiányzik a kontextus/cél/forma/stílus',
+          'Túl sok kontextus',
+          'Mindig rossz a hossz',
+          'Nincs ilyen'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.EASY,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Mi a 3 lépéses debug folyamat első lépése?',
+        options: [
+          'Diagnózis: mi hiányzik a promptból',
+          'Kérj új választ magyarázat nélkül',
+          'Adj véletlen feedbacket',
+          'Másold be ugyanazt újra'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.EASY,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Melyik jó pontosítás hosszra?',
+        options: [
+          '„Rövidítsd 30%-kal, max 4 mondat.”',
+          '„Írj hosszabbat.”',
+          '„Legyen sokkal több szó.”',
+          '„Írj, amit akarsz.”'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.MEDIUM,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Miért érdemes A/B tesztelni két promptot?',
+        options: [
+          'Hogy lásd, melyik ad jobb, használhatóbb választ',
+          'Hogy hosszabb legyen a folyamat',
+          'Nem érdemes, elég egy',
+          'Mert az AI úgyis mindegy'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.HARD,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Melyik jó feedback egy „rossz” válaszra?',
+        options: [
+          '„Hiányzik a CTA és túl hosszú. Rövidítsd 50%-kal, adj egyértelmű kérést a végére.”',
+          '„Nem jó.”',
+          '„Írj mást.”',
+          '„Legyen szebb.”'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.MEDIUM,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Miért kérj formátumváltást (bullet vs bekezdés)?',
+        options: [
+          'Más formátum gyakran használhatóbb, gyorsabban áttekinthető',
+          'Mindig rosszabb',
+          'Felesleges',
+          'Csak díszítés miatt'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.MEDIUM,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Mit vizsgálj két válasz összehasonlításakor?',
+        options: [
+          'Pontosság, tömörség, hiányzó elemek (cél/kontextus/forma/stílus/CTA)',
+          'Csak a hosszt',
+          'Csak a dátumot',
+          'Csak a szóközöket'
         ],
         correctIndex: 0,
         difficulty: QuestionDifficulty.HARD,

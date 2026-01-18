@@ -62,7 +62,12 @@
     },
     "rewards": {
       "title": "Rewards"
-    }
+    },
+    "or": "Or",
+    "termsOfService": "Terms of Service",
+    "privacyPolicy": "Privacy Policy",
+    "byContinuing": "By continuing, you agree to {{appName}}'s",
+    "and": "and"
   },
   "auth": {
     "signIn": "Sign In",
@@ -73,7 +78,14 @@
     "welcome": "Welcome",
     "email": "Email",
     "password": "Password",
-    "forgotPassword": "Forgot Password"
+    "forgotPassword": "Forgot Password",
+    "tagline": "Learn. Grow. Achieve.",
+    "whyJoin": "Why Join Amanoba?",
+    "dailyLessons": "Daily Lessons",
+    "interactiveAssessments": "Interactive Assessments",
+    "or": "Or",
+    "tryGamesInstantly": "Try games instantly with a random username",
+    "creatingAccount": "Creating account..."
   },
   "dashboard": {
     "title": "Dashboard",
