@@ -8,7 +8,6 @@ type LoadState = 'loading' | 'ready' | 'error';
 
 export default function CourseCreationGuidePage() {
   const locale = useLocale();
-  const t = useTranslations('admin');
   const [content, setContent] = useState('');
   const [status, setStatus] = useState<LoadState>('loading');
 
@@ -90,10 +89,10 @@ export default function CourseCreationGuidePage() {
           </div>
         )}
         {status === 'ready' && (
-          <div className="markdown-content text-brand-black">
-            <pre className="whitespace-pre-wrap text-sm leading-6 font-mono">
+          <div className="markdown-content text-brand-black prose prose-sm max-w-none">
+            <div className="whitespace-pre-wrap text-sm leading-7 font-sans">
               {content}
-            </pre>
+            </div>
           </div>
         )}
       </div>
