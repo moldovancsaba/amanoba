@@ -72,7 +72,7 @@ export async function GET(
     // Check if lesson is unlocked
     const isUnlocked =
       day === 1 ||
-      progress.lessonsCompleted?.includes((day - 1).toString()) ||
+      progress.completedDays?.includes(day - 1) ||
       progress.currentDay >= day;
 
     // Get previous/next lessons
@@ -88,7 +88,7 @@ export async function GET(
       lesson: {
         ...lesson,
         isUnlocked,
-        isCompleted: progress.lessonsCompleted?.includes(day.toString()) || false,
+        isCompleted: progress.completedDays?.includes(day) || false,
       },
       navigation: {
         previous: previousLesson ? { day: day - 1, title: previousLesson.title } : null,
@@ -96,7 +96,7 @@ export async function GET(
       },
       progress: {
         currentDay: progress.currentDay,
-        completedDays: progress.lessonsCompleted?.length || 0,
+        completedDays: progress.completedDays?.length || 0,
         totalDays: course.durationDays,
       },
     });
@@ -160,15 +160,14 @@ export async function POST(
     }
 
     // Mark as completed
-    const dayStr = day.toString();
-    if (!progress.lessonsCompleted?.includes(dayStr)) {
-      progress.lessonsCompleted.push(dayStr);
+    if (!progress.completedDays?.includes(day)) {
+      progress.completedDays.push(day);
       progress.currentDay = Math.max(progress.currentDay, day + 1);
-      progress.lastActivityAt = new Date();
+      progress.lastAccessedAt = new Date();
 
       // Check if course is completed
-      if (progress.lessonsCompleted.length >= course.durationDays) {
-        progress.isCompleted = true;
+      if (progress.completedDays.length >= course.durationDays) {
+        progress.status = 'COMPLETED';
         progress.completedAt = new Date();
       }
 

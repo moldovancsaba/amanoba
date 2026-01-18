@@ -75,10 +75,9 @@ export async function POST(
       courseId: course._id,
       startedAt: new Date(),
       currentDay: 1,
-      lessonsCompleted: [],
-      assessmentsCompleted: [],
-      isCompleted: false,
-      lastActivityAt: new Date(),
+      completedDays: [],
+      status: 'IN_PROGRESS',
+      lastAccessedAt: new Date(),
     });
 
     await progress.save();
