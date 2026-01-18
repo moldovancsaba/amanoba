@@ -1223,7 +1223,9 @@ async function seed() {
     }
   }
 
-  await mongoose.connect(mongoUri);
+  // Use connectDB instead of direct mongoose.connect for consistency
+  const { default: connectDB } = await import('../app/lib/mongodb');
+  await connectDB();
   console.log('✅ Connected to MongoDB');
 
   // Get or create brand
