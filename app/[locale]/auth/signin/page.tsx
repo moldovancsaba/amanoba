@@ -130,7 +130,7 @@ export default async function SignInPage({
           <div className="grid grid-cols-3 gap-4">
             <div className="bg-brand-darkGrey/80 backdrop-blur-sm rounded-lg p-4 border border-brand-accent/30">
               <div className="text-3xl mb-2">📚</div>
-              <p className="text-sm font-medium">{t('courses')}</p>
+              <p className="text-sm font-medium">{tCommon('courses.title')}</p>
             </div>
             <div className="bg-brand-darkGrey/80 backdrop-blur-sm rounded-lg p-4 border border-brand-accent/30">
               <div className="text-3xl mb-2">📧</div>
