@@ -58,7 +58,6 @@ export async function GET(request: NextRequest) {
     }
 
     const courses = await Course.find(query)
-      .select('courseId name description language thumbnail isActive requiresPremium durationDays pointsConfig xpConfig createdAt updatedAt')
       .sort({ createdAt: -1 })
       .lean();
 
@@ -129,6 +128,45 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    // Get or create default brand
+    let finalBrandId = brandId;
+    if (!finalBrandId) {
+      // Find or create default Amanoba brand
+      let defaultBrand = await Brand.findOne({ name: 'Amanoba', isActive: true });
+      if (!defaultBrand) {
+        defaultBrand = new Brand({
+          name: 'Amanoba',
+          slug: 'amanoba',
+          displayName: 'Amanoba',
+          isActive: true,
+          themeColors: {
+            primary: '#000000',
+            secondary: '#374151',
+            accent: '#FAB908',
+          },
+          allowedDomains: ['amanoba.com', 'www.amanoba.com'],
+          supportedLanguages: ['hu', 'en'],
+          defaultLanguage: 'hu',
+        });
+        await defaultBrand.save();
+      }
+      finalBrandId = defaultBrand._id;
+    } else if (!mongoose.Types.ObjectId.isValid(finalBrandId)) {
+      return NextResponse.json(
+        { error: 'Invalid brandId format' },
+        { status: 400 }
+      );
+    } else {
+      // Verify brand exists
+      const brandExists = await Brand.findById(finalBrandId);
+      if (!brandExists) {
+        return NextResponse.json(
+          { error: 'Brand not found' },
+          { status: 400 }
+        );
+      }
+    }
+
     // Create course
     const course = new Course({
       courseId,
@@ -139,7 +177,7 @@ export async function POST(request: NextRequest) {
       durationDays: 30, // Always 30 for standard courses
       isActive: false, // Start as inactive (draft)
       requiresPremium,
-      brandId: brandId || new mongoose.Types.ObjectId(),
+      brandId: finalBrandId,
       pointsConfig: pointsConfig || {
         completionPoints: 1000,
         lessonPoints: 50,
