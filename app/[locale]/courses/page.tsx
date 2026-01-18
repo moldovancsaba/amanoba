@@ -19,6 +19,7 @@ import {
   Lock,
   Star,
   Search,
+  ArrowLeft,
 } from 'lucide-react';
 
 interface Course {
@@ -107,12 +108,20 @@ export default function CoursesPage() {
       <header className="bg-brand-darkGrey border-b-2 border-brand-accent">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex items-center justify-between">
-            <div>
-              <h1 className="text-3xl font-bold text-brand-white flex items-center gap-2">
-                <BookOpen className="w-8 h-8" />
-                {t('availableCourses')}
-              </h1>
-              <p className="text-brand-white/80 mt-1">{t('browseAndEnroll')}</p>
+            <div className="flex items-center gap-4">
+              <LocaleLink
+                href="/dashboard"
+                className="text-brand-white hover:text-brand-accent transition-colors"
+              >
+                <ArrowLeft className="w-6 h-6" />
+              </LocaleLink>
+              <div>
+                <h1 className="text-3xl font-bold text-brand-white flex items-center gap-2">
+                  <BookOpen className="w-8 h-8" />
+                  {t('availableCourses')}
+                </h1>
+                <p className="text-brand-white/80 mt-1">{t('browseAndEnroll')}</p>
+              </div>
             </div>
           </div>
         </div>

@@ -81,6 +81,17 @@ export default function Dashboard() {
   const [playerData, setPlayerData] = useState<PlayerData | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [featureFlags, setFeatureFlags] = useState<{
+    courses: boolean;
+    myCourses: boolean;
+    games: boolean;
+    stats: boolean;
+    leaderboards: boolean;
+    challenges: boolean;
+    quests: boolean;
+    achievements: boolean;
+    rewards: boolean;
+  } | null>(null);
 
   // Why: Fetch player data when session is available or on manual refresh
   const fetchPlayerData = async () => {
@@ -122,7 +133,32 @@ export default function Dashboard() {
 
   useEffect(() => {
     fetchPlayerData();
+    fetchFeatureFlags();
   }, [session, status]);
+
+  const fetchFeatureFlags = async () => {
+    try {
+      const response = await fetch('/api/feature-flags');
+      const data = await response.json();
+      if (data.success && data.featureFlags?.features) {
+        setFeatureFlags(data.featureFlags.features);
+      }
+    } catch (error) {
+      console.error('Failed to fetch feature flags:', error);
+      // Default to course features enabled
+      setFeatureFlags({
+        courses: true,
+        myCourses: true,
+        games: false,
+        stats: false,
+        leaderboards: false,
+        challenges: false,
+        quests: false,
+        achievements: false,
+        rewards: false,
+      });
+    }
+  };
 
   if (loading) {
     return (
@@ -217,69 +253,87 @@ export default function Dashboard() {
             {t('startLearning')}
           </h3>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-9 gap-3">
-            <LocaleLink
-              href="/courses"
-              className="block bg-brand-accent text-brand-black px-4 py-3 rounded-lg font-bold text-center hover:bg-brand-primary-400 transition-all text-sm transform hover:scale-105 flex items-center justify-center gap-2"
-            >
-              <Icon icon={MdMenuBook} size={18} />
-              {t('courses')}
-            </LocaleLink>
-            <LocaleLink
-              href="/my-courses"
-              className="block bg-brand-accent text-brand-black px-4 py-3 rounded-lg font-bold text-center hover:bg-brand-primary-400 transition-all text-sm transform hover:scale-105 flex items-center justify-center gap-2"
-            >
-              <Icon icon={MdAutoStories} size={18} />
-              {t('myCourses')}
-            </LocaleLink>
-            <LocaleLink
-              href="/games"
-              className="block bg-brand-darkGrey text-brand-white px-4 py-3 rounded-lg font-bold text-center hover:bg-brand-secondary-700 transition-all text-sm flex items-center justify-center gap-2"
-            >
-              <Icon icon={MdSportsEsports} size={18} />
-              {tGames('title')}
-            </LocaleLink>
-            <LocaleLink
-              href="/stats"
-              className="block bg-brand-darkGrey text-brand-white px-4 py-3 rounded-lg font-bold text-center hover:bg-brand-secondary-700 transition-all text-sm flex items-center justify-center gap-2"
-            >
-              <Icon icon={MdBarChart} size={18} />
-              {t('statistics')}
-            </LocaleLink>
-            <LocaleLink
-              href="/leaderboards"
-              className="block bg-brand-accent text-brand-black px-4 py-3 rounded-lg font-bold text-center hover:bg-brand-primary-400 transition-all text-sm flex items-center justify-center gap-2"
-            >
-              <Icon icon={MdEmojiEvents} size={18} />
-              {tLeaderboard('title')}
-            </LocaleLink>
-            <LocaleLink
-              href="/challenges"
-              className="block bg-brand-darkGrey text-brand-white px-4 py-3 rounded-lg font-bold text-center hover:bg-brand-secondary-700 transition-all text-sm flex items-center justify-center gap-2"
-            >
-              <Icon icon={MdGpsFixed} size={18} />
-              {tChallenges('title')}
-            </LocaleLink>
-            <LocaleLink
-              href="/quests"
-              className="block bg-brand-accent text-brand-black px-4 py-3 rounded-lg font-bold text-center hover:bg-brand-primary-400 transition-all text-sm flex items-center justify-center gap-2"
-            >
-              <Icon icon={MdMap} size={18} />
-              {tQuests('title')}
-            </LocaleLink>
-            <LocaleLink
-              href="/achievements"
-              className="block bg-brand-darkGrey text-brand-white px-4 py-3 rounded-lg font-bold text-center hover:bg-brand-secondary-700 transition-all text-sm flex items-center justify-center gap-2"
-            >
-              <Icon icon={MdMedal} size={18} />
-              {tAchievements('title')}
-            </LocaleLink>
-            <LocaleLink
-              href="/rewards"
-              className="block bg-brand-accent text-brand-black px-4 py-3 rounded-lg font-bold text-center hover:bg-brand-primary-400 transition-all text-sm flex items-center justify-center gap-2"
-            >
-              <Icon icon={MdCardGiftcard} size={18} />
-              {tRewards('title')}
-            </LocaleLink>
+            {featureFlags?.courses && (
+              <LocaleLink
+                href="/courses"
+                className="block bg-brand-accent text-brand-black px-4 py-3 rounded-lg font-bold text-center hover:bg-brand-primary-400 transition-all text-sm transform hover:scale-105 flex items-center justify-center gap-2"
+              >
+                <Icon icon={MdMenuBook} size={18} />
+                {t('courses')}
+              </LocaleLink>
+            )}
+            {featureFlags?.myCourses && (
+              <LocaleLink
+                href="/my-courses"
+                className="block bg-brand-accent text-brand-black px-4 py-3 rounded-lg font-bold text-center hover:bg-brand-primary-400 transition-all text-sm transform hover:scale-105 flex items-center justify-center gap-2"
+              >
+                <Icon icon={MdAutoStories} size={18} />
+                {t('myCourses')}
+              </LocaleLink>
+            )}
+            {featureFlags?.games && (
+              <LocaleLink
+                href="/games"
+                className="block bg-brand-darkGrey text-brand-white px-4 py-3 rounded-lg font-bold text-center hover:bg-brand-secondary-700 transition-all text-sm flex items-center justify-center gap-2"
+              >
+                <Icon icon={MdSportsEsports} size={18} />
+                {tGames('title')}
+              </LocaleLink>
+            )}
+            {featureFlags?.stats && (
+              <LocaleLink
+                href="/stats"
+                className="block bg-brand-darkGrey text-brand-white px-4 py-3 rounded-lg font-bold text-center hover:bg-brand-secondary-700 transition-all text-sm flex items-center justify-center gap-2"
+              >
+                <Icon icon={MdBarChart} size={18} />
+                {t('statistics')}
+              </LocaleLink>
+            )}
+            {featureFlags?.leaderboards && (
+              <LocaleLink
+                href="/leaderboards"
+                className="block bg-brand-accent text-brand-black px-4 py-3 rounded-lg font-bold text-center hover:bg-brand-primary-400 transition-all text-sm flex items-center justify-center gap-2"
+              >
+                <Icon icon={MdEmojiEvents} size={18} />
+                {tLeaderboard('title')}
+              </LocaleLink>
+            )}
+            {featureFlags?.challenges && (
+              <LocaleLink
+                href="/challenges"
+                className="block bg-brand-darkGrey text-brand-white px-4 py-3 rounded-lg font-bold text-center hover:bg-brand-secondary-700 transition-all text-sm flex items-center justify-center gap-2"
+              >
+                <Icon icon={MdGpsFixed} size={18} />
+                {tChallenges('title')}
+              </LocaleLink>
+            )}
+            {featureFlags?.quests && (
+              <LocaleLink
+                href="/quests"
+                className="block bg-brand-accent text-brand-black px-4 py-3 rounded-lg font-bold text-center hover:bg-brand-primary-400 transition-all text-sm flex items-center justify-center gap-2"
+              >
+                <Icon icon={MdMap} size={18} />
+                {tQuests('title')}
+              </LocaleLink>
+            )}
+            {featureFlags?.achievements && (
+              <LocaleLink
+                href="/achievements"
+                className="block bg-brand-darkGrey text-brand-white px-4 py-3 rounded-lg font-bold text-center hover:bg-brand-secondary-700 transition-all text-sm flex items-center justify-center gap-2"
+              >
+                <Icon icon={MdMedal} size={18} />
+                {tAchievements('title')}
+              </LocaleLink>
+            )}
+            {featureFlags?.rewards && (
+              <LocaleLink
+                href="/rewards"
+                className="block bg-brand-accent text-brand-black px-4 py-3 rounded-lg font-bold text-center hover:bg-brand-primary-400 transition-all text-sm flex items-center justify-center gap-2"
+              >
+                <Icon icon={MdCardGiftcard} size={18} />
+                {tRewards('title')}
+              </LocaleLink>
+            )}
           </div>
         </div>
 

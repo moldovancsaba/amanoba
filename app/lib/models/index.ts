@@ -79,4 +79,7 @@ export { default as AssessmentResult, type IAssessmentResult } from './assessmen
 // Translation Model (1)
 export { default as Translation, type ITranslation } from './translation';
 
-// Total: 28 models
+// Feature Flags Model (1)
+export { default as FeatureFlags, type IFeatureFlags } from './feature-flags';
+
+// Total: 29 models

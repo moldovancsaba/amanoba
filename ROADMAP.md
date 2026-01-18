@@ -1,7 +1,7 @@
 # Amanoba Roadmap — 30-Day Learning Platform
 
-**Version**: 2.7.1  
-**Last Updated**: 2026-01-18T16:58:00.000Z  
+**Version**: 2.7.2  
+**Last Updated**: 2026-01-18T17:15:41.000Z  
 **Vision**: Transform Amanoba into a unified 30-day learning platform with gamified education, assessment tools, and email-based lesson delivery  
 **Current Phase**: Phase 2 & 3 Complete ✅ - Production Stable - Ready for Phase 4
 
@@ -575,6 +575,11 @@ EMAIL_FROM_NAME=Amanoba Learning
 ## 🎯 Future Enhancements (Post-Launch)
 
 ### Q2 2026
+- **Short-Format Tracks**: Launch fast-path course formats:
+  - Learn in 60 Minutes (1-hour courses)
+  - One Day to Master (1-day courses)
+  - Zero to Real in a Weekend (weekend courses)
+  - Skills in a Week (7-day courses)
 - **Multiple Courses**: Students can enroll in multiple courses simultaneously
 - **Course Prerequisites**: Require completion of one course before starting another
 - **Live Sessions**: Scheduled live lessons with instructors

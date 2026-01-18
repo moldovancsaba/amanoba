@@ -49,6 +49,7 @@ const navigationItems = [
   { key: 'rewards', href: '/admin/rewards', icon: Gift },
   { key: 'challenges', href: '/admin/challenges', icon: Target },
   { key: 'quests', href: '/admin/quests', icon: Scroll },
+  { key: 'featureFlags', href: '/admin/feature-flags', icon: Settings },
   { key: 'settings', href: '/admin/settings', icon: Settings },
 ];
 

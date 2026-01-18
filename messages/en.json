@@ -348,6 +348,7 @@
     "rewards": "Manage Rewards",
     "challenges": "Manage Challenges",
     "quests": "Manage Quests",
+    "featureFlags": "Feature Flags",
     "settings": "Settings",
     "createCourse": "Create Course",
     "editCourse": "Edit Course",
