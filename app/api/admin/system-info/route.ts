@@ -31,16 +31,8 @@ export async function GET(request: NextRequest) {
     // Get environment
     const environment = process.env.NODE_ENV || 'development';
 
-    // Read version from package.json
-    let version = '2.7.0';
-    try {
-      const packageJsonPath = path.join(process.cwd(), 'package.json');
-      const packageJsonContent = fs.readFileSync(packageJsonPath, 'utf-8');
-      const packageJson = JSON.parse(packageJsonContent);
-      version = packageJson.version || '2.7.0';
-    } catch (error) {
-      logger.warn({ error }, 'Failed to read package.json version');
-    }
+    // Read version from package.json (already imported)
+    const version = packageJson.version || '2.7.0';
 
     // Calculate uptime (simplified - in production, track server start time)
     // For now, return a placeholder that indicates system is running

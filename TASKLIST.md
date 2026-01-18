@@ -40,6 +40,40 @@ Tasks are listed in priority order. Upon completion, tasks are moved to RELEASE_
 
 ---
 
+## 🧾 AI 30 Nap Lesson Content Rewrite (Structured, Rich Copy)
+
+| ID | Task | Owner | Expected Delivery | Status |
+|----|------|-------|-------------------|--------|
+| LC4 | Rewrite Day 4 content to structured, example-rich format | AI | TBD | ⏳ PENDING |
+| LC5 | Rewrite Day 5 content to structured, example-rich format | AI | TBD | ⏳ PENDING |
+| LC6 | Rewrite Day 6 content to structured, example-rich format | AI | TBD | ⏳ PENDING |
+| LC7 | Rewrite Day 7 content to structured, example-rich format | AI | TBD | ⏳ PENDING |
+| LC8 | Rewrite Day 8 content to structured, example-rich format | AI | TBD | ⏳ PENDING |
+| LC9 | Rewrite Day 9 content to structured, example-rich format | AI | TBD | ⏳ PENDING |
+| LC10 | Rewrite Day 10 content to structured, example-rich format | AI | TBD | ⏳ PENDING |
+| LC11 | Rewrite Day 11 content to structured, example-rich format | AI | TBD | ⏳ PENDING |
+| LC12 | Rewrite Day 12 content to structured, example-rich format | AI | TBD | ⏳ PENDING |
+| LC13 | Rewrite Day 13 content to structured, example-rich format | AI | TBD | ⏳ PENDING |
+| LC14 | Rewrite Day 14 content to structured, example-rich format | AI | TBD | ⏳ PENDING |
+| LC15 | Rewrite Day 15 content to structured, example-rich format | AI | TBD | ⏳ PENDING |
+| LC16 | Rewrite Day 16 content to structured, example-rich format | AI | TBD | ⏳ PENDING |
+| LC17 | Rewrite Day 17 content to structured, example-rich format | AI | TBD | ⏳ PENDING |
+| LC18 | Rewrite Day 18 content to structured, example-rich format | AI | TBD | ⏳ PENDING |
+| LC19 | Rewrite Day 19 content to structured, example-rich format | AI | TBD | ⏳ PENDING |
+| LC20 | Rewrite Day 20 content to structured, example-rich format | AI | TBD | ⏳ PENDING |
+| LC21 | Rewrite Day 21 content to structured, example-rich format | AI | TBD | ⏳ PENDING |
+| LC22 | Rewrite Day 22 content to structured, example-rich format | AI | TBD | ⏳ PENDING |
+| LC23 | Rewrite Day 23 content to structured, example-rich format | AI | TBD | ⏳ PENDING |
+| LC24 | Rewrite Day 24 content to structured, example-rich format | AI | TBD | ⏳ PENDING |
+| LC25 | Rewrite Day 25 content to structured, example-rich format | AI | TBD | ⏳ PENDING |
+| LC26 | Rewrite Day 26 content to structured, example-rich format | AI | TBD | ⏳ PENDING |
+| LC27 | Rewrite Day 27 content to structured, example-rich format | AI | TBD | ⏳ PENDING |
+| LC28 | Rewrite Day 28 content to structured, example-rich format | AI | TBD | ⏳ PENDING |
+| LC29 | Rewrite Day 29 content to structured, example-rich format | AI | TBD | ⏳ PENDING |
+| LC30 | Rewrite Day 30 content to structured, example-rich format | AI | TBD | ⏳ PENDING |
+
+---
+
 ## 🎓 30-Day Learning Platform Transformation
 
 ### Phase 1: Foundation & Data Models ✅ COMPLETE

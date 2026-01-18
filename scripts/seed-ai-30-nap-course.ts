@@ -26,33 +26,61 @@ const lessonPlan = [
     day: 1,
     title: 'Mi az AI valójában – és mire NEM való?',
     content: `<h2>Napi cél</h2>
-<p>Megismered, hogy mi az AI valójában, mire jó és mire nem. Kialakítasz egy reális szemléletet az AI képességeiről és korlátairól.</p>
-
-<h2>Mit fogsz megtanulni?</h2>
+<p>Ma tisztázzuk, hogy az AI eszköz, nem varázslat. Megérted, mire való, mire nem, és hogyan kérj tőle felelősen.</p>
 <ul>
-<li>Az AI alapvető működése és korlátai</li>
-<li>Reális elvárások kialakítása</li>
-<li>Gyakori tévhitek felismerése</li>
-<li>Mikor érdemes AI-t használni és mikor nem</li>
+<li>tudatosan használod az AI-t, nem „vak” automataként</li>
+<li>felismered a kockázatos use case-eket</li>
+<li>tudod, hogy az első válasz miért ritkán tökéletes</li>
+<li>elindítod a saját „AI használati térképed” összeírását</li>
 </ul>
 
-<h2>Gyakorlat</h2>
-<p>Írj le 3 konkrét feladatot, amit a héten gyorsítanál AI-val. Minden feladathoz add meg:</p>
+<hr />
+<h2>Miért nem varázslat?</h2>
+<p>Az AI nem „érti”, mit szeretnél – csak azt látja, amit leírsz. Jó input → jobb output.</p>
 <ul>
-<li>Mi a feladat?</li>
-<li>Miért jó erre az AI?</li>
-<li>Mit várnál el tőle?</li>
+<li>Nem dönt helyetted, csak javasol</li>
+<li>Nem ismeri a céges kontextust, ha nem adod meg</li>
+<li>Nem vállal felelősséget: neked kell ellenőrizni</li>
 </ul>
 
-<h2>Kulcs tanulságok</h2>
-<blockquote>
-<p><strong>Az AI nem varázslat</strong> – segítő eszköz, ami jó inputot igényel, hogy jó outputot adjon.</p>
-<p><strong>Nem mindenre való</strong> – kritikus döntések, személyes adatok, kreatív művészet területén óvatosan.</p>
-<p><strong>Iteráció a kulcs</strong> – az első válasz ritkán tökéletes, de finomítással nagyon hasznos lehet.</p>
-</blockquote>
+<hr />
+<h2>Mire NEM való?</h2>
+<ul>
+<li>kritikus döntések (pénzügy, HR, egészségügy) emberi felülvizsgálat nélkül</li>
+<li>személyes adatok, jelszavak, bizalmas üzleti információk kezelése</li>
+<li>jogi, orvosi tanács helyettesítése</li>
+</ul>
 
-<h2>Házi feladat</h2>
-<p>Készíts egy listát 5 olyan feladatról, amit NEM adnál be AI-nak (pl. jelszavak, személyes adatok, kritikus döntések).</p>`,
+<hr />
+<h2>Hogyan használd biztonságosan?</h2>
+<ul>
+<li>anonimizáld az adatokat, ahol lehet</li>
+<li>kérj több változatot és válassz</li>
+<li>mindig iterálj: pontosíts, adj példát, adj korlátot</li>
+<li>ellenőrizd a tényeket, főleg számoknál/dátumoknál</li>
+</ul>
+
+<hr />
+<h2>Gyenge vs. jó prompt</h2>
+<p><strong>Gyenge:</strong> „Írj egy emailt egy ügyfélnek.” (általános, semmitmondó)</p>
+<p><strong>Jó:</strong> „Írj udvarias, rövid emailt egy panaszos ügyfélnek, aki tegnap reklamált. Stílus: empatikus, de professzionális. Hossz: max 4 mondat.”</p>
+
+<hr />
+<h2>Gyakorlat 1 – Használati térkép</h2>
+<p>Írj le 3 konkrét feladatot, amit a héten gyorsítanál AI-val. Mindenhez add meg: mi a feladat, mit vársz az AI-tól, milyen kockázatot látsz.</p>
+
+<h2>Gyakorlat 2 – Tiltólista</h2>
+<p>Készíts listát 5 feladatról, amit nem bízol az AI-ra (pl. jelszavak, döntések, érzékeny ügyfelek).</p>
+
+<hr />
+<h2>Tipp</h2>
+<p>Az AI eszköz. Te vagy a rendező: adj kontextust, célt, korlátot. Az első válasz csak kiindulópont.</p>
+
+<h2>Opcionális mélyítés</h2>
+<ul>
+<li>OpenAI: Responsible AI use (blog)</li>
+<li>Ethan Mollick: How to use AI well</li>
+</ul>`,
     emailSubject: 'AI 30 Nap – 1. nap: Mi az AI valójában?',
     emailBody: `<h1>{{courseName}}</h1>
 <h2>{{dayNumber}}. nap: {{lessonTitle}}</h2>
@@ -64,32 +92,55 @@ const lessonPlan = [
     day: 2,
     title: 'A jó prompt 4 eleme',
     content: `<h2>Napi cél</h2>
-<p>Megtanulod a jó prompt felépítését és megérted, miért kapsz más választ ugyanarra a kérdésre.</p>
-
-<h2>A jó prompt 4 eleme</h2>
-<ol>
-<li><strong>Cél</strong> – Mit akarsz elérni? (pl. "Írj emailt", "Összegezz", "Hasonlíts össze")</li>
-<li><strong>Kontextus</strong> – Milyen információkra van szükség? (pl. "30 perces meeting", "ügyfél panasz")</li>
-<li><strong>Forma</strong> – Milyen formátumot várunk? (pl. "bullet points", "táblázat", "rövid bekezdés")</li>
-<li><strong>Stílus</strong> – Milyen hangnemben? (pl. "hivatalos", "barátságos", "technikai")</li>
-</ol>
-
-<h2>Gyakorlat</h2>
-<p>Fogalmazz meg egy promptot, ami egy professzionális emailt kér időpont-egyeztetéshez. Használd a 4 elemet:</p>
+<p>Ma megtanulod, hogyan épül fel egy jó prompt, és miért kapsz teljesen eltérő válaszokat ugyanarra a kérdésre.</p>
 <ul>
-<li>Cél: Email írása</li>
-<li>Kontextus: 30 perces online meeting, jövő hét kedden 10:00-kor</li>
-<li>Forma: Rövid, strukturált email</li>
-<li>Stílus: Üzleti, udvarias</li>
+<li>tudatosan megfogalmazod a promptot</li>
+<li>irányítod a válasz minőségét</li>
+<li>felismered, miért „félreért” néha a modell</li>
+<li>pontosabb, használhatóbb outputot kérsz</li>
 </ul>
 
-<h2>Prompt minta</h2>
-<blockquote>
-<p>Írj udvarias, rövid emailt időpont-egyeztetéshez. Kontextus: 30 perces online meeting jövő hét kedden 10:00-kor. Stílus: üzleti, professzionális. Formátum: rövid bekezdés, tiszta felkérés.</p>
-</blockquote>
+<hr />
+<h2>Miért kapsz más választ ugyanarra a kérdésre?</h2>
+<p>Az AI nem érti a szándékod, csak a leírt szöveget. Két hasonló kérés mögött más-más elvárás lehet.</p>
+<p><strong>Gyenge:</strong> „Írj egy emailt egy ügyfélnek.”<br/><strong>Jobb:</strong> „Írj rövid, udvarias emailt egy panaszos ügyfélnek, aki tegnap reklamált.”</p>
 
+<hr />
+<h2>A jó prompt 4 eleme</h2>
+<ol>
+<li><strong>Cél</strong> – Mit akarsz elérni? (pl. „Írj emailt”, „Összegezz”, „Adj tanácsot”)</li>
+<li><strong>Kontextus</strong> – Milyen helyzetben vagyunk? (pl. „30 perces online meeting”, „Ügyfélpanasz egy késés miatt”)</li>
+<li><strong>Forma</strong> – Milyen formátumot vársz? (pl. bullet lista, táblázat, rövid bekezdés)</li>
+<li><strong>Stílus</strong> – Milyen hangnemben szóljon? (pl. üzleti, barátságos, technikai, motiváló)</li>
+</ol>
+
+<hr />
+<h2>Példák: gyenge vs. jó prompt</h2>
+<p><strong>Gyenge:</strong> Írj egy emailt időpont-egyeztetéshez. <em>Eredmény:</em> általános, semmitmondó.</p>
+<p><strong>Jó:</strong> Írj udvarias, rövid emailt időpont-egyeztetéshez. Kontextus: 30 perces online meeting jövő hét kedden 10:00-kor. Stílus: üzleti, professzionális. Formátum: egy rövid bekezdés, tiszta felkérés. <em>Eredmény:</em> konkrét, használható.</p>
+
+<hr />
+<h2>Gyakorlat 1 – Irányított</h2>
+<p>Írj promptot a következőhöz a 4 elem alapján:</p>
+<ul>
+<li>Cél: Emlékeztető email írása</li>
+<li>Kontextus: Ügyfél nem válaszolt egy korábbi ajánlatra</li>
+<li>Forma: Rövid email</li>
+<li>Stílus: Udvarias, nem tolakodó</li>
+</ul>
+
+<h2>Gyakorlat 2 – Saját életből</h2>
+<p>Válassz egy valós helyzetet (munka, iskola, család, ügyintézés), és írj promptot a 4 elem alapján.</p>
+
+<hr />
 <h2>Tipp</h2>
-<p>Mindig add meg a célt, a kontextust és az elvárt formát. Minél specifikusabb vagy, annál jobb választ kapsz.</p>`,
+<p>Mindig add meg legalább a célt, a kontextust és a formát. Az AI nem gondolatolvasó: te vagy a rendező.</p>
+
+<h2>Opcionális mélyítés</h2>
+<ul>
+<li>OpenAI Guide: Prompt Engineering Basics</li>
+<li>One Useful Thing (Ethan Mollick): Prompt példák</li>
+</ul>`,
     emailSubject: 'AI 30 Nap – 2. nap: A jó prompt 4 eleme',
     emailBody: `<h1>AI 30 Nap – 2. nap</h1>
 <h2>A jó prompt 4 eleme</h2>
@@ -100,32 +151,52 @@ const lessonPlan = [
     day: 3,
     title: 'Hogyan kérdezz vissza az AI-tól?',
     content: `<h2>Napi cél</h2>
-<p>Megtanulod az iterációt, a visszakérdezést és a pontosítást, hogy egyre jobb válaszokat kapj.</p>
-
-<h2>Iteráció és visszakérdezés</h2>
-<p>Az AI nem mindig érti elsőre, mit akarsz. Fontos, hogy:</p>
+<p>Ma az iterációt és a visszakérdezést tanulod: hogyan pontosítsd a választ, hogy tényleg használható legyen.</p>
 <ul>
-<li><strong>Pontosíts</strong> – "Rövidítsd 50%-kal" → "Rövidítsd 50%-kal, de tartsd meg a 3 fő üzenetet"</li>
-<li><strong>Kérj példákat</strong> – "Adj 3 változatot" → "Adj 3 változatot: 1) rövid, 2) részletes, 3) bullet points"</li>
-<li><strong>Add meg a korlátokat</strong> – "Max 100 szó", "5 pontban", "1 mondatban"</li>
-<li><strong>Kérj magyarázatot</strong> – "Magyarázd el, miért ezt javaslod"</li>
+<li>felismered, mikor kell pontosítani</li>
+<li>tudsz példákat és korlátokat kérni</li>
+<li>háromlépéses iterációs hurkot használsz</li>
 </ul>
 
-<h2>Gyakorlat</h2>
-<p>Futtasd le ugyanazt a promptot két módosítással:</p>
-<ol>
-<li>Első verzió: "Írj emailt a határidő csúszásáról"</li>
-<li>Második verzió: "Írj emailt a határidő csúszásáról. Stílus: empatikus, de professzionális. Hossz: max 4 mondat. Javasolj alternatív megoldást."</li>
-</ol>
-<p>Hasonlítsd össze a két választ!</p>
+<hr />
+<h2>Mi az iteráció?</h2>
+<p>Válasz → visszajelzés → pontosítás. Az AI nem találja ki a hiányzó részleteket: te irányítasz.</p>
 
+<h2>Iterációs hurok (3 lépés)</h2>
+<ol>
+<li><strong>Kérj változatot</strong>: „Adj 3 stílusvariánst (hivatalos, barátságos, technikai) max 50 szóban.”</li>
+<li><strong>Pontosíts</strong>: „Rövidítsd 30%-kal, de tartsd meg a 3 fő üzenetet.”</li>
+<li><strong>Korlátozz</strong>: „Legyen bullet lista, max 5 pont, konkrét teendőkkel.”</li>
+</ol>
+
+<hr />
+<h2>Példák: gyenge vs. jó pontosítás</h2>
+<p><strong>Gyenge:</strong> „Nem jó, csináld újra.”<br/><strong>Jó:</strong> „Túl hosszú és általános. Rövidítsd 30%-kal, adj konkrét példát, és írj barátságos hangnemben.”</p>
+
+<hr />
+<h2>Gyakorlat 1 – Ugyanaz a kérés, két verzió</h2>
+<ol>
+<li>„Írj emailt a határidő csúszásáról.”</li>
+<li>„Írj emailt a határidő csúszásáról. Stílus: empatikus, de professzionális. Hossz: max 4 mondat. Adj alternatív megoldást.”</li>
+</ol>
+<p>Hasonlítsd össze a két választ: mit tett hozzá a pontosítás?</p>
+
+<h2>Gyakorlat 2 – Iterációs kör</h2>
+<p>Válassz egy saját promptot, majd:</p>
+<ul>
+<li>kérj 3 stílusvariánst</li>
+<li>kérj rövidítést vagy bővítést konkrét elvárással</li>
+<li>kérj magyarázatot: „Miért ezt javaslod?”</li>
+</ul>
+
+<hr />
 <h2>Prompt minta</h2>
 <blockquote>
-<p>Adj 3 alternatív változatot ugyanarra a válaszra, formázott listában. Mindegyik legyen más stílusban: 1) hivatalos, 2) barátságos, 3) technikai. Mindegyik max 50 szó.</p>
+<p>Adj 3 alternatív választ listában. Mindegyik más stílusban (1) hivatalos, 2) barátságos, 3) technikai). Mindegyik max 50 szó, és tartalmazzon 2 konkrét teendőt.</p>
 </blockquote>
 
 <h2>Tipp</h2>
-<p>Kérj példákat, hosszkorlátot és hangnemet. Minél specifikusabb vagy, annál jobb az eredmény.</p>`,
+<p>Kérj példát, korlátot (hossz, formátum), és indoklást. A jó visszajelzés = jobb következő válasz.</p>`,
     emailSubject: 'AI 30 Nap – 3. nap: Hogyan kérdezz vissza az AI-tól?',
     emailBody: `<h1>AI 30 Nap – 3. nap</h1>
 <h2>Hogyan kérdezz vissza az AI-tól?</h2>
