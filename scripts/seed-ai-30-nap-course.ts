@@ -1339,7 +1339,7 @@ function generateQuizQuestions(
       }
     );
   } else if (day === 2) {
-    // Day 2: A jó prompt 4 eleme
+    // Day 2: A jó prompt 4 eleme - Generate all 15 questions
     questions.push(
       {
         question: 'Hány eleme van egy jó promptnak?',
@@ -1358,9 +1358,45 @@ function generateQuizQuestions(
       {
         question: 'Mit jelent a prompt "Cél" eleme?',
         options: [
-          'Mit akarsz elérni? (pl. "Írj emailt", "Összegezz")',
+          'Mit akarsz elérni? (pl. "Írj emailt", "Összegezz", "Hasonlíts össze")',
           'Milyen formátumot várunk?',
           'Milyen hangnemben?',
+          'Milyen információkra van szükség?'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.EASY,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Mit jelent a prompt "Kontextus" eleme?',
+        options: [
+          'Milyen információkra van szükség? (pl. "30 perces meeting", "ügyfél panasz")',
+          'Mit akarsz elérni?',
+          'Milyen formátumot várunk?',
+          'Milyen hangnemben?'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.EASY,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Mit jelent a prompt "Forma" eleme?',
+        options: [
+          'Milyen formátumot várunk? (pl. "bullet points", "táblázat", "rövid bekezdés")',
+          'Mit akarsz elérni?',
+          'Milyen hangnemben?',
+          'Milyen információkra van szükség?'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.EASY,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Mit jelent a prompt "Stílus" eleme?',
+        options: [
+          'Milyen hangnemben? (pl. "hivatalos", "barátságos", "technikai")',
+          'Mit akarsz elérni?',
+          'Milyen formátumot várunk?',
           'Milyen információkra van szükség?'
         ],
         correctIndex: 0,
@@ -1368,13 +1404,53 @@ function generateQuizQuestions(
         category: 'Course Specific'
       },
       {
-        question: 'Mit jelent a prompt "Kontextus" eleme?',
+        question: 'Mi a napi cél a(z) "A jó prompt 4 eleme" leckében?',
         options: [
-          'Milyen információkra van szükség? (pl. "30 perces meeting")',
-          'Mit akarsz elérni?',
-          'Milyen formátumot várunk?',
-          'Milyen hangnemben?'
+          'Megtanulod a jó prompt felépítését és megérted, miért kapsz más választ ugyanarra a kérdésre',
+          'Csak elméleti ismeretek',
+          'Nincs konkrét cél',
+          'Nem kell semmit tanulni'
         ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.MEDIUM,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Melyik a helyes sorrend a prompt 4 elemének?',
+        options: [
+          'Cél, Kontextus, Forma, Stílus',
+          'Kontextus, Cél, Stílus, Forma',
+          'Forma, Stílus, Cél, Kontextus',
+          'Stílus, Forma, Kontextus, Cél'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.MEDIUM,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Példa: "Írj emailt" - ez melyik prompt elem?',
+        options: ['Cél', 'Kontextus', 'Forma', 'Stílus'],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.MEDIUM,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Példa: "30 perces meeting" - ez melyik prompt elem?',
+        options: ['Kontextus', 'Cél', 'Forma', 'Stílus'],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.MEDIUM,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Példa: "bullet points" - ez melyik prompt elem?',
+        options: ['Forma', 'Cél', 'Kontextus', 'Stílus'],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.MEDIUM,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Példa: "hivatalos" - ez melyik prompt elem?',
+        options: ['Stílus', 'Cél', 'Kontextus', 'Forma'],
         correctIndex: 0,
         difficulty: QuestionDifficulty.MEDIUM,
         category: 'Course Specific'
@@ -1386,6 +1462,30 @@ function generateQuizQuestions(
           'Minél rövidebb, annál jobb',
           'Csak a célt kell megadni',
           'Nem számít, mit írsz'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.HARD,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Melyik prompt példa tartalmazza mind a 4 elemet?',
+        options: [
+          'Írj udvarias, rövid emailt időpont-egyeztetéshez. Kontextus: 30 perces online meeting jövő hét kedden 10:00-kor. Stílus: üzleti, professzionális. Formátum: rövid bekezdés.',
+          'Írj emailt',
+          'Email időpont-egyeztetéshez',
+          '30 perces meeting'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.HARD,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Miért fontos megadni mind a 4 elemet?',
+        options: [
+          'Hogy az AI pontosan azt adja, amit szeretnénk, és ne kelljen többször kérdezni',
+          'Hogy rövidebb legyen a prompt',
+          'Hogy ne kelljen kontextust adni',
+          'Nem fontos, csak a cél számít'
         ],
         correctIndex: 0,
         difficulty: QuestionDifficulty.HARD,
