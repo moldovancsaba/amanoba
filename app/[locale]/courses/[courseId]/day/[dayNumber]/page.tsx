@@ -10,7 +10,7 @@
 import { useState, useEffect } from 'react';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
-import { useLocale } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import { LocaleLink } from '@/components/LocaleLink';
 import LessonQuiz from '@/components/LessonQuiz';
 import {
@@ -57,6 +57,8 @@ export default function DailyLessonPage({
   const { data: session } = useSession();
   const router = useRouter();
   const locale = useLocale();
+  const t = useTranslations('courses');
+  const tCommon = useTranslations('common');
   const [lesson, setLesson] = useState<Lesson | null>(null);
   const [navigation, setNavigation] = useState<Navigation | null>(null);
   const [loading, setLoading] = useState(true);
@@ -87,11 +89,11 @@ export default function DailyLessonPage({
         setLesson(data.lesson);
         setNavigation(data.navigation);
       } else {
-        alert(data.error || 'Failed to load lesson');
+        alert(data.error || t('failedToLoadLesson'));
       }
     } catch (error) {
       console.error('Failed to fetch lesson:', error);
-      alert('Failed to load lesson');
+      alert(t('failedToLoadLesson'));
     } finally {
       setLoading(false);
     }
@@ -102,7 +104,7 @@ export default function DailyLessonPage({
 
     // Check if quiz is required and not passed
     if (lesson.quizConfig?.enabled && lesson.quizConfig.required && !quizPassed) {
-      alert('You must pass the quiz before completing this lesson.');
+      alert(t('mustPassQuiz'));
       return;
     }
 
@@ -117,13 +119,13 @@ export default function DailyLessonPage({
       if (data.success) {
         // Refresh lesson to show completed state
         await fetchLesson(courseId, dayNumber);
-        alert('Lesson completed! You earned points and XP.');
+        alert(t('lessonCompleted'));
       } else {
-        alert(data.error || 'Failed to complete lesson');
+        alert(data.error || t('failedToComplete'));
       }
     } catch (error) {
       console.error('Failed to complete lesson:', error);
-      alert('Failed to complete lesson');
+      alert(t('failedToComplete'));
     } finally {
       setCompleting(false);
     }
@@ -138,7 +140,7 @@ export default function DailyLessonPage({
   if (loading) {
     return (
       <div className="min-h-screen bg-brand-black flex items-center justify-center">
-        <div className="text-brand-white text-xl">Loading lesson...</div>
+        <div className="text-brand-white text-xl">{t('loadingLesson')}</div>
       </div>
     );
   }
@@ -147,12 +149,12 @@ export default function DailyLessonPage({
     return (
       <div className="min-h-screen bg-brand-black flex items-center justify-center">
         <div className="text-center">
-          <h2 className="text-2xl font-bold text-brand-white mb-4">Lesson not found</h2>
+          <h2 className="text-2xl font-bold text-brand-white mb-4">{t('lessonNotFound')}</h2>
           <LocaleLink
             href="/my-courses"
             className="inline-block bg-brand-accent text-brand-black px-6 py-3 rounded-lg font-bold hover:bg-brand-primary-400"
           >
-            Back to My Courses
+            {t('backToMyCourses')}
           </LocaleLink>
         </div>
       </div>
@@ -170,11 +172,11 @@ export default function DailyLessonPage({
               className="inline-flex items-center gap-2 text-brand-white hover:text-brand-accent"
             >
               <ArrowLeft className="w-5 h-5" />
-              Back to Course
+              {t('backToCourse')}
             </LocaleLink>
             <div className="flex items-center gap-2 text-brand-white">
               <Calendar className="w-5 h-5" />
-              <span className="font-bold">Day {lesson.dayNumber}</span>
+              <span className="font-bold">{t('dayNumber', { day: lesson.dayNumber })}</span>
             </div>
           </div>
         </div>
@@ -196,7 +198,7 @@ export default function DailyLessonPage({
               {!lesson.isUnlocked && (
                 <div className="bg-brand-darkGrey/20 border border-brand-darkGrey rounded-lg p-3 mt-3">
                   <p className="text-brand-darkGrey">
-                    Complete previous lessons to unlock this lesson.
+                    {t('completePreviousLessons')}
                   </p>
                 </div>
               )}
@@ -247,7 +249,7 @@ export default function DailyLessonPage({
                   className="flex items-center gap-2 bg-brand-darkGrey text-brand-white px-6 py-3 rounded-lg font-bold hover:bg-brand-secondary-700 transition-colors"
                 >
                   <ArrowLeft className="w-5 h-5" />
-                  Previous Day
+                  {t('previousDay')}
                 </LocaleLink>
               )}
 
@@ -260,12 +262,12 @@ export default function DailyLessonPage({
                   className="flex items-center gap-2 bg-brand-accent text-brand-black px-6 py-3 rounded-lg font-bold hover:bg-brand-primary-400 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   <CheckCircle className="w-5 h-5" />
-                  {completing ? 'Completing...' : 'Mark as Complete'}
+                  {completing ? t('completing') : t('markAsComplete')}
                 </button>
               ) : (
                 <div className="flex items-center gap-2 bg-green-500 text-white px-6 py-3 rounded-lg font-bold">
                   <CheckCircle className="w-5 h-5" />
-                  Completed
+                  {t('completed')}
                 </div>
               )}
 
@@ -274,7 +276,7 @@ export default function DailyLessonPage({
                   href={`/courses/${courseId}/day/${navigation.next.day}`}
                   className="flex items-center gap-2 bg-brand-accent text-brand-black px-6 py-3 rounded-lg font-bold hover:bg-brand-primary-400 transition-colors"
                 >
-                  Next Day
+                  {t('nextDay')}
                   <ArrowRight className="w-5 h-5" />
                 </LocaleLink>
               )}
@@ -285,17 +287,17 @@ export default function DailyLessonPage({
               <div className="bg-brand-accent/20 border-2 border-brand-accent rounded-xl p-6 mt-6">
                 <h3 className="text-xl font-bold text-brand-black mb-2 flex items-center gap-2">
                   <Play className="w-6 h-6" />
-                  Test Your Knowledge
+                  {t('testYourKnowledge')}
                 </h3>
                 <p className="text-brand-darkGrey mb-4">
-                  Complete the assessment game to reinforce what you learned. Your results will be linked to this lesson.
+                  {t('assessmentDescription')}
                 </p>
                 {lesson.assessmentGameRoute ? (
                   <LocaleLink
                     href={`${lesson.assessmentGameRoute}?courseId=${courseId}&lessonDay=${dayNumber}&assessment=true`}
                     className="inline-block bg-brand-accent text-brand-black px-6 py-3 rounded-lg font-bold hover:bg-brand-primary-400 transition-colors"
                   >
-                    Play Assessment →
+                    {t('playAssessment')}
                   </LocaleLink>
                 ) : (
                   <button
@@ -319,16 +321,16 @@ export default function DailyLessonPage({
                           // Navigate to game with session context
                           router.push(`${lesson.assessmentGameRoute}?sessionId=${sessionData.sessionId}&courseId=${courseId}&lessonDay=${dayNumber}&assessment=true`);
                         } else {
-                          alert('Failed to start assessment. Please try again.');
+                          alert(t('failedToStartAssessment'));
                         }
                       } catch (error) {
                         console.error('Failed to start assessment:', error);
-                        alert('Failed to start assessment. Please try again.');
+                        alert(t('failedToStartAssessment'));
                       }
                     }}
                     className="inline-block bg-brand-accent text-brand-black px-6 py-3 rounded-lg font-bold hover:bg-brand-primary-400 transition-colors"
                   >
-                    Play Assessment →
+                    {t('playAssessment')}
                   </button>
                 )}
               </div>
@@ -337,16 +339,16 @@ export default function DailyLessonPage({
         ) : (
           <div className="bg-brand-darkGrey rounded-xl p-12 text-center border-2 border-brand-accent">
             <Lock className="w-16 h-16 text-brand-white/30 mx-auto mb-4" />
-            <h3 className="text-xl font-bold text-brand-white mb-2">Lesson Locked</h3>
+            <h3 className="text-xl font-bold text-brand-white mb-2">{t('lessonLocked')}</h3>
             <p className="text-brand-white/70 mb-6">
-              Complete the previous lessons to unlock this one.
+              {t('completePreviousLessons')}
             </p>
             {navigation?.previous && (
               <LocaleLink
                 href={`/courses/${courseId}/day/${navigation.previous.day}`}
                 className="inline-block bg-brand-accent text-brand-black px-6 py-3 rounded-lg font-bold hover:bg-brand-primary-400 transition-colors"
               >
-                Go to Day {navigation.previous.day}
+                {t('goToDay', { day: navigation.previous.day })}
               </LocaleLink>
             )}
           </div>
