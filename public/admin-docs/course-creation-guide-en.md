@@ -1,8 +1,8 @@
 # Amanoba Course Creation Guide (EN)
 
-**Version**: 2.0  
-**Last Updated**: 2025-01-17  
-**Based on**: Production AI_30_NAP course implementation
+**Version**: 3.0  
+**Last Updated**: 2025-01-20  
+**Based on**: Production AI_30_NAP course implementation with Quiz Assessments
 
 This guide is based on the actual implementation of the AI_30_NAP course and learnings from the development process.
 
@@ -130,15 +130,59 @@ Courses are stored as documents in MongoDB using Mongoose schemas:
 
 ### Optional Fields
 
-- `assessmentGameId` – Link to a game for assessment (ObjectId)
+- `assessmentGameId` – Link to a game for assessment (ObjectId) - **Note**: This is optional. For lesson assessments, use `quizConfig` instead.
 - `pointsReward` – Override course default (default: `course.pointsConfig.lessonPoints`)
 - `xpReward` – Override course default (default: `course.xpConfig.lessonXP`)
+- `quizConfig` – **Quiz/Survey Assessment Configuration** (see below)
 - `translations` – Multi-language support (Map structure)
 - `metadata` – Flexible field for extra data:
   - `estimatedMinutes`: Reading time
   - `difficulty`: 'easy' | 'medium' | 'hard'
   - `tags`: Array of tags
   - Custom fields (prompt templates, tasks, tips, etc.)
+
+### Quiz/Survey Assessment Configuration (`quizConfig`)
+
+Each lesson can have a quiz assessment using the QUIZZZ game module. This is configured via the `quizConfig` object:
+
+```json
+{
+  "quizConfig": {
+    "enabled": true,
+    "successThreshold": 100,  // Percentage (0-100) of correct answers needed to pass
+    "questionCount": 5,       // Number of questions to show to the student
+    "poolSize": 15,           // Total number of questions in the pool (system randomly selects questionCount from this pool)
+    "required": true          // If true, student must pass quiz to complete lesson
+  }
+}
+```
+
+**Configuration Guidelines** (based on AI_30_NAP course):
+- **`enabled`**: Set to `true` to enable quiz for the lesson
+- **`successThreshold`**: Percentage of correct answers needed (e.g., 100 = all questions must be correct)
+- **`questionCount`**: Number of questions shown to student (recommended: 5)
+- **`poolSize`**: Total questions available (recommended: 15, so system randomly picks 5 from 15)
+- **`required`**: If `true`, lesson cannot be completed without passing the quiz
+
+**Quiz Question Management**:
+- Quiz questions are managed separately via the "Manage Quiz Questions" button in the lesson editor
+- Questions are course/lesson-specific (marked with `isCourseSpecific: true`)
+- Each question has 4 options, one correct answer
+- Questions can be created, edited, and deleted via the admin interface
+- Questions are stored in the `QuizQuestion` model with `lessonId` and `courseId` references
+
+**Example Quiz Configuration** (from AI_30_NAP):
+```json
+{
+  "quizConfig": {
+    "enabled": true,
+    "successThreshold": 100,  // Need all 5 correct (5/5 = 100%)
+    "questionCount": 5,       // Show 5 questions
+    "poolSize": 15,           // 15 questions in pool (system selects 5 randomly)
+    "required": true          // Quiz required to complete lesson
+  }
+}
+```
 
 ### Email Template Placeholders
 

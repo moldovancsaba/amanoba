@@ -1,8 +1,8 @@
 # Amanoba Kurzus Létrehozási Útmutató (HU)
 
-**Verzió**: 2.0  
-**Utolsó frissítés**: 2025-01-17  
-**Alapja**: AI_30_NAP kurzus valós implementációja
+**Verzió**: 3.0  
+**Utolsó frissítés**: 2025-01-20  
+**Alapja**: AI_30_NAP kurzus valós implementációja Quiz Értékelésekkel
 
 Ez az útmutató az AI_30_NAP kurzus tényleges implementációján és a fejlesztési folyamat során szerzett tapasztalatokon alapul.
 
@@ -130,15 +130,59 @@ A kurzusok MongoDB-ben dokumentumokként vannak tárolva Mongoose sémákkal:
 
 ### Opcionális mezők
 
-- `assessmentGameId` – Játék hivatkozás értékeléshez (ObjectId)
+- `assessmentGameId` – Játék hivatkozás értékeléshez (ObjectId) - **Megjegyzés**: Ez opcionális. Lecke értékelésekhez használd a `quizConfig`-ot.
 - `pointsReward` – Felülírja a kurzus alapértékét (alapértelmezett: `course.pointsConfig.lessonPoints`)
 - `xpReward` – Felülírja a kurzus alapértékét (alapértelmezett: `course.xpConfig.lessonXP`)
+- `quizConfig` – **Quiz/Feladatlap Értékelés Konfiguráció** (lásd lentebb)
 - `translations` – Többnyelvű támogatás (Map struktúra)
 - `metadata` – Rugalmas mező extra adatokhoz:
   - `estimatedMinutes`: Olvasási idő
   - `difficulty`: 'easy' | 'medium' | 'hard'
   - `tags`: Címkék tömbje
   - Egyedi mezők (prompt sablonok, feladatok, tippek, stb.)
+
+### Quiz/Feladatlap Értékelés Konfiguráció (`quizConfig`)
+
+Minden lecke rendelkezhet quiz értékeléssel a QUIZZZ játék modul használatával. Ezt a `quizConfig` objektummal konfigurálod:
+
+```json
+{
+  "quizConfig": {
+    "enabled": true,
+    "successThreshold": 100,  // Százalék (0-100) a sikeres válaszokhoz
+    "questionCount": 5,       // Megjelenítendő kérdések száma
+    "poolSize": 15,           // Összes kérdés a pool-ban (a rendszer véletlenszerűen választ questionCount-ot ebből a pool-ból)
+    "required": true          // Ha true, a tanulónak át kell mennie a quiz-en a lecke befejezéséhez
+  }
+}
+```
+
+**Konfigurációs irányelvek** (AI_30_NAP kurzus alapján):
+- **`enabled`**: Állítsd `true`-ra, hogy engedélyezd a quiz-t a leckéhez
+- **`successThreshold`**: Százalék a helyes válaszokhoz (pl. 100 = minden kérdésnek helyesnek kell lennie)
+- **`questionCount`**: Megjelenítendő kérdések száma (ajánlott: 5)
+- **`poolSize`**: Összes elérhető kérdés (ajánlott: 15, így a rendszer véletlenszerűen választ 5-öt 15-ből)
+- **`required`**: Ha `true`, a lecke nem fejezhető be a quiz sikeres teljesítése nélkül
+
+**Quiz Kérdések Kezelése**:
+- A quiz kérdéseket külön kezeled a "Quiz Kérdések Kezelése" gombbal a lecke szerkesztőben
+- A kérdések kurzus/lecke-specifikusak (jelölve `isCourseSpecific: true`-val)
+- Minden kérdésnek 4 opciója van, egy helyes válasz
+- A kérdéseket létrehozhatod, szerkesztheted és törölheted az admin felületen
+- A kérdések a `QuizQuestion` modellben tárolódnak `lessonId` és `courseId` hivatkozásokkal
+
+**Példa Quiz Konfiguráció** (AI_30_NAP-ból):
+```json
+{
+  "quizConfig": {
+    "enabled": true,
+    "successThreshold": 100,  // Mind az 5 helyes válasz szükséges (5/5 = 100%)
+    "questionCount": 5,       // 5 kérdés megjelenítése
+    "poolSize": 15,           // 15 kérdés a pool-ban (a rendszer véletlenszerűen választ 5-öt)
+    "required": true          // Quiz szükséges a lecke befejezéséhez
+  }
+}
+```
 
 ### Email sablon helyőrzők
 

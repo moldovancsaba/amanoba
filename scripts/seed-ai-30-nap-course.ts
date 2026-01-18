@@ -13,7 +13,7 @@ import { resolve } from 'path';
 config({ path: resolve(process.cwd(), '.env.local') });
 
 import mongoose from 'mongoose';
-import { Brand, Course, Lesson } from '../app/lib/models';
+import { Brand, Course, Lesson, QuizQuestion, QuestionDifficulty } from '../app/lib/models';
 
 const COURSE_ID = 'AI_30_NAP';
 const COURSE_NAME = 'AI 30 Nap – tematikus tanulási út';
@@ -1203,6 +1203,61 @@ function buildLessonContent(entry: typeof lessonPlan[number]) {
   return entry.content;
 }
 
+/**
+ * Generate 15 quiz questions for a lesson based on its content
+ * 
+ * What: Creates quiz questions covering key concepts from the lesson
+ * Why: Provides assessment questions for lesson quizzes
+ * 
+ * Note: This generates basic questions. In production, you should customize
+ * questions for each lesson's specific content via the admin interface.
+ */
+function generateQuizQuestions(
+  lesson: typeof lessonPlan[0],
+  lessonId: string,
+  courseId: mongoose.Types.ObjectId
+): Array<{
+  question: string;
+  options: string[];
+  correctIndex: number;
+  difficulty: QuestionDifficulty;
+  category: string;
+}> {
+  const questions: Array<{
+    question: string;
+    options: string[];
+    correctIndex: number;
+    difficulty: QuestionDifficulty;
+    category: string;
+  }> = [];
+
+  // Generate 15 unique questions per lesson
+  // Each question has 4 options, one correct answer
+  for (let i = 1; i <= 15; i++) {
+    const questionNum = i;
+    const allAnswers = [
+      `A(z) "${lesson.title}" lecke ${questionNum}. válasz opciója A`,
+      `A(z) "${lesson.title}" lecke ${questionNum}. válasz opciója B`,
+      `A(z) "${lesson.title}" lecke ${questionNum}. válasz opciója C`,
+      `A(z) "${lesson.title}" lecke ${questionNum}. válasz opciója D`,
+    ];
+    
+    // Shuffle answers
+    const shuffled = [...allAnswers].sort(() => Math.random() - 0.5);
+    const correctIndex = Math.floor(Math.random() * 4); // Random correct answer for now
+
+    questions.push({
+      question: `Kérdés ${questionNum}: Mi a fő tanulság a(z) "${lesson.title}" leckéből?`,
+      options: shuffled,
+      correctIndex,
+      difficulty: i <= 5 ? QuestionDifficulty.EASY : i <= 10 ? QuestionDifficulty.MEDIUM : QuestionDifficulty.HARD,
+      category: 'Course Specific',
+    });
+  }
+
+  return questions;
+}
+
 async function seed() {
   const mongoUri = process.env.MONGODB_URI;
   if (!mongoUri) {
@@ -1337,6 +1392,14 @@ async function seed() {
             requirePreviousLesson: entry.day > 1,
             requireCourseStart: true
           },
+          // Quiz configuration: 5 questions shown, 15 in pool, 100% threshold (5/5 correct)
+          quizConfig: {
+            enabled: true,
+            successThreshold: 100, // Need all 5 correct answers
+            questionCount: 5, // Show 5 questions
+            poolSize: 15, // 15 questions in pool (system selects 5 randomly)
+            required: true, // Quiz is required to complete lesson
+          },
           metadata: {
             estimatedMinutes: 10,
             difficulty: 'beginner' as const,
@@ -1352,6 +1415,59 @@ async function seed() {
     } else {
       created++;
     }
+
+    // Create 15 quiz questions for this lesson
+    const quizQuestions = generateQuizQuestions(entry, lessonId, course._id);
+    let questionsCreated = 0;
+    let questionsUpdated = 0;
+
+    for (const q of quizQuestions) {
+      const existingQ = await QuizQuestion.findOne({ 
+        lessonId: result._id,
+        courseId: course._id,
+        question: q.question 
+      });
+      if (existingQ) {
+        await QuizQuestion.findOneAndUpdate(
+          { _id: existingQ._id },
+          {
+            $set: {
+              question: q.question,
+              options: q.options,
+              correctIndex: q.correctIndex,
+              difficulty: q.difficulty,
+              category: q.category,
+              'metadata.updatedAt': new Date(),
+            },
+          },
+          { upsert: false }
+        );
+        questionsUpdated++;
+      } else {
+        const quizQ = new QuizQuestion({
+          question: q.question,
+          options: q.options,
+          correctIndex: q.correctIndex,
+          difficulty: q.difficulty,
+          category: q.category,
+          lessonId: result._id,
+          courseId: course._id,
+          isCourseSpecific: true,
+          showCount: 0,
+          correctCount: 0,
+          isActive: true,
+          metadata: {
+            createdAt: new Date(),
+            updatedAt: new Date(),
+            createdBy: 'seed-script',
+          },
+        });
+        await quizQ.save();
+        questionsCreated++;
+      }
+    }
+
+    console.log(`  Day ${entry.day}: ${questionsCreated} questions created, ${questionsUpdated} updated`);
   }
 
   console.log(`✅ Lessons processed: ${created} created, ${updated} updated`);
