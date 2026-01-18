@@ -8,7 +8,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { auth } from '@/auth';
 import connectDB from '@/lib/mongodb';
-import { Course } from '@/lib/models';
+import { Course, Lesson, CourseProgress, QuizQuestion, AssessmentResult } from '@/lib/models';
 import { logger } from '@/lib/logger';
 
 /**
@@ -83,7 +83,8 @@ export async function PATCH(
 /**
  * DELETE /api/admin/courses/[courseId]
  * 
- * What: Delete a specific course
+ * What: Delete a specific course and all related data
+ * Why: Cascading delete ensures data consistency
  */
 export async function DELETE(
   request: NextRequest,
@@ -98,15 +99,58 @@ export async function DELETE(
     await connectDB();
     const { courseId } = await params;
 
-    const course = await Course.findOneAndDelete({ courseId });
-
+    // Find course to get its ObjectId
+    const course = await Course.findOne({ courseId });
     if (!course) {
       return NextResponse.json({ error: 'Course not found' }, { status: 404 });
     }
 
-    logger.info({ courseId }, 'Admin deleted course');
+    const courseObjectId = course._id;
 
-    return NextResponse.json({ success: true, message: 'Course deleted' });
+    // Delete all related data in parallel
+    const [
+      lessonsDeleted,
+      progressDeleted,
+      quizQuestionsDeleted,
+      assessmentsDeleted,
+    ] = await Promise.all([
+      // Delete all lessons for this course
+      Lesson.deleteMany({ courseId: courseObjectId }),
+      
+      // Delete all course progress records
+      CourseProgress.deleteMany({ courseId: courseObjectId }),
+      
+      // Delete all course-specific quiz questions
+      QuizQuestion.deleteMany({ 
+        courseId: courseObjectId,
+        isCourseSpecific: true 
+      }),
+      
+      // Delete all assessment results for this course
+      AssessmentResult.deleteMany({ courseId: courseObjectId }),
+    ]);
+
+    // Finally, delete the course itself
+    await Course.findByIdAndDelete(courseObjectId);
+
+    logger.info({ 
+      courseId,
+      lessonsDeleted: lessonsDeleted.deletedCount,
+      progressDeleted: progressDeleted.deletedCount,
+      quizQuestionsDeleted: quizQuestionsDeleted.deletedCount,
+      assessmentsDeleted: assessmentsDeleted.deletedCount,
+    }, 'Admin deleted course and all related data');
+
+    return NextResponse.json({ 
+      success: true, 
+      message: 'Course deleted',
+      deleted: {
+        lessons: lessonsDeleted.deletedCount,
+        progress: progressDeleted.deletedCount,
+        quizQuestions: quizQuestionsDeleted.deletedCount,
+        assessments: assessmentsDeleted.deletedCount,
+      }
+    });
   } catch (error) {
     logger.error({ error, courseId: (await params).courseId }, 'Failed to delete course');
     return NextResponse.json({ error: 'Failed to delete course' }, { status: 500 });

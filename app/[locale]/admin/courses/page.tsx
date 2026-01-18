@@ -98,6 +98,31 @@ export default function AdminCoursesPage() {
     }
   };
 
+  const handleDeleteCourse = async (courseId: string, courseName: string) => {
+    if (!confirm(`Are you sure you want to delete "${courseName}"?\n\nThis will permanently delete:\n- All lessons\n- All student progress\n- All quiz questions\n- All assessment results\n\nThis action cannot be undone.`)) {
+      return;
+    }
+
+    try {
+      setDeletingCourseId(courseId);
+      const response = await fetch(`/api/admin/courses/${courseId}`, {
+        method: 'DELETE',
+      });
+
+      if (response.ok) {
+        fetchCourses(); // Refresh list
+      } else {
+        const data = await response.json();
+        alert(data.error || 'Failed to delete course');
+      }
+    } catch (error) {
+      console.error('Failed to delete course:', error);
+      alert('Failed to delete course');
+    } finally {
+      setDeletingCourseId(null);
+    }
+  };
+
   return (
     <div className="space-y-6">
       {/* Header */}
@@ -217,11 +242,24 @@ export default function AdminCoursesPage() {
                   onClick={() => toggleCourseStatus(course.courseId, course.isActive)}
                   className="p-2 bg-brand-darkGrey text-brand-white rounded-lg hover:bg-brand-secondary-700 transition-colors"
                   title={course.isActive ? 'Deactivate' : 'Activate'}
+                  disabled={deletingCourseId === course.courseId}
                 >
                   {course.isActive ? (
                     <EyeOff className="w-4 h-4" />
                   ) : (
                     <Eye className="w-4 h-4" />
+                  )}
+                </button>
+                <button
+                  onClick={() => handleDeleteCourse(course.courseId, course.name)}
+                  className="p-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                  title="Delete course"
+                  disabled={deletingCourseId === course.courseId}
+                >
+                  {deletingCourseId === course.courseId ? (
+                    <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                  ) : (
+                    <Trash2 className="w-4 h-4" />
                   )}
                 </button>
               </div>
