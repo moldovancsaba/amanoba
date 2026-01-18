@@ -314,11 +314,11 @@ export default function ChallengesPage() {
                     <div className="flex items-center justify-between pt-4 border-t border-brand-darkGrey/20">
                       <div className="flex items-center gap-4">
                         <div className="flex items-center gap-1">
-                          <Gift className="w-4 h-4 text-brand-accent" />
+                          <Icon icon={MdCardGiftcard} size={16} className="text-brand-accent" />
                           <span className="font-bold text-brand-accent">{challenge.rewards.points} pts</span>
                         </div>
                         <div className="flex items-center gap-1">
-                          <span className="text-brand-darkGrey">⚡</span>
+                          <Icon icon={MdBolt} size={16} className="text-brand-darkGrey" />
                           <span className="font-bold text-brand-darkGrey">{challenge.rewards.xp} XP</span>
                         </div>
                       </div>
