@@ -3020,58 +3020,8 @@ function generateQuizQuestions(
     );
   }
 
-  // Fill remaining questions with lesson-specific questions
-  // These are based on the lesson structure and key concepts
-  const remainingCount = 15 - questions.length;
-  for (let i = 0; i < remainingCount; i++) {
-    const qNum = questions.length + 1;
-    const difficulty = qNum <= 5 ? QuestionDifficulty.EASY : qNum <= 10 ? QuestionDifficulty.MEDIUM : QuestionDifficulty.HARD;
-    
-    // Create questions based on lesson content structure
-    if (content.includes('napi cél')) {
-      questions.push({
-        question: `Mi a napi cél a(z) "${title}" leckében?`,
-        options: [
-          'Gyakorlati készségek elsajátítása',
-          'Csak elméleti ismeretek',
-          'Nincs konkrét cél',
-          'Nem kell semmit tanulni'
-        ],
-        correctIndex: 0,
-        difficulty,
-        category: 'Course Specific'
-      });
-    } else if (content.includes('kulcs tanulság')) {
-      questions.push({
-        question: `Mi a kulcs tanulság a(z) "${title}" leckéből?`,
-        options: [
-          'A lecke fő üzenete és gyakorlati alkalmazása',
-          'Nincs tanulság',
-          'Csak elmélet',
-          'Nem fontos'
-        ],
-        correctIndex: 0,
-        difficulty,
-        category: 'Course Specific'
-      });
-    } else {
-      // Generic question based on lesson title
-      questions.push({
-        question: `Mi a legfontosabb a(z) "${title}" leckében?`,
-        options: [
-          'A gyakorlati alkalmazás és megértés',
-          'Csak az elméleti tudás',
-          'Nincs fontos dolog',
-          'Nem kell semmit megtanulni'
-        ],
-        correctIndex: 0,
-        difficulty,
-        category: 'Course Specific'
-      });
-    }
-  }
-
-  return questions.slice(0, 15); // Ensure exactly 15 questions
+  // Return curated questions only (no filler)
+  return questions;
 }
 
 async function seed() {
@@ -3232,58 +3182,41 @@ async function seed() {
       created++;
     }
 
-    // Create 15 quiz questions for this lesson
+    // Refresh course-specific quiz questions for this lesson (clear old, then insert curated)
+    const deleted = await QuizQuestion.deleteMany({
+      lessonId: lessonId,
+      courseId: course._id,
+      isCourseSpecific: true,
+    });
+
+    // Create quiz questions for this lesson
     const quizQuestions = generateQuizQuestions(entry, lessonId, course._id);
     let questionsCreated = 0;
-    let questionsUpdated = 0;
 
     for (const q of quizQuestions) {
-      const existingQ = await QuizQuestion.findOne({ 
+      const quizQ = new QuizQuestion({
+        question: q.question,
+        options: q.options,
+        correctIndex: q.correctIndex,
+        difficulty: q.difficulty,
+        category: q.category,
         lessonId: lessonId,
         courseId: course._id,
-        question: q.question 
+        isCourseSpecific: true,
+        showCount: 0,
+        correctCount: 0,
+        isActive: true,
+        metadata: {
+          createdAt: new Date(),
+          updatedAt: new Date(),
+          createdBy: 'seed-script',
+        },
       });
-      if (existingQ) {
-        await QuizQuestion.findOneAndUpdate(
-          { _id: existingQ._id },
-          {
-            $set: {
-              question: q.question,
-              options: q.options,
-              correctIndex: q.correctIndex,
-              difficulty: q.difficulty,
-              category: q.category,
-              'metadata.updatedAt': new Date(),
-            },
-          },
-          { upsert: false }
-        );
-        questionsUpdated++;
-      } else {
-        const quizQ = new QuizQuestion({
-          question: q.question,
-          options: q.options,
-          correctIndex: q.correctIndex,
-          difficulty: q.difficulty,
-          category: q.category,
-          lessonId: lessonId,
-          courseId: course._id,
-          isCourseSpecific: true,
-          showCount: 0,
-          correctCount: 0,
-          isActive: true,
-          metadata: {
-            createdAt: new Date(),
-            updatedAt: new Date(),
-            createdBy: 'seed-script',
-          },
-        });
-        await quizQ.save();
-        questionsCreated++;
-      }
+      await quizQ.save();
+      questionsCreated++;
     }
 
-    console.log(`  Day ${entry.day}: ${questionsCreated} questions created, ${questionsUpdated} updated`);
+    console.log(`  Day ${entry.day}: ${questionsCreated} questions created (cleared ${deleted.deletedCount})`);
   }
 
   console.log(`✅ Lessons processed: ${created} created, ${updated} updated`);

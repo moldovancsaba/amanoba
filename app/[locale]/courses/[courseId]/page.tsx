@@ -306,15 +306,20 @@ export default function CourseDetailPage({
                       {t('continueLearning')}
                     </LocaleLink>
                   </div>
+                ) : !session ? (
+                  <LocaleLink
+                    href={`/auth/signin?callbackUrl=${encodeURIComponent(`/${locale}/courses/${courseId}`)}`}
+                    className="block w-full bg-brand-accent text-brand-black px-4 py-3 rounded-lg font-bold text-center hover:bg-brand-primary-400 transition-colors"
+                  >
+                    {t('signInToEnroll')}
+                  </LocaleLink>
                 ) : (
                   <button
                     onClick={handleEnroll}
-                    disabled={!session || enrolling || course.requiresPremium}
+                    disabled={enrolling || course.requiresPremium}
                     className="w-full bg-brand-accent text-brand-black px-4 py-3 rounded-lg font-bold hover:bg-brand-primary-400 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                   >
-                    {!session
-                      ? t('signInToEnroll')
-                      : enrolling
+                    {enrolling
                       ? t('enrolling')
                       : course.requiresPremium
                       ? t('premiumRequired')
