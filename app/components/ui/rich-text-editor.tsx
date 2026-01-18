@@ -21,6 +21,7 @@ import {
   Undo,
   Redo,
 } from 'lucide-react';
+import { useEffect } from 'react';
 
 interface RichTextEditorProps {
   content: string;
@@ -58,10 +59,62 @@ export default function RichTextEditor({
     },
     editorProps: {
       attributes: {
-        class: 'prose prose-invert max-w-none focus:outline-none min-h-[300px] p-4',
+        class: 'prose max-w-none focus:outline-none min-h-[300px] p-4 text-brand-black',
       },
     },
   });
+
+  // Inject styles for ProseMirror editor content
+  useEffect(() => {
+    const style = document.createElement('style');
+    style.textContent = `
+      .ProseMirror {
+        color: #000000 !important;
+        outline: none;
+      }
+      .ProseMirror p {
+        color: #000000 !important;
+        margin: 0.5em 0;
+      }
+      .ProseMirror h1,
+      .ProseMirror h2,
+      .ProseMirror h3,
+      .ProseMirror h4,
+      .ProseMirror h5,
+      .ProseMirror h6 {
+        color: #000000 !important;
+        font-weight: bold;
+      }
+      .ProseMirror ul,
+      .ProseMirror ol {
+        color: #000000 !important;
+      }
+      .ProseMirror li {
+        color: #000000 !important;
+      }
+      .ProseMirror blockquote {
+        color: #000000 !important;
+        border-left: 3px solid #374151;
+        padding-left: 1em;
+        margin: 1em 0;
+      }
+      .ProseMirror a {
+        color: #FAB908 !important;
+        text-decoration: underline;
+      }
+      .ProseMirror p.is-editor-empty:first-child::before {
+        color: #9CA3AF !important;
+        content: attr(data-placeholder);
+        float: left;
+        height: 0;
+        pointer-events: none;
+      }
+    `;
+    document.head.appendChild(style);
+    return () => {
+      document.head.removeChild(style);
+    };
+  }, []);
 
   if (!editor) {
     return null;
