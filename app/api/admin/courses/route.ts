@@ -58,6 +58,7 @@ export async function GET(request: NextRequest) {
     }
 
     const courses = await Course.find(query)
+      .select('courseId name description language thumbnail isActive requiresPremium durationDays pointsConfig xpConfig createdAt updatedAt')
       .sort({ createdAt: -1 })
       .lean();
 
