@@ -209,11 +209,11 @@ export default function DailyLessonPage({
             <div className="flex items-center gap-4 text-sm text-brand-darkGrey">
               <div className="flex items-center gap-1">
                 <Award className="w-4 h-4" />
-                <span>{lesson.pointsReward} points</span>
+                <span>{lesson.pointsReward} {tCommon('points')}</span>
               </div>
               <div className="flex items-center gap-1">
                 <Award className="w-4 h-4" />
-                <span>{lesson.xpReward} XP</span>
+                <span>{lesson.xpReward} {tCommon('xp')}</span>
               </div>
             </div>
           )}

@@ -1,9 +1,28 @@
 # Amanoba Roadmap — 30-Day Learning Platform
 
-**Version**: 2.7.0  
-**Last Updated**: 2025-01-17T17:30:00.000Z  
+**Version**: 2.7.1  
+**Last Updated**: 2026-01-18T16:58:00.000Z  
 **Vision**: Transform Amanoba into a unified 30-day learning platform with gamified education, assessment tools, and email-based lesson delivery  
 **Current Phase**: Phase 2 & 3 Complete ✅ - Production Stable - Ready for Phase 4
+
+---
+
+## 🧭 Tech Debt Snapshot (2026-01-18)
+
+### Pseudo-Priority List
+- **P0 / High**
+  - Gate admin stats APIs (`app/api/admin/stats/verify`, `.../repair`) by role (admin/superadmin), not just session presence.
+  - Fix runtime crash in `app/api/admin/system-info/route.ts` (missing `fs`/`path` imports or dead code removal).
+  - Implement token-based unsubscribe in `app/api/email/unsubscribe/route.ts` (currently 400 when token is provided) or drop the token param.
+  - Restrict `app/api/profile/[playerId]` data exposure (wallet balances, `lastSeenAt`) to self/admin; clarify intended visibility.
+  - Wire rate limiting (`app/lib/security.ts`) into auth/profile/admin/progress endpoints.
+- **P1 / Medium**
+  - Localize and brand policy/legal pages; switch plain `Link`/`href=\"/\"` to `LocaleLink`, add missing HU/EN messages, and apply `globals.css` shell.
+  - Reconcile `design-system.css` palette (indigo/pink) with `globals.css` gold/black; remove straggler per-page styles.
+  - Remove client debug logs (dashboard, games/quizzz) before production builds.
+- **P2 / Low**
+  - Add minimal test harness (`npm test`), smoke tests for `[locale]/dashboard`, `[locale]/courses`, and critical APIs.
+  - Document/decide public profile surface and unsubscribe token contract to avoid regressions later.
 
 ---
 
@@ -599,4 +618,4 @@ EMAIL_FROM_NAME=Amanoba Learning
 
 **Maintained By**: Narimato  
 **Review Cycle**: Weekly during active development  
-**Next Review**: 2025-01-21
+**Next Review**: 2026-01-25
