@@ -49,6 +49,8 @@ export default function AdminAchievementsPage() {
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState('');
   const [categoryFilter, setCategoryFilter] = useState<string>('all');
+  const [deletingId, setDeletingId] = useState<string | null>(null);
+  const [showDeleteConfirm, setShowDeleteConfirm] = useState<{ id: string; name: string } | null>(null);
 
   useEffect(() => {
     fetchAchievements();
@@ -75,6 +77,30 @@ export default function AdminAchievementsPage() {
       console.error('Failed to fetch achievements:', error);
     } finally {
       setLoading(false);
+    }
+  };
+
+  const handleDelete = async (achievementId: string) => {
+    setDeletingId(achievementId);
+    try {
+      const response = await fetch(`/api/admin/achievements/${achievementId}`, {
+        method: 'DELETE',
+      });
+
+      const data = await response.json();
+
+      if (!response.ok || !data.success) {
+        throw new Error(data.error || 'Failed to delete achievement');
+      }
+
+      // Remove from list and refresh
+      setAchievements(prev => prev.filter(a => a._id !== achievementId));
+      setShowDeleteConfirm(null);
+    } catch (error) {
+      console.error('Failed to delete achievement:', error);
+      alert(error instanceof Error ? error.message : 'Failed to delete achievement');
+    } finally {
+      setDeletingId(null);
     }
   };
 
@@ -201,7 +227,9 @@ export default function AdminAchievementsPage() {
                   {tCommon('edit')}
                 </Link>
                 <button
-                  className="p-2 bg-gray-700 hover:bg-red-600 rounded-lg transition-colors"
+                  onClick={() => setShowDeleteConfirm({ id: achievement._id, name: achievement.name })}
+                  disabled={deletingId === achievement._id}
+                  className="p-2 bg-gray-700 hover:bg-red-600 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                   title={tCommon('delete')}
                 >
                   <Trash2 className="w-4 h-4 text-gray-300" />
@@ -237,6 +265,36 @@ export default function AdminAchievementsPage() {
           </div>
         </div>
       </div>
+
+      {/* Delete Confirmation Modal */}
+      {showDeleteConfirm && (
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+          <div className="bg-gray-800 rounded-xl p-6 border border-gray-700 max-w-md w-full mx-4">
+            <h3 className="text-xl font-bold text-white mb-4">Confirm Delete</h3>
+            <p className="text-gray-300 mb-6">
+              Are you sure you want to delete &quot;{showDeleteConfirm.name}&quot;? This action cannot be undone.
+            </p>
+            <div className="flex items-center justify-end gap-4">
+              <button
+                type="button"
+                onClick={() => setShowDeleteConfirm(null)}
+                disabled={deletingId === showDeleteConfirm.id}
+                className="px-4 py-2 bg-gray-700 hover:bg-gray-600 text-white rounded-lg font-medium transition-colors disabled:opacity-50"
+              >
+                {tCommon('cancel')}
+              </button>
+              <button
+                type="button"
+                onClick={() => handleDelete(showDeleteConfirm.id)}
+                disabled={deletingId === showDeleteConfirm.id}
+                className="px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-lg font-medium transition-colors disabled:opacity-50"
+              >
+                {deletingId === showDeleteConfirm.id ? tCommon('loading') : tCommon('delete')}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

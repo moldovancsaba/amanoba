@@ -43,7 +43,7 @@ const APP_URL = process.env.NEXT_PUBLIC_APP_URL || 'https://www.amanoba.com';
  * @param player - Player document instance
  * @returns Unsubscribe token
  */
-async function getOrGenerateUnsubscribeToken(player: InstanceType<typeof Player>): Promise<string> {
+async function getOrGenerateUnsubscribeToken(player: IPlayer & { save: () => Promise<IPlayer> }): Promise<string> {
   if (!player.unsubscribeToken) {
     player.unsubscribeToken = generateSecureToken(32);
     await player.save();

@@ -772,33 +772,51 @@ const lessonPlan = [
     day: 14,
     title: 'Személyes "AI-asszisztens" hang kialakítása',
     content: `<h2>Napi cél</h2>
-<p>Kialakítod a saját "AI-asszisztens" hangodat, ami konzisztensen úgy ír, mint te.</p>
-
-<h2>AI-asszisztens hang</h2>
-<p>Az AI-asszisztens hang az, amikor az AI úgy ír, mintha te írtad volna:</p>
+<p>Ma kialakítod a saját AI-asszisztens hangodat: a modell következetesen úgy ír, mint te.</p>
 <ul>
-<li><strong>Stílus</strong> – Ugyanaz a hang, mint a tiéd</li>
-<li><strong>Forma</strong> – Ugyanaz a struktúra, mint amit te használsz</li>
-<li><strong>Szókincs</strong> – Ugyanazok a szavak, kifejezések</li>
-<li><strong>Hossz</strong> – Ugyanaz a mondathossz, bekezdéshossz</li>
+<li>stílusprofil: hang, mondathossz, formalitás, szóhasználat</li>
+<li>struktúra: hogyan épül fel egy tipikus írásod</li>
+<li>„do/don’t” list: mit használjon, mit kerüljön</li>
+<li>hang-útmutató dokumentum, amit újrahasználsz</li>
 </ul>
 
-<h2>Gyakorlat</h2>
-<p>Készíts egy "hang profil" dokumentumot:</p>
+<hr />
+<h2>Hangprofil lépései</h2>
 <ol>
-<li>Gyűjts 3-5 példát a saját írásodból (email, dokumentum)</li>
-<li>Add meg az AI-nak és kérj elemzést: hang, stílus, forma</li>
-<li>Kérj egy "hang útmutatót": hogyan írjon úgy, mint te</li>
-<li>Mentsd el ezt az útmutatót és használd újra</li>
+<li>Gyűjts 3–5 saját szöveget (email, jegyzet, poszt).</li>
+<li>Elemeztesd: hang (barátságos/üzleti), mondathossz, szóhasználat, tempó.</li>
+<li>Készíttess útmutatót: „így írj, ha X (én) hangján szólalsz meg”.</li>
+<li>Adj visszajelzést, frissítsd a profilt.</li>
 </ol>
 
+<h2>Do/Don’t példa</h2>
+<ul>
+<li><strong>Do</strong>: rövid mondatok, konkrét példák, CTA a végén.</li>
+<li><strong>Don’t</strong>: szleng, túl hosszú bekezdések, passzív hang.</li>
+<li><strong>Szókincs</strong>: kedvenc kifejezések, kerülendő szavak.</li>
+</ul>
+
+<hr />
+<h2>Gyakorlat 1 – Hangprofil</h2>
+<p>Add meg 3 saját szöveget, kérj elemzést + útmutatót: hang, forma, szókincs, do/don’t, példák.</p>
+
+<h2>Gyakorlat 2 – Új szöveg ugyanazzal a hanggal</h2>
+<p>Kérj új szöveget (más téma), ugyanazzal a hanggal. Adj feedbacket és finomítsd a profilt.</p>
+
+<hr />
 <h2>Prompt minta</h2>
 <blockquote>
-<p>Íme 3 példa a saját írási stílusomra: [példák]. Elemezd: hang, stílus, forma, szókincs, mondathossz. Készíts egy "hang útmutatót", amit újra használhatok, hogy úgy írjon, mint én.</p>
+<p>Íme 3 példa a stílusomra: [példák]. Elemezd: hang, formalitás, mondathossz, szóhasználat, struktúra. Készíts „hang útmutatót” (do/don’t, kedvenc kifejezések). Írj egy új szöveget ugyanebben a hangban: [téma].</p>
 </blockquote>
 
 <h2>Tipp</h2>
-<p>Személyes "AI-asszisztens" hang kialakítása: minél több példát adsz, annál jobban megtanulja. Frissítsd, amikor változik a stílusod.</p>`,
+<p>A hangprofil élő dokumentum: frissítsd, amikor változik a stílusod. Minél több példa, annál pontosabb.</p>
+
+<h2>Opcionális mélyítés</h2>
+<ul>
+<li>Voice & tone guide példák (Mailchimp, Gov.uk)</li>
+<li>„Style transfer” promptok: hogyan vált hangnemet</li>
+</ul>`,
     emailSubject: 'AI 30 Nap – 14. nap: AI-asszisztens hang',
     emailBody: `<h1>AI 30 Nap – 14. nap</h1>
 <h2>Személyes "AI-asszisztens" hang kialakítása</h2>
@@ -809,40 +827,47 @@ const lessonPlan = [
     day: 15,
     title: 'Ismétlés: rossz prompt → jó prompt',
     content: `<h2>Napi cél</h2>
-<p>Ismételed a prompt írás készségeidet és gyakorlod a javítást.</p>
-
-<h2>Rossz vs. jó prompt</h2>
-<p><strong>Rossz prompt:</strong></p>
+<p>Ma újragyakorlod a rossz → jó prompt átalakítást: diagnózis, javítás, összehasonlítás.</p>
 <ul>
-<li>"Írj emailt" – túl általános</li>
-<li>"Összegezz" – nincs kontextus</li>
-<li>"Írj valamit" – nincs cél</li>
+<li>felismered a hibákat (hiányzó cél/kontextus/forma/stílus)</li>
+<li>konkrét javítási lépéseket írsz</li>
+<li>összehasonlítod a kimeneteket</li>
 </ul>
 
-<p><strong>Jó prompt:</strong></p>
-<ul>
-<li>"Írj rövid, udvarias emailt időpont-egyeztetéshez. Kontextus: 30 perces meeting jövő hét kedden 10:00-kor. Stílus: üzleti. Hossz: max 4 mondat."</li>
-<li>"Összegezd ezt a dokumentumot 5 pontban. Fő üzenetek, döntések, következő lépések."</li>
-<li>"Írj projekt briefet. Cél: [cél], Kontextus: [kontextus], Elvárások: [elvárások]."</li>
-</ul>
+<hr />
+<h2>Rossz vs. jó</h2>
+<p><strong>Rossz:</strong> „Írj emailt.” / „Összegezz.” / „Írj valamit.”</p>
+<p><strong>Jó:</strong> cél + kontextus + forma + stílus + hossz + CTA (pl. státusz email, 4 mondat, üzleti, CTA: válasz időponttal).</p>
 
-<h2>Gyakorlat</h2>
-<p>Válassz 3 rossz promptot és javítsd ki:</p>
+<h2>Debug lépések</h2>
 <ol>
-<li>Írd le a rossz promptot</li>
-<li>Elemezd, mi a probléma</li>
-<li>Javítsd ki: add hozzá a cél, kontextus, forma, stílus elemeit</li>
-<li>Futtasd le mindkét verziót és hasonlítsd össze</li>
+<li>Mi hiányzik? (cél/kontextus/forma/stílus/hossz)</li>
+<li>Adj konkrét kérést (pl. „max 4 mondat”, „bullet”, „empatikus”)</li>
+<li>Futtasd mindkét verziót, hasonlítsd össze</li>
+<li>Adj visszajelzést és iterálj</li>
 </ol>
 
+<hr />
+<h2>Gyakorlat 1 – 3 rossz prompt javítása</h2>
+<p>Válassz 3 rossz promptot, írd át, futtasd mindkettőt, hasonlítsd: mi lett jobb?</p>
+
+<h2>Gyakorlat 2 – Formátum váltás</h2>
+<p>Ugyanaz a tartalom: kérd bekezdésben, majd bulletben. Melyik használhatóbb?</p>
+
+<hr />
 <h2>Prompt minta</h2>
 <blockquote>
-<p>Rossz: "Írj valamit a projektről"</p>
-<p>Jó: "Írj projekt státusz emailt. Kontextus: [projekt leírás], Státusz: [státusz], Következő lépések: [lépések]. Stílus: professzionális, rövid bekezdések. Hossz: max 200 szó."</p>
+<p>Rossz: „Írj valamit a projektről.”<br/>Jó: „Írj projekt státusz emailt. Kontextus: [projekt], Státusz: [állapot], Következő lépések: [lépések]. Stílus: professzionális, rövid bekezdések. Hossz: max 200 szó. CTA: kérj visszajelzést.”</p>
 </blockquote>
 
 <h2>Tipp</h2>
-<p>Ismétlés: rossz prompt → jó prompt. A gyakorlat teszi a mestert – minél többet gyakorolsz, annál jobbak lesznek a promptjaid.</p>`,
+<p>Készíts checklistát: Cél, Kontextus, Forma, Stílus, Hossz, CTA. Minden javításnál ezt pótold.</p>
+
+<h2>Opcionális mélyítés</h2>
+<ul>
+<li>Prompt A/B teszt: két verzió összehasonlítása ugyanarra a feladatra</li>
+<li>„Before/After” gyűjtemény készítése referenciának</li>
+</ul>`,
     emailSubject: 'AI 30 Nap – 15. nap: Ismétlés',
     emailBody: `<h1>AI 30 Nap – 15. nap</h1>
 <h2>Ismétlés: rossz prompt → jó prompt</h2>
@@ -854,33 +879,43 @@ const lessonPlan = [
     day: 16,
     title: 'Marketing / Sales / PM / Dev – belépő nap',
     content: `<h2>Napi cél</h2>
-<p>Megismered, hogyan használhatod az AI-t a saját szerepedben (Marketing, Sales, Product Manager, Developer).</p>
-
-<h2>Szerep-specifikus AI használat</h2>
-<p>Minden szerepnek más AI igényei vannak:</p>
+<p>Ma személyre szabod az AI-használatot a szerepedre (Marketing/Sales/PM/Dev): feladatlista, gyorsítási pontok, prompt sablonok.</p>
 <ul>
-<li><strong>Marketing</strong> – Tartalom, kampányok, persona, értékajánlat</li>
-<li><strong>Sales</strong> – Ügyfélkommunikáció, pitch, értékajánlat, tárgyalás előkészítés</li>
-<li><strong>Product Manager</strong> – Specifikáció, user story, prioritás, roadmap</li>
-<li><strong>Developer</strong> – Kód dokumentáció, specifikáció, tesztelés, hibakeresés</li>
+<li>azonosítod a napi feladatokat</li>
+<li>kiválasztod, mit gyorsítasz AI-val</li>
+<li>első szerep-specifikus sabloncsomagot állítasz össze</li>
 </ul>
 
-<h2>Gyakorlat</h2>
-<p>Válaszd ki a saját szerepedet és készíts egy listát:</p>
-<ol>
-<li>Milyen feladatokat csinálsz naponta?</li>
-<li>Melyikeket lehetne AI-val gyorsítani?</li>
-<li>Milyen promptokat használnál?</li>
-<li>Milyen outputot várnál?</li>
-</ol>
+<hr />
+<h2>Szerep-példák</h2>
+<ul>
+<li><strong>Marketing</strong>: kampány brief, persona, értékajánlat, posztvázlat</li>
+<li><strong>Sales</strong>: cold email variáns, follow-up, objections, pitch outline</li>
+<li><strong>PM</strong>: user story, PRD váz, priorizálás (RICE), release note</li>
+<li><strong>Dev</strong>: kód-komment, docstring, teszt case váz, hiba triage</li>
+</ul>
 
+<hr />
+<h2>Gyakorlat 1 – Napi feladat térkép</h2>
+<p>Írd le a napi feladataidat, jelöld, mi gyorsítható AI-val, és mivel (összefoglaló, vázlat, sablon).</p>
+
+<h2>Gyakorlat 2 – 3 prompt sablon</h2>
+<p>Készíts 3 prompt sablont a szerepedre (cél, kontextus, forma, stílus, változók). Teszteld őket.</p>
+
+<hr />
 <h2>Prompt minta</h2>
 <blockquote>
-<p>Készíts egy AI használati tervet [szerep] szerephez. Struktúra: 1) Napi feladatok, 2) AI-val gyorsítható feladatok, 3) Prompt sablonok, 4) Várható output. Konkrét példákkal.</p>
+<p>Készíts AI-használati tervet [szerep]-hez. Struktúra: 1) Top 5 napi feladat, 2) AI-val gyorsítható elemek, 3) Prompt sablonok (Cél/Kontextus/Forma/Stílus), 4) Várt output.</p>
 </blockquote>
 
 <h2>Tipp</h2>
-<p>Marketing / Sales / PM / Dev – belépő nap: minden szerepnek más igényei vannak. Találd meg, mi a te szereped specifikus igénye.</p>`,
+<p>Az AI nem ugyanaz minden szerepben: tedd konkréttá a feladataidra. Kezdd 3 sablonnal, majd bővíts.</p>
+
+<h2>Opcionális mélyítés</h2>
+<ul>
+<li>Szerep-specifikus mérőszámok: mit javít az AI (idő, minőség, konzisztencia)</li>
+<li>Megosztott csapatsablonok gyűjtése</li>
+</ul>`,
     emailSubject: 'AI 30 Nap – 16. nap: Szerep-specifikus használat',
     emailBody: `<h1>AI 30 Nap – 16. nap</h1>
 <h2>Marketing / Sales / PM / Dev – belépő nap</h2>
@@ -2761,6 +2796,222 @@ function generateQuizQuestions(
           'Pontos link hivatalos oldalra',
           'Kép URL',
           'Nincs említés'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.HARD,
+        category: 'Course Specific'
+      }
+    );
+  } else if (day === 14) {
+    // Day 14: Személyes "AI-asszisztens" hang kialakítása
+    questions.push(
+      {
+        question: 'Miért építesz hangprofilt?',
+        options: [
+          'Hogy az AI következetesen úgy írjon, mint te',
+          'Hogy hosszabb szöveget írjon',
+          'Hogy elkerüld a példákat',
+          'Csak dísz miatt'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.EASY,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Mik a hangprofil fő elemei?',
+        options: [
+          'Hang, formalitás, mondathossz, szóhasználat, struktúra',
+          'Csak cím',
+          'Csak szóközök',
+          'Csak dátum'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.MEDIUM,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Mi tartozik a „do/don’t” listába?',
+        options: [
+          'Mit használjon (rövid mondatok, példák), mit kerüljön (szleng, hosszú bekezdések)',
+          'Csak a címet',
+          'Csak számokat',
+          'Csak képeket'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.MEDIUM,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Mi a jó prompt a hangprofil használatára?',
+        options: [
+          '„Íme 3 szövegem. Elemezd: hang, formalitás, mondathossz, szóhasználat, struktúra. Készíts hang-útmutatót (do/don’t), és írj új szöveget ugyanígy: [téma].”',
+          '„Írj valamit.”',
+          '„Legyen szebb.”',
+          '„Adj egy mondatot.”'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.MEDIUM,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Miért kell több minta a pontos hanghoz?',
+        options: [
+          'Minél több példa, annál pontosabban tanulja a stílust',
+          'Felesleges, elég 1 szó',
+          'Csak azért, hogy hosszabb legyen',
+          'Nem kell minta'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.EASY,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Mit jelent a „hangprofil élő dokumentum”?',
+        options: [
+          'Frissíted, ha változik a stílusod, és újrahasználod',
+          'Soha nem változik',
+          'Csak egyszer használod',
+          'Nem tárolod el'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.HARD,
+        category: 'Course Specific'
+      }
+    );
+  } else if (day === 15) {
+    // Day 15: Ismétlés: rossz prompt → jó prompt
+    questions.push(
+      {
+        question: 'Mi a fő cél a rossz → jó prompt átalakításnál?',
+        options: [
+          'Hiányzó elemek pótlása (cél, kontextus, forma, stílus, hossz, CTA)',
+          'Hosszabb szöveget írni',
+          'Kevesebb információt adni',
+          'Eltávolítani a kontextust'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.EASY,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Mi a 3 lépés a javításnál?',
+        options: [
+          'Diagnózis → pontosítás → validálás/összehasonlítás',
+          'Csak újrafuttatás',
+          'Csak törlés',
+          'Csak formázás'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.EASY,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Miért érdemes formátumot váltani (bullet vs. bekezdés)?',
+        options: [
+          'Eltérő formátum gyakran használhatóbb/áttekinthetőbb',
+          'Mindig rosszabb',
+          'Felesleges',
+          'Csak hosszabb lesz'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.MEDIUM,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Mi jó feedback egy rossz válaszra?',
+        options: [
+          '„Hiányzik a CTA, túl hosszú. Rövidítsd 50%-kal, bulletben, üzleti stílusban.”',
+          '„Nem jó.”',
+          '„Legyen szebb.”',
+          '„Írj valamit.”'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.MEDIUM,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Miért hasznos „Before/After” gyűjteményt tartani?',
+        options: [
+          'Referenciának és tanuláshoz, hogy lásd a fejlődést',
+          'Csak helyet foglal',
+          'Nem hasznos',
+          'Mert kötelező szabály'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.HARD,
+        category: 'Course Specific'
+      }
+    );
+  } else if (day === 16) {
+    // Day 16: Marketing / Sales / PM / Dev – belépő nap
+    questions.push(
+      {
+        question: 'Mi a napi cél ennél a leckénél?',
+        options: [
+          'Személyre szabni az AI-használatot a saját szerepedre (feladatlista, gyorsítási pontok, sablonok)',
+          'Általános feladatokat írni',
+          'Csak hosszabb szöveget kérni',
+          'Semmit nem kell csinálni'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.EASY,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Melyik példa tartozhat a Marketing szerephez?',
+        options: [
+          'Kampány brief, persona, értékajánlat, posztvázlat',
+          'Bug report',
+          'SQL query írás',
+          'Firmware frissítés'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.EASY,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Miért készíts szerep-specifikus prompt sablont?',
+        options: [
+          'Gyorsít és a te feladataidra optimalizál',
+          'Csak hosszabb lesz',
+          'Nem hasznos',
+          'Mert kötelező számot írni'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.MEDIUM,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Mi legyen a „Top 5 napi feladat” listában?',
+        options: [
+          'A tényleges napi feladataid, ahol az AI segíthet',
+          'Bármi, ami eszedbe jut',
+          'Csak hobbi',
+          'Csak random ötletek'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.MEDIUM,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Mit tartalmazzon a szerep-specifikus AI terv?',
+        options: [
+          'Feladatlista, AI-val gyorsítható elemek, prompt sablonok, várt output',
+          'Csak egy címet',
+          'Csak a stílust',
+          'Csak a határidőt'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.HARD,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Mi a tipp a szerep-specifikus használathoz?',
+        options: [
+          'Kezdj 3 sablonnal, teszteld, majd bővíts',
+          'Mindig 0 sablonnal kezdj',
+          'Ne tesztelj',
+          'Ne adj kontextust'
         ],
         correctIndex: 0,
         difficulty: QuestionDifficulty.HARD,
