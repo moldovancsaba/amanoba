@@ -12,7 +12,7 @@ import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import { useTranslations, useLocale } from 'next-intl';
 import { Trophy, ChevronLeft, Crown, Medal, Award, TrendingUp, TrendingDown } from 'lucide-react';
-import LocaleLink from '@/components/LocaleLink';
+import { LocaleLink } from '@/components/LocaleLink';
 
 interface LeaderboardEntry {
   playerId: string;

@@ -33,6 +33,14 @@ const config: Config = {
           darkGrey: '#2D2D2D',
           white: '#FFFFFF',
           accent: '#FAB908', // Yellow/Gold accent
+          // Primary color variants (for hover states)
+          primary: {
+            400: '#FBBF24', // Lighter yellow for hover
+          },
+          // Secondary color variants (for hover states)
+          secondary: {
+            700: '#374151', // Darker grey for hover
+          },
         },
         // Primary uses accent color
         primary: {
