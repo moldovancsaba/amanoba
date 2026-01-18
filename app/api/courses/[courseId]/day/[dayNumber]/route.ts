@@ -98,6 +98,7 @@ export async function GET(
       success: true,
       lesson: {
         ...lesson,
+        quizConfig: lesson.quizConfig || undefined,
         isUnlocked,
         isCompleted: progress.completedDays?.includes(day) || false,
       },

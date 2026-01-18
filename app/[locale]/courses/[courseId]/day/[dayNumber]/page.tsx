@@ -12,6 +12,7 @@ import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import { useLocale } from 'next-intl';
 import { LocaleLink } from '@/components/LocaleLink';
+import LessonQuiz from '@/components/LessonQuiz';
 import {
   ArrowLeft,
   ArrowRight,
@@ -30,6 +31,13 @@ interface Lesson {
   content: string;
   assessmentGameId?: string;
   assessmentGameRoute?: string; // Game route for navigation (e.g., '/games/quizzz')
+  quizConfig?: {
+    enabled: boolean;
+    successThreshold: number;
+    questionCount: number;
+    poolSize: number;
+    required: boolean;
+  };
   pointsReward: number;
   xpReward: number;
   isUnlocked: boolean;
@@ -55,6 +63,7 @@ export default function DailyLessonPage({
   const [completing, setCompleting] = useState(false);
   const [courseId, setCourseId] = useState<string>('');
   const [dayNumber, setDayNumber] = useState<number>(0);
+  const [quizPassed, setQuizPassed] = useState(false);
 
   useEffect(() => {
     const loadData = async () => {
@@ -91,6 +100,12 @@ export default function DailyLessonPage({
   const handleComplete = async () => {
     if (!lesson || completing) return;
 
+    // Check if quiz is required and not passed
+    if (lesson.quizConfig?.enabled && lesson.quizConfig.required && !quizPassed) {
+      alert('You must pass the quiz before completing this lesson.');
+      return;
+    }
+
     setCompleting(true);
     try {
       const response = await fetch(`/api/courses/${courseId}/day/${dayNumber}`, {
@@ -111,6 +126,12 @@ export default function DailyLessonPage({
       alert('Failed to complete lesson');
     } finally {
       setCompleting(false);
+    }
+  };
+
+  const handleQuizComplete = (result: { passed: boolean }) => {
+    if (result.passed) {
+      setQuizPassed(true);
     }
   };
 
@@ -206,6 +227,18 @@ export default function DailyLessonPage({
               />
             </div>
 
+            {/* Quiz Section */}
+            {lesson.quizConfig?.enabled && !lesson.isCompleted && (
+              <div className="mb-6">
+                <LessonQuiz
+                  courseId={courseId}
+                  lessonId={lesson.lessonId}
+                  quizConfig={lesson.quizConfig}
+                  onComplete={handleQuizComplete}
+                />
+              </div>
+            )}
+
             {/* Actions */}
             <div className="flex items-center justify-between gap-4">
               {navigation?.previous && (
@@ -223,8 +256,8 @@ export default function DailyLessonPage({
               {!lesson.isCompleted ? (
                 <button
                   onClick={handleComplete}
-                  disabled={completing}
-                  className="flex items-center gap-2 bg-brand-accent text-brand-black px-6 py-3 rounded-lg font-bold hover:bg-brand-primary-400 transition-colors disabled:opacity-50"
+                  disabled={completing || (lesson.quizConfig?.enabled && lesson.quizConfig.required && !quizPassed)}
+                  className="flex items-center gap-2 bg-brand-accent text-brand-black px-6 py-3 rounded-lg font-bold hover:bg-brand-primary-400 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   <CheckCircle className="w-5 h-5" />
                   {completing ? 'Completing...' : 'Mark as Complete'}
