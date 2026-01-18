@@ -926,33 +926,46 @@ const lessonPlan = [
     day: 17,
     title: 'Szerephez illesztett sabloncsomag I.',
     content: `<h2>Napi cél</h2>
-<p>Készítesz szerep-specifikus prompt sablonokat az első csomaghoz.</p>
-
-<h2>Sabloncsomag építése</h2>
-<p>Egy sabloncsomag tartalmazza a leggyakrabban használt promptokat a szerepedhez:</p>
+<p>Ma elkészíted az első szerep-specifikus sabloncsomagod: 5 prompt, amik a leggyakoribb feladataidra lőnek.</p>
 <ul>
-<li><strong>Alap promptok</strong> – Email, dokumentum, összefoglaló</li>
-<li><strong>Szerep-specifikus promptok</strong> – A te szerepedhez specifikus feladatok</li>
-<li><strong>Variációk</strong> – Ugyanaz a feladat, más stílusban</li>
+<li>alap sablonok: email, összefoglaló, teendő, vázlat</li>
+<li>szerep-specifikus sablon: a legfontosabb feladatodra</li>
+<li>variáció: ugyanaz más stílusban</li>
+<li>iteráció: hogyan finomítsd</li>
+<li>ellenőrzés: minőség-check prompt</li>
 </ul>
 
-<h2>Gyakorlat</h2>
-<p>Készíts 5 prompt sablont a saját szerepedhez:</p>
+<hr />
+<h2>Sabloncsomag v1</h2>
 <ol>
-<li>Egy alap prompt (pl. email írás)</li>
-<li>Egy szerep-specifikus prompt (pl. marketing: kampány vázlat)</li>
-<li>Egy variáció (ugyanaz, más stílusban)</li>
-<li>Egy iterációs prompt (finomítás, pontosítás)</li>
-<li>Egy output ellenőrző prompt (minőségellenőrzés)</li>
+<li><strong>Alap</strong>: email (Cél/Kontextus/Forma/Stílus/Változók)</li>
+<li><strong>Alap</strong>: összefoglaló (5 pont, döntés, next step)</li>
+<li><strong>Szerep-specifikus</strong>: pl. kampány vázlat / user story / bug triage / pitch outline</li>
+<li><strong>Variáció</strong>: ugyanaz, más stílusban (üzleti vs. barátságos)</li>
+<li><strong>Ellenőrző</strong>: „Ellenőrizd: hiányzik-e CTA, szám, határidő, felelős?”</li>
 </ol>
 
+<hr />
+<h2>Gyakorlat 1 – 5 sablon</h2>
+<p>Készítsd el a fenti 5 sablont a szerepedhez. Írd mellé, mire használod és milyen változókat töltesz ki.</p>
+
+<h2>Gyakorlat 2 – Teszt és jegyzet</h2>
+<p>Próbáld ki mind az 5-öt valós példán. Jegyezd fel: mi működött, mit kell javítani (v1 → v2).</p>
+
+<hr />
 <h2>Prompt minta</h2>
 <blockquote>
-<p>Készíts prompt sablont [szerep] szerephez [feladat] feladathoz. Struktúra: Cél, Kontextus, Forma, Stílus. Használható változókkal, amit mindig kitöltesz.</p>
+<p>Készíts prompt sablont [szerep]/[feladat]-hoz. Struktúra: Cél, Kontextus, Forma, Stílus, Változók ([x], [y], [z]). Adj 2 stílusvariánst.</p>
 </blockquote>
 
 <h2>Tipp</h2>
-<p>Szerephez illesztett sabloncsomag I.: kezdj 5 sablonnal, majd bővítsd, ahogy rájössz, mi hasznos. Dokumentáld és oszd meg a csapattal.</p>`,
+<p>Öt sablon elég az induláshoz. Verziózd, tartsd egy helyen, és oszd meg a csapattal.</p>
+
+<h2>Opcionális mélyítés</h2>
+<ul>
+<li>Sablon-nyilvántartás: mikor használtad, eredmény</li>
+<li>„Fail log”: mi nem működött, miért</li>
+</ul>`,
     emailSubject: 'AI 30 Nap – 17. nap: Sabloncsomag I.',
     emailBody: `<h1>AI 30 Nap – 17. nap</h1>
 <h2>Szerephez illesztett sabloncsomag I.</h2>
@@ -963,32 +976,49 @@ const lessonPlan = [
     day: 18,
     title: 'Szerephez illesztett sabloncsomag II.',
     content: `<h2>Napi cél</h2>
-<p>Bővíted a sabloncsomagodat további promptokkal.</p>
-
-<h2>Sabloncsomag bővítése</h2>
-<p>A második csomag haladó promptokat tartalmaz:</p>
+<p>Ma haladó sablonokat építesz: komplex, integrációs, automatizálási promptokkal bővíted a csomagot.</p>
 <ul>
-<li><strong>Komplex feladatok</strong> – Több lépéses folyamatok</li>
-<li><strong>Integrációk</strong> – Különböző eszközök kombinálása</li>
-<li><strong>Automatizálás</strong> – Ismétlődő feladatok automatizálása</li>
+<li>komplex feladat: több lépés, több output</li>
+<li>integráció: adat + elemzés + riport</li>
+<li>automatizálás: ismétlődő feladat sablonja</li>
 </ul>
 
-<h2>Gyakorlat</h2>
-<p>Készíts 3 haladó prompt sablont:</p>
+<hr />
+<h2>Haladó sablonok</h2>
 <ol>
-<li>Egy komplex feladat (pl. teljes kampány terv)</li>
-<li>Egy integrációs prompt (pl. adatok + elemzés + jelentés)</li>
-<li>Egy automatizálási prompt (pl. napi rutin automatizálása)</li>
+<li><strong>Komplex</strong>: pl. teljes kampányterv / PRD váz + acceptance criteria / debug-útvonal</li>
+<li><strong>Integráció</strong>: adatbeolvasás + összefoglaló + döntési javaslat</li>
+<li><strong>Automatizálás</strong>: napi rutinfeladat (pl. standup összegzés, ticket triage) standard promptja</li>
 </ol>
-<p>Minden sablonhoz add meg: lépések, input, output, ellenőrzés.</p>
 
+<h2>Mi legyen bennük?</h2>
+<ul>
+<li>Lépések: 1) Input, 2) Feldolgozás, 3) Output, 4) Ellenőrzés</li>
+<li>Változók: adatforrás, formátum, határidő, stílus</li>
+<li>Minőség: „Ellenőrizd a számokat/konzisztenciát, jelezd a hiányt”</li>
+</ul>
+
+<hr />
+<h2>Gyakorlat 1 – 3 haladó sablon</h2>
+<p>Készíts 3 sablont: komplex, integrációs, automatizálási. Teszteld mindhármat valós példán, jegyezd fel a javításokat.</p>
+
+<h2>Gyakorlat 2 – Minőségellenőrzés</h2>
+<p>Minden sablonhoz írj ellenőrző lépést: „Ha hiányzik X, szólj; ha számot használsz, ellenőrizd.”</p>
+
+<hr />
 <h2>Prompt minta</h2>
 <blockquote>
-<p>Készíts komplex prompt sablont [feladat] feladathoz. Struktúra: 1) Lépések, 2) Input (mit adsz be), 3) Output (mit kapsz), 4) Ellenőrzés (hogyan ellenőrzöd). Használható változókkal.</p>
+<p>Készíts haladó sablont [feladat]-hoz. Struktúra: 1) Lépések, 2) Input, 3) Output (formátum/hossz), 4) Ellenőrzés (mit validálj). Változók: [adatforrás], [stílus], [határidő].</p>
 </blockquote>
 
 <h2>Tipp</h2>
-<p>Szerephez illesztett sabloncsomag II.: a haladó promptok időt takarítanak meg, de több időt igényelnek a kialakításuk. Érdemes befektetni.</p>`,
+<p>Haladó sablonokat is verziózd. Különítsd el a komplex/automata promptokat a gyors, taktikai sablonoktól.</p>
+
+<h2>Opcionális mélyítés</h2>
+<ul>
+<li>Chaining: több prompt egymás után (vázlat → bővítés → QA)</li>
+<li>Integráció: táblázat + összefoglaló + ajánlás egy promptból</li>
+</ul>`,
     emailSubject: 'AI 30 Nap – 18. nap: Sabloncsomag II.',
     emailBody: `<h1>AI 30 Nap – 18. nap</h1>
 <h2>Szerephez illesztett sabloncsomag II.</h2>
@@ -999,33 +1029,52 @@ const lessonPlan = [
     day: 19,
     title: 'Tipikus csapdák az adott szerepben',
     content: `<h2>Napi cél</h2>
-<p>Megismered a tipikus csapdákat a saját szerepedben és megtanulod, hogyan kerüld el őket.</p>
-
-<h2>Tipikus csapdák</h2>
-<p>Minden szerepnek más csapdái vannak:</p>
+<p>Ma feltárod a szerep-specifikus csapdákat és megírod az elkerülési/ellenőrzési stratégiát.</p>
 <ul>
-<li><strong>Marketing</strong> – Túl kreatív, nem mérhető; hallucinációk statisztikákban</li>
-<li><strong>Sales</strong> – Túl általános pitch; nem személyre szabott</li>
-<li><strong>Product Manager</strong> – Túl technikai specifikáció; hiányzó user perspective</li>
-<li><strong>Developer</strong> – Hibás kód; nem tesztelt megoldások</li>
+<li>csapdalista: tipikus hibák a szerepedben</li>
+<li>felismerés: jelzések, amikre figyelj</li>
+<li>elkerülés: prompt-módosítás, ellenőrzés</li>
+<li>ellenőrző kérdések: mit kérdezz mindig</li>
 </ul>
 
-<h2>Gyakorlat</h2>
-<p>Készíts egy "csapda lista" dokumentumot a saját szerepedhez:</p>
-<ol>
-<li>Milyen tipikus hibákat követ el az AI a szerepedben?</li>
-<li>Hogyan ismersz fel hibákat?</li>
-<li>Hogyan kerüld el őket? (prompt módosítás, ellenőrzés)</li>
-<li>Milyen ellenőrző kérdéseket teszel fel?</li>
-</ol>
+<hr />
+<h2>Példák csapdákra</h2>
+<ul>
+<li><strong>Marketing</strong>: túl kreatív, nem mérhető; kitalált statok.</li>
+<li><strong>Sales</strong>: generikus pitch, nincs személyre szabás.</li>
+<li><strong>PM</strong>: hiányzó user szemlélet, csak technikai lista.</li>
+<li><strong>Dev</strong>: hibás kód, teszt nélkül, nem figyel edge case-re.</li>
+</ul>
 
+<h2>Elkerülés/ellenőrzés</h2>
+<ul>
+<li>„Ha statisztika: adj forrást vagy jelezd a bizonytalanságot.”</li>
+<li>„Adj 3 személyre szabott variánst [persona]-ra.”</li>
+<li>„Kérj unit tesztet / edge case listát.”</li>
+<li>„Használj mérőszámot (CTR, konverzió) vagy CTA-t.”</li>
+</ul>
+
+<hr />
+<h2>Gyakorlat 1 – Csapdalista</h2>
+<p>Írj 5 csapdát a szerepedre. Mindenhez: jelzés (hogy veszed észre), elkerülés (prompt), ellenőrzés (kérdés).</p>
+
+<h2>Gyakorlat 2 – Két prompt javítása</h2>
+<p>Vegyél egy rossz promptot a szerepedből, javítsd csapda-ellenesre, és hasonlítsd össze a kimenetet.</p>
+
+<hr />
 <h2>Prompt minta</h2>
 <blockquote>
-<p>Készíts egy "csapda lista" dokumentumot [szerep] szerephez. Struktúra: 1) Tipikus hibák, 2) Felismerés, 3) Elkerülés, 4) Ellenőrző kérdések. Konkrét példákkal.</p>
+<p>Készíts „csapdalista” dokumentumot [szerep]-hez. Struktúra: 1) Tipikus hibák, 2) Felismerés jelei, 3) Elkerülés (prompt módosítás), 4) Ellenőrző kérdések. Adj példát minden pontra.</p>
 </blockquote>
 
 <h2>Tipp</h2>
-<p>Tipikus csapdák az adott szerepben: ismerd fel a csapdákat, hogy elkerüld őket. Az ellenőrzés kulcsfontosságú.</p>`,
+<p>A csapdalista élő dokumentum: frissítsd, ha új hibát találsz. Kösd össze a sabloncsomagjaiddal.</p>
+
+<h2>Opcionális mélyítés</h2>
+<ul>
+<li>Hibagyűjtemény: valódi esetek a csapatból</li>
+<li>„Red flag” checklist per szerep</li>
+</ul>`,
     emailSubject: 'AI 30 Nap – 19. nap: Tipikus csapdák',
     emailBody: `<h1>AI 30 Nap – 19. nap</h1>
 <h2>Tipikus csapdák az adott szerepben</h2>
