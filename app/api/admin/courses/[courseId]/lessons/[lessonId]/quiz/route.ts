@@ -45,13 +45,13 @@ export async function GET(
       return NextResponse.json({ error: 'Lesson not found' }, { status: 404 });
     }
 
-    // Get all quiz questions for this lesson
+    // Get all quiz questions for this lesson (both active and inactive)
     const questions = await QuizQuestion.find({
       lessonId,
       courseId: course._id,
       isCourseSpecific: true,
     })
-      .sort({ 'metadata.createdAt': 1 })
+      .sort({ isActive: -1, 'metadata.createdAt': 1 }) // Active questions first, then by creation date
       .lean();
 
     return NextResponse.json({ 

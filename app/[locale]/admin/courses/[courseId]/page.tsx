@@ -834,8 +834,8 @@ function QuizManagerModal({
     setShowQuestionForm(true);
   };
 
-  const handleDelete = async (questionId: string) => {
-    if (!confirm('Are you sure you want to delete this question?')) return;
+  const handleDeactivate = async (questionId: string) => {
+    if (!confirm('Are you sure you want to deactivate this question? It can be reactivated later.')) return;
 
     try {
       const response = await fetch(`/api/admin/courses/${courseId}/lessons/${lessonId}/quiz/${questionId}`, {
@@ -847,11 +847,32 @@ function QuizManagerModal({
       if (data.success) {
         await fetchQuestions();
       } else {
-        alert(data.error || 'Failed to delete question');
+        alert(data.error || 'Failed to deactivate question');
       }
     } catch (error) {
-      console.error('Failed to delete question:', error);
-      alert('Failed to delete question');
+      console.error('Failed to deactivate question:', error);
+      alert('Failed to deactivate question');
+    }
+  };
+
+  const handlePermanentDelete = async (questionId: string) => {
+    if (!confirm('Are you sure you want to PERMANENTLY delete this question? This action cannot be undone!')) return;
+
+    try {
+      const response = await fetch(`/api/admin/courses/${courseId}/lessons/${lessonId}/quiz/${questionId}/permanent`, {
+        method: 'DELETE',
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        await fetchQuestions();
+      } else {
+        alert(data.error || 'Failed to permanently delete question');
+      }
+    } catch (error) {
+      console.error('Failed to permanently delete question:', error);
+      alert('Failed to permanently delete question');
     }
   };
 
@@ -1068,76 +1089,133 @@ function QuizManagerModal({
                 </button>
               </div>
             ) : (
-              <div className="space-y-3">
-                {questions.map((question) => (
-                  <div
-                    key={question._id}
-                    className={`p-4 border-2 rounded-lg ${
-                      question.isActive
-                        ? 'border-brand-accent bg-brand-white'
-                        : 'border-brand-darkGrey/30 bg-brand-darkGrey/10 opacity-60'
-                    }`}
-                  >
-                    <div className="flex items-start justify-between">
-                      <div className="flex-1">
-                        <div className="flex items-center gap-2 mb-2">
-                          <h4 className="font-bold text-brand-black">{question.question}</h4>
-                          {!question.isActive && (
-                            <span className="text-xs bg-brand-darkGrey text-brand-white px-2 py-1 rounded">
-                              Inactive
-                            </span>
-                          )}
-                        </div>
-                        <div className="space-y-1">
-                          {question.options.map((option, index) => (
-                            <div
-                              key={index}
-                              className={`text-sm ${
-                                index === question.correctIndex
-                                  ? 'text-green-600 font-bold'
-                                  : 'text-brand-darkGrey'
-                              }`}
-                            >
-                              {index === question.correctIndex ? '✓ ' : '  '}
-                              {option}
+              <div className="space-y-6">
+                {/* Active Questions */}
+                {questions.filter(q => q.isActive).length > 0 && (
+                  <div>
+                    <h3 className="text-lg font-bold text-brand-black mb-3">
+                      Active Questions ({questions.filter(q => q.isActive).length})
+                    </h3>
+                    <div className="space-y-3">
+                      {questions
+                        .filter(q => q.isActive)
+                        .map((question) => (
+                          <div
+                            key={question._id}
+                            className="p-4 border-2 border-brand-accent bg-brand-white rounded-lg"
+                          >
+                            <div className="flex items-start justify-between">
+                              <div className="flex-1">
+                                <div className="flex items-center gap-2 mb-2">
+                                  <h4 className="font-bold text-brand-black">{question.question}</h4>
+                                </div>
+                                <div className="space-y-1">
+                                  {question.options.map((option, index) => (
+                                    <div
+                                      key={index}
+                                      className={`text-sm ${
+                                        index === question.correctIndex
+                                          ? 'text-green-600 font-bold'
+                                          : 'text-brand-darkGrey'
+                                      }`}
+                                    >
+                                      {index === question.correctIndex ? '✓ ' : '  '}
+                                      {option}
+                                    </div>
+                                  ))}
+                                </div>
+                                <div className="flex items-center gap-4 mt-2 text-xs text-brand-darkGrey">
+                                  <span>Difficulty: {question.difficulty}</span>
+                                  <span>Category: {question.category}</span>
+                                </div>
+                              </div>
+                              <div className="flex items-center gap-2 ml-4">
+                                <button
+                                  onClick={() => handleEdit(question)}
+                                  className="p-2 bg-brand-accent text-brand-black rounded hover:bg-brand-primary-400 transition-colors"
+                                  title="Edit"
+                                >
+                                  ✏️
+                                </button>
+                                <button
+                                  onClick={() => handleDeactivate(question._id)}
+                                  className="p-2 bg-yellow-500 text-white rounded hover:bg-yellow-600 transition-colors"
+                                  title="Deactivate"
+                                >
+                                  👁️
+                                </button>
+                              </div>
                             </div>
-                          ))}
-                        </div>
-                        <div className="flex items-center gap-4 mt-2 text-xs text-brand-darkGrey">
-                          <span>Difficulty: {question.difficulty}</span>
-                          <span>Category: {question.category}</span>
-                        </div>
-                      </div>
-                      <div className="flex items-center gap-2 ml-4">
-                        <button
-                          onClick={() => handleEdit(question)}
-                          className="p-2 bg-brand-accent text-brand-black rounded hover:bg-brand-primary-400 transition-colors"
-                          title="Edit"
-                        >
-                          ✏️
-                        </button>
-                        <button
-                          onClick={() => handleToggleActive(question)}
-                          className={`p-2 rounded transition-colors ${
-                            question.isActive
-                              ? 'bg-yellow-500 text-white hover:bg-yellow-600'
-                              : 'bg-green-500 text-white hover:bg-green-600'
-                          }`}
-                          title={question.isActive ? 'Deactivate' : 'Activate'}
-                        >
-                          {question.isActive ? '👁️' : '👁️‍🗨️'}
-                        </button>
-                        <button
-                          onClick={() => handleDelete(question._id)}
-                          className="p-2 bg-red-500 text-white rounded hover:bg-red-600 transition-colors"
-                          title="Delete"
-                        >
-                          🗑️
-                        </button>
-                      </div>
+                          </div>
+                        ))}
                     </div>
                   </div>
-                ))}
+                )}
+
+                {/* Inactive Questions */}
+                {questions.filter(q => !q.isActive).length > 0 && (
+                  <div>
+                    <h3 className="text-lg font-bold text-brand-black mb-3">
+                      Inactive Questions ({questions.filter(q => !q.isActive).length})
+                    </h3>
+                    <div className="space-y-3">
+                      {questions
+                        .filter(q => !q.isActive)
+                        .map((question) => (
+                          <div
+                            key={question._id}
+                            className="p-4 border-2 border-brand-darkGrey/30 bg-brand-darkGrey/10 rounded-lg opacity-75"
+                          >
+                            <div className="flex items-start justify-between">
+                              <div className="flex-1">
+                                <div className="flex items-center gap-2 mb-2">
+                                  <h4 className="font-bold text-brand-black">{question.question}</h4>
+                                  <span className="text-xs bg-brand-darkGrey text-brand-white px-2 py-1 rounded">
+                                    Inactive
+                                  </span>
+                                </div>
+                                <div className="space-y-1">
+                                  {question.options.map((option, index) => (
+                                    <div
+                                      key={index}
+                                      className={`text-sm ${
+                                        index === question.correctIndex
+                                          ? 'text-green-600 font-bold'
+                                          : 'text-brand-darkGrey'
+                                      }`}
+                                    >
+                                      {index === question.correctIndex ? '✓ ' : '  '}
+                                      {option}
+                                    </div>
+                                  ))}
+                                </div>
+                                <div className="flex items-center gap-4 mt-2 text-xs text-brand-darkGrey">
+                                  <span>Difficulty: {question.difficulty}</span>
+                                  <span>Category: {question.category}</span>
+                                </div>
+                              </div>
+                              <div className="flex items-center gap-2 ml-4">
+                                <button
+                                  onClick={() => handleToggleActive(question)}
+                                  className="p-2 bg-green-500 text-white rounded hover:bg-green-600 transition-colors"
+                                  title="Reactivate"
+                                >
+                                  👁️‍🗨️
+                                </button>
+                                <button
+                                  onClick={() => handlePermanentDelete(question._id)}
+                                  className="p-2 bg-red-600 text-white rounded hover:bg-red-700 transition-colors"
+                                  title="Permanently Delete"
+                                >
+                                  🗑️
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                        ))}
+                    </div>
+                  </div>
+                )}
               </div>
             )}
           </div>

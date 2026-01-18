@@ -79,7 +79,7 @@ export async function PATCH(
 /**
  * DELETE /api/admin/courses/[courseId]/lessons/[lessonId]/quiz/[questionId]
  * 
- * What: Delete a quiz question
+ * What: Soft delete a quiz question (sets isActive to false)
  */
 export async function DELETE(
   request: NextRequest,
@@ -109,7 +109,7 @@ export async function DELETE(
       return NextResponse.json({ error: 'Lesson not found' }, { status: 404 });
     }
 
-    // Delete question (soft delete by setting isActive to false)
+    // Soft delete question (set isActive to false)
     const question = await QuizQuestion.findOneAndUpdate(
       {
         _id: questionId,
@@ -130,11 +130,11 @@ export async function DELETE(
       return NextResponse.json({ error: 'Quiz question not found' }, { status: 404 });
     }
 
-    logger.info({ courseId, lessonId, questionId }, 'Admin deleted lesson quiz question');
+    logger.info({ courseId, lessonId, questionId }, 'Admin deactivated lesson quiz question');
 
-    return NextResponse.json({ success: true, message: 'Quiz question deleted' });
+    return NextResponse.json({ success: true, message: 'Quiz question deactivated' });
   } catch (error) {
-    logger.error({ error, courseId: (await params).courseId, lessonId: (await params).lessonId, questionId: (await params).questionId }, 'Failed to delete quiz question');
-    return NextResponse.json({ error: 'Failed to delete quiz question' }, { status: 500 });
+    logger.error({ error, courseId: (await params).courseId, lessonId: (await params).lessonId, questionId: (await params).questionId }, 'Failed to deactivate quiz question');
+    return NextResponse.json({ error: 'Failed to deactivate quiz question' }, { status: 500 });
   }
 }
