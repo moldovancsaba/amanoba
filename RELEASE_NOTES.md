@@ -1,11 +1,54 @@
 # Amanoba Release Notes
 
 **Current Version**: 2.7.0  
-**Last Updated**: 2025-01-17T17:30:00.000Z
+**Last Updated**: 2025-01-20T18:00:00.000Z
 
 ---
 
 All completed tasks are documented here in reverse chronological order. This file follows the Changelog format and is updated with every version bump.
+
+---
+
+## [v2.7.1] — 2025-01-20 🐛
+
+**Status**: BUG FIX - System Info API Crash  
+**Type**: Critical Fix
+
+### 🐛 System Info API Runtime Crash Fix
+
+**Issue**: Admin dashboard system info endpoint crashed at runtime with missing `fs` and `path` imports in `app/api/admin/system-info/route.ts`.
+
+**Root Cause**: 
+- Code attempted to read `package.json` using `fs.readFileSync()` and `path.join()`
+- These Node.js modules were not imported
+- Runtime error occurred when admin dashboard tried to fetch system information
+
+**Fix Applied**:
+
+**System Info API** (`app/api/admin/system-info/route.ts`):
+```typescript
+// Before: Tried to read file with fs/path (not imported)
+const packageJsonPath = path.join(process.cwd(), 'package.json');
+const packageJsonContent = fs.readFileSync(packageJsonPath, 'utf-8');
+const packageJson = JSON.parse(packageJsonContent);
+version = packageJson.version || '2.7.0';
+
+// After: Use already-imported packageJson
+const version = packageJson.version || '2.7.0';
+```
+
+**Files Modified**:
+- `app/api/admin/system-info/route.ts` - Removed file I/O code, use imported packageJson directly
+
+**Testing**: 
+- ✅ Build passes successfully
+- ✅ No linter errors
+- ✅ Code simplified (removed unnecessary file I/O)
+
+**Impact**: 
+- Admin dashboard system info endpoint now works correctly
+- No more runtime crashes when accessing system information
+- Resolves P0 tech debt item from roadmap
 
 ---
 

@@ -27,7 +27,7 @@
 
 ### P0 / High Priority
 - Gate admin stats APIs (`app/api/admin/stats/verify`, `.../repair`) by role (admin/superadmin), not just session presence
-- Fix runtime crash in `app/api/admin/system-info/route.ts` (missing `fs`/`path` imports or dead code removal)
+- ~~Fix runtime crash in `app/api/admin/system-info/route.ts` (missing `fs`/`path` imports or dead code removal)~~ ✅ FIXED (v2.7.1)
 - Implement token-based unsubscribe in `app/api/email/unsubscribe/route.ts` (currently 400 when token is provided) or drop the token param
 - Restrict `app/api/profile/[playerId]` data exposure (wallet balances, `lastSeenAt`) to self/admin; clarify intended visibility
 - Wire rate limiting (`app/lib/security.ts`) into auth/profile/admin/progress endpoints
