@@ -207,32 +207,61 @@ const lessonPlan = [
     day: 4,
     title: 'Stílus és hang – tanítsd meg "úgy írni, mint te"',
     content: `<h2>Napi cél</h2>
-<p>Megtanulod, hogyan tanítsd meg az AI-nak a saját írási stílusodat és hangodat.</p>
-
-<h2>Stílus és hang kialakítása</h2>
-<p>Az AI-t lehet tanítani, hogy úgy írjon, mint te. Ehhez:</p>
+<p>Ma megtanítod az AI-nak a saját hangodat: hogyan írjon úgy, mint te, következetesen és felismerhetően.</p>
 <ul>
-<li><strong>Adj példákat</strong> – "Írj úgy, mint ebben a példában: [példa szöveg]"</li>
-<li><strong>Definiáld a hangot</strong> – "Stílus: barátságos, de professzionális, rövid mondatok, konkrét példák"</li>
-<li><strong>Használj mintákat</strong> – "Kövesd ezt a struktúrát: [struktúra]"</li>
-<li><strong>Adj visszajelzést</strong> – "Ez túl hivatalos, legyen barátságosabb"</li>
+<li>stílus-definíciót adsz (hang, mondathossz, formalitás)</li>
+<li>mintaszövegből taníttatod a modellt</li>
+<li>struktúrát és formát is adsz, nem csak hangnemet</li>
+<li>visszajelzést adsz, finomítasz</li>
 </ul>
 
-<h2>Gyakorlat</h2>
-<p>Válassz ki egy saját emailt vagy dokumentumot, amit írtál. Add meg az AI-nak és kérj, hogy:</p>
+<hr />
+<h2>Miért taníts stílust?</h2>
+<ul>
+<li>márka- és személyes hang következetessége</li>
+<li>kevesebb kézi átírás, gyorsabb publikálás</li>
+<li>könnyebb delegálás: „írd úgy, ahogy én szoktam”</li>
+</ul>
+
+<h2>4 lépés a stílustanításhoz</h2>
 <ol>
-<li>Elemezd a stílusomat (hang, mondathossz, formális szint)</li>
-<li>Írj egy új emailt ugyanabban a stílusban</li>
-<li>Adj 3 javaslatot, hogyan lehetne még jobban rám hasonlítani</li>
+<li><strong>Mutasd meg</strong>: adj 1-2 saját szöveget példának.</li>
+<li><strong>Nevezd meg</strong>: írd le a hangot (pl. barátságos, tömör, példákkal teli).</li>
+<li><strong>Adj struktúrát</strong>: bevezető–fő rész–zárás, vagy bullet/CTA.</li>
+<li><strong>Adj feedbacket</strong>: „túl hivatalos, legyen közvetlenebb”, „legyen rövidebb”.</li>
 </ol>
 
+<hr />
+<h2>Példa: gyenge vs. jó stílus brief</h2>
+<p><strong>Gyenge:</strong> „Írj úgy, mint én.”</p>
+<p><strong>Jó:</strong> „Írj úgy, mint ebben a példában: [szöveg]. Hang: barátságos, tárgyilagos, rövid mondatok. Struktúra: 1) probléma röviden, 2) megoldás 3 bulletben, 3) záró CTA.”</p>
+
+<hr />
+<h2>Gyakorlat 1 – Saját szöveg elemzése</h2>
+<p>Add meg az AI-nak egy általad írt szöveget, kérd:</p>
+<ul>
+<li>Elemezd a hangot (formalitás, mondathossz, szóhasználat).</li>
+<li>Foglalj össze 3 stílusjegyet.</li>
+<li>Írj 3 tippet, hogyan lehet ezt másolni.</li>
+</ul>
+
+<h2>Gyakorlat 2 – Új szöveg ugyanabban a stílusban</h2>
+<p>Kérj új szöveget a fenti stílusban egy másik témára. Adj feedbacket és pontosíts.</p>
+
+<hr />
 <h2>Prompt minta</h2>
 <blockquote>
-<p>Íme egy példa a saját írási stílusomra: [példa szöveg]. Elemezd a stílusomat (hang, mondathossz, formális szint) és írj egy új emailt ugyanabban a stílusban a következő témában: [téma].</p>
+<p>Íme a stílusom: [példa szöveg]. Hang: barátságos, tömör, példákkal. Struktúra: probléma, 3 bullet megoldás, CTA. Írj ugyanebben a stílusban egy emailt a következő témáról: [téma]. Ha eltérsz, jelezd, mit módosítottál.</p>
 </blockquote>
 
 <h2>Tipp</h2>
-<p>Példák, minták és tone definíciók segítenek. Minél több példát adsz, annál jobban megtanulja a stílusodat.</p>`,
+<p>Mindig adj mintát + stílusleírást + struktúrát. Ha nem tetszik az első verzió, mondd meg, mi legyen több/kevesebb.</p>
+
+<h2>Opcionális mélyítés</h2>
+<ul>
+<li>Brand voice guide példák (HubSpot, Mailchimp style guides)</li>
+<li>„Tone of voice” cikkek: hogyan építsd fel a sajátodat</li>
+</ul>`,
     emailSubject: 'AI 30 Nap – 4. nap: Stílus és hang',
     emailBody: `<h1>AI 30 Nap – 4. nap</h1>
 <h2>Stílus és hang – tanítsd meg "úgy írni, mint te"</h2>
@@ -243,41 +272,58 @@ const lessonPlan = [
     day: 5,
     title: 'Biztonság & etika a gyakorlatban',
     content: `<h2>Napi cél</h2>
-<p>Megtanulod, mit nem adunk be az AI-nak, és hogyan anonimizálunk adatokat.</p>
-
-<h2>Biztonság és etika</h2>
-<p><strong>Mit NEM adunk be:</strong></p>
+<p>Ma megtanulod, mit <em>nem</em adunk be az AI-nak, hogyan anonimizálj gyorsan, és hogyan maradj etikus.</p>
 <ul>
-<li>Személyes adatok (név, email, telefonszám, cím)</li>
-<li>Pénzügyi információk (bankszámla, kártyaszám)</li>
-<li>Üzleti titkos információk (szerződések, árazás, stratégiák)</li>
-<li>Jelszavak és biztonsági kódok</li>
-<li>Egészségügyi információk</li>
+<li>felismered az érzékeny adatokat</li>
+<li>tudsz helyőrzőkre cserélni (anonimizálás)</li>
+<li>kockázat alapján döntesz: mit lehet, mit nem</li>
 </ul>
 
-<p><strong>Hogyan anonimizálunk:</strong></p>
+<hr />
+<h2>Mit ne adj be?</h2>
 <ul>
-<li>Cseréld le a neveket: "Kovács János" → "[Ügyfél A]"</li>
-<li>Eltávolítsd az email címeket és telefonszámokat</li>
-<li>Használj általános leírásokat: "egy nagyvállalat" helyett konkrét cég neve</li>
-<li>Kérj, hogy az AI ne használjon valós példákat</li>
+<li>személyes adatok: név, email, telefonszám, cím</li>
+<li>pénzügyi: bankszámla, kártyaszám, árazás, szerződés</li>
+<li>bizalmas üzleti info: stratégia, nem publikus termékterv</li>
+<li>jelszavak, tokenek, biztonsági kódok</li>
+<li>egészségügyi, jogi, HR-es érzékeny részletek</li>
 </ul>
 
-<h2>Gyakorlat</h2>
-<p>Válassz ki egy dokumentumot vagy emailt, amit szeretnél AI-val feldolgozni. Anonimizáld:</p>
-<ol>
-<li>Azonosítsd az összes személyes/érzékeny adatot</li>
-<li>Cseréld le általános helyőrzőkre</li>
-<li>Ellenőrizd, hogy nincs-e benne semmi, amit nem szeretnél megosztani</li>
-</ol>
+<h2>Anonimizálás gyorsan</h2>
+<ul>
+<li>Nevek → [Név], cégek → [Cég], email → [Email], telefon → [Telefon]</li>
+<li>Specifikusum helyett általános: „egy nagyvállalat”, „B2B ügyfél”</li>
+<li>Kérd meg az AI-t is: „Ne tárold, ne idézd vissza a nyers adatot.”</li>
+</ul>
 
+<h2>Kockázati szintek</h2>
+<ul>
+<li><strong>Alacsony</strong>: publikus infó, marketing copy → OK</li>
+<li><strong>Közepes</strong>: belső folyamatleírás → anonimizálva, óvatosan</li>
+<li><strong>Magas</strong>: jogi, pénzügyi, személyes adatok → ne add be</li>
+</ul>
+
+<hr />
+<h2>Gyakorlat 1 – Anonimizálás</h2>
+<p>Vegyél egy rövid szöveget (email/jegyzőkönyv), cseréld a szenzitív részeket helyőrzőkre. Ellenőrizd újra.</p>
+
+<h2>Gyakorlat 2 – Biztonságos prompt</h2>
+<p>Írj promptot, ami kéri az AI-t: „Anonimizáld a bemenetet, ne használj valós neveket, és csak összefoglalót adj vissza.” Teszteld egy mintaszövegen.</p>
+
+<hr />
 <h2>Prompt minta</h2>
 <blockquote>
-<p>Feldolgozom ezt a szöveget, de előtte anonimizáld: cseréld le az összes nevet, emailt, telefonszámot és konkrét cégneveket általános helyőrzőkre (pl. [Név], [Email], [Cég]).</p>
+<p>Anonimizáld a következő szöveget: [szöveg]. Cseréld a neveket [Név], cégeket [Cég], emailt [Email], telefont [Telefon]. Ezután készíts 5 pontos összefoglalót. Ne idézd vissza az eredeti adatokat.</p>
 </blockquote>
 
 <h2>Tipp</h2>
-<p>Ne ossz meg személyes, pénzügyi vagy üzleti titkos adatot. Ha bizonytalan vagy, ne add be. Jobb óvatosnak lenni.</p>`,
+<p>Ha bizonytalan vagy, ne add be. Anonimizálj, rövidíts, és kérj összefoglalót teljes szöveg helyett.</p>
+
+<h2>Opcionális mélyítés</h2>
+<ul>
+<li>GDPR alapok röviden</li>
+<li>OpenAI data usage statement</li>
+</ul>`,
     emailSubject: 'AI 30 Nap – 5. nap: Biztonság & etika',
     emailBody: `<h1>AI 30 Nap – 5. nap</h1>
 <h2>Biztonság & etika a gyakorlatban</h2>
@@ -289,33 +335,52 @@ const lessonPlan = [
     day: 6,
     title: 'Email percek alatt – profi hangon',
     content: `<h2>Napi cél</h2>
-<p>Megtanulod, hogyan írsz gyorsan professzionális emaileket AI segítségével.</p>
-
-<h2>Email írás AI-val</h2>
-<p>Az email írása az egyik leggyorsabban megtanulható AI készség:</p>
+<p>Ma megtanulod, hogyan írsz 2-3 percen belül professzionális emaileket AI-val, több hangnemben.</p>
 <ul>
-<li><strong>Rövid emailek</strong> – "Írj rövid, udvarias választ a következő kérdésre: [kérdés]"</li>
-<li><strong>Hosszabb emailek</strong> – "Írj részletes emailt [témában], struktúrával: bevezető, fő rész, zárás"</li>
-<li><strong>Válaszok</strong> – "Írj választ erre az emailre: [email], stílus: [stílus]"</li>
-<li><strong>Variációk</strong> – "Adj 3 változatot: 1) rövid, 2) részletes, 3) bullet points"</li>
+<li>gyors email-vázat adsz céllal/kontextussal/stílussal</li>
+<li>kérsz több változatot és formátumot</li>
+<li>iterálsz: rövidíts, bővíts, hangnemet váltasz</li>
 </ul>
 
-<h2>Gyakorlat</h2>
-<p>Írj 3 emailt AI segítségével:</p>
-<ol>
-<li>Rövid válasz egy időpont-egyeztetési kérésre</li>
-<li>Hosszabb email projekt státuszról</li>
-<li>Empatikus válasz egy panaszra</li>
-</ol>
-<p>Minden emailhez add meg a kontextust, stílust és hosszt.</p>
+<hr />
+<h2>Email prompt váz</h2>
+<ul>
+<li><strong>Cél</strong>: írd le, mit akar az email (tájékoztat, kér, bocsánatot kér, egyeztet).</li>
+<li><strong>Kontextus</strong>: mi történt, kinek, mikorra.</li>
+<li><strong>Forma</strong>: rövid bekezdés, bullet lista, CTA a végén.</li>
+<li><strong>Stílus</strong>: üzleti, empatikus, rövid, tárgyilagos stb.</li>
+</ul>
 
+<h2>Példák: gyenge vs. jó</h2>
+<p><strong>Gyenge:</strong> „Írj emailt a határidő módosításáról.”</p>
+<p><strong>Jó:</strong> „Írj udvarias, rövid emailt a határidő módosításáról. Kontextus: 2 nappal csúszunk, ok: külső beszállító. Stílus: empatikus, de határozott. Hossz: max 4 mondat. Adj alternatív dátumot és CTA-t a visszajelzésre.”</p>
+
+<hr />
+<h2>Gyakorlat 1 – 3 email</h2>
+<ol>
+<li>Rövid válasz időpont-egyeztetésre (2-3 mondat, udvarias).</li>
+<li>Projekt státusz email (bevezető, helyzet, kockázat, következő lépés).</li>
+<li>Empatikus válasz panaszra (elismerés, megoldási javaslat, CTA).</li>
+</ol>
+<p>Mindennél add meg: kontextus, stílus, hossz, formátum.</p>
+
+<h2>Gyakorlat 2 – Két hangnem</h2>
+<p>Kérd ugyanazt az emailt két hangnemben (pl. üzleti vs. barátságos). Válaszd ki a jobb változatot és pontosíts.</p>
+
+<hr />
 <h2>Prompt minta</h2>
 <blockquote>
-<p>Írj professzionális emailt a következő témában: [téma]. Kontextus: [kontextus]. Stílus: [stílus]. Hossz: [hossz]. Formátum: [formátum].</p>
+<p>Írj professzionális emailt a következő témában: [téma]. Kontextus: [kontextus]. Stílus: [stílus]. Hossz: [hossz]. Formátum: [formátum]. Adj 2 változatot: 1) rövid, 2) részletes bullet lista.</p>
 </blockquote>
 
 <h2>Tipp</h2>
-<p>Kérj két hangnemet ugyanarra a tartalomra, hogy választhass. A rövid emailek gyorsabban készülnek, de a hosszabbak több kontextust igényelnek.</p>`,
+<p>Kérj több változatot, majd mondd meg, mi tetszik/mi nem (rövidebb, empatikusabb, több szám). A CTA-t mindig írasd bele.</p>
+
+<h2>Opcionális mélyítés</h2>
+<ul>
+<li>Email keretek: AIDA, PAS – kérd meg, hogy ezeket kövesse.</li>
+<li>Sign-off könyvtár: „Üdvözlettel”, „Köszönöm az együttműködést” – kérj 3 alternatívát.</li>
+</ul>`,
     emailSubject: 'AI 30 Nap – 6. nap: Email percek alatt',
     emailBody: `<h1>AI 30 Nap – 6. nap</h1>
 <h2>Email percek alatt – profi hangon</h2>

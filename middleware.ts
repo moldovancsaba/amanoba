@@ -92,14 +92,15 @@ export default auth((req) => {
 
   // Define protected routes (without locale prefix)
   // Why: These routes require authentication
+  // Note: Root path '/' is NOT protected - it shows landing page
   const isProtectedRoute =
-    actualPathname.startsWith('/dashboard') ||
+    (actualPathname.startsWith('/dashboard') ||
     actualPathname.startsWith('/games') ||
     actualPathname.startsWith('/profile') ||
     actualPathname.startsWith('/rewards') ||
-    actualPathname.startsWith('/courses') ||
     actualPathname.startsWith('/my-courses') ||
-    actualPathname.startsWith('/admin');
+    actualPathname.startsWith('/admin')) &&
+    actualPathname !== '/'; // Root path is public (landing page)
 
   const isPublicAdminDoc = actualPathname.startsWith('/admin/docs/course-creation');
 
