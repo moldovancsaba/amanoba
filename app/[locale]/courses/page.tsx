@@ -86,22 +86,6 @@ export default function CoursesPage() {
     return () => clearTimeout(timeoutId);
   }, [search]);
 
-  if (!session) {
-    return (
-      <div className="min-h-screen bg-brand-black flex items-center justify-center">
-        <div className="text-center">
-          <h2 className="text-2xl font-bold text-brand-white mb-4">{t('signInToView')}</h2>
-          <LocaleLink
-            href="/auth/signin"
-            className="inline-block bg-brand-accent text-brand-black px-6 py-3 rounded-lg font-bold hover:bg-brand-primary-400"
-          >
-            {tAuth('signIn')}
-          </LocaleLink>
-        </div>
-      </div>
-    );
-  }
-
   return (
     <div className="min-h-screen bg-brand-black">
       {/* Header */}
@@ -110,7 +94,7 @@ export default function CoursesPage() {
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-4">
               <LocaleLink
-                href="/dashboard"
+                href={session ? "/dashboard" : "/"}
                 className="text-brand-white hover:text-brand-accent transition-colors"
               >
                 <ArrowLeft className="w-6 h-6" />
@@ -123,6 +107,14 @@ export default function CoursesPage() {
                 <p className="text-brand-white/80 mt-1">{t('browseAndEnroll')}</p>
               </div>
             </div>
+            {!session && (
+              <LocaleLink
+                href="/auth/signin"
+                className="bg-brand-accent text-brand-black px-6 py-3 rounded-lg font-bold hover:bg-brand-primary-400 transition-colors"
+              >
+                {tAuth('signIn')}
+              </LocaleLink>
+            )}
           </div>
         </div>
       </header>
