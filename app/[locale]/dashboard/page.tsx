@@ -26,7 +26,8 @@ import Icon, {
   MdPerson, 
   MdStar, 
   MdTrendingUp, 
-  MdLocalFireDepartment 
+  MdLocalFireDepartment,
+  MdDiamond
 } from '@/components/Icon';
 
 interface PlayerData {
