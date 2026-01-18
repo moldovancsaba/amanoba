@@ -145,7 +145,7 @@ const CourseSchema = new Schema<ICourse>(
       type: Schema.Types.ObjectId,
       ref: 'Brand',
       required: [true, 'Brand ID is required'],
-      index: true,
+      // Why: Index created explicitly at schema level with name 'course_brand'
     },
 
     // Points configuration

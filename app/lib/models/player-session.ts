@@ -75,7 +75,7 @@ const PlayerSessionSchema = new Schema<IPlayerSession>(
       type: Schema.Types.ObjectId,
       ref: 'Brand',
       required: [true, 'Brand ID is required'],
-      index: true,
+      // Why: Index created explicitly at schema level
     },
     gameId: {
       type: Schema.Types.ObjectId,

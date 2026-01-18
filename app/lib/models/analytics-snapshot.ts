@@ -95,8 +95,7 @@ const AnalyticsSnapshotSchema = new Schema<IAnalyticsSnapshot>(
     brandId: {
       type: Schema.Types.ObjectId,
       ref: 'Brand',
-      index: true,
-      // Why: Null for global snapshots, specific for brand snapshots
+      // Why: Index created explicitly at schema level in compound index
     },
     gameId: {
       type: Schema.Types.ObjectId,

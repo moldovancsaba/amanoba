@@ -33,7 +33,7 @@ const FeatureFlagsSchema = new Schema<IFeatureFlags>(
       ref: 'Brand',
       required: [true, 'Brand ID is required'],
       unique: true,
-      index: true,
+      // Why: Index created explicitly at schema level
     },
     features: {
       courses: {

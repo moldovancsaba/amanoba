@@ -35,10 +35,14 @@ export async function GET(
       return NextResponse.json({ error: 'Course not found' }, { status: 404 });
     }
 
-    // Get brand info
-    const brand = await Brand.findById(course.brandId).lean();
-    if (!brand) {
-      return NextResponse.json({ error: 'Brand not found' }, { status: 404 });
+    // Get brand info (optional - export should work even if brand is missing)
+    let brand = null;
+    if (course.brandId) {
+      try {
+        brand = await Brand.findById(course.brandId).lean();
+      } catch (error) {
+        logger.warn({ courseId, brandId: course.brandId, error }, 'Failed to fetch brand for export, continuing without brand info');
+      }
     }
 
     // Get all lessons for this course
