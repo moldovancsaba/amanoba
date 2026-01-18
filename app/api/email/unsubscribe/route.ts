@@ -9,6 +9,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import connectDB from '@/lib/mongodb';
 import { Player } from '@/lib/models';
 import { logger } from '@/lib/logger';
+import { generateSecureToken } from '@/lib/security';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -36,15 +37,17 @@ export async function POST(request: NextRequest) {
 
     if (playerId) {
       player = await Player.findById(playerId);
+    } else if (token) {
+      // Token-based lookup (for email links)
+      player = await Player.findOne({ unsubscribeToken: token });
+      if (!player) {
+        return NextResponse.json(
+          { error: 'Invalid unsubscribe token' },
+          { status: 400 }
+        );
+      }
     } else if (email) {
       player = await Player.findOne({ email: email.toLowerCase() });
-    } else if (token) {
-      // TODO: Implement token-based unsubscribe (for email links)
-      // For now, return error
-      return NextResponse.json(
-        { error: 'Token-based unsubscribe not yet implemented' },
-        { status: 400 }
-      );
     }
 
     if (!player) {
@@ -111,14 +114,56 @@ export async function GET(request: NextRequest) {
     // Find player
     let player = null;
 
-    if (email) {
+    if (token) {
+      // Token-based lookup (for email links)
+      player = await Player.findOne({ unsubscribeToken: token });
+      if (!player) {
+        // Return HTML error page for invalid token
+        return new NextResponse(
+          `
+          <!DOCTYPE html>
+          <html>
+            <head>
+              <title>Invalid Unsubscribe Link</title>
+              <style>
+                body {
+                  font-family: Arial, sans-serif;
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  min-height: 100vh;
+                  margin: 0;
+                  background: #000;
+                  color: #fff;
+                }
+                .container {
+                  text-align: center;
+                  padding: 2rem;
+                  background: #2D2D2D;
+                  border-radius: 8px;
+                  border: 2px solid #FAB908;
+                }
+                h1 { color: #FAB908; }
+                .error { color: #ff4444; }
+              </style>
+            </head>
+            <body>
+              <div class="container">
+                <h1 class="error">Invalid Unsubscribe Link</h1>
+                <p>The unsubscribe link is invalid or has expired.</p>
+                <p>Please contact support if you need to unsubscribe from emails.</p>
+              </div>
+            </body>
+          </html>
+          `,
+          {
+            headers: { 'Content-Type': 'text/html' },
+            status: 400,
+          }
+        );
+      }
+    } else if (email) {
       player = await Player.findOne({ email: email.toLowerCase() });
-    } else if (token) {
-      // TODO: Implement token-based lookup
-      return NextResponse.json(
-        { error: 'Token-based unsubscribe not yet implemented' },
-        { status: 400 }
-      );
     }
 
     if (!player) {

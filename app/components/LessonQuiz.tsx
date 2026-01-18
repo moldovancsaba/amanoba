@@ -47,7 +47,7 @@ export default function LessonQuiz({
 }: LessonQuizProps) {
   const t = useTranslations('courses');
   const [questions, setQuestions] = useState<Question[]>([]);
-  const [answers, setAnswers] = useState<Record<string, number>>({});
+  const [answers, setAnswers] = useState<Record<string, { index: number; option: string }>>({});
   const [submitted, setSubmitted] = useState(false);
   const [result, setResult] = useState<QuizResult | null>(null);
   const [loading, setLoading] = useState(true);
@@ -84,9 +84,9 @@ export default function LessonQuiz({
     }
   };
 
-  const handleAnswer = (questionId: string, optionIndex: number) => {
+  const handleAnswer = (questionId: string, optionIndex: number, optionValue: string) => {
     if (submitted) return;
-    setAnswers({ ...answers, [questionId]: optionIndex });
+    setAnswers({ ...answers, [questionId]: { index: optionIndex, option: optionValue } });
   };
 
   const handleSubmit = async () => {
@@ -98,9 +98,10 @@ export default function LessonQuiz({
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          answers: Object.entries(answers).map(([questionId, optionIndex]) => ({
+          answers: Object.entries(answers).map(([questionId, answer]) => ({
             questionId,
-            selectedIndex: optionIndex,
+            selectedIndex: answer.index,
+            selectedOption: answer.option,
           })),
         }),
       });
@@ -203,7 +204,7 @@ export default function LessonQuiz({
                     <label
                       key={optionIndex}
                       className={`flex items-center gap-3 p-3 rounded-lg cursor-pointer border-2 transition-all ${
-                        answers[question.id] === optionIndex
+                        answers[question.id]?.index === optionIndex
                           ? 'border-brand-accent bg-brand-accent/10'
                           : 'border-brand-darkGrey/20 hover:border-brand-accent/50'
                       }`}
@@ -211,8 +212,8 @@ export default function LessonQuiz({
                       <input
                         type="radio"
                         name={`question-${question.id}`}
-                        checked={answers[question.id] === optionIndex}
-                        onChange={() => handleAnswer(question.id, optionIndex)}
+                        checked={answers[question.id]?.index === optionIndex}
+                        onChange={() => handleAnswer(question.id, optionIndex, option)}
                         className="w-5 h-5 text-brand-accent"
                       />
                       <span className="text-brand-black flex-1">{option}</span>

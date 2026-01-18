@@ -620,34 +620,43 @@ const lessonPlan = [
     day: 11,
     title: 'Saját prompt könyvtár létrehozása',
     content: `<h2>Napi cél</h2>
-<p>Létrehozod a saját prompt könyvtáradat, amit újra és újra használhatsz.</p>
-
-<h2>Prompt könyvtár építése</h2>
-<p>A prompt könyvtár segít:</p>
+<p>Ma létrehozod a saját prompt könyvtáradat: újrahasználható sablonokkal gyorsítasz, és konzisztens minőséget kapsz.</p>
 <ul>
-<li><strong>Időt takarít</strong> – Nem kell mindig újra megfogalmaznod</li>
-<li><strong>Konzisztencia</strong> – Ugyanazt a minőséget kapod</li>
-<li><strong>Fejlődés</strong> – Finomítod és javítod a promptokat</li>
+<li>kategorizált sablonok: email, összefoglaló, teendő, brief, ötletelés</li>
+<li>minden sablon: Cél + Kontextus + Forma + Stílus + Változók</li>
+<li>verziózás és jegyzetek, hogy lásd a fejlődést</li>
+<li>egy helyen tárolod (Notion/Drive) és megosztod a csapattal</li>
 </ul>
 
-<h2>Gyakorlat</h2>
-<p>Írj 5 prompt sablont a saját munkádhoz:</p>
-<ol>
-<li>Email írás (3 változat: rövid, részletes, bullet points)</li>
-<li>Összefoglaló készítés</li>
-<li>Teendőlista generálás</li>
-<li>Dokumentum vázlat</li>
-<li>Ötletelés</li>
-</ol>
-<p>Minden sablonhoz add meg: cél, kontextus, forma, stílus.</p>
+<hr />
+<h2>Sablon felépítés</h2>
+<ul>
+<li><strong>Cél</strong>: mit akarsz (írj emailt, foglald össze, készíts vázlatot)</li>
+<li><strong>Kontextus</strong>: háttér, ki/kinek, miről</li>
+<li><strong>Forma</strong>: bullet, rövid bekezdés, táblázat</li>
+<li><strong>Stílus</strong>: üzleti, barátságos, tömör</li>
+<li><strong>Változók</strong>: [téma], [címzett], [hossz], [stílus]</li>
+</ul>
 
-<h2>Prompt minta</h2>
-<blockquote>
-<p>Készíts prompt sablont email íráshoz. Struktúra: Cél: [cél], Kontextus: [kontextus], Stílus: [stílus], Hossz: [hossz]. Használható változókkal, amit mindig kitöltesz.</p>
-</blockquote>
+<h2>Példa sablon</h2>
+<p>„Írj rövid, udvarias emailt [címzett]-nek. Kontextus: [helyzet]. Stílus: [stílus]. Hossz: max [hossz]. Adj CTA-t a válaszra.”</p>
 
+<hr />
+<h2>Gyakorlat 1 – 5 sablon</h2>
+<p>Készíts 5 sablont a saját munkádhoz (email, összefoglaló, teendőlista, dokumentum vázlat, ötletelés). Mindegyikhez: cél, kontextus, forma, stílus, változók.</p>
+
+<h2>Gyakorlat 2 – Verziózás</h2>
+<p>Válassz ki egy sablont, próbáld ki 2 helyzetben, írd le, mit finomítottál. Verziózd v1 → v2.</p>
+
+<hr />
 <h2>Tipp</h2>
-<p>Kategorizáld a sablonokat (email, dokumentum, összefoglaló, stb.). Tartsd egy helyen (pl. Notion, Google Docs) és frissítsd, amikor jobbat találsz.</p>`,
+<p>Kategorizálj (email, dokumentum, összefoglaló, stb.) és tartsd egy helyen. Írd mellé, mikor működött jól, mikor nem.</p>
+
+<h2>Opcionális mélyítés</h2>
+<ul>
+<li>Prompt könyvtár struktúrák (Notion/Docs sablon)</li>
+<li>„What worked / what to improve” mező a sablonokhoz</li>
+</ul>`,
     emailSubject: 'AI 30 Nap – 11. nap: Saját prompt könyvtár',
     emailBody: `<h1>AI 30 Nap – 11. nap</h1>
 <h2>Saját prompt könyvtár létrehozása</h2>
@@ -658,32 +667,47 @@ const lessonPlan = [
     day: 12,
     title: 'Workflow: input → feldolgozás → output',
     content: `<h2>Napi cél</h2>
-<p>Kialakítasz egy hatékony workflow-t az AI használatához.</p>
+<p>Ma felépítesz egy újrahasználható AI-workflow-t: Input → Feldolgozás → Output → Ellenőrzés.</p>
+<ul>
+<li>Input: mit adsz be, anonimizálás, formátum</li>
+<li>Feldolgozás: prompt + iterációs lépések</li>
+<li>Output: milyen formában kéred (bullet, táblázat, rövid)</li>
+<li>Ellenőrzés: hogyan validálsz (forrás, számok, döntések)</li>
+</ul>
 
-<h2>Workflow építése</h2>
-<p>Egy jó workflow három lépésből áll:</p>
+<hr />
+<h2>Workflow lépések</h2>
 <ol>
-<li><strong>Input</strong> – Mit adsz be? (adatgyűjtés, anonimizálás)</li>
-<li><strong>Feldolgozás</strong> – Hogyan dolgozza fel? (prompt, iteráció)</li>
-<li><strong>Output</strong> – Mit kapsz ki? (ellenőrzés, finomítás, használat)</li>
+<li><strong>Input</strong>: adattisztítás, helyőrzők ([Név], [Email]), kontextus leírás.</li>
+<li><strong>Feldolgozás</strong>: prompt v1 → feedback → prompt v2 (iteráció).</li>
+<li><strong>Output</strong>: formátum, hossz, CTA, oszlopok.</li>
+<li><strong>Ellenőrzés</strong>: tények, számok, következő lépések, felelősök.</li>
 </ol>
 
-<h2>Gyakorlat</h2>
-<p>Állíts össze egy workflow-t egy konkrét feladathoz (pl. meeting jegyzetek feldolgozása):</p>
-<ol>
-<li>Input: Mit gyűjtesz be? (jegyzetek, kontextus)</li>
-<li>Feldolgozás: Milyen promptot használsz? (struktúra, formátum)</li>
-<li>Output: Mit kapsz? (összefoglaló, teendők, döntések)</li>
-<li>Ellenőrzés: Hogyan ellenőrzöd? (pontosság, teljesség)</li>
-</ol>
+<h2>Mini pipeline példa</h2>
+<p>Meeting jegyzet → (1) tisztítás/anonimizálás → (2) összefoglaló + döntések + teendők → (3) export CSV → (4) ellenőrzés.</p>
 
+<hr />
+<h2>Gyakorlat 1 – Saját workflow</h2>
+<p>Válassz feladatot (pl. jegyzet → akciólista). Írd le a 4 lépést, majd futtasd végig AI-val.</p>
+
+<h2>Gyakorlat 2 – Ellenőrző lista</h2>
+<p>Készíts checklistet: mit ellenőrzöl mindig? (számok, nevek, határidők, tények)</p>
+
+<hr />
 <h2>Prompt minta</h2>
 <blockquote>
-<p>Készíts workflow tervet [feladat] feldolgozásához. Struktúra: 1) Input (mit gyűjtesz), 2) Feldolgozás (milyen prompt), 3) Output (mit kapsz), 4) Ellenőrzés (hogyan ellenőrzöd).</p>
+<p>Készíts workflow tervet [feladat]-hoz. 1) Input: mit gyűjtök, mit anonimizálok? 2) Feldolgozás: milyen prompt + iteráció? 3) Output: milyen formátum/hossz/CTA? 4) Ellenőrzés: mit és hogyan validálok?</p>
 </blockquote>
 
 <h2>Tipp</h2>
-<p>A workflow iteratív – finomítsd, amikor jobbat találsz. Dokumentáld a sikeres workflow-kat, hogy újra használhasd őket.</p>`,
+<p>Dokumentáld a bevált workflow-kat. Kis lépésekben javítsd: mindig tudd, melyik lépés hozta a jobb kimenetet.</p>
+
+<h2>Opcionális mélyítés</h2>
+<ul>
+<li>Workflow sablonok: meeting, email, brief, táblázat</li>
+<li>Automatizálás ötlet: ugyanazt a pipeline-t scriptelve futtatni</li>
+</ul>`,
     emailSubject: 'AI 30 Nap – 12. nap: Workflow építése',
     emailBody: `<h1>AI 30 Nap – 12. nap</h1>
 <h2>Workflow: input → feldolgozás → output</h2>
@@ -694,41 +718,50 @@ const lessonPlan = [
     day: 13,
     title: 'Hibák, hallucinációk kezelése',
     content: `<h2>Napi cél</h2>
-<p>Megtanulod, hogyan ismersz fel és kezelsz hibákat és hallucinációkat.</p>
-
-<h2>Hallucinációk felismerése</h2>
-<p>Az AI néha "hallucinál" – információt ad, ami nem igaz. Jelei:</p>
+<p>Ma megtanulod felismerni és kezelni a hibákat/hallucinációkat: forráskérés, tényellenőrzés, korlátozás.</p>
 <ul>
-<li><strong>Konkrét dátumok/számok</strong> – Ellenőrizd forrásokkal</li>
-<li><strong>Valós események</strong> – Keresd meg, hogy tényleg megtörtént-e</li>
-<li><strong>Statisztikák</strong> – Mindig ellenőrizd</li>
-<li><strong>Konkrét nevek/cégek</strong> – Keresd meg, hogy léteznek-e</li>
+<li>tudod, mikor valószínű a hallucináció (számok, dátumok, nevek)</li>
+<li>forrást kérsz és ellenőrzöl</li>
+<li>„ha nem biztos, jelezd” szabályt használsz</li>
+<li>alternatívákat kérsz és validálsz</li>
 </ul>
 
-<h2>Hibakezelés</h2>
-<p>Hogyan kezeld a hibákat:</p>
-<ol>
-<li><strong>Ellenőrizd</strong> – Mindig ellenőrizd a kritikus információkat</li>
-<li><strong>Kérj forrást</strong> – "Melyik forrásból származik ez az információ?"</li>
-<li><strong>Pontosíts</strong> – "Ez biztosan igaz? Ellenőrizd forrásokkal"</li>
-<li><strong>Kérj alternatívát</strong> – "Adj 3 alternatív megoldást"</li>
-</ol>
+<hr />
+<h2>Hallucináció jelei</h2>
+<ul>
+<li>pontos dátum/szám forrás nélkül</li>
+<li>nem létező esemény/szereplő</li>
+<li>statisztika, ami túl kerek/általános</li>
+<li>„forrás nélkül” vagy kitalált hivatkozás</li>
+</ul>
 
-<h2>Gyakorlat</h2>
-<p>Kérj az AI-tól egy információt (pl. "Mikor alapították a ChatGPT-t?") és:</p>
-<ol>
-<li>Ellenőrizd forrásokkal (Google, hivatalos oldalak)</li>
-<li>Ha hibás, pontosítsd: "Ez nem helyes, keresd meg a helyes választ"</li>
-<li>Kérj forrást: "Melyik forrásból származik ez?"</li>
-</ol>
+<h2>Biztonságos információkérés</h2>
+<p>„Adj információt [témában], csak ha >90% biztos vagy. Ha nem vagy biztos, jelezd. Adj forrást/linket, ha lehet.”</p>
 
+<hr />
+<h2>Gyakorlat 1 – Tényellenőrzés</h2>
+<p>Kérj egy tényt (pl. alapítási év), ellenőrizd külső forrással, jelezd, ha eltérés van, és kérj javítást.</p>
+
+<h2>Gyakorlat 2 – Forráskérés</h2>
+<p>Kérd meg: „Adj 2 hivatkozható forrást a válaszhoz, vagy írd, hogy nincs forrásod.”</p>
+
+<h2>Gyakorlat 3 – Alternatívák</h2>
+<p>Kérj 3 alternatív megoldást és jelöld, melyik a legbiztosabb (1-3). Ellenőrizd a legjobb opciót.</p>
+
+<hr />
 <h2>Prompt minta</h2>
 <blockquote>
-<p>Adj információt [témában], de csak akkor, ha 100%-ban biztos vagy. Ha nem vagy biztos, jelezd. Adj forrást is, ha lehetséges.</p>
+<p>Adj választ [témában]. Ha nem vagy biztos, írd: „Nem találtam megbízható forrást”. Adj forrást/linket, ha elérhető. Ha nincs forrás, ne találj ki adatot.</p>
 </blockquote>
 
 <h2>Tipp</h2>
-<p>Hibák, hallucinációk kezelése: mindig ellenőrizd a kritikus információkat. Ne bízz meg vakon – az AI segít, de te vagy a felelős.</p>`,
+<p>„Forrás vagy disclaimer” szabály: vagy hivatkozol, vagy jelzed a bizonytalanságot. Kritikus infóknál mindig ellenőrizd emberrel.</p>
+
+<h2>Opcionális mélyítés</h2>
+<ul>
+<li>Verifikációs lista: dátum, szám, név, link</li>
+<li>Hallucinációs példák gyűjtése a saját területedről</li>
+</ul>`,
     emailSubject: 'AI 30 Nap – 13. nap: Hibák kezelése',
     emailBody: `<h1>AI 30 Nap – 13. nap</h1>
 <h2>Hibák, hallucinációk kezelése</h2>
@@ -2500,6 +2533,234 @@ function generateQuizQuestions(
           'Csak a hosszt',
           'Csak a dátumot',
           'Csak a szóközöket'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.HARD,
+        category: 'Course Specific'
+      }
+    );
+  } else if (day === 11) {
+    // Day 11: Saját prompt könyvtár
+    questions.push(
+      {
+        question: 'Miért érdemes prompt könyvtárat építeni?',
+        options: [
+          'Időt takarít meg, konzisztenciát ad, könnyen újrahasználható',
+          'Hogy hosszabb legyen a munka',
+          'Csak dísznek',
+          'Mert tiltott az újrahasználat'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.EASY,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Melyik elem kötelező egy sablonban?',
+        options: [
+          'Cél, Kontextus, Forma, Stílus, Változók',
+          'Csak cím',
+          'Csak hossz',
+          'Csak stílus'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.EASY,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Mi a jó példa sablonra?',
+        options: [
+          '„Írj rövid, udvarias emailt [címzett]-nek. Kontextus: [helyzet]. Stílus: [stílus]. Hossz: max [hossz]. Adj CTA-t.”',
+          '„Írj emailt.”',
+          '„Írj valamit.”',
+          '„Adj bármit, forrás nélkül.”'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.MEDIUM,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Miért jó változókat használni a sablonban?',
+        options: [
+          'Gyorsan kitölthető és helyzetre szabható',
+          'Felesleges bonyolítás',
+          'Csak hosszabb lesz',
+          'Nem lehet velük iterálni'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.MEDIUM,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Miért érdemes verziózni a sablonokat?',
+        options: [
+          'Lásd, mi működött jobban, és dokumentáld a fejlődést',
+          'Mert kötelező a szám',
+          'Csak dísz',
+          'Nem szabad módosítani'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.HARD,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Milyen kategóriák hasznosak a könyvtárban?',
+        options: [
+          'Email, összefoglaló, teendőlista, brief, ötletelés',
+          'Csak email',
+          'Csak versek',
+          'Csak képek'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.EASY,
+        category: 'Course Specific'
+      }
+    );
+  } else if (day === 12) {
+    // Day 12: Workflow: input → feldolgozás → output
+    questions.push(
+      {
+        question: 'Mi a workflow 4 fő lépése?',
+        options: [
+          'Input, Feldolgozás, Output, Ellenőrzés',
+          'Csak Input',
+          'Csak Output',
+          'Feldolgozás és kész'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.EASY,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Miért kell anonimizálni az inputot?',
+        options: [
+          'Védelem: ne ossz meg személyes/bizalmas adatot',
+          'Hogy hosszabb legyen a szöveg',
+          'Mert kötelező szabály, de haszna nincs',
+          'Hogy ne kelljen kontextust adni'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.MEDIUM,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Mi tartozik a Feldolgozás lépéshez?',
+        options: [
+          'Prompt v1 → feedback → prompt v2 (iteráció)',
+          'Csak a prompt leírása',
+          'Csak a kimenet',
+          'Csak az anonimizálás'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.MEDIUM,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Mit ellenőrizel az Outputnál?',
+        options: [
+          'Formátum, hossz, CTA, felelősök/határidők, teljesség',
+          'Csak a színt',
+          'Csak a dátumot',
+          'Csak a szóközöket'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.MEDIUM,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Miért fontos az ellenőrzés lépése?',
+        options: [
+          'Tényeket validálsz, hibát szűrsz, döntéseket tisztázol',
+          'Csak dísz',
+          'Mindig hibátlan az AI',
+          'Időpazarlás'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.HARD,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Mi a mini pipeline példa meeting jegyzetnél?',
+        options: [
+          'Tisztítás → összefoglaló/döntés/teendő → export → ellenőrzés',
+          'Jegyzet → küldés',
+          'Csak összefoglaló',
+          'Csak teendők'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.MEDIUM,
+        category: 'Course Specific'
+      }
+    );
+  } else if (day === 13) {
+    // Day 13: Hibák, hallucinációk kezelése
+    questions.push(
+      {
+        question: 'Mikor valószínű a hallucináció?',
+        options: [
+          'Pontos dátum/szám forrás nélkül, nem létező esemény/nevek',
+          'Ha sok forrás van',
+          'Ha te írtad a szöveget',
+          'Ha csak számokat kérsz'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.EASY,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Mi a „forrás vagy disclaimer” szabály?',
+        options: [
+          'Vagy hivatkozol, vagy jelzed a bizonytalanságot; nem találsz ki adatot',
+          'Mindig találj ki forrást',
+          'Soha ne írj forrást',
+          'Csak számokat írj'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.MEDIUM,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Mit kérj az AI-tól biztonságos információkéréskor?',
+        options: [
+          'Bizonytalanság jelzése, forrás/link, ne találjon ki adatot',
+          'Minél több kitalált példát',
+          'Csak hosszú szöveget',
+          'Semmit, hagyd rá'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.MEDIUM,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Mi a helyes lépés, ha eltérést találsz a válaszban?',
+        options: [
+          'Jelezd, hogy hibás, kérj javítást és forrást',
+          'Elfogadod',
+          'Törlöd a kérést',
+          'Új témára ugrasz'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.MEDIUM,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Miért kérj alternatív megoldásokat és jelzést a biztosságról?',
+        options: [
+          'Lásd a választékot és válaszd a legbiztosabbat, majd validáld',
+          'Hogy hosszabb legyen',
+          'Csak dísz',
+          'Nem érdemes'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.HARD,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Melyik jelzi, hogy a modell kitalált forrást ad?',
+        options: [
+          'Nem létező hivatkozás, túl általános „források”, eltérés más forrásokkal',
+          'Pontos link hivatalos oldalra',
+          'Kép URL',
+          'Nincs említés'
         ],
         correctIndex: 0,
         difficulty: QuestionDifficulty.HARD,

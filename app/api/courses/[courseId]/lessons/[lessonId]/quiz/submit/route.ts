@@ -88,7 +88,13 @@ export async function POST(
       );
       if (!question) return null;
 
-      const isCorrect = question.correctIndex === answer.selectedIndex;
+      const correctOption = question.options[question.correctIndex];
+      const selectedOptionValue =
+        (answer as any).selectedOption ?? question.options[answer.selectedIndex];
+      const isCorrect =
+        !!selectedOptionValue && !!correctOption
+          ? selectedOptionValue === correctOption
+          : question.correctIndex === answer.selectedIndex;
       if (isCorrect) correct++;
 
       return {

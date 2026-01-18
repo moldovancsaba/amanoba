@@ -273,21 +273,30 @@ export async function GET(request: NextRequest) {
       );
     }
     
-    // Why: Shuffle questions for randomization (Fisher-Yates algorithm)
-    const shuffled = [...uniqueQuestions];
-    for (let i = shuffled.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
-    }
+    // Why: Shuffle helper
+    const shuffle = <T,>(arr: T[]): T[] => {
+      const copy = [...arr];
+      for (let i = copy.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [copy[i], copy[j]] = [copy[j], copy[i]];
+      }
+      return copy;
+    };
+    
+    // Why: Shuffle questions and options for each request
+    const shuffled = shuffle(uniqueQuestions);
     
     // Why: Transform questions for response (remove correctIndex for security)
-    const responseQuestions: ResponseQuestion[] = shuffled.map(q => ({
-      id: q._id.toString(),
-      question: q.question,
-      options: q.options,
-      difficulty: q.difficulty,
-      category: q.category,
-    }));
+    const responseQuestions: ResponseQuestion[] = shuffled.map(q => {
+      const shuffledOptions = shuffle(q.options || []);
+      return {
+        id: q._id.toString(),
+        question: q.question,
+        options: shuffledOptions,
+        difficulty: q.difficulty,
+        category: q.category,
+      };
+    });
 
     logger.info(
       { 

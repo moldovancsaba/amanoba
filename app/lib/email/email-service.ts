@@ -10,7 +10,9 @@ import { logger } from '../logger';
 import connectDB from '../mongodb';
 import { Player, Course, Lesson } from '@/app/lib/models';
 import type { ILesson } from '@/app/lib/models/lesson';
+import type { IPlayer } from '@/app/lib/models/player';
 import type { Locale } from '@/i18n';
+import { generateSecureToken } from '../security';
 
 // Initialize Resend client
 // Why: Resend is modern, developer-friendly email service
@@ -29,6 +31,26 @@ const EMAIL_CONFIG = {
   fromName: process.env.EMAIL_FROM_NAME || 'Amanoba Learning',
   replyTo: process.env.EMAIL_REPLY_TO || 'support@amanoba.com',
 };
+
+const APP_URL = process.env.NEXT_PUBLIC_APP_URL || 'https://www.amanoba.com';
+
+/**
+ * Get or generate unsubscribe token for a player
+ * 
+ * What: Ensures player has an unsubscribe token for email links
+ * Why: Token-based unsubscribe is more secure than email-based
+ * 
+ * @param player - Player document instance
+ * @returns Unsubscribe token
+ */
+async function getOrGenerateUnsubscribeToken(player: InstanceType<typeof Player>): Promise<string> {
+  if (!player.unsubscribeToken) {
+    player.unsubscribeToken = generateSecureToken(32);
+    await player.save();
+    logger.info({ playerId: player._id }, 'Generated unsubscribe token for player');
+  }
+  return player.unsubscribeToken;
+}
 
 /**
  * Send Lesson Email
@@ -104,18 +126,38 @@ export async function sendLessonEmail(
       }
     }
 
+    // Get or generate unsubscribe token
+    const unsubscribeToken = await getOrGenerateUnsubscribeToken(player);
+    const unsubscribeUrl = `${APP_URL}/api/email/unsubscribe?token=${unsubscribeToken}`;
+
     // Personalize email subject and body
     const subject = emailSubject
       .replace('{{playerName}}', player.displayName)
       .replace('{{courseName}}', courseName)
       .replace('{{dayNumber}}', lesson.dayNumber.toString());
 
-    const body = emailBody
+    // Add unsubscribe link to email body if not already present
+    let body = emailBody
       .replace('{{playerName}}', player.displayName)
       .replace('{{courseName}}', courseName)
       .replace('{{dayNumber}}', lesson.dayNumber.toString())
       .replace('{{lessonTitle}}', lessonTitle)
       .replace('{{lessonContent}}', lessonContent);
+
+    // Append unsubscribe footer if not already in body
+    if (!body.includes('unsubscribe') && !body.includes('{{unsubscribeUrl}}')) {
+      const unsubscribeFooter = `
+        <hr style="margin: 20px 0; border: none; border-top: 1px solid #ddd;">
+        <p style="font-size: 12px; color: #666; text-align: center;">
+          You're receiving this email because you're enrolled in ${courseName}. 
+          <a href="${unsubscribeUrl}" style="color: #666;">Unsubscribe from lesson emails</a>
+        </p>
+      `;
+      body = body + unsubscribeFooter;
+    } else {
+      // Replace placeholder if present
+      body = body.replace('{{unsubscribeUrl}}', unsubscribeUrl);
+    }
 
     // Check if Resend is initialized
     if (!resend) {
