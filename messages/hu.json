@@ -228,7 +228,8 @@
     "loadingCourse": "Kurzus betöltése...",
     "courseNotFound": "Kurzus nem található",
     "failedToEnroll": "Nem sikerült feliratkozni a kurzusra",
-    "dayOfTotal": "{{current}} nap a(z) {{total}} napból"
+    "dayOfTotal": "{{current}} nap a(z) {{total}} napból",
+    "days": "nap"
   },
   "games": {
     "title": "Játékok",

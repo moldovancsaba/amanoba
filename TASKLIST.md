@@ -1,13 +1,42 @@
 # Amanoba Task List
 
-**Version**: 2.7.0  
-**Last Updated**: 2025-01-17T23:45:00.000Z
+**Version**: 2.7.4  
+**Last Updated**: 2026-01-18T19:19:25.000Z
 
 ---
 
 ## Active Tasks
 
 Tasks are listed in priority order. Upon completion, tasks are moved to RELEASE_NOTES.md.
+
+---
+
+## 🚛 Upcoming: Multi-Format Course Forking (30d → 7d / Weekend / 1d / 1h)
+
+| ID | Task | Owner | Expected Delivery | Status |
+|----|------|-------|-------------------|--------|
+| MF1 | Forking core: parent→child link, auto-sync default, selective detach toggle scaffold | AI | TBD | ⏳ PENDING |
+| MF2 | Lesson mapping UI: select/reorder lessons for target schedule (7d/1d/1h linear, weekend Fri-Sat-Sun slots) | AI | TBD | ⏳ PENDING |
+| MF3 | Variant quiz strategies: inherit daily quizzes, end mega-quiz, diagnostic random pool (fixed counts per format) | AI | TBD | ⏳ PENDING |
+| MF4 | 7-day child creation/publish: pick 7 lessons, daily cadence, inherited quizzes | AI | TBD | ⏳ PENDING |
+| MF5 | Weekend child creation/publish: pick 1 Fri + 2 Sat + 1 Sun lessons; calendar-fixed schedule | AI | TBD | ⏳ PENDING |
+| MF6 | 1-day child creation/publish: pick 10 lessons, disable per-lesson quizzes, build 50-question final quiz with pass % | AI | TBD | ⏳ PENDING |
+| MF7 | 1-hour child creation/publish: pick 2 lessons, 50-question diagnostic random pool, score-band → course slug recommendations | AI | TBD | ⏳ PENDING |
+| MF8 | Parent change propagation: sync log + alert to child courses; preview before publish | AI | TBD | ⏳ PENDING |
+
+---
+
+## 🏅 Upcoming: Certificate System v0.1 (Shareable, Course-Aware)
+
+| ID | Task | Owner | Expected Delivery | Status |
+|----|------|-------|-------------------|--------|
+| CS1 | Certificate model + eligibility hooks in course settings (inherit to children by default) | AI | TBD | ⏳ PENDING |
+| CS2 | Certificate rendering pipeline (OG-friendly image) with per-course assets and CDN URL storage | AI | TBD | ⏳ PENDING |
+| CS3 | Public share endpoint (unguessable ID) with course/result display + social meta | AI | TBD | ⏳ PENDING |
+| CS4 | Profile certificates tab: list, view, download, share | AI | TBD | ⏳ PENDING |
+| CS5 | Admin revoke/regenerate flow; reissue when branding/rules change | AI | TBD | ⏳ PENDING |
+| CS6 | Achievement tie-in: certificate issuance recorded as achievement entry | AI | TBD | ⏳ PENDING |
+| CS7 | Score-band rule mapping for 1-day pass % and 1-hour recommendations to course slugs | AI | TBD | ⏳ PENDING |
 
 ---
 

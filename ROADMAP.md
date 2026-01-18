@@ -1,7 +1,7 @@
 # Amanoba Roadmap — 30-Day Learning Platform
 
-**Version**: 2.7.2  
-**Last Updated**: 2026-01-18T17:15:41.000Z  
+**Version**: 2.7.4  
+**Last Updated**: 2026-01-18T19:19:25.000Z  
 **Vision**: Transform Amanoba into a unified 30-day learning platform with gamified education, assessment tools, and email-based lesson delivery  
 **Current Phase**: Phase 2 & 3 Complete ✅ - Production Stable - Ready for Phase 4
 
@@ -23,6 +23,49 @@
 - **P2 / Low**
   - Add minimal test harness (`npm test`), smoke tests for `[locale]/dashboard`, `[locale]/courses`, and critical APIs.
   - Document/decide public profile surface and unsubscribe token contract to avoid regressions later.
+
+---
+
+## 🚀 New Milestone: Certificate System v0.1 (Shareable, Course-Aware)
+
+### User Stories (actionable)
+- As an admin, I set the certificate template and eligibility in course settings (parent and inherited children auto-use the parent’s certificate config by default).
+- As a learner who meets the course’s pass/completion rule, I receive a generated certificate image with my name, course title, completion date, and a share link.
+- As a learner, I can view/download/share my certificates from my profile; a public URL renders an open-graph-ready image and details.
+- As an admin, I can revoke or regenerate a certificate if rules or branding change.
+
+### Scope (v0.1)
+- Certificate model linking user ↔ course ↔ issuance metadata (score/pass %, issuedAt, revokedAt).
+- Rendering pipeline for branded certificate images (OG-friendly) with per-course assets; stores a CDN URL.
+- Shareable public endpoint (signed/unguessable ID) that shows course, result, and social meta for posting/LinkedIn.
+- Achievement tie-in: certificate logged as an achievement entry.
+- Default propagation: child courses inherit parent certificate config; admin can opt a child out or override later (future option).
+
+### Future Options (Roadmap 1.0+)
+- Per-child certificate overrides; multiple templates per course; localized certificates.
+- Dynamic pass rules editor; multi-metric eligibility; badge layering.
+- LinkedIn Add-to-Profile integration; QR codes; on-chain/verify endpoints.
+- A/B testing certificate designs; user-uploaded name edits with approval flow.
+
+---
+
+## 🛤️ New Milestone: Multi-Format Course Forking (30d → 7d / Weekend / 1d / 1h)
+
+### User Stories (actionable)
+- Shared infra: As an admin, I fork any 30-day course into a child variant with auto-sync on by default (lessons/quizzes mirror parent); I can detach specific lessons/quizzes and add unique ones (future toggle).
+- Shared infra: As an admin, I map lessons to the target schedule (linear days for 7d/1d/1h, calendar Fri-Sat-Sun for weekend) and reorder within allowed slots.
+- Shared infra: As an admin, I choose quiz strategy per variant (inherit daily quizzes, end-of-course mega-quiz, diagnostic random pool) with fixed question counts per spec.
+- 7-day: As an admin, I pick 7 lessons from the parent, publish a 7-day child; learners complete one per day with inherited quizzes.
+- Weekend (4 lessons): As an admin, I select 1 Fri, 2 Sat, 1 Sun lessons; learners follow the fixed calendar schedule regardless of enrollment day.
+- 1-day (10 lessons): As an admin, I select 10 lessons; learners consume without per-lesson quizzes and then take a 50-question final quiz (5 per lesson) with pass % gating certificate eligibility.
+- 1-hour (2 lessons): As an admin, I pick 2 lessons and configure a 50-question diagnostic quiz sourced randomly from the parent; learners see results-only plus a recommended course slug based on score band.
+- Publishing: As an admin, I preview a child course (lessons, quiz plan, schedule) before publish; changes in parent prompt a sync log/alert for children.
+
+### Constraints / Defaults
+- Auto-sync default; selective unsync/re-sync is a future option.
+- Question counts fixed per format (30d: 10/lesson; 1d final: 50 total; 1h diagnostic: 50 random); tweaking counts is deferred.
+- Weekend schedule is calendar-fixed: Fri (1), Sat (2), Sun (1).
+- Recommendations in 1-hour map score bands → course slugs; richer logic deferred.
 
 ---
 
