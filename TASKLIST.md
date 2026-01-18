@@ -1,7 +1,7 @@
 # Amanoba Task List
 
 **Version**: 2.7.0  
-**Last Updated**: 2025-01-17T17:30:00.000Z
+**Last Updated**: 2025-01-17T23:45:00.000Z
 
 ---
 
@@ -26,19 +26,45 @@ Tasks are listed in priority order. Upon completion, tasks are moved to RELEASE_
 
 ---
 
-### Phase 2: Course Builder & Admin Tools 🚧 IN PROGRESS
+### Phase 2: Course Builder & Admin Tools ✅ COMPLETE
 
 | ID | Task | Owner | Expected Delivery | Status |
 |----|------|-------|-------------------|--------|
 | 2.1 | Admin Course Management Pages | AI | Week 3 | ✅ DONE |
 | 2.2 | 30-Day Lesson Builder UI | AI | Week 3 | ✅ DONE |
-| 2.3 | Rich Text Editor Integration | AI | Week 3 | ⏳ PENDING |
-| 2.4 | Course Preview Functionality | AI | Week 3 | ⏳ PENDING |
-| 2.5 | Publish/Unpublish Workflow | AI | Week 3 | ⏳ PENDING |
+| 2.3 | Rich Text Editor Integration | AI | Week 3 | ✅ DONE |
+| 2.4 | Course Preview Functionality | AI | Week 3 | ✅ DONE |
+| 2.5 | Publish/Unpublish Workflow | AI | Week 3 | ✅ DONE |
 | 2.6 | Student Course Listing & Enrollment | AI | Week 4 | ✅ DONE |
 | 2.7 | Student Course Dashboard | AI | Week 4 | ✅ DONE |
 | 2.8 | Daily Lesson Viewer | AI | Week 4 | ✅ DONE |
-| 2.9 | Assessment Game Integration | AI | Week 4 | ⏳ PENDING |
+| 2.9 | Assessment Game Integration | AI | Week 4 | ✅ DONE (basic linking) |
+
+---
+
+### Phase 3: Email Automation ✅ COMPLETE
+
+| ID | Task | Owner | Expected Delivery | Status |
+|----|------|-------|-------------------|--------|
+| 3.1 | Daily Email Scheduler | AI | Week 5 | ✅ DONE |
+| 3.2 | Timezone-Aware Email Scheduling | AI | Week 5 | ✅ DONE |
+| 3.3 | Email Delivery Tracking | AI | Week 5 | ✅ DONE |
+| 3.4 | Catch-Up Email Logic | AI | Week 5 | ✅ DONE |
+| 3.5 | Email Preferences UI | AI | Week 6 | ✅ DONE |
+| 3.6 | Unsubscribe Functionality | AI | Week 6 | ✅ DONE |
+| 3.7 | Email Settings Page | AI | Week 6 | ✅ DONE |
+| 3.8 | First Course Seeded (AI 30 Nap) | AI | 2025-01-17 | ✅ DONE |
+
+---
+
+### Phase 4: Assessment Integration 🚧 READY TO START
+
+| ID | Task | Owner | Expected Delivery | Status |
+|----|------|-------|-------------------|--------|
+| 4.1 | Game-to-Assessment Bridge | AI | Week 7 | ⏳ PENDING |
+| 4.2 | Assessment Results Processing | AI | Week 7 | ⏳ PENDING |
+| 4.3 | Assessment Analytics Dashboard | AI | Week 8 | ⏳ PENDING |
+| 4.4 | Student Assessment Results View | AI | Week 8 | ⏳ PENDING |
 
 ---
 

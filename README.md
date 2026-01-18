@@ -11,9 +11,11 @@ Amanoba is transforming into a **unified 30-day learning platform** that combine
 ### Core Features
 
 - **30-Day Course System**: Structured learning with daily lessons delivered via email
+- **First Course Available**: "AI 30 Nap" (AI 30 Days) - Complete 30-day AI learning course in Hungarian
 - **Interactive Assessments**: Games (QUIZZZ, WHACKPOP, Madoku) repurposed as student assessment tools
 - **Email-First Learning**: Daily lessons sent to students' email with in-platform access
-- **Course Builder**: Admin interface to create 30-day courses (similar to game creation)
+- **Course Builder**: Admin interface to create and manage 30-day courses with rich text editor
+- **Student Dashboard**: Browse courses, enroll, track progress, view daily lessons
 - **Comprehensive Gamification** (Retained):
   - 18+ achievements across 4 categories (including course-specific)
   - 50-level XP system with titles
@@ -32,7 +34,8 @@ Amanoba is transforming into a **unified 30-day learning platform** that combine
 - **Database**: MongoDB Atlas with Mongoose 8.18.0
 - **Language**: TypeScript 5
 - **Styling**: Tailwind CSS 3.4.1 (with custom brand colors)
-- **Email**: Resend API for lesson delivery
+- **Email**: Resend API for lesson delivery (daily automated emails)
+- **Rich Text Editor**: TipTap for course content creation
 - **i18n**: next-intl for multi-language support (Hungarian default, English)
 - **Animation**: Framer Motion 10.18.0
 - **UI Components**: Radix UI primitives
@@ -98,6 +101,7 @@ app/
 ├── lib/               # Utilities, models, and business logic
 │   ├── models/        # 27 Mongoose schemas (4 new course models)
 │   ├── email/         # Email service (Resend)
+│   ├── courses/       # Course management (email scheduler)
 │   ├── gamification/  # Points, achievements, XP, streaks
 │   ├── madoku/        # Sudoku engine and AI
 │   └── analytics/     # Event logging and aggregations
@@ -141,16 +145,35 @@ Math duel on a Sudoku board with AI opponents (3 difficulty levels), ELO ranking
 
 ## 🔐 Admin Access
 
-Admin dashboard available at `/admin` with session-based authentication.
+Admin dashboard available at `/{locale}/admin` with session-based authentication.
 
 Set `ADMIN_PASSWORD` in your environment configuration.
 
 Features:
-- Game management and configuration
-- Player management and premium access
-- Analytics dashboard with advanced charts
-- Referral system monitoring
-- Gamification content management
+- **Course Management**: Create, edit, and manage 30-day courses
+- **Lesson Builder**: Rich text editor for daily lesson content
+- **Game Management**: Configure games and assessment settings
+- **Player Management**: View players, manage premium access
+- **Analytics Dashboard**: Real-time stats and advanced charts
+- **Referral System**: Monitor referral tracking
+- **Gamification Content**: Manage achievements, rewards, challenges
+
+## 📚 Available Courses
+
+### AI 30 Nap (AI 30 Days)
+- **Course ID**: `AI_30_NAP`
+- **Language**: Hungarian (hu)
+- **Duration**: 30 days
+- **Status**: Active and ready for enrollment
+- **Content**: Complete 30-day AI learning journey covering:
+  - Days 1-5: Basics & mindset
+  - Days 6-10: Daily work facilitation
+  - Days 11-15: System building
+  - Days 16-20: Role-specific usage
+  - Days 21-25: AI for revenue
+  - Days 26-30: Closing & next level
+
+**Seed Script**: Run `npm run seed:ai-course` to create the course in your database.
 
 ## 🔄 Versioning
 

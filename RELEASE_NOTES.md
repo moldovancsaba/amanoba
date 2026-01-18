@@ -9,10 +9,10 @@ All completed tasks are documented here in reverse chronological order. This fil
 
 ---
 
-## [v2.7.0] — 2025-01-17 🐛✨
+## [v2.7.0] — 2025-01-17 🐛✨🎓
 
-**Status**: CRITICAL FIX + PHASE 1 COMPLETE  
-**Type**: Bug Fix + Feature Completion
+**Status**: CRITICAL FIX + PHASES 1, 2, 3 COMPLETE + FIRST COURSE SEEDED  
+**Type**: Bug Fix + Feature Completion + Content Delivery
 
 ### 🐛 Production Error Fix: i18n Locale Configuration
 
@@ -158,7 +158,135 @@ const messages = await getMessages({ locale });
 - **Translation Files**: 2
 - **New Components**: 3
 
-**Next Steps**: Phase 2 - Course Builder & Student Dashboard (Weeks 3-4)
+---
+
+### ✨ Phase 2: Course Builder & Student Dashboard Complete
+
+**Status**: ✅ COMPLETE  
+**Timeline**: Weeks 3-4 (Completed 2025-01-17)
+
+#### 2.1 Course Builder Admin Interface ✅
+- ✅ Admin course management pages (`/admin/courses`, `/admin/courses/new`, `/admin/courses/[courseId]`)
+- ✅ 30-day lesson builder interface with TipTap rich text editor
+- ✅ Rich text editor for lesson content (TipTap integration)
+- ✅ Course preview functionality
+- ✅ Publish/unpublish workflow
+- ✅ Assessment game selection and linking
+- ✅ Email template editor with variable substitution
+
+#### 2.2 Student Course Dashboard ✅
+- ✅ Course listing and enrollment (`/courses`, `/courses/[courseId]`)
+- ✅ Student course dashboard (`/my-courses`)
+- ✅ Daily lesson viewer (`/courses/[courseId]/day/[dayNumber]`)
+- ✅ Assessment game integration (game sessions linked to course context)
+- ✅ Lesson completion tracking
+- ✅ Progress visualization
+
+**Files Created**:
+- `app/[locale]/admin/courses/page.tsx` - Course list
+- `app/[locale]/admin/courses/new/page.tsx` - Create course
+- `app/[locale]/admin/courses/[courseId]/page.tsx` - Edit course and lessons
+- `app/[locale]/courses/page.tsx` - Course catalog
+- `app/[locale]/courses/[courseId]/page.tsx` - Course overview
+- `app/[locale]/courses/[courseId]/day/[dayNumber]/page.tsx` - Daily lesson viewer
+- `app/[locale]/my-courses/page.tsx` - Student enrolled courses
+- `app/components/ui/rich-text-editor.tsx` - TipTap editor component
+- `app/api/admin/courses/route.ts` - Course management API
+- `app/api/admin/courses/[courseId]/route.ts` - Course CRUD API
+- `app/api/admin/courses/[courseId]/lessons/route.ts` - Lesson management API
+- `app/api/courses/route.ts` - Public courses API
+- `app/api/courses/[courseId]/route.ts` - Course detail API
+- `app/api/courses/[courseId]/enroll/route.ts` - Enrollment API
+- `app/api/courses/[courseId]/day/[dayNumber]/route.ts` - Lesson API
+- `app/api/my-courses/route.ts` - Student courses API
+
+---
+
+### ✨ Phase 3: Email Automation Complete
+
+**Status**: ✅ COMPLETE  
+**Timeline**: Weeks 5-6 (Completed 2025-01-17)
+
+#### 3.1 Daily Email Scheduler ✅
+- ✅ Daily lesson email cron job (`/api/cron/send-daily-lessons`)
+- ✅ Timezone-aware email scheduling (`app/lib/courses/email-scheduler.ts`)
+- ✅ Email delivery tracking (emailSentDays in CourseProgress)
+- ✅ Catch-up email logic for missed days
+- ✅ Vercel cron configuration in `vercel.json`
+
+#### 3.2 Email Preferences & Management ✅
+- ✅ Email preferences in Player model (`emailPreferences` object)
+- ✅ Email settings page (`/settings/email`)
+- ✅ Unsubscribe functionality (`/api/email/unsubscribe`)
+- ✅ Email delivery history tracking
+- ✅ Timezone selector and preferred email time configuration
+
+**Files Created**:
+- `app/lib/courses/email-scheduler.ts` - Email scheduling logic
+- `app/api/cron/send-daily-lessons/route.ts` - Cron job endpoint
+- `app/api/email/unsubscribe/route.ts` - Unsubscribe API
+- `app/api/profile/route.ts` - Profile update API (email preferences)
+- `app/[locale]/settings/email/page.tsx` - Email settings UI
+
+---
+
+### 🎓 First Production Course: AI 30 Nap
+
+**Status**: ✅ SEEDED  
+**Timeline**: 2025-01-17
+
+#### Course Details
+- **Course ID**: `AI_30_NAP`
+- **Course Name**: "AI 30 Nap – tematikus tanulási út"
+- **Language**: Hungarian (hu)
+- **Duration**: 30 days
+- **Status**: Active and ready for enrollment
+- **Total Lessons**: 30 (all with complete content)
+
+#### Course Structure
+- **Days 1-5**: Alapok & szemlélet (Basics & mindset)
+- **Days 6-10**: Napi munka megkönnyítése (Daily work facilitation)
+- **Days 11-15**: Rendszerépítés (System building)
+- **Days 16-20**: Szerep-specifikus használat (Role-specific usage)
+- **Days 21-25**: AI a bevételhez (AI for revenue)
+- **Days 26-30**: Lezárás & következő szint (Closing & next level)
+
+#### Lesson Content
+Each lesson includes:
+- Comprehensive HTML content with headings, lists, examples
+- Practical exercises and tasks
+- Prompt examples and tips
+- Email subject and body templates
+- Points/XP rewards (50 points, 25 XP per lesson)
+
+**Files Created**:
+- `scripts/seed-ai-30-nap-course.ts` - Complete course seed script (1,340+ lines)
+- `package.json` - Added `seed:ai-course` script
+
+**Usage**: Run `npm run seed:ai-course` to create the course in your database.
+
+---
+
+### 🐛 Build Fixes
+
+**Status**: ✅ FIXED  
+**Timeline**: 2025-01-17
+
+#### CSS Build Error Fix
+- ✅ Added missing `brand.primary.400` color to Tailwind config
+- ✅ Added missing `brand.secondary.700` color to Tailwind config
+- ✅ Fixed `hover:bg-brand-primary-400` class error
+- ✅ Fixed LocaleLink import in leaderboards page (named export)
+
+**Files Modified**:
+- `tailwind.config.ts` - Added brand color variants
+- `app/[locale]/leaderboards/page.tsx` - Fixed LocaleLink import
+
+**Impact**: Build now completes successfully on Vercel.
+
+---
+
+**Next Steps**: Phase 4 - Assessment Integration (Weeks 7-8)
 
 ---
 

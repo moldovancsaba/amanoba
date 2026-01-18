@@ -1,14 +1,22 @@
 # Amanoba Current Status
 
-**Last Updated**: 2025-01-17T17:30:00.000Z  
+**Last Updated**: 2025-01-17T23:45:00.000Z  
 **Version**: 2.7.0  
-**Status**: ✅ Phase 1 Complete - Production Stable - Ready for Phase 2
+**Status**: ✅ Phase 2 & 3 Complete - Production Stable - Ready for Phase 4
 
 ---
 
 ## 🎯 Current State Summary
 
-Amanoba has successfully completed **Phase 1** of the transformation from a game platform to a **30-day learning platform**. The foundation is now in place with data models, email service, internationalization, and a new design system.
+Amanoba has successfully completed **Phases 1, 2, and 3** of the transformation from a game platform to a **30-day learning platform**. The platform now includes:
+- Complete course and lesson data models
+- Full admin course builder with rich text editor
+- Student course dashboard and enrollment system
+- Daily email automation with timezone support
+- Email preferences and unsubscribe functionality
+- First production course seeded: "AI 30 Nap" (30-day AI learning course)
+- Internationalization (Hungarian default, English support)
+- New design system with brand colors and logo
 
 ---
 
@@ -99,101 +107,84 @@ Amanoba has successfully completed **Phase 1** of the transformation from a game
 
 ### Codebase
 - **Total Models**: 27 (4 new course-related models)
-- **Email Functions**: 4
-- **Translation Files**: 2 (Hungarian, English)
-- **Translated Pages**: 3/15 core pages
-- **New Components**: 2 (Logo, LocaleLink)
+- **Email Functions**: 4 (lesson, welcome, completion, reminder)
+- **Translation Files**: 2 (Hungarian, English) - Comprehensive translations
+- **Translated Pages**: All core pages (dashboard, games, courses, admin, etc.)
+- **New Components**: 3 (Logo, LocaleLink, RichTextEditor)
+- **Admin Pages**: 8 (dashboard, courses, games, achievements, rewards, challenges, players, settings)
+- **Student Pages**: 4 (courses catalog, course detail, my-courses, daily lesson viewer)
+- **API Routes**: 15+ course-related endpoints
 
 ### Database Collections
 - **New Collections**: 4 (courses, lessons, course_progress, assessment_results)
 - **Extended Collections**: 2 (games, players)
+- **Seeded Courses**: 1 (AI_30_NAP - AI 30 Nap course with all 30 lessons)
 
 ### Dependencies
-- **New**: `resend`, `next-intl`
+- **New**: `resend`, `next-intl`, `@tiptap/react`, `@tiptap/starter-kit`, `@tiptap/extension-placeholder`, `@tiptap/extension-link`, `server-only`
 - **Updated**: All existing dependencies
 
 ---
 
 ## 🚧 In Progress
 
-### None - Phase 1 Complete
+### Phase 4: Assessment Integration
+- Game-to-assessment bridge (ready to start)
+- Assessment analytics dashboard (pending)
 
 ---
 
-## 📋 Next Steps: Phase 2
+## ✅ Phase 2: Course Builder & Student Dashboard (COMPLETE)
 
-### 2.1 Course Builder Admin Interface
-**Priority**: HIGH  
-**Timeline**: Week 3-4
-
-**Tasks**:
-1. Create admin course management pages
-   - `/admin/courses` - Course list
-   - `/admin/courses/new` - Create course
-   - `/admin/courses/[courseId]` - Edit course
-   - `/admin/courses/[courseId]/lessons` - Manage lessons
-
-2. Build 30-day lesson builder UI
-   - Drag-and-drop lesson reordering
-   - Lesson editor for each day
-   - Rich text editor for content
-   - Email template editor
-   - Assessment game selection
-
-3. Course preview functionality
-4. Publish/unpublish workflow
+### 2.1 Course Builder Admin Interface ✅
+**Completed**: 2025-01-17
 
 **Deliverables**:
-- ✅ Admin course management pages
-- ✅ 30-day lesson builder interface
-- ✅ Rich text editor integration
-- ✅ Course preview
-- ✅ Publish workflow
+- ✅ Admin course management pages (`/admin/courses`, `/admin/courses/new`, `/admin/courses/[courseId]`)
+- ✅ 30-day lesson builder interface with TipTap rich text editor
+- ✅ Rich text editor for lesson content
+- ✅ Course preview functionality
+- ✅ Publish/unpublish workflow
+- ✅ Assessment game selection and linking
+- ✅ Email template editor
 
-### 2.2 Student Course Dashboard
-**Priority**: HIGH  
-**Timeline**: Week 3-4
-
-**Tasks**:
-1. Course listing and enrollment
-   - `/courses` - Available courses
-   - `/courses/[courseId]` - Course overview
-   - Enrollment functionality
-
-2. Student course dashboard
-   - `/my-courses` - Enrolled courses
-   - Progress visualization (30-day timeline)
-   - Completed days tracking
-
-3. Daily lesson viewer
-   - `/courses/[courseId]/day/[dayNumber]` - Lesson view
-   - Mark as complete functionality
-   - Previous/Next navigation
-
-4. Assessment game integration
-   - Launch assessment from lesson
-   - Link game session to course
+### 2.2 Student Course Dashboard ✅
+**Completed**: 2025-01-17
 
 **Deliverables**:
-- ✅ Course listing and enrollment
-- ✅ Student course dashboard
-- ✅ Daily lesson viewer
-- ✅ Assessment integration
+- ✅ Course listing and enrollment (`/courses`, `/courses/[courseId]`)
+- ✅ Student course dashboard (`/my-courses`)
+- ✅ Daily lesson viewer (`/courses/[courseId]/day/[dayNumber]`)
+- ✅ Assessment game integration (game sessions linked to course context)
+- ✅ Lesson completion tracking
+- ✅ Progress visualization
 
 ---
 
-## 🎯 Phase 3: Email Automation (Weeks 5-6)
+## ✅ Phase 3: Email Automation (COMPLETE)
 
-### 3.1 Daily Email Scheduler
-- Cron job for daily lesson emails
-- Timezone-aware scheduling
-- Email delivery tracking
-- Catch-up email logic
+### 3.1 Daily Email Scheduler ✅
+**Completed**: 2025-01-17
 
-### 3.2 Email Preferences UI
-- Email settings page
-- Unsubscribe functionality
-- Email delivery history
+**Deliverables**:
+- ✅ Daily lesson email cron job (`/api/cron/send-daily-lessons`)
+- ✅ Timezone-aware email scheduling (`app/lib/courses/email-scheduler.ts`)
+- ✅ Email delivery tracking (emailSentDays in CourseProgress)
+- ✅ Catch-up email logic for missed days
+- ✅ Vercel cron configuration
+
+### 3.2 Email Preferences UI ✅
+**Completed**: 2025-01-17
+
+**Deliverables**:
+- ✅ Email preferences in Player model
+- ✅ Email settings page (`/settings/email`)
+- ✅ Unsubscribe functionality (`/api/email/unsubscribe`)
+- ✅ Email delivery history tracking
+
+---
+
+## 📋 Next Steps: Phase 4
 
 ---
 
@@ -291,10 +282,11 @@ NEXT_PUBLIC_APP_URL=https://amanoba.com
 
 ## 🚀 Ready For
 
-- ✅ Phase 2: Course Builder & Student Dashboard
-- ✅ Creating courses in Hungarian (default)
-- ✅ Creating courses in English
+- ✅ Phase 4: Assessment Integration
+- ✅ Creating additional courses (seed script available)
 - ✅ Multi-language course content
+- ✅ Student enrollment and course completion
+- ✅ Daily email delivery automation
 
 ---
 
