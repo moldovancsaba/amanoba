@@ -1,7 +1,7 @@
 # Amanoba Roadmap — Future Plans & Strategic Directions
 
 **Version**: 2.7.0  
-**Last Updated**: 2025-01-20T18:00:00.000Z  
+**Last Updated**: 2025-01-20T20:00:00.000Z  
 **Vision**: Transform Amanoba into a unified 30-day learning platform with gamified education, assessment tools, and email-based lesson delivery
 
 ---
@@ -28,7 +28,7 @@
 ### P0 / High Priority
 - Gate admin stats APIs (`app/api/admin/stats/verify`, `.../repair`) by role (admin/superadmin), not just session presence
 - ~~Fix runtime crash in `app/api/admin/system-info/route.ts` (missing `fs`/`path` imports or dead code removal)~~ ✅ FIXED (v2.7.1)
-- Implement token-based unsubscribe in `app/api/email/unsubscribe/route.ts` (currently 400 when token is provided) or drop the token param
+- ~~Implement token-based unsubscribe in `app/api/email/unsubscribe/route.ts`~~ ✅ FIXED (v2.7.0)
 - Restrict `app/api/profile/[playerId]` data exposure (wallet balances, `lastSeenAt`) to self/admin; clarify intended visibility
 - Wire rate limiting (`app/lib/security.ts`) into auth/profile/admin/progress endpoints
 
@@ -44,6 +44,144 @@
 ---
 
 ## 🚀 Upcoming Milestones
+
+### Monetization System (Stripe Integration) — HIGH PRIORITY
+
+**Status**: 🔴 **BLOCKING REVENUE**  
+**Estimated**: 2-3 days  
+**Priority**: HIGH
+
+**User Stories**:
+- As a student, I want to purchase premium courses so I can access premium content
+- As a student, I want my premium status to activate automatically after successful payment
+- As an admin, I want to see payment transactions so I can track revenue and manage subscriptions
+- As a student, I want to see my subscription status and expiration date in my profile
+- As a student, I want to receive confirmation emails after successful payment
+
+**Scope**:
+- Stripe Checkout integration for one-time course purchases
+- Webhook handler for payment events (success, failure, refund)
+- Automatic premium status activation on successful payment
+- Payment history tracking in Player model
+- Subscription expiration handling (already exists: `premiumExpiresAt`)
+- Payment UI on course detail page for premium courses
+- Admin dashboard for viewing payment transactions
+
+**Technical Requirements**:
+- Install Stripe SDK: `npm install stripe @stripe/stripe-js`
+- Create `/api/payments/create-checkout` endpoint
+- Create `/api/payments/webhook` endpoint (Stripe webhook handler)
+- Add `stripeCustomerId` and `paymentHistory` fields to Player model
+- Create PaymentTransaction model for transaction logging
+- Add payment button to course detail page (`app/[locale]/courses/[courseId]/page.tsx`)
+- Environment variables: `STRIPE_SECRET_KEY`, `STRIPE_PUBLISHABLE_KEY`, `STRIPE_WEBHOOK_SECRET`
+
+**Future Enhancements**:
+- Recurring subscriptions (monthly/yearly premium access)
+- Payment method management
+- Refund processing UI
+- Invoice generation
+- Multiple currency support
+
+---
+
+### Onboarding Survey & Segmentation — MEDIUM-HIGH PRIORITY
+
+**Status**: 🟡 **UX IMPROVEMENT**  
+**Estimated**: 1-2 days  
+**Priority**: MEDIUM-HIGH
+
+**User Stories**:
+- As a new student, I want to complete an onboarding survey so I get personalized course recommendations
+- As a student, I want to see course recommendations based on my interests and skill level
+- As an admin, I want to see survey responses so I can understand student needs and preferences
+- As a student, I want my email communications to be personalized based on my survey answers
+- As an admin, I want to segment students by skill level (beginner/intermediate/advanced) for targeted campaigns
+
+**Scope**:
+- Onboarding survey form (multi-step, 5-10 questions)
+- Survey model for question management
+- SurveyResponse model for storing student answers
+- Course recommendation engine based on survey responses
+- Player segmentation (beginner/intermediate/advanced) stored in Player model
+- Survey completion tracking
+- Admin dashboard for viewing survey analytics
+
+**Technical Requirements**:
+- Create `Survey` model (`app/lib/models/survey.ts`)
+- Create `SurveyResponse` model (`app/lib/models/survey-response.ts`)
+- Create `/api/surveys/onboarding` endpoint (GET for questions, POST for responses)
+- Create onboarding survey page (`app/[locale]/onboarding/page.tsx`)
+- Add `surveyCompleted`, `skillLevel`, `interests` fields to Player model
+- Create course recommendation logic based on survey responses
+- Add survey analytics to admin dashboard
+
+**Survey Questions (Example)**:
+1. What is your primary learning goal? (Multiple choice)
+2. What is your current skill level? (Beginner/Intermediate/Advanced)
+3. What topics interest you most? (Multi-select)
+4. How much time can you dedicate daily? (15min/30min/1hr+)
+5. What is your preferred learning style? (Visual/Audio/Reading/Practice)
+
+**Future Enhancements**:
+- Dynamic survey questions based on previous answers
+- Survey A/B testing
+- Post-course feedback surveys
+- Survey question management in admin UI
+
+---
+
+### Email Automation Enhancement — LOW-MEDIUM PRIORITY
+
+**Status**: 🟢 **MARKETING OPTIMIZATION**  
+**Estimated**: 2-5 days  
+**Priority**: LOW-MEDIUM (depends on marketing strategy)
+
+**User Stories**:
+- As an admin, I want to segment students by skill level so I can send targeted lesson emails
+- As a student, I want to receive upsell emails after completing courses so I can discover new courses
+- As an admin, I want to see email analytics so I can improve email campaigns
+- As a student, I want to receive personalized emails based on my learning progress
+- As an admin, I want to send A/B tested emails to improve engagement
+
+**Scope (Phase 1 - Resend Enhancement)**:
+- Player segmentation logic (beginner/intermediate/advanced) based on course progress
+- Email templates per segment (different tone/content for each level)
+- Upsell logic in course completion emails (recommend related courses)
+- Email analytics tracking (open rates, click rates)
+- Personalized email content based on player progress and preferences
+
+**Technical Requirements**:
+- Add `emailSegment` field to Player model (auto-calculated from progress)
+- Create email template system with segment-specific templates
+- Enhance `sendCompletionEmail` with upsell logic
+- Add email analytics tracking to EventLog model
+- Create email analytics dashboard in admin UI
+- Add course recommendation logic for upsell emails
+
+**Scope (Phase 2 - MailerLite/ActiveCampaign Integration)**:
+- MailerLite or ActiveCampaign integration (if advanced marketing automation needed)
+- Webhook setup for subscriber sync
+- Automated email workflows (drip campaigns, nurture sequences)
+- Advanced segmentation and tagging
+- A/B testing capabilities
+
+**Technical Requirements (Phase 2)**:
+- Install MailerLite SDK or ActiveCampaign SDK
+- Create `/api/email/sync-subscriber` endpoint
+- Create webhook handler for MailerLite/ActiveCampaign events
+- Sync player data to email marketing platform
+- Create automated workflows in email platform
+
+**Decision Point**:
+- **Short-term**: Enhance Resend with segmentation (2-3 days)
+- **Long-term**: Consider MailerLite/ActiveCampaign only if you need:
+  - Advanced automation workflows
+  - A/B testing
+  - Detailed analytics
+  - Large-scale email marketing
+
+---
 
 ### Certificate System v0.1 (Shareable, Course-Aware)
 

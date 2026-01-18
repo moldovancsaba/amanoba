@@ -926,31 +926,31 @@ const lessonPlan = [
     day: 17,
     title: 'Szerephez illesztett sabloncsomag I.',
     content: `<h2>Napi cél</h2>
-<p>Ma elkészíted az első szerep-specifikus sabloncsomagod: 5 prompt, amik a leggyakoribb feladataidra lőnek.</p>
+<p>Ma elkészíted az első szerep-specifikus sabloncsomagod: 5 gyors sablon a leggyakoribb feladataidra.</p>
 <ul>
 <li>alap sablonok: email, összefoglaló, teendő, vázlat</li>
-<li>szerep-specifikus sablon: a legfontosabb feladatodra</li>
+<li>szerep-specifikus: a legfontosabb feladatodra</li>
 <li>variáció: ugyanaz más stílusban</li>
-<li>iteráció: hogyan finomítsd</li>
-<li>ellenőrzés: minőség-check prompt</li>
+<li>iteráció: finomítási lépések</li>
+<li>ellenőrző sablon: minőség-check</li>
 </ul>
 
 <hr />
-<h2>Sabloncsomag v1</h2>
+<h2>Sabloncsomag v1 (5 db)</h2>
 <ol>
-<li><strong>Alap</strong>: email (Cél/Kontextus/Forma/Stílus/Változók)</li>
-<li><strong>Alap</strong>: összefoglaló (5 pont, döntés, next step)</li>
+<li><strong>Email</strong>: Cél/Kontextus/Forma/Stílus/Változók</li>
+<li><strong>Összefoglaló</strong>: 5 pont, döntés, next step</li>
 <li><strong>Szerep-specifikus</strong>: pl. kampány vázlat / user story / bug triage / pitch outline</li>
-<li><strong>Variáció</strong>: ugyanaz, más stílusban (üzleti vs. barátságos)</li>
-<li><strong>Ellenőrző</strong>: „Ellenőrizd: hiányzik-e CTA, szám, határidő, felelős?”</li>
+<li><strong>Variáció</strong>: ugyanaz két stílusban (üzleti vs. barátságos)</li>
+<li><strong>Ellenőrző</strong>: „Hiányzik-e CTA, szám, határidő, felelős?”</li>
 </ol>
 
 <hr />
 <h2>Gyakorlat 1 – 5 sablon</h2>
-<p>Készítsd el a fenti 5 sablont a szerepedhez. Írd mellé, mire használod és milyen változókat töltesz ki.</p>
+<p>Készítsd el az 5 sablont a szerepedre. Írd mellé, milyen változókat töltesz ki (pl. [téma], [címzett], [stílus], [hossz]).</p>
 
 <h2>Gyakorlat 2 – Teszt és jegyzet</h2>
-<p>Próbáld ki mind az 5-öt valós példán. Jegyezd fel: mi működött, mit kell javítani (v1 → v2).</p>
+<p>Próbáld ki valós példán, jegyezd fel: mi működött, mit kell javítani (v1 → v2).</p>
 
 <hr />
 <h2>Prompt minta</h2>
@@ -959,7 +959,7 @@ const lessonPlan = [
 </blockquote>
 
 <h2>Tipp</h2>
-<p>Öt sablon elég az induláshoz. Verziózd, tartsd egy helyen, és oszd meg a csapattal.</p>
+<p>Kicsiben kezdd (5 sablon), verziózd, tartsd egy helyen, és oszd meg a csapattal.</p>
 
 <h2>Opcionális mélyítés</h2>
 <ul>
@@ -976,48 +976,48 @@ const lessonPlan = [
     day: 18,
     title: 'Szerephez illesztett sabloncsomag II.',
     content: `<h2>Napi cél</h2>
-<p>Ma haladó sablonokat építesz: komplex, integrációs, automatizálási promptokkal bővíted a csomagot.</p>
+<p>Bővíted a csomagod haladó sablonokkal: komplex, integrációs, automatizálási promptok.</p>
 <ul>
-<li>komplex feladat: több lépés, több output</li>
-<li>integráció: adat + elemzés + riport</li>
-<li>automatizálás: ismétlődő feladat sablonja</li>
+<li>komplex: több lépés, több output</li>
+<li>integráció: adat + elemzés + ajánlás</li>
+<li>automatizálás: ismétlődő rutin standardizálása</li>
 </ul>
 
 <hr />
-<h2>Haladó sablonok</h2>
+<h2>Haladó sablon példák</h2>
 <ol>
-<li><strong>Komplex</strong>: pl. teljes kampányterv / PRD váz + acceptance criteria / debug-útvonal</li>
+<li><strong>Komplex</strong>: kampányterv / PRD váz + acceptance criteria / debug-útvonal</li>
 <li><strong>Integráció</strong>: adatbeolvasás + összefoglaló + döntési javaslat</li>
-<li><strong>Automatizálás</strong>: napi rutinfeladat (pl. standup összegzés, ticket triage) standard promptja</li>
+<li><strong>Automatizálás</strong>: napi standup összegzés, ticket triage, KPI riport</li>
 </ol>
 
-<h2>Mi legyen bennük?</h2>
+<h2>Kötelező elemek</h2>
 <ul>
-<li>Lépések: 1) Input, 2) Feldolgozás, 3) Output, 4) Ellenőrzés</li>
-<li>Változók: adatforrás, formátum, határidő, stílus</li>
+<li>Lépések: Input → Feldolgozás → Output → Ellenőrzés</li>
+<li>Változók: [adatforrás], [formátum], [határidő], [stílus]</li>
 <li>Minőség: „Ellenőrizd a számokat/konzisztenciát, jelezd a hiányt”</li>
 </ul>
 
 <hr />
 <h2>Gyakorlat 1 – 3 haladó sablon</h2>
-<p>Készíts 3 sablont: komplex, integrációs, automatizálási. Teszteld mindhármat valós példán, jegyezd fel a javításokat.</p>
+<p>Készíts komplex, integrációs, automatizálási sablont. Teszteld, jegyezd fel a javításokat (v1 → v2).</p>
 
-<h2>Gyakorlat 2 – Minőségellenőrzés</h2>
-<p>Minden sablonhoz írj ellenőrző lépést: „Ha hiányzik X, szólj; ha számot használsz, ellenőrizd.”</p>
+<h2>Gyakorlat 2 – QA lépés</h2>
+<p>Mindegyikhez írj QA lépést: „Ha nincs adat, jelezd; ha számot használsz, forrás/validáció.”</p>
 
 <hr />
 <h2>Prompt minta</h2>
 <blockquote>
-<p>Készíts haladó sablont [feladat]-hoz. Struktúra: 1) Lépések, 2) Input, 3) Output (formátum/hossz), 4) Ellenőrzés (mit validálj). Változók: [adatforrás], [stílus], [határidő].</p>
+<p>Készíts haladó sablont [feladat]-ra. Struktúra: 1) Lépések, 2) Input, 3) Output (formátum/hossz), 4) Ellenőrzés. Változók: [adatforrás], [stílus], [határidő].</p>
 </blockquote>
 
 <h2>Tipp</h2>
-<p>Haladó sablonokat is verziózd. Különítsd el a komplex/automata promptokat a gyors, taktikai sablonoktól.</p>
+<p>Válaszd szét a gyors sablonokat a komplexektől. Haladó sablonokat is verziózd.</p>
 
 <h2>Opcionális mélyítés</h2>
 <ul>
-<li>Chaining: több prompt egymás után (vázlat → bővítés → QA)</li>
-<li>Integráció: táblázat + összefoglaló + ajánlás egy promptból</li>
+<li>Chaining: vázlat → bővítés → QA</li>
+<li>Integráció: táblázat + összefoglaló + ajánlás egy promptban</li>
 </ul>`,
     emailSubject: 'AI 30 Nap – 18. nap: Sabloncsomag II.',
     emailBody: `<h1>AI 30 Nap – 18. nap</h1>
@@ -1029,50 +1029,50 @@ const lessonPlan = [
     day: 19,
     title: 'Tipikus csapdák az adott szerepben',
     content: `<h2>Napi cél</h2>
-<p>Ma feltárod a szerep-specifikus csapdákat és megírod az elkerülési/ellenőrzési stratégiát.</p>
+<p>Ma feltárod a szerep-specifikus csapdákat, és írsz elkerülési/ellenőrzési stratégiát.</p>
 <ul>
-<li>csapdalista: tipikus hibák a szerepedben</li>
-<li>felismerés: jelzések, amikre figyelj</li>
-<li>elkerülés: prompt-módosítás, ellenőrzés</li>
+<li>csapdalista 5 tipikus hibával</li>
+<li>felismerési jelek: mire figyelj</li>
+<li>elkerülés: prompt-módosítás + ellenőrzés</li>
 <li>ellenőrző kérdések: mit kérdezz mindig</li>
 </ul>
 
 <hr />
-<h2>Példák csapdákra</h2>
+<h2>Példa csapdák</h2>
 <ul>
-<li><strong>Marketing</strong>: túl kreatív, nem mérhető; kitalált statok.</li>
-<li><strong>Sales</strong>: generikus pitch, nincs személyre szabás.</li>
-<li><strong>PM</strong>: hiányzó user szemlélet, csak technikai lista.</li>
-<li><strong>Dev</strong>: hibás kód, teszt nélkül, nem figyel edge case-re.</li>
+<li><strong>Marketing</strong>: kitalált statok, nem mérhető output.</li>
+<li><strong>Sales</strong>: generikus pitch, nincs persona-fit.</li>
+<li><strong>PM</strong>: user nézőpont hiánya, csak technikai lista.</li>
+<li><strong>Dev</strong>: hibás kód, edge case/teszt hiánya.</li>
 </ul>
 
 <h2>Elkerülés/ellenőrzés</h2>
 <ul>
-<li>„Ha statisztika: adj forrást vagy jelezd a bizonytalanságot.”</li>
+<li>„Ha szám/statisztika: adj forrást vagy jelezd a bizonytalanságot.”</li>
 <li>„Adj 3 személyre szabott variánst [persona]-ra.”</li>
-<li>„Kérj unit tesztet / edge case listát.”</li>
-<li>„Használj mérőszámot (CTR, konverzió) vagy CTA-t.”</li>
+<li>„Kérj unit tesztet, edge case listát.”</li>
+<li>„Használj mérőszámot vagy CTA-t, ne csak leírást.”</li>
 </ul>
 
 <hr />
 <h2>Gyakorlat 1 – Csapdalista</h2>
-<p>Írj 5 csapdát a szerepedre. Mindenhez: jelzés (hogy veszed észre), elkerülés (prompt), ellenőrzés (kérdés).</p>
+<p>Írj 5 csapdát a szerepedre. Mindhez: jelzés, elkerülés, ellenőrzés.</p>
 
-<h2>Gyakorlat 2 – Két prompt javítása</h2>
-<p>Vegyél egy rossz promptot a szerepedből, javítsd csapda-ellenesre, és hasonlítsd össze a kimenetet.</p>
+<h2>Gyakorlat 2 – Prompt javítás</h2>
+<p>Válassz egy rossz promptot, javítsd csapda-ellenesre, hasonlítsd össze a kimenetet.</p>
 
 <hr />
 <h2>Prompt minta</h2>
 <blockquote>
-<p>Készíts „csapdalista” dokumentumot [szerep]-hez. Struktúra: 1) Tipikus hibák, 2) Felismerés jelei, 3) Elkerülés (prompt módosítás), 4) Ellenőrző kérdések. Adj példát minden pontra.</p>
+<p>Készíts „csapdalista” dokumentumot [szerep]-hez. Struktúra: 1) Tipikus hibák, 2) Felismerés jelei, 3) Elkerülés (prompt), 4) Ellenőrző kérdések. Adj példát mindegyikre.</p>
 </blockquote>
 
 <h2>Tipp</h2>
-<p>A csapdalista élő dokumentum: frissítsd, ha új hibát találsz. Kösd össze a sabloncsomagjaiddal.</p>
+<p>Csapdalista = élő dokumentum. Frissítsd, ha új hiba jön elő, és linkeld a sabloncsomaghoz.</p>
 
 <h2>Opcionális mélyítés</h2>
 <ul>
-<li>Hibagyűjtemény: valódi esetek a csapatból</li>
+<li>Hibagyűjtemény valós esetekkel</li>
 <li>„Red flag” checklist per szerep</li>
 </ul>`,
     emailSubject: 'AI 30 Nap – 19. nap: Tipikus csapdák',
@@ -1085,33 +1085,48 @@ const lessonPlan = [
     day: 20,
     title: 'Skill-check & szintlépés',
     content: `<h2>Napi cél</h2>
-<p>Ellenőrzöd a fejlődésedet és meghatározod a következő szintet.</p>
-
-<h2>Skill-check</h2>
-<p>Ellenőrizd a fejlődésedet:</p>
+<p>Ma felméred a fejlődésed és kijelölöd a következő szintet: mely készségek mennek, melyeket húzod fel.</p>
 <ul>
-<li><strong>Alap készségek</strong> – Tudsz-e jó promptot írni?</li>
-<li><strong>Workflow</strong> – Van-e hatékony workflow-d?</li>
-<li><strong>Sablonok</strong> – Használsz-e prompt sablonokat?</li>
-<li><strong>Hibakezelés</strong> – Tudsz-e felismerni és kezelni hibákat?</li>
+<li>önértékelés (1–5) a kulcsterületeken</li>
+<li>hiányok beazonosítása (prompt, workflow, sablon, QA)</li>
+<li>következő célok + akcióterv</li>
 </ul>
 
-<h2>Gyakorlat</h2>
-<p>Készíts egy önértékelést:</p>
+<hr />
+<h2>Skill-check területek</h2>
+<ul>
+<li>Prompt: cél/kontextus/forma/stílus/hossz/CTA</li>
+<li>Workflow: Input→Feldolgozás→Output→Ellenőrzés</li>
+<li>Sablon: van-e könyvtárad, verziózol-e</li>
+<li>Hibakezelés: forrás/disclaimer, QA, teszt</li>
+<li>Szerep-specifikus: használod-e a saját sablonjaidat</li>
+<li>Iteráció: adsz-e konkrét feedbacket</li>
+<li>Biztonság: anonimizálás, érzékeny adat nem megy be</li>
+</ul>
+
+<hr />
+<h2>Gyakorlat – Önelemzés</h2>
 <ol>
-<li>Mely készségeket sajátítottad el? (1-5 skála)</li>
-<li>Melyeket kell még fejleszteni?</li>
-<li>Mi a következő célod? (pl. komplex feladatok, automatizálás)</li>
-<li>Hogyan éred el? (gyakorlat, sablonok, workflow)</li>
+<li>Értékeld magad 1–5-ig a fenti területeken.</li>
+<li>Írd le 3 erősséged és 3 fejlesztendő pontot.</li>
+<li>Válassz 2 fejlesztendőt, állíts célokat (pl. „QA lépést mindig kérek”).</li>
+<li>Készíts akciótervet: sablon frissítés, workflow gyakorlás, QA checklist.</li>
 </ol>
 
+<hr />
 <h2>Prompt minta</h2>
 <blockquote>
-<p>Készíts egy önértékelést az AI használati készségeimről. Struktúra: 1) Sajátított készségek (1-5), 2) Fejlesztendő készségek, 3) Következő célok, 4) Akcióterv. Konkrét példákkal.</p>
+<p>Készíts önértékelést az AI-készségeimről. Struktúra: 1) 1–5 értékek (prompt, workflow, sablon, QA, szerep-specifikus), 2) Erősségek (3), 3) Fejlesztendők (3), 4) Következő célok (2), 5) Akcióterv (konkrét lépések, határidők).</p>
 </blockquote>
 
 <h2>Tipp</h2>
-<p>Skill-check & szintlépés: a fejlődés folyamatos. Ne állj meg – mindig van mit tanulni és fejleszteni.</p>`,
+<p>Válassz kevés célt, de csináld végig. Kapcsold a célokat a napi feladatokhoz (pl. minden email előtt ellenőrző kérdés).</p>
+
+<h2>Opcionális mélyítés</h2>
+<ul>
+<li>Heti retro: mi működött, mi nem</li>
+<li>KPI: mennyi időt spóroltál, hány iteráció kell egy jó kimenethez</li>
+</ul>`,
     emailSubject: 'AI 30 Nap – 20. nap: Skill-check',
     emailBody: `<h1>AI 30 Nap – 20. nap</h1>
 <h2>Skill-check & szintlépés</h2>
@@ -1123,34 +1138,45 @@ const lessonPlan = [
     day: 21,
     title: 'Ötletvalidálás AI-val',
     content: `<h2>Napi cél</h2>
-<p>Megtanulod, hogyan validálod az ötleteidet AI segítségével.</p>
-
-<h2>Ötletvalidálás</h2>
-<p>Az AI segíthet ötletek validálásában:</p>
+<p>Ma AI-val validálsz egy ötletet: piac, kockázat, erőforrás, értékajánlat – forrás/disclaimer szabállyal.</p>
 <ul>
-<li><strong>Piaci kutatás</strong> – "Milyen hasonló termékek/szolgáltatások vannak?"</li>
-<li><strong>Kockázatelemzés</strong> – "Mik a lehetséges kockázatok?"</li>
-<li><strong>Erőforrás igény</strong> – "Milyen erőforrásokra van szükség?"</li>
-<li><strong>Értékajánlat</strong> – "Mi az egyedi értékajánlat?"</li>
+<li>piaci térkép: hasonló termékek/szolgáltatások</li>
+<li>kockázatok: mi boríthatja</li>
+<li>erőforrás: mire lesz szükség</li>
+<li>értékajánlat: mi az egyedi</li>
 </ul>
 
-<h2>Gyakorlat</h2>
-<p>Válassz egy ötletet (vagy készíts egyet) és validáld AI-val:</p>
+<hr />
+<h2>Biztonságos validálás</h2>
+<p>„Adj forrást/linket, vagy jelezd, ha nem vagy biztos. Ne találj ki adatot.”</p>
+
+<h2>Struktúra</h2>
 <ol>
-<li>Írd le az ötletet</li>
-<li>Kérj piaci kutatást: hasonló termékek, versenytársak</li>
-<li>Kérj kockázatelemzést: lehetséges problémák</li>
-<li>Kérj értékajánlat elemzést: mi az egyedi érték</li>
-<li>Készíts egy validációs összefoglalót</li>
+<li>Ötlet rövid leírása (probléma, célközönség)</li>
+<li>Piaci kutatás: 3–5 hasonló szereplő, fő különbség</li>
+<li>Kockázatok: top 5, hatás/valószínűség</li>
+<li>Erőforrás: idő, pénz, csapat/skill</li>
+<li>Értékajánlat: 1–2 mondatos UVP</li>
 </ol>
 
+<hr />
+<h2>Gyakorlat</h2>
+<p>Válassz egy ötletet, kérj a fenti struktúrában validációt. Ellenőrizd a számokat/állításokat, jelöld, mi tűnik gyengének.</p>
+
+<hr />
 <h2>Prompt minta</h2>
 <blockquote>
-<p>Validáld ezt az ötletet: [ötlet leírás]. Készíts: 1) Piaci kutatás (hasonló termékek), 2) Kockázatelemzés, 3) Erőforrás igény, 4) Értékajánlat elemzés. Formátum: strukturált lista, pro/kontra.</p>
+<p>Validáld ezt az ötletet: [ötlet]. Adj: 1) Piaci térkép (3–5 hasonló, különbségek), 2) Kockázatok (top 5, hatás/valószínűség), 3) Erőforrás igény (idő/pénz/skill), 4) Értékajánlat (1–2 mondat). Adj forrást vagy jelezd, ha nem vagy biztos. Formátum: lista + pro/kontra.</p>
 </blockquote>
 
 <h2>Tipp</h2>
-<p>Ötletvalidálás AI-val: az AI segít, de ne bízz meg vakon. Ellenőrizd a kritikus információkat és kérj több forrást.</p>`,
+<p>Az AI segít ötletelni, de a kritikus pontokat ellenőrizd emberrel/forrással.</p>
+
+<h2>Opcionális mélyítés</h2>
+<ul>
+<li>Simple TAM/SAM/SOM becslés</li>
+<li>Versenyelőny: mi másolható/nehezen másolható</li>
+</ul>`,
     emailSubject: 'AI 30 Nap – 21. nap: Ötletvalidálás',
     emailBody: `<h1>AI 30 Nap – 21. nap</h1>
 <h2>Ötletvalidálás AI-val</h2>
@@ -1161,33 +1187,45 @@ const lessonPlan = [
     day: 22,
     title: 'Persona & értékajánlat',
     content: `<h2>Napi cél</h2>
-<p>Megtanulod, hogyan készítesz personát és értékajánlatot AI segítségével.</p>
+<p>Ma AI-val készítesz personát és értékajánlatot: célcsoport, fájdalom-pontok, megoldás, üzenet.</p>
 
-<h2>Persona és értékajánlat</h2>
-<p>Az AI segíthet persona és értékajánlat készítésében:</p>
+<h2>Persona</h2>
 <ul>
-<li><strong>Persona</strong> – "Készíts personát: demográfia, igények, problémák, megoldások"</li>
-<li><strong>Értékajánlat</strong> – "Mi az egyedi érték? Miért választanak minket?"</li>
-<li><strong>Üzenet</strong> – "Hogyan kommunikáljuk az értékajánlatot?"</li>
+<li>Demográfia: szerep, iparág, cégméret</li>
+<li>Célok, kihívások, fájdalom-pontok</li>
+<li>Döntési szempontok, kifogások</li>
 </ul>
 
+<h2>Értékajánlat</h2>
+<ul>
+<li>Probléma → Megoldás → Előny (kimenet/eredmény)</li>
+<li>Miért mi? (egyedi tényező, proof, példa)</li>
+<li>Üzenet: 1–2 mondatos UVP, CTA</li>
+</ul>
+
+<hr />
 <h2>Gyakorlat</h2>
-<p>Készíts egy personát és értékajánlatot:</p>
 <ol>
-<li>Válassz egy célcsoportot (vagy készíts egyet)</li>
-<li>Kérj personát: demográfia, igények, problémák</li>
-<li>Kérj értékajánlatot: mi az egyedi érték, miért választanak minket</li>
-<li>Kérj üzenetet: hogyan kommunikáljuk</li>
-<li>Készíts egy összefoglalót</li>
+<li>Válassz célcsoportot (persona) és írd le röviden.</li>
+<li>Kérj personát: demó, célok, kihívások, kifogások.</li>
+<li>Kérj értékajánlatot: Probléma→Megoldás→Előny, 1–2 mondatos UVP.</li>
+<li>Adj 2 üzenetvariánst (pl. üzleti vs. barátságos).</li>
 </ol>
 
+<hr />
 <h2>Prompt minta</h2>
 <blockquote>
-<p>Készíts personát és értékajánlatot. Persona: [célcsoport leírás]. Értékajánlat: [termék/szolgáltatás]. Struktúra: 1) Persona (demográfia, igények, problémák), 2) Értékajánlat (egyedi érték, miért választanak), 3) Üzenet (hogyan kommunikáljuk).</p>
+<p>Készíts personát [célcsoport]-ra: demográfia, célok, kihívások, kifogások. Majd írj értékajánlatot: Probléma→Megoldás→Előny, 1–2 mondatos UVP, 2 üzenetvariáns (üzleti/barátságos). Adj CTA-t. Ha nincs adat, jelezd.</p>
 </blockquote>
 
 <h2>Tipp</h2>
-<p>Persona & értékajánlat: az AI segít, de a valós adatok fontosabbak. Használd az AI-t vázlatként, majd finomítsd valós adatokkal.</p>`,
+<p>Kérj kifogásokat és döntési szempontokat is. Teszteld a két üzenetvariánst, válaszd a jobbat.</p>
+
+<h2>Opcionális mélyítés</h2>
+<ul>
+<li>Positioning: „For [persona] who [need], we provide [solution] that [outcome], unlike [alternatives].”</li>
+<li>Fájdalom → érték leképezések (pain/value map)</li>
+</ul>`,
     emailSubject: 'AI 30 Nap – 22. nap: Persona & értékajánlat',
     emailBody: `<h1>AI 30 Nap – 22. nap</h1>
 <h2>Persona & értékajánlat</h2>
@@ -1198,33 +1236,42 @@ const lessonPlan = [
     day: 23,
     title: 'Landing váz és szöveg',
     content: `<h2>Napi cél</h2>
-<p>Megtanulod, hogyan készítesz landing page vázlatot és szöveget AI segítségével.</p>
-
-<h2>Landing page készítés</h2>
-<p>Az AI segíthet landing page készítésében:</p>
+<p>Ma AI-val készítesz landing vázlatot és szöveget: hero, értékajánlat, funkciók, CTA, variációk.</p>
 <ul>
-<li><strong>Vázlat</strong> – "Készíts landing page vázlatot: hero, értékajánlat, funkciók, CTA"</li>
-<li><strong>Szöveg</strong> – "Írj landing page szöveget: hero szöveg, alcímek, CTA gombok"</li>
-<li><strong>Variációk</strong> – "Adj 3 változatot: 1) rövid, 2) részletes, 3) bullet points"</li>
+<li>vázlat → szöveg → variációk (rövid/részletes/bullet)</li>
+<li>hero: cím, alcím, CTA</li>
+<li>értékajánlat + funkciók listában</li>
 </ul>
 
-<h2>Gyakorlat</h2>
-<p>Készíts egy landing page vázlatot és szöveget:</p>
+<hr />
+<h2>Struktúra</h2>
 <ol>
-<li>Add meg a termék/szolgáltatás leírását</li>
-<li>Kérj vázlatot: struktúra, szekciók</li>
-<li>Kérj szöveget: hero, értékajánlat, funkciók, CTA</li>
-<li>Kérj 3 változatot: rövid, részletes, bullet points</li>
-<li>Válaszd ki a legjobbat és finomítsd</li>
+<li>Hero: cím, alcím, CTA</li>
+<li>Értékajánlat: 1–2 mondat, proof/példa</li>
+<li>Funkciók/előnyök: bullet 3–5</li>
+<li>Social proof (ha van)</li>
+<li>CTA ismétlés</li>
+<li>FAQ (opcionális)</li>
 </ol>
+
+<h2>Variációk</h2>
+<ul>
+<li>Rövid (hero + 3 bullet + CTA)</li>
+<li>Részletes (minden szekció)</li>
+<li>Bullet-first verzió</li>
+</ul>
+
+<hr />
+<h2>Gyakorlat</h2>
+<p>Adj meg termék/szolgáltatás leírást, kérj vázlatot a fenti struktúrával, majd kérj 3 szövegvariánst. Válaszd ki a legjobbat és finomíts.</p>
 
 <h2>Prompt minta</h2>
 <blockquote>
-<p>Készíts landing page vázlatot és szöveget. Termék: [termék leírás]. Struktúra: 1) Hero (cím, alcím, CTA), 2) Értékajánlat, 3) Funkciók, 4) CTA. Adj 3 változatot: rövid, részletes, bullet points.</p>
+<p>Készíts landing vázat és szöveget. Termék: [leírás]. Struktúra: Hero (cím, alcím, CTA), Értékajánlat, 3–5 bullet funkció, Social proof (ha nincs, írj helyőrzőt), CTA. Adj 3 variánst: rövid, részletes, bullet-first. Rövid, tömör, magyar nyelven.</p>
 </blockquote>
 
 <h2>Tipp</h2>
-<p>Landing váz és szöveg: kezdj vázlattal, majd pontosíts. A szöveg iteratív – az első verzió ritkán tökéletes.</p>`,
+<p>Kezdj vázlattal, majd kérj rövid + részletes verziót. A CTA legyen konkrét (pl. „Próbáld ki ingyen”).</p>`,
     emailSubject: 'AI 30 Nap – 23. nap: Landing page',
     emailBody: `<h1>AI 30 Nap – 23. nap</h1>
 <h2>Landing váz és szöveg</h2>
@@ -1235,34 +1282,38 @@ const lessonPlan = [
     day: 24,
     title: 'Árazás alapjai',
     content: `<h2>Napi cél</h2>
-<p>Megtanulod, hogyan gondolkodsz árazásról AI segítségével.</p>
-
-<h2>Árazás</h2>
-<p>Az AI segíthet árazásban:</p>
+<p>Ma AI-val készítesz árazási vázlatot: piaci kép, érték-alap, verseny, stratégia. Forrás/disclaimer kötelező.</p>
 <ul>
-<li><strong>Piaci kutatás</strong> – "Milyen árazási modellek vannak a piacon?"</li>
-<li><strong>Érték alapú árazás</strong> – "Mennyit ér a termék/szolgáltatás?"</li>
-<li><strong>Versenyképesség</strong> – "Hogyan állunk az árazásban a versenytársakhoz képest?"</li>
-<li><strong>Stratégia</strong> – "Milyen árazási stratégiát használjunk?"</li>
+<li>piaci kutatás: versenytárs árak/modellek</li>
+<li>érték alapú megközelítés</li>
+<li>versenyképességi összevetés</li>
+<li>árstratégia (pl. free trial, subscription, tiered)</li>
 </ul>
 
-<h2>Gyakorlat</h2>
-<p>Készíts egy árazási elemzést:</p>
+<hr />
+<h2>Struktúra</h2>
 <ol>
-<li>Add meg a termék/szolgáltatás leírását</li>
-<li>Kérj piaci kutatást: hasonló termékek árai</li>
-<li>Kérj érték alapú árazást: mennyit ér</li>
-<li>Kérj versenyképességi elemzést: hogyan állunk</li>
-<li>Kérj árazási stratégiát: milyen modellt használjunk</li>
+<li>Termék leírás, célcsoport</li>
+<li>Piaci kutatás: 3–5 hasonló, ár/modellek</li>
+<li>Érték alapú: milyen eredményt ad (idő/pénz/hatás)</li>
+<li>Versenyképesség: hol pozícionálsz (alacsony/közép/prémium)</li>
+<li>Stratégia javaslat: modellek, indoklás, pro/kontra</li>
 </ol>
+
+<hr />
+<h2>Biztonsági kitétel</h2>
+<p>„Adj forrást/linket, vagy jelezd, ha becslés; ne találj ki adatot.”</p>
+
+<h2>Gyakorlat</h2>
+<p>Kérj árazási elemzést a fenti struktúrában, pro/kontra táblával. Jelöld, mihez kell emberi validáció.</p>
 
 <h2>Prompt minta</h2>
 <blockquote>
-<p>Készíts árazási elemzést. Termék: [termék leírás]. Struktúra: 1) Piaci kutatás (hasonló termékek árai), 2) Érték alapú árazás, 3) Versenyképességi elemzés, 4) Árazási stratégia. Formátum: pro/kontra táblázat.</p>
+<p>Készíts árazási elemzést. Termék: [leírás]. Struktúra: 1) Piaci kutatás (3–5 hasonló ár/modellek), 2) Érték alapú nézet (megtakarítás/eredmény), 3) Versenyképesség (pozíció), 4) Árazási stratégia javaslat (modellek + pro/kontra). Adj forrást vagy disclaimert, ha becslés. Formátum: táblázat + összefoglaló.</p>
 </blockquote>
 
 <h2>Tipp</h2>
-<p>Árazás alapjai: az AI segít, de a valós piaci adatok fontosabbak. Használd az AI-t vázlatként, majd finomítsd valós adatokkal.</p>`,
+<p>Ne fogadj el számot forrás nélkül. Kezeld AI-kimenetet vázlatként, validáld piaci adattal.</p>`,
     emailSubject: 'AI 30 Nap – 24. nap: Árazás',
     emailBody: `<h1>AI 30 Nap – 24. nap</h1>
 <h2>Árazás alapjai</h2>
@@ -1273,34 +1324,34 @@ const lessonPlan = [
     day: 25,
     title: 'MVP gondolkodás – mit NEM csinálunk',
     content: `<h2>Napi cél</h2>
-<p>Megtanulod az MVP (Minimum Viable Product) gondolkodást és meghatározod, mit NEM csinálsz.</p>
-
-<h2>MVP gondolkodás</h2>
-<p>Az MVP az a minimális verzió, ami még értéket ad:</p>
+<p>Ma MVP-t tervezel: mit csinálunk, mit NEM csinálunk, mi a legfontosabb érték.</p>
 <ul>
-<li><strong>Mit csinálunk</strong> – "Mi a minimális funkciókészlet?"</li>
-<li><strong>Mit NEM csinálunk</strong> – "Mit hagyjunk ki az első verzióból?"</li>
-<li><strong>Prioritás</strong> – "Mi a legfontosabb?"</li>
-<li><strong>Érték</strong> – "Mi az érték, amit adunk?"</li>
+<li>minimális funkciókészlet</li>
+<li>kizárások listája</li>
+<li>prioritás: mi kerül be első körben</li>
+<li>érték: mit ad az MVP</li>
 </ul>
 
-<h2>Gyakorlat</h2>
-<p>Készíts egy MVP tervet:</p>
+<hr />
+<h2>MVP váz</h2>
 <ol>
-<li>Add meg a termék/szolgáltatás leírását</li>
-<li>Kérj MVP definíciót: mit csinálunk, mit nem</li>
-<li>Kérj prioritást: mi a legfontosabb</li>
-<li>Kérj érték elemzést: mi az érték</li>
-<li>Készíts egy MVP tervet</li>
+<li>Termék/feature rövid leírása</li>
+<li><strong>Mit csinálunk</strong>: top 3 funkció</li>
+<li><strong>Mit NEM csinálunk</strong>: mit hagyunk ki (scope cut)</li>
+<li><strong>Prioritás</strong>: miért ezek kerülnek be</li>
+<li><strong>Érték</strong>: milyen problémát old meg, milyen mérőszámmal</li>
 </ol>
+
+<h2>Gyakorlat</h2>
+<p>Kérj MVP tervet a fenti váz szerint, külön „mit nem csinálunk” blokkal. Ellenőrizd, hogy minden funkcióhoz van-e érték és mérőszám.</p>
 
 <h2>Prompt minta</h2>
 <blockquote>
-<p>Készíts MVP tervet. Termék: [termék leírás]. Struktúra: 1) MVP definíció (mit csinálunk, mit nem), 2) Prioritás (legfontosabb funkciók), 3) Érték (mi az érték), 4) Kizárások (mit nem csinálunk). Formátum: strukturált lista.</p>
+<p>Készíts MVP tervet. Termék: [leírás]. Struktúra: 1) Mit csinálunk (top 3 funkció), 2) Mit NEM csinálunk (scope cut), 3) Prioritás indoklása, 4) Érték (probléma → megoldás → mérőszám). Formátum: lista.</p>
 </blockquote>
 
 <h2>Tipp</h2>
-<p>MVP gondolkodás – mit NEM csinálunk: a kizárások ugyanolyan fontosak, mint a belevételek. Ne próbálj mindent megcsinálni egyszerre.</p>`,
+<p>A „mit nem” legalább olyan fontos, mint a „mit igen”. Ne engedd visszamászni a scope-ba.</p>`,
     emailSubject: 'AI 30 Nap – 25. nap: MVP gondolkodás',
     emailBody: `<h1>AI 30 Nap – 25. nap</h1>
 <h2>MVP gondolkodás – mit NEM csinálunk</h2>
@@ -3061,6 +3112,546 @@ function generateQuizQuestions(
           'Mindig 0 sablonnal kezdj',
           'Ne tesztelj',
           'Ne adj kontextust'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.HARD,
+        category: 'Course Specific'
+      }
+    );
+  } else if (day === 17) {
+    // Day 17: Szerephez illesztett sabloncsomag I.
+    questions.push(
+      {
+        question: 'Miért készítesz szerep-specifikus sabloncsomagot?',
+        options: [
+          'Gyorsítja a visszatérő feladatokat és konzisztens minőséget ad',
+          'Hogy hosszabb legyen a folyamat',
+          'Csak dísznek',
+          'Mert tilos újrahasználni'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.EASY,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Melyik az 5 alap sablon ebben a csomagban?',
+        options: [
+          'Email, összefoglaló, teendő, vázlat, szerep-specifikus feladat',
+          'Csak egy email sablon',
+          'Csak egy blogposzt sablon',
+          'Csak egy táblázat sablon'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.EASY,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Miért adj két stílusvariánst ugyanarra a sablonra?',
+        options: [
+          'Hogy legyen választás (pl. üzleti vs. barátságos) és finomíthasd',
+          'Csak hosszabb lesz',
+          'Nem szükséges, mindig ugyanaz kell',
+          'Mert kevesebb kontextus kell'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.MEDIUM,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Mit tartalmazzon az ellenőrző sablon?',
+        options: [
+          'CTA, számok, határidő, felelős megléte',
+          'Csak a címet',
+          'Csak a színt',
+          'Csak a hossz beállítását'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.MEDIUM,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Miért érdemes jegyzetelni (v1 → v2) a sablon teszteléskor?',
+        options: [
+          'Lásd, mi működött, és javítsd tudatosan',
+          'Nem szükséges, csak időpazarlás',
+          'Mert kötelező űrlap',
+          'Hogy ne tudd, mi változott'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.HARD,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Milyen változókat érdemes beleírni a sablonba?',
+        options: [
+          '[téma], [címzett], [stílus], [hossz], [formátum]',
+          'Semmit, mindig fix',
+          'Csak a dátumot',
+          'Csak a nevet'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.MEDIUM,
+        category: 'Course Specific'
+      }
+    );
+  } else if (day === 18) {
+    // Day 18: Szerephez illesztett sabloncsomag II.
+    questions.push(
+      {
+        question: 'Mi jellemzi a haladó sablonokat?',
+        options: [
+          'Komplex, integrációs vagy automatizáló feladatok több lépéssel',
+          'Csak egy mondatos kérések',
+          'Mindig ugyanaz a kimenet',
+          'Nincs benne ellenőrzés'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.EASY,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Melyik jó példa integrációs sablonra?',
+        options: [
+          'Adatbeolvasás + összefoglaló + döntési javaslat egy promptban',
+          'Csak email kérése',
+          'Csak egy üres táblázat',
+          'Csak köszönés'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.MEDIUM,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Miért kell QA/ellenőrző lépés a haladó sablonokban?',
+        options: [
+          'Számok, források, konzisztencia ellenőrzése; jelezze a hiányt',
+          'Felesleges, mindig hibátlan',
+          'Csak lassít',
+          'Nem lehet ellenőrizni'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.MEDIUM,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Milyen változókat érdemes megadni?',
+        options: [
+          'Adatforrás, formátum, határidő, stílus',
+          'Csak a cím',
+          'Csak a dátum',
+          'Nincs szükség változóra'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.EASY,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Mi a három fő haladó sablontípus ebben a leckében?',
+        options: [
+          'Komplex, integrációs, automatizálási',
+          'Email, email, email',
+          'Táblázat, táblázat, táblázat',
+          'Kép, hang, video'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.EASY,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Mit jelent a chaining ebben a kontextusban?',
+        options: [
+          'Több prompt egymás után (pl. vázlat → bővítés → QA)',
+          'Egy prompt végtelen ismétlése',
+          'Nincs ilyen',
+          'Képfűzés'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.HARD,
+        category: 'Course Specific'
+      }
+    );
+  } else if (day === 19) {
+    // Day 19: Tipikus csapdák az adott szerepben
+    questions.push(
+      {
+        question: 'Miért kell csapdalistát írni szerep szerint?',
+        options: [
+          'Hogy felismerd és elkerüld a tipikus hibákat a saját feladataidban',
+          'Hogy hosszabb legyen a dokumentum',
+          'Mert kötelező, de hasztalan',
+          'Csak díszítés'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.EASY,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Melyik jelzi, hogy marketing output hibás lehet?',
+        options: [
+          'Kitalált statisztikák, forrás nélkül',
+          'Pontos, hivatkozott számok',
+          'Persona-alapú üzenetek',
+          'Valódi mérőszámokkal ellátott ajánlat'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.MEDIUM,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Mi a jó elkerülés sales csapdára?',
+        options: [
+          'Kérj 3 személyre szabott variánst [persona]-ra',
+          'Általános üzenet mindenkihez',
+          'Csak terméklistát küldeni',
+          'Semmi ellenőrzés'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.MEDIUM,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Milyen ellenőrzést kérnél Dev feladatnál?',
+        options: [
+          'Unit teszt/edge case lista, hiba jelzése',
+          'Csak kód magyarázat',
+          'Semmi, küldd el',
+          'Csak kommentek'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.HARD,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Mi legyen minden csapdapontnál a dokumentumban?',
+        options: [
+          'Jelzés, elkerülés (prompt), ellenőrzés (kérdés)',
+          'Csak a cím',
+          'Csak a dátum',
+          'Csak egy emoji'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.MEDIUM,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Miért „élő” a csapdalista?',
+        options: [
+          'Folyamatosan frissíted új hibákkal, és összekötöd a sablonjaiddal',
+          'Soha nem változik',
+          'Csak egyszer írod meg',
+          'Nem tárolod el'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.HARD,
+        category: 'Course Specific'
+      }
+    );
+  } else if (day === 20) {
+    // Day 20: Skill-check & szintlépés
+    questions.push(
+      {
+        question: 'Mi a skill-check célja?',
+        options: [
+          'Felmérni az erősségeket/hiányokat és kijelölni a következő célokat',
+          'Csak hosszabb szöveget írni',
+          'Mindig nulláról kezdeni',
+          'Nem kell mérni a fejlődést'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.EASY,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Mely területeket érdemes értékelni?',
+        options: [
+          'Prompt, workflow, sablon, QA/hibakezelés, szerep-specifikus, biztonság',
+          'Csak a stílust',
+          'Csak a dátumot',
+          'Csak a hosszot'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.MEDIUM,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Mi tartozik az akciótervbe?',
+        options: [
+          'Konkrét lépések, határidők, mely sablont/workflow-t frissíted',
+          'Csak egy mondat',
+          'Semmi, mert nincs szükség rá',
+          'Csak a címsor'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.MEDIUM,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Miért válassz kevés fejlesztendő célt egyszerre?',
+        options: [
+          'Könnyebb végigvinni és valódi fejlődést látni',
+          'Hogy sose fejezd be',
+          'Csak dísz',
+          'Nem számít'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.HARD,
+        category: 'Course Specific'
+      }
+    );
+  } else if (day === 21) {
+    // Day 21: Ötletvalidálás AI-val
+    questions.push(
+      {
+        question: 'Melyik a helyes validációs struktúra?',
+        options: [
+          'Piaci térkép, kockázatok, erőforrás, értékajánlat',
+          'Csak egy mondat',
+          'Csak erőforrás',
+          'Csak kockázat nélkül'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.EASY,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Miért kérj forrást vagy disclaimert?',
+        options: [
+          'Hogy ne vegyél át kitalált adatot, és lásd a bizonytalanságot',
+          'Hogy hosszabb legyen',
+          'Felesleges, mindig igaz',
+          'Csak dísz'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.MEDIUM,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Mit tartalmazzon a kockázati lista?',
+        options: [
+          'Top 5 kockázat hatás/valószínűség szerint',
+          'Csak a címet',
+          'Semmit, mert nem fontos',
+          'Csak dátumot'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.MEDIUM,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Mi az értékajánlat rövid célja?',
+        options: [
+          'Probléma→Megoldás→Előny röviden, miért mi',
+          'Hosszú regény',
+          'Csak árlista',
+          'Csak kifogások'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.MEDIUM,
+        category: 'Course Specific'
+      }
+    );
+  } else if (day === 22) {
+    // Day 22: Persona & értékajánlat
+    questions.push(
+      {
+        question: 'Mi legyen a persona-ban?',
+        options: [
+          'Demó, célok, fájdalom-pontok, kifogások, döntési szempontok',
+          'Csak név',
+          'Csak ár',
+          'Csak dátum'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.EASY,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Mi a jó értékajánlat felépítése?',
+        options: [
+          'Probléma → Megoldás → Előny (eredmény) + miért mi',
+          'Csak terméklista',
+          'Csak kifogások',
+          'Csak ár'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.MEDIUM,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Miért kérj két üzenetvariánst (üzleti vs. barátságos)?',
+        options: [
+          'Hogy lásd, melyik rezonál jobban, és választhass',
+          'Csak időpazarlás',
+          'Nem érdemes',
+          'Mert így hosszabb lesz'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.MEDIUM,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Mit tegyél, ha nincs elég adat a personához?',
+        options: [
+          'Jelezd a bizonytalanságot, és kérj alternatív feltételezéseket',
+          'Találj ki adatot',
+          'Hagyj mindent üresen',
+          'Ne jelezz semmit'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.HARD,
+        category: 'Course Specific'
+      }
+    );
+  } else if (day === 23) {
+    // Day 23: Landing váz és szöveg
+    questions.push(
+      {
+        question: 'Mi a landing alap struktúrája?',
+        options: [
+          'Hero, értékajánlat, funkciók/előnyök, social proof, CTA, (opcionális FAQ)',
+          'Csak egy hosszú bekezdés',
+          'Csak CTA',
+          'Csak képek'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.EASY,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Mit tegyél a hero szekcióba?',
+        options: [
+          'Cím, alcím, CTA – röviden a fő érték',
+          'Részletes árlista',
+          'Hosszú történet',
+          'Csak lábléc'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.MEDIUM,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Miért kérj több variánst (rövid/részletes/bullet)?',
+        options: [
+          'Hogy választhasd a legjobb formátumot és finomíthasd',
+          'Csak időpazarlás',
+          'Mindig elég egy verzió',
+          'Felesleges, mert nem számít a forma'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.MEDIUM,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Miért fontos a CTA pontossága?',
+        options: [
+          'Konkrét cselekvést kér (pl. “Próbáld ki ingyen”), növeli a konverziót',
+          'Csak dísz',
+          'Nem kell CTA',
+          'Mindegy, mit írunk oda'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.HARD,
+        category: 'Course Specific'
+      }
+    );
+  } else if (day === 24) {
+    // Day 24: Árazás alapjai
+    questions.push(
+      {
+        question: 'Melyik árazási elem NEM maradhat ki?',
+        options: [
+          'Piaci kutatás, érték-alap, versenyképesség, stratégia javaslat',
+          'Csak a logó',
+          'Csak a színek',
+          'Csak a dátum'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.EASY,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Miért kell forrást vagy disclaimert kérni?',
+        options: [
+          'Hogy ne vegyél át kitalált adatot, lásd a bizonytalanságot',
+          'Felesleges, mindig igaz',
+          'Csak hogy hosszabb legyen',
+          'Mert kötelező sablon'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.MEDIUM,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Mit takar az érték-alapú árazás?',
+        options: [
+          'Az eredmény/idő/pénz értéke alapján pozícionálsz',
+          'Csak a költséget nézed',
+          'Csak a versenytárs árát nézed',
+          'Csak a logót nézed'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.MEDIUM,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Mit tartalmazzon az árstratégia javaslat?',
+        options: [
+          'Modellek (pl. subscription/tiered) + pro/kontra + indoklás',
+          'Csak egy szám',
+          'Csak a színek',
+          'Csak a név'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.HARD,
+        category: 'Course Specific'
+      }
+    );
+  } else if (day === 25) {
+    // Day 25: MVP gondolkodás – mit NEM csinálunk
+    questions.push(
+      {
+        question: 'Mi az MVP lényege?',
+        options: [
+          'Minimális funkciókészlet, ami értéket ad, kizárásokkal',
+          'Mindent építs meg egyszerre',
+          'Csak a logót készítsd el',
+          'Csak a roadmapet írd meg'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.EASY,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Miért fontos a „mit NEM csinálunk” lista?',
+        options: [
+          'Védi a scope-ot és fókuszt, ne csússzon vissza minden',
+          'Csak dísz',
+          'Nem számít',
+          'Csak hogy hosszabb legyen a dokumentum'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.MEDIUM,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Milyen elemek legyenek egy MVP tervben?',
+        options: [
+          'Mit csinálunk (top funkciók), mit nem, prioritás, érték/mérőszám',
+          'Csak egy cím',
+          'Csak ár',
+          'Csak kifogások'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.MEDIUM,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Miért fontos priorizálni az MVP-ben?',
+        options: [
+          'Hogy először a legnagyobb értéket szállítsd',
+          'Hogy mindent egyszerre csinálj',
+          'Csak mert kötelező számot írni',
+          'Nem fontos'
         ],
         correctIndex: 0,
         difficulty: QuestionDifficulty.HARD,

@@ -1,13 +1,109 @@
 # Amanoba Task List
 
 **Version**: 2.7.0  
-**Last Updated**: 2025-01-20T12:00:00.000Z
+**Last Updated**: 2025-01-20T20:00:00.000Z
 
 ---
 
 ## Active Tasks
 
 Tasks are listed in priority order. Upon completion, tasks are moved to RELEASE_NOTES.md.
+
+---
+
+## 💳 HIGH PRIORITY: Monetization System (Stripe Integration)
+
+**Status**: 🔴 **BLOCKING REVENUE**  
+**Estimated**: 2-3 days  
+**Priority**: HIGH
+
+### User Stories
+- As a student, I want to purchase premium courses so I can access premium content
+- As a student, I want my premium status to activate automatically after successful payment
+- As an admin, I want to see payment transactions so I can track revenue
+- As a student, I want to see my subscription status in my profile
+
+| ID | Task | Owner | Expected Delivery | Status |
+|----|------|-------|-------------------|--------|
+| STRIPE1 | Install Stripe SDK: `npm install stripe @stripe/stripe-js` | AI | TBD | ⏳ PENDING |
+| STRIPE2 | Add Stripe environment variables: `STRIPE_SECRET_KEY`, `STRIPE_PUBLISHABLE_KEY`, `STRIPE_WEBHOOK_SECRET` | AI | TBD | ⏳ PENDING |
+| STRIPE3 | Create PaymentTransaction model (`app/lib/models/payment-transaction.ts`) for transaction logging | AI | TBD | ⏳ PENDING |
+| STRIPE4 | Update Player model: Add `stripeCustomerId` and `paymentHistory` fields | AI | TBD | ⏳ PENDING |
+| STRIPE5 | Create `/api/payments/create-checkout` endpoint: Generate Stripe Checkout session for course purchase | AI | TBD | ⏳ PENDING |
+| STRIPE6 | Create `/api/payments/webhook` endpoint: Handle Stripe webhook events (payment success, failure, refund) | AI | TBD | ⏳ PENDING |
+| STRIPE7 | Implement payment success handler: Activate premium status, update Player model, log transaction | AI | TBD | ⏳ PENDING |
+| STRIPE8 | Add payment button to course detail page (`app/[locale]/courses/[courseId]/page.tsx`) for premium courses | AI | TBD | ⏳ PENDING |
+| STRIPE9 | Create payment confirmation email: Send email after successful payment | AI | TBD | ⏳ PENDING |
+| STRIPE10 | Add payment history to player profile page: Display past transactions | AI | TBD | ⏳ PENDING |
+| STRIPE11 | Create admin payment dashboard: View all transactions, revenue analytics | AI | TBD | ⏳ PENDING |
+| STRIPE12 | Test payment flow: End-to-end testing with Stripe test mode | AI | TBD | ⏳ PENDING |
+| STRIPE13 | Add error handling: Payment failures, webhook verification, idempotency | AI | TBD | ⏳ PENDING |
+
+---
+
+## 📋 MEDIUM-HIGH PRIORITY: Onboarding Survey & Segmentation
+
+**Status**: 🟡 **UX IMPROVEMENT**  
+**Estimated**: 1-2 days  
+**Priority**: MEDIUM-HIGH
+
+### User Stories
+- As a new student, I want to complete an onboarding survey so I get personalized course recommendations
+- As a student, I want to see course recommendations based on my interests and skill level
+- As an admin, I want to see survey responses so I can understand student needs
+
+| ID | Task | Owner | Expected Delivery | Status |
+|----|------|-------|-------------------|--------|
+| SURVEY1 | Create Survey model (`app/lib/models/survey.ts`): Store survey questions and configuration | AI | TBD | ⏳ PENDING |
+| SURVEY2 | Create SurveyResponse model (`app/lib/models/survey-response.ts`): Store student answers | AI | TBD | ⏳ PENDING |
+| SURVEY3 | Create seed script for onboarding survey: Define 5-10 default questions | AI | TBD | ⏳ PENDING |
+| SURVEY4 | Create `/api/surveys/onboarding` GET endpoint: Fetch survey questions | AI | TBD | ⏳ PENDING |
+| SURVEY5 | Create `/api/surveys/onboarding` POST endpoint: Save survey responses | AI | TBD | ⏳ PENDING |
+| SURVEY6 | Update Player model: Add `surveyCompleted`, `skillLevel`, `interests` fields | AI | TBD | ⏳ PENDING |
+| SURVEY7 | Create onboarding survey page (`app/[locale]/onboarding/page.tsx`): Multi-step form UI | AI | TBD | ⏳ PENDING |
+| SURVEY8 | Implement course recommendation logic: Match courses based on survey responses | AI | TBD | ⏳ PENDING |
+| SURVEY9 | Add course recommendations to dashboard: Display recommended courses | AI | TBD | ⏳ PENDING |
+| SURVEY10 | Create survey analytics in admin dashboard: View response statistics | AI | TBD | ⏳ PENDING |
+| SURVEY11 | Add survey completion tracking: Mark player as survey completed | AI | TBD | ⏳ PENDING |
+| SURVEY12 | Redirect new users to survey: Show survey modal or redirect after signup | AI | TBD | ⏳ PENDING |
+
+---
+
+## 📧 LOW-MEDIUM PRIORITY: Email Automation Enhancement
+
+**Status**: 🟢 **MARKETING OPTIMIZATION**  
+**Estimated**: 2-5 days  
+**Priority**: LOW-MEDIUM (depends on marketing strategy)
+
+### User Stories
+- As an admin, I want to segment students by skill level so I can send targeted emails
+- As a student, I want to receive upsell emails after completing courses
+- As an admin, I want to see email analytics so I can improve campaigns
+
+### Phase 1: Resend Enhancement (2-3 days)
+
+| ID | Task | Owner | Expected Delivery | Status |
+|----|------|-------|-------------------|--------|
+| EMAIL1 | Add `emailSegment` field to Player model: Auto-calculate from course progress (beginner/intermediate/advanced) | AI | TBD | ⏳ PENDING |
+| EMAIL2 | Create email template system: Segment-specific templates for lesson emails | AI | TBD | ⏳ PENDING |
+| EMAIL3 | Enhance `sendCompletionEmail`: Add upsell logic (recommend related courses) | AI | TBD | ⏳ PENDING |
+| EMAIL4 | Add email analytics tracking: Log email opens, clicks to EventLog model | AI | TBD | ⏳ PENDING |
+| EMAIL5 | Create course recommendation logic: Find related courses for upsell emails | AI | TBD | ⏳ PENDING |
+| EMAIL6 | Create email analytics dashboard in admin UI: View open rates, click rates | AI | TBD | ⏳ PENDING |
+| EMAIL7 | Add personalized email content: Use player progress and preferences in emails | AI | TBD | ⏳ PENDING |
+
+### Phase 2: MailerLite/ActiveCampaign Integration (3-5 days) - OPTIONAL
+
+| ID | Task | Owner | Expected Delivery | Status |
+|----|------|-------|-------------------|--------|
+| EMAIL8 | Evaluate MailerLite vs ActiveCampaign: Choose email marketing platform | AI | TBD | ⏳ PENDING |
+| EMAIL9 | Install MailerLite/ActiveCampaign SDK | AI | TBD | ⏳ PENDING |
+| EMAIL10 | Create `/api/email/sync-subscriber` endpoint: Sync player data to email platform | AI | TBD | ⏳ PENDING |
+| EMAIL11 | Create webhook handler: Handle email platform events (opens, clicks, unsubscribes) | AI | TBD | ⏳ PENDING |
+| EMAIL12 | Set up automated workflows: Drip campaigns, nurture sequences in email platform | AI | TBD | ⏳ PENDING |
+| EMAIL13 | Create A/B testing setup: Test different email subject lines and content | AI | TBD | ⏳ PENDING |
+
+**Note**: Phase 2 only if advanced marketing automation is needed. Phase 1 (Resend enhancement) should be sufficient for most use cases.
 
 ---
 
