@@ -11,8 +11,9 @@ import { useEffect, useState } from 'react';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import { useLocale, useTranslations } from 'next-intl';
-import { Gift, ChevronLeft, Sparkles, ShoppingCart, Check, AlertCircle } from 'lucide-react';
+import { ChevronLeft, ShoppingCart, Check, AlertCircle } from 'lucide-react';
 import { LocaleLink } from '@/components/LocaleLink';
+import Icon, { MdCardGiftcard, MdDiamond, MdStar, MdAutoAwesome, MdSentimentDissatisfied } from '@/components/Icon';
 
 interface Reward {
   id: string;
@@ -132,7 +133,7 @@ export default function RewardsPage() {
     return (
       <div className="page-shell flex items-center justify-center p-4">
         <div className="page-card p-8 max-w-md w-full text-center">
-          <div className="text-6xl mb-4">😕</div>
+          <Icon icon={MdSentimentDissatisfied} size={64} className="text-brand-darkGrey mx-auto mb-4" />
           <h2 className="text-2xl font-bold text-brand-black mb-4">{t('unableToLoad')}</h2>
           <p className="text-brand-darkGrey mb-6">{error}</p>
           <LocaleLink
@@ -159,7 +160,7 @@ export default function RewardsPage() {
           <div className="flex justify-between items-center">
             <div>
               <h1 className="text-3xl font-bold text-brand-white flex items-center gap-3">
-                <Gift className="w-10 h-10" />
+                <Icon icon={MdCardGiftcard} size={40} />
                 {t('storeTitle')}
               </h1>
               <p className="text-brand-white/80 mt-1">{t('storeDescription')}</p>
@@ -188,7 +189,7 @@ export default function RewardsPage() {
                 {playerPoints.toLocaleString()}
               </div>
               <div className="text-brand-darkGrey flex items-center gap-2 justify-end">
-                <span className="text-2xl">💎</span>
+                <Icon icon={MdDiamond} size={24} />
                 <span>{tCommon('points')}</span>
               </div>
             </div>
@@ -230,8 +231,9 @@ export default function RewardsPage() {
                   }`}
                 >
                   {reward.premiumOnly && (
-                    <div className="absolute top-0 left-0 bg-yellow-400 text-black px-3 py-1 rounded-br-lg font-bold text-xs">
-                      ⭐ {tCommon('premium')}
+                    <div className="absolute top-0 left-0 bg-yellow-400 text-black px-3 py-1 rounded-br-lg font-bold text-xs flex items-center gap-1">
+                      <Icon icon={MdStar} size={14} />
+                      {tCommon('premium')}
                     </div>
                   )}
                   
@@ -265,8 +267,9 @@ export default function RewardsPage() {
                   )}
                   
                   <div className="flex items-center justify-between mb-4">
-                    <span className="text-2xl font-bold text-brand-accent">
-                      💎 {reward.pointsCost.toLocaleString()}
+                    <span className="text-2xl font-bold text-brand-accent flex items-center gap-1">
+                      <Icon icon={MdDiamond} size={24} />
+                      {reward.pointsCost.toLocaleString()}
                     </span>
                     <span className="text-sm text-brand-darkGrey capitalize">
                       {reward.category}
@@ -310,7 +313,7 @@ export default function RewardsPage() {
           </div>
         ) : (
           <div className="page-card p-12 text-center">
-            <Sparkles className="w-16 h-16 text-brand-accent mx-auto mb-4" />
+            <Icon icon={MdAutoAwesome} size={64} className="text-brand-accent mx-auto mb-4" />
             <h3 className="text-2xl font-bold text-brand-black mb-2">
               {t('noRewardsAvailable')}
             </h3>

@@ -11,8 +11,9 @@ import { useEffect, useState } from 'react';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import { useLocale, useTranslations } from 'next-intl';
-import { Calendar, ChevronLeft, Target, Clock, Gift, CheckCircle, RefreshCw } from 'lucide-react';
+import { ChevronLeft, Clock, RefreshCw } from 'lucide-react';
 import { LocaleLink } from '@/components/LocaleLink';
+import Icon, { MdCalendarToday, MdTarget, MdCardGiftcard, MdCheckCircle, MdSentimentDissatisfied, MdGpsFixed, MdCheckCircle as MdComplete, MdBolt, MdCalendarToday as MdCalendar } from '@/components/Icon';
 
 interface Challenge {
   _id: string;
@@ -160,7 +161,7 @@ export default function ChallengesPage() {
     return (
       <div className="page-shell flex items-center justify-center p-4">
         <div className="page-card p-8 max-w-md w-full text-center">
-          <div className="text-6xl mb-4">😕</div>
+          <Icon icon={MdSentimentDissatisfied} size={64} className="text-brand-darkGrey mx-auto mb-4" />
           <h2 className="text-2xl font-bold text-brand-black mb-4">{t('unableToLoad')}</h2>
           <p className="text-brand-darkGrey mb-6">{error}</p>
           <LocaleLink
@@ -185,7 +186,7 @@ export default function ChallengesPage() {
           <div className="flex justify-between items-center">
             <div>
               <h1 className="text-3xl font-bold text-brand-white flex items-center gap-3">
-                <Calendar className="w-10 h-10" />
+                <Icon icon={MdCalendarToday} size={40} />
                 {t('dailyChallenges')}
               </h1>
               <p className="text-brand-white/80 mt-1">{t('description')}</p>
@@ -236,7 +237,7 @@ export default function ChallengesPage() {
         {/* Stats Overview */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
           <div className="page-card p-6">
-            <div className="text-brand-accent text-3xl mb-2">🎯</div>
+            <Icon icon={MdTarget} size={36} className="text-brand-accent mb-2" />
             <div className="text-3xl font-bold text-brand-black">
               {activeChallenges.length}
             </div>
@@ -244,7 +245,7 @@ export default function ChallengesPage() {
           </div>
           
           <div className="page-card p-6">
-            <div className="text-brand-accent text-3xl mb-2">✅</div>
+            <Icon icon={MdCheckCircle} size={36} className="text-brand-accent mb-2" />
             <div className="text-3xl font-bold text-brand-black">
               {completedChallenges.length}
             </div>
@@ -252,7 +253,7 @@ export default function ChallengesPage() {
           </div>
           
           <div className="page-card p-6">
-            <div className="text-brand-accent text-3xl mb-2">💎</div>
+            <Icon icon={MdDiamond} size={36} className="text-brand-accent mb-2" />
             <div className="text-3xl font-bold text-brand-black">
               {completedChallenges.reduce((sum, c) => sum + c.rewards.points, 0).toLocaleString()}
             </div>
@@ -264,7 +265,7 @@ export default function ChallengesPage() {
         {activeChallenges.length > 0 && (
           <div className="mb-8">
             <h2 className="text-2xl font-bold text-brand-white mb-4 flex items-center gap-2">
-              <Target className="w-7 h-7" />
+              <Icon icon={MdTarget} size={28} />
               {t('active')} {t('title')} ({activeChallenges.length})
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -337,7 +338,7 @@ export default function ChallengesPage() {
         {completedChallenges.length > 0 && (
           <div className="mb-8">
             <h2 className="text-2xl font-bold text-brand-white mb-4 flex items-center gap-2">
-              <CheckCircle className="w-7 h-7" />
+              <Icon icon={MdCheckCircle} size={28} />
               {t('completed')} ({completedChallenges.length})
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -346,9 +347,9 @@ export default function ChallengesPage() {
                   key={challenge._id}
                   className="page-card p-6 border-2 border-brand-accent relative"
                 >
-                  <div className="absolute top-0 right-0 bg-brand-accent text-brand-black px-4 py-1 rounded-bl-lg font-bold text-sm">
-                    <CheckCircle className="w-4 h-4 inline mr-1" />
-                    COMPLETE
+                  <div className="absolute top-0 right-0 bg-brand-accent text-brand-black px-4 py-1 rounded-bl-lg font-bold text-sm flex items-center gap-1">
+                    <Icon icon={MdCheckCircle} size={16} />
+                    {t('complete')}
                   </div>
                   
                   <h3 className="text-xl font-bold text-brand-black mb-2 mt-6">
@@ -361,11 +362,11 @@ export default function ChallengesPage() {
                   {/* Rewards Earned */}
                   <div className="flex items-center gap-4 pt-4 border-t border-brand-darkGrey/20">
                     <div className="flex items-center gap-1">
-                      <Gift className="w-4 h-4 text-brand-accent" />
+                      <Icon icon={MdCardGiftcard} size={16} className="text-brand-accent" />
                       <span className="font-bold text-brand-accent">+{challenge.rewards.points} pts</span>
                     </div>
                     <div className="flex items-center gap-1">
-                      <span className="text-brand-darkGrey">⚡</span>
+                      <Icon icon={MdBolt} size={16} className="text-brand-darkGrey" />
                       <span className="font-bold text-brand-darkGrey">+{challenge.rewards.xp} XP</span>
                     </div>
                   </div>
@@ -384,7 +385,7 @@ export default function ChallengesPage() {
         {/* Empty State */}
         {challenges.length === 0 && (
           <div className="page-card p-12 text-center">
-            <div className="text-6xl mb-4">📅</div>
+            <Icon icon={MdCalendarToday} size={64} className="text-brand-darkGrey mx-auto mb-4" />
             <h3 className="text-2xl font-bold text-brand-black mb-2">
               {t('noChallenges')}
             </h3>

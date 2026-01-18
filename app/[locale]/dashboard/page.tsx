@@ -13,6 +13,21 @@ import { useTranslations, useLocale } from 'next-intl';
 import { LocaleLink } from '@/components/LocaleLink';
 import { ReferralCard } from '@/components/ReferralCard';
 import Logo from '@/components/Logo';
+import Icon, { 
+  MdMenuBook, 
+  MdAutoStories, 
+  MdSportsEsports, 
+  MdBarChart, 
+  MdEmojiEvents, 
+  MdGpsFixed, 
+  MdMap, 
+  MdEmojiEvents as MdMedal, 
+  MdCardGiftcard, 
+  MdPerson, 
+  MdStar, 
+  MdTrendingUp, 
+  MdLocalFireDepartment 
+} from '@/components/Icon';
 
 interface PlayerData {
   player: {
@@ -197,63 +212,72 @@ export default function Dashboard() {
         {/* Quick Actions - Learning First */}
         <div className="bg-brand-white rounded-xl shadow-lg p-6 mb-8 border-2 border-brand-accent">
           <h3 className="text-xl font-bold text-brand-black mb-4 flex items-center gap-2">
-            <span>📚</span>
+            <Icon icon={MdMenuBook} size={20} className="inline-block mr-2" />
             {t('startLearning')}
           </h3>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-9 gap-3">
             <LocaleLink
               href="/courses"
-              className="block bg-brand-accent text-brand-black px-4 py-3 rounded-lg font-bold text-center hover:bg-brand-primary-400 transition-all text-sm transform hover:scale-105"
+              className="block bg-brand-accent text-brand-black px-4 py-3 rounded-lg font-bold text-center hover:bg-brand-primary-400 transition-all text-sm transform hover:scale-105 flex items-center justify-center gap-2"
             >
-              📚 {t('courses')}
+              <Icon icon={MdMenuBook} size={18} />
+              {t('courses')}
             </LocaleLink>
             <LocaleLink
               href="/my-courses"
-              className="block bg-brand-accent text-brand-black px-4 py-3 rounded-lg font-bold text-center hover:bg-brand-primary-400 transition-all text-sm transform hover:scale-105"
+              className="block bg-brand-accent text-brand-black px-4 py-3 rounded-lg font-bold text-center hover:bg-brand-primary-400 transition-all text-sm transform hover:scale-105 flex items-center justify-center gap-2"
             >
-              📖 {t('myCourses')}
+              <Icon icon={MdAutoStories} size={18} />
+              {t('myCourses')}
             </LocaleLink>
             <LocaleLink
               href="/games"
-              className="block bg-brand-darkGrey text-brand-white px-4 py-3 rounded-lg font-bold text-center hover:bg-brand-secondary-700 transition-all text-sm"
+              className="block bg-brand-darkGrey text-brand-white px-4 py-3 rounded-lg font-bold text-center hover:bg-brand-secondary-700 transition-all text-sm flex items-center justify-center gap-2"
             >
-              🎮 {tGames('title')}
+              <Icon icon={MdSportsEsports} size={18} />
+              {tGames('title')}
             </LocaleLink>
             <LocaleLink
               href="/stats"
-              className="block bg-brand-darkGrey text-brand-white px-4 py-3 rounded-lg font-bold text-center hover:bg-brand-secondary-700 transition-all text-sm"
+              className="block bg-brand-darkGrey text-brand-white px-4 py-3 rounded-lg font-bold text-center hover:bg-brand-secondary-700 transition-all text-sm flex items-center justify-center gap-2"
             >
-              📊 {t('statistics')}
+              <Icon icon={MdBarChart} size={18} />
+              {t('statistics')}
             </LocaleLink>
             <LocaleLink
               href="/leaderboards"
-              className="block bg-brand-accent text-brand-black px-4 py-3 rounded-lg font-bold text-center hover:bg-brand-primary-400 transition-all text-sm"
+              className="block bg-brand-accent text-brand-black px-4 py-3 rounded-lg font-bold text-center hover:bg-brand-primary-400 transition-all text-sm flex items-center justify-center gap-2"
             >
-              🏆 {tLeaderboard('title')}
+              <Icon icon={MdEmojiEvents} size={18} />
+              {tLeaderboard('title')}
             </LocaleLink>
             <LocaleLink
               href="/challenges"
-              className="block bg-brand-darkGrey text-brand-white px-4 py-3 rounded-lg font-bold text-center hover:bg-brand-secondary-700 transition-all text-sm"
+              className="block bg-brand-darkGrey text-brand-white px-4 py-3 rounded-lg font-bold text-center hover:bg-brand-secondary-700 transition-all text-sm flex items-center justify-center gap-2"
             >
-              🎯 {tChallenges('title')}
+              <Icon icon={MdGpsFixed} size={18} />
+              {tChallenges('title')}
             </LocaleLink>
             <LocaleLink
               href="/quests"
-              className="block bg-brand-accent text-brand-black px-4 py-3 rounded-lg font-bold text-center hover:bg-brand-primary-400 transition-all text-sm"
+              className="block bg-brand-accent text-brand-black px-4 py-3 rounded-lg font-bold text-center hover:bg-brand-primary-400 transition-all text-sm flex items-center justify-center gap-2"
             >
-              🗺️ {tQuests('title')}
+              <Icon icon={MdMap} size={18} />
+              {tQuests('title')}
             </LocaleLink>
             <LocaleLink
               href="/achievements"
-              className="block bg-brand-darkGrey text-brand-white px-4 py-3 rounded-lg font-bold text-center hover:bg-brand-secondary-700 transition-all text-sm"
+              className="block bg-brand-darkGrey text-brand-white px-4 py-3 rounded-lg font-bold text-center hover:bg-brand-secondary-700 transition-all text-sm flex items-center justify-center gap-2"
             >
-              🏅 {tAchievements('title')}
+              <Icon icon={MdMedal} size={18} />
+              {tAchievements('title')}
             </LocaleLink>
             <LocaleLink
               href="/rewards"
-              className="block bg-brand-accent text-brand-black px-4 py-3 rounded-lg font-bold text-center hover:bg-brand-primary-400 transition-all text-sm"
+              className="block bg-brand-accent text-brand-black px-4 py-3 rounded-lg font-bold text-center hover:bg-brand-primary-400 transition-all text-sm flex items-center justify-center gap-2"
             >
-              🎁 {tRewards('title')}
+              <Icon icon={MdCardGiftcard} size={18} />
+              {tRewards('title')}
             </LocaleLink>
           </div>
         </div>
@@ -262,8 +286,8 @@ export default function Dashboard() {
         <div className="bg-brand-white rounded-2xl shadow-xl p-6 mb-8 border-2 border-brand-accent">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-4">
-              <div className="w-20 h-20 bg-brand-accent rounded-full flex items-center justify-center text-4xl">
-                👤
+              <div className="w-20 h-20 bg-brand-accent rounded-full flex items-center justify-center">
+                <Icon icon={MdPerson} size={48} className="text-brand-black" />
               </div>
               <div>
                 <h2 className="text-2xl font-bold text-brand-black">
@@ -281,7 +305,7 @@ export default function Dashboard() {
             </div>
             {player.isPremium && (
               <div className="bg-brand-accent text-brand-black px-4 py-2 rounded-lg font-bold flex items-center gap-2">
-                <span className="text-2xl">⭐</span>
+                <Icon icon={MdStar} size={24} />
                 <span>{tCommon('premium')}</span>
               </div>
             )}
@@ -292,7 +316,7 @@ export default function Dashboard() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
           {/* Learning Level Card */}
           <div className="bg-brand-white rounded-xl shadow-lg p-6 border-2 border-brand-accent">
-            <div className="text-brand-accent text-4xl mb-2">📚</div>
+            <Icon icon={MdMenuBook} size={48} className="text-brand-accent mb-2" />
             <div className="text-3xl font-bold text-brand-black">
               {progression?.level || 1}
             </div>
@@ -314,7 +338,7 @@ export default function Dashboard() {
 
           {/* Points Card */}
           <div className="bg-brand-white rounded-xl shadow-lg p-6 border-2 border-brand-accent">
-            <div className="text-brand-accent text-4xl mb-2">💎</div>
+            <Icon icon={MdDiamond} size={48} className="text-brand-accent mb-2" />
             <div className="text-3xl font-bold text-brand-black">
               {wallet?.currentBalance.toLocaleString() || 0}
             </div>
@@ -329,7 +353,7 @@ export default function Dashboard() {
 
           {/* Achievements Card */}
           <div className="bg-brand-white rounded-xl shadow-lg p-6 border-2 border-brand-accent">
-            <div className="text-brand-accent text-4xl mb-2">🏆</div>
+            <Icon icon={MdEmojiEvents} size={48} className="text-brand-accent mb-2" />
             <div className="text-3xl font-bold text-brand-black">
               {achievementStats.unlocked}/{achievementStats.total}
             </div>
@@ -347,7 +371,7 @@ export default function Dashboard() {
 
           {/* Course Progress Card */}
           <div className="bg-brand-white rounded-xl shadow-lg p-6 border-2 border-brand-accent">
-            <div className="text-brand-accent text-4xl mb-2">📈</div>
+            <Icon icon={MdTrendingUp} size={48} className="text-brand-accent mb-2" />
             <div className="text-3xl font-bold text-brand-black">
               {progression?.totalGamesPlayed || 0}
             </div>
@@ -365,7 +389,7 @@ export default function Dashboard() {
           {/* Streaks Card */}
           <div className="bg-brand-white rounded-xl shadow-lg p-6 border-2 border-brand-accent">
             <h3 className="text-xl font-bold text-brand-black mb-4 flex items-center gap-2">
-              <span>🔥</span>
+              <Icon icon={MdLocalFireDepartment} size={24} className="text-brand-accent" />
               {t('streaks')}
             </h3>
             <div className="space-y-4">
@@ -392,7 +416,8 @@ export default function Dashboard() {
                     href="/courses"
                     className="inline-block bg-brand-accent text-brand-black px-4 py-2 rounded-lg font-bold hover:bg-brand-primary-400 transition-colors text-sm"
                   >
-                    📚 {t('enrollInCourse')}
+                    <Icon icon={MdMenuBook} size={16} className="inline-block mr-1" />
+                    {t('enrollInCourse')}
                   </LocaleLink>
                 </div>
               )}

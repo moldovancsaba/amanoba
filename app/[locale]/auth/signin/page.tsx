@@ -129,15 +129,15 @@ export default async function SignInPage({
           <h2 className="text-xl font-semibold mb-4">{t('whyJoin')}</h2>
           <div className="grid grid-cols-3 gap-4">
             <div className="bg-brand-darkGrey/80 backdrop-blur-sm rounded-lg p-4 border border-brand-accent/30">
-              <div className="text-3xl mb-2">📚</div>
+              <Icon icon={MdMenuBook} size={32} className="text-brand-accent mb-2 mx-auto" />
               <p className="text-sm font-medium">{tCommon('courses.title')}</p>
             </div>
             <div className="bg-brand-darkGrey/80 backdrop-blur-sm rounded-lg p-4 border border-brand-accent/30">
-              <div className="text-3xl mb-2">📧</div>
+              <Icon icon={MdEmail} size={32} className="text-brand-accent mb-2 mx-auto" />
               <p className="text-sm font-medium">{t('dailyLessons')}</p>
             </div>
             <div className="bg-brand-darkGrey/80 backdrop-blur-sm rounded-lg p-4 border border-brand-accent/30">
-              <div className="text-3xl mb-2">🎯</div>
+              <Icon icon={MdGpsFixed} size={32} className="text-brand-accent mb-2 mx-auto" />
               <p className="text-sm font-medium">{t('interactiveAssessments')}</p>
             </div>
           </div>

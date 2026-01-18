@@ -11,8 +11,9 @@ import { useEffect, useState } from 'react';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import { useLocale, useTranslations } from 'next-intl';
-import { Map, ChevronLeft, CheckCircle, Circle, Lock, Trophy, Sparkles } from 'lucide-react';
+import { ChevronLeft, CheckCircle, Circle, Lock } from 'lucide-react';
 import { LocaleLink } from '@/components/LocaleLink';
+import Icon, { MdMap, MdTarget, MdAutoAwesome, MdEmojiEvents, MdSentimentDissatisfied, MdBolt, MdStars, MdCardGiftcard } from '@/components/Icon';
 
 interface QuestStep {
   stepNumber: number;
@@ -109,7 +110,7 @@ export default function QuestsPage() {
     return (
       <div className="page-shell flex items-center justify-center p-4">
         <div className="page-card p-8 max-w-md w-full text-center">
-          <div className="text-6xl mb-4">😕</div>
+          <Icon icon={MdSentimentDissatisfied} size={64} className="text-brand-darkGrey mx-auto mb-4" />
           <h2 className="text-2xl font-bold text-brand-black mb-4">{t('unableToLoad')}</h2>
           <p className="text-brand-darkGrey mb-6">{error}</p>
           <LocaleLink
@@ -135,7 +136,7 @@ export default function QuestsPage() {
           <div className="flex justify-between items-center">
             <div>
               <h1 className="text-3xl font-bold text-brand-white flex items-center gap-3">
-                <Map className="w-10 h-10" />
+                <Icon icon={MdMap} size={40} />
                 {t('questLog')}
               </h1>
               <p className="text-brand-white/80 mt-1">{t('description')}</p>
@@ -155,7 +156,7 @@ export default function QuestsPage() {
         {/* Stats Overview */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
           <div className="page-card p-6">
-            <div className="text-brand-accent text-3xl mb-2">🎯</div>
+            <Icon icon={MdTarget} size={36} className="text-brand-accent mb-2" />
             <div className="text-3xl font-bold text-brand-black">
               {activeQuests.length}
             </div>
@@ -163,7 +164,7 @@ export default function QuestsPage() {
           </div>
           
           <div className="page-card p-6">
-            <div className="text-brand-accent text-3xl mb-2">✨</div>
+            <Icon icon={MdAutoAwesome} size={36} className="text-brand-accent mb-2" />
             <div className="text-3xl font-bold text-brand-black">
               {availableQuests.length}
             </div>
@@ -171,7 +172,7 @@ export default function QuestsPage() {
           </div>
           
           <div className="page-card p-6">
-            <div className="text-brand-accent text-3xl mb-2">🏆</div>
+            <Icon icon={MdEmojiEvents} size={36} className="text-brand-accent mb-2" />
             <div className="text-3xl font-bold text-brand-black">
               {completedQuests.length}
             </div>
@@ -282,16 +283,16 @@ export default function QuestsPage() {
                         <h4 className="font-bold text-brand-black mb-3">Quest Rewards:</h4>
                         <div className="flex items-center gap-6">
                           <div className="flex items-center gap-2">
-                            <Trophy className="w-5 h-5 text-brand-accent" />
+                            <Icon icon={MdCardGiftcard} size={20} className="text-brand-accent" />
                             <span className="font-bold text-brand-accent">{quest.rewards.points} Points</span>
                           </div>
                           <div className="flex items-center gap-2">
-                            <span className="text-brand-darkGrey text-xl">⚡</span>
+                            <Icon icon={MdBolt} size={20} className="text-brand-darkGrey" />
                             <span className="font-bold text-brand-darkGrey">{quest.rewards.xp} XP</span>
                           </div>
                           {quest.rewards.title && (
                             <div className="flex items-center gap-2">
-                              <span className="text-yellow-600 text-xl">👑</span>
+                              <Icon icon={MdStars} size={20} className="text-yellow-600" />
                               <span className="font-bold text-yellow-600">Title: &quot;{quest.rewards.title}&quot;</span>
                             </div>
                           )}

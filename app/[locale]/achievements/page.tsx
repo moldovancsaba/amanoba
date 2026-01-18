@@ -11,8 +11,9 @@ import { useEffect, useState } from 'react';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import { useLocale, useTranslations } from 'next-intl';
-import { Trophy, Lock, CheckCircle, ChevronLeft, Sparkles } from 'lucide-react';
+import { Lock, CheckCircle, ChevronLeft } from 'lucide-react';
 import { LocaleLink } from '@/components/LocaleLink';
+import Icon, { MdEmojiEvents, MdSentimentDissatisfied, MdDiamond, MdBolt, MdStar, MdAutoAwesome } from '@/components/Icon';
 
 interface Achievement {
   id: string;
@@ -126,7 +127,7 @@ export default function AchievementsPage() {
     return (
       <div className="page-shell flex items-center justify-center p-4">
         <div className="page-card p-8 max-w-md w-full text-center">
-          <div className="text-6xl mb-4">😕</div>
+          <Icon icon={MdSentimentDissatisfied} size={64} className="text-brand-darkGrey mx-auto mb-4" />
           <h2 className="text-2xl font-bold text-brand-black mb-4">{t('unableToLoad')}</h2>
           <p className="text-brand-darkGrey mb-6">{error}</p>
           <LocaleLink
@@ -158,7 +159,7 @@ export default function AchievementsPage() {
           <div className="flex justify-between items-center">
             <div>
               <h1 className="text-3xl font-bold text-brand-white flex items-center gap-3">
-                <Trophy className="w-10 h-10" />
+                <Icon icon={MdEmojiEvents} size={40} />
                 {t('title')}
               </h1>
               <p className="text-brand-white/80 mt-1">{t('description')}</p>
@@ -178,7 +179,7 @@ export default function AchievementsPage() {
         {/* Stats Overview */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
           <div className="page-card p-6">
-            <div className="text-brand-accent text-3xl mb-2">🏆</div>
+            <Icon icon={MdEmojiEvents} size={36} className="text-brand-accent mb-2" />
             <div className="text-3xl font-bold text-brand-black">
               {stats.unlocked}/{stats.total}
             </div>
@@ -186,7 +187,7 @@ export default function AchievementsPage() {
           </div>
           
           <div className="page-card p-6">
-            <div className="text-brand-accent text-3xl mb-2">⭐</div>
+            <Icon icon={MdStar} size={36} className="text-brand-accent mb-2" />
             <div className="text-3xl font-bold text-brand-black">
               {stats.percentage}%
             </div>
@@ -194,7 +195,7 @@ export default function AchievementsPage() {
           </div>
           
           <div className="page-card p-6">
-            <div className="text-brand-accent text-3xl mb-2">💎</div>
+            <Icon icon={MdDiamond} size={36} className="text-brand-accent mb-2" />
             <div className="text-3xl font-bold text-brand-black">
               {achievements.filter(a => a.isUnlocked).reduce((sum, a) => sum + a.points, 0).toLocaleString()}
             </div>

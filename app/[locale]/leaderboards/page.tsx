@@ -37,10 +37,10 @@ interface LeaderboardData {
 
 // Games will be translated dynamically
 const GAMES = [
-  { id: 'quizzz', nameKey: 'quizzz', icon: '🧠' },
-  { id: 'whackpop', nameKey: 'whackpop', icon: '🎯' },
-  { id: 'memory', nameKey: 'memory', icon: '🃏' },
-  { id: 'madoku', nameKey: 'madoku', icon: '🔢' },
+  { id: 'quizzz', nameKey: 'quizzz', iconComponent: MdPsychology },
+  { id: 'whackpop', nameKey: 'whackpop', iconComponent: MdGpsFixed },
+  { id: 'memory', nameKey: 'memory', iconComponent: MdCardMembership },
+  { id: 'madoku', nameKey: 'madoku', iconComponent: MdNumbers },
 ];
 
 // Periods will be translated dynamically
@@ -219,13 +219,13 @@ export default function LeaderboardsPage() {
           </div>
         ) : error || !leaderboardData ? (
           <div className="page-card p-12 text-center">
-            <div className="text-6xl mb-4">😕</div>
+            <Icon icon={MdSentimentDissatisfied} size={64} className="text-brand-darkGrey mx-auto mb-4" />
             <h3 className="text-2xl font-bold text-brand-black mb-2">{t('unableToLoad')}</h3>
             <p className="text-brand-darkGrey">{error || t('noDataAvailable')}</p>
           </div>
         ) : leaderboardData.entries.length === 0 ? (
           <div className="page-card p-12 text-center">
-            <div className="text-6xl mb-4">🎮</div>
+            <Icon icon={MdSportsEsports} size={64} className="text-brand-darkGrey mx-auto mb-4" />
             <h3 className="text-2xl font-bold text-brand-black mb-2">{t('noRankingsYet')}</h3>
             <p className="text-brand-darkGrey">{t('beFirstToPlay')}</p>
             <LocaleLink
