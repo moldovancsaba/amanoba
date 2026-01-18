@@ -10,7 +10,7 @@
 import { useEffect, useState } from 'react';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
-import { useLocale } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import { Map, ChevronLeft, CheckCircle, Circle, Lock, Trophy, Sparkles } from 'lucide-react';
 import { LocaleLink } from '@/components/LocaleLink';
 
@@ -52,6 +52,9 @@ export default function QuestsPage() {
   const { data: session, status } = useSession();
   const router = useRouter();
   const locale = useLocale();
+  const t = useTranslations('quests');
+  const tCommon = useTranslations('common');
+  const tDashboard = useTranslations('dashboard');
   const [quests, setQuests] = useState<Quest[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -96,7 +99,7 @@ export default function QuestsPage() {
   if (loading || status === 'loading') {
     return (
       <div className="page-shell flex items-center justify-center">
-        <div className="text-brand-white text-2xl">Loading quests...</div>
+        <div className="text-brand-white text-2xl">{t('loading')}</div>
       </div>
     );
   }
@@ -107,13 +110,13 @@ export default function QuestsPage() {
       <div className="page-shell flex items-center justify-center p-4">
         <div className="page-card p-8 max-w-md w-full text-center">
           <div className="text-6xl mb-4">😕</div>
-          <h2 className="text-2xl font-bold text-brand-black mb-4">Unable to Load Quests</h2>
+          <h2 className="text-2xl font-bold text-brand-black mb-4">{t('unableToLoad')}</h2>
           <p className="text-brand-darkGrey mb-6">{error}</p>
           <LocaleLink
             href="/dashboard"
             className="page-button-primary inline-block"
           >
-            Back to Dashboard
+            {tDashboard('backToDashboard')}
           </LocaleLink>
         </div>
       </div>
@@ -133,16 +136,16 @@ export default function QuestsPage() {
             <div>
               <h1 className="text-3xl font-bold text-brand-white flex items-center gap-3">
                 <Map className="w-10 h-10" />
-                Quest Log
+                {t('questLog')}
               </h1>
-              <p className="text-brand-white/80 mt-1">Epic multi-step adventures await</p>
+              <p className="text-brand-white/80 mt-1">{t('description')}</p>
             </div>
             <LocaleLink
               href="/dashboard"
               className="page-button-secondary border-2 border-brand-accent flex items-center gap-2"
             >
               <ChevronLeft className="w-5 h-5" />
-              Dashboard
+              {tCommon('dashboard')}
             </LocaleLink>
           </div>
         </div>
@@ -156,7 +159,7 @@ export default function QuestsPage() {
             <div className="text-3xl font-bold text-brand-black">
               {activeQuests.length}
             </div>
-            <div className="text-brand-darkGrey">Active</div>
+            <div className="text-brand-darkGrey">{t('active')}</div>
           </div>
           
           <div className="page-card p-6">
@@ -164,7 +167,7 @@ export default function QuestsPage() {
             <div className="text-3xl font-bold text-brand-black">
               {availableQuests.length}
             </div>
-            <div className="text-brand-darkGrey">Available</div>
+            <div className="text-brand-darkGrey">{t('available')}</div>
           </div>
           
           <div className="page-card p-6">
@@ -172,7 +175,7 @@ export default function QuestsPage() {
             <div className="text-3xl font-bold text-brand-black">
               {completedQuests.length}
             </div>
-            <div className="text-brand-darkGrey">Completed</div>
+            <div className="text-brand-darkGrey">{t('completed')}</div>
           </div>
         </div>
 
@@ -181,7 +184,7 @@ export default function QuestsPage() {
           <div className="mb-8">
             <h2 className="text-2xl font-bold text-brand-white mb-4 flex items-center gap-2">
               <Sparkles className="w-7 h-7" />
-              Active Quests ({activeQuests.length})
+              {t('activeQuests', { count: activeQuests.length })}
             </h2>
             <div className="space-y-6">
               {activeQuests.map(quest => {
@@ -211,7 +214,7 @@ export default function QuestsPage() {
                         </div>
                         <div className="text-right ml-4">
                           <div className="text-3xl font-bold">{quest.currentStep}/{quest.totalSteps}</div>
-                          <div className="text-white/80 text-sm">Steps</div>
+                          <div className="text-white/80 text-sm">{t('steps')}</div>
                         </div>
                       </div>
                       

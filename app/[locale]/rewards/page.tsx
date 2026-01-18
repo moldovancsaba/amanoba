@@ -10,7 +10,7 @@
 import { useEffect, useState } from 'react';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
-import { useLocale } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import { Gift, ChevronLeft, Sparkles, ShoppingCart, Check, AlertCircle } from 'lucide-react';
 import { LocaleLink } from '@/components/LocaleLink';
 
@@ -32,6 +32,9 @@ export default function RewardsPage() {
   const { data: session, status } = useSession();
   const router = useRouter();
   const locale = useLocale();
+  const t = useTranslations('rewards');
+  const tCommon = useTranslations('common');
+  const tDashboard = useTranslations('dashboard');
   const [rewards, setRewards] = useState<Reward[]>([]);
   const [playerPoints, setPlayerPoints] = useState(0);
   const [loading, setLoading] = useState(true);
@@ -119,7 +122,7 @@ export default function RewardsPage() {
   if (loading || status === 'loading') {
     return (
       <div className="page-shell flex items-center justify-center">
-        <div className="text-brand-white text-2xl">Loading rewards...</div>
+        <div className="text-brand-white text-2xl">{tCommon('loading')}</div>
       </div>
     );
   }
@@ -130,13 +133,13 @@ export default function RewardsPage() {
       <div className="page-shell flex items-center justify-center p-4">
         <div className="page-card p-8 max-w-md w-full text-center">
           <div className="text-6xl mb-4">😕</div>
-          <h2 className="text-2xl font-bold text-brand-black mb-4">Unable to Load Rewards</h2>
+          <h2 className="text-2xl font-bold text-brand-black mb-4">{t('unableToLoad')}</h2>
           <p className="text-brand-darkGrey mb-6">{error}</p>
           <LocaleLink
             href="/dashboard"
             className="page-button-primary inline-block"
           >
-            Back to Dashboard
+            {tDashboard('backToDashboard')}
           </LocaleLink>
         </div>
       </div>
@@ -157,16 +160,16 @@ export default function RewardsPage() {
             <div>
               <h1 className="text-3xl font-bold text-brand-white flex items-center gap-3">
                 <Gift className="w-10 h-10" />
-                Rewards Store
+                {t('storeTitle')}
               </h1>
-              <p className="text-brand-white/80 mt-1">Redeem your points for awesome rewards</p>
+              <p className="text-brand-white/80 mt-1">{t('storeDescription')}</p>
             </div>
             <LocaleLink
               href="/dashboard"
               className="page-button-secondary border-2 border-brand-accent flex items-center gap-2"
             >
               <ChevronLeft className="w-5 h-5" />
-              Dashboard
+              {tCommon('dashboard')}
             </LocaleLink>
           </div>
         </div>
@@ -177,8 +180,8 @@ export default function RewardsPage() {
         <div className="page-card p-6 mb-8">
           <div className="flex items-center justify-between">
             <div>
-              <h2 className="text-2xl font-bold text-brand-black mb-1">Your Points Balance</h2>
-              <p className="text-brand-darkGrey">Use your points to redeem rewards</p>
+              <h2 className="text-2xl font-bold text-brand-black mb-1">{t('yourBalance')}</h2>
+              <p className="text-brand-darkGrey">{t('balanceDescription')}</p>
             </div>
             <div className="text-right">
               <div className="text-5xl font-bold text-brand-black">
@@ -186,7 +189,7 @@ export default function RewardsPage() {
               </div>
               <div className="text-brand-darkGrey flex items-center gap-2 justify-end">
                 <span className="text-2xl">💎</span>
-                <span>Points</span>
+                <span>{tCommon('points')}</span>
               </div>
             </div>
           </div>
@@ -228,14 +231,14 @@ export default function RewardsPage() {
                 >
                   {reward.premiumOnly && (
                     <div className="absolute top-0 left-0 bg-yellow-400 text-black px-3 py-1 rounded-br-lg font-bold text-xs">
-                      ⭐ PREMIUM
+                      ⭐ {tCommon('premium')}
                     </div>
                   )}
                   
                   {wasRedeemed && (
                     <div className="absolute top-0 right-0 bg-brand-accent text-brand-black px-3 py-1 rounded-bl-lg font-bold text-sm animate-pulse">
                       <Check className="w-4 h-4 inline mr-1" />
-                      Redeemed!
+                      {t('redeemed')}!
                     </div>
                   )}
                   
@@ -257,7 +260,7 @@ export default function RewardsPage() {
                   {reward.stock !== undefined && reward.stock > 0 && (
                     <div className="text-xs text-brand-darkGrey font-medium mb-3">
                       <AlertCircle className="w-3 h-3 inline mr-1" />
-                      Only {reward.stock} left in stock!
+                      {t('stockLeft', { count: reward.stock })}
                     </div>
                   )}
                   
@@ -282,22 +285,22 @@ export default function RewardsPage() {
                     {isRedeeming ? (
                       <>
                         <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
-                        Redeeming...
+                        {t('redeeming')}
                       </>
                     ) : wasRedeemed ? (
                       <>
                         <Check className="w-5 h-5" />
-                        Redeemed!
+                        {t('redeemed')}!
                       </>
                     ) : !canAfford ? (
                       <>
                         <AlertCircle className="w-5 h-5" />
-                        Not Enough Points
+                        {t('insufficientPoints')}
                       </>
                     ) : (
                       <>
                         <ShoppingCart className="w-5 h-5" />
-                        Redeem Now
+                        {t('redeemNow')}
                       </>
                     )}
                   </button>
@@ -309,12 +312,12 @@ export default function RewardsPage() {
           <div className="page-card p-12 text-center">
             <Sparkles className="w-16 h-16 text-brand-accent mx-auto mb-4" />
             <h3 className="text-2xl font-bold text-brand-black mb-2">
-              No rewards available
+              {t('noRewardsAvailable')}
             </h3>
             <p className="text-brand-darkGrey">
               {filterCategory === 'all'
-                ? 'Check back later for new rewards!'
-                : 'Try selecting a different category or check back later!'}
+                ? t('checkBackLater')
+                : t('tryDifferentCategory')}
             </p>
           </div>
         )}

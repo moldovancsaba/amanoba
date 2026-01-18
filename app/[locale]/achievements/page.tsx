@@ -10,7 +10,7 @@
 import { useEffect, useState } from 'react';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
-import { useLocale } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import { Trophy, Lock, CheckCircle, ChevronLeft, Sparkles } from 'lucide-react';
 import { LocaleLink } from '@/components/LocaleLink';
 
@@ -57,6 +57,9 @@ export default function AchievementsPage() {
   const { data: session, status } = useSession();
   const router = useRouter();
   const locale = useLocale();
+  const t = useTranslations('achievements');
+  const tCommon = useTranslations('common');
+  const tDashboard = useTranslations('dashboard');
   const [achievementsData, setAchievementsData] = useState<AchievementsData | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -113,7 +116,7 @@ export default function AchievementsPage() {
   if (loading || status === 'loading') {
     return (
       <div className="page-shell flex items-center justify-center">
-        <div className="text-brand-white text-2xl">Loading achievements...</div>
+        <div className="text-brand-white text-2xl">{t('loading')}</div>
       </div>
     );
   }
@@ -124,13 +127,13 @@ export default function AchievementsPage() {
       <div className="page-shell flex items-center justify-center p-4">
         <div className="page-card p-8 max-w-md w-full text-center">
           <div className="text-6xl mb-4">😕</div>
-          <h2 className="text-2xl font-bold text-brand-black mb-4">Unable to Load Achievements</h2>
+          <h2 className="text-2xl font-bold text-brand-black mb-4">{t('unableToLoad')}</h2>
           <p className="text-brand-darkGrey mb-6">{error}</p>
           <LocaleLink
             href="/dashboard"
             className="page-button-primary inline-block"
           >
-            Back to Dashboard
+            {tDashboard('backToDashboard')}
           </LocaleLink>
         </div>
       </div>
@@ -156,16 +159,16 @@ export default function AchievementsPage() {
             <div>
               <h1 className="text-3xl font-bold text-brand-white flex items-center gap-3">
                 <Trophy className="w-10 h-10" />
-                Achievements
+                {t('title')}
               </h1>
-              <p className="text-brand-white/80 mt-1">Track your progress and unlock rewards</p>
+              <p className="text-brand-white/80 mt-1">{t('description')}</p>
             </div>
             <LocaleLink
               href="/dashboard"
               className="page-button-secondary border-2 border-brand-accent flex items-center gap-2"
             >
               <ChevronLeft className="w-5 h-5" />
-              Dashboard
+              {tCommon('dashboard')}
             </LocaleLink>
           </div>
         </div>
@@ -179,7 +182,7 @@ export default function AchievementsPage() {
             <div className="text-3xl font-bold text-brand-black">
               {stats.unlocked}/{stats.total}
             </div>
-            <div className="text-brand-darkGrey">Unlocked</div>
+            <div className="text-brand-darkGrey">{t('unlockedCount')}</div>
           </div>
           
           <div className="page-card p-6">
@@ -187,7 +190,7 @@ export default function AchievementsPage() {
             <div className="text-3xl font-bold text-brand-black">
               {stats.percentage}%
             </div>
-            <div className="text-brand-darkGrey">Complete</div>
+            <div className="text-brand-darkGrey">{t('complete')}</div>
           </div>
           
           <div className="page-card p-6">
@@ -195,7 +198,7 @@ export default function AchievementsPage() {
             <div className="text-3xl font-bold text-brand-black">
               {achievements.filter(a => a.isUnlocked).reduce((sum, a) => sum + a.points, 0).toLocaleString()}
             </div>
-            <div className="text-brand-darkGrey">Points Earned</div>
+            <div className="text-brand-darkGrey">{t('pointsEarned')}</div>
           </div>
         </div>
 
@@ -223,7 +226,7 @@ export default function AchievementsPage() {
           <div className="mb-8">
             <h2 className="text-2xl font-bold text-brand-white mb-4 flex items-center gap-2">
               <CheckCircle className="w-7 h-7" />
-              Unlocked ({unlockedAchievements.length})
+              {t('unlocked')} ({unlockedAchievements.length})
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {unlockedAchievements.map(achievement => (
@@ -233,7 +236,7 @@ export default function AchievementsPage() {
                 >
                   <div className="absolute top-0 right-0 bg-brand-accent text-brand-black px-3 py-1 rounded-bl-lg font-bold text-sm">
                     <CheckCircle className="w-4 h-4 inline mr-1" />
-                    Unlocked
+                    {t('unlocked')}
                   </div>
                   
                   <div className="text-6xl mb-4">{achievement.icon}</div>
@@ -273,7 +276,7 @@ export default function AchievementsPage() {
           <div>
             <h2 className="text-2xl font-bold text-brand-white mb-4 flex items-center gap-2">
               <Lock className="w-7 h-7" />
-              Locked ({lockedAchievements.length})
+              {t('locked')} ({lockedAchievements.length})
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {lockedAchievements.map(achievement => (
@@ -283,7 +286,7 @@ export default function AchievementsPage() {
                 >
                   <div className="absolute top-0 right-0 bg-brand-darkGrey text-brand-white px-3 py-1 rounded-bl-lg font-bold text-sm">
                     <Lock className="w-4 h-4 inline mr-1" />
-                    Locked
+                    {t('locked')}
                   </div>
                   
                   <div className="text-6xl mb-4 opacity-40">{achievement.icon}</div>
@@ -332,10 +335,10 @@ export default function AchievementsPage() {
           <div className="page-card p-12 text-center">
             <Sparkles className="w-16 h-16 text-brand-accent mx-auto mb-4" />
             <h3 className="text-2xl font-bold text-brand-black mb-2">
-              No achievements in this category
+              {t('noAchievements')}
             </h3>
             <p className="text-brand-darkGrey">
-              Try selecting a different category or start playing games to unlock achievements!
+              {t('checkBackLater')}
             </p>
           </div>
         )}
