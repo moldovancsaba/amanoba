@@ -6,6 +6,8 @@
  */
 
 import { NextRequest, NextResponse } from 'next/server';
+import { auth } from '@/auth';
+import mongoose from 'mongoose';
 import { EventLog, PlayerSession } from '../../../../lib/models';
 import { logger } from '../../../../lib/logger';
 import connectDB from '../../../../lib/mongodb';
@@ -20,6 +22,14 @@ import connectDB from '../../../../lib/mongodb';
  */
 export async function GET(request: NextRequest) {
   try {
+    // Authentication check
+    const session = await auth();
+    if (!session?.user) {
+      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+    }
+
+    await connectDB();
+
     const { searchParams } = new URL(request.url);
     const brandId = searchParams.get('brandId');
 
@@ -31,9 +41,6 @@ export async function GET(request: NextRequest) {
     }
 
     logger.info({ brandId }, 'Fetching real-time analytics');
-
-    // Connect to database
-    await connectDB();
 
     // Calculate time windows
     const now = new Date();
@@ -52,47 +59,47 @@ export async function GET(request: NextRequest) {
     ] = await Promise.all([
       // Active users last 24 hours
       EventLog.distinct('playerId', {
-        'metadata.brandId': brandId,
+        brandId: brandId ? new mongoose.Types.ObjectId(brandId) : { $exists: false },
         timestamp: { $gte: last24Hours },
       }),
 
       // Active users last 1 hour
       EventLog.distinct('playerId', {
-        'metadata.brandId': brandId,
+        brandId: brandId ? new mongoose.Types.ObjectId(brandId) : { $exists: false },
         timestamp: { $gte: last1Hour },
       }),
 
       // Game sessions last 24 hours
       EventLog.countDocuments({
         eventType: 'game_played',
-        'metadata.brandId': brandId,
+        brandId: brandId ? new mongoose.Types.ObjectId(brandId) : { $exists: false },
         timestamp: { $gte: last24Hours },
       }),
 
       // Game sessions last 1 hour
       EventLog.countDocuments({
         eventType: 'game_played',
-        'metadata.brandId': brandId,
+        brandId: brandId ? new mongoose.Types.ObjectId(brandId) : { $exists: false },
         timestamp: { $gte: last1Hour },
       }),
 
       // Achievement unlocks last 24 hours
       EventLog.countDocuments({
         eventType: 'achievement_unlocked',
-        'metadata.brandId': brandId,
+        brandId: brandId ? new mongoose.Types.ObjectId(brandId) : { $exists: false },
         timestamp: { $gte: last24Hours },
       }),
 
       // Reward redemptions last 24 hours
       EventLog.countDocuments({
         eventType: 'reward_redeemed',
-        'metadata.brandId': brandId,
+        brandId: brandId ? new mongoose.Types.ObjectId(brandId) : { $exists: false },
         timestamp: { $gte: last24Hours },
       }),
 
       // Currently active game sessions
       PlayerSession.countDocuments({
-        brandId,
+        brandId: brandId ? new mongoose.Types.ObjectId(brandId) : { $exists: false },
         status: 'in_progress',
       }),
     ]);
@@ -102,7 +109,7 @@ export async function GET(request: NextRequest) {
       {
         $match: {
           eventType: 'points_earned',
-          'metadata.brandId': brandId,
+          brandId: brandId ? new mongoose.Types.ObjectId(brandId) : { $exists: false },
           timestamp: { $gte: last24Hours },
         },
       },
@@ -121,7 +128,7 @@ export async function GET(request: NextRequest) {
       {
         $match: {
           eventType: 'game_played',
-          'metadata.brandId': brandId,
+          brandId: brandId ? new mongoose.Types.ObjectId(brandId) : { $exists: false },
           timestamp: { $gte: last24Hours },
         },
       },
@@ -129,7 +136,11 @@ export async function GET(request: NextRequest) {
         $group: {
           _id: '$metadata.gameId',
           sessionCount: { $sum: 1 },
-          totalPoints: { $sum: '$metadata.pointsEarned' },
+          totalPoints: { 
+            $sum: { 
+              $ifNull: ['$metadata.pointsEarned', 0] 
+            } 
+          },
         },
       },
       { $sort: { sessionCount: -1 } },
@@ -138,7 +149,7 @@ export async function GET(request: NextRequest) {
 
     // Get recent events for activity feed (last 20)
     const recentEvents = await EventLog.find({
-      'metadata.brandId': brandId,
+      brandId: brandId ? new mongoose.Types.ObjectId(brandId) : { $exists: false },
     })
       .sort({ timestamp: -1 })
       .limit(20)

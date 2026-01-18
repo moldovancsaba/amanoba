@@ -8,6 +8,8 @@
  */
 
 import { NextRequest, NextResponse } from 'next/server';
+import { auth } from '@/auth';
+import mongoose from 'mongoose';
 import { AnalyticsSnapshot } from '../../../lib/models';
 import { logger } from '../../../lib/logger';
 import connectDB from '../../../lib/mongodb';
@@ -27,6 +29,14 @@ import connectDB from '../../../lib/mongodb';
  */
 export async function GET(request: NextRequest) {
   try {
+    // Authentication check
+    const session = await auth();
+    if (!session?.user) {
+      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+    }
+
+    await connectDB();
+
     const { searchParams } = new URL(request.url);
     
     // Parse and validate query params
@@ -72,12 +82,9 @@ export async function GET(request: NextRequest) {
 
     logger.info({ brandId, metricType, period, startDate, endDate }, 'Fetching analytics snapshots');
 
-    // Connect to database
-    await connectDB();
-
     // Build query
     const query: Record<string, unknown> = {
-      brandId,
+      brandId: brandId ? new mongoose.Types.ObjectId(brandId) : { $exists: false },
       metricType,
       period,
       date: { $gte: startDate, $lte: endDate },

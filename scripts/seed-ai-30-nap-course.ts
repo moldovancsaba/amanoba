@@ -1275,15 +1275,15 @@ function generateQuizQuestions(
 
   // Day-specific questions
   if (day === 1) {
-    // Day 1: Mi az AI valójában – és mire NEM való?
+    // Day 1: Mi az AI valójában – és mire NEM való? (curated 10)
     questions.push(
       {
-        question: 'Mi az AI valójában?',
+        question: 'Mi az AI szerepe a mindennapi munkában?',
         options: [
-          'Egy segítő eszköz, ami jó inputot igényel, hogy jó outputot adjon',
-          'Egy varázslatos technológia, ami mindenre képes',
-          'Egy automatikus rendszer, ami nélkülözhetetlen',
-          'Egy komplex algoritmus, ami csak programozóknak való'
+          'Segítő eszköz, ami jó inputból jobb outputot ad',
+          'Varázspálca, ami helyetted dönt',
+          'Önálló stratégiai döntéshozó',
+          'Csak fejlesztők használhatják'
         ],
         correctIndex: 0,
         difficulty: QuestionDifficulty.EASY,
@@ -1292,54 +1292,114 @@ function generateQuizQuestions(
       {
         question: 'Mire NEM való az AI?',
         options: [
-          'Kritikus döntések meghozatalára, személyes adatok kezelésére',
-          'Email írására',
+          'Kritikus döntésekre és személyes adatok kezelésére',
+          'Gyors vázlat vagy első verzió írására',
           'Szöveg összefoglalására',
-          'Dokumentumok szerkesztésére'
+          'Dokumentumok átírására'
         ],
         correctIndex: 0,
         difficulty: QuestionDifficulty.EASY,
         category: 'Course Specific'
       },
       {
-        question: 'Mit kell elkerülni az AI használatakor?',
+        question: 'Mi a legfontosabb szabály adatmegadáskor?',
         options: [
-          'Személyes adatok, jelszavak, kritikus döntések megosztása',
-          'Rövid promptok használata',
-          'Iteráció és pontosítás',
-          'Kontextus megadása'
+          'Ne adj meg személyes adatot, jelszót vagy bizalmas üzleti infót',
+          'Minél több érzékeny adatot adj meg',
+          'Mindig kérj kritikus döntést az AI-tól',
+          'Nem számít, mit osztasz meg'
         ],
         correctIndex: 0,
         difficulty: QuestionDifficulty.MEDIUM,
         category: 'Course Specific'
       },
       {
-        question: 'Mi a kulcs az AI hatékony használatához?',
+        question: 'Miért kell iterálni az AI-válaszokon?',
         options: [
-          'Iteráció és finomítás',
-          'Egyszer használjuk, aztán elfelejtjük',
-          'Csak egyszerű feladatokra használjuk',
-          'Várjuk, hogy tökéletes legyen elsőre'
+          'Az első válasz ritkán tökéletes, finomítással lesz használható',
+          'Iteráció csak időpazarlás',
+          'Az AI mindig elsőre tökéletes',
+          'Iterálni csak fejlesztők tudnak'
         ],
         correctIndex: 0,
         difficulty: QuestionDifficulty.MEDIUM,
         category: 'Course Specific'
       },
       {
-        question: 'Melyik NEM igaz az AI-ról?',
+        question: 'Mi a különbség eszköz és varázslat között az AI-nál?',
         options: [
-          'Varázslat, ami mindenre képes',
-          'Segítő eszköz, ami jó inputot igényel',
-          'Az első válasz ritkán tökéletes',
-          'Finomítással nagyon hasznos lehet'
+          'Az AI eszköz, ami inputot igényel; nem varázslat, ami mindent kitalál',
+          'Az AI varázslat, ami tippből is érti a lényeget',
+          'Az AI mindig pontos minden kontextus nélkül',
+          'Nincs különbség, mindkettő ugyanaz'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.MEDIUM,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Melyik állítás igaz az AI korlátairól?',
+        options: [
+          'A modell nem tud dönteni helyetted, csak javasolni',
+          'Az AI jogilag vállalja a felelősséget',
+          'Az AI mindig naprakész a legfrissebb adatokkal',
+          'Az AI garantáltan hibátlan'
         ],
         correctIndex: 0,
         difficulty: QuestionDifficulty.HARD,
         category: 'Course Specific'
+      },
+      {
+        question: 'Mi a helyes hozzáállás az AI válaszaihoz?',
+        options: [
+          'Ellenőrizd, pontosítsd, iteráld',
+          'Vedd készpénznek és továbbítsd',
+          'Mindig utasítsd vissza',
+          'Ne adj feedbacket, mert nem számít'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.HARD,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Mikor veszélyes az AI-t használni?',
+        options: [
+          'Ha emberi felülvizsgálat nélkül döntesz pénzügyi/HR/egészségügyi ügyekben',
+          'Ha vázlatot kérsz egy emailhez',
+          'Ha ötleteléshez használod',
+          'Ha nyelvi hibákat javíttatsz'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.HARD,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Miért fontos a jó input?',
+        options: [
+          'Jó input nélkül az AI könnyen melléfog',
+          'Az input minősége nem számít',
+          'Az AI kitalálja a hiányzó adatokat',
+          'A rossz input is mindig jó outputot ad'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.MEDIUM,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Mi a fő tanulság az első napról?',
+        options: [
+          'Az AI hasznos eszköz, de felelősen kell használni és iterálni',
+          'Az AI mindent megold helyetted',
+          'Az AI-t nem kell felügyelni',
+          'Az AI minden döntést átvehet'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.MEDIUM,
+        category: 'Course Specific'
       }
     );
   } else if (day === 2) {
-    // Day 2: A jó prompt 4 eleme - Generate all 15 questions
+    // Day 2: A jó prompt 4 eleme (curated 10)
     questions.push(
       {
         question: 'Hány eleme van egy jó promptnak?',
@@ -1356,139 +1416,99 @@ function generateQuizQuestions(
         category: 'Course Specific'
       },
       {
-        question: 'Mit jelent a prompt "Cél" eleme?',
+        question: 'Mi a "Cél" elem szerepe?',
         options: [
-          'Mit akarsz elérni? (pl. "Írj emailt", "Összegezz", "Hasonlíts össze")',
-          'Milyen formátumot várunk?',
-          'Milyen hangnemben?',
-          'Milyen információkra van szükség?'
-        ],
-        correctIndex: 0,
-        difficulty: QuestionDifficulty.EASY,
-        category: 'Course Specific'
-      },
-      {
-        question: 'Mit jelent a prompt "Kontextus" eleme?',
-        options: [
-          'Milyen információkra van szükség? (pl. "30 perces meeting", "ügyfél panasz")',
-          'Mit akarsz elérni?',
-          'Milyen formátumot várunk?',
-          'Milyen hangnemben?'
-        ],
-        correctIndex: 0,
-        difficulty: QuestionDifficulty.EASY,
-        category: 'Course Specific'
-      },
-      {
-        question: 'Mit jelent a prompt "Forma" eleme?',
-        options: [
-          'Milyen formátumot várunk? (pl. "bullet points", "táblázat", "rövid bekezdés")',
-          'Mit akarsz elérni?',
-          'Milyen hangnemben?',
-          'Milyen információkra van szükség?'
-        ],
-        correctIndex: 0,
-        difficulty: QuestionDifficulty.EASY,
-        category: 'Course Specific'
-      },
-      {
-        question: 'Mit jelent a prompt "Stílus" eleme?',
-        options: [
-          'Milyen hangnemben? (pl. "hivatalos", "barátságos", "technikai")',
-          'Mit akarsz elérni?',
-          'Milyen formátumot várunk?',
-          'Milyen információkra van szükség?'
+          'Megmondja, mit szeretnél elérni (pl. írj emailt, összegezz, hasonlíts)',
+          'Leírja a kért hangnemet',
+          'Kiválasztja a formátumot',
+          'Háttérinformációt ad'
         ],
         correctIndex: 0,
         difficulty: QuestionDifficulty.MEDIUM,
         category: 'Course Specific'
       },
       {
-        question: 'Mi a napi cél a(z) "A jó prompt 4 eleme" leckében?',
+        question: 'Mi a "Kontextus" elem szerepe?',
         options: [
-          'Megtanulod a jó prompt felépítését és megérted, miért kapsz más választ ugyanarra a kérdésre',
-          'Csak elméleti ismeretek',
-          'Nincs konkrét cél',
-          'Nem kell semmit tanulni'
+          'Háttér és részletek (pl. 30 perces meeting, ügyfél panasz)',
+          'Megadja a kért hangnemet',
+          'Formátumot határoz meg',
+          'Csak a célt ismétli'
         ],
         correctIndex: 0,
         difficulty: QuestionDifficulty.MEDIUM,
         category: 'Course Specific'
       },
       {
-        question: 'Melyik a helyes sorrend a prompt 4 elemének?',
+        question: 'Mi a "Forma" elem szerepe?',
         options: [
-          'Cél, Kontextus, Forma, Stílus',
-          'Kontextus, Cél, Stílus, Forma',
-          'Forma, Stílus, Cél, Kontextus',
-          'Stílus, Forma, Kontextus, Cél'
+          'Milyen struktúrát kérsz (bullet, táblázat, rövid bekezdés)',
+          'Hangnem meghatározása',
+          'Cél kijelölése',
+          'Kontextus részletezése'
         ],
         correctIndex: 0,
         difficulty: QuestionDifficulty.MEDIUM,
         category: 'Course Specific'
       },
       {
-        question: 'Példa: "Írj emailt" - ez melyik prompt elem?',
-        options: ['Cél', 'Kontextus', 'Forma', 'Stílus'],
-        correctIndex: 0,
-        difficulty: QuestionDifficulty.MEDIUM,
-        category: 'Course Specific'
-      },
-      {
-        question: 'Példa: "30 perces meeting" - ez melyik prompt elem?',
-        options: ['Kontextus', 'Cél', 'Forma', 'Stílus'],
-        correctIndex: 0,
-        difficulty: QuestionDifficulty.MEDIUM,
-        category: 'Course Specific'
-      },
-      {
-        question: 'Példa: "bullet points" - ez melyik prompt elem?',
-        options: ['Forma', 'Cél', 'Kontextus', 'Stílus'],
-        correctIndex: 0,
-        difficulty: QuestionDifficulty.MEDIUM,
-        category: 'Course Specific'
-      },
-      {
-        question: 'Példa: "hivatalos" - ez melyik prompt elem?',
-        options: ['Stílus', 'Cél', 'Kontextus', 'Forma'],
-        correctIndex: 0,
-        difficulty: QuestionDifficulty.MEDIUM,
-        category: 'Course Specific'
-      },
-      {
-        question: 'Mi a legfontosabb egy jó promptnál?',
+        question: 'Mi a "Stílus" elem szerepe?',
         options: [
-          'Minél specifikusabb vagy, annál jobb választ kapsz',
-          'Minél rövidebb, annál jobb',
-          'Csak a célt kell megadni',
-          'Nem számít, mit írsz'
+          'Hangnem/hangulat (hivatalos, barátságos, technikai)',
+          'Formátum kijelölése',
+          'Cél pontosítása',
+          'Kontextus adása'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.MEDIUM,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Melyik prompt tartalmazza mind a 4 elemet?',
+        options: [
+          'Írj udvarias, rövid emailt időpont-egyeztetéshez. Kontextus: 30 perces online meeting jövő hét kedden 10:00-kor. Stílus: üzleti. Forma: rövid bekezdés.',
+          'Írj emailt időpont-egyeztetéshez.',
+          'Email 30 perces meetinghez.',
+          'Hivatalos email.'
         ],
         correctIndex: 0,
         difficulty: QuestionDifficulty.HARD,
         category: 'Course Specific'
       },
       {
-        question: 'Melyik prompt példa tartalmazza mind a 4 elemet?',
+        question: 'Miért fontos mind a 4 elem megadása?',
         options: [
-          'Írj udvarias, rövid emailt időpont-egyeztetéshez. Kontextus: 30 perces online meeting jövő hét kedden 10:00-kor. Stílus: üzleti, professzionális. Formátum: rövid bekezdés.',
+          'Pontos válasz, kevesebb körözés, jobb minőség',
+          'Rövidebb prompt mindig jobb',
+          'Csak a cél számít',
+          'Az AI kitalálja a hiányzó részeket'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.HARD,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Melyik példára illik legjobban a "Kontextus" elem?',
+        options: [
+          'Ügyfél panasz emailje, 3 napja vár válaszra',
           'Írj emailt',
-          'Email időpont-egyeztetéshez',
-          '30 perces meeting'
+          'Hivatalos hangnem',
+          'Bullet points formátum'
         ],
         correctIndex: 0,
-        difficulty: QuestionDifficulty.HARD,
+        difficulty: QuestionDifficulty.MEDIUM,
         category: 'Course Specific'
       },
       {
-        question: 'Miért fontos megadni mind a 4 elemet?',
+        question: 'Mi a napi cél a 2. leckében?',
         options: [
-          'Hogy az AI pontosan azt adja, amit szeretnénk, és ne kelljen többször kérdezni',
-          'Hogy rövidebb legyen a prompt',
-          'Hogy ne kelljen kontextust adni',
-          'Nem fontos, csak a cél számít'
+          'Megérteni és gyakorolni a 4 elemet, hogy következetes válaszokat kapj',
+          'Csak elméletet olvasni',
+          'Megtanulni egyetlen prompt sablont',
+          'Promptokat véletlenszerűen próbálgatni'
         ],
         correctIndex: 0,
-        difficulty: QuestionDifficulty.HARD,
+        difficulty: QuestionDifficulty.MEDIUM,
         category: 'Course Specific'
       }
     );

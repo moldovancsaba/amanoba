@@ -91,9 +91,29 @@ export default function AdminAnalyticsPage() {
     const fetchBrandId = async () => {
       try {
         const res = await fetch('/api/admin/brands?default=true');
+        if (!res.ok) {
+          console.error('Failed to fetch brand ID:', res.status, res.statusText);
+          // Try to get brand by slug as fallback
+          const fallbackRes = await fetch('/api/admin/brands');
+          if (fallbackRes.ok) {
+            const fallbackJson = await fallbackRes.json();
+            if (fallbackJson.success && fallbackJson.brands && fallbackJson.brands.length > 0) {
+              // Find amanoba brand or use first active brand
+              const amanobaBrand = fallbackJson.brands.find((b: any) => b.slug === 'amanoba') || 
+                                  fallbackJson.brands.find((b: any) => b.isActive);
+              if (amanobaBrand) {
+                setBrandId(amanobaBrand._id);
+                return;
+              }
+            }
+          }
+          return;
+        }
         const json = await res.json();
         if (json.success && json.brands && json.brands.length > 0) {
           setBrandId(json.brands[0]._id);
+        } else {
+          console.error('No brands found in response:', json);
         }
       } catch (error) {
         console.error('Failed to fetch brand ID:', error);
@@ -247,6 +267,26 @@ export default function AdminAnalyticsPage() {
     avgDuration: (snapshot.data.averageSessionDuration as number) || 0,
   }));
 
+  // Show loading state if brandId is not yet loaded
+  if (!brandId) {
+    return (
+      <div className="page-shell p-6">
+        <div className="page-container">
+          <header className="mb-8">
+            <h1 className="text-4xl font-bold text-brand-white mb-2">Analytics Dashboard</h1>
+            <p className="text-brand-white/70">Comprehensive metrics and insights</p>
+          </header>
+          <div className="page-card-dark p-6">
+            <div className="text-center text-brand-white">
+              <div className="inline-block w-8 h-8 border-4 border-brand-accent border-t-transparent rounded-full animate-spin mb-4"></div>
+              <p>Loading analytics data...</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="page-shell p-6">
       <div className="page-container">
@@ -289,36 +329,46 @@ export default function AdminAnalyticsPage() {
           </div>
         </div>
 
+        {/* Error Display */}
+        {realtimeError && (
+          <div className="page-card-dark p-4 mb-6 bg-red-900/20 border border-red-500/50">
+            <div className="text-red-400 font-semibold mb-1">Error Loading Analytics</div>
+            <div className="text-red-300 text-sm">
+              {realtimeError instanceof Error ? realtimeError.message : 'Unknown error occurred'}
+            </div>
+          </div>
+        )}
+
         {/* Real-time Stats */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
           <div className="page-card-dark p-6">
             <div className="text-gray-300 text-sm mb-1">Active Users (24h)</div>
             <div className="text-4xl font-bold text-white">
-              {realtimeData?.last24Hours.activeUsers || 0}
+              {realtimeData?.last24Hours?.activeUsers || 0}
             </div>
             <div className="text-xs text-gray-400 mt-2">
-              {realtimeData?.last1Hour.activeUsers || 0} in last hour
+              {realtimeData?.last1Hour?.activeUsers || 0} in last hour
             </div>
           </div>
           <div className="page-card-dark p-6">
             <div className="text-gray-300 text-sm mb-1">Game Sessions (24h)</div>
             <div className="text-4xl font-bold text-white">
-              {realtimeData?.last24Hours.gameSessions || 0}
+              {realtimeData?.last24Hours?.gameSessions || 0}
             </div>
             <div className="text-xs text-gray-400 mt-2">
-              {realtimeData?.current.activeSessions || 0} active now
+              {realtimeData?.current?.activeSessions || 0} active now
             </div>
           </div>
           <div className="page-card-dark p-6">
             <div className="text-gray-300 text-sm mb-1">Points Earned (24h)</div>
             <div className="text-4xl font-bold text-white">
-              {realtimeData?.last24Hours.totalPointsEarned?.toLocaleString() || 0}
+              {realtimeData?.last24Hours?.totalPointsEarned?.toLocaleString() || 0}
             </div>
           </div>
           <div className="page-card-dark p-6">
             <div className="text-gray-300 text-sm mb-1">Achievements (24h)</div>
             <div className="text-4xl font-bold text-white">
-              {realtimeData?.last24Hours.achievementUnlocks || 0}
+              {realtimeData?.last24Hours?.achievementUnlocks || 0}
             </div>
           </div>
         </div>
@@ -328,74 +378,99 @@ export default function AdminAnalyticsPage() {
           {/* Active Users Chart */}
           <div className="page-card-dark p-6">
             <h3 className="text-xl font-bold text-white mb-4">Active Users Trend</h3>
-            <ResponsiveContainer width="100%" height={300}>
-              <LineChart data={activeUsersChartData}>
-                <CartesianGrid strokeDasharray="3 3" stroke="#fff3" />
-                <XAxis dataKey="date" stroke="#fff" />
-                <YAxis stroke="#fff" />
-                <Tooltip contentStyle={{ backgroundColor: '#1f2937', border: 'none' }} />
-                <Legend />
-                <Line type="monotone" dataKey="totalUsers" stroke="#6366f1" strokeWidth={2} name="Total Users" />
-                <Line type="monotone" dataKey="newUsers" stroke="#22c55e" strokeWidth={2} name="New Users" />
-                <Line type="monotone" dataKey="premiumUsers" stroke="#f59e0b" strokeWidth={2} name="Premium" />
-              </LineChart>
-            </ResponsiveContainer>
+            {activeUsersChartData && activeUsersChartData.length > 0 ? (
+              <ResponsiveContainer width="100%" height={300}>
+                <LineChart data={activeUsersChartData}>
+                  <CartesianGrid strokeDasharray="3 3" stroke="#fff3" />
+                  <XAxis dataKey="date" stroke="#fff" />
+                  <YAxis stroke="#fff" />
+                  <Tooltip contentStyle={{ backgroundColor: '#1f2937', border: 'none' }} />
+                  <Legend />
+                  <Line type="monotone" dataKey="totalUsers" stroke="#6366f1" strokeWidth={2} name="Total Users" />
+                  <Line type="monotone" dataKey="newUsers" stroke="#22c55e" strokeWidth={2} name="New Users" />
+                  <Line type="monotone" dataKey="premiumUsers" stroke="#f59e0b" strokeWidth={2} name="Premium" />
+                </LineChart>
+              </ResponsiveContainer>
+            ) : (
+              <div className="h-[300px] flex items-center justify-center text-gray-400">
+                <p>No data available for the selected period</p>
+              </div>
+            )}
           </div>
 
           {/* Game Sessions Chart */}
           <div className="page-card-dark p-6">
             <h3 className="text-xl font-bold text-white mb-4">Game Sessions & Points</h3>
-            <ResponsiveContainer width="100%" height={300}>
-              <BarChart data={gameSessionsChartData}>
-                <CartesianGrid strokeDasharray="3 3" stroke="#fff3" />
-                <XAxis dataKey="date" stroke="#fff" />
-                <YAxis stroke="#fff" />
-                <Tooltip contentStyle={{ backgroundColor: '#1f2937', border: 'none' }} />
-                <Legend />
-                <Bar dataKey="sessions" fill="#ec4899" name="Sessions" />
-                <Bar dataKey="points" fill="#a855f7" name="Points Earned" />
-              </BarChart>
-            </ResponsiveContainer>
+            {gameSessionsChartData && gameSessionsChartData.length > 0 ? (
+              <ResponsiveContainer width="100%" height={300}>
+                <BarChart data={gameSessionsChartData}>
+                  <CartesianGrid strokeDasharray="3 3" stroke="#fff3" />
+                  <XAxis dataKey="date" stroke="#fff" />
+                  <YAxis stroke="#fff" />
+                  <Tooltip contentStyle={{ backgroundColor: '#1f2937', border: 'none' }} />
+                  <Legend />
+                  <Bar dataKey="sessions" fill="#ec4899" name="Sessions" />
+                  <Bar dataKey="points" fill="#a855f7" name="Points Earned" />
+                </BarChart>
+              </ResponsiveContainer>
+            ) : (
+              <div className="h-[300px] flex items-center justify-center text-gray-400">
+                <p>No data available for the selected period</p>
+              </div>
+            )}
           </div>
 
           {/* Revenue Chart */}
           <div className="page-card-dark p-6">
             <h3 className="text-xl font-bold text-white mb-4">Reward Redemptions</h3>
-            <ResponsiveContainer width="100%" height={300}>
-              <AreaChart data={revenueChartData}>
-                <CartesianGrid strokeDasharray="3 3" stroke="#fff3" />
-                <XAxis dataKey="date" stroke="#fff" />
-                <YAxis stroke="#fff" />
-                <Tooltip contentStyle={{ backgroundColor: '#1f2937', border: 'none' }} />
-                <Legend />
-                <Area type="monotone" dataKey="redemptions" stroke="#22c55e" fill="#22c55e88" name="Redemptions" />
-                <Area type="monotone" dataKey="pointsRedeemed" stroke="#f59e0b" fill="#f59e0b88" name="Points Spent" />
-              </AreaChart>
-            </ResponsiveContainer>
+            {revenueChartData && revenueChartData.length > 0 ? (
+              <ResponsiveContainer width="100%" height={300}>
+                <AreaChart data={revenueChartData}>
+                  <CartesianGrid strokeDasharray="3 3" stroke="#fff3" />
+                  <XAxis dataKey="date" stroke="#fff" />
+                  <YAxis stroke="#fff" />
+                  <Tooltip contentStyle={{ backgroundColor: '#1f2937', border: 'none' }} />
+                  <Legend />
+                  <Area type="monotone" dataKey="redemptions" stroke="#22c55e" fill="#22c55e88" name="Redemptions" />
+                  <Area type="monotone" dataKey="pointsRedeemed" stroke="#f59e0b" fill="#f59e0b88" name="Points Spent" />
+                </AreaChart>
+              </ResponsiveContainer>
+            ) : (
+              <div className="h-[300px] flex items-center justify-center text-gray-400">
+                <p>No data available for the selected period</p>
+              </div>
+            )}
           </div>
 
           {/* Engagement Chart */}
           <div className="page-card-dark p-6">
             <h3 className="text-xl font-bold text-white mb-4">Player Engagement</h3>
-            <ResponsiveContainer width="100%" height={300}>
-              <LineChart data={engagementChartData}>
-                <CartesianGrid strokeDasharray="3 3" stroke="#fff3" />
-                <XAxis dataKey="date" stroke="#fff" />
-                <YAxis stroke="#fff" />
-                <Tooltip contentStyle={{ backgroundColor: '#1f2937', border: 'none' }} />
-                <Legend />
-                <Line type="monotone" dataKey="sessionsPerUser" stroke="#6366f1" strokeWidth={2} name="Sessions/User" />
-                <Line type="monotone" dataKey="avgDuration" stroke="#ec4899" strokeWidth={2} name="Avg Duration (s)" />
-              </LineChart>
-            </ResponsiveContainer>
+            {engagementChartData && engagementChartData.length > 0 ? (
+              <ResponsiveContainer width="100%" height={300}>
+                <LineChart data={engagementChartData}>
+                  <CartesianGrid strokeDasharray="3 3" stroke="#fff3" />
+                  <XAxis dataKey="date" stroke="#fff" />
+                  <YAxis stroke="#fff" />
+                  <Tooltip contentStyle={{ backgroundColor: '#1f2937', border: 'none' }} />
+                  <Legend />
+                  <Line type="monotone" dataKey="sessionsPerUser" stroke="#6366f1" strokeWidth={2} name="Sessions/User" />
+                  <Line type="monotone" dataKey="avgDuration" stroke="#ec4899" strokeWidth={2} name="Avg Duration (s)" />
+                </LineChart>
+              </ResponsiveContainer>
+            ) : (
+              <div className="h-[300px] flex items-center justify-center text-gray-400">
+                <p>No data available for the selected period</p>
+              </div>
+            )}
           </div>
         </div>
 
         {/* Top Games */}
         <div className="page-card-dark p-6 mt-6">
           <h3 className="text-xl font-bold text-white mb-4">Top Games (24h)</h3>
-          <div className="space-y-3">
-            {realtimeData?.topGames.map((game, index) => (
+          {realtimeData?.topGames && realtimeData.topGames.length > 0 ? (
+            <div className="space-y-3">
+              {realtimeData.topGames.map((game, index) => (
               <div key={game._id} className="flex items-center justify-between bg-white/5 rounded-lg p-3">
                 <div className="flex items-center gap-3">
                   <div className="text-2xl font-bold text-indigo-400">#{index + 1}</div>
@@ -409,15 +484,21 @@ export default function AdminAnalyticsPage() {
                   <div className="text-gray-400 text-sm">points earned</div>
                 </div>
               </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          ) : (
+            <div className="text-center text-gray-400 py-8">
+              <p>No game sessions in the last 24 hours</p>
+            </div>
+          )}
         </div>
 
         {/* Recent Activity */}
         <div className="page-card-dark p-6 mt-6">
           <h3 className="text-xl font-bold text-white mb-4">Recent Activity</h3>
-          <div className="space-y-2">
-            {realtimeData?.recentEvents.slice(0, 10).map((event) => (
+          {realtimeData?.recentEvents && realtimeData.recentEvents.length > 0 ? (
+            <div className="space-y-2">
+              {realtimeData.recentEvents.slice(0, 10).map((event) => (
               <div key={event._id} className="flex items-center justify-between bg-white/5 rounded-lg p-3 text-sm">
                 <div className="flex items-center gap-3">
                   <div className={`w-2 h-2 rounded-full ${getEventColor(event.eventType)}`}></div>
@@ -427,8 +508,13 @@ export default function AdminAnalyticsPage() {
                   {new Date(event.timestamp).toLocaleTimeString()}
                 </div>
               </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          ) : (
+            <div className="text-center text-gray-400 py-8">
+              <p>No recent activity</p>
+            </div>
+          )}
         </div>
       </div>
     </div>
