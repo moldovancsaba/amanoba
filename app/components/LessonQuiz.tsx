@@ -8,6 +8,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { useTranslations } from 'next-intl';
 import { CheckCircle, XCircle, RotateCcw } from 'lucide-react';
 
 interface Question {
@@ -44,6 +45,7 @@ export default function LessonQuiz({
   quizConfig,
   onComplete,
 }: LessonQuizProps) {
+  const t = useTranslations('courses');
   const [questions, setQuestions] = useState<Question[]>([]);
   const [answers, setAnswers] = useState<Record<string, number>>({});
   const [submitted, setSubmitted] = useState(false);
@@ -72,11 +74,11 @@ export default function LessonQuiz({
       if (data.ok && data.data?.questions) {
         setQuestions(data.data.questions);
       } else {
-        setError(data.error?.message || 'Failed to load quiz questions');
+        setError(data.error?.message || t('quizError'));
       }
     } catch (err) {
       console.error('Failed to fetch questions:', err);
-      setError('Failed to load quiz questions');
+      setError(t('quizError'));
     } finally {
       setLoading(false);
     }
@@ -121,11 +123,11 @@ export default function LessonQuiz({
           onComplete(quizResult);
         }
       } else {
-        alert(data.error || 'Failed to submit quiz');
+        alert(data.error || t('quizError'));
       }
     } catch (err) {
       console.error('Failed to submit quiz:', err);
-      alert('Failed to submit quiz');
+      alert(t('quizError'));
     }
   };
 
@@ -143,7 +145,7 @@ export default function LessonQuiz({
     return (
       <div className="bg-brand-white rounded-xl p-8 border-2 border-brand-accent">
         <div className="text-center">
-          <div className="text-brand-darkGrey">Loading quiz questions...</div>
+          <div className="text-brand-darkGrey">{t('loadingQuiz')}</div>
         </div>
       </div>
     );
@@ -158,7 +160,7 @@ export default function LessonQuiz({
             onClick={fetchQuestions}
             className="px-4 py-2 bg-brand-accent text-brand-black rounded-lg font-bold hover:bg-brand-primary-400"
           >
-            Retry
+            {t('retry')}
           </button>
         </div>
       </div>
@@ -169,7 +171,7 @@ export default function LessonQuiz({
     return (
       <div className="bg-brand-white rounded-xl p-8 border-2 border-brand-accent">
         <div className="text-center">
-          <div className="text-brand-darkGrey mb-4">No quiz questions available for this lesson.</div>
+          <div className="text-brand-darkGrey mb-4">{t('noQuizQuestions')}</div>
         </div>
       </div>
     );
@@ -178,11 +180,11 @@ export default function LessonQuiz({
   return (
     <div className="bg-brand-white rounded-xl p-8 border-2 border-brand-accent">
       <div className="mb-6">
-        <h2 className="text-2xl font-bold text-brand-black mb-2">Lesson Quiz</h2>
+        <h2 className="text-2xl font-bold text-brand-black mb-2">{t('lessonQuiz')}</h2>
         <p className="text-brand-darkGrey">
-          Answer {quizConfig.questionCount} questions to test your understanding.
+          {t('quizDescription', { count: quizConfig.questionCount })}
           {quizConfig.required && (
-            <span className="font-bold text-brand-accent"> You need {quizConfig.successThreshold}% to pass.</span>
+            <span className="font-bold text-brand-accent"> {t('quizRequired', { threshold: quizConfig.successThreshold })}</span>
           )}
         </p>
       </div>
@@ -223,14 +225,14 @@ export default function LessonQuiz({
 
           <div className="flex items-center justify-between pt-4 border-t border-brand-darkGrey/20">
             <div className="text-sm text-brand-darkGrey">
-              {Object.keys(answers).length} of {questions.length} answered
+              {t('answeredCount', { answered: Object.keys(answers).length, total: questions.length })}
             </div>
             <button
               onClick={handleSubmit}
               disabled={Object.keys(answers).length < questions.length}
               className="px-6 py-3 bg-brand-accent text-brand-black rounded-lg font-bold hover:bg-brand-primary-400 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              Submit Quiz
+              {t('submitQuiz')}
             </button>
           </div>
         </>
@@ -243,26 +245,26 @@ export default function LessonQuiz({
               <XCircle className="w-16 h-16 mx-auto mb-4" />
             )}
             <h3 className="text-3xl font-bold mb-2">
-              {result.passed ? 'Quiz Passed!' : 'Quiz Failed'}
+              {result.passed ? t('quizPassed') : t('quizFailed')}
             </h3>
             <p className="text-2xl font-bold">
-              {result.score} / {result.total} ({result.percentage}%)
+              {t('quizScore', { score: result.score, total: result.total, percentage: result.percentage })}
             </p>
             <p className="text-sm mt-2 text-brand-darkGrey">
-              Required: {quizConfig.successThreshold}%
+              {t('quizRequiredScore', { threshold: quizConfig.successThreshold })}
             </p>
           </div>
 
           {result.passed ? (
             <div className="bg-green-50 border-2 border-green-500 rounded-lg p-4 mb-4">
               <p className="text-green-800 font-bold">
-                Congratulations! You passed the quiz. You can now complete the lesson.
+                {t('quizPassedMessage')}
               </p>
             </div>
           ) : (
             <div className="bg-red-50 border-2 border-red-500 rounded-lg p-4 mb-4">
               <p className="text-red-800 font-bold mb-2">
-                You didn't pass the quiz. You need {quizConfig.successThreshold}% to pass.
+                {t('quizFailedMessage', { threshold: quizConfig.successThreshold })}
               </p>
               {canRetake && (
                 <button
@@ -270,7 +272,7 @@ export default function LessonQuiz({
                   className="mt-4 px-6 py-3 bg-brand-accent text-brand-black rounded-lg font-bold hover:bg-brand-primary-400 transition-colors flex items-center gap-2 mx-auto"
                 >
                   <RotateCcw className="w-5 h-5" />
-                  Retake Quiz
+                  {t('retakeQuiz')}
                 </button>
               )}
             </div>
