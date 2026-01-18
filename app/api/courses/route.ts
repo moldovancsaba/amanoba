@@ -25,9 +25,15 @@ export async function GET(request: NextRequest) {
     const search = searchParams.get('search');
 
     // Build query - only show active courses to students
-    const query: Record<string, unknown> = {
-      isActive: status !== 'all', // Default to active only
-    };
+    const query: Record<string, unknown> = {};
+    
+    // Filter by status: 'all' shows all, 'active' shows only active, default shows active
+    if (status === 'all') {
+      // Show all courses (no isActive filter)
+    } else {
+      // Default: show only active courses
+      query.isActive = true;
+    }
 
     if (language) {
       query.language = language;
