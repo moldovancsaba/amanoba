@@ -248,7 +248,7 @@ export default function LeaderboardsPage() {
                     {t(PERIODS.find(p => p.id === selectedPeriod)?.nameKey || 'allTime')} • {leaderboardData.totalPlayers} {t('players')}
                   </p>
                 </div>
-                <Trophy className="w-12 h-12 opacity-50 text-brand-black" />
+                <Icon icon={MdEmojiEvents} size={48} className="opacity-50 text-brand-black" />
               </div>
             </div>
 

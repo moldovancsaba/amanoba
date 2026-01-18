@@ -346,7 +346,7 @@ export default function QuestsPage() {
                           <span className="font-bold text-brand-accent">{quest.rewards.points} pts</span>
                         </div>
                         <div className="flex items-center gap-1">
-                          <span className="text-brand-darkGrey">⚡</span>
+                          <Icon icon={MdBolt} size={16} className="text-brand-darkGrey" />
                           <span className="font-bold text-brand-darkGrey">{quest.rewards.xp} XP</span>
                         </div>
                       </div>

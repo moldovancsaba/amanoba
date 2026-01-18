@@ -325,7 +325,8 @@ export default function AchievementsPage() {
                       💎 {achievement.points} pts
                     </span>
                     <span className="text-brand-darkGrey font-bold">
-                      ⚡ {achievement.xp} XP
+                      <Icon icon={MdBolt} size={16} className="inline mr-1" />
+                      {achievement.xp} XP
                     </span>
                   </div>
                 </div>
