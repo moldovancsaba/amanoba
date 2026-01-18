@@ -326,7 +326,10 @@ export default function CourseEditorPage({
                         <Eye className="w-3 h-3" />
                       </button>
                       <button
-                        onClick={() => setEditingLesson(day)}
+                        onClick={() => {
+                          setEditingLesson(day);
+                          setShowLessonForm(true);
+                        }}
                         className="flex-1 flex items-center justify-center gap-1 bg-brand-accent text-brand-black px-2 py-1 rounded text-sm font-bold hover:bg-brand-primary-400"
                       >
                         <Edit className="w-3 h-3" />
