@@ -22,6 +22,7 @@ import {
   Calendar,
   Users,
   Award,
+  Star,
 } from 'lucide-react';
 
 interface Course {
@@ -223,7 +224,7 @@ export default function AdminCoursesPage() {
                 </div>
                 {course.requiresPremium && (
                   <div className="text-xs text-brand-accent font-bold flex items-center gap-1">
-                    <Icon icon={MdStar} size={14} />
+                    <Star className="w-3.5 h-3.5" />
                     Premium
                   </div>
                 )}
