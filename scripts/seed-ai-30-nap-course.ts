@@ -17,7 +17,7 @@ import { Brand, Course, Lesson, QuizQuestion, QuestionDifficulty } from '../app/
 
 const COURSE_ID = 'AI_30_NAP';
 const COURSE_NAME = 'AI 30 Nap – tematikus tanulási út';
-const COURSE_DESCRIPTION = '30 napos, strukturált AI-kurzus, amely az alapoktól a haladó használatig vezet. Napi 10-15 perces leckékkel építsd be az AI-t a munkádba és a mindennapi életedbe.';
+const COURSE_DESCRIPTION = '30 napos, gyakorlati AI-kurzus az alapoktól a haladó használatig. Napi 10-15 perces, magyar nyelvű leckékkel kapsz promptokat, sablonokat, workflow-kat és biztonsági útmutatót, hogy valós munkafolyamatokban használd az AI-t – azonnal alkalmazható példákkal, szerep-specifikus tippekkel és portfólióminőségű kimenetekkel.';
 
 // Complete lesson plan based on the table of contents
 const lessonPlan = [
@@ -1363,33 +1363,39 @@ const lessonPlan = [
     day: 26,
     title: 'Saját AI-rutin kialakítása',
     content: `<h2>Napi cél</h2>
-<p>Kialakítod a saját napi AI-rutinodat, amit következetesen használsz.</p>
-
-<h2>AI-rutin építése</h2>
-<p>Egy jó AI-rutin tartalmazza:</p>
+<p>Ma kialakítod a napi AI-rutinodat: reggel–napközben–este feladatok, sablonokkal és időkerettel.</p>
 <ul>
-<li><strong>Reggeli rutin</strong> – Mit csinálsz reggel AI-val? (pl. email válaszok, napi terv)</li>
-<li><strong>Napi rutin</strong> – Mit csinálsz napközben? (pl. dokumentumok, összefoglalók)</li>
-<li><strong>Esti rutin</strong> – Mit csinálsz este? (pl. napi összefoglaló, holnapi terv)</li>
+<li>rutin blokk: Reggeli, Napi, Esti</li>
+<li>feladat + prompt sablon + időkeret</li>
+<li>ellenőrző lépés: mit nézel át minden kimenetnél</li>
 </ul>
 
-<h2>Gyakorlat</h2>
-<p>Állíts össze egy napi AI-rutint:</p>
-<ol>
-<li>Reggeli rutin: 3 feladat, amit AI-val csinálsz reggel</li>
-<li>Napi rutin: 3 feladat, amit AI-val csinálsz napközben</li>
-<li>Esti rutin: 3 feladat, amit AI-val csinálsz este</li>
-<li>Minden feladathoz add meg a promptot</li>
-<li>Készíts egy rutin tervet</li>
-</ol>
+<hr />
+<h2>Blokkok és példák</h2>
+<ul>
+<li><strong>Reggel</strong>: inbox triage, napi terv bulletben, 1 prior task prompt.</li>
+<li><strong>Napközben</strong>: meeting összefoglaló → teendő, dokumentum vázlat → draft.</li>
+<li><strong>Este</strong>: napi összegzés (3 tanulság), holnapi top 3 feladat prompttal.</li>
+<li><strong>QA</strong>: számok/határidők/felelősök ellenőrzése.</li>
+<li><strong>Biztonság</strong>: anonimizálás, nincs érzékeny adat.</li>
+<li><strong>Kérj alternatívát</strong>: „Adj 2 stílusvariánst.”</li>
+</ul>
 
+<hr />
+<h2>Gyakorlat 1 – Rutin váz</h2>
+<p>Írj 3-3 feladatot blokkonként, mindhez: cél, prompt, idő (perc), QA lépés.</p>
+
+<h2>Gyakorlat 2 – Teszt</h2>
+<p>Futtasd a reggeli blokkot élesben, jegyezd fel: mennyi idő, mi volt hasznos, mit javítasz.</p>
+
+<hr />
 <h2>Prompt minta</h2>
 <blockquote>
-<p>Készíts napi AI-rutin tervet. Struktúra: 1) Reggeli rutin (3 feladat + promptok), 2) Napi rutin (3 feladat + promptok), 3) Esti rutin (3 feladat + promptok). Időbecsléssel.</p>
+<p>Készíts napi AI-rutin tervet. Struktúra: 1) Reggel: [3 feladat + prompt + perc + QA], 2) Napközben: [3 feladat], 3) Este: [3 feladat]. Adj időbecslést, és írd le a QA lépést (számok/határidők/felelősök). Biztonság: anonimizálás.</p>
 </blockquote>
 
 <h2>Tipp</h2>
-<p>Saját AI-rutin kialakítása: kezdj kicsiben – 1-2 feladattal naponta. Bővítsd, ahogy rájössz, mi hasznos.</p>`,
+<p>Kezdj kicsiben (1–2 feladat/blokk), majd bővíts. A QA legyen része a rutinodnak.</p>`,
     emailSubject: 'AI 30 Nap – 26. nap: AI-rutin',
     emailBody: `<h1>AI 30 Nap – 26. nap</h1>
 <h2>Saját AI-rutin kialakítása</h2>
@@ -1400,33 +1406,39 @@ const lessonPlan = [
     day: 27,
     title: '60 másodperces pitch AI-val',
     content: `<h2>Napi cél</h2>
-<p>Megtanulod, hogyan készítesz 60 másodperces pitch-et AI segítségével.</p>
-
-<h2>Pitch készítés</h2>
-<p>Az AI segíthet pitch készítésében:</p>
+<p>Ma 60 mp-es pitch-et készítesz AI-val: vázlat → 3 verzió (rövid/részletes/bullet) → próba.</p>
 <ul>
-<li><strong>Struktúra</strong> – "Készíts pitch vázlatot: probléma, megoldás, érték"</li>
-<li><strong>Szöveg</strong> – "Írj 60 másodperces pitch szöveget"</li>
-<li><strong>Variációk</strong> – "Adj 3 változatot: 1) rövid, 2) részletes, 3) bullet points"</li>
+<li>struktúra: Probléma (10 mp) → Megoldás (30 mp) → Érték/eredmény (20 mp) + CTA</li>
+<li>3 variáns: rövid, részletes, bullet-first</li>
+<li>hang/próbálás: mondd ki hangosan, mérj időt</li>
 </ul>
 
+<hr />
+<h2>Vázlat</h2>
+<ul>
+<li>Probléma: kinek, mi fáj?</li>
+<li>Megoldás: mit adsz, hogyan működik?</li>
+<li>Érték/Proof: milyen eredmény, példa, szám</li>
+<li>CTA: mi a következő lépés?</li>
+<li>Persona-fit: kinek szól?</li>
+</ul>
+
+<hr />
 <h2>Gyakorlat</h2>
-<p>Készíts egy 60 másodperces pitch-et:</p>
 <ol>
-<li>Add meg a termék/szolgáltatás leírását</li>
-<li>Kérj pitch vázlatot: probléma, megoldás, érték</li>
-<li>Kérj 60 másodperces pitch szöveget</li>
-<li>Kérj 3 változatot: rövid, részletes, bullet points</li>
-<li>Gyakorold felhangosan és mérj időt</li>
+<li>Írd le a termék/szolgáltatás röviden.</li>
+<li>Kérj pitch vázlatot a fenti struktúrában.</li>
+<li>Kérj 3 verziót (rövid/részletes/bullet).</li>
+<li>Olvasd fel, mérj időt, rövidíts, ha kell.</li>
 </ol>
 
 <h2>Prompt minta</h2>
 <blockquote>
-<p>Készíts 60 másodperces pitch-et. Termék: [termék leírás]. Struktúra: 1) Probléma (10 mp), 2) Megoldás (30 mp), 3) Érték (20 mp). Adj 3 változatot: rövid, részletes, bullet points.</p>
+<p>Készíts 60 mp pitch-et. Termék: [leírás]. Struktúra: Probléma (10 mp), Megoldás (30 mp), Érték/Proof (20 mp), CTA. Adj 3 verziót: 1) rövid, 2) részletes, 3) bullet-first. Tömör, magyar nyelven.</p>
 </blockquote>
 
 <h2>Tipp</h2>
-<p>60 másodperces pitch AI-val: a pitch rövid és tömör. Gyakorold felhangosan és mérj időt – a 60 másodperc rövidebb, mint gondolnád.</p>`,
+<p>60 mp nagyon rövid: vágj felesleget, hagyj CTA-t a végén. Gyakorold, amíg belefér az időbe.</p>`,
     emailSubject: 'AI 30 Nap – 27. nap: 60 másodperces pitch',
     emailBody: `<h1>AI 30 Nap – 27. nap</h1>
 <h2>60 másodperces pitch AI-val</h2>
@@ -1437,34 +1449,35 @@ const lessonPlan = [
     day: 28,
     title: 'Portfólió-szintű kimenetek',
     content: `<h2>Napi cél</h2>
-<p>Megtanulod, hogyan készítesz portfólió-szintű kimeneteket AI segítségével.</p>
-
-<h2>Portfólió-szintű kimenetek</h2>
-<p>Portfólió-szintű kimenetek azok, amiket megmutathatsz:</p>
+<p>Ma portfólió-minőségű kimenetet készítesz AI-val: profi, konzisztens, teljes, jól formázott.</p>
 <ul>
-<li><strong>Minőség</strong> – Profi, hibamentes, jól strukturált</li>
-<li><strong>Konzisztencia</strong> – Ugyanaz a stílus, forma</li>
-<li><strong>Teljesség</strong> – Minden információ megvan</li>
-<li><strong>Megjelenés</strong> – Jól formázott, olvasható</li>
+<li>minőség: hibamentes, tömör, érthető</li>
+<li>konzisztencia: stílus/forma egységes</li>
+<li>teljesség: minden szükséges infó benne</li>
+<li>megjelenés: jól formázott, olvasható</li>
 </ul>
 
+<hr />
+<h2>QA checklist</h2>
+<ul>
+<li>Hibák: helyesírás, számok, nevek, dátumok</li>
+<li>Teljesség: hiányzó szekciók? CTA?</li>
+<li>Konzisztencia: stílus/terminológia egységes?</li>
+<li>Formázás: címsorok, bullet, táblázat, whitespace</li>
+<li>Biztonság: nincs érzékeny adat</li>
+</ul>
+
+<hr />
 <h2>Gyakorlat</h2>
-<p>Készíts egy portfólió-szintű kimenetet:</p>
-<ol>
-<li>Válassz egy feladatot (pl. projekt dokumentum, kampány terv)</li>
-<li>Kérj portfólió-szintű kimenetet: minőség, konzisztencia, teljesség</li>
-<li>Ellenőrizd: hibák, teljesség, megjelenés</li>
-<li>Finomítsd: pontosíts, javíts</li>
-<li>Mentsd el portfólióként</li>
-</ol>
+<p>Válassz feladatot (pl. kampányterv, PRD váz, esettanulmány). Kérj portfólió-minőségű kimenetet a fenti kritériumokkal, majd futtasd le a QA checklistet és finomíts.</p>
 
 <h2>Prompt minta</h2>
 <blockquote>
-<p>Készíts portfólió-szintű kimenetet. Feladat: [feladat leírás]. Követelmények: 1) Minőség (profi, hibamentes), 2) Konzisztencia (ugyanaz a stílus), 3) Teljesség (minden információ), 4) Megjelenés (jól formázott).</p>
+<p>Készíts portfólió-minőségű anyagot. Feladat: [leírás]. Követelmények: profi, hibamentes, egységes stílus, teljes. Formázás: címsorok + bullet/táblázat, világos CTA. Adj ön-QA listát is (mire figyeljek átnézéskor).</p>
 </blockquote>
 
 <h2>Tipp</h2>
-<p>Portfólió-szintű kimenetek: az ellenőrzés és finomítás kulcsfontosságú. Ne bízz meg vakon – mindig ellenőrizd és javítsd.</p>`,
+<p>Mindig futtasd a QA listát. Ha lehet, kérj „önellenőrzést” is a modelltől, majd olvasd át te.</p>`,
     emailSubject: 'AI 30 Nap – 28. nap: Portfólió-szintű kimenetek',
     emailBody: `<h1>AI 30 Nap – 28. nap</h1>
 <h2>Portfólió-szintű kimenetek</h2>
@@ -1475,34 +1488,39 @@ const lessonPlan = [
     day: 29,
     title: 'Személyes fejlődési térkép',
     content: `<h2>Napi cél</h2>
-<p>Készítesz egy személyes fejlődési térképet, ami mutatja, merre tovább.</p>
-
-<h2>Fejlődési térkép</h2>
-<p>Egy fejlődési térkép tartalmazza:</p>
+<p>Ma megrajzolod a személyes AI-fejlődési térképedet: hol tartasz, hova mész, hogyan méred, 4 hetes akciótervvel.</p>
 <ul>
-<li><strong>Jelenlegi szint</strong> – Hol vagy most?</li>
-<li><strong>Célok</strong> – Hová akarsz eljutni?</li>
-<li><strong>Lépések</strong> – Hogyan éred el?</li>
-<li><strong>Mérés</strong> – Hogyan mérheted a fejlődést?</li>
+<li>jelenlegi szint 1–5 kulcsterületen</li>
+<li>konkrét célok (mit szeretnél elérni)</li>
+<li>lépések és eszközök (sablon, workflow, QA)</li>
+<li>mérés: hogyan követed (KPI, review)</li>
 </ul>
 
+<hr />
+<h2>Fejlődési térkép elemei</h2>
+<ul>
+<li><strong>Jelenlegi szint</strong>: prompt, workflow, sablon, QA/biztonság, szerep-specifikus</li>
+<li><strong>Célok</strong>: pl. „komplex feladatok”, „automatizálás”, „portfólió anyag”</li>
+<li><strong>Lépések</strong>: gyakorlás, sablonfrissítés, QA checklist használat</li>
+<li><strong>Mérés</strong>: mennyi iteráció kell, időmegtakarítás, hibaarány</li>
+</ul>
+
+<hr />
 <h2>Gyakorlat</h2>
-<p>Készíts egy személyes fejlődési térképet:</p>
 <ol>
-<li>Jelenlegi szint: milyen készségeid vannak? (1-5 skála)</li>
-<li>Célok: mit akarsz elérni? (pl. komplex feladatok, automatizálás)</li>
-<li>Lépések: hogyan éred el? (gyakorlat, sablonok, workflow)</li>
-<li>Mérés: hogyan mérheted? (mérőszámok, review)</li>
-<li>Készíts egy 4 hetes akciótervet</li>
+<li>Értékeld magad 1–5-re a kulcsterületeken.</li>
+<li>Írj 3 célt (4 hetes távon).</li>
+<li>Határozd meg a lépéseket (heti feladatok, eszközök).</li>
+<li>Készíts 4 hetes akciótervet, mérőszámokkal.</li>
 </ol>
 
 <h2>Prompt minta</h2>
 <blockquote>
-<p>Készíts személyes fejlődési térképet. Struktúra: 1) Jelenlegi szint (készségek 1-5), 2) Célok (mit akarsz elérni), 3) Lépések (hogyan éred el), 4) Mérés (mérőszámok). Készíts 4 hetes akciótervet is.</p>
+<p>Készíts személyes AI-fejlődési térképet. Struktúra: 1) Jelenlegi szint (1–5: prompt, workflow, sablon, QA/biztonság, szerep-specifikus), 2) 3 cél (4 hétre), 3) Lépések (heti feladatok, eszközök), 4) Mérés (KPI: iterációk száma, időspórolás, hibaarány). Adj 4 hetes akciótervet.</p>
 </blockquote>
 
 <h2>Tipp</h2>
-<p>Személyes fejlődési térkép: a fejlődés folyamatos. Ne állj meg – mindig van mit tanulni és fejleszteni.</p>`,
+<p>Kis célok, rövid határidő (4 hét), mérhető lépések. A térképet frissítsd hetente.</p>`,
     emailSubject: 'AI 30 Nap – 29. nap: Fejlődési térkép',
     emailBody: `<h1>AI 30 Nap – 29. nap</h1>
 <h2>Személyes fejlődési térkép</h2>
@@ -1513,54 +1531,45 @@ const lessonPlan = [
     day: 30,
     title: 'Zárás – merre tovább?',
     content: `<h2>Napi cél</h2>
-<p>Lezárod a 30 napos kurzust és meghatározod a következő lépéseket.</p>
-
-<h2>Zárás</h2>
-<p>Gratulálunk! Elvégezted a 30 napos AI kurzust! 🎉</p>
-
-<h2>Mit tanultál?</h2>
+<p>Ma lezársz és pályára állítod a következő 4 heted: tanulságok, alkalmazás, fejlesztés, akcióterv.</p>
 <ul>
-<li>Az AI alapjai és korlátai</li>
-<li>A jó prompt 4 eleme</li>
-<li>Iteráció és pontosítás</li>
-<li>Stílus és hang kialakítása</li>
-<li>Biztonság és etika</li>
-<li>Napi munka megkönnyítése</li>
-<li>Rendszerépítés</li>
-<li>Szerep-specifikus használat</li>
-<li>AI a bevételhez</li>
-<li>Fejlődési térkép</li>
+<li>összegzed a top tanulságokat</li>
+<li>kiválasztod a legjobb gyakorlatokat, amiket alkalmazol</li>
+<li>kijelölöd a következő lépéseket (4 hetes terv)</li>
+<li>megőrzöd a lendületet (rutin, mérés, megosztás)</li>
 </ul>
 
+<hr />
+<h2>Összegzés</h2>
+<p>Végigmentél az alap→haladó íven: prompt, iteráció, stílus, biztonság, workflow, sablonok, szerep-specifikus használat, bevételi fókusz, portfólió minőség.</p>
+
 <h2>Merre tovább?</h2>
-<p>Most, hogy elvégezted a kurzust:</p>
 <ol>
-<li><strong>Gyakorolj</strong> – Használd az AI-t naponta, alkalmazd a tanultakat</li>
-<li><strong>Fejleszd</strong> – Finomítsd a promptjaidat, bővítsd a sablonjaidat</li>
-<li><strong>Oszd meg</strong> – Oszd meg a tapasztalataidat másokkal</li>
-<li><strong>Tanulj tovább</strong> – Mindig van mit tanulni, kövesd a fejlesztéseket</li>
+<li><strong>Gyakorolj</strong>: napi rutin, sablonhasználat.</li>
+<li><strong>Fejlessz</strong>: frissítsd a sablon- és QA-könyvtárat.</li>
+<li><strong>Oszd meg</strong>: taníts másokat, kérj visszajelzést.</li>
+<li><strong>Mérj</strong>: időspórolás, iterációk száma, hibaarány.</li>
 </ol>
 
+<hr />
 <h2>Gyakorlat</h2>
-<p>Készíts egy "merre tovább" tervet:</p>
 <ol>
-<li>Mit tanultál a kurzusban? (3 fő tanulság)</li>
-<li>Mit fogsz alkalmazni? (3 konkrét feladat)</li>
-<li>Hogyan fogod fejleszteni? (3 következő lépés)</li>
-<li>Készíts egy 4 hetes akciótervet</li>
+<li>Írj 3 fő tanulságot.</li>
+<li>Írj 3 konkrét feladatot, ahol holnaptól alkalmazod.</li>
+<li>Írj 3 fejlesztési lépést (pl. automatizálás, mélyebb QA, új szerep-sablon).</li>
+<li>Készíts 4 hetes akciótervet mérőszámokkal.</li>
 </ol>
 
 <h2>Prompt minta</h2>
 <blockquote>
-<p>Készíts "merre tovább" tervet. Struktúra: 1) Tanultak (3 fő tanulság), 2) Alkalmazás (3 konkrét feladat), 3) Fejlesztés (3 következő lépés), 4) 4 hetes akcióterv. Konkrét példákkal.</p>
+<p>Készíts „merre tovább” tervet. Struktúra: 1) 3 fő tanulság, 2) 3 alkalmazási feladat, 3) 3 fejlesztési lépés, 4) 4 hetes akcióterv (mérőszámokkal: időspórolás/iteráció/hibaarány). Adj javaslatot a rutin fenntartására és tudásmegosztásra.</p>
 </blockquote>
 
 <h2>Tipp</h2>
-<p>Zárás – merre tovább?: a kurzus csak a kezdet. A valódi tanulás a gyakorlatban történik. Használd az AI-t naponta és fejleszd a készségeidet!</p>
+<p>A kurzus lezárult, de a gyakorlat visz előre. Tartsd a napi rutint, mérd az eredményt, és frissítsd rendszeresen a könyvtáradat.</p>
 
 <h2>Köszönjük!</h2>
-<p>Köszönjük, hogy elvégezted a 30 napos AI kurzust! Reméljük, hogy hasznos volt és segített beépíteni az AI-t a munkádba és a mindennapi életedbe.</p>
-<p>Folytasd a tanulást, gyakorolj és oszd meg a tapasztalataidat! 🚀</p>`,
+<p>Köszönjük, hogy végigcsináltad! 🚀</p>`,
     emailSubject: 'AI 30 Nap – 30. nap: Zárás',
     emailBody: `<h1>AI 30 Nap – 30. nap</h1>
 <h2>Zárás – merre tovább?</h2>
@@ -3652,6 +3661,266 @@ function generateQuizQuestions(
           'Hogy mindent egyszerre csinálj',
           'Csak mert kötelező számot írni',
           'Nem fontos'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.HARD,
+        category: 'Course Specific'
+      }
+    );
+  } else if (day === 26) {
+    // Day 26: Saját AI-rutin kialakítása
+    questions.push(
+      {
+        question: 'Mi a napi AI-rutin fő célja?',
+        options: [
+          'Rendszeres, időkeretes feladatblokkok (reggel/napközben/este) QA-val',
+          'Csak egyszeri prompt írás',
+          'Csak kreatív írás',
+          'Semmi, nincs cél'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.EASY,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Mit tartalmazzon minden rutin feladat?',
+        options: [
+          'Cél, prompt, időkeret, QA lépés',
+          'Csak egy cím',
+          'Csak dátum',
+          'Csak stílus'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.MEDIUM,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Miért kell QA lépést beépíteni?',
+        options: [
+          'Számok/határidők/felelősök ellenőrzése nélkül könnyen hibázol',
+          'Időpazarlás',
+          'Felesleges, mindig jó az AI',
+          'Csak dísz'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.MEDIUM,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Mi a biztonsági szabály a rutinban?',
+        options: [
+          'Anonimizálás, ne adj be érzékeny adatot',
+          'Add meg a jelszavakat',
+          'Használd az összes adatot nyersen',
+          'Nincs szabály'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.MEDIUM,
+        category: 'Course Specific'
+      }
+    );
+  } else if (day === 27) {
+    // Day 27: 60 másodperces pitch AI-val
+    questions.push(
+      {
+        question: 'Mi a 60 mp-es pitch alap struktúrája?',
+        options: [
+          'Probléma → Megoldás → Érték/Proof → CTA',
+          'Csak értékajánlat',
+          'Csak CTA',
+          'Csak egy történet'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.EASY,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Miért kell időt mérni és rövidíteni?',
+        options: [
+          '60 mp nagyon rövid, ki kell férnie lényegre törően',
+          'Mindegy az idő',
+          'Csak hosszabb legyen',
+          'Csak vizuálisan számít'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.MEDIUM,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Miért kérj 3 verziót (rövid/részletes/bullet)?',
+        options: [
+          'Hogy kiválaszd a legjobb formát és finomítsd',
+          'Csak időpazarlás',
+          'Mindig elég egy verzió',
+          'Nem kell forma'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.MEDIUM,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Mit tegyen a CTA a pitch végén?',
+        options: [
+          'Egyértelmű következő lépést kérjen',
+          'Csak köszönjön el',
+          'Ne legyen CTA',
+          'Legyen véletlenszerű'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.HARD,
+        category: 'Course Specific'
+      }
+    );
+  } else if (day === 28) {
+    // Day 28: Portfólió-szintű kimenetek
+    questions.push(
+      {
+        question: 'Mit jelent a portfólió-minőség?',
+        options: [
+          'Profi, hibamentes, egységes stílusú, teljes és jól formázott anyag',
+          'Bármi, ami hosszú',
+          'Csak a stílus számít',
+          'Csak a hossz számít'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.EASY,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Mi van a QA checklistben?',
+        options: [
+          'Hibák, teljesség, konzisztencia, formázás, biztonság',
+          'Csak a színek',
+          'Csak a logó',
+          'Csak a hossz'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.MEDIUM,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Miért kérj ön-QA listát a modelltől is?',
+        options: [
+          'Hogy lásd, mire figyelt, és te is ellenőrizhesd',
+          'Felesleges, mindig jó',
+          'Csak hosszabb lesz',
+          'Nem lehet QA-t kérni'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.MEDIUM,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Mikor érdemes portfólióba menteni egy anyagot?',
+        options: [
+          'Ha átment a QA-n és megfelel a minőség/konszisztencia/teljesség/forma elvárásnak',
+          'Mindig, első verzióban',
+          'Soha',
+          'Csak ha véletlenül jó'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.HARD,
+        category: 'Course Specific'
+      }
+    );
+  } else if (day === 29) {
+    // Day 29: Személyes fejlődési térkép
+    questions.push(
+      {
+        question: 'Mi a fejlődési térkép célja?',
+        options: [
+          'Hol tartasz, hova mész, milyen lépésekkel és mérőszámokkal',
+          'Csak egy cím írása',
+          'Csak egy lista véletlenszerűen',
+          'Nincs cél'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.EASY,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Mely területeket érdemes értékelni 1–5-ig?',
+        options: [
+          'Prompt, workflow, sablon, QA/biztonság, szerep-specifikus használat',
+          'Csak a stílust',
+          'Csak a dátumokat',
+          'Csak a színeket'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.MEDIUM,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Mi tartozzon a 4 hetes akciótervbe?',
+        options: [
+          'Heti feladatok, eszközök, mérőszámok, határidők',
+          'Csak egy mondat',
+          'Semmi, mert felesleges',
+          'Csak egy emoji'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.MEDIUM,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Miért fontos mérni (időspórolás, iteráció, hibaarány)?',
+        options: [
+          'Hogy lásd a fejlődést és tudd, mi működik',
+          'Csak díszítés',
+          'Nem fontos',
+          'Csak hosszabb lesz a dokumentum'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.HARD,
+        category: 'Course Specific'
+      }
+    );
+  } else if (day === 30) {
+    // Day 30: Zárás – merre tovább?
+    questions.push(
+      {
+        question: 'Mi a záró nap fő feladata?',
+        options: [
+          'Tanulságok összegzése, alkalmazási és fejlesztési lépések, 4 hetes terv',
+          'Csak búcsú',
+          'Semmi',
+          'Csak CTA írása'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.EASY,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Mit tartalmazzon a „merre tovább” terv?',
+        options: [
+          '3 tanulság, 3 alkalmazási feladat, 3 fejlesztési lépés, 4 hetes akcióterv',
+          'Csak egy bekezdés',
+          'Csak árlista',
+          'Csak képek'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.MEDIUM,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Miért fontos a rutin fenntartása a kurzus után is?',
+        options: [
+          'A gyakorlás hozza a valódi fejlődést és eredményt',
+          'Nem számít',
+          'Csak egyszer kell csinálni',
+          'Csak dekoráció'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.MEDIUM,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Mi a szerepe a mérőszámoknak a folytatásban?',
+        options: [
+          'Eredményt mutatnak (időspórolás, iteráció, hibaarány), segítik a fókuszt',
+          'Csak hosszabbítják a szöveget',
+          'Nem érdemes mérni',
+          'Csak dísz'
         ],
         correctIndex: 0,
         difficulty: QuestionDifficulty.HARD,

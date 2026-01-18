@@ -25,7 +25,7 @@ Tasks are listed in priority order. Upon completion, tasks are moved to RELEASE_
 
 | ID | Task | Owner | Expected Delivery | Status |
 |----|------|-------|-------------------|--------|
-| STRIPE1 | Install Stripe SDK: `npm install stripe @stripe/stripe-js` | AI | TBD | ⏳ PENDING |
+| STRIPE1 | Install Stripe SDK: `npm install stripe @stripe/stripe-js` | AI | 2025-01-20 | ✅ DONE |
 | STRIPE2 | Add Stripe environment variables: `STRIPE_SECRET_KEY`, `STRIPE_PUBLISHABLE_KEY`, `STRIPE_WEBHOOK_SECRET` | AI | TBD | ⏳ PENDING |
 | STRIPE3 | Create PaymentTransaction model (`app/lib/models/payment-transaction.ts`) for transaction logging | AI | TBD | ⏳ PENDING |
 | STRIPE4 | Update Player model: Add `stripeCustomerId` and `paymentHistory` fields | AI | TBD | ⏳ PENDING |
