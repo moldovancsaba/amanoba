@@ -10,7 +10,7 @@
 import { useEffect, useState } from 'react';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
-import { useLocale } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import { Calendar, ChevronLeft, Target, Clock, Gift, CheckCircle, RefreshCw } from 'lucide-react';
 import { LocaleLink } from '@/components/LocaleLink';
 
@@ -50,6 +50,9 @@ export default function ChallengesPage() {
   const { data: session, status } = useSession();
   const router = useRouter();
   const locale = useLocale();
+  const t = useTranslations('challenges');
+  const tCommon = useTranslations('common');
+  const tDashboard = useTranslations('dashboard');
   const [challenges, setChallenges] = useState<Challenge[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -147,7 +150,7 @@ export default function ChallengesPage() {
   if (loading || status === 'loading') {
     return (
       <div className="page-shell flex items-center justify-center">
-        <div className="text-brand-white text-2xl">Loading challenges...</div>
+        <div className="text-brand-white text-2xl">{t('loading')}</div>
       </div>
     );
   }
@@ -158,13 +161,13 @@ export default function ChallengesPage() {
       <div className="page-shell flex items-center justify-center p-4">
         <div className="page-card p-8 max-w-md w-full text-center">
           <div className="text-6xl mb-4">😕</div>
-          <h2 className="text-2xl font-bold text-brand-black mb-4">Unable to Load Challenges</h2>
+          <h2 className="text-2xl font-bold text-brand-black mb-4">{t('unableToLoad')}</h2>
           <p className="text-brand-darkGrey mb-6">{error}</p>
           <LocaleLink
             href="/dashboard"
             className="page-button-primary inline-block"
           >
-            Back to Dashboard
+            {tDashboard('backToDashboard')}
           </LocaleLink>
         </div>
       </div>
@@ -183,9 +186,9 @@ export default function ChallengesPage() {
             <div>
               <h1 className="text-3xl font-bold text-brand-white flex items-center gap-3">
                 <Calendar className="w-10 h-10" />
-                Daily Challenges
+                {t('dailyChallenges')}
               </h1>
-              <p className="text-brand-white/80 mt-1">Complete challenges for bonus rewards</p>
+              <p className="text-brand-white/80 mt-1">{t('description')}</p>
             </div>
             <div className="flex gap-2">
               <button
@@ -212,17 +215,17 @@ export default function ChallengesPage() {
                   fetchChallenges();
                 }}
                 className="page-button-secondary border-2 border-brand-accent flex items-center gap-2"
-                title="Refresh challenges"
+                title={t('refreshChallenges')}
               >
                 <RefreshCw className="w-5 h-5" />
-                Refresh
+                {tCommon('refresh')}
               </button>
               <LocaleLink
                 href="/dashboard"
                 className="page-button-secondary border-2 border-brand-accent flex items-center gap-2"
               >
                 <ChevronLeft className="w-5 h-5" />
-                Dashboard
+                {tCommon('dashboard')}
               </LocaleLink>
             </div>
           </div>
@@ -237,7 +240,7 @@ export default function ChallengesPage() {
             <div className="text-3xl font-bold text-brand-black">
               {activeChallenges.length}
             </div>
-            <div className="text-brand-darkGrey">Active</div>
+            <div className="text-brand-darkGrey">{t('active')}</div>
           </div>
           
           <div className="page-card p-6">
@@ -245,7 +248,7 @@ export default function ChallengesPage() {
             <div className="text-3xl font-bold text-brand-black">
               {completedChallenges.length}
             </div>
-            <div className="text-brand-darkGrey">Completed Today</div>
+            <div className="text-brand-darkGrey">{t('completed')}</div>
           </div>
           
           <div className="page-card p-6">
@@ -253,7 +256,7 @@ export default function ChallengesPage() {
             <div className="text-3xl font-bold text-brand-black">
               {completedChallenges.reduce((sum, c) => sum + c.rewards.points, 0).toLocaleString()}
             </div>
-            <div className="text-brand-darkGrey">Points Earned</div>
+            <div className="text-brand-darkGrey">{t('points')}</div>
           </div>
         </div>
 
@@ -262,7 +265,7 @@ export default function ChallengesPage() {
           <div className="mb-8">
             <h2 className="text-2xl font-bold text-brand-white mb-4 flex items-center gap-2">
               <Target className="w-7 h-7" />
-              Active Challenges ({activeChallenges.length})
+              {t('active')} {t('title')} ({activeChallenges.length})
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {activeChallenges.map(challenge => {
@@ -335,7 +338,7 @@ export default function ChallengesPage() {
           <div className="mb-8">
             <h2 className="text-2xl font-bold text-brand-white mb-4 flex items-center gap-2">
               <CheckCircle className="w-7 h-7" />
-              Completed Today ({completedChallenges.length})
+              {t('completed')} ({completedChallenges.length})
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {completedChallenges.map(challenge => (
@@ -383,16 +386,16 @@ export default function ChallengesPage() {
           <div className="page-card p-12 text-center">
             <div className="text-6xl mb-4">📅</div>
             <h3 className="text-2xl font-bold text-brand-black mb-2">
-              No Challenges Available
+              {t('noChallenges')}
             </h3>
             <p className="text-brand-darkGrey mb-6">
-              Daily challenges refresh every 24 hours. Check back tomorrow!
+              {t('checkBackLater')}
             </p>
             <LocaleLink
               href="/games"
               className="inline-block page-button-primary"
             >
-              Play Games
+              {tCommon('games')}
             </LocaleLink>
           </div>
         )}
