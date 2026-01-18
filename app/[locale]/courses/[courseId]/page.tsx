@@ -288,7 +288,7 @@ export default function CourseDetailPage({
                       {enrollment.progress && (
                         <div className="text-sm text-brand-darkGrey">
                           <div>
-                            {enrollment.progress.currentDay} nap a(z) {course.durationDays} napból
+                            {enrollment.progress.currentDay} {t('days')} a(z) {course.durationDays} {t('days')}ból
                           </div>
                           <div className="mt-2 bg-brand-darkGrey/20 rounded-full h-2 overflow-hidden">
                             <div
