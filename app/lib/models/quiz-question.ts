@@ -117,6 +117,7 @@ const QuizQuestionSchema = new Schema<IQuizQuestion>(
           'Arts & Literature',
           'Sports',
           'General Knowledge',
+          'Course Specific',
         ],
         message: 'Invalid category',
       },

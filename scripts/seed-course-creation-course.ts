@@ -1150,7 +1150,7 @@ async function seed() {
 
     for (const q of quizQuestions) {
       const existingQ = await QuizQuestion.findOne({ 
-        lessonId: result._id,
+        lessonId: lessonId,
         courseId: course._id,
         question: q.question 
       });
@@ -1177,7 +1177,7 @@ async function seed() {
           correctIndex: q.correctIndex,
           difficulty: q.difficulty,
           category: q.category,
-          lessonId: result._id,
+          lessonId: lessonId,
           courseId: course._id,
           isCourseSpecific: true,
           showCount: 0,
