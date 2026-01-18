@@ -53,6 +53,7 @@ export default function AdminCoursesPage() {
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState('');
   const [statusFilter, setStatusFilter] = useState<'all' | 'active' | 'inactive'>('all');
+  const [deletingCourseId, setDeletingCourseId] = useState<string | null>(null);
 
   // Fetch courses
   useEffect(() => {
