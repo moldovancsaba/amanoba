@@ -41,14 +41,14 @@ import {
   MdLock,
   MdLockOpen,
   MdAccessTime,
-  MdTarget,
+  MdMyLocation,
   MdFlag,
   MdRocketLaunch,
 } from 'react-icons/md';
 import { IconType } from 'react-icons';
 
 // Emoji to Icon mapping
-const EMOJI_TO_ICON: Record<string, IconType> = {
+const EMOJI_TO_ICON: Record<string, ReactIconType> = {
   '💎': MdDiamond,
   '🏆': MdEmojiEvents,
   '⭐': MdStar,
@@ -85,7 +85,7 @@ const EMOJI_TO_ICON: Record<string, IconType> = {
 
 interface IconProps {
   emoji?: string;
-  icon?: IconType;
+  icon?: ReactIconType;
   className?: string;
   size?: number | string;
 }
@@ -155,7 +155,7 @@ export {
   MdLock,
   MdLockOpen,
   MdAccessTime,
-  MdTarget,
+  MdMyLocation,
   MdFlag,
   MdRocketLaunch,
 };

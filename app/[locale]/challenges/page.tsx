@@ -13,7 +13,7 @@ import { useRouter } from 'next/navigation';
 import { useLocale, useTranslations } from 'next-intl';
 import { ChevronLeft, Clock, RefreshCw } from 'lucide-react';
 import { LocaleLink } from '@/components/LocaleLink';
-import Icon, { MdCalendarToday, MdTarget, MdCardGiftcard, MdCheckCircle, MdSentimentDissatisfied, MdGpsFixed, MdCheckCircle as MdComplete, MdBolt, MdCalendarToday as MdCalendar } from '@/components/Icon';
+import Icon, { MdCalendarToday, MdMyLocation, MdCardGiftcard, MdCheckCircle, MdSentimentDissatisfied, MdGpsFixed, MdCheckCircle as MdComplete, MdBolt, MdCalendarToday as MdCalendar, MdDiamond } from '@/components/Icon';
 
 interface Challenge {
   _id: string;
@@ -237,7 +237,7 @@ export default function ChallengesPage() {
         {/* Stats Overview */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
           <div className="page-card p-6">
-            <Icon icon={MdTarget} size={36} className="text-brand-accent mb-2" />
+            <Icon icon={MdMyLocation} size={36} className="text-brand-accent mb-2" />
             <div className="text-3xl font-bold text-brand-black">
               {activeChallenges.length}
             </div>
@@ -265,7 +265,7 @@ export default function ChallengesPage() {
         {activeChallenges.length > 0 && (
           <div className="mb-8">
             <h2 className="text-2xl font-bold text-brand-white mb-4 flex items-center gap-2">
-              <Icon icon={MdTarget} size={28} />
+              <Icon icon={MdMyLocation} size={28} />
               {t('active')} {t('title')} ({activeChallenges.length})
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

@@ -37,18 +37,18 @@ interface LeaderboardData {
 
 // Games will be translated dynamically
 const GAMES = [
-  { id: 'quizzz', nameKey: 'quizzz', iconComponent: MdPsychology },
-  { id: 'whackpop', nameKey: 'whackpop', iconComponent: MdGpsFixed },
-  { id: 'memory', nameKey: 'memory', iconComponent: MdCardMembership },
-  { id: 'madoku', nameKey: 'madoku', iconComponent: MdNumbers },
+  { id: 'quizzz', nameKey: 'quizzz', iconComponent: MdPsychology as IconType },
+  { id: 'whackpop', nameKey: 'whackpop', iconComponent: MdGpsFixed as IconType },
+  { id: 'memory', nameKey: 'memory', iconComponent: MdCardMembership as IconType },
+  { id: 'madoku', nameKey: 'madoku', iconComponent: MdNumbers as IconType },
 ];
 
 // Periods will be translated dynamically
 const PERIODS = [
-  { id: 'alltime', nameKey: 'allTime', icon: '♾️' },
-  { id: 'monthly', nameKey: 'thisMonth', icon: '📅' },
-  { id: 'weekly', nameKey: 'thisWeek', icon: '📊' },
-  { id: 'daily', nameKey: 'today', icon: '📈' },
+  { id: 'alltime', nameKey: 'allTime', iconComponent: undefined },
+  { id: 'monthly', nameKey: 'thisMonth', iconComponent: MdCalendarToday as IconType },
+  { id: 'weekly', nameKey: 'thisWeek', iconComponent: MdBarChart as IconType },
+  { id: 'daily', nameKey: 'today', iconComponent: MdTrendingUp as IconType },
 ];
 
 export default function LeaderboardsPage() {
@@ -198,13 +198,13 @@ export default function LeaderboardsPage() {
               <button
                 key={period.id}
                 onClick={() => setSelectedPeriod(period.id)}
-                className={`p-3 rounded-lg font-medium transition-all border-2 ${
+                className={`p-3 rounded-lg font-medium transition-all border-2 flex items-center gap-2 ${
                   selectedPeriod === period.id
                     ? 'bg-brand-accent text-brand-black border-brand-accent shadow-md'
                     : 'bg-brand-white text-brand-darkGrey border-brand-darkGrey/20 hover:border-brand-accent'
                 }`}
               >
-                <span className="text-xl mr-2">{period.icon}</span>
+                {period.iconComponent ? <Icon icon={period.iconComponent} size={20} /> : null}
                 {t(period.nameKey)}
               </button>
             ))}

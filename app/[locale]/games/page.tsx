@@ -12,6 +12,7 @@ import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import { useTranslations, useLocale } from 'next-intl';
 import { LocaleLink } from '@/components/LocaleLink';
+import Icon, { MdPsychology, MdGpsFixed, MdCardMembership, MdNumbers } from '@/components/Icon';
 
 // Why: Type-safe game definitions
 interface GameInfo {
@@ -31,7 +32,8 @@ const AVAILABLE_GAMES: GameInfo[] = [
     id: 'quizzz',
     name: 'QUIZZZ',
     description: 'Test your knowledge with rapid-fire trivia questions!',
-    icon: '🧠',
+    icon: '🧠', // Will be replaced with icon component
+    iconComponent: MdPsychology,
     route: '/games/quizzz',
     isPremium: false,
     requiredLevel: 1,
@@ -42,6 +44,7 @@ const AVAILABLE_GAMES: GameInfo[] = [
     name: 'WHACKPOP',
     description: 'Click targets as fast as you can in this fast-paced game!',
     icon: '🎯',
+    iconComponent: MdGpsFixed,
     route: '/games/whackpop',
     isPremium: false,
     requiredLevel: 1,
@@ -52,6 +55,7 @@ const AVAILABLE_GAMES: GameInfo[] = [
     name: 'Memory Match',
     description: 'Find matching pairs in this card-flipping memory game!',
     icon: '🃏',
+    iconComponent: MdCardMembership,
     route: '/games/memory',
     isPremium: false,
     requiredLevel: 1,
@@ -62,6 +66,7 @@ const AVAILABLE_GAMES: GameInfo[] = [
     name: 'Sudoku',
     description: 'Classic Sudoku puzzles with progressive difficulty',
     icon: '🔢',
+    iconComponent: MdNumbers,
     route: '/games/sudoku',
     isPremium: false,
     requiredLevel: 1,
@@ -72,6 +77,7 @@ const AVAILABLE_GAMES: GameInfo[] = [
     name: 'Madoku',
     description: 'Competitive number-picking strategy game against AI',
     icon: '🎯',
+    iconComponent: MdGpsFixed,
     route: '/games/madoku',
     isPremium: false,
     requiredLevel: 1,
