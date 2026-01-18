@@ -1,14 +1,14 @@
 # Amanoba Architecture
 
-**Version**: 1.0.0  
-**Last Updated**: 2025-10-10T11:02:31.000Z  
-**Status**: Active
+**Version**: 1.1.0  
+**Last Updated**: 2025-01-20T12:00:00.000Z  
+**Status**: Active - Course System Complete
 
 ---
 
 ## System Overview
 
-Amanoba is a unified game platform built on Next.js 15.5.2 (App Router) that combines PlayMass's multi-game infrastructure with Madoku's comprehensive gamification system. The architecture follows a monolithic serverless design optimized for Vercel deployment with MongoDB Atlas for data persistence.
+Amanoba is a unified 30-day learning platform built on Next.js 15.5.2 (App Router) that combines PlayMass's multi-game infrastructure with Madoku's comprehensive gamification system. The platform delivers structured education through daily email lessons, interactive quiz assessments, and maintains a full gamification system. The architecture follows a monolithic serverless design optimized for Vercel deployment with MongoDB Atlas for data persistence.
 
 ### Core Principles
 
@@ -86,7 +86,8 @@ Amanoba is a unified game platform built on Next.js 15.5.2 (App Router) that com
 │  └──────────────────────────────────────────────────┘  │
 │  ┌──────────────────────────────────────────────────┐  │
 │  │              Data Access Layer                    │  │
-│  │         Mongoose ODM (17 Models)                 │  │
+│  │         Mongoose ODM (32 Models)                 │  │
+│  │  • Courses • Lessons • Quiz Questions • Progress │  │
 │  └──────────────────────────────────────────────────┘  │
 └─────────────────────────────────────────────────────────┘
                          │
@@ -94,7 +95,8 @@ Amanoba is a unified game platform built on Next.js 15.5.2 (App Router) that com
 ┌─────────────────────────────────────────────────────────┐
 │           MongoDB Atlas (Madoku Cluster)                 │
 │  Database: amanoba                                       │
-│  • 17 Collections • Indexes • Aggregations              │
+│  • 32 Collections • Indexes • Aggregations              │
+│  • Courses, Lessons, Quiz Questions, Course Progress  │
 └─────────────────────────────────────────────────────────┘
 ```
 
@@ -289,10 +291,10 @@ amanoba/
 
 ---
 
-## Data Models (17 Collections)
+## Data Models (32 Collections)
 
 ### Player & Identity
-1. **Player**: Core player identity, premium status, referral tracking
+1. **Player**: Core player identity, premium status, referral tracking, email preferences
 2. **PlayerProgression**: Level, XP, title, achievement count, streaks
 3. **PlayerSession**: Individual game play sessions with outcome and metadata
 
@@ -312,14 +314,22 @@ amanoba/
 12. **Brand**: Multi-brand white-labeling support
 13. **Game**: Game type definitions (QUIZZZ, WHACKPOP, MADOKU)
 14. **GameBrandConfig**: Per-brand game configuration and theming
+15. **FeatureFlags**: Feature toggle configuration (courses, games, leaderboards, etc.)
+
+### Course System (NEW)
+16. **Course**: 30-day course definitions with metadata, points/XP config, multi-language support
+17. **Lesson**: Daily lesson content (30 per course) with HTML content, email templates, quiz config
+18. **CourseProgress**: Student progress tracking through courses (current day, completed days, status)
+19. **AssessmentResult**: Game session results linked to course lessons
+20. **QuizQuestion**: Course-specific quiz questions with options, correct answers, difficulty, category
 
 ### Analytics & Leaderboards
-15. **EventLog**: Event-sourcing for all player actions
-16. **AnalyticsSnapshot**: Pre-aggregated daily/weekly/monthly metrics
-17. **LeaderboardEntry**: Calculated leaderboard rankings
+21. **EventLog**: Event-sourcing for all player actions
+22. **AnalyticsSnapshot**: Pre-aggregated daily/weekly/monthly metrics
+23. **LeaderboardEntry**: Calculated leaderboard rankings
 
 ### System
-18. **SystemVersion**: Database migration tracking
+24. **SystemVersion**: Database migration tracking
 
 ---
 
@@ -469,7 +479,60 @@ amanoba/
 - Custom install UI
 - iOS add to home screen instructions
 
-### 6. Admin Dashboard
+### 6. Course System (NEW)
+
+**30-Day Course Structure**
+- Each course consists of exactly 30 daily lessons
+- Lessons unlock sequentially (day 1 → day 2 → ... → day 30)
+- Multi-language support with translation maps
+- Points and XP configuration per course and per lesson
+
+**Quiz Assessment System**
+- Course-specific quiz questions stored in `QuizQuestion` model
+- Each lesson can have a quiz with configurable:
+  - Success threshold (percentage required to pass)
+  - Question count (number of questions shown)
+  - Pool size (total questions available, system randomly selects)
+  - Required flag (must pass quiz to complete lesson)
+- Two-step deletion: soft delete (deactivate) → permanent delete
+- Quiz questions linked to lessons via `lessonId` and `courseId`
+
+**Course Export/Import**
+- Export complete course to JSON (course + lessons + quiz questions)
+- Import courses from JSON with overwrite support
+- Safe Map-to-object conversion for translations
+- Validation and error handling for malformed imports
+
+**Email Integration**
+- Daily lesson emails sent at 8 AM (student timezone)
+- Email templates with variable substitution
+- Email preferences per student (frequency, time, timezone)
+- Unsubscribe functionality with token-based verification
+
+**Course Progress Tracking**
+- `CourseProgress` model tracks:
+  - Current day (1-30)
+  - Completed days array
+  - Assessment results per lesson
+  - Email delivery tracking
+  - Status (not_started, in_progress, completed, abandoned)
+
+**Cascading Deletes**
+- Course deletion removes:
+  - All associated lessons
+  - All student progress records
+  - All quiz questions
+  - All assessment results
+
+### 7. Admin Dashboard
+
+**Course Management**
+- Create, edit, delete 30-day courses
+- 30-day lesson builder with rich text editor (TipTap)
+- Quiz question management (create, edit, soft delete, permanent delete)
+- Course export/import functionality
+- Publish/unpublish workflow
+- Course preview
 
 **Game Management**
 - CRUD for all game types
@@ -483,6 +546,11 @@ amanoba/
 - Grant/revoke premium access
 - Manual point adjustments
 - Session history
+
+**Feature Flags**
+- Toggle features on/off: courses, games, leaderboards, challenges, etc.
+- Per-feature enable/disable controls
+- Affects navigation and UI visibility
 
 **Analytics**
 - Overview dashboard with KPIs

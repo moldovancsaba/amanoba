@@ -1,8 +1,8 @@
 # Amanoba — Unified 30-Day Learning Platform
 
 **Current Version**: 2.7.0  
-**Last Updated**: 2025-01-17T17:30:00.000Z  
-**Status**: Phase 1 Complete — Production Stable — Ready for Phase 2 (Course Builder)
+**Last Updated**: 2025-01-20T12:00:00.000Z  
+**Status**: Phase 2 & 3 Complete — Production Stable — Quiz Assessment System Complete
 
 ## 🎓 Overview
 
@@ -11,11 +11,14 @@ Amanoba is transforming into a **unified 30-day learning platform** that combine
 ### Core Features
 
 - **30-Day Course System**: Structured learning with daily lessons delivered via email
+- **Quiz Assessment System**: Course-specific quizzes with configurable thresholds and question pools
+- **Course Export/Import**: Export complete courses (lessons + quizzes) to JSON and import with overwrite support
 - **First Course Available**: "AI 30 Nap" (AI 30 Days) - Complete 30-day AI learning course in Hungarian
 - **Interactive Assessments**: Games (QUIZZZ, WHACKPOP, Madoku) repurposed as student assessment tools
 - **Email-First Learning**: Daily lessons sent to students' email with in-platform access
 - **Course Builder**: Admin interface to create and manage 30-day courses with rich text editor
 - **Student Dashboard**: Browse courses, enroll, track progress, view daily lessons
+- **Feature Flags**: Admin-controlled feature toggles for courses, games, leaderboards, etc.
 - **Comprehensive Gamification** (Retained):
   - 18+ achievements across 4 categories (including course-specific)
   - 50-level XP system with titles
@@ -150,11 +153,14 @@ Admin dashboard available at `/{locale}/admin` with session-based authentication
 Set `ADMIN_PASSWORD` in your environment configuration.
 
 Features:
-- **Course Management**: Create, edit, and manage 30-day courses
-- **Lesson Builder**: Rich text editor for daily lesson content
+- **Course Management**: Create, edit, delete, and manage 30-day courses with cascading deletes
+- **Lesson Builder**: Rich text editor for daily lesson content with email templates
+- **Quiz Management**: Create and manage course-specific quiz questions with two-step deletion
+- **Course Export/Import**: Export courses to JSON for backup/sharing, import with overwrite support
 - **Game Management**: Configure games and assessment settings
 - **Player Management**: View players, manage premium access
 - **Analytics Dashboard**: Real-time stats and advanced charts
+- **Feature Flags**: Enable/disable features (courses, games, leaderboards, etc.)
 - **Referral System**: Monitor referral tracking
 - **Gamification Content**: Manage achievements, rewards, challenges
 
@@ -173,7 +179,14 @@ Features:
   - Days 21-25: AI for revenue
   - Days 26-30: Closing & next level
 
-**Seed Script**: Run `npm run seed:ai-course` to create the course in your database.
+**Seed Scripts**: 
+- `npm run seed:ai-course` - Create the AI 30 Nap course
+- `npm run seed:course-creation` - Create the "Kurzus a kurzus készítésre" course (course creation guide)
+
+**Course Export/Import**: 
+- Export any course to JSON via admin interface (includes all lessons and quiz questions)
+- Import courses from JSON with overwrite support
+- Perfect for course backup, sharing, and migration
 
 ## 🔄 Versioning
 

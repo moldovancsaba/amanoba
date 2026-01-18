@@ -52,6 +52,18 @@ export async function GET(
       isCourseSpecific: true,
     }).lean();
 
+    // Helper function to safely convert Map to object
+    const mapToObject = (map: any): Record<string, any> => {
+      if (!map) return {};
+      if (map instanceof Map) {
+        return Object.fromEntries(map);
+      }
+      if (typeof map === 'object') {
+        return map;
+      }
+      return {};
+    };
+
     // Build export structure
     const exportData = {
       version: '1.0',
@@ -59,18 +71,25 @@ export async function GET(
       exportedBy: session.user.email || 'admin',
       course: {
         courseId: course.courseId,
-        name: course.name,
-        description: course.description,
-        language: course.language,
-        thumbnail: course.thumbnail,
-        durationDays: course.durationDays,
-        isActive: course.isActive,
-        requiresPremium: course.requiresPremium,
-        pointsConfig: course.pointsConfig,
-        xpConfig: course.xpConfig,
+        name: course.name || '',
+        description: course.description || '',
+        language: course.language || 'hu',
+        thumbnail: course.thumbnail || undefined,
+        durationDays: course.durationDays || 30,
+        isActive: course.isActive !== undefined ? course.isActive : true,
+        requiresPremium: course.requiresPremium !== undefined ? course.requiresPremium : false,
+        pointsConfig: course.pointsConfig || {
+          completionPoints: 1000,
+          lessonPoints: 50,
+          perfectCourseBonus: 500,
+        },
+        xpConfig: course.xpConfig || {
+          completionXP: 500,
+          lessonXP: 25,
+        },
         metadata: course.metadata || {},
         // Convert translations Map to object if it exists
-        translations: course.translations ? Object.fromEntries(course.translations) : {},
+        translations: mapToObject(course.translations),
       },
       lessons: lessons.map((lesson) => {
         // Get quiz questions for this lesson
@@ -80,28 +99,28 @@ export async function GET(
 
         return {
           lessonId: lesson.lessonId,
-          dayNumber: lesson.dayNumber,
-          language: lesson.language,
-          title: lesson.title,
-          content: lesson.content,
-          emailSubject: lesson.emailSubject,
-          emailBody: lesson.emailBody,
+          dayNumber: lesson.dayNumber || 1,
+          language: lesson.language || 'hu',
+          title: lesson.title || '',
+          content: lesson.content || '',
+          emailSubject: lesson.emailSubject || '',
+          emailBody: lesson.emailBody || '',
           quizConfig: lesson.quizConfig || null,
           unlockConditions: lesson.unlockConditions || {},
-          pointsReward: lesson.pointsReward,
-          xpReward: lesson.xpReward,
-          isActive: lesson.isActive,
-          displayOrder: lesson.displayOrder,
+          pointsReward: lesson.pointsReward || 0,
+          xpReward: lesson.xpReward || 0,
+          isActive: lesson.isActive !== undefined ? lesson.isActive : true,
+          displayOrder: lesson.displayOrder || lesson.dayNumber || 1,
           metadata: lesson.metadata || {},
           // Convert translations Map to object if it exists
-          translations: lesson.translations ? Object.fromEntries(lesson.translations) : {},
+          translations: mapToObject(lesson.translations),
           quizQuestions: lessonQuestions.map((q) => ({
-            question: q.question,
-            options: q.options,
-            correctIndex: q.correctIndex,
-            difficulty: q.difficulty,
-            category: q.category,
-            isActive: q.isActive,
+            question: q.question || '',
+            options: q.options || [],
+            correctIndex: q.correctIndex !== undefined ? q.correctIndex : 0,
+            difficulty: q.difficulty || 'MEDIUM',
+            category: q.category || 'Course Specific',
+            isActive: q.isActive !== undefined ? q.isActive : true,
             // Note: We don't export showCount, correctCount as they are usage stats
           })),
         };
@@ -118,7 +137,16 @@ export async function GET(
       },
     });
   } catch (error) {
-    logger.error({ error, courseId: (await params).courseId }, 'Failed to export course');
-    return NextResponse.json({ error: 'Failed to export course' }, { status: 500 });
+    const courseId = (await params).courseId;
+    const errorMessage = error instanceof Error ? error.message : 'Unknown error';
+    logger.error({ error, courseId, errorMessage }, 'Failed to export course');
+    return NextResponse.json(
+      { 
+        error: 'Failed to export course',
+        details: errorMessage,
+        courseId 
+      },
+      { status: 500 }
+    );
   }
 }

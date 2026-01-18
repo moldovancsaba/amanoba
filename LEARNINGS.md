@@ -1,7 +1,7 @@
 # Amanoba Learnings
 
-**Version**: 2.2.0  
-**Last Updated**: 2025-10-17T16:08:30.000Z
+**Version**: 2.7.0  
+**Last Updated**: 2025-01-20T12:00:00.000Z
 
 ---
 
@@ -1388,6 +1388,159 @@ curl -X POST http://localhost:3000/api/admin/leaderboards/recalculate \
   -H "Content-Type: application/json" \
   -d '{"type": "points_balance", "period": "all_time", "immediate": true}'
 ```
+
+---
+
+## 🎓 Course System & Quiz Assessments
+
+### Course Export/Import: Safe Map-to-Object Conversion
+
+**Context**: Course export API was failing with "Failed to export course" error when exporting courses with translations.
+
+**Root Cause**: Mongoose `.lean()` queries return Maps for translation fields, but `Object.fromEntries()` fails if the value is not actually a Map or is already an object.
+
+**Problem Code**:
+```typescript
+// ❌ Wrong: Assumes translations is always a Map
+translations: course.translations ? Object.fromEntries(course.translations) : {},
+```
+
+**Solution**:
+```typescript
+// ✅ Correct: Safe conversion with type checking
+const mapToObject = (map: any): Record<string, any> => {
+  if (!map) return {};
+  if (map instanceof Map) {
+    return Object.fromEntries(map);
+  }
+  if (typeof map === 'object') {
+    return map;
+  }
+  return {};
+};
+
+translations: mapToObject(course.translations),
+```
+
+**Learning**: When working with Mongoose `.lean()` queries:
+1. **Never assume data types** - Maps, objects, and undefined all possible
+2. **Create helper functions** for safe conversions
+3. **Handle all edge cases** - null, undefined, Map, plain object
+4. **Provide default values** for all fields to prevent undefined errors
+5. **Improve error messages** - Include details in error responses for debugging
+
+**Why It Matters**: Export/import functionality is critical for course backup and migration. Silent failures make it impossible to debug without detailed error messages.
+
+**Applied In**: 
+- `app/api/admin/courses/[courseId]/export/route.ts` (mapToObject helper)
+- `app/api/admin/courses/import/route.ts` (validation and error handling)
+- `app/[locale]/admin/courses/[courseId]/page.tsx` (frontend error display)
+
+---
+
+### Quiz Assessment System: Two-Step Deletion Pattern
+
+**Context**: Admin needs to be able to remove quiz questions, but permanent deletion should be a separate action to prevent accidental data loss.
+
+**Solution**: Implemented two-step deletion pattern:
+1. **Soft Delete (Deactivate)**: Set `isActive: false` - question no longer appears in quizzes but can be reactivated
+2. **Permanent Delete**: Only available for inactive questions - permanently removes from database
+
+**Implementation**:
+```typescript
+// Soft delete endpoint
+DELETE /api/admin/courses/[courseId]/lessons/[lessonId]/quiz/[questionId]
+// Sets isActive: false
+
+// Permanent delete endpoint (only for inactive questions)
+DELETE /api/admin/courses/[courseId]/lessons/[lessonId]/quiz/[questionId]/permanent
+// Validates isActive === false before deletion
+```
+
+**UI Pattern**:
+- Active questions: Show "Deactivate" button
+- Inactive questions: Show "Reactivate" and "Permanently Delete" buttons
+- Confirmation dialogs for both actions
+- Separate sections for active/inactive questions
+
+**Learning**: For content management systems:
+1. **Always implement soft delete first** - Allows recovery from mistakes
+2. **Separate permanent deletion** - Requires explicit action on inactive items
+3. **Visual distinction** - Clear UI separation between active and inactive items
+4. **Confirmation dialogs** - Prevent accidental deletions
+5. **Validation** - Server-side validation ensures only inactive items can be permanently deleted
+
+**Why It Matters**: Prevents accidental data loss while allowing content cleanup. Admins can safely deactivate questions and permanently delete them later after verification.
+
+**Applied In**:
+- `app/api/admin/courses/[courseId]/lessons/[lessonId]/quiz/[questionId]/route.ts` (soft delete)
+- `app/api/admin/courses/[courseId]/lessons/[lessonId]/quiz/[questionId]/permanent/route.ts` (permanent delete)
+- `app/[locale]/admin/courses/[courseId]/page.tsx` (UI with active/inactive sections)
+
+---
+
+### Course Deletion: Cascading Deletes Pattern
+
+**Context**: When deleting a course, all related data (lessons, progress, quiz questions, assessment results) must also be deleted to maintain data integrity.
+
+**Solution**: Implemented cascading deletes using `Promise.all()` for parallel deletion:
+
+```typescript
+const deletePromises = [
+  Lesson.deleteMany({ courseId: course._id }),
+  CourseProgress.deleteMany({ courseId: course._id }),
+  QuizQuestion.deleteMany({ courseId: course._id, isCourseSpecific: true }),
+  AssessmentResult.deleteMany({ courseId: course._id }),
+];
+
+const [lessonsResult, progressResult, quizQuestionsResult, assessmentResults] = 
+  await Promise.all(deletePromises);
+```
+
+**Learning**: For relational data in MongoDB:
+1. **Always delete related data** - Prevents orphaned records
+2. **Use Promise.all()** - Parallel deletion improves performance
+3. **Log deletion counts** - Helps verify all data was removed
+4. **Confirmation dialogs** - List all data to be deleted before confirmation
+5. **Transaction consideration** - For critical operations, consider MongoDB transactions
+
+**Why It Matters**: Ensures data integrity and prevents database bloat from orphaned records. Clear confirmation dialogs help admins understand the scope of deletion.
+
+**Applied In**:
+- `app/api/admin/courses/[courseId]/route.ts` (DELETE endpoint)
+- `app/[locale]/admin/courses/page.tsx` (confirmation dialog with data list)
+
+---
+
+### Quiz Configuration: Flexible Assessment System
+
+**Context**: Each lesson needs configurable quiz assessments with different thresholds, question counts, and pool sizes.
+
+**Solution**: Implemented `quizConfig` object in Lesson model:
+
+```typescript
+quizConfig: {
+  enabled: boolean,           // Enable/disable quiz for this lesson
+  successThreshold: number,   // Percentage required to pass (0-100)
+  questionCount: number,      // Number of questions shown to student
+  poolSize: number,           // Total questions in pool (system randomly selects)
+  required: boolean,          // Must pass quiz to complete lesson
+}
+```
+
+**Learning**: For configurable systems:
+1. **Use structured config objects** - Easier to validate and extend
+2. **Provide sensible defaults** - 100% threshold, 5 questions, 15 pool size
+3. **Validate ranges** - Ensure thresholds are 0-100, counts are positive
+4. **Document configuration** - Clear admin UI with tooltips explaining each field
+5. **Test edge cases** - Empty pools, 0% threshold, 100% threshold
+
+**Why It Matters**: Flexibility allows different courses to have different assessment strategies while maintaining consistency in the data model.
+
+**Applied In**:
+- `app/lib/models/lesson.ts` (quizConfig schema)
+- `app/[locale]/admin/courses/[courseId]/page.tsx` (quiz config editor)
+- `app/components/LessonQuiz.tsx` (quiz rendering with config)
 
 ---
 

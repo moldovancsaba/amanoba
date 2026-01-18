@@ -1,9 +1,9 @@
 # Amanoba Roadmap — 30-Day Learning Platform
 
-**Version**: 2.7.4  
-**Last Updated**: 2026-01-18T19:19:25.000Z  
+**Version**: 2.7.0  
+**Last Updated**: 2025-01-20T12:00:00.000Z  
 **Vision**: Transform Amanoba into a unified 30-day learning platform with gamified education, assessment tools, and email-based lesson delivery  
-**Current Phase**: Phase 2 & 3 Complete ✅ - Production Stable - Ready for Phase 4
+**Current Phase**: Phase 4 Assessment Integration Complete ✅ - Quiz System Operational - Production Stable
 
 ---
 
@@ -391,72 +391,99 @@ Student email preferences:
 
 ---
 
-## 📅 Phase 4: Assessment Integration (Weeks 7-8)
+## 📅 Phase 4: Assessment Integration (Weeks 7-8) ✅ COMPLETE
 
 ### Priority: MEDIUM
-**Status**: 🚧 READY TO START
+**Status**: ✅ COMPLETE (2025-01-20)
 
-### Priority: MEDIUM
+#### 4.1 Quiz Assessment System
+**Status**: ✅ COMPLETE  
+**Timeline**: Week 7 (Completed 2025-01-20)
 
-#### 4.1 Game-to-Assessment Bridge
-**Status**: 🔄 PENDING  
-**Timeline**: Week 7
+Course-specific quiz assessment system:
 
-Connect games to course assessments:
+- **QuizQuestion Model** (`app/lib/models/quiz-question.ts`)
+  - Course-specific quiz questions with options and correct answers
+  - Difficulty levels and categories
+  - Two-step deletion: soft delete (deactivate) → permanent delete
+  - Linked to lessons via `lessonId` and `courseId`
 
-- **Assessment Launcher** (`app/lib/courses/assessment-launcher.ts`)
-  - `launchAssessment()`: Start game session for assessment
-  - Links game session to course progress
-  - Tracks assessment completion
-  - Stores results in AssessmentResult model
+- **Lesson Quiz Configuration** (`app/lib/models/lesson.ts`)
+  - `quizConfig` object with:
+    - `enabled`: Boolean flag
+    - `successThreshold`: Percentage required to pass (default: 100%)
+    - `questionCount`: Number of questions shown (default: 5)
+    - `poolSize`: Total questions in pool (default: 15)
+    - `required`: Must pass quiz to complete lesson
 
-- **Assessment Results Processing** (`app/lib/courses/assessment-processor.ts`)
-  - `processAssessmentResults()`: Analyze game session results
-  - Generate insights based on performance
-  - Provide recommendations
-  - Update course progress
+- **Quiz Management UI** (`app/[locale]/admin/courses/[courseId]/page.tsx`)
+  - Create, edit, delete quiz questions
+  - Separate active/inactive question lists
+  - Soft delete (deactivate) and permanent delete for inactive questions
+  - Quiz configuration editor (threshold, question count, pool size)
 
-- **Game Session Extension** (`app/api/game-sessions/complete/route.ts`)
-  - Check if session is part of course assessment
-  - Link to CourseProgress if applicable
-  - Create AssessmentResult record
-  - Award course-specific points/XP
+- **Student Quiz Interface** (`app/components/LessonQuiz.tsx`)
+  - Display quiz questions with multiple choice options
+  - Submit quiz and calculate score
+  - Show pass/fail status with retry option
+  - Full Hungarian and English translations
 
 **Deliverables**:
-- ✅ Assessment launcher integration
-- ✅ Game session → assessment linking
-- ✅ Assessment results processing
-- ✅ Insights and recommendations generation
+- ✅ QuizQuestion model with course-specific linking
+- ✅ Lesson quiz configuration system
+- ✅ Admin quiz management interface
+- ✅ Student quiz completion flow
+- ✅ Two-step deletion system (soft + permanent)
+- ✅ Full i18n support for quiz UI
+
+#### 4.2 Course Export/Import System
+**Status**: ✅ COMPLETE  
+**Timeline**: Week 8 (Completed 2025-01-20)
+
+Course backup and migration system:
+
+- **Export API** (`app/api/admin/courses/[courseId]/export/route.ts`)
+  - Export complete course to JSON (course + lessons + quiz questions)
+  - Safe Map-to-object conversion for translations
+  - Comprehensive error handling and validation
+
+- **Import API** (`app/api/admin/courses/import/route.ts`)
+  - Import courses from JSON with overwrite support
+  - Validation of course data structure
+  - Batch creation of lessons and quiz questions
+
+- **Admin UI Integration**
+  - Export button in course editor
+  - Import file upload with confirmation dialog
+  - Success/error feedback
+
+**Deliverables**:
+- ✅ Course export functionality
+- ✅ Course import with overwrite support
+- ✅ Admin UI for export/import
+- ✅ Error handling and validation
 
 ---
 
-#### 4.2 Assessment Analytics Dashboard
-**Status**: 🔄 PENDING  
-**Timeline**: Week 8
+#### 4.3 Course Deletion with Cascading Deletes
+**Status**: ✅ COMPLETE  
+**Timeline**: Week 8 (Completed 2025-01-20)
 
-Admin analytics for student assessments:
+Safe course deletion system:
 
-- **Admin Route**: `/admin/courses/[courseId]/analytics`
-
-- **Analytics Features**:
-  - Student performance across all assessments
-  - Learning objective mastery tracking
-  - Weak areas identification
-  - Course completion rates
-  - Assessment difficulty analysis
-  - Student engagement metrics
-
-- **Student View**: Assessment results in course dashboard
-  - Performance on each assessment
-  - Progress over time
-  - Strengths and weaknesses
-  - Personalized recommendations
+- **Cascading Delete API** (`app/api/admin/courses/[courseId]/route.ts`)
+  - Deletes course and all related data:
+    - All lessons
+    - All student progress records
+    - All quiz questions
+    - All assessment results
+  - Confirmation dialog in admin UI
+  - Loading states during deletion
 
 **Deliverables**:
-- ✅ Admin assessment analytics
-- ✅ Student assessment results view
-- ✅ Performance insights
-- ✅ Recommendations engine
+- ✅ Cascading delete functionality
+- ✅ Admin UI with confirmation
+- ✅ Safe deletion of all related data
 
 ---
 

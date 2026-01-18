@@ -175,17 +175,27 @@ export default function CourseEditorPage({
   };
 
   const handleExportCourse = async () => {
-    if (!courseId) return;
+    if (!courseId) {
+      alert('Course ID is missing');
+      return;
+    }
 
     try {
       const response = await fetch(`/api/admin/courses/${courseId}/export`);
       if (!response.ok) {
         const error = await response.json();
-        alert(error.error || 'Failed to export course');
+        console.error('Export error:', error);
+        alert(error.details ? `${error.error}: ${error.details}` : error.error || 'Failed to export course');
         return;
       }
 
       const data = await response.json();
+      
+      // Validate that we got course data
+      if (!data.course || !data.course.courseId) {
+        alert('Invalid export data received');
+        return;
+      }
       
       // Create a blob and download
       const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
@@ -199,7 +209,8 @@ export default function CourseEditorPage({
       URL.revokeObjectURL(url);
     } catch (error) {
       console.error('Failed to export course:', error);
-      alert('Failed to export course');
+      const errorMessage = error instanceof Error ? error.message : 'Unknown error';
+      alert(`Failed to export course: ${errorMessage}`);
     }
   };
 
