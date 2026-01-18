@@ -116,7 +116,11 @@ export async function GET(request: NextRequest) {
       {
         $group: {
           _id: null,
-          totalPoints: { $sum: '$metadata.amount' },
+          totalPoints: { 
+            $sum: { 
+              $ifNull: ['$metadata.amount', 0] 
+            } 
+          },
         },
       },
     ]);
