@@ -3405,6 +3405,30 @@ function generateQuizQuestions(
         correctIndex: 0,
         difficulty: QuestionDifficulty.HARD,
         category: 'Course Specific'
+      },
+      {
+        question: 'Milyen KPI-ket érdemes nézni a fejlődéshez?',
+        options: [
+          'Időspórolás, iterációk száma, hibaarány',
+          'Csak a logó mérete',
+          'Csak a betűtípus',
+          'Csak a dátum'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.MEDIUM,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Miért jobb kevés fejlesztési célt választani?',
+        options: [
+          'Fókuszáltan tudsz haladni és valódi eredményt látsz',
+          'Mert tilos a sok cél',
+          'Mindig végtelen célt kell felvenni',
+          'Csak dísz'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.MEDIUM,
+        category: 'Course Specific'
       }
     );
   } else if (day === 21) {
@@ -3453,6 +3477,30 @@ function generateQuizQuestions(
           'Hosszú regény',
           'Csak árlista',
           'Csak kifogások'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.MEDIUM,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Hogyan kezeld a kockázatokat a validálásban?',
+        options: [
+          'Top 5 kockázat hatás/valószínűség szerint, és jelöld, mit kell ellenőrizni',
+          'Hagyd figyelmen kívül',
+          'Csak egyet írj le',
+          'Ne értékeld a hatást'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.MEDIUM,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Mit kérj az erőforrás becslésnél?',
+        options: [
+          'Idő, pénz, csapat/skill igény, bizonytalanság jelzése',
+          'Csak pénz',
+          'Csak idő',
+          'Csak egy szám forrás nélkül'
         ],
         correctIndex: 0,
         difficulty: QuestionDifficulty.MEDIUM,
@@ -3509,6 +3557,30 @@ function generateQuizQuestions(
         correctIndex: 0,
         difficulty: QuestionDifficulty.HARD,
         category: 'Course Specific'
+      },
+      {
+        question: 'Miért kérj kifogásokat a personához?',
+        options: [
+          'Hogy az üzenetet és értékajánlatot a valós ellenvetésekre szabhasd',
+          'Csak hosszabbításért',
+          'Nem szükséges, mindig azonos',
+          'Csak a színek miatt'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.MEDIUM,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Mi legyen az üzenetvariánsok célja?',
+        options: [
+          'Tesztelni, melyik rezonál jobban (pl. üzleti vs. barátságos)',
+          'Mindkettő legyen azonos',
+          'Csak egy legyen, mindig',
+          'Nem kell üzenet'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.MEDIUM,
+        category: 'Course Specific'
       }
     );
   } else if (day === 23) {
@@ -3561,6 +3633,30 @@ function generateQuizQuestions(
         correctIndex: 0,
         difficulty: QuestionDifficulty.HARD,
         category: 'Course Specific'
+      },
+      {
+        question: 'Mikor érdemes social proof vagy FAQ blokkot kérni?',
+        options: [
+          'Ha növelni akarod a bizalmat, és vannak tipikus kérdések',
+          'Soha',
+          'Csak ha nincs CTA',
+          'Csak ha nincs hero'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.MEDIUM,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Miért legyen a hero tömör és egyértelmű?',
+        options: [
+          'Az első benyomás dönti el, érti-e a látogató az értéket',
+          'Hogy hosszabb legyen az oldal',
+          'Hogy elrejtse a CTA-t',
+          'Nem számít a hero'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.MEDIUM,
+        category: 'Course Specific'
       }
     );
   } else if (day === 24) {
@@ -3609,6 +3705,30 @@ function generateQuizQuestions(
           'Csak egy szám',
           'Csak a színek',
           'Csak a név'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.HARD,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Miért kell pozícionálni (low/mid/premium)?',
+        options: [
+          'Hogy tudd, hol állsz a versenyhez képest és igazodjon az ár',
+          'Csak színezés miatt',
+          'Nem fontos',
+          'Csak a logó miatt'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.MEDIUM,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Mikor válassz subscription/tiered modellt?',
+        options: [
+          'Ha folyamatos értéket adsz és több szintű igény van',
+          'Mindig csak egyszeri díj',
+          'Mindig csak freemium',
+          'Soha ne gondolkodj modellen'
         ],
         correctIndex: 0,
         difficulty: QuestionDifficulty.HARD,
@@ -3665,6 +3785,30 @@ function generateQuizQuestions(
         correctIndex: 0,
         difficulty: QuestionDifficulty.HARD,
         category: 'Course Specific'
+      },
+      {
+        question: 'Mi a scope cut szerepe az MVP-ben?',
+        options: [
+          'Kizárja a nem kritikus elemeket, hogy gyorsan szállíts értéket',
+          'Mindent benne hagy',
+          'Csak a dizájnt hagyja ki',
+          'Nem kell scope cut'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.MEDIUM,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Milyen mérőszámot érdemes az MVP-hez kötni?',
+        options: [
+          'Probléma-érték mérőszám (pl. időspórolás, konverzió)',
+          'Csak a színkód',
+          'Csak a logó mérete',
+          'Semmilyet'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.HARD,
+        category: 'Course Specific'
       }
     );
   } else if (day === 26) {
@@ -3713,6 +3857,30 @@ function generateQuizQuestions(
           'Add meg a jelszavakat',
           'Használd az összes adatot nyersen',
           'Nincs szabály'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.MEDIUM,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Miért hasznos időkeretet adni a rutin feladatokra?',
+        options: [
+          'Fegyelmezi a használatot és megelőzi az időfolyást',
+          'Csak dísz',
+          'Nem számít az idő',
+          'Mindig korlátlan idő kell'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.MEDIUM,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Miért kérj alternatívát (2 stílus) rutinban is?',
+        options: [
+          'Hogy legyen választási lehetőség és gyorsan finomíts',
+          'Csak hosszabbítja a folyamatot',
+          'Nem szabad alternatívát kérni',
+          'Csak ha nincs idő'
         ],
         correctIndex: 0,
         difficulty: QuestionDifficulty.MEDIUM,
@@ -3769,6 +3937,30 @@ function generateQuizQuestions(
         correctIndex: 0,
         difficulty: QuestionDifficulty.HARD,
         category: 'Course Specific'
+      },
+      {
+        question: 'Miért fontos a proof/eredmény említése a pitchben?',
+        options: [
+          'Bizalmat épít, megmutatja a hatást',
+          'Csak dísz',
+          'Nem kell proof',
+          'Csak a CTA számít'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.MEDIUM,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Mikor említs persona-fitet a pitchben?',
+        options: [
+          'Ha tudod, kinek szól, növeli a relevanciát',
+          'Soha',
+          'Mindig hagyd ki',
+          'Csak a végén, ok nélkül'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.HARD,
+        category: 'Course Specific'
       }
     );
   } else if (day === 28) {
@@ -3817,6 +4009,30 @@ function generateQuizQuestions(
           'Mindig, első verzióban',
           'Soha',
           'Csak ha véletlenül jó'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.HARD,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Miért számít a formázás (cím, bullet, whitespace)?',
+        options: [
+          'Olvashatóságot és profi benyomást ad',
+          'Csak esztétika, nem számít',
+          'Nem kell formázni',
+          'Csak a szín számít'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.MEDIUM,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Mikor tedd portfólióba a kimenetet?',
+        options: [
+          'Ha QA után megfelel minőség/konszisztencia/teljesség/forma elvárásnak',
+          'Mindig első verziót',
+          'Soha',
+          'Ha véletlenül rövid'
         ],
         correctIndex: 0,
         difficulty: QuestionDifficulty.HARD,
@@ -3873,6 +4089,30 @@ function generateQuizQuestions(
         correctIndex: 0,
         difficulty: QuestionDifficulty.HARD,
         category: 'Course Specific'
+      },
+      {
+        question: 'Miért legyen heti retro a térkép része?',
+        options: [
+          'Hogy frissítsd a célokat/akciókat a tapasztalat alapján',
+          'Csak dísz',
+          'Nem szükséges frissíteni',
+          'Csak havonta lehet'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.MEDIUM,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Miért válassz kevés célt 4 hétre?',
+        options: [
+          'Reálisan végigvihető és mérhető',
+          'Mert nem szabad tervezni',
+          'Mindig 100 célt írj',
+          'Csak hogy hosszabb legyen'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.MEDIUM,
+        category: 'Course Specific'
       }
     );
   } else if (day === 30) {
@@ -3924,6 +4164,30 @@ function generateQuizQuestions(
         ],
         correctIndex: 0,
         difficulty: QuestionDifficulty.HARD,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Miért ossz meg tudást/feedbacket a zárás után?',
+        options: [
+          'Tanulhatsz másoktól, és visszajelzést kapsz a fejlődéshez',
+          'Nem számít',
+          'Csak időpazarlás',
+          'Nem szabad megosztani'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.MEDIUM,
+        category: 'Course Specific'
+      },
+      {
+        question: 'Miért tartsd a rutint a kurzus után is?',
+        options: [
+          'A folyamatos gyakorlás hozza az eredményt',
+          'Mert kötelező, de hasztalan',
+          'Nem érdemes',
+          'Csak egyszer kell csinálni'
+        ],
+        correctIndex: 0,
+        difficulty: QuestionDifficulty.MEDIUM,
         category: 'Course Specific'
       }
     );
