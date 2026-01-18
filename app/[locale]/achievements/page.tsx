@@ -107,7 +107,7 @@ export default function AchievementsPage() {
     };
 
     fetchAchievements();
-  }, [session, status, router]);
+  }, [session, status, router, locale]);
 
   // Loading state
   if (loading || status === 'loading') {

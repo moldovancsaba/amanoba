@@ -76,7 +76,7 @@ export default function RewardsPage() {
     };
 
     fetchData();
-  }, [session, status, router]);
+  }, [session, status, router, locale]);
 
   const handleRedeem = async (rewardId: string, pointsCost: number) => {
     if (playerPoints < pointsCost) {

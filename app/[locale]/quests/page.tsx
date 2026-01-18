@@ -86,7 +86,7 @@ export default function QuestsPage() {
     };
 
     fetchQuests();
-  }, [session, status, router]);
+  }, [session, status, router, locale]);
 
   const getQuestProgress = (quest: Quest): number => {
     return Math.round((quest.currentStep / quest.totalSteps) * 100);

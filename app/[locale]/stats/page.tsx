@@ -72,7 +72,7 @@ export default function StatsPage() {
     }
 
     fetchStats();
-  }, [session, status, router]);
+  }, [session, status, router, locale]);
 
   const fetchStats = async () => {
     try {

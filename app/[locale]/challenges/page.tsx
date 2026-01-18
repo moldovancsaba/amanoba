@@ -123,7 +123,7 @@ export default function ChallengesPage() {
       document.removeEventListener('visibilitychange', handleVisibilityChange);
       window.removeEventListener('focus', handleFocus);
     };
-  }, [session, status, router]);
+  }, [session, status, router, locale]);
 
   const getTimeRemaining = (expiresAt: string): string => {
     const now = new Date();

@@ -74,7 +74,7 @@ export default function LeaderboardsPage() {
     
     const user = session.user as { id?: string; playerId?: string };
     setCurrentPlayerId(user.playerId || user.id || null);
-  }, [session, status, router]);
+  }, [session, status, router, locale]);
 
   useEffect(() => {
     if (!currentPlayerId) return;
