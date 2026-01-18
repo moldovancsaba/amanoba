@@ -172,7 +172,7 @@
     "lessonCompleted": "Lecke befejezve! Pontokat és XP-t szereztél.",
     "failedToComplete": "Nem sikerült befejezni a leckét",
     "failedToLoadLesson": "Nem sikerült betölteni a leckét",
-    "failedToStartAssessment": "Nem sikerült elindítani az értékelést. Kérlek próbáld újra."
+    "failedToStartAssessment": "Nem sikerült elindítani az értékelést. Kérlek próbáld újra.",
     "courseProgress": "Kurzus előrehaladása",
     "pointsEarned": "Szerzett pontok",
     "xpEarned": "Szerzett tapasztalati pontok",

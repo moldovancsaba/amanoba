@@ -178,7 +178,7 @@
     "lessonCompleted": "Lesson completed! You earned points and XP.",
     "failedToComplete": "Failed to complete lesson",
     "failedToLoadLesson": "Failed to load lesson",
-    "failedToStartAssessment": "Failed to start assessment. Please try again."
+    "failedToStartAssessment": "Failed to start assessment. Please try again.",
     "courseProgress": "Course Progress",
     "pointsEarned": "Points Earned",
     "xpEarned": "XP Earned",
