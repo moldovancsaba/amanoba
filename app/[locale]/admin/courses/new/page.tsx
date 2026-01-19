@@ -12,6 +12,7 @@ import { useRouter } from 'next/navigation';
 import { useLocale } from 'next-intl';
 import { ArrowLeft, Save } from 'lucide-react';
 import Link from 'next/link';
+import { getStripeMinimum, getFormattedMinimum, meetsStripeMinimum } from '@/app/lib/utils/stripe-minimums';
 
 export default function NewCoursePage() {
   const router = useRouter();
