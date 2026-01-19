@@ -10,6 +10,7 @@
 
 import { useState, useEffect } from 'react';
 import { useQuery } from '@tanstack/react-query';
+import { useSession } from 'next-auth/react';
 import PlayerAvatar from '@/components/PlayerAvatar';
 import { 
   Trophy, 
@@ -21,7 +22,8 @@ import {
   Calendar,
   Star,
   Flame,
-  Coins
+  Coins,
+  CreditCard
 } from 'lucide-react';
 
 // Force dynamic rendering
@@ -97,14 +99,39 @@ interface ProfileData {
   }>;
 }
 
+interface PaymentTransaction {
+  id: string;
+  courseId: string | null;
+  courseName: string | null;
+  amount: number;
+  currency: string;
+  status: string;
+  premiumGranted: boolean;
+  premiumExpiresAt: string | null;
+  paymentMethod: {
+    type: string;
+    brand?: string;
+    last4?: string;
+  } | null;
+  createdAt: string;
+  stripePaymentIntentId: string;
+  stripeCheckoutSessionId: string | null;
+}
+
 export default function ProfilePage({ params }: { params: Promise<{ playerId: string }> }) {
-  const [activeTab, setActiveTab] = useState<'overview' | 'achievements' | 'activity'>('overview');
+  const { data: session } = useSession();
+  const [activeTab, setActiveTab] = useState<'overview' | 'achievements' | 'activity' | 'payments'>('overview');
   const [playerId, setPlayerId] = useState<string | null>(null);
 
   // Unwrap async params
   useEffect(() => {
     params.then((p) => setPlayerId(p.playerId));
   }, [params]);
+
+  // Check if viewing own profile
+  const user = session?.user as { id?: string; playerId?: string } | undefined;
+  const currentUserId = user?.playerId || user?.id;
+  const isOwnProfile = currentUserId === playerId;
 
   // Fetch profile data
   const { data, isLoading, error } = useQuery<{ success: boolean; profile: ProfileData }>({
@@ -115,6 +142,16 @@ export default function ProfilePage({ params }: { params: Promise<{ playerId: st
       return res.json();
     },
     enabled: !!playerId,
+  });
+
+  // Fetch payment history (only for own profile)
+  const { data: paymentData } = useQuery<{ success: boolean; transactions: PaymentTransaction[] }>({
+    queryKey: ['paymentHistory', playerId],
+    queryFn: async () => {
+      const res = await fetch('/api/payments/history');
+      return res.json();
+    },
+    enabled: !!playerId && isOwnProfile && !!session,
   });
 
   if (isLoading) {
@@ -215,12 +252,13 @@ export default function ProfilePage({ params }: { params: Promise<{ playerId: st
             { id: 'overview', label: 'Overview', icon: TrendingUp },
             { id: 'achievements', label: 'Achievements', icon: Trophy },
             { id: 'activity', label: 'Activity', icon: Clock },
+            ...(isOwnProfile ? [{ id: 'payments', label: 'Payments', icon: CreditCard }] : []),
           ].map((tab) => {
             const Icon = tab.icon;
             return (
               <button
                 key={tab.id}
-                onClick={() => setActiveTab(tab.id as 'overview' | 'achievements' | 'activity')}
+                onClick={() => setActiveTab(tab.id as 'overview' | 'achievements' | 'activity' | 'payments')}
                 className={`flex items-center gap-2 px-6 py-3 rounded-lg font-semibold transition-all ${
                   activeTab === tab.id
                     ? 'bg-brand-accent text-brand-black'
@@ -423,6 +461,99 @@ export default function ProfilePage({ params }: { params: Promise<{ playerId: st
                   </div>
                 ))}
               </div>
+            </div>
+          )}
+
+          {activeTab === 'payments' && isOwnProfile && (
+            <div className="page-card-dark p-6">
+              <h3 className="text-2xl font-bold text-white mb-6">Payment History</h3>
+              {paymentData?.success && paymentData.transactions.length > 0 ? (
+                <div className="space-y-3">
+                  {paymentData.transactions.map((tx) => {
+                    const formattedAmount = new Intl.NumberFormat('en-US', {
+                      style: 'currency',
+                      currency: tx.currency.toUpperCase(),
+                    }).format(tx.amount / 100);
+
+                    const statusColors: Record<string, string> = {
+                      succeeded: 'text-green-400',
+                      pending: 'text-yellow-400',
+                      failed: 'text-red-400',
+                      refunded: 'text-gray-400',
+                    };
+
+                    return (
+                      <div key={tx.id} className="bg-brand-black/20 rounded-lg p-4">
+                        <div className="flex items-start justify-between mb-3">
+                          <div>
+                            <h4 className="text-white font-semibold mb-1">
+                              {tx.courseName || 'Premium Access'}
+                            </h4>
+                            <p className="text-gray-400 text-sm">
+                              {new Date(tx.createdAt).toLocaleDateString('en-US', {
+                                year: 'numeric',
+                                month: 'long',
+                                day: 'numeric',
+                                hour: '2-digit',
+                                minute: '2-digit',
+                              })}
+                            </p>
+                          </div>
+                          <div className="text-right">
+                            <div className="text-white font-bold text-lg">{formattedAmount}</div>
+                            <div className={`text-sm ${statusColors[tx.status] || 'text-gray-400'}`}>
+                              {tx.status.charAt(0).toUpperCase() + tx.status.slice(1)}
+                            </div>
+                          </div>
+                        </div>
+                        <div className="grid grid-cols-2 gap-4 pt-3 border-t border-brand-black/40">
+                          {tx.premiumGranted && tx.premiumExpiresAt && (
+                            <div>
+                              <p className="text-gray-400 text-xs mb-1">Premium Expires</p>
+                              <p className="text-white text-sm">
+                                {new Date(tx.premiumExpiresAt).toLocaleDateString('en-US', {
+                                  year: 'numeric',
+                                  month: 'long',
+                                  day: 'numeric',
+                                })}
+                              </p>
+                            </div>
+                          )}
+                          {tx.paymentMethod && (
+                            <div>
+                              <p className="text-gray-400 text-xs mb-1">Payment Method</p>
+                              <p className="text-white text-sm">
+                                {tx.paymentMethod.brand ? (
+                                  <>
+                                    {tx.paymentMethod.brand.charAt(0).toUpperCase() + tx.paymentMethod.brand.slice(1)}
+                                    {' •••• '}
+                                    {tx.paymentMethod.last4}
+                                  </>
+                                ) : (
+                                  'Card'
+                                )}
+                              </p>
+                            </div>
+                          )}
+                        </div>
+                        {tx.stripeCheckoutSessionId && (
+                          <p className="text-gray-500 text-xs mt-3">
+                            Transaction ID: {tx.stripePaymentIntentId}
+                          </p>
+                        )}
+                      </div>
+                    );
+                  })}
+                </div>
+              ) : (
+                <div className="text-center py-12">
+                  <CreditCard className="w-16 h-16 text-gray-500 mx-auto mb-4" />
+                  <p className="text-gray-400 text-lg">No payment history</p>
+                  <p className="text-gray-500 text-sm mt-2">
+                    Your payment transactions will appear here
+                  </p>
+                </div>
+              )}
             </div>
           )}
         </div>

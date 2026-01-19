@@ -34,7 +34,7 @@ Tasks are listed in priority order. Upon completion, tasks are moved to RELEASE_
 | STRIPE7 | Implement payment success handler: Activate premium status, update Player model, log transaction | AI | 2025-01-20 | ✅ DONE |
 | STRIPE8 | Add payment button to course detail page (`app/[locale]/courses/[courseId]/page.tsx`) for premium courses | AI | 2025-01-20 | ✅ DONE |
 | STRIPE9 | Create payment confirmation email: Send email after successful payment | AI | 2025-01-20 | ✅ DONE |
-| STRIPE10 | Add payment history to player profile page: Display past transactions | AI | TBD | ⏳ PENDING |
+| STRIPE10 | Add payment history to player profile page: Display past transactions | AI | 2025-01-20 | ✅ DONE |
 | STRIPE11 | Create admin payment dashboard: View all transactions, revenue analytics | AI | TBD | ⏳ PENDING |
 | STRIPE12 | Test payment flow: End-to-end testing with Stripe test mode | AI | TBD | ⏳ PENDING |
 | STRIPE13 | Add error handling: Payment failures, webhook verification, idempotency | AI | TBD | ⏳ PENDING |
