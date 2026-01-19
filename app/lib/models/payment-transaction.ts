@@ -350,4 +350,3 @@ const PaymentTransaction: Model<IPaymentTransaction> =
   mongoose.model<IPaymentTransaction>('PaymentTransaction', PaymentTransactionSchema);
 
 export default PaymentTransaction;
-export { PaymentStatus };
