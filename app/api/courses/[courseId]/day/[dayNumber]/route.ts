@@ -111,6 +111,7 @@ export async function GET(
         completedDays: progress.completedDays?.length || 0,
         totalDays: course.durationDays,
       },
+      courseLanguage: course.language, // Include course language for locale matching
     });
   } catch (error) {
     logger.error({ error, courseId: (await params).courseId, dayNumber: (await params).dayNumber }, 'Failed to fetch lesson');

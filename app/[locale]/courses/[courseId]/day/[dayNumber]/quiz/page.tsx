@@ -6,7 +6,7 @@
 
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { useTranslations } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import { CheckCircle, ArrowLeft, Loader2 } from 'lucide-react';
 import { LocaleLink } from '@/components/LocaleLink';
 import Logo from '@/components/Logo';
@@ -39,6 +39,7 @@ export default function LessonQuizPage({
   const { data: session } = useSession();
   const t = useTranslations('courses');
   const router = useRouter();
+  const locale = useLocale();
   const [courseId, setCourseId] = useState<string>('');
   const [dayNumber, setDayNumber] = useState<number>(0);
   const [lessonId, setLessonId] = useState<string>('');
@@ -67,11 +68,21 @@ export default function LessonQuizPage({
       setLoading(true);
       setError(null);
       const lessonRes = await fetch(`/api/courses/${cid}/day/${day}`, { cache: 'no-store' });
-      const lessonData: LessonResponse = await lessonRes.json();
+      const lessonData: LessonResponse & { courseLanguage?: string } = await lessonRes.json();
       if (!lessonData.success || !lessonData.lesson) {
         setError(lessonData.error || t('failedToLoadLesson'));
         return;
       }
+
+      // Check if course language matches URL locale, redirect if not
+      if (lessonData.courseLanguage && lessonData.courseLanguage !== locale) {
+        const courseLocale = lessonData.courseLanguage === 'hu' ? 'hu' : lessonData.courseLanguage === 'en' ? 'en' : locale;
+        if (courseLocale !== locale) {
+          router.replace(`/${courseLocale}/courses/${cid}/day/${day}/quiz`);
+          return;
+        }
+      }
+
       setLessonId(lessonData.lesson.lessonId);
       setLessonTitle(lessonData.lesson.title);
 

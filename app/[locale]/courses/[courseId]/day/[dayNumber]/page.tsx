@@ -88,6 +88,15 @@ export default function DailyLessonPage({
       const data = await response.json();
 
       if (data.success) {
+        // Check if course language matches URL locale, redirect if not
+        if (data.courseLanguage && data.courseLanguage !== locale) {
+          const courseLocale = data.courseLanguage === 'hu' ? 'hu' : data.courseLanguage === 'en' ? 'en' : locale;
+          if (courseLocale !== locale) {
+            router.replace(`/${courseLocale}/courses/${cid}/day/${day}`);
+            return;
+          }
+        }
+
         setLesson(data.lesson);
         setNavigation(data.navigation);
         // Refresh quiz passed flag from localStorage (set by quiz page)

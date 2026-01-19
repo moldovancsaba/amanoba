@@ -123,7 +123,20 @@ export default function CourseDetailPage({
       const response = await fetch(`/api/courses/${cid}`);
       const data = await response.json();
       if (data.success) {
-        setCourse(data.course);
+        const courseData = data.course;
+        setCourse(courseData);
+        
+        // Redirect to correct locale if course language doesn't match URL locale
+        if (courseData.language && courseData.language !== locale) {
+          // Map course language to locale (e.g., 'hu' -> 'hu', 'en' -> 'en')
+          const courseLocale = courseData.language === 'hu' ? 'hu' : courseData.language === 'en' ? 'en' : locale;
+          
+          // Only redirect if the locale is different
+          if (courseLocale !== locale) {
+            router.replace(`/${courseLocale}/courses/${cid}`);
+            return;
+          }
+        }
       }
     } catch (error) {
       console.error('Failed to fetch course:', error);
