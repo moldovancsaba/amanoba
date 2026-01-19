@@ -81,26 +81,26 @@ export default function CourseDetailPage({
       const id = resolvedParams.courseId;
       setCourseId(id);
       await Promise.all([fetchCourse(id), checkEnrollment(id), checkPremiumStatus()]);
+
+      // Check for payment success/failure in URL
+      const urlParams = new URLSearchParams(window.location.search);
+      if (urlParams.get('payment_success') === 'true') {
+        // Refresh premium status and enrollment
+        await checkPremiumStatus();
+        if (session) {
+          await checkEnrollment(id);
+        }
+        // Show success message (optional: could use a toast notification)
+        // Remove query param from URL
+        window.history.replaceState({}, '', window.location.pathname);
+      }
+      if (urlParams.get('payment_error')) {
+        // Show error message (optional: could use a toast notification)
+        // Remove query param from URL
+        window.history.replaceState({}, '', window.location.pathname);
+      }
     };
     loadData();
-
-    // Check for payment success/failure in URL
-    const urlParams = new URLSearchParams(window.location.search);
-    if (urlParams.get('payment_success') === 'true') {
-      // Refresh premium status and enrollment
-      checkPremiumStatus();
-      if (session) {
-        checkEnrollment(id);
-      }
-      // Show success message (optional: could use a toast notification)
-      // Remove query param from URL
-      window.history.replaceState({}, '', window.location.pathname);
-    }
-    if (urlParams.get('payment_error')) {
-      // Show error message (optional: could use a toast notification)
-      // Remove query param from URL
-      window.history.replaceState({}, '', window.location.pathname);
-    }
   }, [params, session]);
 
   const fetchCourse = async (cid: string) => {
