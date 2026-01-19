@@ -39,9 +39,9 @@ Tasks are listed in priority order. Upon completion, tasks are moved to RELEASE_
 | STRIPE10 | Add payment history to player profile page: Display past transactions | AI | 2025-01-20 | ✅ DONE |
 | STRIPE11 | Add premium course pricing to admin interface: Set price per course | AI | 2025-01-20 | ✅ DONE |
 | STRIPE12 | Add Stripe minimum amount validation: Prevent payment errors | AI | 2025-01-20 | ✅ DONE |
-| STRIPE13 | Create admin payment dashboard: View all transactions, revenue analytics | AI | TBD | ⏳ PENDING |
+| STRIPE13 | Create admin payment dashboard: View all transactions, revenue analytics | AI | 2025-01-20 | ✅ DONE |
 | STRIPE14 | Test payment flow: End-to-end testing with Stripe test mode | AI | TBD | ⏳ PENDING |
-| STRIPE15 | Add error handling: Payment failures, webhook verification, idempotency | AI | TBD | ⏳ PENDING |
+| STRIPE15 | Add error handling: Payment failures, webhook verification, idempotency | AI | 2025-01-20 | ✅ DONE |
 
 ---
 
@@ -58,18 +58,18 @@ Tasks are listed in priority order. Upon completion, tasks are moved to RELEASE_
 
 | ID | Task | Owner | Expected Delivery | Status |
 |----|------|-------|-------------------|--------|
-| SURVEY1 | Create Survey model (`app/lib/models/survey.ts`): Store survey questions and configuration | AI | TBD | ⏳ PENDING |
-| SURVEY2 | Create SurveyResponse model (`app/lib/models/survey-response.ts`): Store student answers | AI | TBD | ⏳ PENDING |
-| SURVEY3 | Create seed script for onboarding survey: Define 5-10 default questions | AI | TBD | ⏳ PENDING |
-| SURVEY4 | Create `/api/surveys/onboarding` GET endpoint: Fetch survey questions | AI | TBD | ⏳ PENDING |
-| SURVEY5 | Create `/api/surveys/onboarding` POST endpoint: Save survey responses | AI | TBD | ⏳ PENDING |
-| SURVEY6 | Update Player model: Add `surveyCompleted`, `skillLevel`, `interests` fields | AI | TBD | ⏳ PENDING |
-| SURVEY7 | Create onboarding survey page (`app/[locale]/onboarding/page.tsx`): Multi-step form UI | AI | TBD | ⏳ PENDING |
-| SURVEY8 | Implement course recommendation logic: Match courses based on survey responses | AI | TBD | ⏳ PENDING |
-| SURVEY9 | Add course recommendations to dashboard: Display recommended courses | AI | TBD | ⏳ PENDING |
-| SURVEY10 | Create survey analytics in admin dashboard: View response statistics | AI | TBD | ⏳ PENDING |
-| SURVEY11 | Add survey completion tracking: Mark player as survey completed | AI | TBD | ⏳ PENDING |
-| SURVEY12 | Redirect new users to survey: Show survey modal or redirect after signup | AI | TBD | ⏳ PENDING |
+| SURVEY1 | Create Survey model (`app/lib/models/survey.ts`): Store survey questions and configuration | AI | 2025-01-20 | ✅ DONE |
+| SURVEY2 | Create SurveyResponse model (`app/lib/models/survey-response.ts`): Store student answers | AI | 2025-01-20 | ✅ DONE |
+| SURVEY3 | Create seed script for onboarding survey: Define 5-10 default questions | AI | 2025-01-20 | ✅ DONE |
+| SURVEY4 | Create `/api/surveys/onboarding` GET endpoint: Fetch survey questions | AI | 2025-01-20 | ✅ DONE |
+| SURVEY5 | Create `/api/surveys/onboarding` POST endpoint: Save survey responses | AI | 2025-01-20 | ✅ DONE |
+| SURVEY6 | Update Player model: Add `surveyCompleted`, `skillLevel`, `interests` fields | AI | 2025-01-20 | ✅ DONE |
+| SURVEY7 | Create onboarding survey page (`app/[locale]/onboarding/page.tsx`): Multi-step form UI | AI | 2025-01-20 | ✅ DONE |
+| SURVEY8 | Implement course recommendation logic: Match courses based on survey responses | AI | 2025-01-20 | ✅ DONE |
+| SURVEY9 | Add course recommendations to dashboard: Display recommended courses | AI | 2025-01-20 | ✅ DONE |
+| SURVEY10 | Create survey analytics in admin dashboard: View response statistics | AI | 2025-01-20 | ✅ DONE |
+| SURVEY11 | Add survey completion tracking: Mark player as survey completed | AI | 2025-01-20 | ✅ DONE |
+| SURVEY12 | Redirect new users to survey: Show survey modal or redirect after signup | AI | 2025-01-20 | ✅ DONE |
 
 ---
 

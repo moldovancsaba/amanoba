@@ -85,4 +85,8 @@ export { default as Translation, type ITranslation } from './translation';
 // Feature Flags Model (1)
 export { default as FeatureFlags, type IFeatureFlags } from './feature-flags';
 
-// Total: 30 models
+// Survey Models (2)
+export { default as Survey, type ISurvey, QuestionType } from './survey';
+export { default as SurveyResponse, type ISurveyResponse } from './survey-response';
+
+// Total: 32 models

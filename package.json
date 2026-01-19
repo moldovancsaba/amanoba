@@ -29,7 +29,9 @@
     "seed:whackpop-emojis": "tsx scripts/seed-whackpop-emojis.ts",
     "seed:translations": "tsx scripts/seed-translations-direct.ts",
     "seed:ai-course": "tsx --env-file=.env.local scripts/seed-ai-30-nap-course.ts",
-    "seed:course-creation": "tsx --env-file=.env.local scripts/seed-course-creation-course.ts"
+    "seed:course-creation": "tsx --env-file=.env.local scripts/seed-course-creation-course.ts",
+    "seed:geo-shopify-course": "tsx --env-file=.env.local scripts/seed-geo-shopify-course.ts",
+    "seed:survey": "tsx --env-file=.env.local scripts/seed-onboarding-survey.ts"
   },
   "dependencies": {
     "@auth/mongodb-adapter": "^3.11.0",

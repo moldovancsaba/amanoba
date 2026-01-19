@@ -352,6 +352,15 @@ EMAIL_FROM_NAME=Amanoba Learning
 
 ## 🎯 Future Enhancements (Post-Launch)
 
+### Course & Certification Enhancements
+- **Final Quiz for Certification**: Add final comprehensive quiz at course completion for certificate eligibility
+- **Publicly Available & LinkedIn-Compatible Certificates**: Generate shareable certificates with LinkedIn integration, public URLs, and Open Graph metadata
+- **Course Social Features**: 
+  - Add Google/Facebook/other social feedback star ranking to courses
+  - Add "Share this course" functionality to course pages
+- **Referral System Fix & Enable**: Fix and enable the referral system for course sharing and rewards
+- **SSO Integration**: Implement SSO via sso.doneisbetter.com for enterprise/partner authentication
+
 ### Q2 2026
 - **Short-Format Tracks**: Launch fast-path course formats:
   - Learn in 60 Minutes (1-hour courses)

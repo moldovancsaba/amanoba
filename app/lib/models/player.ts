@@ -35,6 +35,9 @@ export interface IPlayer extends Document {
     preferredEmailTime?: number; // Hour of day (0-23)
     timezone?: string; // User timezone for email scheduling
   };
+  unsubscribeToken?: string; // Token for one-click unsubscribe from emails
+  stripeCustomerId?: string; // Stripe Customer ID for payment processing
+  paymentHistory?: mongoose.Types.ObjectId[]; // References to PaymentTransaction documents
   metadata?: Record<string, unknown>;
   createdAt: Date;
   updatedAt: Date;
@@ -112,7 +115,7 @@ const PlayerSchema = new Schema<IPlayer>(
       type: Schema.Types.ObjectId,
       ref: 'Brand',
       required: [true, 'Brand ID is required'],
-      index: true,
+      // Why: Index created explicitly at schema level with name 'player_brand'
     },
 
     // Player locale (language preference)
@@ -199,6 +202,35 @@ const PlayerSchema = new Schema<IPlayer>(
       },
     },
 
+    // Unsubscribe token for one-click email unsubscribe
+    // Why: Secure token-based unsubscribe from email links (CAN-SPAM compliance)
+    unsubscribeToken: {
+      type: String,
+      trim: true,
+      sparse: true, // Allows multiple null values
+      index: true,
+    },
+
+    // Stripe Customer ID
+    // Why: Links player to Stripe customer account for payment processing and subscription management
+    stripeCustomerId: {
+      type: String,
+      trim: true,
+      sparse: true, // Allows multiple null values (not all players have Stripe accounts)
+      index: true,
+      match: [/^cus_[a-zA-Z0-9]+$/, 'Stripe Customer ID must be valid format (cus_xxxxx)'],
+    },
+
+    // Payment history references
+    // Why: Quick access to player's payment transactions (also queryable via PaymentTransaction model)
+    // Note: This is optional - payment history can also be queried directly from PaymentTransaction collection
+    paymentHistory: {
+      type: [Schema.Types.ObjectId],
+      ref: 'PaymentTransaction',
+      default: [],
+      // Why: Array of PaymentTransaction IDs for quick access (can be populated for performance)
+    },
+
     // Flexible metadata field for player-specific data
     // Why: Allows storing additional player info without schema changes
     metadata: {
@@ -232,6 +264,8 @@ PlayerSchema.index({ isActive: 1 }, { name: 'player_active' });
 PlayerSchema.index({ isBanned: 1 }, { name: 'player_banned' });
 PlayerSchema.index({ lastLoginAt: 1 }, { name: 'player_last_login' });
 PlayerSchema.index({ brandId: 1, isPremium: 1 }, { name: 'player_brand_premium' });
+PlayerSchema.index({ unsubscribeToken: 1 }, { name: 'player_unsubscribe_token', sparse: true });
+PlayerSchema.index({ stripeCustomerId: 1 }, { name: 'player_stripe_customer', sparse: true });
 
 /**
  * Pre-save hook to check premium expiration

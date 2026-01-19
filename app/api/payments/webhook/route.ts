@@ -77,34 +77,92 @@ export async function POST(request: NextRequest) {
 
     await connectDB();
 
-    // Handle different event types
-    switch (event.type) {
-      case 'checkout.session.completed':
-        await handleCheckoutSessionCompleted(event.data.object as Stripe.Checkout.Session);
-        break;
+    // Handle different event types with retry logic
+    let retryCount = 0;
+    const maxRetries = 3;
+    let lastError: Error | null = null;
 
-      case 'payment_intent.succeeded':
-        await handlePaymentIntentSucceeded(event.data.object as Stripe.PaymentIntent);
-        break;
+    while (retryCount < maxRetries) {
+      try {
+        switch (event.type) {
+          case 'checkout.session.completed':
+            await handleCheckoutSessionCompleted(event.data.object as Stripe.Checkout.Session);
+            break;
 
-      case 'payment_intent.payment_failed':
-        await handlePaymentIntentFailed(event.data.object as Stripe.PaymentIntent);
-        break;
+          case 'payment_intent.succeeded':
+            await handlePaymentIntentSucceeded(event.data.object as Stripe.PaymentIntent);
+            break;
 
-      case 'charge.refunded':
-        await handleChargeRefunded(event.data.object as Stripe.Charge);
-        break;
+          case 'payment_intent.payment_failed':
+            await handlePaymentIntentFailed(event.data.object as Stripe.PaymentIntent);
+            break;
 
-      default:
-        logger.info({ eventType: event.type }, 'Unhandled Stripe webhook event type');
+          case 'charge.refunded':
+            await handleChargeRefunded(event.data.object as Stripe.Charge);
+            break;
+
+          default:
+            logger.info({ eventType: event.type, eventId: event.id }, 'Unhandled Stripe webhook event type');
+        }
+
+        // Success - break retry loop
+        break;
+      } catch (error) {
+        lastError = error instanceof Error ? error : new Error(String(error));
+        retryCount++;
+
+        // Log retry attempt
+        if (retryCount < maxRetries) {
+          logger.warn(
+            {
+              error: lastError.message,
+              eventType: event.type,
+              eventId: event.id,
+              retryCount,
+              maxRetries,
+            },
+            `Stripe webhook processing failed, retrying (${retryCount}/${maxRetries})`
+          );
+
+          // Exponential backoff: wait 1s, 2s, 4s
+          await new Promise((resolve) => setTimeout(resolve, Math.pow(2, retryCount - 1) * 1000));
+        } else {
+          // Max retries reached
+          logger.error(
+            {
+              error: lastError.message,
+              stack: lastError.stack,
+              eventType: event.type,
+              eventId: event.id,
+              retryCount,
+            },
+            'Stripe webhook processing failed after max retries'
+          );
+          throw lastError;
+        }
+      }
     }
 
     return NextResponse.json({ received: true });
   } catch (error) {
-    logger.error({ error, eventType: event?.type }, 'Stripe webhook processing failed');
+    const errorMessage = error instanceof Error ? error.message : String(error);
+    const errorStack = error instanceof Error ? error.stack : undefined;
+
+    logger.error(
+      {
+        error: errorMessage,
+        stack: errorStack,
+        eventType: event?.type,
+        eventId: event?.id,
+      },
+      'Stripe webhook processing failed'
+    );
+
+    // Return 200 to Stripe to prevent retries for non-recoverable errors
+    // Stripe will retry on 4xx/5xx, but we log the error for manual investigation
     return NextResponse.json(
-      { error: 'Webhook processing failed' },
-      { status: 500 }
+      { received: true, error: 'Webhook processing failed (logged for investigation)' },
+      { status: 200 }
     );
   }
 }
@@ -116,9 +174,21 @@ export async function POST(request: NextRequest) {
  */
 async function handleCheckoutSessionCompleted(session: Stripe.Checkout.Session) {
   try {
+    // Validate session status
+    if (session.payment_status !== 'paid') {
+      logger.warn(
+        { sessionId: session.id, paymentStatus: session.payment_status },
+        'Checkout session completed but payment not paid'
+      );
+      return;
+    }
+
     const metadata = session.metadata;
     if (!metadata || !metadata.playerId) {
-      logger.warn({ sessionId: session.id }, 'Checkout session missing playerId metadata');
+      logger.warn(
+        { sessionId: session.id, metadata: session.metadata },
+        'Checkout session missing playerId metadata'
+      );
       return;
     }
 
@@ -177,15 +247,47 @@ async function handleCheckoutSessionCompleted(session: Stripe.Checkout.Session) 
     }
 
     // Check if transaction already exists (idempotency)
+    // Check by payment intent ID first (most reliable)
+    const paymentIntentId = paymentIntent?.id || (session.payment_intent as string);
     const existingTransaction = await PaymentTransaction.findOne({
-      stripePaymentIntentId: paymentIntent?.id || session.payment_intent as string,
+      $or: [
+        { stripePaymentIntentId: paymentIntentId },
+        { stripeCheckoutSessionId: session.id },
+      ],
     });
 
     if (existingTransaction) {
-      logger.info(
-        { transactionId: existingTransaction._id, sessionId: session.id },
-        'Payment transaction already processed (idempotency)'
-      );
+      // If transaction exists but status is different, update it
+      if (existingTransaction.status !== PaymentStatus.SUCCEEDED) {
+        logger.info(
+          {
+            transactionId: existingTransaction._id,
+            sessionId: session.id,
+            oldStatus: existingTransaction.status,
+          },
+          'Updating existing transaction status to succeeded'
+        );
+        existingTransaction.status = PaymentStatus.SUCCEEDED;
+        existingTransaction.premiumGranted = true;
+        existingTransaction.premiumExpiresAt = premiumExpiresAt;
+        existingTransaction.metadata.processedAt = new Date();
+        await existingTransaction.save();
+
+        // Update player premium status if not already set
+        if (!player.isPremium || !player.premiumExpiresAt || player.premiumExpiresAt < premiumExpiresAt) {
+          player.isPremium = true;
+          player.premiumExpiresAt = premiumExpiresAt;
+          if (!player.stripeCustomerId && session.customer) {
+            player.stripeCustomerId = session.customer as string;
+          }
+          await player.save();
+        }
+      } else {
+        logger.info(
+          { transactionId: existingTransaction._id, sessionId: session.id },
+          'Payment transaction already processed (idempotency)'
+        );
+      }
       return;
     }
 
@@ -200,43 +302,78 @@ async function handleCheckoutSessionCompleted(session: Stripe.Checkout.Session) 
       }
     }
 
-    // Create payment transaction
-    const transaction = new PaymentTransaction({
-      playerId: player._id,
-      courseId: course?._id,
-      brandId: brandId,
-      stripePaymentIntentId: paymentIntent?.id || session.payment_intent as string,
-      stripeCheckoutSessionId: session.id,
-      stripeCustomerId: session.customer as string,
-      stripeChargeId: charge?.id,
-      amount: session.amount_total || 0,
-      currency: session.currency || 'usd',
-      status: PaymentStatus.SUCCEEDED,
-      paymentMethod: Object.keys(paymentMethodDetails).length > 0 ? paymentMethodDetails : undefined,
-      premiumGranted: true,
-      premiumExpiresAt: premiumExpiresAt,
-      premiumDurationDays: premiumDurationDays,
-      metadata: {
-        createdAt: new Date(),
-        processedAt: new Date(),
-        ipAddress: session.customer_details?.ip_address,
-      },
-    });
+    // Create payment transaction with transaction safety
+    let transaction;
+    try {
+      transaction = new PaymentTransaction({
+        playerId: player._id,
+        courseId: course?._id,
+        brandId: brandId,
+        stripePaymentIntentId: paymentIntentId,
+        stripeCheckoutSessionId: session.id,
+        stripeCustomerId: session.customer as string,
+        stripeChargeId: charge?.id,
+        amount: session.amount_total || 0,
+        currency: session.currency || 'usd',
+        status: PaymentStatus.SUCCEEDED,
+        paymentMethod: Object.keys(paymentMethodDetails).length > 0 ? paymentMethodDetails : undefined,
+        premiumGranted: true,
+        premiumExpiresAt: premiumExpiresAt,
+        premiumDurationDays: premiumDurationDays,
+        metadata: {
+          createdAt: new Date(),
+          processedAt: new Date(),
+          ipAddress: session.customer_details?.ip_address,
+          userAgent: session.customer_details?.email, // Store email as user agent placeholder
+        },
+      });
 
-    await transaction.save();
+      await transaction.save();
+    } catch (saveError) {
+      // Check if it's a duplicate key error (race condition)
+      if (saveError instanceof Error && saveError.message.includes('duplicate')) {
+        logger.warn(
+          { sessionId: session.id, paymentIntentId },
+          'Duplicate transaction detected (race condition), checking for existing transaction'
+        );
+        // Try to find the transaction that was created by another webhook instance
+        const existing = await PaymentTransaction.findOne({
+          $or: [
+            { stripePaymentIntentId: paymentIntentId },
+            { stripeCheckoutSessionId: session.id },
+          ],
+        });
+        if (existing) {
+          transaction = existing;
+        } else {
+          throw saveError;
+        }
+      } else {
+        throw saveError;
+      }
+    }
 
-    // Activate premium status for player
-    player.isPremium = true;
-    player.premiumExpiresAt = premiumExpiresAt;
+    // Activate premium status for player (only if not already premium or if new expiration is later)
+    const shouldUpdatePremium = !player.isPremium || 
+                                !player.premiumExpiresAt || 
+                                player.premiumExpiresAt < premiumExpiresAt;
+
+    if (shouldUpdatePremium) {
+      player.isPremium = true;
+      player.premiumExpiresAt = premiumExpiresAt;
+    }
+
     if (!player.stripeCustomerId && session.customer) {
       player.stripeCustomerId = session.customer as string;
     }
     
-    // Add transaction to payment history
+    // Add transaction to payment history (avoid duplicates)
     if (!player.paymentHistory) {
       player.paymentHistory = [];
     }
-    player.paymentHistory.push(transaction._id);
+    if (!player.paymentHistory.includes(transaction._id)) {
+      player.paymentHistory.push(transaction._id);
+    }
     
     await player.save();
 

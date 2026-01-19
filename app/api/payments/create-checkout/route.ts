@@ -214,18 +214,68 @@ export async function POST(request: NextRequest) {
       url: checkoutSession.url,
     });
   } catch (error) {
-    logger.error({ error }, 'Failed to create checkout session');
+    const errorMessage = error instanceof Error ? error.message : String(error);
+    const errorStack = error instanceof Error ? error.stack : undefined;
 
-    // Handle Stripe-specific errors
+    logger.error(
+      {
+        error: errorMessage,
+        stack: errorStack,
+        courseId,
+        playerId: player?._id?.toString(),
+      },
+      'Failed to create checkout session'
+    );
+
+    // Handle Stripe-specific errors with detailed messages
     if (error instanceof Stripe.errors.StripeError) {
+      let userMessage = 'Payment error occurred';
+      
+      // Provide user-friendly error messages for common Stripe errors
+      switch (error.type) {
+        case 'StripeCardError':
+          userMessage = 'Your card was declined. Please try a different payment method.';
+          break;
+        case 'StripeRateLimitError':
+          userMessage = 'Too many requests. Please try again in a moment.';
+          break;
+        case 'StripeInvalidRequestError':
+          userMessage = `Invalid payment request: ${error.message}`;
+          break;
+        case 'StripeAPIError':
+          userMessage = 'Payment service temporarily unavailable. Please try again later.';
+          break;
+        case 'StripeConnectionError':
+          userMessage = 'Unable to connect to payment service. Please check your internet connection.';
+          break;
+        case 'StripeAuthenticationError':
+          userMessage = 'Payment service authentication failed. Please contact support.';
+          break;
+        default:
+          userMessage = `Payment error: ${error.message}`;
+      }
+
       return NextResponse.json(
-        { error: `Payment error: ${error.message}` },
+        { error: userMessage, details: process.env.NODE_ENV === 'development' ? errorMessage : undefined },
         { status: 400 }
       );
     }
 
+    // Handle database errors
+    if (errorMessage.includes('MongoError') || errorMessage.includes('MongooseError')) {
+      logger.error({ error: errorMessage }, 'Database error during checkout creation');
+      return NextResponse.json(
+        { error: 'Database error. Please try again.' },
+        { status: 500 }
+      );
+    }
+
+    // Generic error
     return NextResponse.json(
-      { error: 'Failed to create checkout session' },
+      {
+        error: 'Failed to create checkout session. Please try again or contact support.',
+        details: process.env.NODE_ENV === 'development' ? errorMessage : undefined,
+      },
       { status: 500 }
     );
   }

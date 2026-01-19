@@ -68,6 +68,7 @@ interface PlayerData {
 
 export default function Dashboard() {
   const { data: session, status } = useSession();
+  const router = useRouter();
   const locale = useLocale();
   const t = useTranslations('dashboard');
   const tCommon = useTranslations('common');
@@ -78,9 +79,12 @@ export default function Dashboard() {
   const tQuests = useTranslations('quests');
   const tAchievements = useTranslations('achievements');
   const tRewards = useTranslations('rewards');
+  const tCourses = useTranslations('courses');
   const [playerData, setPlayerData] = useState<PlayerData | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [recommendations, setRecommendations] = useState<any[]>([]);
+  const [loadingRecommendations, setLoadingRecommendations] = useState(false);
   const [featureFlags, setFeatureFlags] = useState<{
     courses: boolean;
     myCourses: boolean;
@@ -120,6 +124,13 @@ export default function Dashboard() {
         const data = await response.json();
         setPlayerData(data);
         console.log('Dashboard data refreshed:', data);
+        
+        // Check if player needs to complete survey
+        if (data.player && !data.player.surveyCompleted) {
+          // Redirect to onboarding survey
+          router.push(`/${locale}/onboarding`);
+          return;
+        }
       } else {
         setError('Failed to load player data');
       }
@@ -131,9 +142,28 @@ export default function Dashboard() {
     }
   };
 
+  const fetchRecommendations = async () => {
+    if (status === 'loading' || !session) return;
+    
+    try {
+      setLoadingRecommendations(true);
+      const response = await fetch('/api/courses/recommendations?limit=3');
+      const data = await response.json();
+      
+      if (data.success && data.recommendations) {
+        setRecommendations(data.recommendations);
+      }
+    } catch (error) {
+      console.error('Failed to fetch recommendations:', error);
+    } finally {
+      setLoadingRecommendations(false);
+    }
+  };
+
   useEffect(() => {
     fetchPlayerData();
     fetchFeatureFlags();
+    fetchRecommendations();
   }, [session, status]);
 
   const fetchFeatureFlags = async () => {
@@ -336,6 +366,63 @@ export default function Dashboard() {
             )}
           </div>
         </div>
+
+        {/* Course Recommendations */}
+        {featureFlags?.courses && recommendations.length > 0 && (
+          <div className="bg-brand-white rounded-xl shadow-lg p-6 mb-8 border-2 border-brand-accent">
+            <h3 className="text-xl font-bold text-brand-black mb-4 flex items-center gap-2">
+              <Icon icon={MdBookOpen} size={20} className="text-brand-accent" />
+              {t('recommendedCourses')}
+            </h3>
+            {loadingRecommendations ? (
+              <div className="text-center py-8 text-brand-darkGrey">
+                {t('loading')}...
+              </div>
+            ) : (
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                {recommendations.map((course) => (
+                  <LocaleLink
+                    key={course.courseId}
+                    href={`/courses/${course.courseId}`}
+                    className="block bg-brand-darkGrey/5 rounded-lg p-4 border-2 border-brand-darkGrey/20 hover:border-brand-accent transition-all hover:shadow-lg"
+                  >
+                    {course.thumbnail && (
+                      <div className="w-full h-32 bg-brand-darkGrey rounded-lg mb-3 overflow-hidden">
+                        <img
+                          src={course.thumbnail}
+                          alt={course.name}
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                    )}
+                    <h4 className="font-bold text-brand-black text-lg mb-2 line-clamp-2">
+                      {course.name}
+                    </h4>
+                    <p className="text-sm text-brand-darkGrey line-clamp-2 mb-3">
+                      {course.description}
+                    </p>
+                    <div className="flex items-center justify-between text-xs text-brand-darkGrey">
+                      <span>{course.durationDays} {tCourses('days') || 'days'}</span>
+                      {course.requiresPremium && (
+                        <span className="bg-brand-accent text-brand-black px-2 py-1 rounded font-bold">
+                          {tCommon('premium')}
+                        </span>
+                      )}
+                    </div>
+                  </LocaleLink>
+                ))}
+              </div>
+            )}
+            <div className="mt-4 text-center">
+              <LocaleLink
+                href="/courses"
+                className="inline-block bg-brand-accent text-brand-black px-6 py-2 rounded-lg font-bold hover:bg-brand-primary-400 transition-colors"
+              >
+                {t('viewAllCourses')} →
+              </LocaleLink>
+            </div>
+          </div>
+        )}
 
         {/* Player Header Card */}
         <div className="bg-brand-white rounded-2xl shadow-xl p-6 mb-8 border-2 border-brand-accent">

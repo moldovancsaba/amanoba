@@ -29,6 +29,7 @@ import {
   BookOpen,
   FileText,
   CreditCard,
+  ClipboardList,
 } from 'lucide-react';
 
 interface NavItem {
@@ -43,6 +44,7 @@ const navigationItems = [
   { key: 'dashboard', href: '/admin', icon: LayoutDashboard },
   { key: 'analytics', href: '/admin/analytics', icon: BarChart3 },
   { key: 'payments', href: '/admin/payments', icon: CreditCard },
+  { key: 'surveys', href: '/admin/surveys', icon: ClipboardList },
   { key: 'courses', href: '/admin/courses', icon: BookOpen },
   { key: 'courseGuide', href: '/admin/docs/course-creation', icon: FileText },
   { key: 'players', href: '/admin/players', icon: Users },
