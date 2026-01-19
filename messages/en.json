@@ -636,5 +636,19 @@
     "completionSubject": "🎉 Congratulations! You've completed {{courseName}}!",
     "lessonSubject": "Day {{dayNumber}}: {{lessonTitle}}",
     "reminderSubject": "📚 Don't miss Day {{dayNumber}} of {{courseName}}"
+  },
+  "onboarding": {
+    "title": "Onboarding Survey",
+    "description": "Help us understand your learning goals and preferences to recommend the best courses for you.",
+    "questionProgress": "Question {{current}} of {{total}}",
+    "submitting": "Submitting...",
+    "submitError": "Failed to submit survey. Please try again.",
+    "notAvailable": "Survey not available",
+    "goToDashboard": "Go to Dashboard",
+    "required": "Required",
+    "selectOption": "Select an option",
+    "selectOptions": "Select one or more options",
+    "enterText": "Enter your answer",
+    "selectRating": "Select a rating"
   }
 }

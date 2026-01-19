@@ -57,6 +57,7 @@ export default function OnboardingPage() {
   const router = useRouter();
   const locale = useLocale();
   const t = useTranslations('common');
+  const tOnboarding = useTranslations('onboarding');
   const [survey, setSurvey] = useState<Survey | null>(null);
   const [loading, setLoading] = useState(true);
   const [submitting, setSubmitting] = useState(false);
@@ -234,12 +235,12 @@ export default function OnboardingPage() {
     return (
       <div className="min-h-screen bg-brand-black flex items-center justify-center">
         <div className="text-center">
-          <h2 className="text-2xl font-bold text-brand-white mb-4">Survey not available</h2>
+          <h2 className="text-2xl font-bold text-brand-white mb-4">{tOnboarding('notAvailable') || 'Survey not available'}</h2>
           <LocaleLink
             href="/dashboard"
             className="inline-block bg-brand-accent text-brand-black px-6 py-3 rounded-lg font-bold hover:bg-brand-primary-400"
           >
-            Go to Dashboard
+            {tOnboarding('goToDashboard') || t('dashboard')}
           </LocaleLink>
         </div>
       </div>
@@ -272,7 +273,7 @@ export default function OnboardingPage() {
             />
           </div>
           <div className="text-sm text-brand-white/70 mt-2 text-center">
-            Question {currentStep + 1} of {survey.questions.length}
+            {tOnboarding('questionProgress', { current: currentStep + 1, total: survey.questions.length }) || `Question ${currentStep + 1} of ${survey.questions.length}`}
           </div>
         </div>
       </header>
@@ -416,7 +417,7 @@ export default function OnboardingPage() {
               {submitting ? (
                 <>
                   <Loader2 className="w-5 h-5 animate-spin" />
-                  Submitting...
+                  {tOnboarding('submitting') || 'Submitting...'}
                 </>
               ) : isLastStep ? (
                 <>

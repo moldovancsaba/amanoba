@@ -7,9 +7,9 @@
  * What: Comprehensive dashboard showing level, XP, points, achievements, and streaks
  */
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { useSession, signOut } from 'next-auth/react';
-import { useRouter } from 'next/navigation';
+import { useRouter, usePathname } from 'next/navigation';
 import { useTranslations, useLocale } from 'next-intl';
 import { LocaleLink } from '@/components/LocaleLink';
 import { ReferralCard } from '@/components/ReferralCard';
@@ -70,7 +70,9 @@ interface PlayerData {
 export default function Dashboard() {
   const { data: session, status } = useSession();
   const router = useRouter();
+  const pathname = usePathname();
   const locale = useLocale();
+  const hasCheckedSurvey = useRef(false);
   const t = useTranslations('dashboard');
   const tCommon = useTranslations('common');
   const tAuth = useTranslations('auth');
@@ -127,11 +129,21 @@ export default function Dashboard() {
         console.log('Dashboard data refreshed:', data);
         
         // Check if player needs to complete survey
-        if (data.player && !data.player.surveyCompleted) {
-          // Redirect to onboarding survey
-          router.push(`/${locale}/onboarding`);
-          return;
+        // Skip check if we just came from onboarding (query param) or already checked
+        if (typeof window !== 'undefined') {
+          const urlParams = new URLSearchParams(window.location.search);
+          const surveyCompleted = urlParams.get('surveyCompleted') === 'true';
+          
+          if (!hasCheckedSurvey.current && !surveyCompleted && data.player && !data.player.surveyCompleted && pathname?.includes('/dashboard')) {
+            hasCheckedSurvey.current = true;
+            // Small delay to prevent immediate redirect loop
+            setTimeout(() => {
+              router.push(`/${locale}/onboarding`);
+            }, 100);
+            return;
+          }
         }
+        hasCheckedSurvey.current = true;
       } else {
         setError('Failed to load player data');
       }

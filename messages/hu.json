@@ -662,5 +662,19 @@
     "pending": "Folyamatban",
     "shareMessage": "Csatlakozz az Amanobához és kezdj el tanulni! Az ajánlókódom:",
     "emailBody": "Szia!\n\nSzeretnélek meghívni, hogy csatlakozz az Amanobához - egy 30 napos tanulási platformhoz, ahol hasznos kurzusokat vehetsz igénybe.\n\nAz ajánlókódommal mindketten bónusz pontokat kapsz!"
+  },
+  "onboarding": {
+    "title": "Bevezető felmérés",
+    "description": "Segíts nekünk megérteni a tanulási céljaidat és preferenciáidat, hogy a legjobb kurzusokat ajánlhasuk számodra.",
+    "questionProgress": "Kérdés {{current}} / {{total}}",
+    "submitting": "Küldés...",
+    "submitError": "Nem sikerült elküldeni a felmérést. Kérjük, próbáld újra.",
+    "notAvailable": "A felmérés jelenleg nem elérhető",
+    "goToDashboard": "Irányítópult",
+    "required": "Kötelező",
+    "selectOption": "Válassz egy opciót",
+    "selectOptions": "Válassz egy vagy több opciót",
+    "enterText": "Írd be a válaszod",
+    "selectRating": "Válassz értékelést"
   }
 }

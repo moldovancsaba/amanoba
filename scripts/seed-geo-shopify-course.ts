@@ -763,6 +763,477 @@ const lessonPlan: LessonEntry[] = [
 <h2>Readiness checklist</h2>
 <p>Ma összeállítod a merchant readiness checklistet és kijelölöd a top 10 javítást.</p>
 <p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Olvasd el a leckét →</a></p>`
+  },
+  {
+    day: 13,
+    title: 'Idézhető termékoldal blueprint',
+    content: `<h1>Idézhető termékoldal blueprint</h1>
+<p><em>Olyan PDP szerkezetet építesz, amit az AI biztonsággal idéz.</em></p>
+<hr />
+<h2>Napi cél</h2>
+<ul>
+<li>Felrajzolod a „GEO-ready” PDP blokk-sorrendet.</li>
+<li>Átdolgozol 1 termékoldalt a blueprint szerint.</li>
+</ul>
+<hr />
+<h2>Miért számít?</h2>
+<ul>
+<li>A generatív modellek a felső blokkokat olvassák először.</li>
+<li>A tiszta szerkezet csökkenti a félreértelmezést (ár, policy, variáns).</li>
+</ul>
+<hr />
+<h2>Magyarázat</h2>
+<h3>Ajánlott sorrend</h3>
+<ul>
+<li>Answer capsule (kinek, mire jó/nem jó, ár/stock röviden).</li>
+<li>Fő kép + variáns vizuál.</li>
+<li>Ár, készlet, kulcs USPs, CTA.</li>
+<li>Policy blokk (szállítás/retour linkkel).</li>
+<li>Részletes leírás, specifikáció.</li>
+<li>Bizalom: review, garancia, support.</li>
+</ul>
+<hr />
+<h2>Példák</h2>
+<ul>
+<li><strong>Jó</strong>: Rövid answer capsule, tiszta ár/készlet, policy link, specifikáció táblázat.</li>
+<li><strong>Rossz</strong>: Hosszú bekezdés ár nélkül, szétszórt policy, hiányzó CTA.</li>
+</ul>
+<hr />
+<h2>Gyakorlat (vezetett, 10-15 perc)</h2>
+<ol>
+<li>Fogj egy PDP-t: rendezd át a blokkokat a fenti sorrendben.</li>
+<li>Add hozzá az answer capsule-t és a policy blokkot.</li>
+</ol>
+<h2>Gyakorlat (önálló, 5-10 perc)</h2>
+<p>Ismételd meg egy másik termékoldalon; jegyezd, mit kellett hozzáadni.</p>
+<hr />
+<h2>Önellenőrzés</h2>
+<ul>
+<li>Answer capsule felkerült.</li>
+<li>Ár/készlet/CTA jól látható.</li>
+<li>Policy link stabil URL-lel.</li>
+<li>Specifikáció táblázatban.</li>
+<li>Trust elemek a hajtás felett.</li>
+</ul>
+<hr />
+<h2>Opcionális mélyítés</h2>
+<ul>
+<li>Shopify PDP tartalom: <a href="https://shopify.dev/docs/apps/selling-strategies/product-data" target="_blank" rel="noreferrer">https://shopify.dev/docs/apps/selling-strategies/product-data</a></li>
+<li>GEO alap: <a href="https://searchengineland.com/guide/what-is-geo" target="_blank" rel="noreferrer">https://searchengineland.com/guide/what-is-geo</a></li>
+</ul>`,
+    emailSubject: 'GEO Shopify – 13. nap: Idézhető PDP blueprint',
+    emailBody: `<h1>GEO Shopify – 13. nap</h1>
+<h2>Idézhető PDP blueprint</h2>
+<p>Ma felrajzolod a GEO-ready PDP blokk-sorrendet és átdolgozol 2 oldalt.</p>
+<p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Olvasd el a leckét →</a></p>`
+  },
+  {
+    day: 14,
+    title: 'Answer capsule: 5 soros összegzés a PDP tetején',
+    content: `<h1>Answer capsule: 5 soros összegzés a PDP tetején</h1>
+<p><em>Megírod a rövid blokkot, amit az AI biztonsággal idézhet.</em></p>
+<hr />
+<h2>Napi cél</h2>
+<ul>
+<li>Megírsz 2 answer capsule-t.</li>
+<li>Beteszed őket a PDP-k tetejére.</li>
+</ul>
+<hr />
+<h2>Miért számít?</h2>
+<ul>
+<li>A modell rövid válaszokat keres a hajtás felett.</li>
+<li>Csökkenti a félreértést: kinek való/nem való, ár/policy egyértelmű.</li>
+</ul>
+<hr />
+<h2>Magyarázat</h2>
+<h3>5 soros minta</h3>
+<ol>
+<li>Kinek és mire jó?</li>
+<li>Kinek nem ajánlott?</li>
+<li>Fő előny (1-2 bullet).</li>
+<li>Ár + készlet státusz.</li>
+<li>Szállítás/visszaküldés röviden + link.</li>
+</ol>
+<hr />
+<h2>Példák</h2>
+<ul>
+<li><strong>Jó</strong>: „Futócipő haladóknak napi edzéshez. Nem ajánlott széles lábfejre. Előny: stabilitás, párnázás. Ár: 39 900 Ft, készlet: raktáron. Szállítás 3-5 nap, 30 napos visszaküldés: /policies/shipping.”</li>
+<li><strong>Rossz</strong>: „Szuper cipő, vedd meg! Gyors szállítás.”</li>
+</ul>
+<hr />
+<h2>Gyakorlat (vezetett, 10-15 perc)</h2>
+<ol>
+<li>Írj 2 answer capsule-t a legnézettebb termékeidre a fenti 5 sor alapján.</li>
+<li>Illeszd be a PDP tetejére (rich text block vagy metafield).</li>
+</ol>
+<h2>Gyakorlat (önálló, 5-10 perc)</h2>
+<p>Írj még 1 kapszulát egy eltérő kategóriára, és mentsd sablonként.</p>
+<hr />
+<h2>Önellenőrzés</h2>
+<ul>
+<li>Kinek/nem kinek megvan.</li>
+<li>Ár/készlet/policy szerepel.</li>
+<li>Link stabil URL-re mutat.</li>
+<li>Blokk a hajtás felett.</li>
+</ul>
+<hr />
+<h2>Opcionális mélyítés</h2>
+<ul>
+<li>OpenAI shopping help: <a href="https://help.openai.com/en/articles/11128490-shopping-with-chatgpt-search" target="_blank" rel="noreferrer">https://help.openai.com/en/articles/11128490-shopping-with-chatgpt-search</a></li>
+</ul>`,
+    emailSubject: 'GEO Shopify – 14. nap: Answer capsule',
+    emailBody: `<h1>GEO Shopify – 14. nap</h1>
+<h2>Answer capsule</h2>
+<p>Ma 2 answer capsule-t írsz és a PDP tetejére helyezed őket.</p>
+<p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Olvasd el a leckét →</a></p>`
+  },
+  {
+    day: 15,
+    title: 'Variáns tisztaság: méret/szín keveredés nélkül',
+    content: `<h1>Variáns tisztaság: méret/szín keveredés nélkül</h1>
+<p><em>Rögzíted, hogy a variánsadatok egyértelműek legyenek az AI számára.</em></p>
+<hr />
+<h2>Napi cél</h2>
+<ul>
+<li>Átnézel 10 variánst, és egységesíted a megnevezést.</li>
+<li>Hozzárendeled a képeket variáns szinten.</li>
+</ul>
+<hr />
+<h2>Miért számít?</h2>
+<ul>
+<li>A kevert variánsok félreajánláshoz vezetnek.</li>
+<li>Az AI szívesebben idézi az egyértelmű variánsadatot.</li>
+</ul>
+<hr />
+<h2>Magyarázat</h2>
+<h3>Jelölés</h3>
+<ul>
+<li>Variáns címben jelenjen meg a méret/szín egyértelműen.</li>
+<li>Képek variáns szinten párosítva.</li>
+<li>SKU/GTIN variáns-specifikus.</li>
+</ul>
+<hr />
+<h2>Példák</h2>
+<ul>
+<li><strong>Jó</strong>: „Férfi, kék, 42” + kék cipő kép + egyedi SKU/GTIN.</li>
+<li><strong>Rossz</strong>: „42 kék/fekete” egy kép, közös SKU.</li>
+</ul>
+<hr />
+<h2>Gyakorlat (vezetett, 10-15 perc)</h2>
+<ol>
+<li>Válassz 5 terméket: állítsd be a variáns neveket (méret, szín külön mezőben), rendelj képet variáns szinten.</li>
+<li>Ellenőrizd az SKU/GTIN mezőt variánsonként.</li>
+</ol>
+<h2>Gyakorlat (önálló, 5-10 perc)</h2>
+<p>További 5 terméknél ismételd, és jegyezd fel a gyakori hibákat.</p>
+<hr />
+<h2>Önellenőrzés</h2>
+<ul>
+<li>Minden variánsnak egyedi SKU-ja van.</li>
+<li>GTIN (ha van) variáns szinten.</li>
+<li>Variáns név egyértelmű, nincs keverés.</li>
+<li>Variáns képek párosítva.</li>
+</ul>
+<hr />
+<h2>Opcionális mélyítés</h2>
+<ul>
+<li>Shopify variáns kezelés: <a href="https://help.shopify.com/hu/manual/products/variants" target="_blank" rel="noreferrer">https://help.shopify.com/hu/manual/products/variants</a></li>
+</ul>`,
+    emailSubject: 'GEO Shopify – 15. nap: Variáns tisztaság',
+    emailBody: `<h1>GEO Shopify – 15. nap</h1>
+<h2>Variáns tisztaság</h2>
+<p>Ma egységesíted a variáns elnevezéseket és a képpárosításokat.</p>
+<p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Olvasd el a leckét →</a></p>`
+  },
+  {
+    day: 16,
+    title: 'Kollekció-oldal mint guide, nem csak grid',
+    content: `<h1>Kollekció-oldal mint guide, nem csak grid</h1>
+<p><em>Úgy alakítod a kollekciót, hogy tanácsot adjon, ne csak listázzon.</em></p>
+<hr />
+<h2>Napi cél</h2>
+<ul>
+<li>Átstrukturálsz 1 kollekció-oldalt guide stílusra.</li>
+<li>Hozzáadsz 3 blokkot: kinek való, hogyan válassz, top választások.</li>
+</ul>
+<hr />
+<h2>Miért számít?</h2>
+<ul>
+<li>Az AI előszeretettel idéz jól tagolt, tanácsadó tartalmat.</li>
+<li>A vásárló gyorsabban dönt, kevesebb a visszaküldés.</li>
+</ul>
+<hr />
+<h2>Magyarázat</h2>
+<h3>Struktúra</h3>
+<ul>
+<li>Hero blokk: kinek, milyen helyzetre.</li>
+<li>Választási szempontok (3-5 bullet).</li>
+<li>Top 3 ajánlás linkkel (PDP-re).</li>
+<li>Policy röviden + link.</li>
+</ul>
+<hr />
+<h2>Példák</h2>
+<ul>
+<li><strong>Jó</strong>: „Futócipő kollekció: kezdő/haladó útmutató, top 3 modell, méret tippek.”</li>
+<li><strong>Rossz</strong>: Csak termékgrid leírás nélkül.</li>
+</ul>
+<hr />
+<h2>Gyakorlat (vezetett, 10-15 perc)</h2>
+<ol>
+<li>Válassz 1 kollekciót: adj hozzá guide blokkokat (hero + szempontok + top 3).</li>
+<li>Linkeld a PDP-ket következetesen.</li>
+</ol>
+<h2>Gyakorlat (önálló, 5-10 perc)</h2>
+<p>Dokumentáld a szekciókat egy sablonba, hogy más kollekcióknál is használd.</p>
+<hr />
+<h2>Önellenőrzés</h2>
+<ul>
+<li>Van hero blokk, benne kinek/mire jó.</li>
+<li>Választási szempontok megjelennek.</li>
+<li>Top 3 ajánlás linkkel.</li>
+<li>Policy blokk röviden.</li>
+</ul>
+<hr />
+<h2>Opcionális mélyítés</h2>
+<ul>
+<li>Shopify kollekció testreszabás: <a href="https://help.shopify.com/hu/manual/online-store/themes/customizing-themes/add-content/change-collection-page" target="_blank" rel="noreferrer">https://help.shopify.com/hu/manual/online-store/themes/customizing-themes/add-content/change-collection-page</a></li>
+</ul>`,
+    emailSubject: 'GEO Shopify – 16. nap: Kollekció mint guide',
+    emailBody: `<h1>GEO Shopify – 16. nap</h1>
+<h2>Kollekció mint guide</h2>
+<p>Ma egy kollekció-oldalt alakítasz tanácsadó szerkezetre.</p>
+<p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Olvasd el a leckét →</a></p>`
+  },
+  {
+    day: 17,
+    title: 'Strukturált adatok ellenőrzése (schema)',
+    content: `<h1>Strukturált adatok ellenőrzése (schema)</h1>
+<p><em>Ellenőrzöd a product/offer schema-t, hogy az AI helyesen értelmezze.</em></p>
+<hr />
+<h2>Napi cél</h2>
+<ul>
+<li>Validálod a product/offer schema-t 3 oldalon.</li>
+<li>Listázod a hibákat/hiányokat.</li>
+</ul>
+<hr />
+<h2>Miért számít?</h2>
+<ul>
+<li>A generatív motorok gyakran támaszkodnak a strukturált adatra.</li>
+<li>Hibás schema → téves ár/készlet/azonosító.</li>
+</ul>
+<hr />
+<h2>Magyarázat</h2>
+<h3>Mit nézz?</h3>
+<ul>
+<li>@type Product + Offer; price, priceCurrency, availability.</li>
+<li>sku, gtin, brand, image, url, review (ha valós).</li>
+<li>Ne tüntess fel hamis review-t.</li>
+</ul>
+<hr />
+<h2>Példák</h2>
+<ul>
+<li><strong>Jó</strong>: Valid JSON-LD, ár/készlet megegyezik a PDP-vel.</li>
+<li><strong>Rossz</strong>: Hiányzó availability, hibás ár, hamis review.</li>
+</ul>
+<hr />
+<h2>Gyakorlat (vezetett, 10-15 perc)</h2>
+<ol>
+<li>Futtasd a Rich Results Testet 3 PDP-n.</li>
+<li>Jegyezd a hibákat (missing field, invalid value).</li>
+</ol>
+<h2>Gyakorlat (önálló, 5-10 perc)</h2>
+<p>Javíts 1 hibát (pl. availability vagy price), és ellenőrizd újra.</p>
+<hr />
+<h2>Önellenőrzés</h2>
+<ul>
+<li>3 oldal validálva.</li>
+<li>Hibák listázva.</li>
+<li>Legalább 1 hiba javítva.</li>
+</ul>
+<hr />
+<h2>Opcionális mélyítés</h2>
+<ul>
+<li>Shopify structured data: <a href="https://shopify.dev/docs/themes/metadata/structured-data" target="_blank" rel="noreferrer">https://shopify.dev/docs/themes/metadata/structured-data</a></li>
+<li>Rich Results Test: <a href="https://search.google.com/test/rich-results" target="_blank" rel="noreferrer">https://search.google.com/test/rich-results</a></li>
+</ul>`,
+    emailSubject: 'GEO Shopify – 17. nap: Schema ellenőrzés',
+    emailBody: `<h1>GEO Shopify – 17. nap</h1>
+<h2>Schema ellenőrzés</h2>
+<p>Ma validálod a product/offer schema-t és javítasz egy hibát.</p>
+<p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Olvasd el a leckét →</a></p>`
+  },
+  {
+    day: 18,
+    title: 'Árak, ajánlatok, review-k biztonságosan',
+    content: `<h1>Árak, ajánlatok, review-k biztonságosan</h1>
+<p><em>Áttekinted, mikor és hogyan mutass árakat, kedvezményt, review-t anélkül, hogy félrevezetnél.</em></p>
+<hr />
+<h2>Napi cél</h2>
+<ul>
+<li>Egységesíted az ár/akció megjelenítését.</li>
+<li>Átnézed a review blokkot és eltávolítod a gyenge/hamis elemeket.</li>
+</ul>
+<hr />
+<h2>Miért számít?</h2>
+<ul>
+<li>Az AI érzékeny a hamis vagy elavult árra.</li>
+<li>Félrevezető review komoly kockázat.</li>
+</ul>
+<hr />
+<h2>Magyarázat</h2>
+<h3>Ár/akció</h3>
+<ul>
+<li>Használj compare-at-price mezőt, ne kézi szöveget.</li>
+<li>Mutasd a kedvezmény okát és időtartamát, ha van.</li>
+</ul>
+<h3>Review</h3>
+<ul>
+<li>Csak valós értékelést jeleníts meg.</li>
+<li>Ne manipuláld a számokat; ne rejtsd el a negatívakat.</li>
+</ul>
+<hr />
+<h2>Példák</h2>
+<ul>
+<li><strong>Jó</strong>: Ár: 39 900 Ft (eredeti 44 900 Ft), kedvezmény ok: „szezonvégi”, review 4.6/5 128 valós értékelésből.</li>
+<li><strong>Rossz</strong>: „Most ingyen!” valótlan ár, hamis 5/5 értékelés.</li>
+</ul>
+<hr />
+<h2>Gyakorlat (vezetett, 10-15 perc)</h2>
+<ol>
+<li>Válassz 5 terméket: ellenőrizd az ár/compare-at-price mezőt és a kedvezmény üzenetet.</li>
+<li>Nézd át a review blokkot: távolítsd el a kétes tartalmat, jelöld a forrást.</li>
+</ol>
+<h2>Gyakorlat (önálló, 5-10 perc)</h2>
+<p>Írj egy rövid policy sort a PDP-re: „Review forrása, frissítés dátuma”.</p>
+<hr />
+<h2>Önellenőrzés</h2>
+<ul>
+<li>Ár és akció mezők konzisztens.</li>
+<li>Kedvezmény ok/határidő megadva, ha van.</li>
+<li>Review blokk valós, forrás megjelölve.</li>
+<li>Policy link él.</li>
+</ul>
+<hr />
+<h2>Opcionális mélyítés</h2>
+<ul>
+<li>Google Merchant Center ár/akció szabályok: <a href="https://support.google.com/merchants/answer/7052112" target="_blank" rel="noreferrer">https://support.google.com/merchants/answer/7052112</a></li>
+</ul>`,
+    emailSubject: 'GEO Shopify – 18. nap: Árak és review-k',
+    emailBody: `<h1>GEO Shopify – 18. nap</h1>
+<h2>Árak és review-k</h2>
+<p>Ma egységesíted az ár/akció megjelenítést és kitisztítod a review blokkot.</p>
+<p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Olvasd el a leckét →</a></p>`
+  },
+  {
+    day: 19,
+    title: 'Képek és videó GEO: alt, fájlnév, variáns vizuál',
+    content: `<h1>Képek és videó GEO: alt, fájlnév, variáns vizuál</h1>
+<p><em>Optimalizálod a vizuális anyagokat, hogy érthetők legyenek a modelleknek.</em></p>
+<hr />
+<h2>Napi cél</h2>
+<ul>
+<li>10 kép alt/fájlnév/variáns hozzárendelés javítása.</li>
+<li>1 rövid videó cím + leírás egységesítése.</li>
+</ul>
+<hr />
+<h2>Miért számít?</h2>
+<ul>
+<li>Az AI a képcímkéket is felhasználhatja összegzéshez.</li>
+<li>Variáns vizuál hiánya félreértett szín/méret ajánláshoz vezet.</li>
+</ul>
+<hr />
+<h2>Magyarázat</h2>
+<ul>
+<li>Alt szöveg: termék, variáns, fő jellemző.</li>
+<li>Fájlnév: rövid, kötőjelekkel, variáns jelöléssel.</li>
+<li>Videó: cím + rövid leírás, kinek, mire jó.</li>
+</ul>
+<hr />
+<h2>Példák</h2>
+<ul>
+<li><strong>Jó</strong>: <code>runner-blue-42.jpg</code>, alt: „kék férfi futócipő 42-es stabil talppal”.</li>
+<li><strong>Rossz</strong>: <code>IMG_1234.JPG</code>, alt: „image”.</li>
+</ul>
+<hr />
+<h2>Gyakorlat (vezetett, 10-15 perc)</h2>
+<ol>
+<li>Javíts 10 képet: fájlnév + alt + variáns párosítás.</li>
+<li>Adj címet/leírást 1 termékvideónak.</li>
+</ol>
+<h2>Gyakorlat (önálló, 5-10 perc)</h2>
+<p>Készíts sablont az alt szövegre (termék + variáns + fő USP), és alkalmazd új képeknél.</p>
+<hr />
+<h2>Önellenőrzés</h2>
+<ul>
+<li>10 kép alt/fájlnév/variáns javítva.</li>
+<li>Videó cím + leírás megadva.</li>
+<li>Sablon rögzítve a jövőre.</li>
+</ul>
+<hr />
+<h2>Opcionális mélyítés</h2>
+<ul>
+<li>Shopify alt szöveg: <a href="https://help.shopify.com/hu/manual/online-store/images/add-alt-text" target="_blank" rel="noreferrer">https://help.shopify.com/hu/manual/online-store/images/add-alt-text</a></li>
+</ul>`,
+    emailSubject: 'GEO Shopify – 19. nap: Kép/videó GEO',
+    emailBody: `<h1>GEO Shopify – 19. nap</h1>
+<h2>Kép/videó GEO</h2>
+<p>Ma 10 képnél javítod az alt/fájlnév/variáns párosítást, és frissíted egy videó leírását.</p>
+<p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Olvasd el a leckét →</a></p>`
+  },
+  {
+    day: 20,
+    title: 'Minimum tartalom: nincs „thin” PDP',
+    content: `<h1>Minimum tartalom: nincs „thin” PDP</h1>
+<p><em>Felszámolod az alacsony tartalmú termékoldalakat.</em></p>
+<hr />
+<h2>Napi cél</h2>
+<ul>
+<li>Összeállítod a minimum tartalmi standardot.</li>
+<li>Javítasz 3 „thin” oldalt.</li>
+</ul>
+<hr />
+<h2>Miért számít?</h2>
+<ul>
+<li>A kevés tartalom kevésbé idézhető, és rossz ajánláshoz vezet.</li>
+<li>Visszaküldés nő, ha a felhasználó nem kap elég infót.</li>
+</ul>
+<hr />
+<h2>Magyarázat</h2>
+<ul>
+<li>Minimum elemek: answer capsule, ár/készlet, policy, 3 USP, specifikáció, 2 kép variánssal.</li>
+<li>Hiány esetén: bővítés sablonból, specifikáció táblázat.</li>
+</ul>
+<hr />
+<h2>Példák</h2>
+<ul>
+<li><strong>Jó</strong>: Rövid kapszula + 3 USP + specifikáció + 4 kép.</li>
+<li><strong>Rossz</strong>: 1 mondatos leírás, 1 kép, nincs policy.</li>
+</ul>
+<hr />
+<h2>Gyakorlat (vezetett, 10-15 perc)</h2>
+<ol>
+<li>Állíts össze minimum standard listát (checkbox formában).</li>
+<li>Válassz 3 „thin” PDP-t, és töltsd fel a hiányzó blokkokat.</li>
+</ol>
+<h2>Gyakorlat (önálló, 5-10 perc)</h2>
+<p>Dokumentáld a standardot a csapatnak, hogy új termékeknél kötelező legyen.</p>
+<hr />
+<h2>Önellenőrzés</h2>
+<ul>
+<li>Minimum lista kész.</li>
+<li>3 PDP bővítve.</li>
+<li>Specifikáció táblázat mindenhol megvan.</li>
+</ul>
+<hr />
+<h2>Opcionális mélyítés</h2>
+<ul>
+<li>Google tartalom irányelvek: <a href="https://developers.google.com/search/docs/fundamentals/creating-helpful-content" target="_blank" rel="noreferrer">https://developers.google.com/search/docs/fundamentals/creating-helpful-content</a></li>
+</ul>`,
+    emailSubject: 'GEO Shopify – 20. nap: Minimum tartalom',
+    emailBody: `<h1>GEO Shopify – 20. nap</h1>
+<h2>Minimum tartalom</h2>
+<p>Ma standardot állítasz fel, és javítasz 3 thin PDP-t.</p>
+<p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Olvasd el a leckét →</a></p>`
   }
 ];
 
@@ -1652,6 +2123,510 @@ async function seed() {
           category: 'Course Specific'
         }
       );
+    } else if (entry.day === 13) {
+      quizzes.push(
+        {
+          question: 'Mi a GEO-ready PDP első blokkja?',
+          options: [
+            'Answer capsule a hajtás felett',
+            'Hosszú leírás legalján',
+            'Csak képgaléria',
+            'Véletlen sorrend'
+          ],
+          correctIndex: 0,
+          difficulty: QuestionDifficulty.EASY,
+          category: 'Course Specific'
+        },
+        {
+          question: 'Miért fontos a policy blokk a felső részen?',
+          options: [
+            'Az AI és a vevő gyorsan látja a szállítás/retour infót',
+            'Csak dizájn',
+            'Nem szükséges',
+            'Csak SEO kulcsszó miatt'
+          ],
+          correctIndex: 0,
+          difficulty: QuestionDifficulty.MEDIUM,
+          category: 'Course Specific'
+        },
+        {
+          question: 'Mi legyen a PDP sorrendben a kapszula után?',
+          options: [
+            'Fő kép + variáns vizuál, majd ár/készlet/CTA',
+            'Footer linkek',
+            'Blog bejegyzések',
+            'Csak véletlen sorrend'
+          ],
+          correctIndex: 0,
+          difficulty: QuestionDifficulty.MEDIUM,
+          category: 'Course Specific'
+        },
+        {
+          question: 'Mi a jó példa a blueprintre?',
+          options: [
+            'Kapszula + ár/készlet + policy + specifikáció táblázat',
+            'Egy mondat ár nélkül',
+            'Nincs CTA',
+            'Csak képek'
+          ],
+          correctIndex: 0,
+          difficulty: QuestionDifficulty.EASY,
+          category: 'Course Specific'
+        },
+        {
+          question: 'Miért kell a trust elemeket a hajtás felett elhelyezni?',
+          options: [
+            'Bizalom és idézhetőség nő',
+            'Csak esztétika',
+            'Nem számít',
+            'Csak a footerben fontos'
+          ],
+          correctIndex: 0,
+          difficulty: QuestionDifficulty.HARD,
+          category: 'Course Specific'
+        }
+      );
+    } else if (entry.day === 14) {
+      quizzes.push(
+        {
+          question: 'Mi az answer capsule 5 sorának egyik kötelező eleme?',
+          options: [
+            'Kinek nem ajánlott a termék',
+            'Véletlen szlogen',
+            'Csak terméknév',
+            'Csak egy emoji'
+          ],
+          correctIndex: 0,
+          difficulty: QuestionDifficulty.EASY,
+          category: 'Course Specific'
+        },
+        {
+          question: 'Hova kerüljön az answer capsule?',
+          options: [
+            'PDP tetejére, hajtás fölé',
+            'Footerbe',
+            'Csak a blogba',
+            'Rejtett elemként'
+          ],
+          correctIndex: 0,
+          difficulty: QuestionDifficulty.EASY,
+          category: 'Course Specific'
+        },
+        {
+          question: 'Miért kell linkelni a policy-t a kapszulában?',
+          options: [
+            'Stabil URL-t kap az AI és a vevő',
+            'Csak dísz',
+            'Nem szükséges link',
+            'Csak SEO miatt'
+          ],
+          correctIndex: 0,
+          difficulty: QuestionDifficulty.MEDIUM,
+          category: 'Course Specific'
+        },
+        {
+          question: 'Mi a rossz példa kapszulára?',
+          options: [
+            '„Szuper termék, vedd meg!” ár/policy nélkül',
+            'Kinek/nem kinek + ár + készlet + policy',
+            'Rövid, tömör összegzés',
+            'Linkelt policy'
+          ],
+          correctIndex: 0,
+          difficulty: QuestionDifficulty.EASY,
+          category: 'Course Specific'
+        },
+        {
+          question: 'Mi a jó gyakorlat kapszula sablonra?',
+          options: [
+            'Menteni és új termékeknél újra használni',
+            'Mindenkor kézzel írni változtatás nélkül',
+            'Nem dokumentálni',
+            'Csak random szöveg'
+          ],
+          correctIndex: 0,
+          difficulty: QuestionDifficulty.MEDIUM,
+          category: 'Course Specific'
+        }
+      );
+    } else if (entry.day === 15) {
+      quizzes.push(
+        {
+          question: 'Miért kell variáns szinten egyedi SKU?',
+          options: [
+            'Az AI és a feed pontosan azonosítson minden variánst',
+            'Csak design okból',
+            'Nem számít',
+            'SEO kulcsszó miatt'
+          ],
+          correctIndex: 0,
+          difficulty: QuestionDifficulty.EASY,
+          category: 'Course Specific'
+        },
+        {
+          question: 'Mi a jó variáns elnevezés példája?',
+          options: [
+            '„Férfi, kék, 42”',
+            '„42 kék/fekete?”',
+            '„Termék variáns”',
+            'Nincs megadva'
+          ],
+          correctIndex: 0,
+          difficulty: QuestionDifficulty.EASY,
+          category: 'Course Specific'
+        },
+        {
+          question: 'Miért kell variáns képpárosítás?',
+          options: [
+            'Elkerülni a szín/méret félreértést ajánláskor',
+            'Csak esztétika',
+            'Nem kell',
+            'Csak SEO alt miatt'
+          ],
+          correctIndex: 0,
+          difficulty: QuestionDifficulty.MEDIUM,
+          category: 'Course Specific'
+        },
+        {
+          question: 'Mi a rossz gyakorlat variánsokra?',
+          options: [
+            'Közös SKU/GTIN, kevert megnevezés',
+            'Egyedi SKU',
+            'Egyértelmű név',
+            'Párosított kép'
+          ],
+          correctIndex: 0,
+          difficulty: QuestionDifficulty.EASY,
+          category: 'Course Specific'
+        },
+        {
+          question: 'Mit jegyezz fel a gyakori hibákhoz?',
+          options: [
+            'Összegyűjtöd és sablont készítesz a javításra',
+            'Nem dokumentálod',
+            'Elrejted',
+            'Csak marketing szlogent írsz'
+          ],
+          correctIndex: 0,
+          difficulty: QuestionDifficulty.MEDIUM,
+          category: 'Course Specific'
+        }
+      );
+    } else if (entry.day === 16) {
+      quizzes.push(
+        {
+          question: 'Mi a guide jellegű kollekció egyik fő blokkja?',
+          options: [
+            'Választási szempontok (3-5 bullet)',
+            'Csak termékgrid',
+            'Footer link',
+            'Cookie banner'
+          ],
+          correctIndex: 0,
+          difficulty: QuestionDifficulty.EASY,
+          category: 'Course Specific'
+        },
+        {
+          question: 'Miért jobb a guide, mint a sima grid?',
+          options: [
+            'Gyorsabb döntés, idézhetőbb tartalom',
+            'Csak szebb',
+            'Nem jobb',
+            'Csak SEO miatt'
+          ],
+          correctIndex: 0,
+          difficulty: QuestionDifficulty.MEDIUM,
+          category: 'Course Specific'
+        },
+        {
+          question: 'Mi legyen a hero blokkban?',
+          options: [
+            'Kinek és milyen helyzetre szól a kollekció',
+            'Csak egy kép',
+            'Csak árlista',
+            'Csak egy CTA gomb cím nélkül'
+          ],
+          correctIndex: 0,
+          difficulty: QuestionDifficulty.MEDIUM,
+          category: 'Course Specific'
+        },
+        {
+          question: 'Mi a jó top 3 ajánlás elem?',
+          options: [
+            'Rövid indoklás + link a PDP-re',
+            'Csak terméknév',
+            'Nincs link',
+            'Véletlen sorrend'
+          ],
+          correctIndex: 0,
+          difficulty: QuestionDifficulty.EASY,
+          category: 'Course Specific'
+        },
+        {
+          question: 'Miért dokumentáld a szekció sablont?',
+          options: [
+            'Hogy más kollekcióknál újrahasználd',
+            'Nem kell dokumentálni',
+            'Csak marketing miatt',
+            'Csak design csere miatt'
+          ],
+          correctIndex: 0,
+          difficulty: QuestionDifficulty.MEDIUM,
+          category: 'Course Specific'
+        }
+      );
+    } else if (entry.day === 17) {
+      quizzes.push(
+        {
+          question: 'Mely mezők kötelezőek egy product/offer schema-ban?',
+          options: [
+            'price, priceCurrency, availability, sku/gtin, brand',
+            'Csak title',
+            'Csak description',
+            'Csak image'
+          ],
+          correctIndex: 0,
+          difficulty: QuestionDifficulty.MEDIUM,
+          category: 'Course Specific'
+        },
+        {
+          question: 'Mi a kockázat hibás availability mezőnél?',
+          options: [
+            'Téves ajánlás készlet nélkül',
+            'Semmi',
+            'Csak design hiba',
+            'Csak SEO hossz miatt'
+          ],
+          correctIndex: 0,
+          difficulty: QuestionDifficulty.MEDIUM,
+          category: 'Course Specific'
+        },
+        {
+          question: 'Mi a jó gyakorlat review adatokkal schema-ban?',
+          options: [
+            'Csak valós review-t tüntess fel',
+            'Hamis review is mehet',
+            'Ne adj meg forrást',
+            'Random számokat írj'
+          ],
+          correctIndex: 0,
+          difficulty: QuestionDifficulty.HARD,
+          category: 'Course Specific'
+        },
+        {
+          question: 'Milyen eszközzel validálsz?',
+          options: [
+            'Rich Results Test (Google)',
+            'Csak manuális olvasás',
+            'Nincs validáció',
+            'Backlink checker'
+          ],
+          correctIndex: 0,
+          difficulty: QuestionDifficulty.EASY,
+          category: 'Course Specific'
+        },
+        {
+          question: 'Mit tegyél hiba esetén?',
+          options: [
+            'Javítsd a mezőt (pl. availability, price) és futtasd újra a tesztet',
+            'Hagyd figyelmen kívül',
+            'Töröld a schema-t',
+            'Csak redesign'
+          ],
+          correctIndex: 0,
+          difficulty: QuestionDifficulty.MEDIUM,
+          category: 'Course Specific'
+        }
+      );
+    } else if (entry.day === 18) {
+      quizzes.push(
+        {
+          question: 'Hogyan jeleníts meg kedvezményt helyesen?',
+          options: [
+            'compare-at-price mezővel és ok/időtartam feltüntetésével',
+            'Csak kézi szöveg “akció”',
+            'Hamis kedvezmény',
+            'Keverd az árakat feedben és PDP-n'
+          ],
+          correctIndex: 0,
+          difficulty: QuestionDifficulty.MEDIUM,
+          category: 'Course Specific'
+        },
+        {
+          question: 'Miért veszélyes a hamis review?',
+          options: [
+            'Bizalomvesztés és szabályzat sértés',
+            'Nem veszélyes',
+            'Csak SEO büntetés',
+            'Csak design gond'
+          ],
+          correctIndex: 0,
+          difficulty: QuestionDifficulty.HARD,
+          category: 'Course Specific'
+        },
+        {
+          question: 'Mi legyen feltüntetve a review blokknál?',
+          options: [
+            'Forrás és frissítés dátuma, ha lehet',
+            'Semmi',
+            'Csak pozitív értékelések',
+            'Csak egy csillag ikon'
+          ],
+          correctIndex: 0,
+          difficulty: QuestionDifficulty.MEDIUM,
+          category: 'Course Specific'
+        },
+        {
+          question: 'Mi a jó példa ár megjelenítésre?',
+          options: [
+            '39 900 Ft (eredeti 44 900 Ft), ok: „szezonvégi”',
+            '„Ingyen!” valótlan ár',
+            'Csak “akciós” szó',
+            'Nincs ár'
+          ],
+          correctIndex: 0,
+          difficulty: QuestionDifficulty.EASY,
+          category: 'Course Specific'
+        },
+        {
+          question: 'Mit kerülj a review blokknál?',
+          options: [
+            'Manipulált számok vagy hamis értékelés',
+            'Valós értékelés',
+            'Forrás megjelölés',
+            'Átlátható pontszám'
+          ],
+          correctIndex: 0,
+          difficulty: QuestionDifficulty.MEDIUM,
+          category: 'Course Specific'
+        }
+      );
+    } else if (entry.day === 19) {
+      quizzes.push(
+        {
+          question: 'Mi legyen az alt szövegben?',
+          options: [
+            'Termék + variáns + fő jellemző',
+            'Csak “image” szó',
+            'Emojik',
+            'Üresen hagyni'
+          ],
+          correctIndex: 0,
+          difficulty: QuestionDifficulty.EASY,
+          category: 'Course Specific'
+        },
+        {
+          question: 'Mi a jó fájlnév?',
+          options: [
+            'runner-blue-42.jpg',
+            'IMG_1234.JPG',
+            'photo_final_final.png',
+            'random.jpeg'
+          ],
+          correctIndex: 0,
+          difficulty: QuestionDifficulty.EASY,
+          category: 'Course Specific'
+        },
+        {
+          question: 'Miért párosíts képet variáns szinten?',
+          options: [
+            'Ne keverje az AI a színt/méretet',
+            'Csak esztétika',
+            'Nem kell',
+            'Csak SEO alt miatt'
+          ],
+          correctIndex: 0,
+          difficulty: QuestionDifficulty.MEDIUM,
+          category: 'Course Specific'
+        },
+        {
+          question: 'Mit adj a videóhoz?',
+          options: [
+            'Cím + rövid leírás, kinek/mire jó',
+            'Semmit',
+            'Csak egy link',
+            'Random szöveg forrás nélkül'
+          ],
+          correctIndex: 0,
+          difficulty: QuestionDifficulty.MEDIUM,
+          category: 'Course Specific'
+        },
+        {
+          question: 'Miért készíts alt sablont?',
+          options: [
+            'Következetes legyen minden új képnél',
+            'Nem kell',
+            'Csak design miatt',
+            'Csak SEO miatt'
+          ],
+          correctIndex: 0,
+          difficulty: QuestionDifficulty.MEDIUM,
+          category: 'Course Specific'
+        }
+      );
+    } else if (entry.day === 20) {
+      quizzes.push(
+        {
+          question: 'Mi a minimum tartalom része?',
+          options: [
+            'Answer capsule, ár/készlet, policy, 3 USP, specifikáció, 2 kép',
+            'Csak egy mondat',
+            'Nincs kép',
+            'Csak meta title'
+          ],
+          correctIndex: 0,
+          difficulty: QuestionDifficulty.MEDIUM,
+          category: 'Course Specific'
+        },
+        {
+          question: 'Mi a kockázat a “thin” PDP-nél?',
+          options: [
+            'Kevesebb idézhetőség és rossz ajánlás',
+            'Nincs kockázat',
+            'Csak design gond',
+            'Csak hossz miatt'
+          ],
+          correctIndex: 0,
+          difficulty: QuestionDifficulty.MEDIUM,
+          category: 'Course Specific'
+        },
+        {
+          question: 'Mit tegyél hiányzó specifikáció esetén?',
+          options: [
+            'Töltsd fel táblázatban, sablon alapján',
+            'Hagyd üresen',
+            'Csak marketing szöveget írj',
+            'Random adatot adj meg'
+          ],
+          correctIndex: 0,
+          difficulty: QuestionDifficulty.EASY,
+          category: 'Course Specific'
+        },
+        {
+          question: 'Miért dokumentáld a minimum standardot?',
+          options: [
+            'Új termékeknél kötelező legyen a minőség',
+            'Nem kell dokumentálni',
+            'Csak marketingnek',
+            'Csak egyszeri használatra'
+          ],
+          correctIndex: 0,
+          difficulty: QuestionDifficulty.MEDIUM,
+          category: 'Course Specific'
+        },
+        {
+          question: 'Mi a jó lépés a „thin” oldalakhoz?',
+          options: [
+            'Válassz 3 oldalt és bővítsd a standard szerint',
+            'Semmit nem csinálsz',
+            'Csak képet növeled',
+            'Csak meta descriptiont írsz'
+          ],
+          correctIndex: 0,
+          difficulty: QuestionDifficulty.HARD,
+          category: 'Course Specific'
+        }
+      );
     }
 
     await QuizQuestion.deleteMany({ lessonId });
@@ -1673,7 +2648,7 @@ async function seed() {
     console.log(`✅ Lesson ${lessonId} upserted with ${quizzes.length} questions`);
   }
 
-  console.log('🎉 GEO Shopify course seeded (days 1-3).');
+  console.log('🎉 GEO Shopify course seeded (lessons updated).');
   await mongoose.disconnect();
   console.log('✅ Disconnected');
 }
