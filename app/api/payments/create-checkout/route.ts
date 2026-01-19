@@ -190,8 +190,8 @@ export async function POST(request: NextRequest) {
         playerId: player._id.toString(),
         courseId: course.courseId,
         checkoutSessionId: checkoutSession.id,
-        amount,
-        currency,
+        amount: paymentAmount,
+        currency: paymentCurrency,
       },
       'Created Stripe checkout session'
     );
