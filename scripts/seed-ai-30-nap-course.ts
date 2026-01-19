@@ -25,39 +25,43 @@ const lessonPlan = [
   {
     day: 1,
     title: 'Mi az AI valójában – és mire NEM való?',
-    content: `<h2>Napi cél</h2>
-<p>Ma tisztázzuk, hogy az AI eszköz, nem varázslat. Megérted, mire való, mire nem, és hogyan kérj tőle felelősen.</p>
+    content: `<h1>Mi az AI valójában – és mire NEM való?</h1>
+<p><em>Eszköz, nem varázslat</em></p>
+<p>Ez a lecke segít tisztán látni, hogy az AI <strong>eszköz</strong>, amely jó input mellett jó outputot ad – de nem dönt helyetted, és nem vállal felelősséget. A cél, hogy tudatosan és biztonságosan használd.</p>
+
+<hr />
+<h2>Napi cél</h2>
 <ul>
-<li>tudatosan használod az AI-t, nem „vak” automataként</li>
-<li>felismered a kockázatos use case-eket</li>
-<li>tudod, hogy az első válasz miért ritkán tökéletes</li>
-<li>elindítod a saját „AI használati térképed” összeírását</li>
+<li>Értsd meg, mire való és mire nem való az AI</li>
+<li>Ismerd fel a kockázatos use case-eket</li>
+<li>Tudd, miért ritkán tökéletes az első válasz</li>
+<li>Írd össze a saját „AI használati térképed”</li>
 </ul>
 
 <hr />
 <h2>Miért nem varázslat?</h2>
-<p>Az AI nem „érti”, mit szeretnél – csak azt látja, amit leírsz. Jó input → jobb output.</p>
+<p>Az AI nem „érti” a szándékod – csak a leírt szöveget. Jó input → jobb output.</p>
 <ul>
-<li>Nem dönt helyetted, csak javasol</li>
-<li>Nem ismeri a céges kontextust, ha nem adod meg</li>
-<li>Nem vállal felelősséget: neked kell ellenőrizni</li>
+<li>Nem dönt: javasol, neked kell ellenőrizni</li>
+<li>Nem tudja a céges kontextust, ha nem adod meg</li>
+<li>Nem vállal felelősséget: a QA a tiéd</li>
 </ul>
 
 <hr />
 <h2>Mire NEM való?</h2>
 <ul>
-<li>kritikus döntések (pénzügy, HR, egészségügy) emberi felülvizsgálat nélkül</li>
-<li>személyes adatok, jelszavak, bizalmas üzleti információk kezelése</li>
-<li>jogi, orvosi tanács helyettesítése</li>
+<li>Kritikus döntések (pénzügy, HR, egészségügy) emberi felülvizsgálat nélkül</li>
+<li>Személyes adatok, jelszavak, bizalmas információk kezelése</li>
+<li>Jogi vagy orvosi tanács helyettesítése</li>
 </ul>
 
 <hr />
 <h2>Hogyan használd biztonságosan?</h2>
 <ul>
-<li>anonimizáld az adatokat, ahol lehet</li>
-<li>kérj több változatot és válassz</li>
-<li>mindig iterálj: pontosíts, adj példát, adj korlátot</li>
-<li>ellenőrizd a tényeket, főleg számoknál/dátumoknál</li>
+<li>Anonimizáld az adatokat, ahol lehet</li>
+<li>Kérj több változatot, majd válassz</li>
+<li>Iterálj: pontosíts, adj példát, adj korlátot</li>
+<li>Ellenőrizd a tényeket (számok, dátumok, források)</li>
 </ul>
 
 <hr />
@@ -66,20 +70,37 @@ const lessonPlan = [
 <p><strong>Jó:</strong> „Írj udvarias, rövid emailt egy panaszos ügyfélnek, aki tegnap reklamált. Stílus: empatikus, de professzionális. Hossz: max 4 mondat.”</p>
 
 <hr />
-<h2>Gyakorlat 1 – Használati térkép</h2>
-<p>Írj le 3 konkrét feladatot, amit a héten gyorsítanál AI-val. Mindenhez add meg: mi a feladat, mit vársz az AI-tól, milyen kockázatot látsz.</p>
-
-<h2>Gyakorlat 2 – Tiltólista</h2>
-<p>Készíts listát 5 feladatról, amit nem bízol az AI-ra (pl. jelszavak, döntések, érzékeny ügyfelek).</p>
+<h2>Példák (hol hasznos / hol nem)</h2>
+<ul>
+<li><strong>Hasznos:</strong> vázlat, összefoglaló, ötletlista, első draft</li>
+<li><strong>Nem elég:</strong> jogi nyilatkozat, orvosi diagnózis, bizalmas adat bevitele</li>
+</ul>
 
 <hr />
-<h2>Tipp</h2>
-<p>Az AI eszköz. Te vagy a rendező: adj kontextust, célt, korlátot. Az első válasz csak kiindulópont.</p>
+<h2>Gyakorlat (vezetett) – AI használati térkép</h2>
+<ol>
+<li>Írj le 3 feladatot, amit AI-val gyorsítanál.</li>
+<li>Mindenhez add meg: mi a feladat, mit vársz az AI-tól, milyen kockázatot látsz.</li>
+<li>Jelöld, hogy van-e benne érzékeny adat. Ha igen, anonimizáld.</li>
+</ol>
 
+<hr />
+<h2>Gyakorlat (önálló) – Tiltólista</h2>
+<p>Készíts listát 5 feladatról, amit nem bízol az AI-ra (pl. jelszavak, döntések, érzékeny ügyfelek). Írd mellé: miért nem, és mi legyen helyette (emberi review, manuális lépés).</p>
+
+<hr />
+<h2>Tippek</h2>
+<ul>
+<li>Az AI eszköz. Te vagy a rendező: adj kontextust, célt, korlátot.</li>
+<li>Az első válasz csak kiindulópont. Iterálj.</li>
+<li>Mindig legyen QA lépés: forrás, disclaimer, ellenőrzés.</li>
+</ul>
+
+<hr />
 <h2>Opcionális mélyítés</h2>
 <ul>
-<li>OpenAI: Responsible AI use (blog)</li>
-<li>Ethan Mollick: How to use AI well</li>
+<li>OpenAI – Responsible AI: <a href="https://openai.com/policies/usage-policies" target="_blank" rel="noreferrer">https://openai.com/policies/usage-policies</a></li>
+<li>Ethan Mollick – One Useful Thing: <a href="https://www.oneusefulthing.org" target="_blank" rel="noreferrer">https://www.oneusefulthing.org</a></li>
 </ul>`,
     emailSubject: 'AI 30 Nap – 1. nap: Mi az AI valójában?',
     emailBody: `<h1>{{courseName}}</h1>
@@ -91,25 +112,29 @@ const lessonPlan = [
   {
     day: 2,
     title: 'A jó prompt 4 eleme',
-    content: `<h2>Napi cél</h2>
-<p>Ma megtanulod, hogyan épül fel egy jó prompt, és miért kapsz teljesen eltérő válaszokat ugyanarra a kérdésre.</p>
+    content: `<h1>A jó prompt 4 eleme</h1>
+<p><em>Hogyan irányítsd az AI válaszát</em></p>
+<p>Ma megtanulod a jó prompt felépítését, és megérted, miért kapsz teljesen eltérő válaszokat ugyanarra a kérdésre. A cél: tudatosan irányítani a kimenetet.</p>
+
+<hr />
+<h2>Napi cél</h2>
 <ul>
-<li>tudatosan megfogalmazod a promptot</li>
-<li>irányítod a válasz minőségét</li>
-<li>felismered, miért „félreért” néha a modell</li>
-<li>pontosabb, használhatóbb outputot kérsz</li>
+<li>Tudatosan megfogalmazni a promptot</li>
+<li>Irányítani a válasz minőségét</li>
+<li>Felismerni, miért „félreért” néha a modell</li>
+<li>Pontosabb, használhatóbb outputot kérni</li>
 </ul>
 
 <hr />
 <h2>Miért kapsz más választ ugyanarra a kérdésre?</h2>
-<p>Az AI nem érti a szándékod, csak a leírt szöveget. Két hasonló kérés mögött más-más elvárás lehet.</p>
-<p><strong>Gyenge:</strong> „Írj egy emailt egy ügyfélnek.”<br/><strong>Jobb:</strong> „Írj rövid, udvarias emailt egy panaszos ügyfélnek, aki tegnap reklamált.”</p>
+<p>Az AI nem érti a szándékod, csak a leírt szöveget. Két hasonló kérés mögött más elvárás lehet.</p>
+<p><strong>Gyenge:</strong> „Írj egy emailt egy ügyfélnek.”<br /><strong>Jobb:</strong> „Írj rövid, udvarias emailt egy panaszos ügyfélnek, aki tegnap reklamált.”</p>
 
 <hr />
 <h2>A jó prompt 4 eleme</h2>
 <ol>
 <li><strong>Cél</strong> – Mit akarsz elérni? (pl. „Írj emailt”, „Összegezz”, „Adj tanácsot”)</li>
-<li><strong>Kontextus</strong> – Milyen helyzetben vagyunk? (pl. „30 perces online meeting”, „Ügyfélpanasz egy késés miatt”)</li>
+<li><strong>Kontextus</strong> – Milyen helyzetben vagyunk? (pl. „30 perces online meeting”, „Ügyfélpanasz késés miatt”)</li>
 <li><strong>Forma</strong> – Milyen formátumot vársz? (pl. bullet lista, táblázat, rövid bekezdés)</li>
 <li><strong>Stílus</strong> – Milyen hangnemben szóljon? (pl. üzleti, barátságos, technikai, motiváló)</li>
 </ol>
@@ -120,26 +145,43 @@ const lessonPlan = [
 <p><strong>Jó:</strong> Írj udvarias, rövid emailt időpont-egyeztetéshez. Kontextus: 30 perces online meeting jövő hét kedden 10:00-kor. Stílus: üzleti, professzionális. Formátum: egy rövid bekezdés, tiszta felkérés. <em>Eredmény:</em> konkrét, használható.</p>
 
 <hr />
-<h2>Gyakorlat 1 – Irányított</h2>
-<p>Írj promptot a következőhöz a 4 elem alapján:</p>
+<h2>Konkrét prompt sablon</h2>
+<pre><code>Cél: [mit kérsz]  
+Kontextus: [helyzet, háttér]  
+Forma: [bullet, táblázat, bekezdés]  
+Stílus: [üzleti, barátságos, technikai]  
+Hossz: [max X szó / mondat]  
+CTA: [következő lépés / kérés]
+</code></pre>
+
+<hr />
+<h2>Gyakorlat (vezetett)</h2>
+<p>Fogalmazz meg egy promptot az alábbi helyzetre a 4 elem segítségével:</p>
 <ul>
 <li>Cél: Emlékeztető email írása</li>
-<li>Kontextus: Ügyfél nem válaszolt egy korábbi ajánlatra</li>
+<li>Kontextus: Az ügyfél még nem válaszolt egy korábbi ajánlatra</li>
 <li>Forma: Rövid email</li>
 <li>Stílus: Udvarias, nem tolakodó</li>
 </ul>
 
-<h2>Gyakorlat 2 – Saját életből</h2>
-<p>Válassz egy valós helyzetet (munka, iskola, család, ügyintézés), és írj promptot a 4 elem alapján.</p>
+<hr />
+<h2>Gyakorlat (önálló)</h2>
+<p>Válassz egy valós helyzetet a saját munkádból (munka, iskola, ügyintézés). Írj hozzá promptot a 4 elem alapján. Legyen olyan, amit ténylegesen használnál.</p>
 
 <hr />
-<h2>Tipp</h2>
-<p>Mindig add meg legalább a célt, a kontextust és a formát. Az AI nem gondolatolvasó: te vagy a rendező.</p>
+<h2>Tippek</h2>
+<ul>
+<li>Mindig add meg a célt, a kontextust, az elvárt formát.</li>
+<li>Ha nem tetszik a válasz, pontosíts egy elemnél: forma vagy stílus.</li>
+<li>Adj példát: „Így néz ki most, ilyet szeretnék, módosítsd.”</li>
+</ul>
 
+<hr />
 <h2>Opcionális mélyítés</h2>
 <ul>
-<li>OpenAI Guide: Prompt Engineering Basics</li>
-<li>One Useful Thing (Ethan Mollick): Prompt példák</li>
+<li>OpenAI – Prompt Engineering Guide: <a href="https://platform.openai.com/docs/guides/prompt-engineering" target="_blank" rel="noreferrer">https://platform.openai.com/docs/guides/prompt-engineering</a></li>
+<li>Ethan Mollick – Prompt példák: <a href="https://www.oneusefulthing.org" target="_blank" rel="noreferrer">https://www.oneusefulthing.org</a></li>
+<li>Reddit – r/ChatGPT prompt collection: <a href="https://www.reddit.com/r/ChatGPT/" target="_blank" rel="noreferrer">https://www.reddit.com/r/ChatGPT/</a></li>
 </ul>`,
     emailSubject: 'AI 30 Nap – 2. nap: A jó prompt 4 eleme',
     emailBody: `<h1>AI 30 Nap – 2. nap</h1>
