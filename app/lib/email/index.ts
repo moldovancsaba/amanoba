@@ -10,4 +10,5 @@ export {
   sendWelcomeEmail,
   sendCompletionEmail,
   sendReminderEmail,
+  sendPaymentConfirmationEmail,
 } from './email-service';

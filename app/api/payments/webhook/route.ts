@@ -15,6 +15,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import connectDB from '@/lib/mongodb';
 import { Player, Course, PaymentTransaction, PaymentStatus, Brand } from '@/lib/models';
 import { logger } from '@/lib/logger';
+import { sendPaymentConfirmationEmail } from '@/lib/email';
 import Stripe from 'stripe';
 import mongoose from 'mongoose';
 
@@ -249,6 +250,23 @@ async function handleCheckoutSessionCompleted(session: Stripe.Checkout.Session) 
       },
       'Premium access activated via Stripe payment'
     );
+
+    // Send payment confirmation email (non-blocking)
+    sendPaymentConfirmationEmail(
+      player._id.toString(),
+      courseId || null,
+      transaction.amount,
+      transaction.currency,
+      premiumExpiresAt,
+      transaction._id.toString(),
+      player.locale as 'hu' | 'en' | undefined
+    ).catch((emailError) => {
+      // Log email error but don't fail the webhook
+      logger.error(
+        { error: emailError, playerId: player._id.toString(), transactionId: transaction._id.toString() },
+        'Failed to send payment confirmation email (non-critical)'
+      );
+    });
   } catch (error) {
     logger.error({ error, sessionId: session.id }, 'Failed to process checkout.session.completed');
     throw error;

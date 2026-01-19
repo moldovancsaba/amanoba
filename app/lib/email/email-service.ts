@@ -413,3 +413,235 @@ export async function sendReminderEmail(
     return { success: false, error: error instanceof Error ? error.message : 'Unknown error' };
   }
 }
+
+/**
+ * Send Payment Confirmation Email
+ * 
+ * What: Sends payment confirmation email after successful Stripe payment
+ * Why: Provide receipt and confirm premium access activation
+ * 
+ * @param playerId - Player's ID
+ * @param courseId - Course ID (optional, may be general premium purchase)
+ * @param amount - Payment amount in cents
+ * @param currency - Currency code (e.g., 'usd', 'eur', 'huf')
+ * @param premiumExpiresAt - Premium expiration date
+ * @param transactionId - Payment transaction ID for reference
+ * @param locale - Language code for email content (defaults to player's locale)
+ * @returns Email send result
+ */
+export async function sendPaymentConfirmationEmail(
+  playerId: string,
+  courseId: string | null,
+  amount: number,
+  currency: string,
+  premiumExpiresAt: Date,
+  transactionId: string,
+  locale?: Locale
+): Promise<{ success: boolean; messageId?: string; error?: string }> {
+  try {
+    await connectDB();
+
+    const player = await Player.findById(playerId);
+    if (!player) {
+      return { success: false, error: 'Player not found' };
+    }
+
+    if (!player.email) {
+      return { success: false, error: 'No email address' };
+    }
+
+    // Get course if provided
+    let course = null;
+    if (courseId) {
+      course = await Course.findOne({ courseId });
+    }
+
+    // Determine language for email
+    const emailLocale = locale || (player.locale as Locale) || 'hu';
+
+    // Format amount based on currency
+    const formattedAmount = new Intl.NumberFormat(
+      emailLocale === 'hu' ? 'hu-HU' : 'en-US',
+      {
+        style: 'currency',
+        currency: currency.toUpperCase(),
+      }
+    ).format(amount / 100);
+
+    // Format premium expiration date
+    const formattedExpiryDate = new Intl.DateTimeFormat(
+      emailLocale === 'hu' ? 'hu-HU' : 'en-US',
+      {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+      }
+    ).format(premiumExpiresAt);
+
+    // Get course name
+    let courseName = course?.name || 'Premium Access';
+    if (course && emailLocale !== course.language && course.translations?.has(emailLocale)) {
+      const translation = course.translations.get(emailLocale);
+      if (translation) {
+        courseName = translation.name;
+      }
+    }
+
+    // Email content based on locale
+    const isHungarian = emailLocale === 'hu';
+    
+    const subject = isHungarian
+      ? `✅ Fizetés megerősítve - ${courseName}`
+      : `✅ Payment Confirmed - ${courseName}`;
+
+    const body = isHungarian
+      ? `
+        <html>
+          <body style="font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto; padding: 20px;">
+            <div style="background-color: #FAB908; padding: 20px; text-align: center; border-radius: 8px 8px 0 0;">
+              <h1 style="color: #000; margin: 0;">✅ Fizetés sikeres!</h1>
+            </div>
+            <div style="background-color: #fff; padding: 30px; border: 2px solid #FAB908; border-top: none; border-radius: 0 0 8px 8px;">
+              <p>Kedves ${player.displayName},</p>
+              <p>Köszönjük a fizetésed! A prémium hozzáférésed aktiválva lett.</p>
+              
+              <div style="background-color: #f5f5f5; padding: 20px; border-radius: 8px; margin: 20px 0;">
+                <h2 style="margin-top: 0; color: #000;">Fizetési részletek</h2>
+                <table style="width: 100%; border-collapse: collapse;">
+                  <tr>
+                    <td style="padding: 8px 0; color: #666;"><strong>Termék:</strong></td>
+                    <td style="padding: 8px 0; text-align: right; color: #000;">${courseName}</td>
+                  </tr>
+                  <tr>
+                    <td style="padding: 8px 0; color: #666;"><strong>Összeg:</strong></td>
+                    <td style="padding: 8px 0; text-align: right; color: #000; font-weight: bold;">${formattedAmount}</td>
+                  </tr>
+                  <tr>
+                    <td style="padding: 8px 0; color: #666;"><strong>Prémium lejárat:</strong></td>
+                    <td style="padding: 8px 0; text-align: right; color: #000;">${formattedExpiryDate}</td>
+                  </tr>
+                  <tr>
+                    <td style="padding: 8px 0; color: #666;"><strong>Tranzakció ID:</strong></td>
+                    <td style="padding: 8px 0; text-align: right; color: #666; font-size: 12px;">${transactionId}</td>
+                  </tr>
+                </table>
+              </div>
+
+              ${courseId ? `
+                <p style="margin-top: 30px;">
+                  <a href="${APP_URL}/courses/${courseId}" style="background-color: #FAB908; color: #000; padding: 12px 24px; text-decoration: none; border-radius: 5px; display: inline-block; font-weight: bold;">Kurzus megtekintése</a>
+                </p>
+              ` : `
+                <p style="margin-top: 30px;">
+                  <a href="${APP_URL}/courses" style="background-color: #FAB908; color: #000; padding: 12px 24px; text-decoration: none; border-radius: 5px; display: inline-block; font-weight: bold;">Kurzusok böngészése</a>
+                </p>
+              `}
+
+              <p style="margin-top: 30px; font-size: 14px; color: #666;">
+                Ha bármilyen kérdésed van, vedd fel velünk a kapcsolatot: 
+                <a href="mailto:${EMAIL_CONFIG.replyTo}" style="color: #FAB908;">${EMAIL_CONFIG.replyTo}</a>
+              </p>
+
+              <p style="margin-top: 20px;">Köszönjük, hogy az Amanobával tanulsz!</p>
+              <p>— Az Amanoba csapat</p>
+            </div>
+          </body>
+        </html>
+      `
+      : `
+        <html>
+          <body style="font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto; padding: 20px;">
+            <div style="background-color: #FAB908; padding: 20px; text-align: center; border-radius: 8px 8px 0 0;">
+              <h1 style="color: #000; margin: 0;">✅ Payment Successful!</h1>
+            </div>
+            <div style="background-color: #fff; padding: 30px; border: 2px solid #FAB908; border-top: none; border-radius: 0 0 8px 8px;">
+              <p>Hi ${player.displayName},</p>
+              <p>Thank you for your payment! Your premium access has been activated.</p>
+              
+              <div style="background-color: #f5f5f5; padding: 20px; border-radius: 8px; margin: 20px 0;">
+                <h2 style="margin-top: 0; color: #000;">Payment Details</h2>
+                <table style="width: 100%; border-collapse: collapse;">
+                  <tr>
+                    <td style="padding: 8px 0; color: #666;"><strong>Product:</strong></td>
+                    <td style="padding: 8px 0; text-align: right; color: #000;">${courseName}</td>
+                  </tr>
+                  <tr>
+                    <td style="padding: 8px 0; color: #666;"><strong>Amount:</strong></td>
+                    <td style="padding: 8px 0; text-align: right; color: #000; font-weight: bold;">${formattedAmount}</td>
+                  </tr>
+                  <tr>
+                    <td style="padding: 8px 0; color: #666;"><strong>Premium expires:</strong></td>
+                    <td style="padding: 8px 0; text-align: right; color: #000;">${formattedExpiryDate}</td>
+                  </tr>
+                  <tr>
+                    <td style="padding: 8px 0; color: #666;"><strong>Transaction ID:</strong></td>
+                    <td style="padding: 8px 0; text-align: right; color: #666; font-size: 12px;">${transactionId}</td>
+                  </tr>
+                </table>
+              </div>
+
+              ${courseId ? `
+                <p style="margin-top: 30px;">
+                  <a href="${APP_URL}/courses/${courseId}" style="background-color: #FAB908; color: #000; padding: 12px 24px; text-decoration: none; border-radius: 5px; display: inline-block; font-weight: bold;">View Course</a>
+                </p>
+              ` : `
+                <p style="margin-top: 30px;">
+                  <a href="${APP_URL}/courses" style="background-color: #FAB908; color: #000; padding: 12px 24px; text-decoration: none; border-radius: 5px; display: inline-block; font-weight: bold;">Browse Courses</a>
+                </p>
+              `}
+
+              <p style="margin-top: 30px; font-size: 14px; color: #666;">
+                If you have any questions, please contact us at: 
+                <a href="mailto:${EMAIL_CONFIG.replyTo}" style="color: #FAB908;">${EMAIL_CONFIG.replyTo}</a>
+              </p>
+
+              <p style="margin-top: 20px;">Thank you for learning with Amanoba!</p>
+              <p>— The Amanoba Team</p>
+            </div>
+          </body>
+        </html>
+      `;
+
+    // Get or generate unsubscribe token
+    const unsubscribeToken = await getOrGenerateUnsubscribeToken(player);
+    const unsubscribeUrl = `${APP_URL}/api/email/unsubscribe?token=${unsubscribeToken}`;
+
+    // Append unsubscribe footer
+    const unsubscribeFooter = `
+      <hr style="margin: 20px 0; border: none; border-top: 1px solid #ddd;">
+      <p style="font-size: 12px; color: #666; text-align: center;">
+        ${isHungarian 
+          ? `Ezt az emailt azért kaptad, mert fizetést végeztél az Amanobán. <a href="${unsubscribeUrl}" style="color: #666;">Leiratkozás az email értesítésekről</a>`
+          : `You're receiving this email because you made a payment on Amanoba. <a href="${unsubscribeUrl}" style="color: #666;">Unsubscribe from email notifications</a>`
+        }
+      </p>
+    `;
+
+    const finalBody = body + unsubscribeFooter;
+
+    // Check if Resend is initialized
+    if (!resend) {
+      logger.error({ playerId, courseId }, 'Resend API key not configured');
+      return { success: false, error: 'Email service not configured' };
+    }
+
+    const { data, error } = await resend.emails.send({
+      from: `${EMAIL_CONFIG.fromName} <${EMAIL_CONFIG.from}>`,
+      to: player.email,
+      subject,
+      html: finalBody,
+      replyTo: EMAIL_CONFIG.replyTo,
+    });
+
+    if (error) {
+      logger.error({ error, playerId, courseId, transactionId }, 'Failed to send payment confirmation email');
+      return { success: false, error: error.message };
+    }
+
+    logger.info({ playerId, courseId, transactionId, messageId: data?.id }, 'Payment confirmation email sent successfully');
+    return { success: true, messageId: data?.id };
+  } catch (error) {
+    logger.error({ error, playerId, courseId }, 'Error sending payment confirmation email');
+    return { success: false, error: error instanceof Error ? error.message : 'Unknown error' };
+  }
+}

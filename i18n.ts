@@ -8,7 +8,6 @@
  * Falls back to JSON files if database is unavailable
  */
 
-import { notFound } from 'next/navigation';
 import { getRequestConfig } from 'next-intl/server';
 
 // Supported languages
@@ -30,6 +29,20 @@ export const defaultLocale: Locale = 'hu';
  * 
  * Translations are loaded from MongoDB Atlas database first, with fallback to JSON files
  */
+function deepMerge(base: any, override: any): any {
+  if (Array.isArray(base)) return override ?? base;
+  if (typeof base === 'object' && base !== null) {
+    const result: any = { ...base };
+    if (override && typeof override === 'object') {
+      for (const key of Object.keys(override)) {
+        result[key] = deepMerge(base[key], override[key]);
+      }
+    }
+    return result;
+  }
+  return override !== undefined ? override : base;
+}
+
 export default getRequestConfig(async ({ locale }) => {
   // Ensure locale is always defined - fallback to defaultLocale if missing
   // This handles edge cases where locale might not be extracted correctly
@@ -79,8 +92,18 @@ export default getRequestConfig(async ({ locale }) => {
   }
 
   // Fallback to JSON files if database is unavailable or empty
+  // Additionally, merge with default locale to avoid missing keys showing raw ids
+  const defaultMessages = (await import(`./messages/${defaultLocale}.json`)).default;
+  const localeMessages =
+    resolvedLocale === defaultLocale
+      ? defaultMessages
+      : (await import(`./messages/${resolvedLocale}.json`)).default;
+
+  const messages =
+    resolvedLocale === defaultLocale ? defaultMessages : deepMerge(defaultMessages, localeMessages);
+
   return {
     locale: resolvedLocale,
-    messages: (await import(`./messages/${resolvedLocale}.json`)).default,
+    messages,
   };
 });
