@@ -212,7 +212,7 @@ export default function Dashboard() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex justify-between items-center">
             <div className="flex items-center gap-4">
-              <Logo size="md" showText={true} linkTo="/dashboard" />
+              <Logo size="md" showText={false} linkTo="/dashboard" />
               <div>
                 <h1 className="text-3xl font-bold text-brand-white">{t('title')}</h1>
                 <p className="text-brand-white/80 mt-1">{t('yourLearningJourney')}</p>

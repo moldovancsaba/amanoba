@@ -1,8 +1,8 @@
 # Amanoba Kurzus Létrehozási Útmutató (HU)
 
-**Verzió**: 3.0  
+**Verzió**: 3.1  
 **Utolsó frissítés**: 2025-01-20  
-**Alapja**: AI_30_NAP kurzus valós implementációja Quiz Értékelésekkel
+**Alapja**: AI_30_NAP kurzus valós implementációja Quiz Értékelésekkel, Prémium Árazással és Tartalomjegyzékkel
 
 Ez az útmutató az AI_30_NAP kurzus tényleges implementációján és a fejlesztési folyamat során szerzett tapasztalatokon alapul.
 
@@ -53,6 +53,40 @@ A kurzusok MongoDB-ben dokumentumokként vannak tárolva Mongoose sémákkal:
 - `durationDays`: `30` (30 napos kurzusokhoz standard)
 - `requiresPremium`: `false` (kivéve, ha valóban prémium)
 - `thumbnail`: Opcionális kép URL a kurzus listázáshoz
+
+### Prémium Kurzus Árazás (v2.8.0+)
+
+Ha a `requiresPremium` `true`-ra van állítva, beállíthatod az árazást:
+
+- **`price.amount`**: Ár a legkisebb valutában (pl. 2999 = $29.99 USD, 17500 = 175 Ft HUF)
+- **`price.currency`**: ISO valutakód (`usd`, `eur`, `huf`, `gbp`)
+
+**Stripe Minimális Összegek** (kötelező):
+- USD: $0.50 (50 cent)
+- EUR: €0.50 (50 cent)
+- HUF: 175 Ft
+- GBP: £0.30 (30 penny)
+
+**Fontos**: Az admin felület valós időben validálja a minimális összegeket. Ha a minimum alá állítasz árat, figyelmeztetést látsz és a rendszer megakadályozza a beküldést.
+
+**Példa Prémium Kurzus Konfiguráció**:
+```json
+{
+  "courseId": "PREMIUM_COURSE_101",
+  "requiresPremium": true,
+  "price": {
+    "amount": 2999,  // $29.99 USD
+    "currency": "usd"
+  }
+}
+```
+
+**Fizetési Folyamat**:
+1. Tanuló rákattint a "Prémium vásárlása" gombra a kurzus oldalon
+2. A rendszer létrehoz egy Stripe Checkout session-t
+3. Tanuló befejezi a fizetést a Stripe-on
+4. Webhook automatikusan aktiválja a prémium státuszt
+5. Tanuló ezután beiratkozhat prémium kurzusokra
 
 ### Pontok és XP konfiguráció
 
@@ -546,6 +580,68 @@ Használd a `metadata` mezőt a következők tárolására:
 
 ---
 
-**Utolsó frissítés**: 2025-01-17  
+---
+
+## 11. lépés: Tartalomjegyzék (v2.8.0+)
+
+A kurzus részletek oldal automatikusan megjeleníti a tartalomjegyzéket, amely mutatja a kurzus összes leckéjét.
+
+### Funkciók
+
+- **Automatikus Generálás**: A tartalomjegyzék az aktív leckékből generálódik
+- **Lecke Információ**: Mutatja a nap számát, címet, becsült perceket és kvíz jelzést
+- **Publikus Hozzáférés**: Minden felhasználó számára látható (nincs bejelentkezés szükséges) a kurzus részletek oldalon
+- **API Végpont**: `GET /api/courses/{courseId}/lessons` (publikus végpont)
+
+### Megjelenítési Formátum
+
+A tartalomjegyzék minden leckéje mutatja:
+- Nap szám jelvény (kiemelő szín)
+- Lecke cím
+- Kvíz jelző jelvény (ha a leckének van kvíze)
+- Nap szám és becsült percek (ha elérhető)
+
+### Ajánlott Gyakorlatok
+
+- Állítsd be a `metadata.estimatedMinutes`-t minden leckéhez az olvasási idő megjelenítéséhez
+- Biztosítsd, hogy minden lecke `isActive: true` legyen, hogy megjelenjen a tartalomjegyzékben
+- Használj leíró lecke címeket a jobb felhasználói élményért
+
+---
+
+## 12. lépés: Kurzus Exportálás/Importálás (v2.7.0+)
+
+Exportálhatsz és importálhatsz teljes kurzusokat, beleértve az összes leckét és kvízt.
+
+### Kurzus Exportálás
+
+**UI útvonal**: `/{locale}/admin/courses/{courseId}` → "Kurzus exportálása" gomb  
+**API végpont**: `GET /api/admin/courses/{courseId}/export`
+
+**Export formátum**: JSON fájl tartalmazza:
+- Kurzus metaadatok
+- Összes lecke (tartalommal, email sablonokkal, kvíz configgal)
+- Összes kvíz kérdés (minden leckéhez, amelynek van kvíze)
+
+### Kurzus Importálás
+
+**UI útvonal**: `/{locale}/admin/courses` → "Kurzus importálása" gomb  
+**API végpont**: `POST /api/admin/courses/import`
+
+**Import opciók**:
+- **Felülírás**: Ha létezik kurzus ugyanazzal a `courseId`-vel, felülírja
+- **Kihagyás**: Ha létezik kurzus, kihagyja az importálást
+- **Validálás**: A rendszer validálja a kurzus struktúrát az importálás előtt
+
+**Használati esetek**:
+- Kurzusok biztonsági mentése nagyobb változtatások előtt
+- Kurzusok megosztása környezetek között (dev → production)
+- Kurzusok duplikálása különböző nyelvekhez
+- Verziókezelés kurzus tartalomhoz
+
+---
+
+**Utolsó frissítés**: 2025-01-20  
 **Alapja**: Éles AI_30_NAP kurzus (30 lecke, teljesen seedelve)  
-**Státusz**: ✅ Tesztelve és verifikálva éles környezetben
+**Státusz**: ✅ Tesztelve és verifikálva éles környezetben  
+**Verzió**: 2.8.0 (Stripe integráció, Prémium árazás, Tartalomjegyzék)

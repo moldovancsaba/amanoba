@@ -1126,164 +1126,186 @@ CTA: [következő lépés / kérés]
   // 16-20. nap · Szerep-specifikus használat
   {
     day: 16,
-    title: 'Marketing / Sales / PM / Dev – belépő nap',
-    content: `<h2>Napi cél</h2>
-<p>Ma személyre szabod az AI-használatot a szerepedre (Marketing/Sales/PM/Dev): feladatlista, gyorsítási pontok, prompt sablonok.</p>
+    title: 'Szerephez illesztett AI – belépő nap',
+    content: `<h1>Szerephez illesztett AI – belépő nap</h1>
+<p><em>A saját feladataidra optimalizálsz: Marketing / Sales / PM / Dev.</em></p>
+
+<hr />
+<h2>Napi cél</h2>
 <ul>
-<li>azonosítod a napi feladatokat</li>
-<li>kiválasztod, mit gyorsítasz AI-val</li>
-<li>első szerep-specifikus sabloncsomagot állítasz össze</li>
+<li>Feltérképezed a top 5 napi feladatodat.</li>
+<li>Kiválasztod, mit gyorsítasz AI-val (vázlat, összefoglaló, sablon).</li>
+<li>Összeraksz 3 szerep-specifikus prompt sablont.</li>
 </ul>
 
 <hr />
 <h2>Szerep-példák</h2>
 <ul>
-<li><strong>Marketing</strong>: kampány brief, persona, értékajánlat, posztvázlat</li>
-<li><strong>Sales</strong>: cold email variáns, follow-up, objections, pitch outline</li>
-<li><strong>PM</strong>: user story, PRD váz, priorizálás (RICE), release note</li>
-<li><strong>Dev</strong>: kód-komment, docstring, teszt case váz, hiba triage</li>
+<li><strong>Marketing</strong>: kampány brief, persona, értékajánlat, posztvázlat.</li>
+<li><strong>Sales</strong>: cold email variáns, follow-up, kifogáskezelés, pitch outline.</li>
+<li><strong>PM</strong>: user story, PRD váz, priorizálás (RICE), release note.</li>
+<li><strong>Dev</strong>: kód-komment, docstring, teszt case váz, hiba triage.</li>
 </ul>
 
 <hr />
-<h2>Gyakorlat 1 – Napi feladat térkép</h2>
-<p>Írd le a napi feladataidat, jelöld, mi gyorsítható AI-val, és mivel (összefoglaló, vázlat, sablon).</p>
+<h2>Gyakorlat (vezetett) – Feladat térkép</h2>
+<ol>
+<li>Írd le a napi feladataidat.</li>
+<li>Jelöld, mi gyorsítható AI-val, és mivel (összefoglaló, vázlat, sablon).</li>
+<li>Válassz 3-at, amire ma fókuszálsz.</li>
+</ol>
 
-<h2>Gyakorlat 2 – 3 prompt sablon</h2>
-<p>Készíts 3 prompt sablont a szerepedre (cél, kontextus, forma, stílus, változók). Teszteld őket.</p>
+<h2>Gyakorlat (önálló) – 3 prompt sablon</h2>
+<p>Készíts 3 sablont (cél, kontextus, forma, stílus, változók). Teszteld valós példán, írd le v1 → v2 tanulságot.</p>
 
 <hr />
 <h2>Prompt minta</h2>
 <blockquote>
-<p>Készíts AI-használati tervet [szerep]-hez. Struktúra: 1) Top 5 napi feladat, 2) AI-val gyorsítható elemek, 3) Prompt sablonok (Cél/Kontextus/Forma/Stílus), 4) Várt output.</p>
+<p>Készíts AI-használati tervet [szerep]-hez. 1) Top 5 napi feladat. 2) Melyiknél segít az AI (összefoglaló/vázlat/sablon)? 3) Adj 3 prompt sablont (cél/kontextus/forma/stílus/változók). 4) Várt output formátum.</p>
 </blockquote>
 
+<hr />
 <h2>Tipp</h2>
-<p>Az AI nem ugyanaz minden szerepben: tedd konkréttá a feladataidra. Kezdd 3 sablonnal, majd bővíts.</p>
+<ul>
+<li>Az AI nem általános – a saját feladataidra szabva működik jól.</li>
+<li>Kezdj 3 sablonnal, iterálj, majd bővíts.</li>
+<li>Mérd: mennyi időt spórolsz, mennyire javul a konzisztencia.</li>
+</ul>
 
+<hr />
 <h2>Opcionális mélyítés</h2>
 <ul>
-<li>Szerep-specifikus mérőszámok: mit javít az AI (idő, minőség, konzisztencia)</li>
-<li>Megosztott csapatsablonok gyűjtése</li>
+<li>Atlassian – PRD példa: <a href="https://www.atlassian.com/agile/product-management/product-requirements" target="_blank" rel="noreferrer">https://www.atlassian.com/agile/product-management/product-requirements</a></li>
+<li>HubSpot – Sales email sablonok: <a href="https://blog.hubspot.com/sales/email-templates" target="_blank" rel="noreferrer">https://blog.hubspot.com/sales/email-templates</a></li>
 </ul>`,
-    emailSubject: 'AI 30 Nap – 16. nap: Szerep-specifikus használat',
-    emailBody: `<h1>AI 30 Nap – 16. nap</h1>
-<h2>Marketing / Sales / PM / Dev – belépő nap</h2>
-<p>Ma megtanulod, hogyan használhatod az AI-t a saját szerepedben. Ez személyre szabja a tanulást.</p>
+    emailSubject: '30-Day AI Catch-Up – 16. nap: Szerep-specifikus használat',
+    emailBody: `<h1>30-Day AI Catch-Up – 16. nap</h1>
+<h2>Szerephez illesztett AI – belépő nap</h2>
+<p>Ma feltérképezed a napi feladataidat, és 3 szerep-specifikus prompt sablont építesz, hogy gyorsabban és következetesebben dolgozz.</p>
 <p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Olvasd el a teljes leckét →</a></p>`
   },
   {
     day: 17,
     title: 'Szerephez illesztett sabloncsomag I.',
-    content: `<h2>Napi cél</h2>
-<p>Ma elkészíted az első szerep-specifikus sabloncsomagod: 5 gyors sablon a leggyakoribb feladataidra.</p>
+    content: `<h1>Szerephez illesztett sabloncsomag I. (alap)</h1>
+<p><em>5 gyors sablon a leggyakoribb feladataidra.</em></p>
+
+<hr />
+<h2>Napi cél</h2>
 <ul>
-<li>alap sablonok: email, összefoglaló, teendő, vázlat</li>
-<li>szerep-specifikus: a legfontosabb feladatodra</li>
-<li>variáció: ugyanaz más stílusban</li>
-<li>iteráció: finomítási lépések</li>
-<li>ellenőrző sablon: minőség-check</li>
+<li>Összeraksz egy 5 darabos alapcsomagot.</li>
+<li>Minden sablon: cél, kontextus, forma, stílus, változók.</li>
+<li>Változók gyors kitöltéséhez: [téma], [címzett], [stílus], [hossz].</li>
 </ul>
 
 <hr />
-<h2>Sabloncsomag v1 (5 db)</h2>
+<h2>Sabloncsomag v1</h2>
 <ol>
-<li><strong>Email</strong>: Cél/Kontextus/Forma/Stílus/Változók</li>
-<li><strong>Összefoglaló</strong>: 5 pont, döntés, next step</li>
-<li><strong>Szerep-specifikus</strong>: pl. kampány vázlat / user story / bug triage / pitch outline</li>
-<li><strong>Variáció</strong>: ugyanaz két stílusban (üzleti vs. barátságos)</li>
-<li><strong>Ellenőrző</strong>: „Hiányzik-e CTA, szám, határidő, felelős?”</li>
+<li><strong>Email</strong>: státusz/frissítés + CTA.</li>
+<li><strong>Összefoglaló</strong>: 5 pont, döntés, következő lépés.</li>
+<li><strong>Szerep-specifikus</strong>: kampány vázlat / user story / bug triage / pitch outline.</li>
+<li><strong>Variáció</strong>: ugyanaz két stílusban (üzleti vs. barátságos).</li>
+<li><strong>Ellenőrző</strong>: „Hiányzik-e CTA, szám, határidő, felelős?”.</li>
 </ol>
 
 <hr />
-<h2>Gyakorlat 1 – 5 sablon</h2>
-<p>Készítsd el az 5 sablont a szerepedre. Írd mellé, milyen változókat töltesz ki (pl. [téma], [címzett], [stílus], [hossz]).</p>
+<h2>Gyakorlat (vezetett) – 5 sablon</h2>
+<p>Készítsd el az 5 sablont. Írd mellé a változókat (pl. [téma], [címzett], [hossz], [stílus]).</p>
 
-<h2>Gyakorlat 2 – Teszt és jegyzet</h2>
-<p>Próbáld ki valós példán, jegyezd fel: mi működött, mit kell javítani (v1 → v2).</p>
+<h2>Gyakorlat (önálló) – Teszt és jegyzet</h2>
+<p>Próbáld ki valós példán, jegyezd fel: mi működött, mit kell javítani (v1 → v2). Tartsd egy helyen (Notion/Docs).</p>
 
 <hr />
 <h2>Prompt minta</h2>
 <blockquote>
-<p>Készíts prompt sablont [szerep]/[feladat]-hoz. Struktúra: Cél, Kontextus, Forma, Stílus, Változók ([x], [y], [z]). Adj 2 stílusvariánst.</p>
+<p>Készíts prompt sablont [szerep]/[feladat]-hoz. Struktúra: Cél, Kontextus, Forma, Stílus, Változók ([x], [y], [z]). Adj 2 stílusvariánst (üzleti/barátságos).</p>
 </blockquote>
 
+<hr />
 <h2>Tipp</h2>
-<p>Kicsiben kezdd (5 sablon), verziózd, tartsd egy helyen, és oszd meg a csapattal.</p>
+<ul>
+<li>Kicsiben kezdd (5 sablon), verziózd (v1/v2), oszd meg a csapattal.</li>
+<li>Jegyezd: mikor használtad, mi volt az eredmény.</li>
+</ul>
 
+<hr />
 <h2>Opcionális mélyítés</h2>
 <ul>
-<li>Sablon-nyilvántartás: mikor használtad, eredmény</li>
-<li>„Fail log”: mi nem működött, miért</li>
+<li>Notion template gallery (prompt library ötletek): <a href="https://www.notion.so/templates" target="_blank" rel="noreferrer">https://www.notion.so/templates</a></li>
+<li>„Fail log” minta: <a href="https://www.atlassian.com/agile/project-management/retrospectives" target="_blank" rel="noreferrer">https://www.atlassian.com/agile/project-management/retrospectives</a></li>
 </ul>`,
-    emailSubject: 'AI 30 Nap – 17. nap: Sabloncsomag I.',
-    emailBody: `<h1>AI 30 Nap – 17. nap</h1>
+    emailSubject: '30-Day AI Catch-Up – 17. nap: Sabloncsomag I.',
+    emailBody: `<h1>30-Day AI Catch-Up – 17. nap</h1>
 <h2>Szerephez illesztett sabloncsomag I.</h2>
-<p>Ma készítesz szerep-specifikus prompt sablonokat. Ez személyre szabja az AI használatodat.</p>
+<p>Ma összeraksz egy 5 darabos alapcsomagot a leggyakoribb feladataidra, teszteled, és verziózod őket.</p>
 <p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Olvasd el a teljes leckét →</a></p>`
   },
   {
     day: 18,
     title: 'Szerephez illesztett sabloncsomag II.',
-    content: `<h2>Napi cél</h2>
-<p>Bővíted a csomagod haladó sablonokkal: komplex, integrációs, automatizálási promptok.</p>
+    content: `<h1>Szerephez illesztett sabloncsomag II. (haladó)</h1>
+<p><em>Komplex, integrációs és automatizálási sablonok QA-val.</em></p>
+
+<hr />
+<h2>Napi cél</h2>
 <ul>
-<li>komplex: több lépés, több output</li>
-<li>integráció: adat + elemzés + ajánlás</li>
-<li>automatizálás: ismétlődő rutin standardizálása</li>
+<li>3 haladó sablon (komplex, integráció, automatizálás).</li>
+<li>Mindegyikhez kötelező QA/ellenőrzés lépés.</li>
+<li>Változók: [adatforrás], [formátum], [határidő], [stílus].</li>
 </ul>
 
 <hr />
-<h2>Haladó sablon példák</h2>
+<h2>Haladó sablon típusok</h2>
 <ol>
-<li><strong>Komplex</strong>: kampányterv / PRD váz + acceptance criteria / debug-útvonal</li>
-<li><strong>Integráció</strong>: adatbeolvasás + összefoglaló + döntési javaslat</li>
-<li><strong>Automatizálás</strong>: napi standup összegzés, ticket triage, KPI riport</li>
+<li><strong>Komplex</strong>: kampányterv / PRD váz + acceptance criteria / debug-útvonal.</li>
+<li><strong>Integráció</strong>: adatbeolvasás + összefoglaló + döntési javaslat.</li>
+<li><strong>Automatizálás</strong>: napi standup összegzés, ticket triage, KPI riport.</li>
 </ol>
 
-<h2>Kötelező elemek</h2>
-<ul>
-<li>Lépések: Input → Feldolgozás → Output → Ellenőrzés</li>
-<li>Változók: [adatforrás], [formátum], [határidő], [stílus]</li>
-<li>Minőség: „Ellenőrizd a számokat/konzisztenciát, jelezd a hiányt”</li>
-</ul>
-
 <hr />
-<h2>Gyakorlat 1 – 3 haladó sablon</h2>
-<p>Készíts komplex, integrációs, automatizálási sablont. Teszteld, jegyezd fel a javításokat (v1 → v2).</p>
+<h2>Gyakorlat (vezetett) – 3 sablon</h2>
+<p>Készíts 3 sablont (komplex, integráció, automatizálás). Írd bele a QA kérést: „Ellenőrizd a számokat/konzisztenciát, jelezd a hiányt”.</p>
 
-<h2>Gyakorlat 2 – QA lépés</h2>
-<p>Mindegyikhez írj QA lépést: „Ha nincs adat, jelezd; ha számot használsz, forrás/validáció.”</p>
+<h2>Gyakorlat (önálló) – Teszt és QA</h2>
+<p>Futtasd valós inputon, nézd meg a QA-lépést. Jegyezd fel, mit kell pontosítani (v1 → v2).</p>
 
 <hr />
 <h2>Prompt minta</h2>
 <blockquote>
-<p>Készíts haladó sablont [feladat]-ra. Struktúra: 1) Lépések, 2) Input, 3) Output (formátum/hossz), 4) Ellenőrzés. Változók: [adatforrás], [stílus], [határidő].</p>
+<p>Készíts haladó sablont [feladat]-ra. Struktúra: 1) Lépések (Input → Feldolgozás → Output → Ellenőrzés). 2) Input: [adatforrás], [kontextus]. 3) Output: formátum/hossz/CTA. 4) QA: számok/forrás/hiányok jelzése. Változók: [adatforrás], [stílus], [határidő].</p>
 </blockquote>
 
+<hr />
 <h2>Tipp</h2>
-<p>Válaszd szét a gyors sablonokat a komplexektől. Haladó sablonokat is verziózd.</p>
+<ul>
+<li>Válaszd szét az „egylépéses” sablonokat a komplexektől.</li>
+<li>Haladó sablont is verziózz, és írd mellé, mikor működik jól.</li>
+</ul>
 
+<hr />
 <h2>Opcionális mélyítés</h2>
 <ul>
-<li>Chaining: vázlat → bővítés → QA</li>
-<li>Integráció: táblázat + összefoglaló + ajánlás egy promptban</li>
+<li>Chain-of-thought / multi-step prompting: <a href="https://platform.openai.com/docs/guides/prompt-engineering" target="_blank" rel="noreferrer">https://platform.openai.com/docs/guides/prompt-engineering</a></li>
+<li>Chaining példa (vázlat → bővítés → QA): <a href="https://www.promptingguide.ai/techniques/chain-of-thought" target="_blank" rel="noreferrer">https://www.promptingguide.ai/techniques/chain-of-thought</a></li>
 </ul>`,
-    emailSubject: 'AI 30 Nap – 18. nap: Sabloncsomag II.',
-    emailBody: `<h1>AI 30 Nap – 18. nap</h1>
+    emailSubject: '30-Day AI Catch-Up – 18. nap: Sabloncsomag II.',
+    emailBody: `<h1>30-Day AI Catch-Up – 18. nap</h1>
 <h2>Szerephez illesztett sabloncsomag II.</h2>
-<p>Ma bővíted a sabloncsomagodat haladó promptokkal. Ez még hatékonyabbá teszi az AI használatodat.</p>
+<p>Ma 3 haladó sablont készítesz (komplex, integráció, automatizálás) beépített QA-lépéssel és változókkal.</p>
 <p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Olvasd el a teljes leckét →</a></p>`
   },
   {
     day: 19,
     title: 'Tipikus csapdák az adott szerepben',
-    content: `<h2>Napi cél</h2>
-<p>Ma feltárod a szerep-specifikus csapdákat, és írsz elkerülési/ellenőrzési stratégiát.</p>
+    content: `<h1>Tipikus csapdák az adott szerepben</h1>
+<p><em>Red flag lista + elkerülés + ellenőrzés.</em></p>
+
+<hr />
+<h2>Napi cél</h2>
 <ul>
-<li>csapdalista 5 tipikus hibával</li>
-<li>felismerési jelek: mire figyelj</li>
-<li>elkerülés: prompt-módosítás + ellenőrzés</li>
-<li>ellenőrző kérdések: mit kérdezz mindig</li>
+<li>Írsz egy 5 pontos csapdalistát a szerepedre.</li>
+<li>Minden ponthoz: felismerés jel, elkerülés (prompt), ellenőrzés kérdés.</li>
+<li>Összekapcsolod a sabloncsomagoddal.</li>
 </ul>
 
 <hr />
@@ -1295,19 +1317,20 @@ CTA: [következő lépés / kérés]
 <li><strong>Dev</strong>: hibás kód, edge case/teszt hiánya.</li>
 </ul>
 
-<h2>Elkerülés/ellenőrzés</h2>
+<hr />
+<h2>Elkerülés + ellenőrzés</h2>
 <ul>
-<li>„Ha szám/statisztika: adj forrást vagy jelezd a bizonytalanságot.”</li>
-<li>„Adj 3 személyre szabott variánst [persona]-ra.”</li>
-<li>„Kérj unit tesztet, edge case listát.”</li>
-<li>„Használj mérőszámot vagy CTA-t, ne csak leírást.”</li>
+<li>Szám/statisztika → forrás vagy disclaimer.</li>
+<li>Sales → kérj 3 persona-specifikus variánst.</li>
+<li>Dev → unit teszt, edge case lista kérése.</li>
+<li>PM/Marketing → mérőszám vagy CTA a leírás mellé.</li>
 </ul>
 
 <hr />
-<h2>Gyakorlat 1 – Csapdalista</h2>
-<p>Írj 5 csapdát a szerepedre. Mindhez: jelzés, elkerülés, ellenőrzés.</p>
+<h2>Gyakorlat (vezetett) – Csapdalista</h2>
+<p>Írj 5 csapdát. Mindhez: jelzés, elkerülés (prompt-módosítás), ellenőrző kérdés.</p>
 
-<h2>Gyakorlat 2 – Prompt javítás</h2>
+<h2>Gyakorlat (önálló) – Prompt javítás</h2>
 <p>Válassz egy rossz promptot, javítsd csapda-ellenesre, hasonlítsd össze a kimenetet.</p>
 
 <hr />
@@ -1316,18 +1339,23 @@ CTA: [következő lépés / kérés]
 <p>Készíts „csapdalista” dokumentumot [szerep]-hez. Struktúra: 1) Tipikus hibák, 2) Felismerés jelei, 3) Elkerülés (prompt), 4) Ellenőrző kérdések. Adj példát mindegyikre.</p>
 </blockquote>
 
+<hr />
 <h2>Tipp</h2>
-<p>Csapdalista = élő dokumentum. Frissítsd, ha új hiba jön elő, és linkeld a sabloncsomaghoz.</p>
+<ul>
+<li>Csapdalista = élő dokumentum. Frissítsd, ha új hiba jön elő.</li>
+<li>Linkeld a sabloncsomaghoz, hogy mindig kéznél legyen.</li>
+</ul>
 
+<hr />
 <h2>Opcionális mélyítés</h2>
 <ul>
-<li>Hibagyűjtemény valós esetekkel</li>
-<li>„Red flag” checklist per szerep</li>
+<li>„Red flag” checklist példa: <a href="https://www.productplan.com/glossary/red-flags/" target="_blank" rel="noreferrer">https://www.productplan.com/glossary/red-flags/</a></li>
+<li>QA kérdéslista inspiráció: <a href="https://martinfowler.com/articles/testing-culture.html" target="_blank" rel="noreferrer">https://martinfowler.com/articles/testing-culture.html</a></li>
 </ul>`,
-    emailSubject: 'AI 30 Nap – 19. nap: Tipikus csapdák',
-    emailBody: `<h1>AI 30 Nap – 19. nap</h1>
+    emailSubject: '30-Day AI Catch-Up – 19. nap: Tipikus csapdák',
+    emailBody: `<h1>30-Day AI Catch-Up – 19. nap</h1>
 <h2>Tipikus csapdák az adott szerepben</h2>
-<p>Ma megtanulod, hogyan kerüld el a tipikus csapdákat. Ez segít a megbízható használatban.</p>
+<p>Ma írsz egy red flag listát, hozzá elkerülési promptokat és ellenőrző kérdéseket, majd összekapcsolod a sabloncsomagoddal.</p>
 <p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Olvasd el a teljes leckét →</a></p>`
   },
   {
@@ -1511,31 +1539,33 @@ Struktúra:
   {
     day: 21,
     title: 'Ötletvalidálás AI-val',
-    content: `<h2>Napi cél</h2>
-<p>Ma AI-val validálsz egy ötletet: piac, kockázat, erőforrás, értékajánlat – forrás/disclaimer szabállyal.</p>
+    content: `<h1>Ötletvalidálás AI-val</h1>
+<p><em>Piac, kockázat, erőforrás, értékajánlat – forrás vagy disclaimer kötelező.</em></p>
+
+<hr />
+<h2>Napi cél</h2>
 <ul>
-<li>piaci térkép: hasonló termékek/szolgáltatások</li>
-<li>kockázatok: mi boríthatja</li>
-<li>erőforrás: mire lesz szükség</li>
-<li>értékajánlat: mi az egyedi</li>
+<li>Strukturáltan validálsz egy ötletet (piac, kockázat, erőforrás, UVP).</li>
+<li>Minden állításnál forrást kérsz vagy disclaimert.</li>
+<li>Pro/kontra szemlélettel nézed az eredményt.</li>
 </ul>
 
 <hr />
-<h2>Biztonságos validálás</h2>
-<p>„Adj forrást/linket, vagy jelezd, ha nem vagy biztos. Ne találj ki adatot.”</p>
-
 <h2>Struktúra</h2>
 <ol>
-<li>Ötlet rövid leírása (probléma, célközönség)</li>
-<li>Piaci kutatás: 3–5 hasonló szereplő, fő különbség</li>
-<li>Kockázatok: top 5, hatás/valószínűség</li>
-<li>Erőforrás: idő, pénz, csapat/skill</li>
-<li>Értékajánlat: 1–2 mondatos UVP</li>
+<li>Ötlet: probléma + célközönség.</li>
+<li>Piaci térkép: 3–5 hasonló szereplő, fő különbség.</li>
+<li>Kockázatok: top 5, hatás/valószínűség.</li>
+<li>Erőforrás: idő, pénz, csapat/skill.</li>
+<li>Értékajánlat: 1–2 mondatos UVP.</li>
 </ol>
 
 <hr />
-<h2>Gyakorlat</h2>
-<p>Válassz egy ötletet, kérj a fenti struktúrában validációt. Ellenőrizd a számokat/állításokat, jelöld, mi tűnik gyengének.</p>
+<h2>Gyakorlat (vezetett)</h2>
+<p>Válassz egy ötletet. Kérj validációt a fenti struktúrában. Jelöld, mi tűnik gyengének, mit kell emberrel ellenőrizni.</p>
+
+<h2>Gyakorlat (önálló)</h2>
+<p>Adj visszajelzést az AI-nak: „Ezt a részt forrásold / pontosítsd / jelöld becslésnek.” Frissíttesd a kimenetet.</p>
 
 <hr />
 <h2>Prompt minta</h2>
@@ -1543,205 +1573,258 @@ Struktúra:
 <p>Validáld ezt az ötletet: [ötlet]. Adj: 1) Piaci térkép (3–5 hasonló, különbségek), 2) Kockázatok (top 5, hatás/valószínűség), 3) Erőforrás igény (idő/pénz/skill), 4) Értékajánlat (1–2 mondat). Adj forrást vagy jelezd, ha nem vagy biztos. Formátum: lista + pro/kontra.</p>
 </blockquote>
 
+<hr />
 <h2>Tipp</h2>
-<p>Az AI segít ötletelni, de a kritikus pontokat ellenőrizd emberrel/forrással.</p>
+<ul>
+<li>Az AI vázlatot ad. Kritikus számot mindig ellenőriztess emberrel/forrással.</li>
+<li>Ha nincs forrás, legyen egyértelmű disclaimer.</li>
+</ul>
 
+<hr />
 <h2>Opcionális mélyítés</h2>
 <ul>
-<li>Simple TAM/SAM/SOM becslés</li>
-<li>Versenyelőny: mi másolható/nehezen másolható</li>
+<li>TAM/SAM/SOM becslés magyarázata: <a href="https://www.alexanderjarvis.com/what-is-tam-sam-som/" target="_blank" rel="noreferrer">https://www.alexanderjarvis.com/what-is-tam-sam-som/</a></li>
+<li>Versenyelőny keretrendszer: <a href="https://www.ycombinator.com/library/4A-competition-is-for-losers" target="_blank" rel="noreferrer">https://www.ycombinator.com/library/4A-competition-is-for-losers</a></li>
 </ul>`,
-    emailSubject: 'AI 30 Nap – 21. nap: Ötletvalidálás',
-    emailBody: `<h1>AI 30 Nap – 21. nap</h1>
+    emailSubject: '30-Day AI Catch-Up – 21. nap: Ötletvalidálás',
+    emailBody: `<h1>30-Day AI Catch-Up – 21. nap</h1>
 <h2>Ötletvalidálás AI-val</h2>
-<p>Ma megtanulod, hogyan validálod az ötleteidet. Ez segít a jó döntések meghozatalában.</p>
+<p>Ma strukturáltan validálsz egy ötletet (piac, kockázat, erőforrás, UVP) forrással vagy clear disclaimerrel.</p>
 <p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Olvasd el a teljes leckét →</a></p>`
   },
   {
     day: 22,
     title: 'Persona & értékajánlat',
-    content: `<h2>Napi cél</h2>
-<p>Ma AI-val készítesz personát és értékajánlatot: célcsoport, fájdalom-pontok, megoldás, üzenet.</p>
+    content: `<h1>Persona & értékajánlat</h1>
+<p><em>Kinek szólunk, mit ígérünk, miért higgyenek nekünk.</em></p>
 
-<h2>Persona</h2>
+<hr />
+<h2>Napi cél</h2>
 <ul>
-<li>Demográfia: szerep, iparág, cégméret</li>
-<li>Célok, kihívások, fájdalom-pontok</li>
-<li>Döntési szempontok, kifogások</li>
-</ul>
-
-<h2>Értékajánlat</h2>
-<ul>
-<li>Probléma → Megoldás → Előny (kimenet/eredmény)</li>
-<li>Miért mi? (egyedi tényező, proof, példa)</li>
-<li>Üzenet: 1–2 mondatos UVP, CTA</li>
+<li>Felépítesz egy personát (demó, célok, fájdalmak, kifogások).</li>
+<li>Megfogalmazod az értékajánlatot: Probléma → Megoldás → Előny.</li>
+<li>Írsz 2 üzenetvariánst (üzleti vs. barátságos) + CTA-val.</li>
 </ul>
 
 <hr />
-<h2>Gyakorlat</h2>
+<h2>Persona váz</h2>
+<ul>
+<li>Demográfia: szerep, iparág, cégméret.</li>
+<li>Célok, kihívások, fájdalom-pontok.</li>
+<li>Döntési szempontok, kifogások.</li>
+</ul>
+
+<h2>Értékajánlat váz</h2>
+<ul>
+<li>Probléma → Megoldás → Előny (eredmény).</li>
+<li>Miért mi? (egyedi tényező, proof, példa).</li>
+<li>Üzenet: 1–2 mondatos UVP, CTA.</li>
+</ul>
+
+<hr />
+<h2>Gyakorlat (vezetett)</h2>
 <ol>
-<li>Válassz célcsoportot (persona) és írd le röviden.</li>
-<li>Kérj personát: demó, célok, kihívások, kifogások.</li>
-<li>Kérj értékajánlatot: Probléma→Megoldás→Előny, 1–2 mondatos UVP.</li>
-<li>Adj 2 üzenetvariánst (pl. üzleti vs. barátságos).</li>
+<li>Válassz célcsoportot, írd le röviden.</li>
+<li>Kérj personát (demó, célok, fájdalmak, kifogások).</li>
+<li>Kérj értékajánlatot: Probléma → Megoldás → Előny, 1–2 mondatos UVP.</li>
+<li>Adj 2 üzenetvariánst (üzleti/barátságos), CTA-val.</li>
 </ol>
+
+<h2>Gyakorlat (önálló)</h2>
+<p>Használd a kifogásokat ellenálláskezelő üzenetekhez. Teszteld a két variánst, válaszd a jobbat.</p>
 
 <hr />
 <h2>Prompt minta</h2>
 <blockquote>
-<p>Készíts personát [célcsoport]-ra: demográfia, célok, kihívások, kifogások. Majd írj értékajánlatot: Probléma→Megoldás→Előny, 1–2 mondatos UVP, 2 üzenetvariáns (üzleti/barátságos). Adj CTA-t. Ha nincs adat, jelezd.</p>
+<p>Készíts personát [célcsoport]-ra: demográfia, célok, kihívások, kifogások. Majd írj értékajánlatot: Probléma→Megoldás→Előny, 1–2 mondatos UVP, 2 üzenetvariáns (üzleti/barátságos) + CTA. Ha nincs adat, jelezd.</p>
 </blockquote>
 
+<hr />
 <h2>Tipp</h2>
-<p>Kérj kifogásokat és döntési szempontokat is. Teszteld a két üzenetvariánst, válaszd a jobbat.</p>
+<ul>
+<li>Kérj kifogásokat és döntési szempontokat – ez adja az ellenálláskezelés alapját.</li>
+<li>Variánsokat tesztelj, ne feltételezz.</li>
+</ul>
 
+<hr />
 <h2>Opcionális mélyítés</h2>
 <ul>
-<li>Positioning: „For [persona] who [need], we provide [solution] that [outcome], unlike [alternatives].”</li>
-<li>Fájdalom → érték leképezések (pain/value map)</li>
+<li>Positioning sablon: <a href="https://www.hubspot.com/sales/positioning-statement" target="_blank" rel="noreferrer">https://www.hubspot.com/sales/positioning-statement</a></li>
+<li>Pain/Value map példa: <a href="https://strategyzer.com/library/value-proposition-canvas" target="_blank" rel="noreferrer">https://strategyzer.com/library/value-proposition-canvas</a></li>
 </ul>`,
-    emailSubject: 'AI 30 Nap – 22. nap: Persona & értékajánlat',
-    emailBody: `<h1>AI 30 Nap – 22. nap</h1>
+    emailSubject: '30-Day AI Catch-Up – 22. nap: Persona & értékajánlat',
+    emailBody: `<h1>30-Day AI Catch-Up – 22. nap</h1>
 <h2>Persona & értékajánlat</h2>
-<p>Ma megtanulod, hogyan készítesz personát és értékajánlatot. Ez kulcsfontosságú a marketinghez és értékesítéshez.</p>
+<p>Ma felépítesz egy personát és 1–2 mondatos UVP-t két üzenetvariánssal, hogy pontosan célozz és mérhetően kommunikálj.</p>
 <p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Olvasd el a teljes leckét →</a></p>`
   },
   {
     day: 23,
     title: 'Landing váz és szöveg',
-    content: `<h2>Napi cél</h2>
-<p>Ma AI-val készítesz landing vázlatot és szöveget: hero, értékajánlat, funkciók, CTA, variációk.</p>
+    content: `<h1>Landing váz és szöveg</h1>
+<p><em>Hero → értékajánlat → funkciók → bizonyíték → CTA. 3 variánsban.</em></p>
+
+<hr />
+<h2>Napi cél</h2>
 <ul>
-<li>vázlat → szöveg → variációk (rövid/részletes/bullet)</li>
-<li>hero: cím, alcím, CTA</li>
-<li>értékajánlat + funkciók listában</li>
+<li>Landing vázlat a kulcs szekciókkal.</li>
+<li>3 szövegvariáns: rövid, részletes, bullet-first.</li>
+<li>CTA és proof következetesen jelenjen meg.</li>
 </ul>
 
 <hr />
 <h2>Struktúra</h2>
 <ol>
-<li>Hero: cím, alcím, CTA</li>
-<li>Értékajánlat: 1–2 mondat, proof/példa</li>
-<li>Funkciók/előnyök: bullet 3–5</li>
-<li>Social proof (ha van)</li>
-<li>CTA ismétlés</li>
-<li>FAQ (opcionális)</li>
+<li>Hero: cím, alcím, CTA.</li>
+<li>Értékajánlat: 1–2 mondat, proof/példa.</li>
+<li>Funkciók/előnyök: 3–5 bullet.</li>
+<li>Social proof (ha nincs, helyőrző).</li>
+<li>CTA ismétlés.</li>
+<li>FAQ (opcionális).</li>
 </ol>
 
-<h2>Variációk</h2>
-<ul>
-<li>Rövid (hero + 3 bullet + CTA)</li>
-<li>Részletes (minden szekció)</li>
-<li>Bullet-first verzió</li>
-</ul>
+<hr />
+<h2>Gyakorlat (vezetett)</h2>
+<p>Írd le a terméket/szolgáltatást. Kérj vázlatot a fenti struktúrával, majd 3 szövegvariánst (rövid/részletes/bullet-first).</p>
+
+<h2>Gyakorlat (önálló)</h2>
+<p>Válaszd ki a legjobb variánst, finomítsd: CTA konkretizálása, proof hozzáadása, fölösleges szöveg rövidítése.</p>
 
 <hr />
-<h2>Gyakorlat</h2>
-<p>Adj meg termék/szolgáltatás leírást, kérj vázlatot a fenti struktúrával, majd kérj 3 szövegvariánst. Válaszd ki a legjobbat és finomíts.</p>
-
 <h2>Prompt minta</h2>
 <blockquote>
 <p>Készíts landing vázat és szöveget. Termék: [leírás]. Struktúra: Hero (cím, alcím, CTA), Értékajánlat, 3–5 bullet funkció, Social proof (ha nincs, írj helyőrzőt), CTA. Adj 3 variánst: rövid, részletes, bullet-first. Rövid, tömör, magyar nyelven.</p>
 </blockquote>
 
+<hr />
 <h2>Tipp</h2>
-<p>Kezdj vázlattal, majd kérj rövid + részletes verziót. A CTA legyen konkrét (pl. „Próbáld ki ingyen”).</p>`,
-    emailSubject: 'AI 30 Nap – 23. nap: Landing page',
-    emailBody: `<h1>AI 30 Nap – 23. nap</h1>
+<ul>
+<li>Kezdj vázlattal, utána kérj szöveget. Ne fordítva.</li>
+<li>CTA legyen konkrét („Próbáld ki ingyen”, „Időpontfoglalás”).</li>
+</ul>`,
+    emailSubject: '30-Day AI Catch-Up – 23. nap: Landing page',
+    emailBody: `<h1>30-Day AI Catch-Up – 23. nap</h1>
 <h2>Landing váz és szöveg</h2>
-<p>Ma megtanulod, hogyan készítesz landing page vázlatot és szöveget. Ez hasznos a marketinghez.</p>
+<p>Ma landing vázat és 3 szövegvariánst készítesz (rövid/részletes/bullet-first), erős CTA-val és proof-fal.</p>
 <p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Olvasd el a teljes leckét →</a></p>`
   },
   {
     day: 24,
     title: 'Árazás alapjai',
-    content: `<h2>Napi cél</h2>
-<p>Ma AI-val készítesz árazási vázlatot: piaci kép, érték-alap, verseny, stratégia. Forrás/disclaimer kötelező.</p>
+    content: `<h1>Árazás alapjai</h1>
+<p><em>Piaci kép + értékalapú gondolkodás + stratégia. Forrás vagy disclaimer kötelező.</em></p>
+
+<hr />
+<h2>Napi cél</h2>
 <ul>
-<li>piaci kutatás: versenytárs árak/modellek</li>
-<li>érték alapú megközelítés</li>
-<li>versenyképességi összevetés</li>
-<li>árstratégia (pl. free trial, subscription, tiered)</li>
+<li>Piaci kutatás: 3–5 hasonló ár/modellek.</li>
+<li>Érték-alap: milyen eredményt ad (idő/pénz/hatás).</li>
+<li>Árstratégia javaslat pro/kontrával.</li>
 </ul>
 
 <hr />
 <h2>Struktúra</h2>
 <ol>
-<li>Termék leírás, célcsoport</li>
-<li>Piaci kutatás: 3–5 hasonló, ár/modellek</li>
-<li>Érték alapú: milyen eredményt ad (idő/pénz/hatás)</li>
-<li>Versenyképesség: hol pozícionálsz (alacsony/közép/prémium)</li>
-<li>Stratégia javaslat: modellek, indoklás, pro/kontra</li>
+<li>Termék leírás, célcsoport.</li>
+<li>Piaci kutatás: ár/modellek, forrás vagy disclaimer.</li>
+<li>Értékalap: megtakarítás/eredmény (idő/pénz/hatás).</li>
+<li>Versenyképesség: pozíció (alacsony/közép/prémium).</li>
+<li>Árstratégia javaslat: modellek, indoklás, pro/kontra.</li>
 </ol>
 
 <hr />
-<h2>Biztonsági kitétel</h2>
-<p>„Adj forrást/linket, vagy jelezd, ha becslés; ne találj ki adatot.”</p>
-
-<h2>Gyakorlat</h2>
+<h2>Gyakorlat (vezetett)</h2>
 <p>Kérj árazási elemzést a fenti struktúrában, pro/kontra táblával. Jelöld, mihez kell emberi validáció.</p>
 
+<h2>Gyakorlat (önálló)</h2>
+<p>Adj visszajelzést: mely számok/állítások igényelnek forrást vagy pontosítást, frissíttesd a kimenetet.</p>
+
+<hr />
 <h2>Prompt minta</h2>
 <blockquote>
 <p>Készíts árazási elemzést. Termék: [leírás]. Struktúra: 1) Piaci kutatás (3–5 hasonló ár/modellek), 2) Érték alapú nézet (megtakarítás/eredmény), 3) Versenyképesség (pozíció), 4) Árazási stratégia javaslat (modellek + pro/kontra). Adj forrást vagy disclaimert, ha becslés. Formátum: táblázat + összefoglaló.</p>
 </blockquote>
 
+<hr />
 <h2>Tipp</h2>
-<p>Ne fogadj el számot forrás nélkül. Kezeld AI-kimenetet vázlatként, validáld piaci adattal.</p>`,
-    emailSubject: 'AI 30 Nap – 24. nap: Árazás',
-    emailBody: `<h1>AI 30 Nap – 24. nap</h1>
+<ul>
+<li>Szám forrás nélkül = gyanús. Kezeld vázlatként, validáld piaci adattal.</li>
+<li>Nézd a modell mögötti indoklást, ne csak az árat.</li>
+</ul>`,
+    emailSubject: '30-Day AI Catch-Up – 24. nap: Árazás',
+    emailBody: `<h1>30-Day AI Catch-Up – 24. nap</h1>
 <h2>Árazás alapjai</h2>
-<p>Ma megtanulod, hogyan gondolkodsz árazásról. Ez fontos a bevételhez.</p>
+<p>Ma piaci és értékalapú árazási vázat készítesz, pro/kontrával, kötelező forrás/disclaimer kéréssel.</p>
 <p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Olvasd el a teljes leckét →</a></p>`
   },
   {
     day: 25,
     title: 'MVP gondolkodás – mit NEM csinálunk',
-    content: `<h2>Napi cél</h2>
-<p>Ma MVP-t tervezel: mit csinálunk, mit NEM csinálunk, mi a legfontosabb érték.</p>
+    content: `<h1>MVP gondolkodás – mit NEM csinálunk</h1>
+<p><em>Az érték kerül be, minden más marad kint.</em></p>
+
+<hr />
+<h2>Napi cél</h2>
 <ul>
-<li>minimális funkciókészlet</li>
-<li>kizárások listája</li>
-<li>prioritás: mi kerül be első körben</li>
-<li>érték: mit ad az MVP</li>
+<li>Megfogalmazod az MVP-t egy mondatban.</li>
+<li>Kijelölöd, mi kerül bele (3–5 funkció) és mi marad ki.</li>
+<li>Azonosítod az első use case/célcsoportot és az értéket.</li>
 </ul>
 
 <hr />
 <h2>MVP váz</h2>
-<ol>
-<li>Termék/feature rövid leírása</li>
-<li><strong>Mit csinálunk</strong>: top 3 funkció</li>
-<li><strong>Mit NEM csinálunk</strong>: mit hagyunk ki (scope cut)</li>
-<li><strong>Prioritás</strong>: miért ezek kerülnek be</li>
-<li><strong>Érték</strong>: milyen problémát old meg, milyen mérőszámmal</li>
-</ol>
+<ul>
+<li>1 mondat: mi az MVP.</li>
+<li>Mit tartalmaz (3–5 funkció).</li>
+<li>Mit <strong>nem</strong> tartalmaz (kizárások).</li>
+<li>Első use case / célcsoport.</li>
+<li>Érték: mit ad így is.</li>
+</ul>
 
-<h2>Gyakorlat</h2>
-<p>Kérj MVP tervet a fenti váz szerint, külön „mit nem csinálunk” blokkal. Ellenőrizd, hogy minden funkcióhoz van-e érték és mérőszám.</p>
+<h2>Prioritás</h2>
+<ul>
+<li>„Most” = belépő érték.</li>
+<li>„Később” = nice-to-have.</li>
+</ul>
 
+<hr />
+<h2>Gyakorlat (vezetett)</h2>
+<p>Válassz egy ötletet. Kérj MVP vázat a fenti szerkezetben. Adj 2 verziót: „csak alap”, „alap +1 kiegészítés”.</p>
+
+<h2>Gyakorlat (önálló)</h2>
+<p>Írd le, mi marad ki és miért. Ellenőrizd a scope creep ellen: ha nincs benne a listában, nem kerül be.</p>
+
+<hr />
 <h2>Prompt minta</h2>
 <blockquote>
-<p>Készíts MVP tervet. Termék: [leírás]. Struktúra: 1) Mit csinálunk (top 3 funkció), 2) Mit NEM csinálunk (scope cut), 3) Prioritás indoklása, 4) Érték (probléma → megoldás → mérőszám). Formátum: lista.</p>
+<p>Készíts MVP vázat. Termék: [leírás]. Struktúra: 1) Egy mondatban: mi az MVP, 2) Mit tartalmaz (3–5 funkció), 3) Mit nem tartalmaz (kizárások), 4) Első use case/célcsoport, 5) Milyen értéket ad így is. Adj 2 verziót: „csak alap”, „alap +1”.</p>
 </blockquote>
 
+<hr />
 <h2>Tipp</h2>
-<p>A „mit nem” legalább olyan fontos, mint a „mit igen”. Ne engedd visszamászni a scope-ba.</p>`,
-    emailSubject: 'AI 30 Nap – 25. nap: MVP gondolkodás',
-    emailBody: `<h1>AI 30 Nap – 25. nap</h1>
+<ul>
+<li>A „nem csináljuk” lista a legjobb védelem a scope creep ellen.</li>
+<li>Használd döntési keretként minden új igénynél.</li>
+</ul>`,
+    emailSubject: '30-Day AI Catch-Up – 25. nap: MVP gondolkodás',
+    emailBody: `<h1>30-Day AI Catch-Up – 25. nap</h1>
 <h2>MVP gondolkodás – mit NEM csinálunk</h2>
-<p>Ma megtanulod az MVP gondolkodást. Ez segít a fókuszban és a prioritásokban.</p>
+<p>Ma kijelölöd, mi kerül be az MVP-be és mi marad ki, hogy fókuszáltan és gyorsan szállíts értéket.</p>
 <p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Olvasd el a teljes leckét →</a></p>`
   },
   // 26-30. nap · Lezárás & következő szint
   {
     day: 26,
     title: 'Saját AI-rutin kialakítása',
-    content: `<h2>Napi cél</h2>
-<p>Ma kialakítod a napi AI-rutinodat: reggel–napközben–este feladatok, sablonokkal és időkerettel.</p>
+    content: `<h1>Saját AI-rutin kialakítása</h1>
+<p><em>Reggel–napközben–este blokkok, időkeret, QA, biztonság.</em></p>
+
+<hr />
+<h2>Napi cél</h2>
 <ul>
-<li>rutin blokk: Reggeli, Napi, Esti</li>
-<li>feladat + prompt sablon + időkeret</li>
-<li>ellenőrző lépés: mit nézel át minden kimenetnél</li>
+<li>Felépítesz egy 3 blokkból álló napi AI-rutint.</li>
+<li>Minden feladat: cél + prompt + időkeret + QA lépés.</li>
+<li>Biztonság: anonimizálás, érzékeny adat kizárása.</li>
 </ul>
 
 <hr />
@@ -1752,15 +1835,15 @@ Struktúra:
 <li><strong>Este</strong>: napi összegzés (3 tanulság), holnapi top 3 feladat prompttal.</li>
 <li><strong>QA</strong>: számok/határidők/felelősök ellenőrzése.</li>
 <li><strong>Biztonság</strong>: anonimizálás, nincs érzékeny adat.</li>
-<li><strong>Kérj alternatívát</strong>: „Adj 2 stílusvariánst.”</li>
+<li><strong>Variáció</strong>: kérj 2 stílusvariánst, hogy gyorsan választhass.</li>
 </ul>
 
 <hr />
-<h2>Gyakorlat 1 – Rutin váz</h2>
-<p>Írj 3-3 feladatot blokkonként, mindhez: cél, prompt, idő (perc), QA lépés.</p>
+<h2>Gyakorlat (vezetett) – Rutin váz</h2>
+<p>Írj 3-3 feladatot blokkonként. Mindhez: cél, prompt, idő (perc), QA lépés.</p>
 
-<h2>Gyakorlat 2 – Teszt</h2>
-<p>Futtasd a reggeli blokkot élesben, jegyezd fel: mennyi idő, mi volt hasznos, mit javítasz.</p>
+<h2>Gyakorlat (önálló) – Teszt</h2>
+<p>Futtasd a reggeli blokkot élesben, mérj időt, jegyezd: mi hasznos, mit javítasz.</p>
 
 <hr />
 <h2>Prompt minta</h2>
@@ -1768,119 +1851,146 @@ Struktúra:
 <p>Készíts napi AI-rutin tervet. Struktúra: 1) Reggel: [3 feladat + prompt + perc + QA], 2) Napközben: [3 feladat], 3) Este: [3 feladat]. Adj időbecslést, és írd le a QA lépést (számok/határidők/felelősök). Biztonság: anonimizálás.</p>
 </blockquote>
 
+<hr />
 <h2>Tipp</h2>
-<p>Kezdj kicsiben (1–2 feladat/blokk), majd bővíts. A QA legyen része a rutinodnak.</p>`,
-    emailSubject: 'AI 30 Nap – 26. nap: AI-rutin',
-    emailBody: `<h1>AI 30 Nap – 26. nap</h1>
+<ul>
+<li>Kezdj 1–2 feladat/blokk, majd bővíts.</li>
+<li>A QA legyen beépített lépés, ne utólagos.</li>
+</ul>`,
+    emailSubject: '30-Day AI Catch-Up – 26. nap: AI-rutin',
+    emailBody: `<h1>30-Day AI Catch-Up – 26. nap</h1>
 <h2>Saját AI-rutin kialakítása</h2>
-<p>Ma kialakítod a saját napi AI-rutinodat. Ez segít a következetes használatban.</p>
+<p>Ma felépíted a napi AI-rutinodat (reggel–napközben–este), időkerettel, QA-val és biztonsági szabályokkal.</p>
 <p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Olvasd el a teljes leckét →</a></p>`
   },
   {
     day: 27,
     title: '60 másodperces pitch AI-val',
-    content: `<h2>Napi cél</h2>
-<p>Ma 60 mp-es pitch-et készítesz AI-val: vázlat → 3 verzió (rövid/részletes/bullet) → próba.</p>
+    content: `<h1>60 másodperces pitch AI-val</h1>
+<p><em>Probléma → Megoldás → Érték/Proof → CTA, 3 variánsban.</em></p>
+
+<hr />
+<h2>Napi cél</h2>
 <ul>
-<li>struktúra: Probléma (10 mp) → Megoldás (30 mp) → Érték/eredmény (20 mp) + CTA</li>
-<li>3 variáns: rövid, részletes, bullet-first</li>
-<li>hang/próbálás: mondd ki hangosan, mérj időt</li>
+<li>Készítesz 60 mp-es pitch-et AI-val, 3 verzióban (rövid/részletes/bullet-first).</li>
+<li>Időre gyakorolsz, felesleget vágva.</li>
+<li>CTA és proof mindig szerepel.</li>
 </ul>
 
 <hr />
-<h2>Vázlat</h2>
+<h2>Struktúra</h2>
 <ul>
-<li>Probléma: kinek, mi fáj?</li>
-<li>Megoldás: mit adsz, hogyan működik?</li>
-<li>Érték/Proof: milyen eredmény, példa, szám</li>
-<li>CTA: mi a következő lépés?</li>
-<li>Persona-fit: kinek szól?</li>
+<li>Probléma (10 mp) – kinek, mi fáj?</li>
+<li>Megoldás (30 mp) – mit adsz, hogyan működik?</li>
+<li>Érték/Proof (20 mp) – eredmény, példa, szám.</li>
+<li>CTA – következő lépés.</li>
+<li>Persona-fit – kinek szól?</li>
 </ul>
 
 <hr />
-<h2>Gyakorlat</h2>
+<h2>Gyakorlat (vezetett)</h2>
 <ol>
-<li>Írd le a termék/szolgáltatás röviden.</li>
+<li>Írd le a terméket röviden.</li>
 <li>Kérj pitch vázlatot a fenti struktúrában.</li>
 <li>Kérj 3 verziót (rövid/részletes/bullet).</li>
 <li>Olvasd fel, mérj időt, rövidíts, ha kell.</li>
 </ol>
 
+<h2>Gyakorlat (önálló)</h2>
+<p>Teszteld különböző personákra (C-suite vs. operatív), finomítsd a szóhasználatot.</p>
+
+<hr />
 <h2>Prompt minta</h2>
 <blockquote>
 <p>Készíts 60 mp pitch-et. Termék: [leírás]. Struktúra: Probléma (10 mp), Megoldás (30 mp), Érték/Proof (20 mp), CTA. Adj 3 verziót: 1) rövid, 2) részletes, 3) bullet-first. Tömör, magyar nyelven.</p>
 </blockquote>
 
+<hr />
 <h2>Tipp</h2>
-<p>60 mp nagyon rövid: vágj felesleget, hagyj CTA-t a végén. Gyakorold, amíg belefér az időbe.</p>`,
-    emailSubject: 'AI 30 Nap – 27. nap: 60 másodperces pitch',
-    emailBody: `<h1>AI 30 Nap – 27. nap</h1>
+<ul>
+<li>60 mp nagyon rövid: vágj felesleget, CTA mindig maradjon.</li>
+<li>Gyakorold hangosan, mérj időt.</li>
+</ul>`,
+    emailSubject: '30-Day AI Catch-Up – 27. nap: 60 másodperces pitch',
+    emailBody: `<h1>30-Day AI Catch-Up – 27. nap</h1>
 <h2>60 másodperces pitch AI-val</h2>
-<p>Ma megtanulod, hogyan készítesz 60 másodperces pitch-et. Ez hasznos a prezentációkhoz és értékesítéshez.</p>
+<p>Ma 60 mp-es pitch-et készítesz 3 variánsban, időre gyakorolsz, és CTA-t/proofot építesz be.</p>
 <p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Olvasd el a teljes leckét →</a></p>`
   },
   {
     day: 28,
     title: 'Portfólió-szintű kimenetek',
-    content: `<h2>Napi cél</h2>
-<p>Ma portfólió-minőségű kimenetet készítesz AI-val: profi, konzisztens, teljes, jól formázott.</p>
+    content: `<h1>Portfólió-szintű kimenetek</h1>
+<p><em>Profi, konzisztens, teljes, jól formázott + QA.</em></p>
+
+<hr />
+<h2>Napi cél</h2>
 <ul>
-<li>minőség: hibamentes, tömör, érthető</li>
-<li>konzisztencia: stílus/forma egységes</li>
-<li>teljesség: minden szükséges infó benne</li>
-<li>megjelenés: jól formázott, olvasható</li>
+<li>Portfólió-minőségű anyag készítése (pl. kampányterv, PRD váz, esettanulmány).</li>
+<li>Kötelező QA checklist használata.</li>
+<li>Formázás: címsorok, bullet/táblázat, whitespace, CTA.</li>
 </ul>
 
 <hr />
 <h2>QA checklist</h2>
 <ul>
-<li>Hibák: helyesírás, számok, nevek, dátumok</li>
+<li>Hibák: helyesírás, számok, nevek, dátumok.</li>
 <li>Teljesség: hiányzó szekciók? CTA?</li>
 <li>Konzisztencia: stílus/terminológia egységes?</li>
-<li>Formázás: címsorok, bullet, táblázat, whitespace</li>
-<li>Biztonság: nincs érzékeny adat</li>
+<li>Formázás: címsorok, bullet, táblázat, whitespace.</li>
+<li>Biztonság: nincs érzékeny adat.</li>
 </ul>
 
 <hr />
-<h2>Gyakorlat</h2>
+<h2>Gyakorlat (vezetett)</h2>
 <p>Válassz feladatot (pl. kampányterv, PRD váz, esettanulmány). Kérj portfólió-minőségű kimenetet a fenti kritériumokkal, majd futtasd le a QA checklistet és finomíts.</p>
 
+<h2>Gyakorlat (önálló)</h2>
+<p>Kérj „ön-QA” részt a modelltől: mit ellenőrizne. Használd összevetésre a saját listáddal.</p>
+
+<hr />
 <h2>Prompt minta</h2>
 <blockquote>
 <p>Készíts portfólió-minőségű anyagot. Feladat: [leírás]. Követelmények: profi, hibamentes, egységes stílus, teljes. Formázás: címsorok + bullet/táblázat, világos CTA. Adj ön-QA listát is (mire figyeljek átnézéskor).</p>
 </blockquote>
 
+<hr />
 <h2>Tipp</h2>
-<p>Mindig futtasd a QA listát. Ha lehet, kérj „önellenőrzést” is a modelltől, majd olvasd át te.</p>`,
-    emailSubject: 'AI 30 Nap – 28. nap: Portfólió-szintű kimenetek',
-    emailBody: `<h1>AI 30 Nap – 28. nap</h1>
+<ul>
+<li>Mindig futtasd le a QA listát, majd olvasd át te is.</li>
+<li>Ha lehet, kérj másodvéleményt (emberi review).</li>
+</ul>`,
+    emailSubject: '30-Day AI Catch-Up – 28. nap: Portfólió-szintű kimenetek',
+    emailBody: `<h1>30-Day AI Catch-Up – 28. nap</h1>
 <h2>Portfólió-szintű kimenetek</h2>
-<p>Ma megtanulod, hogyan készítesz portfólió-szintű kimeneteket. Ezek megmutathatók és használhatók.</p>
+<p>Ma portfólió-minőségű anyagot készítesz, kötelező QA-val, profi formázással és ön-ellenőrző listával.</p>
 <p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Olvasd el a teljes leckét →</a></p>`
   },
   {
     day: 29,
     title: 'Személyes fejlődési térkép',
-    content: `<h2>Napi cél</h2>
-<p>Ma megrajzolod a személyes AI-fejlődési térképedet: hol tartasz, hova mész, hogyan méred, 4 hetes akciótervvel.</p>
+    content: `<h1>Személyes fejlődési térkép</h1>
+<p><em>Hol tartasz, hova mész, hogyan méred – 4 hetes akciótervvel.</em></p>
+
+<hr />
+<h2>Napi cél</h2>
 <ul>
-<li>jelenlegi szint 1–5 kulcsterületen</li>
-<li>konkrét célok (mit szeretnél elérni)</li>
-<li>lépések és eszközök (sablon, workflow, QA)</li>
-<li>mérés: hogyan követed (KPI, review)</li>
+<li>Értékeled a szinted kulcsterületeken (1–5).</li>
+<li>Kijelölsz 3 célt 4 hétre.</li>
+<li>Akcióterv lépésekkel, mérőszámokkal.</li>
 </ul>
 
 <hr />
 <h2>Fejlődési térkép elemei</h2>
 <ul>
-<li><strong>Jelenlegi szint</strong>: prompt, workflow, sablon, QA/biztonság, szerep-specifikus</li>
-<li><strong>Célok</strong>: pl. „komplex feladatok”, „automatizálás”, „portfólió anyag”</li>
-<li><strong>Lépések</strong>: gyakorlás, sablonfrissítés, QA checklist használat</li>
-<li><strong>Mérés</strong>: mennyi iteráció kell, időmegtakarítás, hibaarány</li>
+<li><strong>Jelenlegi szint</strong>: prompt, workflow, sablon, QA/biztonság, szerep-specifikus.</li>
+<li><strong>Célok</strong>: pl. „komplex feladatok”, „automatizálás”, „portfólió anyag”.</li>
+<li><strong>Lépések</strong>: gyakorlás, sablonfrissítés, QA checklist használat.</li>
+<li><strong>Mérés</strong>: iterációk száma, időmegtakarítás, hibaarány.</li>
 </ul>
 
 <hr />
-<h2>Gyakorlat</h2>
+<h2>Gyakorlat (vezetett)</h2>
 <ol>
 <li>Értékeld magad 1–5-re a kulcsterületeken.</li>
 <li>Írj 3 célt (4 hetes távon).</li>
@@ -1888,29 +1998,39 @@ Struktúra:
 <li>Készíts 4 hetes akciótervet, mérőszámokkal.</li>
 </ol>
 
+<h2>Gyakorlat (önálló)</h2>
+<p>Állíts be heti review-t: mi javult, mit mérsz, mit frissítesz a sablon/QA könyvtárban.</p>
+
+<hr />
 <h2>Prompt minta</h2>
 <blockquote>
 <p>Készíts személyes AI-fejlődési térképet. Struktúra: 1) Jelenlegi szint (1–5: prompt, workflow, sablon, QA/biztonság, szerep-specifikus), 2) 3 cél (4 hétre), 3) Lépések (heti feladatok, eszközök), 4) Mérés (KPI: iterációk száma, időspórolás, hibaarány). Adj 4 hetes akciótervet.</p>
 </blockquote>
 
+<hr />
 <h2>Tipp</h2>
-<p>Kis célok, rövid határidő (4 hét), mérhető lépések. A térképet frissítsd hetente.</p>`,
-    emailSubject: 'AI 30 Nap – 29. nap: Fejlődési térkép',
-    emailBody: `<h1>AI 30 Nap – 29. nap</h1>
+<ul>
+<li>Kis célok, rövid határidő (4 hét), mérhető lépések.</li>
+<li>Frissítsd hetente a térképet, jegyezd a haladást.</li>
+</ul>`,
+    emailSubject: '30-Day AI Catch-Up – 29. nap: Fejlődési térkép',
+    emailBody: `<h1>30-Day AI Catch-Up – 29. nap</h1>
 <h2>Személyes fejlődési térkép</h2>
-<p>Ma készítesz egy személyes fejlődési térképet. Ez segít a folyamatos fejlődésben.</p>
+<p>Ma értékeled a szinted, 3 célt jelölsz ki 4 hétre, és akciótervet készítesz mérőszámokkal.</p>
 <p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Olvasd el a teljes leckét →</a></p>`
   },
   {
     day: 30,
     title: 'Zárás – merre tovább?',
-    content: `<h2>Napi cél</h2>
-<p>Ma lezársz és pályára állítod a következő 4 heted: tanulságok, alkalmazás, fejlesztés, akcióterv.</p>
+    content: `<h1>Zárás – merre tovább?</h1>
+<p><em>Összegzés, alkalmazás, fejlesztés, 4 hetes akcióterv.</em></p>
+
+<hr />
+<h2>Napi cél</h2>
 <ul>
-<li>összegzed a top tanulságokat</li>
-<li>kiválasztod a legjobb gyakorlatokat, amiket alkalmazol</li>
-<li>kijelölöd a következő lépéseket (4 hetes terv)</li>
-<li>megőrzöd a lendületet (rutin, mérés, megosztás)</li>
+<li>Összegzed a top tanulságokat.</li>
+<li>Kijelölsz konkrét alkalmazási feladatokat.</li>
+<li>Írsz 4 hetes fejlesztési akciótervet mérőszámokkal.</li>
 </ul>
 
 <hr />
@@ -1926,7 +2046,7 @@ Struktúra:
 </ol>
 
 <hr />
-<h2>Gyakorlat</h2>
+<h2>Gyakorlat (vezetett)</h2>
 <ol>
 <li>Írj 3 fő tanulságot.</li>
 <li>Írj 3 konkrét feladatot, ahol holnaptól alkalmazod.</li>
@@ -1934,23 +2054,30 @@ Struktúra:
 <li>Készíts 4 hetes akciótervet mérőszámokkal.</li>
 </ol>
 
+<h2>Gyakorlat (önálló)</h2>
+<p>Oszd meg a legjobb sablonjaidat a csapattal, kérj visszajelzést, mérd a hatást (idő, minőség).</p>
+
+<hr />
 <h2>Prompt minta</h2>
 <blockquote>
 <p>Készíts „merre tovább” tervet. Struktúra: 1) 3 fő tanulság, 2) 3 alkalmazási feladat, 3) 3 fejlesztési lépés, 4) 4 hetes akcióterv (mérőszámokkal: időspórolás/iteráció/hibaarány). Adj javaslatot a rutin fenntartására és tudásmegosztásra.</p>
 </blockquote>
 
+<hr />
 <h2>Tipp</h2>
-<p>A kurzus lezárult, de a gyakorlat visz előre. Tartsd a napi rutint, mérd az eredményt, és frissítsd rendszeresen a könyvtáradat.</p>
+<ul>
+<li>Tartsd a napi rutint, mérd az eredményt, frissítsd rendszeresen a könyvtáradat.</li>
+<li>Kérj visszajelzést másoktól, oszd meg a bevált sablonokat.</li>
+</ul>
 
 <h2>Köszönjük!</h2>
 <p>Köszönjük, hogy végigcsináltad! 🚀</p>`,
-    emailSubject: 'AI 30 Nap – 30. nap: Zárás',
-    emailBody: `<h1>AI 30 Nap – 30. nap</h1>
+    emailSubject: '30-Day AI Catch-Up – 30. nap: Zárás',
+    emailBody: `<h1>30-Day AI Catch-Up – 30. nap</h1>
 <h2>Zárás – merre tovább?</h2>
-<p>Gratulálunk! Elvégezted a 30 napos AI kurzust! 🎉</p>
-<p>Ma lezárjuk a kurzust és meghatározzuk a következő lépéseket.</p>
+<p>Gratulálunk! Összegzed a tanulságokat, kijelölöd a következő 4 hetet, és akciótervet készítesz mérőszámokkal.</p>
 <p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Olvasd el a teljes leckét →</a></p>
-<p>Köszönjük, hogy elvégezted a kurzust! Folytasd a tanulást! 🚀</p>`
+<p>Köszönjük, hogy végigcsináltad a programot! 🚀</p>`
   }
 ];
 

@@ -222,6 +222,8 @@
     "loadingQuiz": "Kérdések betöltése...",
     "noQuizQuestions": "Nincs elérhető értékelési kérdés ehhez a leckéhez.",
     "quizError": "Hiba történt a kérdések betöltésekor.",
+    "someQuestionsNotFound": "Néhány kérdés nem található. Kérjük, próbáld meg újra.",
+    "questionsNotFoundError": "A kvíz kérdései nem találhatók. Kérjük, frissítsd az oldalt és próbáld meg újra.",
     "retry": "Újrapróbálás",
     "answeredCount": "{{answered}} / {{total}} megválaszolva",
     "submitQuiz": "Értékelés beküldése",

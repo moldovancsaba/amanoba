@@ -221,6 +221,8 @@
     "loadingQuiz": "Loading quiz questions...",
     "noQuizQuestions": "No quiz questions available for this lesson.",
     "quizError": "An error occurred while loading questions.",
+    "someQuestionsNotFound": "Some questions not found. Please try again.",
+    "questionsNotFoundError": "Quiz questions not found. Please refresh the page and try again.",
     "retry": "Retry",
     "answeredCount": "{{answered}} of {{total}} answered",
     "submitQuiz": "Submit Quiz",

@@ -1,8 +1,8 @@
 # Amanoba Course Creation Guide (EN)
 
-**Version**: 3.0  
+**Version**: 3.1  
 **Last Updated**: 2025-01-20  
-**Based on**: Production AI_30_NAP course implementation with Quiz Assessments
+**Based on**: Production AI_30_NAP course implementation with Quiz Assessments, Premium Pricing, and Table of Contents
 
 This guide is based on the actual implementation of the AI_30_NAP course and learnings from the development process.
 
@@ -53,6 +53,40 @@ Courses are stored as documents in MongoDB using Mongoose schemas:
 - `durationDays`: `30` (standard for 30-day courses)
 - `requiresPremium`: `false` (unless truly premium-only)
 - `thumbnail`: Optional image URL for course listing
+
+### Premium Course Pricing (v2.8.0+)
+
+If `requiresPremium` is set to `true`, you can configure pricing:
+
+- **`price.amount`**: Price in smallest currency unit (e.g., 2999 = $29.99 USD, 17500 = 175 Ft HUF)
+- **`price.currency`**: ISO currency code (`usd`, `eur`, `huf`, `gbp`)
+
+**Stripe Minimum Amounts** (enforced):
+- USD: $0.50 (50 cents)
+- EUR: €0.50 (50 cents)
+- HUF: 175 Ft
+- GBP: £0.30 (30 pence)
+
+**Important**: The admin UI validates minimum amounts in real-time. If you set a price below the minimum, you'll see a warning and the system will prevent submission.
+
+**Example Premium Course Configuration**:
+```json
+{
+  "courseId": "PREMIUM_COURSE_101",
+  "requiresPremium": true,
+  "price": {
+    "amount": 2999,  // $29.99 USD
+    "currency": "usd"
+  }
+}
+```
+
+**Payment Flow**:
+1. Student clicks "Purchase Premium" on course page
+2. System creates Stripe Checkout session
+3. Student completes payment on Stripe
+4. Webhook activates premium status automatically
+5. Student can then enroll in premium courses
 
 ### Points & XP Configuration
 
@@ -546,6 +580,68 @@ Use `metadata` field to store:
 
 ---
 
-**Last Updated**: 2025-01-17  
+---
+
+## Step 11: Table of Contents (v2.8.0+)
+
+The course detail page automatically displays a table of contents showing all lessons in the course.
+
+### Features
+
+- **Automatic Generation**: Table of contents is generated from active lessons
+- **Lesson Information**: Shows day number, title, estimated minutes, and quiz indicator
+- **Public Access**: Visible to all users (no login required) on course detail pages
+- **API Endpoint**: `GET /api/courses/{courseId}/lessons` (public endpoint)
+
+### Display Format
+
+Each lesson in the table of contents shows:
+- Day number badge (accent color)
+- Lesson title
+- Quiz indicator badge (if lesson has quiz enabled)
+- Day number and estimated minutes (if available)
+
+### Best Practices
+
+- Set `metadata.estimatedMinutes` for each lesson to show reading time
+- Ensure all lessons have `isActive: true` to appear in table of contents
+- Use descriptive lesson titles for better user experience
+
+---
+
+## Step 12: Course Export/Import (v2.7.0+)
+
+You can export and import complete courses including all lessons and quizzes.
+
+### Export Course
+
+**UI Path**: `/{locale}/admin/courses/{courseId}` → "Export Course" button  
+**API Endpoint**: `GET /api/admin/courses/{courseId}/export`
+
+**Export Format**: JSON file containing:
+- Course metadata
+- All lessons (with content, email templates, quiz config)
+- All quiz questions (for each lesson with quiz enabled)
+
+### Import Course
+
+**UI Path**: `/{locale}/admin/courses` → "Import Course" button  
+**API Endpoint**: `POST /api/admin/courses/import`
+
+**Import Options**:
+- **Overwrite**: If course with same `courseId` exists, overwrite it
+- **Skip**: If course exists, skip import
+- **Validation**: System validates course structure before import
+
+**Use Cases**:
+- Backup courses before major changes
+- Share courses between environments (dev → production)
+- Duplicate courses for different languages
+- Version control for course content
+
+---
+
+**Last Updated**: 2025-01-20  
 **Based on**: Production AI_30_NAP course (30 lessons, fully seeded)  
-**Status**: ✅ Tested and verified in production
+**Status**: ✅ Tested and verified in production  
+**Version**: 2.8.0 (Stripe Integration, Premium Pricing, Table of Contents)

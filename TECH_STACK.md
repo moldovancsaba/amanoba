@@ -1,7 +1,7 @@
 # Technology Stack
 
-**Version**: 1.0.0  
-**Last Updated**: 2025-10-10T11:02:31.000Z
+**Version**: 2.8.0  
+**Last Updated**: 2025-01-20T23:00:00.000Z
 
 ---
 
@@ -66,6 +66,11 @@
 
 ### Authentication
 - **Facebook SDK**: OAuth 2.0
+- **next-auth**: Session management
+
+### Payment Processing
+- **Stripe**: 20.2.0 (Payment processing for premium courses)
+- **@stripe/stripe-js**: 8.6.1 (Client-side Stripe integration)
 
 ### Validation & Security
 - **Zod**: 4.1.11

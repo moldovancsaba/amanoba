@@ -138,8 +138,28 @@ export async function GET(request: NextRequest) {
       }
       if (courseId) {
         const mongoose = require('mongoose');
+        // If courseId is a valid ObjectId, use it directly
         if (mongoose.Types.ObjectId.isValid(courseId)) {
           matchStage.courseId = new mongoose.Types.ObjectId(courseId);
+        } else {
+          // If courseId is a string (like "AI_30_NAP"), look up the course first
+          const { Course } = require('@/app/lib/models');
+          const course = await Course.findOne({ courseId: courseId }).lean();
+          if (course && course._id) {
+            matchStage.courseId = course._id;
+          } else {
+            logger.warn({ courseId }, 'Course not found for lesson quiz');
+            return NextResponse.json(
+              {
+                ok: false,
+                error: {
+                  code: 'COURSE_NOT_FOUND',
+                  message: 'Course not found',
+                },
+              },
+              { status: 404 }
+            );
+          }
         }
       }
       // In lesson mode, difficulty is optional (can be any difficulty)

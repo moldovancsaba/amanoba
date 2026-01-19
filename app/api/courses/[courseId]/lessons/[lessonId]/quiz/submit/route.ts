@@ -65,13 +65,36 @@ export async function POST(
 
     // Fetch questions to verify answers
     const questionIds = answers.map((a: { questionId: string }) => a.questionId);
+    
+    // Convert question IDs to ObjectIds, filtering out invalid ones
+    const validQuestionIds = questionIds
+      .filter((id: string) => mongoose.Types.ObjectId.isValid(id))
+      .map((id: string) => new mongoose.Types.ObjectId(id));
+    
+    if (validQuestionIds.length === 0) {
+      logger.warn({ questionIds }, 'No valid question IDs provided');
+      return NextResponse.json(
+        { error: 'Invalid question IDs provided' },
+        { status: 400 }
+      );
+    }
+    
+    // Find questions - match by ID and ensure they belong to this lesson/course
     const questions = await QuizQuestion.find({
-      _id: { $in: questionIds.map((id: string) => new mongoose.Types.ObjectId(id)) },
-      lessonId,
+      _id: { $in: validQuestionIds },
+      lessonId: lessonId,
       courseId: course._id,
       isCourseSpecific: true,
       isActive: true,
     }).lean();
+    
+    logger.info({
+      courseId,
+      lessonId,
+      requestedQuestionIds: questionIds.length,
+      validQuestionIds: validQuestionIds.length,
+      foundQuestions: questions.length,
+    }, 'Quiz question lookup');
 
     if (questions.length !== answers.length) {
       logger.warn({
