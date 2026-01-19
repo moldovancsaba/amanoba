@@ -26,6 +26,7 @@ import {
 } from 'lucide-react';
 import RichTextEditor from '@/app/components/ui/rich-text-editor';
 import { getStripeMinimum, getFormattedMinimum, meetsStripeMinimum } from '@/app/lib/utils/stripe-minimums';
+import { marked } from 'marked';
 
 interface Course {
   _id: string;
@@ -604,6 +605,15 @@ function LessonFormModal({
   const [saving, setSaving] = useState(false);
   const [showQuizManager, setShowQuizManager] = useState(false);
 
+  const ensureHtmlContent = (input: string) => {
+    const trimmed = (input || '').trim();
+    // Heuristic: if it already contains HTML tags, return as-is
+    const looksLikeHtml = /<\/?[a-z][\s\S]*>/i.test(trimmed);
+    if (looksLikeHtml) return trimmed;
+    // Otherwise treat as Markdown and convert to HTML
+    return marked.parse(trimmed, { mangle: false, headerIds: false });
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setSaving(true);
@@ -620,6 +630,7 @@ function LessonFormModal({
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           ...formData,
+          content: ensureHtmlContent(formData.content),
           dayNumber,
         }),
       });

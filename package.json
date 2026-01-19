@@ -60,6 +60,7 @@
     "dotenv": "^17.2.3",
     "framer-motion": "^10.18.0",
     "lucide-react": "^0.462.0",
+    "marked": "^12.0.2",
     "mongodb": "^6.18.0",
     "mongoose": "^8.18.0",
     "next": "15.5.9",
