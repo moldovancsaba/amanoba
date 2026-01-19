@@ -36,6 +36,7 @@
     "count": "Count",
     "copied": "Copied!",
     "points": "points",
+    "xp": "XP",
     "retry": "Retry",
     "noDataFound": "No data found",
     "auth": {
@@ -103,6 +104,8 @@
     "browseCourses": "Browse courses",
     "startLearning": "Start learning",
     "continueLearning": "Continue learning",
+    "dailyLoginStreak": "Daily login streak",
+    "winStreak": "Win streak",
     "courses": "Courses",
     "myCourses": "My courses",
     "memberSince": "Member since",

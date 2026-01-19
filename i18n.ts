@@ -75,11 +75,17 @@ export default getRequestConfig(async ({ locale }) => {
       );
       const dbTranslations = await translationModule.getTranslationsForLocale(resolvedLocale);
       
-      // If we have translations from database, use them
+      // If we have translations from database, merge them with defaults to avoid missing-key display
       if (dbTranslations && Object.keys(dbTranslations).length > 0) {
+        const defaultMessages = (await import(`./messages/${defaultLocale}.json`)).default;
+        const base =
+          resolvedLocale === defaultLocale
+            ? defaultMessages
+            : deepMerge(defaultMessages, (await import(`./messages/${resolvedLocale}.json`)).default);
+
         return {
           locale: resolvedLocale,
-          messages: dbTranslations,
+          messages: deepMerge(base, dbTranslations),
         };
       }
     } catch (error) {

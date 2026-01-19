@@ -204,10 +204,7 @@ export default function CourseDetailPage({
 
     setPurchasing(true);
     try {
-      // Default pricing: 2999 cents = $29.99
-      // TODO: Get pricing from course metadata or admin settings
-      const amount = 2999; // $29.99 in cents
-      const currency = 'usd';
+      // Get pricing from course or use defaults
       const premiumDurationDays = 30;
 
       const response = await fetch('/api/payments/create-checkout', {
@@ -217,9 +214,8 @@ export default function CourseDetailPage({
         },
         body: JSON.stringify({
           courseId: courseId,
-          amount,
-          currency,
           premiumDurationDays,
+          // Amount and currency are optional - will be taken from course.price if not provided
         }),
       });
 

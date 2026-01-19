@@ -24,6 +24,8 @@ export default function NewCoursePage() {
     language: 'hu',
     thumbnail: '',
     requiresPremium: false,
+    priceAmount: 2999,
+    priceCurrency: 'usd',
     completionPoints: 1000,
     lessonPoints: 50,
     perfectCourseBonus: 500,
@@ -41,6 +43,10 @@ export default function NewCoursePage() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           ...formData,
+          price: formData.requiresPremium ? {
+            amount: formData.priceAmount,
+            currency: formData.priceCurrency,
+          } : undefined,
           pointsConfig: {
             completionPoints: formData.completionPoints,
             lessonPoints: formData.lessonPoints,

@@ -59,19 +59,12 @@ export async function POST(request: NextRequest) {
 
     // Get request body
     const body = await request.json();
-    const { courseId, amount, currency = 'usd', premiumDurationDays = 30 } = body;
+    const { courseId, amount, currency, premiumDurationDays = 30 } = body;
 
     // Validate required fields
     if (!courseId) {
       return NextResponse.json(
         { error: 'Course ID is required' },
-        { status: 400 }
-      );
-    }
-
-    if (!amount || typeof amount !== 'number' || amount <= 0) {
-      return NextResponse.json(
-        { error: 'Valid amount is required (in cents)' },
         { status: 400 }
       );
     }
@@ -93,6 +86,25 @@ export async function POST(request: NextRequest) {
     if (!course.isActive) {
       return NextResponse.json(
         { error: 'Course is not available' },
+        { status: 400 }
+      );
+    }
+
+    // Check if course requires premium
+    if (!course.requiresPremium) {
+      return NextResponse.json(
+        { error: 'This course does not require premium access' },
+        { status: 400 }
+      );
+    }
+
+    // Get price from course or use provided amount
+    const paymentAmount = course.price?.amount || amount || 2999; // Default to $29.99 if not set
+    const paymentCurrency = course.price?.currency?.toLowerCase() || currency || 'usd';
+
+    if (!paymentAmount || paymentAmount <= 0) {
+      return NextResponse.json(
+        { error: 'Course price is not set. Please set a price for this premium course.' },
         { status: 400 }
       );
     }

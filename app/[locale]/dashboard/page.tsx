@@ -449,21 +449,29 @@ export default function Dashboard() {
             </h3>
             <div className="space-y-4">
               {streaks && streaks.length > 0 ? (
-                streaks.map((streak, index) => (
-                  <div key={index} className="flex justify-between items-center">
-                    <div>
-                      <div className="font-medium text-brand-black capitalize">
-                        {streak.type.replace('_', ' ')} {t('streaks')}
+                streaks.map((streak, index) => {
+                  const labelMap: Record<string, string> = {
+                    daily_login: t('dailyLoginStreak'),
+                    win: t('winStreak'),
+                  };
+                  const streakLabel = labelMap[streak.type] ?? streak.type.replace('_', ' ');
+
+                  return (
+                    <div key={index} className="flex justify-between items-center">
+                      <div>
+                        <div className="font-medium text-brand-black">
+                          {streakLabel}
+                        </div>
+                        <div className="text-sm text-brand-darkGrey">
+                          Legjobb: {streak.bestCount}
+                        </div>
                       </div>
-                      <div className="text-sm text-brand-darkGrey">
-                        Legjobb: {streak.bestCount}
+                      <div className="text-2xl font-bold text-brand-accent">
+                        {streak.count}
                       </div>
                     </div>
-                    <div className="text-2xl font-bold text-brand-accent">
-                      {streak.count}
-                    </div>
-                  </div>
-                ))
+                  );
+                })
               ) : (
                 <div className="text-brand-darkGrey text-center py-4">
                   <p className="mb-3">{t('noActiveStreaks')}</p>

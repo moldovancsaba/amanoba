@@ -21,6 +21,10 @@ export interface ICourse extends Document {
   durationDays: number; // Always 30 for standard courses
   isActive: boolean;
   requiresPremium: boolean;
+  price?: {
+    amount: number; // Price in cents (e.g., 2999 = $29.99)
+    currency: string; // ISO currency code (e.g., 'usd', 'eur', 'huf')
+  };
   brandId: mongoose.Types.ObjectId;
   translations?: Map<string, {
     name: string;
@@ -137,6 +141,23 @@ const CourseSchema = new Schema<ICourse>(
       type: Boolean,
       default: false,
       index: true,
+    },
+
+    // Course pricing (for premium courses)
+    // Why: Allows admins to set custom pricing per course
+    price: {
+      amount: {
+        type: Number,
+        min: [0, 'Price amount cannot be negative'],
+        // Amount in cents (e.g., 2999 = $29.99)
+      },
+      currency: {
+        type: String,
+        default: 'usd',
+        uppercase: true,
+        trim: true,
+        // ISO currency code (e.g., 'USD', 'EUR', 'HUF')
+      },
     },
 
     // Brand the course belongs to
