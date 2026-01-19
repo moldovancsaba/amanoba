@@ -20,6 +20,7 @@ import {
   Star,
   CheckCircle,
   Play,
+  CreditCard,
 } from 'lucide-react';
 
 interface Course {
@@ -70,6 +71,8 @@ export default function CourseDetailPage({
   const [enrollment, setEnrollment] = useState<EnrollmentStatus | null>(null);
   const [loading, setLoading] = useState(true);
   const [enrolling, setEnrolling] = useState(false);
+  const [purchasing, setPurchasing] = useState(false);
+  const [isPremium, setIsPremium] = useState(false);
   const [courseId, setCourseId] = useState<string>('');
 
   useEffect(() => {
@@ -77,10 +80,28 @@ export default function CourseDetailPage({
       const resolvedParams = await params;
       const id = resolvedParams.courseId;
       setCourseId(id);
-      await Promise.all([fetchCourse(id), checkEnrollment(id)]);
+      await Promise.all([fetchCourse(id), checkEnrollment(id), checkPremiumStatus()]);
     };
     loadData();
-  }, [params]);
+
+    // Check for payment success/failure in URL
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('payment_success') === 'true') {
+      // Refresh premium status and enrollment
+      checkPremiumStatus();
+      if (session) {
+        checkEnrollment(id);
+      }
+      // Show success message (optional: could use a toast notification)
+      // Remove query param from URL
+      window.history.replaceState({}, '', window.location.pathname);
+    }
+    if (urlParams.get('payment_error')) {
+      // Show error message (optional: could use a toast notification)
+      // Remove query param from URL
+      window.history.replaceState({}, '', window.location.pathname);
+    }
+  }, [params, session]);
 
   const fetchCourse = async (cid: string) => {
     try {
@@ -120,6 +141,31 @@ export default function CourseDetailPage({
     }
   };
 
+  const checkPremiumStatus = async () => {
+    if (!session) {
+      setIsPremium(false);
+      return;
+    }
+
+    try {
+      const user = session.user as { id?: string; playerId?: string };
+      const playerId = user.playerId || user.id;
+      if (!playerId) {
+        setIsPremium(false);
+        return;
+      }
+
+      const response = await fetch(`/api/players/${playerId}`);
+      const data = await response.json();
+      if (data.player) {
+        setIsPremium(data.player.isPremium || false);
+      }
+    } catch (error) {
+      console.error('Failed to check premium status:', error);
+      setIsPremium(false);
+    }
+  };
+
   const handleEnroll = async () => {
     if (!session || !courseId) return;
 
@@ -150,6 +196,46 @@ export default function CourseDetailPage({
       alert(t('failedToEnroll'));
     } finally {
       setEnrolling(false);
+    }
+  };
+
+  const handlePurchase = async () => {
+    if (!session || !course || !courseId) return;
+
+    setPurchasing(true);
+    try {
+      // Default pricing: 2999 cents = $29.99
+      // TODO: Get pricing from course metadata or admin settings
+      const amount = 2999; // $29.99 in cents
+      const currency = 'usd';
+      const premiumDurationDays = 30;
+
+      const response = await fetch('/api/payments/create-checkout', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          courseId: courseId,
+          amount,
+          currency,
+          premiumDurationDays,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (data.success && data.url) {
+        // Redirect to Stripe Checkout
+        window.location.href = data.url;
+      } else {
+        alert(data.error || t('paymentFailed'));
+        setPurchasing(false);
+      }
+    } catch (error) {
+      console.error('Failed to create checkout:', error);
+      alert(t('paymentFailed'));
+      setPurchasing(false);
     }
   };
 
@@ -313,17 +399,54 @@ export default function CourseDetailPage({
                   >
                     {t('signInToEnroll')}
                   </LocaleLink>
+                ) : course.requiresPremium && !isPremium ? (
+                  <div className="space-y-3">
+                    <div className="bg-brand-accent/20 border border-brand-accent rounded-lg p-3">
+                      <div className="text-sm text-brand-darkGrey mb-3">
+                        {t('premiumRequired')}
+                      </div>
+                    </div>
+                    <button
+                      onClick={handlePurchase}
+                      disabled={purchasing}
+                      className="w-full bg-brand-accent text-brand-black px-4 py-3 rounded-lg font-bold hover:bg-brand-primary-400 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                    >
+                      {purchasing ? (
+                        <>
+                          <span className="animate-spin">⏳</span>
+                          {t('purchasing')}
+                        </>
+                      ) : (
+                        <>
+                          <CreditCard className="w-5 h-5" />
+                          {t('purchasePremium')}
+                        </>
+                      )}
+                    </button>
+                  </div>
+                ) : course.requiresPremium && isPremium ? (
+                  <div className="space-y-3">
+                    <div className="bg-green-500/20 border border-green-500 rounded-lg p-3">
+                      <div className="flex items-center gap-2 text-green-700 font-bold mb-2">
+                        <Star className="w-5 h-5" />
+                        {t('alreadyPremium')}
+                      </div>
+                    </div>
+                    <button
+                      onClick={handleEnroll}
+                      disabled={enrolling}
+                      className="w-full bg-brand-accent text-brand-black px-4 py-3 rounded-lg font-bold hover:bg-brand-primary-400 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                    >
+                      {enrolling ? t('enrolling') : t('enrollNow')}
+                    </button>
+                  </div>
                 ) : (
                   <button
                     onClick={handleEnroll}
-                    disabled={enrolling || course.requiresPremium}
+                    disabled={enrolling}
                     className="w-full bg-brand-accent text-brand-black px-4 py-3 rounded-lg font-bold hover:bg-brand-primary-400 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                   >
-                    {enrolling
-                      ? t('enrolling')
-                      : course.requiresPremium
-                      ? t('premiumRequired')
-                      : t('enrollNow')}
+                    {enrolling ? t('enrolling') : t('enrollNow')}
                   </button>
                 )}
               </div>

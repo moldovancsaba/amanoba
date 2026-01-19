@@ -39,6 +39,28 @@
     "retry": "Újrapróbálás",
     "noDataFound": "Nincs adat",
     "dashboard": "Irányítópult",
+    "auth": {
+      "signIn": "Bejelentkezés",
+      "signOut": "Kijelentkezés"
+    },
+    "games": {
+      "title": "Játékok"
+    },
+    "leaderboard": {
+      "title": "Ranglista"
+    },
+    "challenges": {
+      "title": "Kihívások"
+    },
+    "quests": {
+      "title": "Küldetések"
+    },
+    "achievements": {
+      "title": "Eredmények"
+    },
+    "rewards": {
+      "title": "Jutalmak"
+    },
     "courses": {
       "title": "Kurzusok"
     },
@@ -243,6 +265,12 @@
     "enrolling": "Feliratkozás...",
     "premiumRequired": "Prémium szükséges",
     "enrollNow": "Feliratkozás most",
+    "purchasePremium": "Prémium vásárlása",
+    "purchasing": "Vásárlás...",
+    "paymentProcessing": "Fizetés feldolgozása...",
+    "paymentSuccess": "Fizetés sikeres!",
+    "paymentFailed": "Fizetés sikertelen",
+    "alreadyPremium": "Már prémium tagságod van",
     "loadingCourse": "Kurzus betöltése...",
     "courseNotFound": "Kurzus nem található",
     "failedToEnroll": "Nem sikerült feliratkozni a kurzusra",
