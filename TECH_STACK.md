@@ -81,6 +81,9 @@
 - **Pino**: 9.13.0
 - **pino-pretty**: 13.1.1
 
+### Email Service
+- **Resend API**: Email delivery for daily lessons and notifications
+
 ### Push Notifications
 - **web-push**: 3.6.7
 
