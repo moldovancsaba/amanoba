@@ -74,8 +74,22 @@ export async function POST(
     }).lean();
 
     if (questions.length !== answers.length) {
+      logger.warn({
+        courseId,
+        lessonId,
+        requestedCount: answers.length,
+        foundCount: questions.length,
+        questionIds: questionIds,
+      }, 'Some questions not found when submitting quiz');
       return NextResponse.json(
-        { error: 'Some questions not found' },
+        { 
+          error: 'Some questions not found',
+          errorCode: 'QUESTIONS_NOT_FOUND',
+          details: {
+            requested: answers.length,
+            found: questions.length,
+          }
+        },
         { status: 400 }
       );
     }

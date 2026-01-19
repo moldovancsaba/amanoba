@@ -559,7 +559,7 @@ CTA: [következő lépés / kérés]
 <p>Ma megtanulod, hogyan alakítasz át meeting jegyzeteket strukturált teendőlistává. Ez rengeteg időt takarít meg.</p>
 <p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Olvasd el a teljes leckét →</a></p>`
   },
-  {
+    {
     day: 8,
     title: 'Dokumentumok: brief, váz, összefoglaló',
     content: `<h1>Dokumentumok: brief, váz, összefoglaló</h1>
@@ -583,58 +583,86 @@ CTA: [következő lépés / kérés]
 </ul>
 
 <hr />
-<h2>Brief kötelező elemei</h2>
+<h2>Brief sablon</h2>
 <ul>
-<li>Cél, Kontextus, Célközönség</li>
-<li>Elvárások (scope), Kizárások</li>
-<li>Határidők, Mérőszámok</li>
+<li><strong>Cél</strong>: miért készül a dokumentum</li>
+<li><strong>Célközönség</strong>: kinek szól</li>
+<li><strong>Kontextus</strong>: háttér, adat, számok</li>
+<li><strong>Elvárás</strong>: mi legyen benne</li>
+<li><strong>Kizárás</strong>: mi ne legyen</li>
+<li><strong>Formátum</strong>: hossz, stílus, szerkezet</li>
+<li><strong>Határidő</strong>: mikorra kell</li>
+<li><strong>Anyag</strong>: csatolt hivatkozások, források</li>
 </ul>
 
 <hr />
-<h2>Példa prompt – Brief</h2>
-<p>„Készíts projekt briefet: [projekt]. Struktúra: 1) Cél, 2) Kontextus, 3) Célközönség, 4) Elvárások, 5) Kizárások, 6) Határidők/Mérőszámok. Stílus: tömör, bullet first.”</p>
-
-<h2>Példa prompt – Vázlat</h2>
-<p>„Adj vázlatot egy blogposzthoz [téma], max 6 pont, mindegyikhez 1 mondat.”</p>
-
-<h2>Példa prompt – Összefoglaló</h2>
-<p>„Foglalj össze 5 pontban: fő üzenetek, döntések, következő lépések. Hossz: max 120 szó.”</p>
+<h2>Vázlat sablon</h2>
+<ul>
+<li>H1: cím</li>
+<li>H2: fő pontok</li>
+<li>H3: részletek</li>
+</ul>
 
 <hr />
-<h2>Gyakorlat 1 – Brief iteráció</h2>
+<h2>Összefoglaló sablon</h2>
+<ul>
+<li>3–5 bullet (tények, számok, kontextus)</li>
+<li>Döntések</li>
+<li>Következő lépések / teendők</li>
+</ul>
+
+<hr />
+<h2>Gyakorlat (vezetett) – Brief → Vázlat → Összefoglaló</h2>
 <ol>
-<li>Kérj brief vázlatot a saját projektedhez.</li>
-<li>Adj feedbacket: mi hiányzik, mi felesleges.</li>
-<li>Kérj végső briefet.</li>
+<li>Írj egy 6 pontos briefet (cél, közönség, elvárás, kizárás, formátum, határidő).</li>
+<li>Kérj vázlatot a brief alapján (H1/H2/H3).</li>
+<li>Kérj végső összefoglalót 5 bulletben + döntések + következő lépések.</li>
 </ol>
 
-<h2>Gyakorlat 2 – Összefoglaló</h2>
-<p>Válassz egy 2–3 bekezdéses szöveget, kérj 5 pontos összefoglalót + 1 döntés/1 következő lépés kiemelést.</p>
+<hr />
+<h2>Gyakorlat (önálló) – Hiányzó infó kezelése</h2>
+<p>Adj hiányos briefet (pl. nincs célközönség). Kérd meg az AI-t, hogy kérdezzen vissza, mielőtt vázlatot ad. Egészítsd ki, majd kérj vázlatot és összefoglalót.</p>
 
 <hr />
-<h2>Tipp</h2>
-<p>Kezdd vázlattal, majd pontosíts. A brief/outline/summary hármasával gyorsan variálhatsz tartalmat.</p>
+<h2>Prompt minta</h2>
+<blockquote>
+<p>Készíts briefet a következő témáról: [téma]. Struktúra: cél, közönség, kontextus, elvárás, kizárás, formátum, határidő, források. Utána készíts vázlatot (H1/H2/H3), majd egy 5 pontos összefoglalót + döntések + következő lépések.</p>
+</blockquote>
 
+<hr />
+<h2>Tippek</h2>
+<ul>
+<li>Mindig brief → vázlat → kész szöveg. Ne ugorj azonnal a véglegesre.</li>
+<li>Ha hiányos az input, kérj visszakérdezést a modelltől.</li>
+<li>Kérj számokat/forrásokat csak ott, ahol kell; máshol elég a váz.</li>
+</ul>
+
+<hr />
 <h2>Opcionális mélyítés</h2>
 <ul>
-<li>Struktúra-sablonok: PRD, kreatív brief, kampány brief</li>
-<li>„Too long; didn’t read” összefoglalók külön vezetői nézetre</li>
+<li>Notion Product Spec template: <a href="https://www.notion.so/templates/product-requirements-doc" target="_blank" rel="noreferrer">https://www.notion.so/templates/product-requirements-doc</a></li>
+<li>Google – Project Brief Guide: <a href="https://rework.withgoogle.com/blog/writing-a-project-brief/" target="_blank" rel="noreferrer">https://rework.withgoogle.com/blog/writing-a-project-brief/</a></li>
+<li>Basecamp – Shape Up (vázlat/összefoglaló szemlélet): <a href="https://basecamp.com/shapeup" target="_blank" rel="noreferrer">https://basecamp.com/shapeup</a></li>
 </ul>`,
-    emailSubject: 'AI 30 Nap – 8. nap: Dokumentumok készítése',
-    emailBody: `<h1>AI 30 Nap – 8. nap</h1>
+    emailSubject: '30-Day AI Catch-Up – 8. nap: Brief, váz, összefoglaló',
+    emailBody: `<h1>30-Day AI Catch-Up – 8. nap</h1>
 <h2>Dokumentumok: brief, váz, összefoglaló</h2>
-<p>Ma megtanulod, hogyan készítesz briefeket, vázlatokat és összefoglalókat. Ezek a dokumentumok sok időt vesznek igénybe manuálisan.</p>
+<p>Ma megtanulod, hogyan kérsz briefet, vázlatot és összefoglalót az AI-tól, hogy fókuszált, gyorsan készülő dokumentumaid legyenek.</p>
 <p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Olvasd el a teljes leckét →</a></p>`
   },
   {
     day: 9,
     title: 'Táblázat-gondolkodás AI-val',
-    content: `<h2>Napi cél</h2>
+    content: `<h1>Táblázat-gondolkodás AI-val</h1>
+<p><em>Szövegből struktúra, azonnal exportálható</em></p>
 <p>Ma megtanulod, hogyan rendezed szöveges adatot táblázatba: gyors struktúra, összehasonlítás, export (CSV).</p>
+
+<hr />
+<h2>Napi cél</h2>
 <ul>
-<li>oszlopok definiálása (címkék előre)</li>
-<li>feladat → felelős → határidő → státusz/prioritás</li>
-<li>összehasonlító/pro-kontra táblák</li>
+<li>Oszlopok előre definiálása</li>
+<li>Feladat → felelős → határidő → státusz/prioritás</li>
+<li>Összehasonlító/pro-kontra táblák</li>
 </ul>
 
 <hr />
@@ -654,27 +682,40 @@ CTA: [következő lépés / kérés]
 <p><strong>Jó:</strong> „Alakítsd táblázattá: Feladat | Felelős | Határidő | Prioritás | Státusz. Adatok: [lista]. Adj CSV-t is exporthoz.”</p>
 
 <hr />
-<h2>Gyakorlat 1 – Feladatlista táblázat</h2>
+<h2>Gyakorlat (vezetett) – Feladatlista táblázat</h2>
 <ol>
 <li>Írj 5 feladatot szövegben.</li>
 <li>Kérj táblázatot a fenti oszlopokkal.</li>
 <li>Kérj CSV-t, majd ellenőrizd a pontos oszlopneveket.</li>
 </ol>
 
-<h2>Gyakorlat 2 – Pro/kontra tábla</h2>
+<hr />
+<h2>Gyakorlat (önálló) – Pro/kontra tábla</h2>
 <p>Válassz egy döntést (pl. eszközválasztás) és kérj pro/kontra táblát + ajánlást.</p>
 
 <hr />
-<h2>Tipp</h2>
-<p>Előre definiált oszlopnevek = kevesebb utómunka. Mindig kérj CSV-t, ha exportálnád.</p>
+<h2>Prompt minta</h2>
+<blockquote>
+<p>Alakítsd táblázattá: [oszlop1] | [oszlop2] | … Adatok: [lista]. Adj CSV-t exporthoz. Ha hiányzik adat, jelöld „TBD”.</p>
+</blockquote>
 
+<hr />
+<h2>Tippek</h2>
+<ul>
+<li>Előre definiált oszlopnevek = kevesebb utómunka.</li>
+<li>Mindig kérj CSV-t, ha exportálnád.</li>
+<li>Kérj rövid leírást a végén: „Foglalj össze 3 bulletben, mit látsz a táblából.”</li>
+</ul>
+
+<hr />
 <h2>Opcionális mélyítés</h2>
 <ul>
 <li>Táblázat → JSON/CSV konverzió</li>
 <li>Rendezés/szűrés: „Rendezd prioritás szerint”</li>
+<li>Google Sheets importálás CSV-ből</li>
 </ul>`,
-    emailSubject: 'AI 30 Nap – 9. nap: Táblázat-gondolkodás',
-    emailBody: `<h1>AI 30 Nap – 9. nap</h1>
+    emailSubject: '30-Day AI Catch-Up – 9. nap: Táblázat-gondolkodás',
+    emailBody: `<h1>30-Day AI Catch-Up – 9. nap</h1>
 <h2>Táblázat-gondolkodás AI-val</h2>
 <p>Ma megtanulod, hogyan alakítasz át szöveges információkat táblázatokká. Ez nagyon hasznos adatok strukturálásához.</p>
 <p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Olvasd el a teljes leckét →</a></p>`
@@ -682,23 +723,28 @@ CTA: [következő lépés / kérés]
   {
     day: 10,
     title: 'Ismétlés & prompt-debug nap',
-    content: `<h2>Napi cél</h2>
+    content: `<h1>Ismétlés &amp; prompt-debug nap</h1>
+<p><em>Hibakeresés = gyors fejlődés</em></p>
 <p>Ma visszanézed az első hét anyagát, és megtanulod a prompt-debug lépéseit: miért rossz, hogyan javítsd.</p>
+
+<hr />
+<h2>Napi cél</h2>
 <ul>
-<li>azonosítod a tipikus hibákat (hiányzó kontextus, cél, forma, stílus)</li>
+<li>Azonosítod a tipikus hibákat (hiányzó kontextus, cél, forma, stílus)</li>
 <li>3 lépéses debug folyamatot használsz</li>
-<li>jó/rossz példákat hasonlítasz össze</li>
+<li>Jó/rossz példákat hasonlítasz össze</li>
 </ul>
 
 <hr />
 <h2>Tipikus hibák</h2>
 <ul>
-<li>túl általános: „Írj emailt”</li>
-<li>nincs kontextus: miről, kinek, mikorra?</li>
-<li>nincs forma: bullet vs. bekezdés</li>
-<li>nincs stílus: üzleti, empatikus, tömör?</li>
+<li>Túl általános: „Írj emailt”</li>
+<li>Nincs kontextus: miről, kinek, mikorra?</li>
+<li>Nincs forma: bullet vs. bekezdés</li>
+<li>Nincs stílus: üzleti, empatikus, tömör?</li>
 </ul>
 
+<hr />
 <h2>Debug lépések (3)</h2>
 <ol>
 <li><strong>Diagnózis</strong>: mi hiányzik? (cél/kontextus/forma/stílus/hossz)</li>
@@ -707,29 +753,37 @@ CTA: [következő lépés / kérés]
 </ol>
 
 <hr />
-<h2>Gyakorlat 1 – Rossz → Jó</h2>
+<h2>Gyakorlat (vezetett) – Rossz → Jó</h2>
 <p>Válassz egy rossz promptot, írd át 4 elemre, futtasd mindkettőt, hasonlítsd.</p>
 
-<h2>Gyakorlat 2 – Formátum váltás</h2>
+<hr />
+<h2>Gyakorlat (önálló) – Formátum váltás</h2>
 <p>Ugyanaz a tartalom: kérd először bekezdésben, majd bulletben; melyik használhatóbb?</p>
 
 <hr />
 <h2>Prompt minta</h2>
 <blockquote>
-<p>Rossz: „Írj emailt.”<br/>Jó: „Írj rövid, udvarias emailt időpont-egyeztetéshez. Kontextus: 30 perces meeting jövő hét kedden 10:00-kor. Stílus: üzleti. Hossz: max 4 mondat. Adj CTA-t a visszajelzésre.”</p>
+<p>Rossz: „Írj emailt.”<br />Jó: „Írj rövid, udvarias emailt időpont-egyeztetéshez. Kontextus: 30 perces meeting jövő hét kedden 10:00-kor. Stílus: üzleti. Hossz: max 4 mondat. Adj CTA-t a visszajelzésre.”</p>
 </blockquote>
 
-<h2>Tipp</h2>
-<p>A debug is tanulás: mondd meg, mi hiányzik (túl hosszú, nincs CTA), és kérd újra. A legjobb prompt iterációval készül.</p>
+<hr />
+<h2>Tippek</h2>
+<ul>
+<li>A debug is tanulás: mondd meg, mi hiányzik (túl hosszú, nincs CTA), és kérd újra.</li>
+<li>Készíts saját „rossz → jó” példatárat; frissítsd hetente.</li>
+<li>Használj checklistet: Cél, Kontextus, Forma, Stílus, Hossz, CTA.</li>
+</ul>
 
+<hr />
 <h2>Opcionális mélyítés</h2>
 <ul>
 <li>Prompt checklist: Cél, Kontextus, Forma, Stílus, Hossz, CTA</li>
 <li>A/B tesztelj 2 promptot, mérd az eredményt</li>
+<li>OpenAI – Prompt tuning tippek: <a href="https://platform.openai.com/docs/guides/prompt-engineering" target="_blank" rel="noreferrer">https://platform.openai.com/docs/guides/prompt-engineering</a></li>
 </ul>`,
-    emailSubject: 'AI 30 Nap – 10. nap: Ismétlés & prompt-debug',
-    emailBody: `<h1>AI 30 Nap – 10. nap</h1>
-<h2>Ismétlés & prompt-debug nap</h2>
+    emailSubject: '30-Day AI Catch-Up – 10. nap: Ismétlés & prompt-debug',
+    emailBody: `<h1>30-Day AI Catch-Up – 10. nap</h1>
+<h2>Ismétlés &amp; prompt-debug nap</h2>
 <p>Ma ismételed az elmúlt 5 nap anyagát és gyakorlod a prompt debugolást. Ez fontos a fejlődéshez.</p>
 <p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Olvasd el a teljes leckét →</a></p>`
   },
@@ -737,13 +791,17 @@ CTA: [következő lépés / kérés]
   {
     day: 11,
     title: 'Saját prompt könyvtár létrehozása',
-    content: `<h2>Napi cél</h2>
+    content: `<h1>Saját prompt könyvtár létrehozása</h1>
+<p><em>Újrahasználható sablonok = gyorsabb, konzisztens munka</em></p>
 <p>Ma létrehozod a saját prompt könyvtáradat: újrahasználható sablonokkal gyorsítasz, és konzisztens minőséget kapsz.</p>
+
+<hr />
+<h2>Napi cél</h2>
 <ul>
-<li>kategorizált sablonok: email, összefoglaló, teendő, brief, ötletelés</li>
-<li>minden sablon: Cél + Kontextus + Forma + Stílus + Változók</li>
-<li>verziózás és jegyzetek, hogy lásd a fejlődést</li>
-<li>egy helyen tárolod (Notion/Drive) és megosztod a csapattal</li>
+<li>Kategorizált sablonok: email, összefoglaló, teendő, brief, ötletelés</li>
+<li>Minden sablon: Cél + Kontextus + Forma + Stílus + Változók</li>
+<li>Verziózás és jegyzetek, hogy lásd a fejlődést</li>
+<li>Egy helyen tárolod (Notion/Drive) és megosztod a csapattal</li>
 </ul>
 
 <hr />
@@ -756,27 +814,41 @@ CTA: [következő lépés / kérés]
 <li><strong>Változók</strong>: [téma], [címzett], [hossz], [stílus]</li>
 </ul>
 
+<hr />
 <h2>Példa sablon</h2>
 <p>„Írj rövid, udvarias emailt [címzett]-nek. Kontextus: [helyzet]. Stílus: [stílus]. Hossz: max [hossz]. Adj CTA-t a válaszra.”</p>
 
 <hr />
-<h2>Gyakorlat 1 – 5 sablon</h2>
+<h2>Gyakorlat (vezetett) – 5 sablon</h2>
 <p>Készíts 5 sablont a saját munkádhoz (email, összefoglaló, teendőlista, dokumentum vázlat, ötletelés). Mindegyikhez: cél, kontextus, forma, stílus, változók.</p>
 
-<h2>Gyakorlat 2 – Verziózás</h2>
+<hr />
+<h2>Gyakorlat (önálló) – Verziózás</h2>
 <p>Válassz ki egy sablont, próbáld ki 2 helyzetben, írd le, mit finomítottál. Verziózd v1 → v2.</p>
 
 <hr />
-<h2>Tipp</h2>
-<p>Kategorizálj (email, dokumentum, összefoglaló, stb.) és tartsd egy helyen. Írd mellé, mikor működött jól, mikor nem.</p>
+<h2>Prompt minta</h2>
+<blockquote>
+<p>Készíts sablont [feladattípus]-hoz. Struktúra: cél, kontextus, forma, stílus, változók. Adj példát a változók kitöltésére. Adj rövid használati útmutatót: mikor működik jól, mikor nem.</p>
+</blockquote>
 
+<hr />
+<h2>Tippek</h2>
+<ul>
+<li>Kategorizálj (email, dokumentum, összefoglaló, stb.) és tartsd egy helyen.</li>
+<li>Írd mellé, mikor működött jól, mikor nem.</li>
+<li>Használj verziózást és dátumot (v1, v2, dátum).</li>
+</ul>
+
+<hr />
 <h2>Opcionális mélyítés</h2>
 <ul>
 <li>Prompt könyvtár struktúrák (Notion/Docs sablon)</li>
 <li>„What worked / what to improve” mező a sablonokhoz</li>
+<li>GitHub gist vagy Notion template a megosztáshoz</li>
 </ul>`,
-    emailSubject: 'AI 30 Nap – 11. nap: Saját prompt könyvtár',
-    emailBody: `<h1>AI 30 Nap – 11. nap</h1>
+    emailSubject: '30-Day AI Catch-Up – 11. nap: Saját prompt könyvtár',
+    emailBody: `<h1>30-Day AI Catch-Up – 11. nap</h1>
 <h2>Saját prompt könyvtár létrehozása</h2>
 <p>Ma létrehozod a saját prompt könyvtáradat. Ez rengeteg időt takarít meg a jövőben.</p>
 <p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Olvasd el a teljes leckét →</a></p>`
@@ -784,172 +856,221 @@ CTA: [következő lépés / kérés]
   {
     day: 12,
     title: 'Workflow: input → feldolgozás → output',
-    content: `<h2>Napi cél</h2>
-<p>Ma felépítesz egy újrahasználható AI-workflow-t: Input → Feldolgozás → Output → Ellenőrzés.</p>
+    content: `<h1>Workflow: Input → Feldolgozás → Output → Ellenőrzés</h1>
+<p><em>Rendszerben gondolkodsz, nem csak egyszeri promptokat írsz.</em></p>
+
+<hr />
+<h2>Napi cél</h2>
 <ul>
-<li>Input: mit adsz be, anonimizálás, formátum</li>
-<li>Feldolgozás: prompt + iterációs lépések</li>
-<li>Output: milyen formában kéred (bullet, táblázat, rövid)</li>
-<li>Ellenőrzés: hogyan validálsz (forrás, számok, döntések)</li>
+<li>Felépítesz egy 4 lépéses, újrahasználható AI-workflow-t.</li>
+<li>Biztonságosan kezeled az inputot (anonimizálás, tisztítás).</li>
+<li>Tudatosan iterálsz: prompt v1 → feedback → prompt v2.</li>
+<li>Standard ellenőrzési listát használsz minden outputnál.</li>
 </ul>
 
 <hr />
-<h2>Workflow lépések</h2>
-<ol>
-<li><strong>Input</strong>: adattisztítás, helyőrzők ([Név], [Email]), kontextus leírás.</li>
-<li><strong>Feldolgozás</strong>: prompt v1 → feedback → prompt v2 (iteráció).</li>
-<li><strong>Output</strong>: formátum, hossz, CTA, oszlopok.</li>
-<li><strong>Ellenőrzés</strong>: tények, számok, következő lépések, felelősök.</li>
-</ol>
-
-<h2>Mini pipeline példa</h2>
-<p>Meeting jegyzet → (1) tisztítás/anonimizálás → (2) összefoglaló + döntések + teendők → (3) export CSV → (4) ellenőrzés.</p>
+<h2>Miért működik?</h2>
+<p>A jól dokumentált workflow csökkenti a hibát, gyorsítja az ismétlődő feladatokat, és átláthatóvá teszi, hol érdemes javítani.</p>
 
 <hr />
-<h2>Gyakorlat 1 – Saját workflow</h2>
-<p>Válassz feladatot (pl. jegyzet → akciólista). Írd le a 4 lépést, majd futtasd végig AI-val.</p>
+<h2>A 4 lépés</h2>
+<ol>
+<li><strong>Input</strong>: tisztítás, anonimizálás ([Név] → [N.]), formátum (plain text/CSV), háttér, cél.</li>
+<li><strong>Feldolgozás</strong>: prompt + iteráció (v1 → visszajelzés → v2), breaking down lépések.</li>
+<li><strong>Output</strong>: forma (bullet, táblázat, rövid bekezdés), hossz, CTA, címkék.</li>
+<li><strong>Ellenőrzés</strong>: számok/dátumok validálása, forrás vagy disclaimer, felelősök/határidők.</li>
+</ol>
 
-<h2>Gyakorlat 2 – Ellenőrző lista</h2>
-<p>Készíts checklistet: mit ellenőrzöl mindig? (számok, nevek, határidők, tények)</p>
+<hr />
+<h2>Workflow példák</h2>
+<ul>
+<li><strong>Meeting jegyzet</strong>: tisztítás → összefoglaló/döntés/teendő → export (CSV/Asana) → QA.</li>
+<li><strong>Email válasz</strong>: kontextus + kívánt hangnem → draft → rövidítés/átfogalmazás → ellenőrzés (CTA, név, dátum).</li>
+<li><strong>Riport</strong>: adatok → táblázat/diagram prompt → insight + következő lépés → számaudit.</li>
+</ul>
+
+<hr />
+<h2>Gyakorlat 1 – Vezetett pipeline</h2>
+<p>Válassz egy napi feladatot (pl. meeting jegyzet → akciólista). Írd le a 4 lépést, majd futtasd végig AI-val.</p>
+
+<h2>Gyakorlat 2 – QA checklist</h2>
+<p>Készíts ellenőrző listát: számok/dátumok, felelős/határidő, CTA, forrás vagy „nem biztos” jelzés.</p>
+
+<h2>Gyakorlat 3 – Automatizálási ötlet</h2>
+<p>Írd le, mely részt lehet később scriptelni (pl. export + formázás).</p>
 
 <hr />
 <h2>Prompt minta</h2>
 <blockquote>
-<p>Készíts workflow tervet [feladat]-hoz. 1) Input: mit gyűjtök, mit anonimizálok? 2) Feldolgozás: milyen prompt + iteráció? 3) Output: milyen formátum/hossz/CTA? 4) Ellenőrzés: mit és hogyan validálok?</p>
+<p>Készíts workflow tervet [feladat]-hoz. Lépések: 1) Input: mit gyűjtök, mit anonimizálok? 2) Feldolgozás: prompt + iteráció (v1 → feedback → v2). 3) Output: forma, hossz, CTA, címkék. 4) Ellenőrzés: mit validálok, milyen kérdéseket tegyek fel?</p>
 </blockquote>
 
+<hr />
 <h2>Tipp</h2>
-<p>Dokumentáld a bevált workflow-kat. Kis lépésekben javítsd: mindig tudd, melyik lépés hozta a jobb kimenetet.</p>
+<ul>
+<li>Ne egy promptot tökéletesíts – a pipeline-t építsd.</li>
+<li>Dokumentáld, melyik lépés hozott javulást.</li>
+<li>Használj helyőrzőket a bizalmas adatokra.</li>
+</ul>
 
+<hr />
 <h2>Opcionális mélyítés</h2>
 <ul>
-<li>Workflow sablonok: meeting, email, brief, táblázat</li>
-<li>Automatizálás ötlet: ugyanazt a pipeline-t scriptelve futtatni</li>
+<li>OpenAI – Prompt Engineering Guide: <a href="https://platform.openai.com/docs/guides/prompt-engineering" target="_blank" rel="noreferrer">https://platform.openai.com/docs/guides/prompt-engineering</a></li>
+<li>AirOps – Prompt workflow examples: <a href="https://www.airops.com/blog/prompt-engineering-workflows" target="_blank" rel="noreferrer">https://www.airops.com/blog/prompt-engineering-workflows</a></li>
 </ul>`,
-    emailSubject: 'AI 30 Nap – 12. nap: Workflow építése',
-    emailBody: `<h1>AI 30 Nap – 12. nap</h1>
-<h2>Workflow: input → feldolgozás → output</h2>
-<p>Ma kialakítasz egy hatékony workflow-t. Ez kulcsfontosságú a hatékonysághoz.</p>
+    emailSubject: '30-Day AI Catch-Up – 12. nap: Workflow építése',
+    emailBody: `<h1>30-Day AI Catch-Up – 12. nap</h1>
+<h2>Workflow: Input → Feldolgozás → Output → Ellenőrzés</h2>
+<p>Ma felépítesz egy 4 lépéses, újrahasználható AI-workflow-t, hogy gyorsabban és biztonságosabban dolgozz.</p>
 <p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Olvasd el a teljes leckét →</a></p>`
   },
   {
     day: 13,
     title: 'Hibák, hallucinációk kezelése',
-    content: `<h2>Napi cél</h2>
-<p>Ma megtanulod felismerni és kezelni a hibákat/hallucinációkat: forráskérés, tényellenőrzés, korlátozás.</p>
+    content: `<h1>Hibák, hallucinációk kezelése</h1>
+<p><em>Korlátozod a kockázatot: forrás vagy disclaimer, nem kitaláció.</em></p>
+
+<hr />
+<h2>Napi cél</h2>
 <ul>
-<li>tudod, mikor valószínű a hallucináció (számok, dátumok, nevek)</li>
-<li>forrást kérsz és ellenőrzöl</li>
-<li>„ha nem biztos, jelezd” szabályt használsz</li>
-<li>alternatívákat kérsz és validálsz</li>
+<li>Felismered, mikor valószínű a hallucináció (számok, dátumok, nevek, „túl szép” adatok).</li>
+<li>Forrást kérsz, és jelezteted a bizonytalanságot.</li>
+<li>Standard lépéseid vannak hibajavításra és validálásra.</li>
 </ul>
 
 <hr />
-<h2>Hallucináció jelei</h2>
+<h2>Mikor gyanús?</h2>
 <ul>
-<li>pontos dátum/szám forrás nélkül</li>
-<li>nem létező esemény/szereplő</li>
-<li>statisztika, ami túl kerek/általános</li>
-<li>„forrás nélkül” vagy kitalált hivatkozás</li>
+<li>Pontos szám/dátum forrás nélkül.</li>
+<li>Nem létező esemény/szereplő.</li>
+<li>Túl általános vagy túl kerek statisztika.</li>
+<li>„Forrás: internet” vagy kitalált link.</li>
 </ul>
 
-<h2>Biztonságos információkérés</h2>
-<p>„Adj információt [témában], csak ha >90% biztos vagy. Ha nem vagy biztos, jelezd. Adj forrást/linket, ha lehet.”</p>
+<h2>Biztonságos kérés</h2>
+<p>„Adj választ [témában], <strong>csak ha &gt;90% biztos vagy</strong>. Ha nem vagy biztos, írd le. Adj forrást/linket. Ha nincs forrás, ne találj ki adatot.”</p>
+
+<hr />
+<h2>Hibajavítás lépései</h2>
+<ol>
+<li>Jelöld a hibát (szám/dátum/név/forrás).</li>
+<li>Kérj javítást és forrást: „Javítsd, adj hivatkozható linket. Ha nincs, jelezd.”</li>
+<li>Ha kritikus: ellenőrizd emberrel vagy külső forrással.</li>
+</ol>
 
 <hr />
 <h2>Gyakorlat 1 – Tényellenőrzés</h2>
-<p>Kérj egy tényt (pl. alapítási év), ellenőrizd külső forrással, jelezd, ha eltérés van, és kérj javítást.</p>
+<p>Kérj egy tényt (pl. alapítási év). Ellenőrizd külső forrással, jelezd az eltérést, kérj javítást.</p>
 
-<h2>Gyakorlat 2 – Forráskérés</h2>
-<p>Kérd meg: „Adj 2 hivatkozható forrást a válaszhoz, vagy írd, hogy nincs forrásod.”</p>
+<h2>Gyakorlat 2 – Forrás/disclaimer</h2>
+<p>Írasd le: „Ha nincs megbízható forrásod, írd: <em>nem találtam biztos forrást</em>.” Ellenőrizd, hogy tényleg így tesz-e.</p>
 
-<h2>Gyakorlat 3 – Alternatívák</h2>
-<p>Kérj 3 alternatív megoldást és jelöld, melyik a legbiztosabb (1-3). Ellenőrizd a legjobb opciót.</p>
+<h2>Gyakorlat 3 – Alternatívák súlyozással</h2>
+<p>Kérj 3 megoldást, mindegyikhez biztonsági jelzést (1–3). Validáld a legbiztosabbat.</p>
 
 <hr />
 <h2>Prompt minta</h2>
 <blockquote>
-<p>Adj választ [témában]. Ha nem vagy biztos, írd: „Nem találtam megbízható forrást”. Adj forrást/linket, ha elérhető. Ha nincs forrás, ne találj ki adatot.</p>
+<p>Adj választ [témában]. Adj forrást/linket, ha elérhető. Ha nem vagy biztos, írd le a bizonytalanságot, és <strong>ne találj ki adatot</strong>. Adj 2 alternatívát, jelöld a biztonsági szintet (1–3).</p>
 </blockquote>
 
+<hr />
 <h2>Tipp</h2>
-<p>„Forrás vagy disclaimer” szabály: vagy hivatkozol, vagy jelzed a bizonytalanságot. Kritikus infóknál mindig ellenőrizd emberrel.</p>
+<ul>
+<li>„Forrás vagy disclaimer” szabályt mindig használd.</li>
+<li>Készíts saját verifikációs listát (dátum, szám, név, link).</li>
+<li>Érzékeny témáknál: mindig emberi review.</li>
+</ul>
 
+<hr />
 <h2>Opcionális mélyítés</h2>
 <ul>
-<li>Verifikációs lista: dátum, szám, név, link</li>
-<li>Hallucinációs példák gyűjtése a saját területedről</li>
+<li>OpenAI – Safety best practices: <a href="https://platform.openai.com/docs/guides/safety-best-practices" target="_blank" rel="noreferrer">https://platform.openai.com/docs/guides/safety-best-practices</a></li>
+<li>Fact-checking checklist (Nieman Lab): <a href="https://www.niemanlab.org" target="_blank" rel="noreferrer">https://www.niemanlab.org</a></li>
 </ul>`,
-    emailSubject: 'AI 30 Nap – 13. nap: Hibák kezelése',
-    emailBody: `<h1>AI 30 Nap – 13. nap</h1>
+    emailSubject: '30-Day AI Catch-Up – 13. nap: Hibák kezelése',
+    emailBody: `<h1>30-Day AI Catch-Up – 13. nap</h1>
 <h2>Hibák, hallucinációk kezelése</h2>
-<p>Ma megtanulod, hogyan ismersz fel és kezelsz hibákat. Ez kritikus fontosságú a megbízható használathoz.</p>
+<p>Ma megtanulod, hogyan kérsz forrást, jelzed a bizonytalanságot, és javíttatod a hibákat.</p>
 <p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Olvasd el a teljes leckét →</a></p>`
   },
   {
     day: 14,
     title: 'Személyes "AI-asszisztens" hang kialakítása',
-    content: `<h2>Napi cél</h2>
-<p>Ma kialakítod a saját AI-asszisztens hangodat: a modell következetesen úgy ír, mint te.</p>
+    content: `<h1>Személyes „AI-asszisztens” hang kialakítása</h1>
+<p><em>A modell következetesen úgy ír, mint te.</em></p>
+
+<hr />
+<h2>Napi cél</h2>
 <ul>
-<li>stílusprofil: hang, mondathossz, formalitás, szóhasználat</li>
-<li>struktúra: hogyan épül fel egy tipikus írásod</li>
-<li>„do/don’t” list: mit használjon, mit kerüljön</li>
-<li>hang-útmutató dokumentum, amit újrahasználsz</li>
+<li>Hangprofil: hang, formalitás, mondathossz, szóhasználat, tempó.</li>
+<li>Struktúra: tipikus felépítés (bevezetés, fő rész, CTA).</li>
+<li>Do/Don’t lista: mit használjon, mit kerüljön.</li>
+<li>Újrahasználható „hang útmutató” dokumentum.</li>
 </ul>
 
 <hr />
 <h2>Hangprofil lépései</h2>
 <ol>
 <li>Gyűjts 3–5 saját szöveget (email, jegyzet, poszt).</li>
-<li>Elemeztesd: hang (barátságos/üzleti), mondathossz, szóhasználat, tempó.</li>
-<li>Készíttess útmutatót: „így írj, ha X (én) hangján szólalsz meg”.</li>
-<li>Adj visszajelzést, frissítsd a profilt.</li>
+<li>Elemeztesd: hang (üzleti/barátságos), mondathossz, szóhasználat, szerkezet.</li>
+<li>Írasd le az útmutatót: „Így írj, ha [Név] hangján szólalsz meg”.</li>
+<li>Próbáld ki új témán, adj visszajelzést, frissítsd a profilt.</li>
 </ol>
 
 <h2>Do/Don’t példa</h2>
 <ul>
 <li><strong>Do</strong>: rövid mondatok, konkrét példák, CTA a végén.</li>
-<li><strong>Don’t</strong>: szleng, túl hosszú bekezdések, passzív hang.</li>
+<li><strong>Don’t</strong>: szleng, túl hosszú bekezdés, passzív hang.</li>
 <li><strong>Szókincs</strong>: kedvenc kifejezések, kerülendő szavak.</li>
 </ul>
 
 <hr />
-<h2>Gyakorlat 1 – Hangprofil</h2>
-<p>Add meg 3 saját szöveget, kérj elemzést + útmutatót: hang, forma, szókincs, do/don’t, példák.</p>
+<h2>Gyakorlat 1 – Hangprofil építés</h2>
+<p>Add meg 3 saját szöveget. Kérj elemzést + útmutatót: hang, formalitás, mondathossz, szóhasználat, struktúra, do/don’t.</p>
 
 <h2>Gyakorlat 2 – Új szöveg ugyanazzal a hanggal</h2>
-<p>Kérj új szöveget (más téma), ugyanazzal a hanggal. Adj feedbacket és finomítsd a profilt.</p>
+<p>Kérj új szöveget más témában, ugyanazzal a hanggal. Adj feedbacket, pontosítsd a profilt.</p>
 
 <hr />
 <h2>Prompt minta</h2>
 <blockquote>
-<p>Íme 3 példa a stílusomra: [példák]. Elemezd: hang, formalitás, mondathossz, szóhasználat, struktúra. Készíts „hang útmutatót” (do/don’t, kedvenc kifejezések). Írj egy új szöveget ugyanebben a hangban: [téma].</p>
+<p>Elemezd az alábbi 3 szöveget: [példák]. Készíts hangprofilt (hang, formalitás, mondathossz, szóhasználat, struktúra, do/don’t, kedvenc kifejezések). Írj új szöveget ugyanebben a hangban: [téma].</p>
 </blockquote>
 
+<hr />
 <h2>Tipp</h2>
-<p>A hangprofil élő dokumentum: frissítsd, amikor változik a stílusod. Minél több példa, annál pontosabb.</p>
+<ul>
+<li>Minél több minta, annál pontosabb a profil.</li>
+<li>Kezeld élő dokumentumként: frissítsd, ha változik a stílusod.</li>
+<li>Tartsd egy helyen, használd sablonként.</li>
+</ul>
 
+<hr />
 <h2>Opcionális mélyítés</h2>
 <ul>
-<li>Voice & tone guide példák (Mailchimp, Gov.uk)</li>
-<li>„Style transfer” promptok: hogyan vált hangnemet</li>
+<li>Mailchimp – Voice & tone guide: <a href="https://mailchimp.com/resources/voice-and-tone/" target="_blank" rel="noreferrer">https://mailchimp.com/resources/voice-and-tone/</a></li>
+<li>GOV.UK – Style guide: <a href="https://www.gov.uk/guidance/style-guide" target="_blank" rel="noreferrer">https://www.gov.uk/guidance/style-guide</a></li>
 </ul>`,
-    emailSubject: 'AI 30 Nap – 14. nap: AI-asszisztens hang',
-    emailBody: `<h1>AI 30 Nap – 14. nap</h1>
-<h2>Személyes "AI-asszisztens" hang kialakítása</h2>
-<p>Ma kialakítod a saját AI-asszisztens hangodat. Ez segít a konzisztens kommunikációban.</p>
+    emailSubject: '30-Day AI Catch-Up – 14. nap: AI-asszisztens hang',
+    emailBody: `<h1>30-Day AI Catch-Up – 14. nap</h1>
+<h2>Személyes „AI-asszisztens” hang kialakítása</h2>
+<p>Ma felépíted a saját hangprofilodat, hogy az AI következetesen úgy írjon, mint te.</p>
 <p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Olvasd el a teljes leckét →</a></p>`
   },
   {
     day: 15,
     title: 'Ismétlés: rossz prompt → jó prompt',
-    content: `<h2>Napi cél</h2>
-<p>Ma újragyakorlod a rossz → jó prompt átalakítást: diagnózis, javítás, összehasonlítás.</p>
+    content: `<h1>Ismétlés: rossz prompt → jó prompt</h1>
+<p><em>Diagnosztizálsz, javítasz, összehasonlítasz.</em></p>
+
+<hr />
+<h2>Napi cél</h2>
 <ul>
-<li>felismered a hibákat (hiányzó cél/kontextus/forma/stílus)</li>
-<li>konkrét javítási lépéseket írsz</li>
-<li>összehasonlítod a kimeneteket</li>
+<li>Felismered a tipikus hibákat (hiányzó cél/kontextus/forma/stílus/hossz/CTA).</li>
+<li>Konkrét javítási lépéseket írsz.</li>
+<li>Összehasonlítod a kimeneteket, és feedbacket adsz a modellnek.</li>
 </ul>
 
 <hr />
@@ -957,39 +1078,49 @@ CTA: [következő lépés / kérés]
 <p><strong>Rossz:</strong> „Írj emailt.” / „Összegezz.” / „Írj valamit.”</p>
 <p><strong>Jó:</strong> cél + kontextus + forma + stílus + hossz + CTA (pl. státusz email, 4 mondat, üzleti, CTA: válasz időponttal).</p>
 
+<hr />
 <h2>Debug lépések</h2>
 <ol>
-<li>Mi hiányzik? (cél/kontextus/forma/stílus/hossz)</li>
-<li>Adj konkrét kérést (pl. „max 4 mondat”, „bullet”, „empatikus”)</li>
-<li>Futtasd mindkét verziót, hasonlítsd össze</li>
-<li>Adj visszajelzést és iterálj</li>
+<li>Mi hiányzik? (cél/kontextus/forma/stílus/hossz/CTA)</li>
+<li>Pótold: „max 4 mondat”, „bullet”, „empatikus”, „CTA: válasz időponttal”.</li>
+<li>Futtasd mindkét verziót, hasonlítsd össze (használhatóság, pontosság, hossz).</li>
+<li>Adj visszajelzést, iterálj (v1 → v2).</li>
 </ol>
 
 <hr />
 <h2>Gyakorlat 1 – 3 rossz prompt javítása</h2>
-<p>Válassz 3 rossz promptot, írd át, futtasd mindkettőt, hasonlítsd: mi lett jobb?</p>
+<p>Válassz 3 rossz promptot a saját munkádból. Írd át jóra, futtasd, hasonlítsd: mi lett jobb, mi hiányzik még?</p>
 
 <h2>Gyakorlat 2 – Formátum váltás</h2>
-<p>Ugyanaz a tartalom: kérd bekezdésben, majd bulletben. Melyik használhatóbb?</p>
+<p>Ugyanaz a tartalom: kérd bekezdésben, majd bulletben. Melyik használhatóbb? Miért?</p>
+
+<h2>Gyakorlat 3 – Before/After gyűjtemény</h2>
+<p>Készíts 3 párt (rossz → jó), tedd el referenciának.</p>
 
 <hr />
 <h2>Prompt minta</h2>
 <blockquote>
-<p>Rossz: „Írj valamit a projektről.”<br/>Jó: „Írj projekt státusz emailt. Kontextus: [projekt], Státusz: [állapot], Következő lépések: [lépések]. Stílus: professzionális, rövid bekezdések. Hossz: max 200 szó. CTA: kérj visszajelzést.”</p>
+<p>Rossz: „Írj valamit a projektről.”<br/>Jó: „Írj projekt státusz emailt. Kontextus: [projekt], státusz: [állapot], következő lépések: [lépések]. Stílus: professzionális, rövid bekezdés. Hossz: max 200 szó. CTA: kérj visszajelzést időponttal.”</p>
 </blockquote>
 
+<hr />
 <h2>Tipp</h2>
-<p>Készíts checklistát: Cél, Kontextus, Forma, Stílus, Hossz, CTA. Minden javításnál ezt pótold.</p>
+<ul>
+<li>Mindig nézd át: Cél, Kontextus, Forma, Stílus, Hossz, CTA.</li>
+<li>Az „empatikus, rövid, bullet” gyakran jobb, mint a hosszú bekezdés.</li>
+<li>Ne csak javíts – magyarázd el a modellnek, mit változtasson.</li>
+</ul>
 
+<hr />
 <h2>Opcionális mélyítés</h2>
 <ul>
-<li>Prompt A/B teszt: két verzió összehasonlítása ugyanarra a feladatra</li>
-<li>„Before/After” gyűjtemény készítése referenciának</li>
+<li>Prompt A/B teszt esettanulmányok: <a href="https://www.promptingguide.ai" target="_blank" rel="noreferrer">https://www.promptingguide.ai</a></li>
+<li>Before/After könyvtár ötletek: <a href="https://www.oneusefulthing.org" target="_blank" rel="noreferrer">https://www.oneusefulthing.org</a></li>
 </ul>`,
-    emailSubject: 'AI 30 Nap – 15. nap: Ismétlés',
-    emailBody: `<h1>AI 30 Nap – 15. nap</h1>
+    emailSubject: '30-Day AI Catch-Up – 15. nap: Ismétlés',
+    emailBody: `<h1>30-Day AI Catch-Up – 15. nap</h1>
 <h2>Ismétlés: rossz prompt → jó prompt</h2>
-<p>Ma ismételed a prompt írás készségeidet. Ez fontos a fejlődéshez.</p>
+<p>Ma diagnosztizálod és javítod a promptokat, összehasonlítod a kimeneteket, és megtartod a Before/After példákat.</p>
 <p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Olvasd el a teljes leckét →</a></p>`
   },
   // 16-20. nap · Szerep-specifikus használat

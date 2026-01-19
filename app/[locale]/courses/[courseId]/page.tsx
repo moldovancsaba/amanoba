@@ -57,6 +57,14 @@ interface EnrollmentStatus {
   };
 }
 
+interface Lesson {
+  lessonId: string;
+  dayNumber: number;
+  title: string;
+  estimatedMinutes?: number;
+  hasQuiz: boolean;
+}
+
 export default function CourseDetailPage({
   params,
 }: {
@@ -74,13 +82,15 @@ export default function CourseDetailPage({
   const [purchasing, setPurchasing] = useState(false);
   const [isPremium, setIsPremium] = useState(false);
   const [courseId, setCourseId] = useState<string>('');
+  const [lessons, setLessons] = useState<Lesson[]>([]);
+  const [loadingLessons, setLoadingLessons] = useState(false);
 
   useEffect(() => {
     const loadData = async () => {
       const resolvedParams = await params;
       const id = resolvedParams.courseId;
       setCourseId(id);
-      await Promise.all([fetchCourse(id), checkEnrollment(id), checkPremiumStatus()]);
+      await Promise.all([fetchCourse(id), checkEnrollment(id), checkPremiumStatus(), fetchLessons(id)]);
 
       // Check for payment success/failure in URL
       const urlParams = new URLSearchParams(window.location.search);
@@ -163,6 +173,21 @@ export default function CourseDetailPage({
     } catch (error) {
       console.error('Failed to check premium status:', error);
       setIsPremium(false);
+    }
+  };
+
+  const fetchLessons = async (cid: string) => {
+    setLoadingLessons(true);
+    try {
+      const response = await fetch(`/api/courses/${cid}/lessons`);
+      const data = await response.json();
+      if (data.success) {
+        setLessons(data.lessons || []);
+      }
+    } catch (error) {
+      console.error('Failed to fetch lessons:', error);
+    } finally {
+      setLoadingLessons(false);
     }
   };
 
@@ -326,6 +351,45 @@ export default function CourseDetailPage({
                   </div>
                 </div>
               </div>
+            </div>
+
+            {/* Table of Contents */}
+            <div className="bg-brand-white rounded-2xl p-8 border-2 border-brand-accent shadow-lg">
+              <h2 className="text-3xl font-bold text-brand-black mb-6">{t('tableOfContents')}</h2>
+              {loadingLessons ? (
+                <div className="text-brand-darkGrey text-center py-8">{tCommon('loading')}</div>
+              ) : lessons.length === 0 ? (
+                <div className="text-brand-darkGrey text-center py-8">{t('noLessonsAvailable')}</div>
+              ) : (
+                <div className="space-y-3">
+                  {lessons.map((lesson) => (
+                    <div
+                      key={lesson.lessonId}
+                      className="flex items-center gap-4 p-4 bg-brand-darkGrey/5 rounded-lg border border-brand-darkGrey/20 hover:bg-brand-darkGrey/10 transition-colors"
+                    >
+                      <div className="flex-shrink-0 w-12 h-12 bg-brand-accent rounded-lg flex items-center justify-center font-bold text-brand-black text-lg">
+                        {lesson.dayNumber}
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <div className="flex items-center gap-2 mb-1">
+                          <h3 className="font-bold text-brand-black text-lg truncate">{lesson.title}</h3>
+                          {lesson.hasQuiz && (
+                            <span className="flex-shrink-0 bg-brand-accent text-brand-black text-xs font-bold px-2 py-1 rounded">
+                              {t('hasQuiz')}
+                            </span>
+                          )}
+                        </div>
+                        <div className="flex items-center gap-4 text-sm text-brand-darkGrey">
+                          <span>{t('day')} {lesson.dayNumber}</span>
+                          {lesson.estimatedMinutes && (
+                            <span>• {lesson.estimatedMinutes} {t('minutes')}</span>
+                          )}
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )}
             </div>
           </div>
 

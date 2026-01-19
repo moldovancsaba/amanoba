@@ -30,7 +30,7 @@ export default async function LandingPage({
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
               <Image
-                src="/AMANOBA.png"
+                src="/amanoba_logo.png"
                 alt="Amanoba Logo"
                 width={48}
                 height={48}

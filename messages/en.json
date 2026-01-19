@@ -276,7 +276,13 @@
     "loadingCourse": "Loading course...",
     "courseNotFound": "Course not found",
     "failedToEnroll": "Failed to enroll in course",
-    "dayOfTotal": "Day {{current}} of {{total}}"
+    "dayOfTotal": "Day {{current}} of {{total}}",
+    "tableOfContents": "Table of Contents",
+    "lesson": "Lesson",
+    "day": "Day",
+    "minutes": "minutes",
+    "hasQuiz": "Quiz",
+    "noLessonsAvailable": "No lessons available at this time"
   },
   "games": {
     "title": "Games",

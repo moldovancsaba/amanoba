@@ -41,7 +41,7 @@ export default function Logo({
   const logoContent = (
     <div className={`flex items-center gap-3 ${className}`}>
       <Image
-        src="/AMANOBA.png"
+        src="/amanoba_logo.png"
         alt="Amanoba Logo"
         width={size === 'sm' ? 32 : size === 'md' ? 48 : 64}
         height={size === 'sm' ? 32 : size === 'md' ? 48 : 64}

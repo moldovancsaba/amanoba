@@ -117,7 +117,12 @@ export default function LessonQuizPage({
       );
       const data = await res.json();
       if (!data.success) {
-        setError(data.error || t('quizError'));
+        // Handle specific error codes with translated messages
+        if (data.errorCode === 'QUESTIONS_NOT_FOUND') {
+          setError(t('someQuestionsNotFound', { defaultValue: 'Néhány kérdés nem található. Kérjük, próbáld meg újra.' }));
+        } else {
+          setError(data.error || t('quizError'));
+        }
         setAnswering(false);
         return;
       }

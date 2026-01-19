@@ -50,7 +50,7 @@ export default async function SignInPage({
           <div className="text-center mb-10">
             <div className="flex justify-center mb-4">
               <Image
-                src="/AMANOBA.png"
+                src="/amanoba_logo.png"
                 alt="Amanoba Logo"
                 width={120}
                 height={120}

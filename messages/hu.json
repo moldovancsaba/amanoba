@@ -278,7 +278,13 @@
     "courseNotFound": "Kurzus nem található",
     "failedToEnroll": "Nem sikerült feliratkozni a kurzusra",
     "dayOfTotal": "{{current}} nap a(z) {{total}} napból",
-    "days": "nap"
+    "days": "nap",
+    "tableOfContents": "Tartalomjegyzék",
+    "lesson": "Lecke",
+    "day": "Nap",
+    "minutes": "perc",
+    "hasQuiz": "Kvíz",
+    "noLessonsAvailable": "Jelenleg nincsenek elérhető leckék"
   },
   "games": {
     "title": "Játékok",
