@@ -184,14 +184,25 @@ export default function CoursesPage() {
                     />
                   </div>
                 )}
-                <div className="flex items-start justify-between mb-3 gap-3">
-                  <h3 className="text-2xl font-bold text-brand-black leading-tight flex-1">{course.name}</h3>
-                  {course.requiresPremium && (
-                    <span className="flex-shrink-0 bg-brand-accent text-brand-black text-xs font-bold px-3 py-1.5 rounded-full flex items-center gap-1.5">
-                      <Star className="w-3.5 h-3.5" />
-                      {t('premiumCourse')}
+                <div className="mb-3">
+                  <h3 className="text-2xl font-bold text-brand-black leading-tight mb-2">{course.name}</h3>
+                  <div className="flex items-center gap-2 flex-wrap">
+                    {/* Language Flag */}
+                    <span className="text-lg" title={course.language === 'hu' ? 'Magyar' : course.language === 'en' ? 'English' : course.language.toUpperCase()}>
+                      {course.language === 'hu' ? '🇭🇺' : course.language === 'en' ? '🇬🇧' : '🌐'}
                     </span>
-                  )}
+                    {/* Premium/Free Chips */}
+                    {course.requiresPremium ? (
+                      <span className="bg-brand-accent text-brand-black text-xs font-bold px-3 py-1.5 rounded-full flex items-center gap-1.5">
+                        <Star className="w-3.5 h-3.5" />
+                        {t('premiumCourse')}
+                      </span>
+                    ) : (
+                      <span className="bg-brand-darkGrey/20 text-brand-darkGrey text-xs font-bold px-3 py-1.5 rounded-full flex items-center gap-1.5">
+                        {t('freeCourse')}
+                      </span>
+                    )}
+                  </div>
                 </div>
                 {course.requiresPremium && course.price && (
                   <div className="mb-4 flex items-center gap-2 text-lg font-bold text-brand-black">
