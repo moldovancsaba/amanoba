@@ -562,22 +562,27 @@ CTA: [következő lépés / kérés]
   {
     day: 8,
     title: 'Dokumentumok: brief, váz, összefoglaló',
-    content: `<h2>Napi cél</h2>
-<p>Ma megtanulod, hogyan kérsz AI-tól briefet, vázlatot és összefoglalót: gyors váz → pontosítás → kész verzió.</p>
+    content: `<h1>Dokumentumok: brief, váz, összefoglaló</h1>
+<p><em>Gyors váz → pontosítás → kész verzió</em></p>
+<p>Ma megtanulod, hogyan kérsz AI-tól briefet, vázlatot és összefoglalót. Struktúra előtt részletek: így lesz fókuszált a végső dokumentum.</p>
+
+<hr />
+<h2>Napi cél</h2>
 <ul>
-<li>brief: cél, kontextus, elvárás, kizárás</li>
-<li>vázlat: fő pontok sorrendje</li>
-<li>összefoglaló: lényeg 5 pontban, döntések, következő lépések</li>
+<li>Brief: cél, kontextus, elvárás, kizárás</li>
+<li>Vázlat: fő pontok sorrendje</li>
+<li>Összefoglaló: lényeg 5 pontban, döntések, következő lépések</li>
 </ul>
 
 <hr />
 <h2>Miért kezdj vázlattal?</h2>
 <ul>
-<li>gyorsan látod, hiányzik-e valami</li>
-<li>könnyebb iterálni struktúrán, mint kész szövegen</li>
-<li>csökken az „elszállt” tartalom kockázata</li>
+<li>Gyorsan látod, hiányzik-e valami</li>
+<li>Könnyebb iterálni struktúrán, mint kész szövegen</li>
+<li>Csökken az „elszállt” tartalom kockázata</li>
 </ul>
 
+<hr />
 <h2>Brief kötelező elemei</h2>
 <ul>
 <li>Cél, Kontextus, Célközönség</li>
