@@ -22,6 +22,7 @@ import {
   Calendar,
 } from 'lucide-react';
 import { useSearchParams } from 'next/navigation';
+import Logo from '@/components/Logo';
 
 interface Lesson {
   _id: string;
@@ -175,13 +176,16 @@ export default function DailyLessonPage({
       <header className="bg-brand-darkGrey border-b-2 border-brand-accent">
         <div className="max-w-5xl mx-auto px-6 sm:px-8 lg:px-10 py-6">
           <div className="flex items-center justify-between">
-            <LocaleLink
-              href={`/courses/${courseId}`}
-              className="inline-flex items-center gap-2 text-brand-white hover:text-brand-accent"
-            >
-              <ArrowLeft className="w-5 h-5" />
-              {t('backToCourse')}
-            </LocaleLink>
+            <div className="flex items-center gap-4">
+              <Logo size="sm" showText={false} linkTo={session?.user ? "/dashboard" : "/"} className="flex-shrink-0" />
+              <LocaleLink
+                href={`/courses/${courseId}`}
+                className="inline-flex items-center gap-2 text-brand-white hover:text-brand-accent"
+              >
+                <ArrowLeft className="w-5 h-5" />
+                {t('backToCourse')}
+              </LocaleLink>
+            </div>
             <div className="flex items-center gap-2 text-brand-white">
               <Calendar className="w-5 h-5" />
               <span className="font-bold">{t('dayNumber', { day: lesson.dayNumber })}</span>

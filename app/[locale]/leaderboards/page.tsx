@@ -13,6 +13,7 @@ import { useRouter } from 'next/navigation';
 import { useTranslations, useLocale } from 'next-intl';
 import { Trophy, ChevronLeft, Crown, Medal, Award, TrendingUp, TrendingDown } from 'lucide-react';
 import { LocaleLink } from '@/components/LocaleLink';
+import Logo from '@/components/Logo';
 
 interface LeaderboardEntry {
   playerId: string;
@@ -150,12 +151,15 @@ export default function LeaderboardsPage() {
       <header className="page-header">
         <div className="page-container py-6">
           <div className="flex justify-between items-center">
-            <div>
-              <h1 className="text-3xl font-bold text-brand-white flex items-center gap-3">
-                <Icon icon={MdEmojiEvents} size={40} />
-                {t('title')}
-              </h1>
-              <p className="text-brand-white/80 mt-1">{t('subtitle')}</p>
+            <div className="flex items-center gap-4">
+              <Logo size="sm" showText={false} linkTo="/dashboard" className="flex-shrink-0" />
+              <div>
+                <h1 className="text-3xl font-bold text-brand-white flex items-center gap-3">
+                  <Icon icon={MdEmojiEvents} size={40} />
+                  {t('title')}
+                </h1>
+                <p className="text-brand-white/80 mt-1">{t('subtitle')}</p>
+              </div>
             </div>
             <LocaleLink
               href="/dashboard"

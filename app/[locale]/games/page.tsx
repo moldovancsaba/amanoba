@@ -13,6 +13,7 @@ import { useRouter } from 'next/navigation';
 import { useTranslations, useLocale } from 'next-intl';
 import { LocaleLink } from '@/components/LocaleLink';
 import Icon, { MdPsychology, MdGpsFixed, MdCardMembership, MdNumbers } from '@/components/Icon';
+import Logo from '@/components/Logo';
 
 // Why: Type-safe game definitions
 interface GameInfo {
@@ -159,11 +160,14 @@ export default function GamesLauncher() {
       <header className="bg-brand-darkGrey border-b-2 border-brand-accent">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex justify-between items-center">
-            <div>
-              <h1 className="text-3xl font-bold text-brand-white flex items-center gap-2">
-                🎮 {tCommon('appName')} {t('title')}
-              </h1>
-              <p className="text-brand-white/80 mt-1">{t('chooseChallenge')}</p>
+            <div className="flex items-center gap-4">
+              <Logo size="sm" showText={false} linkTo="/dashboard" className="flex-shrink-0" />
+              <div>
+                <h1 className="text-3xl font-bold text-brand-white flex items-center gap-2">
+                  🎮 {tCommon('appName')} {t('title')}
+                </h1>
+                <p className="text-brand-white/80 mt-1">{t('chooseChallenge')}</p>
+              </div>
             </div>
             <div className="flex items-center gap-4">
               <div className="bg-brand-accent text-brand-black px-4 py-2 rounded-lg font-bold">

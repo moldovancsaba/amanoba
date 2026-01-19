@@ -22,6 +22,7 @@ import {
   ArrowLeft,
   CreditCard,
 } from 'lucide-react';
+import Logo from '@/components/Logo';
 
 interface Course {
   _id: string;
@@ -113,6 +114,7 @@ export default function CoursesPage() {
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10 py-7">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-4">
+              <Logo size="sm" showText={false} linkTo={session ? "/dashboard" : "/"} className="flex-shrink-0" />
               <LocaleLink
                 href={session ? "/dashboard" : "/"}
                 className="text-brand-white hover:text-brand-accent transition-colors"

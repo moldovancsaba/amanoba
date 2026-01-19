@@ -19,6 +19,7 @@ import {
   Play,
   CheckCircle,
 } from 'lucide-react';
+import Logo from '@/components/Logo';
 
 interface CourseProgress {
   course: {
@@ -91,10 +92,13 @@ export default function MyCoursesPage() {
       {/* Header */}
       <header className="bg-brand-darkGrey border-b-2 border-brand-accent">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-          <h1 className="text-3xl font-bold text-brand-white flex items-center gap-2">
-            <BookOpen className="w-8 h-8" />
-            {tCourses('myCourses')}
-          </h1>
+          <div className="flex items-center gap-4 mb-2">
+            <Logo size="sm" showText={false} linkTo="/dashboard" className="flex-shrink-0" />
+            <h1 className="text-3xl font-bold text-brand-white flex items-center gap-2">
+              <BookOpen className="w-8 h-8" />
+              {tCourses('myCourses')}
+            </h1>
+          </div>
           <p className="text-brand-white/80 mt-1">{t('trackLearningProgress')}</p>
         </div>
       </header>

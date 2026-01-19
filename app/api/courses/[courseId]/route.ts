@@ -24,7 +24,7 @@ export async function GET(
     const { courseId } = await params;
 
     const course = await Course.findOne({ courseId })
-      .select('courseId name description language thumbnail isActive requiresPremium durationDays pointsConfig xpConfig metadata createdAt')
+      .select('courseId name description language thumbnail isActive requiresPremium durationDays pointsConfig xpConfig metadata price createdAt')
       .lean();
 
     if (!course) {

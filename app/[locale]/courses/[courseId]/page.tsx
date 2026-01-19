@@ -22,6 +22,7 @@ import {
   Play,
   CreditCard,
 } from 'lucide-react';
+import Logo from '@/components/Logo';
 
 interface Course {
   _id: string;
@@ -40,6 +41,10 @@ interface Course {
   xpConfig: {
     completionXP: number;
     lessonXP: number;
+  };
+  price?: {
+    amount: number;
+    currency: string;
   };
   metadata?: {
     category?: string;
@@ -191,6 +196,21 @@ export default function CourseDetailPage({
     }
   };
 
+  const formatCurrency = (amount: number, currency: string): string => {
+    const formatter = new Intl.NumberFormat(
+      currency === 'huf' ? 'hu-HU' : currency === 'eur' ? 'de-DE' : currency === 'gbp' ? 'en-GB' : 'en-US',
+      {
+        style: 'currency',
+        currency: currency.toUpperCase(),
+        minimumFractionDigits: currency === 'huf' ? 0 : 2,
+        maximumFractionDigits: currency === 'huf' ? 0 : 2,
+      }
+    );
+    // Convert from cents to main unit
+    const mainUnit = currency === 'huf' ? amount : amount / 100;
+    return formatter.format(mainUnit);
+  };
+
   const handleEnroll = async () => {
     if (!session || !courseId) return;
 
@@ -211,8 +231,8 @@ export default function CourseDetailPage({
             isCompleted: false,
           },
         });
-        // Redirect to course dashboard
-        router.push(`/${locale}/my-courses`);
+        // Redirect directly to first lesson
+        router.push(`/${locale}/courses/${courseId}/day/1`);
       } else {
         alert(data.error || t('failedToEnroll'));
       }
@@ -289,13 +309,16 @@ export default function CourseDetailPage({
       {/* Header */}
       <header className="bg-brand-darkGrey border-b-2 border-brand-accent">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10 py-7">
-          <LocaleLink
-            href="/courses"
-            className="inline-flex items-center gap-2 text-brand-white hover:text-brand-accent mb-4"
-          >
-            <ArrowLeft className="w-5 h-5" />
-            {t('backToCourses')}
-          </LocaleLink>
+          <div className="flex items-center gap-4 mb-4">
+            <Logo size="sm" showText={false} linkTo={session ? "/dashboard" : "/"} className="flex-shrink-0" />
+            <LocaleLink
+              href="/courses"
+              className="inline-flex items-center gap-2 text-brand-white hover:text-brand-accent"
+            >
+              <ArrowLeft className="w-5 h-5" />
+              {t('backToCourses')}
+            </LocaleLink>
+          </div>
           <h1 className="text-4xl font-bold text-brand-white leading-tight">{course.name}</h1>
         </div>
       </header>
@@ -417,10 +440,16 @@ export default function CourseDetailPage({
 
                 {course.requiresPremium && (
                   <div className="bg-brand-accent/20 border border-brand-accent rounded-lg p-3">
-                    <div className="flex items-center gap-2 text-brand-black font-bold text-base">
+                    <div className="flex items-center gap-2 text-brand-black font-bold text-base mb-2">
                       <Star className="w-5 h-5" />
                       {t('premiumCourse')}
                     </div>
+                    {course.price && (
+                      <div className="flex items-center gap-2 text-brand-black font-bold text-lg">
+                        <CreditCard className="w-4 h-4" />
+                        {formatCurrency(course.price.amount, course.price.currency)}
+                      </div>
+                    )}
                   </div>
                 )}
 
@@ -434,7 +463,13 @@ export default function CourseDetailPage({
                       {enrollment.progress && (
                         <div className="text-sm text-brand-darkGrey">
                           <div>
-                            {enrollment.progress.currentDay} {t('days')} a(z) {course.durationDays} {t('days')}ból
+                            {t('dayOf', {
+                              currentDay: enrollment.progress.currentDay,
+                              totalDays: course.durationDays,
+                            })}
+                          </div>
+                          <div className="mt-1 text-xs">
+                            {t('daysCompleted', { count: enrollment.progress.completedDays })}
                           </div>
                           <div className="mt-2 bg-brand-darkGrey/20 rounded-full h-2 overflow-hidden">
                             <div
@@ -446,7 +481,7 @@ export default function CourseDetailPage({
                       )}
                     </div>
                     <LocaleLink
-                      href="/my-courses"
+                      href={`/courses/${courseId}/day/${enrollment.progress?.currentDay || 1}`}
                       className="block w-full bg-brand-accent text-brand-black px-5 py-3.5 rounded-lg font-bold text-center hover:bg-brand-primary-400 transition-colors text-base"
                     >
                       {t('continueLearning')}

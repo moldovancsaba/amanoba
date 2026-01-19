@@ -9,6 +9,8 @@ import { useRouter } from 'next/navigation';
 import { useTranslations } from 'next-intl';
 import { CheckCircle, ArrowLeft, Loader2 } from 'lucide-react';
 import { LocaleLink } from '@/components/LocaleLink';
+import Logo from '@/components/Logo';
+import { useSession } from 'next-auth/react';
 
 interface LessonResponse {
   success: boolean;
@@ -34,6 +36,7 @@ export default function LessonQuizPage({
 }: {
   params: Promise<{ courseId: string; dayNumber: string }>;
 }) {
+  const { data: session } = useSession();
   const t = useTranslations('courses');
   const router = useRouter();
   const [courseId, setCourseId] = useState<string>('');
@@ -208,13 +211,16 @@ export default function LessonQuizPage({
     <div className="min-h-screen bg-brand-black">
       <header className="bg-brand-darkGrey border-b-2 border-brand-accent">
         <div className="max-w-4xl mx-auto px-6 sm:px-8 lg:px-10 py-6 flex items-center justify-between">
-          <LocaleLink
-            href={`/courses/${courseId}/day/${dayNumber}`}
-            className="inline-flex items-center gap-2 text-brand-white hover:text-brand-accent"
-          >
-            <ArrowLeft className="w-5 h-5" />
-            {t('backToLesson')}
-          </LocaleLink>
+          <div className="flex items-center gap-4">
+            <Logo size="sm" showText={false} linkTo={session?.user ? "/dashboard" : "/"} className="flex-shrink-0" />
+            <LocaleLink
+              href={`/courses/${courseId}/day/${dayNumber}`}
+              className="inline-flex items-center gap-2 text-brand-white hover:text-brand-accent"
+            >
+              <ArrowLeft className="w-5 h-5" />
+              {t('backToLesson')}
+            </LocaleLink>
+          </div>
           <div className="text-brand-white text-sm">
             {t('lessonQuiz', { defaultValue: 'Kvíz' })}: {lessonTitle || t('quiz')}
           </div>
