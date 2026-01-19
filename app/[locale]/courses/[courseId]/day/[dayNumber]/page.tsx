@@ -124,7 +124,7 @@ export default function DailyLessonPage({
       if (data.success) {
         // Refresh lesson to show completed state
         await fetchLesson(courseId, dayNumber);
-        alert(t('lessonCompleted'));
+        // Alert removed - lesson completion is already visible in the UI
       } else {
         alert(data.error || t('failedToComplete'));
       }
