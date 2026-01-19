@@ -210,15 +210,17 @@ export default function OnboardingPage() {
       const data = await response.json();
 
       if (data.success) {
-        // Wait a bit longer to ensure backend has fully updated player data
-        // Then redirect to dashboard with flag to prevent redirect loop
-        setTimeout(() => {
-          const redirectUrl = survey.metadata?.redirectUrl || `/${locale}/dashboard`;
-          // Use replace and add query param to prevent redirect loop
-          router.replace(`${redirectUrl}?surveyCompleted=true`);
-        }, 1500);
+        // Survey submitted successfully
+        // Show success message and allow manual navigation
+        alert(tOnboarding('submitSuccess') || 'Survey submitted successfully! Thank you.');
+        setSubmitting(false);
+        // Optionally redirect after showing message (disabled for now)
+        // setTimeout(() => {
+        //   const redirectUrl = survey.metadata?.redirectUrl || `/${locale}/dashboard`;
+        //   router.replace(`${redirectUrl}?surveyCompleted=true`);
+        // }, 2000);
       } else {
-        alert(data.error || 'Failed to submit survey');
+        alert(data.error || tOnboarding('submitError') || 'Failed to submit survey. Please try again.');
         setSubmitting(false);
       }
     } catch (error) {

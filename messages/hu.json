@@ -669,6 +669,7 @@
     "questionProgress": "Kérdés {{current}} / {{total}}",
     "submitting": "Küldés...",
     "submitError": "Nem sikerült elküldeni a felmérést. Kérjük, próbáld újra.",
+    "submitSuccess": "A felmérés sikeresen elküldve! Köszönjük.",
     "notAvailable": "A felmérés jelenleg nem elérhető",
     "goToDashboard": "Irányítópult",
     "required": "Kötelező",

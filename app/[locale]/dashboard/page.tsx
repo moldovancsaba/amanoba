@@ -128,28 +128,30 @@ export default function Dashboard() {
         setPlayerData(data);
         console.log('Dashboard data refreshed:', data);
         
+        // ONBOARDING REDIRECT DISABLED - Will be re-enabled after fixing issues
         // Check if player needs to complete survey
         // Only check once per session and only if we're actually on dashboard
-        if (typeof window !== 'undefined' && pathname?.includes('/dashboard')) {
-          const urlParams = new URLSearchParams(window.location.search);
-          const surveyCompleted = urlParams.get('surveyCompleted') === 'true';
-          
-          // If we just completed the survey, don't redirect
-          if (surveyCompleted) {
-            hasCheckedSurvey.current = true;
-            // Clean up the URL
-            window.history.replaceState({}, '', window.location.pathname);
-          } else if (!hasCheckedSurvey.current && data.player && !data.player.surveyCompleted) {
-            hasCheckedSurvey.current = true;
-            // Use replace instead of push to prevent back button issues and redirect loops
-            router.replace(`/${locale}/onboarding`);
-            return;
-          } else {
-            hasCheckedSurvey.current = true;
-          }
-        } else {
-          hasCheckedSurvey.current = true;
-        }
+        // DISABLED: if (typeof window !== 'undefined' && pathname?.includes('/dashboard')) {
+        //   const urlParams = new URLSearchParams(window.location.search);
+        //   const surveyCompleted = urlParams.get('surveyCompleted') === 'true';
+        //   
+        //   // If we just completed the survey, don't redirect
+        //   if (surveyCompleted) {
+        //     hasCheckedSurvey.current = true;
+        //     // Clean up the URL
+        //     window.history.replaceState({}, '', window.location.pathname);
+        //   } else if (!hasCheckedSurvey.current && data.player && !data.player.surveyCompleted) {
+        //     hasCheckedSurvey.current = true;
+        //     // Use replace instead of push to prevent back button issues and redirect loops
+        //     router.replace(`/${locale}/onboarding`);
+        //     return;
+        //   } else {
+        //     hasCheckedSurvey.current = true;
+        //   }
+        // } else {
+        //   hasCheckedSurvey.current = true;
+        // }
+        hasCheckedSurvey.current = true;
       } else {
         setError('Failed to load player data');
       }

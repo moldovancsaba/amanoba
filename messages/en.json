@@ -643,6 +643,7 @@
     "questionProgress": "Question {{current}} of {{total}}",
     "submitting": "Submitting...",
     "submitError": "Failed to submit survey. Please try again.",
+    "submitSuccess": "Survey submitted successfully! Thank you.",
     "notAvailable": "Survey not available",
     "goToDashboard": "Go to Dashboard",
     "required": "Required",
