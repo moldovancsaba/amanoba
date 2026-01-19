@@ -173,7 +173,7 @@ export default function DailyLessonPage({
     <div className="min-h-screen bg-brand-black">
       {/* Header */}
       <header className="bg-brand-darkGrey border-b-2 border-brand-accent">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+        <div className="max-w-5xl mx-auto px-6 sm:px-8 lg:px-10 py-6">
           <div className="flex items-center justify-between">
             <LocaleLink
               href={`/courses/${courseId}`}
@@ -190,10 +190,10 @@ export default function DailyLessonPage({
         </div>
       </header>
 
-      <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <main className="max-w-5xl mx-auto px-6 sm:px-8 lg:px-10 py-10">
         {/* Lesson Header */}
-        <div className="bg-brand-white rounded-xl p-6 border-2 border-brand-accent mb-6">
-          <div className="flex items-start justify-between mb-4">
+        <div className="bg-brand-white rounded-2xl p-8 border-2 border-brand-accent shadow-lg mb-8">
+          <div className="flex items-start justify-between mb-5">
             <div className="flex-1">
               <div className="flex items-center gap-3 mb-2">
                 {lesson.isCompleted ? (
@@ -201,7 +201,7 @@ export default function DailyLessonPage({
                 ) : !lesson.isUnlocked ? (
                   <Lock className="w-6 h-6 text-brand-darkGrey" />
                 ) : null}
-                <h1 className="text-3xl font-bold text-brand-black">{lesson.title}</h1>
+                <h1 className="text-4xl font-bold text-brand-black leading-tight">{lesson.title}</h1>
               </div>
               {!lesson.isUnlocked && (
                 <div className="bg-brand-darkGrey/20 border border-brand-darkGrey rounded-lg p-3 mt-3">
@@ -214,7 +214,7 @@ export default function DailyLessonPage({
           </div>
 
           {lesson.isUnlocked && (
-            <div className="flex items-center gap-4 text-sm text-brand-darkGrey">
+            <div className="flex items-center gap-4 text-base text-brand-darkGrey mt-2">
               <div className="flex items-center gap-1">
                 <Award className="w-4 h-4" />
                 <span>{lesson.pointsReward} {tCommon('points')}</span>
@@ -230,9 +230,9 @@ export default function DailyLessonPage({
         {/* Lesson Content */}
         {lesson.isUnlocked ? (
           <>
-            <div className="bg-brand-white rounded-xl p-8 border-2 border-brand-accent mb-6">
+            <div className="bg-brand-white rounded-2xl p-10 border-2 border-brand-accent shadow-lg mb-8">
               <div
-                className="prose prose-lg max-w-none text-brand-black"
+                className="prose prose-xl lesson-prose max-w-none text-brand-black"
                 dangerouslySetInnerHTML={{ __html: lesson.content }}
               />
             </div>
@@ -254,7 +254,7 @@ export default function DailyLessonPage({
               {lesson.quizConfig?.enabled && !lesson.isCompleted && (
                 <LocaleLink
                   href={`/courses/${courseId}/day/${dayNumber}/quiz`}
-                  className="flex items-center justify-center gap-2 bg-brand-white border-2 border-brand-accent text-brand-black px-6 py-3 rounded-lg font-bold hover:bg-brand-accent/80 transition-colors"
+                  className="flex items-center justify-center gap-2 bg-brand-white border-2 border-brand-accent text-brand-black px-6 py-3 rounded-lg font-bold hover:bg-brand-accent/80 transition-colors text-base"
                 >
                   {t('takeQuiz', { defaultValue: 'Kitöltöm a kvízt' })}
                 </LocaleLink>
@@ -264,7 +264,7 @@ export default function DailyLessonPage({
                 <button
                   onClick={handleComplete}
                   disabled={completing || (lesson.quizConfig?.enabled && lesson.quizConfig.required && !quizPassed)}
-                  className="flex items-center gap-2 bg-brand-accent text-brand-black px-6 py-3 rounded-lg font-bold hover:bg-brand-primary-400 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="flex items-center gap-2 bg-brand-accent text-brand-black px-7 py-3.5 rounded-lg font-bold hover:bg-brand-primary-400 transition-colors disabled:opacity-50 disabled:cursor-not-allowed text-base"
                 >
                   <CheckCircle className="w-5 h-5" />
                   {completing ? t('completing') : t('markAsComplete')}
@@ -297,18 +297,18 @@ export default function DailyLessonPage({
 
             {/* Assessment Game */}
             {lesson.assessmentGameId && lesson.isCompleted && (
-              <div className="bg-brand-accent/20 border-2 border-brand-accent rounded-xl p-6 mt-6">
-                <h3 className="text-xl font-bold text-brand-black mb-2 flex items-center gap-2">
+              <div className="bg-brand-accent/20 border-2 border-brand-accent rounded-xl p-8 mt-8">
+                <h3 className="text-2xl font-bold text-brand-black mb-3 flex items-center gap-2">
                   <Play className="w-6 h-6" />
                   {t('testYourKnowledge')}
                 </h3>
-                <p className="text-brand-darkGrey mb-4">
+                <p className="text-brand-darkGrey mb-5">
                   {t('assessmentDescription')}
                 </p>
                 {lesson.assessmentGameRoute ? (
                   <LocaleLink
                     href={`${lesson.assessmentGameRoute}?courseId=${courseId}&lessonDay=${dayNumber}&assessment=true`}
-                    className="inline-block bg-brand-accent text-brand-black px-6 py-3 rounded-lg font-bold hover:bg-brand-primary-400 transition-colors"
+                    className="inline-block bg-brand-accent text-brand-black px-7 py-3 rounded-lg font-bold hover:bg-brand-primary-400 transition-colors text-base"
                   >
                     {t('playAssessment')}
                   </LocaleLink>
@@ -341,7 +341,7 @@ export default function DailyLessonPage({
                         alert(t('failedToStartAssessment'));
                       }
                     }}
-                    className="inline-block bg-brand-accent text-brand-black px-6 py-3 rounded-lg font-bold hover:bg-brand-primary-400 transition-colors"
+                    className="inline-block bg-brand-accent text-brand-black px-7 py-3 rounded-lg font-bold hover:bg-brand-primary-400 transition-colors text-base"
                   >
                     {t('playAssessment')}
                   </button>

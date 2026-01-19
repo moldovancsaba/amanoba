@@ -42,12 +42,12 @@ export default async function SignInPage({
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-brand-black p-4">
-      <div className="w-full max-w-md">
+    <div className="min-h-screen flex items-center justify-center bg-brand-black p-6 sm:p-10">
+      <div className="w-full max-w-lg">
         {/* Sign In Card */}
-        <div className="bg-brand-white rounded-2xl shadow-2xl p-8 border-2 border-brand-accent">
+        <div className="bg-brand-white rounded-3xl shadow-2xl p-10 border-2 border-brand-accent">
           {/* Logo and Branding */}
-          <div className="text-center mb-8">
+          <div className="text-center mb-10">
             <div className="flex justify-center mb-4">
               <Image
                 src="/AMANOBA.png"
@@ -58,10 +58,10 @@ export default async function SignInPage({
                 priority
               />
             </div>
-            <h1 className="text-3xl font-bold text-brand-black mb-2">
+            <h1 className="text-4xl font-bold text-brand-black mb-3 leading-tight">
               {t('welcome')} {tCommon('appName')}
             </h1>
-            <p className="text-brand-darkGrey">
+            <p className="text-brand-darkGrey text-lg leading-relaxed">
               {t('tagline')}
             </p>
           </div>
@@ -79,7 +79,7 @@ export default async function SignInPage({
           >
             <button
               type="submit"
-              className="w-full bg-[#1877F2] hover:bg-[#166FE5] text-brand-white font-semibold py-4 px-6 rounded-lg transition-colors duration-200 flex items-center justify-center gap-3 shadow-lg hover:shadow-xl"
+              className="w-full bg-[#1877F2] hover:bg-[#166FE5] text-brand-white font-semibold text-lg py-4 px-6 rounded-xl transition-colors duration-200 flex items-center justify-center gap-3 shadow-lg hover:shadow-xl"
             >
               <svg
                 className="w-6 h-6"
@@ -98,7 +98,7 @@ export default async function SignInPage({
           </form>
 
           {/* Divider */}
-          <div className="relative my-6">
+          <div className="relative my-8">
             <div className="absolute inset-0 flex items-center">
               <div className="w-full border-t border-brand-darkGrey"></div>
             </div>
@@ -108,10 +108,12 @@ export default async function SignInPage({
           </div>
 
           {/* Anonymous Login */}
-          <AnonymousLoginButton />
+          <div className="text-lg">
+            <AnonymousLoginButton />
+          </div>
 
           {/* Additional Info */}
-          <div className="mt-8 text-center text-sm text-brand-darkGrey">
+          <div className="mt-10 text-center text-base text-brand-darkGrey leading-relaxed">
             <p>
               {tCommon('byContinuing', { appName: tCommon('appName') })}{' '}
               <LocaleLink href={`/${locale}/terms`} className="text-brand-accent hover:text-brand-primary-600 underline">
@@ -126,20 +128,20 @@ export default async function SignInPage({
         </div>
 
         {/* Benefits Section */}
-        <div className="mt-8 text-brand-white text-center">
-          <h2 className="text-xl font-semibold mb-4">{t('whyJoin')}</h2>
-          <div className="grid grid-cols-3 gap-4">
-            <div className="bg-brand-darkGrey/80 backdrop-blur-sm rounded-lg p-4 border border-brand-accent/30">
+        <div className="mt-10 text-brand-white text-center">
+          <h2 className="text-2xl font-semibold mb-5">{t('whyJoin')}</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div className="bg-brand-darkGrey/80 backdrop-blur-sm rounded-xl p-5 border border-brand-accent/30">
               <Icon icon={MdMenuBook} size={32} className="text-brand-accent mb-2 mx-auto" />
-              <p className="text-sm font-medium">{tCommon('courses.title')}</p>
+              <p className="text-base font-medium">{tCommon('courses.title')}</p>
             </div>
-            <div className="bg-brand-darkGrey/80 backdrop-blur-sm rounded-lg p-4 border border-brand-accent/30">
+            <div className="bg-brand-darkGrey/80 backdrop-blur-sm rounded-xl p-5 border border-brand-accent/30">
               <Icon icon={MdEmail} size={32} className="text-brand-accent mb-2 mx-auto" />
-              <p className="text-sm font-medium">{t('dailyLessons')}</p>
+              <p className="text-base font-medium">{t('dailyLessons')}</p>
             </div>
-            <div className="bg-brand-darkGrey/80 backdrop-blur-sm rounded-lg p-4 border border-brand-accent/30">
+            <div className="bg-brand-darkGrey/80 backdrop-blur-sm rounded-xl p-5 border border-brand-accent/30">
               <Icon icon={MdGpsFixed} size={32} className="text-brand-accent mb-2 mx-auto" />
-              <p className="text-sm font-medium">{t('interactiveAssessments')}</p>
+              <p className="text-base font-medium">{t('interactiveAssessments')}</p>
             </div>
           </div>
         </div>

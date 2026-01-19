@@ -183,20 +183,30 @@ export default function NewCoursePage() {
                 <>
                   <div>
                     <label className="block text-sm font-medium text-brand-black mb-2">
-                      Price (in cents)
+                      Price (in smallest unit)
                     </label>
                     <input
                       type="number"
-                      min="0"
+                      min={getStripeMinimum(formData.priceCurrency)}
                       step="1"
                       value={formData.priceAmount}
                       onChange={(e) => setFormData({ ...formData, priceAmount: parseInt(e.target.value) || 0 })}
-                      className="w-full px-4 py-2 bg-brand-white border-2 border-brand-darkGrey rounded-lg text-brand-black focus:outline-none focus:border-brand-accent"
+                      className={`w-full px-4 py-2 bg-brand-white border-2 rounded-lg text-brand-black focus:outline-none focus:border-brand-accent ${
+                        !meetsStripeMinimum(formData.priceAmount, formData.priceCurrency)
+                          ? 'border-red-500'
+                          : 'border-brand-darkGrey'
+                      }`}
                       placeholder="2999"
                     />
-                    <p className="text-xs text-brand-darkGrey mt-1">
-                      Enter amount in cents (e.g., 2999 = $29.99)
-                    </p>
+                    {!meetsStripeMinimum(formData.priceAmount, formData.priceCurrency) ? (
+                      <p className="text-xs text-red-600 mt-1 font-semibold">
+                        ⚠️ Amount too low! Minimum for {formData.priceCurrency.toUpperCase()} is {getFormattedMinimum(formData.priceCurrency)}
+                      </p>
+                    ) : (
+                      <p className="text-xs text-brand-darkGrey mt-1">
+                        Enter amount in smallest unit (e.g., 2999 cents = $29.99). Minimum: {getFormattedMinimum(formData.priceCurrency)}
+                      </p>
+                    )}
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-brand-black mb-2">
@@ -204,14 +214,28 @@ export default function NewCoursePage() {
                     </label>
                     <select
                       value={formData.priceCurrency}
-                      onChange={(e) => setFormData({ ...formData, priceCurrency: e.target.value })}
+                      onChange={(e) => {
+                        const newCurrency = e.target.value;
+                        const currentAmount = formData.priceAmount;
+                        const minimum = getStripeMinimum(newCurrency);
+                        // If current amount is below new currency's minimum, set to minimum
+                        const newAmount = currentAmount < minimum ? minimum : currentAmount;
+                        setFormData({ 
+                          ...formData, 
+                          priceCurrency: newCurrency,
+                          priceAmount: newAmount,
+                        });
+                      }}
                       className="w-full px-4 py-2 bg-brand-white border-2 border-brand-darkGrey rounded-lg text-brand-black focus:outline-none focus:border-brand-accent"
                     >
-                      <option value="usd">USD ($)</option>
-                      <option value="eur">EUR (€)</option>
-                      <option value="huf">HUF (Ft)</option>
-                      <option value="gbp">GBP (£)</option>
+                      <option value="usd">USD ($) - Min: $0.50</option>
+                      <option value="eur">EUR (€) - Min: €0.50</option>
+                      <option value="huf">HUF (Ft) - Min: 175 Ft</option>
+                      <option value="gbp">GBP (£) - Min: £0.30</option>
                     </select>
+                    <p className="text-xs text-brand-darkGrey mt-1">
+                      Minimum: {getFormattedMinimum(formData.priceCurrency)}
+                    </p>
                   </div>
                 </>
               )}

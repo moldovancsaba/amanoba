@@ -25,6 +25,7 @@ import {
   Upload,
 } from 'lucide-react';
 import RichTextEditor from '@/app/components/ui/rich-text-editor';
+import { getStripeMinimum, getFormattedMinimum, meetsStripeMinimum } from '@/app/lib/utils/stripe-minimums';
 
 interface Course {
   _id: string;
@@ -383,11 +384,11 @@ export default function CourseEditorPage({
             <>
               <div>
                 <label className="block text-sm font-medium text-brand-black mb-2">
-                  Price (in cents)
+                  Price (in smallest unit)
                 </label>
                 <input
                   type="number"
-                  min="0"
+                  min={getStripeMinimum(course.price?.currency || 'usd')}
                   step="1"
                   value={course.price?.amount || 2999}
                   onChange={(e) => setCourse({
@@ -397,12 +398,22 @@ export default function CourseEditorPage({
                       currency: course.price?.currency || 'usd',
                     },
                   })}
-                  className="w-full px-4 py-2 bg-brand-white border-2 border-brand-darkGrey rounded-lg text-brand-black focus:outline-none focus:border-brand-accent"
+                  className={`w-full px-4 py-2 bg-brand-white border-2 rounded-lg text-brand-black focus:outline-none focus:border-brand-accent ${
+                    course.price?.amount && course.price?.currency && !meetsStripeMinimum(course.price.amount, course.price.currency)
+                      ? 'border-red-500'
+                      : 'border-brand-darkGrey'
+                  }`}
                   placeholder="2999"
                 />
-                <p className="text-xs text-brand-darkGrey mt-1">
-                  Enter amount in cents (e.g., 2999 = $29.99)
-                </p>
+                {course.price?.amount && course.price?.currency && !meetsStripeMinimum(course.price.amount, course.price.currency) ? (
+                  <p className="text-xs text-red-600 mt-1 font-semibold">
+                    ⚠️ Amount too low! Minimum for {course.price.currency.toUpperCase()} is {getFormattedMinimum(course.price.currency)}
+                  </p>
+                ) : (
+                  <p className="text-xs text-brand-darkGrey mt-1">
+                    Enter amount in smallest unit (e.g., 2999 cents = $29.99). Minimum: {getFormattedMinimum(course.price?.currency || 'usd')}
+                  </p>
+                )}
               </div>
               <div>
                 <label className="block text-sm font-medium text-brand-black mb-2">
@@ -410,20 +421,30 @@ export default function CourseEditorPage({
                 </label>
                 <select
                   value={course.price?.currency || 'usd'}
-                  onChange={(e) => setCourse({
-                    ...course,
-                    price: {
-                      amount: course.price?.amount || 2999,
-                      currency: e.target.value,
-                    },
-                  })}
+                  onChange={(e) => {
+                    const newCurrency = e.target.value;
+                    const currentAmount = course.price?.amount || 2999;
+                    const minimum = getStripeMinimum(newCurrency);
+                    // If current amount is below new currency's minimum, set to minimum
+                    const newAmount = currentAmount < minimum ? minimum : currentAmount;
+                    setCourse({
+                      ...course,
+                      price: {
+                        amount: newAmount,
+                        currency: newCurrency,
+                      },
+                    });
+                  }}
                   className="w-full px-4 py-2 bg-brand-white border-2 border-brand-darkGrey rounded-lg text-brand-black focus:outline-none focus:border-brand-accent"
                 >
-                  <option value="usd">USD ($)</option>
-                  <option value="eur">EUR (€)</option>
-                  <option value="huf">HUF (Ft)</option>
-                  <option value="gbp">GBP (£)</option>
+                  <option value="usd">USD ($) - Min: $0.50</option>
+                  <option value="eur">EUR (€) - Min: €0.50</option>
+                  <option value="huf">HUF (Ft) - Min: 175 Ft</option>
+                  <option value="gbp">GBP (£) - Min: £0.30</option>
                 </select>
+                <p className="text-xs text-brand-darkGrey mt-1">
+                  Minimum: {getFormattedMinimum(course.price?.currency || 'usd')}
+                </p>
               </div>
             </>
           )}

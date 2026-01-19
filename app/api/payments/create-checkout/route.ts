@@ -10,6 +10,7 @@ import { auth } from '@/auth';
 import connectDB from '@/lib/mongodb';
 import { Course, Player, Brand } from '@/lib/models';
 import { logger } from '@/lib/logger';
+import { meetsStripeMinimum, getFormattedMinimum } from '@/lib/utils/stripe-minimums';
 import Stripe from 'stripe';
 
 // Initialize Stripe
@@ -105,6 +106,17 @@ export async function POST(request: NextRequest) {
     if (!paymentAmount || paymentAmount <= 0) {
       return NextResponse.json(
         { error: 'Course price is not set. Please set a price for this premium course.' },
+        { status: 400 }
+      );
+    }
+
+    // Validate Stripe minimum amount
+    if (!meetsStripeMinimum(paymentAmount, paymentCurrency)) {
+      const minimum = getFormattedMinimum(paymentCurrency);
+      return NextResponse.json(
+        { 
+          error: `Payment amount is too low. The minimum amount for ${paymentCurrency.toUpperCase()} is ${minimum}. Please update the course price in the admin panel.` 
+        },
         { status: 400 }
       );
     }

@@ -263,7 +263,7 @@ export default function CourseDetailPage({
     <div className="min-h-screen bg-brand-black">
       {/* Header */}
       <header className="bg-brand-darkGrey border-b-2 border-brand-accent">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10 py-7">
           <LocaleLink
             href="/courses"
             className="inline-flex items-center gap-2 text-brand-white hover:text-brand-accent mb-4"
@@ -271,16 +271,16 @@ export default function CourseDetailPage({
             <ArrowLeft className="w-5 h-5" />
             {t('backToCourses')}
           </LocaleLink>
-          <h1 className="text-3xl font-bold text-brand-white">{course.name}</h1>
+          <h1 className="text-4xl font-bold text-brand-white leading-tight">{course.name}</h1>
         </div>
       </header>
 
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      <main className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10 py-10">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
           {/* Main Content */}
-          <div className="lg:col-span-2 space-y-6">
+          <div className="lg:col-span-2 space-y-8">
             {course.thumbnail && (
-              <div className="w-full h-64 bg-brand-darkGrey rounded-xl overflow-hidden">
+              <div className="w-full h-72 bg-brand-darkGrey rounded-2xl overflow-hidden">
                 <img
                   src={course.thumbnail}
                   alt={course.name}
@@ -289,40 +289,40 @@ export default function CourseDetailPage({
               </div>
             )}
 
-            <div className="bg-brand-white rounded-xl p-6 border-2 border-brand-accent">
-              <h2 className="text-2xl font-bold text-brand-black mb-4">{t('aboutThisCourse')}</h2>
-              <p className="text-brand-darkGrey leading-relaxed">{course.description}</p>
+            <div className="bg-brand-white rounded-2xl p-8 border-2 border-brand-accent shadow-lg">
+              <h2 className="text-3xl font-bold text-brand-black mb-4">{t('aboutThisCourse')}</h2>
+              <p className="text-brand-darkGrey leading-relaxed text-xl">{course.description}</p>
             </div>
 
-            <div className="bg-brand-white rounded-xl p-6 border-2 border-brand-accent">
-              <h2 className="text-2xl font-bold text-brand-black mb-4">{t('whatYoullLearn')}</h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="bg-brand-white rounded-2xl p-8 border-2 border-brand-accent shadow-lg">
+              <h2 className="text-3xl font-bold text-brand-black mb-5">{t('whatYoullLearn')}</h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                 <div className="flex items-start gap-3">
                   <CheckCircle className="w-6 h-6 text-brand-accent flex-shrink-0 mt-1" />
                   <div>
-                    <h3 className="font-bold text-brand-black">{course.durationDays} {t('dailyLessons')}</h3>
-                    <p className="text-sm text-brand-darkGrey">{t('structuredLearning')}</p>
+                    <h3 className="font-bold text-brand-black text-lg">{course.durationDays} {t('dailyLessons')}</h3>
+                    <p className="text-base text-brand-darkGrey">{t('structuredLearning')}</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
                   <Award className="w-6 h-6 text-brand-accent flex-shrink-0 mt-1" />
                   <div>
-                    <h3 className="font-bold text-brand-black">{course.pointsConfig.completionPoints} {tCommon('points')}</h3>
-                    <p className="text-sm text-brand-darkGrey">{t('pointsEarned')}</p>
+                    <h3 className="font-bold text-brand-black text-lg">{course.pointsConfig.completionPoints} {tCommon('points')}</h3>
+                    <p className="text-base text-brand-darkGrey">{t('pointsEarned')}</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
                   <BookOpen className="w-6 h-6 text-brand-accent flex-shrink-0 mt-1" />
                   <div>
-                    <h3 className="font-bold text-brand-black">{t('emailDelivery')}</h3>
-                    <p className="text-sm text-brand-darkGrey">{t('dailyLessonsSent')}</p>
+                    <h3 className="font-bold text-brand-black text-lg">{t('emailDelivery')}</h3>
+                    <p className="text-base text-brand-darkGrey">{t('dailyLessonsSent')}</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
                   <Play className="w-6 h-6 text-brand-accent flex-shrink-0 mt-1" />
                   <div>
-                    <h3 className="font-bold text-brand-black">{t('interactiveAssessments')}</h3>
-                    <p className="text-sm text-brand-darkGrey">{t('testKnowledge')}</p>
+                    <h3 className="font-bold text-brand-black text-lg">{t('interactiveAssessments')}</h3>
+                    <p className="text-base text-brand-darkGrey">{t('testKnowledge')}</p>
                   </div>
                 </div>
               </div>
@@ -331,14 +331,14 @@ export default function CourseDetailPage({
 
           {/* Sidebar */}
           <div className="space-y-6">
-            <div className="bg-brand-white rounded-xl p-6 border-2 border-brand-accent sticky top-6">
+            <div className="bg-brand-white rounded-2xl p-7 border-2 border-brand-accent sticky top-6 shadow-lg">
               <div className="space-y-4">
                 <div>
                   <div className="flex items-center gap-2 text-brand-darkGrey text-sm mb-1">
                     <Calendar className="w-4 h-4" />
                     {t('duration')}
                   </div>
-                  <div className="text-xl font-bold text-brand-black">{course.durationDays} {t('days')}</div>
+                  <div className="text-2xl font-bold text-brand-black">{course.durationDays} {t('days')}</div>
                 </div>
 
                 <div>
@@ -346,14 +346,14 @@ export default function CourseDetailPage({
                     <Award className="w-4 h-4" />
                     {t('pointsReward')}
                   </div>
-                  <div className="text-xl font-bold text-brand-black">
+                  <div className="text-2xl font-bold text-brand-black">
                     {course.pointsConfig.completionPoints} {tCommon('points')}
                   </div>
                 </div>
 
                 {course.requiresPremium && (
                   <div className="bg-brand-accent/20 border border-brand-accent rounded-lg p-3">
-                    <div className="flex items-center gap-2 text-brand-black font-bold">
+                    <div className="flex items-center gap-2 text-brand-black font-bold text-base">
                       <Star className="w-5 h-5" />
                       {t('premiumCourse')}
                     </div>
@@ -383,7 +383,7 @@ export default function CourseDetailPage({
                     </div>
                     <LocaleLink
                       href="/my-courses"
-                      className="block w-full bg-brand-accent text-brand-black px-4 py-3 rounded-lg font-bold text-center hover:bg-brand-primary-400 transition-colors"
+                      className="block w-full bg-brand-accent text-brand-black px-5 py-3.5 rounded-lg font-bold text-center hover:bg-brand-primary-400 transition-colors text-base"
                     >
                       {t('continueLearning')}
                     </LocaleLink>
@@ -391,7 +391,7 @@ export default function CourseDetailPage({
                 ) : !session ? (
                   <LocaleLink
                     href={`/auth/signin?callbackUrl=${encodeURIComponent(`/${locale}/courses/${courseId}`)}`}
-                    className="block w-full bg-brand-accent text-brand-black px-4 py-3 rounded-lg font-bold text-center hover:bg-brand-primary-400 transition-colors"
+                    className="block w-full bg-brand-accent text-brand-black px-5 py-3.5 rounded-lg font-bold text-center hover:bg-brand-primary-400 transition-colors text-base"
                   >
                     {t('signInToEnroll')}
                   </LocaleLink>
@@ -405,7 +405,7 @@ export default function CourseDetailPage({
                     <button
                       onClick={handlePurchase}
                       disabled={purchasing}
-                      className="w-full bg-brand-accent text-brand-black px-4 py-3 rounded-lg font-bold hover:bg-brand-primary-400 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                      className="w-full bg-brand-accent text-brand-black px-5 py-3.5 rounded-lg font-bold hover:bg-brand-primary-400 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 text-base"
                     >
                       {purchasing ? (
                         <>
@@ -431,7 +431,7 @@ export default function CourseDetailPage({
                     <button
                       onClick={handleEnroll}
                       disabled={enrolling}
-                      className="w-full bg-brand-accent text-brand-black px-4 py-3 rounded-lg font-bold hover:bg-brand-primary-400 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                      className="w-full bg-brand-accent text-brand-black px-5 py-3.5 rounded-lg font-bold hover:bg-brand-primary-400 transition-colors disabled:opacity-50 disabled:cursor-not-allowed text-base"
                     >
                       {enrolling ? t('enrolling') : t('enrollNow')}
                     </button>
@@ -440,7 +440,7 @@ export default function CourseDetailPage({
                   <button
                     onClick={handleEnroll}
                     disabled={enrolling}
-                    className="w-full bg-brand-accent text-brand-black px-4 py-3 rounded-lg font-bold hover:bg-brand-primary-400 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="w-full bg-brand-accent text-brand-black px-5 py-3.5 rounded-lg font-bold hover:bg-brand-primary-400 transition-colors disabled:opacity-50 disabled:cursor-not-allowed text-base"
                   >
                     {enrolling ? t('enrolling') : t('enrollNow')}
                   </button>

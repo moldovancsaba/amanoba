@@ -6,7 +6,7 @@
  */
 
 import type { Metadata, Viewport } from "next";
-import { Inter, Noto_Sans } from "next/font/google";
+import { Inter, Noto_Sans, Playfair_Display, Afacad } from "next/font/google";
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
 import SessionProvider from "@/components/session-provider";
 import { NextIntlClientProvider } from 'next-intl';
@@ -34,6 +34,22 @@ const notoSans = Noto_Sans({
   variable: "--font-noto-sans",
   adjustFontFallback: true,
   preload: false, // Disable automatic preload to reduce warnings
+});
+
+const playfair = Playfair_Display({
+  subsets: ["latin", "latin-ext"],
+  display: "swap",
+  variable: "--font-playfair",
+  adjustFontFallback: true,
+  preload: false,
+});
+
+const afacad = Afacad({
+  subsets: ["latin", "latin-ext"],
+  display: "swap",
+  variable: "--font-afacad",
+  adjustFontFallback: true,
+  preload: false,
 });
 
 // What: SEO and social media metadata for Amanoba
@@ -100,8 +116,12 @@ export default async function LocaleLayout({
   const htmlLang = locale === 'hu' ? 'hu' : locale;
 
   return (
-    <html lang={htmlLang} className={`${notoSans.variable} ${inter.variable}`} suppressHydrationWarning>
-      <body className="font-sans antialiased bg-brand-white dark:bg-brand-black text-brand-black dark:text-brand-white">
+    <html
+      lang={htmlLang}
+      className={`${notoSans.variable} ${inter.variable} ${playfair.variable} ${afacad.variable}`}
+      suppressHydrationWarning
+    >
+      <body className="antialiased bg-brand-white dark:bg-brand-black text-brand-black dark:text-brand-white">
         <NextIntlClientProvider messages={messages}>
           <SessionProvider>
             <ThemeProvider

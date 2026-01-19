@@ -196,7 +196,7 @@ export default function LessonQuizPage({
   return (
     <div className="min-h-screen bg-brand-black">
       <header className="bg-brand-darkGrey border-b-2 border-brand-accent">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex items-center justify-between">
+        <div className="max-w-4xl mx-auto px-6 sm:px-8 lg:px-10 py-6 flex items-center justify-between">
           <LocaleLink
             href={`/courses/${courseId}/day/${dayNumber}`}
             className="inline-flex items-center gap-2 text-brand-white hover:text-brand-accent"
@@ -210,23 +210,23 @@ export default function LessonQuizPage({
         </div>
       </header>
 
-      <main className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-        <div className="bg-brand-white rounded-xl p-6 border-2 border-brand-accent">
-          <div className="flex items-center justify-between mb-4">
-            <h1 className="text-2xl font-bold text-brand-black">
+      <main className="max-w-4xl mx-auto px-6 sm:px-8 lg:px-10 py-12">
+        <div className="bg-brand-white rounded-2xl p-8 border-2 border-brand-accent shadow-lg">
+          <div className="flex items-center justify-between mb-6">
+            <h1 className="text-3xl font-bold text-brand-black leading-tight">
               {t('question', { defaultValue: 'Kérdés' })} {currentIndex + 1}
             </h1>
-            <span className="text-sm font-semibold text-brand-darkGrey">{progressText}</span>
+            <span className="text-base font-semibold text-brand-darkGrey">{progressText}</span>
           </div>
-          <p className="text-lg text-brand-black mb-6">{currentQuestion.question}</p>
+          <p className="text-xl text-brand-black mb-8 leading-relaxed">{currentQuestion.question}</p>
 
-          <div className="space-y-3">
+          <div className="space-y-4">
             {currentQuestion.options.map((option: string, idx: number) => (
               <button
                 key={idx}
                 disabled={answering}
                 onClick={() => handleAnswer(option, idx)}
-                className="w-full text-left border-2 border-brand-darkGrey/20 hover:border-brand-accent transition-colors rounded-lg px-4 py-3 font-semibold text-brand-black disabled:opacity-60 disabled:cursor-not-allowed"
+                className="w-full text-left border-2 border-brand-darkGrey/15 hover:border-brand-accent transition-colors rounded-xl px-5 py-4 font-semibold text-brand-black text-lg disabled:opacity-60 disabled:cursor-not-allowed shadow-sm hover:shadow-md"
               >
                 {option}
               </button>
@@ -234,8 +234,8 @@ export default function LessonQuizPage({
           </div>
 
           {feedback && (
-            <div className="mt-6 flex items-center gap-2 text-brand-black font-semibold bg-brand-accent/15 border border-brand-accent rounded-lg px-4 py-3">
-              <CheckCircle className="w-5 h-5 text-brand-accent" />
+            <div className="mt-8 flex items-center gap-3 text-brand-black font-semibold bg-brand-accent/15 border border-brand-accent rounded-lg px-5 py-4">
+              <CheckCircle className="w-6 h-6 text-brand-accent" />
               <span>{feedback}</span>
             </div>
           )}
