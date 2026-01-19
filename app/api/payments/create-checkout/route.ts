@@ -159,13 +159,13 @@ export async function POST(request: NextRequest) {
       line_items: [
         {
           price_data: {
-            currency: currency.toLowerCase(),
+            currency: paymentCurrency.toLowerCase(),
             product_data: {
               name: course.name,
               description: course.description.substring(0, 500), // Stripe limit
               images: course.thumbnail ? [course.thumbnail] : undefined,
             },
-            unit_amount: amount, // Amount in cents
+            unit_amount: paymentAmount, // Amount in cents
           },
           quantity: 1,
         },
