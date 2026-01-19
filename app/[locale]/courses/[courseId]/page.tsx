@@ -328,11 +328,11 @@ export default function CourseDetailPage({
           {/* Main Content */}
           <div className="lg:col-span-2 space-y-8">
             {course.thumbnail && (
-              <div className="w-full h-72 bg-brand-darkGrey rounded-2xl overflow-hidden">
+              <div className="w-full bg-brand-darkGrey rounded-2xl overflow-hidden" style={{ aspectRatio: '16/9' }}>
                 <img
                   src={course.thumbnail}
                   alt={course.name}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-contain"
                 />
               </div>
             )}
