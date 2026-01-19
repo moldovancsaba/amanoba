@@ -295,7 +295,7 @@ export default function DailyLessonPage({
                 <p className="mt-4 text-sm text-brand-darkGrey text-center">
                   {t('quizRequiredMessage', {
                     defaultValue:
-                      'A kvíz sikeres teljesítése (5/5) szükséges a befejezéshez. A kérdések a külön „Kitöltöm a kvízt" oldalon érhetők el.',
+                      'A kvíz sikeres teljesítése (5/5) szükséges a befejezéshez. A kérdések a külön "Kitöltöm a kvízt" oldalon érhetők el.',
                   })}
                 </p>
               )}
