@@ -20,6 +20,7 @@ import {
   Star,
   Search,
   ArrowLeft,
+  CreditCard,
 } from 'lucide-react';
 
 interface Course {
@@ -31,6 +32,10 @@ interface Course {
   thumbnail?: string;
   isActive: boolean;
   requiresPremium: boolean;
+  price?: {
+    amount: number;
+    currency: string;
+  };
   durationDays: number;
   pointsConfig: {
     completionPoints: number;
@@ -85,6 +90,21 @@ export default function CoursesPage() {
     }, 300);
     return () => clearTimeout(timeoutId);
   }, [search]);
+
+  const formatPrice = (amount: number, currency: string): string => {
+    const formatter = new Intl.NumberFormat(
+      currency === 'huf' ? 'hu-HU' : currency === 'eur' ? 'de-DE' : currency === 'gbp' ? 'en-GB' : 'en-US',
+      {
+        style: 'currency',
+        currency: currency.toUpperCase(),
+        minimumFractionDigits: currency === 'huf' ? 0 : 2,
+        maximumFractionDigits: currency === 'huf' ? 0 : 2,
+      }
+    );
+    // Convert from cents to main unit
+    const mainUnit = currency === 'huf' ? amount : amount / 100;
+    return formatter.format(mainUnit);
+  };
 
   return (
     <div className="min-h-screen bg-brand-black">
@@ -162,12 +182,27 @@ export default function CoursesPage() {
                     />
                   </div>
                 )}
-                <div className="flex items-start justify-between mb-3">
-                  <h3 className="text-2xl font-bold text-brand-black leading-tight">{course.name}</h3>
+                <div className="flex items-start justify-between mb-3 gap-3">
+                  <h3 className="text-2xl font-bold text-brand-black leading-tight flex-1">{course.name}</h3>
                   {course.requiresPremium && (
-                    <Star className="w-5 h-5 text-brand-accent" />
+                    <span className="flex-shrink-0 bg-brand-accent text-brand-black text-xs font-bold px-3 py-1.5 rounded-full flex items-center gap-1.5">
+                      <Star className="w-3.5 h-3.5" />
+                      {t('premiumCourse')}
+                    </span>
                   )}
                 </div>
+                {course.requiresPremium && course.price && (
+                  <div className="mb-4 flex items-center gap-2 text-lg font-bold text-brand-black">
+                    <CreditCard className="w-5 h-5" />
+                    <span>{formatPrice(course.price.amount, course.price.currency)}</span>
+                  </div>
+                )}
+                {course.requiresPremium && !course.price && (
+                  <div className="mb-4 flex items-center gap-2 text-base text-brand-darkGrey">
+                    <CreditCard className="w-4 h-4" />
+                    <span>{t('premiumRequired')}</span>
+                  </div>
+                )}
                 <p className="text-brand-darkGrey text-base mb-5 line-clamp-2 leading-relaxed">
                   {course.description}
                 </p>

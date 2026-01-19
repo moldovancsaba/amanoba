@@ -25,34 +25,45 @@ const lessonPlan = [
   {
     day: 1,
     title: 'Bevezetés: Mi az Amanoba kurzusrendszer?',
-    content: `<h2>Napi cél</h2>
-<p>Megismered az Amanoba kurzusrendszer alapjait és megérted, hogyan működik a platform.</p>
+    content: `<h1>Bevezetés: Mi az Amanoba kurzusrendszer?</h1>
+<p><em>Átlátod a modellt, a publikálás lépéseit és az admin felületet.</em></p>
 
-<h2>Mit fogsz megtanulni?</h2>
+<hr />
+<h2>Napi cél</h2>
 <ul>
-<li>Az Amanoba kurzusrendszer áttekintése</li>
-<li>A Course, Lesson és CourseProgress modellek szerepe</li>
-<li>A kurzus publikálás folyamata</li>
-<li>Az admin felület használata</li>
+<li>Megérted a három fő modellt: Course, Lesson, CourseProgress.</li>
+<li>Tudod, mi kell a publikáláshoz (isActive a kurzuson és a leckéken).</li>
+<li>Felderíted az admin felület alap nézeteit.</li>
 </ul>
 
-<h2>Hogyan működik a kurzusrendszer?</h2>
-<p>Az Amanoba kurzusrendszer három fő komponensből áll:</p>
+<hr />
+<h2>Platform felépítése</h2>
 <ol>
-<li><strong>Course</strong> – Kurzus metaadatok (név, leírás, nyelv, pont/XP config, státusz)</li>
-<li><strong>Lesson</strong> – Napi leckék (1-30), tartalom + email tárgy/szöveg</li>
-<li><strong>CourseProgress</strong> – Tanulói haladás (aktuális nap, befejezett leckék, beiratkozási státusz)</li>
+<li><strong>Course</strong>: metaadatok (név, leírás, nyelv, pont/XP, státusz).</li>
+<li><strong>Lesson</strong>: napi tartalom + email tárgy/szöveg, 30 napos keret.</li>
+<li><strong>CourseProgress</strong>: tanulói haladás (aktuális nap, befejezett leckék, státusz).</li>
 </ol>
 
-<h2>Kulcs tanulságok</h2>
-<blockquote>
-<p><strong>Publikálás kulcsa</strong> – Mind a <code>Course.isActive = true</code> ÉS a <code>Lesson.isActive = true</code> be kell legyen állítva.</p>
-<p><strong>30 napos struktúra</strong> – Minden kurzus 30 napból áll, napi egy lecke.</p>
-<p><strong>Email automatikus küldés</strong> – A rendszer automatikusan küldi a napi leckéket emailben.</p>
-</blockquote>
+<h2>Publikálási alapok</h2>
+<ul>
+<li><code>Course.isActive = true</code> <strong>ÉS</strong> minden lecke <code>isActive = true</code>.</li>
+<li>30 napos struktúra, napi egy lecke.</li>
+<li>Napi emailküldés automatizált (cron + Resend).</li>
+</ul>
 
-<h2>Gyakorlat</h2>
-<p>Látogasd meg az admin felületet: <code>/{locale}/admin/courses</code> és ismerkedj meg a kurzusok listájával.</p>`,
+<hr />
+<h2>Gyakorlat (vezetett)</h2>
+<p>Látogasd meg az admin felületet: <code>/{locale}/admin/courses</code>. Nézd meg a listát, nyisd meg egy kurzus részleteit.</p>
+
+<h2>Gyakorlat (önálló)</h2>
+<p>Jegyezd le: hol állítható az <strong>isActive</strong> a kurzusnál és a leckéknél? Hol látod a 30 napos leckelistát?</p>
+
+<hr />
+<h2>Hasznos hivatkozások</h2>
+<ul>
+<li>Admin kurzus lista: <code>/{locale}/admin/courses</code></li>
+<li>Daily cron endpoint: <code>/api/cron/send-daily-lessons</code></li>
+</ul>`,
     emailSubject: 'Kurzus készítés – 1. nap: Bevezetés',
     emailBody: `<h1>{{courseName}}</h1>
 <h2>{{dayNumber}}. nap: {{lessonTitle}}</h2>
@@ -63,27 +74,47 @@ const lessonPlan = [
   {
     day: 2,
     title: 'Előfeltételek és beállítások',
-    content: `<h2>Napi cél</h2>
-<p>Ellenőrzöd az előfeltételeket és beállítod a szükséges környezetet.</p>
+    content: `<h1>Előfeltételek és beállítások</h1>
+<p><em>Admin jog, adatbázis, email, cron – nélkülük nincs kurzus.</em></p>
 
-<h2>Előfeltételek</h2>
+<hr />
+<h2>Napi cél</h2>
 <ul>
-<li><strong>Admin hozzáférés</strong> – <code>/{locale}/admin</code> (alapértelmezett: <code>/en/admin</code>)</li>
-<li><strong>Adatbázis beállítva</strong> – <code>MONGODB_URI</code> a <code>.env.local</code>-ban</li>
-<li><strong>Email szolgáltatás</strong> – <code>RESEND_API_KEY</code>, <code>EMAIL_FROM</code>, <code>EMAIL_REPLY_TO</code>, <code>NEXT_PUBLIC_APP_URL</code></li>
-<li><strong>Napi emailek</strong> – <code>CRON_SECRET</code> + Vercel cron (POST <code>/api/cron/send-daily-lessons</code>)</li>
+<li>Ellenőrzöd az összes előfeltételt (admin, DB, email, cron).</li>
+<li>Rögzíted, ha hiányzik valami.</li>
 </ul>
 
-<h2>Beállítások ellenőrzése</h2>
+<hr />
+<h2>Előfeltételek</h2>
+<ul>
+<li><strong>Admin hozzáférés</strong>: <code>/{locale}/admin</code> (alap: <code>/en/admin</code>).</li>
+<li><strong>Adatbázis</strong>: <code>MONGODB_URI</code> a <code>.env.local</code>-ban.</li>
+<li><strong>Email</strong>: <code>RESEND_API_KEY</code>, <code>EMAIL_FROM</code>, <code>EMAIL_REPLY_TO</code>, <code>NEXT_PUBLIC_APP_URL</code>.</li>
+<li><strong>Napi emailek</strong>: <code>CRON_SECRET</code> + Vercel cron (POST <code>/api/cron/send-daily-lessons</code>).</li>
+</ul>
+
+<hr />
+<h2>Beállítás-ellenőrzés</h2>
 <ol>
-<li>Ellenőrizd, hogy be vagy-e jelentkezve admin felhasználóként</li>
-<li>Verifikáld, hogy az adatbázis kapcsolat működik</li>
-<li>Ellenőrizd az email szolgáltatás konfigurációját</li>
-<li>Nézd meg a Vercel cron beállításokat</li>
+<li>Lépj be adminnal.</li>
+<li>Ellenőrizd a DB kapcsolatot (pl. helyi <code>npm run seed:course-creation</code> próbával).</li>
+<li>Verifikáld az email kulcsokat és feladót.</li>
+<li>Nézd meg a Vercel cron beállítást a napi küldéshez.</li>
 </ol>
 
-<h2>Gyakorlat</h2>
-<p>Ellenőrizd az összes előfeltételt és dokumentáld, ha valami hiányzik.</p>`,
+<hr />
+<h2>Gyakorlat (vezetett)</h2>
+<p>Töltsd ki egy checklistben: Admin ok? DB ok? Resend kulcsok ok? Cron beállítva?</p>
+
+<h2>Gyakorlat (önálló)</h2>
+<p>Ha bármi hiányzik, írd le, ki tudja pótolni és mikor.</p>
+
+<hr />
+<h2>Hasznos hivatkozások</h2>
+<ul>
+<li>Resend beállítás: <a href="https://resend.com/docs" target="_blank" rel="noreferrer">https://resend.com/docs</a></li>
+<li>Vercel cron: <a href="https://vercel.com/docs/cron-jobs" target="_blank" rel="noreferrer">https://vercel.com/docs/cron-jobs</a></li>
+</ul>`,
     emailSubject: 'Kurzus készítés – 2. nap: Előfeltételek',
     emailBody: `<h1>{{courseName}}</h1>
 <h2>{{dayNumber}}. nap: {{lessonTitle}}</h2>
@@ -94,31 +125,45 @@ const lessonPlan = [
   {
     day: 3,
     title: 'Kurzus létrehozása: Course modell',
-    content: `<h2>Napi cél</h2>
-<p>Létrehozod az első kurzusodat az admin felületen.</p>
+    content: `<h1>Kurzus létrehozása: Course modell</h1>
+<p><em>courseId, meta, státusz – ez a kurzus váza.</em></p>
 
+<hr />
+<h2>Napi cél</h2>
+<ul>
+<li>Létrehozol egy kurzust az adminban.</li>
+<li>Megfelelsz a kötelező mezőknek és formátumoknak.</li>
+</ul>
+
+<hr />
 <h2>Kötelező mezők</h2>
 <ul>
-<li><strong>courseId</strong> – Csak nagybetű, számok, aláhúzás (pl. <code>AI_30_NAP</code>, <code>ENTREPRENEURSHIP_101</code>)
-  <ul>
-    <li>Regex: <code>/^[A-Z0-9_]+$/</code></li>
-    <li>Egyedinek kell lennie az összes kurzus között</li>
-  </ul>
-</li>
-<li><strong>name</strong> – Kurzus megjelenített neve (max 200 karakter)</li>
-<li><strong>description</strong> – Kurzus leírás (max 2000 karakter)</li>
+<li><strong>courseId</strong>: nagybetű/szám/aláhúzás (pl. <code>AI_30_NAP</code>), regex: <code>/^[A-Z0-9_]+$/</code>, egyedi.</li>
+<li><strong>name</strong>: max 200 karakter.</li>
+<li><strong>description</strong>: max 2000 karakter.</li>
 </ul>
 
 <h2>Ajánlott beállítások</h2>
 <ul>
-<li><code>language</code>: <code>hu</code> (magyar) vagy <code>en</code> (angol) - alapértelmezett: <code>hu</code></li>
-<li><code>durationDays</code>: <code>30</code> (30 napos kurzusokhoz standard)</li>
-<li><code>requiresPremium</code>: <code>false</code> (kivéve, ha valóban prémium)</li>
-<li><code>thumbnail</code>: Opcionális kép URL a kurzus listázáshoz</li>
+<li><code>language</code>: <code>hu</code> vagy <code>en</code> (default: <code>hu</code>).</li>
+<li><code>durationDays</code>: <code>30</code> (standard).</li>
+<li><code>requiresPremium</code>: <code>false</code>, ha nem prémium.</li>
+<li><code>thumbnail</code>: opcionális, listához.</li>
 </ul>
 
-<h2>Gyakorlat</h2>
-<p>Menj az <code>/{locale}/admin/courses/new</code> oldalra és hozz létre egy teszt kurzust.</p>`,
+<hr />
+<h2>Gyakorlat (vezetett)</h2>
+<p>Menj az <code>/{locale}/admin/courses/new</code> oldalra, hozz létre egy teszt kurzust szabályos <code>courseId</code>-val.</p>
+
+<h2>Gyakorlat (önálló)</h2>
+<p>Ellenőrizd: isActive = true? Nyelv helyes? Leírás tömör és max 2000? Ha kész, mentsd piszkozatként vagy aktiváld.</p>
+
+<hr />
+<h2>Tippek</h2>
+<ul>
+<li>A courseId legyen végleges, mert sok helyen hivatkozunk rá.</li>
+<li>Használj tömör, értékalapú leírást (1–2 bekezdés).</li>
+</ul>`,
     emailSubject: 'Kurzus készítés – 3. nap: Kurzus létrehozása',
     emailBody: `<h1>{{courseName}}</h1>
 <h2>{{dayNumber}}. nap: {{lessonTitle}}</h2>
@@ -129,11 +174,18 @@ const lessonPlan = [
   {
     day: 4,
     title: 'Pontok és XP konfiguráció',
-    content: `<h2>Napi cél</h2>
-<p>Megérted a pontok és XP rendszer működését és beállítod a kurzusodhoz.</p>
+    content: `<h1>Pontok és XP konfiguráció</h1>
+<p><em>Motiváció és jutalmazás – világos szabályokkal.</em></p>
 
-<h2>Pontok és XP konfiguráció</h2>
-<p><strong>Alapértelmezett értékek</strong> (AI_30_NAP alapján):</p>
+<hr />
+<h2>Napi cél</h2>
+<ul>
+<li>Megérted a pont/XP mezőket.</li>
+<li>Beállítod a kurzusodra illesztve.</li>
+</ul>
+
+<hr />
+<h2>Alap értékek (példa)</h2>
 <pre><code>{
   "pointsConfig": {
     "completionPoints": 1000,
@@ -146,17 +198,28 @@ const lessonPlan = [
   }
 }</code></pre>
 
-<h2>Mit jelent mindegyik?</h2>
+<h2>Mezők jelentése</h2>
 <ul>
-<li><strong>completionPoints</strong> – Pontok a teljes kurzus befejezéséért</li>
-<li><strong>lessonPoints</strong> – Pontok minden lecke befejezéséért</li>
-<li><strong>perfectCourseBonus</strong> – Bónusz pontok, ha mind a 30 napot teljesíti</li>
-<li><strong>completionXP</strong> – XP a teljes kurzus befejezéséért</li>
-<li><strong>lessonXP</strong> – XP minden lecke befejezéséért</li>
+<li><strong>completionPoints</strong>: pont a kurzus befejezéséért.</li>
+<li><strong>lessonPoints</strong>: pont lecke befejezéséért.</li>
+<li><strong>perfectCourseBonus</strong>: bónusz, ha mind a 30 nap kész.</li>
+<li><strong>completionXP</strong>: XP a teljes kurzusért.</li>
+<li><strong>lessonXP</strong>: XP lecke befejezéséért.</li>
 </ul>
 
-<h2>Gyakorlat</h2>
-<p>Állítsd be a pontok és XP konfigurációt a kurzusodhoz a saját értékeiddel.</p>`,
+<hr />
+<h2>Gyakorlat (vezetett)</h2>
+<p>Nyisd meg a kurzus beállításait, és állítsd be a pont/XP értékeket. Dokumentáld az okot (miért ennyi?).</p>
+
+<h2>Gyakorlat (önálló)</h2>
+<p>Hozz létre egy rövid szabályt: mi számít „perfect course” teljesítésnek (pl. minden nap + minden kvíz 100%).</p>
+
+<hr />
+<h2>Tipp</h2>
+<ul>
+<li>Tedd transzparenssé a jutalmazást a leírásban.</li>
+<li>Ha emelsz pontot, nézd meg a kvíz nehézségét is.</li>
+</ul>`,
     emailSubject: 'Kurzus készítés – 4. nap: Pontok és XP',
     emailBody: `<h1>{{courseName}}</h1>
 <h2>{{dayNumber}}. nap: {{lessonTitle}}</h2>
@@ -167,19 +230,40 @@ const lessonPlan = [
   {
     day: 5,
     title: 'Brand konfiguráció',
-    content: `<h2>Napi cél</h2>
-<p>Megérted a brand rendszer szerepét és beállítod a kurzusodhoz.</p>
+    content: `<h1>Brand konfiguráció</h1>
+<p><em>Minden kurzus brandhez kötött – nélkül nincs publikálás.</em></p>
 
-<h2>Brand konfiguráció</h2>
-<p><strong>Fontos</strong>: Minden kurzusnak érvényes <code>brandId</code>-re van szüksége. A rendszer:</p>
+<hr />
+<h2>Napi cél</h2>
 <ul>
-<li>Automatikusan megkeresi vagy létrehozza az alapértelmezett "Amanoba" brandet, ha nincs <code>brandId</code> megadva</li>
-<li>Validálja a <code>brandId</code>-t, ha meg van adva</li>
-<li>Hibát ad vissza, ha a <code>brandId</code> érvénytelen vagy hiányzik</li>
+<li>Megérted, miért kell <code>brandId</code>.</li>
+<li>Ellenőrzöd, hogy érvényes brandhez kapcsol a kurzus.</li>
 </ul>
 
-<h2>Gyakorlat</h2>
-<p>Ellenőrizd, hogy a kurzusodnak érvényes <code>brandId</code>-je van.</p>`,
+<hr />
+<h2>Miért fontos?</h2>
+<ul>
+<li>Stílus/identitás: logó, színek, domain.</li>
+<li>Jogosultság: csak engedélyezett domaineken érhető el.</li>
+<li>Validáció: érvénytelen brand = hiba.</li>
+</ul>
+
+<h2>Alapértelmezés</h2>
+<p>Ha nincs megadva, a script létrehozza vagy megtalálja az „Amanoba” brandet (<code>slug: amanoba</code>).</p>
+
+<hr />
+<h2>Gyakorlat (vezetett)</h2>
+<p>Ellenőrizd a kurzusodat: van <code>brandId</code>? Érvényes? A brand slug/domains megfelel?</p>
+
+<h2>Gyakorlat (önálló)</h2>
+<p>Hozz létre egy új brandet tesztelésre (másik logó/szín), és kapcsold rá egy teszt kurzust. Nézd meg a változást a UI-ban.</p>
+
+<hr />
+<h2>Tippek</h2>
+<ul>
+<li>Brand slug legyen egyedi, kisbetűs, kötőjeles.</li>
+<li>Ellenőrizd az <code>allowedDomains</code> listát (pl. <code>amanoba.com</code>, <code>localhost</code>).</li>
+</ul>`,
     emailSubject: 'Kurzus készítés – 5. nap: Brand konfiguráció',
     emailBody: `<h1>{{courseName}}</h1>
 <h2>{{dayNumber}}. nap: {{lessonTitle}}</h2>
