@@ -56,10 +56,24 @@ export default function CoursesPage() {
   const [courses, setCourses] = useState<Course[]>([]);
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState('');
+  const [defaultThumbnail, setDefaultThumbnail] = useState<string | null>(null);
 
   useEffect(() => {
     fetchCourses();
+    fetchDefaultThumbnail();
   }, []);
+
+  const fetchDefaultThumbnail = async () => {
+    try {
+      const response = await fetch('/api/admin/settings/default-thumbnail');
+      const data = await response.json();
+      if (data.success && data.thumbnail) {
+        setDefaultThumbnail(data.thumbnail);
+      }
+    } catch (error) {
+      console.error('Failed to fetch default thumbnail:', error);
+    }
+  };
 
   const fetchCourses = async () => {
     try {
@@ -175,10 +189,10 @@ export default function CoursesPage() {
                 href={`/courses/${course.courseId}`}
                 className="block bg-brand-white rounded-2xl p-7 border-2 border-brand-accent hover:shadow-xl transition-all"
               >
-                {course.thumbnail && (
-                  <div className="w-full h-48 bg-brand-darkGrey rounded-lg mb-4 flex items-center justify-center">
+                {(course.thumbnail || defaultThumbnail) && (
+                  <div className="w-full h-48 bg-brand-darkGrey rounded-lg mb-4 flex items-center justify-center overflow-hidden">
                     <img
-                      src={course.thumbnail}
+                      src={course.thumbnail || defaultThumbnail || ''}
                       alt={course.name}
                       className="w-full h-full object-cover rounded-lg"
                     />

@@ -370,6 +370,66 @@ export default function CourseEditorPage({
               className="w-full px-4 py-2 bg-brand-white border-2 border-brand-darkGrey rounded-lg text-brand-black focus:outline-none focus:border-brand-accent"
             />
           </div>
+          <div className="md:col-span-2">
+            <label className="block text-sm font-medium text-brand-black mb-2">Course Thumbnail</label>
+            <div className="space-y-3">
+              {course.thumbnail && (
+                <div className="relative w-full h-48 bg-brand-darkGrey rounded-lg overflow-hidden border-2 border-brand-accent">
+                  <img
+                    src={course.thumbnail}
+                    alt="Course thumbnail"
+                    className="w-full h-full object-cover"
+                  />
+                  <button
+                    onClick={() => setCourse({ ...course, thumbnail: undefined })}
+                    className="absolute top-2 right-2 bg-red-500 text-white px-3 py-1 rounded-lg text-sm font-bold hover:bg-red-600"
+                  >
+                    Remove
+                  </button>
+                </div>
+              )}
+              <label className="flex items-center gap-2 bg-brand-accent text-brand-black px-4 py-2 rounded-lg font-bold hover:bg-brand-primary-400 transition-colors cursor-pointer w-fit">
+                <Upload className="w-5 h-5" />
+                {course.thumbnail ? 'Change Thumbnail' : 'Upload Thumbnail'}
+                <input
+                  type="file"
+                  accept="image/jpeg,image/jpg,image/png,image/webp,image/gif"
+                  onChange={async (e) => {
+                    const file = e.target.files?.[0];
+                    if (!file) return;
+
+                    try {
+                      const formData = new FormData();
+                      formData.append('image', file);
+
+                      const response = await fetch('/api/admin/upload-image', {
+                        method: 'POST',
+                        body: formData,
+                      });
+
+                      const data = await response.json();
+
+                      if (data.success) {
+                        setCourse({ ...course, thumbnail: data.url });
+                      } else {
+                        alert(data.error || 'Failed to upload image');
+                      }
+                    } catch (error) {
+                      console.error('Failed to upload image:', error);
+                      alert('Failed to upload image. Please try again.');
+                    } finally {
+                      // Reset file input
+                      e.target.value = '';
+                    }
+                  }}
+                  className="hidden"
+                />
+              </label>
+              <p className="text-xs text-brand-darkGrey">
+                Upload a course thumbnail image (JPEG, PNG, WebP, or GIF, max 10MB). This will be displayed on course cards.
+              </p>
+            </div>
+          </div>
           <div>
             <label className="flex items-center gap-2 cursor-pointer">
               <input

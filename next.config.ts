@@ -23,7 +23,17 @@ const nextConfig: NextConfig = {
   
   // Configure image optimization domains if needed
   images: {
-    domains: [],
+    domains: ['i.ibb.co', 'i.imgbb.com'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: '**.ibb.co',
+      },
+      {
+        protocol: 'https',
+        hostname: '**.imgbb.com',
+      },
+    ],
     formats: ['image/webp', 'image/avif'],
   },
   
