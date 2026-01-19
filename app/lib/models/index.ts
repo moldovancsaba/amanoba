@@ -22,6 +22,9 @@ export { default as PlayerProgression, type IPlayerProgression } from './player-
 export { default as PointsWallet, type IPointsWallet } from './points-wallet';
 export { default as PointsTransaction, type IPointsTransaction } from './points-transaction';
 
+// Payment Models (1)
+export { default as PaymentTransaction, type IPaymentTransaction, PaymentStatus } from './payment-transaction';
+
 // Gamification Models (4)
 export { default as Achievement, type IAchievement } from './achievement';
 export { default as AchievementUnlock, type IAchievementUnlock } from './achievement-unlock';
@@ -82,4 +85,4 @@ export { default as Translation, type ITranslation } from './translation';
 // Feature Flags Model (1)
 export { default as FeatureFlags, type IFeatureFlags } from './feature-flags';
 
-// Total: 29 models
+// Total: 30 models
