@@ -294,6 +294,14 @@ NEXT_PUBLIC_APP_URL=https://amanoba.com
 - `app/lib/email/email-service.ts` - Email functions
 - `app/lib/email/index.ts` - Exports
 
+### Payment System
+- `app/lib/models/payment-transaction.ts` - PaymentTransaction model
+- `app/api/payments/create-checkout/route.ts` - Stripe Checkout creation
+- `app/api/payments/webhook/route.ts` - Stripe webhook handler
+- `app/api/payments/success/route.ts` - Payment success handler
+- `app/api/payments/history/route.ts` - Payment history API
+- `app/lib/utils/stripe-minimums.ts` - Stripe minimum validation
+
 ### i18n
 - `i18n.ts` - i18n configuration
 - `messages/hu.json` - Hungarian translations

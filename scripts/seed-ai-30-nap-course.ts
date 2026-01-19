@@ -420,29 +420,35 @@ CTA: [következő lépés / kérés]
   {
     day: 6,
     title: 'Email percek alatt – profi hangon',
-    content: `<h2>Napi cél</h2>
-<p>Ma megtanulod, hogyan írsz 2-3 percen belül professzionális emaileket AI-val, több hangnemben.</p>
+    content: `<h1>Email percek alatt – profi hangon</h1>
+<p><em>2–3 perces levelek, konzisztens hangon</em></p>
+<p>Ma megtanulod, hogyan írsz 2-3 percen belül professzionális emaileket AI-val, több hangnemben. A cél: gyors váz, több változat, tudatos finomítás.</p>
+
+<hr />
+<h2>Napi cél</h2>
 <ul>
-<li>gyors email-vázat adsz céllal/kontextussal/stílussal</li>
-<li>kérsz több változatot és formátumot</li>
-<li>iterálsz: rövidíts, bővíts, hangnemet váltasz</li>
+<li>Gyors email-váz céllal/kontextussal/stílussal</li>
+<li>Több változat és formátum kérés</li>
+<li>Iteráció: rövidítés, bővítés, hangnemváltás</li>
 </ul>
 
 <hr />
 <h2>Email prompt váz</h2>
 <ul>
-<li><strong>Cél</strong>: írd le, mit akar az email (tájékoztat, kér, bocsánatot kér, egyeztet).</li>
-<li><strong>Kontextus</strong>: mi történt, kinek, mikorra.</li>
-<li><strong>Forma</strong>: rövid bekezdés, bullet lista, CTA a végén.</li>
-<li><strong>Stílus</strong>: üzleti, empatikus, rövid, tárgyilagos stb.</li>
+<li><strong>Cél</strong>: tájékoztat, kér, bocsánatot kér, egyeztet</li>
+<li><strong>Kontextus</strong>: mi történt, kinek, mikorra</li>
+<li><strong>Forma</strong>: rövid bekezdés, bullet lista, CTA</li>
+<li><strong>Stílus</strong>: üzleti, empatikus, rövid, tárgyilagos, barátságos</li>
+<li><strong>Hossz</strong>: max X mondat vagy szó</li>
 </ul>
 
+<hr />
 <h2>Példák: gyenge vs. jó</h2>
 <p><strong>Gyenge:</strong> „Írj emailt a határidő módosításáról.”</p>
 <p><strong>Jó:</strong> „Írj udvarias, rövid emailt a határidő módosításáról. Kontextus: 2 nappal csúszunk, ok: külső beszállító. Stílus: empatikus, de határozott. Hossz: max 4 mondat. Adj alternatív dátumot és CTA-t a visszajelzésre.”</p>
 
 <hr />
-<h2>Gyakorlat 1 – 3 email</h2>
+<h2>Gyakorlat (vezetett) – 3 email</h2>
 <ol>
 <li>Rövid válasz időpont-egyeztetésre (2-3 mondat, udvarias).</li>
 <li>Projekt státusz email (bevezető, helyzet, kockázat, következő lépés).</li>
@@ -450,8 +456,9 @@ CTA: [következő lépés / kérés]
 </ol>
 <p>Mindennél add meg: kontextus, stílus, hossz, formátum.</p>
 
-<h2>Gyakorlat 2 – Két hangnem</h2>
-<p>Kérd ugyanazt az emailt két hangnemben (pl. üzleti vs. barátságos). Válaszd ki a jobb változatot és pontosíts.</p>
+<hr />
+<h2>Gyakorlat (önálló) – Két hangnem</h2>
+<p>Kérd ugyanazt az emailt két hangnemben (pl. üzleti vs. barátságos). Válaszd ki a jobb változatot és pontosíts (rövidebb, több szám, empatikusabb).</p>
 
 <hr />
 <h2>Prompt minta</h2>
@@ -459,16 +466,23 @@ CTA: [következő lépés / kérés]
 <p>Írj professzionális emailt a következő témában: [téma]. Kontextus: [kontextus]. Stílus: [stílus]. Hossz: [hossz]. Formátum: [formátum]. Adj 2 változatot: 1) rövid, 2) részletes bullet lista.</p>
 </blockquote>
 
-<h2>Tipp</h2>
-<p>Kérj több változatot, majd mondd meg, mi tetszik/mi nem (rövidebb, empatikusabb, több szám). A CTA-t mindig írasd bele.</p>
+<hr />
+<h2>Tippek</h2>
+<ul>
+<li>Kérj több változatot, majd mondd meg, mi tetszik/mi nem.</li>
+<li>Minden emailben legyen CTA (következő lépés).</li>
+<li>Időkritikusnál kérd: „Adj tárgyat is, max 50 karakter.”</li>
+</ul>
 
+<hr />
 <h2>Opcionális mélyítés</h2>
 <ul>
-<li>Email keretek: AIDA, PAS – kérd meg, hogy ezeket kövesse.</li>
-<li>Sign-off könyvtár: „Üdvözlettel”, „Köszönöm az együttműködést” – kérj 3 alternatívát.</li>
+<li>Harvard Business Review – Better Emails: <a href="https://hbr.org/2016/11/how-to-write-email-with-military-precision" target="_blank" rel="noreferrer">https://hbr.org/2016/11/how-to-write-email-with-military-precision</a></li>
+<li>Mailmeteor – Cold email példák: <a href="https://mailmeteor.com/blog/cold-email-examples" target="_blank" rel="noreferrer">https://mailmeteor.com/blog/cold-email-examples</a></li>
+<li>OpenAI – Style &amp; format tips: <a href="https://platform.openai.com/docs/guides/prompt-engineering/style-guide" target="_blank" rel="noreferrer">https://platform.openai.com/docs/guides/prompt-engineering/style-guide</a></li>
 </ul>`,
-    emailSubject: 'AI 30 Nap – 6. nap: Email percek alatt',
-    emailBody: `<h1>AI 30 Nap – 6. nap</h1>
+    emailSubject: '30-Day AI Catch-Up – 6. nap: Email percek alatt',
+    emailBody: `<h1>30-Day AI Catch-Up – 6. nap</h1>
 <h2>Email percek alatt – profi hangon</h2>
 <p>Ma megtanulod, hogyan írsz gyorsan professzionális emaileket. Ez az egyik legnagyobb időmegtakarítás.</p>
 <p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Olvasd el a teljes leckét →</a></p>`
@@ -476,12 +490,16 @@ CTA: [következő lépés / kérés]
   {
     day: 7,
     title: 'Meeting jegyzetből teendőlista',
-    content: `<h2>Napi cél</h2>
+    content: `<h1>Meeting jegyzetből teendőlista</h1>
+<p><em>Összefoglaló, döntések, action itemek – 5 perc alatt</em></p>
 <p>Ma megtanulod, hogyan lesz nyers meeting jegyzetből tiszta összefoglaló és teendőlista felelőssel, határidővel.</p>
+
+<hr />
+<h2>Napi cél</h2>
 <ul>
 <li>3 blokkban gondolkodsz: Összefoglaló – Döntések – Teendők</li>
-<li>feladatokra felelős + határidő + státusz kerül</li>
-<li>kevésbé használható jegyzetből is akcióképes listát készítesz</li>
+<li>Minden teendőhöz felelős + határidő + státusz</li>
+<li>Kevésbé használható jegyzetből is akcióképes listát készítesz</li>
 </ul>
 
 <hr />
@@ -492,6 +510,7 @@ CTA: [következő lépés / kérés]
 <li><strong>Teendők</strong>: feladat | felelős | határidő | státusz/next</li>
 </ul>
 
+<hr />
 <h2>Jó bemenet: mit adj meg?</h2>
 <ul>
 <li>nyers jegyzet (bullet vagy transcript részlet)</li>
@@ -506,10 +525,11 @@ CTA: [következő lépés / kérés]
 <p><strong>Jó:</strong> „Foglaljad össze 3–5 pontban. Adj külön szekciót: Döntések, Teendők (feladat | felelős | határidő | státusz). Jegyzet: [szöveg]. Projekt: [név].”</p>
 
 <hr />
-<h2>Gyakorlat 1 – Saját jegyzet</h2>
+<h2>Gyakorlat (vezetett) – Saját jegyzet</h2>
 <p>Adj meg 5–10 sor jegyzetet (vagy kreálj példát) és kérd a 3 szekciós kimenetet.</p>
 
-<h2>Gyakorlat 2 – Hiányzó határidő</h2>
+<hr />
+<h2>Gyakorlat (önálló) – Hiányzó határidő</h2>
 <p>Ha nincs határidő, kérd: „Javasolj reális határidőt és felelőst” – majd ellenőrizd és módosítsd.</p>
 
 <hr />
@@ -518,16 +538,23 @@ CTA: [következő lépés / kérés]
 <p>Jegyzet: [szöveg]. Készíts 3 szekciót: 1) Összefoglaló (3–5 pont), 2) Döntések (döntés | döntéshozó), 3) Teendők (feladat | felelős | határidő | státusz/next). Rövid, bullet formátum.</p>
 </blockquote>
 
-<h2>Tipp</h2>
-<p>Kérd külön a „Döntések” blokkot, hogy ne vesszen el; a teendő mindig kapjon felelőst és határidőt.</p>
+<hr />
+<h2>Tippek</h2>
+<ul>
+<li>Kérd külön a „Döntések” blokkot, hogy ne vesszen el.</li>
+<li>A teendő mindig kapjon felelőst és határidőt.</li>
+<li>Kérj státusz-t (TODO / IN PROGRESS / BLOCKED / DONE).</li>
+</ul>
 
+<hr />
 <h2>Opcionális mélyítés</h2>
 <ul>
-<li>Használj meeting template-et (Agenda, Notes, Decisions, Action Items)</li>
-<li>Adj státusz jelzést: TODO / IN PROGRESS / BLOCKED / DONE</li>
+<li>Atlassian – Meeting notes template: <a href="https://www.atlassian.com/software/confluence/templates/meeting-notes" target="_blank" rel="noreferrer">https://www.atlassian.com/software/confluence/templates/meeting-notes</a></li>
+<li>GitHub Markdown checklist: <a href="https://docs.github.com/en/issues/tracking-your-work-with-issues/about-task-lists" target="_blank" rel="noreferrer">https://docs.github.com/en/issues/tracking-your-work-with-issues/about-task-lists</a></li>
+<li>Basecamp – Shape Up (döntés/next lépések szemlélet): <a href="https://basecamp.com/shapeup" target="_blank" rel="noreferrer">https://basecamp.com/shapeup</a></li>
 </ul>`,
-    emailSubject: 'AI 30 Nap – 7. nap: Meeting jegyzetből teendőlista',
-    emailBody: `<h1>AI 30 Nap – 7. nap</h1>
+    emailSubject: '30-Day AI Catch-Up – 7. nap: Meeting jegyzetből teendőlista',
+    emailBody: `<h1>30-Day AI Catch-Up – 7. nap</h1>
 <h2>Meeting jegyzetből teendőlista</h2>
 <p>Ma megtanulod, hogyan alakítasz át meeting jegyzeteket strukturált teendőlistává. Ez rengeteg időt takarít meg.</p>
 <p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Olvasd el a teljes leckét →</a></p>`
