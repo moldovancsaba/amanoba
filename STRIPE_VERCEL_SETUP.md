@@ -48,12 +48,14 @@
 
 | Variable Name | Value | Environment | Encrypted |
 |---------------|-------|-------------|-----------|
-| `STRIPE_SECRET_KEY` | `sk_live_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx` | Production | ✅ Yes |
-| `STRIPE_SECRET_KEY` | `sk_test_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx` | Preview, Development | ✅ Yes |
-| `STRIPE_PUBLISHABLE_KEY` | `pk_live_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx` | Production | ❌ No |
-| `STRIPE_PUBLISHABLE_KEY` | `pk_test_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx` | Preview, Development | ❌ No |
-| `STRIPE_WEBHOOK_SECRET` | `whsec_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx` | Production | ✅ Yes |
-| `STRIPE_WEBHOOK_SECRET` | `whsec_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx` | Preview, Development | ✅ Yes |
+| `STRIPE_SECRET_KEY` | `[YOUR_STRIPE_SECRET_KEY]` | Production | ✅ Yes |
+| `STRIPE_SECRET_KEY` | `[YOUR_STRIPE_SECRET_KEY]` | Preview, Development | ✅ Yes |
+| `STRIPE_PUBLISHABLE_KEY` | `[YOUR_STRIPE_PUBLISHABLE_KEY]` | Production | ❌ No |
+| `STRIPE_PUBLISHABLE_KEY` | `[YOUR_STRIPE_PUBLISHABLE_KEY]` | Preview, Development | ❌ No |
+| `STRIPE_WEBHOOK_SECRET` | `[YOUR_STRIPE_WEBHOOK_SECRET]` | Production | ✅ Yes |
+| `STRIPE_WEBHOOK_SECRET` | `[YOUR_STRIPE_WEBHOOK_SECRET]` | Preview, Development | ✅ Yes |
+
+**Note**: Replace `[YOUR_STRIPE_SECRET_KEY]` with your actual key from Stripe Dashboard (starts with `sk_live_...` or `sk_test_...`)
 
 **Note**: 
 - Use **Test keys** (`sk_test_...`, `pk_test_...`) for Preview and Development environments
@@ -71,9 +73,10 @@ Add to your `.env.local` file:
 
 ```env
 # Stripe Test Keys (for development)
-STRIPE_SECRET_KEY=sk_test_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-STRIPE_PUBLISHABLE_KEY=pk_test_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-STRIPE_WEBHOOK_SECRET=whsec_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+# Replace [YOUR_KEY] with actual keys from Stripe Dashboard
+STRIPE_SECRET_KEY=[YOUR_STRIPE_SECRET_KEY]
+STRIPE_PUBLISHABLE_KEY=[YOUR_STRIPE_PUBLISHABLE_KEY]
+STRIPE_WEBHOOK_SECRET=[YOUR_STRIPE_WEBHOOK_SECRET]
 ```
 
 ### Option 2: Use Stripe CLI for Webhooks (Advanced)

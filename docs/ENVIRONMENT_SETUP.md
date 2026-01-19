@@ -109,18 +109,21 @@ EMAIL_REPLY_TO=support@amanoba.com
 
 #### Payment Processing (Stripe)
 ```env
-STRIPE_SECRET_KEY=sk_test_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-STRIPE_PUBLISHABLE_KEY=pk_test_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-STRIPE_WEBHOOK_SECRET=whsec_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+# Replace [YOUR_KEY] with actual keys from Stripe Dashboard
+STRIPE_SECRET_KEY=[YOUR_STRIPE_SECRET_KEY]
+STRIPE_PUBLISHABLE_KEY=[YOUR_STRIPE_PUBLISHABLE_KEY]
+STRIPE_WEBHOOK_SECRET=[YOUR_STRIPE_WEBHOOK_SECRET]
 ```
 
 **What**: Stripe API keys for payment processing  
 **Why**: Enables premium course purchases and subscription management  
 **Source**: Get from https://dashboard.stripe.com/apikeys (Test mode) and https://dashboard.stripe.com/webhooks (Webhook secret)  
 **Note**: 
-- Use `sk_test_...` and `pk_test_...` for development/testing
-- Use `sk_live_...` and `pk_live_...` for production
+- Replace `[YOUR_STRIPE_SECRET_KEY]` with your actual key (starts with `sk_test_...` for testing or `sk_live_...` for production)
+- Replace `[YOUR_STRIPE_PUBLISHABLE_KEY]` with your actual key (starts with `pk_test_...` for testing or `pk_live_...` for production)
+- Replace `[YOUR_STRIPE_WEBHOOK_SECRET]` with your actual webhook secret (starts with `whsec_...`)
 - Webhook secret is generated when you create a webhook endpoint in Stripe Dashboard
+- **Never commit real keys to version control**
 
 ---
 
@@ -314,9 +317,9 @@ npm run db:seed
 | `EMAIL_FROM` | Public | `noreply@amanoba.com` | Email sender address |
 | `EMAIL_FROM_NAME` | Public | `Amanoba Learning` | Email sender name |
 | `EMAIL_REPLY_TO` | Public | `support@amanoba.com` | Email reply-to address |
-| `STRIPE_SECRET_KEY` | Secret | `sk_live_xxxxx...` | Stripe secret key (server-side) |
-| `STRIPE_PUBLISHABLE_KEY` | Public | `pk_live_xxxxx...` | Stripe publishable key (client-side) |
-| `STRIPE_WEBHOOK_SECRET` | Secret | `whsec_xxxxx...` | Stripe webhook signing secret |
+| `STRIPE_SECRET_KEY` | Secret | `[YOUR_STRIPE_SECRET_KEY]` | Stripe secret key (server-side, starts with `sk_live_...` or `sk_test_...`) |
+| `STRIPE_PUBLISHABLE_KEY` | Public | `[YOUR_STRIPE_PUBLISHABLE_KEY]` | Stripe publishable key (client-side, starts with `pk_live_...` or `pk_test_...`) |
+| `STRIPE_WEBHOOK_SECRET` | Secret | `[YOUR_STRIPE_WEBHOOK_SECRET]` | Stripe webhook signing secret (starts with `whsec_...`) |
 
 ### Optional
 
