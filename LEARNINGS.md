@@ -1150,6 +1150,39 @@ Version must be synchronized across:
 
 ## 💡 Product & UX
 
+### Avoid Alert Popups for Success Messages
+
+**Context**: After completing a quiz/lesson, the system showed an alert popup "Lecke befejezve! Pontokat és XP-t szereztél." requiring users to click "OK", creating an annoying extra step in the flow.
+
+**Problem**: 
+- Alert popups (`alert()`, `window.alert()`) are blocking and interrupt user flow
+- They require an extra click to dismiss
+- They don't provide any additional value beyond what's already visible in the UI
+- They create friction in the learning experience
+
+**Learning**: 
+- **Never use `alert()` for success messages** - the UI already shows completion state
+- Use non-blocking UI feedback instead:
+  - Visual state changes (button becomes "Completed", checkmark appears)
+  - Toast notifications (if needed for important actions)
+  - Inline success messages that auto-dismiss
+- Only use alerts for critical errors that require immediate attention
+- Prefer inline error messages or toast notifications for non-critical errors
+
+**Solution Applied**: Removed `alert(t('lessonCompleted'))` from lesson completion handler. The lesson page already shows completion state visually, so no popup is needed.
+
+**Why It Matters**: Reduces friction in the user experience, allows users to continue their learning flow without interruption, and follows modern UX best practices.
+
+**Applied In**: `app/[locale]/courses/[courseId]/day/[dayNumber]/page.tsx` - removed alert on lesson completion.
+
+**Future Guideline**: 
+- ✅ Use visual state changes for success feedback
+- ✅ Use toast notifications for important but non-blocking messages
+- ❌ Never use `alert()` for success messages
+- ⚠️ Only use `alert()` for critical errors that require immediate user action
+
+---
+
 ### Gamification Thresholds
 
 **Context**: Need to balance engagement without overwhelming users.
