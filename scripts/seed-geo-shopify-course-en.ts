@@ -1,5 +1,5 @@
 /**
- * Seed GEO for Shopify 30-day course (English, first 20 lessons)
+ * Seed GEO for Shopify 30-day course (English, first 30 lessons)
  *
  * Creates/updates the GEO_SHOPIFY_30_EN course with lessons 1–5.
  * Lessons follow the mandatory structure: goal, why, explanation,
@@ -1232,6 +1232,566 @@ const lessonPlan: LessonEntry[] = [
     emailBody: `<h1>GEO Shopify – Day 20</h1>
 <h2>Minimum content</h2>
 <p>Today you set a minimum standard and fix 3 thin PDPs.</p>
+<p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Read the lesson →</a></p>`
+  },
+  {
+    day: 21,
+    title: 'Prompt intent map: best / vs / alternatives / policy',
+    content: `<h1>Prompt intent map: best / vs / alternatives / policy</h1>
+<p><em>Group the questions AI will answer and map them to target pages.</em></p>
+<hr />
+<h2>Learning goal</h2>
+<ul>
+<li>List 30–40 prompts by intent.</li>
+<li>Map each prompt to a target page.</li>
+</ul>
+<hr />
+<h2>Why it matters</h2>
+<ul>
+<li>AI answers typical shopper questions; you must know where to send them.</li>
+<li>Without intents, content and measurement are random.</li>
+</ul>
+<hr />
+<h2>Explanation</h2>
+<ul>
+<li><strong>Best</strong>: “best [X] 2025 in [country]”.</li>
+<li><strong>Vs</strong>: “[X] vs [Y], which is better?”.</li>
+<li><strong>Alternatives</strong>: “What to buy instead of [X]?”.</li>
+<li><strong>Policy/fit</strong>: sizing, shipping, returns.</li>
+</ul>
+<hr />
+<h2>Examples</h2>
+<ul>
+<li><strong>Good</strong>: Intent → page/capsule → measurement.</li>
+<li><strong>Poor</strong>: Random prompts with no target page.</li>
+</ul>
+<hr />
+<h2>Guided exercise (10–15 min)</h2>
+<ol>
+<li>Create a table: Intent | Prompt | Target (PDP/collection/guide) | Notes.</li>
+<li>Fill 20 prompts (mix best/vs/alternatives/policy).</li>
+</ol>
+<h2>Independent exercise (5–10 min)</h2>
+<p>Expand to 30–40 prompts and prioritize A/B/C.</p>
+<hr />
+<h2>Self-check</h2>
+<ul>
+<li>Intent map with 30+ prompts.</li>
+<li>Each prompt has a target page.</li>
+<li>Priorities set.</li>
+</ul>
+<hr />
+<h2>Optional deepening</h2>
+<ul>
+<li>OpenAI prompt guide: <a href="https://platform.openai.com/docs/guides/prompt-engineering" target="_blank" rel="noreferrer">https://platform.openai.com/docs/guides/prompt-engineering</a></li>
+</ul>`,
+    emailSubject: 'GEO Shopify – Day 21: Intent map',
+    emailBody: `<h1>GEO Shopify – Day 21</h1>
+<h2>Intent map</h2>
+<p>Today you build the best/vs/alternatives/policy prompt map and assign targets.</p>
+<p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Read the lesson →</a></p>`
+  },
+  {
+    day: 22,
+    title: 'Buying guide: AI-friendly structure',
+    content: `<h1>Buying guide: AI-friendly structure</h1>
+<p><em>Write a guide the AI can summarize without distortion.</em></p>
+<hr />
+<h2>Learning goal</h2>
+<ul>
+<li>Draft one buying guide outline.</li>
+<li>Link 3 PDPs with reasons.</li>
+</ul>
+<hr />
+<h2>Why it matters</h2>
+<ul>
+<li>Guides are strong sources if sections are clear.</li>
+<li>Reduces misread and builds trust.</li>
+</ul>
+<hr />
+<h2>Explanation</h2>
+<ul>
+<li>Hero: who, which situation.</li>
+<li>Decision criteria (3–5 bullets).</li>
+<li>Top picks with reasons and links.</li>
+<li>Policy short + link.</li>
+</ul>
+<hr />
+<h2>Examples</h2>
+<ul>
+<li><strong>Good</strong>: Structured, linked PDPs, short reasons.</li>
+<li><strong>Poor</strong>: Wall of text, no links.</li>
+</ul>
+<hr />
+<h2>Guided exercise (10–15 min)</h2>
+<ol>
+<li>Write a guide outline for your top category using the blocks above.</li>
+<li>Add 3 PDP links with short reasons.</li>
+</ol>
+<h2>Independent exercise (5–10 min)</h2>
+<p>Draft a second outline for another category.</p>
+<hr />
+<h2>Self-check</h2>
+<ul>
+<li>Guide blocks present.</li>
+<li>Top picks with reasons/links.</li>
+<li>Policy block included.</li>
+</ul>
+<hr />
+<h2>Optional deepening</h2>
+<ul>
+<li>Shopify content ideas: <a href="https://shopify.dev/docs/apps/selling-strategies/product-data" target="_blank" rel="noreferrer">https://shopify.dev/docs/apps/selling-strategies/product-data</a></li>
+</ul>`,
+    emailSubject: 'GEO Shopify – Day 22: Buying guide',
+    emailBody: `<h1>GEO Shopify – Day 22</h1>
+<h2>Buying guide</h2>
+<p>Today you draft an AI-friendly buying guide and link your PDPs.</p>
+<p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Read the lesson →</a></p>`
+  },
+  {
+    day: 23,
+    title: 'Comparison pages: honest tradeoffs',
+    content: `<h1>Comparison pages: honest tradeoffs</h1>
+<p><em>Create comparisons that AI can quote without distortion.</em></p>
+<hr />
+<h2>Learning goal</h2>
+<ul>
+<li>Build one comparison table for 2–3 products.</li>
+<li>Include who it’s for / not for.</li>
+</ul>
+<hr />
+<h2>Why it matters</h2>
+<ul>
+<li>AI often gets “X vs Y”: provide real data.</li>
+<li>Honesty lowers returns.</li>
+</ul>
+<hr />
+<h2>Explanation</h2>
+<ul>
+<li>Table: key features, price, policy, who for/not, PDP link.</li>
+</ul>
+<hr />
+<h2>Examples</h2>
+<ul>
+<li><strong>Good</strong>: “X stable, Y lighter; X pricier; Y less warranty.”</li>
+<li><strong>Poor</strong>: “Both are awesome!” with no data.</li>
+</ul>
+<hr />
+<h2>Guided exercise (10–15 min)</h2>
+<ol>
+<li>Create a table for 2–3 products: features, price, policy, who for/not, PDP link.</li>
+</ol>
+<h2>Independent exercise (5–10 min)</h2>
+<p>Make another for a different pair.</p>
+<hr />
+<h2>Self-check</h2>
+<ul>
+<li>Table done with links.</li>
+<li>Who for/not included.</li>
+<li>Policy/price accurate.</li>
+</ul>
+<hr />
+<h2>Optional deepening</h2>
+<ul>
+<li>Copilot merchant blog: <a href="https://www.microsoft.com/en-us/microsoft-copilot/blog/2025/04/18/introducing-the-copilot-merchant-program/" target="_blank" rel="noreferrer">https://www.microsoft.com/en-us/microsoft-copilot/blog/2025/04/18/introducing-the-copilot-merchant-program/</a></li>
+</ul>`,
+    emailSubject: 'GEO Shopify – Day 23: Comparison pages',
+    emailBody: `<h1>GEO Shopify – Day 23</h1>
+<h2>Comparison pages</h2>
+<p>Today you build an honest comparison with who for/not and PDP links.</p>
+<p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Read the lesson →</a></p>`
+  },
+  {
+    day: 24,
+    title: 'Use-case landing: gift, season, sport, budget',
+    content: `<h1>Use-case landing: gift, season, sport, budget</h1>
+<p><em>Build a use-case page so AI can quote context-specific recommendations.</em></p>
+<hr />
+<h2>Learning goal</h2>
+<ul>
+<li>Draft one use-case landing (e.g., gift or season).</li>
+<li>Link 3–5 products with reasons.</li>
+</ul>
+<hr />
+<h2>Why it matters</h2>
+<ul>
+<li>AI often gets contextual questions (“gift for mom”, “winter running”).</li>
+<li>Use-case pages increase citability.</li>
+</ul>
+<hr />
+<h2>Explanation</h2>
+<ul>
+<li>Hero: who/when.</li>
+<li>Decision criteria.</li>
+<li>Product list with reasons.</li>
+<li>Policy/fit short.</li>
+</ul>
+<hr />
+<h2>Examples</h2>
+<ul>
+<li><strong>Good</strong>: “Winter running: insulation, grip, visibility; top 3 models linked.”</li>
+<li><strong>Poor</strong>: Grid without context.</li>
+</ul>
+<hr />
+<h2>Guided exercise (10–15 min)</h2>
+<ol>
+<li>Choose a use-case, write the blocks.</li>
+<li>Add 3–5 products with short reasons.</li>
+</ol>
+<h2>Independent exercise (5–10 min)</h2>
+<p>Draft a second use-case outline.</p>
+<hr />
+<h2>Self-check</h2>
+<ul>
+<li>Use-case hero present.</li>
+<li>Criteria and product list with reasons.</li>
+<li>Policy/fit noted.</li>
+</ul>
+<hr />
+<h2>Optional deepening</h2>
+<ul>
+<li>Generative content guidance: <a href="https://developers.google.com/search/docs/fundamentals/using-gen-ai-content" target="_blank" rel="noreferrer">https://developers.google.com/search/docs/fundamentals/using-gen-ai-content</a></li>
+</ul>`,
+    emailSubject: 'GEO Shopify – Day 24: Use-case landing',
+    emailBody: `<h1>GEO Shopify – Day 24</h1>
+<h2>Use-case landing</h2>
+<p>Today you build a use-case page with contextual reasons and links.</p>
+<p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Read the lesson →</a></p>`
+  },
+  {
+    day: 25,
+    title: 'Off-site GEO: when it helps, when it harms',
+    content: `<h1>Off-site GEO: when it helps, when it harms</h1>
+<p><em>List external mentions that support citation, and avoid spam.</em></p>
+<hr />
+<h2>Learning goal</h2>
+<ul>
+<li>List useful off-site sources (reviews, media, partners).</li>
+<li>Avoid spammy mentions.</li>
+</ul>
+<hr />
+<h2>Why it matters</h2>
+<ul>
+<li>AI may consider external mentions.</li>
+<li>Spammy links can hurt.</li>
+</ul>
+<hr />
+<h2>Explanation</h2>
+<ul>
+<li>Useful: credible review sites, relevant media, partner blogs.</li>
+<li>Harmful: link farms, paid spam, irrelevant directories.</li>
+</ul>
+<hr />
+<h2>Examples</h2>
+<ul>
+<li><strong>Good</strong>: real test article link, partner Q&A.</li>
+<li><strong>Poor</strong>: link farm, keyword-stuffed page.</li>
+</ul>
+<hr />
+<h2>Guided exercise (10–15 min)</h2>
+<ol>
+<li>Create lists: useful vs avoid sources.</li>
+<li>Select 2 credible sources and draft placement.</li>
+</ol>
+<h2>Independent exercise (5–10 min)</h2>
+<p>Write an outreach draft for a partner article or Q&A.</p>
+<hr />
+<h2>Self-check</h2>
+<ul>
+<li>Useful/avoid lists ready.</li>
+<li>2 credible sources picked.</li>
+<li>Outreach draft ready.</li>
+</ul>
+<hr />
+<h2>Optional deepening</h2>
+<ul>
+<li>Google spam policies: <a href="https://developers.google.com/search/docs/essentials/spam-policies" target="_blank" rel="noreferrer">https://developers.google.com/search/docs/essentials/spam-policies</a></li>
+</ul>`,
+    emailSubject: 'GEO Shopify – Day 25: Off-site GEO',
+    emailBody: `<h1>GEO Shopify – Day 25</h1>
+<h2>Off-site GEO</h2>
+<p>Today you list helpful external sources and avoid spammy mentions.</p>
+<p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Read the lesson →</a></p>`
+  },
+  {
+    day: 26,
+    title: 'Anti-spam and quality for AI-assisted content',
+    content: `<h1>Anti-spam and quality for AI-assisted content</h1>
+<p><em>Write with AI safely: no spam, all quality.</em></p>
+<hr />
+<h2>Learning goal</h2>
+<ul>
+<li>Build a quality/anti-spam checklist.</li>
+<li>Apply it to one guide.</li>
+</ul>
+<hr />
+<h2>Why it matters</h2>
+<ul>
+<li>Spammy AI content is risky and can get you excluded.</li>
+<li>Quality = citability + trust.</li>
+</ul>
+<hr />
+<h2>Explanation</h2>
+<ul>
+<li>Avoid: keyword stuffing, false claims, source-less data.</li>
+<li>Use: cite sources, short blocks, real data.</li>
+</ul>
+<hr />
+<h2>Examples</h2>
+<ul>
+<li><strong>Good</strong>: short, sourced claims, real data.</li>
+<li><strong>Poor</strong>: “best in the world” with no evidence.</li>
+</ul>
+<hr />
+<h2>Guided exercise (10–15 min)</h2>
+<ol>
+<li>Create a 10-point quality/anti-spam checklist.</li>
+<li>Apply it to an existing guide and mark fixes.</li>
+</ol>
+<h2>Independent exercise (5–10 min)</h2>
+<p>Update one section using the checklist.</p>
+<hr />
+<h2>Self-check</h2>
+<ul>
+<li>Checklist done.</li>
+<li>Guide reviewed.</li>
+<li>One section improved.</li>
+</ul>
+<hr />
+<h2>Optional deepening</h2>
+<ul>
+<li>Google spam policies: <a href="https://developers.google.com/search/docs/essentials/spam-policies" target="_blank" rel="noreferrer">https://developers.google.com/search/docs/essentials/spam-policies</a></li>
+</ul>`,
+    emailSubject: 'GEO Shopify – Day 26: Anti-spam',
+    emailBody: `<h1>GEO Shopify – Day 26</h1>
+<h2>Anti-spam</h2>
+<p>Today you build an anti-spam checklist and apply it to a guide.</p>
+<p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Read the lesson →</a></p>`
+  },
+  {
+    day: 27,
+    title: 'Feed operations: refresh, monitor, error handling',
+    content: `<h1>Feed operations: refresh, monitor, error handling</h1>
+<p><em>Set the cadence and error-handling routine for your feed.</em></p>
+<hr />
+<h2>Learning goal</h2>
+<ul>
+<li>Schedule feed refresh.</li>
+<li>Set up error list and logging.</li>
+</ul>
+<hr />
+<h2>Why it matters</h2>
+<ul>
+<li>Stale feed → wrong recommendations.</li>
+<li>Ignoring errors can lead to exclusion.</li>
+</ul>
+<hr />
+<h2>Explanation</h2>
+<ul>
+<li>Refresh: daily/hourly based on stock/price changes.</li>
+<li>Monitor: error codes, missing fields, disapprovals.</li>
+<li>Log: date, error type, fix, SLA.</li>
+</ul>
+<hr />
+<h2>Examples</h2>
+<ul>
+<li><strong>Good</strong>: weekly error report, SLA to fix.</li>
+<li><strong>Poor</strong>: “We’ll check later”.</li>
+</ul>
+<hr />
+<h2>Guided exercise (10–15 min)</h2>
+<ol>
+<li>Set refresh frequency (e.g., daily) and note it.</li>
+<li>Create an error log template: Date | Error | Product | Fix | SLA.</li>
+</ol>
+<h2>Independent exercise (5–10 min)</h2>
+<p>Log 3 sample errors.</p>
+<hr />
+<h2>Self-check</h2>
+<ul>
+<li>Refresh cadence set.</li>
+<li>Error log template ready.</li>
+<li>3 errors recorded.</li>
+</ul>
+<hr />
+<h2>Optional deepening</h2>
+<ul>
+<li>GMC error guide: <a href="https://support.google.com/merchants/answer/7052112" target="_blank" rel="noreferrer">https://support.google.com/merchants/answer/7052112</a></li>
+</ul>`,
+    emailSubject: 'GEO Shopify – Day 27: Feed ops',
+    emailBody: `<h1>GEO Shopify – Day 27</h1>
+<h2>Feed ops</h2>
+<p>Today you schedule feed refresh and set an error log with SLA.</p>
+<p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Read the lesson →</a></p>`
+  },
+  {
+    day: 28,
+    title: 'Merchant programs: eligibility and onboarding',
+    content: `<h1>Merchant programs: eligibility and onboarding</h1>
+<p><em>Assess which AI/commerce programs you can join and what they require.</em></p>
+<hr />
+<h2>Learning goal</h2>
+<ul>
+<li>Compare key programs (ChatGPT/Copilot/Google).</li>
+<li>Create a requirement checklist.</li>
+</ul>
+<hr />
+<h2>Why it matters</h2>
+<ul>
+<li>No eligibility, no presence.</li>
+<li>Onboarding errors delay visibility.</li>
+</ul>
+<hr />
+<h2>Explanation</h2>
+<ul>
+<li>Requirements: feed quality, policy, region, brand/GTIN, price/stock.</li>
+<li>Onboarding: verification, domain, support contact.</li>
+</ul>
+<hr />
+<h2>Examples</h2>
+<ul>
+<li><strong>Good</strong>: checklist per program with status.</li>
+<li><strong>Poor</strong>: “We’ll apply later” with no documentation.</li>
+</ul>
+<hr />
+<h2>Guided exercise (10–15 min)</h2>
+<ol>
+<li>Create a table: Program | Region | Requirement | Status | Owner.</li>
+<li>Fill for the three main platforms.</li>
+</ol>
+<h2>Independent exercise (5–10 min)</h2>
+<p>Mark 3 gaps and tasks for onboarding.</p>
+<hr />
+<h2>Self-check</h2>
+<ul>
+<li>Program table ready.</li>
+<li>Gaps identified.</li>
+<li>Owners set.</li>
+</ul>
+<hr />
+<h2>Optional deepening</h2>
+<ul>
+<li>OpenAI merchants: <a href="https://chatgpt.com/merchants" target="_blank" rel="noreferrer">https://chatgpt.com/merchants</a></li>
+<li>Copilot merchant: <a href="https://www.microsoft.com/en-us/microsoft-copilot/blog/2025/04/18/introducing-the-copilot-merchant-program/" target="_blank" rel="noreferrer">https://www.microsoft.com/en-us/microsoft-copilot/blog/2025/04/18/introducing-the-copilot-merchant-program/</a></li>
+</ul>`,
+    emailSubject: 'GEO Shopify – Day 28: Merchant programs',
+    emailBody: `<h1>GEO Shopify – Day 28</h1>
+<h2>Merchant programs</h2>
+<p>Today you assess program requirements and build the checklist.</p>
+<p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Read the lesson →</a></p>`
+  },
+  {
+    day: 29,
+    title: 'Measurement system: weekly GEO run and report',
+    content: `<h1>Measurement system: weekly GEO run and report</h1>
+<p><em>Set a weekly test routine using your prompt set and log results.</em></p>
+<hr />
+<h2>Learning goal</h2>
+<ul>
+<li>Schedule the weekly GEO test run.</li>
+<li>Create a report template.</li>
+</ul>
+<hr />
+<h2>Why it matters</h2>
+<ul>
+<li>No measurement, no proof of progress.</li>
+<li>Shows consistency and errors.</li>
+</ul>
+<hr />
+<h2>Explanation</h2>
+<ul>
+<li>Use the prompt set (best/vs/policy).</li>
+<li>Measure: inclusion, citation, consistency, AI referral KPIs.</li>
+<li>Log changes.</li>
+</ul>
+<hr />
+<h2>Examples</h2>
+<ul>
+<li><strong>Good</strong>: weekly report: which prompts mention your store, linked or not.</li>
+<li><strong>Poor</strong>: “Feels better” with no record.</li>
+</ul>
+<hr />
+<h2>Guided exercise (10–15 min)</h2>
+<ol>
+<li>Create a report template: Prompt | Inclusion | Citation | Consistency | Notes.</li>
+<li>Schedule the weekly run (day, owner).</li>
+</ol>
+<h2>Independent exercise (5–10 min)</h2>
+<p>Fill 5 prompts and note results.</p>
+<hr />
+<h2>Self-check</h2>
+<ul>
+<li>Template ready.</li>
+<li>Schedule set.</li>
+<li>First 5 measurements logged.</li>
+</ul>
+<hr />
+<h2>Optional deepening</h2>
+<ul>
+<li>Measurement tools: <a href="https://clarity.microsoft.com/" target="_blank" rel="noreferrer">https://clarity.microsoft.com/</a></li>
+</ul>`,
+    emailSubject: 'GEO Shopify – Day 29: Measurement',
+    emailBody: `<h1>GEO Shopify – Day 29</h1>
+<h2>Measurement</h2>
+<p>Today you schedule the weekly GEO run and prepare the report template.</p>
+<p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Read the lesson →</a></p>`
+  },
+  {
+    day: 30,
+    title: 'Capstone sprint: one collection end-to-end',
+    content: `<h1>Capstone sprint: one collection end-to-end</h1>
+<p><em>Run a full GEO sprint on a 10-product collection.</em></p>
+<hr />
+<h2>Learning goal</h2>
+<ul>
+<li>Pick one collection (10 products).</li>
+<li>Apply blueprint + capsule + feed + measurement steps.</li>
+</ul>
+<hr />
+<h2>Why it matters</h2>
+<ul>
+<li>Prove the process works.</li>
+<li>Set the foundation to scale.</li>
+</ul>
+<hr />
+<h2>Explanation</h2>
+<ul>
+<li>Data fix: IDs, price/stock, policy.</li>
+<li>PDP blueprint + capsule + images.</li>
+<li>Collection guide + links.</li>
+<li>Feed check + measurement via prompt set.</li>
+</ul>
+<hr />
+<h2>Examples</h2>
+<ul>
+<li><strong>Good</strong>: every product meets standard, measurement documented.</li>
+<li><strong>Poor</strong>: ad hoc fixes, no measurement.</li>
+</ul>
+<hr />
+<h2>Guided exercise (10–15 min)</h2>
+<ol>
+<li>Select the collection, list the 10 products.</li>
+<li>Apply blueprint/capsule to all 10.</li>
+<li>Run feed/measurement checks.</li>
+</ol>
+<h2>Independent exercise (5–10 min)</h2>
+<p>Write a one-page before/after note and next sprint backlog.</p>
+<hr />
+<h2>Self-check</h2>
+<ul>
+<li>10 products meet the standard.</li>
+<li>Measurement run logged.</li>
+<li>Backlog for next 30 days ready.</li>
+</ul>
+<hr />
+<h2>Optional deepening</h2>
+<ul>
+<li>Capstone report idea: <a href="https://platform.openai.com/docs/guides/prompt-engineering" target="_blank" rel="noreferrer">prompt guide</a></li>
+</ul>`,
+    emailSubject: 'GEO Shopify – Day 30: Capstone sprint',
+    emailBody: `<h1>GEO Shopify – Day 30</h1>
+<h2>Capstone sprint</h2>
+<p>Today you run a full GEO sprint on one collection and document the result.</p>
 <p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Read the lesson →</a></p>`
   }
 ];
@@ -2613,6 +3173,636 @@ async function seed() {
             'Do nothing',
             'Just enlarge images',
             'Only edit meta description'
+          ],
+          correctIndex: 0,
+          difficulty: QuestionDifficulty.HARD,
+          category: 'Course Specific'
+        }
+      );
+    } else if (entry.day === 21) {
+      quizzes.push(
+        {
+          question: 'Which intent buckets do we use?',
+          options: [
+            'best, vs, alternatives, policy/fit',
+            'Only brand name',
+            'Only meta title',
+            'Only backlinks'
+          ],
+          correctIndex: 0,
+          difficulty: QuestionDifficulty.EASY,
+          category: 'Course Specific'
+        },
+        {
+          question: 'Why map each prompt to a target page?',
+          options: [
+            'So AI and measurement know where to point',
+            'Not needed',
+            'Only decoration',
+            'Only SEO'
+          ],
+          correctIndex: 0,
+          difficulty: QuestionDifficulty.MEDIUM,
+          category: 'Course Specific'
+        },
+        {
+          question: 'What is a good best-type question?',
+          options: [
+            '“Best [product] 2025 in [country]”',
+            '“What is SEO?”',
+            '“Tell me a joke”',
+            '“How to code?”'
+          ],
+          correctIndex: 0,
+          difficulty: QuestionDifficulty.EASY,
+          category: 'Course Specific'
+        },
+        {
+          question: 'Why prioritize prompts A/B/C?',
+          options: [
+            'To focus on the most important tests',
+            'Only for colors',
+            'No need',
+            'Just for looks'
+          ],
+          correctIndex: 0,
+          difficulty: QuestionDifficulty.MEDIUM,
+          category: 'Course Specific'
+        },
+        {
+          question: 'What is a poor intent map practice?',
+          options: [
+            'Random prompts with no target page',
+            'Every prompt mapped',
+            'Prioritized list',
+            'Notes added'
+          ],
+          correctIndex: 0,
+          difficulty: QuestionDifficulty.HARD,
+          category: 'Course Specific'
+        }
+      );
+    } else if (entry.day === 22) {
+      quizzes.push(
+        {
+          question: 'What blocks belong in a buying guide?',
+          options: [
+            'Hero, decision criteria, top picks with reasons, policy',
+            'Only images',
+            'Only price list',
+            'Only a CTA'
+          ],
+          correctIndex: 0,
+          difficulty: QuestionDifficulty.EASY,
+          category: 'Course Specific'
+        },
+        {
+          question: 'Why add short reasons to top picks?',
+          options: [
+            'So AI and users see why each fits',
+            'Just design',
+            'Not needed',
+            'Only for SEO keywords'
+          ],
+          correctIndex: 0,
+          difficulty: QuestionDifficulty.MEDIUM,
+          category: 'Course Specific'
+        },
+        {
+          question: 'What is a poor guide example?',
+          options: [
+            'Wall of text, no links',
+            'Structured with links',
+            'Clear criteria',
+            'Top picks linked'
+          ],
+          correctIndex: 0,
+          difficulty: QuestionDifficulty.EASY,
+          category: 'Course Specific'
+        },
+        {
+          question: 'Why does an AI-friendly structure help?',
+          options: [
+            'Easier to summarize and cite',
+            'It does not help',
+            'Only looks nice',
+            'Only speeds the page'
+          ],
+          correctIndex: 0,
+          difficulty: QuestionDifficulty.MEDIUM,
+          category: 'Course Specific'
+        },
+        {
+          question: 'What should you do with policy info?',
+          options: [
+            'State briefly and link a stable URL',
+            'Skip it',
+            'Make false promises',
+            'Use random text'
+          ],
+          correctIndex: 0,
+          difficulty: QuestionDifficulty.HARD,
+          category: 'Course Specific'
+        }
+      );
+    } else if (entry.day === 23) {
+      quizzes.push(
+        {
+          question: 'What belongs in a comparison table?',
+          options: [
+            'Features, price, policy, who for/not, link',
+            'Only images',
+            'Only slogans',
+            'Only a button'
+          ],
+          correctIndex: 0,
+          difficulty: QuestionDifficulty.MEDIUM,
+          category: 'Course Specific'
+        },
+        {
+          question: 'Why be honest about tradeoffs?',
+          options: [
+            'Lower returns and increase trust',
+            'No reason',
+            'Only SEO',
+            'Only design'
+          ],
+          correctIndex: 0,
+          difficulty: QuestionDifficulty.MEDIUM,
+          category: 'Course Specific'
+        },
+        {
+          question: 'What is a poor “vs” example?',
+          options: [
+            '“Both are great!” with no data',
+            'Real differences listed',
+            'Links to PDPs',
+            'Policy noted'
+          ],
+          correctIndex: 0,
+          difficulty: QuestionDifficulty.EASY,
+          category: 'Course Specific'
+        },
+        {
+          question: 'What must you link?',
+          options: [
+            'The PDPs for details',
+            'Nothing',
+            'Only the home page',
+            'Only the blog'
+          ],
+          correctIndex: 0,
+          difficulty: QuestionDifficulty.EASY,
+          category: 'Course Specific'
+        },
+        {
+          question: 'Why include who for/not for?',
+          options: [
+            'Helps AI/users judge fit quickly',
+            'Not important',
+            'Only marketing',
+            'Only SEO keyword'
+          ],
+          correctIndex: 0,
+          difficulty: QuestionDifficulty.HARD,
+          category: 'Course Specific'
+        }
+      );
+    } else if (entry.day === 24) {
+      quizzes.push(
+        {
+          question: 'What is the goal of a use-case landing?',
+          options: [
+            'Contextual recommendation (gift/season/sport/budget)',
+            'Only a gallery',
+            'Only price list',
+            'Only a blog post'
+          ],
+          correctIndex: 0,
+          difficulty: QuestionDifficulty.MEDIUM,
+          category: 'Course Specific'
+        },
+        {
+          question: 'What belongs in the hero?',
+          options: [
+            'Who/when the recommendation is for',
+            'Only an image',
+            'Only price',
+            'Only a CTA'
+          ],
+          correctIndex: 0,
+          difficulty: QuestionDifficulty.EASY,
+          category: 'Course Specific'
+        },
+        {
+          question: 'Why give short reasons for each product?',
+          options: [
+            'So AI can cite why it fits the use-case',
+            'Not needed',
+            'Only design',
+            'Only SEO'
+          ],
+          correctIndex: 0,
+          difficulty: QuestionDifficulty.MEDIUM,
+          category: 'Course Specific'
+        },
+        {
+          question: 'What is a poor use-case page?',
+          options: [
+            'Grid with no context',
+            'Hero + criteria + list with reasons',
+            'Policy noted',
+            'Links to PDPs'
+          ],
+          correctIndex: 0,
+          difficulty: QuestionDifficulty.EASY,
+          category: 'Course Specific'
+        },
+        {
+          question: 'What to add in the policy/fit block?',
+          options: [
+            'Short shipping/returns with link',
+            'Nothing',
+            'False promises',
+            'Random text'
+          ],
+          correctIndex: 0,
+          difficulty: QuestionDifficulty.HARD,
+          category: 'Course Specific'
+        }
+      );
+    } else if (entry.day === 25) {
+      quizzes.push(
+        {
+          question: 'What makes a useful off-site source?',
+          options: [
+            'Credible, relevant, real content',
+            'Link farm',
+            'Keyword stuffing',
+            'Paid spam'
+          ],
+          correctIndex: 0,
+          difficulty: QuestionDifficulty.EASY,
+          category: 'Course Specific'
+        },
+        {
+          question: 'Why are spammy links harmful?',
+          options: [
+            'Loss of trust, possible exclusion',
+            'Not harmful',
+            'Only design',
+            'Only page speed'
+          ],
+          correctIndex: 0,
+          difficulty: QuestionDifficulty.MEDIUM,
+          category: 'Course Specific'
+        },
+        {
+          question: 'What should you list?',
+          options: [
+            'Useful vs avoid sources',
+            'Only footer links',
+            'Only meta title',
+            'Only alt text'
+          ],
+          correctIndex: 0,
+          difficulty: QuestionDifficulty.EASY,
+          category: 'Course Specific'
+        },
+        {
+          question: 'What is a good outreach step?',
+          options: [
+            'Draft for partner article/Q&A',
+            'Mass spam email',
+            'Buy link farm',
+            'Do nothing'
+          ],
+          correctIndex: 0,
+          difficulty: QuestionDifficulty.MEDIUM,
+          category: 'Course Specific'
+        },
+        {
+          question: 'Which source should you avoid?',
+          options: [
+            'Link farm, irrelevant directory',
+            'Credible media',
+            'Real review site',
+            'Partner blog'
+          ],
+          correctIndex: 0,
+          difficulty: QuestionDifficulty.HARD,
+          category: 'Course Specific'
+        }
+      );
+    } else if (entry.day === 26) {
+      quizzes.push(
+        {
+          question: 'What is good anti-spam practice?',
+          options: [
+            'Sourced claims, real data, short blocks',
+            'Keyword stuffing',
+            'False claims',
+            'Source-less data'
+          ],
+          correctIndex: 0,
+          difficulty: QuestionDifficulty.EASY,
+          category: 'Course Specific'
+        },
+        {
+          question: 'Why need a quality/anti-spam checklist?',
+          options: [
+            'To avoid risky content consistently',
+            'Just decoration',
+            'Not needed',
+            'Only for SEO'
+          ],
+          correctIndex: 0,
+          difficulty: QuestionDifficulty.MEDIUM,
+          category: 'Course Specific'
+        },
+        {
+          question: 'What is a poor AI-assisted example?',
+          options: [
+            'Fake “best in the world” claim',
+            'Sourced, short claims',
+            'Real data',
+            'Policy link'
+          ],
+          correctIndex: 0,
+          difficulty: QuestionDifficulty.EASY,
+          category: 'Course Specific'
+        },
+        {
+          question: 'What should you do when fixing content?',
+          options: [
+            'Apply the checklist to an existing guide and fix a section',
+            'Do nothing',
+            'Write random text',
+            'Delete the page'
+          ],
+          correctIndex: 0,
+          difficulty: QuestionDifficulty.MEDIUM,
+          category: 'Course Specific'
+        },
+        {
+          question: 'Why cite sources?',
+          options: [
+            'Increases trust and citability',
+            'Not important',
+            'Only design',
+            'Only SEO length'
+          ],
+          correctIndex: 0,
+          difficulty: QuestionDifficulty.HARD,
+          category: 'Course Specific'
+        }
+      );
+    } else if (entry.day === 27) {
+      quizzes.push(
+        {
+          question: 'Why set a feed refresh cadence?',
+          options: [
+            'Avoid stale price/stock',
+            'Only design',
+            'Not needed',
+            'Only SEO'
+          ],
+          correctIndex: 0,
+          difficulty: QuestionDifficulty.EASY,
+          category: 'Course Specific'
+        },
+        {
+          question: 'What belongs in the error log?',
+          options: [
+            'Date, error, product, fix, SLA',
+            'Just a number',
+            'Only price',
+            'Nothing'
+          ],
+          correctIndex: 0,
+          difficulty: QuestionDifficulty.MEDIUM,
+          category: 'Course Specific'
+        },
+        {
+          question: 'What happens if you ignore feed errors?',
+          options: [
+            'Exclusion or bad AI recommendations',
+            'No impact',
+            'Only design',
+            'Only alt text missing'
+          ],
+          correctIndex: 0,
+          difficulty: QuestionDifficulty.MEDIUM,
+          category: 'Course Specific'
+        },
+        {
+          question: 'What is a good refresh frequency?',
+          options: [
+            'Daily based on stock/price changes',
+            'Yearly',
+            'Never',
+            'Only when it rains'
+          ],
+          correctIndex: 0,
+          difficulty: QuestionDifficulty.EASY,
+          category: 'Course Specific'
+        },
+        {
+          question: 'What to do when errors arise?',
+          options: [
+            'Log and fix with an SLA',
+            'Ignore',
+            'Delete product without measurement',
+            'Recolor the theme'
+          ],
+          correctIndex: 0,
+          difficulty: QuestionDifficulty.HARD,
+          category: 'Course Specific'
+        }
+      );
+    } else if (entry.day === 28) {
+      quizzes.push(
+        {
+          question: 'What columns should the program table include?',
+          options: [
+            'Program, region, requirement, status, owner',
+            'Only program name',
+            'Only price',
+            'Only an emoji'
+          ],
+          correctIndex: 0,
+          difficulty: QuestionDifficulty.EASY,
+          category: 'Course Specific'
+        },
+        {
+          question: 'Why need verification and policy compliance?',
+          options: [
+            'Eligibility and user trust',
+            'Not needed',
+            'Only design',
+            'Only SEO keywords'
+          ],
+          correctIndex: 0,
+          difficulty: QuestionDifficulty.MEDIUM,
+          category: 'Course Specific'
+        },
+        {
+          question: 'What is a poor onboarding practice?',
+          options: [
+            '“Later” with no documentation',
+            'Checklist with status',
+            'Owner set',
+            'Requirements recorded'
+          ],
+          correctIndex: 0,
+          difficulty: QuestionDifficulty.EASY,
+          category: 'Course Specific'
+        },
+        {
+          question: 'Why track region differences?',
+          options: [
+            'Program availability is region-dependent',
+            'Not important',
+            'Only design',
+            'Only alt text'
+          ],
+          correctIndex: 0,
+          difficulty: QuestionDifficulty.MEDIUM,
+          category: 'Course Specific'
+        },
+        {
+          question: 'What to do if requirements are missing?',
+          options: [
+            'Mark as gap and assign a task/owner',
+            'Do nothing',
+            'Hide it',
+            'Insert random data'
+          ],
+          correctIndex: 0,
+          difficulty: QuestionDifficulty.HARD,
+          category: 'Course Specific'
+        }
+      );
+    } else if (entry.day === 29) {
+      quizzes.push(
+        {
+          question: 'What should you measure weekly?',
+          options: [
+            'Inclusion, citation, consistency, AI referral KPIs',
+            'Only speed',
+            'Only backlinks',
+            'Only title length'
+          ],
+          correctIndex: 0,
+          difficulty: QuestionDifficulty.MEDIUM,
+          category: 'Course Specific'
+        },
+        {
+          question: 'What is a key report template field?',
+          options: [
+            'Prompt | Inclusion | Citation | Consistency | Notes',
+            'Only an emoji',
+            'Only price',
+            'Only images'
+          ],
+          correctIndex: 0,
+          difficulty: QuestionDifficulty.EASY,
+          category: 'Course Specific'
+        },
+        {
+          question: 'Why set the schedule explicitly?',
+          options: [
+            'Keep measurement regular, not ad hoc',
+            'Not important',
+            'Only design',
+            'Only SEO'
+          ],
+          correctIndex: 0,
+          difficulty: QuestionDifficulty.MEDIUM,
+          category: 'Course Specific'
+        },
+        {
+          question: 'What is a poor measurement example?',
+          options: [
+            '“Feels better” with no notes',
+            'Documented results',
+            'Template filled',
+            'Linked prompts'
+          ],
+          correctIndex: 0,
+          difficulty: QuestionDifficulty.EASY,
+          category: 'Course Specific'
+        },
+        {
+          question: 'What to do with the first 5 runs?',
+          options: [
+            'Record as baseline',
+            'Delete them',
+            'Hide them',
+            'Use only in marketing slogans'
+          ],
+          correctIndex: 0,
+          difficulty: QuestionDifficulty.HARD,
+          category: 'Course Specific'
+        }
+      );
+    } else if (entry.day === 30) {
+      quizzes.push(
+        {
+          question: 'What is the capstone sprint scope?',
+          options: [
+            '1 collection, 10 products, full GEO cycle',
+            'Write one blog post',
+            'Only design refresh',
+            'Only alt text swap'
+          ],
+          correctIndex: 0,
+          difficulty: QuestionDifficulty.MEDIUM,
+          category: 'Course Specific'
+        },
+        {
+          question: 'Which steps are in the sprint?',
+          options: [
+            'Data fix + PDP blueprint + capsule + feed/measurement',
+            'Only meta title',
+            'Only backlink purchase',
+            'Only price change'
+          ],
+          correctIndex: 0,
+          difficulty: QuestionDifficulty.MEDIUM,
+          category: 'Course Specific'
+        },
+        {
+          question: 'What is a good sprint output?',
+          options: [
+            'Before/after notes and measurement results',
+            'Nothing',
+            'Just a slogan',
+            'Only an image'
+          ],
+          correctIndex: 0,
+          difficulty: QuestionDifficulty.EASY,
+          category: 'Course Specific'
+        },
+        {
+          question: 'Why create a backlog for the next 30 days?',
+          options: [
+            'To scale the method',
+            'No need',
+            'Only marketing',
+            'Only design'
+          ],
+          correctIndex: 0,
+          difficulty: QuestionDifficulty.MEDIUM,
+          category: 'Course Specific'
+        },
+        {
+          question: 'What is a poor sprint practice?',
+          options: [
+            'Ad hoc fixes with no measurement',
+            'Apply standard to 10 products',
+            'Record measurements',
+            'Write a backlog'
           ],
           correctIndex: 0,
           difficulty: QuestionDifficulty.HARD,

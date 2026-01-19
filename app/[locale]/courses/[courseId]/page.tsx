@@ -394,14 +394,7 @@ export default function CourseDetailPage({
                         {lesson.dayNumber}
                       </div>
                       <div className="flex-1 min-w-0">
-                        <div className="flex items-center gap-2 mb-1">
-                          <h3 className="font-bold text-brand-black text-lg truncate">{lesson.title}</h3>
-                          {lesson.hasQuiz && (
-                            <span className="flex-shrink-0 bg-brand-accent text-brand-black text-xs font-bold px-2 py-1 rounded">
-                              {t('hasQuiz')}
-                            </span>
-                          )}
-                        </div>
+                        <h3 className="font-bold text-brand-black text-lg truncate mb-1">{lesson.title}</h3>
                         <div className="flex items-center gap-4 text-sm text-brand-darkGrey">
                           <span>{t('day')} {lesson.dayNumber}</span>
                           {lesson.estimatedMinutes && (
