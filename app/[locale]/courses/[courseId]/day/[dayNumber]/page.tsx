@@ -12,7 +12,6 @@ import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import { useLocale, useTranslations } from 'next-intl';
 import { LocaleLink } from '@/components/LocaleLink';
-import LessonQuiz from '@/components/LessonQuiz';
 import {
   ArrowLeft,
   ArrowRight,
@@ -22,6 +21,7 @@ import {
   Play,
   Calendar,
 } from 'lucide-react';
+import { useSearchParams } from 'next/navigation';
 
 interface Lesson {
   _id: string;
@@ -66,6 +66,7 @@ export default function DailyLessonPage({
   const [courseId, setCourseId] = useState<string>('');
   const [dayNumber, setDayNumber] = useState<number>(0);
   const [quizPassed, setQuizPassed] = useState(false);
+  const searchParams = useSearchParams();
 
   useEffect(() => {
     const loadData = async () => {
@@ -88,6 +89,9 @@ export default function DailyLessonPage({
       if (data.success) {
         setLesson(data.lesson);
         setNavigation(data.navigation);
+        // Refresh quiz passed flag from localStorage (set by quiz page)
+        const stored = localStorage.getItem(`quiz-passed-${cid}-${data.lesson.lessonId}`);
+        setQuizPassed(stored === 'true');
       } else {
         alert(data.error || t('failedToLoadLesson'));
       }
@@ -131,11 +135,15 @@ export default function DailyLessonPage({
     }
   };
 
-  const handleQuizComplete = (result: { passed: boolean }) => {
-    if (result.passed) {
+  useEffect(() => {
+    // If quiz page redirected back with query flag, mark as passed
+    const qp = searchParams.get('quiz');
+    if (qp === 'passed' && lesson) {
+      const key = `quiz-passed-${courseId}-${lesson.lessonId}`;
+      localStorage.setItem(key, 'true');
       setQuizPassed(true);
     }
-  };
+  }, [searchParams, lesson, courseId]);
 
   if (loading) {
     return (
@@ -229,20 +237,8 @@ export default function DailyLessonPage({
               />
             </div>
 
-            {/* Quiz Section */}
-            {lesson.quizConfig?.enabled && !lesson.isCompleted && (
-              <div className="mb-6">
-                <LessonQuiz
-                  courseId={courseId}
-                  lessonId={lesson.lessonId}
-                  quizConfig={lesson.quizConfig}
-                  onComplete={handleQuizComplete}
-                />
-              </div>
-            )}
-
             {/* Actions */}
-            <div className="flex items-center justify-between gap-4">
+            <div className="flex items-center justify-between gap-4 flex-wrap">
               {navigation?.previous && (
                 <LocaleLink
                   href={`/courses/${courseId}/day/${navigation.previous.day}`}
@@ -253,7 +249,16 @@ export default function DailyLessonPage({
                 </LocaleLink>
               )}
 
-              <div className="flex-1" />
+              <div className="flex-1 min-w-[160px]" />
+
+              {lesson.quizConfig?.enabled && !lesson.isCompleted && (
+                <LocaleLink
+                  href={`/courses/${courseId}/day/${dayNumber}/quiz`}
+                  className="flex items-center justify-center gap-2 bg-brand-white border-2 border-brand-accent text-brand-black px-6 py-3 rounded-lg font-bold hover:bg-brand-accent/80 transition-colors"
+                >
+                  {t('takeQuiz', { defaultValue: 'Kitöltöm a kvízt' })}
+                </LocaleLink>
+              )}
 
               {!lesson.isCompleted ? (
                 <button
@@ -281,6 +286,14 @@ export default function DailyLessonPage({
                 </LocaleLink>
               )}
             </div>
+            {lesson.quizConfig?.enabled && lesson.quizConfig.required && !quizPassed && (
+              <p className="mt-3 text-sm text-brand-white/80">
+                {t('quizRequiredMessage', {
+                  defaultValue:
+                    'A kvíz sikeres teljesítése (5/5) szükséges a befejezéshez. A kérdések a külön „Kitöltöm a kvízt” oldalon érhetők el.',
+                })}
+              </p>
+            )}
 
             {/* Assessment Game */}
             {lesson.assessmentGameId && lesson.isCompleted && (
