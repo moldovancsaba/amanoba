@@ -30,7 +30,7 @@ Tasks are listed in priority order. Upon completion, tasks are moved to RELEASE_
 | STRIPE3 | Create PaymentTransaction model (`app/lib/models/payment-transaction.ts`) for transaction logging | AI | 2025-01-20 | ✅ DONE |
 | STRIPE4 | Update Player model: Add `stripeCustomerId` and `paymentHistory` fields | AI | 2025-01-20 | ✅ DONE |
 | STRIPE5 | Create `/api/payments/create-checkout` endpoint: Generate Stripe Checkout session for course purchase | AI | 2025-01-20 | ✅ DONE |
-| STRIPE6 | Create `/api/payments/webhook` endpoint: Handle Stripe webhook events (payment success, failure, refund) | AI | TBD | ⏳ PENDING |
+| STRIPE6 | Create `/api/payments/webhook` endpoint: Handle Stripe webhook events (payment success, failure, refund) | AI | 2025-01-20 | ✅ DONE |
 | STRIPE7 | Implement payment success handler: Activate premium status, update Player model, log transaction | AI | TBD | ⏳ PENDING |
 | STRIPE8 | Add payment button to course detail page (`app/[locale]/courses/[courseId]/page.tsx`) for premium courses | AI | TBD | ⏳ PENDING |
 | STRIPE9 | Create payment confirmation email: Send email after successful payment | AI | TBD | ⏳ PENDING |
