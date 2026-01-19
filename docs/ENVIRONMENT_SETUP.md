@@ -94,6 +94,34 @@ VAPID_SUBJECT=mailto:csaba@doneisbetter.com
 **Source**: Generated for PlayMass on 2025-10-07  
 **Generate New**: `npx web-push generate-vapid-keys`
 
+#### Email Service (Resend)
+```env
+RESEND_API_KEY=re_xxxxxxxxxxxxxxxxxxxx
+EMAIL_FROM=noreply@amanoba.com
+EMAIL_FROM_NAME=Amanoba Learning
+EMAIL_REPLY_TO=support@amanoba.com
+```
+
+**What**: Resend API credentials for email delivery  
+**Why**: Sends daily lesson emails, welcome emails, and course completion emails  
+**Source**: Get from https://resend.com/api-keys  
+**Note**: Required for course email functionality
+
+#### Payment Processing (Stripe)
+```env
+STRIPE_SECRET_KEY=sk_test_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+STRIPE_PUBLISHABLE_KEY=pk_test_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+STRIPE_WEBHOOK_SECRET=whsec_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+```
+
+**What**: Stripe API keys for payment processing  
+**Why**: Enables premium course purchases and subscription management  
+**Source**: Get from https://dashboard.stripe.com/apikeys (Test mode) and https://dashboard.stripe.com/webhooks (Webhook secret)  
+**Note**: 
+- Use `sk_test_...` and `pk_test_...` for development/testing
+- Use `sk_live_...` and `pk_live_...` for production
+- Webhook secret is generated when you create a webhook endpoint in Stripe Dashboard
+
 ---
 
 ## Production Setup
@@ -115,11 +143,18 @@ VAPID_SUBJECT=mailto:csaba@doneisbetter.com
    | `ADMIN_PASSWORD` | [Strong password] | ✅ |
    | `FACEBOOK_APP_SECRET` | [Facebook secret] | ✅ |
    | `VAPID_PRIVATE_KEY` | [VAPID private key] | ✅ |
+   | `RESEND_API_KEY` | [Resend API key] | ✅ |
+   | `STRIPE_SECRET_KEY` | [Stripe secret key] | ✅ |
+   | `STRIPE_WEBHOOK_SECRET` | [Stripe webhook secret] | ✅ |
    | `NEXT_PUBLIC_APP_URL` | https://amanoba.com | ❌ |
    | `NEXT_PUBLIC_APP_NAME` | Amanoba | ❌ |
    | `NEXT_PUBLIC_FACEBOOK_APP_ID` | 804700345578279 | ❌ |
    | `NEXT_PUBLIC_VAPID_PUBLIC_KEY` | [VAPID public key] | ❌ |
+   | `NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY` | [Stripe publishable key] | ❌ |
    | `VAPID_SUBJECT` | mailto:csaba@doneisbetter.com | ❌ |
+   | `EMAIL_FROM` | noreply@amanoba.com | ❌ |
+   | `EMAIL_FROM_NAME` | Amanoba Learning | ❌ |
+   | `EMAIL_REPLY_TO` | support@amanoba.com | ❌ |
 
 3. **Build Configuration**
    - Build Command: `npm run build`
@@ -275,6 +310,13 @@ npm run db:seed
 | `VAPID_PRIVATE_KEY` | Secret | `abc123...` | VAPID private key |
 | `NEXT_PUBLIC_VAPID_PUBLIC_KEY` | Public | `BJut...` | VAPID public key |
 | `VAPID_SUBJECT` | Public | `mailto:you@example.com` | VAPID subject |
+| `RESEND_API_KEY` | Secret | `re_xxxxx...` | Resend API key for email delivery |
+| `EMAIL_FROM` | Public | `noreply@amanoba.com` | Email sender address |
+| `EMAIL_FROM_NAME` | Public | `Amanoba Learning` | Email sender name |
+| `EMAIL_REPLY_TO` | Public | `support@amanoba.com` | Email reply-to address |
+| `STRIPE_SECRET_KEY` | Secret | `sk_live_xxxxx...` | Stripe secret key (server-side) |
+| `STRIPE_PUBLISHABLE_KEY` | Public | `pk_live_xxxxx...` | Stripe publishable key (client-side) |
+| `STRIPE_WEBHOOK_SECRET` | Secret | `whsec_xxxxx...` | Stripe webhook signing secret |
 
 ### Optional
 
