@@ -1,8 +1,8 @@
 # Amanoba — Unified 30-Day Learning Platform
 
-**Current Version**: 2.7.0  
-**Last Updated**: 2025-01-20T12:00:00.000Z  
-**Status**: Phase 2 & 3 Complete — Production Stable — Quiz Assessment System Complete
+**Current Version**: 2.8.0  
+**Last Updated**: 2025-01-20T23:00:00.000Z  
+**Status**: Production Stable — Stripe Integration Complete — Premium Course Pricing Enabled
 
 ## 🎓 Overview
 
@@ -13,6 +13,16 @@ Amanoba is transforming into a **unified 30-day learning platform** that combine
 - **30-Day Course System**: Structured learning with daily lessons delivered via email
 - **Quiz Assessment System**: Course-specific quizzes with configurable thresholds and question pools
 - **Course Export/Import**: Export complete courses (lessons + quizzes) to JSON and import with overwrite support
+- **Stripe Payment Integration**: Complete payment system for premium courses
+  - Stripe Checkout for secure payments
+  - Automatic premium activation on successful payment
+  - Payment history tracking
+  - Multi-currency support (USD, EUR, HUF, GBP)
+  - Payment confirmation emails
+- **Premium Course Pricing**: Admin interface to set custom pricing per course
+  - Set price amount and currency per course
+  - Stripe minimum amount validation
+  - Real-time validation in admin UI
 - **First Course Available**: "AI 30 Nap" (AI 30 Days) - Complete 30-day AI learning course in Hungarian
 - **Interactive Assessments**: Games (QUIZZZ, WHACKPOP, Madoku) repurposed as student assessment tools
 - **Email-First Learning**: Daily lessons sent to students' email with in-platform access

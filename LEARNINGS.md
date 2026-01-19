@@ -1,7 +1,7 @@
 # Amanoba Learnings
 
-**Version**: 2.7.0  
-**Last Updated**: 2025-01-20T12:00:00.000Z
+**Version**: 2.8.0  
+**Last Updated**: 2025-01-20T23:00:00.000Z
 
 ---
 
@@ -1577,6 +1577,93 @@ quizConfig: {
 **Policy**: ISO 8601 with milliseconds UTC only: `YYYY-MM-DDTHH:MM:SS.sssZ`  
 **Applied**: Everywhere - logs, docs, database, UI.  
 **Rule**: AI Rule GgQpzJaJFBHgeBzRXQr8GG
+
+---
+
+## 💳 Payment Processing
+
+### Stripe Minimum Amount Validation
+
+**Context**: Stripe requires minimum payment amounts per currency to prevent transaction fees from being too high relative to the charge amount.
+
+**Learning**: Different currencies have different minimums:
+- USD: $0.50 (50 cents)
+- EUR: €0.50 (50 cents)
+- HUF: 175 Ft (much higher than USD/EUR)
+- GBP: £0.30 (30 pence)
+
+**Solution Implemented**:
+- Created `app/lib/utils/stripe-minimums.ts` utility with currency minimums
+- Added real-time validation in admin UI (course editor and creation forms)
+- Shows warnings when amount is below minimum
+- Auto-adjusts amount when currency changes if below minimum
+- Server-side validation in create-checkout endpoint
+- Helpful error messages with minimum amounts
+
+**Why It Matters**: Prevents payment errors at checkout. Users setting 99 cents for HUF would get rejected by Stripe (minimum is 175 Ft). Validation catches this before payment attempt.
+
+**Applied In**: `app/lib/utils/stripe-minimums.ts`, admin course forms, `app/api/payments/create-checkout/route.ts`
+
+---
+
+### Stripe Webhook Idempotency
+
+**Context**: Stripe webhooks can be retried multiple times if the endpoint doesn't respond quickly or returns an error.
+
+**Learning**: Must implement idempotency to prevent duplicate processing of payment events. Same payment event can arrive multiple times.
+
+**Solution Implemented**:
+- Check for existing PaymentTransaction with same `stripePaymentIntentId` before processing
+- If transaction exists, log and return early (idempotent)
+- Only create new transaction if it doesn't exist
+- This ensures premium activation and transaction logging happen exactly once
+
+**Why It Matters**: Without idempotency, a retried webhook could:
+- Activate premium twice (not harmful but wasteful)
+- Create duplicate transaction records (data integrity issue)
+- Send duplicate confirmation emails (bad UX)
+
+**Applied In**: `app/api/payments/webhook/route.ts` - `handleCheckoutSessionCompleted` function
+
+---
+
+### Stripe Webhook Signature Verification
+
+**Context**: Webhook endpoints must verify that requests actually come from Stripe, not malicious actors.
+
+**Learning**: Always verify webhook signatures using `STRIPE_WEBHOOK_SECRET`. This prevents:
+- Fake payment events from attackers
+- Replay attacks
+- Unauthorized premium activation
+
+**Solution Implemented**:
+- Read raw request body (required for signature verification)
+- Use `stripe.webhooks.constructEvent()` to verify signature
+- Return 400 if signature invalid
+- Only process events with valid signatures
+
+**Why It Matters**: Security critical. Without verification, attackers could send fake payment events and activate premium access without paying.
+
+**Applied In**: `app/api/payments/webhook/route.ts` - POST handler
+
+---
+
+### Course Price Storage: Cents vs Decimal
+
+**Context**: Need to store course prices in database and pass to Stripe.
+
+**Learning**: Always store prices in smallest currency unit (cents for USD/EUR, Ft for HUF) to avoid floating-point precision issues. Stripe also requires amounts in smallest unit.
+
+**Solution Implemented**:
+- Course model `price.amount` field stores amount in cents (e.g., 2999 = $29.99)
+- Course model `price.currency` field stores ISO currency code
+- Admin UI shows amount in smallest unit with helper text
+- Format for display using `Intl.NumberFormat` when showing to users
+- Pass amount directly to Stripe (no conversion needed)
+
+**Why It Matters**: Prevents rounding errors and currency conversion issues. Makes it easy to work with Stripe API which also uses smallest unit.
+
+**Applied In**: `app/lib/models/course.ts`, admin course forms, `app/api/payments/create-checkout/route.ts`
 
 ---
 

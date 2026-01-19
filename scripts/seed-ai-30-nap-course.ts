@@ -192,43 +192,47 @@ CTA: [következő lépés / kérés]
   {
     day: 3,
     title: 'Hogyan kérdezz vissza az AI-tól?',
-    content: `<h2>Napi cél</h2>
-<p>Ma az iterációt és a visszakérdezést tanulod: hogyan pontosítsd a választ, hogy tényleg használható legyen.</p>
+    content: `<h1>Iteráció és visszakérdezés – hogyan lesz tényleg használható a válasz?</h1>
+<p><em>Az „OK, de…” művészete</em></p>
+<p>Ma az iterációt és a visszakérdezést tanulod: hogyan pontosítsd a választ, hogy tényleg használható legyen. Az AI nem találja ki a hiányzó részleteket – te irányítasz.</p>
+
+<hr />
+<h2>Napi cél</h2>
 <ul>
-<li>felismered, mikor kell pontosítani</li>
-<li>tudsz példákat és korlátokat kérni</li>
-<li>háromlépéses iterációs hurkot használsz</li>
+<li>Felismersz minden olyan helyzetet, amikor pontosítani kell</li>
+<li>Tudsz példát, korlátot, magyarázatot kérni</li>
+<li>Háromlépéses iterációs hurkot használsz</li>
 </ul>
 
 <hr />
 <h2>Mi az iteráció?</h2>
-<p>Válasz → visszajelzés → pontosítás. Az AI nem találja ki a hiányzó részleteket: te irányítasz.</p>
-
-<h2>Iterációs hurok (3 lépés)</h2>
+<p>Válasz → visszajelzés → pontosítás. A jó iteráció három kérdésből áll:</p>
 <ol>
-<li><strong>Kérj változatot</strong>: „Adj 3 stílusvariánst (hivatalos, barátságos, technikai) max 50 szóban.”</li>
-<li><strong>Pontosíts</strong>: „Rövidítsd 30%-kal, de tartsd meg a 3 fő üzenetet.”</li>
+<li><strong>Adj változatot</strong>: „Adj 3 stílusvariánst (hivatalos, barátságos, technikai) max 50 szóban.”</li>
+<li><strong>Pontosíts</strong>: „Rövidítsd 30%-kal, tartsd meg a 3 fő üzenetet.”</li>
 <li><strong>Korlátozz</strong>: „Legyen bullet lista, max 5 pont, konkrét teendőkkel.”</li>
 </ol>
 
 <hr />
-<h2>Példák: gyenge vs. jó pontosítás</h2>
-<p><strong>Gyenge:</strong> „Nem jó, csináld újra.”<br/><strong>Jó:</strong> „Túl hosszú és általános. Rövidítsd 30%-kal, adj konkrét példát, és írj barátságos hangnemben.”</p>
+<h2>Példák: gyenge vs. jó visszajelzés</h2>
+<p><strong>Gyenge:</strong> „Nem jó, csináld újra.”</p>
+<p><strong>Jó:</strong> „Túl hosszú és általános. Rövidítsd 30%-kal, adj konkrét példát, és írj barátságos hangnemben.”</p>
 
 <hr />
-<h2>Gyakorlat 1 – Ugyanaz a kérés, két verzió</h2>
+<h2>Gyakorlat (vezetett) – Ugyanaz a kérés, két verzió</h2>
 <ol>
 <li>„Írj emailt a határidő csúszásáról.”</li>
 <li>„Írj emailt a határidő csúszásáról. Stílus: empatikus, de professzionális. Hossz: max 4 mondat. Adj alternatív megoldást.”</li>
 </ol>
 <p>Hasonlítsd össze a két választ: mit tett hozzá a pontosítás?</p>
 
-<h2>Gyakorlat 2 – Iterációs kör</h2>
-<p>Válassz egy saját promptot, majd:</p>
+<hr />
+<h2>Gyakorlat (önálló) – Iterációs kör</h2>
 <ul>
-<li>kérj 3 stílusvariánst</li>
-<li>kérj rövidítést vagy bővítést konkrét elvárással</li>
-<li>kérj magyarázatot: „Miért ezt javaslod?”</li>
+<li>Válassz egy saját promptot.</li>
+<li>Kérj 3 stílusvariánst.</li>
+<li>Kérj rövidítést vagy bővítést konkrét elvárással.</li>
+<li>Kérj magyarázatot: „Miért ezt javaslod?”</li>
 </ul>
 
 <hr />
@@ -237,8 +241,20 @@ CTA: [következő lépés / kérés]
 <p>Adj 3 alternatív választ listában. Mindegyik más stílusban (1) hivatalos, 2) barátságos, 3) technikai). Mindegyik max 50 szó, és tartalmazzon 2 konkrét teendőt.</p>
 </blockquote>
 
-<h2>Tipp</h2>
-<p>Kérj példát, korlátot (hossz, formátum), és indoklást. A jó visszajelzés = jobb következő válasz.</p>`,
+<hr />
+<h2>Tippek</h2>
+<ul>
+<li>Kérj példát és korlátot (hossz, formátum).</li>
+<li>Kérj indoklást: „Miért ezt javaslod?”</li>
+<li>Iterálj, amíg nem kapsz használható outputot – a jó visszajelzés = jó következő válasz.</li>
+</ul>
+
+<hr />
+<h2>Opcionális mélyítés</h2>
+<ul>
+<li>OpenAI – Prompt Engineering Guide (iteráció rész): <a href="https://platform.openai.com/docs/guides/prompt-engineering" target="_blank" rel="noreferrer">https://platform.openai.com/docs/guides/prompt-engineering</a></li>
+<li>One Useful Thing – Iteration in practice: <a href="https://www.oneusefulthing.org" target="_blank" rel="noreferrer">https://www.oneusefulthing.org</a></li>
+</ul>`,
     emailSubject: 'AI 30 Nap – 3. nap: Hogyan kérdezz vissza az AI-tól?',
     emailBody: `<h1>AI 30 Nap – 3. nap</h1>
 <h2>Hogyan kérdezz vissza az AI-tól?</h2>
@@ -248,23 +264,28 @@ CTA: [következő lépés / kérés]
   {
     day: 4,
     title: 'Stílus és hang – tanítsd meg "úgy írni, mint te"',
-    content: `<h2>Napi cél</h2>
-<p>Ma megtanítod az AI-nak a saját hangodat: hogyan írjon úgy, mint te, következetesen és felismerhetően.</p>
+    content: `<h1>Stílus és hang – tanítsd meg „úgy írni, mint te”</h1>
+<p><em>Következetes márkahang kevesebb utómunkával</em></p>
+<p>Ma megtanítod az AI-nak a saját hangodat: hogyan írjon úgy, mint te, következetesen és felismerhetően. Nem csak hangnemet, hanem struktúrát is adsz, és visszajelzéssel pontosítasz.</p>
+
+<hr />
+<h2>Napi cél</h2>
 <ul>
-<li>stílus-definíciót adsz (hang, mondathossz, formalitás)</li>
-<li>mintaszövegből taníttatod a modellt</li>
-<li>struktúrát és formát is adsz, nem csak hangnemet</li>
-<li>visszajelzést adsz, finomítasz</li>
+<li>Stílus-definíció (hang, mondathossz, formalitás)</li>
+<li>Mintaszövegből taníttatod a modellt</li>
+<li>Struktúrát és formát is adsz, nem csak hangnemet</li>
+<li>Visszajelzést adsz és finomítasz</li>
 </ul>
 
 <hr />
 <h2>Miért taníts stílust?</h2>
 <ul>
-<li>márka- és személyes hang következetessége</li>
-<li>kevesebb kézi átírás, gyorsabb publikálás</li>
-<li>könnyebb delegálás: „írd úgy, ahogy én szoktam”</li>
+<li>Márka- és személyes hang következetessége</li>
+<li>Kevesebb kézi átírás, gyorsabb publikálás</li>
+<li>Könnyebb delegálás: „írd úgy, ahogy én szoktam”</li>
 </ul>
 
+<hr />
 <h2>4 lépés a stílustanításhoz</h2>
 <ol>
 <li><strong>Mutasd meg</strong>: adj 1-2 saját szöveget példának.</li>
@@ -279,7 +300,7 @@ CTA: [következő lépés / kérés]
 <p><strong>Jó:</strong> „Írj úgy, mint ebben a példában: [szöveg]. Hang: barátságos, tárgyilagos, rövid mondatok. Struktúra: 1) probléma röviden, 2) megoldás 3 bulletben, 3) záró CTA.”</p>
 
 <hr />
-<h2>Gyakorlat 1 – Saját szöveg elemzése</h2>
+<h2>Gyakorlat (vezetett) – Saját szöveg elemzése</h2>
 <p>Add meg az AI-nak egy általad írt szöveget, kérd:</p>
 <ul>
 <li>Elemezd a hangot (formalitás, mondathossz, szóhasználat).</li>
@@ -287,7 +308,8 @@ CTA: [következő lépés / kérés]
 <li>Írj 3 tippet, hogyan lehet ezt másolni.</li>
 </ul>
 
-<h2>Gyakorlat 2 – Új szöveg ugyanabban a stílusban</h2>
+<hr />
+<h2>Gyakorlat (önálló) – Új szöveg ugyanabban a stílusban</h2>
 <p>Kérj új szöveget a fenti stílusban egy másik témára. Adj feedbacket és pontosíts.</p>
 
 <hr />
@@ -296,13 +318,20 @@ CTA: [következő lépés / kérés]
 <p>Íme a stílusom: [példa szöveg]. Hang: barátságos, tömör, példákkal. Struktúra: probléma, 3 bullet megoldás, CTA. Írj ugyanebben a stílusban egy emailt a következő témáról: [téma]. Ha eltérsz, jelezd, mit módosítottál.</p>
 </blockquote>
 
-<h2>Tipp</h2>
-<p>Mindig adj mintát + stílusleírást + struktúrát. Ha nem tetszik az első verzió, mondd meg, mi legyen több/kevesebb.</p>
+<hr />
+<h2>Tippek</h2>
+<ul>
+<li>Mindig adj mintát + stílusleírást + struktúrát.</li>
+<li>Ha nem tetszik az első verzió, mondd meg, mi legyen több/kevesebb.</li>
+<li>Kérj külön változatot blogra, emailre, social posztra – mindnek más a ritmusa.</li>
+</ul>
 
+<hr />
 <h2>Opcionális mélyítés</h2>
 <ul>
-<li>Brand voice guide példák (HubSpot, Mailchimp style guides)</li>
-<li>„Tone of voice” cikkek: hogyan építsd fel a sajátodat</li>
+<li>Mailchimp Content Style Guide: <a href="https://styleguide.mailchimp.com" target="_blank" rel="noreferrer">https://styleguide.mailchimp.com</a></li>
+<li>HubSpot Tone of Voice példa: <a href="https://blog.hubspot.com/marketing/brand-voice" target="_blank" rel="noreferrer">https://blog.hubspot.com/marketing/brand-voice</a></li>
+<li>OpenAI – Style transfer tippek: <a href="https://platform.openai.com/docs/guides/prompt-engineering/style-guide" target="_blank" rel="noreferrer">https://platform.openai.com/docs/guides/prompt-engineering/style-guide</a></li>
 </ul>`,
     emailSubject: 'AI 30 Nap – 4. nap: Stílus és hang',
     emailBody: `<h1>AI 30 Nap – 4. nap</h1>
@@ -313,62 +342,77 @@ CTA: [következő lépés / kérés]
   {
     day: 5,
     title: 'Biztonság & etika a gyakorlatban',
-    content: `<h2>Napi cél</h2>
-<p>Ma megtanulod, mit <em>nem</em adunk be az AI-nak, hogyan anonimizálj gyorsan, és hogyan maradj etikus.</p>
+    content: `<h1>Biztonság &amp; etika a gyakorlatban</h1>
+<p><em>„Ne kerülj bajba” kézikönyv</em></p>
+<p>Ma megtanulod, mit <em>nem</em> adunk be az AI-nak, hogyan anonimizálsz gyorsan, és hogyan maradsz etikus. Az AI erős, de a felelősség a tied.</p>
+
+<hr />
+<h2>Napi cél</h2>
 <ul>
-<li>felismered az érzékeny adatokat</li>
-<li>tudsz helyőrzőkre cserélni (anonimizálás)</li>
-<li>kockázat alapján döntesz: mit lehet, mit nem</li>
+<li>Felismered az érzékeny adatokat</li>
+<li>Helyőrzőkre cseréled (anonimizálás)</li>
+<li>Beépítesz QA-lépést</li>
+<li>Tudsz forrást/disclaimer-t kérni</li>
 </ul>
 
 <hr />
-<h2>Mit ne adj be?</h2>
+<h2>Mi minősül érzékeny adatnak?</h2>
 <ul>
-<li>személyes adatok: név, email, telefonszám, cím</li>
-<li>pénzügyi: bankszámla, kártyaszám, árazás, szerződés</li>
-<li>bizalmas üzleti info: stratégia, nem publikus termékterv</li>
-<li>jelszavak, tokenek, biztonsági kódok</li>
-<li>egészségügyi, jogi, HR-es érzékeny részletek</li>
-</ul>
-
-<h2>Anonimizálás gyorsan</h2>
-<ul>
-<li>Nevek → [Név], cégek → [Cég], email → [Email], telefon → [Telefon]</li>
-<li>Specifikusum helyett általános: „egy nagyvállalat”, „B2B ügyfél”</li>
-<li>Kérd meg az AI-t is: „Ne tárold, ne idézd vissza a nyers adatot.”</li>
-</ul>
-
-<h2>Kockázati szintek</h2>
-<ul>
-<li><strong>Alacsony</strong>: publikus infó, marketing copy → OK</li>
-<li><strong>Közepes</strong>: belső folyamatleírás → anonimizálva, óvatosan</li>
-<li><strong>Magas</strong>: jogi, pénzügyi, személyes adatok → ne add be</li>
+<li>Személyes adatok (név, email, telefonszám, cím)</li>
+<li>Személyes egészségügyi/jogi/pénzügyi információk</li>
+<li>Céges bizalmas infók, árazás, szerződések</li>
+<li>Jelszavak, API kulcsok, privát linkek</li>
 </ul>
 
 <hr />
-<h2>Gyakorlat 1 – Anonimizálás</h2>
-<p>Vegyél egy rövid szöveget (email/jegyzőkönyv), cseréld a szenzitív részeket helyőrzőkre. Ellenőrizd újra.</p>
+<h2>Hogyan anonimizálj?</h2>
+<ul>
+<li>Cseréld: „[NÉV]”, „[CÉG]”, „[ESEMÉNY]”, „[EMAIL]”, „[DÁTUM]”</li>
+<li>Távolítsd el: felesleges részletek, amik nem kellenek a feladathoz</li>
+<li>Használj fiktív adatokat: „Acme Kft.”, „teszt@example.com”</li>
+</ul>
+<p><strong>Gyors sablon</strong> (ragaszd be prompt elé):<br />„Nevek → [NÉV], cég → [CÉG], email → [EMAIL], dátum → [DÁTUM], számok → kerekített érték, link → [LINK]. Ne adj vissza személyes vagy bizalmas adatot.”</p>
 
-<h2>Gyakorlat 2 – Biztonságos prompt</h2>
-<p>Írj promptot, ami kéri az AI-t: „Anonimizáld a bemenetet, ne használj valós neveket, és csak összefoglalót adj vissza.” Teszteld egy mintaszövegen.</p>
+<hr />
+<h2>Forrás, disclaimer, QA</h2>
+<ul>
+<li>„Adj forrást vagy jelezd, ha nem vagy biztos.”</li>
+<li>„Ha szám/statisztika: jelezd a bizonytalanságot.”</li>
+<li>„Adj 3 forrást linkkel.”</li>
+</ul>
+
+<hr />
+<h2>Gyakorlat (vezetett) – Anonimizálás</h2>
+<p>Végy egy szöveget (email, meeting jegyzet), és cseréld ki az érzékeny részeket helyőrzőre. Add meg az AI-nak, és kérj összefoglalót.</p>
+
+<hr />
+<h2>Gyakorlat (önálló) – Etikai ellenőrzés</h2>
+<p>Írj listát 5 olyan feladatról, amit <em>nem</em> adsz AI-ra. Mindenhez: miért nem, és mi a biztonságos alternatíva?</p>
 
 <hr />
 <h2>Prompt minta</h2>
 <blockquote>
-<p>Anonimizáld a következő szöveget: [szöveg]. Cseréld a neveket [Név], cégeket [Cég], emailt [Email], telefont [Telefon]. Ezután készíts 5 pontos összefoglalót. Ne idézd vissza az eredeti adatokat.</p>
+<p>Itt egy szöveg érzékeny adatokkal. Cseréld le a neveket [NÉV]-re, a cégeket [CÉG]-re, az emaileket [EMAIL]-re, a dátumokat [DÁTUM]-ra. A végén adj 3 forrásellenőrző kérdést.</p>
 </blockquote>
 
-<h2>Tipp</h2>
-<p>Ha bizonytalan vagy, ne add be. Anonimizálj, rövidíts, és kérj összefoglalót teljes szöveg helyett.</p>
+<hr />
+<h2>Tippek</h2>
+<ul>
+<li>Ha bizonytalan vagy, ne add be. Ha be kell adni, anonimizálj.</li>
+<li>Kérj forrást/disclaimer-t mindenhol, ahol kockázat van.</li>
+<li>Mindig legyen manuális QA, főleg számoknál, dátumoknál.</li>
+</ul>
 
+<hr />
 <h2>Opcionális mélyítés</h2>
 <ul>
-<li>GDPR alapok röviden</li>
-<li>OpenAI data usage statement</li>
+<li>OpenAI – Usage policies: <a href="https://openai.com/policies/usage-policies" target="_blank" rel="noreferrer">https://openai.com/policies/usage-policies</a></li>
+<li>NIST AI RMF (összefoglaló): <a href="https://www.nist.gov/itl/ai-risk-management-framework" target="_blank" rel="noreferrer">https://www.nist.gov/itl/ai-risk-management-framework</a></li>
+<li>OWASP Top 10 for LLM Apps (PII szemlélet): <a href="https://owasp.org/www-project-top-10-for-large-language-model-applications/" target="_blank" rel="noreferrer">https://owasp.org/www-project-top-10-for-large-language-model-applications/</a></li>
 </ul>`,
-    emailSubject: 'AI 30 Nap – 5. nap: Biztonság & etika',
-    emailBody: `<h1>AI 30 Nap – 5. nap</h1>
-<h2>Biztonság & etika a gyakorlatban</h2>
+    emailSubject: '30-Day AI Catch-Up – 5. nap: Biztonság & etika',
+    emailBody: `<h1>30-Day AI Catch-Up – 5. nap</h1>
+<h2>Biztonság &amp; etika a gyakorlatban</h2>
 <p>Ma megtanulod, mit nem adunk be az AI-nak és hogyan anonimizálunk. Ez kritikus fontosságú a biztonságos használathoz.</p>
 <p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Olvasd el a teljes leckét →</a></p>`
   },

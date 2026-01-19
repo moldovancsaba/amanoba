@@ -1,8 +1,8 @@
 # Amanoba Architecture
 
-**Version**: 1.1.0  
-**Last Updated**: 2025-01-20T12:00:00.000Z  
-**Status**: Active - Course System Complete
+**Version**: 2.8.0  
+**Last Updated**: 2025-01-20T23:00:00.000Z  
+**Status**: Active - Course System Complete - Payment System Integrated
 
 ---
 
@@ -43,6 +43,7 @@ Amanoba is a unified 30-day learning platform built on Next.js 15.5.2 (App Route
 - **Logging**: Pino 9.13.0 with PII redaction
 - **Rate Limiting**: rate-limiter-flexible 8.0.1
 - **Push Notifications**: web-push 3.6.7
+- **Payment Processing**: Stripe SDK 20.2.0 for premium course payments
 
 ### Deployment
 - **Platform**: Vercel (Serverless)

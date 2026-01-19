@@ -1,11 +1,222 @@
 # Amanoba Release Notes
 
-**Current Version**: 2.7.0  
-**Last Updated**: 2025-01-20T18:00:00.000Z
+**Current Version**: 2.8.0  
+**Last Updated**: 2025-01-20T23:00:00.000Z
 
 ---
 
 All completed tasks are documented here in reverse chronological order. This file follows the Changelog format and is updated with every version bump.
+
+---
+
+## [v2.8.0] — 2025-01-20 💳✨🎨
+
+**Status**: STRIPE INTEGRATION COMPLETE + PREMIUM COURSE PRICING + UI IMPROVEMENTS  
+**Type**: Major Feature Release
+
+### 💳 Stripe Payment Integration (STRIPE1-STRIPE10)
+
+**Status**: ✅ COMPLETE  
+**Timeline**: 2025-01-20  
+**Priority**: HIGH - Revenue Generation
+
+#### Core Payment System
+
+**PaymentTransaction Model** (`app/lib/models/payment-transaction.ts`):
+- Complete audit trail for all Stripe payment transactions
+- Tracks payment status (pending, succeeded, failed, refunded)
+- Links to Player, Course, and Brand
+- Stores Stripe identifiers (payment intent, checkout session, customer, charge)
+- Payment method details (card brand, last4, country)
+- Premium access tracking (granted, expiration date, duration)
+- Immutable records for financial integrity
+
+**Player Model Updates**:
+- Added `stripeCustomerId` field for Stripe customer linking
+- Added `paymentHistory` array for transaction references
+- Premium status activation on successful payment
+- Premium expiration date tracking
+
+**Payment API Endpoints**:
+- `/api/payments/create-checkout` - Creates Stripe Checkout session
+  - Validates course and player
+  - Creates or retrieves Stripe customer
+  - Generates checkout session with course metadata
+  - Returns checkout URL for redirection
+- `/api/payments/webhook` - Handles Stripe webhook events
+  - Verifies webhook signature for security
+  - Handles `checkout.session.completed` (primary payment event)
+  - Handles `payment_intent.succeeded` (backup)
+  - Handles `payment_intent.payment_failed`
+  - Handles `charge.refunded` (revokes premium access)
+  - Implements idempotency (prevents duplicate processing)
+  - Creates PaymentTransaction records
+  - Activates premium status automatically
+- `/api/payments/success` - Payment success page handler
+  - Verifies Stripe checkout session
+  - Checks payment status
+  - Verifies transaction in database
+  - Handles webhook processing delays gracefully
+  - Redirects to course or dashboard with success message
+- `/api/payments/history` - Payment history endpoint
+  - Fetches payment transactions for authenticated user
+  - Supports pagination (limit, offset)
+  - Populates course information
+  - Returns formatted transaction data
+
+**Payment UI**:
+- Payment button on course detail page (`app/[locale]/courses/[courseId]/page.tsx`)
+  - Shows "Purchase Premium" button for premium courses
+  - Checks user premium status before showing payment option
+  - Different UI states based on user status:
+    - Not logged in: Sign in button
+    - Premium course + not premium: Purchase button
+    - Premium course + has premium: Enroll button
+    - Free course: Enroll button
+    - Already enrolled: Continue learning button
+  - Handles payment success/failure URL parameters
+  - Refreshes premium status after successful payment
+- Payment history tab in profile page (`app/[locale]/profile/[playerId]/page.tsx`)
+  - Only visible when viewing own profile
+  - Displays transaction details:
+    - Course name or Premium Access
+    - Amount and currency (formatted)
+    - Payment status with color coding
+    - Premium expiration date
+    - Payment method (card brand, last4)
+    - Transaction ID
+    - Date and time
+  - Empty state when no transactions
+
+**Payment Confirmation Email**:
+- `sendPaymentConfirmationEmail` function in email service
+- Bilingual support (Hungarian/English)
+- Includes payment details (amount, currency, transaction ID)
+- Shows premium expiration date
+- Provides course link or browse courses link
+- Professional email template with brand colors
+- Includes unsubscribe link in footer
+- Non-blocking email send (doesn't fail webhook if email fails)
+
+**Files Created**:
+- `app/lib/models/payment-transaction.ts` - PaymentTransaction model
+- `app/api/payments/create-checkout/route.ts` - Checkout session creation
+- `app/api/payments/webhook/route.ts` - Webhook handler
+- `app/api/payments/success/route.ts` - Success page handler
+- `app/api/payments/history/route.ts` - Payment history API
+- `app/lib/utils/stripe-minimums.ts` - Stripe minimum amount validation
+- `STRIPE_VERCEL_SETUP.md` - Stripe setup documentation
+
+**Files Modified**:
+- `app/lib/models/player.ts` - Added Stripe fields
+- `app/lib/models/index.ts` - Exported PaymentTransaction
+- `app/lib/email/email-service.ts` - Added payment confirmation email
+- `app/lib/email/index.ts` - Exported payment email function
+- `app/[locale]/courses/[courseId]/page.tsx` - Added payment button
+- `app/[locale]/profile/[playerId]/page.tsx` - Added payment history tab
+- `docs/ENVIRONMENT_SETUP.md` - Added Stripe environment variables
+
+**Testing**:
+- ✅ Build passes successfully
+- ✅ All TypeScript types correct
+- ✅ Webhook signature verification working
+- ✅ Idempotency implemented
+- ✅ Payment flow end-to-end tested
+
+**Impact**:
+- Revenue generation enabled through premium course sales
+- Automatic premium activation on successful payment
+- Complete payment audit trail
+- User-friendly payment experience
+- Secure webhook handling
+
+---
+
+### 🎨 Premium Course Pricing in Admin Interface
+
+**Status**: ✅ COMPLETE  
+**Timeline**: 2025-01-20
+
+**Course Model Updates**:
+- Added `price` field to Course model:
+  - `amount`: Price in cents (e.g., 2999 = $29.99)
+  - `currency`: ISO currency code (USD, EUR, HUF, GBP)
+
+**Admin UI Updates**:
+- Course Editor (`app/[locale]/admin/courses/[courseId]/page.tsx`):
+  - Added `requiresPremium` checkbox
+  - Added price amount input (shown when premium enabled)
+  - Added currency selector (USD, EUR, HUF, GBP)
+  - Real-time validation with Stripe minimum amounts
+  - Shows warnings when amount is below minimum
+  - Auto-adjusts amount when currency changes if below minimum
+- Course Creation Form (`app/[locale]/admin/courses/new/page.tsx`):
+  - Same premium and pricing fields
+  - Validation and auto-adjustment on currency change
+
+**Stripe Minimum Validation**:
+- Created `app/lib/utils/stripe-minimums.ts` utility:
+  - Defines minimum amounts per currency:
+    - USD: $0.50 (50 cents)
+    - EUR: €0.50 (50 cents)
+    - HUF: 175 Ft
+    - GBP: £0.30 (30 pence)
+  - `getStripeMinimum()` - Get minimum for currency
+  - `meetsStripeMinimum()` - Validate amount
+  - `getFormattedMinimum()` - Format for display
+- Admin UI validation:
+  - Red border and warning when amount below minimum
+  - Shows minimum amount for selected currency
+  - Auto-adjusts amount when currency changes
+- Server-side validation:
+  - Validates in create-checkout endpoint
+  - Returns helpful error message with minimum amount
+
+**Payment Flow Updates**:
+- Updated `create-checkout` endpoint to use course price from database
+- Falls back to default $29.99 USD if course price not set
+- Supports multiple currencies automatically
+- Validates minimum amounts before creating checkout session
+
+**Files Modified**:
+- `app/lib/models/course.ts` - Added price field
+- `app/[locale]/admin/courses/[courseId]/page.tsx` - Added pricing UI
+- `app/[locale]/admin/courses/new/page.tsx` - Added pricing UI
+- `app/api/payments/create-checkout/route.ts` - Uses course price
+- `app/[locale]/courses/[courseId]/page.tsx` - Removed hardcoded amount
+
+**Impact**:
+- Admins can set custom pricing per course
+- Multi-currency support
+- Prevents Stripe minimum amount errors
+- Better user experience with validation
+
+---
+
+### 🎨 UI Improvements: Lesson Action Buttons
+
+**Status**: ✅ COMPLETE  
+**Timeline**: 2025-01-20
+
+**Lesson Page Updates** (`app/[locale]/courses/[courseId]/day/[dayNumber]/page.tsx`):
+- Moved action buttons to top of lesson page (before content)
+- Aligned buttons in single row:
+  - **Left**: "Előző nap" (Previous Day)
+  - **Center**: "Kitöltöm a kvízt" (Take Quiz) and "Befejezettként jelölés" / "Befejezve" (Mark as Complete / Completed)
+  - **Right**: "Következő nap" (Next Day)
+- Wrapped buttons in card container for better visual separation
+- Quiz required message moved with buttons to top section
+- Added `whitespace-nowrap` to prevent button text wrapping
+- Used flex layout with `flex-1` containers for proper alignment
+
+**Files Modified**:
+- `app/[locale]/courses/[courseId]/day/[dayNumber]/page.tsx` - Button layout and positioning
+
+**Impact**:
+- Better user experience - actions immediately visible
+- No scrolling required to access lesson actions
+- Clean, organized button layout
+- Improved visual hierarchy
 
 ---
 

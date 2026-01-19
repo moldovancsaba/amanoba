@@ -1,7 +1,7 @@
 # Amanoba Task List
 
-**Version**: 2.7.0  
-**Last Updated**: 2025-01-20T20:00:00.000Z
+**Version**: 2.8.0  
+**Last Updated**: 2025-01-20T23:00:00.000Z
 
 ---
 
@@ -13,15 +13,17 @@ Tasks are listed in priority order. Upon completion, tasks are moved to RELEASE_
 
 ## 💳 HIGH PRIORITY: Monetization System (Stripe Integration)
 
-**Status**: 🔴 **BLOCKING REVENUE**  
-**Estimated**: 2-3 days  
+**Status**: 🟢 **CORE COMPLETE** - Remaining tasks are enhancements  
+**Estimated**: 2-3 days (Core: ✅ DONE, Enhancements: 1-2 days)  
 **Priority**: HIGH
 
 ### User Stories
-- As a student, I want to purchase premium courses so I can access premium content
-- As a student, I want my premium status to activate automatically after successful payment
-- As an admin, I want to see payment transactions so I can track revenue
-- As a student, I want to see my subscription status in my profile
+- ✅ As a student, I want to purchase premium courses so I can access premium content
+- ✅ As a student, I want my premium status to activate automatically after successful payment
+- ✅ As a student, I want to see my subscription status and payment history in my profile
+- ✅ As an admin, I want to set custom pricing for premium courses
+- ⏳ As an admin, I want to see payment transactions so I can track revenue
+- ⏳ As an admin, I want to test the payment flow end-to-end
 
 | ID | Task | Owner | Expected Delivery | Status |
 |----|------|-------|-------------------|--------|
@@ -35,9 +37,11 @@ Tasks are listed in priority order. Upon completion, tasks are moved to RELEASE_
 | STRIPE8 | Add payment button to course detail page (`app/[locale]/courses/[courseId]/page.tsx`) for premium courses | AI | 2025-01-20 | ✅ DONE |
 | STRIPE9 | Create payment confirmation email: Send email after successful payment | AI | 2025-01-20 | ✅ DONE |
 | STRIPE10 | Add payment history to player profile page: Display past transactions | AI | 2025-01-20 | ✅ DONE |
-| STRIPE11 | Create admin payment dashboard: View all transactions, revenue analytics | AI | TBD | ⏳ PENDING |
-| STRIPE12 | Test payment flow: End-to-end testing with Stripe test mode | AI | TBD | ⏳ PENDING |
-| STRIPE13 | Add error handling: Payment failures, webhook verification, idempotency | AI | TBD | ⏳ PENDING |
+| STRIPE11 | Add premium course pricing to admin interface: Set price per course | AI | 2025-01-20 | ✅ DONE |
+| STRIPE12 | Add Stripe minimum amount validation: Prevent payment errors | AI | 2025-01-20 | ✅ DONE |
+| STRIPE13 | Create admin payment dashboard: View all transactions, revenue analytics | AI | TBD | ⏳ PENDING |
+| STRIPE14 | Test payment flow: End-to-end testing with Stripe test mode | AI | TBD | ⏳ PENDING |
+| STRIPE15 | Add error handling: Payment failures, webhook verification, idempotency | AI | TBD | ⏳ PENDING |
 
 ---
 

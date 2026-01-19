@@ -8,12 +8,16 @@
 
 ## 🎯 Current State Summary
 
-Amanoba has successfully completed **Phases 1, 2, and 3** of the transformation from a game platform to a **30-day learning platform**. The platform now includes:
+Amanoba has successfully completed **Phases 1, 2, and 3** of the transformation from a game platform to a **30-day learning platform**, and has now integrated **Stripe payment processing** for premium courses. The platform now includes:
 - Complete course and lesson data models
 - Full admin course builder with rich text editor
 - Student course dashboard and enrollment system
 - Daily email automation with timezone support
 - Email preferences and unsubscribe functionality
+- **Stripe payment integration for premium courses**
+- **Premium course pricing in admin interface**
+- **Payment history tracking**
+- **Automatic premium activation on successful payment**
 - First production course seeded: "AI 30 Nap" (30-day AI learning course)
 - Internationalization (Hungarian default, English support)
 - New design system with brand colors and logo
