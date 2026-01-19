@@ -235,7 +235,7 @@ export default function DailyLessonPage({
               <div className="flex items-center gap-4">
                 {/* Left: Previous Day */}
                 <div className="flex-1 flex justify-start">
-                  {navigation?.previous ? (
+                  {navigation?.previous && (
                     <LocaleLink
                       href={`/courses/${courseId}/day/${navigation.previous.day}`}
                       className="flex items-center gap-2 bg-brand-darkGrey text-brand-white px-6 py-3 rounded-lg font-bold hover:bg-brand-secondary-700 transition-colors"
@@ -243,8 +243,6 @@ export default function DailyLessonPage({
                       <ArrowLeft className="w-5 h-5" />
                       {t('previousDay')}
                     </LocaleLink>
-                  ) : (
-                    <div /> {/* Spacer to maintain layout */}
                   )}
                 </div>
 
@@ -278,7 +276,7 @@ export default function DailyLessonPage({
 
                 {/* Right: Next Day */}
                 <div className="flex-1 flex justify-end">
-                  {navigation?.next ? (
+                  {navigation?.next && (
                     <LocaleLink
                       href={`/courses/${courseId}/day/${navigation.next.day}`}
                       className="flex items-center gap-2 bg-brand-accent text-brand-black px-6 py-3 rounded-lg font-bold hover:bg-brand-primary-400 transition-colors"
@@ -286,8 +284,6 @@ export default function DailyLessonPage({
                       {t('nextDay')}
                       <ArrowRight className="w-5 h-5" />
                     </LocaleLink>
-                  ) : (
-                    <div /> {/* Spacer to maintain layout */}
                   )}
                 </div>
               </div>
