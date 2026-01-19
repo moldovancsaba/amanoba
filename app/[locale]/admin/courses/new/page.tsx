@@ -179,6 +179,42 @@ export default function NewCoursePage() {
                   <span className="text-sm font-medium text-brand-black">Requires Premium</span>
                 </label>
               </div>
+              {formData.requiresPremium && (
+                <>
+                  <div>
+                    <label className="block text-sm font-medium text-brand-black mb-2">
+                      Price (in cents)
+                    </label>
+                    <input
+                      type="number"
+                      min="0"
+                      step="1"
+                      value={formData.priceAmount}
+                      onChange={(e) => setFormData({ ...formData, priceAmount: parseInt(e.target.value) || 0 })}
+                      className="w-full px-4 py-2 bg-brand-white border-2 border-brand-darkGrey rounded-lg text-brand-black focus:outline-none focus:border-brand-accent"
+                      placeholder="2999"
+                    />
+                    <p className="text-xs text-brand-darkGrey mt-1">
+                      Enter amount in cents (e.g., 2999 = $29.99)
+                    </p>
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-brand-black mb-2">
+                      Currency
+                    </label>
+                    <select
+                      value={formData.priceCurrency}
+                      onChange={(e) => setFormData({ ...formData, priceCurrency: e.target.value })}
+                      className="w-full px-4 py-2 bg-brand-white border-2 border-brand-darkGrey rounded-lg text-brand-black focus:outline-none focus:border-brand-accent"
+                    >
+                      <option value="usd">USD ($)</option>
+                      <option value="eur">EUR (€)</option>
+                      <option value="huf">HUF (Ft)</option>
+                      <option value="gbp">GBP (£)</option>
+                    </select>
+                  </div>
+                </>
+              )}
             </div>
           </div>
 
