@@ -1234,6 +1234,568 @@ const lessonPlan: LessonEntry[] = [
 <h2>Minimum tartalom</h2>
 <p>Ma standardot állítasz fel, és javítasz 3 thin PDP-t.</p>
 <p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Olvasd el a leckét →</a></p>`
+  },
+  {
+    day: 21,
+    title: 'Prompt intent térkép: best / vs / alternatives / policy',
+    content: `<h1>Prompt intent térkép: best / vs / alternatives / policy</h1>
+<p><em>Összerakod a kérdéskategóriákat, amelyekre az AI válaszolni fog.</em></p>
+<hr />
+<h2>Napi cél</h2>
+<ul>
+<li>Összeírsz 30–40 promptot intent szerint.</li>
+<li>Hozzárendeled a releváns kollekciót/PDP-t.</li>
+</ul>
+<hr />
+<h2>Miért számít?</h2>
+<ul>
+<li>Az AI a tipikus vásárlói kérdésekre válaszol; neked kell tudni, hova irányítson.</li>
+<li>Inten­tek nélkül véletlen lesz a tartalom és a mérés.</li>
+</ul>
+<hr />
+<h2>Magyarázat</h2>
+<ul>
+<li><strong>Best</strong>: „legjobb [X] [ország/cél]”.</li>
+<li><strong>Vs</strong>: „[X] vs [Y], melyik jobb?”.</li>
+<li><strong>Alternatives</strong>: „[X] helyett mit vegyek?”.</li>
+<li><strong>Policy/fit</strong>: méret, szállítás, visszaküldés kérdések.</li>
+</ul>
+<hr />
+<h2>Példák</h2>
+<ul>
+<li><strong>Jó</strong>: Intent → oldal/answer capsule → mérés.</li>
+<li><strong>Rossz</strong>: Random kérdések céloldal nélkül.</li>
+</ul>
+<hr />
+<h2>Gyakorlat (vezetett, 10-15 perc)</h2>
+<ol>
+<li>Készíts táblát: Intent | Prompt | Céloldal (PDP/kollekció/guide) | Jegyzet.</li>
+<li>Töltsd fel 20 kérdéssel (best/vs/alternatives/policy vegyesen).</li>
+</ol>
+<h2>Gyakorlat (önálló, 5-10 perc)</h2>
+<p>Bővítsd 30–40 kérdésre és priorizáld A/B/C.</p>
+<hr />
+<h2>Önellenőrzés</h2>
+<ul>
+<li>Van intent térkép 30+ kérdéssel.</li>
+<li>Minden promptnak van céloldala.</li>
+<li>Prioritás megadva.</li>
+</ul>
+<hr />
+<h2>Opcionális mélyítés</h2>
+<ul>
+<li>OpenAI prompt guide: <a href="https://platform.openai.com/docs/guides/prompt-engineering" target="_blank" rel="noreferrer">https://platform.openai.com/docs/guides/prompt-engineering</a></li>
+</ul>`,
+    emailSubject: 'GEO Shopify – 21. nap: Intent térkép',
+    emailBody: `<h1>GEO Shopify – 21. nap</h1>
+<h2>Intent térkép</h2>
+<p>Ma felépíted a best/vs/alternatives/policy prompt térképet és hozzárendeled a céloldalakat.</p>
+<p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Olvasd el a leckét →</a></p>`
+  },
+  {
+    day: 22,
+    title: 'Buying guide: AI-barát szerkezet',
+    content: `<h1>Buying guide: AI-barát szerkezet</h1>
+<p><em>Olyan útmutatót írsz, amit az AI könnyen összegez.</em></p>
+<hr />
+<h2>Napi cél</h2>
+<ul>
+<li>Megírsz 1 buying guide vázat.</li>
+<li>Hozzárendeled 3 PDP-t linkkel.</li>
+</ul>
+<hr />
+<h2>Miért számít?</h2>
+<ul>
+<li>A guide-ok jó források az AI-nak, ha tiszták a szekciók.</li>
+<li>Csökkenti a félreértést és erősíti a bizalmat.</li>
+</ul>
+<hr />
+<h2>Magyarázat</h2>
+<ul>
+<li>Hero: kinek, milyen helyzetre.</li>
+<li>Döntési szempontok (3-5 bullet).</li>
+<li>Top választások indoklással.</li>
+<li>Policy röviden + link.</li>
+</ul>
+<hr />
+<h2>Példák</h2>
+<ul>
+<li><strong>Jó</strong>: Strukturált, linkelt PDP-k, rövid indoklások.</li>
+<li><strong>Rossz</strong>: Falnyi szöveg, link nélkül.</li>
+</ul>
+<hr />
+<h2>Gyakorlat (vezetett, 10-15 perc)</h2>
+<ol>
+<li>Írj buying guide vázat a top kategóriádra a fenti blokkokkal.</li>
+<li>Adj 3 PDP linket rövid indoklással.</li>
+</ol>
+<h2>Gyakorlat (önálló, 5-10 perc)</h2>
+<p>Egy másik kategóriára készíts rövid vázat.</p>
+<hr />
+<h2>Önellenőrzés</h2>
+<ul>
+<li>Guide blokkok megvannak.</li>
+<li>Top választások linkkel és indoklással.</li>
+<li>Policy blokk szerepel.</li>
+</ul>
+<hr />
+<h2>Opcionális mélyítés</h2>
+<ul>
+<li>Shopify tartalom ötletek: <a href="https://shopify.dev/docs/apps/selling-strategies/product-data" target="_blank" rel="noreferrer">https://shopify.dev/docs/apps/selling-strategies/product-data</a></li>
+</ul>`,
+    emailSubject: 'GEO Shopify – 22. nap: Buying guide',
+    emailBody: `<h1>GEO Shopify – 22. nap</h1>
+<h2>Buying guide</h2>
+<p>Ma AI-barát guide vázat írsz és összekötöd a PDP-kkel.</p>
+<p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Olvasd el a leckét →</a></p>`
+  },
+  {
+    day: 23,
+    title: 'Összehasonlító oldalak: őszinte tradeoff',
+    content: `<h1>Összehasonlító oldalak: őszinte tradeoff</h1>
+<p><em>Őszinte összehasonlítást készítesz, hogy az AI ne torzítson.</em></p>
+<hr />
+<h2>Napi cél</h2>
+<ul>
+<li>Készítesz 1 összehasonlító táblát 2-3 termékről.</li>
+<li>Feltünteted a kinek jó/nem jó pontokat.</li>
+</ul>
+<hr />
+<h2>Miért számít?</h2>
+<ul>
+<li>Az AI gyakran kér „X vs Y”: legyen valós adat.</li>
+<li>Őszinteség csökkenti a visszaküldést.</li>
+</ul>
+<hr />
+<h2>Magyarázat</h2>
+<ul>
+<li>Táblázat: fő jellemzők, ár, policy, kinek való/nem.</li>
+<li>Link a PDP-re.</li>
+</ul>
+<hr />
+<h2>Példák</h2>
+<ul>
+<li><strong>Jó</strong>: „X stabil, Y könnyű; X drágább; Y kevesebb garancia.”</li>
+<li><strong>Rossz</strong>: „Mindkettő szuper!” adatok nélkül.</li>
+</ul>
+<hr />
+<h2>Gyakorlat (vezetett, 10-15 perc)</h2>
+<ol>
+<li>Készíts táblázatot 2-3 termékhez: jellemzők, ár, policy, kinek jó/nem.</li>
+<li>Linkeld a PDP-ket.</li>
+</ol>
+<h2>Gyakorlat (önálló, 5-10 perc)</h2>
+<p>Egy új párra ismételd meg.</p>
+<hr />
+<h2>Önellenőrzés</h2>
+<ul>
+<li>Táblázat kész, linkekkel.</li>
+<li>Kinek jó/nem jó szerepel.</li>
+<li>Policy/ár valós.</li>
+</ul>
+<hr />
+<h2>Opcionális mélyítés</h2>
+<ul>
+<li>Copilot merchant blog: <a href="https://www.microsoft.com/en-us/microsoft-copilot/blog/2025/04/18/introducing-the-copilot-merchant-program/" target="_blank" rel="noreferrer">https://www.microsoft.com/en-us/microsoft-copilot/blog/2025/04/18/introducing-the-copilot-merchant-program/</a></li>
+</ul>`,
+    emailSubject: 'GEO Shopify – 23. nap: Összehasonlító oldalak',
+    emailBody: `<h1>GEO Shopify – 23. nap</h1>
+<h2>Összehasonlító oldalak</h2>
+<p>Ma őszinte összehasonlító táblát készítesz kinek jó/nem jó jelöléssel.</p>
+<p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Olvasd el a leckét →</a></p>`
+  },
+  {
+    day: 24,
+    title: 'Use-case landing: ajándék, szezon, sport, budget',
+    content: `<h1>Use-case landing: ajándék, szezon, sport, budget</h1>
+<p><em>Use-case alapú oldalt építesz, hogy az AI célzottan idézzen.</em></p>
+<hr />
+<h2>Napi cél</h2>
+<ul>
+<li>Készítesz 1 use-case landing vázat (pl. ajándék vagy szezon).</li>
+<li>Linkelsz 3-5 terméket indoklással.</li>
+</ul>
+<hr />
+<h2>Miért számít?</h2>
+<ul>
+<li>Az AI gyakran kap kontextusos kérdést („ajándék anyának”, „téli futás”).</li>
+<li>Use-case oldalak növelik az idézhetőséget.</li>
+</ul>
+<hr />
+<h2>Magyarázat</h2>
+<ul>
+<li>Hero: kinek/mikor.</li>
+<li>Választási szempontok.</li>
+<li>Terméklista rövid indoklással.</li>
+<li>Policy/fit röviden.</li>
+</ul>
+<hr />
+<h2>Példák</h2>
+<ul>
+<li><strong>Jó</strong>: „Téli futás: szigetelés, tapadás, láthatóság; top 3 modell linkkel.”</li>
+<li><strong>Rossz</strong>: Termékgrid kontextus nélkül.</li>
+</ul>
+<hr />
+<h2>Gyakorlat (vezetett, 10-15 perc)</h2>
+<ol>
+<li>Válassz egy use-case-et, írd meg a blokkokat.</li>
+<li>Adj 3-5 terméket rövid indoklással.</li>
+</ol>
+<h2>Gyakorlat (önálló, 5-10 perc)</h2>
+<p>Második use-case-re készíts rövid vázat.</p>
+<hr />
+<h2>Önellenőrzés</h2>
+<ul>
+<li>Use-case hero kész.</li>
+<li>Szempontok és terméklista indoklással megvan.</li>
+<li>Policy/fit röviden szerepel.</li>
+</ul>
+<hr />
+<h2>Opcionális mélyítés</h2>
+<ul>
+<li>Search generatív példák: <a href="https://developers.google.com/search/docs/fundamentals/using-gen-ai-content" target="_blank" rel="noreferrer">https://developers.google.com/search/docs/fundamentals/using-gen-ai-content</a></li>
+</ul>`,
+    emailSubject: 'GEO Shopify – 24. nap: Use-case landing',
+    emailBody: `<h1>GEO Shopify – 24. nap</h1>
+<h2>Use-case landing</h2>
+<p>Ma use-case oldalt építesz kontextusos indoklással és linkekkel.</p>
+<p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Olvasd el a leckét →</a></p>`
+  },
+  {
+    day: 25,
+    title: 'Off-site GEO: mikor segít, mikor árt',
+    content: `<h1>Off-site GEO: mikor segít, mikor árt</h1>
+<p><em>Felkutatod, mely külső hivatkozások támogatják az idézhetőséget.</em></p>
+<hr />
+<h2>Napi cél</h2>
+<ul>
+<li>Listázod a hasznos off-site forrásokat (review, média, partnerség).</li>
+<li>Elkerülöd a spam/junk említéseket.</li>
+</ul>
+<hr />
+<h2>Miért számít?</h2>
+<ul>
+<li>Az AI nézheti a külső említéseket is.</li>
+<li>Spam jellegű linkek árthatnak.</li>
+</ul>
+<hr />
+<h2>Magyarázat</h2>
+<ul>
+<li>Hasznos: hiteles review oldal, releváns média, partner blog.</li>
+<li>Káros: linkfarm, fizetett spam, irreleváns katalógus.</li>
+</ul>
+<hr />
+<h2>Példák</h2>
+<ul>
+<li><strong>Jó</strong>: Valós tesztcikk linkje, partner Q&A.</li>
+<li><strong>Rossz</strong>: Linkfarm, kulcsszóhalmozott cikk.</li>
+</ul>
+<hr />
+<h2>Gyakorlat (vezetett, 10-15 perc)</h2>
+<ol>
+<li>Készíts listát: hasznos források vs kerülendő források.</li>
+<li>Válassz 2 hiteles forrást, és tervezz elhelyezést.</li>
+</ol>
+<h2>Gyakorlat (önálló, 5-10 perc)</h2>
+<p>Írj outreach vázat egy partnercikkhez vagy Q&A-hoz.</p>
+<hr />
+<h2>Önellenőrzés</h2>
+<ul>
+<li>Hasznos/kerülendő lista kész.</li>
+<li>2 hiteles forrás kijelölve.</li>
+<li>Outreach váz megvan.</li>
+</ul>
+<hr />
+<h2>Opcionális mélyítés</h2>
+<ul>
+<li>Google spam policies: <a href="https://developers.google.com/search/docs/essentials/spam-policies" target="_blank" rel="noreferrer">https://developers.google.com/search/docs/essentials/spam-policies</a></li>
+</ul>`,
+    emailSubject: 'GEO Shopify – 25. nap: Off-site GEO',
+    emailBody: `<h1>GEO Shopify – 25. nap</h1>
+<h2>Off-site GEO</h2>
+<p>Ma listázod a hasznos külső forrásokat, és elkerülöd a spam jellegű említéseket.</p>
+<p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Olvasd el a leckét →</a></p>`
+  },
+  {
+    day: 26,
+    title: 'Anti-spam és minőség: AI-asszisztált tartalom',
+    content: `<h1>Anti-spam és minőség: AI-asszisztált tartalom</h1>
+<p><em>Megtanulod, hogyan írj AI-val minőségi tartalmat spam nélkül.</em></p>
+<hr />
+<h2>Napi cél</h2>
+<ul>
+<li>Összeállítasz egy minőség/anti-spam checklistet.</li>
+<li>Alkalmazod 1 guide-on.</li>
+</ul>
+<hr />
+<h2>Miért számít?</h2>
+<ul>
+<li>Spam jellegű AI tartalom káros és kizárást hozhat.</li>
+<li>Minőség = idézhetőség + bizalom.</li>
+</ul>
+<hr />
+<h2>Magyarázat</h2>
+<ul>
+<li>Kerüld: kulcsszóhalmozás, hamis állítás, forrás nélküli adat.</li>
+<li>Használj: forrás megjelölés, rövid blokkok, valós adatok.</li>
+</ul>
+<hr />
+<h2>Példák</h2>
+<ul>
+<li><strong>Jó</strong>: Rövid, forrásolt állítások, valós adatok.</li>
+<li><strong>Rossz</strong>: „Legjobb a világon” bizonyíték nélkül.</li>
+</ul>
+<hr />
+<h2>Gyakorlat (vezetett, 10-15 perc)</h2>
+<ol>
+<li>Készíts minőség/anti-spam checklistet 10 ponttal.</li>
+<li>Alkalmazd egy meglévő guide-on és jelöld a javítandókat.</li>
+</ol>
+<h2>Gyakorlat (önálló, 5-10 perc)</h2>
+<p>Frissíts 1 szakaszt a checklist alapján.</p>
+<hr />
+<h2>Önellenőrzés</h2>
+<ul>
+<li>Checklist kész.</li>
+<li>Guide felülvizsgálva.</li>
+<li>Legalább 1 szakasz javítva.</li>
+</ul>
+<hr />
+<h2>Opcionális mélyítés</h2>
+<ul>
+<li>Google spam policies: <a href="https://developers.google.com/search/docs/essentials/spam-policies" target="_blank" rel="noreferrer">https://developers.google.com/search/docs/essentials/spam-policies</a></li>
+</ul>`,
+    emailSubject: 'GEO Shopify – 26. nap: Anti-spam',
+    emailBody: `<h1>GEO Shopify – 26. nap</h1>
+<h2>Anti-spam</h2>
+<p>Ma anti-spam checklistet készítesz és alkalmazod egy guide-on.</p>
+<p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Olvasd el a leckét →</a></p>`
+  },
+  {
+    day: 27,
+    title: 'Feed műveletek: frissítés, monitor, hibakezelés',
+    content: `<h1>Feed műveletek: frissítés, monitor, hibakezelés</h1>
+<p><em>Felépíted a feed ütemezést és a hibakezelési rutint.</em></p>
+<hr />
+<h2>Napi cél</h2>
+<ul>
+<li>Ütemezed a feed frissítést.</li>
+<li>Hibalistát és logolást állítasz be.</li>
+</ul>
+<hr />
+<h2>Miért számít?</h2>
+<ul>
+<li>Elavult feed → téves ajánlás.</li>
+<li>Hibák figyelmen kívül hagyása kizáráshoz vezethet.</li>
+</ul>
+<hr />
+<h2>Magyarázat</h2>
+<ul>
+<li>Frissítés: napi/órás a készlet és ár alapján.</li>
+<li>Monitor: hibakódok, missing field, disapproval.</li>
+<li>Log: dátum, hiba típusa, javítás.</li>
+</ul>
+<hr />
+<h2>Példák</h2>
+<ul>
+<li><strong>Jó</strong>: Heti riport hibákról, SLA a javításra.</li>
+<li><strong>Rossz</strong>: „Majd ránézünk” hozzáállás.</li>
+</ul>
+<hr />
+<h2>Gyakorlat (vezetett, 10-15 perc)</h2>
+<ol>
+<li>Állíts be frissítési gyakoriságot (pl. napi), és jegyezd fel.</li>
+<li>Készíts hibalog sablont: Dátum | Hiba | Termék | Megoldás | SLA.</li>
+</ol>
+<h2>Gyakorlat (önálló, 5-10 perc)</h2>
+<p>Tölts fel 3 hiba példát a sablonba.</p>
+<hr />
+<h2>Önellenőrzés</h2>
+<ul>
+<li>Frissítési ütem megvan.</li>
+<li>Hibalog sablon kész.</li>
+<li>3 hiba rögzítve.</li>
+</ul>
+<hr />
+<h2>Opcionális mélyítés</h2>
+<ul>
+<li>GMC hiba útmutató: <a href="https://support.google.com/merchants/answer/7052112" target="_blank" rel="noreferrer">https://support.google.com/merchants/answer/7052112</a></li>
+</ul>`,
+    emailSubject: 'GEO Shopify – 27. nap: Feed műveletek',
+    emailBody: `<h1>GEO Shopify – 27. nap</h1>
+<h2>Feed műveletek</h2>
+<p>Ma beütemezed a feed frissítést és felállítod a hibalogot.</p>
+<p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Olvasd el a leckét →</a></p>`
+  },
+  {
+    day: 28,
+    title: 'Merchant programok: jogosultság és onboarding',
+    content: `<h1>Merchant programok: jogosultság és onboarding</h1>
+<p><em>Felméred, hogy mely AI/kereskedő programok érhetők el, és mit kérnek.</em></p>
+<hr />
+<h2>Napi cél</h2>
+<ul>
+<li>Összeveted a fő programokat (ChatGPT/Copilot/Google).</li>
+<li>Checklistet készítesz az elvárásokra.</li>
+</ul>
+<hr />
+<h2>Miért számít?</h2>
+<ul>
+<li>Jogosultság hiányában nem jelenik meg a bolt.</li>
+<li>Onboarding hibák késleltetik a megjelenést.</li>
+</ul>
+<hr />
+<h2>Magyarázat</h2>
+<ul>
+<li>Elvárások: feed minőség, policy, régió, brand/GTIN, ár/készlet.</li>
+<li>Onboarding: verifikáció, domain, support elérhetőség.</li>
+</ul>
+<hr />
+<h2>Példák</h2>
+<ul>
+<li><strong>Jó</strong>: Checklist a programhoz, státusz nyomon követve.</li>
+<li><strong>Rossz</strong>: „Majd jelentkezünk” dokumentáció nélkül.</li>
+</ul>
+<hr />
+<h2>Gyakorlat (vezetett, 10-15 perc)</h2>
+<ol>
+<li>Készíts táblát: Program | Régió | Követelmény | Státusz | Felelős.</li>
+<li>Töltsd ki a három fő platformra.</li>
+</ol>
+<h2>Gyakorlat (önálló, 5-10 perc)</h2>
+<p>Jelölj 3 hiányt és feladatot az onboardinghoz.</p>
+<hr />
+<h2>Önellenőrzés</h2>
+<ul>
+<li>Program táblázat kész.</li>
+<li>Hiányok kijelölve.</li>
+<li>Felelősök megvannak.</li>
+</ul>
+<hr />
+<h2>Opcionális mélyítés</h2>
+<ul>
+<li>OpenAI merchants: <a href="https://chatgpt.com/merchants" target="_blank" rel="noreferrer">https://chatgpt.com/merchants</a></li>
+<li>Copilot merchant: <a href="https://www.microsoft.com/en-us/microsoft-copilot/blog/2025/04/18/introducing-the-copilot-merchant-program/" target="_blank" rel="noreferrer">https://www.microsoft.com/en-us/microsoft-copilot/blog/2025/04/18/introducing-the-copilot-merchant-program/</a></li>
+</ul>`,
+    emailSubject: 'GEO Shopify – 28. nap: Merchant programok',
+    emailBody: `<h1>GEO Shopify – 28. nap</h1>
+<h2>Merchant programok</h2>
+<p>Ma felméred a program elvárásokat és összeállítod a checklistet.</p>
+<p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Olvasd el a leckét →</a></p>`
+  },
+  {
+    day: 29,
+    title: 'Mérési rendszer: heti GEO futtatás és riport',
+    content: `<h1>Mérési rendszer: heti GEO futtatás és riport</h1>
+<p><em>Felállítod a heti mérési rutint a prompt set alapján.</em></p>
+<hr />
+<h2>Napi cél</h2>
+<ul>
+<li>Ütemezed a heti GEO tesztfuttatást.</li>
+<li>Riportsablont készítesz.</li>
+</ul>
+<hr />
+<h2>Miért számít?</h2>
+<ul>
+<li>Nélkül nincs bizonyíték a fejlődésre.</li>
+<li>Segít látni a konzisztenciát és a hibákat.</li>
+</ul>
+<hr />
+<h2>Magyarázat</h2>
+<ul>
+<li>Használd a prompt setet (best/vs/policy).</li>
+<li>Mérd: inklúzió, idézés, konzisztencia, AI referral KPI.</li>
+<li>Logold a változásokat.</li>
+</ul>
+<hr />
+<h2>Példák</h2>
+<ul>
+<li><strong>Jó</strong>: Heti riport: mely promptokra jelent meg a bolt, linkelt-e.</li>
+<li><strong>Rossz</strong>: „Érzésre jobb”.</li>
+</ul>
+<hr />
+<h2>Gyakorlat (vezetett, 10-15 perc)</h2>
+<ol>
+<li>Készíts riportsablont: Prompt | Inklúzió | Idézés | Konzisztencia | Jegyzet.</li>
+<li>Ütemezd a heti futtatást (nap, felelős).</li>
+</ol>
+<h2>Gyakorlat (önálló, 5-10 perc)</h2>
+<p>Tölts ki 5 promptot és jegyezd az eredményt.</p>
+<hr />
+<h2>Önellenőrzés</h2>
+<ul>
+<li>Sablon kész.</li>
+<li>Ütemezés rögzítve.</li>
+<li>Első 5 mérés felírva.</li>
+</ul>
+<hr />
+<h2>Opcionális mélyítés</h2>
+<ul>
+<li>Measurement eszközök: <a href="https://clarity.microsoft.com/" target="_blank" rel="noreferrer">https://clarity.microsoft.com/</a></li>
+</ul>`,
+    emailSubject: 'GEO Shopify – 29. nap: Mérési rendszer',
+    emailBody: `<h1>GEO Shopify – 29. nap</h1>
+<h2>Mérési rendszer</h2>
+<p>Ma beütemezed a heti GEO futtatást és riportsablont készítesz.</p>
+<p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Olvasd el a leckét →</a></p>`
+  },
+  {
+    day: 30,
+    title: 'Capstone sprint: 1 kollekció teljes GEO ciklus',
+    content: `<h1>Capstone sprint: 1 kollekció teljes GEO ciklus</h1>
+<p><em>Végigviszel egy 10 termékes kollekción egy teljes GEO sprintet.</em></p>
+<hr />
+<h2>Napi cél</h2>
+<ul>
+<li>Kiválasztasz 1 kollekciót (10 termék).</li>
+<li>Elvégzed a blueprint + capsule + feed + mérés lépéseit.</li>
+</ul>
+<hr />
+<h2>Miért számít?</h2>
+<ul>
+<li>Bizonyítod, hogy a folyamat működik.</li>
+<li>Megteremted a skálázás alapját.</li>
+</ul>
+<hr />
+<h2>Magyarázat</h2>
+<ul>
+<li>Data fix: azonosító, ár/készlet, policy.</li>
+<li>PDP blueprint + capsule + képek.</li>
+<li>Kollekció guide + linkek.</li>
+<li>Feed ellenőrzés + mérés a prompt setből.</li>
+</ul>
+<hr />
+<h2>Példák</h2>
+<ul>
+<li><strong>Jó</strong>: Minden termék ugyanazon standard szerint, mérés dokumentálva.</li>
+<li><strong>Rossz</strong>: Ad hoc javítások, mérés nélkül.</li>
+</ul>
+<hr />
+<h2>Gyakorlat (vezetett, 10-15 perc)</h2>
+<ol>
+<li>Válassz kollekciót, írd fel a 10 terméket.</li>
+<li>Alkalmazd a blueprintet és a kapszulát mind a 10-re.</li>
+<li>Futtasd a feed/mérés ellenőrzést.</li>
+</ol>
+<h2>Gyakorlat (önálló, 5-10 perc)</h2>
+<p>Írj egy 1 oldalas before/after jegyzetet és a következő sprint backlogját.</p>
+<hr />
+<h2>Önellenőrzés</h2>
+<ul>
+<li>10 termék átment a standardon.</li>
+<li>Mérés futott, eredmények rögzítve.</li>
+<li>Backlog a következő 30 napra kész.</li>
+</ul>
+<hr />
+<h2>Opcionális mélyítés</h2>
+<ul>
+<li>Capstone riport ötlet: <a href="https://platform.openai.com/docs/guides/prompt-engineering" target="_blank" rel="noreferrer">prompt guide</a></li>
+</ul>`,
+    emailSubject: 'GEO Shopify – 30. nap: Capstone sprint',
+    emailBody: `<h1>GEO Shopify – 30. nap</h1>
+<h2>Capstone sprint</h2>
+<p>Ma végigviszel egy teljes GEO sprintet egy kollekción, és dokumentálod az eredményt.</p>
+<p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Olvasd el a leckét →</a></p>`
   }
 ];
 
@@ -2621,6 +3183,636 @@ async function seed() {
             'Semmit nem csinálsz',
             'Csak képet növeled',
             'Csak meta descriptiont írsz'
+          ],
+          correctIndex: 0,
+          difficulty: QuestionDifficulty.HARD,
+          category: 'Course Specific'
+        }
+      );
+    } else if (entry.day === 21) {
+      quizzes.push(
+        {
+          question: 'Milyen fő intent kategóriákkal dolgozunk?',
+          options: [
+            'best, vs, alternatives, policy/fit',
+            'Csak brand név',
+            'Csak meta title',
+            'Csak backlink'
+          ],
+          correctIndex: 0,
+          difficulty: QuestionDifficulty.EASY,
+          category: 'Course Specific'
+        },
+        {
+          question: 'Miért kell minden prompthoz céloldal?',
+          options: [
+            'Hogy az AI és a mérés tudja, hova mutasson',
+            'Nem kell',
+            'Csak dísz',
+            'Csak SEO miatt'
+          ],
+          correctIndex: 0,
+          difficulty: QuestionDifficulty.MEDIUM,
+          category: 'Course Specific'
+        },
+        {
+          question: 'Mi a jó best típusú kérdés példa?',
+          options: [
+            '„Legjobb [termék] [ország/cél]”',
+            '„Ki az eladó?”',
+            '„Mi a blogod neve?”',
+            '„Mi a CSS?”'
+          ],
+          correctIndex: 0,
+          difficulty: QuestionDifficulty.EASY,
+          category: 'Course Specific'
+        },
+        {
+          question: 'Miért priorizálj A/B/C szerint?',
+          options: [
+            'Hogy tudd, mely kérdések a legfontosabbak a tesztben',
+            'Csak színezés miatt',
+            'Nem kell prioritás',
+            'Csak design'
+          ],
+          correctIndex: 0,
+          difficulty: QuestionDifficulty.MEDIUM,
+          category: 'Course Specific'
+        },
+        {
+          question: 'Mi a rossz gyakorlat az intent térképnél?',
+          options: [
+            'Random kérdések céloldal nélkül',
+            'Minden prompthoz céloldal és jegyzet',
+            'Priorizált lista',
+            'Mérési jegyzet'
+          ],
+          correctIndex: 0,
+          difficulty: QuestionDifficulty.HARD,
+          category: 'Course Specific'
+        }
+      );
+    } else if (entry.day === 22) {
+      quizzes.push(
+        {
+          question: 'Mi legyen egy buying guide fő blokkjai között?',
+          options: [
+            'Hero, döntési szempontok, top választások, policy',
+            'Csak képek',
+            'Csak árlista',
+            'Csak egy CTA gomb'
+          ],
+          correctIndex: 0,
+          difficulty: QuestionDifficulty.EASY,
+          category: 'Course Specific'
+        },
+        {
+          question: 'Miért kell rövid indoklás a top választáshoz?',
+          options: [
+            'Az AI és a user értse, miért az a termék illik',
+            'Csak design miatt',
+            'Nem kell indoklás',
+            'Csak SEO kulcsszó'
+          ],
+          correctIndex: 0,
+          difficulty: QuestionDifficulty.MEDIUM,
+          category: 'Course Specific'
+        },
+        {
+          question: 'Mi a rossz példa buying guide-ra?',
+          options: [
+            'Falnyi szöveg link nélkül',
+            'Blokkokra bontott guide linkekkel',
+            'Rövid szempontlista',
+            'Top 3 indoklással'
+          ],
+          correctIndex: 0,
+          difficulty: QuestionDifficulty.EASY,
+          category: 'Course Specific'
+        },
+        {
+          question: 'Miért számít a guide az AI-nak?',
+          options: [
+            'Könnyen összegezhető, idézhető szerkezet',
+            'Nem számít',
+            'Csak dekoráció',
+            'Csak képekhez kell'
+          ],
+          correctIndex: 0,
+          difficulty: QuestionDifficulty.MEDIUM,
+          category: 'Course Specific'
+        },
+        {
+          question: 'Mit tegyél a policy infóval a guide-ban?',
+          options: [
+            'Röviden írd le és linkeld stabil URL-lel',
+            'Ne említsd',
+            'Random szöveg',
+            'Hamis ígéret'
+          ],
+          correctIndex: 0,
+          difficulty: QuestionDifficulty.HARD,
+          category: 'Course Specific'
+        }
+      );
+    } else if (entry.day === 23) {
+      quizzes.push(
+        {
+          question: 'Mi a jó összehasonlító tábla eleme?',
+          options: [
+            'Jellemzők, ár, policy, kinek jó/nem jó, link',
+            'Csak képek',
+            'Csak marketing szlogen',
+            'Csak egy gomb'
+          ],
+          correctIndex: 0,
+          difficulty: QuestionDifficulty.MEDIUM,
+          category: 'Course Specific'
+        },
+        {
+          question: 'Miért legyen őszinte a tradeoff?',
+          options: [
+            'Csökkenti a visszaküldést és növeli a bizalmat',
+            'Nem számít',
+            'Csak SEO miatt',
+            'Csak design'
+          ],
+          correctIndex: 0,
+          difficulty: QuestionDifficulty.MEDIUM,
+          category: 'Course Specific'
+        },
+        {
+          question: 'Mi a rossz példa „vs” tartalomra?',
+          options: [
+            '“Mindkettő szuper” adatok nélkül',
+            'Valós különbségek feltüntetve',
+            'Linkek PDP-re',
+            'Policy jelölése'
+          ],
+          correctIndex: 0,
+          difficulty: QuestionDifficulty.EASY,
+          category: 'Course Specific'
+        },
+        {
+          question: 'Mit kell linkelni a táblánál?',
+          options: [
+            'A PDP-ket a részletekhez',
+            'Semmit',
+            'Csak a főoldalt',
+            'Csak a blogot'
+          ],
+          correctIndex: 0,
+          difficulty: QuestionDifficulty.EASY,
+          category: 'Course Specific'
+        },
+        {
+          question: 'Miért szerepeljen kinek jó/nem jó?',
+          options: [
+            'AI és user gyorsan látja az illeszkedést',
+            'Nem fontos',
+            'Csak marketing',
+            'Csak SEO kulcsszó'
+          ],
+          correctIndex: 0,
+          difficulty: QuestionDifficulty.HARD,
+          category: 'Course Specific'
+        }
+      );
+    } else if (entry.day === 24) {
+      quizzes.push(
+        {
+          question: 'Mi a use-case landing fő célja?',
+          options: [
+            'Kontextusos ajánlás (ajándék/szezon/sport/budget)',
+            'Csak képgaléria',
+            'Csak árlista',
+            'Csak blogposzt'
+          ],
+          correctIndex: 0,
+          difficulty: QuestionDifficulty.MEDIUM,
+          category: 'Course Specific'
+        },
+        {
+          question: 'Mi legyen a hero blokkban?',
+          options: [
+            'Kinek/mikor szól az ajánlás',
+            'Csak egy kép',
+            'Csak ár',
+            'Csak CTA'
+          ],
+          correctIndex: 0,
+          difficulty: QuestionDifficulty.EASY,
+          category: 'Course Specific'
+        },
+        {
+          question: 'Miért kell rövid indoklás a terméklistához?',
+          options: [
+            'Az AI idézhetően leírja, miért illik a use-case-hez',
+            'Nem kell indok',
+            'Csak design',
+            'Csak SEO miatt'
+          ],
+          correctIndex: 0,
+          difficulty: QuestionDifficulty.MEDIUM,
+          category: 'Course Specific'
+        },
+        {
+          question: 'Mi a rossz példa use-case oldalra?',
+          options: [
+            'Termékgrid kontextus nélkül',
+            'Hero + szempontok + terméklista',
+            'Policy röviden',
+            'Linkek a PDP-re'
+          ],
+          correctIndex: 0,
+          difficulty: QuestionDifficulty.EASY,
+          category: 'Course Specific'
+        },
+        {
+          question: 'Mit adj hozzá a policy/fit blokkban?',
+          options: [
+            'Rövid szállítás/retour infó linkkel',
+            'Semmit',
+            'Hamis ígéret',
+            'Random szöveg'
+          ],
+          correctIndex: 0,
+          difficulty: QuestionDifficulty.HARD,
+          category: 'Course Specific'
+        }
+      );
+    } else if (entry.day === 25) {
+      quizzes.push(
+        {
+          question: 'Mi a hasznos off-site forrás jellemzője?',
+          options: [
+            'Hiteles, releváns, valós tartalom',
+            'Linkfarm',
+            'Kulcsszóhalmozás',
+            'Fizetett spam'
+          ],
+          correctIndex: 0,
+          difficulty: QuestionDifficulty.EASY,
+          category: 'Course Specific'
+        },
+        {
+          question: 'Miért árthat a spam jellegű link?',
+          options: [
+            'Bizalomvesztés, esetleges kizárás',
+            'Nem árt',
+            'Csak design',
+            'Csak page speed'
+          ],
+          correctIndex: 0,
+          difficulty: QuestionDifficulty.MEDIUM,
+          category: 'Course Specific'
+        },
+        {
+          question: 'Mit listázz ma?',
+          options: [
+            'Hasznos vs kerülendő források',
+            'Csak a footer linkeket',
+            'Csak meta title',
+            'Csak alt text'
+          ],
+          correctIndex: 0,
+          difficulty: QuestionDifficulty.EASY,
+          category: 'Course Specific'
+        },
+        {
+          question: 'Mi a jó outreach lépés?',
+          options: [
+            'Partnercikk/Q&A váz elkészítése',
+            'Spam tömeges email',
+            'Linkfarm vásárlás',
+            'Semmi'
+          ],
+          correctIndex: 0,
+          difficulty: QuestionDifficulty.MEDIUM,
+          category: 'Course Specific'
+        },
+        {
+          question: 'Milyen forrást kerülj?',
+          options: [
+            'Linkfarm, irreleváns katalógus',
+            'Hiteles média',
+            'Valós review oldal',
+            'Partner blog'
+          ],
+          correctIndex: 0,
+          difficulty: QuestionDifficulty.HARD,
+          category: 'Course Specific'
+        }
+      );
+    } else if (entry.day === 26) {
+      quizzes.push(
+        {
+          question: 'Mi a jó anti-spam gyakorlat?',
+          options: [
+            'Forrásolt állítás, valós adat, rövid blokkok',
+            'Kulcsszóhalmozás',
+            'Hamis állítás',
+            'Forrás nélküli adatok'
+          ],
+          correctIndex: 0,
+          difficulty: QuestionDifficulty.EASY,
+          category: 'Course Specific'
+        },
+        {
+          question: 'Miért kell minőség/anti-spam checklist?',
+          options: [
+            'Hogy egységesen kerüld a kockázatos tartalmat',
+            'Csak dekoráció',
+            'Nem kell',
+            'Csak SEO miatt'
+          ],
+          correctIndex: 0,
+          difficulty: QuestionDifficulty.MEDIUM,
+          category: 'Course Specific'
+        },
+        {
+          question: 'Mi a rossz példa AI-asszisztált tartalomra?',
+          options: [
+            'Hamis “legjobb a világon” állítás',
+            'Forrásolt, rövid állítások',
+            'Valós adatok',
+            'Policy link'
+          ],
+          correctIndex: 0,
+          difficulty: QuestionDifficulty.EASY,
+          category: 'Course Specific'
+        },
+        {
+          question: 'Mit tegyél javításkor?',
+          options: [
+            'Alkalmazd a checklistet egy meglévő guide-ra és javíts szakaszt',
+            'Semmit',
+            'Random szöveget írsz',
+            'Törlöd az oldalt'
+          ],
+          correctIndex: 0,
+          difficulty: QuestionDifficulty.MEDIUM,
+          category: 'Course Specific'
+        },
+        {
+          question: 'Miért fontos a forrás megjelölése?',
+          options: [
+            'Bizalom és idézhetőség nő',
+            'Nem fontos',
+            'Csak design',
+            'Csak SEO hossza miatt'
+          ],
+          correctIndex: 0,
+          difficulty: QuestionDifficulty.HARD,
+          category: 'Course Specific'
+        }
+      );
+    } else if (entry.day === 27) {
+      quizzes.push(
+        {
+          question: 'Miért kell feed frissítési ütemezés?',
+          options: [
+            'Elkerülni az elavult ár/készletet',
+            'Csak design miatt',
+            'Nem kell',
+            'Csak SEO miatt'
+          ],
+          correctIndex: 0,
+          difficulty: QuestionDifficulty.EASY,
+          category: 'Course Specific'
+        },
+        {
+          question: 'Mit tartalmazzon a hibalog?',
+          options: [
+            'Dátum, hiba, termék, megoldás, SLA',
+            'Csak egy szám',
+            'Csak ár',
+            'Semmi'
+          ],
+          correctIndex: 0,
+          difficulty: QuestionDifficulty.MEDIUM,
+          category: 'Course Specific'
+        },
+        {
+          question: 'Mi a kockázat a feed hibák figyelmen kívül hagyásánál?',
+          options: [
+            'Kizárás vagy téves AI ajánlás',
+            'Nincs kockázat',
+            'Csak design gond',
+            'Csak alt text hiány'
+          ],
+          correctIndex: 0,
+          difficulty: QuestionDifficulty.MEDIUM,
+          category: 'Course Specific'
+        },
+        {
+          question: 'Mi a jó példa frissítési gyakoriságra?',
+          options: [
+            'Napi a készlet/ár alapján',
+            'Évente egyszer',
+            'Soha',
+            'Csak ha esik az eső'
+          ],
+          correctIndex: 0,
+          difficulty: QuestionDifficulty.EASY,
+          category: 'Course Specific'
+        },
+        {
+          question: 'Mit tegyél hiba esetén?',
+          options: [
+            'Rögzítsd a logban és javítsd SLA-val',
+            'Hagyd figyelmen kívül',
+            'Töröld a terméket mérés nélkül',
+            'Csak újratervezd a színt'
+          ],
+          correctIndex: 0,
+          difficulty: QuestionDifficulty.HARD,
+          category: 'Course Specific'
+        }
+      );
+    } else if (entry.day === 28) {
+      quizzes.push(
+        {
+          question: 'Mi a merchant program táblázat fontos oszlopa?',
+          options: [
+            'Program, régió, követelmény, státusz, felelős',
+            'Csak program neve',
+            'Csak ár',
+            'Csak egy emoji'
+          ],
+          correctIndex: 0,
+          difficulty: QuestionDifficulty.EASY,
+          category: 'Course Specific'
+        },
+        {
+          question: 'Miért kell verifikáció és policy megfelelés?',
+          options: [
+            'Jogosultság a programra, bizalom a felhasználónál',
+            'Nem kell',
+            'Csak design',
+            'Csak SEO kulcsszó'
+          ],
+          correctIndex: 0,
+          difficulty: QuestionDifficulty.MEDIUM,
+          category: 'Course Specific'
+        },
+        {
+          question: 'Mi a rossz gyakorlat onboardingnál?',
+          options: [
+            'Dokumentáció nélkül „majd később”',
+            'Checklist státusszal',
+            'Felelős kijelölve',
+            'Követelmények rögzítve'
+          ],
+          correctIndex: 0,
+          difficulty: QuestionDifficulty.EASY,
+          category: 'Course Specific'
+        },
+        {
+          question: 'Miért fontos a régió szerinti eltérés ismerete?',
+          options: [
+            'Program elérhetősége régiófüggő',
+            'Nem fontos',
+            'Csak design',
+            'Csak alt text miatt'
+          ],
+          correctIndex: 0,
+          difficulty: QuestionDifficulty.MEDIUM,
+          category: 'Course Specific'
+        },
+        {
+          question: 'Mit tegyél hiány esetén?',
+          options: [
+            'Jelöld hiányként és adj feladatot felelőssel',
+            'Semmit',
+            'Elrejted',
+            'Random adatot adsz meg'
+          ],
+          correctIndex: 0,
+          difficulty: QuestionDifficulty.HARD,
+          category: 'Course Specific'
+        }
+      );
+    } else if (entry.day === 29) {
+      quizzes.push(
+        {
+          question: 'Mit mérj a heti GEO futtatáskor?',
+          options: [
+            'Inklúzió, idézés, konzisztencia, AI referral KPI',
+            'Csak oldalsebességet',
+            'Csak backlink számot',
+            'Csak meta title hosszát'
+          ],
+          correctIndex: 0,
+          difficulty: QuestionDifficulty.MEDIUM,
+          category: 'Course Specific'
+        },
+        {
+          question: 'Mi a riportsablon egyik mezője?',
+          options: [
+            'Prompt | Inklúzió | Idézés | Konzisztencia | Jegyzet',
+            'Csak egy emoji',
+            'Csak ár',
+            'Csak képek'
+          ],
+          correctIndex: 0,
+          difficulty: QuestionDifficulty.EASY,
+          category: 'Course Specific'
+        },
+        {
+          question: 'Miért fontos az ütemezés rögzítése?',
+          options: [
+            'Hogy rendszeres legyen a mérés, ne ad hoc',
+            'Nem fontos',
+            'Csak design',
+            'Csak SEO miatt'
+          ],
+          correctIndex: 0,
+          difficulty: QuestionDifficulty.MEDIUM,
+          category: 'Course Specific'
+        },
+        {
+          question: 'Mi a rossz példa mérésre?',
+          options: [
+            '„Érzésre jobb” jegyzet nélkül',
+            'Dokumentált eredmények',
+            'Sablon kitöltve',
+            'Linkelt promptok'
+          ],
+          correctIndex: 0,
+          difficulty: QuestionDifficulty.EASY,
+          category: 'Course Specific'
+        },
+        {
+          question: 'Mit kezdj az első 5 mérés eredményével?',
+          options: [
+            'Rögzítsd és használd baseline-nak',
+            'Töröld',
+            'Elrejtsd',
+            'Csak marketingben említsd'
+          ],
+          correctIndex: 0,
+          difficulty: QuestionDifficulty.HARD,
+          category: 'Course Specific'
+        }
+      );
+    } else if (entry.day === 30) {
+      quizzes.push(
+        {
+          question: 'Mi a capstone sprint fókusza?',
+          options: [
+            '1 kollekció 10 termékkel teljes GEO cikluson',
+            'Csak egy blog írása',
+            'Csak design frissítés',
+            'Csak alt text csere'
+          ],
+          correctIndex: 0,
+          difficulty: QuestionDifficulty.MEDIUM,
+          category: 'Course Specific'
+        },
+        {
+          question: 'Mely lépések tartoznak a sprintbe?',
+          options: [
+            'Data fix + PDP blueprint + capsule + feed/mérés',
+            'Csak meta title írás',
+            'Csak backlink vásárlás',
+            'Csak ár csökkentése'
+          ],
+          correctIndex: 0,
+          difficulty: QuestionDifficulty.MEDIUM,
+          category: 'Course Specific'
+        },
+        {
+          question: 'Mi a jó output a sprint végén?',
+          options: [
+            'Before/after jegyzet és mérési eredmények',
+            'Semmi',
+            'Csak egy szlogen',
+            'Csak egy kép'
+          ],
+          correctIndex: 0,
+          difficulty: QuestionDifficulty.EASY,
+          category: 'Course Specific'
+        },
+        {
+          question: 'Miért kell backlogot írni a következő 30 napra?',
+          options: [
+            'Hogy tudd, hogyan skálázd a módszert',
+            'Nem kell',
+            'Csak marketing miatt',
+            'Csak design miatt'
+          ],
+          correctIndex: 0,
+          difficulty: QuestionDifficulty.MEDIUM,
+          category: 'Course Specific'
+        },
+        {
+          question: 'Mi a rossz gyakorlat a sprintnél?',
+          options: [
+            'Ad hoc javítás mérés nélkül',
+            'Standard alkalmazása 10 termékre',
+            'Mérés rögzítése',
+            'Backlog írása'
           ],
           correctIndex: 0,
           difficulty: QuestionDifficulty.HARD,

@@ -129,21 +129,27 @@ export default function Dashboard() {
         console.log('Dashboard data refreshed:', data);
         
         // Check if player needs to complete survey
-        // Skip check if we just came from onboarding (query param) or already checked
-        if (typeof window !== 'undefined') {
+        // Only check once per session and only if we're actually on dashboard
+        if (typeof window !== 'undefined' && pathname?.includes('/dashboard')) {
           const urlParams = new URLSearchParams(window.location.search);
           const surveyCompleted = urlParams.get('surveyCompleted') === 'true';
           
-          if (!hasCheckedSurvey.current && !surveyCompleted && data.player && !data.player.surveyCompleted && pathname?.includes('/dashboard')) {
+          // If we just completed the survey, don't redirect
+          if (surveyCompleted) {
             hasCheckedSurvey.current = true;
-            // Small delay to prevent immediate redirect loop
-            setTimeout(() => {
-              router.push(`/${locale}/onboarding`);
-            }, 100);
+            // Clean up the URL
+            window.history.replaceState({}, '', window.location.pathname);
+          } else if (!hasCheckedSurvey.current && data.player && !data.player.surveyCompleted) {
+            hasCheckedSurvey.current = true;
+            // Use replace instead of push to prevent back button issues and redirect loops
+            router.replace(`/${locale}/onboarding`);
             return;
+          } else {
+            hasCheckedSurvey.current = true;
           }
+        } else {
+          hasCheckedSurvey.current = true;
         }
-        hasCheckedSurvey.current = true;
       } else {
         setError('Failed to load player data');
       }

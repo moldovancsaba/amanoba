@@ -83,11 +83,12 @@ export default function OnboardingPage() {
 
       if (data.success) {
         if (data.survey.alreadyCompleted) {
-          // Already completed, redirect to dashboard
-          router.push(`/${locale}/dashboard`);
-          return;
+          // Already completed - don't redirect, just show a message or allow them to view
+          // This prevents redirect loops
+          setSurvey(data.survey);
+        } else {
+          setSurvey(data.survey);
         }
-        setSurvey(data.survey);
       } else {
         console.error('Failed to fetch survey:', data.error);
       }
@@ -209,9 +210,13 @@ export default function OnboardingPage() {
       const data = await response.json();
 
       if (data.success) {
-        // Redirect to dashboard or specified URL
-        const redirectUrl = survey.metadata?.redirectUrl || `/${locale}/dashboard`;
-        router.push(redirectUrl);
+        // Wait a bit longer to ensure backend has fully updated player data
+        // Then redirect to dashboard with flag to prevent redirect loop
+        setTimeout(() => {
+          const redirectUrl = survey.metadata?.redirectUrl || `/${locale}/dashboard`;
+          // Use replace and add query param to prevent redirect loop
+          router.replace(`${redirectUrl}?surveyCompleted=true`);
+        }, 1500);
       } else {
         alert(data.error || 'Failed to submit survey');
         setSubmitting(false);
