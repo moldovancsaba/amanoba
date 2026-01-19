@@ -16,8 +16,8 @@ import mongoose from 'mongoose';
 import { Brand, Course, Lesson, QuizQuestion, QuestionDifficulty } from '../app/lib/models';
 
 const COURSE_ID = 'AI_30_NAP';
-const COURSE_NAME = 'AI 30 Nap – tematikus tanulási út';
-const COURSE_DESCRIPTION = '30 napos, gyakorlati AI-kurzus az alapoktól a haladó használatig. Napi 10-15 perces, magyar nyelvű leckékkel kapsz promptokat, sablonokat, workflow-kat és biztonsági útmutatót, hogy valós munkafolyamatokban használd az AI-t – azonnal alkalmazható példákkal, szerep-specifikus tippekkel és portfólióminőségű kimenetekkel.';
+const COURSE_NAME = '30-Day AI Catch-Up Program';
+const COURSE_DESCRIPTION = '30 napos, gyakorlati AI-kurzus kezdőknek és lemaradóknak: rövid, fókuszált leckékkel, konkrét példákkal, önálló és vezetett gyakorlatokkal, hogy azonnal használható promptokat, workflow-kat és biztonsági rutinokat építs be a mindennapi munkádba.';
 
 // Complete lesson plan based on the table of contents
 const lessonPlan = [
@@ -1084,53 +1084,178 @@ const lessonPlan = [
   {
     day: 20,
     title: 'Skill-check & szintlépés',
-    content: `<h2>Napi cél</h2>
-<p>Ma felméred a fejlődésed és kijelölöd a következő szintet: mely készségek mennek, melyeket húzod fel.</p>
+    content: `<h1>Skill-check &amp; szintlépés</h1>
+<p><em>Az eszközhasználattól a tudatos működésig</em></p>
+<p>Ez a nap nem arról szól, hogy „újat tanulsz”. Arról szól, hogy <strong>láthatóvá teszed a fejlődésed</strong>, <strong>nevet adsz a hiányaidnak</strong>, és <strong>rendszerré alakítod azt, amit eddig ösztönből csináltál</strong>.</p>
+<p>A legtöbben azért ragadnak meg egy szinten az AI használatában, mert soha nem állnak meg megkérdezni:</p>
 <ul>
-<li>önértékelés (1–5) a kulcsterületeken</li>
-<li>hiányok beazonosítása (prompt, workflow, sablon, QA)</li>
-<li>következő célok + akcióterv</li>
+<li>Mit csinálok már jól?</li>
+<li>Hol improvizálok még?</li>
+<li>Mely szokásaim emelnék azonnal a kimenetek minőségét?</li>
+</ul>
+<p>Ma pontosan ezt teszed.</p>
+<p>Átlépsz innen:<br />&gt; „Használom az AI-t”<br />ide:<br />&gt; „Tudatosan működtetem az AI-t.”</p>
+
+<hr />
+<h2>Napi cél</h2>
+<p>A lecke végére:</p>
+<ul>
+<li>Tisztán látod a valódi szinted a kulcs AI-területeken</li>
+<li>Azonosítod a személyes gyenge pontjaidat</li>
+<li>Kijelölsz <strong>két konkrét fejlesztési célt</strong></li>
+<li>Készítesz egy <strong>gyakorlatias akciótervet</strong>, amit már holnaptól használhatsz</li>
+</ul>
+<p>Ez a te <strong>szintlépési pontod</strong>.</p>
+
+<hr />
+<h2>Kulcsterületek</h2>
+<p>Hét területen értékeled magad. Ezek a professzionális AI-használat pillérei.</p>
+<h3>1. Prompt</h3>
+<ul>
+<li>Cél: mit szeretnél elérni?</li>
+<li>Kontextus: milyen háttér szükséges?</li>
+<li>Forma: milyen kimeneti formát vársz?</li>
+<li>Stílus: milyen hangvétel, keret?</li>
+<li>Hossz: mennyire legyen részletes?</li>
+<li>CTA: mi legyen a következő lépés?</li>
+</ul>
+<p>A profi prompt nem kérés. Specifikáció.</p>
+
+<hr />
+<h3>2. Workflow gondolkodás</h3>
+<ul>
+<li>Input → Feldolgozás → Output → Ellenőrzés</li>
+<li>Fel tudod-e bontani a komplex feladatokat?</li>
+<li>Fázisokban vezeted-e a modellt?</li>
+</ul>
+<p>A kezdő egyszer kérdez. A profi vezényel.</p>
+
+<hr />
+<h3>3. Sablonrendszer</h3>
+<ul>
+<li>Vannak újrahasznosítható promptjaid?</li>
+<li>Van személyes prompt-könyvtárad?</li>
+<li>Verziózod és finomítod a legjobbakat?</li>
+</ul>
+<p>A sablon tőke. Nélküle minden feladat nulláról indul.</p>
+
+<hr />
+<h3>4. Hibakezelés és QA</h3>
+<ul>
+<li>Kérsz-e forrást vagy disclaimer-t, ha kell?</li>
+<li>Ellenőrzöd-e a kimenetet?</li>
+<li>Van-e ellenőrző listád?</li>
+</ul>
+<p>Az AI erős. Az ellenőrizetlen AI veszélyes.</p>
+
+<hr />
+<h3>5. Szerep-specifikus használat</h3>
+<ul>
+<li>Másképp használod-e vezetőként, tanárként, fejlesztőként?</li>
+<li>Vannak szerep-alapú promptjaid?</li>
+<li>Kontextushoz igazítod-e az utasítást?</li>
+</ul>
+<p>Az általános prompt általános kimenetet ad.</p>
+
+<hr />
+<h3>6. Iterációs készség</h3>
+<ul>
+<li>Adsz-e konkrét visszajelzést?</li>
+<li>Megmondod-e, mi a gond és hogyan javítsa?</li>
+<li>Finomítasz vagy újragenerálsz?</li>
+</ul>
+<p>A profi formál. A kezdő újrakezd.</p>
+
+<hr />
+<h3>7. Biztonság</h3>
+<ul>
+<li>Anonimizálsz-e érzékeny adatot?</li>
+<li>Nem másolsz be privát információt?</li>
+<li>Tudatosan véded a kontextust?</li>
+</ul>
+<p>A bizalom a kompetencia része.</p>
+
+<hr />
+<h2>Gyakorlat — Önelemzés</h2>
+<h3>1. lépés</h3>
+<p>Értékeld magad 1–5-ig:</p>
+<ul>
+<li>Prompt</li>
+<li>Workflow</li>
+<li>Sablon</li>
+<li>QA és hibakezelés</li>
+<li>Szerep-specifikus használat</li>
+<li>Iteráció</li>
+<li>Biztonság</li>
+</ul>
+<p>1 = alig figyelek rá<br />5 = tudatosan és következetesen csinálom</p>
+
+<hr />
+<h3>2. lépés</h3>
+<p>Írd le:</p>
+<ul>
+<li>3 erősséged</li>
+<li>3 fejlesztendő pontod</li>
+</ul>
+<p>Légy konkrét. Nem: „gyenge vagyok promptban”. Hanem: „gyakran nem adok meg formát és hosszúságot”.</p>
+
+<hr />
+<h3>3. lépés</h3>
+<p>Válassz ki <strong>2 fejlesztendő területet</strong>, és alakítsd őket céllá.</p>
+<p>Példák:</p>
+<ul>
+<li>„Minden összetett prompt végén kérek QA-t.”</li>
+<li>„Kialakítok egy email sablon könyvtárat.”</li>
+<li>„Minden nem triviális feladatot lépésekre bontok.”</li>
 </ul>
 
 <hr />
-<h2>Skill-check területek</h2>
-<ul>
-<li>Prompt: cél/kontextus/forma/stílus/hossz/CTA</li>
-<li>Workflow: Input→Feldolgozás→Output→Ellenőrzés</li>
-<li>Sablon: van-e könyvtárad, verziózol-e</li>
-<li>Hibakezelés: forrás/disclaimer, QA, teszt</li>
-<li>Szerep-specifikus: használod-e a saját sablonjaidat</li>
-<li>Iteráció: adsz-e konkrét feedbacket</li>
-<li>Biztonság: anonimizálás, érzékeny adat nem megy be</li>
-</ul>
+<h3>4. lépés</h3>
+<p>Készíts egyszerű akciótervet:</p>
+<table>
+<thead>
+<tr><th>Terület</th><th>Akció</th><th>Mikor</th><th>Bizonyíték</th></tr>
+</thead>
+<tbody>
+<tr><td>QA</td><td>„Verify and flag uncertainty” hozzáadása</td><td>Holnaptól</td><td>Kevesebb hiba</td></tr>
+<tr><td>Sablon</td><td>5 alap prompt létrehozása</td><td>Ezen a héten</td><td>Elmentve</td></tr>
+</tbody>
+</table>
 
 <hr />
-<h2>Gyakorlat – Önelemzés</h2>
-<ol>
-<li>Értékeld magad 1–5-ig a fenti területeken.</li>
-<li>Írd le 3 erősséged és 3 fejlesztendő pontot.</li>
-<li>Válassz 2 fejlesztendőt, állíts célokat (pl. „QA lépést mindig kérek”).</li>
-<li>Készíts akciótervet: sablon frissítés, workflow gyakorlás, QA checklist.</li>
-</ol>
+<h2>Önértékelő prompt</h2>
+<pre><code>Készíts strukturált önértékelést az AI-készségeimről.
+
+Struktúra:
+1. 1–5 értékek: Prompt, Workflow, Sablon, QA, Szerep-specifikus használat, Iteráció, Biztonság
+2. Három erősség
+3. Három fejlesztendő terület
+4. Két konkrét fejlesztési cél
+5. Akcióterv konkrét lépésekkel és határidőkkel
+</code></pre>
+<p>Hasonlítsd össze az AI válaszát a sajátoddal. Az egyezés tisztánlátást jelent. Az eltérés vakfoltot jelez.</p>
 
 <hr />
-<h2>Prompt minta</h2>
-<blockquote>
-<p>Készíts önértékelést az AI-készségeimről. Struktúra: 1) 1–5 értékek (prompt, workflow, sablon, QA, szerep-specifikus), 2) Erősségek (3), 3) Fejlesztendők (3), 4) Következő célok (2), 5) Akcióterv (konkrét lépések, határidők).</p>
-</blockquote>
-
 <h2>Tipp</h2>
-<p>Válassz kevés célt, de csináld végig. Kapcsold a célokat a napi feladatokhoz (pl. minden email előtt ellenőrző kérdés).</p>
+<p>Válassz kevés célt. De vidd végig őket.</p>
+<p>Kösd a mindennapi munkához:</p>
+<ul>
+<li>Minden email előtt QA kérdés</li>
+<li>Minden komplex feladat lépésekre bontva</li>
+<li>Minden jó prompt elmentve</li>
+</ul>
 
+<hr />
 <h2>Opcionális mélyítés</h2>
 <ul>
-<li>Heti retro: mi működött, mi nem</li>
-<li>KPI: mennyi időt spóroltál, hány iteráció kell egy jó kimenethez</li>
-</ul>`,
-    emailSubject: 'AI 30 Nap – 20. nap: Skill-check',
-    emailBody: `<h1>AI 30 Nap – 20. nap</h1>
-<h2>Skill-check & szintlépés</h2>
-<p>Ma ellenőrzöd a fejlődésedet és meghatározod a következő szintet. Ez fontos a folyamatos fejlődéshez.</p>
+<li>Heti retro – mi működött, mi nem, mi javult?</li>
+<li>Egyszerű KPI-k – mennyi időt spórolsz feladatonként, hány iteráció kell egy jó kimenethez, hányszor használsz újra sablont</li>
+</ul>
+<p>Amit mérsz, azt fejleszted.</p>`,
+    emailSubject: '30-Day AI Catch-Up – 20. nap: Skill-check & szintlépés',
+    emailBody: `<h1>30-Day AI Catch-Up – 20. nap</h1>
+<h2>Skill-check &amp; szintlépés</h2>
+<p>Ma láthatóvá teszed, hol tartasz, és kijelölöd a következő szintet. A lecke végén akciótervvel zársz.</p>
 <p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Olvasd el a teljes leckét →</a></p>`
   },
   // 21-25. nap · AI a bevételhez

@@ -391,13 +391,17 @@ export default function CourseEditorPage({
                   min={getStripeMinimum(course.price?.currency || 'usd')}
                   step="1"
                   value={course.price?.amount || 2999}
-                  onChange={(e) => setCourse({
-                    ...course,
-                    price: {
-                      amount: parseInt(e.target.value) || 0,
-                      currency: course.price?.currency || 'usd',
-                    },
-                  })}
+                  onChange={(e) => {
+                    const newAmount = parseInt(e.target.value) || 0;
+                    const currentCurrency = course.price?.currency || 'usd';
+                    setCourse({
+                      ...course,
+                      price: {
+                        amount: newAmount,
+                        currency: currentCurrency,
+                      },
+                    });
+                  }}
                   className={`w-full px-4 py-2 bg-brand-white border-2 rounded-lg text-brand-black focus:outline-none focus:border-brand-accent ${
                     course.price?.amount && course.price?.currency && !meetsStripeMinimum(course.price.amount, course.price.currency)
                       ? 'border-red-500'
@@ -405,15 +409,21 @@ export default function CourseEditorPage({
                   }`}
                   placeholder="2999"
                 />
-                {course.price?.amount && course.price?.currency && !meetsStripeMinimum(course.price.amount, course.price.currency) ? (
-                  <p className="text-xs text-red-600 mt-1 font-semibold">
-                    ⚠️ Amount too low! Minimum for {course.price.currency.toUpperCase()} is {getFormattedMinimum(course.price.currency)}
-                  </p>
-                ) : (
-                  <p className="text-xs text-brand-darkGrey mt-1">
-                    Enter amount in smallest unit (e.g., 2999 cents = $29.99). Minimum: {getFormattedMinimum(course.price?.currency || 'usd')}
-                  </p>
-                )}
+                {(() => {
+                  const currentCurrency = course.price?.currency || 'usd';
+                  const currentAmount = course.price?.amount || 0;
+                  const isValid = currentAmount > 0 && meetsStripeMinimum(currentAmount, currentCurrency);
+                  
+                  return !isValid && currentAmount > 0 ? (
+                    <p className="text-xs text-red-600 mt-1 font-semibold">
+                      ⚠️ Amount too low! Minimum for {currentCurrency.toUpperCase()} is {getFormattedMinimum(currentCurrency)}
+                    </p>
+                  ) : (
+                    <p className="text-xs text-brand-darkGrey mt-1">
+                      Enter amount in smallest unit (e.g., 2999 cents = $29.99). Minimum: {getFormattedMinimum(currentCurrency)}
+                    </p>
+                  );
+                })()}
               </div>
               <div>
                 <label className="block text-sm font-medium text-brand-black mb-2">
@@ -427,12 +437,14 @@ export default function CourseEditorPage({
                     const minimum = getStripeMinimum(newCurrency);
                     // If current amount is below new currency's minimum, set to minimum
                     const newAmount = currentAmount < minimum ? minimum : currentAmount;
+                    // Update both currency and amount atomically
+                    const updatedPrice = {
+                      amount: newAmount,
+                      currency: newCurrency,
+                    };
                     setCourse({
                       ...course,
-                      price: {
-                        amount: newAmount,
-                        currency: newCurrency,
-                      },
+                      price: updatedPrice,
                     });
                   }}
                   className="w-full px-4 py-2 bg-brand-white border-2 border-brand-darkGrey rounded-lg text-brand-black focus:outline-none focus:border-brand-accent"
