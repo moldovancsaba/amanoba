@@ -465,6 +465,31 @@ export async function GET(request: NextRequest) {
 
         logger.info({ playerId: player._id }, 'Initialized SSO player progression, wallet, and streaks');
         
+        // Process referral code if present
+        const referralCode = request.cookies.get('referral_code')?.value;
+        if (referralCode && player._id) {
+          try {
+            const referralResponse = await fetch(`${process.env.NEXTAUTH_URL || process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000'}/api/referrals`, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                referredPlayerId: (player._id as any).toString(),
+                referralCode,
+              }),
+            });
+            
+            if (referralResponse.ok) {
+              logger.info({ playerId: player._id, referralCode }, 'Referral processed successfully for new SSO player');
+            } else {
+              const errorData = await referralResponse.json();
+              logger.warn({ playerId: player._id, referralCode, error: errorData.error }, 'Failed to process referral code');
+            }
+          } catch (referralError) {
+            // Don't fail signup if referral processing fails
+            logger.warn({ playerId: player._id, referralCode, error: referralError }, 'Error processing referral code');
+          }
+        }
+        
         // Log player registration event
         await logPlayerRegistration(
           (player._id as any).toString(),
@@ -525,7 +550,7 @@ export async function GET(request: NextRequest) {
       );
     }
 
-    // Clear SSO cookies
+    // Clear SSO cookies and referral code cookie
     // Ensure returnTo has locale prefix if it's a relative path
     let finalReturnTo = returnTo;
     if (returnTo.startsWith('/') && !returnTo.startsWith(`/${locale}/`) && returnTo !== '/') {
@@ -537,6 +562,7 @@ export async function GET(request: NextRequest) {
     response.cookies.delete('sso_state');
     response.cookies.delete('sso_nonce');
     response.cookies.delete('sso_return_to');
+    response.cookies.delete('referral_code'); // Clear referral code after processing
 
     logger.info({ playerId: player._id, returnTo: finalReturnTo }, 'SSO login completed successfully');
 

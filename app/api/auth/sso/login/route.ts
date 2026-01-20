@@ -40,9 +40,10 @@ export async function GET(request: NextRequest) {
     const state = randomBytes(32).toString('base64url');
     const nonce = randomBytes(32).toString('base64url');
 
-    // Get returnTo from query params or default to dashboard
+    // Get returnTo and referral code from query params
     const { searchParams } = new URL(request.url);
     const returnTo = searchParams.get('returnTo') || '/dashboard';
+    const referralCode = searchParams.get('ref'); // Extract referral code from URL
 
     // Build authorization URL
     // Note: Some SSO providers may not support 'prompt' parameter
@@ -89,6 +90,12 @@ export async function GET(request: NextRequest) {
     response.cookies.set('sso_state', state, cookieOptions);
     response.cookies.set('sso_nonce', nonce, cookieOptions);
     response.cookies.set('sso_return_to', returnTo, cookieOptions);
+    
+    // Store referral code in cookie if present
+    if (referralCode) {
+      response.cookies.set('referral_code', referralCode, cookieOptions);
+      logger.info({ referralCode }, 'Referral code stored in cookie');
+    }
 
     logger.info({ state, returnTo }, 'SSO login initiated');
 

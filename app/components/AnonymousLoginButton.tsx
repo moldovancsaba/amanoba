@@ -25,8 +25,13 @@ export function AnonymousLoginButton() {
   const handleAnonymousLogin = async () => {
     setLoading(true);
     try {
+      // Extract referral code from URL
+      const urlParams = new URLSearchParams(window.location.search);
+      const referralCode = urlParams.get('ref');
+      
       // Call API to create anonymous player
-      const response = await fetch('/api/auth/anonymous', { 
+      const apiUrl = referralCode ? `/api/auth/anonymous?ref=${encodeURIComponent(referralCode)}` : '/api/auth/anonymous';
+      const response = await fetch(apiUrl, { 
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
       });

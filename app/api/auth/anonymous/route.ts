@@ -21,6 +21,10 @@ export async function POST(req: NextRequest) {
   try {
     logger.info('Starting anonymous login request');
     
+    // Extract referral code from URL or request body
+    const { searchParams } = new URL(req.url);
+    const referralCode = searchParams.get('ref') || (await req.json().catch(() => ({}))).referralCode;
+    
     await connectDB();
     logger.info('Database connected');
     
@@ -34,6 +38,31 @@ export async function POST(req: NextRequest) {
     
     if (!player) {
       throw new Error('Failed to create player');
+    }
+    
+    // Process referral code if present and player is new
+    if (isNew && referralCode && player._id) {
+      try {
+        const baseUrl = process.env.NEXTAUTH_URL || process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000';
+        const referralResponse = await fetch(`${baseUrl}/api/referrals`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            referredPlayerId: (player._id as mongoose.Types.ObjectId).toString(),
+            referralCode,
+          }),
+        });
+        
+        if (referralResponse.ok) {
+          logger.info({ playerId: player._id, referralCode }, 'Referral processed successfully for new anonymous player');
+        } else {
+          const errorData = await referralResponse.json();
+          logger.warn({ playerId: player._id, referralCode, error: errorData.error }, 'Failed to process referral code');
+        }
+      } catch (referralError) {
+        // Don't fail signup if referral processing fails
+        logger.warn({ playerId: player._id, referralCode, error: referralError }, 'Error processing referral code');
+      }
     }
     
     // Log authentication event
