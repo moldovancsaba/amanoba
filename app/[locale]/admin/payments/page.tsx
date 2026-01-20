@@ -190,8 +190,8 @@ export default function AdminPaymentsPage() {
   const exportToCSV = () => {
     const headers = [
       'ID',
-      'Player Name',
-      'Player Email',
+      'User Name',
+      'User Email',
       'Course',
       'Amount',
       'Currency',
@@ -413,10 +413,10 @@ export default function AdminPaymentsPage() {
 
           {/* Player Filter */}
           <div>
-            <label className="block text-sm font-medium text-gray-400 mb-2">Player ID</label>
-            <input
-              type="text"
-              placeholder="Player ID..."
+            <label className="block text-sm font-medium text-gray-400 mb-2">User ID</label>
+              <input
+                type="text"
+                placeholder="User ID..."
               value={playerFilter}
               onChange={(e) => {
                 setPlayerFilter(e.target.value);
@@ -611,7 +611,7 @@ export default function AdminPaymentsPage() {
                   </div>
                 </div>
                 <div>
-                  <label className="text-sm font-medium text-gray-400">Player</label>
+                  <label className="text-sm font-medium text-gray-400">User</label>
                   <div className="text-white">{selectedTransaction.playerName}</div>
                   {selectedTransaction.playerEmail && (
                     <div className="text-sm text-gray-400">{selectedTransaction.playerEmail}</div>

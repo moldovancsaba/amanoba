@@ -1,8 +1,8 @@
 /**
  * Course Catalog Page
  * 
- * What: Student-facing course listing and enrollment
- * Why: Allows students to browse and enroll in courses
+ * What: User-facing course listing and enrollment
+ * Why: Allows users to browse and enroll in courses
  */
 
 'use client';

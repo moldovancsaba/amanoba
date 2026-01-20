@@ -1,8 +1,8 @@
 /**
  * My Courses Page
  * 
- * What: Student dashboard showing enrolled courses and progress
- * Why: Allows students to track their learning progress
+ * What: User dashboard showing enrolled courses and progress
+ * Why: Allows users to track their learning progress
  */
 
 'use client';

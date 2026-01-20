@@ -2,7 +2,7 @@
  * Admin Surveys Analytics Page
  * 
  * What: View survey response statistics and analytics
- * Why: Allows admins to understand student preferences and needs
+ * Why: Allows admins to understand user preferences and needs
  */
 
 'use client';

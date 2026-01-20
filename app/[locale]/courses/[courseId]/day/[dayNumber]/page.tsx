@@ -2,7 +2,7 @@
  * Daily Lesson Viewer Page
  * 
  * What: Display lesson content for a specific day
- * Why: Students read and complete daily lessons
+ * Why: Users read and complete daily lessons
  */
 
 'use client';

@@ -1,7 +1,7 @@
 /**
- * Player Profile Page
+ * User Profile Page
  * 
- * Comprehensive public profile displaying player stats, achievements,
+ * Comprehensive public profile displaying user stats, achievements,
  * recent activity, and progression. Features tabbed navigation and
  * responsive design.
  */

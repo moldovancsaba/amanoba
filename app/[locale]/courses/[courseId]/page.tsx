@@ -2,7 +2,7 @@
  * Course Detail Page
  * 
  * What: Course overview and enrollment page
- * Why: Allows students to view course details and enroll
+ * Why: Allows users to view course details and enroll
  */
 
 'use client';
