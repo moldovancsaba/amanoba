@@ -91,7 +91,7 @@ export default function PlayerAvatar({
     <div className={`relative ${sizeClasses[size]} ${className}`}>
       {/* Main avatar circle */}
       <div className={`${sizeClasses[size]} rounded-full overflow-hidden border-2 ${
-        isPremium ? 'border-yellow-400' : 'border-gray-600'
+        isPremium ? 'border-indigo-300' : 'border-gray-600'
       } bg-gradient-to-br from-indigo-600 to-purple-600 flex items-center justify-center relative`}>
         {profilePicture && !imageError ? (
           <img
@@ -116,8 +116,8 @@ export default function PlayerAvatar({
 
       {/* Premium crown - top right */}
       {showPremium && isPremium && (
-        <div className="absolute -top-1 -right-1 bg-yellow-400 rounded-full p-1 border-2 border-gray-900 shadow-lg z-10">
-          <Crown className={`${crownSize[size]} text-yellow-900`} fill="currentColor" />
+        <div className="absolute -top-1 -right-1 bg-brand-darkGrey/90 rounded-full p-1 border-2 border-gray-900 shadow-lg z-10">
+          <Crown className={`${crownSize[size]} text-white`} fill="currentColor" />
         </div>
       )}
 
@@ -172,7 +172,7 @@ export function PlayerAvatarWithName({
         showLevel={showLevel}
         clickable={false}
       />
-      <span className={`font-semibold ${isPremium ? 'text-yellow-400' : 'text-white'}`}>
+      <span className="font-semibold text-white">
         {displayName}
       </span>
     </>
