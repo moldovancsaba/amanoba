@@ -321,20 +321,62 @@ export async function GET(request: NextRequest) {
 
       if (!player) {
         // Create new player
-        player = await Player.create({
-          ssoSub: userInfo.sub,
-          displayName: userInfo.name || 'Player',
-          email: userInfo.email,
-          brandId: defaultBrand._id,
-          locale: 'en', // Default locale
-          isPremium: false,
-          isActive: true,
-          isBanned: false,
-          authProvider: 'sso',
-          role: userInfo.role,
-          lastLoginAt: new Date(),
-          lastSeenAt: new Date(),
-        });
+        // Note: Do not set facebookId for SSO users to avoid duplicate key errors
+        // The sparse unique index on facebookId should allow multiple nulls, but we omit the field entirely
+        try {
+          player = await Player.create({
+            ssoSub: userInfo.sub,
+            displayName: userInfo.name || 'Player',
+            email: userInfo.email,
+            brandId: defaultBrand._id,
+            locale: 'en', // Default locale
+            isPremium: false,
+            isActive: true,
+            isBanned: false,
+            authProvider: 'sso',
+            role: userInfo.role,
+            lastLoginAt: new Date(),
+            lastSeenAt: new Date(),
+            // Do not include facebookId - let it be undefined to avoid index conflicts
+          });
+        } catch (createError: any) {
+          // Handle duplicate key error - might be race condition or index issue
+          if (createError?.code === 11000 && createError?.keyPattern?.facebookId) {
+            logger.warn(
+              { ssoSub: userInfo.sub, email: userInfo.email },
+              'Duplicate key error on facebookId during player creation - retrying with find'
+            );
+            // Try to find existing player by email or ssoSub
+            player = await Player.findOne({
+              $or: [
+                { ssoSub: userInfo.sub },
+                ...(userInfo.email ? [{ email: userInfo.email }] : []),
+              ],
+            });
+            
+            if (!player) {
+              // If still not found, the error is unexpected - rethrow
+              throw createError;
+            }
+            
+            // Update the found player with SSO info
+            player.ssoSub = userInfo.sub;
+            player.role = userInfo.role;
+            player.authProvider = 'sso';
+            player.displayName = userInfo.name || player.displayName;
+            player.lastLoginAt = new Date();
+            player.lastSeenAt = new Date();
+            // Explicitly unset facebookId if it exists
+            if (player.facebookId === null || player.facebookId === undefined) {
+              player.facebookId = undefined;
+            }
+            await player.save();
+            logger.info({ playerId: player._id }, 'Found and updated existing player after duplicate key error');
+          } else {
+            // Re-throw if it's not a duplicate key error
+            throw createError;
+          }
+        }
 
         logger.info({ playerId: player._id, ssoSub: userInfo.sub }, 'New SSO player created');
 
