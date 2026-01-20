@@ -475,11 +475,18 @@ export async function GET(request: NextRequest) {
 
     // Create NextAuth session using credentials provider
     // Why: Use NextAuth session management for consistency
+    // IMPORTANT: Use player.role (from database) not userInfo.role (from SSO token)
+    // This ensures manually set admin roles are preserved
+    const finalRole = player.role || 'user';
+    
     logger.info({
       playerId: (player._id as any).toString(),
       displayName: player.displayName,
-      roleBeforeSignIn: player.role
-    }, 'DEBUG: About to call signIn with role');
+      roleFromDB: player.role,
+      roleFromSSO: userInfo.role,
+      finalRole,
+      roleSource: 'database'
+    }, 'DEBUG: About to call signIn with role from database');
     
     let signInResult;
     try {
@@ -488,7 +495,7 @@ export async function GET(request: NextRequest) {
         playerId: (player._id as any).toString(),
         displayName: player.displayName,
         isAnonymous: 'false',
-        role: player.role, // Pass role to session
+        role: finalRole, // Use role from database, not SSO token
       });
     } catch (signInError) {
       const errorMessage = signInError instanceof Error ? signInError.message : String(signInError);
