@@ -93,7 +93,7 @@ export function ReferralCard() {
 
   if (loading) {
     return (
-      <div className="bg-brand-white rounded-xl shadow-lg p-6 border-2 border-brand-accent">
+      <div className="bg-brand-white rounded-xl shadow-lg p-6 border-2 border-brand-darkGrey/25">
         <div className="animate-pulse">
           <div className="h-6 bg-brand-darkGrey/20 rounded w-1/3 mb-4"></div>
           <div className="h-20 bg-brand-darkGrey/20 rounded"></div>
@@ -107,7 +107,7 @@ export function ReferralCard() {
   }
 
   return (
-    <div className="bg-brand-white rounded-xl shadow-lg p-6 border-2 border-brand-accent">
+    <div className="bg-brand-white rounded-xl shadow-lg p-6 border-2 border-brand-darkGrey/25">
       <h3 className="text-xl font-bold text-brand-black mb-4 flex items-center gap-2">
         <span>🎁</span>
         {t('inviteFriends')}
@@ -117,7 +117,7 @@ export function ReferralCard() {
       <div className="bg-brand-darkGrey/10 rounded-lg p-4 mb-4">
         <p className="text-sm text-brand-darkGrey mb-2">{t('yourReferralCode')}</p>
         <div className="flex items-center gap-2">
-          <code className="flex-1 text-2xl font-bold text-brand-accent tracking-wider">
+          <code className="flex-1 text-2xl font-bold text-brand-black tracking-wider">
             {referralData.referralCode}
           </code>
           <button
@@ -172,13 +172,13 @@ export function ReferralCard() {
       {/* Stats Grid */}
       <div className="grid grid-cols-2 gap-4 mb-4">
         <div className="bg-brand-darkGrey/10 rounded-lg p-3 text-center">
-          <div className="text-2xl font-bold text-brand-accent">
+          <div className="text-2xl font-bold text-brand-black">
             {referralData.stats.totalReferrals}
           </div>
           <div className="text-xs text-brand-darkGrey">{t('friendsInvited')}</div>
         </div>
         <div className="bg-brand-darkGrey/10 rounded-lg p-3 text-center">
-          <div className="text-2xl font-bold text-brand-accent">
+          <div className="text-2xl font-bold text-brand-black">
             {referralData.stats.totalPointsEarned}
           </div>
           <div className="text-xs text-brand-darkGrey">{t('pointsEarned')}</div>
@@ -198,7 +198,7 @@ export function ReferralCard() {
                 className="flex items-center justify-between p-3 bg-brand-darkGrey/10 rounded-lg"
               >
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-brand-accent rounded-full flex items-center justify-center text-brand-black font-bold">
+                  <div className="w-10 h-10 bg-brand-darkGrey/15 rounded-full flex items-center justify-center text-brand-black font-bold">
                     {referral.referredPlayer.displayName.charAt(0)}
                   </div>
                   <div>
@@ -216,7 +216,7 @@ export function ReferralCard() {
                       +{referral.rewardDetails?.pointsEarned || 0} {tCommon('points')}
                     </div>
                   ) : (
-                    <div className="text-yellow-600 text-xs">
+                    <div className="text-brand-darkGrey text-xs">
                       {t('pending')}
                     </div>
                   )}

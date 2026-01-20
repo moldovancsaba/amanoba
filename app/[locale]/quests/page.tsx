@@ -143,7 +143,7 @@ export default function QuestsPage() {
             </div>
             <LocaleLink
               href="/dashboard"
-              className="page-button-secondary border-2 border-brand-accent flex items-center gap-2"
+              className="page-button-secondary border-2 border-brand-darkGrey flex items-center gap-2"
             >
               <ChevronLeft className="w-5 h-5" />
               {tCommon('dashboard')}
@@ -156,7 +156,7 @@ export default function QuestsPage() {
         {/* Stats Overview */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
           <div className="page-card p-6">
-            <Icon icon={MdMyLocation} size={36} className="text-brand-accent mb-2" />
+            <Icon icon={MdMyLocation} size={36} className="text-brand-darkGrey mb-2" />
             <div className="text-3xl font-bold text-brand-black">
               {activeQuests.length}
             </div>
@@ -164,7 +164,7 @@ export default function QuestsPage() {
           </div>
           
           <div className="page-card p-6">
-            <Icon icon={MdAutoAwesome} size={36} className="text-brand-accent mb-2" />
+            <Icon icon={MdAutoAwesome} size={36} className="text-brand-darkGrey mb-2" />
             <div className="text-3xl font-bold text-brand-black">
               {availableQuests.length}
             </div>
@@ -172,7 +172,7 @@ export default function QuestsPage() {
           </div>
           
           <div className="page-card p-6">
-            <Icon icon={MdEmojiEvents} size={36} className="text-brand-accent mb-2" />
+            <Icon icon={MdEmojiEvents} size={36} className="text-brand-darkGrey mb-2" />
             <div className="text-3xl font-bold text-brand-black">
               {completedQuests.length}
             </div>
@@ -283,8 +283,8 @@ export default function QuestsPage() {
                         <h4 className="font-bold text-brand-black mb-3">Quest Rewards:</h4>
                         <div className="flex items-center gap-6">
                           <div className="flex items-center gap-2">
-                            <Icon icon={MdCardGiftcard} size={20} className="text-brand-accent" />
-                            <span className="font-bold text-brand-accent">{quest.rewards.points} Points</span>
+                            <Icon icon={MdCardGiftcard} size={20} className="text-brand-darkGrey" />
+                            <span className="font-bold text-brand-darkGrey">{quest.rewards.points} Points</span>
                           </div>
                           <div className="flex items-center gap-2">
                             <Icon icon={MdBolt} size={20} className="text-brand-darkGrey" />
@@ -292,8 +292,8 @@ export default function QuestsPage() {
                           </div>
                           {quest.rewards.title && (
                             <div className="flex items-center gap-2">
-                              <Icon icon={MdStars} size={20} className="text-yellow-600" />
-                              <span className="font-bold text-yellow-600">Title: &quot;{quest.rewards.title}&quot;</span>
+                              <Icon icon={MdStars} size={20} className="text-brand-darkGrey" />
+                              <span className="font-bold text-brand-darkGrey">Title: &quot;{quest.rewards.title}&quot;</span>
                             </div>
                           )}
                         </div>
@@ -342,8 +342,8 @@ export default function QuestsPage() {
                     <div className="p-6">
                       <div className="flex items-center gap-4 mb-4">
                         <div className="flex items-center gap-1">
-                          <Trophy className="w-4 h-4 text-brand-accent" />
-                          <span className="font-bold text-brand-accent">{quest.rewards.points} pts</span>
+                          <Trophy className="w-4 h-4 text-brand-darkGrey" />
+                          <span className="font-bold text-brand-darkGrey">{quest.rewards.points} pts</span>
                         </div>
                         <div className="flex items-center gap-1">
                           <Icon icon={MdBolt} size={16} className="text-brand-darkGrey" />
@@ -387,7 +387,7 @@ export default function QuestsPage() {
               {completedQuests.map(quest => (
                 <div
                   key={quest._id}
-                  className="page-card p-6 border-2 border-brand-accent"
+                  className="page-card p-6 border-2 border-brand-darkGrey/30"
                 >
                   <div className="flex items-start justify-between mb-4">
                     <div>
