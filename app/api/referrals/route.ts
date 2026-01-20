@@ -58,33 +58,34 @@ export async function GET(request: NextRequest) {
 
     // Get all referrals by this player
     const referrals = await ReferralTracking.find({ referrerId: playerId })
-      .populate('referredPlayerId', 'displayName profilePicture createdAt')
-      .sort({ createdAt: -1 })
+      .populate('refereeId', 'displayName profilePicture createdAt')
+      .sort({ 'metadata.createdAt': -1 })
       .lean();
 
     // Calculate stats
-    type ReferralData = { status: string; rewardDetails?: { pointsEarned?: number }; _id: unknown; referredPlayerId?: { _id: unknown; displayName?: string; profilePicture?: string; createdAt?: Date }; completedAt?: Date; createdAt?: Date };
     const totalReferrals = referrals.length;
-    const pendingRewards = referrals.filter((r: ReferralData) => r.status === 'pending').length;
-    const completedRewards = referrals.filter((r: ReferralData) => r.status === 'completed').length;
+    const pendingRewards = referrals.filter((r: any) => r.status === 'pending').length;
+    const completedRewards = referrals.filter((r: any) => r.status === 'completed' || r.status === 'rewarded').length;
     const totalPointsEarned = referrals.reduce(
-      (sum: number, r: ReferralData) => sum + (r.rewardDetails?.pointsEarned || 0),
+      (sum: number, r: any) => sum + (r.rewards?.referrerPoints || 0),
       0
     );
 
     // Format referral data
-    const referralData = referrals.map((ref: ReferralData) => ({
+    const referralData = referrals.map((ref: any) => ({
       id: ref._id,
       referredPlayer: {
-        id: ref.referredPlayerId?._id,
-        displayName: ref.referredPlayerId?.displayName || 'Unknown',
-        profilePicture: ref.referredPlayerId?.profilePicture,
-        joinedAt: ref.referredPlayerId?.createdAt,
+        id: ref.refereeId?._id || ref.refereeId,
+        displayName: (ref.refereeId?.displayName || 'Unknown') as string,
+        profilePicture: ref.refereeId?.profilePicture,
+        joinedAt: ref.refereeId?.createdAt || ref.metadata?.createdAt,
       },
       status: ref.status,
-      rewardDetails: ref.rewardDetails,
-      completedAt: ref.completedAt,
-      createdAt: ref.createdAt,
+      rewardDetails: {
+        pointsEarned: ref.rewards?.referrerPoints || 0,
+      },
+      completedAt: ref.metadata?.completedAt,
+      createdAt: ref.metadata?.createdAt,
     }));
 
     logger.info({ playerId, totalReferrals }, 'Fetched referral dashboard');
@@ -157,7 +158,7 @@ export async function POST(request: NextRequest) {
 
     // Check if referral already exists
     const existing = await ReferralTracking.findOne({
-      referredPlayerId,
+      refereeId: referredPlayerId, // Use refereeId to match model schema
     }).session(session);
 
     if (existing) {
@@ -169,13 +170,23 @@ export async function POST(request: NextRequest) {
     }
 
     // Create referral tracking entry
+    // Note: Model uses 'refereeId' not 'referredPlayerId'
     const referralTracking = await ReferralTracking.create(
       [
         {
           referrerId: referrer._id,
-          referredPlayerId,
+          refereeId: referredPlayerId, // Use refereeId to match model schema
           referralCode,
           status: 'pending',
+          completionCriteria: {
+            meetsRequirements: true, // Auto-complete on signup for simplicity
+          },
+          rewards: {
+            referrerPoints: 500, // Set reward amount
+            refereePoints: 0,
+            referrerBonusXP: 0,
+            refereeBonusXP: 0,
+          },
           metadata: {
             referrerDisplayName: referrer.displayName,
             createdAt: new Date(),
@@ -184,6 +195,59 @@ export async function POST(request: NextRequest) {
       ],
       { session }
     );
+
+    // Auto-complete and reward on signup
+    const REFERRAL_REWARD = 500;
+    const referrerWallet = await PointsWallet.findOne({
+      playerId: referrer._id,
+    }).session(session);
+
+    if (referrerWallet) {
+      const balanceBefore = referrerWallet.currentBalance;
+      referrerWallet.currentBalance += REFERRAL_REWARD;
+      referrerWallet.lifetimeEarned += REFERRAL_REWARD;
+      await referrerWallet.save({ session });
+
+      // Create points transaction
+      await PointsTransaction.create(
+        [
+          {
+            playerId: referrer._id,
+            walletId: referrerWallet._id,
+            type: 'earn',
+            amount: REFERRAL_REWARD,
+            balanceBefore,
+            balanceAfter: referrerWallet.currentBalance,
+            source: {
+              type: 'referral',
+              referenceId: referralTracking[0]._id,
+              description: 'Referral reward',
+            },
+            metadata: {
+              createdAt: new Date(),
+            },
+          },
+        ],
+        { session }
+      );
+
+      // Update referral status to completed
+      referralTracking[0].status = 'completed';
+      referralTracking[0].rewards.referrerPoints = REFERRAL_REWARD;
+      referralTracking[0].rewards.rewardedAt = new Date();
+      referralTracking[0].metadata.completedAt = new Date();
+      await referralTracking[0].save({ session });
+
+      logger.info(
+        {
+          referrerId: referrer._id,
+          referredPlayerId,
+          referralId: referralTracking[0]._id,
+          reward: REFERRAL_REWARD,
+        },
+        'Referral auto-completed and rewarded on signup'
+      );
+    }
 
     await session.commitTransaction();
 
@@ -305,7 +369,9 @@ export async function PUT(request: NextRequest) {
 
     // Update referral tracking
     referralTracking.status = 'completed';
-    // Note: Add completedAt and rewardDetails fields to model if needed
+    referralTracking.rewards.referrerPoints = REFERRAL_REWARD;
+    referralTracking.rewards.rewardedAt = new Date();
+    referralTracking.metadata.completedAt = new Date();
     await referralTracking.save({ session });
 
     await session.commitTransaction();
