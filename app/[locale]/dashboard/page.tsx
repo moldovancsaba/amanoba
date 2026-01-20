@@ -65,6 +65,14 @@ interface PlayerData {
     total: number;
     percentage: number;
   };
+  courseStats?: {
+    quizzesCompleted: number;
+    lessonsCompleted: number;
+    coursesEnrolled: number;
+    coursesCompleted: number;
+    totalCourseXP: number;
+    totalCoursePoints: number;
+  };
 }
 
 export default function Dashboard() {
@@ -253,7 +261,7 @@ export default function Dashboard() {
     );
   }
 
-  const { player, progression, wallet, streaks, achievementStats } = playerData;
+  const { player, progression, wallet, streaks, achievementStats, courseStats } = playerData;
   const xpProgress = progression ? (progression.currentXP / progression.xpToNextLevel) * 100 : 0;
 
   return (
@@ -553,12 +561,12 @@ export default function Dashboard() {
           <div className="bg-brand-white rounded-xl shadow-lg p-6 border-2 border-brand-accent">
             <Icon icon={MdTrendingUp} size={48} className="text-brand-accent mb-2" />
             <div className="text-3xl font-bold text-brand-black">
-              {progression?.totalGamesPlayed || 0}
+              {courseStats?.quizzesCompleted || 0}
             </div>
             <div className="text-brand-darkGrey">{t('assessmentsCompleted')}</div>
-            {progression && (
+            {courseStats && (
               <div className="text-xs text-brand-darkGrey mt-4">
-                {t('keepLearning')}
+                {courseStats.lessonsCompleted} {t('lessonsCompleted')} • {courseStats.coursesEnrolled} {t('coursesEnrolled')}
               </div>
             )}
           </div>
