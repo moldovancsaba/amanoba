@@ -68,18 +68,24 @@ SSO_POST_LOGOUT_REDIRECT_URI=https://amanoba.com  # Optional
 ### `SSO_REDIRECT_URI`
 - **What**: Callback URL after SSO authentication
 - **Why**: SSO provider redirects here after user authentication
-- **Example**: `https://amanoba.com/api/auth/sso/callback`
-- **Note**: Must match exactly what's configured in SSO provider
+- **Example**: `https://amanoba.com/api/auth/sso/callback` or `https://www.amanoba.com/api/auth/sso/callback`
+- **⚠️ CRITICAL**: Must match **exactly** what's configured in SSO provider (case-sensitive, no trailing slashes)
+- **Production Note**: Both `amanoba.com` and `www.amanoba.com` redirect URIs should be whitelisted in SSO provider
 
 ### `SSO_SCOPES`
 - **What**: OAuth scopes to request
 - **Why**: Determines what user information is included in token
-- **Default**: `openid profile email roles`
-- **Required Scopes**:
-  - `openid` - Required for OIDC
-  - `profile` - User profile information (name)
-  - `email` - User email address
-  - `roles` - User roles (admin/user)
+- **Recommended**: `openid profile email offline_access`
+- **⚠️ CRITICAL**: Must include `profile` scope for role information
+- **Standard OIDC Scopes**:
+  - `openid` - **Required** for OIDC
+  - `profile` - **Required** for role claim (includes name, user_type, role)
+  - `email` - **Required** for email address
+  - `offline_access` - **Recommended** for refresh tokens
+- **Non-Standard Scopes**:
+  - ❌ `roles` - **DO NOT USE** - Not a standard OIDC scope, causes `invalid_scope` errors
+  
+**Note:** Role information is included in the ID token's `role` claim when `profile` scope is requested. The `roles` scope is NOT standard OIDC and should not be used.
 
 ### `SSO_LOGOUT_URL` (Optional)
 - **What**: SSO provider logout endpoint
@@ -104,7 +110,8 @@ SSO_ISSUER=https://sso.doneisbetter.com
 SSO_CLIENT_ID=dev_client_id
 SSO_CLIENT_SECRET=dev_client_secret
 SSO_REDIRECT_URI=http://localhost:3000/api/auth/sso/callback
-SSO_SCOPES=openid profile email roles
+# Use standard OIDC scopes only - 'profile' includes role information
+SSO_SCOPES=openid profile email offline_access
 ```
 
 ### Production (Vercel)

@@ -12,6 +12,7 @@ import {
   Achievement,
   AchievementUnlock,
   PlayerSession,
+  CourseProgress,
 } from '@/lib/models';
 
 /**
@@ -46,7 +47,7 @@ export async function GET(
     await connectToDatabase();
 
     // Why: Fetch all player-related data in parallel for performance
-    const [player, progressionRaw, walletRaw, streaks, achievementCount, totalAchievements] =
+    const [player, progressionRaw, walletRaw, streaks, achievementCount, totalAchievements, courseProgresses] =
       await Promise.all([
         Player.findById(playerId),
         PlayerProgression.findOne({ playerId }),
@@ -54,6 +55,7 @@ export async function GET(
         Streak.find({ playerId, currentStreak: { $gt: 0 } }),
         AchievementUnlock.countDocuments({ playerId }),
         Achievement.countDocuments({ 'metadata.isActive': true }),
+        CourseProgress.find({ playerId }).lean(),
       ]);
 
     let progression = progressionRaw;
@@ -134,6 +136,25 @@ export async function GET(
       );
     }
 
+    // Calculate course statistics
+    // Why: Show actual learning progress from courses (quizzes, lessons, courses)
+    const courseStats = {
+      quizzesCompleted: courseProgresses.reduce((sum, cp) => {
+        // Count assessment results (quizzes completed)
+        const assessmentCount = cp.assessmentResults ? 
+          (cp.assessmentResults instanceof Map ? cp.assessmentResults.size : Object.keys(cp.assessmentResults).length) : 0;
+        return sum + assessmentCount;
+      }, 0),
+      lessonsCompleted: courseProgresses.reduce((sum, cp) => {
+        // Count completed days (lessons completed)
+        return sum + (cp.completedDays?.length || 0);
+      }, 0),
+      coursesEnrolled: courseProgresses.length,
+      coursesCompleted: courseProgresses.filter(cp => cp.status === 'COMPLETED' || cp.status === 'completed').length,
+      totalCourseXP: courseProgresses.reduce((sum, cp) => sum + (cp.totalXPEarned || 0), 0),
+      totalCoursePoints: courseProgresses.reduce((sum, cp) => sum + (cp.totalPointsEarned || 0), 0),
+    };
+
     // Why: Structure response for easy frontend consumption
     const response = {
       player: {
@@ -188,6 +209,7 @@ export async function GET(
             ? Math.round((achievementCount / totalAchievements) * 100)
             : 0,
       },
+      courseStats,
     };
 
     logger.info({ playerId }, 'Player profile fetched successfully');
