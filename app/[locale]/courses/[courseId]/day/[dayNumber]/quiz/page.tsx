@@ -4,7 +4,7 @@
 
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { useRouter } from 'next/navigation';
 import { useLocale, useTranslations } from 'next-intl';
 import { CheckCircle, ArrowLeft, Loader2 } from 'lucide-react';
@@ -50,6 +50,7 @@ export default function LessonQuizPage({
   const [answering, setAnswering] = useState(false);
   const [feedback, setFeedback] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const hasRedirectedRef = useRef(false);
 
   useEffect(() => {
     const init = async () => {
@@ -75,9 +76,11 @@ export default function LessonQuizPage({
       }
 
       // Check if course language matches URL locale, redirect if not
-      if (lessonData.courseLanguage && lessonData.courseLanguage !== locale) {
+      // Only redirect once to prevent infinite loops
+      if (!hasRedirectedRef.current && lessonData.courseLanguage && lessonData.courseLanguage !== locale) {
         const courseLocale = lessonData.courseLanguage === 'hu' ? 'hu' : lessonData.courseLanguage === 'en' ? 'en' : locale;
         if (courseLocale !== locale) {
+          hasRedirectedRef.current = true;
           router.replace(`/${courseLocale}/courses/${cid}/day/${day}/quiz`);
           return;
         }

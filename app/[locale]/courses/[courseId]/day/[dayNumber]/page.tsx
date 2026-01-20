@@ -7,7 +7,7 @@
 
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import { useLocale, useTranslations } from 'next-intl';
@@ -68,6 +68,7 @@ export default function DailyLessonPage({
   const [dayNumber, setDayNumber] = useState<number>(0);
   const [quizPassed, setQuizPassed] = useState(false);
   const searchParams = useSearchParams();
+  const hasRedirectedRef = useRef(false);
 
   useEffect(() => {
     const loadData = async () => {
@@ -89,9 +90,11 @@ export default function DailyLessonPage({
 
       if (data.success) {
         // Check if course language matches URL locale, redirect if not
-        if (data.courseLanguage && data.courseLanguage !== locale) {
+        // Only redirect once to prevent infinite loops
+        if (!hasRedirectedRef.current && data.courseLanguage && data.courseLanguage !== locale) {
           const courseLocale = data.courseLanguage === 'hu' ? 'hu' : data.courseLanguage === 'en' ? 'en' : locale;
           if (courseLocale !== locale) {
+            hasRedirectedRef.current = true;
             router.replace(`/${courseLocale}/courses/${cid}/day/${day}`);
             return;
           }

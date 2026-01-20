@@ -7,7 +7,7 @@
 
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import { useLocale, useTranslations } from 'next-intl';
@@ -89,6 +89,7 @@ export default function CourseDetailPage({
   const [courseId, setCourseId] = useState<string>('');
   const [lessons, setLessons] = useState<Lesson[]>([]);
   const [loadingLessons, setLoadingLessons] = useState(false);
+  const hasRedirectedRef = useRef(false);
 
   useEffect(() => {
     const loadData = async () => {
@@ -127,12 +128,14 @@ export default function CourseDetailPage({
         setCourse(courseData);
         
         // Redirect to correct locale if course language doesn't match URL locale
-        if (courseData.language && courseData.language !== locale) {
+        // Only redirect once to prevent infinite loops
+        if (!hasRedirectedRef.current && courseData.language && courseData.language !== locale) {
           // Map course language to locale (e.g., 'hu' -> 'hu', 'en' -> 'en')
           const courseLocale = courseData.language === 'hu' ? 'hu' : courseData.language === 'en' ? 'en' : locale;
           
           // Only redirect if the locale is different
           if (courseLocale !== locale) {
+            hasRedirectedRef.current = true;
             router.replace(`/${courseLocale}/courses/${cid}`);
             return;
           }
