@@ -37,7 +37,8 @@
     "admin:set-role": "tsx --env-file=.env.local scripts/set-admin-role.ts",
     "admin:set-sso-role": "tsx --env-file=.env.local scripts/set-sso-admin-role.ts",
     "admin:restore-role": "tsx --env-file=.env.local scripts/restore-admin-role.ts",
-    "migrate:fix-facebookid-index": "tsx --env-file=.env.local scripts/fix-facebookid-index.ts"
+    "migrate:fix-facebookid-index": "tsx --env-file=.env.local scripts/fix-facebookid-index.ts",
+    "migrate:remove-facebookid": "tsx --env-file=.env.local scripts/migrate-remove-facebookid.ts"
   },
   "dependencies": {
     "@auth/mongodb-adapter": "^3.11.0",
