@@ -2,7 +2,7 @@
  * NextAuth Type Definitions
  * 
  * What: Extend NextAuth types with custom fields
- * Why: Add Player ID, Facebook ID, role, and auth provider to session and JWT types
+ * Why: Add Player ID, SSO identifier, role, and auth provider to session and JWT types
  */
 
 import 'next-auth';
@@ -17,7 +17,6 @@ declare module 'next-auth' {
   interface Session {
     user: {
       id: string;
-      facebookId?: string | null;
       ssoSub?: string | null;
       name?: string | null;
       email?: string | null;
@@ -25,7 +24,7 @@ declare module 'next-auth' {
       locale: string;
       isAnonymous: boolean;
       role: 'user' | 'admin';
-      authProvider: 'facebook' | 'sso' | 'anonymous';
+      authProvider: 'sso' | 'anonymous';
     };
   }
 
@@ -36,11 +35,10 @@ declare module 'next-auth' {
    */
   interface User {
     id: string;
-    facebookId?: string;
     ssoSub?: string;
     isAnonymous?: boolean;
     role?: 'user' | 'admin';
-    authProvider?: 'facebook' | 'sso' | 'anonymous';
+    authProvider?: 'sso' | 'anonymous';
   }
 }
 
@@ -52,11 +50,10 @@ declare module 'next-auth/jwt' {
    */
   interface JWT {
     id: string;
-    facebookId?: string | null;
     ssoSub?: string | null;
     locale: string;
     isAnonymous: boolean;
     role: 'user' | 'admin';
-    authProvider: 'facebook' | 'sso' | 'anonymous';
+    authProvider: 'sso' | 'anonymous';
   }
 }

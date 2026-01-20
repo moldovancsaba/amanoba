@@ -1142,6 +1142,1933 @@ const lessons: LessonEntry[] = [
       ],
     },
   },
+  {
+    day: 11,
+    title: 'Grids That Survive Scale',
+    content: `<h1>Grids That Survive Scale</h1>
+<p><em>Build a fixed + fluid grid that survives varied content and breakpoints.</em></p>
+<hr />
+<h2>Learning Goal</h2>
+<ul>
+  <li>Define grid type (12 columns, 8/12/16 modules, container max-width).</li>
+  <li>Handle breakpoints (xs–xl) with consistent rules.</li>
+  <li>Create layout tokens (gap, gutter, margin).</li>
+  <li>Document examples (card grid, form, dashboard).</li>
+  <li>Apply to all courses consistently.</li>
+  <li>Ensure quizzes keep the same layout logic.</li>
+</ul>
+<hr />
+<h2>Why This Matters</h2>
+<ul>
+  <li>Without grid, rhythm breaks.</li>
+  <li>Scalability: new modules and breakpoints stay predictable.</li>
+  <li>Dev speed: known container/gap rules.</li>
+</ul>
+<hr />
+<h2>Explanation</h2>
+<ul>
+  <li>Container: 1200–1440px max width, centered, 24px padding.</li>
+  <li>Columns: 12 cols, gutter 16–24px.</li>
+  <li>Breakpoints: xs 360, sm 640, md 768, lg 1024, xl 1280, 2xl 1440.</li>
+  <li>Gap tokens: gap.xs=8, sm=12, md=16, lg=24.</li>
+</ul>
+<hr />
+<h2>Examples</h2>
+<p><strong>Bad:</strong> Every page with different max-width and random gaps.</p>
+<p><strong>Good:</strong> 12-col grid, unified gutters, consistent breakpoints.</p>
+<hr />
+<h2>Guided Exercise (10–15 minutes)</h2>
+<ol>
+  <li>Set container/grid params (columns, gutter, margin).</li>
+  <li>Define breakpoints and gap tokens.</li>
+  <li>Create two examples: card grid + form on this grid.</li>
+</ol>
+<h2>Independent Exercise (5–10 minutes)</h2>
+<p>Document the grid in the Playbook with links to Figma/Storybook examples.</p>
+<hr />
+<h2>Self-Check</h2>
+<ul>
+  <li>Container, columns, gutter, breakpoints defined.</li>
+  <li>Gap tokens listed.</li>
+  <li>Examples documented.</li>
+</ul>
+<hr />
+<h2>Optional Deepening</h2>
+<ul>
+  <li>Bootstrap grid: <a href="https://getbootstrap.com/docs/5.3/layout/grid/" target="_blank" rel="noreferrer">https://getbootstrap.com/docs/5.3/layout/grid/</a></li>
+  <li>Utopia fluid layouts: <a href="https://utopia.fyi" target="_blank" rel="noreferrer">https://utopia.fyi</a></li>
+</ul>`,
+    emailSubject: 'Playbook 2026 – Day 11: Grid that scales',
+    emailBody: `<h1>Playbook 2026 – Day 11</h1>
+<p>Build a 12-col, breakpoint-aware grid with gap tokens.</p>
+<p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Read the lesson →</a></p>`,
+    quiz: {
+      questions: [
+        {
+          question: 'Typical max-width for a desktop container?',
+          options: ['600px', '1200–1440px', '320px', 'No max-width'],
+          correctIndex: 1,
+        },
+        {
+          question: 'Why unify gutter values?',
+          options: [
+            'Decoration only',
+            'Consistent rhythm and dev speed',
+            'Only matters on mobile',
+            'Doesn’t matter',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'What should grid docs include?',
+          options: [
+            'Only logos',
+            'Columns/gutters/margins, breakpoints, examples',
+            'Price list',
+            'Only text',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'Which is the good example?',
+          options: [
+            'Random gap values',
+            '12 columns, 16–24px gutter, fixed breakpoints',
+            'No breakpoints',
+            'Inline grid only',
+          ],
+          correctIndex: 1,
+        },
+      ],
+    },
+  },
+  {
+    day: 12,
+    title: 'Spacing as Grammar',
+    content: `<h1>Spacing as Grammar</h1>
+<p><em>Create a spacing scale that provides rhythm and consistency for every component.</em></p>
+<hr />
+<h2>Learning Goal</h2>
+<ul>
+  <li>Spacing scale (4/8/12/16/24/32) with rules.</li>
+  <li>Vertical rhythm (heading margins) unified.</li>
+  <li>Map tokens to components (card padding md, section lg).</li>
+  <li>Ban random px values.</li>
+</ul>
+<hr />
+<h2>Why This Matters</h2>
+<ul>
+  <li>Spacing creates calm or density.</li>
+  <li>Inconsistency = visual noise.</li>
+  <li>Faster build: known padding/gap tokens.</li>
+</ul>
+<hr />
+<h2>Explanation</h2>
+<ul>
+  <li>Base unit: 4 or 8.</li>
+  <li>Tokens: space.xs=4, sm=8, md=12/16, lg=24, xl=32.</li>
+  <li>Vertical rhythm: fixed margins after headings.</li>
+</ul>
+<hr />
+<h2>Examples</h2>
+<p><strong>Bad:</strong> 5, 7, 11 px mixed.</p>
+<p><strong>Good:</strong> Only token-based spacing, documented per component.</p>
+<hr />
+<h2>Guided Exercise (10–15 minutes)</h2>
+<ol>
+  <li>Create spacing tokens and usage (section padding xl, card padding md).</li>
+  <li>Set heading margin rules.</li>
+  <li>Apply to a layout and label source tokens.</li>
+</ol>
+<h2>Independent Exercise (5–10 minutes)</h2>
+<p>Audit a page and replace random values with tokens.</p>
+<hr />
+<h2>Self-Check</h2>
+<ul>
+  <li>Spacing scale exists.</li>
+  <li>Vertical rhythm documented.</li>
+  <li>Random px removed.</li>
+</ul>
+<hr />
+<h2>Optional Deepening</h2>
+<ul>
+  <li>8pt Grid: <a href="https://builttoadapt.io/intro-to-the-8-point-grid-system-d2573cde8632" target="_blank" rel="noreferrer">https://builttoadapt.io/intro-to-the-8-point-grid-system-d2573cde8632</a></li>
+  <li>Atlassian spacing: <a href="https://atlassian.design/foundations/spacing" target="_blank" rel="noreferrer">https://atlassian.design/foundations/spacing</a></li>
+</ul>`,
+    emailSubject: 'Playbook 2026 – Day 12: Spacing grammar',
+    emailBody: `<h1>Playbook 2026 – Day 12</h1>
+<p>Create a spacing scale and apply it everywhere.</p>
+<p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Read the lesson →</a></p>`,
+    quiz: {
+      questions: [
+        {
+          question: 'What is the point of a spacing scale?',
+          options: [
+            'Random numbers',
+            'Defined values (4/8/12/16/24/32) with rules',
+            'Only margin-top',
+            'Desktop-only',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'Why are 5/7/11 px mixes bad?',
+          options: [
+            'They look ugly',
+            'They break consistency and slow dev',
+            'They are cheap',
+            'They don’t show on mobile',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'What should spacing docs include?',
+          options: [
+            'One number',
+            'Tokens + usage rules + examples',
+            'Only pictures',
+            'Only price list',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'What is vertical rhythm?',
+          options: [
+            'Random margins',
+            'Consistent heading margins and line rhythm',
+            'Only color',
+            'Not a thing',
+          ],
+          correctIndex: 1,
+        },
+      ],
+    },
+  },
+  {
+    day: 13,
+    title: 'Density Modes and Responsiveness',
+    content: `<h1>Density Modes and Responsiveness</h1>
+<p><em>Define airy/comfort/dense modes and adjust spacing/type per breakpoint or user setting.</em></p>
+<hr />
+<h2>Learning Goal</h2>
+<ul>
+  <li>3 density modes: airy/comfort/dense.</li>
+  <li>Token-based switching (gap, padding, type size) per breakpoint or user pref.</li>
+  <li>Responsive type/spacing table.</li>
+  <li>Document examples: table, card grid, form.</li>
+  <li>Apply to all courses consistently.</li>
+</ul>
+<hr />
+<h2>Why This Matters</h2>
+<ul>
+  <li>B2B/dashboard often needs dense mode.</li>
+  <li>Mobile airy, desktop efficient.</li>
+  <li>Inconsistent density = chaos.</li>
+</ul>
+<hr />
+<h2>Explanation</h2>
+<ul>
+  <li>Mode switch: space tokens and type sizes change.</li>
+  <li>Airy: space.lg, type +1; Dense: space.sm/md, type -1.</li>
+  <li>Usage: data-heavy → dense; marketing → airy.</li>
+</ul>
+<hr />
+<h2>Examples</h2>
+<p><strong>Bad:</strong> Same spacing everywhere; tables too airy.</p>
+<p><strong>Good:</strong> Dashboard dense: smaller padding/gaps, type -1; marketing airy.</p>
+<hr />
+<h2>Guided Exercise (10–15 minutes)</h2>
+<ol>
+  <li>Create a density table: airy/comfort/dense → spacing/type values.</li>
+  <li>Set examples: table dense, card comfort, hero airy.</li>
+  <li>Document switch rules (where to use each mode).</li>
+</ol>
+<h2>Independent Exercise (5–10 minutes)</h2>
+<p>Implement one component in two density modes; capture before/after.</p>
+<hr />
+<h2>Self-Check</h2>
+<ul>
+  <li>Density table exists.</li>
+  <li>Examples documented.</li>
+  <li>Switch rules defined.</li>
+</ul>
+<hr />
+<h2>Optional Deepening</h2>
+<ul>
+  <li>Fluent density: <a href="https://fluent2.microsoft.design/styles/layout#density" target="_blank" rel="noreferrer">https://fluent2.microsoft.design/styles/layout#density</a></li>
+  <li>Material responsive layout: <a href="https://m3.material.io/foundations/layout/overview" target="_blank" rel="noreferrer">https://m3.material.io/foundations/layout/overview</a></li>
+</ul>`,
+    emailSubject: 'Playbook 2026 – Day 13: Density & responsiveness',
+    emailBody: `<h1>Playbook 2026 – Day 13</h1>
+<p>Define airy/comfort/dense modes with a responsive table.</p>
+<p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Read the lesson →</a></p>`,
+    quiz: {
+      questions: [
+        {
+          question: 'Why multiple density modes?',
+          options: [
+            'Decoration',
+            'Different contexts (dashboard vs marketing) need different density',
+            'Only mobile',
+            'No need',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'Dense mode traits?',
+          options: [
+            'Large gaps and type',
+            'Smaller padding/gap, smaller type',
+            'Random values',
+            'Color-only change',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'What should the density table contain?',
+          options: [
+            'Prices',
+            'Spacing/type values for airy/comfort/dense',
+            'Only logos',
+            'Only images',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'Good example?',
+          options: [
+            'Table in airy mode',
+            'Dashboard dense: smaller padding/gap, type -1',
+            'Every component identical',
+            'No switching',
+          ],
+          correctIndex: 1,
+        },
+      ],
+    },
+  },
+  {
+    day: 14,
+    title: 'Visual Hierarchy Under Pressure',
+    content: `<h1>Visual Hierarchy Under Pressure</h1>
+<p><em>Keep hierarchy when information is dense (dashboards, lists, cards).</em></p>
+<hr />
+<h2>Learning Goal</h2>
+<ul>
+  <li>Hierarchy tools: size, weight, contrast, spacing, color, icon.</li>
+  <li>List/card hierarchy template.</li>
+  <li>Overload reduction rules (truncate, progressive disclosure).</li>
+  <li>Document good/bad examples.</li>
+</ul>
+<hr />
+<h2>Why This Matters</h2>
+<ul>
+  <li>Heavy data → attention breaks.</li>
+  <li>Hierarchy guides to the signal.</li>
+  <li>Poor lists/cards erode trust.</li>
+</ul>
+<hr />
+<h2>Explanation</h2>
+<ul>
+  <li>Use type (size/weight), color sparingly, spacing, icon, background.</li>
+  <li>Progressive disclosure: show less, reveal more on action.</li>
+  <li>Truncate + tooltip for long content.</li>
+</ul>
+<hr />
+<h2>Examples</h2>
+<p><strong>Bad:</strong> Same size/weight, random colors.</p>
+<p><strong>Good:</strong> Title 16/20 bold, meta 12/16 muted, spacing tokens, status icon only where needed.</p>
+<hr />
+<h2>Guided Exercise (10–15 minutes)</h2>
+<ol>
+  <li>Create list/card hierarchy template (title, meta, badge, action).</li>
+  <li>Write rules: when to truncate vs multi-line.</li>
+  <li>Document good/bad example.</li>
+</ol>
+<h2>Independent Exercise (5–10 minutes)</h2>
+<p>Apply to a dashboard widget; capture before/after.</p>
+<hr />
+<h2>Self-Check</h2>
+<ul>
+  <li>Hierarchy template exists.</li>
+  <li>Truncate/progressive rules set.</li>
+  <li>Good/bad examples documented.</li>
+</ul>
+<hr />
+<h2>Optional Deepening</h2>
+<ul>
+  <li>NNG list design: <a href="https://www.nngroup.com/articles/lists/" target="_blank" rel="noreferrer">https://www.nngroup.com/articles/lists/</a></li>
+  <li>Progressive disclosure: <a href="https://www.nngroup.com/articles/progressive-disclosure/" target="_blank" rel="noreferrer">https://www.nngroup.com/articles/progressive-disclosure/</a></li>
+</ul>`,
+    emailSubject: 'Playbook 2026 – Day 14: Hierarchy under pressure',
+    emailBody: `<h1>Playbook 2026 – Day 14</h1>
+<p>Build list/card hierarchy templates and reduction rules.</p>
+<p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Read the lesson →</a></p>`,
+    quiz: {
+      questions: [
+        {
+          question: 'Hierarchy tools?',
+          options: [
+            'Color only',
+            'Type size/weight, spacing, restrained color, icon, background',
+            'Random italics',
+            'Icons only',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'Progressive disclosure is…',
+          options: [
+            'Show everything at once',
+            'Show less, reveal more on action',
+            'Hide everything',
+            'Desktop-only',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'Bad example?',
+          options: [
+            'Same size/weight everywhere',
+            'Title 16/20 bold, meta 12/16 muted',
+            'Spacing tokens applied',
+            'Status icon only where needed',
+          ],
+          correctIndex: 0,
+        },
+        {
+          question: 'When to truncate?',
+          options: [
+            'When content is long and space is limited; tooltip or “more”',
+            'Never',
+            'Always',
+            'Only on mobile',
+          ],
+          correctIndex: 0,
+        },
+      ],
+    },
+  },
+  {
+    day: 15,
+    title: 'Designing for Unknown Content',
+    content: `<h1>Designing for Unknown Content</h1>
+<p><em>Keep structure when content length varies or is unknown.</em></p>
+<hr />
+<h2>Learning Goal</h2>
+<ul>
+  <li>Placeholder and empty-state rules.</li>
+  <li>Variable title length, multilingual handling (wrap/truncate).</li>
+  <li>Loading states: skeleton vs spinner.</li>
+  <li>Documented patterns for cards, lists, tables.</li>
+  <li>Apply the same rules across all courses/lessons.</li>
+</ul>
+<hr />
+<h2>Why This Matters</h2>
+<ul>
+  <li>Real data differs from mocks.</li>
+  <li>Layouts shouldn’t break while loading.</li>
+  <li>Multilingual text can expand.</li>
+</ul>
+<hr />
+<h2>Explanation</h2>
+<ul>
+  <li>Text handling: wrap up to 2 lines, then truncate + tooltip/link.</li>
+  <li>Empty state: icon + short message + CTA.</li>
+  <li>Skeleton: stable dimensions, avoid layout shifts.</li>
+</ul>
+<hr />
+<h2>Examples</h2>
+<p><strong>Bad:</strong> Long title overflows, layout breaks.</p>
+<p><strong>Good:</strong> Max 2 lines then ellipsis; empty state defined.</p>
+<hr />
+<h2>Guided Exercise (10–15 minutes)</h2>
+<ol>
+  <li>Create text-handling rules (wrap/truncate) for cards and lists.</li>
+  <li>Define empty-state component (icon, text, CTA).</li>
+  <li>Write skeleton usage rules.</li>
+</ol>
+<h2>Independent Exercise (5–10 minutes)</h2>
+<p>Apply to multilingual content (e.g., German/English) and capture outcomes.</p>
+<hr />
+<h2>Self-Check</h2>
+<ul>
+  <li>Wrap/truncate rules exist.</li>
+  <li>Empty state documented.</li>
+  <li>Skeleton rules set.</li>
+</ul>
+<hr />
+<h2>Optional Deepening</h2>
+<ul>
+  <li>Empty states: <a href="https://www.nngroup.com/articles/empty-state/" target="_blank" rel="noreferrer">https://www.nngroup.com/articles/empty-state/</a></li>
+  <li>Skeletons vs spinners: <a href="https://uxdesign.cc/skeleton-screens-what-to-use-instead-of-the-loading-spinner-2fd0f5f4bd2e" target="_blank" rel="noreferrer">https://uxdesign.cc/skeleton-screens-what-to-use-instead-of-the-loading-spinner-2fd0f5f4bd2e</a></li>
+</ul>`,
+    emailSubject: 'Playbook 2026 – Day 15: Unknown content',
+    emailBody: `<h1>Playbook 2026 – Day 15</h1>
+<p>Handle unknown/variable content: wrap/truncate, empty state, skeleton.</p>
+<p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Read the lesson →</a></p>`,
+    quiz: {
+      questions: [
+        {
+          question: 'How to handle long titles?',
+          options: [
+            'Let them overflow',
+            'Max 1–2 lines, then truncate + tooltip',
+            'Force one line always',
+            'No rule',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'What’s a good empty state?',
+          options: [
+            'Blank screen',
+            'Icon + short message + CTA',
+            'Advertisement',
+            'Random text',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'When to use skeleton instead of spinner?',
+          options: [
+            'When you want stable layout during load',
+            'Never',
+            'Always spinner',
+            'Mobile-only',
+          ],
+          correctIndex: 0,
+        },
+        {
+          question: 'Bad example?',
+          options: [
+            'Long title breaks layout',
+            'Ellipsis after 2 lines with tooltip',
+            'Empty state with CTA',
+            'Skeleton with fixed size',
+          ],
+          correctIndex: 0,
+        },
+      ],
+    },
+  },
+  {
+    day: 16,
+    title: 'Think in Components, Not Pages',
+    content: `<h1>Think in Components, Not Pages</h1>
+<p><em>Design in component APIs—states, boundaries, usage rules—instead of one-off pages.</em></p>
+<hr />
+<h2>Learning Goal</h2>
+<ul>
+  <li>Define component API: required/optional props, events, states.</li>
+  <li>Set responsibility boundaries: what it does and does not do.</li>
+  <li>Usage rules: where it must not be used.</li>
+  <li>Document good/bad examples.</li>
+</ul>
+<hr />
+<h2>Why This Matters</h2>
+<ul>
+  <li>Page-centric work creates duplication.</li>
+  <li>Components give reuse and consistency.</li>
+  <li>Clear API keeps the system stable.</li>
+</ul>
+<hr />
+<h2>Explanation</h2>
+<ul>
+  <li>API: props, events, states.</li>
+  <li>Responsibility: what it never does (e.g., Card does not fetch data).</li>
+  <li>Docs: examples + “don’t use here”.</li>
+</ul>
+<hr />
+<h2>Examples</h2>
+<p><strong>Bad:</strong> Every page builds a unique card.</p>
+<p><strong>Good:</strong> Card with API, states, documented limits.</p>
+<hr />
+<h2>Guided Exercise</h2>
+<ol>
+  <li>Pick a UI element (card, input group); write its API.</li>
+  <li>List states (hover, focus, error, loading).</li>
+  <li>Write prohibitions (where not allowed).</li>
+</ol>
+<h2>Independent Exercise</h2>
+<p>Document the component API in the Playbook with Figma/Storybook links.</p>
+<hr />
+<h2>Self-Check</h2>
+<ul>
+  <li>API written.</li>
+  <li>States mapped.</li>
+  <li>Ban list exists.</li>
+</ul>
+<hr />
+<h2>Optional Deepening</h2>
+<ul>
+  <li>Atomic design: <a href="https://bradfrost.com/blog/post/atomic-web-design/" target="_blank" rel="noreferrer">https://bradfrost.com/blog/post/atomic-web-design/</a></li>
+</ul>`,
+    emailSubject: 'Playbook 2026 – Day 16: Component thinking',
+    emailBody: `<h1>Playbook 2026 – Day 16</h1>
+<p>Think in component APIs instead of pages.</p>
+<p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Read the lesson →</a></p>`,
+    quiz: {
+      questions: [
+        {
+          question: 'What is a component API?',
+          options: [
+            'Random props',
+            'Defined props/events/states',
+            'Only CSS',
+            'Only images',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'Why is page thinking insufficient?',
+          options: [
+            'Slower builds',
+            'Creates duplication and inconsistency',
+            'Costs more',
+            'Doesn’t work on mobile',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'What is a responsibility boundary?',
+          options: [
+            'What the component does not do',
+            'Price list',
+            'CI/CD',
+            'Nothing',
+          ],
+          correctIndex: 0,
+        },
+        {
+          question: 'What should you document?',
+          options: [
+            'API + states + bans + examples',
+            'Only colors',
+            'Only type',
+            'Only price',
+          ],
+          correctIndex: 0,
+        },
+      ],
+    },
+  },
+  {
+    day: 17,
+    title: 'Token Architecture',
+    content: `<h1>Token Architecture</h1>
+<p><em>Introduce token layers: base → semantic → component; multi-platform outputs.</em></p>
+<hr />
+<h2>Learning Goal</h2>
+<ul>
+  <li>Token layers: base (primitive), semantic, component.</li>
+  <li>Naming: color.brand.primary, space.md, radius.sm.</li>
+  <li>Export to web/ios/android (e.g., Style Dictionary).</li>
+  <li>Document pipeline and bans (UI should not use base directly).</li>
+  <li>Apply consistently across courses.</li>
+</ul>
+<hr />
+<h2>Why This Matters</h2>
+<ul>
+  <li>Tokens are the single source of truth.</li>
+  <li>Cross-platform consistency.</li>
+  <li>Fast change: one token update propagates.</li>
+</ul>
+<hr />
+<h2>Explanation</h2>
+<ul>
+  <li>Base: raw value (#FAB908, 8px).</li>
+  <li>Semantic: role (color.semantic.success.bg).</li>
+  <li>Component: usage (button.primary.bg).</li>
+  <li>Pipeline: JSON → build → platform outputs.</li>
+</ul>
+<hr />
+<h2>Examples</h2>
+<p><strong>Bad:</strong> Hard-coded hex in CSS.</p>
+<p><strong>Good:</strong> color.brand.primary token referenced everywhere.</p>
+<hr />
+<h2>Guided Exercise</h2>
+<ol>
+  <li>Write token naming schema (base/semantic/component).</li>
+  <li>Create 10 sample tokens (color, space, radius, motion, z-index).</li>
+  <li>Define the ban: UI uses semantic/component only.</li>
+</ol>
+<h2>Independent Exercise</h2>
+<p>Replace hard-coded values with tokens on one screen.</p>
+<hr />
+<h2>Self-Check</h2>
+<ul>
+  <li>Layers defined.</li>
+  <li>Naming set.</li>
+  <li>Base → semantic → component chain works.</li>
+</ul>
+<hr />
+<h2>Optional Deepening</h2>
+<ul>
+  <li>Style Dictionary: <a href="https://amzn.github.io/style-dictionary/#/" target="_blank" rel="noreferrer">https://amzn.github.io/style-dictionary/#/</a></li>
+</ul>`,
+    emailSubject: 'Playbook 2026 – Day 17: Token architecture',
+    emailBody: `<h1>Playbook 2026 – Day 17</h1>
+<p>Build base/semantic/component token layers.</p>
+<p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Read the lesson →</a></p>`,
+    quiz: {
+      questions: [
+        {
+          question: 'Three token layers?',
+          options: ['Base, semantic, component', 'CSS, HTML, JS', 'Dev, QA, Prod', 'None'],
+          correctIndex: 0,
+        },
+        {
+          question: 'Why avoid base tokens directly in UI?',
+          options: [
+            'Slow',
+            'Semantic/component provide roles and safe switching',
+            'Expensive',
+            'Unsupported',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'Good naming example?',
+          options: ['color1', 'color.brand.primary', 'random_hex', 'anything'],
+          correctIndex: 1,
+        },
+        {
+          question: 'Pipeline purpose?',
+          options: [
+            'Export tokens to platforms',
+            'Marketing',
+            'Log collection',
+            'Build without CI',
+          ],
+          correctIndex: 0,
+        },
+      ],
+    },
+  },
+  {
+    day: 18,
+    title: 'Variants and State Logic',
+    content: `<h1>Variants and State Logic</h1>
+<p><em>Define component variants and states in a matrix: size, type, state.</em></p>
+<hr />
+<h2>Learning Goal</h2>
+<ul>
+  <li>Variant matrix: size (sm/md/lg), type (primary/secondary/ghost), state (default/hover/focus/active/disabled/loading).</li>
+  <li>State rules: what changes (color, border, shadow, icon).</li>
+  <li>Disable/Loading: block interaction, consider skeleton.</li>
+  <li>Document examples and bans.</li>
+</ul>
+<hr />
+<h2>Why This Matters</h2>
+<ul>
+  <li>Variance without rules breaks systems.</li>
+  <li>State logic = affordance.</li>
+  <li>Dev can build from a table.</li>
+</ul>
+<hr />
+<h2>Explanation</h2>
+<ul>
+  <li>Matrix: rows = states, cols = variants.</li>
+  <li>Rule: what does NOT change (radius fixed, type consistent).</li>
+  <li>Disabled: lower contrast, default cursor, no shadow.</li>
+</ul>
+<hr />
+<h2>Examples</h2>
+<p><strong>Bad:</strong> Hover sometimes darkens, sometimes lightens.</p>
+<p><strong>Good:</strong> Table with fixed colors/shadows per state.</p>
+<hr />
+<h2>Guided Exercise</h2>
+<ol>
+  <li>Build a button variant-state table.</li>
+  <li>List changes per state.</li>
+  <li>Document bans (e.g., ghost+disabled contrast rule).</li>
+</ol>
+<h2>Independent Exercise</h2>
+<p>Implement a component from the table; capture each state.</p>
+<hr />
+<h2>Self-Check</h2>
+<ul>
+  <li>Matrix done.</li>
+  <li>Rules consistent.</li>
+  <li>Docs linked.</li>
+</ul>
+<hr />
+<h2>Optional Deepening</h2>
+<ul>
+  <li>ARIA states: <a href="https://www.w3.org/TR/wai-aria-1.2/#states_and_properties" target="_blank" rel="noreferrer">https://www.w3.org/TR/wai-aria-1.2/#states_and_properties</a></li>
+</ul>`,
+    emailSubject: 'Playbook 2026 – Day 18: Variants & states',
+    emailBody: `<h1>Playbook 2026 – Day 18</h1>
+<p>Build a variant-state matrix with consistent rules.</p>
+<p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Read the lesson →</a></p>`,
+    quiz: {
+      questions: [
+        {
+          question: 'What is a variant-state matrix?',
+          options: [
+            'Random table',
+            'Variants x states with rules',
+            'Price list',
+            'Nothing',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'What should NOT change?',
+          options: [
+            'Radius and type remain consistent',
+            'Everything random',
+            'Component name',
+            'Only border',
+          ],
+          correctIndex: 0,
+        },
+        {
+          question: 'Disabled rule?',
+          options: [
+            'No rule',
+            'Lower contrast, default cursor, shadow off, interaction blocked',
+            'Stronger hover',
+            'Random',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'Why document?',
+          options: [
+            'No need',
+            'Dev can build from table; keeps consistency',
+            'Marketing only',
+            'Just for design review',
+          ],
+          correctIndex: 1,
+        },
+      ],
+    },
+  },
+  {
+    day: 19,
+    title: 'Cross-Platform Consistency',
+    content: `<h1>Cross-Platform Consistency</h1>
+<p><em>Align tokens, components, and patterns across web/iOS/Android.</em></p>
+<hr />
+<h2>Learning Goal</h2>
+<ul>
+  <li>Platform mapping: what is shared, what is native-specific.</li>
+  <li>Token export to web/ios/android.</li>
+  <li>Component divergence rules: when allowed (e.g., date picker).</li>
+  <li>Document examples and bans.</li>
+</ul>
+<hr />
+<h2>Why This Matters</h2>
+<ul>
+  <li>Users expect native patterns but same brand.</li>
+  <li>Single source reduces maintenance.</li>
+  <li>Diverge only with rationale.</li>
+</ul>
+<hr />
+<h2>Explanation</h2>
+<ul>
+  <li>Shared: color, type, icons, tone.</li>
+  <li>Different: navigation patterns, native inputs.</li>
+  <li>Rule: documented divergence + reason + tracking.</li>
+</ul>
+<hr />
+<h2>Examples</h2>
+<p><strong>Bad:</strong> Web and mobile use different brand palettes.</p>
+<p><strong>Good:</strong> Same brand tokens; native navigation allowed.</p>
+<hr />
+<h2>Guided Exercise</h2>
+<ol>
+  <li>Create platform mapping table: shared elements, divergent patterns.</li>
+  <li>Define divergence approval process.</li>
+  <li>Document token export pipeline.</li>
+</ol>
+<h2>Independent Exercise</h2>
+<p>Pick a component (modal) and note platform differences.</p>
+<hr />
+<h2>Self-Check</h2>
+<ul>
+  <li>Platform mapping exists.</li>
+  <li>Divergences documented and justified.</li>
+  <li>Token export known.</li>
+</ul>
+<hr />
+<h2>Optional Deepening</h2>
+<ul>
+  <li>Apple HIG: <a href="https://developer.apple.com/design/human-interface-guidelines/" target="_blank" rel="noreferrer">https://developer.apple.com/design/human-interface-guidelines/</a></li>
+  <li>Material (Android): <a href="https://m3.material.io" target="_blank" rel="noreferrer">https://m3.material.io</a></li>
+</ul>`,
+    emailSubject: 'Playbook 2026 – Day 19: Cross-platform consistency',
+    emailBody: `<h1>Playbook 2026 – Day 19</h1>
+<p>Keep brand tokens consistent while respecting native patterns.</p>
+<p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Read the lesson →</a></p>`,
+    quiz: {
+      questions: [
+        {
+          question: 'What is shared across platforms?',
+          options: [
+            'Brand color, type, icons, tone',
+            'Nothing',
+            'Only price list',
+            'Only logo',
+          ],
+          correctIndex: 0,
+        },
+        {
+          question: 'When can you diverge?',
+          options: [
+            'If documented, justified, approved',
+            'Any time',
+            'Never',
+            'Web-only',
+          ],
+          correctIndex: 0,
+        },
+        {
+          question: 'Purpose of mapping table?',
+          options: [
+            'Decoration',
+            'Record shared/divergent elements for decisions',
+            'Price list',
+            'Nothing',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'Bad example?',
+          options: [
+            'Different brand palettes per platform',
+            'Same brand tokens, native nav allowed',
+            'Token export everywhere',
+            'Documented divergence',
+          ],
+          correctIndex: 0,
+        },
+      ],
+    },
+  },
+  {
+    day: 20,
+    title: 'Naming and System Hygiene',
+    content: `<h1>Naming and System Hygiene</h1>
+<p><em>Set naming conventions, versioning, and cleanup cadence for the design system.</em></p>
+<hr />
+<h2>Learning Goal</h2>
+<ul>
+  <li>Naming for components/tokens (kebab/camel, prefixes).</li>
+  <li>Versioning (semver-like) and changelog rule.</li>
+  <li>Deprecation: mark, deadline, replacement.</li>
+  <li>Monthly hygiene checklist.</li>
+  <li>Apply across all Playbook assets.</li>
+</ul>
+<hr />
+<h2>Why This Matters</h2>
+<ul>
+  <li>Without hygiene the system rots.</li>
+  <li>Newcomers ramp faster.</li>
+  <li>Deprecation prevents cruft.</li>
+</ul>
+<hr />
+<h2>Explanation</h2>
+<ul>
+  <li>Naming: component.button.primary, token color.brand.primary.</li>
+  <li>Versioning: semver-ish, release note required.</li>
+  <li>Deprecation: flag + replacement link + timeline.</li>
+</ul>
+<hr />
+<h2>Examples</h2>
+<p><strong>Bad:</strong> “New Button Final FINAL”.</p>
+<p><strong>Good:</strong> button/primary/v1.2 + changelog + deprecated button/legacy/primary.</p>
+<hr />
+<h2>Guided Exercise</h2>
+<ol>
+  <li>Create naming table (component, token, file).</li>
+  <li>Write a changelog template.</li>
+  <li>Define deprecation process.</li>
+</ol>
+<h2>Independent Exercise</h2>
+<p>Run a hygiene audit on one component family; mark deprecated items.</p>
+<hr />
+<h2>Self-Check</h2>
+<ul>
+  <li>Naming exists.</li>
+  <li>Changelog template ready.</li>
+  <li>Deprecation documented.</li>
+</ul>
+<hr />
+<h2>Optional Deepening</h2>
+<ul>
+  <li>Semver: <a href="https://semver.org" target="_blank" rel="noreferrer">https://semver.org</a></li>
+  <li>Design system maintenance: <a href="https://uxdesign.cc/maintaining-design-systems-7d3c34c3f0c3" target="_blank" rel="noreferrer">https://uxdesign.cc/maintaining-design-systems-7d3c34c3f0c3</a></li>
+</ul>`,
+    emailSubject: 'Playbook 2026 – Day 20: Naming & hygiene',
+    emailBody: `<h1>Playbook 2026 – Day 20</h1>
+<p>Set naming, versioning, and deprecation rules.</p>
+<p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Read the lesson →</a></p>`,
+    quiz: {
+      questions: [
+        {
+          question: 'Why naming conventions?',
+          options: [
+            'Decoration',
+            'Searchability, consistency, onboarding',
+            'Marketing only',
+            'Not needed',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'Deprecation process?',
+          options: [
+            'Delete immediately',
+            'Mark deprecated, set deadline, provide replacement',
+            'Leave it',
+            'Only ping Slack',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'Bad naming example?',
+          options: [
+            'New Button Final FINAL',
+            'button/primary/v1.2',
+            'color.brand.primary',
+            'space.md',
+          ],
+          correctIndex: 0,
+        },
+        {
+          question: 'What belongs in a changelog?',
+          options: [
+            'Change, date, version, impact',
+            'Only date',
+            'Only author',
+            'Nothing',
+          ],
+          correctIndex: 0,
+        },
+      ],
+    },
+  },
+  {
+    day: 21,
+    title: 'Managing Design Debt and Entropy',
+    content: `<h1>Managing Design Debt and Entropy</h1>
+<p><em>Detect, measure, and reduce design debt with a repeatable cadence.</em></p>
+<hr />
+<h2>Learning Goal</h2>
+<ul>
+  <li>Define design debt and signals.</li>
+  <li>Metrics: duplicated components, token anomalies, missing states.</li>
+  <li>Impact × effort matrix.</li>
+  <li>Debt backlog and monthly reduction ritual.</li>
+</ul>
+<hr />
+<h2>Why This Matters</h2>
+<ul>
+  <li>Debt raises cost and risk.</li>
+  <li>Measurement unlocks resourcing.</li>
+  <li>Reduced debt → faster releases, better UX.</li>
+</ul>
+<hr />
+<h2>Explanation</h2>
+<ul>
+  <li>Signals: duplicate button variants, inconsistent colors, undocumented states.</li>
+  <li>Metrics: “divergences per 100 screens”, “non-tokenized values count”.</li>
+  <li>Process: audit → backlog → fix X tickets per sprint.</li>
+</ul>
+<hr />
+<h2>Examples</h2>
+<p><strong>Bad:</strong> “Feels messy” with no list.</p>
+<p><strong>Good:</strong> Debt table, quantified, monthly quota.</p>
+<hr />
+<h2>Guided Exercise</h2>
+<ol>
+  <li>Create a debt audit template (item, issue type, impact, estimate).</li>
+  <li>Audit 5 screens and fill the table.</li>
+  <li>Set a monthly quota (e.g., 3 debt tickets per sprint).</li>
+</ol>
+<h2>Independent Exercise</h2>
+<p>Present the numbers to the team and get commitment to the quota.</p>
+<hr />
+<h2>Self-Check</h2>
+<ul>
+  <li>Debt table exists.</li>
+  <li>Impact × effort prioritization set.</li>
+  <li>Monthly quota defined.</li>
+</ul>
+<hr />
+<h2>Optional Deepening</h2>
+<ul>
+  <li>NNG design debt: <a href="https://www.nngroup.com/articles/design-debt/" target="_blank" rel="noreferrer">https://www.nngroup.com/articles/design-debt/</a></li>
+</ul>`,
+    emailSubject: 'Playbook 2026 – Day 21: Design debt',
+    emailBody: `<h1>Playbook 2026 – Day 21</h1>
+<p>Audit and reduce design debt with a monthly quota.</p>
+<p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Read the lesson →</a></p>`,
+    quiz: {
+      questions: [
+        {
+          question: 'Design debt signals?',
+          options: [
+            'Documented components',
+            'Duplicate variants, inconsistent colors, missing states',
+            'Fast releases',
+            'Good contrast',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'Why measure debt?',
+          options: [
+            'No need',
+            'For resourcing and prioritization',
+            'Decoration',
+            'Marketing',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'Good process?',
+          options: [
+            'Fix by gut feel',
+            'Audit → backlog → monthly quota',
+            'Never fix',
+            'Only meetings',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'Example metric?',
+          options: [
+            'Revenue only',
+            'Divergences/100 screens, non-tokenized values',
+            'Weather',
+            'None',
+          ],
+          correctIndex: 1,
+        },
+      ],
+    },
+  },
+  {
+    day: 22,
+    title: 'Change Management for the Design System',
+    content: `<h1>Change Management for the Design System</h1>
+<p><em>Run releases with RFC, review, QA, and communication.</em></p>
+<hr />
+<h2>Learning Goal</h2>
+<ul>
+  <li>Change flow: RFC → review → QA → release.</li>
+  <li>Owners: design, engineering, QA.</li>
+  <li>Changelog and versioning are mandatory.</li>
+  <li>Communication: release notes + enablement.</li>
+</ul>
+<hr />
+<h2>Why This Matters</h2>
+<ul>
+  <li>Uncontrolled changes break the system.</li>
+  <li>Transparency builds trust.</li>
+  <li>Helps adoption.</li>
+</ul>
+<hr />
+<h2>Explanation</h2>
+<ul>
+  <li>RFC: problem, proposal, impact.</li>
+  <li>Review: design + dev + a11y.</li>
+  <li>QA: visual + functional + a11y.</li>
+  <li>Release: version, changelog, rollout plan.</li>
+</ul>
+<hr />
+<h2>Examples</h2>
+<p><strong>Bad:</strong> Button changed from a Slack ping.</p>
+<p><strong>Good:</strong> RFC → review → QA → changelog → comms.</p>
+<hr />
+<h2>Guided Exercise</h2>
+<ol>
+  <li>Create an RFC template.</li>
+  <li>Write a release note sample.</li>
+  <li>Define owner roles.</li>
+</ol>
+<h2>Independent Exercise</h2>
+<p>Run an upcoming change through the RFC flow.</p>
+<hr />
+<h2>Self-Check</h2>
+<ul>
+  <li>RFC template exists.</li>
+  <li>Release note sample exists.</li>
+  <li>Owners are clear.</li>
+</ul>
+<hr />
+<h2>Optional Deepening</h2>
+<ul>
+  <li>Design system governance: <a href="https://www.designsystems.com/governance" target="_blank" rel="noreferrer">https://www.designsystems.com/governance</a></li>
+</ul>`,
+    emailSubject: 'Playbook 2026 – Day 22: Change management',
+    emailBody: `<h1>Playbook 2026 – Day 22</h1>
+<p>Enforce RFC → review → QA → release with comms.</p>
+<p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Read the lesson →</a></p>`,
+    quiz: {
+      questions: [
+        {
+          question: 'RFC should include?',
+          options: [
+            'Only date',
+            'Problem, proposal, impact',
+            'Price list',
+            'Nothing',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'Why changelog?',
+          options: [
+            'Not needed',
+            'Traceability, comms, audit',
+            'Decoration',
+            'Marketing',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'Bad example?',
+          options: [
+            'Slack ping → change',
+            'RFC → review → QA → release note',
+            'Owner assignment',
+            'A11y test',
+          ],
+          correctIndex: 0,
+        },
+        {
+          question: 'Who are owners?',
+          options: [
+            'Design + dev + QA roles defined',
+            'Anyone random',
+            'Marketing only',
+            'Nobody',
+          ],
+          correctIndex: 0,
+        },
+      ],
+    },
+  },
+  {
+    day: 23,
+    title: 'Review and Approval Workflow',
+    content: `<h1>Review and Approval Workflow</h1>
+<p><em>Set up design/dev reviews with checklists and statuses.</em></p>
+<hr />
+<h2>Learning Goal</h2>
+<ul>
+  <li>Review types: visual, UX, a11y, technical.</li>
+  <li>Checklists and statuses (draft, review, approved, released).</li>
+  <li>Blocking vs non-blocking comments.</li>
+  <li>Process SLAs.</li>
+</ul>
+<hr />
+<h2>Why This Matters</h2>
+<ul>
+  <li>Quality requires reviews.</li>
+  <li>No SLA → review delays.</li>
+  <li>Checklists reduce mistakes.</li>
+</ul>
+<hr />
+<h2>Explanation</h2>
+<ul>
+  <li>Status: draft → review → approved → released.</li>
+  <li>Checklist: contrast, states, token use, i18n, performance.</li>
+  <li>Blocking = must fix; non-blocking = suggestion.</li>
+</ul>
+<hr />
+<h2>Examples</h2>
+<p><strong>Bad:</strong> “No time for review, ship it.”</p>
+<p><strong>Good:</strong> Checklist, status, SLA, blocking labels.</p>
+<hr />
+<h2>Guided Exercise</h2>
+<ol>
+  <li>Create a review checklist.</li>
+  <li>Define the status workflow.</li>
+  <li>Set an SLA (e.g., 48h feedback).</li>
+</ol>
+<h2>Independent Exercise</h2>
+<p>Run an active ticket through the workflow and document learning.</p>
+<hr />
+<h2>Self-Check</h2>
+<ul>
+  <li>Checklist ready.</li>
+  <li>Workflow documented.</li>
+  <li>SLA defined.</li>
+</ul>
+<hr />
+<h2>Optional Deepening</h2>
+<ul>
+  <li>Design critique: <a href="https://uxdesign.cc/a-practical-guide-to-design-critiques-e462f48f7083" target="_blank" rel="noreferrer">https://uxdesign.cc/a-practical-guide-to-design-critiques-e462f48f7083</a></li>
+</ul>`,
+    emailSubject: 'Playbook 2026 – Day 23: Review workflow',
+    emailBody: `<h1>Playbook 2026 – Day 23</h1>
+<p>Run reviews with checklists, statuses, and SLAs.</p>
+<p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Read the lesson →</a></p>`,
+    quiz: {
+      questions: [
+        {
+          question: 'Why SLA for reviews?',
+          options: [
+            'Decoration',
+            'Sets a feedback deadline, avoids delays',
+            'Marketing',
+            'Not needed',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'Blocking comment?',
+          options: [
+            'Optional',
+            'Stops release until fixed',
+            'Only praise',
+            'Marketing copy',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'Checklist items?',
+          options: [
+            'Contrast, states, tokens, i18n, performance',
+            'Only colors',
+            'Only price',
+            'None',
+          ],
+          correctIndex: 0,
+        },
+        {
+          question: 'Good workflow order?',
+          options: [
+            'Draft → Review → Approved → Released',
+            'Approved → Draft → Released',
+            'Released → Review',
+            'No order',
+          ],
+          correctIndex: 0,
+        },
+      ],
+    },
+  },
+  {
+    day: 24,
+    title: 'Teaching the System to the Team',
+    content: `<h1>Teaching the System to the Team</h1>
+<p><em>Enablement plan: training, office hours, docs, examples.</em></p>
+<hr />
+<h2>Learning Goal</h2>
+<ul>
+  <li>Enablement pack (guide, video, examples).</li>
+  <li>Office hours and support channel.</li>
+  <li>Use-case walkthroughs.</li>
+  <li>Metrics: adoption, tickets, reuse rate.</li>
+</ul>
+<hr />
+<h2>Why This Matters</h2>
+<ul>
+  <li>A system lives only if adopted.</li>
+  <li>Without training, chaos returns.</li>
+  <li>Without metrics, you can’t see impact.</li>
+</ul>
+<hr />
+<h2>Explanation</h2>
+<ul>
+  <li>Enablement: short video + PDF + Figma links.</li>
+  <li>Office hours: weekly 1–2h for questions.</li>
+  <li>Metrics: reuse %, support ticket trend.</li>
+</ul>
+<hr />
+<h2>Examples</h2>
+<p><strong>Bad:</strong> “Here’s a link, good luck.”</p>
+<p><strong>Good:</strong> Kickoff, video, examples, office hours, Q&A.</p>
+<hr />
+<h2>Guided Exercise</h2>
+<ol>
+  <li>Create an enablement checklist.</li>
+  <li>Schedule office hours.</li>
+  <li>Define metrics.</li>
+</ol>
+<h2>Independent Exercise</h2>
+<p>Run a 20-minute walkthrough for a new component; collect feedback.</p>
+<hr />
+<h2>Self-Check</h2>
+<ul>
+  <li>Enablement pack ready.</li>
+  <li>Office hours communicated.</li>
+  <li>Metrics in place.</li>
+</ul>
+<hr />
+<h2>Optional Deepening</h2>
+<ul>
+  <li>DesignOps enablement: <a href="https://designops.community" target="_blank" rel="noreferrer">https://designops.community</a></li>
+</ul>`,
+    emailSubject: 'Playbook 2026 – Day 24: Teaching the system',
+    emailBody: `<h1>Playbook 2026 – Day 24</h1>
+<p>Enablement pack, office hours, and metrics for adoption.</p>
+<p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Read the lesson →</a></p>`,
+    quiz: {
+      questions: [
+        {
+          question: 'Why enablement?',
+          options: [
+            'Not needed',
+            'Without adoption the system dies',
+            'Decoration',
+            'Marketing',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'What goes in the pack?',
+          options: [
+            'Short guide, video, examples, links',
+            'Only a logo',
+            'Only prices',
+            'Nothing',
+          ],
+          correctIndex: 0,
+        },
+        {
+          question: 'What to measure?',
+          options: [
+            'Reuse %, ticket trend',
+            'Revenue only',
+            'Weather',
+            'Nothing',
+          ],
+          correctIndex: 0,
+        },
+        {
+          question: 'Bad example?',
+          options: [
+            'Kickoff + video + office hours',
+            '“Here’s a link, good luck”',
+            'Measured adoption',
+            'Q&A session',
+          ],
+          correctIndex: 1,
+        },
+      ],
+    },
+  },
+  {
+    day: 25,
+    title: 'Measuring Visual Quality',
+    content: `<h1>Measuring Visual Quality</h1>
+<p><em>Create a scorecard and recurring audits for visual quality.</em></p>
+<hr />
+<h2>Learning Goal</h2>
+<ul>
+  <li>Scorecard: contrast, hierarchy, states, token compliance, a11y.</li>
+  <li>Sampling: random screen audits.</li>
+  <li>Trend tracking: monthly averages.</li>
+  <li>Publishing: share results with the team.</li>
+</ul>
+<hr />
+<h2>Why This Matters</h2>
+<ul>
+  <li>What gets measured improves.</li>
+  <li>Transparency drives discipline.</li>
+  <li>Shows value to stakeholders.</li>
+</ul>
+<hr />
+<h2>Explanation</h2>
+<ul>
+  <li>Score 1–5 per criterion.</li>
+  <li>Sample: 5 random screens weekly.</li>
+  <li>Publish: dashboard or monthly note.</li>
+</ul>
+<hr />
+<h2>Examples</h2>
+<p><strong>Bad:</strong> “Looks fine to me.”</p>
+<p><strong>Good:</strong> Scorecard, trend chart, actions.</p>
+<hr />
+<h2>Guided Exercise</h2>
+<ol>
+  <li>Create a scorecard with 5 criteria.</li>
+  <li>Audit 5 screens and compute average.</li>
+  <li>Publish a short report.</li>
+</ol>
+<h2>Independent Exercise</h2>
+<p>Schedule a monthly audit and add an automatic reminder.</p>
+<hr />
+<h2>Self-Check</h2>
+<ul>
+  <li>Scorecard exists.</li>
+  <li>Sample audit done.</li>
+  <li>Results published.</li>
+</ul>
+<hr />
+<h2>Optional Deepening</h2>
+<ul>
+  <li>Design QA: <a href="https://www.nngroup.com/articles/design-quality-assurance/" target="_blank" rel="noreferrer">https://www.nngroup.com/articles/design-quality-assurance/</a></li>
+</ul>`,
+    emailSubject: 'Playbook 2026 – Day 25: Measuring quality',
+    emailBody: `<h1>Playbook 2026 – Day 25</h1>
+<p>Set a scorecard and recurring audits for visual quality.</p>
+<p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Read the lesson →</a></p>`,
+    quiz: {
+      questions: [
+        {
+          question: 'Why measure visual quality?',
+          options: [
+            'Decoration',
+            'Measured → improves; transparency → discipline',
+            'Marketing only',
+            'No need',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'What goes on the scorecard?',
+          options: [
+            'Contrast, hierarchy, states, token compliance, a11y',
+            'Only logo',
+            'Only price',
+            'Nothing',
+          ],
+          correctIndex: 0,
+        },
+        {
+          question: 'Good sampling?',
+          options: [
+            'One screen forever',
+            '5 random screens weekly',
+            'Never audit',
+            'Once after launch only',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'Bad example?',
+          options: [
+            '“Looks fine to me.”',
+            'Scorecard + trend + actions',
+            'Published results',
+            'Scheduled audit',
+          ],
+          correctIndex: 0,
+        },
+      ],
+    },
+  },
+  {
+    day: 26,
+    title: 'Selecting the Capstone Product',
+    content: `<h1>Selecting the Capstone Product</h1>
+<p><em>Pick a live product to apply the Playbook for real.</em></p>
+<hr />
+<h2>Learning Goal</h2>
+<ul>
+  <li>Selection criteria: availability, business priority, stakeholder support.</li>
+  <li>Define scope (screens, platforms).</li>
+  <li>Set owners and timeline.</li>
+  <li>Fix the criteria and be prepared to apply.</li>
+</ul>
+<hr />
+<h2>Why This Matters</h2>
+<ul>
+  <li>Without a real product the Playbook stays theory.</li>
+  <li>Priority gives focus and buy-in.</li>
+  <li>Scope controls risk.</li>
+</ul>
+<hr />
+<h2>Examples</h2>
+<p><strong>Bad:</strong> “We’ll see.”</p>
+<p><strong>Good:</strong> Dashboard + mobile web, 6 key screens, 4 weeks, PM/Dev/Design owners.</p>
+<hr />
+<h2>Guided Exercise</h2>
+<ol>
+  <li>List 3 candidate products and score them.</li>
+  <li>Pick one, define scope (screen list).</li>
+  <li>Set timeline and owners.</li>
+  <li>Get stakeholder sign-off.</li>
+</ol>
+<h2>Independent Exercise</h2>
+<p>Record the decision in the Playbook intro and share with the team.</p>
+<hr />
+<h2>Self-Check</h2>
+<ul>
+  <li>Product + scope chosen.</li>
+  <li>Owners and timeline set.</li>
+  <li>Stakeholder buy-in secured.</li>
+</ul>`,
+    emailSubject: 'Playbook 2026 – Day 26: Capstone product',
+    emailBody: `<h1>Playbook 2026 – Day 26</h1>
+<p>Pick a live product, scope, owners, and timeline.</p>
+<p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Read the lesson →</a></p>`,
+    quiz: {
+      questions: [
+        {
+          question: 'Good selection criteria?',
+          options: [
+            '“Looks cool”',
+            'Availability + business priority + stakeholder support',
+            'Design-only view',
+            'Dev-only view',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'Why scope?',
+          options: [
+            'No need',
+            'Controls risk and focus',
+            'Decoration',
+            'Marketing',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'Bad example?',
+          options: [
+            '“We’ll see.”',
+            '6 key screens, 4 weeks, owners',
+            'Stakeholder buy-in',
+            'Scoped list',
+          ],
+          correctIndex: 0,
+        },
+      ],
+    },
+  },
+  {
+    day: 27,
+    title: 'Mapping the Current Visual Chaos',
+    content: `<h1>Mapping the Current Visual Chaos</h1>
+<p><em>Create a UI inventory: components, colors, type, states, divergences.</em></p>
+<hr />
+<h2>Learning Goal</h2>
+<ul>
+  <li>UI inventory (color, type, radius, shadow, icon, state).</li>
+  <li>Divergence list vs Playbook.</li>
+  <li>Must/Should/Nice categorization.</li>
+  <li>Quantify issue types.</li>
+  <li>Capture unified criteria.</li>
+  <li>Be ready to capture and define visual inventories</li>
+</ul>
+<hr />
+<h2>Why This Matters</h2>
+<ul>
+  <li>You can’t fix what you don’t see.</li>
+  <li>Numbers drive prioritization.</li>
+  <li>Data builds trust.</li>
+</ul>
+<hr />
+<h2>Examples</h2>
+<p><strong>Bad:</strong> “Lots of random colors.”</p>
+<p><strong>Good:</strong> 27 unique blues, 5 radius variants; must/should/nice split.</p>
+<hr />
+<h2>Guided Exercise</h2>
+<ol>
+  <li>Export 10 screens; build an inventory table.</li>
+  <li>Mark divergences vs Playbook.</li>
+  <li>Bucket into must/should/nice.</li>
+</ol>
+<h2>Independent Exercise</h2>
+<p>Share a short report with the counts.</p>
+<hr />
+<h2>Self-Check</h2>
+<ul>
+  <li>Inventory exists.</li>
+  <li>Divergences quantified.</li>
+  <li>Prior buckets ready.</li>
+</ul>`,
+    emailSubject: 'Playbook 2026 – Day 27: Map the chaos',
+    emailBody: `<h1>Playbook 2026 – Day 27</h1>
+<p>Build a UI inventory and quantify divergences.</p>
+<p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Read the lesson →</a></p>`,
+    quiz: {
+      questions: [
+        {
+          question: 'Inventory goal?',
+          options: [
+            'Decoration',
+            'See and quantify divergences',
+            'Marketing',
+            'Nothing',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'Good example?',
+          options: [
+            '“Random colors.”',
+            '“27 blues, 5 radius variants, must/should/nice.”',
+            'No data',
+            'Only feelings',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'Why categorize?',
+          options: [
+            'No need',
+            'To prioritize and plan effort',
+            'Decoration',
+            'Marketing',
+          ],
+          correctIndex: 1,
+        },
+      ],
+    },
+  },
+  {
+    day: 28,
+    title: 'Extracting and Normalizing the System',
+    content: `<h1>Extracting and Normalizing the System</h1>
+<p><em>Resolve divergences: choose final tokens, component variants, and states.</em></p>
+<hr />
+<h2>Learning Goal</h2>
+<ul>
+  <li>Select final token set (color, type, spacing, radius, shadow).</li>
+  <li>Reduce component variants to the essentials.</li>
+  <li>Unify states.</li>
+  <li>Deprecation list and migration plan.</li>
+  <li>Dev-aligned implementation plan.</li>
+</ul>
+<hr />
+<h2>Why This Matters</h2>
+<ul>
+  <li>Extra variants cost to maintain.</li>
+  <li>Unification speeds delivery and improves quality.</li>
+  <li>Without deprecation chaos returns.</li>
+</ul>
+<hr />
+<h2>Examples</h2>
+<p><strong>Bad:</strong> Keep 5 CTA styles “just in case.”</p>
+<p><strong>Good:</strong> 2 CTA variants, documented bans, deprecation plan.</p>
+<hr />
+<h2>Guided Exercise</h2>
+<ol>
+  <li>Pick final token values from inventory.</li>
+  <li>Reduce component variants; make a matrix.</li>
+  <li>Write deprecation and comms plan.</li>
+</ol>
+<h2>Independent Exercise</h2>
+<p align="justify">Align with a developer on migration order.</p>
+<hr />
+<h2>Self-Check</h2>
+<ul>
+  <li>Final token list ready.</li>
+  <li>Variant reduction documented.</li>
+  <li>Deprecation plan exists.</li>
+</ul>`,
+    emailSubject: 'Playbook 2026 – Day 28: Normalize',
+    emailBody: `<h1>Playbook 2026 – Day 28</h1>
+<p>Reduce variants, finalize tokens, deprecate old ones.</p>
+<p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Read the lesson →</a></p>`,
+    quiz: {
+      questions: [
+        {
+          question: 'Why reduce variants?',
+          options: [
+            'No need',
+            'Cost, quality, speed',
+            'Decoration',
+            'Marketing',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'Good example?',
+          options: [
+            'Keep 5 CTA variants',
+            '2 CTA variants + bans + deprecation plan',
+            'No docs',
+            'Only feelings',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'Why deprecation plan?',
+          options: [
+            'No need',
+            'Retire old variants safely',
+            'Decoration',
+            'Marketing',
+          ],
+          correctIndex: 1,
+        },
+      ],
+    },
+  },
+  {
+    day: 29,
+    title: 'Assembling the Playbook',
+    content: `<h1>Assembling the Playbook</h1>
+<p><em>Compile the final Playbook: structure, links, examples, changelog.</em></p>
+<hr />
+<h2>Learning Goal</h2>
+<ul>
+  <li>Finalize TOC.</li>
+  <li>Link Figma/Storybook, token exports, examples.</li>
+  <li>Set changelog and version.</li>
+  <li>Publish channels (Notion/Confluence/repo).</li>
+  <li>Document format: Markdown + live links.</li>
+  <li>Prepare for publishing the course.</li>
+</ul>
+<hr />
+<h2>Why This Matters</h2>
+<ul>
+  <li>One place, easy to use.</li>
+  <li>Versioning prevents rot.</li>
+  <li>Links keep sources accessible.</li>
+</ul>
+<hr />
+<h2>Examples</h2>
+<p><strong>Bad:</strong> Scattered files, no version.</p>
+<p><strong>Good:</strong> Markdown TOC, live links, changelog, v1.0 tag.</p>
+<hr />
+<h2>Guided Exercise</h2>
+<ol>
+  <li>Build the TOC with final sections.</li>
+  <li>Link sources (Figma, Storybook, token JSON).</li>
+  <li>Write v1.0 changelog entry.</li>
+</ol>
+<h2>Independent Exercise</h2>
+<p>Publish the Playbook and request final review.</p>
+<hr />
+<h2>Self-Check</h2>
+<ul>
+  <li>TOC ready.</li>
+  <li>Links live.</li>
+  <li>Changelog written.</li>
+</ul>`,
+    emailSubject: 'Playbook 2026 – Day 29: Assemble',
+    emailBody: `<h1>Playbook 2026 – Day 29</h1>
+<p>Assemble the final Playbook with links and version.</p>
+<p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Read the lesson →</a></p>`,
+    quiz: {
+      questions: [
+        {
+          question: 'Why version number?',
+          options: [
+            'Decoration',
+            'Traceability and update control',
+            'Marketing',
+            'No need',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'What belongs in the Playbook?',
+          options: [
+            'TOC, links, changelog, version',
+            'Only pictures',
+            'Only price',
+            'Nothing',
+          ],
+          correctIndex: 0,
+        },
+        {
+          question: 'Bad example?',
+          options: [
+            'Scattered files, no version',
+            'Markdown + live links',
+            'Changelog v1.0',
+            'Published doc',
+          ],
+          correctIndex: 0,
+        },
+      ],
+    },
+  },
+  {
+    day: 30,
+    title: 'Final Presentation and Rollout',
+    content: `<h1>Final Presentation and Rollout</h1>
+<p><em>Present the Playbook with rollout plan and metrics.</em></p>
+<hr />
+<h2>Learning Goal</h2>
+<ul>
+  <li>Deck: problem → solution → benefits.</li>
+  <li>Rollout plan: timeline, milestones, owners.</li>
+  <li>Success metrics: adoption, defect drop, reuse rate.</li>
+  <li>Feedback channels.</li>
+</ul>
+<hr />
+<h2>Why This Matters</h2>
+<ul>
+  <li>Without buy-in and rollout, the system stays on a shelf.</li>
+  <li>Metrics show impact.</li>
+  <li>Feedback drives v1.1.</li>
+</ul>
+<hr />
+<h2>Examples</h2>
+<p><strong>Bad:</strong> Emailing a PDF, no follow-up.</p>
+<p><strong>Good:</strong> 20-min demo, rollout schedule, metrics, feedback loop.</p>
+<hr />
+<h2>Guided Exercise</h2>
+<ol>
+  <li>Create a 10–15 slide deck.</li>
+  <li>Write a rollout schedule (weekly milestones).</li>
+  <li>Define metrics and a dashboard.</li>
+</ol>
+<h2>Independent Exercise</h2>
+<p>Run a demo, collect feedback, plan v1.1 fixes.</p>
+<hr />
+<h2>Self-Check</h2>
+<ul>
+  <li>Deck ready.</li>
+  <li>Rollout plan ready.</li>
+  <li>Metrics and feedback channels set.</li>
+</ul>`,
+    emailSubject: 'Playbook 2026 – Day 30: Rollout',
+    emailBody: `<h1>Playbook 2026 – Day 30</h1>
+<p>Present the Playbook, rollout plan, and metrics.</p>
+<p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Read the lesson →</a></p>`,
+    quiz: {
+      questions: [
+        {
+          question: 'What should the final deck cover?',
+          options: [
+            'Logo only',
+            'Problem, solution, benefits, metrics',
+            'Only price',
+            'Nothing',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'Why rollout plan?',
+          options: [
+            'No need',
+            'Ensure the system is actually adopted',
+            'Decoration',
+            'Marketing',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'Good metric?',
+          options: [
+            'Adoption, defect drop, reuse rate',
+            'Revenue only',
+            'Weather',
+            'None',
+          ],
+          correctIndex: 0,
+        },
+        {
+          question: 'Bad example?',
+          options: [
+            'Emailed PDF, no follow-up',
+            'Demo + rollout + metrics',
+            'Feedback loop',
+            'v1.1 backlog',
+          ],
+          correctIndex: 0,
+        },
+      ],
+    },
+  },
 ];
 
 async function main() {
@@ -1240,7 +3167,7 @@ async function main() {
 
   await mongoose.disconnect();
   // eslint-disable-next-line no-console
-  console.log('Seeded The Playbook 2026 (EN) with first 10 lessons.');
+  console.log('Seeded The Playbook 2026 (EN) with all 30 lessons.');
 }
 
 main().catch((err) => {

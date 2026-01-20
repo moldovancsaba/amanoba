@@ -404,8 +404,6 @@ export async function GET(request: NextRequest) {
 
       if (!player) {
         // Create new player
-        // Note: Do not set facebookId for SSO users to avoid duplicate key errors
-        // The sparse unique index on facebookId should allow multiple nulls, but we omit the field entirely
         try {
           player = await Player.create({
             ssoSub: userInfo.sub,
@@ -420,14 +418,13 @@ export async function GET(request: NextRequest) {
             role: userInfo.role,
             lastLoginAt: new Date(),
             lastSeenAt: new Date(),
-            // Do not include facebookId - let it be undefined to avoid index conflicts
           });
         } catch (createError: any) {
           // Handle duplicate key error - might be race condition or index issue
-          if (createError?.code === 11000 && createError?.keyPattern?.facebookId) {
+          if (createError?.code === 11000) {
             logger.warn(
-              { ssoSub: userInfo.sub, email: userInfo.email },
-              'Duplicate key error on facebookId during player creation - retrying with find'
+              { ssoSub: userInfo.sub, email: userInfo.email, errorCode: createError.code },
+              'Duplicate key error during player creation - retrying with find'
             );
             // Try to find existing player by email or ssoSub
             player = await Player.findOne({
@@ -461,10 +458,6 @@ export async function GET(request: NextRequest) {
             player.displayName = userInfo.name || player.displayName;
             player.lastLoginAt = new Date();
             player.lastSeenAt = new Date();
-            // Explicitly unset facebookId if it exists
-            if (player.facebookId === null || player.facebookId === undefined) {
-              player.facebookId = undefined;
-            }
             await player.save();
             logger.info({ playerId: player._id, oldRole, finalRole: player.role }, 'Found and updated existing player after duplicate key error');
           } else {

@@ -96,11 +96,12 @@ export async function createAnonymousPlayer(username: string) {
     }
     
     // Create new anonymous player (match Player schema)
+    // Note: Anonymous users don't have ssoSub (they're not SSO users)
     const newPlayer = await Player.create({
-      facebookId: `anon_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`,
       displayName: username,
       isPremium: false,
       isAnonymous: true,
+      authProvider: 'anonymous',
       brandId: defaultBrand._id,
       locale: 'en',
       isActive: true,
@@ -224,7 +225,7 @@ export async function convertAnonymousToRegistered(
     const player = await Player.findByIdAndUpdate(
       anonymousPlayerId,
       {
-        facebookId,
+        ssoSub,
         displayName: displayName || undefined,
         email: email || undefined,
         avatarUrl: avatarUrl || undefined,
@@ -233,7 +234,7 @@ export async function convertAnonymousToRegistered(
       { new: true }
     );
     
-    logger.info(`Converted anonymous player to registered: ${facebookId}`);
+    logger.info(`Converted anonymous player to registered: ${ssoSub}`);
     
     return player;
   } catch (error) {

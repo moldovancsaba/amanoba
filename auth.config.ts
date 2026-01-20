@@ -2,11 +2,10 @@
  * NextAuth.js v5 Configuration
  * 
  * What: Authentication configuration for Amanoba platform
- * Why: Centralized auth setup with Facebook OAuth and MongoDB session storage
+ * Why: Centralized auth setup with SSO and anonymous login
  */
 
 import type { NextAuthConfig, Session } from 'next-auth';
-import Facebook from 'next-auth/providers/facebook';
 import Credentials from 'next-auth/providers/credentials';
 
 /**
@@ -17,20 +16,8 @@ import Credentials from 'next-auth/providers/credentials';
  */
 export const authConfig = {
   // Authentication providers
-  // Why: Facebook OAuth + Credentials for anonymous guest login
+  // Why: Credentials for anonymous guest login (SSO handled separately)
   providers: [
-    Facebook({
-      clientId: process.env.FACEBOOK_APP_ID!,
-      clientSecret: process.env.FACEBOOK_APP_SECRET!,
-      // Request additional user information from Facebook
-      // Why: We need profile picture and email for player profiles
-      authorization: {
-        params: {
-          scope: 'email public_profile',
-        },
-      },
-    }),
-    
     // Credentials provider for anonymous guest login
     // Why: Allow frictionless onboarding without OAuth
     Credentials({
@@ -97,19 +84,10 @@ export const authConfig = {
 
     // JWT callback
     // Why: Add custom fields to JWT token
-    async jwt({ token, user, account, profile }) {
-      // Initial sign in with Facebook
-      if (account && profile && account.provider === 'facebook') {
-        token.facebookId = profile.id as string;
-        token.picture = (profile.picture as any)?.data?.url || profile.image;
-        token.locale = (profile.locale as string) || 'en';
-        token.isAnonymous = false;
-      }
-      
-      // Initial sign in with Credentials (anonymous)
+    async jwt({ token, user }) {
+      // Initial sign in with Credentials (anonymous or SSO)
       if (user && (user as any).isAnonymous) {
         token.isAnonymous = true;
-        token.facebookId = null;
       }
       
       // Add user data to token
@@ -134,10 +112,11 @@ export const authConfig = {
     async session({ session, token }): Promise<Session> {
       if (token && session.user) {
         (session.user as any).id = token.id as string;
-        (session.user as any).facebookId = token.facebookId;
+        (session.user as any).ssoSub = token.ssoSub;
         (session.user as any).locale = token.locale || 'en';
         (session.user as any).isAnonymous = token.isAnonymous ?? false;
         (session.user as any).role = token.role || 'user';
+        (session.user as any).authProvider = token.authProvider || 'sso';
         
         // DEBUG: Log role in session
         console.log('[Session Callback] Role in session:', {

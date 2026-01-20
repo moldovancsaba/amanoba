@@ -49,7 +49,7 @@ export async function GET(request: NextRequest) {
       query.$or = [
         { displayName: { $regex: search, $options: 'i' } },
         { email: { $regex: search, $options: 'i' } },
-        { facebookId: { $regex: search, $options: 'i' } },
+        { ssoSub: { $regex: search, $options: 'i' } },
       ];
     }
 
