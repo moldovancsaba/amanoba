@@ -237,7 +237,12 @@ export default function DailyLessonPage({
             </div>
             <div className="flex items-center gap-2 text-brand-white">
               <Calendar className="w-5 h-5" />
-              <span className="font-bold">{t('dayNumber', { day: lesson.dayNumber })}</span>
+              <span className="font-bold">
+                {t('dayNumber', {
+                  day: lesson.dayNumber,
+                  defaultValue: `${lesson.dayNumber}. nap`,
+                })}
+              </span>
             </div>
           </div>
         </div>
@@ -430,14 +435,17 @@ export default function DailyLessonPage({
             <p className="text-brand-white/70 mb-6">
               {t('completePreviousLessons')}
             </p>
-            {navigation?.previous && (
-              <LocaleLink
-                href={`/courses/${courseId}/day/${navigation.previous.day}`}
-                className="inline-block bg-brand-accent text-brand-black px-6 py-3 rounded-lg font-bold hover:bg-brand-primary-400 transition-colors"
-              >
-                {t('goToDay', { day: navigation.previous.day })}
-              </LocaleLink>
-            )}
+              {navigation?.previous && (
+                <LocaleLink
+                  href={`/courses/${courseId}/day/${navigation.previous.day}`}
+                  className="inline-block bg-brand-accent text-brand-black px-6 py-3 rounded-lg font-bold hover:bg-brand-primary-400 transition-colors"
+                >
+                  {t('goToDay', {
+                    day: navigation.previous.day,
+                    defaultValue: `Menj a(z) ${navigation.previous.day}. napra`,
+                  })}
+                </LocaleLink>
+              )}
           </div>
         )}
       </main>
