@@ -40,7 +40,7 @@ export async function POST(
     const lesson = await Lesson.findOne({
       courseId: course._id,
       lessonId,
-    });
+    }).lean();
 
     if (!lesson) {
       return NextResponse.json({ error: 'Lesson not found' }, { status: 404 });
@@ -148,6 +148,48 @@ export async function POST(
     const percentage = Math.round((score / total) * 100);
     const threshold = lesson.quizConfig.successThreshold || 70;
     const passed = percentage >= threshold;
+
+    // Track quiz completion in CourseProgress if passed
+    if (passed && lesson.dayNumber) {
+      try {
+        const player = await Player.findOne({ email: session.user.email });
+        if (player) {
+          // Find course progress
+          const progress = await CourseProgress.findOne({
+            playerId: player._id,
+            courseId: course._id,
+          });
+
+          if (progress) {
+            const dayNumberStr = lesson.dayNumber.toString();
+            
+            // Only update if this quiz hasn't been completed yet
+            // We use a simple marker ObjectId to track completion
+            // Since AssessmentResult requires gameId/sessionId which quizzes don't have,
+            // we'll use a placeholder ObjectId to mark completion
+            const assessmentResults = progress.assessmentResults || new Map();
+            if (!assessmentResults.has(dayNumberStr)) {
+              // Create a placeholder ObjectId to mark quiz completion
+              // This is a simple way to track without requiring full AssessmentResult
+              const placeholderId = new mongoose.Types.ObjectId();
+              assessmentResults.set(dayNumberStr, placeholderId);
+              progress.assessmentResults = assessmentResults;
+              await progress.save();
+              
+              logger.info({
+                courseId,
+                lessonId,
+                dayNumber: lesson.dayNumber,
+                playerId: player._id.toString(),
+              }, 'Quiz completion tracked in CourseProgress');
+            }
+          }
+        }
+      } catch (progressError) {
+        // Don't fail the quiz submission if progress tracking fails
+        logger.warn({ error: progressError, courseId, lessonId }, 'Failed to track quiz completion in CourseProgress');
+      }
+    }
 
     // Update question statistics
     for (const result of results) {
