@@ -25,15 +25,43 @@ export const dynamic = 'force-dynamic';
  */
 export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url);
-  const url = new URL(request.url);
   
-  // Extract locale from URL path (e.g., /hu/api/auth/sso/callback or /en/api/auth/sso/callback)
-  // Default to 'hu' if not found
-  let locale = 'hu';
-  const pathParts = url.pathname.split('/').filter(Boolean);
-  if (pathParts.length > 0 && (pathParts[0] === 'hu' || pathParts[0] === 'en')) {
-    locale = pathParts[0];
+  // Helper function to extract locale from a path
+  function extractLocaleFromPath(path: string): string {
+    const pathParts = path.split('/').filter(Boolean);
+    if (pathParts.length > 0 && (pathParts[0] === 'hu' || pathParts[0] === 'en')) {
+      return pathParts[0];
+    }
+    return 'hu'; // Default to Hungarian
   }
+  
+  // Get returnTo from cookie early to extract locale
+  const returnToCookie = request.cookies.get('sso_return_to')?.value || '/dashboard';
+  let locale = extractLocaleFromPath(returnToCookie);
+  
+  // Also try to get locale from referer header as fallback
+  const referer = request.headers.get('referer');
+  if (referer) {
+    try {
+      const refererUrl = new URL(referer);
+      const refererLocale = extractLocaleFromPath(refererUrl.pathname);
+      if (refererLocale !== 'hu' || locale === 'hu') {
+        locale = refererLocale;
+      }
+    } catch {
+      // Ignore invalid referer URLs
+    }
+  }
+  
+  logger.info(
+    {
+      locale,
+      returnToCookie,
+      referer: request.headers.get('referer'),
+      url: request.url,
+    },
+    'SSO callback started - locale detection'
+  );
   
   try {
     const code = searchParams.get('code');
@@ -58,7 +86,13 @@ export async function GET(request: NextRequest) {
     // Verify state from cookie
     const storedState = request.cookies.get('sso_state')?.value;
     const storedNonce = request.cookies.get('sso_nonce')?.value;
-    const returnTo = request.cookies.get('sso_return_to')?.value || '/dashboard';
+    const returnTo = returnToCookie; // Use the cookie we already read
+    
+    // Update locale from returnTo if it has a locale prefix
+    const localeFromReturnTo = extractLocaleFromPath(returnTo);
+    if (localeFromReturnTo !== 'hu' || locale === 'hu') {
+      locale = localeFromReturnTo;
+    }
 
     if (!storedState || storedState !== state) {
       logger.warn({ state, storedState: !!storedState }, 'SSO state mismatch - possible CSRF attack');
@@ -443,17 +477,8 @@ export async function GET(request: NextRequest) {
     const errorStack = error instanceof Error ? error.stack : undefined;
     const errorName = error instanceof Error ? error.name : undefined;
     
-    // Extract locale from URL if not already extracted
-    let errorLocale = locale;
-    if (!errorLocale) {
-      const url = new URL(request.url);
-      const pathParts = url.pathname.split('/').filter(Boolean);
-      if (pathParts.length > 0 && (pathParts[0] === 'hu' || pathParts[0] === 'en')) {
-        errorLocale = pathParts[0];
-      } else {
-        errorLocale = 'hu'; // Default fallback
-      }
-    }
+    // Use the locale we extracted earlier, or default to 'hu'
+    const errorLocale = locale || 'hu';
     
     logger.error(
       {
