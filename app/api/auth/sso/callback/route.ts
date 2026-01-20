@@ -279,6 +279,7 @@ export async function GET(request: NextRequest) {
       playerId: (player._id as any).toString(),
       displayName: player.displayName,
       isAnonymous: 'false',
+      role: player.role, // Pass role to session
     });
 
     if (!signInResult || signInResult.error) {

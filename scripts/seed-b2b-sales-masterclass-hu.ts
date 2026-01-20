@@ -388,6 +388,974 @@ const lessons: LessonEntry[] = [
       ],
     },
   },
+  {
+    day: 4,
+    title: 'Buyer persona és döntési egység',
+    content: `<h1>Buyer persona és döntési egység</h1>
+<p><em>Feltérképezed, ki a felhasználó, ki fizet, ki blokkol, és ki dönt – hogy ne egy emberhez beszélj.</em></p>
+<hr />
+<h2>Napi cél</h2>
+<ul>
+  <li>Azonosítod a döntési egység szerepeit (felhasználó, gazda, pénzügy, beszerzés, jog/IT).</li>
+  <li>Készítesz 1 döntési egység térképet egy ICP-re.</li>
+  <li>Összeírsz 5 kockázatot (ki blokkolhat és mivel).</li>
+</ul>
+<hr />
+<h2>Miért fontos</h2>
+<ul>
+  <li>A döntés ritkán egy emberé – ha csak a „championra” fókuszálsz, megakadsz.</li>
+  <li>A blokkolók előre azonosítva gyorsítják a tárgyalást.</li>
+  <li>A persona tisztázása segít a releváns üzenetben és a következő lépésben.</li>
+</ul>
+<hr />
+<h2>Magyarázat</h2>
+<h3>Szerepek</h3>
+<ul>
+  <li><strong>Felhasználó</strong>: napi használó, fájdalomtulajdonos.</li>
+  <li><strong>Gazda/champion</strong>: üzleti szponzor, belső vezető.</li>
+  <li><strong>Pénzügy/beszerzés</strong>: költség, szerződés, ROI.</li>
+  <li><strong>Jog/IT/security</strong>: compliance, adat, hozzáférés.</li>
+</ul>
+<h3>Blokkolók és jelzések</h3>
+<ul>
+  <li>Nincs fájdalomtulajdonos → „kíváncsiság” projekt.</li>
+  <li>Security/IT nem bevont → késői stop.</li>
+  <li>Jog nem lát DPA/SLA mintát → slip.</li>
+</ul>
+<hr />
+<h2>Példák</h2>
+<p><strong>Rossz:</strong> Csak a felhasználóval beszélsz, nem tudod, ki ír alá, security nincs bevonva.</p>
+<p><strong>Jó:</strong> Champion + felhasználó + IT/security + pénzügy listázva, mindegyiknek 1-1 kockázat/jegyzék.</p>
+<hr />
+<h2>Gyakorlat (vezetett, 10-15 perc)</h2>
+<ol>
+  <li>Válassz egy ICP-t, rajzold fel a döntési egységet (szerep + név ha van).</li>
+  <li>Minden szerephez írj 1-2 fő kockázatot és információigényt.</li>
+  <li>Írj 3 kérdést, amivel kideríted, ki dönt és ki blokkolhat.</li>
+</ol>
+<h2>Gyakorlat (önálló, 5-10 perc)</h2>
+<p>Egy aktív dealen egészítsd ki a térképet: melyik szerep hiányzik, hogyan vonod be?</p>
+<hr />
+<h2>Önellenőrzés</h2>
+<ul>
+  <li>Megvan a döntési egység térkép.</li>
+  <li>Minden szerephez van kockázatlista.</li>
+  <li>Van 3 feltáró kérdésed a szereplők azonosítására.</li>
+  <li>Alkalmaztad egy élő dealre.</li>
+</ul>
+<hr />
+<h2>Opcionális mélyítés</h2>
+<ul>
+  <li>Gartner Buying Committee: <a href="https://www.gartner.com/en/insights/sales" target="_blank" rel="noreferrer">https://www.gartner.com/en/insights/sales</a></li>
+  <li>Challenger Customer összefoglaló: <a href="https://www.challengerinc.com/resources/" target="_blank" rel="noreferrer">https://www.challengerinc.com/resources/</a></li>
+</ul>`,
+    emailSubject: 'B2B Értékesítés 2026 – 4. nap: Döntési egység',
+    emailBody: `<h1>B2B Értékesítés 2026 – 4. nap</h1>
+<p>Feltérképezed a döntési egységet: ki használ, ki dönt, ki blokkol. Írj kockázatlistát és feltáró kérdéseket.</p>
+<p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Olvasd el a leckét →</a></p>`,
+    quiz: {
+      questions: [
+        {
+          question: 'Miért veszélyes csak a championra támaszkodni?',
+          options: [
+            'Mert túl sok időt vesz igénybe',
+            'Mert a döntés több szereplős, a blokkolók későn derülnek ki',
+            'Mert a champion mindig nemet mond',
+            'Mert így nem kell CRM',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'Melyik szerep jellemzően a költség/ROI fókuszú?',
+          options: [
+            'Felhasználó',
+            'Pénzügy/beszerzés',
+            'Jog',
+            'IT/security',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'Mi a blokkolók korai azonosításának előnye?',
+          options: [
+            'Kevesebb meeting',
+            'Gyorsabb tárgyalás és kisebb slip kockázat',
+            'Nagyobb ár',
+            'Kevesebb dokumentum',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'Mi hiányzik egy „rossz” megközelítésből?',
+          options: [
+            'Pitch deck',
+            'Döntési egység térkép és szerepek',
+            'Email sablon',
+            'Marketing lista',
+          ],
+          correctIndex: 1,
+        },
+      ],
+    },
+  },
+  {
+    day: 5,
+    title: 'Value proposition: mérhető, ellenőrizhető állítások',
+    content: `<h1>Value proposition: mérhető, ellenőrizhető állítások</h1>
+<p><em>A „szép állítás” helyett 3 mondatos value és 5 proof pont, amit a vevő ellenőrizni tud.</em></p>
+<hr />
+<h2>Napi cél</h2>
+<ul>
+  <li>Megírsz egy 3 mondatos value statementet.</li>
+  <li>Összeírsz 5 proof pontot (mérhető/ellenőrizhető).</li>
+  <li>Összekötöd az ICP fájdalommal.</li>
+</ul>
+<hr />
+<h2>Miért fontos</h2>
+<ul>
+  <li>A vevő döntést hoz: bizonyítékot és relevanciát keres.</li>
+  <li>A mérhető állítás csökkenti a kockázatot és gyorsítja a discoveryt.</li>
+  <li>Proof nélkül a value csak marketing szöveg.</li>
+</ul>
+<hr />
+<h2>Magyarázat</h2>
+<h3>3 mondatos value</h3>
+<ol>
+  <li>Kinek (ICP + szerep).</li>
+  <li>Milyen problémára/fájdalomra.</li>
+  <li>Milyen eredménnyel/mit kockáztat, ha nem lép.</li>
+</ol>
+<h3>Proof pontok</h3>
+<ul>
+  <li>Számok: % javulás, időmegtakarítás, bevételhatás.</li>
+  <li>Példák: esettanulmány, benchmark.</li>
+  <li>Forrás: link/anyag, amit a vevő ellenőrizhet.</li>
+</ul>
+<hr />
+<h2>Példák</h2>
+<p><strong>Rossz:</strong> „Segítünk növekedni AI-val.” – nincs ICP, nincs probléma, nincs proof.</p>
+<p><strong>Jó:</strong> „15-80 fős B2B SaaS csapatoknak, ahol a churn 15-30%, 90+ napos cycle mellett: 12 hét alatt a qualified pipeline +25%-át célozzuk, benchmark szerint 2-3x gyorsabb qualification. Proof: esettanulmány, mérőlap, referencia.”</p>
+<hr />
+<h2>Gyakorlat (vezetett, 10-15 perc)</h2>
+<ol>
+  <li>Írd meg a 3 mondatos value statementet (kinek, milyen fájdalom, milyen eredmény/kockázat).</li>
+  <li>Írj 5 proof pontot (szám/benchmark/link).</li>
+  <li>Kösd az ICP fájdalomhoz: minden proof melyik fájdalomra reagál?</li>
+</ol>
+<h2>Gyakorlat (önálló, 5-10 perc)</h2>
+<p>Revízd az utolsó 3 outbound üzenetedet: illeszd be a value + 1 proof pontot.</p>
+<hr />
+<h2>Önellenőrzés</h2>
+<ul>
+  <li>Megvan a 3 mondatos value.</li>
+  <li>Megvan 5 proof pont.</li>
+  <li>Minden proof kötve van egy ICP fájdalomhoz.</li>
+  <li>Legalább 1 outbound üzenetben alkalmaztad.</li>
+</ul>
+<hr />
+<h2>Opcionális mélyítés</h2>
+<ul>
+  <li>Value prop design (Strategyzer): <a href="https://www.strategyzer.com/books/value-proposition-design" target="_blank" rel="noreferrer">https://www.strategyzer.com/books/value-proposition-design</a></li>
+  <li>Social proof és referencia: <a href="https://www.apollo.io/blog/social-proof-for-sales" target="_blank" rel="noreferrer">https://www.apollo.io/blog/social-proof-for-sales</a></li>
+</ul>`,
+    emailSubject: 'B2B Értékesítés 2026 – 5. nap: Value + proof',
+    emailBody: `<h1>B2B Értékesítés 2026 – 5. nap</h1>
+<p>3 mondatos value statementet és 5 proof pontot írsz, mindet ICP fájdalomhoz kötve.</p>
+<p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Olvasd el a leckét →</a></p>`,
+    quiz: {
+      questions: [
+        {
+          question: 'Miért kevés a „Segítünk növekedni AI-val” állítás?',
+          options: [
+            'Mert túl hosszú',
+            'Mert nincs ICP, probléma és proof',
+            'Mert túl drága',
+            'Mert nem említ CRM-et',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'Mi a 3 mondatos value egyik kötelező eleme?',
+          options: [
+            'Egy marketing szlogen',
+            'ICP + probléma + eredmény/kockázat',
+            'Csak a termék feature lista',
+            'Egy árkedvezmény',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'Mi a proof pont lényege?',
+          options: [
+            'Hogy hosszú legyen',
+            'Hogy a vevő ellenőrizhesse (szám/forrás/benchmark)',
+            'Hogy marketingnek tűnjön',
+            'Hogy elkerüljük az ICP-t',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'Mit kell tenned a proof pontokkal?',
+          options: [
+            'Önálló listába tenni ICP nélkül',
+            'Összekötni őket az ICP fájdalmakkal',
+            'Csak a honlapra kitenni',
+            'Csak a sales deckben használni',
+          ],
+          correctIndex: 1,
+        },
+      ],
+    },
+  },
+  {
+    day: 6,
+    title: 'Ideális sales folyamat és heti metrikák',
+    content: `<h1>Ideális sales folyamat és heti metrikák</h1>
+<p><em>Definiálod a lead/SQL/qualified discovery fogalmakat, és felállítod a heti mérőlapot.</em></p>
+<hr />
+<h2>Napi cél</h2>
+<ul>
+  <li>Definiálod: mi a lead, mi az SQL, mi a qualified discovery.</li>
+  <li>Összeállítasz egy heti mérőlapot (stage konverzió, cycle time, win rate, pipeline coverage).</li>
+  <li>Kijelölsz 3 fejlesztendő metrikát.</li>
+</ul>
+<hr />
+<h2>Miért fontos</h2>
+<ul>
+  <li>Mérés nélkül a pipeline vélemény marad.</li>
+  <li>Heti ritmus = gyors visszajelzés a fókuszra és a minőségre.</li>
+  <li>Azonosítod a szűk keresztmetszetet (stage vagy minőség).</li>
+</ul>
+<hr />
+<h2>Magyarázat</h2>
+<h3>Definíciók</h3>
+<ul>
+  <li><strong>Lead</strong>: minimális adat + releváns kontextus.</li>
+  <li><strong>SQL</strong>: ICP + probléma + döntéshozó elérhető + trigger.</li>
+  <li><strong>Qualified discovery</strong>: fájdalom, hatás, döntési folyamat, next step rögzítve.</li>
+</ul>
+<h3>Mérés</h3>
+<ul>
+  <li>Stage konverzió: Lead→SQL, SQL→Discovery, Discovery→Proposal, Proposal→Close.</li>
+  <li>Cycle time stagenként.</li>
+  <li>Win rate, pipeline coverage (3-4x).</li>
+  <li>Lost okok kódolva (top 5).</li>
+</ul>
+<hr />
+<h2>Példák</h2>
+<p><strong>Rossz:</strong> csak a call számot méred; nem tudod, hol esik szét a pipeline.</p>
+<p><strong>Jó:</strong> heti dashboard: stage konverziók, cycle idők, win rate, lost okok; 1 szűk keresztmetszet kijelölve.</p>
+<hr />
+<h2>Gyakorlat (vezetett, 10-15 perc)</h2>
+<ol>
+  <li>Írd le a 3 definíciót (lead, SQL, qualified discovery) a csapat nyelvén.</li>
+  <li>Készíts heti mérőlapot: stage konverziók, cycle idők, win rate, pipeline coverage, lost ok top 5.</li>
+  <li>Jelöld ki a legnagyobb szűk keresztmetszetet.</li>
+</ol>
+<h2>Gyakorlat (önálló, 5-10 perc)</h2>
+<p>Válassz egy metrikát, és írj akciót a javítására (pl. SQL definíció szigorítás, discovery kérdések bővítése).</p>
+<hr />
+<h2>Önellenőrzés</h2>
+<ul>
+  <li>Van definíció a lead/SQL/discovery fogalmakra.</li>
+  <li>Megvan a heti mérőlap.</li>
+  <li>Azonosítottad a szűk keresztmetszetet.</li>
+  <li>Készült akció a javításra.</li>
+</ul>
+<hr />
+<h2>Opcionális mélyítés</h2>
+<ul>
+  <li>Stage alapú riport minta (HubSpot): <a href="https://knowledge.hubspot.com/reporting/create-reports" target="_blank" rel="noreferrer">https://knowledge.hubspot.com/reporting/create-reports</a></li>
+  <li>Win rate és coverage: <a href="https://pipedrive.readme.io/docs/deals-reporting" target="_blank" rel="noreferrer">https://pipedrive.readme.io/docs/deals-reporting</a></li>
+</ul>`,
+    emailSubject: 'B2B Értékesítés 2026 – 6. nap: Metrikák',
+    emailBody: `<h1>B2B Értékesítés 2026 – 6. nap</h1>
+<p>Definiálod a lead/SQL/discovery fogalmakat, felállítod a heti mérőlapot, és kijelölöd a szűk keresztmetszetet.</p>
+<p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Olvasd el a leckét →</a></p>`,
+    quiz: {
+      questions: [
+        {
+          question: 'Mi a qualified discovery egyik kötelező eleme?',
+          options: [
+            'Egy demó videó',
+            'Fájdalom, hatás és next step rögzítve',
+            'Egy árlista',
+            'Egy LinkedIn poszt',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'Mit jelent a pipeline coverage 3-4x szabály?',
+          options: [
+            'Háromszor-négyszer annyi meeting',
+            'A célbevétel 3-4x-ének megfelelő pipeline érték',
+            'Háromszor-négyszer annyi email',
+            'Háromszor-négyszer annyi demo',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'Miért kell a lost okokat kódolni?',
+          options: [
+            'Dekorra',
+            'Hogy javítható trendeket láss (top 5 ok)',
+            'Mert kötelező jogilag',
+            'Hogy több emailt küldj',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'Mi a mai legfontosabb kimenet?',
+          options: [
+            'Egy marketing kampány',
+            'Heti mérőlap + definíciók + kijelölt szűk keresztmetszet',
+            'Egy új landing page',
+            'Egy új CRM',
+          ],
+          correctIndex: 1,
+        },
+      ],
+    },
+  },
+  {
+    day: 7,
+    title: 'Lead forrás térkép 2026',
+    content: `<h1>Lead forrás térkép 2026</h1>
+<p><em>3 fókuszcsatornát választasz (outbound, inbound, partner/event/community), hogy mérhető kísérletet építs.</em></p>
+<hr />
+<h2>Napi cél</h2>
+<ul>
+  <li>Kiválasztasz 3 elsődleges csatornát az ICP-hez illesztve.</li>
+  <li>Készítesz egy „channel brief”-et: erőforrás, mérés, 2 hetes kísérlet.</li>
+  <li>Definiálsz egy minimális pipeline célt csatornánként.</li>
+</ul>
+<hr />
+<h2>Miért fontos</h2>
+<ul>
+  <li>Szétszórt csatornázás = zaj + elfolyó idő.</li>
+  <li>Fókusz + kísérlet = gyors tanulás, gyors cutoff a rossz csatornákra.</li>
+  <li>ICP-alapú csatornaválasztás növeli a válaszarányt.</li>
+</ul>
+<hr />
+<h2>Magyarázat</h2>
+<h3>Fő csatornák</h3>
+<ul>
+  <li><strong>Outbound</strong>: lista + üzenet + követés.</li>
+  <li><strong>Inbound</strong>: tartalom, lead magnet, SEO/SEM.</li>
+  <li><strong>Partner/event/community</strong>: közös webinár, meetup, szakmai csoport.</li>
+</ul>
+<h3>Channel brief</h3>
+<ul>
+  <li>ICP illeszkedés, erőforrás (idő/pénz), ütemezés.</li>
+  <li>Metrika: válasz, meeting, SQL konverzió.</li>
+  <li>Cutoff szabály: mikor állítod le.</li>
+</ul>
+<hr />
+<h2>Példák</h2>
+<p><strong>Rossz:</strong> 6 csatorna párhuzamosan, nincs metrika, nincs cutoff.</p>
+<p><strong>Jó:</strong> 3 csatorna, mindhez 2 hetes teszt, cél: 15 válasz/5 meeting/2 SQL.</p>
+<hr />
+<h2>Gyakorlat (vezetett, 10-15 perc)</h2>
+<ol>
+  <li>Írj channel briefet 3 csatornára (outbound, inbound, partner/event/community).</li>
+  <li>Állíts be célt: válasz, meeting, SQL csatornánként 2 hétre.</li>
+  <li>Határozd meg a cutoff szabályt (mikor állítasz le vagy módosítasz).</li>
+</ol>
+<h2>Gyakorlat (önálló, 5-10 perc)</h2>
+<p>Válassz egy csatornát, írj 3 konkrét teendőt a következő 48 órára.</p>
+<hr />
+<h2>Önellenőrzés</h2>
+<ul>
+  <li>Megvan a 3 csatorna.</li>
+  <li>Channel brief + cél + cutoff kész.</li>
+  <li>Van 3 azonnali teendőd egy csatornára.</li>
+</ul>
+<hr />
+<h2>Opcionális mélyítés</h2>
+<ul>
+  <li>Outbound best practices: <a href="https://www.apollo.io/blog/outbound-sales" target="_blank" rel="noreferrer">https://www.apollo.io/blog/outbound-sales</a></li>
+  <li>Community-led growth: <a href="https://www.gainsight.com/guides/community-led-growth" target="_blank" rel="noreferrer">https://www.gainsight.com/guides/community-led-growth</a></li>
+</ul>`,
+    emailSubject: 'B2B Értékesítés 2026 – 7. nap: Lead forrás térkép',
+    emailBody: `<h1>B2B Értékesítés 2026 – 7. nap</h1>
+<p>Válassz 3 fókuszcsatornát, készíts channel briefet, és állíts célokat.</p>
+<p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Olvasd el a leckét →</a></p>`,
+    quiz: {
+      questions: [
+        {
+          question: 'Miért kell limitálni a csatornák számát?',
+          options: [
+            'Kevesebb emailt kell írni',
+            'Fókusz és mérhető kísérlet nélkül szétesik a tanulás',
+            'Mert jogi okokból kötelező',
+            'Mert így nincs szükség ICP-re',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'Mi legyen egy channel briefben?',
+          options: [
+            'Csak egy szlogen',
+            'ICP illeszkedés, erőforrás, metrika, cutoff',
+            'Csak a költségkeret',
+            'Csak a pitch deck',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'Mi a jó 2 hetes kísérleti metrika példa?',
+          options: [
+            'Weboldal látogatók száma',
+            'Válasz, meeting, SQL konverzió csatornánként',
+            'Facebook lájkok száma',
+            'LinkedIn követők',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'Mikor állítasz le egy csatornát?',
+          options: [
+            'Soha',
+            'Ha a cutoff szabály szerint nem hoz elég meeting/SQL',
+            'Ha elfogy a pitch deck',
+            'Ha nincs új marketing kampány',
+          ],
+          correctIndex: 1,
+        },
+      ],
+    },
+  },
+  {
+    day: 8,
+    title: 'LinkedIn és Sales Navigator alap folyamat',
+    content: `<h1>LinkedIn és Sales Navigator alap folyamat</h1>
+<p><em>Megtanulod a keresés, mentés, listaépítés és mentés ritmusát, hogy ne ad hoc vadássz.</em></p>
+<hr />
+<h2>Napi cél</h2>
+<ul>
+  <li>Összeállítasz egy target company és target persona listát.</li>
+  <li>Készítesz egy mentett keresést (NAV) vagy sima LinkedIn keresést mentve.</li>
+  <li>Beállítod a heti ritmust (frissítés, review).</li>
+</ul>
+<hr />
+<h2>Miért fontos</h2>
+<ul>
+  <li>Ad hoc keresés = inkoherens lista, gyenge válaszarány.</li>
+  <li>Mentett keresés + lista → ismételhető, skálázható sourcing.</li>
+  <li>ICP-hez illesztett szűrés csökkenti a rossz leadeket.</li>
+</ul>
+<hr />
+<h2>Magyarázat</h2>
+<h3>Keresési logika</h3>
+<ul>
+  <li>Ipar/size + kulcsszó (fájdalom/környezet) + geó.</li>
+  <li>Persona: szerep, szenioritás, funkció.</li>
+</ul>
+<h3>Mentés és ritmus</h3>
+<ul>
+  <li>Mentett keresés heti review.</li>
+  <li>Új kontaktok: napi/ heti limit (pl. 15-20).</li>
+</ul>
+<hr />
+<h2>Példák</h2>
+<p><strong>Jó:</strong> ICP alapján szűrt company lista + persona lista, heti frissítéssel.</p>
+<p><strong>Rossz:</strong> Kulcsszó nélküli böngészés, 200 kontakt mentése terv nélkül.</p>
+<hr />
+<h2>Gyakorlat (vezetett, 10-15 perc)</h2>
+<ol>
+  <li>Állíts be 1-2 mentett keresést (company + persona) az ICP alapján.</li>
+  <li>Exportáld/mentsd 20 céget és 20 kontaktot (NAV vagy manuálisan).</li>
+  <li>Írj heti ritmust: hány új kontakt, mikor frissítesz listát.</li>
+</ol>
+<h2>Gyakorlat (önálló, 5-10 perc)</h2>
+<p>Válassz 5 céget a listából, írd mellé, miért ICP-fit (fájdalom/trigger).</p>
+<hr />
+<h2>Önellenőrzés</h2>
+<ul>
+  <li>Van mentett keresésed.</li>
+  <li>Megvan a 20 company + 20 persona lista v1.</li>
+  <li>Megvan a heti ritmus.</li>
+  <li>5 cégnél beírtad, miért fit.</li>
+</ul>
+<hr />
+<h2>Opcionális mélyítés</h2>
+<ul>
+  <li>Sales Navigator tippek: <a href="https://www.linkedin.com/help/sales-navigator" target="_blank" rel="noreferrer">https://www.linkedin.com/help/sales-navigator</a></li>
+  <li>ICP-alapú keresési operátorok: <a href="https://www.linkedin.com/help/linkedin/answer/a507663" target="_blank" rel="noreferrer">https://www.linkedin.com/help/linkedin/answer/a507663</a></li>
+</ul>`,
+    emailSubject: 'B2B Értékesítés 2026 – 8. nap: LinkedIn/NAV folyamat',
+    emailBody: `<h1>B2B Értékesítés 2026 – 8. nap</h1>
+<p>Mentett keresésekkel építesz target company/persona listát és heti ritmust.</p>
+<p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Olvasd el a leckét →</a></p>`,
+    quiz: {
+      questions: [
+        {
+          question: 'Mi a mentett keresés fő előnye?',
+          options: [
+            'Dekoráció',
+            'Ismételhető, ICP-alapú lista frissítéssel',
+            'Kevesebb üzenet',
+            'Nincs szükség ICP-re',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'Mi legyen a heti ritmus része?',
+          options: [
+            'Random mennyiségű új kontakt',
+            'Új kontakt limit + frissítés időpontja',
+            'Csak pitch deck frissítés',
+            'Csak marketing kampány',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'Miért rossz a kulcsszó nélküli böngészés?',
+          options: [
+            'Mert lassú',
+            'Mert ICP-fit nélküli lista lesz, gyenge válaszaránnyal',
+            'Mert drága',
+            'Mert nem lehet exportálni',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'Miért jelölsz ICP-fit okot 5 cégnél?',
+          options: [
+            'Dekoráció',
+            'Hogy validáld a lista minőségét és megtaláld a fájdalom/trigger jelet',
+            'Hogy több emailt küldj',
+            'Hogy elkerüld a ritmust',
+          ],
+          correctIndex: 1,
+        },
+      ],
+    },
+  },
+  {
+    day: 9,
+    title: 'Enrichment és adatellenőrzés',
+    content: `<h1>Enrichment és adatellenőrzés</h1>
+<p><em>Minimum adatkészletet határozol meg, és kiszűröd a zajt, hogy pontosabb legyen a személyre szabás.</em></p>
+<hr />
+<h2>Napi cél</h2>
+<ul>
+  <li>Összeállítasz egy minimális adatmező listát (leadhez és accounthoz).</li>
+  <li>Készítesz egy enrichment/QA checklistet.</li>
+  <li>Auditálsz 15 leadet, és javítod a hibákat.</li>
+</ul>
+<hr />
+<h2>Miért fontos</h2>
+<ul>
+  <li>Zajos adat = rossz personalization, rossz konverzió.</li>
+  <li>Enrichment nélkül nincs kontextus a kockázathoz/triggerhez.</li>
+  <li>QA nélkül a lista gyorsan használhatatlanná válik.</li>
+</ul>
+<hr />
+<h2>Magyarázat</h2>
+<h3>Minimum mezők</h3>
+<ul>
+  <li>Account: iparág/probléma trigger, méret, ország, technológia.</li>
+  <li>Lead: szerep, szenioritás, email/LinkedIn, releváns jel (poszt/projekt).</li>
+</ul>
+<h3>QA checklist</h3>
+<ul>
+  <li>Duplikáció, hiányzó kulcsmező, hibás domain.</li>
+  <li>Releváns jel van-e (trigger).</li>
+</ul>
+<hr />
+<h2>Példák</h2>
+<p><strong>Jó:</strong> Account + lead mezők kitöltve, releváns trigger, nincs duplikátum.</p>
+<p><strong>Rossz:</strong> Csak email cím, nincs szerep, nincs trigger, duplikált kontakt.</p>
+<hr />
+<h2>Gyakorlat (vezetett, 10-15 perc)</h2>
+<ol>
+  <li>Írj minimum mező listát (account + lead).</li>
+  <li>Készíts QA checklistet (duplikáció, domain, trigger).</li>
+  <li>Végezzen 15 ledes auditot, javítsd a hibákat.</li>
+</ol>
+<h2>Gyakorlat (önálló, 5-10 perc)</h2>
+<p>Írj 3 szabályt: mit nem küldesz ki (pl. nincs szerep, nincs trigger, bouncy domain).</p>
+<hr />
+<h2>Önellenőrzés</h2>
+<ul>
+  <li>Megvan a minimum mező lista.</li>
+  <li>Megvan a QA checklist.</li>
+  <li>15 lead auditálva és javítva.</li>
+  <li>3 kizárási szabály leírva.</li>
+</ul>
+<hr />
+<h2>Opcionális mélyítés</h2>
+<ul>
+  <li>Data quality guide: <a href="https://www.hubspot.com/data-quality" target="_blank" rel="noreferrer">https://www.hubspot.com/data-quality</a></li>
+  <li>Enrichment eszköz példa: <a href="https://clearbit.com" target="_blank" rel="noreferrer">https://clearbit.com</a></li>
+</ul>`,
+    emailSubject: 'B2B Értékesítés 2026 – 9. nap: Enrichment',
+    emailBody: `<h1>B2B Értékesítés 2026 – 9. nap</h1>
+<p>Minimum adatmezőket határozol meg, QA checklistet készítesz, 15 leadet auditálsz.</p>
+<p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Olvasd el a leckét →</a></p>`,
+    quiz: {
+      questions: [
+        {
+          question: 'Miért kritikus a minimum adatmező lista?',
+          options: [
+            'Dekoráció',
+            'Personalization és relevancia alapja; nélküle zajos az outreach',
+            'Jogilag kötelező',
+            'Kevesebb email kell',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'Mi tartozik a QA checklistbe?',
+          options: [
+            'Csak a pitch deck',
+            'Duplikáció, hibás domain, hiányzó szerep/trigger',
+            'Csak a weboldal látogatók',
+            'Csak a marketing kampányok',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'Melyik a rossz példa?',
+          options: [
+            'Account + lead mezők kitöltve, releváns trigger',
+            'Csak email, nincs szerep, nincs trigger, duplikált kontakt',
+            'Van trigger jel',
+            'Van szenioritás mező',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'Mi legyen egy kizárási szabály?',
+          options: [
+            'Ha nincs szerep vagy trigger, nem küldök ki üzenetet',
+            'Ha túl sok adat van',
+            'Ha van LinkedIn profil',
+            'Ha van ICP illeszkedés',
+          ],
+          correctIndex: 0,
+        },
+      ],
+    },
+  },
+  {
+    day: 10,
+    title: 'AI-alapú kutatás: cég, szerep, trigger',
+    content: `<h1>AI-alapú kutatás: cég, szerep, trigger</h1>
+<p><em>Felépítesz egy kutatási prompt csomagot és egy rövid „account brief” sablont, hogy minden outreach előtt legyen 3 tény + 1 releváns trigger.</em></p>
+<hr />
+<h2>Napi cél</h2>
+<ul>
+  <li>Létrehozol egy AI prompt csomagot (cég, persona, trigger).</li>
+  <li>Készítesz egy 1 oldalas account brief sablont.</li>
+  <li>Kitöltesz 2 account briefet a target listádról.</li>
+< /ul>
+<hr />
+<h2>Miért fontos</h2>
+<ul>
+  <li>AI gyorsítja a háttérkutatást, de struktúra kell a pontossághoz.</li>
+  <li>3 tény + 1 trigger = releváns, rövid outreach.</li>
+  <li>Brief nélkül a csapat duplikál és hibázik.</li>
+</ul>
+<hr />
+<h2>Magyarázat</h2>
+<h3>Prompt csomag elemei</h3>
+<ul>
+  <li>Cégprofil: termék, piac, növekedés, hírek.</li>
+  <li>Persona: szerep, felelősség, KPI, tipikus fájdalom.</li>
+  <li>Trigger: új termék, funding, hiring, árazás/váltás.</li>
+</ul>
+<h3>Account brief</h3>
+<ul>
+  <li>1 oldal: cég röviden, 3 tény, 1 trigger, releváns fájdalom, ajánlott next step.</li>
+</ul>
+<hr />
+<h2>Példák</h2>
+<p><strong>Jó:</strong> Brief: 3 tény (termék, funding, új piac), 1 trigger (hiring revops), ajánlott következő lépés.</p>
+<p><strong>Rossz:</strong> Csak weboldal bemásolva, nincs trigger, nincs next step.</p>
+<hr />
+<h2>Gyakorlat (vezetett, 10-15 perc)</h2>
+<ol>
+  <li>Írj 3 promptot (cég, persona, trigger) és teszteld 1 targeten.</li>
+  <li>Készíts account brief sablont (1 oldal, 3 tény + 1 trigger + fájdalom + next step).</li>
+  <li>Tölts ki 2 briefet a listádból.</li>
+</ol>
+<h2>Gyakorlat (önálló, 5-10 perc)</h2>
+<p>Írj 1 ajánlott outreach nyitást a 2 brief alapján (1-2 mondat, tény + trigger).</p>
+<hr />
+<h2>Önellenőrzés</h2>
+<ul>
+  <li>Megvan a 3 kutatási prompt.</li>
+  <li>Megvan az account brief sablon.</li>
+  <li>2 brief kitöltve.</li>
+  <li>1 outreach nyitás megírva.</li>
+</ul>
+<hr />
+<h2>Opcionális mélyítés</h2>
+<ul>
+  <li>OpenAI prompt guide: <a href="https://platform.openai.com/docs/guides/prompt-engineering" target="_blank" rel="noreferrer">https://platform.openai.com/docs/guides/prompt-engineering</a></li>
+  <li>Company research checklist: <a href="https://www.alexbirkett.com/account-research" target="_blank" rel="noreferrer">https://www.alexbirkett.com/account-research</a></li>
+</ul>`,
+    emailSubject: 'B2B Értékesítés 2026 – 10. nap: AI kutatás',
+    emailBody: `<h1>B2B Értékesítés 2026 – 10. nap</h1>
+<p>AI prompt csomagot és account brief sablont készítesz, 2 accounton kipróbálod.</p>
+<p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Olvasd el a leckét →</a></p>`,
+    quiz: {
+      questions: [
+        {
+          question: 'Mi a 3 tény + 1 trigger célja?',
+          options: [
+            'Dekoráció',
+            'Releváns, rövid outreach alapja',
+            'Hosszabb email',
+            'Jogilag kötelező',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'Mi tartozik az account briefbe?',
+          options: [
+            'Csak a weboldal linkje',
+            'Cég röviden, 3 tény, 1 trigger, fájdalom, next step',
+            'Csak a pitch deck',
+            'Csak az árlista',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'Miért kell külön persona prompt?',
+          options: [
+            'Mert hosszabb lesz a válasz',
+            'Mert szerep/KPI/fájdalom specifikus relevanciát ad',
+            'Mert jogilag kell',
+            'Mert így nem kell ICP',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'Mi a rossz megközelítés?',
+          options: [
+            'Brief 3 tény + triggerrel',
+            'Weboldal bemásolva trigger és next step nélkül',
+            'Ajánlott next step megírása',
+            'Persona szerepének felírása',
+          ],
+          correctIndex: 1,
+        },
+      ],
+    },
+  },
+  {
+    day: 11,
+    title: 'Outbound üzenet: személyre szabás nélkül nincs válasz',
+    content: `<h1>Outbound üzenet: személyre szabás nélkül nincs válasz</h1>
+<p><em>Megtanulod a 3 részes struktúrát: relevancia, probléma, next step. Készítesz 2 sablont és 2 jó/2 rossz példát.</em></p>
+<hr />
+<h2>Napi cél</h2>
+<ul>
+  <li>Megírsz 2 outbound sablont (jó/rossz példa is).</li>
+  <li>Minden üzenetben van relevancia jel + probléma + következő lépés.</li>
+  <li>Összekötöd a briefből származó tényt/trigger jelzést az üzenettel.</li>
+</ul>
+<hr />
+<h2>Miért fontos</h2>
+<ul>
+  <li>A személyre szabás nélküli üzenet alacsony választ kap.</li>
+  <li>Rövid, konkrét next step gyorsítja a döntést.</li>
+  <li>A relevancia jel bizonyíték a figyelemre.</li>
+</ul>
+<hr />
+<h2>Magyarázat</h2>
+<h3>3 elem</h3>
+<ul>
+  <li><strong>Relevancia jel</strong>: 1 tény/trigger a briefből.</li>
+  <li><strong>Probléma</strong>: ICP fájdalom röviden.</li>
+  <li><strong>Next step</strong>: 1 konkrét lépés (15 perc, audit, checklist).</li>
+</ul>
+<hr />
+<h2>Példák</h2>
+<p><strong>Rossz:</strong> „Segítünk növekedni AI-val, beszéljünk.”</p>
+<p><strong>Jó:</strong> „Láttam, hogy hiringolsz revopsot és 90+ nap a cycle. 2 helyen szokott kifolyni: qualification és bizonytalan next step. 15 perc alatt megmutatom a stage definícióknál, hol folyik el. Jó jövő hét kedd 10:00?”</p>
+<hr />
+<h2>Gyakorlat (vezetett, 10-15 perc)</h2>
+<ol>
+  <li>Írj 2 sablont (A/B) a 3 elemre.</li>
+  <li>Írj 2 jó és 2 rossz példát a saját piacodra.</li>
+  <li>Kösd össze a briefből vett tény/trigger jelzéssel.</li>
+</ol>
+<h2>Gyakorlat (önálló, 5-10 perc)</h2>
+<p>Küldj ki 3 üzenetet a listádról, jegyezd a válaszokat.</p>
+<hr />
+<h2>Önellenőrzés</h2>
+<ul>
+  <li>Van 2 sablonod (A/B).</li>
+  <li>Van 2 jó/2 rossz példa.</li>
+  <li>Minden üzenetben van relevancia jel + probléma + next step.</li>
+  <li>3 üzenetet kiküldtél és jegyzeteltél.</li>
+</ul>
+<hr />
+<h2>Opcionális mélyítés</h2>
+<ul>
+  <li>Cold email best practices: <a href="https://beccahanderson.substack.com/p/cold-email-guide" target="_blank" rel="noreferrer">https://beccahanderson.substack.com/p/cold-email-guide</a></li>
+  <li>Personalization példák: <a href="https://www.gong.io/blog/personalized-outreach" target="_blank" rel="noreferrer">https://www.gong.io/blog/personalized-outreach</a></li>
+</ul>`,
+    emailSubject: 'B2B Értékesítés 2026 – 11. nap: Outbound üzenet',
+    emailBody: `<h1>B2B Értékesítés 2026 – 11. nap</h1>
+<p>2 outbound sablont írsz, 2 jó és 2 rossz példával, relevancia jel + probléma + next step szerkezetben.</p>
+<p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Olvasd el a leckét →</a></p>`,
+    quiz: {
+      questions: [
+        {
+          question: 'Mi a jó outbound üzenet 3 eleme?',
+          options: [
+            'Hosszú bemutatkozás, ár, link',
+            'Relevancia jel, probléma, konkrét next step',
+            'Marketing szlogen, CTA, logó',
+            'Feature lista, CTA, ár',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'Mi a relevancia jel szerepe?',
+          options: [
+            'Dekoráció',
+            'Bizonyítja, hogy figyeltél (tény/trigger)',
+            'Növeli a szócountot',
+            'Kiváltja az ICP-t',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'Mi a rossz példa?',
+          options: [
+            'Relevancia jel + probléma + konkrét 15 perces lépés',
+            '„Segítünk növekedni AI-val, beszéljünk.”',
+            'Trigger említése',
+            'Stage definíciók említése',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'Miért kell next step?',
+          options: [
+            'Hogy hosszabb legyen az email',
+            'Hogy a döntés gyorsuljon és konkrét legyen az elköteleződés',
+            'Hogy több marketing anyagot küldj',
+            'Hogy ne kelljen ICP',
+          ],
+          correctIndex: 1,
+        },
+      ],
+    },
+  },
+  {
+    day: 12,
+    title: 'Lista tisztítás és lead hygiene',
+    content: `<h1>Lista tisztítás és lead hygiene</h1>
+<p><em>Beállítod a duplikáció, státusz és forrás kezelését, hogy a pipeline a valóságot tükrözze.</em></p>
+<hr />
+<h2>Napi cél</h2>
+<ul>
+  <li>Lead státuszok és források egységesítése.</li>
+  <li>Duplikáció és „do not contact” szabályok beállítása.</li>
+  <li>Lista QA: 50 lead átnézése, javítása.</li>
+</ul>
+<hr />
+<h2>Miért fontos</h2>
+<ul>
+  <li>Koszos lista = rossz mérés és rossz élmény.</li>
+  <li>Státusz egységesítése gyorsítja a reportot és az automatizmust.</li>
+  <li>DNC és duplikáció nélkül slip + spam kockázat.</li>
+</ul>
+<hr />
+<h2>Magyarázat</h2>
+<h3>Státuszok (példa)</h3>
+<ul>
+  <li>New, Working, Nurture, Qualified, Disqualified, DNC.</li>
+</ul>
+<h3>Szabályok</h3>
+<ul>
+  <li>Dedupe: email/domain + név.</li>
+  <li>DNC: bounce/spam/jogi kérés.</li>
+  <li>Forrás kód: outbound, inbound, partner, event, referral.</li>
+</ul>
+<hr />
+<h2>Példák</h2>
+<p><strong>Jó:</strong> Státusz egységes, duplikátum jelölve, DNC lista vezetve.</p>
+<p><strong>Rossz:</strong> Duplikált leadek, vegyes státusznevek, nincs DNC.</p>
+<hr />
+<h2>Gyakorlat (vezetett, 10-15 perc)</h2>
+<ol>
+  <li>Definiáld a lead státuszokat és forrás kódokat.</li>
+  <li>Írj dedupe és DNC szabályt.</li>
+  <li>Nézd át 50 leadet, javítsd duplikációt/státuszt.</li>
+</ol>
+<h2>Gyakorlat (önálló, 5-10 perc)</h2>
+<p>Állíts be egy automatizmust vagy checklistet a jövőbeni QA-hoz (heti/2 heti).</p>
+<hr />
+<h2>Önellenőrzés</h2>
+<ul>
+  <li>Megvan a státusz + forrás definíció.</li>
+  <li>Megvan a dedupe + DNC szabály.</li>
+  <li>50 lead QA-zva.</li>
+  <li>QA ritmus beállítva.</li>
+</ul>
+<hr />
+<h2>Opcionális mélyítés</h2>
+<ul>
+  <li>CRM hygiene guide: <a href="https://www.hubspot.com/crm-data-cleanup" target="_blank" rel="noreferrer">https://www.hubspot.com/crm-data-cleanup</a></li>
+  <li>Duplicate management tippek: <a href="https://www.pipedrive.com/en/blog/crm-data-cleaning" target="_blank" rel="noreferrer">https://www.pipedrive.com/en/blog/crm-data-cleaning</a></li>
+</ul>`,
+    emailSubject: 'B2B Értékesítés 2026 – 12. nap: Lead hygiene',
+    emailBody: `<h1>B2B Értékesítés 2026 – 12. nap</h1>
+<p>Egységesíted a státuszokat/forrásokat, dedupe + DNC szabályt állítasz be, 50 leadet QA-zel.</p>
+<p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Olvasd el a leckét →</a></p>`,
+    quiz: {
+      questions: [
+        {
+          question: 'Mi a lead hygiene egyik fő célja?',
+          options: [
+            'Több marketing email',
+            'Valós pipeline és pontos mérés',
+            'Kevesebb státusz',
+            'Nagyobb spam arány',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'Mi legyen a dedupe szabály alapja?',
+          options: [
+            'Random',
+            'Email/domain + név kombináció',
+            'Csak keresztnév',
+            'Csak iparág',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'Miért kell DNC lista?',
+          options: [
+            'Dekoráció',
+            'Bounce/spam/jogi kérés kezelése, kockázatcsökkentés',
+            'Kevesebb kampány',
+            'Drágább szoftver',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'Mi a rossz példa?',
+          options: [
+            'Státusz egységes, duplikátum jelölve',
+            'Duplikált leadek, vegyes státusznevek, nincs DNC',
+            'DNC lista vezetve',
+            'QA ritmus beállítva',
+          ],
+          correctIndex: 1,
+        },
+      ],
+    },
+  },
 ];
 
 async function main() {

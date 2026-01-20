@@ -387,6 +387,969 @@ const lessons: LessonEntry[] = [
       ],
     },
   },
+  {
+    day: 4,
+    title: 'Buyer Persona and the Decision Unit',
+    content: `<h1>Buyer Persona and the Decision Unit</h1>
+<p><em>Map who uses, who pays, who blocks, and who decides—so you don’t sell to a single person.</em></p>
+<hr />
+<h2>Learning Goal</h2>
+<ul>
+  <li>Identify the roles in the decision unit (user, champion, finance, procurement, legal/IT).</li>
+  <li>Create one decision-unit map for an ICP.</li>
+  <li>List 5 risks (who can block and how).</li>
+</ul>
+<hr />
+<h2>Why It Matters</h2>
+<ul>
+  <li>Decisions are multi-threaded—if you rely on one champion, you stall.</li>
+  <li>Early blocker mapping speeds negotiation.</li>
+  <li>Persona clarity drives relevant messaging and next steps.</li>
+</ul>
+<hr />
+<h2>Explanation</h2>
+<h3>Roles</h3>
+<ul>
+  <li><strong>User</strong>: daily user, pain owner.</li>
+  <li><strong>Champion</strong>: business sponsor.</li>
+  <li><strong>Finance/Procurement</strong>: cost, contract, ROI.</li>
+  <li><strong>Legal/IT/Security</strong>: compliance, data, access.</li>
+</ul>
+<h3>Blockers & signals</h3>
+<ul>
+  <li>No pain owner → “curiosity” project.</li>
+  <li>Security/IT not involved → late-stage stop.</li>
+  <li>Legal can’t see DPA/SLA → slip.</li>
+</ul>
+<hr />
+<h2>Examples</h2>
+<p><strong>Bad:</strong> Only talking to the user; don’t know who signs; security ignored.</p>
+<p><strong>Good:</strong> Champion + user + IT/security + finance listed, each with a risk note.</p>
+<hr />
+<h2>Guided Exercise (10–15 minutes)</h2>
+<ol>
+  <li>Pick an ICP and draw the decision unit (role + name if known).</li>
+  <li>For each role, note 1–2 risks/info needs.</li>
+  <li>Write 3 discovery questions to reveal who decides and who can block.</li>
+</ol>
+<h2>Independent Exercise (5–10 minutes)</h2>
+<p>On a live deal, fill the missing roles: who’s absent, how will you engage them?</p>
+<hr />
+<h2>Self-check</h2>
+<ul>
+  <li>Decision-unit map done.</li>
+  <li>Risks per role listed.</li>
+  <li>3 discovery questions ready.</li>
+  <li>Applied to a live deal.</li>
+</ul>
+<hr />
+<h2>Optional Deep Dive</h2>
+<ul>
+  <li>Gartner Buying Committee: <a href="https://www.gartner.com/en/insights/sales" target="_blank" rel="noreferrer">https://www.gartner.com/en/insights/sales</a></li>
+  <li>Challenger Customer summary: <a href="https://www.challengerinc.com/resources/" target="_blank" rel="noreferrer">https://www.challengerinc.com/resources/</a></li>
+</ul>`,
+    emailSubject: 'B2B Sales 2026 – Day 4: Decision Unit',
+    emailBody: `<h1>B2B Sales 2026 – Day 4</h1>
+<p>Map the decision unit: who uses, who decides, who blocks. Capture risks and discovery questions.</p>
+<p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Read the lesson →</a></p>`,
+    quiz: {
+      questions: [
+        {
+          question: 'Why is relying only on a champion risky?',
+          options: [
+            'Takes too long',
+            'Decisions are multi-threaded; blockers surface late',
+            'Champions always say no',
+            'It removes the need for a CRM',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'Which role is cost/ROI focused?',
+          options: ['User', 'Finance/Procurement', 'Legal', 'IT/Security'],
+          correctIndex: 1,
+        },
+        {
+          question: 'Benefit of early blocker mapping?',
+          options: [
+            'Fewer meetings',
+            'Faster negotiation and less slip risk',
+            'Higher price automatically',
+            'No documentation',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'What is missing in a “bad” approach?',
+          options: [
+            'Pitch deck',
+            'Decision-unit map and roles',
+            'Email template',
+            'Marketing list',
+          ],
+          correctIndex: 1,
+        },
+      ],
+    },
+  },
+  {
+    day: 5,
+    title: 'Value Proposition: Measurable, Verifiable Claims',
+    content: `<h1>Value Proposition: Measurable, Verifiable Claims</h1>
+<p><em>Replace vague promises with a 3-sentence value and 5 proof points your buyer can verify.</em></p>
+<hr />
+<h2>Learning Goal</h2>
+<ul>
+  <li>Write a 3-sentence value statement.</li>
+  <li>List 5 proof points (measurable/verifiable).</li>
+  <li>Tie each to ICP pain.</li>
+</ul>
+<hr />
+<h2>Why It Matters</h2>
+<ul>
+  <li>Buyers decide on relevance and evidence.</li>
+  <li>Measurable claims reduce risk and speed discovery.</li>
+  <li>Without proof, value is just marketing copy.</li>
+</ul>
+<hr />
+<h2>Explanation</h2>
+<h3>3-sentence value</h3>
+<ol>
+  <li>Who (ICP + role).</li>
+  <li>Which pain/problem.</li>
+  <li>What outcome/what’s at risk if they don’t act.</li>
+</ol>
+<h3>Proof points</h3>
+<ul>
+  <li>Numbers: % improvement, time saved, revenue impact.</li>
+  <li>Examples: case study, benchmark.</li>
+  <li>Source: link/doc the buyer can verify.</li>
+</ul>
+<hr />
+<h2>Examples</h2>
+<p><strong>Bad:</strong> “We help you grow with AI.” — no ICP, no problem, no proof.</p>
+<p><strong>Good:</strong> “For 15–80 person B2B SaaS teams with 15–30% churn and >90-day cycles, we target +25% qualified pipeline in 12 weeks; benchmark shows 2–3x faster qualification. Proof: case study, scorecard, reference.”</p>
+<hr />
+<h2>Guided Exercise (10–15 minutes)</h2>
+<ol>
+  <li>Write your 3-sentence value (who, pain, outcome/risk).</li>
+  <li>Write 5 proof points (number/benchmark/link).</li>
+  <li>Map each proof to an ICP pain.</li>
+</ol>
+<h2>Independent Exercise (5–10 minutes)</h2>
+<p>Revise your last 3 outbound messages: add the value + 1 proof point.</p>
+<hr />
+<h2>Self-check</h2>
+<ul>
+  <li>3-sentence value done.</li>
+  <li>5 proof points done.</li>
+  <li>Each proof tied to an ICP pain.</li>
+  <li>Used in at least one outbound message.</li>
+</ul>
+<hr />
+<h2>Optional Deep Dive</h2>
+<ul>
+  <li>Value proposition design: <a href="https://www.strategyzer.com/books/value-proposition-design" target="_blank" rel="noreferrer">https://www.strategyzer.com/books/value-proposition-design</a></li>
+  <li>Social proof for sales: <a href="https://www.apollo.io/blog/social-proof-for-sales" target="_blank" rel="noreferrer">https://www.apollo.io/blog/social-proof-for-sales</a></li>
+</ul>`,
+    emailSubject: 'B2B Sales 2026 – Day 5: Value + proof',
+    emailBody: `<h1>B2B Sales 2026 – Day 5</h1>
+<p>Write a 3-sentence value and 5 proof points, each tied to ICP pain.</p>
+<p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Read the lesson →</a></p>`,
+    quiz: {
+      questions: [
+        {
+          question: 'Why is “We help you grow with AI” weak?',
+          options: [
+            'Too long',
+            'No ICP, no problem, no proof',
+            'Too expensive',
+            'Does not mention CRM',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'What is a required element of the 3-sentence value?',
+          options: [
+            'A slogan',
+            'ICP + pain + outcome/risk',
+            'A feature list',
+            'A discount',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'What makes a proof point credible?',
+          options: [
+            'Length',
+            'Buyer can verify it (number/source/benchmark)',
+            'Marketing tone',
+            'Avoiding ICP',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'What should you do with proof points?',
+          options: [
+            'Keep them separate from ICP',
+            'Tie them to ICP pains',
+            'Only put them on the website',
+            'Use them only in the sales deck',
+          ],
+          correctIndex: 1,
+        },
+      ],
+    },
+  },
+  {
+    day: 6,
+    title: 'Ideal Sales Process and Weekly Metrics',
+    content: `<h1>Ideal Sales Process and Weekly Metrics</h1>
+<p><em>Define lead/SQL/qualified discovery, set a weekly measurement sheet, and pick the bottleneck.</em></p>
+<hr />
+<h2>Learning Goal</h2>
+<ul>
+  <li>Define: lead, SQL, qualified discovery.</li>
+  <li>Build a weekly sheet (stage conversion, cycle time, win rate, pipeline coverage).</li>
+  <li>Select 3 metrics to improve.</li>
+</ul>
+<hr />
+<h2>Why It Matters</h2>
+<ul>
+  <li>Without measurement, the pipeline stays opinion-based.</li>
+  <li>Weekly rhythm gives fast feedback on focus and quality.</li>
+  <li>You surface the bottleneck (stage or quality).</li>
+</ul>
+<hr />
+<h2>Explanation</h2>
+<h3>Definitions</h3>
+<ul>
+  <li><strong>Lead</strong>: minimum data + relevant context.</li>
+  <li><strong>SQL</strong>: ICP + pain + reachable decision maker + trigger.</li>
+  <li><strong>Qualified discovery</strong>: pain, impact, decision process, next step captured.</li>
+</ul>
+<h3>Measurement</h3>
+<ul>
+  <li>Stage conversion: Lead→SQL, SQL→Discovery, Discovery→Proposal, Proposal→Close.</li>
+  <li>Stage cycle time.</li>
+  <li>Win rate, pipeline coverage (3–4x).</li>
+  <li>Lost reasons coded (top 5).</li>
+</ul>
+<hr />
+<h2>Examples</h2>
+<p><strong>Bad:</strong> Only counting calls; you can’t see where the pipeline breaks.</p>
+<p><strong>Good:</strong> Weekly dashboard: stage conversions, cycle times, win rate, lost reasons; one bottleneck selected.</p>
+<hr />
+<h2>Guided Exercise (10–15 minutes)</h2>
+<ol>
+  <li>Write the 3 definitions (lead, SQL, qualified discovery) in team language.</li>
+  <li>Create a weekly sheet: stage conversions, cycle times, win rate, pipeline coverage, top 5 lost reasons.</li>
+  <li>Pick the biggest bottleneck.</li>
+</ol>
+<h2>Independent Exercise (5–10 minutes)</h2>
+<p>Pick one metric and write an action to improve it (e.g., tighten SQL definition, expand discovery questions).</p>
+<hr />
+<h2>Self-check</h2>
+<ul>
+  <li>Lead/SQL/discovery definitions are written.</li>
+  <li>Weekly measurement sheet exists.</li>
+  <li>Bottleneck identified.</li>
+  <li>An action to improve is written.</li>
+</ul>
+<hr />
+<h2>Optional Deep Dive</h2>
+<ul>
+  <li>Stage-based reporting (HubSpot): <a href="https://knowledge.hubspot.com/reporting/create-reports" target="_blank" rel="noreferrer">https://knowledge.hubspot.com/reporting/create-reports</a></li>
+  <li>Win rate and coverage: <a href="https://pipedrive.readme.io/docs/deals-reporting" target="_blank" rel="noreferrer">https://pipedrive.readme.io/docs/deals-reporting</a></li>
+</ul>`,
+    emailSubject: 'B2B Sales 2026 – Day 6: Metrics',
+    emailBody: `<h1>B2B Sales 2026 – Day 6</h1>
+<p>Define lead/SQL/discovery, build the weekly sheet, and pick your bottleneck.</p>
+<p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Read the lesson →</a></p>`,
+    quiz: {
+      questions: [
+        {
+          question: 'What is a required element of a qualified discovery?',
+          options: [
+            'A demo video',
+            'Pain, impact, and next step captured',
+            'A price list',
+            'A LinkedIn post',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'What does pipeline coverage 3–4x mean?',
+          options: [
+            '3–4x more meetings',
+            'Pipeline value is 3–4x the revenue target',
+            '3–4x more emails',
+            '3–4x more demos',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'Why code lost reasons?',
+          options: [
+            'Decoration',
+            'To see improvable trends (top 5)',
+            'Legal requirement',
+            'To send more emails',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'Key output today?',
+          options: [
+            'Marketing campaign',
+            'Weekly sheet + definitions + bottleneck',
+            'New landing page',
+            'New CRM',
+          ],
+          correctIndex: 1,
+        },
+      ],
+    },
+  },
+  {
+    day: 7,
+    title: 'Lead Source Map for 2026',
+    content: `<h1>Lead Source Map for 2026</h1>
+<p><em>Pick 3 focus channels (outbound, inbound, partner/event/community) and run measurable experiments.</em></p>
+<hr />
+<h2>Learning Goal</h2>
+<ul>
+  <li>Select 3 primary channels aligned to your ICP.</li>
+  <li>Create a channel brief: resourcing, metrics, 2-week test.</li>
+  <li>Set a minimal pipeline goal per channel.</li>
+</ul>
+<hr />
+<h2>Why It Matters</h2>
+<ul>
+  <li>Scattered channels = noise and wasted time.</li>
+  <li>Focus + experiment = fast learning and cutoff for weak channels.</li>
+  <li>ICP-fit channel choice improves response rate.</li>
+</ul>
+<hr />
+<h2>Explanation</h2>
+<h3>Main channels</h3>
+<ul>
+  <li><strong>Outbound</strong>: list + message + follow-up.</li>
+  <li><strong>Inbound</strong>: content, lead magnet, SEO/SEM.</li>
+  <li><strong>Partner/event/community</strong>: co-webinar, meetup, professional group.</li>
+</ul>
+<h3>Channel brief</h3>
+<ul>
+  <li>ICP fit, resource (time/budget), cadence.</li>
+  <li>Metrics: replies, meetings, SQL conversion.</li>
+  <li>Cutoff rule: when you stop/adjust.</li>
+</ul>
+<hr />
+<h2>Examples</h2>
+<p><strong>Bad:</strong> 6 channels at once, no metrics, no cutoff.</p>
+<p><strong>Good:</strong> 3 channels, each with a 2-week test, target: 15 replies / 5 meetings / 2 SQL.</p>
+<hr />
+<h2>Guided Exercise (10–15 minutes)</h2>
+<ol>
+  <li>Write channel briefs for 3 channels (outbound, inbound, partner/event/community).</li>
+  <li>Set 2-week goals: replies, meetings, SQL per channel.</li>
+  <li>Define the cutoff rule (when you stop or change).</li>
+</ol>
+<h2>Independent Exercise (5–10 minutes)</h2>
+<p>Pick one channel and write 3 concrete actions for the next 48 hours.</p>
+<hr />
+<h2>Self-check</h2>
+<ul>
+  <li>3 channels selected.</li>
+  <li>Channel brief + goal + cutoff ready.</li>
+  <li>3 immediate actions for one channel.</li>
+</ul>
+<hr />
+<h2>Optional Deep Dive</h2>
+<ul>
+  <li>Outbound best practices: <a href="https://www.apollo.io/blog/outbound-sales" target="_blank" rel="noreferrer">https://www.apollo.io/blog/outbound-sales</a></li>
+  <li>Community-led growth: <a href="https://www.gainsight.com/guides/community-led-growth" target="_blank" rel="noreferrer">https://www.gainsight.com/guides/community-led-growth</a></li>
+</ul>`,
+    emailSubject: 'B2B Sales 2026 – Day 7: Lead source map',
+    emailBody: `<h1>B2B Sales 2026 – Day 7</h1>
+<p>Select 3 focus channels, create briefs, set goals.</p>
+<p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Read the lesson →</a></p>`,
+    quiz: {
+      questions: [
+        {
+          question: 'Why limit the number of channels?',
+          options: [
+            'Fewer emails',
+            'Without focus/experiments, learning collapses into noise',
+            'Legal requirement',
+            'No need for ICP',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'What belongs in a channel brief?',
+          options: [
+            'Only a slogan',
+            'ICP fit, resources, metrics, cutoff',
+            'Only budget',
+            'Only a pitch deck',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'Good 2-week test metric set?',
+          options: [
+            'Website visits',
+            'Replies, meetings, SQL per channel',
+            'Facebook likes',
+            'LinkedIn followers',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'When do you stop a channel?',
+          options: [
+            'Never',
+            'When cutoff says it misses reply/meeting/SQL goals',
+            'When pitch deck runs out',
+            'When no new marketing campaign exists',
+          ],
+          correctIndex: 1,
+        },
+      ],
+    },
+  },
+  {
+    day: 8,
+    title: 'LinkedIn and Sales Navigator Core Flow',
+    content: `<h1>LinkedIn and Sales Navigator Core Flow</h1>
+<p><em>Build saved searches and target lists with a weekly cadence instead of ad-hoc hunting.</em></p>
+<hr />
+<h2>Learning Goal</h2>
+<ul>
+  <li>Assemble a target company and persona list.</li>
+  <li>Create one saved search (NAV or standard LinkedIn) and set a weekly review.</li>
+  <li>Define the weekly cadence (refresh, add contacts).</li>
+</ul>
+<hr />
+<h2>Why It Matters</h2>
+<ul>
+  <li>Ad-hoc browsing = incoherent lists, weak response.</li>
+  <li>Saved search + list = repeatable, scalable sourcing.</li>
+  <li>ICP-aligned filters cut bad leads.</li>
+</ul>
+<hr />
+<h2>Explanation</h2>
+<h3>Search logic</h3>
+<ul>
+  <li>Industry/size + keyword (pain/context) + geo.</li>
+  <li>Persona: role, seniority, function.</li>
+</ul>
+<h3>Saving and cadence</h3>
+<ul>
+  <li>Saved search reviewed weekly.</li>
+  <li>New contacts: daily/weekly limit (e.g., 15–20).</li>
+</ul>
+<hr />
+<h2>Examples</h2>
+<p><strong>Good:</strong> ICP-filtered company + persona list, refreshed weekly.</p>
+<p><strong>Bad:</strong> Keyword-free browsing, dumping 200 contacts with no plan.</p>
+<hr />
+<h2>Guided Exercise (10–15 minutes)</h2>
+<ol>
+  <li>Set 1–2 saved searches (company + persona) based on ICP.</li>
+  <li>Export/save 20 companies and 20 contacts (NAV or manual).</li>
+  <li>Write your weekly cadence: how many new contacts, when to refresh.</li>
+</ol>
+<h2>Independent Exercise (5–10 minutes)</h2>
+<p>Pick 5 companies from the list and note why they fit ICP (pain/trigger).</p>
+<hr />
+<h2>Self-check</h2>
+<ul>
+  <li>Saved search created.</li>
+  <li>20 company + 20 persona list v1 ready.</li>
+  <li>Weekly cadence defined.</li>
+  <li>5 ICP-fit notes captured.</li>
+</ul>
+<hr />
+<h2>Optional Deep Dive</h2>
+<ul>
+  <li>Sales Navigator tips: <a href="https://www.linkedin.com/help/sales-navigator" target="_blank" rel="noreferrer">https://www.linkedin.com/help/sales-navigator</a></li>
+  <li>Search operators: <a href="https://www.linkedin.com/help/linkedin/answer/a507663" target="_blank" rel="noreferrer">https://www.linkedin.com/help/linkedin/answer/a507663</a></li>
+</ul>`,
+    emailSubject: 'B2B Sales 2026 – Day 8: LinkedIn/NAV flow',
+    emailBody: `<h1>B2B Sales 2026 – Day 8</h1>
+<p>Use saved searches to build target company/persona lists and set a weekly cadence.</p>
+<p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Read the lesson →</a></p>`,
+    quiz: {
+      questions: [
+        {
+          question: 'Main benefit of a saved search?',
+          options: [
+            'Decoration',
+            'Repeatable ICP-based list with refresh',
+            'Fewer messages',
+            'No need for ICP',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'What should be in the weekly cadence?',
+          options: [
+            'Random contact count',
+            'New contact limit + refresh timing',
+            'Only pitch deck updates',
+            'Only marketing campaigns',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'Why is keyword-free browsing bad?',
+          options: [
+            'It is slow',
+            'It creates non-ICP lists with weak response',
+            'It is expensive',
+            'It cannot be exported',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'Why note ICP-fit for 5 companies?',
+          options: [
+            'Decoration',
+            'Validate list quality and find pain/trigger signals',
+            'Send more emails',
+            'Avoid cadence',
+          ],
+          correctIndex: 1,
+        },
+      ],
+    },
+  },
+  {
+    day: 9,
+    title: 'Enrichment and Data QA',
+    content: `<h1>Enrichment and Data QA</h1>
+<p><em>Define minimum data, cut noise, and improve personalization quality.</em></p>
+<hr />
+<h2>Learning Goal</h2>
+<ul>
+  <li>List minimum fields (lead + account).</li>
+  <li>Create an enrichment/QA checklist.</li>
+  <li>Audit 15 leads and fix errors.</li>
+</ul>
+<hr />
+<h2>Why It Matters</h2>
+<ul>
+  <li>Noisy data = poor personalization and conversion.</li>
+  <li>Enrichment gives context (risk/trigger).</li>
+  <li>QA keeps lists usable.</li>
+</ul>
+<hr />
+<h2>Explanation</h2>
+<h3>Minimum fields</h3>
+<ul>
+  <li>Account: industry/problem trigger, size, country, tech.</li>
+  <li>Lead: role, seniority, email/LinkedIn, relevant signal (post/project).</li>
+</ul>
+<h3>QA checklist</h3>
+<ul>
+  <li>Duplicates, missing key fields, bad domain.</li>
+  <li>Relevant signal present (trigger)?</li>
+</ul>
+<hr />
+<h2>Examples</h2>
+<p><strong>Good:</strong> Account + lead fields filled, trigger noted, no duplicates.</p>
+<p><strong>Bad:</strong> Only email, no role, no trigger, duplicate contact.</p>
+<hr />
+<h2>Guided Exercise (10–15 minutes)</h2>
+<ol>
+  <li>Write the minimum field list (account + lead).</li>
+  <li>Create the QA checklist (dupes, domain, trigger).</li>
+  <li>Audit 15 leads and fix errors.</li>
+</ol>
+<h2>Independent Exercise (5–10 minutes)</h2>
+<p>Write 3 rules for what you will not send (e.g., no role, no trigger, bouncy domain).</p>
+<hr />
+<h2>Self-check</h2>
+<ul>
+  <li>Minimum fields defined.</li>
+  <li>QA checklist ready.</li>
+  <li>15 leads audited and fixed.</li>
+  <li>3 exclusion rules written.</li>
+</ul>
+<hr />
+<h2>Optional Deep Dive</h2>
+<ul>
+  <li>Data quality: <a href="https://www.hubspot.com/data-quality" target="_blank" rel="noreferrer">https://www.hubspot.com/data-quality</a></li>
+  <li>Enrichment example: <a href="https://clearbit.com" target="_blank" rel="noreferrer">https://clearbit.com</a></li>
+</ul>`,
+    emailSubject: 'B2B Sales 2026 – Day 9: Enrichment',
+    emailBody: `<h1>B2B Sales 2026 – Day 9</h1>
+<p>Define minimum data, create QA checklist, audit 15 leads.</p>
+<p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Read the lesson →</a></p>`,
+    quiz: {
+      questions: [
+        {
+          question: 'Why is a minimum field list critical?',
+          options: [
+            'Decoration',
+            'It underpins personalization and relevance; without it outreach is noisy',
+            'Legal requirement',
+            'Fewer emails needed',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'What belongs in the QA checklist?',
+          options: [
+            'Only the pitch deck',
+            'Duplicates, bad domain, missing role/trigger',
+            'Only web traffic',
+            'Only marketing campaigns',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'Which is the bad example?',
+          options: [
+            'Account + lead fields filled, trigger noted',
+            'Only email, no role, no trigger, duplicate contact',
+            'Trigger noted',
+            'Seniority field captured',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'Example exclusion rule?',
+          options: [
+            'If no role or trigger, do not send',
+            'If too much data',
+            'If a LinkedIn profile exists',
+            'If ICP fit exists',
+          ],
+          correctIndex: 0,
+        },
+      ],
+    },
+  },
+  {
+    day: 10,
+    title: 'AI-Powered Research: Company, Persona, Trigger',
+    content: `<h1>AI-Powered Research: Company, Persona, Trigger</h1>
+<p><em>Build a research prompt pack and a one-page account brief so every outreach has 3 facts + 1 trigger.</em></p>
+<hr />
+<h2>Learning Goal</h2>
+<ul>
+  <li>Create AI prompts (company, persona, trigger).</li>
+  <li>Create a one-page account brief template.</li>
+  <li>Fill 2 account briefs from your target list.</li>
+</ul>
+<hr />
+<h2>Why It Matters</h2>
+<ul>
+  <li>AI speeds research, but structure drives accuracy.</li>
+  <li>3 facts + 1 trigger = relevant, concise outreach.</li>
+  <li>Briefs prevent duplication and errors across the team.</li>
+</ul>
+<hr />
+<h2>Explanation</h2>
+<h3>Prompt pack</h3>
+<ul>
+  <li>Company: product, market, growth, news.</li>
+  <li>Persona: role, responsibilities, KPIs, pains.</li>
+  <li>Trigger: funding, hiring, pricing change, new product/market.</li>
+</ul>
+<h3>Account brief</h3>
+<ul>
+  <li>One page: short company summary, 3 facts, 1 trigger, relevant pain, recommended next step.</li>
+</ul>
+<hr />
+<h2>Examples</h2>
+<p><strong>Good:</strong> Brief with 3 facts (product, funding, new market), 1 trigger (hiring revops), recommended next step.</p>
+<p><strong>Bad:</strong> Just paste the website, no trigger, no next step.</p>
+<hr />
+<h2>Guided Exercise (10–15 minutes)</h2>
+<ol>
+  <li>Write 3 prompts (company, persona, trigger) and test on 1 target.</li>
+  <li>Build the account brief template (1 page, 3 facts + 1 trigger + pain + next step).</li>
+  <li>Fill 2 briefs from your list.</li>
+</ol>
+<h2>Independent Exercise (5–10 minutes)</h2>
+<p>Draft one outreach opener from the 2 briefs (1–2 sentences, fact + trigger).</p>
+<hr />
+<h2>Self-check</h2>
+<ul>
+  <li>3 research prompts ready.</li>
+  <li>Account brief template ready.</li>
+  <li>2 briefs filled.</li>
+  <li>1 outreach opener written.</li>
+</ul>
+<hr />
+<h2>Optional Deep Dive</h2>
+<ul>
+  <li>OpenAI prompt guide: <a href="https://platform.openai.com/docs/guides/prompt-engineering" target="_blank" rel="noreferrer">https://platform.openai.com/docs/guides/prompt-engineering</a></li>
+  <li>Account research checklist: <a href="https://www.alexbirkett.com/account-research" target="_blank" rel="noreferrer">https://www.alexbirkett.com/account-research</a></li>
+</ul>`,
+    emailSubject: 'B2B Sales 2026 – Day 10: AI research',
+    emailBody: `<h1>B2B Sales 2026 – Day 10</h1>
+<p>Create AI prompts and an account brief template; test on two accounts.</p>
+<p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Read the lesson →</a></p>`,
+    quiz: {
+      questions: [
+        {
+          question: 'Why 3 facts + 1 trigger?',
+          options: [
+            'Decoration',
+            'It’s the base for relevant, concise outreach',
+            'To write longer emails',
+            'Legal requirement',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'What belongs in the account brief?',
+          options: [
+            'Only the website link',
+            'Company short, 3 facts, 1 trigger, pain, next step',
+            'Only the pitch deck',
+            'Only the price list',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'Why a persona prompt?',
+          options: [
+            'To make the response longer',
+            'To get role/KPI/pain relevance',
+            'Legal necessity',
+            'To avoid ICP',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'What is the bad approach?',
+          options: [
+            'Brief with 3 facts + trigger',
+            'Website pasted without trigger or next step',
+            'Recommending a next step',
+            'Noting the persona role',
+          ],
+          correctIndex: 1,
+        },
+      ],
+    },
+  },
+  {
+    day: 11,
+    title: 'Outbound Message: No Personalization, No Reply',
+    content: `<h1>Outbound Message: No Personalization, No Reply</h1>
+<p><em>Use the 3-part structure: relevance, problem, next step. Build 2 templates and 2 good/2 bad examples.</em></p>
+<hr />
+<h2>Learning Goal</h2>
+<ul>
+  <li>Write 2 outbound templates (and 2 good/2 bad examples).</li>
+  <li>Each message has a relevance cue + problem + next step.</li>
+  <li>Tie facts/triggers from the brief into the message.</li>
+</ul>
+<hr />
+<h2>Why It Matters</h2>
+<ul>
+  <li>No personalization = low reply rate.</li>
+  <li>A short, specific next step speeds decision.</li>
+  <li>A relevance cue proves you paid attention.</li>
+</ul>
+<hr />
+<h2>Explanation</h2>
+<h3>3 parts</h3>
+<ul>
+  <li><strong>Relevance cue</strong>: 1 fact/trigger from the brief.</li>
+  <li><strong>Problem</strong>: ICP pain in one line.</li>
+  <li><strong>Next step</strong>: one concrete step (15-min call, audit, checklist).</li>
+</ul>
+<hr />
+<h2>Examples</h2>
+<p><strong>Bad:</strong> “We help you grow with AI, let’s talk.”</p>
+<p><strong>Good:</strong> “Noticed you’re hiring RevOps and cycles are 90+ days. Two leaks show up: weak qualification and fuzzy next steps. In 15 minutes I can show where stage definitions usually slip. Is next Tue 10:00 ok?”</p>
+<hr />
+<h2>Guided Exercise (10–15 minutes)</h2>
+<ol>
+  <li>Write 2 templates (A/B) using the 3 parts.</li>
+  <li>Write 2 good and 2 bad examples for your market.</li>
+  <li>Tie each to a fact/trigger from the brief.</li>
+</ol>
+<h2>Independent Exercise (5–10 minutes)</h2>
+<p>Send 3 messages to your list; track replies.</p>
+<hr />
+<h2>Self-check</h2>
+<ul>
+  <li>2 templates (A/B) written.</li>
+  <li>2 good/2 bad examples ready.</li>
+  <li>Every message has relevance + problem + next step.</li>
+  <li>3 messages sent and noted.</li>
+</ul>
+<hr />
+<h2>Optional Deep Dive</h2>
+<ul>
+  <li>Cold email best practices: <a href="https://beccahanderson.substack.com/p/cold-email-guide" target="_blank" rel="noreferrer">https://beccahanderson.substack.com/p/cold-email-guide</a></li>
+  <li>Personalization examples: <a href="https://www.gong.io/blog/personalized-outreach" target="_blank" rel="noreferrer">https://www.gong.io/blog/personalized-outreach</a></li>
+</ul>`,
+    emailSubject: 'B2B Sales 2026 – Day 11: Outbound message',
+    emailBody: `<h1>B2B Sales 2026 – Day 11</h1>
+<p>Write 2 outbound templates, with 2 good/2 bad examples, using relevance + problem + next step.</p>
+<p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Read the lesson →</a></p>`,
+    quiz: {
+      questions: [
+        {
+          question: 'What are the 3 parts of a good outbound message?',
+          options: [
+            'Long intro, price, link',
+            'Relevance cue, problem, concrete next step',
+            'Marketing slogan, CTA, logo',
+            'Feature list, CTA, price',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'Purpose of the relevance cue?',
+          options: [
+            'Decoration',
+            'Shows you paid attention (fact/trigger)',
+            'Increase word count',
+            'Replace ICP',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'Which is the bad example?',
+          options: [
+            'Relevance cue + problem + 15-min specific step',
+            '“We help you grow with AI, let’s talk.”',
+            'Trigger mention',
+            'Mentioning stage definitions',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'Why add a next step?',
+          options: [
+            'To make the email longer',
+            'To speed decisions and make commitment clear',
+            'To send more marketing',
+            'To avoid ICP',
+          ],
+          correctIndex: 1,
+        },
+      ],
+    },
+  },
+  {
+    day: 12,
+    title: 'List Cleaning and Lead Hygiene',
+    content: `<h1>List Cleaning and Lead Hygiene</h1>
+<p><em>Standardize statuses/sources, dedupe, and set DNC rules so the pipeline reflects reality.</em></p>
+<hr />
+<h2>Learning Goal</h2>
+<ul>
+  <li>Standardize lead statuses and sources.</li>
+  <li>Set dedupe and do-not-contact rules.</li>
+  <li>QA 50 leads and fix issues.</li>
+</ul>
+<hr />
+<h2>Why It Matters</h2>
+<ul>
+  <li>Dirty lists = bad reporting and bad experience.</li>
+  <li>Unified statuses speed reporting and automation.</li>
+  <li>DNC + dedupe reduces slip and spam risk.</li>
+</ul>
+<hr />
+<h2>Explanation</h2>
+<h3>Status example</h3>
+<ul>
+  <li>New, Working, Nurture, Qualified, Disqualified, DNC.</li>
+</ul>
+<h3>Rules</h3>
+<ul>
+  <li>Dedupe: email/domain + name.</li>
+  <li>DNC: bounce/spam/legal request.</li>
+  <li>Source codes: outbound, inbound, partner, event, referral.</li>
+</ul>
+<hr />
+<h2>Examples</h2>
+<p><strong>Good:</strong> Status unified, duplicates flagged, DNC list maintained.</p>
+<p><strong>Bad:</strong> Duplicates, mixed status names, no DNC.</p>
+<hr />
+<h2>Guided Exercise (10–15 minutes)</h2>
+<ol>
+  <li>Define lead statuses and source codes.</li>
+  <li>Write dedupe and DNC rules.</li>
+  <li>Review 50 leads; fix duplicates/status.</li>
+</ol>
+<h2>Independent Exercise (5–10 minutes)</h2>
+<p>Set an automation or checklist for ongoing QA (weekly/biweekly).</p>
+<hr />
+<h2>Self-check</h2>
+<ul>
+  <li>Status + source definitions done.</li>
+  <li>Dedupe + DNC rules done.</li>
+  <li>50 leads QA’d.</li>
+  <li>QA cadence set.</li>
+</ul>
+<hr />
+<h2>Optional Deep Dive</h2>
+<ul>
+  <li>CRM hygiene guide: <a href="https://www.hubspot.com/crm-data-cleanup" target="_blank" rel="noreferrer">https://www.hubspot.com/crm-data-cleanup</a></li>
+  <li>Duplicate management tips: <a href="https://www.pipedrive.com/en/blog/crm-data-cleaning" target="_blank" rel="noreferrer">https://www.pipedrive.com/en/blog/crm-data-cleaning</a></li>
+</ul>`,
+    emailSubject: 'B2B Sales 2026 – Day 12: Lead hygiene',
+    emailBody: `<h1>B2B Sales 2026 – Day 12</h1>
+<p>Standardize statuses/sources, set dedupe + DNC rules, QA 50 leads.</p>
+<p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Read the lesson →</a></p>`,
+    quiz: {
+      questions: [
+        {
+          question: 'Core goal of lead hygiene?',
+          options: [
+            'More marketing emails',
+            'A real pipeline and accurate reporting',
+            'Fewer statuses',
+            'Higher spam rate',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'Dedupe rule base?',
+          options: [
+            'Random',
+            'Email/domain + name combo',
+            'First name only',
+            'Industry only',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'Why keep a DNC list?',
+          options: [
+            'Decoration',
+            'Handle bounce/spam/legal requests; reduce risk',
+            'Fewer campaigns',
+            'More expensive software',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'Bad example?',
+          options: [
+            'Unified status, duplicates flagged',
+            'Duplicates, mixed status names, no DNC',
+            'DNC list maintained',
+            'QA cadence set',
+          ],
+          correctIndex: 1,
+        },
+      ],
+    },
+  },
 ];
 
 async function main() {

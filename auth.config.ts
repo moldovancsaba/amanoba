@@ -40,6 +40,7 @@ export const authConfig = {
         playerId: { label: 'Player ID', type: 'text' },
         displayName: { label: 'Display Name', type: 'text' },
         isAnonymous: { label: 'Is Anonymous', type: 'text' },
+        role: { label: 'Role', type: 'text' },
       },
       async authorize(credentials) {
         // Validate credentials exist
@@ -47,7 +48,7 @@ export const authConfig = {
           return null;
         }
         
-        // Return user object for anonymous player
+        // Return user object for anonymous player or SSO user
         // Why: NextAuth uses this to create session
         return {
           id: credentials.playerId as string,
@@ -55,6 +56,7 @@ export const authConfig = {
           email: null,
           image: null,
           isAnonymous: credentials.isAnonymous === 'true',
+          role: (credentials.role as 'user' | 'admin') || 'user',
         };
       },
     }),
@@ -113,6 +115,7 @@ export const authConfig = {
       // Add user data to token
       if (user) {
         token.id = user.id;
+        token.role = (user as any).role || 'user';
       }
       
       return token;
@@ -126,6 +129,7 @@ export const authConfig = {
         (session.user as any).facebookId = token.facebookId;
         (session.user as any).locale = token.locale || 'en';
         (session.user as any).isAnonymous = token.isAnonymous ?? false;
+        (session.user as any).role = token.role || 'user';
       }
       return session;
     },
