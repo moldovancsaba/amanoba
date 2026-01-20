@@ -108,8 +108,14 @@ export function useCourseTranslations(courseLanguage: string | undefined) {
     }
 
     // Replace params if provided
+    // Support both {param} and {{param}} formats (next-intl uses {{param}})
     if (params && typeof value === 'string') {
-      return value.replace(/\{(\w+)\}/g, (match, paramKey) => {
+      // First replace double braces {{param}} (next-intl format)
+      value = value.replace(/\{\{(\w+)\}\}/g, (match, paramKey) => {
+        return params[paramKey]?.toString() || match;
+      });
+      // Then replace single braces {param} (fallback format)
+      value = value.replace(/\{(\w+)\}/g, (match, paramKey) => {
         return params[paramKey]?.toString() || match;
       });
     }
@@ -126,8 +132,14 @@ export function useCourseTranslations(courseLanguage: string | undefined) {
     let value = getNestedValue(translations, fullKey);
     
     // Replace params if provided
+    // Support both {param} and {{param}} formats (next-intl uses {{param}})
     if (params && typeof value === 'string') {
-      return value.replace(/\{(\w+)\}/g, (match, paramKey) => {
+      // First replace double braces {{param}} (next-intl format)
+      value = value.replace(/\{\{(\w+)\}\}/g, (match, paramKey) => {
+        return params[paramKey]?.toString() || match;
+      });
+      // Then replace single braces {param} (fallback format)
+      value = value.replace(/\{(\w+)\}/g, (match, paramKey) => {
         return params[paramKey]?.toString() || match;
       });
     }
