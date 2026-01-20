@@ -116,6 +116,14 @@ export const authConfig = {
       if (user) {
         token.id = user.id;
         token.role = (user as any).role || 'user';
+        
+        // DEBUG: Log role being added to JWT
+        console.log('[JWT Callback] Adding role to token:', {
+          userId: user.id,
+          userName: user.name,
+          role: token.role,
+          userRole: (user as any).role
+        });
       }
       
       return token;
@@ -130,6 +138,13 @@ export const authConfig = {
         (session.user as any).locale = token.locale || 'en';
         (session.user as any).isAnonymous = token.isAnonymous ?? false;
         (session.user as any).role = token.role || 'user';
+        
+        // DEBUG: Log role in session
+        console.log('[Session Callback] Role in session:', {
+          tokenRole: token.role,
+          sessionRole: (session.user as any).role,
+          userId: token.id
+        });
       }
       return session;
     },

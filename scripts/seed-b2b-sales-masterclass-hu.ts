@@ -2685,6 +2685,684 @@ const lessons: LessonEntry[] = [
       ],
     },
   },
+  {
+    day: 25,
+    title: 'Ajánlat struktúra: dönthető proposal',
+    content: `<h1>Ajánlat struktúra: dönthető proposal</h1>
+<p><em>Olyan ajánlatot írsz, ami döntést támogat: cél, scope, idő, kockázat, bizonyíték, következő lépés.</em></p>
+<hr />
+<h2>Napi cél</h2>
+<ul>
+  <li>1 oldalas ajánlat vázat írsz (cél, scope, idő, kockázatkezelés, proof, next step).</li>
+  <li>Beállítasz 3 kötelező mezőt a CRM-ben az ajánlat stage-hez.</li>
+  <li>Előkészítesz 1 „decision email” sablont.</li>
+  <li>Hozz létre egy „red flag” listát (mi miatt csúszik el az ajánlat).</li>
+  <li>AI-t használsz proof és összegzés automatikus beillesztésére.</li>
+  <li>Definiálsz egy „review és signoff” folyamatot.</li>
+</ul>
+<hr />
+<h2>Miért fontos</h2>
+<ul>
+  <li>Az ajánlat nem PDF letét, hanem döntési dokumentum.</li>
+  <li>Kockázatot és következő lépést kell csökkentenie, nem csak árat mutatni.</li>
+  <li>Gyenge proposal = slip + tárgyalási idő nő.</li>
+</ul>
+<hr />
+<h2>Magyarázat</h2>
+<h3>Ajánlat alap blokkjai</h3>
+<ul>
+  <li>Cél és elvárt hatás.</li>
+  <li>Scope (mi benne, mi nincs).</li>
+  <li>Idő és mérföldkövek.</li>
+  <li>Árazás + diszkont szabály (ha van).</li>
+  <li>Kockázatkezelés (kizárások, feltételek).</li>
+  <li>Proof (számok, esettanulmány rövid).</li>
+  <li>Következő lépés (decision email sablon).</li>
+</ul>
+<h3>Red flag lista</h3>
+<ul>
+  <li>Nincs döntéshozó bevonva.</li>
+  <li>Nincs kockázat/eltérés kezelve.</li>
+  <li>Nincs világos következő lépés és határidő.</li>
+</ul>
+<hr />
+<h2>Példák</h2>
+<p><strong>Rossz:</strong> „Itt az ár, várom a választ.” – nincs cél, kockázat, következő lépés.</p>
+<p><strong>Jó:</strong> 1 oldalas döntési dokumentum, ROI/proof pontokkal, világos scope és következő lépés dátummal.</p>
+<hr />
+<h2>Gyakorlat (vezetett, 10-15 perc)</h2>
+<ol>
+  <li>Írj 1 oldalas ajánlat vázat a fenti blokkokkal.</li>
+  <li>Írj decision email sablont (kinek, mikor dönt).</li>
+  <li>Állíts be 3 kötelező mezőt a CRM ajánlat stage-hez (scope, döntési dátum, next step).</li>
+</ol>
+<h2>Gyakorlat (önálló, 5-10 perc)</h2>
+<p>Töltsd ki 1 élő dealhez az új vázat, küldd el decision emaillel.</p>
+<hr />
+<h2>Önellenőrzés</h2>
+<ul>
+  <li>Van 1 oldalas ajánlat váz.</li>
+  <li>Van decision email sablon.</li>
+  <li>CRM mezők beállítva.</li>
+  <li>Alkalmaztad 1 dealre.</li>
+</ul>
+<hr />
+<h2>Opcionális mélyítés</h2>
+<ul>
+  <li>Proposal best practices: <a href="https://www.gong.io/blog/sales-proposal/" target="_blank" rel="noreferrer">https://www.gong.io/blog/sales-proposal/</a></li>
+  <li>Value-based proposals: <a href="https://www.alexhormozi.com" target="_blank" rel="noreferrer">https://www.alexhormozi.com</a></li>
+</ul>`,
+    emailSubject: 'B2B Értékesítés 2026 – 25. nap: Ajánlat',
+    emailBody: `<h1>B2B Értékesítés 2026 – 25. nap</h1>
+<p>Írj dönthető, 1 oldalas ajánlatot proof és következő lépés blokkal.</p>
+<p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Olvasd el a leckét →</a></p>`,
+    quiz: {
+      questions: [
+        {
+          question: 'Mi a dönthető ajánlat célja?',
+          options: [
+            'Csak árlistát adni',
+            'Döntést támogatni: cél, scope, kockázat, proof, next step',
+            'Szórakoztatni',
+            'Hosszú dokumentumot gyártani',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'Mi a red flag?',
+          options: [
+            'Nincs döntési határidő és következő lépés',
+            'Van döntési email',
+            'Van proof pont',
+            'Van scope',
+          ],
+          correctIndex: 0,
+        },
+        {
+          question: 'Mi a kötelező blokk?',
+          options: [
+            'CTA nélküli ár',
+            'Cél, scope, idő, kockázat, proof, next step',
+            'Csak színes grafika',
+            'Csak NDA',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'Mi a jó CRM mező az ajánlat stage-hez?',
+          options: [
+            'Decision dátum',
+            'Profilkép',
+            'Emoji',
+            'Kedvenc étel',
+          ],
+          correctIndex: 0,
+        },
+      ],
+    },
+  },
+  {
+    day: 26,
+    title: 'Árazás 2026-ban: csomagolás és érték',
+    content: `<h1>Árazás 2026-ban: csomagolás és érték</h1>
+<p><em>Értékalapú árlogikát építesz: minimum csomag, kiegészítők, diszkont szabályok.</em></p>
+<hr />
+<h2>Napi cél</h2>
+<ul>
+  <li>Összeállítasz 3 csomagot (good/better/best) vagy 1 minimum + add-on modellt.</li>
+  <li>Írsz diszkont szabályt (ki, mikor, mennyi, jóváhagyás).</li>
+  <li>Árazási kalkulátort készítesz (alap + opciók + idő).</li>
+  <li>Proof-ot kapcsolsz az árhoz (idő/megtakarítás).</li>
+  <li>AI-t használod árazási indoklás és összegzés generálásához.</li>
+</ul>
+<hr />
+<h2>Miért fontos</h2>
+<ul>
+  <li>Ár-improvizáció csökkenti a bizalmat és növeli a diszkontot.</li>
+  <li>Csomagolás gyorsítja a döntést.</li>
+  <li>Diszkont szabály védi a margin-t.</li>
+</ul>
+<hr />
+<h2>Magyarázat</h2>
+<h3>Ár modell</h3>
+<ul>
+  <li>Minimum csomag: elég a sikerhez, nincs alulméretezve.</li>
+  <li>Opciók: kiegészítők (support, integráció, onboarding plusz).</li>
+  <li>Idő: éves/kvartális keret, kedvezmény szabállyal.</li>
+</ul>
+<h3>Diszkont szabály</h3>
+<ul>
+  <li>Ki adhat, meddig, milyen feltétellel (pl. éves előfizetés, gyors döntés).</li>
+  <li>Engedélyezés: sales lead vagy vezetői jóváhagyás.</li>
+</ul>
+<hr />
+<h2>Példák</h2>
+<p><strong>Rossz:</strong> Ad-hoc ár minden ügyfélnek, nincs szabály.</p>
+<p><strong>Jó:</strong> 3 csomag, világos opciók, diszkont szabály dokumentálva.</p>
+<hr />
+<h2>Gyakorlat (vezetett, 10-15 perc)</h2>
+<ol>
+  <li>Írj 3 csomagot vagy minimum + add-on modellt.</li>
+  <li>Írj diszkont szabályt és jóváhagyási folyamatot.</li>
+  <li>Készíts ár kalkulátort (sheet vagy CRM formula).</li>
+</ol>
+<h2>Gyakorlat (önálló, 5-10 perc)</h2>
+<p>Alkalmazd 1 élő dealre az új árazást, kommunikáld a szabályt.</p>
+<hr />
+<h2>Önellenőrzés</h2>
+<ul>
+  <li>Megvan a csomagolás.</li>
+  <li>Megvan a diszkont szabály.</li>
+  <li>Van kalkulátor.</li>
+  <li>Alkalmaztad 1 dealre.</li>
+</ul>
+<hr />
+<h2>Opcionális mélyítés</h2>
+<ul>
+  <li>Value-based pricing: <a href="https://www.priceintelligently.com" target="_blank" rel="noreferrer">https://www.priceintelligently.com</a></li>
+  <li>Discount guardrails: <a href="https://www.gong.io/blog/discounting/" target="_blank" rel="noreferrer">https://www.gong.io/blog/discounting/</a></li>
+</ul>`,
+    emailSubject: 'B2B Értékesítés 2026 – 26. nap: Árazás',
+    emailBody: `<h1>B2B Értékesítés 2026 – 26. nap</h1>
+<p>Írj csomagolást, diszkont szabályt, és készíts kalkulátort értékalapon.</p>
+<p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Olvasd el a leckét →</a></p>`,
+    quiz: {
+      questions: [
+        {
+          question: 'Miért kell diszkont szabály?',
+          options: [
+            'Színesebb legyen az árlista',
+            'Margin védelme és következetesség',
+            'Marketing célból',
+            'HR okból',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'Mi a minimum csomag elve?',
+          options: [
+            'A lehető legkisebb ár mindenáron',
+            'Elég a sikerhez, nincs alulméretezve',
+            'Mindig ingyen',
+            'Csak enterprise',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'Mi a jó opció példa?',
+          options: [
+            'Support szint, integráció, onboarding plusz',
+            'Emoji csomag',
+            'Toll ajándék',
+            'Nincs opció',
+          ],
+          correctIndex: 0,
+        },
+        {
+          question: 'Ki adhat diszkontot?',
+          options: [
+            'Bárki bármikor',
+            'Szabály szerint kijelölt jóváhagyó',
+            'Csak marketing',
+            'Csak ügyfélszolgálat',
+          ],
+          correctIndex: 1,
+        },
+      ],
+    },
+  },
+  {
+    day: 27,
+    title: 'Beszerzés, jog és biztonság kérdések',
+    content: `<h1>Beszerzés, jog és biztonság kérdések</h1>
+<p><em>Összeállítasz egy „procurement pack” minimum listát, hogy a deal ne az utolsó héten akadjon el.</em></p>
+<hr />
+<h2>Napi cél</h2>
+<ul>
+  <li>Összeírod a procurement pack elemeit (security, DPA, SLA, billing, signing).</li>
+  <li>Előkészítesz 1 oldalas security/DPA összefoglalót.</li>
+  <li>Készítesz egy „legal/biztonság checklistet” meetinghez.</li>
+  <li>Írsz egy sablont: hogyan vonod be a jog/IT-t korán.</li>
+  <li>Jelölöd a tipikus red flag-eket (adatút, hozzáférés, compliance).</li>
+  <li>AI-t használod a policy összefoglalókra.</li>
+</ul>
+<hr />
+<h2>Miért fontos</h2>
+<ul>
+  <li>Jog/IT késői bevonása slipet okoz.</li>
+  <li>Átlátható security anyag csökkenti a kockázatérzetet.</li>
+  <li>Előre kész csomag gyorsítja a tárgyalást.</li>
+</ul>
+<hr />
+<h2>Magyarázat</h2>
+<h3>Procurement pack minimum</h3>
+<ul>
+  <li>Security one-pager (adatkezelés, hosting, hozzáférés, audit).</li>
+  <li>DPA/SLA minta.</li>
+  <li>Árazási és számlázási feltételek.</li>
+  <li>Aláírás folyamata (e-sign, jogi kapcsolattartó).</li>
+</ul>
+<h3>Bevonás menete</h3>
+<ul>
+  <li>Discovery során jelzed a jog/IT igényt.</li>
+  <li>Küldesz security one-pagert előre.</li>
+  <li>Egyezteted a következő lépést (review dátum).</li>
+</ul>
+<hr />
+<h2>Példák</h2>
+<p><strong>Rossz:</strong> Az ajánlat után derül ki, hogy DPA-t és securityt kell átbeszélni.</p>
+<p><strong>Jó:</strong> Discovery után küldesz security one-pagert, egyeztetsz jog/IT review-t.</p>
+<hr />
+<h2>Gyakorlat (vezetett, 10-15 perc)</h2>
+<ol>
+  <li>Írd össze a procurement pack listáját és töltsd, amid megvan.</li>
+  <li>Írj 1 oldalas security összefoglalót.</li>
+  <li>Írj bevonási sablont jog/IT számára.</li>
+</ol>
+<h2>Gyakorlat (önálló, 5-10 perc)</h2>
+<p>Küldd ki 1 aktuális dealnél a security one-pagert, egyeztess review dátumot.</p>
+<hr />
+<h2>Önellenőrzés</h2>
+<ul>
+  <li>Megvan a procurement pack listád.</li>
+  <li>Van security one-pager.</li>
+  <li>Van bevonási sablon.</li>
+  <li>Alkalmaztad 1 dealben.</li>
+</ul>
+<hr />
+<h2>Opcionális mélyítés</h2>
+<ul>
+  <li>Security one-pager minta: <a href="https://www.notion.so/InfoSec-One-Pager-Template" target="_blank" rel="noreferrer">https://www.notion.so/InfoSec-One-Pager-Template</a></li>
+  <li>DPA alapok: <a href="https://gdpr.eu/data-processing-agreement/" target="_blank" rel="noreferrer">https://gdpr.eu/data-processing-agreement/</a></li>
+</ul>`,
+    emailSubject: 'B2B Értékesítés 2026 – 27. nap: Procurement pack',
+    emailBody: `<h1>B2B Értékesítés 2026 – 27. nap</h1>
+<p>Állíts össze procurement csomagot és vond be korán a jog/IT-t, hogy ne csússzon a deal.</p>
+<p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Olvasd el a leckét →</a></p>`,
+    quiz: {
+      questions: [
+        {
+          question: 'Mi a procurement pack célja?',
+          options: [
+            'Dekoráció',
+            'Gyorsítani a jog/IT döntést és csökkenteni a kockázatérzetet',
+            'Marketing kampány',
+            'HR dokumentum',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'Mit küldesz előre?',
+          options: [
+            'Security one-pager + DPA/SLA minta',
+            'Csak árat',
+            'Csak logót',
+            'Csak NDA-t',
+          ],
+          correctIndex: 0,
+        },
+        {
+          question: 'Mi a rossz példa?',
+          options: [
+            'Ajánlat után derül ki a DPA igény',
+            'Discovery után küldesz anyagot',
+            'Review dátumot egyeztetsz',
+            'Checklistet küldesz',
+          ],
+          correctIndex: 0,
+        },
+        {
+          question: 'Mit tartalmaz a one-pager?',
+          options: [
+            'Adatkezelés, hosting, hozzáférés, audit',
+            'Csak színek',
+            'Marketing fotó',
+            'HR szabályzat',
+          ],
+          correctIndex: 0,
+        },
+      ],
+    },
+  },
+  {
+    day: 28,
+    title: 'Objection handling: minták és visszakérdezés',
+    content: `<h1>Objection handling: minták és visszakérdezés</h1>
+<p><em>3 lépéses kifogáskezelést gyakorolsz: tisztázás, ok feltárás, bizonyíték vagy csereajánlat.</em></p>
+<hr />
+<h2>Napi cél</h2>
+<ul>
+  <li>Írsz 5 gyakori kifogást és 3 lépéses válaszát.</li>
+  <li>Készítesz visszakérdezés sablont („Mi az aggodalom pontosan?”).</li>
+  <li>Összegyűjtöd a proof pontokat kifogásonként.</li>
+  <li>AI-t használod alternatív ajánlatok gyors generálására.</li>
+  <li>Rögzítesz lost ok kódokat a CRM-ben.</li>
+</ul>
+<hr />
+<h2>Miért fontos</h2>
+<ul>
+  <li>A kifogás gyakran kérés több információra.</li>
+  <li>Strukturált válasz gyorsítja a döntést.</li>
+  <li>Kódolt lost okból tanulsz.</li>
+</ul>
+<hr />
+<h2>Magyarázat</h2>
+<h3>3 lépés</h3>
+<ul>
+  <li>Tisztázás: „Pontosan mi aggaszt?”</li>
+  <li>Ok: költség, idő, kockázat, prioritás?</li>
+  <li>Válasz: proof vagy csere (scope/idő/ár), vagy ellenjavaslat.</li>
+</ul>
+<h3>Tipikus kifogások</h3>
+<ul>
+  <li>Drága → érték + proof + csere (kisebb scope).</li>
+  <li>Idő → roadmap + pilot.</li>
+  <li>Biztonság → security pack.</li>
+  <li>Prioritás → impact/proof, következő lépés időzítése.</li>
+</ul>
+<hr />
+<h2>Példák</h2>
+<p><strong>Rossz:</strong> „Oké, adunk 20% kedvezményt.” – tisztázás nélkül.</p>
+<p><strong>Jó:</strong> Tisztázás → ok → proof vagy kisebb scope ajánlat.</p>
+<hr />
+<h2>Gyakorlat (vezetett, 10-15 perc)</h2>
+<ol>
+  <li>Írj 5 kifogást és a 3 lépéses választ.</li>
+  <li>Írj visszakérdezést mindenre.</li>
+  <li>Kapcsold proof pontokhoz.</li>
+</ol>
+<h2>Gyakorlat (önálló, 5-10 perc)</h2>
+<p>Válaszolj 2 valós kifogásra a sablonnal, rögzítsd a CRM-ben a lost okot ha elveszted.</p>
+<hr />
+<h2>Önellenőrzés</h2>
+<ul>
+  <li>5 kifogás + válasz megvan.</li>
+  <li>Van visszakérdezés sablon.</li>
+  <li>Proof pontok kapcsolva.</li>
+  <li>Lost ok kódolva.</li>
+</ul>
+<hr />
+<h2>Opcionális mélyítés</h2>
+<ul>
+  <li>Objection handling: <a href="https://www.gong.io/blog/objection-handling/" target="_blank" rel="noreferrer">https://www.gong.io/blog/objection-handling/</a></li>
+  <li>Challenger: <a href="https://www.challengerinc.com/resources/" target="_blank" rel="noreferrer">https://www.challengerinc.com/resources/</a></li>
+</ul>`,
+    emailSubject: 'B2B Értékesítés 2026 – 28. nap: Kifogáskezelés',
+    emailBody: `<h1>B2B Értékesítés 2026 – 28. nap</h1>
+<p>Gyakorold a 3 lépéses kifogáskezelést, proof-fal és csereajánlattal.</p>
+<p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Olvasd el a leckét →</a></p>`,
+    quiz: {
+      questions: [
+        {
+          question: 'Mi a 3 lépés első eleme?',
+          options: [
+            'Azonnali kedvezmény',
+            'Tisztázás: mi aggaszt pontosan?',
+            'Árvita',
+            'NDA aláírása',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'Mi a rossz példa?',
+          options: [
+            'Kedvezmény ok nélkül',
+            'Tisztázás → ok → proof/csere',
+            'Lost ok rögzítése',
+            'Proof használata',
+          ],
+          correctIndex: 0,
+        },
+        {
+          question: 'Miért kódolod a lost okot?',
+          options: [
+            'Dekoráció',
+            'Hogy tanulj a trendekből',
+            'HR ok',
+            'Marketing',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'Mi a tipikus válasz „drága” kifogásra?',
+          options: [
+            'Proof + kisebb scope vagy feltételhez kötött kedvezmény',
+            'Azonnali nagy kedvezmény',
+            'Nincs válasz',
+            'Téma váltás',
+          ],
+          correctIndex: 0,
+        },
+      ],
+    },
+  },
+  {
+    day: 29,
+    title: 'Closing: döntés és következő lépés',
+    content: `<h1>Closing: döntés és következő lépés</h1>
+<p><em>Close checklistet és „decision email” sablont készítesz, hogy a döntési folyamat tiszta legyen.</em></p>
+<hr />
+<h2>Napi cél</h2>
+<ul>
+  <li>Írsz close checklistet (döntéshozó, kockázat, next step, aláírás folyamata).</li>
+  <li>Megírsz 1 decision email sablont.</li>
+  <li>Beállítasz aláírás folyamatot (e-sign, felelősök).</li>
+  <li>Jelölöd a „go/no-go” kritériumot.</li>
+  <li>AI-t használod a deal összefoglalóhoz a döntés előtt.</li>
+</ul>
+<hr />
+<h2>Miért fontos</h2>
+<ul>
+  <li>A closing nem áralku, hanem döntésvezetés.</li>
+  <li>Tiszta következő lépés nélkül slip.</li>
+  <li>Összefoglaló + döntési email gyorsít.</li>
+</ul>
+<hr />
+<h2>Magyarázat</h2>
+<h3>Close checklist</h3>
+<ul>
+  <li>Döntéshozó megerősítve.</li>
+  <li>Procurement pack átadva és elfogadva.</li>
+  <li>Kockázatok kezelve (biztonság, scope).</li>
+  <li>Aláírás folyamata, dátum, felelős.</li>
+  <li>Next step (kickoff dátum).</li>
+</ul>
+<h3>Decision email sablon</h3>
+<ul>
+  <li>Összefoglaló: cél, scope, ár, idő.</li>
+  <li>Kockázatkezelés röviden.</li>
+  <li>Next step és döntési határidő.</li>
+</ul>
+<hr />
+<h2>Példák</h2>
+<p><strong>Rossz:</strong> „Küldtem ajánlatot, várom a választ.”</p>
+<p><strong>Jó:</strong> Összefoglaló + decision email + aláírás folyamat + kickoff dátum egyeztetve.</p>
+<hr />
+<h2>Gyakorlat (vezetett, 10-15 perc)</h2>
+<ol>
+  <li>Írj close checklistet és döntési email sablont.</li>
+  <li>Állíts be aláírás folyamatot (e-sign eszköz, felelősök).</li>
+  <li>Alkalmazd 1 aktív dealre.</li>
+</ol>
+<h2>Gyakorlat (önálló, 5-10 perc)</h2>
+<p>Küldj decision emailt, egyeztess aláírás dátumot, jelöld a CRM-ben.</p>
+<hr />
+<h2>Önellenőrzés</h2>
+<ul>
+  <li>Van close checklist.</li>
+  <li>Van decision email sablon.</li>
+  <li>Aláírás folyamat tiszta.</li>
+  <li>Alkalmaztad 1 dealre.</li>
+</ul>
+<hr />
+<h2>Opcionális mélyítés</h2>
+<ul>
+  <li>Closing technikák: <a href="https://www.gong.io/blog/closing-sales-techniques/" target="_blank" rel="noreferrer">https://www.gong.io/blog/closing-sales-techniques/</a></li>
+  <li>Decision email példa: <a href="https://www.gong.io/blog/sales-follow-up-email/" target="_blank" rel="noreferrer">https://www.gong.io/blog/sales-follow-up-email/</a></li>
+</ul>`,
+    emailSubject: 'B2B Értékesítés 2026 – 29. nap: Closing',
+    emailBody: `<h1>B2B Értékesítés 2026 – 29. nap</h1>
+<p>Close checklistet és decision emailt készítesz, tisztázod az aláírás folyamatát.</p>
+<p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Olvasd el a leckét →</a></p>`,
+    quiz: {
+      questions: [
+        {
+          question: 'Mi a closing fókusza?',
+          options: [
+            'Árcsökkentés mindenáron',
+            'Döntésvezetés, kockázatkezelés, következő lépés',
+            'Marketing kampány',
+            'HR feladat',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'Mi a decision email lényege?',
+          options: [
+            'Összefoglaló + kockázat + next step + döntési határidő',
+            'Csak ár',
+            'Csak logó',
+            'Csak NDA',
+          ],
+          correctIndex: 0,
+        },
+        {
+          question: 'Mi a rossz példa?',
+          options: [
+            '„Küldtem ajánlatot, várom a választ.”',
+            'Összefoglaló és határidő',
+            'Kickoff dátum egyeztetése',
+            'Aláírás folyamat tisztázása',
+          ],
+          correctIndex: 0,
+        },
+        {
+          question: 'Mit tartalmaz a close checklist?',
+          options: [
+            'Döntéshozó, kockázatkezelés, aláírás folyamata, next step',
+            'Csak emoji',
+            'Csak ár',
+            'Csak marketing',
+          ],
+          correctIndex: 0,
+        },
+      ],
+    },
+  },
+  {
+    day: 30,
+    title: 'Capstone sprint: teljes B2B sales kör',
+    content: `<h1>Capstone sprint: teljes B2B sales kör</h1>
+<p><em>Valós accounton lefuttatod a teljes folyamatot: kutatás, outreach, qualification, discovery, next step, CRM update, ajánlat váz.</em></p>
+<hr />
+<h2>Napi cél</h2>
+<ul>
+  <li>Válassz 10 SMB vagy 3 enterprise accountot.</li>
+  <li>Futtasd végig a folyamatot 1 accounton teljesen.</li>
+  <li>Készíts capstone riportot (cél, mi történt, következő lépés).</li>
+  <li>Dokumentáld: account brief, outreach log, discovery notes, qualification döntés, ajánlat váz, 14 napos backlog.</li>
+  <li>Mérd: reply, meeting, stage konverzió, next step.</li>
+</ul>
+<hr />
+<h2>Miért fontos</h2>
+<ul>
+  <li>A rendszer értéke a valós futtatás.</li>
+  <li>A capstone mutatja, hol a szűk keresztmetszet.</li>
+  <li>Előkészíti a következő 2 hét fejlesztését.</li>
+</ul>
+<hr />
+<h2>Magyarázat</h2>
+<h3>Kötelező lépések</h3>
+<ul>
+  <li>Kutatás + ICP illeszkedés rögzítése.</li>
+  <li>Outreach sorozat és log.</li>
+  <li>Qualification döntés (igen/nem, miért).</li>
+  <li>Discovery jegyzet + next step.</li>
+  <li>Pipeline update, kockázat jelölés.</li>
+  <li>Ajánlat váz, ha releváns.</li>
+</ul>
+<h3>Capstone riport</h3>
+<ul>
+  <li>Cél, lépések, eredmény.</li>
+  <li>Hol akadt el, miért.</li>
+  <li>Mit változtatsz jövő héten.</li>
+</ul>
+<hr />
+<h2>Példák</h2>
+<p><strong>Jó:</strong> 1 account végigfuttatva, riport és backlog készen.</p>
+<p><strong>Rossz:</strong> Csak olvasás, nincs futtatás.</p>
+<hr />
+<h2>Gyakorlat (vezetett, 10-15 perc)</h2>
+<ol>
+  <li>Válassz account listát és jelöld ICP illeszkedést.</li>
+  <li>Írd meg az outreachet és logold.</li>
+  <li>Futtasd le 1 teljes folyamatot, dokumentálj mindent.</li>
+</ol>
+<h2>Gyakorlat (önálló, 5-10 perc)</h2>
+<p>Írj capstone riportot és 14 napos backlogot a fejlesztésekhez.</p>
+<hr />
+<h2>Önellenőrzés</h2>
+<ul>
+  <li>1 teljes folyamat végigfuttatva.</li>
+  <li>Riport és backlog kész.</li>
+  <li>Pipeline és jegyzet frissítve.</li>
+  <li>Következő 2 hét terve megvan.</li>
+</ul>
+<hr />
+<h2>Opcionális mélyítés</h2>
+<ul>
+  <li>Sales retro minta: <a href="https://www.gong.io/blog/sales-retrospective/" target="_blank" rel="noreferrer">https://www.gong.io/blog/sales-retrospective/</a></li>
+  <li>Outreach log tippek: <a href="https://www.saleshacker.com/sales-cadence/" target="_blank" rel="noreferrer">https://www.saleshacker.com/sales-cadence/</a></li>
+</ul>`,
+    emailSubject: 'B2B Értékesítés 2026 – 30. nap: Capstone',
+    emailBody: `<h1>B2B Értékesítés 2026 – 30. nap</h1>
+<p>Végigfuttatsz 1 valós accountot, riportot és backlogot készítesz a következő 2 hétre.</p>
+<p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Olvasd el a leckét →</a></p>`,
+    quiz: {
+      questions: [
+        {
+          question: 'Mi a capstone fő célja?',
+          options: [
+            'Olvasás',
+            'Valós folyamat lefuttatása és dokumentálása',
+            'Marketing anyag készítése',
+            'HR interjú',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'Mi kötelező elem?',
+          options: [
+            'Account brief, outreach log, discovery notes, qualification döntés',
+            'Csak logó',
+            'Csak NDA',
+            'Csak ár',
+          ],
+          correctIndex: 0,
+        },
+        {
+          question: 'Miért kell riport?',
+          options: [
+            'Dekoráció',
+            'Tanulság és következő lépés kijelölése',
+            'HR',
+            'Marketing',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'Mi a rossz példa?',
+          options: [
+            'Nem futtatod le a folyamatot, csak olvasol',
+            'Dokumentálsz és futtatsz',
+            'Backlogot írsz',
+            'Kockázatot jelölsz',
+          ],
+          correctIndex: 0,
+        },
+      ],
+    },
+  },
 ];
 
 async function main() {
@@ -2783,7 +3461,7 @@ async function main() {
 
   await mongoose.disconnect();
   // eslint-disable-next-line no-console
-  console.log('Seeded B2B Értékesítés 2026 Masterclass (HU) with first 24 lessons.');
+  console.log('Seeded B2B Értékesítés 2026 Masterclass (HU) with first 30 lessons.');
 }
 
 main().catch((err) => {

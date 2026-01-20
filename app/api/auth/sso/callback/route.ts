@@ -167,9 +167,21 @@ export async function GET(request: NextRequest) {
       player.lastLoginAt = new Date();
       player.lastSeenAt = new Date();
       
+      logger.info({
+        playerId: player._id,
+        ssoSub: userInfo.sub,
+        oldRole: player.role,
+        newRole: userInfo.role,
+        willSave: userInfo.role
+      }, 'DEBUG: Updating existing player role');
+      
       await player.save();
       
-      logger.info({ playerId: player._id, ssoSub: userInfo.sub }, 'SSO player logged in');
+      logger.info({ 
+        playerId: player._id, 
+        ssoSub: userInfo.sub,
+        savedRole: player.role
+      }, 'SSO player logged in and saved');
       
       // Log login event
       await logAuthEvent(
@@ -291,6 +303,12 @@ export async function GET(request: NextRequest) {
 
     // Create NextAuth session using credentials provider
     // Why: Use NextAuth session management for consistency
+    logger.info({
+      playerId: (player._id as any).toString(),
+      displayName: player.displayName,
+      roleBeforeSignIn: player.role
+    }, 'DEBUG: About to call signIn with role');
+    
     const signInResult = await signIn('credentials', {
       redirect: false,
       playerId: (player._id as any).toString(),
@@ -298,6 +316,11 @@ export async function GET(request: NextRequest) {
       isAnonymous: 'false',
       role: player.role, // Pass role to session
     });
+    
+    logger.info({
+      signInSuccess: !signInResult?.error,
+      rolePassed: player.role
+    }, 'DEBUG: signIn completed');
 
     if (!signInResult || signInResult.error) {
       logger.error({ error: signInResult?.error }, 'Failed to create NextAuth session after SSO login');

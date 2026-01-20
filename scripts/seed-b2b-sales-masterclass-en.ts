@@ -2331,6 +2331,362 @@ const lessons: LessonEntry[] = [
   },
   {
     day: 22,
+    title: 'HubSpot: Strengths and When to Choose It',
+    content: `<h1>HubSpot: Strengths and When to Choose It</h1>
+<p><em>Know when HubSpot is worth it over Pipedrive and how to start with a minimal setup.</em></p>
+<hr />
+<h2>Learning Goal</h2>
+<ul>
+  <li>Name HubSpot’s strengths and limits.</li>
+  <li>Write decision criteria: when HubSpot, when Pipedrive/alternative.</li>
+  <li>Set up a minimal lifecycle + deal pipeline + required fields pack.</li>
+  <li>Create one simple workflow (form → contact → deal creation).</li>
+  <li>Prepare an approval path for discounts.</li>
+  <li>Use AI to summarize setup steps for the team.</li>
+</ul>
+<hr />
+<h2>Why It Matters</h2>
+<ul>
+  <li>Choosing an expensive tool without using it burns cash.</li>
+  <li>HubSpot shines when marketing + sales + customer journey live together.</li>
+  <li>A minimal setup avoids getting lost in complexity.</li>
+</ul>
+<hr />
+<h2>Explanation</h2>
+<h3>Strengths</h3>
+<ul>
+  <li>Marketing + sales + service in one place (lifecycle statuses).</li>
+  <li>Workflows and automation (form, email, deal updates).</li>
+  <li>Reporting across objects (contact, company, deal, activity).</li>
+</ul>
+<h3>Limits</h3>
+<ul>
+  <li>License cost grows with users and tiers.</li>
+  <li>Too many required fields slow the team.</li>
+</ul>
+<h3>Minimal setup</h3>
+<ul>
+  <li>Lifecycle: subscriber → lead → MQL/SQL → opportunity → customer.</li>
+  <li>Deal pipeline: stages + required fields (source, amount, next step, owner).</li>
+  <li>Workflow example: form submit → contact + company enrich → deal create → owner assign.</li>
+</ul>
+<hr />
+<h2>Examples</h2>
+<p><strong>Good:</strong> Choose HubSpot because you need marketing automation + sales and multi-object reporting; start with few required fields.</p>
+<p><strong>Bad:</strong> Buy HubSpot only for a pipeline while ignoring marketing and workflows.</p>
+<hr />
+<h2>Guided Exercise (10–15 minutes)</h2>
+<ol>
+  <li>Write decision criteria: when HubSpot vs Pipedrive.</li>
+  <li>Create a deal pipeline with required fields (source, amount, next step, owner).</li>
+  <li>Create a workflow: form → contact + company → deal → owner assign.</li>
+</ol>
+<h2>Independent Exercise (5–10 minutes)</h2>
+<p>Create 3 test contacts and 3 deals, fill required fields, run the workflow, check the report.</p>
+<hr />
+<h2>Self-check</h2>
+<ul>
+  <li>Decision criteria written.</li>
+  <li>Pipeline + required fields set.</li>
+  <li>Workflow runs.</li>
+  <li>3 test deals clean.</li>
+</ul>
+<hr />
+<h2>Optional Deep Dive</h2>
+<ul>
+  <li>HubSpot pipeline setup: <a href="https://knowledge.hubspot.com/deals/create-deal-pipelines-and-stages" target="_blank" rel="noreferrer">https://knowledge.hubspot.com/deals/create-deal-pipelines-and-stages</a></li>
+  <li>Workflows basics: <a href="https://knowledge.hubspot.com/workflows/create-workflows" target="_blank" rel="noreferrer">https://knowledge.hubspot.com/workflows/create-workflows</a></li>
+</ul>`,
+    emailSubject: 'B2B Sales 2026 – Day 22: HubSpot decision',
+    emailBody: `<h1>B2B Sales 2026 – Day 22</h1>
+<p>See when HubSpot is the right choice, set a minimal pipeline, and create a basic workflow.</p>
+<p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Read the lesson →</a></p>`,
+    quiz: {
+      questions: [
+        {
+          question: 'When is HubSpot a good choice?',
+          options: [
+            'When you only need a simple pipeline without marketing',
+            'When you need marketing + sales + automation in one place',
+            'When you need an ERP',
+            'When you need an HR system',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'What belongs in the minimal setup?',
+          options: [
+            'Lifecycle statuses + deal pipeline + required fields + workflow',
+            'Just a logo',
+            'Only a landing page',
+            'Only a slide deck',
+          ],
+          correctIndex: 0,
+        },
+        {
+          question: 'One HubSpot limitation:',
+          options: [
+            'No mobile app',
+            'License cost and complexity higher than Pipedrive',
+            'No pipeline feature',
+            'Cannot send email',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'Good workflow example:',
+          options: [
+            'Form → contact + company → deal → owner assign',
+            'Send random emails',
+            'Manual CSV export/import',
+            'Only Slack messages',
+          ],
+          correctIndex: 0,
+        },
+      ],
+    },
+  },
+  {
+    day: 23,
+    title: 'Integrations and Data Flow Basics',
+    content: `<h1>Integrations and Data Flow Basics</h1>
+<p><em>Map where data comes from (forms, email, calendar) and where it goes (CRM) while keeping quality.</em></p>
+<hr />
+<h2>Learning Goal</h2>
+<ul>
+  <li>Draw the data flow: sources → processing → CRM → reporting.</li>
+  <li>Define required fields and deduplication rules.</li>
+  <li>Pick one enrichment/validation step.</li>
+  <li>Set up a basic webhook/sync.</li>
+  <li>Document owners and SLAs for data quality.</li>
+  <li>Use AI to summarize integration steps for ops.</li>
+</ul>
+<hr />
+<h2>Why It Matters</h2>
+<ul>
+  <li>Bad data = bad pipeline and bad reporting.</li>
+  <li>Manual export/import loses time and accuracy.</li>
+  <li>Consistent fields make reports trustworthy.</li>
+</ul>
+<hr />
+<h2>Explanation</h2>
+<h3>Sources</h3>
+<ul>
+  <li>Forms (web, landing).</li>
+  <li>Email and calendar (meetings).</li>
+  <li>Enrichment (Clearbit/Clay/ZoomInfo).</li>
+  <li>Support/CSM tickets.</li>
+</ul>
+<h3>Processing</h3>
+<ul>
+  <li>Dedup: email + domain + name.</li>
+  <li>Normalize: country, industry, company size.</li>
+  <li>Required fields: source, status, owner.</li>
+</ul>
+<h3>Sink</h3>
+<ul>
+  <li>CRM: contact/company/deal.</li>
+  <li>Activity log: meeting, call, email.</li>
+  <li>Reporting: dashboards on stage conversion.</li>
+</ul>
+<hr />
+<h2>Examples</h2>
+<p><strong>Good:</strong> Form → webhook → enrichment → dedup → CRM contact+company+deal, owner assigned, activity logged.</p>
+<p><strong>Bad:</strong> Weekly CSV export/import with no required fields and duplicate contacts.</p>
+<hr />
+<h2>Guided Exercise (10–15 minutes)</h2>
+<ol>
+  <li>Draw your data flow (source → processing → sink).</li>
+  <li>Write the dedup rule (email + domain).</li>
+  <li>Set required fields (source, owner, next step).</li>
+  <li>Choose one enrichment step (e.g., auto industry fill).</li>
+</ol>
+<h2>Independent Exercise (5–10 minutes)</h2>
+<p>Create one webhook/sync (e.g., form → CRM), test that fields and dedup work.</p>
+<hr />
+<h2>Self-check</h2>
+<ul>
+  <li>Data flow map exists.</li>
+  <li>Dedup rule written.</li>
+  <li>Required fields set.</li>
+  <li>Webhook/sync tested.</li>
+</ul>
+<hr />
+<h2>Optional Deep Dive</h2>
+<ul>
+  <li>HubSpot integrations: <a href="https://knowledge.hubspot.com/integrations" target="_blank" rel="noreferrer">https://knowledge.hubspot.com/integrations</a></li>
+  <li>Pipedrive data import: <a href="https://support.pipedrive.com/en/article/how-can-i-import-data-into-pipedrive" target="_blank" rel="noreferrer">https://support.pipedrive.com/en/article/how-can-i-import-data-into-pipedrive</a></li>
+</ul>`,
+    emailSubject: 'B2B Sales 2026 – Day 23: Integrations & data',
+    emailBody: `<h1>B2B Sales 2026 – Day 23</h1>
+<p>Map data flows, set required fields and dedup, and run a webhook.</p>
+<p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Read the lesson →</a></p>`,
+    quiz: {
+      questions: [
+        {
+          question: 'Why deduplicate?',
+          options: [
+            'To make the CRM prettier',
+            'To avoid duplicate contacts and bad reports',
+            'To lower license cost',
+            'To send more emails',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'Good data path example:',
+          options: [
+            'Form → webhook → enrichment → dedup → CRM + activity log',
+            'CSV export → email → manual import',
+            'Slack message → nothing',
+            'Random spreadsheet → nothing',
+          ],
+          correctIndex: 0,
+        },
+        {
+          question: 'Typical required fields:',
+          options: [
+            'Source, owner, next step',
+            'Emoji, photo, mood',
+            'Only name',
+            'Only phone number',
+          ],
+          correctIndex: 0,
+        },
+        {
+          question: 'Purpose of enrichment:',
+          options: [
+            'Decoration',
+            'Improve data quality (industry, size, domain)',
+            'Entertainment',
+            'Raise price',
+          ],
+          correctIndex: 1,
+        },
+      ],
+    },
+  },
+  {
+    day: 24,
+    title: 'CRM Hygiene and Daily Routine',
+    content: `<h1>CRM Hygiene and Daily Routine</h1>
+<p><em>Introduce a 10-minute daily cleanup and weekly report so the pipeline stays real.</em></p>
+<hr />
+<h2>Learning Goal</h2>
+<ul>
+  <li>Create a 10-minute daily checklist.</li>
+  <li>Set a weekly report view (stage conversion, cycle time, win rate).</li>
+  <li>Enable reminders for overdue next steps.</li>
+  <li>Define a stale deal rule (e.g., 14 days no activity = review).</li>
+  <li>Assign owners for hygiene.</li>
+  <li>Use AI to draft a hygiene SOP.</li>
+</ul>
+<hr />
+<h2>Why It Matters</h2>
+<ul>
+  <li>Without hygiene, the forecast misleads.</li>
+  <li>Small daily cleanup is cheaper than monthly heavy cleanup.</li>
+  <li>Stale rules surface risk early.</li>
+</ul>
+<hr />
+<h2>Explanation</h2>
+<h3>Daily routine (10 minutes)</h3>
+<ul>
+  <li>Update overdue next steps.</li>
+  <li>Log new activity (call, meeting, email).</li>
+  <li>Change stage if needed.</li>
+</ul>
+<h3>Weekly routine</h3>
+<ul>
+  <li>Review stage conversions.</li>
+  <li>Check cycle time and bottlenecks.</li>
+  <li>Refresh top 5 lost reasons.</li>
+</ul>
+<h3>Automations</h3>
+<ul>
+  <li>Overdue next step alerts.</li>
+  <li>Stale deal report (14 days no activity).</li>
+  <li>Daily digest of missing updates.</li>
+</ul>
+<hr />
+<h2>Examples</h2>
+<p><strong>Good:</strong> Every morning 10 minutes: update next steps, stages, and log activity; weekly review with a dashboard.</p>
+<p><strong>Bad:</strong> Clean once a month; until then the pipeline is full of duplicates and expired tasks.</p>
+<hr />
+<h2>Guided Exercise (10–15 minutes)</h2>
+<ol>
+  <li>Write a daily checklist (max 5 items).</li>
+  <li>Enable reminders for overdue next steps.</li>
+  <li>Create a weekly report view (stage conversion, cycle time, win rate).</li>
+  <li>Set a stale rule (e.g., 14 days no activity).</li>
+</ol>
+<h2>Independent Exercise (5–10 minutes)</h2>
+<p>Apply the checklist on 5 deals; update next steps and stages.</p>
+<hr />
+<h2>Self-check</h2>
+<ul>
+  <li>Daily checklist exists.</li>
+  <li>Reminder is on.</li>
+  <li>Weekly report view exists.</li>
+  <li>Stale rule set and tested.</li>
+</ul>
+<hr />
+<h2>Optional Deep Dive</h2>
+<ul>
+  <li>CRM hygiene best practices: <a href="https://www.gong.io/blog/crm-data-cleanup/" target="_blank" rel="noreferrer">https://www.gong.io/blog/crm-data-cleanup/</a></li>
+  <li>HubSpot automation examples: <a href="https://knowledge.hubspot.com/workflows/use-workflows-to-manage-crm-data" target="_blank" rel="noreferrer">https://knowledge.hubspot.com/workflows/use-workflows-to-manage-crm-data</a></li>
+</ul>`,
+    emailSubject: 'B2B Sales 2026 – Day 24: CRM hygiene',
+    emailBody: `<h1>B2B Sales 2026 – Day 24</h1>
+<p>Adopt a 10-minute daily hygiene routine, a weekly report, and a stale rule so the pipeline stays accurate.</p>
+<p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Read the lesson →</a></p>`,
+    quiz: {
+      questions: [
+        {
+          question: 'What is the goal of the 10-minute routine?',
+          options: [
+            'Decoration',
+            'Keep the pipeline real',
+            'Launch marketing campaigns',
+            'Handle HR tasks',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'Typical stale rule threshold:',
+          options: [
+            '14 days with no activity → review',
+            '1 day no activity → immediate close',
+            '6 months no activity',
+            'No such thing',
+          ],
+          correctIndex: 0,
+        },
+        {
+          question: 'What goes in the weekly report?',
+          options: [
+            'Stage conversion, cycle time, win rate',
+            'Lunch menu',
+            'Office plants count',
+            'Only email volume',
+          ],
+          correctIndex: 0,
+        },
+        {
+          question: 'Bad example:',
+          options: [
+            'Cleaning once a month while everything expires',
+            'Updating next steps daily',
+            'Having reminders on',
+            'Having a stale rule',
+          ],
+          correctIndex: 0,
+        },
+      ],
+    },
+  },
+  {
+    day: 22,
     title: 'HubSpot: strengths and when to choose it',
     content: `<h1>HubSpot: strengths and when to choose it</h1>
 <p><em>Know when HubSpot is worth it over Pipedrive and how to start with a minimal setup.</em></p>
@@ -2679,6 +3035,684 @@ const lessons: LessonEntry[] = [
       ],
     },
   },
+  {
+    day: 25,
+    title: 'Proposal Structure: Decision-Ready Offer',
+    content: `<h1>Proposal Structure: Decision-Ready Offer</h1>
+<p><em>Write a one-page proposal that enables a decision: goal, scope, time, risk, proof, next step.</em></p>
+<hr />
+<h2>Learning Goal</h2>
+<ul>
+  <li>Draft a one-page proposal (goal, scope, time, risk, proof, next step).</li>
+  <li>Set 3 required CRM fields for the proposal stage.</li>
+  <li>Write a decision email template.</li>
+  <li>Create a red-flag list (what makes proposals slip).</li>
+  <li>Use AI to insert proof/summary blocks.</li>
+  <li>Define a review/signoff path.</li>
+</ul>
+<hr />
+<h2>Why It Matters</h2>
+<ul>
+  <li>A proposal is a decision doc, not a PDF dump.</li>
+  <li>Risk handling and clear next step reduce slip.</li>
+  <li>Strong structure shortens negotiation.</li>
+</ul>
+<hr />
+<h2>Explanation</h2>
+<h3>Core blocks</h3>
+<ul>
+  <li>Goal and expected impact.</li>
+  <li>Scope (in/out).</li>
+  <li>Timeline and milestones.</li>
+  <li>Pricing + discount rules (if any).</li>
+  <li>Risk handling (assumptions, exclusions).</li>
+  <li>Proof (numbers, short case).</li>
+  <li>Next step (decision email CTA).</li>
+</ul>
+<h3>Red flags</h3>
+<ul>
+  <li>No decision maker looped.</li>
+  <li>No risk/assumption section.</li>
+  <li>No next step or date.</li>
+</ul>
+<hr />
+<h2>Examples</h2>
+<p><strong>Bad:</strong> “Here’s the price, waiting for you.” – no goal/risk/next step.</p>
+<p><strong>Good:</strong> One-page decision doc with proof and a clear decision deadline.</p>
+<hr />
+<h2>Guided Exercise (10–15 minutes)</h2>
+<ol>
+  <li>Write the one-page proposal using the blocks.</li>
+  <li>Write the decision email template.</li>
+  <li>Set 3 required CRM fields (scope, decision date, next step).</li>
+</ol>
+<h2>Independent Exercise (5–10 minutes)</h2>
+<p>Apply to one live deal, send with the decision email.</p>
+<hr />
+<h2>Self-check</h2>
+<ul>
+  <li>Proposal draft ready.</li>
+  <li>Decision email template ready.</li>
+  <li>CRM fields set.</li>
+  <li>Applied to one deal.</li>
+</ul>
+<hr />
+<h2>Optional Deep Dive</h2>
+<ul>
+  <li>Proposal tips: <a href="https://www.gong.io/blog/sales-proposal/" target="_blank" rel="noreferrer">https://www.gong.io/blog/sales-proposal/</a></li>
+  <li>Value-based proposals: <a href="https://www.alexhormozi.com" target="_blank" rel="noreferrer">https://www.alexhormozi.com</a></li>
+</ul>`,
+    emailSubject: 'B2B Sales 2026 – Day 25: Proposal',
+    emailBody: `<h1>B2B Sales 2026 – Day 25</h1>
+<p>Write a decision-ready one-pager with proof and next step.</p>
+<p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Read the lesson →</a></p>`,
+    quiz: {
+      questions: [
+        {
+          question: 'Purpose of a decision-ready proposal?',
+          options: [
+            'Only list price',
+            'Enable a decision: goal, scope, risk, proof, next step',
+            'Entertain the buyer',
+            'Add length',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'Red flag?',
+          options: [
+            'No decision date/next step',
+            'Has proof points',
+            'Has scope',
+            'Has CTA',
+          ],
+          correctIndex: 0,
+        },
+        {
+          question: 'Required block?',
+          options: [
+            'Goal, scope, time, risk, proof, next step',
+            'Only colors',
+            'Only NDA',
+            'Only logo',
+          ],
+          correctIndex: 0,
+        },
+        {
+          question: 'Good CRM field for proposal stage?',
+          options: [
+            'Decision date',
+            'Avatar',
+            'Emoji',
+            'Favorite food',
+          ],
+          correctIndex: 0,
+        },
+      ],
+    },
+  },
+  {
+    day: 26,
+    title: 'Pricing 2026: Packaging and Value',
+    content: `<h1>Pricing 2026: Packaging and Value</h1>
+<p><em>Build value-based pricing: minimum package, add-ons, and discount guardrails.</em></p>
+<hr />
+<h2>Learning Goal</h2>
+<ul>
+  <li>Create 3 packages (good/better/best) or a minimum + add-on model.</li>
+  <li>Write discount rules (who, when, how much, approval).</li>
+  <li>Build a pricing calculator (base + options + time).</li>
+  <li>Link proof/ROI to price.</li>
+  <li>Use AI to generate justification snippets.</li>
+</ul>
+<hr />
+<h2>Why It Matters</h2>
+<ul>
+  <li>Ad-hoc pricing erodes trust and margin.</li>
+  <li>Packaging speeds decisions.</li>
+  <li>Guardrails protect profitability.</li>
+</ul>
+<hr />
+<h2>Explanation</h2>
+<h3>Model</h3>
+<ul>
+  <li>Minimum package: enough to succeed, not under-scoped.</li>
+  <li>Add-ons: support, integrations, onboarding.</li>
+  <li>Time: annual/quarterly with clear discount rules.</li>
+</ul>
+<h3>Discount rules</h3>
+<ul>
+  <li>Who can discount, under what conditions (e.g., annual, fast decision).</li>
+  <li>Approval path defined.</li>
+</ul>
+<hr />
+<h2>Examples</h2>
+<p><strong>Bad:</strong> Ad-hoc price every time.</p>
+<p><strong>Good:</strong> 3 packages, documented options, discount rules clear.</p>
+<hr />
+<h2>Guided Exercise (10–15 minutes)</h2>
+<ol>
+  <li>Write 3 packages or minimum + add-ons.</li>
+  <li>Write discount rules and approval flow.</li>
+  <li>Build a pricing calculator (sheet or CRM formula).</li>
+</ol>
+<h2>Independent Exercise (5–10 minutes)</h2>
+<p>Apply to one live deal, communicate the rules.</p>
+<hr />
+<h2>Self-check</h2>
+<ul>
+  <li>Packaging ready.</li>
+  <li>Discount rules ready.</li>
+  <li>Calculator built.</li>
+  <li>Applied to one deal.</li>
+</ul>
+<hr />
+<h2>Optional Deep Dive</h2>
+<ul>
+  <li>Value-based pricing: <a href="https://www.priceintelligently.com" target="_blank" rel="noreferrer">https://www.priceintelligently.com</a></li>
+  <li>Discount guardrails: <a href="https://www.gong.io/blog/discounting/" target="_blank" rel="noreferrer">https://www.gong.io/blog/discounting/</a></li>
+</ul>`,
+    emailSubject: 'B2B Sales 2026 – Day 26: Pricing',
+    emailBody: `<h1>B2B Sales 2026 – Day 26</h1>
+<p>Package your offer, set discount rules, and build a calculator.</p>
+<p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Read the lesson →</a></p>`,
+    quiz: {
+      questions: [
+        {
+          question: 'Why have discount rules?',
+          options: [
+            'Add colors',
+            'Protect margin and consistency',
+            'Marketing fun',
+            'HR reason',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'Minimum package principle?',
+          options: [
+            'Smallest price at all costs',
+            'Enough to succeed, not under-scoped',
+            'Always free',
+            'Only enterprise',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'Good add-on example?',
+          options: [
+            'Support tier, integrations, onboarding',
+            'Emoji pack',
+            'Free pens',
+            'No add-ons',
+          ],
+          correctIndex: 0,
+        },
+        {
+          question: 'Who can discount?',
+          options: [
+            'Anyone anytime',
+            'Defined approver per rules',
+            'Only marketing',
+            'Only support',
+          ],
+          correctIndex: 1,
+        },
+      ],
+    },
+  },
+  {
+    day: 27,
+    title: 'Procurement, Legal, and Security Questions',
+    content: `<h1>Procurement, Legal, and Security Questions</h1>
+<p><em>Assemble a “procurement pack” so the deal doesn’t slip in the last week.</em></p>
+<hr />
+<h2>Learning Goal</h2>
+<ul>
+  <li>List procurement pack items (security, DPA, SLA, billing, signing).</li>
+  <li>Prepare a one-page security/DPA summary.</li>
+  <li>Create a legal/security checklist for meetings.</li>
+  <li>Write an early-involvement template for legal/IT.</li>
+  <li>Flag typical red flags (data path, access, compliance).</li>
+  <li>Use AI to summarize policies.</li>
+</ul>
+<hr />
+<h2>Why It Matters</h2>
+<ul>
+  <li>Late legal/IT involvement causes slips.</li>
+  <li>Clear security info reduces risk perception.</li>
+  <li>Prepared pack speeds review.</li>
+</ul>
+<hr />
+<h2>Explanation</h2>
+<h3>Procurement pack minimum</h3>
+<ul>
+  <li>Security one-pager (data, hosting, access, audit).</li>
+  <li>DPA/SLA template.</li>
+  <li>Billing/contract terms.</li>
+  <li>Signature process (e-sign, contacts).</li>
+</ul>
+<h3>Involvement</h3>
+<ul>
+  <li>Call out legal/IT need during discovery.</li>
+  <li>Send the security one-pager early.</li>
+  <li>Book a review date.</li>
+</ul>
+<hr />
+<h2>Examples</h2>
+<p><strong>Bad:</strong> Only after the proposal you discover DPA/security review.</p>
+<p><strong>Good:</strong> Send the one-pager post-discovery and book legal/IT review.</p>
+<hr />
+<h2>Guided Exercise (10–15 minutes)</h2>
+<ol>
+  <li>Write your procurement pack list and fill what you have.</li>
+  <li>Draft a one-page security summary.</li>
+  <li>Write the involvement template for legal/IT.</li>
+</ol>
+<h2>Independent Exercise (5–10 minutes)</h2>
+<p>Send the one-pager on one live deal, book the review.</p>
+<hr />
+<h2>Self-check</h2>
+<ul>
+  <li>Procurement pack list ready.</li>
+  <li>Security one-pager ready.</li>
+  <li>Involvement template ready.</li>
+  <li>Applied on one deal.</li>
+</ul>
+<hr />
+<h2>Optional Deep Dive</h2>
+<ul>
+  <li>Security one-pager template: <a href="https://www.notion.so/InfoSec-One-Pager-Template" target="_blank" rel="noreferrer">https://www.notion.so/InfoSec-One-Pager-Template</a></li>
+  <li>DPA basics: <a href="https://gdpr.eu/data-processing-agreement/" target="_blank" rel="noreferrer">https://gdpr.eu/data-processing-agreement/</a></li>
+</ul>`,
+    emailSubject: 'B2B Sales 2026 – Day 27: Procurement pack',
+    emailBody: `<h1>B2B Sales 2026 – Day 27</h1>
+<p>Assemble a procurement pack and involve legal/IT early to avoid slips.</p>
+<p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Read the lesson →</a></p>`,
+    quiz: {
+      questions: [
+        {
+          question: 'Purpose of the procurement pack?',
+          options: [
+            'Decoration',
+            'Speed legal/IT review and reduce risk concerns',
+            'Marketing',
+            'HR',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'What do you send early?',
+          options: [
+            'Security one-pager + DPA/SLA template',
+            'Only price',
+            'Only logo',
+            'Only NDA',
+          ],
+          correctIndex: 0,
+        },
+        {
+          question: 'Bad example?',
+          options: [
+            'Discovering DPA need after the proposal',
+            'Sending one-pager post-discovery',
+            'Booking a review',
+            'Sharing checklist',
+          ],
+          correctIndex: 0,
+        },
+        {
+          question: 'What goes in the one-pager?',
+          options: [
+            'Data handling, hosting, access, audit',
+            'Only colors',
+            'Marketing photo',
+            'HR policy',
+          ],
+          correctIndex: 0,
+        },
+      ],
+    },
+  },
+  {
+    day: 28,
+    title: 'Objection Handling: Patterns and Probing',
+    content: `<h1>Objection Handling: Patterns and Probing</h1>
+<p><em>Use a 3-step flow: clarify, find cause, answer with proof or alternative.</em></p>
+<hr />
+<h2>Learning Goal</h2>
+<ul>
+  <li>Write 5 common objections with 3-step responses.</li>
+  <li>Create probing questions (“What exactly worries you?”).</li>
+  <li>Link proof points per objection.</li>
+  <li>Use AI to draft alternative offers fast.</li>
+  <li>Code lost reasons in the CRM.</li>
+</ul>
+<hr />
+<h2>Why It Matters</h2>
+<ul>
+  <li>Objections are often requests for clarity.</li>
+  <li>Structured replies speed decisions.</li>
+  <li>Coded lost reasons drive learning.</li>
+</ul>
+<hr />
+<h2>Explanation</h2>
+<h3>3 steps</h3>
+<ul>
+  <li>Clarify: “What exactly is the concern?”</li>
+  <li>Cause: cost, time, risk, priority?</li>
+  <li>Answer: proof or swap (scope/time/price) or counter-proposal.</li>
+</ul>
+<h3>Typical objections</h3>
+<ul>
+  <li>Too expensive → value + proof + smaller scope.</li>
+  <li>No time → roadmap + pilot.</li>
+  <li>Security → security pack.</li>
+  <li>Priority → impact/proof, timed next step.</li>
+</ul>
+<hr />
+<h2>Examples</h2>
+<p><strong>Bad:</strong> “Ok, 20% off” without clarifying.</p>
+<p><strong>Good:</strong> Clarify → cause → proof or scoped offer.</p>
+<hr />
+<h2>Guided Exercise (10–15 minutes)</h2>
+<ol>
+  <li>Write 5 objections and 3-step responses.</li>
+  <li>Write probing lines.</li>
+  <li>Attach proof points.</li>
+</ol>
+<h2>Independent Exercise (5–10 minutes)</h2>
+<p>Answer 2 real objections with the template; code lost reason if lost.</p>
+<hr />
+<h2>Self-check</h2>
+<ul>
+  <li>5 objections + responses ready.</li>
+  <li>Probing template ready.</li>
+  <li>Proof linked.</li>
+  <li>Lost reasons coded.</li>
+</ul>
+<hr />
+<h2>Optional Deep Dive</h2>
+<ul>
+  <li>Objection handling: <a href="https://www.gong.io/blog/objection-handling/" target="_blank" rel="noreferrer">https://www.gong.io/blog/objection-handling/</a></li>
+  <li>Challenger: <a href="https://www.challengerinc.com/resources/" target="_blank" rel="noreferrer">https://www.challengerinc.com/resources/</a></li>
+</ul>`,
+    emailSubject: 'B2B Sales 2026 – Day 28: Objections',
+    emailBody: `<h1>B2B Sales 2026 – Day 28</h1>
+<p>Practice the 3-step objection flow with proof and alternatives.</p>
+<p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Read the lesson →</a></p>`,
+    quiz: {
+      questions: [
+        {
+          question: 'First step of the 3-step flow?',
+          options: [
+            'Immediate discount',
+            'Clarify the concern',
+            'Argue on price',
+            'Send NDA',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'Bad example?',
+          options: [
+            'Discount without clarifying',
+            'Clarify → cause → proof/swap',
+            'Code lost reason',
+            'Use proof',
+          ],
+          correctIndex: 0,
+        },
+        {
+          question: 'Why code lost reasons?',
+          options: [
+            'Decoration',
+            'Learn from trends',
+            'HR',
+            'Marketing',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'Typical response to “too expensive”?',
+          options: [
+            'Proof + smaller scope or conditional discount',
+            'Huge discount instantly',
+            'No answer',
+            'Change subject',
+          ],
+          correctIndex: 0,
+        },
+      ],
+    },
+  },
+  {
+    day: 29,
+    title: 'Closing: Decision and Next Step',
+    content: `<h1>Closing: Decision and Next Step</h1>
+<p><em>Create a close checklist and decision email so the decision path is clear.</em></p>
+<hr />
+<h2>Learning Goal</h2>
+<ul>
+  <li>Write a close checklist (decision maker, risk, next step, signature path).</li>
+  <li>Write a decision email template.</li>
+  <li>Define signature process (e-sign, owners).</li>
+  <li>Set go/no-go criteria.</li>
+  <li>Use AI to summarize the deal before decision.</li>
+</ul>
+<hr />
+<h2>Why It Matters</h2>
+<ul>
+  <li>Closing is decision leadership, not price haggling.</li>
+  <li>Without a clear next step, deals slip.</li>
+  <li>Summary + decision email accelerates signoff.</li>
+</ul>
+<hr />
+<h2>Explanation</h2>
+<h3>Close checklist</h3>
+<ul>
+  <li>Decision maker confirmed.</li>
+  <li>Procurement pack shared/accepted.</li>
+  <li>Risks handled (security, scope).</li>
+  <li>Signature process + date + owners.</li>
+  <li>Next step (kickoff date).</li>
+</ul>
+<h3>Decision email template</h3>
+<ul>
+  <li>Summary: goal, scope, price, time.</li>
+  <li>Risk handling recap.</li>
+  <li>Next step + decision deadline.</li>
+</ul>
+<hr />
+<h2>Examples</h2>
+<p><strong>Bad:</strong> “Sent the proposal, waiting.”</p>
+<p><strong>Good:</strong> Summary + decision email + signature path + kickoff date.</p>
+<hr />
+<h2>Guided Exercise (10–15 minutes)</h2>
+<ol>
+  <li>Write the close checklist and decision email.</li>
+  <li>Set the signature path (e-sign tool, owners).</li>
+  <li>Apply to one active deal.</li>
+</ol>
+<h2>Independent Exercise (5–10 minutes)</h2>
+<p>Send the decision email, agree on signature date, log it.</p>
+<hr />
+<h2>Self-check</h2>
+<ul>
+  <li>Close checklist exists.</li>
+  <li>Decision email ready.</li>
+  <li>Signature path clear.</li>
+  <li>Applied to one deal.</li>
+</ul>
+<hr />
+<h2>Optional Deep Dive</h2>
+<ul>
+  <li>Closing techniques: <a href="https://www.gong.io/blog/closing-sales-techniques/" target="_blank" rel="noreferrer">https://www.gong.io/blog/closing-sales-techniques/</a></li>
+  <li>Decision email example: <a href="https://www.gong.io/blog/sales-follow-up-email/" target="_blank" rel="noreferrer">https://www.gong.io/blog/sales-follow-up-email/</a></li>
+</ul>`,
+    emailSubject: 'B2B Sales 2026 – Day 29: Closing',
+    emailBody: `<h1>B2B Sales 2026 – Day 29</h1>
+<p>Create a close checklist and decision email; make the signature path clear.</p>
+<p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Read the lesson →</a></p>`,
+    quiz: {
+      questions: [
+        {
+          question: 'Closing focuses on?',
+          options: [
+            'Price cuts only',
+            'Decision leadership, risk handling, next step',
+            'Marketing',
+            'HR',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'Decision email contains?',
+          options: [
+            'Summary + risk + next step + deadline',
+            'Only price',
+            'Only logo',
+            'Only NDA',
+          ],
+          correctIndex: 0,
+        },
+        {
+          question: 'Bad example?',
+          options: [
+            '“Sent proposal, waiting.”',
+            'Summary + deadline',
+            'Kickoff date set',
+            'Signature path clear',
+          ],
+          correctIndex: 0,
+        },
+        {
+          question: 'Close checklist includes?',
+          options: [
+            'Decision maker, risk, signature path, next step',
+            'Emoji',
+            'Only price',
+            'Only marketing',
+          ],
+          correctIndex: 0,
+        },
+      ],
+    },
+  },
+  {
+    day: 30,
+    title: 'Capstone Sprint: Full B2B Sales Loop',
+    content: `<h1>Capstone Sprint: Full B2B Sales Loop</h1>
+<p><em>Run the full loop on a real account: research, outreach, qualification, discovery, next step, CRM update, proposal draft.</em></p>
+<hr />
+<h2>Learning Goal</h2>
+<ul>
+  <li>Select 10 SMB or 3 enterprise accounts.</li>
+  <li>Run the full process on at least one account.</li>
+  <li>Create a capstone report (goal, what happened, next step).</li>
+  <li>Deliverables: account brief, outreach log, discovery notes, qualification decision, proposal draft, 14-day backlog.</li>
+  <li>Measure: reply, meeting, stage conversion, next step rate.</li>
+</ul>
+<hr />
+<h2>Why It Matters</h2>
+<ul>
+  <li>Systems prove themselves in reality.</li>
+  <li>Capstone shows bottlenecks.</li>
+  <li>Prepares your next 2-week improvements.</li>
+</ul>
+<hr />
+<h2>Explanation</h2>
+<h3>Mandatory steps</h3>
+<ul>
+  <li>Research + ICP fit logged.</li>
+  <li>Outreach sequence and log.</li>
+  <li>Qualification decision (yes/no, why).</li>
+  <li>Discovery notes + next step.</li>
+  <li>Pipeline update, risk flagged.</li>
+  <li>Proposal draft if relevant.</li>
+</ul>
+<h3>Capstone report</h3>
+<ul>
+  <li>Goal, actions, result.</li>
+  <li>Where it stalled and why.</li>
+  <li>What you change next.</li>
+</ul>
+<hr />
+<h2>Examples</h2>
+<p><strong>Good:</strong> One account fully run, report + backlog done.</p>
+<p><strong>Bad:</strong> Only reading, no execution.</p>
+<hr />
+<h2>Guided Exercise (10–15 minutes)</h2>
+<ol>
+  <li>Pick accounts and mark ICP fit.</li>
+  <li>Write outreach and log it.</li>
+  <li>Run one full loop, document every step.</li>
+</ol>
+<h2>Independent Exercise (5–10 minutes)</h2>
+<p>Write the capstone report and 14-day backlog.</p>
+<hr />
+<h2>Self-check</h2>
+<ul>
+  <li>One full loop done.</li>
+  <li>Report and backlog ready.</li>
+  <li>Pipeline and notes updated.</li>
+  <li>Next 2-week plan set.</li>
+</ul>
+<hr />
+<h2>Optional Deep Dive</h2>
+<ul>
+  <li>Sales retro: <a href="https://www.gong.io/blog/sales-retrospective/" target="_blank" rel="noreferrer">https://www.gong.io/blog/sales-retrospective/</a></li>
+  <li>Outreach cadence tips: <a href="https://www.saleshacker.com/sales-cadence/" target="_blank" rel="noreferrer">https://www.saleshacker.com/sales-cadence/</a></li>
+</ul>`,
+    emailSubject: 'B2B Sales 2026 – Day 30: Capstone',
+    emailBody: `<h1>B2B Sales 2026 – Day 30</h1>
+<p>Run a real account through the full loop, then write the report and backlog.</p>
+<p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Read the lesson →</a></p>`,
+    quiz: {
+      questions: [
+        {
+          question: 'Main goal of capstone?',
+          options: [
+            'Reading only',
+            'Run a real process and document it',
+            'Marketing',
+            'HR',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'Mandatory deliverable?',
+          options: [
+            'Account brief, outreach log, discovery notes, qualification decision',
+            'Only logo',
+            'Only NDA',
+            'Only price',
+          ],
+          correctIndex: 0,
+        },
+        {
+          question: 'Why write a report?',
+          options: [
+            'Decoration',
+            'Extract lessons and next steps',
+            'HR',
+            'Marketing',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'Bad example?',
+          options: [
+            'Not running the process, only reading',
+            'Documenting and running',
+            'Writing backlog',
+            'Flagging risks',
+          ],
+          correctIndex: 0,
+        },
+      ],
+    },
+  },
 ];
 
 async function main() {
@@ -2777,7 +3811,7 @@ async function main() {
 
   await mongoose.disconnect();
   // eslint-disable-next-line no-console
-  console.log('Seeded B2B Sales 2026 Masterclass (EN) with first 24 lessons.');
+  console.log('Seeded B2B Sales 2026 Masterclass (EN) with first 30 lessons.');
 }
 
 main().catch((err) => {
