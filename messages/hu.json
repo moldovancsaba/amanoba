@@ -217,7 +217,7 @@
     "quizRequired": "{{threshold}}% szükséges az átmenethez.",
     "takeQuiz": "Kitöltöm a kvízt",
     "question": "Kérdés",
-    "questionProgress": "Kérdés {{current}} / {{total}}",
+    "questionProgress": "Kérdés: {{current}} / {{total}}",
     "backToLesson": "Vissza a leckéhez",
     "quizSupportiveRetry": "Most nem talált. Nézzük át újra a leckét, aztán próbáld meg ismét.",
     "quizCorrect": "Helyes válasz, szép munka! 🚀",
