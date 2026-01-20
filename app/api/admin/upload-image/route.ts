@@ -9,6 +9,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { auth } from '@/auth';
 import { uploadToImgBB, fileToBase64 } from '@/lib/utils/imgbb';
 import { logger } from '@/lib/logger';
+import { requireAdmin } from '@/lib/rbac';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
