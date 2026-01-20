@@ -25,6 +25,16 @@ export const dynamic = 'force-dynamic';
  */
 export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url);
+  const url = new URL(request.url);
+  
+  // Extract locale from URL path (e.g., /hu/api/auth/sso/callback or /en/api/auth/sso/callback)
+  // Default to 'hu' if not found
+  let locale = 'hu';
+  const pathParts = url.pathname.split('/').filter(Boolean);
+  if (pathParts.length > 0 && (pathParts[0] === 'hu' || pathParts[0] === 'en')) {
+    locale = pathParts[0];
+  }
+  
   try {
     const code = searchParams.get('code');
     const state = searchParams.get('state');
@@ -34,14 +44,14 @@ export async function GET(request: NextRequest) {
     if (error) {
       logger.warn({ error, errorDescription: searchParams.get('error_description') }, 'SSO provider returned error');
       return NextResponse.redirect(
-        new URL(`/auth/signin?error=${encodeURIComponent(error)}`, request.url)
+        new URL(`/${locale}/auth/signin?error=${encodeURIComponent(error)}`, request.url)
       );
     }
 
     if (!code || !state) {
       logger.warn({ hasCode: !!code, hasState: !!state }, 'Missing required SSO callback parameters');
       return NextResponse.redirect(
-        new URL('/auth/signin?error=invalid_request', request.url)
+        new URL(`/${locale}/auth/signin?error=invalid_request`, request.url)
       );
     }
 
@@ -53,7 +63,7 @@ export async function GET(request: NextRequest) {
     if (!storedState || storedState !== state) {
       logger.warn({ state, storedState: !!storedState }, 'SSO state mismatch - possible CSRF attack');
       return NextResponse.redirect(
-        new URL('/auth/signin?error=invalid_state', request.url)
+        new URL(`/${locale}/auth/signin?error=invalid_state`, request.url)
       );
     }
 
@@ -66,7 +76,7 @@ export async function GET(request: NextRequest) {
     if (!tokenUrl || !clientId || !clientSecret) {
       logger.error({}, 'SSO token exchange configuration missing');
       return NextResponse.redirect(
-        new URL('/auth/signin?error=configuration_error', request.url)
+        new URL(`/${locale}/auth/signin?error=configuration_error`, request.url)
       );
     }
 
@@ -93,7 +103,7 @@ export async function GET(request: NextRequest) {
         'Failed to exchange SSO authorization code for tokens'
       );
       return NextResponse.redirect(
-        new URL('/auth/signin?error=token_exchange_failed', request.url)
+        new URL(`/${locale}/auth/signin?error=token_exchange_failed`, request.url)
       );
     }
 
@@ -103,7 +113,7 @@ export async function GET(request: NextRequest) {
     if (!idToken) {
       logger.error({ tokenData: Object.keys(tokenData) }, 'SSO token response missing id_token');
       return NextResponse.redirect(
-        new URL('/auth/signin?error=missing_token', request.url)
+        new URL(`/${locale}/auth/signin?error=missing_token`, request.url)
       );
     }
 
@@ -114,7 +124,7 @@ export async function GET(request: NextRequest) {
       if (!claims) {
         logger.error({ tokenLength: idToken?.length }, 'SSO token validation returned null');
         return NextResponse.redirect(
-          new URL('/auth/signin?error=token_validation_failed', request.url)
+          new URL(`/${locale}/auth/signin?error=token_validation_failed`, request.url)
         );
       }
     } catch (tokenError) {
@@ -128,7 +138,7 @@ export async function GET(request: NextRequest) {
         'SSO token validation threw exception'
       );
       return NextResponse.redirect(
-        new URL('/auth/signin?error=token_validation_failed', request.url)
+        new URL(`/${locale}/auth/signin?error=token_validation_failed`, request.url)
       );
     }
 
@@ -158,7 +168,7 @@ export async function GET(request: NextRequest) {
           'SSO nonce mismatch'
         );
         return NextResponse.redirect(
-          new URL('/auth/signin?error=invalid_nonce', request.url)
+          new URL(`/${locale}/auth/signin?error=invalid_nonce`, request.url)
         );
       }
       logger.info({}, 'SSO nonce validated successfully');
@@ -185,7 +195,7 @@ export async function GET(request: NextRequest) {
         'Failed to extract user info from SSO claims'
       );
       return NextResponse.redirect(
-        new URL('/auth/signin?error=user_info_extraction_failed', request.url)
+        new URL(`/${locale}/auth/signin?error=user_info_extraction_failed`, request.url)
       );
     }
     
@@ -208,7 +218,7 @@ export async function GET(request: NextRequest) {
         'Failed to connect to database during SSO callback'
       );
       return NextResponse.redirect(
-        new URL('/auth/signin?error=database_error', request.url)
+        new URL(`/${locale}/auth/signin?error=database_error`, request.url)
       );
     }
 
@@ -217,7 +227,7 @@ export async function GET(request: NextRequest) {
     if (!defaultBrand) {
       logger.error({}, 'Default brand not found');
       return NextResponse.redirect(
-        new URL('/auth/signin?error=brand_not_found', request.url)
+        new URL(`/${locale}/auth/signin?error=brand_not_found`, request.url)
       );
     }
 
@@ -395,7 +405,7 @@ export async function GET(request: NextRequest) {
         'Failed to call signIn - exception thrown'
       );
       return NextResponse.redirect(
-        new URL('/auth/signin?error=session_creation_failed', request.url)
+        new URL(`/${locale}/auth/signin?error=session_creation_failed`, request.url)
       );
     }
     
@@ -408,23 +418,42 @@ export async function GET(request: NextRequest) {
     if (!signInResult || signInResult.error) {
       logger.error({ error: signInResult?.error }, 'Failed to create NextAuth session after SSO login');
       return NextResponse.redirect(
-        new URL('/auth/signin?error=session_creation_failed', request.url)
+        new URL(`/${locale}/auth/signin?error=session_creation_failed`, request.url)
       );
     }
 
     // Clear SSO cookies
-    const response = NextResponse.redirect(new URL(returnTo, request.url));
+    // Ensure returnTo has locale prefix if it's a relative path
+    let finalReturnTo = returnTo;
+    if (returnTo.startsWith('/') && !returnTo.startsWith(`/${locale}/`) && returnTo !== '/') {
+      // Add locale prefix to relative paths
+      finalReturnTo = `/${locale}${returnTo}`;
+    }
+    
+    const response = NextResponse.redirect(new URL(finalReturnTo, request.url));
     response.cookies.delete('sso_state');
     response.cookies.delete('sso_nonce');
     response.cookies.delete('sso_return_to');
 
-    logger.info({ playerId: player._id, returnTo }, 'SSO login completed successfully');
+    logger.info({ playerId: player._id, returnTo: finalReturnTo }, 'SSO login completed successfully');
 
     return response;
   } catch (error) {
     const errorMessage = error instanceof Error ? error.message : String(error);
     const errorStack = error instanceof Error ? error.stack : undefined;
     const errorName = error instanceof Error ? error.name : undefined;
+    
+    // Extract locale from URL if not already extracted
+    let errorLocale = locale;
+    if (!errorLocale) {
+      const url = new URL(request.url);
+      const pathParts = url.pathname.split('/').filter(Boolean);
+      if (pathParts.length > 0 && (pathParts[0] === 'hu' || pathParts[0] === 'en')) {
+        errorLocale = pathParts[0];
+      } else {
+        errorLocale = 'hu'; // Default fallback
+      }
+    }
     
     logger.error(
       {
@@ -435,6 +464,7 @@ export async function GET(request: NextRequest) {
         url: request.url,
         hasCode: !!searchParams.get('code'),
         hasState: !!searchParams.get('state'),
+        locale: errorLocale,
       },
       'SSO callback error - detailed error information'
     );
@@ -450,7 +480,7 @@ export async function GET(request: NextRequest) {
     }
     
     return NextResponse.redirect(
-      new URL(`/auth/signin?error=${errorCode}`, request.url)
+      new URL(`/${errorLocale}/auth/signin?error=${errorCode}`, request.url)
     );
   }
 }
