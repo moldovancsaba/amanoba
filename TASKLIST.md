@@ -1,7 +1,7 @@
 # Amanoba Task List
 
-**Version**: 2.8.0  
-**Last Updated**: 2025-01-20T23:00:00.000Z
+**Version**: 2.9.0  
+**Last Updated**: 2025-01-21T09:00:00.000Z
 
 ---
 
@@ -155,6 +155,21 @@ Tasks are listed in priority order. Upon completion, tasks are moved to RELEASE_
 | MOB6 | Dashboard/Stats cards: convert grids to single-column on <640px; increase card spacing; ensure charts are readable on mobile; adjust `app/[locale]/dashboard/page.tsx` and `app/[locale]/stats/page.tsx` | AI | TBD | 🟡 IN PROGRESS |
 | MOB7 | Forms & onboarding: full-width inputs/buttons, label-above pattern, 16px padding, concise error messages in `app/[locale]/onboarding/page.tsx` and shared form styles | AI | TBD | 🟡 IN PROGRESS |
 | MOB8 | Media & performance: constrain hero/media heights, lazy-load images, avoid heavy shadows on mobile; audit shared hero components and course detail hero usage | AI | TBD | ⏳ PENDING |
+
+---
+
+## 🎨 UI Consistency: CTA Yellow Exclusivity
+
+**Goal**: Yellow is used only on true CTA buttons; no non-interactive element may mimic CTA styling.  
+**Rule**: If it’s not a CTA button, it must not use the CTA yellow background/hover/shadow/cursor.
+
+| ID | Task | Owner | Expected Delivery | Status |
+|----|------|-------|-------------------|--------|
+| CTA1 | Define CTA tokens (`--cta-bg`, `--cta-text`, `--cta-hover`) in global theme; document in design rules | AI | TBD | ⏳ PENDING |
+| CTA2 | Audit all yellow usage across CSS/components; classify each instance as CTA vs non-CTA; produce short list of offenders (TOC numbers, badges, highlights, cards, chips, icons) | AI | TBD | ⏳ PENDING |
+| CTA3 | Remove yellow from non-CTA elements; restyle offenders to neutral/secondary palette; ensure TOC numbering is clearly non-clickable (no yellow bg, no button padding/hover/cursor) | AI | TBD | ⏳ PENDING |
+| CTA4 | Enforce button affordance rules: only CTA buttons get yellow bg + hover/active + pointer cursor + button shadow; strip these from non-interactive elements globally | AI | TBD | ⏳ PENDING |
+| CTA5 | Regression sweep: visually check key pages—if it’s yellow, it’s a CTA button; add note to UI guidelines documenting the yellow exclusivity rule | AI | TBD | ⏳ PENDING |
 
 ---
 

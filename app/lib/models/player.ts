@@ -13,14 +13,16 @@ import mongoose, { Schema, Document, Model } from 'mongoose';
  * Why: TypeScript type safety for Player documents
  */
 export interface IPlayer extends Document {
-  facebookId?: string;
-  ssoSub?: string; // SSO subject identifier (OIDC sub)
+  facebookId?: string; // Optional for SSO users
+  ssoSub?: string; // SSO subject identifier (unique identifier from SSO provider)
   displayName: string;
   email?: string;
   profilePicture?: string;
   isPremium: boolean;
   premiumExpiresAt?: Date;
   isAnonymous: boolean; // Guest account flag
+  authProvider: 'facebook' | 'sso' | 'anonymous'; // Authentication provider
+  role: 'user' | 'admin'; // User role for access control
   brandId: mongoose.Types.ObjectId;
   locale: string;
   timezone?: string;
@@ -30,8 +32,6 @@ export interface IPlayer extends Document {
   isBanned: boolean;
   banReason?: string;
   bannedAt?: Date;
-  role: 'user' | 'admin';
-  authProvider: 'facebook' | 'sso' | 'anonymous';
   emailPreferences?: {
     receiveLessonEmails: boolean;
     emailFrequency: 'daily' | 'weekly' | 'never';
@@ -41,6 +41,9 @@ export interface IPlayer extends Document {
   unsubscribeToken?: string; // Token for one-click unsubscribe from emails
   stripeCustomerId?: string; // Stripe Customer ID for payment processing
   paymentHistory?: mongoose.Types.ObjectId[]; // References to PaymentTransaction documents
+  surveyCompleted?: boolean; // Whether player has completed onboarding survey
+  skillLevel?: 'beginner' | 'intermediate' | 'advanced'; // Skill level from survey
+  interests?: string[]; // Interests/topics from survey (for course recommendations)
   metadata?: Record<string, unknown>;
   createdAt: Date;
   updatedAt: Date;
@@ -54,23 +57,42 @@ export interface IPlayer extends Document {
 const PlayerSchema = new Schema<IPlayer>(
   {
     // Facebook ID for authentication
-    // Why: Primary authentication method, unique identifier
+    // Why: Legacy authentication method, now optional for SSO migration
     facebookId: {
       type: String,
-      required: false, // Optional to support SSO users
+      required: false, // Made optional to support SSO users
       unique: true,
-      sparse: true, // Allow null/undefined values during migration and for SSO-only users
+      sparse: true, // Allows null for SSO users
       trim: true,
       index: true,
     },
 
     // SSO subject identifier
-    // Why: Link users authenticated via sso.doneisbetter.com
+    // Why: Unique identifier from SSO provider (OIDC 'sub' claim)
     ssoSub: {
       type: String,
+      required: false,
       unique: true,
-      sparse: true, // Allow existing Facebook-only users to remain valid
+      sparse: true, // Allows null for Facebook/anonymous users
       trim: true,
+      index: true,
+    },
+
+    // Authentication provider
+    // Why: Track which authentication method was used (for migration and analytics)
+    authProvider: {
+      type: String,
+      enum: ['facebook', 'sso', 'anonymous'],
+      default: 'facebook',
+      index: true,
+    },
+
+    // User role for access control
+    // Why: Determines access to admin features and protected resources
+    role: {
+      type: String,
+      enum: ['user', 'admin'],
+      default: 'user',
       index: true,
     },
 
@@ -163,24 +185,6 @@ const PlayerSchema = new Schema<IPlayer>(
       index: true,
     },
 
-    // Auth provider used to create the account
-    // Why: Enables RBAC + SSO coexistence and auditing
-    authProvider: {
-      type: String,
-      enum: ['facebook', 'sso', 'anonymous'],
-      default: 'facebook',
-      index: true,
-    },
-
-    // Role for RBAC
-    // Why: Admin access gating
-    role: {
-      type: String,
-      enum: ['user', 'admin'],
-      default: 'user',
-      index: true,
-    },
-
     // Active account status
     // Why: Soft delete - deactivate without losing data
     isActive: {
@@ -263,6 +267,30 @@ const PlayerSchema = new Schema<IPlayer>(
       // Why: Array of PaymentTransaction IDs for quick access (can be populated for performance)
     },
 
+    // Survey completion status
+    // Why: Track whether player has completed onboarding survey
+    surveyCompleted: {
+      type: Boolean,
+      default: false,
+      index: true,
+    },
+
+    // Skill level from survey
+    // Why: Used for course recommendations and email segmentation
+    skillLevel: {
+      type: String,
+      enum: ['beginner', 'intermediate', 'advanced'],
+      index: true,
+    },
+
+    // Interests/topics from survey
+    // Why: Used for course recommendations based on player interests
+    interests: {
+      type: [String],
+      default: [],
+      index: true,
+    },
+
     // Flexible metadata field for player-specific data
     // Why: Allows storing additional player info without schema changes
     metadata: {
@@ -286,9 +314,10 @@ const PlayerSchema = new Schema<IPlayer>(
 );
 
 // Indexes for efficient querying
-// Why: Players are queried frequently by facebookId, brand, premium status
+// Why: Players are queried frequently by facebookId, ssoSub, brand, premium status, role
 
-PlayerSchema.index({ facebookId: 1 }, { name: 'player_facebook_id_unique', unique: true });
+PlayerSchema.index({ facebookId: 1 }, { name: 'player_facebook_id_unique', unique: true, sparse: true });
+PlayerSchema.index({ ssoSub: 1 }, { name: 'player_sso_sub_unique', unique: true, sparse: true });
 PlayerSchema.index({ brandId: 1 }, { name: 'player_brand' });
 PlayerSchema.index({ isPremium: 1 }, { name: 'player_premium' });
 PlayerSchema.index({ email: 1 }, { name: 'player_email', sparse: true });
@@ -298,18 +327,36 @@ PlayerSchema.index({ lastLoginAt: 1 }, { name: 'player_last_login' });
 PlayerSchema.index({ brandId: 1, isPremium: 1 }, { name: 'player_brand_premium' });
 PlayerSchema.index({ unsubscribeToken: 1 }, { name: 'player_unsubscribe_token', sparse: true });
 PlayerSchema.index({ stripeCustomerId: 1 }, { name: 'player_stripe_customer', sparse: true });
-PlayerSchema.index({ ssoSub: 1 }, { name: 'player_sso_sub', sparse: true });
-PlayerSchema.index({ authProvider: 1, role: 1 }, { name: 'player_auth_role' });
+PlayerSchema.index({ authProvider: 1, role: 1 }, { name: 'player_auth_provider_role' });
+PlayerSchema.index({ role: 1 }, { name: 'player_role' });
 
 /**
- * Pre-save hook to check premium expiration
+ * Pre-save hook to validate authentication identifiers and check premium expiration
  * 
- * Why: Automatically set isPremium to false if expired
+ * Why: Ensure at least one auth identifier exists (facebookId or ssoSub) and auto-expire premium
  */
 PlayerSchema.pre('save', function (next) {
+  // Validate: At least one auth identifier must exist (unless anonymous)
+  if (!this.isAnonymous && !this.facebookId && !this.ssoSub) {
+    return next(new Error('Player must have either facebookId or ssoSub (unless anonymous)'));
+  }
+
+  // Auto-expire premium if expired
   if (this.premiumExpiresAt && this.premiumExpiresAt < new Date()) {
     this.isPremium = false;
   }
+
+  // Ensure authProvider matches the available identifier
+  if (!this.isAnonymous) {
+    if (this.ssoSub && this.authProvider !== 'sso') {
+      this.authProvider = 'sso';
+    } else if (this.facebookId && !this.ssoSub && this.authProvider !== 'facebook') {
+      this.authProvider = 'facebook';
+    }
+  } else {
+    this.authProvider = 'anonymous';
+  }
+
   next();
 });
 
@@ -321,20 +368,6 @@ PlayerSchema.pre('save', function (next) {
 PlayerSchema.virtual('hasPremiumExpired').get(function () {
   if (!this.premiumExpiresAt) return false;
   return this.premiumExpiresAt < new Date();
-});
-
-/**
- * Validation hook to ensure at least one auth identifier is present
- * 
- * Why: Prevent orphaned accounts without any login identifier
- */
-PlayerSchema.pre('validate', function (next) {
-  const hasIdentifier = Boolean(this.facebookId) || Boolean(this.ssoSub);
-  if (!hasIdentifier) {
-    next(new Error('Player must have at least one authentication identifier (facebookId or ssoSub)'));
-    return;
-  }
-  next();
 });
 
 /**
