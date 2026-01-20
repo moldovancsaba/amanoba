@@ -237,7 +237,8 @@ export async function GET(request: NextRequest) {
     logger.info({
       sub: userInfo.sub,
       email: userInfo.email,
-      role: userInfo.role
+      role: userInfo.role,
+      roleSource: 'extracted_from_claims'
     }, 'DEBUG: Extracted user info from claims');
 
     try {
@@ -282,7 +283,8 @@ export async function GET(request: NextRequest) {
         ssoSub: userInfo.sub,
         oldRole: player.role,
         newRole: userInfo.role,
-        willSave: userInfo.role
+        willSave: userInfo.role,
+        roleChanged: player.role !== userInfo.role
       }, 'DEBUG: Updating existing player role');
       
       await player.save();
@@ -290,8 +292,10 @@ export async function GET(request: NextRequest) {
       logger.info({ 
         playerId: player._id, 
         ssoSub: userInfo.sub,
-        savedRole: player.role
-      }, 'SSO player logged in and saved');
+        savedRole: player.role,
+        expectedRole: userInfo.role,
+        roleMatch: player.role === userInfo.role
+      }, 'SSO player logged in and saved - verifying role');
       
       // Log login event
       await logAuthEvent(

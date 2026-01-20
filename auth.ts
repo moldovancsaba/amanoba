@@ -211,6 +211,16 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
       // Why: Role may change in database, so we need to refresh it on every request
       const playerId = user?.id || token.id;
       
+      // On initial sign in, use role from user object if available (from credentials provider)
+      // This is important for SSO where role is passed explicitly
+      if (user && user.id && (user as any).role) {
+        token.id = user.id;
+        token.role = (user as any).role as 'user' | 'admin';
+        token.authProvider = (user as any).authProvider || 'facebook';
+        token.isAnonymous = (user as any).isAnonymous || false;
+        logger.info({ playerId: user.id, role: token.role, source: 'user_object' }, 'JWT: Using role from user object (initial sign in)');
+      }
+      
       if (playerId) {
         try {
           await connectDB();
@@ -219,25 +229,41 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
           if (player) {
             token.id = playerId as string;
             // Always refresh role from database to ensure it's up-to-date
-            token.role = (player.role as 'user' | 'admin') || 'user';
+            // This ensures role changes in DB are reflected in session
+            const dbRole = (player.role as 'user' | 'admin') || 'user';
+            token.role = dbRole;
             token.authProvider = (player.authProvider as 'facebook' | 'sso' | 'anonymous') || 'facebook';
             token.facebookId = player.facebookId || null;
             token.ssoSub = player.ssoSub || null;
             token.locale = player.locale || 'en';
             token.isAnonymous = player.isAnonymous || false;
-          } else if (user && user.id) {
+            
+            // Log role source for debugging
+            if (user && (user as any).role && dbRole !== (user as any).role) {
+              logger.warn(
+                { 
+                  playerId, 
+                  userRole: (user as any).role, 
+                  dbRole,
+                  source: 'database_override'
+                }, 
+                'JWT: Role from database differs from user object - using database role'
+              );
+            }
+          } else if (user && user.id && !token.role) {
             // Initial sign in - player not found yet (shouldn't happen, but handle gracefully)
             token.id = user.id;
-            token.role = 'user';
+            token.role = (user as any).role || 'user';
             token.authProvider = (user as any).authProvider || 'facebook';
             token.isAnonymous = (user as any).isAnonymous || false;
+            logger.warn({ playerId: user.id }, 'JWT: Player not found in database, using user object role');
           }
         } catch (error) {
           logger.error({ error, playerId }, 'Failed to fetch player in JWT callback');
           // Fallback values - keep existing token values if fetch fails
           if (user && user.id) {
             token.id = user.id;
-            token.role = token.role || 'user';
+            token.role = (user as any).role || token.role || 'user';
             token.authProvider = (user as any).authProvider || token.authProvider || 'facebook';
             token.isAnonymous = (user as any).isAnonymous ?? token.isAnonymous ?? false;
           }
