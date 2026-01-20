@@ -480,7 +480,18 @@ amanoba/
 - Custom install UI
 - iOS add to home screen instructions
 
-### 6. Course System (NEW)
+### 6. Custom Hooks
+
+**useCourseTranslations Hook** (`app/lib/hooks/useCourseTranslations.ts`):
+- Provides translations based on course language instead of URL locale
+- Loads translations client-side from JSON files
+- Supports both `{param}` and `{{param}}` parameter formats
+- Caches translations for performance
+- Used in course lesson and quiz pages for consistent UI language
+
+**Why**: Course UI should match course language, not URL locale. This eliminates redirects and provides smooth navigation.
+
+### 7. Course System (NEW)
 
 **30-Day Course Structure**
 - Each course consists of exactly 30 daily lessons
@@ -497,6 +508,14 @@ amanoba/
   - Required flag (must pass quiz to complete lesson)
 - Two-step deletion: soft delete (deactivate) → permanent delete
 - Quiz questions linked to lessons via `lessonId` and `courseId`
+
+**Course UI Language System**
+- Custom `useCourseTranslations` hook for course pages
+- UI language matches course language, not URL locale
+- No redirects needed - smooth navigation between lessons
+- Supports both `{param}` and `{{param}}` translation formats
+- Course UI elements dynamically use course language from API response
+- URL locale used for routing only, course language for UI translations
 
 **Course Export/Import**
 - Export complete course to JSON (course + lessons + quiz questions)
@@ -525,7 +544,7 @@ amanoba/
   - All quiz questions
   - All assessment results
 
-### 7. Admin Dashboard
+### 8. Admin Dashboard
 
 **Course Management**
 - Create, edit, delete 30-day courses
