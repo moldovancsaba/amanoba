@@ -25,12 +25,12 @@ import {
   Menu,
   X,
   Crown,
-  Shield,
   BookOpen,
   FileText,
   CreditCard,
   ClipboardList,
 } from 'lucide-react';
+import Logo from '@/components/Logo';
 
 interface NavItem {
   label: string;
@@ -113,7 +113,7 @@ export default function AdminLayout({
         {/* Logo */}
         <div className="h-16 flex items-center justify-between px-4 border-b border-gray-700">
           <Link href={`/${locale}/admin`} className="flex items-center gap-2">
-            <Shield className="w-8 h-8 text-indigo-500" />
+            <Logo size="sm" showText={false} linkTo="" className="flex-shrink-0" />
             <div>
               <div className="text-white font-bold text-lg">Amanoba</div>
               <div className="text-xs text-gray-400">Admin Panel</div>
