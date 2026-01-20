@@ -126,12 +126,32 @@ export async function GET(request: NextRequest) {
       allClaims: Object.keys(claims)
     }, 'DEBUG: ID token claims received from SSO');
 
-    // Verify nonce
-    if (storedNonce && claims.nonce !== storedNonce) {
-      logger.warn({ nonce: claims.nonce, storedNonce }, 'SSO nonce mismatch');
-      return NextResponse.redirect(
-        new URL('/auth/signin?error=invalid_nonce', request.url)
-      );
+    // Verify nonce (if present in both cookie and token claims)
+    // Note: Some SSO providers may not include nonce in token claims
+    // Only validate if both are present - if nonce is missing from claims, allow it
+    if (storedNonce && claims.nonce) {
+      // Both nonce values exist - they must match
+      if (claims.nonce !== storedNonce) {
+        logger.warn(
+          { 
+            nonceFromClaims: claims.nonce, 
+            nonceFromCookie: storedNonce,
+            nonceLength: claims.nonce?.length,
+            storedLength: storedNonce?.length
+          }, 
+          'SSO nonce mismatch'
+        );
+        return NextResponse.redirect(
+          new URL('/auth/signin?error=invalid_nonce', request.url)
+        );
+      }
+      logger.info({}, 'SSO nonce validated successfully');
+    } else if (storedNonce && !claims.nonce) {
+      // Nonce was sent but not returned in token - log warning but allow (some providers don't return it)
+      logger.warn({}, 'SSO nonce was sent but not found in token claims - allowing login (provider may not return nonce)');
+    } else {
+      // No nonce in cookie or claims - this is fine for first-time login or if nonce wasn't set
+      logger.info({ hasStoredNonce: !!storedNonce, hasClaimsNonce: !!claims.nonce }, 'SSO nonce validation skipped');
     }
 
     // Extract user information

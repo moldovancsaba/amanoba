@@ -76,12 +76,14 @@ export async function GET(request: NextRequest) {
     const response = NextResponse.redirect(authUrlWithParams);
 
     // Store state, nonce, and returnTo in HTTP-only cookie
+    // Note: Domain should not be set to allow cookies to work across subdomains
     const cookieOptions = {
       httpOnly: true,
       secure: process.env.NODE_ENV === 'production',
       sameSite: 'lax' as const,
       maxAge: 600, // 10 minutes
       path: '/',
+      // Don't set domain - let browser handle it automatically
     };
 
     response.cookies.set('sso_state', state, cookieOptions);
