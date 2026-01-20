@@ -73,9 +73,19 @@ export async function generateMetadata({
 
     // Prepare title and description
     const title = course.name || 'Course';
-    const description = course.description 
-      ? course.description.substring(0, 200) // Limit to 200 chars for social previews
-      : `30-day structured learning course. ${course.durationDays} days of lessons, quizzes, and assessments.`;
+    
+    // Sanitize description: remove HTML tags and limit length for social previews
+    let description = course.description || '';
+    // Remove HTML tags (basic sanitization)
+    description = description.replace(/<[^>]*>/g, '').trim();
+    // Limit to 200 chars for social previews (optimal: 150-200 chars)
+    if (description.length > 200) {
+      description = description.substring(0, 197) + '...';
+    }
+    // Fallback if no description
+    if (!description) {
+      description = `30-day structured learning course. ${course.durationDays} days of lessons, quizzes, and assessments.`;
+    }
 
     // Determine locale for Open Graph
     const ogLocale = locale === 'hu' ? 'hu_HU' : 'en_US';
@@ -98,7 +108,11 @@ export async function generateMetadata({
             width: 1200,
             height: 630,
             alt: title,
-            type: 'image/png',
+            // Determine image type from URL extension (default to png)
+            type: absoluteImageUrl.match(/\.(jpg|jpeg)$/i) ? 'image/jpeg' 
+              : absoluteImageUrl.match(/\.webp$/i) ? 'image/webp'
+              : absoluteImageUrl.match(/\.gif$/i) ? 'image/gif'
+              : 'image/png',
           },
         ],
       },
