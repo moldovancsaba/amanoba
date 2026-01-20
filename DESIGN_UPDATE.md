@@ -109,6 +109,17 @@
 
 ---
 
+## 🔒 CTA Yellow Exclusivity Rule
+
+- **If it’s not a CTA button, it cannot be yellow.** The CTA yellow (`#FAB908`) is now reserved exclusively for primary actions.
+- CTA tokens added to the design system: `--cta-bg`, `--cta-bg-hover`, `--cta-text`, `--cta-shadow`.
+- Non-interactive elements must not use CTA yellow backgrounds, hover states, button-like shadows, or pointer cursors.
+- Table of contents numbers on course detail pages now use neutral styling (no yellow backgrounds/hover).
+
+**Action for engineers/designers:** Use the CTA tokens only on clickable primary actions. Default to neutral/secondary palette for badges, labels, numbering, and other non-interactive UI.
+
+---
+
 ## 📊 Color Palette Reference
 
 ```css

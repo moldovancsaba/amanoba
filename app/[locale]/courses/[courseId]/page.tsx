@@ -406,9 +406,9 @@ export default function CourseDetailPage({
                   {tocLessons.map((lesson) => (
                     <div
                       key={lesson.lessonId}
-                      className="flex items-center gap-4 p-4 bg-brand-darkGrey/5 rounded-lg border border-brand-darkGrey/20 hover:bg-brand-darkGrey/10 transition-colors"
+                      className="flex items-center gap-4 p-4 bg-brand-darkGrey/5 rounded-lg border border-brand-darkGrey/15"
                     >
-                      <div className="flex-shrink-0 w-12 h-12 bg-brand-accent rounded-lg flex items-center justify-center font-bold text-brand-black text-lg">
+                      <div className="flex-shrink-0 w-12 h-12 rounded-lg flex items-center justify-center font-bold text-brand-darkGrey text-lg bg-gradient-to-br from-white to-brand-darkGrey/10 border border-brand-darkGrey/20">
                         {lesson.dayNumber}
                       </div>
                       <div className="flex-1 min-w-0">

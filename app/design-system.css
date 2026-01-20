@@ -72,6 +72,12 @@
   --color-info-light: #dbeafe;
   --color-info: #3b82f6;
   --color-info-dark: #1d4ed8;
+
+  /* CTA Tokens (exclusive to primary actions) */
+  --cta-bg: #fab908;
+  --cta-bg-hover: #fbbf24;
+  --cta-text: #111827;
+  --cta-shadow: 0 10px 20px -10px rgba(250, 185, 8, 0.45);
 }
 
 /* ============================================
