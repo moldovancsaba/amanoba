@@ -76,6 +76,7 @@
     "signOut": "Kijelentkezés",
     "signUp": "Regisztráció",
     "continueWithoutRegistration": "Folytatás regisztráció nélkül",
+    "signInWithSSO": "Bejelentkezés SSO-val",
     "signInWithFacebook": "Bejelentkezés Facebookkal",
     "welcome": "Üdvözöljük",
     "email": "Email",
