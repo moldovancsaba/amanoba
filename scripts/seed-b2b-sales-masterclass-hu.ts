@@ -356,7 +356,7 @@ const lessons: LessonEntry[] = [
           correctIndex: 1,
         },
         {
-          question: 'Melyik elem <em>nem</em része a probléma-alapú ICP-nek?',
+          question: 'Melyik elem nem része a probléma-alapú ICP-nek?',
           options: [
             'Fájdalom/probléma',
             'Trigger',
