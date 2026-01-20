@@ -450,9 +450,9 @@ export default function CourseDetailPage({
                 </div>
 
                 {course.requiresPremium && (
-                  <div className="bg-brand-accent/20 border border-brand-accent rounded-lg p-3">
-                    <div className="flex items-center gap-2 text-brand-black font-bold text-base mb-2">
-                      <Star className="w-5 h-5" />
+                  <div className="bg-brand-darkGrey/5 border border-brand-darkGrey/25 rounded-lg p-3">
+                    <div className="flex items-center gap-2 text-brand-darkGrey font-bold text-base mb-2">
+                      <Star className="w-5 h-5 text-brand-darkGrey" />
                       {t('premiumCourse')}
                     </div>
                     {course.price && (
