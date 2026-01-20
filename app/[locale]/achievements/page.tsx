@@ -40,18 +40,10 @@ interface AchievementsData {
 }
 
 const TIER_COLORS = {
-  bronze: 'from-amber-600 to-amber-800',
+  bronze: 'from-stone-500 to-stone-700',
   silver: 'from-gray-400 to-gray-600',
-  gold: 'from-yellow-400 to-yellow-600',
+  gold: 'from-slate-300 to-slate-500',
   platinum: 'from-purple-400 to-purple-600',
-};
-
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const TIER_TEXT_COLORS = {
-  bronze: 'text-amber-700',
-  silver: 'text-gray-700',
-  gold: 'text-yellow-700',
-  platinum: 'text-purple-700',
 };
 
 export default function AchievementsPage() {
@@ -166,7 +158,7 @@ export default function AchievementsPage() {
             </div>
             <LocaleLink
               href="/dashboard"
-              className="page-button-secondary border-2 border-brand-accent flex items-center gap-2"
+              className="page-button-secondary border-2 border-brand-darkGrey flex items-center gap-2"
             >
               <ChevronLeft className="w-5 h-5" />
               {tCommon('dashboard')}
@@ -179,7 +171,7 @@ export default function AchievementsPage() {
         {/* Stats Overview */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
           <div className="page-card p-6">
-            <Icon icon={MdEmojiEvents} size={36} className="text-brand-accent mb-2" />
+            <Icon icon={MdEmojiEvents} size={36} className="text-brand-darkGrey mb-2" />
             <div className="text-3xl font-bold text-brand-black">
               {stats.unlocked}/{stats.total}
             </div>
@@ -187,7 +179,7 @@ export default function AchievementsPage() {
           </div>
           
           <div className="page-card p-6">
-            <Icon icon={MdStar} size={36} className="text-brand-accent mb-2" />
+            <Icon icon={MdStar} size={36} className="text-brand-darkGrey mb-2" />
             <div className="text-3xl font-bold text-brand-black">
               {stats.percentage}%
             </div>
@@ -195,7 +187,7 @@ export default function AchievementsPage() {
           </div>
           
           <div className="page-card p-6">
-            <Icon icon={MdDiamond} size={36} className="text-brand-accent mb-2" />
+            <Icon icon={MdDiamond} size={36} className="text-brand-darkGrey mb-2" />
             <div className="text-3xl font-bold text-brand-black">
               {achievements.filter(a => a.isUnlocked).reduce((sum, a) => sum + a.points, 0).toLocaleString()}
             </div>
