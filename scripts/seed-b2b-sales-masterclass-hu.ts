@@ -1684,6 +1684,327 @@ const lessons: LessonEntry[] = [
       ],
     },
   },
+  {
+    day: 16,
+    title: 'AI meeting előkészítés és jegyzetelés',
+    content: `<h1>AI meeting előkészítés és jegyzetelés</h1>
+<p><em>Létrehozol egy „meeting prep” és egy „meeting summary” promptot, hogy konzisztensen dokumentálj és jelölj next stepet.</em></p>
+<hr />
+<h2>Napi cél</h2>
+<ul>
+  <li>Megírsz egy meeting prep promptot (előtte).</li>
+  <li>Megírsz egy meeting summary promptot (utána).</li>
+  <li>Kitöltesz 1-1 sablont egy közelgő és egy lezárt hívásra.</li>
+</ul>
+<hr />
+<h2>Miért fontos</h2>
+<ul>
+  <li>Konzisztens jegyzet = gyors visszakeresés, jobb next step.</li>
+  <li>AI gyorsítja az összefoglalót, de kell struktúra a pontossághoz.</li>
+  <li>Meeting utáni követés időt nyer és csökkenti a slip kockázatot.</li>
+</ul>
+<hr />
+<h2>Magyarázat</h2>
+<h3>Meeting prep prompt</h3>
+<ul>
+  <li>Bemenet: account brief, cél, résztvevők.</li>
+  <li>Kimenet: 3 hipotézis/pain, 3 kérdés, 1 ajánlott next step.</li>
+</ul>
+<h3>Meeting summary prompt</h3>
+<ul>
+  <li>Bemenet: nyers jegyzet.</li>
+  <li>Kimenet: döntési pontok, kockázatok, next step (idő, felelős).</li>
+</ul>
+<hr />
+<h2>Példák</h2>
+<p><strong>Jó:</strong> AI összefoglaló: fájdalom, hatás, döntési folyamat, kockázat, következő lépés dátummal.</p>
+<p><strong>Rossz:</strong> Hosszú transcript másolása, nincs next step.</p>
+<hr />
+<h2>Gyakorlat (vezetett, 10-15 perc)</h2>
+<ol>
+  <li>Írj meeting prep és summary promptot.</li>
+  <li>Prep: töltsd ki egy közelgő hívásra.</li>
+  <li>Summary: töltsd ki egy lezárt hívásra; írd be a next stepet.</li>
+</ol>
+<h2>Gyakorlat (önálló, 5-10 perc)</h2>
+<p>Illeszd be a summaryt a CRM-be, és állíts be emlékeztetőt a next stepre.</p>
+<hr />
+<h2>Önellenőrzés</h2>
+<ul>
+  <li>Megvan a két prompt.</li>
+  <li>1 közelgő hívásra kitöltött prep.</li>
+  <li>1 lezárt hívásra kitöltött summary.</li>
+  <li>Next step beírva a CRM-be.</li>
+</ul>
+<hr />
+<h2>Opcionális mélyítés</h2>
+<ul>
+  <li>Meeting note best practices: <a href="https://www.gong.io/blog/sales-call-notes/" target="_blank" rel="noreferrer">https://www.gong.io/blog/sales-call-notes/</a></li>
+  <li>OpenAI prompt guide: <a href="https://platform.openai.com/docs/guides/prompt-engineering" target="_blank" rel="noreferrer">https://platform.openai.com/docs/guides/prompt-engineering</a></li>
+</ul>`,
+    emailSubject: 'B2B Értékesítés 2026 – 16. nap: Meeting prep + summary',
+    emailBody: `<h1>B2B Értékesítés 2026 – 16. nap</h1>
+<p>Írj meeting prep és summary promptot, töltsd ki egy közelgő és egy lezárt hívásra, és rögzítsd a next stepet.</p>
+<p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Olvasd el a leckét →</a></p>`,
+    quiz: {
+      questions: [
+        {
+          question: 'Mi a meeting prep prompt kimenete?',
+          options: [
+            'Hosszú transcript',
+            '3 hipotézis/pain, 3 kérdés, 1 ajánlott next step',
+            'Csak árlista',
+            'Csak pitch deck',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'Mi a summary prompt egyik célja?',
+          options: [
+            'Transcript másolása',
+            'Döntési pontok, kockázat, next step rögzítése',
+            'Hosszabb email',
+            'Marketing kampány',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'Mi a rossz példa?',
+          options: [
+            'Next step dátummal a summaryban',
+            'Transcript bemásolása next step nélkül',
+            'Kockázatok jelölése',
+            'Fájdalom és hatás összefoglalása',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'Mit teszel a summary után?',
+          options: [
+            'Semmit',
+            'CRM-be írod és emlékeztetőt állítasz a next stepre',
+            'Email listára teszed',
+            'Törlöd',
+          ],
+          correctIndex: 1,
+        },
+      ],
+    },
+  },
+  {
+    day: 17,
+    title: 'Következő lépés és kötelezettség kérése',
+    content: `<h1>Következő lépés és kötelezettség kérése</h1>
+<p><em>Megtanulod kis, konkrét elköteleződést kérni minden meeting végén.</em></p>
+<hr />
+<h2>Napi cél</h2>
+<ul>
+  <li>Írsz 5 next step sablont (idő, felelős, deliverable).</li>
+  <li>Készítesz egy „kötelezettség” checklistet.</li>
+  <li>Alkalmazod a legközelebbi meeting végén.</li>
+</ul>
+<hr />
+<h2>Miért fontos</h2>
+<ul>
+  <li>Elköteleződés nélkül a deal megakad.</li>
+  <li>Kis lépések (pl. anyag megosztás, 2. meeting egyeztetés) jelzik a szándékot.</li>
+  <li>Csökkenti a „majd jelentkezünk” állapotot.</li>
+</ul>
+<hr />
+<h2>Magyarázat</h2>
+<h3>Kötelezettség típusok</h3>
+<ul>
+  <li>Idő: következő meeting dátuma.</li>
+  <li>Anyag: adat/teszt/hozzáférés megosztása.</li>
+  <li>Belső bevonás: döntéshozó/IT bevonása.</li>
+</ul>
+<h3>Sablon</h3>
+<p>„A következő lépés: [X], határidő: [dátum], felelős: [személy]. Megerősíted?”</p>
+<hr />
+<h2>Példák</h2>
+<p><strong>Jó:</strong> „Küldesz 3 lost ok listát péntekig, hétfőn 10:00 review, én hozom a pipeline javítási javaslatot.”</p>
+<p><strong>Rossz:</strong> „Majd beszéljünk valamikor.”</p>
+<hr />
+<h2>Gyakorlat (vezetett, 10-15 perc)</h2>
+<ol>
+  <li>Írj 5 next step sablont különböző elköteleződésekre.</li>
+  <li>Írj egy checklistet: van-e idő, felelős, deliverable?</li>
+  <li>Készülj fel a legközelebbi meeting zárására a sablonnal.</li>
+</ol>
+<h2>Gyakorlat (önálló, 5-10 perc)</h2>
+<p>Használd a sablont a következő meeting végén, és jegyezd a választ.</p>
+<hr />
+<h2>Önellenőrzés</h2>
+<ul>
+  <li>5 sablon megvan.</li>
+  <li>Checklist megvan.</li>
+  <li>Használtad 1 meeting végén.</li>
+  <li>Jegyezted a választ.</li>
+</ul>
+<hr />
+<h2>Opcionális mélyítés</h2>
+<ul>
+  <li>Commitment techniques: <a href="https://www.saleshacker.com/sales-closing-techniques/" target="_blank" rel="noreferrer">https://www.saleshacker.com/sales-closing-techniques/</a></li>
+  <li>Micro-commitments: <a href="https://www.gong.io/blog/closing-sales-techniques/" target="_blank" rel="noreferrer">https://www.gong.io/blog/closing-sales-techniques/</a></li>
+</ul>`,
+    emailSubject: 'B2B Értékesítés 2026 – 17. nap: Kötelezettség kérése',
+    emailBody: `<h1>B2B Értékesítés 2026 – 17. nap</h1>
+<p>5 next step sablont írsz, checklistet készítesz, és a következő meeting végén alkalmazod.</p>
+<p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Olvasd el a leckét →</a></p>`,
+    quiz: {
+      questions: [
+        {
+          question: 'Miért kell kis elköteleződést kérni?',
+          options: [
+            'Hogy hosszabb legyen a meeting',
+            'Szándék jelzése, deal megakadásának megelőzése',
+            'Több email küldése',
+            'Marketing okból',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'Mi a jó next step sablon eleme?',
+          options: [
+            'Általános „majd beszéljünk”',
+            'Konkrét feladat, határidő, felelős',
+            'Csak small talk',
+            'Csak ár',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'Mi a rossz példa?',
+          options: [
+            '„Majd beszéljünk valamikor.”',
+            '„Küldesz 3 lost ok listát péntekig….”',
+            'Időpont egyeztetése',
+            'Felelős kijelölése',
+          ],
+          correctIndex: 0,
+        },
+        {
+          question: 'Mit ellenőriz a checklist?',
+          options: [
+            'Van-e logó',
+            'Idő, felelős, deliverable megvan-e',
+            'Hossz-e az email',
+            'Van-e emoji',
+          ],
+          correctIndex: 1,
+        },
+      ],
+    },
+  },
+  {
+    day: 18,
+    title: 'Nurture és visszahozás',
+    content: `<h1>Nurture és visszahozás</h1>
+<p><em>Egyszerű 3 lépcsős nurture flow-t építesz a nemet mondott vagy „most nem” leadekre.</em></p>
+<hr />
+<h2>Napi cél</h2>
+<ul>
+  <li>Megírsz egy 3 lépcsős nurture flow-t (érték, proof, ajánlat).</li>
+  <li>Szegmentálsz: „nem fit”, „most nem”, „később”.</li>
+  <li>Beállítasz mérőpontot (reply, meeting, SQL).</li>
+</ul>
+<hr />
+<h2>Miért fontos</h2>
+<ul>
+  <li>Hosszú ciklusokban a „nem most” leadek visszahozhatók.</li>
+  <li>Érték + proof + ajánlat = bizalomépítés.</li>
+  <li>Mérés nélkül nincs tanulás a nurture hatásáról.</li>
+</ul>
+<hr />
+<h2>Magyarázat</h2>
+<h3>3 lépcső</h3>
+<ol>
+  <li>Érték: 1 hasznos anyag/esettanulmány.</li>
+  <li>Proof: szám/benchmark/eredmény.</li>
+  <li>Ajánlat: rövid call vagy audit.</li>
+</ol>
+<h3>Szegmentálás</h3>
+<ul>
+  <li>Nem fit: lezár, nincs nurture.</li>
+  <li>Most nem: nurture 3 lépcső.</li>
+  <li>Később: emlékeztető 60-90 nap.</li>
+</ul>
+<hr />
+<h2>Példák</h2>
+<p><strong>Jó:</strong> 3 email: esettanulmány + benchmark + rövid audit ajánlat.</p>
+<p><strong>Rossz:</strong> Havonta egy általános „még mindig itt vagyunk” email.</p>
+<hr />
+<h2>Gyakorlat (vezetett, 10-15 perc)</h2>
+<ol>
+  <li>Írj 3 nurture üzenetet (érték, proof, ajánlat).</li>
+  <li>Szegmentáld 15 leadet a három kategóriába.</li>
+  <li>Állíts be mérőpontot: reply/meeting/SQL.</li>
+</ol>
+<h2>Gyakorlat (önálló, 5-10 perc)</h2>
+<p>Időzítsd a 3 üzenetet (pl. heti/2 heti) és jelöld a CRM-ben.</p>
+<hr />
+<h2>Önellenőrzés</h2>
+<ul>
+  <li>Megvan a 3 üzenet.</li>
+  <li>15 lead szegmentálva.</li>
+  <li>Mérőpont beállítva.</li>
+  <li>Ütemezés kész.</li>
+</ul>
+<hr />
+<h2>Opcionális mélyítés</h2>
+<ul>
+  <li>Nurture best practices: <a href="https://www.activecampaign.com/blog/lead-nurturing" target="_blank" rel="noreferrer">https://www.activecampaign.com/blog/lead-nurturing</a></li>
+  <li>Follow-up statisztikák: <a href="https://www.gong.io/blog/sales-follow-up" target="_blank" rel="noreferrer">https://www.gong.io/blog/sales-follow-up</a></li>
+</ul>`,
+    emailSubject: 'B2B Értékesítés 2026 – 18. nap: Nurture',
+    emailBody: `<h1>B2B Értékesítés 2026 – 18. nap</h1>
+<p>3 lépcsős nurture flow-t írsz, szegmentálsz, mérőpontot állítasz, és ütemezed az üzeneteket.</p>
+<p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Olvasd el a leckét →</a></p>`,
+    quiz: {
+      questions: [
+        {
+          question: 'Mi a 3 lépcső sorrendje?',
+          options: [
+            'Ajánlat, proof, érték',
+            'Érték, proof, ajánlat',
+            'Proof, ajánlat, érték',
+            'Csak ajánlat',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'Mikor nem érdemes nurture-t küldeni?',
+          options: [
+            'Nem fit leadnél',
+            'Most nem kategóriánál',
+            'Később kategóriánál',
+            'Soha',
+          ],
+          correctIndex: 0,
+        },
+        {
+          question: 'Mi a jó példa?',
+          options: [
+            'Havonta egy általános email',
+            '3 üzenet: esettanulmány + benchmark + audit ajánlat',
+            'Csak egy marketing hírlevél',
+            'Csak egy árlista',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'Mit mérj nurture-ben?',
+          options: [
+            'Csak megnyitást',
+            'Reply/meeting/SQL konverziót',
+            'Csak web trafficot',
+            'Csak like-okat',
+          ],
+          correctIndex: 1,
+        },
+      ],
+    },
+  },
 ];
 
 async function main() {

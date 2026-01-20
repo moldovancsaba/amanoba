@@ -1678,6 +1678,327 @@ const lessons: LessonEntry[] = [
       ],
     },
   },
+  {
+    day: 16,
+    title: 'AI Meeting Prep and Notes',
+    content: `<h1>AI Meeting Prep and Notes</h1>
+<p><em>Create a “meeting prep” and “meeting summary” prompt so you document consistently and capture next steps.</em></p>
+<hr />
+<h2>Learning Goal</h2>
+<ul>
+  <li>Write a meeting prep prompt (before).</li>
+  <li>Write a meeting summary prompt (after).</li>
+  <li>Fill one of each for an upcoming and a completed call.</li>
+</ul>
+<hr />
+<h2>Why It Matters</h2>
+<ul>
+  <li>Consistent notes = fast recall and better next steps.</li>
+  <li>AI speeds summarizing but needs structure for accuracy.</li>
+  <li>Post-call follow-up reduces slip risk.</li>
+</ul>
+<hr />
+<h2>Explanation</h2>
+<h3>Meeting prep prompt</h3>
+<ul>
+  <li>Input: account brief, goal, attendees.</li>
+  <li>Output: 3 hypotheses/pains, 3 questions, 1 recommended next step.</li>
+</ul>
+<h3>Meeting summary prompt</h3>
+<ul>
+  <li>Input: raw notes.</li>
+  <li>Output: decisions, risks, next step (time, owner).</li>
+</ul>
+<hr />
+<h2>Examples</h2>
+<p><strong>Good:</strong> AI summary with pain, impact, decision process, risks, and next step with date.</p>
+<p><strong>Bad:</strong> Dumping the transcript with no next step.</p>
+<hr />
+<h2>Guided Exercise (10–15 minutes)</h2>
+<ol>
+  <li>Write prep and summary prompts.</li>
+  <li>Prep: fill for an upcoming call.</li>
+  <li>Summary: fill for a completed call; include next step.</li>
+</ol>
+<h2>Independent Exercise (5–10 minutes)</h2>
+<p>Paste the summary into CRM and set a reminder for the next step.</p>
+<hr />
+<h2>Self-check</h2>
+<ul>
+  <li>Both prompts ready.</li>
+  <li>Prep filled for one upcoming call.</li>
+  <li>Summary filled for one completed call.</li>
+  <li>Next step logged in CRM.</li>
+</ul>
+<hr />
+<h2>Optional Deep Dive</h2>
+<ul>
+  <li>Meeting notes best practices: <a href="https://www.gong.io/blog/sales-call-notes/" target="_blank" rel="noreferrer">https://www.gong.io/blog/sales-call-notes/</a></li>
+  <li>OpenAI prompt guide: <a href="https://platform.openai.com/docs/guides/prompt-engineering" target="_blank" rel="noreferrer">https://platform.openai.com/docs/guides/prompt-engineering</a></li>
+</ul>`,
+    emailSubject: 'B2B Sales 2026 – Day 16: Meeting prep + summary',
+    emailBody: `<h1>B2B Sales 2026 – Day 16</h1>
+<p>Write prep and summary prompts; fill them for one upcoming and one completed call; log the next step.</p>
+<p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Read the lesson →</a></p>`,
+    quiz: {
+      questions: [
+        {
+          question: 'Prep prompt output?',
+          options: [
+            'Long transcript',
+            '3 hypotheses/pains, 3 questions, 1 recommended next step',
+            'Just a price list',
+            'Just a pitch deck',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'Goal of the summary prompt?',
+          options: [
+            'Copy transcript',
+            'Capture decisions, risks, next step',
+            'Make email longer',
+            'Launch a marketing campaign',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'Bad example?',
+          options: [
+            'Summary with next step and date',
+            'Transcript pasted, no next step',
+            'Risks listed',
+            'Pain/impact summarized',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'What do you do after the summary?',
+          options: [
+            'Nothing',
+            'Put it in CRM and set a reminder for the next step',
+            'Add to email list',
+            'Delete it',
+          ],
+          correctIndex: 1,
+        },
+      ],
+    },
+  },
+  {
+    day: 17,
+    title: 'Next Step and Commitment',
+    content: `<h1>Next Step and Commitment</h1>
+<p><em>Learn to request small, concrete commitments at every meeting end.</em></p>
+<hr />
+<h2>Learning Goal</h2>
+<ul>
+  <li>Write 5 next-step templates (time, owner, deliverable).</li>
+  <li>Create a “commitment” checklist.</li>
+  <li>Use it at your next meeting end.</li>
+</ul>
+<hr />
+<h2>Why It Matters</h2>
+<ul>
+  <li>Without commitment, deals stall.</li>
+  <li>Small steps (share data, schedule follow-up) signal intent.</li>
+  <li>Reduces “we’ll get back to you”.</li>
+</ul>
+<hr />
+<h2>Explanation</h2>
+<h3>Commitment types</h3>
+<ul>
+  <li>Time: next meeting date.</li>
+  <li>Asset: data/test/access.</li>
+  <li>Internal: bring decision maker/IT.</li>
+</ul>
+<h3>Template</h3>
+<p>“Next step: [X], due: [date], owner: [person]. Can you confirm?”</p>
+<hr />
+<h2>Examples</h2>
+<p><strong>Good:</strong> “You’ll send 3 lost reasons by Friday; Monday 10:00 review; I’ll bring pipeline fixes.”</p>
+<p><strong>Bad:</strong> “Let’s talk sometime.”</p>
+<hr />
+<h2>Guided Exercise (10–15 minutes)</h2>
+<ol>
+  <li>Write 5 next-step templates for different commitments.</li>
+  <li>Create a checklist: time, owner, deliverable?</li>
+  <li>Prepare to close your next meeting with a template.</li>
+</ol>
+<h2>Independent Exercise (5–10 minutes)</h2>
+<p>Use the template at your next meeting end; log the response.</p>
+<hr />
+<h2>Self-check</h2>
+<ul>
+  <li>5 templates ready.</li>
+  <li>Checklist ready.</li>
+  <li>Used once.</li>
+  <li>Response logged.</li>
+</ul>
+<hr />
+<h2>Optional Deep Dive</h2>
+<ul>
+  <li>Commitment techniques: <a href="https://www.saleshacker.com/sales-closing-techniques/" target="_blank" rel="noreferrer">https://www.saleshacker.com/sales-closing-techniques/</a></li>
+  <li>Micro-commitments: <a href="https://www.gong.io/blog/closing-sales-techniques/" target="_blank" rel="noreferrer">https://www.gong.io/blog/closing-sales-techniques/</a></li>
+</ul>`,
+    emailSubject: 'B2B Sales 2026 – Day 17: Commitment',
+    emailBody: `<h1>B2B Sales 2026 – Day 17</h1>
+<p>Write 5 next-step templates, a checklist, and use it at your next meeting end.</p>
+<p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Read the lesson →</a></p>`,
+    quiz: {
+      questions: [
+        {
+          question: 'Why ask for a small commitment?',
+          options: [
+            'Make the meeting longer',
+            'Signal intent and prevent stalls',
+            'Send more emails',
+            'Marketing reasons',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'Key element of a next-step template?',
+          options: [
+            'Vague “let’s talk sometime”',
+            'Concrete task, due date, owner',
+            'Only small talk',
+            'Only price',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'Bad example?',
+          options: [
+            '“Let’s talk sometime.”',
+            '“You’ll send 3 lost reasons by Friday...”',
+            'Scheduling a time',
+            'Assigning an owner',
+          ],
+          correctIndex: 0,
+        },
+        {
+          question: 'What does the checklist verify?',
+          options: [
+            'Logo present',
+            'Time, owner, deliverable present',
+            'Email length',
+            'Emoji present',
+          ],
+          correctIndex: 1,
+        },
+      ],
+    },
+  },
+  {
+    day: 18,
+    title: 'Nurture and Re-Engage',
+    content: `<h1>Nurture and Re-Engage</h1>
+<p><em>Build a simple 3-step nurture flow for “not now” leads.</em></p>
+<hr />
+<h2>Learning Goal</h2>
+<ul>
+  <li>Write a 3-step nurture flow (value, proof, offer).</li>
+  <li>Segment: “not fit”, “not now”, “later”.</li>
+  <li>Set a metric (reply, meeting, SQL).</li>
+</ul>
+<hr />
+<h2>Why It Matters</h2>
+<ul>
+  <li>Long cycles: “not now” leads can come back.</li>
+  <li>Value + proof + offer builds trust.</li>
+  <li>Without measurement, you don’t learn nurture impact.</li>
+</ul>
+<hr />
+<h2>Explanation</h2>
+<h3>3 steps</h3>
+<ol>
+  <li>Value: 1 useful asset/case study.</li>
+  <li>Proof: number/benchmark/result.</li>
+  <li>Offer: short call or audit.</li>
+</ol>
+<h3>Segmentation</h3>
+<ul>
+  <li>Not fit: close, no nurture.</li>
+  <li>Not now: 3-step nurture.</li>
+  <li>Later: reminder in 60–90 days.</li>
+</ul>
+<hr />
+<h2>Examples</h2>
+<p><strong>Good:</strong> 3 emails: case study + benchmark + short audit offer.</p>
+<p><strong>Bad:</strong> Monthly generic “we’re still here” email.</p>
+<hr />
+<h2>Guided Exercise (10–15 minutes)</h2>
+<ol>
+  <li>Write 3 nurture messages (value, proof, offer).</li>
+  <li>Segment 15 leads into the three buckets.</li>
+  <li>Set a metric: reply/meeting/SQL.</li>
+</ol>
+<h2>Independent Exercise (5–10 minutes)</h2>
+<p>Schedule the 3 messages (weekly/biweekly) and log in CRM.</p>
+<hr />
+<h2>Self-check</h2>
+<ul>
+  <li>3 messages ready.</li>
+  <li>15 leads segmented.</li>
+  <li>Metric set.</li>
+  <li>Cadence scheduled.</li>
+</ul>
+<hr />
+<h2>Optional Deep Dive</h2>
+<ul>
+  <li>Nurture best practices: <a href="https://www.activecampaign.com/blog/lead-nurturing" target="_blank" rel="noreferrer">https://www.activecampaign.com/blog/lead-nurturing</a></li>
+  <li>Follow-up stats: <a href="https://www.gong.io/blog/sales-follow-up" target="_blank" rel="noreferrer">https://www.gong.io/blog/sales-follow-up</a></li>
+</ul>`,
+    emailSubject: 'B2B Sales 2026 – Day 18: Nurture',
+    emailBody: `<h1>B2B Sales 2026 – Day 18</h1>
+<p>Write a 3-step nurture flow, segment leads, set a metric, and schedule messages.</p>
+<p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Read the lesson →</a></p>`,
+    quiz: {
+      questions: [
+        {
+          question: 'Correct order of the 3 steps?',
+          options: [
+            'Offer, proof, value',
+            'Value, proof, offer',
+            'Proof, offer, value',
+            'Only offer',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'When to skip nurture?',
+          options: [
+            'Not fit leads',
+            'Not now leads',
+            'Later leads',
+            'Never',
+          ],
+          correctIndex: 0,
+        },
+        {
+          question: 'Good example?',
+          options: [
+            'Monthly generic email',
+            '3 emails: case study + benchmark + audit offer',
+            'Only a marketing newsletter',
+            'Only a price list',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'What to measure in nurture?',
+          options: [
+            'Opens only',
+            'Reply/meeting/SQL conversion',
+            'Web traffic only',
+            'Likes only',
+          ],
+          correctIndex: 1,
+        },
+      ],
+    },
+  },
 ];
 
 async function main() {
