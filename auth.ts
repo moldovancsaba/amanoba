@@ -115,6 +115,11 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
 
           logger.info({ playerId: player._id, facebookId }, 'New player created');
 
+          // Process referral code if present (from cookie or session)
+          // Note: We can't access cookies directly in signIn callback, so this will be handled
+          // in a separate API call after signup completes, or we can pass it via user object
+          // For now, we'll handle it in the SSO callback or via a separate endpoint
+
           // Initialize PlayerProgression for new player
           // Why: Every player needs progression tracking with all required fields
           const { PlayerProgression } = await import('@/lib/models');
@@ -211,16 +216,18 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
       // Why: Role may change in database, so we need to refresh it on every request
       const playerId = user?.id || token.id;
       
-      // On initial sign in, use role from user object if available (from credentials provider)
-      // This is important for SSO where role is passed explicitly
+      // SIMPLIFIED: For initial sign in, use role from user object (from SSO/credentials)
+      // Then always refresh from database to ensure consistency
       if (user && user.id && (user as any).role) {
         token.id = user.id;
         token.role = (user as any).role as 'user' | 'admin';
         token.authProvider = (user as any).authProvider || 'facebook';
         token.isAnonymous = (user as any).isAnonymous || false;
-        logger.info({ playerId: user.id, role: token.role, source: 'user_object' }, 'JWT: Using role from user object (initial sign in)');
+        logger.info({ playerId: user.id, role: token.role, source: 'user_object_initial' }, 'JWT: Initial sign in - using role from user object');
       }
       
+      // Always refresh from database to ensure we have the latest role
+      // This is critical for SSO where role might have just been updated
       if (playerId) {
         try {
           await connectDB();
@@ -228,30 +235,27 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
           
           if (player) {
             token.id = playerId as string;
-            // Always refresh role from database to ensure it's up-to-date
-            // This ensures role changes in DB are reflected in session
+            // Always use database role - it's the source of truth after SSO update
             const dbRole = (player.role as 'user' | 'admin') || 'user';
-            token.role = dbRole;
+            token.role = dbRole; // Database role wins (was updated from SSO)
             token.authProvider = (player.authProvider as 'facebook' | 'sso' | 'anonymous') || 'facebook';
             token.facebookId = player.facebookId || null;
             token.ssoSub = player.ssoSub || null;
             token.locale = player.locale || 'en';
             token.isAnonymous = player.isAnonymous || false;
             
-            // Log role source for debugging
-            if (user && (user as any).role && dbRole !== (user as any).role) {
-              logger.warn(
-                { 
-                  playerId, 
-                  userRole: (user as any).role, 
-                  dbRole,
-                  source: 'database_override'
-                }, 
-                'JWT: Role from database differs from user object - using database role'
-              );
-            }
+            logger.info(
+              { 
+                playerId, 
+                dbRole,
+                userRole: user ? (user as any).role : undefined,
+                roleMatch: user ? dbRole === (user as any).role : 'no_user',
+                source: 'database_refresh'
+              }, 
+              'JWT: Refreshed role from database (SSO is source of truth)'
+            );
           } else if (user && user.id && !token.role) {
-            // Initial sign in - player not found yet (shouldn't happen, but handle gracefully)
+            // Fallback: player not found, use role from user object
             token.id = user.id;
             token.role = (user as any).role || 'user';
             token.authProvider = (user as any).authProvider || 'facebook';
@@ -260,12 +264,13 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
           }
         } catch (error) {
           logger.error({ error, playerId }, 'Failed to fetch player in JWT callback');
-          // Fallback values - keep existing token values if fetch fails
+          // Fallback: use role from user object if database fetch fails
           if (user && user.id) {
             token.id = user.id;
             token.role = (user as any).role || token.role || 'user';
             token.authProvider = (user as any).authProvider || token.authProvider || 'facebook';
             token.isAnonymous = (user as any).isAnonymous ?? token.isAnonymous ?? false;
+            logger.warn({ playerId: user.id, role: token.role }, 'JWT: Database fetch failed, using user object role as fallback');
           }
         }
       }

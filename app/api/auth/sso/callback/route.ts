@@ -274,38 +274,11 @@ export async function GET(request: NextRequest) {
       player.displayName = userInfo.name || player.displayName;
       player.email = userInfo.email || player.email;
       
-      // Always update role from SSO if SSO provides a non-default role ('admin')
-      // This ensures SSO admin assignments are respected
-      // Only preserve existing role if SSO defaults to 'user' AND player already has a role
+      // SIMPLIFIED: Always trust SSO as source of truth for roles
+      // If SSO says admin, user is admin. If SSO says user, user is user.
+      // This is what the user wants - simple SSO role management
       const oldRole = player.role;
-      if (userInfo.role === 'admin') {
-        // SSO explicitly provides admin role - always update
-        player.role = 'admin';
-        logger.info({
-          playerId: player._id,
-          oldRole,
-          newRole: 'admin',
-          source: 'sso_explicit_admin'
-        }, 'Updating player role to admin from SSO');
-      } else if (userInfo.role === 'user' && player.role) {
-        // SSO defaults to 'user' but player has existing role - preserve it
-        // This prevents SSO from overwriting manually set admin roles
-        logger.info({
-          playerId: player._id,
-          ssoRole: userInfo.role,
-          dbRole: player.role,
-          action: 'preserving_existing_role'
-        }, 'SSO provided default role, preserving existing role from database');
-      } else {
-        // Player has no role or SSO role is different - update it
-        player.role = userInfo.role;
-        logger.info({
-          playerId: player._id,
-          oldRole,
-          newRole: userInfo.role,
-          source: 'sso_role_update'
-        }, 'Updating player role from SSO');
-      }
+      player.role = userInfo.role; // Always use SSO role
       
       player.authProvider = 'sso';
       player.lastLoginAt = new Date();
@@ -317,8 +290,9 @@ export async function GET(request: NextRequest) {
         oldRole,
         ssoRole: userInfo.role,
         finalRole: player.role,
-        roleChanged: oldRole !== player.role
-      }, 'DEBUG: Updated existing player - role sync');
+        roleChanged: oldRole !== player.role,
+        action: 'sso_role_always_trusted'
+      }, 'Updating player role from SSO (SSO is source of truth)');
       
       await player.save();
       
@@ -342,22 +316,22 @@ export async function GET(request: NextRequest) {
         const existingPlayer = await Player.findOne({ email: userInfo.email });
         if (existingPlayer) {
           // Link SSO to existing account
+          // SIMPLIFIED: Always trust SSO as source of truth
           const oldRole = existingPlayer.role;
           existingPlayer.ssoSub = userInfo.sub;
-          // Always respect SSO admin role when linking accounts
-          if (userInfo.role === 'admin') {
-            existingPlayer.role = 'admin';
-            logger.info({ playerId: existingPlayer._id, oldRole, newRole: 'admin' }, 'Linking SSO account - updating to admin role');
-          } else if (userInfo.role === 'user' && existingPlayer.role) {
-            // Preserve existing role if SSO defaults to 'user'
-            logger.info({ playerId: existingPlayer._id, ssoRole: userInfo.role, dbRole: existingPlayer.role }, 'Linking SSO account - preserving existing role');
-          } else {
-            existingPlayer.role = userInfo.role;
-          }
+          existingPlayer.role = userInfo.role; // Always use SSO role
           existingPlayer.authProvider = 'sso';
           existingPlayer.displayName = userInfo.name || existingPlayer.displayName;
           existingPlayer.lastLoginAt = new Date();
           existingPlayer.lastSeenAt = new Date();
+          
+          logger.info({ 
+            playerId: existingPlayer._id, 
+            oldRole, 
+            ssoRole: userInfo.role,
+            finalRole: existingPlayer.role,
+            action: 'sso_role_always_trusted'
+          }, 'Linking SSO account - using SSO role as source of truth');
           
           await existingPlayer.save();
           player = existingPlayer;
@@ -594,9 +568,9 @@ export async function GET(request: NextRequest) {
 
     // Create NextAuth session using credentials provider
     // Why: Use NextAuth session management for consistency
-    // IMPORTANT: Use player.role (from database) not userInfo.role (from SSO token)
-    // This ensures manually set admin roles are preserved
-    const finalRole = player.role || 'user';
+    // SIMPLIFIED: Use player.role which was just updated from SSO
+    // Since we always trust SSO, player.role should match userInfo.role
+    const finalRole = player.role || userInfo.role || 'user';
     
     logger.info({
       playerId: (player._id as any).toString(),
@@ -604,8 +578,8 @@ export async function GET(request: NextRequest) {
       roleFromDB: player.role,
       roleFromSSO: userInfo.role,
       finalRole,
-      roleSource: 'database'
-    }, 'DEBUG: About to call signIn with role from database');
+      roleSource: 'database_updated_from_sso'
+    }, 'DEBUG: About to call signIn with role (SSO is source of truth)');
     
     let signInResult;
     try {
@@ -614,7 +588,7 @@ export async function GET(request: NextRequest) {
         playerId: (player._id as any).toString(),
         displayName: player.displayName,
         isAnonymous: 'false',
-        role: finalRole, // Use role from database, not SSO token
+        role: finalRole, // Role from database (which was updated from SSO)
       });
     } catch (signInError) {
       const errorMessage = signInError instanceof Error ? signInError.message : String(signInError);
