@@ -7,7 +7,7 @@
 import { useEffect, useState, useRef } from 'react';
 import { useRouter } from 'next/navigation';
 import { useLocale, useTranslations } from 'next-intl';
-import { CheckCircle, ArrowLeft, Loader2 } from 'lucide-react';
+import { CheckCircle, XCircle, ArrowLeft, Loader2 } from 'lucide-react';
 import { LocaleLink } from '@/components/LocaleLink';
 import Logo from '@/components/Logo';
 import { useSession } from 'next-auth/react';
@@ -49,6 +49,7 @@ export default function LessonQuizPage({
   const [loading, setLoading] = useState(true);
   const [answering, setAnswering] = useState(false);
   const [feedback, setFeedback] = useState<string | null>(null);
+  const [isAnswerCorrect, setIsAnswerCorrect] = useState<boolean | null>(null);
   const [error, setError] = useState<string | null>(null);
   const hasRedirectedRef = useRef(false);
 
@@ -115,6 +116,7 @@ export default function LessonQuizPage({
     if (!currentQuestion || answering) return;
     setAnswering(true);
     setFeedback(null);
+    setIsAnswerCorrect(null);
     try {
       const res = await fetch(
         `/api/courses/${courseId}/lessons/${lessonId}/quiz/submit`,
@@ -146,13 +148,20 @@ export default function LessonQuizPage({
 
       const result = data.results?.[0];
       const isCorrect = result?.isCorrect;
+      setIsAnswerCorrect(isCorrect);
       if (isCorrect) {
         setFeedback(t('quizCorrect', { defaultValue: 'Helyes válasz, szép munka! 🚀' }));
         const nextIndex = currentIndex + 1;
         if (nextIndex >= questions.length) {
           // Quiz finished; mark passed locally
+          // Include player ID in key to make it user-specific
           if (lessonId) {
-            localStorage.setItem(`quiz-passed-${courseId}-${lessonId}`, 'true');
+            const user = session?.user as { id?: string; playerId?: string } | undefined;
+            const playerId = user?.playerId || user?.id;
+            const key = playerId 
+              ? `quiz-passed-${playerId}-${courseId}-${lessonId}`
+              : `quiz-passed-${courseId}-${lessonId}`;
+            localStorage.setItem(key, 'true');
           }
           setTimeout(() => {
             router.replace(`/courses/${courseId}/day/${dayNumber}?quiz=passed`);
@@ -160,6 +169,7 @@ export default function LessonQuizPage({
         } else {
           setTimeout(() => {
             setFeedback(null);
+            setIsAnswerCorrect(null);
             setCurrentIndex(nextIndex);
           }, 700);
         }
@@ -170,7 +180,13 @@ export default function LessonQuizPage({
           })
         );
         if (lessonId) {
-          localStorage.removeItem(`quiz-passed-${courseId}-${lessonId}`);
+          // Include player ID in key to make it user-specific
+          const user = session?.user as { id?: string; playerId?: string } | undefined;
+          const playerId = user?.playerId || user?.id;
+          const key = playerId 
+            ? `quiz-passed-${playerId}-${courseId}-${lessonId}`
+            : `quiz-passed-${courseId}-${lessonId}`;
+          localStorage.removeItem(key);
         }
         setTimeout(() => {
           router.replace(`/courses/${courseId}/day/${dayNumber}?quizRetry=1`);
@@ -265,8 +281,20 @@ export default function LessonQuizPage({
           </div>
 
           {feedback && (
-            <div className="mt-8 flex items-center gap-3 text-brand-black font-semibold bg-brand-accent/15 border border-brand-accent rounded-lg px-5 py-4">
-              <CheckCircle className="w-6 h-6 text-brand-accent" />
+            <div className={`mt-8 flex items-center gap-3 font-semibold rounded-lg px-5 py-4 ${
+              isAnswerCorrect === true
+                ? 'bg-green-500/15 border border-green-500 text-green-700'
+                : isAnswerCorrect === false
+                ? 'bg-red-500/15 border border-red-500 text-red-700'
+                : 'bg-brand-accent/15 border border-brand-accent text-brand-black'
+            }`}>
+              {isAnswerCorrect === true ? (
+                <CheckCircle className="w-6 h-6 text-green-500" />
+              ) : isAnswerCorrect === false ? (
+                <XCircle className="w-6 h-6 text-red-500" />
+              ) : (
+                <CheckCircle className="w-6 h-6 text-brand-accent" />
+              )}
               <span>{feedback}</span>
             </div>
           )}

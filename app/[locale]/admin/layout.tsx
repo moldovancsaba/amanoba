@@ -25,12 +25,12 @@ import {
   Menu,
   X,
   Crown,
-  Shield,
   BookOpen,
   FileText,
   CreditCard,
   ClipboardList,
 } from 'lucide-react';
+import Logo from '@/components/Logo';
 
 interface NavItem {
   label: string;
@@ -105,15 +105,15 @@ export default function AdminLayout({
       <div className="min-h-screen bg-gray-900">
       {/* Sidebar */}
       <aside
-        className={`fixed top-0 left-0 z-40 h-screen transition-transform ${
+        className={`fixed top-0 left-0 z-40 h-screen transition-transform flex flex-col ${
           sidebarOpen ? 'translate-x-0' : '-translate-x-full'
         } bg-gray-800 border-r border-gray-700`}
         style={{ width: '260px' }}
       >
         {/* Logo */}
-        <div className="h-16 flex items-center justify-between px-4 border-b border-gray-700">
+        <div className="h-16 flex-shrink-0 flex items-center justify-between px-4 border-b border-gray-700">
           <Link href={`/${locale}/admin`} className="flex items-center gap-2">
-            <Shield className="w-8 h-8 text-indigo-500" />
+            <Logo size="sm" showText={false} linkTo="" className="flex-shrink-0" />
             <div>
               <div className="text-white font-bold text-lg">Amanoba</div>
               <div className="text-xs text-gray-400">Admin Panel</div>
@@ -121,8 +121,8 @@ export default function AdminLayout({
           </Link>
         </div>
 
-        {/* Navigation */}
-        <nav className="p-4 space-y-1">
+        {/* Navigation - Scrollable */}
+        <nav className="flex-1 overflow-y-auto p-4 space-y-1">
           {navigation.map((item) => {
             const Icon = item.icon;
             const fullPath = `/${locale}${item.href}`;
@@ -151,7 +151,7 @@ export default function AdminLayout({
         </nav>
 
         {/* Footer */}
-        <div className="absolute bottom-0 left-0 right-0 p-4 border-t border-gray-700">
+        <div className="flex-shrink-0 p-4 border-t border-gray-700">
           <div className="text-xs text-gray-500 text-center">
             v{version} | Admin Mode
           </div>

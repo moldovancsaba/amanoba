@@ -103,7 +103,13 @@ export default function DailyLessonPage({
         setLesson(data.lesson);
         setNavigation(data.navigation);
         // Refresh quiz passed flag from localStorage (set by quiz page)
-        const stored = localStorage.getItem(`quiz-passed-${cid}-${data.lesson.lessonId}`);
+        // Include player ID in key to make it user-specific
+        const user = session?.user as { id?: string; playerId?: string } | undefined;
+        const playerId = user?.playerId || user?.id;
+        const storageKey = playerId 
+          ? `quiz-passed-${playerId}-${cid}-${data.lesson.lessonId}`
+          : `quiz-passed-${cid}-${data.lesson.lessonId}`;
+        const stored = localStorage.getItem(storageKey);
         setQuizPassed(stored === 'true');
       } else {
         alert(data.error || t('failedToLoadLesson'));
@@ -152,11 +158,16 @@ export default function DailyLessonPage({
     // If quiz page redirected back with query flag, mark as passed
     const qp = searchParams.get('quiz');
     if (qp === 'passed' && lesson) {
-      const key = `quiz-passed-${courseId}-${lesson.lessonId}`;
+      // Include player ID in key to make it user-specific
+      const user = session?.user as { id?: string; playerId?: string } | undefined;
+      const playerId = user?.playerId || user?.id;
+      const key = playerId 
+        ? `quiz-passed-${playerId}-${courseId}-${lesson.lessonId}`
+        : `quiz-passed-${courseId}-${lesson.lessonId}`;
       localStorage.setItem(key, 'true');
       setQuizPassed(true);
     }
-  }, [searchParams, lesson, courseId]);
+  }, [searchParams, lesson, courseId, session]);
 
   if (loading) {
     return (
