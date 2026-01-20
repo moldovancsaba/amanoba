@@ -10,8 +10,9 @@
 import { useState, useEffect, useRef, useMemo } from 'react';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
-import { useLocale, useTranslations } from 'next-intl';
+import { useLocale } from 'next-intl';
 import { LocaleLink } from '@/components/LocaleLink';
+import { useCourseTranslations } from '@/app/lib/hooks/useCourseTranslations';
 import {
   ArrowLeft,
   Calendar,
@@ -78,8 +79,6 @@ export default function CourseDetailPage({
   const { data: session } = useSession();
   const router = useRouter();
   const locale = useLocale();
-  const t = useTranslations('courses');
-  const tCommon = useTranslations('common');
   const [course, setCourse] = useState<Course | null>(null);
   const [enrollment, setEnrollment] = useState<EnrollmentStatus | null>(null);
   const [loading, setLoading] = useState(true);
@@ -89,7 +88,10 @@ export default function CourseDetailPage({
   const [courseId, setCourseId] = useState<string>('');
   const [lessons, setLessons] = useState<Lesson[]>([]);
   const [loadingLessons, setLoadingLessons] = useState(false);
-  const hasRedirectedRef = useRef(false);
+  const [courseLanguage, setCourseLanguage] = useState<string | undefined>(undefined);
+  
+  // Use course language for translations instead of URL locale
+  const { t, tCommon } = useCourseTranslations(courseLanguage);
 
   const tocLessons = useMemo(
     () => [...lessons].sort((a, b) => a.dayNumber - b.dayNumber),
@@ -132,18 +134,9 @@ export default function CourseDetailPage({
         const courseData = data.course;
         setCourse(courseData);
         
-        // Redirect to correct locale if course language doesn't match URL locale
-        // Only redirect once to prevent infinite loops
-        if (!hasRedirectedRef.current && courseData.language && courseData.language !== locale) {
-          // Map course language to locale (e.g., 'hu' -> 'hu', 'en' -> 'en')
-          const courseLocale = courseData.language === 'hu' ? 'hu' : courseData.language === 'en' ? 'en' : locale;
-          
-          // Only redirect if the locale is different
-          if (courseLocale !== locale) {
-            hasRedirectedRef.current = true;
-            router.replace(`/${courseLocale}/courses/${cid}`);
-            return;
-          }
+        // Store course language for UI translations (no redirect needed)
+        if (courseData.language) {
+          setCourseLanguage(courseData.language);
         }
       }
     } catch (error) {
