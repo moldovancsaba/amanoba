@@ -469,20 +469,76 @@ export async function GET(request: NextRequest) {
         const referralCode = request.cookies.get('referral_code')?.value;
         if (referralCode && player._id) {
           try {
-            const referralResponse = await fetch(`${process.env.NEXTAUTH_URL || process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000'}/api/referrals`, {
-              method: 'POST',
-              headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify({
-                referredPlayerId: (player._id as any).toString(),
-                referralCode,
-              }),
-            });
+            // Import referral models and process directly (more efficient than HTTP call)
+            const { ReferralTracking, PointsWallet, PointsTransaction } = await import('@/lib/models');
             
-            if (referralResponse.ok) {
-              logger.info({ playerId: player._id, referralCode }, 'Referral processed successfully for new SSO player');
-            } else {
-              const errorData = await referralResponse.json();
-              logger.warn({ playerId: player._id, referralCode, error: errorData.error }, 'Failed to process referral code');
+            // Find referrer by extracting player ID from code
+            const extractedPlayerId = referralCode.slice(-4).toLowerCase();
+            const referrer = await Player.findById(extractedPlayerId);
+            
+            if (referrer) {
+              // Check if referral already exists
+              const existing = await ReferralTracking.findOne({
+                refereeId: player._id,
+              });
+              
+              if (!existing) {
+                // Create referral tracking and award points
+                const REFERRAL_REWARD = 500;
+                const referrerWallet = await PointsWallet.findOne({
+                  playerId: referrer._id,
+                });
+                
+                if (referrerWallet) {
+                  const balanceBefore = referrerWallet.currentBalance;
+                  referrerWallet.currentBalance += REFERRAL_REWARD;
+                  referrerWallet.lifetimeEarned += REFERRAL_REWARD;
+                  await referrerWallet.save();
+                  
+                  // Create referral tracking
+                  const referralTracking = await ReferralTracking.create({
+                    referrerId: referrer._id,
+                    refereeId: player._id,
+                    referralCode,
+                    status: 'completed',
+                    completionCriteria: {
+                      meetsRequirements: true,
+                    },
+                    rewards: {
+                      referrerPoints: REFERRAL_REWARD,
+                      refereePoints: 0,
+                      referrerBonusXP: 0,
+                      refereeBonusXP: 0,
+                      rewardedAt: new Date(),
+                    },
+                    metadata: {
+                      referrerDisplayName: referrer.displayName,
+                      createdAt: new Date(),
+                      completedAt: new Date(),
+                    },
+                  });
+                  
+                  // Create points transaction
+                  await PointsTransaction.create({
+                    playerId: referrer._id,
+                    walletId: referrerWallet._id,
+                    type: 'earn',
+                    amount: REFERRAL_REWARD,
+                    balanceBefore,
+                    balanceAfter: referrerWallet.currentBalance,
+                    source: {
+                      type: 'referral',
+                      referenceId: referralTracking._id,
+                      description: 'Referral reward',
+                    },
+                    metadata: {
+                      createdAt: new Date(),
+                    },
+                  });
+                  
+                  logger.info({ playerId: player._id, referralCode, referrerId: referrer._id }, 'Referral processed successfully for new SSO player');
+                }
+              }
             }
           } catch (referralError) {
             // Don't fail signup if referral processing fails
