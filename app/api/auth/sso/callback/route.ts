@@ -274,11 +274,47 @@ export async function GET(request: NextRequest) {
       player.displayName = userInfo.name || player.displayName;
       player.email = userInfo.email || player.email;
       
-      // SIMPLIFIED: Always trust SSO as source of truth for roles
-      // If SSO says admin, user is admin. If SSO says user, user is user.
-      // This is what the user wants - simple SSO role management
+      // SMART ROLE MANAGEMENT:
+      // 1. If SSO explicitly provides 'admin' → always set to admin (SSO is authoritative)
+      // 2. If SSO provides 'user' → preserve existing admin if player already has it
+      // 3. If SSO provides nothing (defaults to 'user') → preserve existing role
+      // This ensures SSO admin assignments work while protecting manually set admins
       const oldRole = player.role;
-      player.role = userInfo.role; // Always use SSO role
+      const hasExistingAdmin = oldRole === 'admin';
+      const ssoProvidesAdmin = userInfo.role === 'admin';
+      const ssoProvidesUser = userInfo.role === 'user';
+      
+      if (ssoProvidesAdmin) {
+        // SSO explicitly says admin - always trust it
+        player.role = 'admin';
+        logger.info({
+          playerId: player._id,
+          oldRole,
+          ssoRole: userInfo.role,
+          finalRole: 'admin',
+          action: 'sso_admin_trusted'
+        }, 'SSO provided admin role - setting player to admin');
+      } else if (ssoProvidesUser && hasExistingAdmin) {
+        // SSO says user but player is admin - preserve admin (SSO might not have role info)
+        logger.info({
+          playerId: player._id,
+          oldRole: 'admin',
+          ssoRole: userInfo.role,
+          finalRole: 'admin',
+          action: 'preserving_existing_admin'
+        }, 'SSO provided user role but player is admin - preserving admin role');
+        // Don't change role - keep it as admin
+      } else {
+        // SSO says user and player is not admin, or player has no role - use SSO role
+        player.role = userInfo.role;
+        logger.info({
+          playerId: player._id,
+          oldRole,
+          ssoRole: userInfo.role,
+          finalRole: player.role,
+          action: 'sso_role_applied'
+        }, 'Applying SSO role to player');
+      }
       
       player.authProvider = 'sso';
       player.lastLoginAt = new Date();
@@ -291,8 +327,9 @@ export async function GET(request: NextRequest) {
         ssoRole: userInfo.role,
         finalRole: player.role,
         roleChanged: oldRole !== player.role,
-        action: 'sso_role_always_trusted'
-      }, 'Updating player role from SSO (SSO is source of truth)');
+        hasExistingAdmin,
+        ssoProvidesAdmin
+      }, 'Updated existing player - role management');
       
       await player.save();
       
@@ -316,22 +353,47 @@ export async function GET(request: NextRequest) {
         const existingPlayer = await Player.findOne({ email: userInfo.email });
         if (existingPlayer) {
           // Link SSO to existing account
-          // SIMPLIFIED: Always trust SSO as source of truth
+          // SMART ROLE MANAGEMENT: Same logic as above
           const oldRole = existingPlayer.role;
+          const hasExistingAdmin = oldRole === 'admin';
+          const ssoProvidesAdmin = userInfo.role === 'admin';
+          
           existingPlayer.ssoSub = userInfo.sub;
-          existingPlayer.role = userInfo.role; // Always use SSO role
+          
+          if (ssoProvidesAdmin) {
+            existingPlayer.role = 'admin';
+            logger.info({ 
+              playerId: existingPlayer._id, 
+              oldRole, 
+              ssoRole: userInfo.role,
+              finalRole: 'admin',
+              action: 'sso_admin_trusted'
+            }, 'Linking SSO account - SSO provided admin role');
+          } else if (userInfo.role === 'user' && hasExistingAdmin) {
+            // Preserve existing admin
+            logger.info({ 
+              playerId: existingPlayer._id, 
+              oldRole: 'admin', 
+              ssoRole: userInfo.role,
+              finalRole: 'admin',
+              action: 'preserving_existing_admin'
+            }, 'Linking SSO account - preserving existing admin role');
+            // Don't change role
+          } else {
+            existingPlayer.role = userInfo.role;
+            logger.info({ 
+              playerId: existingPlayer._id, 
+              oldRole, 
+              ssoRole: userInfo.role,
+              finalRole: existingPlayer.role,
+              action: 'sso_role_applied'
+            }, 'Linking SSO account - applying SSO role');
+          }
+          
           existingPlayer.authProvider = 'sso';
           existingPlayer.displayName = userInfo.name || existingPlayer.displayName;
           existingPlayer.lastLoginAt = new Date();
           existingPlayer.lastSeenAt = new Date();
-          
-          logger.info({ 
-            playerId: existingPlayer._id, 
-            oldRole, 
-            ssoRole: userInfo.role,
-            finalRole: existingPlayer.role,
-            action: 'sso_role_always_trusted'
-          }, 'Linking SSO account - using SSO role as source of truth');
           
           await existingPlayer.save();
           player = existingPlayer;

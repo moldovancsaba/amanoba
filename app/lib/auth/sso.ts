@@ -177,7 +177,10 @@ export function extractSSOUserInfo(claims: SSOTokenClaims): SSOUserInfo {
     claims.roles || 
     (claims as any).user_role || 
     (claims as any).groups || 
-    (claims as any).permissions;
+    (claims as any).permissions ||
+    (claims as any).authorities || // Common in Spring Security
+    (claims as any).realm_access?.roles || // Keycloak format
+    (claims as any).resource_access; // Keycloak resource roles
   
   const role = mapSSORole(roleValue);
   
@@ -197,6 +200,9 @@ export function extractSSOUserInfo(claims: SSOTokenClaims): SSOUserInfo {
       userRoleClaim: (claims as any).user_role,
       groupsClaim: (claims as any).groups,
       permissionsClaim: (claims as any).permissions,
+      authoritiesClaim: (claims as any).authorities,
+      realmAccess: (claims as any).realm_access,
+      resourceAccess: (claims as any).resource_access,
     },
     'SSO role extraction - detailed'
   );
