@@ -1,8 +1,8 @@
 # Amanoba Architecture
 
-**Version**: 2.8.2  
-**Last Updated**: 2025-01-21T14:00:00.000Z  
-**Status**: Active - Course System Complete - Payment System Integrated
+**Version**: 2.9.0  
+**Last Updated**: 2025-01-23T10:00:00.000Z  
+**Status**: Active - Course System Complete - Payment System Integrated - CTA Yellow Rule Enforced
 
 ---
 
@@ -25,7 +25,7 @@ Amanoba is a unified 30-day learning platform built on Next.js 15.5.2 (App Route
 ### Frontend
 - **Framework**: Next.js 15.5.2 (App Router)
 - **Language**: TypeScript 5
-- **Styling**: Tailwind CSS 3.4.11 with custom animations
+- **Styling**: Tailwind CSS 3.4.11 with custom animations; design tokens in `app/design-system.css`
 - **UI Components**: Radix UI primitives
 - **Animation**: Framer Motion 10.18.0
 - **State Management**: TanStack React Query 5.56.2
@@ -33,6 +33,7 @@ Amanoba is a unified 30-day learning platform built on Next.js 15.5.2 (App Route
 - **Charts**: Recharts 3.2.1
 - **Icons**: Lucide React 0.462.0
 - **Utilities**: clsx, tailwind-merge, class-variance-authority
+- **CTA Rule**: CTA yellow (`#FAB908`) is exclusive to primary actions via tokens `--cta-bg`, `--cta-bg-hover`, `--cta-text`, `--cta-shadow`; non-CTA elements must use neutral/secondary palette.
 
 ### Backend
 - **Runtime**: Node.js >= 20.0.0
