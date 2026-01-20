@@ -68,7 +68,7 @@
     "or": "vagy",
     "termsOfService": "Felhasználási feltételek",
     "privacyPolicy": "Adatvédelmi irányelvek",
-    "byContinuing": "A folytatással elfogadod az {{appName}}",
+    "byContinuing": "A folytatással elfogadod az {{appName}} ",
     "and": "és"
   },
   "auth": {
@@ -87,7 +87,7 @@
     "dailyLessons": "Napi leckék",
     "interactiveAssessments": "Interaktív értékelések",
     "or": "vagy",
-    "tryGamesInstantly": "Próbáld ki a játékokat azonnal véletlenszerű felhasználónévvel",
+    "tryGamesInstantly": "Próbáld ki a tanfolyamokat azonnal véletlenszerű felhasználónévvel",
     "creatingAccount": "Fiók létrehozása..."
   },
   "dashboard": {
