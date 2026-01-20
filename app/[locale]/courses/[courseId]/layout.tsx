@@ -52,15 +52,21 @@ export async function generateMetadata({
       }
     }
 
-    // Fallback to default Amanoba logo if no thumbnail
-    const imageUrl = thumbnailUrl 
-      ? (thumbnailUrl.startsWith('http') ? thumbnailUrl : thumbnailUrl)
-      : `${baseUrl}/AMANOBA.png`;
-
-    // Ensure absolute URL
-    const absoluteImageUrl = imageUrl.startsWith('http') 
-      ? imageUrl 
-      : `${baseUrl}${imageUrl.startsWith('/') ? '' : '/'}${imageUrl}`;
+    // Ensure absolute URL for image (required for Open Graph)
+    // IMGBB URLs are already absolute, but we need to handle all cases
+    let absoluteImageUrl: string;
+    if (thumbnailUrl) {
+      // If already absolute URL (starts with http:// or https://)
+      if (thumbnailUrl.startsWith('http://') || thumbnailUrl.startsWith('https://')) {
+        absoluteImageUrl = thumbnailUrl;
+      } else {
+        // Relative URL - make it absolute
+        absoluteImageUrl = `${baseUrl}${thumbnailUrl.startsWith('/') ? '' : '/'}${thumbnailUrl}`;
+      }
+    } else {
+      // Fallback to default Amanoba logo
+      absoluteImageUrl = `${baseUrl}/AMANOBA.png`;
+    }
 
     // Build course URL
     const courseUrl = `${baseUrl}/${locale}/courses/${courseId}`;
