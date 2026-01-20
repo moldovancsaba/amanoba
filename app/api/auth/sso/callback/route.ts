@@ -342,8 +342,18 @@ export async function GET(request: NextRequest) {
         const existingPlayer = await Player.findOne({ email: userInfo.email });
         if (existingPlayer) {
           // Link SSO to existing account
+          const oldRole = existingPlayer.role;
           existingPlayer.ssoSub = userInfo.sub;
-          existingPlayer.role = userInfo.role; // Update role from SSO
+          // Always respect SSO admin role when linking accounts
+          if (userInfo.role === 'admin') {
+            existingPlayer.role = 'admin';
+            logger.info({ playerId: existingPlayer._id, oldRole, newRole: 'admin' }, 'Linking SSO account - updating to admin role');
+          } else if (userInfo.role === 'user' && existingPlayer.role) {
+            // Preserve existing role if SSO defaults to 'user'
+            logger.info({ playerId: existingPlayer._id, ssoRole: userInfo.role, dbRole: existingPlayer.role }, 'Linking SSO account - preserving existing role');
+          } else {
+            existingPlayer.role = userInfo.role;
+          }
           existingPlayer.authProvider = 'sso';
           existingPlayer.displayName = userInfo.name || existingPlayer.displayName;
           existingPlayer.lastLoginAt = new Date();
@@ -352,7 +362,7 @@ export async function GET(request: NextRequest) {
           await existingPlayer.save();
           player = existingPlayer;
           
-          logger.info({ playerId: player._id, ssoSub: userInfo.sub }, 'SSO linked to existing player account');
+          logger.info({ playerId: player._id, ssoSub: userInfo.sub, finalRole: player.role }, 'SSO linked to existing player account');
         }
       }
 
