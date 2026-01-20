@@ -264,25 +264,37 @@ export default function DailyLessonPage({
 
                 {/* Center: Quiz and Complete buttons */}
                 <div className="flex items-center justify-center gap-3 flex-shrink-0">
+                  {/* Show quiz button if quiz is enabled and lesson not completed */}
                   {lesson.quizConfig?.enabled && !lesson.isCompleted && (
                     <LocaleLink
                       href={`/courses/${courseId}/day/${dayNumber}/quiz`}
-                      className="flex items-center justify-center gap-2 bg-brand-white border-2 border-brand-accent text-brand-black px-6 py-3 rounded-lg font-bold hover:bg-brand-accent/80 transition-colors text-base whitespace-nowrap"
+                      className={`flex items-center justify-center gap-2 px-6 py-3 rounded-lg font-bold transition-colors text-base whitespace-nowrap ${
+                        lesson.quizConfig.required && !quizPassed
+                          ? 'bg-brand-accent text-brand-black hover:bg-brand-primary-400 px-7 py-3.5'
+                          : 'bg-brand-white border-2 border-brand-accent text-brand-black hover:bg-brand-accent/80'
+                      }`}
                     >
                       {t('takeQuiz', { defaultValue: 'Kitöltöm a kvízt' })}
                     </LocaleLink>
                   )}
 
-                  {!lesson.isCompleted ? (
+                  {/* Show "Mark as Complete" button only if:
+                      - Lesson not completed AND
+                      - (No quiz required OR quiz already passed) */}
+                  {!lesson.isCompleted && 
+                   !(lesson.quizConfig?.enabled && lesson.quizConfig.required && !quizPassed) && (
                     <button
                       onClick={handleComplete}
-                      disabled={completing || (lesson.quizConfig?.enabled && lesson.quizConfig.required && !quizPassed)}
+                      disabled={completing}
                       className="flex items-center gap-2 bg-brand-accent text-brand-black px-7 py-3.5 rounded-lg font-bold hover:bg-brand-primary-400 transition-colors disabled:opacity-50 disabled:cursor-not-allowed text-base whitespace-nowrap"
                     >
                       <CheckCircle className="w-5 h-5" />
                       {completing ? t('completing') : t('markAsComplete')}
                     </button>
-                  ) : (
+                  )}
+
+                  {/* Show completed state */}
+                  {lesson.isCompleted && (
                     <div className="flex items-center gap-2 bg-green-500 text-white px-6 py-3 rounded-lg font-bold whitespace-nowrap">
                       <CheckCircle className="w-5 h-5" />
                       {t('completed')}
