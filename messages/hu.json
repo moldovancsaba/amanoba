@@ -138,7 +138,9 @@
     "learningMilestones": "Tanulási mérföldkövek",
     "keepLearning": "Folytasd a tanulást!",
     "learningStreaks": "Tanulási sorozatok",
-    "assessments": "Értékelések"
+    "assessments": "Értékelések",
+    "dayNumber": "{{day}}. nap",
+    "goToDay": "Menj a(z) {{day}}. napra"
   },
   "stats": {
     "loading": "Statisztikák betöltése...",

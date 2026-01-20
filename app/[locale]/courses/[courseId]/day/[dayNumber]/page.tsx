@@ -68,13 +68,20 @@ export default function DailyLessonPage({
   const [dayNumber, setDayNumber] = useState<number>(0);
   const [quizPassed, setQuizPassed] = useState(false);
   const searchParams = useSearchParams();
-  const hasRedirectedRef = useRef(false);
+  const hasRedirectedRef = useRef<string | null>(null); // Store the courseId+day that was redirected
 
   useEffect(() => {
     const loadData = async () => {
       const resolvedParams = await params;
       const cid = resolvedParams.courseId;
       const day = parseInt(resolvedParams.dayNumber);
+      
+      // Reset redirect ref if navigating to a different lesson
+      const currentKey = `${cid}-${day}`;
+      if (hasRedirectedRef.current !== currentKey) {
+        hasRedirectedRef.current = null;
+      }
+      
       setCourseId(cid);
       setDayNumber(day);
       await fetchLesson(cid, day);
@@ -92,14 +99,20 @@ export default function DailyLessonPage({
 
       if (data.success) {
         // Check if course language matches URL locale, redirect if not
-        // Only redirect once to prevent infinite loops
-        if (!hasRedirectedRef.current && data.courseLanguage && data.courseLanguage !== locale) {
+        // Only redirect once per lesson to prevent infinite loops
+        const currentKey = `${cid}-${day}`;
+        if (hasRedirectedRef.current !== currentKey && data.courseLanguage && data.courseLanguage !== locale) {
           const courseLocale = data.courseLanguage === 'hu' ? 'hu' : data.courseLanguage === 'en' ? 'en' : locale;
           if (courseLocale !== locale) {
-            hasRedirectedRef.current = true;
+            hasRedirectedRef.current = currentKey;
             router.replace(`/${courseLocale}/courses/${cid}/day/${day}`);
             return;
           }
+        }
+        
+        // Mark that we've checked this lesson (even if no redirect was needed)
+        if (!hasRedirectedRef.current) {
+          hasRedirectedRef.current = currentKey;
         }
 
         setLesson(data.lesson);

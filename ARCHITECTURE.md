@@ -1,7 +1,7 @@
 # Amanoba Architecture
 
-**Version**: 2.8.0  
-**Last Updated**: 2025-01-20T23:00:00.000Z  
+**Version**: 2.8.1  
+**Last Updated**: 2025-01-21T12:00:00.000Z  
 **Status**: Active - Course System Complete - Payment System Integrated
 
 ---

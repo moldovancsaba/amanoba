@@ -51,13 +51,20 @@ export default function LessonQuizPage({
   const [feedback, setFeedback] = useState<string | null>(null);
   const [isAnswerCorrect, setIsAnswerCorrect] = useState<boolean | null>(null);
   const [error, setError] = useState<string | null>(null);
-  const hasRedirectedRef = useRef(false);
+  const hasRedirectedRef = useRef<string | null>(null); // Store the courseId+day that was redirected
 
   useEffect(() => {
     const init = async () => {
       const resolved = await params;
       const cid = resolved.courseId;
       const day = parseInt(resolved.dayNumber);
+      
+      // Reset redirect ref if navigating to a different lesson
+      const currentKey = `${cid}-${day}-quiz`;
+      if (hasRedirectedRef.current !== currentKey) {
+        hasRedirectedRef.current = null;
+      }
+      
       setCourseId(cid);
       setDayNumber(day);
       await loadLessonAndQuestions(cid, day);
@@ -77,14 +84,20 @@ export default function LessonQuizPage({
       }
 
       // Check if course language matches URL locale, redirect if not
-      // Only redirect once to prevent infinite loops
-      if (!hasRedirectedRef.current && lessonData.courseLanguage && lessonData.courseLanguage !== locale) {
+      // Only redirect once per lesson to prevent infinite loops
+      const currentKey = `${cid}-${day}-quiz`;
+      if (hasRedirectedRef.current !== currentKey && lessonData.courseLanguage && lessonData.courseLanguage !== locale) {
         const courseLocale = lessonData.courseLanguage === 'hu' ? 'hu' : lessonData.courseLanguage === 'en' ? 'en' : locale;
         if (courseLocale !== locale) {
-          hasRedirectedRef.current = true;
+          hasRedirectedRef.current = currentKey;
           router.replace(`/${courseLocale}/courses/${cid}/day/${day}/quiz`);
           return;
         }
+      }
+      
+      // Mark that we've checked this lesson (even if no redirect was needed)
+      if (!hasRedirectedRef.current) {
+        hasRedirectedRef.current = currentKey;
       }
 
       setLessonId(lessonData.lesson.lessonId);

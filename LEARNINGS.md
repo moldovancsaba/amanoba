@@ -1183,6 +1183,86 @@ Version must be synchronized across:
 
 ---
 
+### Course Navigation: Multiple Reloads from Language Redirect Logic
+
+**Context**: When navigating to next/previous lesson in English courses, the page reloaded 3 times instead of once, creating a poor user experience.
+
+**Root Cause**: The language redirect check was using a boolean `useRef(false)` that never reset when navigating to a different lesson. This caused:
+1. LocaleLink navigates to new lesson URL
+2. useEffect runs and calls fetchLesson
+3. Language redirect check runs - but `hasRedirectedRef` was still `true` from previous lesson
+4. Multiple redirect checks triggered unnecessary reloads
+5. The redirect itself might cause component remount, triggering another check
+
+**Problem Code**:
+```typescript
+// ❌ Wrong: Boolean ref never resets for new lessons
+const hasRedirectedRef = useRef(false);
+
+useEffect(() => {
+  // ... load lesson
+  await fetchLesson(cid, day);
+}, [params]);
+
+const fetchLesson = async (cid: string, day: number) => {
+  // Check runs every time, but ref is always true after first redirect
+  if (!hasRedirectedRef.current && data.courseLanguage !== locale) {
+    hasRedirectedRef.current = true; // Set once, never resets
+    router.replace(`/${courseLocale}/courses/${cid}/day/${day}`);
+  }
+};
+```
+
+**Solution**:
+```typescript
+// ✅ Correct: Track which lesson was redirected, reset on navigation
+const hasRedirectedRef = useRef<string | null>(null); // Store lesson key
+
+useEffect(() => {
+  const resolvedParams = await params;
+  const cid = resolvedParams.courseId;
+  const day = parseInt(resolvedParams.dayNumber);
+  
+  // Reset redirect ref if navigating to a different lesson
+  const currentKey = `${cid}-${day}`;
+  if (hasRedirectedRef.current !== currentKey) {
+    hasRedirectedRef.current = null; // Reset for new lesson
+  }
+  
+  await fetchLesson(cid, day);
+}, [params]);
+
+const fetchLesson = async (cid: string, day: number) => {
+  const currentKey = `${cid}-${day}`;
+  // Only redirect if we haven't already checked this specific lesson
+  if (hasRedirectedRef.current !== currentKey && data.courseLanguage !== locale) {
+    hasRedirectedRef.current = currentKey; // Mark this lesson as checked
+    router.replace(`/${courseLocale}/courses/${cid}/day/${day}`);
+    return;
+  }
+  
+  // Mark that we've checked this lesson (even if no redirect was needed)
+  if (!hasRedirectedRef.current) {
+    hasRedirectedRef.current = currentKey;
+  }
+};
+```
+
+**Learning**: When implementing redirect logic in React components:
+1. **Track specific instances, not just boolean flags** - Use keys that identify the specific resource (courseId + dayNumber)
+2. **Reset refs on navigation** - When params change, reset redirect tracking for the new resource
+3. **Prevent duplicate checks** - Only check redirect once per resource instance
+4. **Early return on redirect** - Return immediately after redirect to prevent further processing
+5. **Test navigation flows** - Verify single reload when navigating between resources
+
+**Why It Matters**: Multiple reloads create poor UX, slow down navigation, and waste resources. Users expect smooth, single-page navigation between lessons.
+
+**Applied In**: 
+- `app/[locale]/courses/[courseId]/day/[dayNumber]/page.tsx` (lesson page)
+- `app/[locale]/courses/[courseId]/day/[dayNumber]/quiz/page.tsx` (quiz page)
+
+---
+
 ### Gamification Thresholds
 
 **Context**: Need to balance engagement without overwhelming users.

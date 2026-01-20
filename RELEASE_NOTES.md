@@ -1,11 +1,38 @@
 # Amanoba Release Notes
 
-**Current Version**: 2.8.0  
-**Last Updated**: 2025-01-20T23:00:00.000Z
+**Current Version**: 2.8.1  
+**Last Updated**: 2025-01-21T12:00:00.000Z
 
 ---
 
 All completed tasks are documented here in reverse chronological order. This file follows the Changelog format and is updated with every version bump.
+
+---
+
+## [v2.8.1] — 2025-01-21 🐛🔧
+
+**Status**: BUG FIXES + NAVIGATION IMPROVEMENTS  
+**Type**: Patch Release
+
+### 🐛 Bug Fixes
+
+#### Course Navigation: Fixed Triple Reload Issue
+
+**Problem**: When navigating to next/previous lesson in English courses, the page reloaded 3 times instead of once, creating a poor user experience.
+
+**Root Cause**: Language redirect check was using a boolean `useRef(false)` that never reset when navigating to a different lesson, causing multiple unnecessary redirect checks and reloads.
+
+**Solution**:
+- Changed redirect tracking from boolean to lesson-specific key (`courseId-dayNumber`)
+- Reset redirect ref when navigating to a different lesson
+- Only check redirect once per lesson instance
+- Applied fix to both lesson page and quiz page
+
+**Files Modified**:
+- `app/[locale]/courses/[courseId]/day/[dayNumber]/page.tsx`
+- `app/[locale]/courses/[courseId]/day/[dayNumber]/quiz/page.tsx`
+
+**Impact**: Smooth single-page navigation between lessons, improved user experience.
 
 ---
 
