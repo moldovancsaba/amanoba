@@ -251,7 +251,7 @@
     "signInToView": "Please sign in to view courses",
     "progress": "Progress",
     "dayOf": "Day {{currentDay}} of {{totalDays}}",
-    "daysCompleted": "{{count}} completed",
+    "daysCompleted": "{{count}} days completed",
     "backToCourses": "Back to Courses",
     "aboutThisCourse": "About This Course",
     "whatYoullLearn": "What You'll Learn",
