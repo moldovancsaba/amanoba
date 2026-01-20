@@ -287,7 +287,14 @@ export default function Dashboard() {
               >
                 📚 {t('browseCourses')}
               </LocaleLink>
-              {session?.user && (session.user as { role?: string }).role === 'admin' && (
+              {session?.user && (() => {
+                const userRole = (session.user as { role?: string }).role;
+                // Debug: log role for troubleshooting (remove in production if needed)
+                if (process.env.NODE_ENV === 'development') {
+                  console.log('User role in session:', userRole, 'Full user:', session.user);
+                }
+                return userRole === 'admin';
+              })() && (
                 <LocaleLink
                   href="/admin"
                   className="bg-brand-primary-600 text-brand-white px-4 py-3 sm:py-2 rounded-lg hover:bg-brand-primary-700 transition-colors font-bold text-center mobile-full-width"
