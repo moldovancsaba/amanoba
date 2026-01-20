@@ -138,19 +138,27 @@ export async function GET(
 
     // Calculate course statistics
     // Why: Show actual learning progress from courses (quizzes, lessons, courses)
+    // Note: When using .lean(), assessmentResults is a plain object, not a Map
     const courseStats = {
       quizzesCompleted: courseProgresses.reduce((sum, cp) => {
         // Count assessment results (quizzes completed)
-        const assessmentCount = cp.assessmentResults ? 
-          (cp.assessmentResults instanceof Map ? cp.assessmentResults.size : Object.keys(cp.assessmentResults).length) : 0;
-        return sum + assessmentCount;
+        // assessmentResults is stored as a Map in DB, but lean() returns it as a plain object
+        if (!cp.assessmentResults) return sum;
+        if (cp.assessmentResults instanceof Map) {
+          return sum + cp.assessmentResults.size;
+        }
+        // When using lean(), Map becomes a plain object
+        return sum + Object.keys(cp.assessmentResults).length;
       }, 0),
       lessonsCompleted: courseProgresses.reduce((sum, cp) => {
         // Count completed days (lessons completed)
         return sum + (cp.completedDays?.length || 0);
       }, 0),
       coursesEnrolled: courseProgresses.length,
-      coursesCompleted: courseProgresses.filter(cp => cp.status === 'COMPLETED' || cp.status === 'completed').length,
+      coursesCompleted: courseProgresses.filter(cp => {
+        const status = cp.status?.toUpperCase();
+        return status === 'COMPLETED';
+      }).length,
       totalCourseXP: courseProgresses.reduce((sum, cp) => sum + (cp.totalXPEarned || 0), 0),
       totalCoursePoints: courseProgresses.reduce((sum, cp) => sum + (cp.totalPointsEarned || 0), 0),
     };
