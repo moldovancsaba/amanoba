@@ -4,13 +4,13 @@
 
 'use client';
 
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { useLocale, useTranslations } from 'next-intl';
 import { CheckCircle, XCircle, ArrowLeft, Loader2 } from 'lucide-react';
 import { LocaleLink } from '@/components/LocaleLink';
 import Logo from '@/components/Logo';
 import { useSession } from 'next-auth/react';
+import { useCourseTranslations } from '@/app/lib/hooks/useCourseTranslations';
 
 interface LessonResponse {
   success: boolean;
@@ -37,9 +37,7 @@ export default function LessonQuizPage({
   params: Promise<{ courseId: string; dayNumber: string }>;
 }) {
   const { data: session } = useSession();
-  const t = useTranslations('courses');
   const router = useRouter();
-  const locale = useLocale();
   const [courseId, setCourseId] = useState<string>('');
   const [dayNumber, setDayNumber] = useState<number>(0);
   const [lessonId, setLessonId] = useState<string>('');
@@ -51,19 +49,16 @@ export default function LessonQuizPage({
   const [feedback, setFeedback] = useState<string | null>(null);
   const [isAnswerCorrect, setIsAnswerCorrect] = useState<boolean | null>(null);
   const [error, setError] = useState<string | null>(null);
-  const hasRedirectedRef = useRef<string | null>(null); // Store the courseId+day that was redirected
+  const [courseLanguage, setCourseLanguage] = useState<string | undefined>(undefined);
+  
+  // Use course language for translations instead of URL locale
+  const { t } = useCourseTranslations(courseLanguage);
 
   useEffect(() => {
     const init = async () => {
       const resolved = await params;
       const cid = resolved.courseId;
       const day = parseInt(resolved.dayNumber);
-      
-      // Reset redirect ref if navigating to a different lesson
-      const currentKey = `${cid}-${day}-quiz`;
-      if (hasRedirectedRef.current !== currentKey) {
-        hasRedirectedRef.current = null;
-      }
       
       setCourseId(cid);
       setDayNumber(day);
@@ -83,21 +78,9 @@ export default function LessonQuizPage({
         return;
       }
 
-      // Check if course language matches URL locale, redirect if not
-      // Only redirect once per lesson to prevent infinite loops
-      const currentKey = `${cid}-${day}-quiz`;
-      if (hasRedirectedRef.current !== currentKey && lessonData.courseLanguage && lessonData.courseLanguage !== locale) {
-        const courseLocale = lessonData.courseLanguage === 'hu' ? 'hu' : lessonData.courseLanguage === 'en' ? 'en' : locale;
-        if (courseLocale !== locale) {
-          hasRedirectedRef.current = currentKey;
-          router.replace(`/${courseLocale}/courses/${cid}/day/${day}/quiz`);
-          return;
-        }
-      }
-      
-      // Mark that we've checked this lesson (even if no redirect was needed)
-      if (!hasRedirectedRef.current) {
-        hasRedirectedRef.current = currentKey;
+      // Store course language for UI translations (no redirect needed)
+      if (lessonData.courseLanguage) {
+        setCourseLanguage(lessonData.courseLanguage);
       }
 
       setLessonId(lessonData.lesson.lessonId);

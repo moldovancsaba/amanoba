@@ -2005,6 +2005,336 @@ const lessons: LessonEntry[] = [
       ],
     },
   },
+  {
+    day: 19,
+    title: 'Miért kell CRM és miért nem elég az Excel',
+    content: `<h1>Miért kell CRM és miért nem elég az Excel</h1>
+<p><em>Felméred, mikor borul fel az Excel, és mi az a minimum CRM beállítás, ami valós pipeline-t ad.</em></p>
+<hr />
+<h2>Napi cél</h2>
+<ul>
+  <li>Azonosítod a „váltási jeleket” (Excel → CRM).</li>
+  <li>Összeírsz minimum mezőket (deal, kontakt, aktivitás).</li>
+  <li>Eldöntöd, mi kerül át és mi marad háttérben.</li>
+</ul>
+<hr />
+<h2>Miért fontos</h2>
+<ul>
+  <li>Excelben nincs aktivitás-, idő- és felelős-követés.</li>
+  <li>Státusz és stage riport nélkül a forecast vélemény marad.</li>
+  <li>CRM higiénia = valós pipeline, jobb döntés.</li>
+</ul>
+<hr />
+<h2>Magyarázat</h2>
+<h3>Excel borulás jelei</h3>
+<ul>
+  <li>Duplikáció, verziókáosz.</li>
+  <li>Nincs aktivitás idősor, nincs felelős.</li>
+  <li>Nincs stage konverzió / cycle time kép.</li>
+</ul>
+<h3>CRM minimum</h3>
+<ul>
+  <li>Deal: érték, stage, forrás, valószínűség (opcionális), következő lépés.</li>
+  <li>Kontakt: szerep, email/telefon/LinkedIn, döntéshozó-e.</li>
+  <li>Aktivitás: dátum, típus, jegyzet, next step.</li>
+</ul>
+<hr />
+<h2>Példák</h2>
+<p><strong>Jó:</strong> CRM-ben minden dealhez next step + felelős + dátum.</p>
+<p><strong>Rossz:</strong> Excel: több verzió, nincs aktivitás, nincs felelős.</p>
+<hr />
+<h2>Gyakorlat (vezetett, 10-15 perc)</h2>
+<ol>
+  <li>Írd le 5 váltási jelet (mikor lépsz CRM-re).</li>
+  <li>Írd meg a minimum mezőlistát (deal/kontakt/aktivitás).</li>
+  <li>Döntsd el: mit migrálsz, mit hagysz meg háttérben (pl. régi jegyzetek PDF-ben).</li>
+</ol>
+<h2>Gyakorlat (önálló, 5-10 perc)</h2>
+<p>Válassz 10 élő dealt, vidd át a minimum mezőkkel egy CRM sandboxba vagy táblába (CRM-szerű struktúrában).</p>
+<hr />
+<h2>Önellenőrzés</h2>
+<ul>
+  <li>Megvan 5 váltási jel.</li>
+  <li>Megvan a minimum mezőlista.</li>
+  <li>10 deal átkerült a CRM-struktúrába.</li>
+  <li>Minden dealhez van next step + felelős.</li>
+</ul>
+<hr />
+<h2>Opcionális mélyítés</h2>
+<ul>
+  <li>CRM higiénia: <a href="https://www.pipedrive.com/en/blog/crm-data-cleaning" target="_blank" rel="noreferrer">https://www.pipedrive.com/en/blog/crm-data-cleaning</a></li>
+  <li>Stage riport alapok: <a href="https://knowledge.hubspot.com/reporting/create-reports" target="_blank" rel="noreferrer">https://knowledge.hubspot.com/reporting/create-reports</a></li>
+</ul>`,
+    emailSubject: 'B2B Értékesítés 2026 – 19. nap: Miért CRM',
+    emailBody: `<h1>B2B Értékesítés 2026 – 19. nap</h1>
+<p>Azonosítod, mikor kell CRM-re váltani, minimum mezőlistát írsz, és 10 dealt átviszel CRM-struktúrába.</p>
+<p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Olvasd el a leckét →</a></p>`,
+    quiz: {
+      questions: [
+        {
+          question: 'Miért bukik el az Excel hosszabb távon?',
+          options: [
+            'Túl színes',
+            'Nincs aktivitás/idő/felelős követés, verziókáosz',
+            'Drága',
+            'Nem lehet számolni benne',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'Mi tartozik a minimum deal mezők közé?',
+          options: [
+            'Csak név és ár',
+            'Érték, stage, forrás, next step, felelős',
+            'Csak e-mail',
+            'Csak jegyzet',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'Mi a jó példa?',
+          options: [
+            'Excel több verzióban, felelős nélkül',
+            'CRM-ben next step + felelős minden dealhez',
+            'Csak call szám mérése',
+            'Csak marketing lista',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'Mi a váltási jel?',
+          options: [
+            'Ha 1 deal van',
+            'Duplikáció, nincs felelős, nincs stage riport',
+            'Ha nincs e-mail',
+            'Ha túl sok ikon van',
+          ],
+          correctIndex: 1,
+        },
+      ],
+    },
+  },
+  {
+    day: 20,
+    title: 'Pipeline design: stagenkénti definíciók',
+    content: `<h1>Pipeline design: stagenkénti definíciók</h1>
+<p><em>Minden stage-hez belépési/kilépési feltételeket és kötelező mezőket írsz, hogy a pipeline ne vélemény legyen.</em></p>
+<hr />
+<h2>Napi cél</h2>
+<ul>
+  <li>Stage lista és definíció (belépés/kilépés) elkészítése.</li>
+  <li>Minimum kötelező mezők stage-enként.</li>
+  <li>1 oldalas pipeline checklist.</li>
+</ul>
+<hr />
+<h2>Miért fontos</h2>
+<ul>
+  <li>Definíció nélkül a stage jelentése emberfüggő.</li>
+  <li>Mezők nélkül nincs riport vagy automatizálás.</li>
+  <li>Egységes forecast és gyorsabb kockázatjelzés.</li>
+< /ul>
+<hr />
+<h2>Magyarázat</h2>
+<h3>Belépés/kilépés</h3>
+<ul>
+  <li>Belépés: mi kell ahhoz, hogy ide kerüljön (pl. ICP + probléma + döntéshozó).</li>
+  <li>Kilépés: mi bizonyítja a továbblépést (pl. döntési folyamat ismert, paper process elindítva).</li>
+</ul>
+<h3>Kötelező mezők</h3>
+<ul>
+  <li>Next step + dátum + felelős.</li>
+  <li>Forrás, érték, valószínűség (opcionális), lost ok (ha kiesik).</li>
+</ul>
+<hr />
+<h2>Példák</h2>
+<p><strong>Jó:</strong> Stage-hez tartozó belépési/kilépési feltétel + kötelező mezők.</p>
+<p><strong>Rossz:</strong> „Call után ide rakom, ha úgy érzem”.</p>
+<hr />
+<h2>Gyakorlat (vezetett, 10-15 perc)</h2>
+<ol>
+  <li>Írd le a stage-eket (pl. Lead, SQL, Discovery, Proposal, Negotiation, Close).</li>
+  <li>Írj belépési/kilépési feltételt mindegyikhez.</li>
+  <li>Írd mellé a kötelező mezőket.</li>
+</ol>
+<h2>Gyakorlat (önálló, 5-10 perc)</h2>
+<p>Töltsd ki 5 élő dealen a kötelező mezőket, javítsd, ami hiányzik.</p>
+<hr />
+<h2>Önellenőrzés</h2>
+<ul>
+  <li>Stage definíciók készen.</li>
+  <li>Belépés/kilépés meghatározva.</li>
+  <li>Kötelező mezők listázva.</li>
+  <li>5 dealen alkalmaztad.</li>
+</ul>
+<hr />
+<h2>Opcionális mélyítés</h2>
+<ul>
+  <li>Pipeline design tippek: <a href="https://www.gong.io/blog/sales-pipeline-stages/" target="_blank" rel="noreferrer">https://www.gong.io/blog/sales-pipeline-stages/</a></li>
+  <li>Stage konverzió riport: <a href="https://knowledge.hubspot.com/reporting/create-reports" target="_blank" rel="noreferrer">https://knowledge.hubspot.com/reporting/create-reports</a></li>
+</ul>`,
+    emailSubject: 'B2B Értékesítés 2026 – 20. nap: Pipeline design',
+    emailBody: `<h1>B2B Értékesítés 2026 – 20. nap</h1>
+<p>Stage definíciókat, belépés/kilépés feltételeket és kötelező mezőket írsz, és 5 dealen alkalmazod.</p>
+<p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Olvasd el a leckét →</a></p>`,
+    quiz: {
+      questions: [
+        {
+          question: 'Miért kell belépési/kilépési feltétel?',
+          options: [
+            'Dekoráció',
+            'Hogy a stage jelentése egységes és mérhető legyen',
+            'Hosszabb legyen a CRM',
+            'Több e-mailt küldjünk',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'Mi a kötelező mezők célja?',
+          options: [
+            'Design',
+            'Riport és automatizálás alapja',
+            'Marketing',
+            'Nincs cél',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'Mi a rossz példa?',
+          options: [
+            '„Call után ide rakom, ha úgy érzem”',
+            'Belépés: ICP+probléma; Kilépés: döntési folyamat ismert',
+            'Next step és felelős rögzítve',
+            'Forrás mező kitöltve',
+          ],
+          correctIndex: 0,
+        },
+        {
+          question: 'Mi legyen minden dealen?',
+          options: [
+            'Emotikon',
+            'Next step + dátum + felelős',
+            'Csak érték',
+            'Csak jegyzet',
+          ],
+          correctIndex: 1,
+        },
+      ],
+    },
+  },
+  {
+    day: 21,
+    title: 'Pipedrive: erősségek, mikor jó választás',
+    content: `<h1>Pipedrive: erősségek, mikor jó választás</h1>
+<p><em>Megérted, mire jó igazán a Pipedrive, mikor válaszd, és hogyan állítsd be minimálisan.</em></p>
+<hr />
+<h2>Napi cél</h2>
+<ul>
+  <li>Megnevezed a Pipedrive erősségeit és korlátait.</li>
+  <li>Beállítasz egy minimál pipeline-t és kötelező mezőket.</li>
+  <li>Írsz döntési kritériumot: mikor Pipedrive, mikor más.</li>
+</ul>
+<hr />
+<h2>Miért fontos</h2>
+<ul>
+  <li>A rossz eszköz választás pénzt és időt visz.</li>
+  <li>Pipedrive gyors pipeline-ra és aktivitásra jó; nem erős marketing automatizmusban.</li>
+  <li>Minimál beállítás gyorsítja az indulást.</li>
+</ul>
+<hr />
+<h2>Magyarázat</h2>
+<h3>Erősségek</h3>
+<ul>
+  <li>Gyors pipeline és aktivitás kezelés.</li>
+  <li>Egyszerű automatizmusok, könnyű bevezetés.</li>
+  <li>Áttekinthető UI, mobil app.</li>
+</ul>
+<h3>Korlátok</h3>
+<ul>
+  <li>Marketing automatizmus korlátozott.</li>
+  <li>Összetett multi-object riport kevésbé erős.</li>
+</ul>
+<h3>Minimál setup</h3>
+<ul>
+  <li>Pipeline stage-ek + kötelező mezők (forrás, next step, érték).</li>
+  <li>Aktivitás típusok, emlékeztetők.</li>
+  <li>Alap automatizmus: új deal → next step emlékeztető.</li>
+</ul>
+<hr />
+<h2>Példák</h2>
+<p><strong>Jó:</strong> Stage + kötelező mezők beállítva, aktivitás és emlékeztető fut, egyszerű riport.</p>
+<p><strong>Rossz:</strong> Pipedrive-ot választasz, miközben komplex marketing automatizmust akarsz.</p>
+<hr />
+<h2>Gyakorlat (vezetett, 10-15 perc)</h2>
+<ol>
+  <li>Írj döntési kritériumot: mikor Pipedrive, mikor HubSpot/alternatíva.</li>
+  <li>Állíts be egy pipeline-t 5-6 stage-dzsel és kötelező mezőkkel.</li>
+  <li>Hozz létre egy alap automatizmust (új deal → next step emlékeztető).</li>
+</ol>
+<h2>Gyakorlat (önálló, 5-10 perc)</h2>
+<p>Vidd át 5 dealt Pipedrive sandboxba, töltsd a mezőket, állíts be emlékeztetőt.</p>
+<hr />
+<h2>Önellenőrzés</h2>
+<ul>
+  <li>Megvan a döntési kritérium.</li>
+  <li>Pipeline + kötelező mezők beállítva.</li>
+  <li>Alap automatizmus fut.</li>
+  <li>5 deal feltöltve.</li>
+</ul>
+<hr />
+<h2>Opcionális mélyítés</h2>
+<ul>
+  <li>Pipedrive gyors start: <a href="https://support.pipedrive.com/en/article/how-to-set-up-pipelines" target="_blank" rel="noreferrer">https://support.pipedrive.com/en/article/how-to-set-up-pipelines</a></li>
+  <li>Automations: <a href="https://support.pipedrive.com/en/article/workflow-automation" target="_blank" rel="noreferrer">https://support.pipedrive.com/en/article/workflow-automation</a></li>
+</ul>`,
+    emailSubject: 'B2B Értékesítés 2026 – 21. nap: Pipedrive',
+    emailBody: `<h1>B2B Értékesítés 2026 – 21. nap</h1>
+<p>Megérted, mikor válaszd a Pipedrive-ot, beállítasz egy minimál pipeline-t és kötelező mezőket.</p>
+<p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Olvasd el a leckét →</a></p>`,
+    quiz: {
+      questions: [
+        {
+          question: 'Miben erős a Pipedrive?',
+          options: [
+            'Komplex marketing automatizmus',
+            'Gyors pipeline és aktivitás kezelés',
+            'ERP',
+            'HR rendszer',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'Mi a minimál setup része?',
+          options: [
+            'Pipeline stage + kötelező mezők + aktivitás emlékeztető',
+            'Csak logó',
+            'Csak árlista',
+            'Csak e-mail sablon',
+          ],
+          correctIndex: 0,
+        },
+        {
+          question: 'Mikor nem ideális Pipedrive?',
+          options: [
+            'Ha gyors pipeline-t akarsz',
+            'Ha komplex marketing automatizmust és lifecycle-t akarsz',
+            'Ha mobil app kell',
+            'Ha aktivitás emlékeztetőt akarsz',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'Mi a jó példa?',
+          options: [
+            'Döntési kritérium leírva, pipeline beállítva, 5 deal feltöltve',
+            'Eszközválasztás kritérium nélkül',
+            'Nincs emlékeztető',
+            'Nincs kötelező mező',
+          ],
+          correctIndex: 0,
+        },
+      ],
+    },
+  },
 ];
 
 async function main() {

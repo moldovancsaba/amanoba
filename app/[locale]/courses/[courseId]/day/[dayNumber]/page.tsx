@@ -7,11 +7,11 @@
 
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
-import { useLocale, useTranslations } from 'next-intl';
 import { LocaleLink } from '@/components/LocaleLink';
+import { useCourseTranslations } from '@/app/lib/hooks/useCourseTranslations';
 import {
   ArrowLeft,
   ArrowRight,
@@ -57,9 +57,6 @@ export default function DailyLessonPage({
 }) {
   const { data: session } = useSession();
   const router = useRouter();
-  const locale = useLocale();
-  const t = useTranslations('courses');
-  const tCommon = useTranslations('common');
   const [lesson, setLesson] = useState<Lesson | null>(null);
   const [navigation, setNavigation] = useState<Navigation | null>(null);
   const [loading, setLoading] = useState(true);
@@ -67,20 +64,17 @@ export default function DailyLessonPage({
   const [courseId, setCourseId] = useState<string>('');
   const [dayNumber, setDayNumber] = useState<number>(0);
   const [quizPassed, setQuizPassed] = useState(false);
+  const [courseLanguage, setCourseLanguage] = useState<string | undefined>(undefined);
   const searchParams = useSearchParams();
-  const hasRedirectedRef = useRef<string | null>(null); // Store the courseId+day that was redirected
+  
+  // Use course language for translations instead of URL locale
+  const { t, tCommon, courseLocale } = useCourseTranslations(courseLanguage);
 
   useEffect(() => {
     const loadData = async () => {
       const resolvedParams = await params;
       const cid = resolvedParams.courseId;
       const day = parseInt(resolvedParams.dayNumber);
-      
-      // Reset redirect ref if navigating to a different lesson
-      const currentKey = `${cid}-${day}`;
-      if (hasRedirectedRef.current !== currentKey) {
-        hasRedirectedRef.current = null;
-      }
       
       setCourseId(cid);
       setDayNumber(day);
@@ -98,21 +92,9 @@ export default function DailyLessonPage({
       const data = await response.json();
 
       if (data.success) {
-        // Check if course language matches URL locale, redirect if not
-        // Only redirect once per lesson to prevent infinite loops
-        const currentKey = `${cid}-${day}`;
-        if (hasRedirectedRef.current !== currentKey && data.courseLanguage && data.courseLanguage !== locale) {
-          const courseLocale = data.courseLanguage === 'hu' ? 'hu' : data.courseLanguage === 'en' ? 'en' : locale;
-          if (courseLocale !== locale) {
-            hasRedirectedRef.current = currentKey;
-            router.replace(`/${courseLocale}/courses/${cid}/day/${day}`);
-            return;
-          }
-        }
-        
-        // Mark that we've checked this lesson (even if no redirect was needed)
-        if (!hasRedirectedRef.current) {
-          hasRedirectedRef.current = currentKey;
+        // Store course language for UI translations (no redirect needed)
+        if (data.courseLanguage) {
+          setCourseLanguage(data.courseLanguage);
         }
 
         setLesson(data.lesson);

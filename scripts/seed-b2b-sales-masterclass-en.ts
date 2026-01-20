@@ -1999,6 +1999,336 @@ const lessons: LessonEntry[] = [
       ],
     },
   },
+  {
+    day: 19,
+    title: 'Why You Need a CRM (Excel Is Not Enough)',
+    content: `<h1>Why You Need a CRM (Excel Is Not Enough)</h1>
+<p><em>Spot the “switch signals” from spreadsheets to CRM, and define the minimum CRM setup for a real pipeline.</em></p>
+<hr />
+<h2>Learning Goal</h2>
+<ul>
+  <li>List the switch signals (Excel → CRM).</li>
+  <li>Define minimum fields (deal, contact, activity).</li>
+  <li>Decide what to migrate vs. archive.</li>
+</ul>
+<hr />
+<h2>Why It Matters</h2>
+<ul>
+  <li>Excel has no activity/time/owner tracking.</li>
+  <li>No stage or cycle reporting = opinion-based forecast.</li>
+  <li>CRM hygiene → real pipeline, better decisions.</li>
+</ul>
+<hr />
+<h2>Explanation</h2>
+<h3>Excel failure signals</h3>
+<ul>
+  <li>Duplicates, version chaos.</li>
+  <li>No activity timeline, no owner.</li>
+  <li>No stage conversion or cycle-time view.</li>
+</ul>
+<h3>CRM minimum</h3>
+<ul>
+  <li>Deal: value, stage, source, probability (optional), next step, owner.</li>
+  <li>Contact: role, email/phone/LinkedIn, decision maker?</li>
+  <li>Activity: date, type, note, next step.</li>
+</ul>
+<hr />
+<h2>Examples</h2>
+<p><strong>Good:</strong> Every deal in CRM has next step + owner + date.</p>
+<p><strong>Bad:</strong> Multiple Excel versions, no activities, no owner.</p>
+<hr />
+<h2>Guided Exercise (10–15 minutes)</h2>
+<ol>
+  <li>Write 5 switch signals (when you move to CRM).</li>
+  <li>Write the minimum field list (deal/contact/activity).</li>
+  <li>Decide what to migrate and what to archive.</li>
+</ol>
+<h2>Independent Exercise (5–10 minutes)</h2>
+<p>Take 10 live deals; move them into a CRM-like table with the minimum fields.</p>
+<hr />
+<h2>Self-check</h2>
+<ul>
+  <li>5 switch signals ready.</li>
+  <li>Minimum fields defined.</li>
+  <li>10 deals moved into CRM structure.</li>
+  <li>Each deal has next step + owner.</li>
+</ul>
+<hr />
+<h2>Optional Deep Dive</h2>
+<ul>
+  <li>CRM hygiene: <a href="https://www.pipedrive.com/en/blog/crm-data-cleaning" target="_blank" rel="noreferrer">https://www.pipedrive.com/en/blog/crm-data-cleaning</a></li>
+  <li>Stage reporting basics: <a href="https://knowledge.hubspot.com/reporting/create-reports" target="_blank" rel="noreferrer">https://knowledge.hubspot.com/reporting/create-reports</a></li>
+</ul>`,
+    emailSubject: 'B2B Sales 2026 – Day 19: Why CRM',
+    emailBody: `<h1>B2B Sales 2026 – Day 19</h1>
+<p>List your switch signals, define minimum fields, and move 10 deals into a CRM structure.</p>
+<p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Read the lesson →</a></p>`,
+    quiz: {
+      questions: [
+        {
+          question: 'Why does Excel break at scale?',
+          options: [
+            'Too colorful',
+            'No activity/time/owner tracking; version chaos',
+            'Too expensive',
+            'Cannot calculate',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'What is part of the minimum deal fields?',
+          options: [
+            'Only name and price',
+            'Value, stage, source, next step, owner',
+            'Only email',
+            'Only notes',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'Good example?',
+          options: [
+            'Excel with multiple versions, no owner',
+            'CRM with next step + owner per deal',
+            'Only counting calls',
+            'Just a marketing list',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'What is a switch signal?',
+          options: [
+            'Only 1 deal exists',
+            'Duplicates, no owner, no stage reporting',
+            'No email',
+            'Too many icons',
+          ],
+          correctIndex: 1,
+        },
+      ],
+    },
+  },
+  {
+    day: 20,
+    title: 'Pipeline Design: Stage Definitions',
+    content: `<h1>Pipeline Design: Stage Definitions</h1>
+<p><em>Write entry/exit criteria and required fields per stage so your pipeline is not opinion-based.</em></p>
+<hr />
+<h2>Learning Goal</h2>
+<ul>
+  <li>Create stage list with entry/exit criteria.</li>
+  <li>Define required fields per stage.</li>
+  <li>Publish a one-page pipeline checklist.</li>
+</ul>
+<hr />
+<h2>Why It Matters</h2>
+<ul>
+  <li>Without definitions, stage meaning is person-dependent.</li>
+  <li>Without fields, no reporting/automation.</li>
+  <li>Unified forecast and faster risk signaling.</li>
+</ul>
+<hr />
+<h2>Explanation</h2>
+<h3>Entry/exit</h3>
+<ul>
+  <li>Entry: what must be true to enter (e.g., ICP + pain + decision maker).</li>
+  <li>Exit: proof of progression (e.g., decision process known, paper process started).</li>
+</ul>
+<h3>Required fields</h3>
+<ul>
+  <li>Next step + date + owner.</li>
+  <li>Source, value, probability (optional), lost reason (if dropped).</li>
+</ul>
+<hr />
+<h2>Examples</h2>
+<p><strong>Good:</strong> Each stage has entry/exit criteria + required fields.</p>
+<p><strong>Bad:</strong> “I put it here after a call if I feel like it.”</p>
+<hr />
+<h2>Guided Exercise (10–15 minutes)</h2>
+<ol>
+  <li>List stages (Lead, SQL, Discovery, Proposal, Negotiation, Close).</li>
+  <li>Write entry/exit for each.</li>
+  <li>List required fields.</li>
+</ol>
+<h2>Independent Exercise (5–10 minutes)</h2>
+<p>Fill required fields on 5 live deals; fix gaps.</p>
+<hr />
+<h2>Self-check</h2>
+<ul>
+  <li>Stage definitions done.</li>
+  <li>Entry/exit defined.</li>
+  <li>Required fields listed.</li>
+  <li>Applied to 5 deals.</li>
+</ul>
+<hr />
+<h2>Optional Deep Dive</h2>
+<ul>
+  <li>Pipeline design tips: <a href="https://www.gong.io/blog/sales-pipeline-stages/" target="_blank" rel="noreferrer">https://www.gong.io/blog/sales-pipeline-stages/</a></li>
+  <li>Stage conversion reporting: <a href="https://knowledge.hubspot.com/reporting/create-reports" target="_blank" rel="noreferrer">https://knowledge.hubspot.com/reporting/create-reports</a></li>
+</ul>`,
+    emailSubject: 'B2B Sales 2026 – Day 20: Pipeline design',
+    emailBody: `<h1>B2B Sales 2026 – Day 20</h1>
+<p>Define entry/exit criteria and required fields per stage; apply to 5 deals.</p>
+<p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Read the lesson →</a></p>`,
+    quiz: {
+      questions: [
+        {
+          question: 'Why have entry/exit criteria?',
+          options: [
+            'Decoration',
+            'Make stage meaning consistent and measurable',
+            'Lengthen the CRM',
+            'Send more emails',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'Purpose of required fields?',
+          options: [
+            'Design',
+            'Foundation for reporting and automation',
+            'Marketing',
+            'No purpose',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'Bad example?',
+          options: [
+            '“After a call I put it here if I feel like it.”',
+            'Entry: ICP+pain; Exit: decision process known',
+            'Next step and owner captured',
+            'Source filled',
+          ],
+          correctIndex: 0,
+        },
+        {
+          question: 'What should every deal have?',
+          options: [
+            'Emoji',
+            'Next step + date + owner',
+            'Only value',
+            'Only notes',
+          ],
+          correctIndex: 1,
+        },
+      ],
+    },
+  },
+  {
+    day: 21,
+    title: 'Pipedrive: Strengths and When to Choose It',
+    content: `<h1>Pipedrive: Strengths and When to Choose It</h1>
+<p><em>Know when Pipedrive is the right choice and how to set up a minimal pipeline.</em></p>
+<hr />
+<h2>Learning Goal</h2>
+<ul>
+  <li>List Pipedrive strengths and limits.</li>
+  <li>Set up a minimal pipeline and required fields.</li>
+  <li>Write a decision criterion: when Pipedrive vs. alternatives.</li>
+</ul>
+<hr />
+<h2>Why It Matters</h2>
+<ul>
+  <li>Wrong tool wastes time and money.</li>
+  <li>Pipedrive excels at fast pipeline/activity; weaker at deep marketing automation.</li>
+  <li>Minimal setup accelerates launch.</li>
+</ul>
+<hr />
+<h2>Explanation</h2>
+<h3>Strengths</h3>
+<ul>
+  <li>Fast pipeline + activity handling.</li>
+  <li>Simple automations, easy onboarding.</li>
+  <li>Clear UI, good mobile app.</li>
+</ul>
+<h3>Limits</h3>
+<ul>
+  <li>Marketing automation is limited.</li>
+  <li>Complex multi-object reporting is weaker.</li>
+</ul>
+<h3>Minimal setup</h3>
+<ul>
+  <li>Pipeline stages + required fields (source, next step, value).</li>
+  <li>Activity types, reminders.</li>
+  <li>Basic automation: new deal → next-step reminder.</li>
+</ul>
+<hr />
+<h2>Examples</h2>
+<p><strong>Good:</strong> Stages + required fields set, activities/reminders running, simple report.</p>
+<p><strong>Bad:</strong> Choosing Pipedrive while needing complex marketing automation.</p>
+<hr />
+<h2>Guided Exercise (10–15 minutes)</h2>
+<ol>
+  <li>Write decision criteria: when Pipedrive, when HubSpot/other.</li>
+  <li>Set a pipeline with 5–6 stages + required fields.</li>
+  <li>Create a basic automation (new deal → next-step reminder).</li>
+</ol>
+<h2>Independent Exercise (5–10 minutes)</h2>
+<p>Move 5 deals into a Pipedrive sandbox; fill fields; set reminders.</p>
+<hr />
+<h2>Self-check</h2>
+<ul>
+  <li>Decision criteria ready.</li>
+  <li>Pipeline + required fields set.</li>
+  <li>Basic automation running.</li>
+  <li>5 deals populated.</li>
+</ul>
+<hr />
+<h2>Optional Deep Dive</h2>
+<ul>
+  <li>Pipedrive quick start: <a href="https://support.pipedrive.com/en/article/how-to-set-up-pipelines" target="_blank" rel="noreferrer">https://support.pipedrive.com/en/article/how-to-set-up-pipelines</a></li>
+  <li>Automations: <a href="https://support.pipedrive.com/en/article/workflow-automation" target="_blank" rel="noreferrer">https://support.pipedrive.com/en/article/workflow-automation</a></li>
+</ul>`,
+    emailSubject: 'B2B Sales 2026 – Day 21: Pipedrive',
+    emailBody: `<h1>B2B Sales 2026 – Day 21</h1>
+<p>Decide when to use Pipedrive, set a minimal pipeline and required fields.</p>
+<p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Read the lesson →</a></p>`,
+    quiz: {
+      questions: [
+        {
+          question: 'What is Pipedrive strong at?',
+          options: [
+            'Complex marketing automation',
+            'Fast pipeline and activity handling',
+            'ERP',
+            'HR',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'Minimal setup includes:',
+          options: [
+            'Logo only',
+            'Pipeline stages + required fields + activity reminder',
+            'Only price list',
+            'Only email template',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'When is Pipedrive not ideal?',
+          options: [
+            'When you want fast pipeline tracking',
+            'When you need complex marketing automation/lifecycle',
+            'When you need a mobile app',
+            'When you want activity reminders',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'Good example?',
+          options: [
+            'Decision criteria written, pipeline set, 5 deals populated',
+            'Choosing a tool with no criteria',
+            'No reminders set',
+            'No required fields',
+          ],
+          correctIndex: 0,
+        },
+      ],
+    },
+  },
 ];
 
 async function main() {
