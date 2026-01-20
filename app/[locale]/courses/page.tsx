@@ -189,10 +189,10 @@ export default function CoursesPage() {
                 href={`/courses/${course.courseId}`}
                 className="block bg-brand-white rounded-2xl p-6 sm:p-7 border-2 border-brand-accent hover:shadow-xl transition-all"
               >
-                {(course.thumbnail || defaultThumbnail) && (
+                {course.thumbnail && (
                   <div className="w-full h-44 sm:h-48 bg-brand-darkGrey rounded-lg mb-4 flex items-center justify-center overflow-hidden">
                     <img
-                      src={course.thumbnail || defaultThumbnail || ''}
+                      src={course.thumbnail}
                       alt={course.name}
                       className="w-full h-full object-cover rounded-lg"
                     />
