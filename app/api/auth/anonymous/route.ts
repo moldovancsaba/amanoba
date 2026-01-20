@@ -21,9 +21,9 @@ export async function POST(req: NextRequest) {
   try {
     logger.info('Starting anonymous login request');
     
-    // Extract referral code from URL or request body
+    // Extract referral code from URL query parameters
     const { searchParams } = new URL(req.url);
-    const referralCode = searchParams.get('ref') || (await req.json().catch(() => ({}))).referralCode;
+    const referralCode = searchParams.get('ref');
     
     await connectDB();
     logger.info('Database connected');
