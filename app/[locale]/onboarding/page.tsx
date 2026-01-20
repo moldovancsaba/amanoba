@@ -261,12 +261,12 @@ export default function OnboardingPage() {
   return (
     <div className="min-h-screen bg-brand-black">
       {/* Header */}
-      <header className="bg-brand-darkGrey border-b-2 border-brand-accent">
-        <div className="max-w-4xl mx-auto px-6 sm:px-8 lg:px-10 py-6">
-          <div className="flex items-center gap-4 mb-4">
+      <header className="bg-brand-darkGrey border-b-2 border-brand-accent sticky top-0 z-40 mobile-sticky-header">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-10 py-5 sm:py-6">
+          <div className="flex items-start gap-3 sm:gap-4 mb-4">
             <Logo size="sm" showText={false} linkTo="/dashboard" className="flex-shrink-0" />
             <div>
-              <h1 className="text-2xl font-bold text-brand-white">{survey.name}</h1>
+              <h1 className="text-xl sm:text-2xl font-bold text-brand-white leading-tight">{survey.name}</h1>
               {survey.description && (
                 <p className="text-brand-white/70 text-sm mt-1">{survey.description}</p>
               )}
@@ -285,12 +285,12 @@ export default function OnboardingPage() {
         </div>
       </header>
 
-      <main className="max-w-4xl mx-auto px-6 sm:px-8 lg:px-10 py-10">
-        <div className="bg-brand-white rounded-2xl p-8 border-2 border-brand-accent shadow-lg">
+      <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-10 py-8 sm:py-10">
+        <div className="bg-brand-white rounded-2xl p-6 sm:p-8 border-2 border-brand-accent shadow-lg">
           {/* Question */}
           <div className="mb-8">
             <div className="flex items-start gap-3 mb-4">
-              <h2 className="text-2xl font-bold text-brand-black flex-1">
+              <h2 className="text-xl sm:text-2xl font-bold text-brand-black flex-1 leading-tight">
                 {currentQuestion.question}
               </h2>
               {currentQuestion.required && (
@@ -406,11 +406,11 @@ export default function OnboardingPage() {
           </div>
 
           {/* Navigation */}
-          <div className="flex items-center justify-between pt-6 border-t border-brand-darkGrey/20">
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 pt-6 border-t border-brand-darkGrey/20">
             <button
               onClick={handlePrevious}
               disabled={currentStep === 0 || submitting}
-              className="flex items-center gap-2 px-6 py-3 bg-brand-darkGrey text-brand-white rounded-lg font-bold hover:bg-brand-darkGrey/80 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              className="flex items-center justify-center gap-2 px-5 py-3 bg-brand-darkGrey text-brand-white rounded-lg font-bold hover:bg-brand-darkGrey/80 transition-colors disabled:opacity-50 disabled:cursor-not-allowed w-full sm:w-auto"
             >
               <ArrowLeft className="w-5 h-5" />
               {t('previous')}
@@ -419,7 +419,7 @@ export default function OnboardingPage() {
             <button
               onClick={handleNext}
               disabled={submitting}
-              className="flex items-center gap-2 px-6 py-3 bg-brand-accent text-brand-black rounded-lg font-bold hover:bg-brand-primary-400 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              className="flex items-center justify-center gap-2 px-5 py-3 bg-brand-accent text-brand-black rounded-lg font-bold hover:bg-brand-primary-400 transition-colors disabled:opacity-50 disabled:cursor-not-allowed w-full sm:w-auto"
             >
               {submitting ? (
                 <>

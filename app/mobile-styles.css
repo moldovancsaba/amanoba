@@ -6,6 +6,34 @@
 
 /* Touch-friendly buttons and interactive elements */
 @media (max-width: 768px) {
+  /* Base spacing and typography for small screens */
+  body {
+    font-size: 16px;
+    line-height: 1.55;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  h1 {
+    font-size: 22px;
+    line-height: 1.25;
+  }
+
+  h2 {
+    font-size: 19px;
+    line-height: 1.3;
+  }
+
+  h3 {
+    font-size: 17px;
+    line-height: 1.35;
+  }
+
+  .page-container {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
   /* Larger tap targets for mobile (minimum 44x44px) */
   button,
   a.button,
@@ -61,6 +89,12 @@
 
   /* Stack dashboard cards vertically */
   .dashboard-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .dashboard-grid-2 {
+    grid-template-columns: 1fr !important;
+  }
+  .dashboard-grid-3 {
     grid-template-columns: 1fr !important;
   }
 

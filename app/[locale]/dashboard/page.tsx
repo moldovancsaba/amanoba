@@ -259,35 +259,37 @@ export default function Dashboard() {
   return (
     <div className="min-h-screen bg-brand-black">
       {/* Header */}
-      <header className="bg-brand-darkGrey border-b-2 border-brand-accent">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-          <div className="flex justify-between items-center">
-            <div className="flex items-center gap-4">
+      <header className="bg-brand-darkGrey border-b-2 border-brand-accent sticky top-0 z-40 mobile-sticky-header">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 sm:py-6">
+          <div className="flex flex-col gap-4 sm:flex-row sm:justify-between sm:items-center">
+            <div className="flex items-center gap-3">
               <Logo size="md" showText={false} linkTo="/dashboard" />
               <div>
-                <h1 className="text-3xl font-bold text-brand-white">{t('title')}</h1>
-                <p className="text-brand-white/80 mt-1">{t('yourLearningJourney')}</p>
+                <h1 className="text-2xl sm:text-3xl font-bold text-brand-white leading-tight">
+                  {t('title')}
+                </h1>
+                <p className="text-brand-white/80 mt-1 text-sm sm:text-base">{t('yourLearningJourney')}</p>
               </div>
             </div>
-            <div className="flex gap-3">
+            <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 w-full sm:w-auto">
               <button
                 onClick={() => {
                   setLoading(true);
                   fetchPlayerData();
                 }}
-                className="bg-brand-accent text-brand-black px-4 py-2 rounded-lg hover:bg-brand-primary-400 transition-colors font-medium font-bold"
+                className="bg-brand-accent text-brand-black px-4 py-3 sm:py-2 rounded-lg hover:bg-brand-primary-400 transition-colors font-bold text-center mobile-full-width"
               >
                 🔄 {t('refresh')}
               </button>
               <LocaleLink
                 href="/courses"
-                className="bg-brand-accent text-brand-black px-4 py-2 rounded-lg hover:bg-brand-primary-400 transition-colors font-medium font-bold"
+                className="bg-brand-accent text-brand-black px-4 py-3 sm:py-2 rounded-lg hover:bg-brand-primary-400 transition-colors font-bold text-center mobile-full-width"
               >
                 📚 {t('browseCourses')}
               </LocaleLink>
               <button
                 onClick={() => signOut({ callbackUrl: `/${locale}/auth/signin` })}
-                className="bg-brand-darkGrey text-brand-white px-4 py-2 rounded-lg hover:bg-brand-secondary-700 transition-colors font-medium"
+                className="bg-brand-darkGrey text-brand-white px-4 py-3 sm:py-2 rounded-lg hover:bg-brand-secondary-700 transition-colors font-medium text-center mobile-full-width"
               >
                 🚪 {tAuth('signOut')}
               </button>
@@ -296,14 +298,14 @@ export default function Dashboard() {
         </div>
       </header>
 
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
         {/* Quick Actions - Learning First */}
         <div className="bg-brand-white rounded-xl shadow-lg p-6 mb-8 border-2 border-brand-accent">
           <h3 className="text-xl font-bold text-brand-black mb-4 flex items-center gap-2">
             <Icon icon={MdMenuBook} size={20} className="inline-block mr-2" />
             {t('startLearning')}
           </h3>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-9 gap-3">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-9 gap-3 dashboard-grid">
             {featureFlags?.courses && (
               <LocaleLink
                 href="/courses"
@@ -400,7 +402,7 @@ export default function Dashboard() {
                 {t('loading')}...
               </div>
             ) : (
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 dashboard-grid-3">
                 {recommendations.map((course) => (
                   <LocaleLink
                     key={course.courseId}
@@ -476,7 +478,7 @@ export default function Dashboard() {
         </div>
 
         {/* Main Stats Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8 dashboard-grid-2">
           {/* Learning Level Card */}
           <div className="bg-brand-white rounded-xl shadow-lg p-6 border-2 border-brand-accent">
             <Icon icon={MdMenuBook} size={48} className="text-brand-accent mb-2" />
@@ -548,7 +550,7 @@ export default function Dashboard() {
         </div>
 
         {/* Streaks and Referrals Row */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6 dashboard-grid-2">
           {/* Streaks Card */}
           <div className="bg-brand-white rounded-xl shadow-lg p-6 border-2 border-brand-accent">
             <h3 className="text-xl font-bold text-brand-black mb-4 flex items-center gap-2">

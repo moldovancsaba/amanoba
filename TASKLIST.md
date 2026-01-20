@@ -140,6 +140,24 @@ Tasks are listed in priority order. Upon completion, tasks are moved to RELEASE_
 
 ---
 
+## 📱 Mobile UX & Responsive Polish
+
+**Goal**: Rock-solid, unified mobile experience across course discovery, detail, lesson, quiz, and dashboards.  
+**Scope**: Improve typography, spacing, navigation, CTAs, and data cards for small screens; ensure HU strings fit.
+
+| ID | Task | Owner | Expected Delivery | Status |
+|----|------|-------|-------------------|--------|
+| MOB1 | Global type/spacing: set mobile type scale (H1 22–24px, H2 18–20px, body 16–17px, lh 1.5–1.6), unify container padding (16–20px), and tap-target ≥44px in `app/globals.css` + `app/mobile-styles.css` (and shared design tokens) | AI | TBD | 🟡 IN PROGRESS |
+| MOB2 | Mobile nav/header: add compact sticky header with hamburger and language switcher; ensure back button on detail/quiz flows; implement in `app/layout.tsx` (shared header component) with aria/tap spacing | AI | TBD | ⏳ PENDING |
+| MOB3 | Course lists (discovery + my-courses): enforce single-column cards, full/90% width CTAs, truncation for long HU text; adjust spacing in `app/[locale]/courses/page.tsx` and `app/[locale]/my-courses/page.tsx` | AI | TBD | 🟡 IN PROGRESS |
+| MOB4 | Course detail page: show title/short desc/progress/enroll above fold; sticky bottom CTA; collapse long sections (what you’ll learn/outline) into accordions; update `app/[locale]/courses/[courseId]/page.tsx` | AI | TBD | 🟡 IN PROGRESS |
+| MOB5 | Lesson & quiz pages: stack nav/CTA buttons full-width, boost body line-height, ensure “Back to lesson” clear; respect quiz progress bar; update `app/[locale]/courses/[courseId]/day/[dayNumber]/page.tsx` | AI | TBD | 🟡 IN PROGRESS |
+| MOB6 | Dashboard/Stats cards: convert grids to single-column on <640px; increase card spacing; ensure charts are readable on mobile; adjust `app/[locale]/dashboard/page.tsx` and `app/[locale]/stats/page.tsx` | AI | TBD | 🟡 IN PROGRESS |
+| MOB7 | Forms & onboarding: full-width inputs/buttons, label-above pattern, 16px padding, concise error messages in `app/[locale]/onboarding/page.tsx` and shared form styles | AI | TBD | 🟡 IN PROGRESS |
+| MOB8 | Media & performance: constrain hero/media heights, lazy-load images, avoid heavy shadows on mobile; audit shared hero components and course detail hero usage | AI | TBD | ⏳ PENDING |
+
+---
+
 ## 🧾 AI 30 Nap Lesson Content Rewrite (Structured, Rich Copy)
 
 | ID | Task | Owner | Expected Delivery | Status |

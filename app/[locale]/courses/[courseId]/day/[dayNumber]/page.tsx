@@ -259,13 +259,13 @@ export default function DailyLessonPage({
           <>
             {/* Actions - Moved to top */}
             <div className="bg-brand-white rounded-2xl p-6 border-2 border-brand-accent shadow-lg mb-8">
-              <div className="flex items-center gap-4">
+              <div className="flex flex-col md:flex-row items-stretch md:items-center gap-3 md:gap-4">
                 {/* Left: Previous Day */}
                 <div className="flex-1 flex justify-start">
                   {navigation?.previous && (
                     <LocaleLink
                       href={`/courses/${courseId}/day/${navigation.previous.day}`}
-                      className="flex items-center gap-2 bg-brand-darkGrey text-brand-white px-6 py-3 rounded-lg font-bold hover:bg-brand-secondary-700 transition-colors"
+                      className="flex items-center justify-center gap-2 bg-brand-darkGrey text-brand-white px-6 py-3 rounded-lg font-bold hover:bg-brand-secondary-700 transition-colors w-full"
                     >
                       <ArrowLeft className="w-5 h-5" />
                       {t('previousDay')}
@@ -274,15 +274,15 @@ export default function DailyLessonPage({
                 </div>
 
                 {/* Center: Quiz and Complete buttons */}
-                <div className="flex items-center justify-center gap-3 flex-shrink-0">
+                <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3 flex-shrink-0 w-full md:w-auto">
                   {/* Show quiz button if quiz is enabled and lesson not completed */}
                   {lesson.quizConfig?.enabled && !lesson.isCompleted && (
                     <LocaleLink
                       href={`/courses/${courseId}/day/${dayNumber}/quiz`}
                       className={`flex items-center justify-center gap-2 px-6 py-3 rounded-lg font-bold transition-colors text-base whitespace-nowrap ${
                         lesson.quizConfig.required && !quizPassed
-                          ? 'bg-brand-accent text-brand-black hover:bg-brand-primary-400 px-7 py-3.5'
-                          : 'bg-brand-white border-2 border-brand-accent text-brand-black hover:bg-brand-accent/80'
+                          ? 'bg-brand-accent text-brand-black hover:bg-brand-primary-400 px-7 py-3.5 w-full'
+                          : 'bg-brand-white border-2 border-brand-accent text-brand-black hover:bg-brand-accent/80 w-full'
                       }`}
                     >
                       {t('takeQuiz', { defaultValue: 'Kitöltöm a kvízt' })}
@@ -297,7 +297,7 @@ export default function DailyLessonPage({
                     <button
                       onClick={handleComplete}
                       disabled={completing}
-                      className="flex items-center gap-2 bg-brand-accent text-brand-black px-7 py-3.5 rounded-lg font-bold hover:bg-brand-primary-400 transition-colors disabled:opacity-50 disabled:cursor-not-allowed text-base whitespace-nowrap"
+                      className="flex items-center justify-center gap-2 bg-brand-accent text-brand-black px-7 py-3.5 rounded-lg font-bold hover:bg-brand-primary-400 transition-colors disabled:opacity-50 disabled:cursor-not-allowed text-base whitespace-nowrap w-full"
                     >
                       <CheckCircle className="w-5 h-5" />
                       {completing ? t('completing') : t('markAsComplete')}
@@ -306,7 +306,7 @@ export default function DailyLessonPage({
 
                   {/* Show completed state */}
                   {lesson.isCompleted && (
-                    <div className="flex items-center gap-2 bg-green-500 text-white px-6 py-3 rounded-lg font-bold whitespace-nowrap">
+                    <div className="flex items-center justify-center gap-2 bg-green-500 text-white px-6 py-3 rounded-lg font-bold whitespace-nowrap w-full">
                       <CheckCircle className="w-5 h-5" />
                       {t('completed')}
                     </div>
@@ -318,7 +318,7 @@ export default function DailyLessonPage({
                   {navigation?.next && (
                     <LocaleLink
                       href={`/courses/${courseId}/day/${navigation.next.day}`}
-                      className="flex items-center gap-2 bg-brand-accent text-brand-black px-6 py-3 rounded-lg font-bold hover:bg-brand-primary-400 transition-colors"
+                      className="flex items-center justify-center gap-2 bg-brand-accent text-brand-black px-6 py-3 rounded-lg font-bold hover:bg-brand-primary-400 transition-colors w-full"
                     >
                       {t('nextDay')}
                       <ArrowRight className="w-5 h-5" />

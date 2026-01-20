@@ -90,20 +90,20 @@ export default function MyCoursesPage() {
   return (
     <div className="min-h-screen bg-brand-black">
       {/* Header */}
-      <header className="bg-brand-darkGrey border-b-2 border-brand-accent">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-          <div className="flex items-center gap-4 mb-2">
+      <header className="bg-brand-darkGrey border-b-2 border-brand-accent sticky top-0 z-30 mobile-sticky-header">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 sm:py-6">
+          <div className="flex items-center gap-3 sm:gap-4 mb-2">
             <Logo size="sm" showText={false} linkTo="/dashboard" className="flex-shrink-0" />
-            <h1 className="text-3xl font-bold text-brand-white flex items-center gap-2">
-              <BookOpen className="w-8 h-8" />
+            <h1 className="text-2xl sm:text-3xl font-bold text-brand-white flex items-center gap-2">
+              <BookOpen className="w-7 h-7 sm:w-8 sm:h-8" />
               {tCourses('myCourses')}
             </h1>
           </div>
-          <p className="text-brand-white/80 mt-1">{t('trackLearningProgress')}</p>
+          <p className="text-brand-white/80 mt-1 text-sm sm:text-base">{t('trackLearningProgress')}</p>
         </div>
       </header>
 
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
         {loading ? (
           <div className="text-center py-12">
             <div className="text-brand-white text-lg">{tCourses('loadingCourses')}</div>
@@ -121,11 +121,11 @@ export default function MyCoursesPage() {
             </LocaleLink>
           </div>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 dashboard-grid-3">
             {courses.map((item) => (
               <div
                 key={item.course.courseId}
-                className="bg-brand-white rounded-xl p-6 border-2 border-brand-accent hover:shadow-lg transition-all"
+                className="bg-brand-white rounded-xl p-5 sm:p-6 border-2 border-brand-accent hover:shadow-lg transition-all"
               >
                 {item.course.thumbnail && (
                   <div className="w-full h-40 bg-brand-darkGrey rounded-lg mb-4 overflow-hidden">
@@ -138,10 +138,10 @@ export default function MyCoursesPage() {
                 )}
 
                 <div className="mb-4">
-                  <div className="flex items-center justify-between mb-2">
-                    <h3 className="text-xl font-bold text-brand-black">{item.course.name}</h3>
+                  <div className="flex items-center justify-between mb-2 gap-2">
+                    <h3 className="text-lg sm:text-xl font-bold text-brand-black leading-tight">{item.course.name}</h3>
                     {item.progress.isCompleted && (
-                      <CheckCircle className="w-6 h-6 text-green-500" />
+                      <CheckCircle className="w-5 h-5 sm:w-6 sm:h-6 text-green-500 flex-shrink-0" />
                     )}
                   </div>
                   <p className="text-sm text-brand-darkGrey line-clamp-2">
@@ -177,7 +177,7 @@ export default function MyCoursesPage() {
                 {/* Actions */}
                 <LocaleLink
                   href={`/courses/${item.course.courseId}/day/${item.progress.currentDay}`}
-                  className="block w-full bg-brand-accent text-brand-black px-4 py-3 rounded-lg font-bold text-center hover:bg-brand-primary-400 transition-colors"
+                  className="block w-full bg-brand-accent text-brand-black px-4 py-3 rounded-lg font-bold text-center hover:bg-brand-primary-400 transition-colors mobile-full-width"
                 >
                   {item.progress.isCompleted
                     ? tCourses('reviewCourse')

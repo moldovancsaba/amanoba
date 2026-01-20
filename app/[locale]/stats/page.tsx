@@ -184,15 +184,15 @@ export default function StatsPage() {
 
   return (
     <div className="page-shell">
-      <header className="page-header">
+      <header className="page-header mobile-sticky-header">
         <div className="page-container py-6">
-          <div className="flex items-center justify-between">
+          <div className="flex items-center justify-between gap-3">
             <div>
-              <h1 className="text-3xl font-bold text-brand-white flex items-center gap-2">
+              <h1 className="text-2xl sm:text-3xl font-bold text-brand-white flex items-center gap-2 leading-tight">
                 <span>📊</span>
                 {t('pageTitle')}
               </h1>
-              <p className="text-brand-white/80 mt-1">{t('pageSubtitle')}</p>
+              <p className="text-brand-white/80 mt-1 text-sm sm:text-base">{t('pageSubtitle')}</p>
             </div>
             <LocaleLink href="/dashboard" className="page-button-secondary">
               ← {t('backToDashboard')}
@@ -202,7 +202,7 @@ export default function StatsPage() {
       </header>
 
       <main className="page-container py-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8 dashboard-grid-2">
           <div className="page-card p-6">
             <div className="text-brand-darkGrey text-sm mb-2">{t('level')}</div>
             <div className="text-4xl font-bold text-brand-black mb-2">⚡ {stats.level}</div>
@@ -246,7 +246,7 @@ export default function StatsPage() {
           {Object.keys(stats.gameSpecific).length === 0 ? (
             <p className="text-brand-darkGrey text-center py-8">{t('noGameStats')}</p>
           ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 dashboard-grid-3">
               {Object.entries(stats.gameSpecific).map(([gameKey, gameStats]) => (
                 <div 
                   key={gameKey}
@@ -308,7 +308,7 @@ export default function StatsPage() {
           )}
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 dashboard-grid-2">
           <div className="page-card p-6">
             <h2 className="text-2xl font-bold text-brand-black mb-4">🏅 {t('achievements')}</h2>
             

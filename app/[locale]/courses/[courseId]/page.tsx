@@ -323,9 +323,9 @@ export default function CourseDetailPage({
   return (
     <div className="min-h-screen bg-brand-black">
       {/* Header */}
-      <header className="bg-brand-darkGrey border-b-2 border-brand-accent">
-        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10 py-7">
-          <div className="flex items-center gap-4 mb-4">
+      <header className="bg-brand-darkGrey border-b-2 border-brand-accent sticky top-0 z-30">
+        <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-10 py-5 sm:py-7">
+          <div className="flex items-center gap-3 sm:gap-4 mb-3 sm:mb-4">
             <Logo size="sm" showText={false} linkTo={session ? "/dashboard" : "/"} className="flex-shrink-0" />
             <LocaleLink
               href="/courses"
@@ -335,12 +335,12 @@ export default function CourseDetailPage({
               {t('backToCourses')}
             </LocaleLink>
           </div>
-          <h1 className="text-4xl font-bold text-brand-white leading-tight">{course.name}</h1>
+          <h1 className="text-2xl sm:text-4xl font-bold text-brand-white leading-tight">{course.name}</h1>
         </div>
       </header>
 
-      <main className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10 py-10">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
+      <main className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-10 py-8 sm:py-10 pb-28">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-10">
           {/* Main Content */}
           <div className="lg:col-span-2 space-y-8">
             {course.thumbnail && (
@@ -354,13 +354,13 @@ export default function CourseDetailPage({
             )}
 
             <div className="bg-brand-white rounded-2xl p-8 border-2 border-brand-accent shadow-lg">
-              <h2 className="text-3xl font-bold text-brand-black mb-4">{t('aboutThisCourse')}</h2>
-              <p className="text-brand-darkGrey leading-relaxed text-xl">{course.description}</p>
+              <h2 className="text-2xl sm:text-3xl font-bold text-brand-black mb-4">{t('aboutThisCourse')}</h2>
+              <p className="text-brand-darkGrey leading-relaxed text-base sm:text-xl">{course.description}</p>
             </div>
 
             <div className="bg-brand-white rounded-2xl p-8 border-2 border-brand-accent shadow-lg">
-              <h2 className="text-3xl font-bold text-brand-black mb-5">{t('whatYoullLearn')}</h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+              <h2 className="text-2xl sm:text-3xl font-bold text-brand-black mb-5">{t('whatYoullLearn')}</h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
                 <div className="flex items-start gap-3">
                   <CheckCircle className="w-6 h-6 text-brand-accent flex-shrink-0 mt-1" />
                   <div>
@@ -394,7 +394,7 @@ export default function CourseDetailPage({
 
             {/* Table of Contents */}
             <div className="bg-brand-white rounded-2xl p-8 border-2 border-brand-accent shadow-lg">
-              <h2 className="text-3xl font-bold text-brand-black mb-6">{t('tableOfContents')}</h2>
+              <h2 className="text-2xl sm:text-3xl font-bold text-brand-black mb-6">{t('tableOfContents')}</h2>
               {loadingLessons ? (
                 <div className="text-brand-darkGrey text-center py-8">{tCommon('loading')}</div>
               ) : lessons.length === 0 ? (
@@ -427,7 +427,7 @@ export default function CourseDetailPage({
 
           {/* Sidebar */}
           <div className="space-y-6">
-            <div className="bg-brand-white rounded-2xl p-7 border-2 border-brand-accent sticky top-6 shadow-lg">
+            <div className="bg-brand-white rounded-2xl p-7 border-2 border-brand-accent sticky top-6 shadow-lg hidden md:block">
               <div className="space-y-4">
                 <div>
                   <div className="flex items-center gap-2 text-brand-darkGrey text-sm mb-1">
@@ -557,6 +557,56 @@ export default function CourseDetailPage({
             </div>
           </div>
         </div>
+
+        {/* Mobile CTA bar */}
+        {course && (
+          <div className="md:hidden fixed bottom-0 inset-x-0 z-40 bg-brand-darkGrey/95 backdrop-blur border-t border-brand-accent px-4 py-3">
+            <div className="flex items-center justify-between gap-3">
+              <div className="flex-1 text-brand-white text-sm leading-tight">
+                <div className="font-bold text-base line-clamp-1">{course.name}</div>
+                {enrollment?.progress && (
+                  <div className="text-xs opacity-80">
+                    {t('dayOf', { currentDay: enrollment.progress.currentDay, totalDays: course.durationDays })} • {t('daysCompleted', { count: enrollment.progress.completedDays })}
+                  </div>
+                )}
+              </div>
+
+              <div className="flex-1 flex justify-end">
+                {enrollment?.enrolled ? (
+                  <LocaleLink
+                    href={`/courses/${courseId}/day/${enrollment.progress?.currentDay || 1}`}
+                    className="w-full bg-brand-accent text-brand-black px-4 py-2.5 rounded-lg font-bold text-center hover:bg-brand-primary-400 transition-colors text-sm"
+                  >
+                    {t('continueLearning')}
+                  </LocaleLink>
+                ) : !session ? (
+                  <LocaleLink
+                    href={`/auth/signin?callbackUrl=${encodeURIComponent(`/${locale}/courses/${courseId}`)}`}
+                    className="w-full bg-brand-accent text-brand-black px-4 py-2.5 rounded-lg font-bold text-center hover:bg-brand-primary-400 transition-colors text-sm"
+                  >
+                    {t('signInToEnroll')}
+                  </LocaleLink>
+                ) : course.requiresPremium && !isPremium ? (
+                  <button
+                    onClick={handlePurchase}
+                    disabled={purchasing}
+                    className="w-full bg-brand-accent text-brand-black px-4 py-2.5 rounded-lg font-bold hover:bg-brand-primary-400 transition-colors disabled:opacity-50 disabled:cursor-not-allowed text-sm"
+                  >
+                    {purchasing ? t('purchasing') : t('purchasePremium')}
+                  </button>
+                ) : (
+                  <button
+                    onClick={handleEnroll}
+                    disabled={enrolling}
+                    className="w-full bg-brand-accent text-brand-black px-4 py-2.5 rounded-lg font-bold hover:bg-brand-primary-400 transition-colors disabled:opacity-50 disabled:cursor-not-allowed text-sm"
+                  >
+                    {enrolling ? t('enrolling') : t('enrollNow')}
+                  </button>
+                )}
+              </div>
+            </div>
+          </div>
+        )}
       </main>
     </div>
   );

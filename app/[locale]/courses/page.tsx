@@ -124,10 +124,10 @@ export default function CoursesPage() {
   return (
     <div className="min-h-screen bg-brand-black">
       {/* Header */}
-      <header className="bg-brand-darkGrey border-b-2 border-brand-accent">
-        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10 py-7">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-4">
+      <header className="bg-brand-darkGrey border-b-2 border-brand-accent sticky top-0 z-30">
+        <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-10 py-5 sm:py-7">
+          <div className="flex items-center justify-between gap-3">
+            <div className="flex items-center gap-3 sm:gap-4">
               <Logo size="sm" showText={false} linkTo={session ? "/dashboard" : "/"} className="flex-shrink-0" />
               <LocaleLink
                 href={session ? "/dashboard" : "/"}
@@ -136,17 +136,17 @@ export default function CoursesPage() {
                 <ArrowLeft className="w-6 h-6" />
               </LocaleLink>
               <div>
-                <h1 className="text-4xl font-bold text-brand-white flex items-center gap-2 leading-tight">
-                  <BookOpen className="w-8 h-8" />
+                <h1 className="text-2xl sm:text-4xl font-bold text-brand-white flex items-center gap-2 leading-tight">
+                  <BookOpen className="w-7 h-7 sm:w-8 sm:h-8" />
                   {t('availableCourses')}
                 </h1>
-                <p className="text-brand-white/80 mt-2 text-lg">{t('browseAndEnroll')}</p>
+                <p className="text-brand-white/80 mt-1 sm:mt-2 text-sm sm:text-lg">{t('browseAndEnroll')}</p>
               </div>
             </div>
             {!session && (
               <LocaleLink
                 href="/auth/signin"
-                className="bg-brand-accent text-brand-black px-6 py-3 rounded-lg font-bold hover:bg-brand-primary-400 transition-colors text-base"
+                className="bg-brand-accent text-brand-black px-4 py-2 sm:px-6 sm:py-3 rounded-lg font-bold hover:bg-brand-primary-400 transition-colors text-sm sm:text-base"
               >
                 {tAuth('signIn')}
               </LocaleLink>
@@ -155,7 +155,7 @@ export default function CoursesPage() {
         </div>
       </header>
 
-      <main className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10 py-10">
+      <main className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-10 py-8 sm:py-10">
         {/* Search */}
         <div className="mb-8">
           <div className="relative">
@@ -165,7 +165,7 @@ export default function CoursesPage() {
               placeholder={t('searchCourses')}
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              className="w-full pl-12 pr-4 py-3.5 bg-brand-darkGrey border-2 border-brand-accent/30 rounded-xl text-brand-white placeholder-brand-white/50 focus:outline-none focus:border-brand-accent text-lg"
+              className="w-full pl-12 pr-4 py-3 bg-brand-darkGrey border-2 border-brand-accent/30 rounded-xl text-brand-white placeholder-brand-white/50 focus:outline-none focus:border-brand-accent text-base sm:text-lg"
             />
           </div>
         </div>
@@ -182,15 +182,15 @@ export default function CoursesPage() {
             <p className="text-brand-white/70">{t('checkBackSoon')}</p>
           </div>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7">
             {courses.map((course) => (
               <LocaleLink
                 key={course._id}
                 href={`/courses/${course.courseId}`}
-                className="block bg-brand-white rounded-2xl p-7 border-2 border-brand-accent hover:shadow-xl transition-all"
+                className="block bg-brand-white rounded-2xl p-6 sm:p-7 border-2 border-brand-accent hover:shadow-xl transition-all"
               >
                 {(course.thumbnail || defaultThumbnail) && (
-                  <div className="w-full h-48 bg-brand-darkGrey rounded-lg mb-4 flex items-center justify-center overflow-hidden">
+                  <div className="w-full h-44 sm:h-48 bg-brand-darkGrey rounded-lg mb-4 flex items-center justify-center overflow-hidden">
                     <img
                       src={course.thumbnail || defaultThumbnail || ''}
                       alt={course.name}
@@ -199,8 +199,8 @@ export default function CoursesPage() {
                   </div>
                 )}
                 <div className="mb-3">
-                  <h3 className="text-2xl font-bold text-brand-black leading-tight mb-2">{course.name}</h3>
-                  <div className="flex items-center gap-2 flex-wrap">
+                  <h3 className="text-xl sm:text-2xl font-bold text-brand-black leading-tight mb-2 line-clamp-2">{course.name}</h3>
+                  <div className="flex items-center gap-2 flex-wrap text-sm sm:text-base">
                     {/* Language Flag */}
                     <span className="text-lg" title={course.language === 'hu' ? 'Magyar' : course.language === 'en' ? 'English' : course.language.toUpperCase()}>
                       {course.language === 'hu' ? '🇭🇺' : course.language === 'en' ? '🇬🇧' : '🌐'}
@@ -230,10 +230,10 @@ export default function CoursesPage() {
                     <span>{t('premiumRequired')}</span>
                   </div>
                 )}
-                <p className="text-brand-darkGrey text-base mb-5 line-clamp-2 leading-relaxed">
+                <p className="text-brand-darkGrey text-sm sm:text-base mb-5 line-clamp-2 leading-relaxed">
                   {course.description}
                 </p>
-                <div className="flex items-center gap-5 text-base text-brand-darkGrey mb-5">
+                <div className="flex items-center gap-4 text-sm sm:text-base text-brand-darkGrey mb-5">
                   <div className="flex items-center gap-1">
                     <Calendar className="w-4 h-4" />
                     <span>
@@ -247,7 +247,7 @@ export default function CoursesPage() {
                     </span>
                   </div>
                 </div>
-                <div className="bg-brand-accent text-brand-black px-5 py-3 rounded-lg font-bold text-center hover:bg-brand-primary-400 transition-colors text-base">
+                <div className="bg-brand-accent text-brand-black px-5 py-3 rounded-lg font-bold text-center hover:bg-brand-primary-400 transition-colors text-base w-full">
                   {t('viewCourse')} →
                 </div>
               </LocaleLink>
