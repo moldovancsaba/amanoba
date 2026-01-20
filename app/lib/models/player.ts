@@ -13,7 +13,8 @@ import mongoose, { Schema, Document, Model } from 'mongoose';
  * Why: TypeScript type safety for Player documents
  */
 export interface IPlayer extends Document {
-  facebookId: string;
+  facebookId?: string;
+  ssoSub?: string; // SSO subject identifier (OIDC sub)
   displayName: string;
   email?: string;
   profilePicture?: string;
@@ -29,6 +30,8 @@ export interface IPlayer extends Document {
   isBanned: boolean;
   banReason?: string;
   bannedAt?: Date;
+  role: 'user' | 'admin';
+  authProvider: 'facebook' | 'sso' | 'anonymous';
   emailPreferences?: {
     receiveLessonEmails: boolean;
     emailFrequency: 'daily' | 'weekly' | 'never';
@@ -54,8 +57,19 @@ const PlayerSchema = new Schema<IPlayer>(
     // Why: Primary authentication method, unique identifier
     facebookId: {
       type: String,
-      required: [true, 'Facebook ID is required'],
+      required: false, // Optional to support SSO users
       unique: true,
+      sparse: true, // Allow null/undefined values during migration and for SSO-only users
+      trim: true,
+      index: true,
+    },
+
+    // SSO subject identifier
+    // Why: Link users authenticated via sso.doneisbetter.com
+    ssoSub: {
+      type: String,
+      unique: true,
+      sparse: true, // Allow existing Facebook-only users to remain valid
       trim: true,
       index: true,
     },
@@ -146,6 +160,24 @@ const PlayerSchema = new Schema<IPlayer>(
     // Why: More granular activity tracking than login
     lastSeenAt: {
       type: Date,
+      index: true,
+    },
+
+    // Auth provider used to create the account
+    // Why: Enables RBAC + SSO coexistence and auditing
+    authProvider: {
+      type: String,
+      enum: ['facebook', 'sso', 'anonymous'],
+      default: 'facebook',
+      index: true,
+    },
+
+    // Role for RBAC
+    // Why: Admin access gating
+    role: {
+      type: String,
+      enum: ['user', 'admin'],
+      default: 'user',
       index: true,
     },
 
@@ -266,6 +298,8 @@ PlayerSchema.index({ lastLoginAt: 1 }, { name: 'player_last_login' });
 PlayerSchema.index({ brandId: 1, isPremium: 1 }, { name: 'player_brand_premium' });
 PlayerSchema.index({ unsubscribeToken: 1 }, { name: 'player_unsubscribe_token', sparse: true });
 PlayerSchema.index({ stripeCustomerId: 1 }, { name: 'player_stripe_customer', sparse: true });
+PlayerSchema.index({ ssoSub: 1 }, { name: 'player_sso_sub', sparse: true });
+PlayerSchema.index({ authProvider: 1, role: 1 }, { name: 'player_auth_role' });
 
 /**
  * Pre-save hook to check premium expiration
@@ -287,6 +321,20 @@ PlayerSchema.pre('save', function (next) {
 PlayerSchema.virtual('hasPremiumExpired').get(function () {
   if (!this.premiumExpiresAt) return false;
   return this.premiumExpiresAt < new Date();
+});
+
+/**
+ * Validation hook to ensure at least one auth identifier is present
+ * 
+ * Why: Prevent orphaned accounts without any login identifier
+ */
+PlayerSchema.pre('validate', function (next) {
+  const hasIdentifier = Boolean(this.facebookId) || Boolean(this.ssoSub);
+  if (!hasIdentifier) {
+    next(new Error('Player must have at least one authentication identifier (facebookId or ssoSub)'));
+    return;
+  }
+  next();
 });
 
 /**
