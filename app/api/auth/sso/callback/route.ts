@@ -469,12 +469,21 @@ export async function GET(request: NextRequest) {
         const referralCode = request.cookies.get('referral_code')?.value;
         if (referralCode && player._id) {
           try {
-            // Import referral models and process directly (more efficient than HTTP call)
+            // Use the referral API endpoint logic
+            // Import referral models
             const { ReferralTracking, PointsWallet, PointsTransaction } = await import('@/lib/models');
             
-            // Find referrer by extracting player ID from code
-            const extractedPlayerId = referralCode.slice(-4).toLowerCase();
-            const referrer = await Player.findById(extractedPlayerId);
+            // Extract player ID from referral code (simplified - matches generateReferralCode logic)
+            // Referral code format: BASESUFFIX where SUFFIX is last 4 chars of player ID
+            const suffix = referralCode.slice(-4).toLowerCase();
+            
+            // Find referrer by matching player ID suffix
+            // Note: This is a simplified lookup - in production, use a proper referral code lookup
+            const allPlayers = await Player.find({}).select('_id displayName').lean();
+            const referrer = allPlayers.find((p: any) => {
+              const playerIdStr = p._id.toString();
+              return playerIdStr.slice(-4).toLowerCase() === suffix;
+            });
             
             if (referrer) {
               // Check if referral already exists
@@ -483,7 +492,7 @@ export async function GET(request: NextRequest) {
               });
               
               if (!existing) {
-                // Create referral tracking and award points
+                // Create referral tracking and award points (same logic as POST /api/referrals)
                 const REFERRAL_REWARD = 500;
                 const referrerWallet = await PointsWallet.findOne({
                   playerId: referrer._id,
@@ -539,6 +548,8 @@ export async function GET(request: NextRequest) {
                   logger.info({ playerId: player._id, referralCode, referrerId: referrer._id }, 'Referral processed successfully for new SSO player');
                 }
               }
+            } else {
+              logger.warn({ referralCode, suffix }, 'Referrer not found for referral code');
             }
           } catch (referralError) {
             // Don't fail signup if referral processing fails
