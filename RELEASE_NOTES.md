@@ -1,11 +1,33 @@
 # Amanoba Release Notes
 
-**Current Version**: 2.8.1  
-**Last Updated**: 2025-01-21T12:00:00.000Z
+**Current Version**: 2.8.2  
+**Last Updated**: 2025-01-21T14:00:00.000Z
 
 ---
 
 All completed tasks are documented here in reverse chronological order. This file follows the Changelog format and is updated with every version bump.
+
+---
+
+## [v2.8.2] — 2025-01-21 🐛🔧✨
+
+**Status**: BUG FIXES + ARCHITECTURE IMPROVEMENTS  
+**Type**: Patch Release
+
+### 🐛 Bug Fixes
+
+#### Admin Image Upload: Fixed Missing Import
+
+**Problem**: Thumbnail upload in admin panel showed error "requireAdmin is not defined".
+
+**Root Cause**: `app/api/admin/upload-image/route.ts` was using `requireAdmin()` but didn't import it.
+
+**Solution**: Added missing import: `import { requireAdmin } from '@/lib/rbac';`
+
+**Files Modified**:
+- `app/api/admin/upload-image/route.ts`
+
+**Impact**: Admin users can now upload course thumbnails without errors.
 
 ---
 
@@ -16,23 +38,66 @@ All completed tasks are documented here in reverse chronological order. This fil
 
 ### 🐛 Bug Fixes
 
-#### Course Navigation: Fixed Triple Reload Issue
+#### Course UI: Use Course Language Instead of Redirecting
 
-**Problem**: When navigating to next/previous lesson in English courses, the page reloaded 3 times instead of once, creating a poor user experience.
+**Problem**: 
+- Triple reload issue when navigating between lessons
+- UI language changed during navigation
+- Poor user experience with unnecessary redirects
 
-**Root Cause**: Language redirect check was using a boolean `useRef(false)` that never reset when navigating to a different lesson, causing multiple unnecessary redirect checks and reloads.
+**Root Cause**: System was trying to redirect users to match course language with URL locale, causing multiple reloads and language switching.
 
-**Solution**:
-- Changed redirect tracking from boolean to lesson-specific key (`courseId-dayNumber`)
-- Reset redirect ref when navigating to a different lesson
-- Only check redirect once per lesson instance
-- Applied fix to both lesson page and quiz page
+**Solution**: Complete refactor to use course language for UI elements instead of redirecting:
+- Created `useCourseTranslations` hook that loads translations based on course language
+- Removed all redirect logic from lesson and quiz pages
+- UI now dynamically uses course language without page reloads
+- Course UI elements match course language by design
+
+**Files Created**:
+- `app/lib/hooks/useCourseTranslations.ts` - Custom translation hook for course pages
 
 **Files Modified**:
-- `app/[locale]/courses/[courseId]/day/[dayNumber]/page.tsx`
-- `app/[locale]/courses/[courseId]/day/[dayNumber]/quiz/page.tsx`
+- `app/[locale]/courses/[courseId]/day/[dayNumber]/page.tsx` - Removed redirects, uses course language
+- `app/[locale]/courses/[courseId]/day/[dayNumber]/quiz/page.tsx` - Removed redirects, uses course language
+- `app/lib/hooks/useCourseTranslations.ts` - Fixed `{{param}}` format support for day numbering
 
-**Impact**: Smooth single-page navigation between lessons, improved user experience.
+**Impact**: 
+- Smooth single-page navigation between lessons (no reloads)
+- UI language stays consistent with course language
+- Better user experience with no language switching during navigation
+
+#### Day Numbering Display: Fixed Parameter Format
+
+**Problem**: Day numbering showed "Day {4}" instead of "Day 4".
+
+**Root Cause**: Translation files use `{{param}}` format (next-intl double curly braces), but custom hook only matched `{param}` (single braces).
+
+**Solution**: Updated `useCourseTranslations` hook to support both formats:
+- First replace `{{param}}` (next-intl format)
+- Then replace `{param}` (fallback format)
+
+**Files Modified**:
+- `app/lib/hooks/useCourseTranslations.ts`
+
+**Impact**: Day numbering displays correctly (e.g., "Day 4" instead of "Day {4}").
+
+#### Admin Button: Fixed Role Refresh
+
+**Problem**: Admin button not showing for admin users even after setting role in database.
+
+**Root Cause**: JWT callback only fetched role on initial sign-in, not on subsequent requests. Role changes in database weren't reflected in session.
+
+**Solution**: Updated JWT callback to always fetch role from database on every request:
+- Changed from `if (user && user.id)` to `const playerId = user?.id || token.id`
+- Always refreshes role from database to ensure it's up-to-date
+- Created `set-admin-role.ts` script for easy role management
+
+**Files Modified**:
+- `auth.ts` - JWT callback now always refreshes role
+- `scripts/set-admin-role.ts` - New script to set admin role by email
+- `package.json` - Added `admin:set-role` npm script
+
+**Impact**: Admin button appears correctly for admin users. Role updates are reflected immediately after sign-in.
 
 ---
 

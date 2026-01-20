@@ -1263,6 +1263,143 @@ const fetchLesson = async (cid: string, day: number) => {
 
 ---
 
+### Course UI Language: Use Course Language Instead of Redirecting
+
+**Context**: Triple reload issue when navigating between lessons, and UI language changing during navigation. System was trying to redirect users to match course language with URL locale.
+
+**Root Cause**: Redirect-based approach caused multiple reloads and language switching. The system was checking if course language matched URL locale and redirecting if not, which triggered multiple reloads.
+
+**Solution**: Complete refactor to use course language for UI elements instead of redirecting:
+1. **Created custom translation hook** (`useCourseTranslations`) that loads translations based on course language
+2. **Removed all redirect logic** from lesson and quiz pages
+3. **UI dynamically uses course language** without page reloads
+4. **Course UI elements match course language by design**
+
+**Implementation**:
+```typescript
+// Custom hook that loads translations based on course language
+const { t, tCommon, courseLocale } = useCourseTranslations(courseLanguage);
+
+// Store course language from API response
+if (data.courseLanguage) {
+  setCourseLanguage(data.courseLanguage);
+}
+
+// UI uses course language translations automatically
+<h1>{t('dayNumber', { day: lesson.dayNumber })}</h1>
+```
+
+**Key Decisions**:
+1. **URL locale for routing, course language for UI**: URL locale (`/en/courses/...` or `/hu/courses/...`) is used for routing only, while course language determines UI translations
+2. **No redirects needed**: Course UI can use different language than URL locale without redirecting
+3. **Dynamic translation loading**: Translations are loaded client-side based on course language from API response
+
+**Learning**: When implementing multi-language course systems:
+1. **Separate routing locale from content language** - URL locale for routing, course language for UI
+2. **Avoid redirects for language matching** - Use dynamic translation loading instead
+3. **Create custom translation hooks** - For cases where UI language should differ from URL locale
+4. **Test navigation flows** - Ensure smooth transitions without reloads or language switching
+
+**Why It Matters**: Eliminates unnecessary reloads, provides consistent UI language matching course content, and creates better user experience.
+
+**Applied In**: 
+- `app/lib/hooks/useCourseTranslations.ts` (custom translation hook)
+- `app/[locale]/courses/[courseId]/day/[dayNumber]/page.tsx` (lesson page)
+- `app/[locale]/courses/[courseId]/day/[dayNumber]/quiz/page.tsx` (quiz page)
+
+---
+
+### Translation Parameter Formats: Support Both {param} and {{param}}
+
+**Context**: Day numbering displayed as "Day {4}" instead of "Day 4" after implementing custom translation hook.
+
+**Root Cause**: Translation files use `{{param}}` format (next-intl double curly braces), but custom hook only matched `{param}` (single braces).
+
+**Problem Code**:
+```typescript
+// ❌ Wrong: Only matches single braces
+return value.replace(/\{(\w+)\}/g, (match, paramKey) => {
+  return params[paramKey]?.toString() || match;
+});
+```
+
+**Solution**:
+```typescript
+// ✅ Correct: Support both formats
+// First replace double braces {{param}} (next-intl format)
+value = value.replace(/\{\{(\w+)\}\}/g, (match, paramKey) => {
+  return params[paramKey]?.toString() || match;
+});
+// Then replace single braces {param} (fallback format)
+value = value.replace(/\{(\w+)\}/g, (match, paramKey) => {
+  return params[paramKey]?.toString() || match;
+});
+```
+
+**Learning**: When creating custom translation functions:
+1. **Support next-intl format** - Translation files use `{{param}}` format
+2. **Support fallback format** - Some translations may use `{param}` format
+3. **Replace in order** - Replace double braces first, then single braces
+4. **Test with actual translation files** - Verify parameter replacement works correctly
+
+**Why It Matters**: Ensures parameter replacement works correctly with existing translation files that use next-intl format.
+
+**Applied In**: 
+- `app/lib/hooks/useCourseTranslations.ts` (both `t()` and `tCommon()` functions)
+
+---
+
+### Admin Role Refresh: Always Fetch from Database
+
+**Context**: Admin button not showing for admin users even after setting role in database.
+
+**Root Cause**: JWT callback only fetched role on initial sign-in (`if (user && user.id)`). On subsequent requests, it didn't refresh the role from the database, so role changes weren't reflected in the session.
+
+**Problem Code**:
+```typescript
+// ❌ Wrong: Only fetches role on initial sign-in
+async jwt({ token, user, account, profile }) {
+  if (user && user.id) {
+    // Only runs on initial sign-in
+    const player = await Player.findById(user.id).lean();
+    token.role = player.role || 'user';
+  }
+  return token;
+}
+```
+
+**Solution**:
+```typescript
+// ✅ Correct: Always fetch role from database
+async jwt({ token, user, account, profile }) {
+  const playerId = user?.id || token.id;
+  
+  if (playerId) {
+    // Always runs, refreshes role on every request
+    const player = await Player.findById(playerId).lean();
+    if (player) {
+      token.role = (player.role as 'user' | 'admin') || 'user';
+      // ... other fields
+    }
+  }
+  return token;
+}
+```
+
+**Learning**: For role-based access control:
+1. **Always refresh role from database** - Don't rely on cached token values
+2. **Use playerId from token if user not present** - Handles both initial sign-in and subsequent requests
+3. **Provide admin role management script** - Makes it easy to set admin roles
+4. **Require sign-out/sign-in after role changes** - Session needs to refresh to pick up new role
+
+**Why It Matters**: Ensures role changes in database are reflected in user sessions. Critical for admin access management.
+
+**Applied In**: 
+- `auth.ts` (JWT callback)
+- `scripts/set-admin-role.ts` (admin role management script)
+
+---
+
 ### Gamification Thresholds
 
 **Context**: Need to balance engagement without overwhelming users.
