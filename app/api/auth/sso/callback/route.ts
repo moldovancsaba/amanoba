@@ -655,7 +655,7 @@ export async function GET(request: NextRequest) {
         playerId: (player._id as any).toString(),
         displayName: player.displayName,
         isAnonymous: 'false',
-        role: finalRole, // Role from database (which was updated from SSO)
+        role: player.role || userInfo.role || 'user', // Use player.role (from DB, updated from SSO)
       });
     } catch (signInError) {
       const errorMessage = signInError instanceof Error ? signInError.message : String(signInError);

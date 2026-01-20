@@ -35,6 +35,18 @@ export const authConfig = {
           return null;
         }
         
+        const role = (credentials.role as 'user' | 'admin') || 'user';
+        const isAnonymous = credentials.isAnonymous === 'true';
+        
+        // Debug logging for role assignment
+        console.log('[Credentials Provider] Authorizing user:', {
+          playerId: credentials.playerId,
+          displayName: credentials.displayName,
+          role,
+          isAnonymous,
+          roleFromCredentials: credentials.role
+        });
+        
         // Return user object for anonymous player or SSO user
         // Why: NextAuth uses this to create session
         return {
@@ -42,8 +54,9 @@ export const authConfig = {
           name: credentials.displayName as string,
           email: null,
           image: null,
-          isAnonymous: credentials.isAnonymous === 'true',
-          role: (credentials.role as 'user' | 'admin') || 'user',
+          isAnonymous,
+          role,
+          authProvider: isAnonymous ? 'anonymous' : 'sso',
         };
       },
     }),

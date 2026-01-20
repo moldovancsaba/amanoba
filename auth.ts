@@ -62,9 +62,14 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
       if (user && user.id && (user as any).role) {
         token.id = user.id;
         token.role = (user as any).role as 'user' | 'admin';
-        token.authProvider = (user as any).authProvider || 'facebook';
+        token.authProvider = (user as any).authProvider || 'sso';
         token.isAnonymous = (user as any).isAnonymous || false;
-        logger.info({ playerId: user.id, role: token.role, source: 'user_object_initial' }, 'JWT: Initial sign in - using role from user object');
+        logger.info({ 
+          playerId: user.id, 
+          role: token.role, 
+          userRole: (user as any).role,
+          source: 'user_object_initial' 
+        }, 'JWT: Initial sign in - using role from user object');
       }
       
       // Always refresh from database to ensure we have the latest role
