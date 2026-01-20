@@ -417,7 +417,7 @@ export default function Dashboard() {
         {featureFlags?.courses && recommendations.length > 0 && (
           <div className="bg-brand-white rounded-xl shadow-lg p-6 mb-8 border-2 border-brand-accent">
             <h3 className="text-xl font-bold text-brand-black mb-4 flex items-center gap-2">
-              <Icon icon={MdBookOpen} size={20} className="text-brand-accent" />
+              <Icon icon={MdMenuBook} size={20} className="text-brand-accent" />
               {t('recommendedCourses')}
             </h3>
             {loadingRecommendations ? (
