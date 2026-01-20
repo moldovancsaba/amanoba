@@ -1356,6 +1356,334 @@ const lessons: LessonEntry[] = [
       ],
     },
   },
+  {
+    day: 13,
+    title: 'MQL vs SQL és a qualification döntési pont',
+    content: `<h1>MQL vs SQL és a qualification döntési pont</h1>
+<p><em>Felismered, mikor kell nemet mondani és mikor érdemes discoveryt nyitni.</em></p>
+<hr />
+<h2>Napi cél</h2>
+<ul>
+  <li>Világos határt húzol MQL és SQL között.</li>
+  <li>Írsz egy 5 kérdéses qualification döntési pontot.</li>
+  <li>Megfogalmazol 3 gyors „nem” sablont.</li>
+</ul>
+<hr />
+<h2>Miért fontos</h2>
+<ul>
+  <li>Rossz leadek elégetik az időt és rontják a win rate-et.</li>
+  <li>Gyors „nem” növeli a fókuszt és a pipeline minőségét.</li>
+  <li>A döntési pont nélkül a csapat vélemény alapján dolgozik.</li>
+</ul>
+<hr />
+<h2>Magyarázat</h2>
+<h3>MQL</h3>
+<ul>
+  <li>Marketing jel: letöltés, feliratkozás, esemény.</li>
+  <li>Nem biztos, hogy ICP-fit vagy probléma van.</li>
+</ul>
+<h3>SQL</h3>
+<ul>
+  <li>ICP + probléma + döntéshozó/kapuőr elérhető.</li>
+  <li>Van trigger vagy fájdalom, amit validáltál.</li>
+</ul>
+<h3>Döntési pont</h3>
+<ul>
+  <li>5 kérdés: ICP? probléma? döntéshozó? trigger? időkeret?</li>
+  <li>Igen = discovery; Nem = gyors lezárás vagy nurture.</li>
+</ul>
+<hr />
+<h2>Példák</h2>
+<p><strong>Rossz:</strong> Minden feliratkozót discoveryre hívsz.</p>
+<p><strong>Jó:</strong> Csak ICP + probléma + döntéshozó esetén mész discoveryre.</p>
+<hr />
+<h2>Gyakorlat (vezetett, 10-15 perc)</h2>
+<ol>
+  <li>Írj 5 qualification kérdést a döntési ponthoz.</li>
+  <li>Írj 3 gyors „nem” sablont (udvarias, értéket adó).</li>
+  <li>Jelöld, mely MQL-eket küldesz nurture-be.</li>
+</ol>
+<h2>Gyakorlat (önálló, 5-10 perc)</h2>
+<p>Fogj 10 leadet, alkalmazd a döntési pontot, jegyezd: hány lett SQL.</p>
+<hr />
+<h2>Önellenőrzés</h2>
+<ul>
+  <li>Megvan az MQL/SQL definíció.</li>
+  <li>Megvan az 5 kérdéses döntési pont.</li>
+  <li>Van 3 „nem” sablon.</li>
+  <li>10 leaden alkalmaztad és jegyezted az eredményt.</li>
+</ul>
+<hr />
+<h2>Opcionális mélyítés</h2>
+<ul>
+  <li>MQL vs SQL vita: <a href="https://www.gartner.com/en/insights/sales" target="_blank" rel="noreferrer">https://www.gartner.com/en/insights/sales</a></li>
+  <li>Lead scoring minta: <a href="https://knowledge.hubspot.com/contacts/create-scoring-properties" target="_blank" rel="noreferrer">https://knowledge.hubspot.com/contacts/create-scoring-properties</a></li>
+</ul>`,
+    emailSubject: 'B2B Értékesítés 2026 – 13. nap: MQL vs SQL',
+    emailBody: `<h1>B2B Értékesítés 2026 – 13. nap</h1>
+<p>Határt húzol MQL és SQL között, 5 kérdéses döntési pontot írsz, és 3 gyors „nem” sablont készítesz.</p>
+<p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Olvasd el a leckét →</a></p>`,
+    quiz: {
+      questions: [
+        {
+          question: 'Mi az SQL egyik kulcseleme?',
+          options: [
+            'Csak egy letöltés',
+            'ICP + probléma + döntéshozó/kapuőr elérhető',
+            'Csak egy event részvétel',
+            'Csak web traffic',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'Miért kell gyors „nem”?',
+          options: [
+            'Kevesebb munka',
+            'Fókusz, jobb pipeline minőség, időmegtakarítás',
+            'Nagyobb lista',
+            'Kötelező jogilag',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'Mi a rossz példa?',
+          options: [
+            'Minden feliratkozót discoveryre hívsz',
+            'ICP + probléma + döntéshozó esetén discovery',
+            '„Nem” sablon használata',
+            'Trigger keresése',
+          ],
+          correctIndex: 0,
+        },
+        {
+          question: 'Mit tartalmazzon a döntési pont?',
+          options: [
+            'Árlista',
+            'ICP, probléma, döntéshozó, trigger, időkeret',
+            'Pitch deck',
+            'Marketing kampány',
+          ],
+          correctIndex: 1,
+        },
+      ],
+    },
+  },
+  {
+    day: 14,
+    title: 'Qualification keretrendszer: MEDDPICC (egyszerűsítve)',
+    content: `<h1>Qualification keretrendszer: MEDDPICC (egyszerűsítve)</h1>
+<p><em>Gyakorlati kérdéslistát kapsz a kockázat korai felismerésére.</em></p>
+<hr />
+<h2>Napi cél</h2>
+<ul>
+  <li>Összeállítasz egy 8-10 kérdéses MEDDPICC-alapú listát.</li>
+  <li>Jelölöd a hiányzó elemeket 3 futó dealben.</li>
+  <li>Prioritást adsz a következő lépésekhez a hiányok alapján.</li>
+</ul>
+<hr />
+<h2>Miért fontos</h2>
+<ul>
+  <li>A hiányzó gazdasági vevő/metric/next step csúszást okoz.</li>
+  <li>Korai kockázatazonosítás = rövidebb cycle.</li>
+  <li>Egyértelmű next step a kvalifikáció végén.</li>
+</ul>
+<hr />
+<h2>Magyarázat (egyszerűsített MEDDPICC)</h2>
+<ul>
+  <li>Metrics: mi számít sikernek?</li>
+  <li>Economic buyer: ki ír alá?</li>
+  <li>Decision criteria/process: hogyan döntenek?</li>
+  <li>Paper process: jog/beszerzés útja.</li>
+  <li>Identify pain: fájdalom, trigger.</li>
+  <li>Champion: ki a belső gazda?</li>
+  <li>Competition/status quo: kivel hasonlítanak?</li>
+</ul>
+<hr />
+<h2>Példák</h2>
+<p><strong>Jó:</strong> 8 kérdés, minden dealen jelölve, mi hiányzik; next step listázva.</p>
+<p><strong>Rossz:</strong> Nincs kérdéslista, csak „érzésre” mész tovább.</p>
+<hr />
+<h2>Gyakorlat (vezetett, 10-15 perc)</h2>
+<ol>
+  <li>Írj 8-10 kérdést a fenti elemekre.</li>
+  <li>3 élő dealnél jelöld: mi hiányzik?</li>
+  <li>Írj next stepet minden hiányra (pl. economic buyer bevonása, paper process kérdése).</li>
+</ol>
+<h2>Gyakorlat (önálló, 5-10 perc)</h2>
+<p>Frissítsd a CRM jegyzetet a hiányzó elemekkel és a következő lépésekkel.</p>
+<hr />
+<h2>Önellenőrzés</h2>
+<ul>
+  <li>Megvan a 8-10 kérdéses lista.</li>
+  <li>3 dealen bejelölted a hiányzó elemeket.</li>
+  <li>Minden hiányra van next step.</li>
+  <li>CRM-ben rögzítetted.</li>
+</ul>
+<hr />
+<h2>Opcionális mélyítés</h2>
+<ul>
+  <li>MEDDPICC részletesen: <a href="https://meddicc.com/meddpicc-sales-methodology-and-process" target="_blank" rel="noreferrer">https://meddicc.com/meddpicc-sales-methodology-and-process</a></li>
+  <li>Decision criteria tippek: <a href="https://www.gong.io/blog/meddpicc" target="_blank" rel="noreferrer">https://www.gong.io/blog/meddpicc</a></li>
+</ul>`,
+    emailSubject: 'B2B Értékesítés 2026 – 14. nap: MEDDPICC',
+    emailBody: `<h1>B2B Értékesítés 2026 – 14. nap</h1>
+<p>Összeállítasz egy MEDDPICC-alapú kérdéslistát, 3 dealen jelölöd a hiányokat, és next stepet rendelsz hozzájuk.</p>
+<p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Olvasd el a leckét →</a></p>`,
+    quiz: {
+      questions: [
+        {
+          question: 'Mi a MEDDPICC egyik fő eleme?',
+          options: [
+            'Marketing budget',
+            'Economic buyer (ki ír alá)',
+            'LinkedIn követők',
+            'CSR program',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'Miért kell kérdéslista?',
+          options: [
+            'Hosszabb meeting',
+            'Kockázatok korai felismerése, következő lépés kijelölése',
+            'Dekoráció',
+            'Kevesebb jegyzet',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'Mi a rossz példa?',
+          options: [
+            'Hiányzó economic buyer jelölve',
+            'Nincs lista, érzésre mész',
+            'Paper process rögzítve',
+            'Next step leírva',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'Melyik kérdés tartozik a Metrics-hez?',
+          options: [
+            'Ki ír alá?',
+            'Mi számít sikernek?',
+            'Mi a jogi folyamat?',
+            'Ki a champion?',
+          ],
+          correctIndex: 1,
+        },
+      ],
+    },
+  },
+  {
+    day: 15,
+    title: 'Discovery hívás felépítése (5 blokk)',
+    content: `<h1>Discovery hívás felépítése (5 blokk)</h1>
+<p><em>30 perces scriptet készítesz, tiltott kérdésekkel és kötelező next steppel.</em></p>
+<hr />
+<h2>Napi cél</h2>
+<ul>
+  <li>Összeállítasz egy 5 blokkból álló discovery scriptet (30 perc).</li>
+  <li>Listázod a tiltott kérdéseket (időrablók).</li>
+  <li>Minden discovery végén next stepet rögzítesz.</li>
+</ul>
+<hr />
+<h2>Miért fontos</h2>
+<ul>
+  <li>Struktúra nélkül a hívás szétesik, nincs döntési alap.</li>
+  <li>A tiltott kérdések időt visznek, nem adnak döntési információt.</li>
+  <li>Next step nélkül a pipeline megakad.</li>
+</ul>
+<hr />
+<h2>Magyarázat</h2>
+<h3>5 blokk</h3>
+<ol>
+  <li>Nyitás + agenda + időkeret.</li>
+  <li>Probléma/fájdalom + hatás.</li>
+  <li>Döntési folyamat + szereplők.</li>
+  <li>Paper/security/legal kockázat.</li>
+  <li>Összefoglalás + next step (idő, felelős).</li>
+</ol>
+<h3>Tiltott kérdések</h3>
+<ul>
+  <li>„Mennyi a büdzsé?” (korán, kontextus nélkül).</li>
+  <li>„Mikor akartok dönteni?” (ha nincs fájdalom tisztázva).</li>
+</ul>
+<hr />
+<h2>Példák</h2>
+<p><strong>Jó:</strong> Agenda upfront, fájdalom és hatás, döntési folyamat, security kérdések, next step időponttal.</p>
+<p><strong>Rossz:</strong> Small talk, pitch, nincs problémafeltárás, nincs next step.</p>
+<hr />
+<h2>Gyakorlat (vezetett, 10-15 perc)</h2>
+<ol>
+  <li>Írj 30 perces discovery scriptet az 5 blokkra.</li>
+  <li>Listázd a tiltott kérdéseket, és írd mellé a helyes alternatívát.</li>
+  <li>Írj egy záró mondatot next steppel (idő + felelős).</li>
+</ol>
+<h2>Gyakorlat (önálló, 5-10 perc)</h2>
+<p>Frissíts egy közelgő discovery meghívót az agendával és a várt kimenettel.</p>
+<hr />
+<h2>Önellenőrzés</h2>
+<ul>
+  <li>Megvan az 5 blokkos script.</li>
+  <li>Megvannak a tiltott kérdések és alternatíváik.</li>
+  <li>Minden script végén van next step.</li>
+  <li>Discovery meghívó frissítve agendával.</li>
+</ul>
+<hr />
+<h2>Opcionális mélyítés</h2>
+<ul>
+  <li>Discovery best practices: <a href="https://www.gong.io/blog/discovery-call-questions" target="_blank" rel="noreferrer">https://www.gong.io/blog/discovery-call-questions</a></li>
+  <li>Next step minták: <a href="https://www.saleshacker.com/discovery-call-templates" target="_blank" rel="noreferrer">https://www.saleshacker.com/discovery-call-templates</a></li>
+</ul>`,
+    emailSubject: 'B2B Értékesítés 2026 – 15. nap: Discovery hívás',
+    emailBody: `<h1>B2B Értékesítés 2026 – 15. nap</h1>
+<p>30 perces discovery scriptet írsz, tiltott kérdésekkel és kötelező next steppel.</p>
+<p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Olvasd el a leckét →</a></p>`,
+    quiz: {
+      questions: [
+        {
+          question: 'Mi tartozik az 5 blokk egyikébe?',
+          options: [
+            'Small talk és pitch',
+            'Probléma/fájdalom + hatás',
+            'Csak áralku',
+            'Csak marketing',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'Mi a tiltott kérdések baja?',
+          options: [
+            'Rövidek',
+            'Időt visznek, nem adnak döntési infót',
+            'Túl drágák',
+            'Nem magyarul vannak',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'Miért kell next step a végén?',
+          options: [
+            'Hogy hosszabb legyen a hívás',
+            'Hogy ne akadjon meg a pipeline és legyen felelős/időpont',
+            'Hogy legyen több email',
+            'Hogy legyen több small talk',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'Mi a rossz példa?',
+          options: [
+            'Agenda upfront, next step',
+            'Small talk + pitch, nincs probléma, nincs next step',
+            'Security kérdés feltevése',
+            'Hatás feltárása',
+          ],
+          correctIndex: 1,
+        },
+      ],
+    },
+  },
 ];
 
 async function main() {

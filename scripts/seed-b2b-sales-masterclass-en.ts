@@ -1350,6 +1350,334 @@ const lessons: LessonEntry[] = [
       ],
     },
   },
+  {
+    day: 13,
+    title: 'MQL vs SQL and the Qualification Gate',
+    content: `<h1>MQL vs SQL and the Qualification Gate</h1>
+<p><em>Decide fast: when to say no and when to open discovery.</em></p>
+<hr />
+<h2>Learning Goal</h2>
+<ul>
+  <li>Draw a clear line between MQL and SQL.</li>
+  <li>Write a 5-question qualification gate.</li>
+  <li>Create 3 fast “no” templates.</li>
+</ul>
+<hr />
+<h2>Why It Matters</h2>
+<ul>
+  <li>Bad leads waste time and hurt win rate.</li>
+  <li>Fast “no” boosts focus and pipeline quality.</li>
+  <li>Without a gate, the team works on opinion.</li>
+</ul>
+<hr />
+<h2>Explanation</h2>
+<h3>MQL</h3>
+<ul>
+  <li>Marketing signal: download, signup, event.</li>
+  <li>Not yet validated for ICP/problem.</li>
+</ul>
+<h3>SQL</h3>
+<ul>
+  <li>ICP + problem + reachable decision maker/gatekeeper.</li>
+  <li>Trigger or pain validated.</li>
+</ul>
+<h3>Gate</h3>
+<ul>
+  <li>5 questions: ICP? pain? decision maker? trigger? timing?</li>
+  <li>Yes = discovery; No = quick close or nurture.</li>
+</ul>
+<hr />
+<h2>Examples</h2>
+<p><strong>Bad:</strong> Every signup is invited to discovery.</p>
+<p><strong>Good:</strong> Only ICP + problem + decision maker → discovery.</p>
+<hr />
+<h2>Guided Exercise (10–15 minutes)</h2>
+<ol>
+  <li>Write 5 gate questions.</li>
+  <li>Write 3 polite, value-adding “no” templates.</li>
+  <li>Mark which MQLs go to nurture.</li>
+</ol>
+<h2>Independent Exercise (5–10 minutes)</h2>
+<p>Take 10 leads, apply the gate, note how many become SQL.</p>
+<hr />
+<h2>Self-check</h2>
+<ul>
+  <li>MQL/SQL definitions set.</li>
+  <li>5-question gate written.</li>
+  <li>3 “no” templates ready.</li>
+  <li>Applied to 10 leads and logged results.</li>
+</ul>
+<hr />
+<h2>Optional Deep Dive</h2>
+<ul>
+  <li>MQL vs SQL discussion: <a href="https://www.gartner.com/en/insights/sales" target="_blank" rel="noreferrer">https://www.gartner.com/en/insights/sales</a></li>
+  <li>Lead scoring: <a href="https://knowledge.hubspot.com/contacts/create-scoring-properties" target="_blank" rel="noreferrer">https://knowledge.hubspot.com/contacts/create-scoring-properties</a></li>
+</ul>`,
+    emailSubject: 'B2B Sales 2026 – Day 13: MQL vs SQL',
+    emailBody: `<h1>B2B Sales 2026 – Day 13</h1>
+<p>Set the MQL/SQL line, write a 5-question gate, and 3 fast “no” templates.</p>
+<p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Read the lesson →</a></p>`,
+    quiz: {
+      questions: [
+        {
+          question: 'Key element of an SQL?',
+          options: [
+            'Just a download',
+            'ICP + problem + reachable decision maker/gatekeeper',
+            'Only an event attendance',
+            'Only web traffic',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'Why a fast “no”?',
+          options: [
+            'Less work',
+            'Focus, better pipeline quality, time saved',
+            'Bigger list',
+            'Legal requirement',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'Bad example?',
+          options: [
+            'Every signup gets discovery',
+            'Only ICP + pain + decision maker goes to discovery',
+            'Using “no” templates',
+            'Looking for triggers',
+          ],
+          correctIndex: 0,
+        },
+        {
+          question: 'What should the gate include?',
+          options: [
+            'Price list',
+            'ICP, pain, decision maker, trigger, timing',
+            'Pitch deck',
+            'Marketing campaign',
+          ],
+          correctIndex: 1,
+        },
+      ],
+    },
+  },
+  {
+    day: 14,
+    title: 'Qualification Framework: MEDDPICC (Simplified)',
+    content: `<h1>Qualification Framework: MEDDPICC (Simplified)</h1>
+<p><em>Create a practical question set to surface risk early.</em></p>
+<hr />
+<h2>Learning Goal</h2>
+<ul>
+  <li>Build an 8–10 question MEDDPICC-based list.</li>
+  <li>Mark missing elements in 3 live deals.</li>
+  <li>Prioritize next steps based on the gaps.</li>
+</ul>
+<hr />
+<h2>Why It Matters</h2>
+<ul>
+  <li>Missing economic buyer/metrics/next step causes slip.</li>
+  <li>Early risk spotting shortens cycle.</li>
+  <li>Every qualification ends with a next step.</li>
+</ul>
+<hr />
+<h2>Explanation (simplified MEDDPICC)</h2>
+<ul>
+  <li>Metrics: what defines success?</li>
+  <li>Economic buyer: who signs?</li>
+  <li>Decision criteria/process: how they decide?</li>
+  <li>Paper process: legal/procurement path.</li>
+  <li>Identify pain: pain, trigger.</li>
+  <li>Champion: internal owner.</li>
+  <li>Competition/status quo: who/what you are compared to.</li>
+</ul>
+<hr />
+<h2>Examples</h2>
+<p><strong>Good:</strong> 8 questions, gaps marked on each deal; next steps listed.</p>
+<p><strong>Bad:</strong> No list, moving on “gut feel”.</p>
+<hr />
+<h2>Guided Exercise (10–15 minutes)</h2>
+<ol>
+  <li>Write 8–10 questions for the elements above.</li>
+  <li>On 3 live deals, mark what is missing.</li>
+  <li>Write next steps for each gap (e.g., involve economic buyer, ask paper process).</li>
+</ol>
+<h2>Independent Exercise (5–10 minutes)</h2>
+<p>Update CRM notes with missing elements and next steps.</p>
+<hr />
+<h2>Self-check</h2>
+<ul>
+  <li>8–10 question list ready.</li>
+  <li>Gaps marked on 3 deals.</li>
+  <li>Next steps for each gap.</li>
+  <li>Recorded in CRM.</li>
+</ul>
+<hr />
+<h2>Optional Deep Dive</h2>
+<ul>
+  <li>MEDDPICC details: <a href="https://meddicc.com/meddpicc-sales-methodology-and-process" target="_blank" rel="noreferrer">https://meddicc.com/meddpicc-sales-methodology-and-process</a></li>
+  <li>Decision criteria tips: <a href="https://www.gong.io/blog/meddpicc" target="_blank" rel="noreferrer">https://www.gong.io/blog/meddpicc</a></li>
+</ul>`,
+    emailSubject: 'B2B Sales 2026 – Day 14: MEDDPICC',
+    emailBody: `<h1>B2B Sales 2026 – Day 14</h1>
+<p>Create a MEDDPICC-based question list, mark gaps on 3 deals, assign next steps.</p>
+<p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Read the lesson →</a></p>`,
+    quiz: {
+      questions: [
+        {
+          question: 'One core MEDDPICC element?',
+          options: [
+            'Marketing budget',
+            'Economic buyer (who signs)',
+            'LinkedIn followers',
+            'CSR program',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'Why a question list?',
+          options: [
+            'Longer meetings',
+            'Early risk detection, clear next steps',
+            'Decoration',
+            'Fewer notes',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'Bad example?',
+          options: [
+            'Gap marked for economic buyer',
+            'No list, moving on gut feel',
+            'Paper process logged',
+            'Next step written',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'Which belongs to Metrics?',
+          options: [
+            'Who signs?',
+            'What counts as success?',
+            'What is the legal process?',
+            'Who is the champion?',
+          ],
+          correctIndex: 1,
+        },
+      ],
+    },
+  },
+  {
+    day: 15,
+    title: 'Discovery Call Structure (5 Blocks)',
+    content: `<h1>Discovery Call Structure (5 Blocks)</h1>
+<p><em>Write a 30-minute script with “no-go” questions and a mandatory next step.</em></p>
+<hr />
+<h2>Learning Goal</h2>
+<ul>
+  <li>Create a 5-block discovery script (30 minutes).</li>
+  <li>List no-go questions (time-wasters) and alternatives.</li>
+  <li>Lock a next step at every discovery end.</li>
+</ul>
+<hr />
+<h2>Why It Matters</h2>
+<ul>
+  <li>Without structure, discovery drifts and yields no decision input.</li>
+  <li>No-go questions consume time and add little.</li>
+  <li>No next step = stalled pipeline.</li>
+</ul>
+<hr />
+<h2>Explanation</h2>
+<h3>5 blocks</h3>
+<ol>
+  <li>Intro + agenda + timebox.</li>
+  <li>Pain/impact.</li>
+  <li>Decision process + roles.</li>
+  <li>Paper/security/legal risk.</li>
+  <li>Summary + next step (time, owner).</li>
+</ol>
+<h3>No-go questions</h3>
+<ul>
+  <li>“What’s your budget?” (too early, no context).</li>
+  <li>“When will you decide?” (if pain is unclear).</li>
+</ul>
+<hr />
+<h2>Examples</h2>
+<p><strong>Good:</strong> Agenda upfront, pain/impact, decision process, security questions, next step with time/owner.</p>
+<p><strong>Bad:</strong> Small talk + pitch, no pain, no next step.</p>
+<hr />
+<h2>Guided Exercise (10–15 minutes)</h2>
+<ol>
+  <li>Write a 30-minute discovery script with the 5 blocks.</li>
+  <li>List no-go questions and better alternatives.</li>
+  <li>Write a closing line with a next step (time + owner).</li>
+</ol>
+<h2>Independent Exercise (5–10 minutes)</h2>
+<p>Update an upcoming discovery invite with agenda and expected outcome.</p>
+<hr />
+<h2>Self-check</h2>
+<ul>
+  <li>5-block script ready.</li>
+  <li>No-go questions + alternatives ready.</li>
+  <li>Every script ends with a next step.</li>
+  <li>Discovery invite updated with agenda.</li>
+</ul>
+<hr />
+<h2>Optional Deep Dive</h2>
+<ul>
+  <li>Discovery best practices: <a href="https://www.gong.io/blog/discovery-call-questions" target="_blank" rel="noreferrer">https://www.gong.io/blog/discovery-call-questions</a></li>
+  <li>Next step examples: <a href="https://www.saleshacker.com/discovery-call-templates" target="_blank" rel="noreferrer">https://www.saleshacker.com/discovery-call-templates</a></li>
+</ul>`,
+    emailSubject: 'B2B Sales 2026 – Day 15: Discovery call',
+    emailBody: `<h1>B2B Sales 2026 – Day 15</h1>
+<p>Write a 30-minute discovery script, list no-go questions, and enforce next steps.</p>
+<p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Read the lesson →</a></p>`,
+    quiz: {
+      questions: [
+        {
+          question: 'One of the 5 blocks?',
+          options: [
+            'Small talk + pitch',
+            'Pain/impact',
+            'Only pricing',
+            'Only marketing',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'Why are no-go questions bad?',
+          options: [
+            'They are short',
+            'They waste time and add no decision info',
+            'They are expensive',
+            'They are in another language',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'Why end with a next step?',
+          options: [
+            'Make the call longer',
+            'Prevent stalls; set owner/time',
+            'Send more emails',
+            'Add small talk',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'Bad example?',
+          options: [
+            'Agenda upfront, next step',
+            'Small talk + pitch, no pain, no next step',
+            'Security question asked',
+            'Impact explored',
+          ],
+          correctIndex: 1,
+        },
+      ],
+    },
+  },
 ];
 
 async function main() {
