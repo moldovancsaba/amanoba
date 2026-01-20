@@ -168,9 +168,15 @@ export default function MyCoursesPage() {
                       {tCourses('dayOf', {
                         currentDay: item.progress.currentDay,
                         totalDays: item.progress.totalDays,
+                        defaultValue: `Day ${item.progress.currentDay} of ${item.progress.totalDays}`,
                       })}
                     </span>
-                    <span>{tCourses('daysCompleted', { count: item.progress.completedDays })}</span>
+                    <span>
+                      {tCourses('daysCompleted', {
+                        count: item.progress.completedDays,
+                        defaultValue: `${item.progress.completedDays} days completed`,
+                      })}
+                    </span>
                   </div>
                 </div>
 

@@ -478,17 +478,21 @@ export default function CourseDetailPage({
                         <CheckCircle className="w-5 h-5" />
                         {t('enrolled')}
                       </div>
-                      {enrollment.progress && (
-                        <div className="text-sm text-brand-darkGrey">
-                          <div>
-                            {t('dayOf', {
-                              currentDay: enrollment.progress.currentDay,
-                              totalDays: course.durationDays,
-                            })}
-                          </div>
-                          <div className="mt-1 text-xs">
-                            {t('daysCompleted', { count: enrollment.progress.completedDays })}
-                          </div>
+                  {enrollment.progress && (
+                    <div className="text-sm text-brand-darkGrey">
+                      <div>
+                        {t('dayOf', {
+                          currentDay: enrollment.progress.currentDay,
+                          totalDays: course.durationDays,
+                          defaultValue: `Day ${enrollment.progress.currentDay} of ${course.durationDays}`,
+                        })}
+                      </div>
+                      <div className="mt-1 text-xs">
+                        {t('daysCompleted', {
+                          count: enrollment.progress.completedDays,
+                          defaultValue: `${enrollment.progress.completedDays} days completed`,
+                        })}
+                      </div>
                           <div className="mt-2 bg-brand-darkGrey/20 rounded-full h-2 overflow-hidden">
                             <div
                               className="bg-brand-accent h-full transition-all"
