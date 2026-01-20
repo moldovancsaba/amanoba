@@ -1,10 +1,10 @@
 'use client';
 
 /**
- * Player Statistics Page
+ * User Statistics Page
  * 
- * Purpose: Display comprehensive player statistics and analytics
- * Why: Helps players track their progress and identify areas for improvement
+ * Purpose: Display comprehensive user statistics and analytics
+ * Why: Helps users track their progress and identify areas for improvement
  * 
  * Features from original Madoku:
  * - Overall stats (games played, win rate, average time)
