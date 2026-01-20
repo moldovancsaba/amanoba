@@ -273,7 +273,23 @@ export async function GET(request: NextRequest) {
       // Update existing player
       player.displayName = userInfo.name || player.displayName;
       player.email = userInfo.email || player.email;
-      player.role = userInfo.role; // Update role from SSO
+      
+      // Only update role from SSO if SSO provided a role AND it's different
+      // If SSO doesn't provide role (defaults to 'user'), keep existing role from DB
+      // This preserves manually set admin roles
+      if (userInfo.role !== 'user' || !player.role) {
+        // SSO provided a non-default role, or player has no role - update it
+        player.role = userInfo.role;
+      } else {
+        // SSO defaulted to 'user' but player might have 'admin' - keep existing role
+        logger.info({
+          playerId: player._id,
+          ssoRole: userInfo.role,
+          dbRole: player.role,
+          action: 'keeping_existing_role'
+        }, 'SSO provided default role, keeping existing role from database');
+      }
+      
       player.authProvider = 'sso';
       player.lastLoginAt = new Date();
       player.lastSeenAt = new Date();
@@ -283,7 +299,7 @@ export async function GET(request: NextRequest) {
         ssoSub: userInfo.sub,
         oldRole: player.role,
         newRole: userInfo.role,
-        willSave: userInfo.role,
+        finalRole: player.role,
         roleChanged: player.role !== userInfo.role
       }, 'DEBUG: Updating existing player role');
       

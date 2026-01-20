@@ -1,7 +1,7 @@
 # Amanoba Roadmap — Future Plans & Strategic Directions
 
-**Version**: 2.8.0  
-**Last Updated**: 2025-01-20T23:00:00.000Z  
+**Version**: 2.9.0  
+**Last Updated**: 2025-01-23T10:15:00.000Z  
 **Vision**: Transform Amanoba into a unified 30-day learning platform with gamified education, assessment tools, email-based lesson delivery, and monetization
 
 ---

@@ -1,7 +1,7 @@
 # Amanoba Task List
 
-**Version**: 2.9.0  
-**Last Updated**: 2025-01-21T09:00:00.000Z
+**Version**: 2.9.1  
+**Last Updated**: 2025-01-23T10:15:00.000Z
 
 ---
 
@@ -165,11 +165,11 @@ Tasks are listed in priority order. Upon completion, tasks are moved to RELEASE_
 
 | ID | Task | Owner | Expected Delivery | Status |
 |----|------|-------|-------------------|--------|
-| CTA1 | Define CTA tokens (`--cta-bg`, `--cta-text`, `--cta-hover`) in global theme; document in design rules | AI | TBD | ⏳ PENDING |
-| CTA2 | Audit all yellow usage across CSS/components; classify each instance as CTA vs non-CTA; produce short list of offenders (TOC numbers, badges, highlights, cards, chips, icons) | AI | TBD | ⏳ PENDING |
-| CTA3 | Remove yellow from non-CTA elements; restyle offenders to neutral/secondary palette; ensure TOC numbering is clearly non-clickable (no yellow bg, no button padding/hover/cursor) | AI | TBD | ⏳ PENDING |
-| CTA4 | Enforce button affordance rules: only CTA buttons get yellow bg + hover/active + pointer cursor + button shadow; strip these from non-interactive elements globally | AI | TBD | ⏳ PENDING |
-| CTA5 | Regression sweep: visually check key pages—if it’s yellow, it’s a CTA button; add note to UI guidelines documenting the yellow exclusivity rule | AI | TBD | ⏳ PENDING |
+| CTA1 | Define CTA tokens (`--cta-bg`, `--cta-text`, `--cta-hover`) in global theme; document in design rules | AI | 2025-01-23 | ✅ DONE |
+| CTA2 | Audit all yellow usage across CSS/components; classify each instance as CTA vs non-CTA; produce short list of offenders (TOC numbers, badges, highlights, cards, chips, icons) | AI | 2025-01-23 | ✅ DONE (initial pass; further targets noted: rewards, admin pages, games HUD/alerts, alerts/info boxes) |
+| CTA3 | Remove yellow from non-CTA elements; restyle offenders to neutral/secondary palette; ensure TOC numbering is clearly non-clickable (no yellow bg, no button padding/hover/cursor) | AI | 2025-01-23 | ✅ DONE (TOC, course premium block, avatars, quests, referral card, achievements overview, leaderboards, profile badges) |
+| CTA4 | Enforce button affordance rules: only CTA buttons get yellow bg + hover/active + pointer cursor + button shadow; strip these from non-interactive elements globally | AI | 2025-01-23 | 🟡 PARTIAL (remaining areas: rewards page, admin badges/lists, games HUD timers/hints/banners, alerts/info boxes) |
+| CTA5 | Regression sweep: visually check key pages—if it’s yellow, it’s a CTA button; add note to UI guidelines documenting the yellow exclusivity rule | AI | 2025-01-23 | 🟡 PARTIAL (DOC added in DESIGN_UPDATE.md; full visual sweep pending) |
 
 ---
 
