@@ -11,6 +11,7 @@ import mongoose from 'mongoose';
 import { EventLog, PlayerSession } from '../../../../lib/models';
 import { logger } from '../../../../lib/logger';
 import connectDB from '../../../../lib/mongodb';
+import { requireAdmin } from '../../../../lib/rbac';
 
 /**
  * GET /api/admin/analytics/realtime?brandId=xxx
@@ -22,10 +23,11 @@ import connectDB from '../../../../lib/mongodb';
  */
 export async function GET(request: NextRequest) {
   try {
-    // Authentication check
+    // Authentication and admin role check
     const session = await auth();
-    if (!session?.user) {
-      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+    const adminCheck = requireAdmin(request, session);
+    if (adminCheck) {
+      return adminCheck;
     }
 
     await connectDB();

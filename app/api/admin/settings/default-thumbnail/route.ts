@@ -10,6 +10,7 @@ import { auth } from '@/auth';
 import connectDB from '@/lib/mongodb';
 import { Brand } from '@/lib/models';
 import { logger } from '@/lib/logger';
+import { requireAdmin } from '@/lib/rbac';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -22,8 +23,9 @@ export const dynamic = 'force-dynamic';
 export async function GET(request: NextRequest) {
   try {
     const session = await auth();
-    if (!session?.user) {
-      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+    const adminCheck = requireAdmin(request, session);
+    if (adminCheck) {
+      return adminCheck;
     }
 
     await connectDB();
@@ -58,8 +60,9 @@ export async function GET(request: NextRequest) {
 export async function POST(request: NextRequest) {
   try {
     const session = await auth();
-    if (!session?.user) {
-      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+    const adminCheck = requireAdmin(request, session);
+    if (adminCheck) {
+      return adminCheck;
     }
 
     await connectDB();
@@ -110,8 +113,9 @@ export async function POST(request: NextRequest) {
 export async function DELETE(request: NextRequest) {
   try {
     const session = await auth();
-    if (!session?.user) {
-      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+    const adminCheck = requireAdmin(request, session);
+    if (adminCheck) {
+      return adminCheck;
     }
 
     await connectDB();

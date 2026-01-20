@@ -10,6 +10,7 @@ import { auth } from '@/auth';
 import connectDB from '@/lib/mongodb';
 import { Course, Lesson, QuizQuestion, QuestionDifficulty } from '@/lib/models';
 import { logger } from '@/lib/logger';
+import { requireAdmin } from '@/lib/rbac';
 import mongoose from 'mongoose';
 
 /**
@@ -23,8 +24,9 @@ export async function PATCH(
 ) {
   try {
     const session = await auth();
-    if (!session?.user) {
-      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+    const adminCheck = requireAdmin(request, session);
+    if (adminCheck) {
+      return adminCheck;
     }
 
     await connectDB();
@@ -87,8 +89,9 @@ export async function DELETE(
 ) {
   try {
     const session = await auth();
-    if (!session?.user) {
-      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+    const adminCheck = requireAdmin(request, session);
+    if (adminCheck) {
+      return adminCheck;
     }
 
     await connectDB();

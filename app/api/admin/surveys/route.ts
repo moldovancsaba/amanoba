@@ -7,6 +7,7 @@
 
 import { NextRequest, NextResponse } from 'next/server';
 import { auth } from '@/auth';
+import { requireAdmin } from '@/lib/rbac';
 import connectDB from '@/lib/mongodb';
 import { Survey, SurveyResponse, Player, Brand } from '@/lib/models';
 import { logger } from '@/lib/logger';
@@ -25,11 +26,10 @@ export const dynamic = 'force-dynamic';
 export async function GET(request: NextRequest) {
   try {
     const session = await auth();
-    if (!session?.user) {
-      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+    const adminCheck = requireAdmin(request, session);
+    if (adminCheck) {
+      return adminCheck;
     }
-
-    // TODO: Add admin role check when role system is implemented
 
     await connectDB();
 

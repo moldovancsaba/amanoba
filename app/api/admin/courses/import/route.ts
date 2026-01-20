@@ -10,6 +10,7 @@ import { auth } from '@/auth';
 import connectDB from '@/lib/mongodb';
 import { Course, Lesson, QuizQuestion, Brand } from '@/lib/models';
 import { logger } from '@/lib/logger';
+import { requireAdmin } from '@/lib/rbac';
 import { QuestionDifficulty } from '@/lib/models';
 
 /**
@@ -21,8 +22,9 @@ import { QuestionDifficulty } from '@/lib/models';
 export async function POST(request: NextRequest) {
   try {
     const session = await auth();
-    if (!session?.user) {
-      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+    const adminCheck = requireAdmin(request, session);
+    if (adminCheck) {
+      return adminCheck;
     }
 
     await connectDB();

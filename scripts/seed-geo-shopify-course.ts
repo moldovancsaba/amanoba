@@ -156,7 +156,7 @@ const lessonPlan: LessonEntry[] = [
 <h2>Opcionális mélyítés</h2>
 <ul>
 <li>Google Search Central – GenAI content: <a href="https://developers.google.com/search/docs/fundamentals/using-gen-ai-content" target="_blank" rel="noreferrer">https://developers.google.com/search/docs/fundamentals/using-gen-ai-content</a></li>
-<li>Shopify termékadat: <a href="https://shopify.dev/docs/apps/selling-strategies/product-data" target="_blank" rel="noreferrer">https://shopify.dev/docs/apps/selling-strategies/product-data</a></li>
+<li>Shopify termékadat: <a href="https://shopify.dev/docs/api/liquid/objects/product" target="_blank" rel="noreferrer">https://shopify.dev/docs/api/liquid/objects/product</a></li>
 </ul>`,
     emailSubject: 'GEO Shopify – 2. nap: GEO vs SEO Shopify-n',
     emailBody: `<h1>GEO Shopify – 2. nap</h1>
@@ -467,7 +467,7 @@ const lessonPlan: LessonEntry[] = [
 <hr />
 <h2>Opcionális mélyítés</h2>
 <ul>
-<li>Shopify termékadat: <a href="https://shopify.dev/docs/apps/selling-strategies/product-data" target="_blank" rel="noreferrer">https://shopify.dev/docs/apps/selling-strategies/product-data</a></li>
+<li>Shopify termékadat: <a href="https://shopify.dev/docs/api/liquid/objects/product" target="_blank" rel="noreferrer">https://shopify.dev/docs/api/liquid/objects/product</a></li>
 </ul>`,
     emailSubject: 'GEO Shopify – 7. nap: Termékadat audit',
     emailBody: `<h1>GEO Shopify – 7. nap</h1>
@@ -818,7 +818,7 @@ const lessonPlan: LessonEntry[] = [
 <hr />
 <h2>Opcionális mélyítés</h2>
 <ul>
-<li>Shopify PDP tartalom: <a href="https://shopify.dev/docs/apps/selling-strategies/product-data" target="_blank" rel="noreferrer">https://shopify.dev/docs/apps/selling-strategies/product-data</a></li>
+<li>Shopify PDP tartalom: <a href="https://shopify.dev/docs/api/liquid/objects/product" target="_blank" rel="noreferrer">https://shopify.dev/docs/api/liquid/objects/product</a></li>
 <li>GEO alap: <a href="https://searchengineland.com/guide/what-is-geo" target="_blank" rel="noreferrer">https://searchengineland.com/guide/what-is-geo</a></li>
 </ul>`,
     emailSubject: 'GEO Shopify – 13. nap: Idézhető PDP blueprint',
@@ -1341,7 +1341,7 @@ const lessonPlan: LessonEntry[] = [
 <hr />
 <h2>Opcionális mélyítés</h2>
 <ul>
-<li>Shopify tartalom ötletek: <a href="https://shopify.dev/docs/apps/selling-strategies/product-data" target="_blank" rel="noreferrer">https://shopify.dev/docs/apps/selling-strategies/product-data</a></li>
+<li>Shopify tartalom ötletek: <a href="https://shopify.dev/docs/api/liquid/objects/product" target="_blank" rel="noreferrer">https://shopify.dev/docs/api/liquid/objects/product</a></li>
 </ul>`,
     emailSubject: 'GEO Shopify – 22. nap: Buying guide',
     emailBody: `<h1>GEO Shopify – 22. nap</h1>

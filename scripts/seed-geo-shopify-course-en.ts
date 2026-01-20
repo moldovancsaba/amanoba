@@ -156,7 +156,7 @@ const lessonPlan: LessonEntry[] = [
 <h2>Optional deepening</h2>
 <ul>
 <li>Google Search Central – GenAI content: <a href="https://developers.google.com/search/docs/fundamentals/using-gen-ai-content" target="_blank" rel="noreferrer">https://developers.google.com/search/docs/fundamentals/using-gen-ai-content</a></li>
-<li>Shopify product data: <a href="https://shopify.dev/docs/apps/selling-strategies/product-data" target="_blank" rel="noreferrer">https://shopify.dev/docs/apps/selling-strategies/product-data</a></li>
+<li>Shopify product data: <a href="https://shopify.dev/docs/api/liquid/objects/product" target="_blank" rel="noreferrer">https://shopify.dev/docs/api/liquid/objects/product</a></li>
 </ul>`,
     emailSubject: 'GEO Shopify – Day 2: GEO vs SEO',
     emailBody: `<h1>GEO Shopify – Day 2</h1>
@@ -466,7 +466,7 @@ const lessonPlan: LessonEntry[] = [
 <hr />
 <h2>Optional deepening</h2>
 <ul>
-<li>Shopify product data: <a href="https://shopify.dev/docs/apps/selling-strategies/product-data" target="_blank" rel="noreferrer">https://shopify.dev/docs/apps/selling-strategies/product-data</a></li>
+<li>Shopify product data: <a href="https://shopify.dev/docs/api/liquid/objects/product" target="_blank" rel="noreferrer">https://shopify.dev/docs/api/liquid/objects/product</a></li>
 </ul>`,
     emailSubject: 'GEO Shopify – Day 7: Product data audit',
     emailBody: `<h1>GEO Shopify – Day 7</h1>
@@ -817,7 +817,7 @@ const lessonPlan: LessonEntry[] = [
 <hr />
 <h2>Optional deepening</h2>
 <ul>
-<li>Shopify PDP content: <a href="https://shopify.dev/docs/apps/selling-strategies/product-data" target="_blank" rel="noreferrer">https://shopify.dev/docs/apps/selling-strategies/product-data</a></li>
+<li>Shopify PDP content: <a href="https://shopify.dev/docs/api/liquid/objects/product" target="_blank" rel="noreferrer">https://shopify.dev/docs/api/liquid/objects/product</a></li>
 <li>GEO overview: <a href="https://searchengineland.com/guide/what-is-geo" target="_blank" rel="noreferrer">https://searchengineland.com/guide/what-is-geo</a></li>
 </ul>`,
     emailSubject: 'GEO Shopify – Day 13: Citable PDP blueprint',
@@ -1340,7 +1340,7 @@ const lessonPlan: LessonEntry[] = [
 <hr />
 <h2>Optional deepening</h2>
 <ul>
-<li>Shopify content ideas: <a href="https://shopify.dev/docs/apps/selling-strategies/product-data" target="_blank" rel="noreferrer">https://shopify.dev/docs/apps/selling-strategies/product-data</a></li>
+<li>Shopify content ideas: <a href="https://shopify.dev/docs/api/liquid/objects/product" target="_blank" rel="noreferrer">https://shopify.dev/docs/api/liquid/objects/product</a></li>
 </ul>`,
     emailSubject: 'GEO Shopify – Day 22: Buying guide',
     emailBody: `<h1>GEO Shopify – Day 22</h1>

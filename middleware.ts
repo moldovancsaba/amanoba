@@ -111,7 +111,41 @@ export default auth((req) => {
     actualPathname.startsWith('/auth/signin') ||
     actualPathname.startsWith('/auth/signup');
 
-  // Redirect unauthenticated users to sign in
+  // Check admin role for admin routes
+  // Why: Admin routes require admin role, not just authentication
+  if (actualPathname.startsWith('/admin') && !isPublicAdminDoc) {
+    if (!isLoggedIn) {
+      // Redirect to sign in if not authenticated
+      const callbackUrl = encodeURIComponent(pathname + req.nextUrl.search);
+      const signInPath = `/${adminDefaultLocale}/auth/signin`;
+      return NextResponse.redirect(
+        new URL(`${signInPath}?callbackUrl=${callbackUrl}`, req.url)
+      );
+    }
+    
+    // Check if user has admin role
+    const user = req.auth?.user as { role?: 'user' | 'admin' } | undefined;
+    const userRole = user?.role || 'user';
+    
+    if (userRole !== 'admin') {
+      // Redirect non-admin users away from admin routes
+      // Determine locale from pathname
+      let locale = defaultLocale;
+      for (const loc of locales) {
+        if (pathname.startsWith(`/${loc}/`) || pathname === `/${loc}`) {
+          locale = loc;
+          break;
+        }
+      }
+      // Redirect to dashboard with error message
+      const dashboardPath = `/${locale}/dashboard`;
+      const redirectUrl = new URL(dashboardPath, req.url);
+      redirectUrl.searchParams.set('error', 'admin_access_required');
+      return NextResponse.redirect(redirectUrl);
+    }
+  }
+
+  // Redirect unauthenticated users to sign in for other protected routes
   // Why: Protect content that requires authentication
   if (isProtectedRoute && !isLoggedIn && !isPublicAdminDoc) {
     const callbackUrl = encodeURIComponent(pathname + req.nextUrl.search);
