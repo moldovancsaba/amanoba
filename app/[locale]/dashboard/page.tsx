@@ -287,6 +287,14 @@ export default function Dashboard() {
               >
                 📚 {t('browseCourses')}
               </LocaleLink>
+              {session?.user && (session.user as { role?: string }).role === 'admin' && (
+                <LocaleLink
+                  href="/admin"
+                  className="bg-brand-primary-600 text-brand-white px-4 py-3 sm:py-2 rounded-lg hover:bg-brand-primary-700 transition-colors font-bold text-center mobile-full-width"
+                >
+                  ⚙️ Admin
+                </LocaleLink>
+              )}
               <button
                 onClick={() => signOut({ callbackUrl: `/${locale}/auth/signin` })}
                 className="bg-brand-darkGrey text-brand-white px-4 py-3 sm:py-2 rounded-lg hover:bg-brand-secondary-700 transition-colors font-medium text-center mobile-full-width"
