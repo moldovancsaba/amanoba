@@ -33,7 +33,8 @@
     "seed:geo-shopify-course": "tsx --env-file=.env.local scripts/seed-geo-shopify-course.ts",
     "seed:geo-shopify-course-en": "tsx --env-file=.env.local scripts/seed-geo-shopify-course-en.ts",
     "seed:ai-course-en": "tsx --env-file=.env.local scripts/seed-ai-course-en.ts",
-    "seed:survey": "tsx --env-file=.env.local scripts/seed-onboarding-survey.ts"
+    "seed:survey": "tsx --env-file=.env.local scripts/seed-onboarding-survey.ts",
+    "admin:set-role": "tsx --env-file=.env.local scripts/set-admin-role.ts"
   },
   "dependencies": {
     "@auth/mongodb-adapter": "^3.11.0",

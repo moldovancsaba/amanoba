@@ -207,40 +207,34 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
      * Why: Include Player ID, Facebook ID, role, and auth provider in session
      */
     async jwt({ token, user, account, profile }) {
-      // Always fetch player data to get current role (important for role updates)
-      // Why: Role may change in database, so we need to refresh it on every request
-      const playerId = user?.id || token.id;
-      
-      if (playerId) {
+      // Initial sign in - fetch player data to get role
+      if (user && user.id) {
         try {
           await connectDB();
-          const player = await Player.findById(playerId).lean();
+          const player = await Player.findById(user.id).lean();
           
           if (player) {
-            token.id = playerId as string;
-            // Always refresh role from database to ensure it's up-to-date
+            token.id = user.id;
             token.role = (player.role as 'user' | 'admin') || 'user';
             token.authProvider = (player.authProvider as 'facebook' | 'sso' | 'anonymous') || 'facebook';
             token.facebookId = player.facebookId || null;
             token.ssoSub = player.ssoSub || null;
             token.locale = player.locale || 'en';
             token.isAnonymous = player.isAnonymous || false;
-          } else if (user && user.id) {
-            // Initial sign in - player not found yet (shouldn't happen, but handle gracefully)
+          } else {
+            // Fallback if player not found
             token.id = user.id;
             token.role = 'user';
             token.authProvider = (user as any).authProvider || 'facebook';
             token.isAnonymous = (user as any).isAnonymous || false;
           }
         } catch (error) {
-          logger.error({ error, playerId }, 'Failed to fetch player in JWT callback');
-          // Fallback values - keep existing token values if fetch fails
-          if (user && user.id) {
-            token.id = user.id;
-            token.role = token.role || 'user';
-            token.authProvider = (user as any).authProvider || token.authProvider || 'facebook';
-            token.isAnonymous = (user as any).isAnonymous ?? token.isAnonymous ?? false;
-          }
+          logger.error({ error, userId: user.id }, 'Failed to fetch player in JWT callback');
+          // Fallback values
+          token.id = user.id;
+          token.role = 'user';
+          token.authProvider = (user as any).authProvider || 'facebook';
+          token.isAnonymous = (user as any).isAnonymous || false;
         }
       }
       
