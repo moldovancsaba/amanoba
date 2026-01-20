@@ -82,9 +82,11 @@ export default function DailyLessonPage({
     loadData();
   }, [params]);
 
-  const fetchLesson = async (cid: string, day: number) => {
+  const fetchLesson = async (cid: string, day: number, opts: { silent?: boolean } = {}) => {
     try {
-      setLoading(true);
+      if (!opts.silent) {
+        setLoading(true);
+      }
       const response = await fetch(`/api/courses/${cid}/day/${day}`);
       const data = await response.json();
 
@@ -118,7 +120,9 @@ export default function DailyLessonPage({
       console.error('Failed to fetch lesson:', error);
       alert(t('failedToLoadLesson'));
     } finally {
-      setLoading(false);
+      if (!opts.silent) {
+        setLoading(false);
+      }
     }
   };
 
@@ -140,8 +144,17 @@ export default function DailyLessonPage({
       const data = await response.json();
 
       if (data.success) {
-        // Refresh lesson to show completed state
-        await fetchLesson(courseId, dayNumber);
+        // Optimistically update UI without flashing the whole page
+        setLesson((prev) =>
+          prev
+            ? {
+                ...prev,
+                isCompleted: true,
+              }
+            : prev
+        );
+        // Refresh lesson state silently to pick up progress/unlocks
+        await fetchLesson(courseId, dayNumber, { silent: true });
         // Alert removed - lesson completion is already visible in the UI
       } else {
         alert(data.error || t('failedToComplete'));

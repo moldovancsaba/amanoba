@@ -41,19 +41,36 @@ export async function GET(request: NextRequest) {
     const { searchParams } = new URL(request.url);
     const returnTo = searchParams.get('returnTo') || '/dashboard';
 
-    // Store state and nonce in encrypted cookie (valid for 10 minutes)
-    const response = NextResponse.redirect(
-      `${authUrl}?` +
-      new URLSearchParams({
-        client_id: clientId,
-        redirect_uri: redirectUri,
-        response_type: 'code',
-        scope: scopes,
-        state,
-        nonce,
-        prompt: 'login', // Force fresh login
-      }).toString()
+    // Build authorization URL
+    // Note: Some SSO providers may not support 'prompt' parameter
+    const authParams = new URLSearchParams({
+      client_id: clientId,
+      redirect_uri: redirectUri,
+      response_type: 'code',
+      scope: scopes,
+      state,
+      nonce,
+    });
+
+    // Only add prompt if explicitly supported (some providers don't support it)
+    // Remove prompt=login if provider shows empty page
+    // const promptSupported = process.env.SSO_PROMPT_SUPPORTED === 'true';
+    // if (promptSupported) {
+    //   authParams.set('prompt', 'login');
+    // }
+
+    const authUrlWithParams = `${authUrl}?${authParams.toString()}`;
+    
+    logger.info(
+      {
+        authUrl: authUrlWithParams.substring(0, 100) + '...', // Log partial URL for security
+        redirectUri,
+        clientId: clientId.substring(0, 8) + '...', // Log partial client ID
+      },
+      'SSO login redirect URL generated'
     );
+
+    const response = NextResponse.redirect(authUrlWithParams);
 
     // Store state, nonce, and returnTo in HTTP-only cookie
     const cookieOptions = {

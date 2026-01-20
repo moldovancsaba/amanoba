@@ -7,7 +7,7 @@
 
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useMemo } from 'react';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import { useLocale, useTranslations } from 'next-intl';
@@ -90,6 +90,11 @@ export default function CourseDetailPage({
   const [lessons, setLessons] = useState<Lesson[]>([]);
   const [loadingLessons, setLoadingLessons] = useState(false);
   const hasRedirectedRef = useRef(false);
+
+  const tocLessons = useMemo(
+    () => [...lessons].sort((a, b) => a.dayNumber - b.dayNumber),
+    [lessons]
+  );
 
   useEffect(() => {
     const loadData = async () => {
@@ -197,8 +202,10 @@ export default function CourseDetailPage({
     }
   };
 
-  const fetchLessons = async (cid: string) => {
-    setLoadingLessons(true);
+  const fetchLessons = async (cid: string, opts: { silent?: boolean } = {}) => {
+    if (!opts.silent) {
+      setLoadingLessons(true);
+    }
     try {
       const response = await fetch(`/api/courses/${cid}/lessons`);
       const data = await response.json();
@@ -208,7 +215,9 @@ export default function CourseDetailPage({
     } catch (error) {
       console.error('Failed to fetch lessons:', error);
     } finally {
-      setLoadingLessons(false);
+      if (!opts.silent) {
+        setLoadingLessons(false);
+      }
     }
   };
 
@@ -395,13 +404,13 @@ export default function CourseDetailPage({
             {/* Table of Contents */}
             <div className="bg-brand-white rounded-2xl p-8 border-2 border-brand-accent shadow-lg">
               <h2 className="text-2xl sm:text-3xl font-bold text-brand-black mb-6">{t('tableOfContents')}</h2>
-              {loadingLessons ? (
+              {loadingLessons && tocLessons.length === 0 ? (
                 <div className="text-brand-darkGrey text-center py-8">{tCommon('loading')}</div>
-              ) : lessons.length === 0 ? (
+              ) : tocLessons.length === 0 ? (
                 <div className="text-brand-darkGrey text-center py-8">{t('noLessonsAvailable')}</div>
               ) : (
                 <div className="space-y-3">
-                  {lessons.map((lesson) => (
+                  {tocLessons.map((lesson) => (
                     <div
                       key={lesson.lessonId}
                       className="flex items-center gap-4 p-4 bg-brand-darkGrey/5 rounded-lg border border-brand-darkGrey/20 hover:bg-brand-darkGrey/10 transition-colors"
