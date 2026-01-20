@@ -23,7 +23,10 @@ export async function GET(request: NextRequest) {
     const authUrl = process.env.SSO_AUTH_URL;
     const clientId = process.env.SSO_CLIENT_ID;
     const redirectUri = process.env.SSO_REDIRECT_URI || `${process.env.NEXTAUTH_URL || process.env.NEXT_PUBLIC_APP_URL}/api/auth/sso/callback`;
-    const scopes = process.env.SSO_SCOPES || 'openid profile email roles';
+    // Default to standard OIDC scopes if not configured
+    // Note: 'roles' is not a standard OIDC scope - provider may not support it
+    // If SSO_SCOPES is set, use it; otherwise use standard scopes
+    const scopes = process.env.SSO_SCOPES || 'openid profile email';
 
     if (!authUrl || !clientId) {
       logger.error({}, 'SSO configuration missing');
