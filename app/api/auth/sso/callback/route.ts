@@ -116,6 +116,16 @@ export async function GET(request: NextRequest) {
       );
     }
 
+    // DEBUG: Log ID token claims to see what's in it
+    logger.info({
+      sub: claims.sub,
+      email: claims.email,
+      name: claims.name,
+      role: claims.role,
+      roles: claims.roles,
+      allClaims: Object.keys(claims)
+    }, 'DEBUG: ID token claims received from SSO');
+
     // Verify nonce
     if (storedNonce && claims.nonce !== storedNonce) {
       logger.warn({ nonce: claims.nonce, storedNonce }, 'SSO nonce mismatch');
@@ -126,6 +136,13 @@ export async function GET(request: NextRequest) {
 
     // Extract user information
     const userInfo = extractSSOUserInfo(claims);
+    
+    // DEBUG: Log extracted user info
+    logger.info({
+      sub: userInfo.sub,
+      email: userInfo.email,
+      role: userInfo.role
+    }, 'DEBUG: Extracted user info from claims');
 
     await connectDB();
 

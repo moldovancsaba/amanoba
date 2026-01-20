@@ -25,7 +25,8 @@ export interface SSOTokenClaims extends JWTPayload {
   sub: string;
   email?: string;
   name?: string;
-  roles?: string[];
+  role?: string; // Single role string from SSO
+  roles?: string[]; // Array of roles (if provided)
   [key: string]: unknown;
 }
 
@@ -128,20 +129,27 @@ export async function validateSSOToken(token: string): Promise<SSOTokenClaims | 
 /**
  * Map SSO roles to application roles
  * 
- * @param ssoRoles - Array of roles from SSO token
+ * @param ssoRole - Single role string or array of roles from SSO token
  * @returns Application role ('admin' | 'user')
  */
-export function mapSSORole(ssoRoles?: string[]): 'user' | 'admin' {
-  if (!ssoRoles || !Array.isArray(ssoRoles)) {
-    return 'user';
+export function mapSSORole(ssoRole?: string | string[]): 'user' | 'admin' {
+  // Handle single role string
+  if (typeof ssoRole === 'string') {
+    return ssoRole.toLowerCase() === 'admin' || ssoRole.toLowerCase().includes('admin') 
+      ? 'admin' 
+      : 'user';
+  }
+  
+  // Handle array of roles
+  if (Array.isArray(ssoRole) && ssoRole.length > 0) {
+    const hasAdminRole = ssoRole.some(
+      (role) => role.toLowerCase() === 'admin' || role.toLowerCase().includes('admin')
+    );
+    return hasAdminRole ? 'admin' : 'user';
   }
 
-  // Check if any role contains 'admin' (case-insensitive)
-  const hasAdminRole = ssoRoles.some(
-    (role) => role.toLowerCase() === 'admin' || role.toLowerCase().includes('admin')
-  );
-
-  return hasAdminRole ? 'admin' : 'user';
+  // Default to user if no role provided
+  return 'user';
 }
 
 /**
@@ -161,7 +169,10 @@ export interface SSOUserInfo {
  * @returns User information for player upsert
  */
 export function extractSSOUserInfo(claims: SSOTokenClaims): SSOUserInfo {
-  const role = mapSSORole(claims.roles);
+  // Try both 'role' (single string) and 'roles' (array)
+  // SSO might return role as a string in profile claims
+  const roleValue = claims.role || claims.roles;
+  const role = mapSSORole(roleValue);
 
   return {
     sub: claims.sub,
