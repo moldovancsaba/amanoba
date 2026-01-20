@@ -216,7 +216,7 @@ export async function createAnonymousPlayer(username: string) {
  */
 export async function convertAnonymousToRegistered(
   anonymousPlayerId: string,
-  facebookId: string,
+  ssoSub: string,
   displayName?: string,
   email?: string,
   avatarUrl?: string
