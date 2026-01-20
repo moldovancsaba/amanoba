@@ -443,8 +443,20 @@ export async function GET(request: NextRequest) {
             }
             
             // Update the found player with SSO info
+            // SMART ROLE MANAGEMENT: Same logic as above
+            const oldRole = player.role;
+            const hasExistingAdmin = oldRole === 'admin';
+            const ssoProvidesAdmin = userInfo.role === 'admin';
+            
             player.ssoSub = userInfo.sub;
-            player.role = userInfo.role;
+            if (ssoProvidesAdmin) {
+              player.role = 'admin';
+            } else if (userInfo.role === 'user' && hasExistingAdmin) {
+              // Preserve existing admin
+              logger.info({ playerId: player._id, action: 'preserving_existing_admin' }, 'Preserving admin role after duplicate key error');
+            } else {
+              player.role = userInfo.role;
+            }
             player.authProvider = 'sso';
             player.displayName = userInfo.name || player.displayName;
             player.lastLoginAt = new Date();
@@ -454,7 +466,7 @@ export async function GET(request: NextRequest) {
               player.facebookId = undefined;
             }
             await player.save();
-            logger.info({ playerId: player._id }, 'Found and updated existing player after duplicate key error');
+            logger.info({ playerId: player._id, oldRole, finalRole: player.role }, 'Found and updated existing player after duplicate key error');
           } else {
             // Re-throw if it's not a duplicate key error
             throw createError;
