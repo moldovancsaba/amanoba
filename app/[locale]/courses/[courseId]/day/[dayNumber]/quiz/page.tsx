@@ -151,8 +151,14 @@ export default function LessonQuizPage({
         const nextIndex = currentIndex + 1;
         if (nextIndex >= questions.length) {
           // Quiz finished; mark passed locally
+          // Include player ID in key to make it user-specific
           if (lessonId) {
-            localStorage.setItem(`quiz-passed-${courseId}-${lessonId}`, 'true');
+            const user = session?.user as { id?: string; playerId?: string } | undefined;
+            const playerId = user?.playerId || user?.id;
+            const key = playerId 
+              ? `quiz-passed-${playerId}-${courseId}-${lessonId}`
+              : `quiz-passed-${courseId}-${lessonId}`;
+            localStorage.setItem(key, 'true');
           }
           setTimeout(() => {
             router.replace(`/courses/${courseId}/day/${dayNumber}?quiz=passed`);
@@ -170,7 +176,13 @@ export default function LessonQuizPage({
           })
         );
         if (lessonId) {
-          localStorage.removeItem(`quiz-passed-${courseId}-${lessonId}`);
+          // Include player ID in key to make it user-specific
+          const user = session?.user as { id?: string; playerId?: string } | undefined;
+          const playerId = user?.playerId || user?.id;
+          const key = playerId 
+            ? `quiz-passed-${playerId}-${courseId}-${lessonId}`
+            : `quiz-passed-${courseId}-${lessonId}`;
+          localStorage.removeItem(key);
         }
         setTimeout(() => {
           router.replace(`/courses/${courseId}/day/${dayNumber}?quizRetry=1`);
