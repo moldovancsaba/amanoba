@@ -195,12 +195,12 @@ export default function ProfilePage({ params }: { params: Promise<{ playerId: st
               <div className="flex items-center gap-3 justify-center md:justify-start mb-2">
                 <h1 className="text-4xl font-bold text-white">{profile.player.displayName}</h1>
                 {profile.player.isPremium && (
-                  <span className="px-3 py-1 bg-yellow-400 text-yellow-900 rounded-full text-sm font-bold">
+                  <span className="px-3 py-1 bg-brand-darkGrey text-brand-white rounded-full text-sm font-bold">
                     PREMIUM
                   </span>
                 )}
               </div>
-              <p className="text-2xl text-brand-accent font-semibold mb-4">{profile.progression.title}</p>
+              <p className="text-2xl text-brand-white font-semibold mb-4">{profile.progression.title}</p>
 
               {/* Stats Row */}
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -232,7 +232,7 @@ export default function ProfilePage({ params }: { params: Promise<{ playerId: st
                 </div>
                 <div className="h-3 bg-brand-black/40 rounded-full overflow-hidden">
                   <div
-                    className="h-full bg-brand-accent transition-all duration-500"
+                    className="h-full bg-brand-darkGrey transition-all duration-500"
                     style={{ width: `${xpProgress}%` }}
                   />
                 </div>
@@ -261,7 +261,7 @@ export default function ProfilePage({ params }: { params: Promise<{ playerId: st
                 onClick={() => setActiveTab(tab.id as 'overview' | 'achievements' | 'activity' | 'payments')}
                 className={`flex items-center gap-2 px-6 py-3 rounded-lg font-semibold transition-all ${
                   activeTab === tab.id
-                    ? 'bg-brand-accent text-brand-black'
+                    ? 'bg-brand-darkGrey text-brand-white'
                     : 'bg-brand-darkGrey text-brand-white/70 hover:bg-brand-black/20'
                 }`}
               >
@@ -370,7 +370,7 @@ export default function ProfilePage({ params }: { params: Promise<{ playerId: st
                     </div>
                     <div className="flex justify-between">
                       <span className="text-gray-400">Perfect Games</span>
-                      <span className="text-yellow-400 font-bold">{profile.statistics.perfectGames}</span>
+                      <span className="text-brand-white font-bold">{profile.statistics.perfectGames}</span>
                     </div>
                     <div className="flex justify-between">
                       <span className="text-gray-400">Avg Session</span>
@@ -395,7 +395,7 @@ export default function ProfilePage({ params }: { params: Promise<{ playerId: st
                 </div>
                 <div className="h-3 bg-brand-black/40 rounded-full overflow-hidden">
                   <div
-                    className="h-full bg-brand-accent"
+                    className="h-full bg-brand-darkGrey"
                     style={{ width: `${profile.achievements.progress}%` }}
                   />
                 </div>
@@ -405,14 +405,14 @@ export default function ProfilePage({ params }: { params: Promise<{ playerId: st
                 {profile.achievements.featured.map((achievement) => (
                   <div key={achievement.id} className="bg-brand-black/20 rounded-lg p-4">
                     <div className="flex items-start gap-3">
-                      <div className="w-12 h-12 bg-brand-accent rounded-lg flex items-center justify-center text-2xl text-brand-black">
+                      <div className="w-12 h-12 bg-brand-darkGrey/40 rounded-lg flex items-center justify-center text-2xl text-white">
                         {achievement.icon || '🏆'}
                       </div>
                       <div className="flex-1">
                         <div className="flex items-center gap-2 mb-1">
                           <h4 className="text-white font-bold">{achievement.name}</h4>
                           <span className={`text-xs px-2 py-0.5 rounded ${
-                            achievement.tier === 'legendary' ? 'bg-yellow-500 text-yellow-900' :
+                            achievement.tier === 'legendary' ? 'bg-amber-600 text-white' :
                             achievement.tier === 'epic' ? 'bg-purple-500 text-white' :
                             achievement.tier === 'rare' ? 'bg-blue-500 text-white' :
                             'bg-gray-500 text-white'
