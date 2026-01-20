@@ -56,24 +56,10 @@ export default function CoursesPage() {
   const [courses, setCourses] = useState<Course[]>([]);
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState('');
-  const [defaultThumbnail, setDefaultThumbnail] = useState<string | null>(null);
 
   useEffect(() => {
     fetchCourses();
-    fetchDefaultThumbnail();
   }, []);
-
-  const fetchDefaultThumbnail = async () => {
-    try {
-      const response = await fetch('/api/admin/settings/default-thumbnail');
-      const data = await response.json();
-      if (data.success && data.thumbnail) {
-        setDefaultThumbnail(data.thumbnail);
-      }
-    } catch (error) {
-      console.error('Failed to fetch default thumbnail:', error);
-    }
-  };
 
   const fetchCourses = async () => {
     try {

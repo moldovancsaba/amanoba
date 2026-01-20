@@ -7,7 +7,7 @@
 
 import { NextRequest, NextResponse } from 'next/server';
 import connectDB from '@/lib/mongodb';
-import { Course } from '@/lib/models';
+import { Course, Brand } from '@/lib/models';
 import { logger } from '@/lib/logger';
 
 /**
@@ -52,11 +52,32 @@ export async function GET(request: NextRequest) {
       .sort({ createdAt: -1 })
       .lean();
 
-    logger.info({ count: courses.length, filters: { status, language, search } }, 'Fetched courses');
+    // Get default thumbnail from brand metadata for courses without thumbnails
+    let defaultThumbnail: string | null = null;
+    const hasCoursesWithoutThumbnail = courses.some(course => !course.thumbnail);
+    
+    if (hasCoursesWithoutThumbnail) {
+      const brand = await Brand.findOne({ slug: 'amanoba' }).lean();
+      if (brand?.metadata) {
+        defaultThumbnail = (brand.metadata as any)?.defaultCourseThumbnail || null;
+      }
+    }
+
+    // Add default thumbnail to courses that don't have one
+    const coursesWithThumbnails = courses.map(course => ({
+      ...course,
+      thumbnail: course.thumbnail || defaultThumbnail || null,
+    }));
+
+    logger.info({ 
+      count: courses.length, 
+      filters: { status, language, search },
+      defaultThumbnailUsed: defaultThumbnail ? true : false
+    }, 'Fetched courses');
 
     return NextResponse.json({
       success: true,
-      courses,
+      courses: coursesWithThumbnails,
       count: courses.length,
     });
   } catch (error) {
