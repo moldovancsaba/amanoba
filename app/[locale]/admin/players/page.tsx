@@ -1,8 +1,8 @@
 /**
- * Admin Players Management Page
+ * Admin Users Management Page
  * 
- * What: Manage all players in the platform
- * Why: Allows admins to view, search, and manage players
+ * What: Manage all users in the platform
+ * Why: Allows admins to view, search, and manage users
  */
 
 'use client';

@@ -1,9 +1,9 @@
 'use client';
 
 /**
- * Player Dashboard Page
+ * User Dashboard Page
  * 
- * Why: Central view for player progression, achievements, and stats
+ * Why: Central view for user progression, achievements, and stats
  * What: Comprehensive dashboard showing level, XP, points, achievements, and streaks
  */
 

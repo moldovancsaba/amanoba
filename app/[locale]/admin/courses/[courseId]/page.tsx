@@ -861,7 +861,7 @@ function LessonFormModal({
                       className="w-full px-4 py-2 bg-brand-white border-2 border-brand-darkGrey rounded-lg text-brand-black focus:outline-none focus:border-brand-accent"
                     />
                     <p className="text-xs text-brand-darkGrey mt-1">
-                      Number of questions students will answer
+                      Number of questions users will answer
                     </p>
                   </div>
                 </div>
@@ -906,7 +906,7 @@ function LessonFormModal({
                       <span className="text-sm font-medium text-brand-black">Required to Complete Lesson</span>
                     </label>
                     <p className="text-xs text-brand-darkGrey mt-1 ml-7">
-                      Students must pass quiz to complete lesson
+                      Users must pass quiz to complete lesson
                     </p>
                   </div>
                 </div>
