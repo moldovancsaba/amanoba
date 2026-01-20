@@ -24,8 +24,8 @@ export const dynamic = 'force-dynamic';
  * - state: State parameter for CSRF protection
  */
 export async function GET(request: NextRequest) {
+  const { searchParams } = new URL(request.url);
   try {
-    const { searchParams } = new URL(request.url);
     const code = searchParams.get('code');
     const state = searchParams.get('state');
     const error = searchParams.get('error');
@@ -108,9 +108,25 @@ export async function GET(request: NextRequest) {
     }
 
     // Validate ID token
-    const claims = await validateSSOToken(idToken);
-    if (!claims) {
-      logger.error({}, 'SSO token validation failed');
+    let claims;
+    try {
+      claims = await validateSSOToken(idToken);
+      if (!claims) {
+        logger.error({ tokenLength: idToken?.length }, 'SSO token validation returned null');
+        return NextResponse.redirect(
+          new URL('/auth/signin?error=token_validation_failed', request.url)
+        );
+      }
+    } catch (tokenError) {
+      const errorMessage = tokenError instanceof Error ? tokenError.message : String(tokenError);
+      logger.error(
+        {
+          error: errorMessage,
+          errorStack: tokenError instanceof Error ? tokenError.stack : undefined,
+          tokenLength: idToken?.length,
+        },
+        'SSO token validation threw exception'
+      );
       return NextResponse.redirect(
         new URL('/auth/signin?error=token_validation_failed', request.url)
       );
@@ -155,7 +171,23 @@ export async function GET(request: NextRequest) {
     }
 
     // Extract user information
-    const userInfo = extractSSOUserInfo(claims);
+    let userInfo;
+    try {
+      userInfo = extractSSOUserInfo(claims);
+    } catch (extractError) {
+      const errorMessage = extractError instanceof Error ? extractError.message : String(extractError);
+      logger.error(
+        {
+          error: errorMessage,
+          errorStack: extractError instanceof Error ? extractError.stack : undefined,
+          claimsKeys: Object.keys(claims),
+        },
+        'Failed to extract user info from SSO claims'
+      );
+      return NextResponse.redirect(
+        new URL('/auth/signin?error=user_info_extraction_failed', request.url)
+      );
+    }
     
     // DEBUG: Log extracted user info
     logger.info({
@@ -164,7 +196,21 @@ export async function GET(request: NextRequest) {
       role: userInfo.role
     }, 'DEBUG: Extracted user info from claims');
 
-    await connectDB();
+    try {
+      await connectDB();
+    } catch (dbError) {
+      const errorMessage = dbError instanceof Error ? dbError.message : String(dbError);
+      logger.error(
+        {
+          error: errorMessage,
+          errorStack: dbError instanceof Error ? dbError.stack : undefined,
+        },
+        'Failed to connect to database during SSO callback'
+      );
+      return NextResponse.redirect(
+        new URL('/auth/signin?error=database_error', request.url)
+      );
+    }
 
     // Get default brand
     const defaultBrand = await Brand.findOne({ slug: 'amanoba' });
@@ -329,17 +375,34 @@ export async function GET(request: NextRequest) {
       roleBeforeSignIn: player.role
     }, 'DEBUG: About to call signIn with role');
     
-    const signInResult = await signIn('credentials', {
-      redirect: false,
-      playerId: (player._id as any).toString(),
-      displayName: player.displayName,
-      isAnonymous: 'false',
-      role: player.role, // Pass role to session
-    });
+    let signInResult;
+    try {
+      signInResult = await signIn('credentials', {
+        redirect: false,
+        playerId: (player._id as any).toString(),
+        displayName: player.displayName,
+        isAnonymous: 'false',
+        role: player.role, // Pass role to session
+      });
+    } catch (signInError) {
+      const errorMessage = signInError instanceof Error ? signInError.message : String(signInError);
+      logger.error(
+        {
+          error: errorMessage,
+          errorStack: signInError instanceof Error ? signInError.stack : undefined,
+          playerId: (player._id as any).toString(),
+        },
+        'Failed to call signIn - exception thrown'
+      );
+      return NextResponse.redirect(
+        new URL('/auth/signin?error=session_creation_failed', request.url)
+      );
+    }
     
     logger.info({
       signInSuccess: !signInResult?.error,
-      rolePassed: player.role
+      rolePassed: player.role,
+      signInError: signInResult?.error
     }, 'DEBUG: signIn completed');
 
     if (!signInResult || signInResult.error) {
@@ -359,9 +422,35 @@ export async function GET(request: NextRequest) {
 
     return response;
   } catch (error) {
-    logger.error({ error }, 'SSO callback error');
+    const errorMessage = error instanceof Error ? error.message : String(error);
+    const errorStack = error instanceof Error ? error.stack : undefined;
+    const errorName = error instanceof Error ? error.name : undefined;
+    
+    logger.error(
+      {
+        error: errorMessage,
+        errorName,
+        errorStack,
+        errorType: typeof error,
+        url: request.url,
+        hasCode: !!searchParams.get('code'),
+        hasState: !!searchParams.get('state'),
+      },
+      'SSO callback error - detailed error information'
+    );
+    
+    // Return more specific error if we can identify it
+    let errorCode = 'callback_error';
+    if (errorMessage.includes('token') || errorMessage.includes('jwt') || errorMessage.includes('JWKS')) {
+      errorCode = 'token_validation_failed';
+    } else if (errorMessage.includes('database') || errorMessage.includes('mongodb') || errorMessage.includes('connection')) {
+      errorCode = 'database_error';
+    } else if (errorMessage.includes('session') || errorMessage.includes('signIn')) {
+      errorCode = 'session_creation_failed';
+    }
+    
     return NextResponse.redirect(
-      new URL('/auth/signin?error=callback_error', request.url)
+      new URL(`/auth/signin?error=${errorCode}`, request.url)
     );
   }
 }
