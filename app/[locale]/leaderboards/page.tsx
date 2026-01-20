@@ -131,7 +131,7 @@ export default function LeaderboardsPage() {
   }
 
   const getRankIcon = (rank: number) => {
-    if (rank === 1) return <Crown className="w-6 h-6 text-yellow-400" />;
+    if (rank === 1) return <Crown className="w-6 h-6 text-brand-darkGrey" />;
     if (rank === 2) return <Medal className="w-6 h-6 text-gray-400" />;
     if (rank === 3) return <Award className="w-6 h-6 text-amber-600" />;
     return null;
@@ -163,7 +163,7 @@ export default function LeaderboardsPage() {
             </div>
             <LocaleLink
               href="/dashboard"
-              className="page-button-secondary border-2 border-brand-accent flex items-center gap-2"
+              className="page-button-secondary border-2 border-brand-darkGrey flex items-center gap-2"
             >
               <ChevronLeft className="w-5 h-5" />
               {tCommon('dashboard')}
@@ -184,7 +184,7 @@ export default function LeaderboardsPage() {
                 className={`p-4 rounded-lg font-medium transition-all border-2 ${
                   selectedGame === game.id
                     ? 'bg-brand-accent text-brand-black border-brand-accent shadow-md scale-105'
-                    : 'bg-brand-white text-brand-darkGrey border-brand-darkGrey/20 hover:border-brand-accent'
+                    : 'bg-brand-white text-brand-darkGrey border-brand-darkGrey/20 hover:border-brand-darkGrey'
                 }`}
               >
                 <div className="text-3xl mb-2">{game.icon}</div>
@@ -204,8 +204,8 @@ export default function LeaderboardsPage() {
                 onClick={() => setSelectedPeriod(period.id)}
                 className={`p-3 rounded-lg font-medium transition-all border-2 flex items-center gap-2 ${
                   selectedPeriod === period.id
-                    ? 'bg-brand-accent text-brand-black border-brand-accent shadow-md'
-                    : 'bg-brand-white text-brand-darkGrey border-brand-darkGrey/20 hover:border-brand-accent'
+                    ? 'bg-brand-darkGrey text-brand-white border-brand-darkGrey shadow-md'
+                    : 'bg-brand-white text-brand-darkGrey border-brand-darkGrey/20 hover:border-brand-darkGrey'
                 }`}
               >
                 {period.iconComponent ? <Icon icon={period.iconComponent} size={20} /> : null}
@@ -242,17 +242,17 @@ export default function LeaderboardsPage() {
         ) : (
           <div className="page-card overflow-hidden">
             {/* Leaderboard Header */}
-            <div className="bg-brand-accent text-brand-black p-6">
+            <div className="bg-brand-darkGrey text-brand-white p-6">
               <div className="flex items-center justify-between">
                 <div>
                   <h2 className="text-2xl font-bold">
                     {tGames(GAMES.find(g => g.id === selectedGame)?.nameKey || 'quizzz')} {t('rankings')}
                   </h2>
-                  <p className="text-brand-black/80 text-sm mt-1">
+                  <p className="text-brand-white/80 text-sm mt-1">
                     {t(PERIODS.find(p => p.id === selectedPeriod)?.nameKey || 'allTime')} • {leaderboardData.totalPlayers} {t('players')}
                   </p>
                 </div>
-                <Icon icon={MdEmojiEvents} size={48} className="opacity-50 text-brand-black" />
+                <Icon icon={MdEmojiEvents} size={48} className="opacity-50 text-brand-white" />
               </div>
             </div>
 
@@ -265,7 +265,7 @@ export default function LeaderboardsPage() {
                   <div
                     key={entry.playerId}
                     className={`p-4 flex items-center justify-between transition-colors ${
-                      isCurrentPlayer ? 'bg-brand-accent/20 border-l-4 border-brand-accent' : 'hover:bg-brand-darkGrey/5'
+                      isCurrentPlayer ? 'bg-brand-darkGrey/10 border-l-4 border-brand-darkGrey' : 'hover:bg-brand-darkGrey/5'
                     }`}
                   >
                     {/* Rank & Name */}
@@ -280,9 +280,9 @@ export default function LeaderboardsPage() {
                       
                       <div className="flex-1">
                         <div className="flex items-center gap-2">
-                          <h3 className={`font-bold ${isCurrentPlayer ? 'text-brand-black' : 'text-brand-black'}`}>
+                          <h3 className="font-bold text-brand-black">
                             {entry.playerName}
-                            {isCurrentPlayer && <span className="text-sm font-normal text-brand-accent"> ({t('you')})</span>}
+                            {isCurrentPlayer && <span className="text-sm font-normal text-brand-darkGrey"> ({t('you')})</span>}
                           </h3>
                           {getRankChange(entry)}
                         </div>
