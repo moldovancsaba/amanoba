@@ -274,20 +274,37 @@ export async function GET(request: NextRequest) {
       player.displayName = userInfo.name || player.displayName;
       player.email = userInfo.email || player.email;
       
-      // Only update role from SSO if SSO provided a role AND it's different
-      // If SSO doesn't provide role (defaults to 'user'), keep existing role from DB
-      // This preserves manually set admin roles
-      if (userInfo.role !== 'user' || !player.role) {
-        // SSO provided a non-default role, or player has no role - update it
-        player.role = userInfo.role;
-      } else {
-        // SSO defaulted to 'user' but player might have 'admin' - keep existing role
+      // Always update role from SSO if SSO provides a non-default role ('admin')
+      // This ensures SSO admin assignments are respected
+      // Only preserve existing role if SSO defaults to 'user' AND player already has a role
+      const oldRole = player.role;
+      if (userInfo.role === 'admin') {
+        // SSO explicitly provides admin role - always update
+        player.role = 'admin';
+        logger.info({
+          playerId: player._id,
+          oldRole,
+          newRole: 'admin',
+          source: 'sso_explicit_admin'
+        }, 'Updating player role to admin from SSO');
+      } else if (userInfo.role === 'user' && player.role) {
+        // SSO defaults to 'user' but player has existing role - preserve it
+        // This prevents SSO from overwriting manually set admin roles
         logger.info({
           playerId: player._id,
           ssoRole: userInfo.role,
           dbRole: player.role,
-          action: 'keeping_existing_role'
-        }, 'SSO provided default role, keeping existing role from database');
+          action: 'preserving_existing_role'
+        }, 'SSO provided default role, preserving existing role from database');
+      } else {
+        // Player has no role or SSO role is different - update it
+        player.role = userInfo.role;
+        logger.info({
+          playerId: player._id,
+          oldRole,
+          newRole: userInfo.role,
+          source: 'sso_role_update'
+        }, 'Updating player role from SSO');
       }
       
       player.authProvider = 'sso';
@@ -297,11 +314,11 @@ export async function GET(request: NextRequest) {
       logger.info({
         playerId: player._id,
         ssoSub: userInfo.sub,
-        oldRole: player.role,
-        newRole: userInfo.role,
+        oldRole,
+        ssoRole: userInfo.role,
         finalRole: player.role,
-        roleChanged: player.role !== userInfo.role
-      }, 'DEBUG: Updating existing player role');
+        roleChanged: oldRole !== player.role
+      }, 'DEBUG: Updated existing player - role sync');
       
       await player.save();
       

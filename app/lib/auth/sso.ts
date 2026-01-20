@@ -181,16 +181,24 @@ export function extractSSOUserInfo(claims: SSOTokenClaims): SSOUserInfo {
   
   const role = mapSSORole(roleValue);
   
-  // Log role extraction for debugging
+  // Log role extraction for debugging (with more detail)
   logger.info(
     {
       hasRole: !!claims.role,
       hasRoles: !!claims.roles,
       roleValue,
+      roleValueType: typeof roleValue,
+      roleValueIsArray: Array.isArray(roleValue),
       extractedRole: role,
       allClaimKeys: Object.keys(claims),
+      // Log all potential role-related claims
+      roleClaim: claims.role,
+      rolesClaim: claims.roles,
+      userRoleClaim: (claims as any).user_role,
+      groupsClaim: (claims as any).groups,
+      permissionsClaim: (claims as any).permissions,
     },
-    'SSO role extraction'
+    'SSO role extraction - detailed'
   );
 
   return {
