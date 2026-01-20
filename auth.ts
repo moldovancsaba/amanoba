@@ -74,6 +74,16 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
           player.lastLoginAt = new Date();
           player.lastSeenAt = new Date();
           
+          // Ensure authProvider is set (for existing players)
+          if (!player.authProvider) {
+            player.authProvider = 'facebook';
+          }
+          
+          // Ensure role is set (for existing players, default to 'user')
+          if (!player.role) {
+            player.role = 'user';
+          }
+          
           await player.save();
           
           logger.info({ playerId: player._id, facebookId }, 'Player logged in');
@@ -97,6 +107,8 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
             isPremium: false,
             isActive: true,
             isBanned: false,
+            authProvider: 'facebook',
+            role: 'user', // Default role for new users
             lastLoginAt: new Date(),
             lastSeenAt: new Date(),
           });
@@ -192,19 +204,53 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
      * JWT Callback
      * 
      * What: Add custom fields to JWT token
-     * Why: Include Player ID and Facebook ID in session
+     * Why: Include Player ID, Facebook ID, role, and auth provider in session
      */
     async jwt({ token, user, account, profile }) {
-      // Initial sign in
-      if (account && profile) {
-        token.facebookId = profile.id as string;
-        token.picture = (profile as any)?.picture?.data?.url || profile.image;
-        token.locale = (profile as any)?.locale || 'en';
+      // Initial sign in - fetch player data to get role
+      if (user && user.id) {
+        try {
+          await connectDB();
+          const player = await Player.findById(user.id).lean();
+          
+          if (player) {
+            token.id = user.id;
+            token.role = (player.role as 'user' | 'admin') || 'user';
+            token.authProvider = (player.authProvider as 'facebook' | 'sso' | 'anonymous') || 'facebook';
+            token.facebookId = player.facebookId || null;
+            token.ssoSub = player.ssoSub || null;
+            token.locale = player.locale || 'en';
+            token.isAnonymous = player.isAnonymous || false;
+          } else {
+            // Fallback if player not found
+            token.id = user.id;
+            token.role = 'user';
+            token.authProvider = (user as any).authProvider || 'facebook';
+            token.isAnonymous = (user as any).isAnonymous || false;
+          }
+        } catch (error) {
+          logger.error({ error, userId: user.id }, 'Failed to fetch player in JWT callback');
+          // Fallback values
+          token.id = user.id;
+          token.role = 'user';
+          token.authProvider = (user as any).authProvider || 'facebook';
+          token.isAnonymous = (user as any).isAnonymous || false;
+        }
       }
       
-      // Add user data to token
-      if (user) {
-        token.id = user.id;
+      // Update from account/profile for Facebook OAuth
+      if (account && profile && account.provider === 'facebook') {
+        token.facebookId = profile.id as string;
+        token.picture = (profile as any)?.picture?.data?.url || profile.image;
+        token.locale = (profile as any)?.locale || token.locale || 'en';
+        token.authProvider = 'facebook';
+      }
+      
+      // For credentials provider (anonymous)
+      if (user && (user as any).isAnonymous) {
+        token.authProvider = 'anonymous';
+        token.isAnonymous = true;
+        token.role = 'user'; // Anonymous users are always 'user'
       }
       
       return token;
@@ -214,13 +260,17 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
      * Session Callback
      * 
      * What: Make custom fields available in session
-     * Why: Frontend needs Player ID and Facebook ID
+     * Why: Frontend needs Player ID, Facebook ID, role, and auth provider
      */
     async session({ session, token }) {
       if (token && session.user) {
         session.user.id = token.id as string;
-        session.user.facebookId = token.facebookId as string;
-        session.user.locale = token.locale as string;
+        session.user.facebookId = token.facebookId || null;
+        session.user.ssoSub = token.ssoSub || null;
+        session.user.locale = token.locale || 'en';
+        session.user.isAnonymous = token.isAnonymous ?? false;
+        session.user.role = (token.role as 'user' | 'admin') || 'user';
+        session.user.authProvider = (token.authProvider as 'facebook' | 'sso' | 'anonymous') || 'facebook';
       }
       return session;
     },

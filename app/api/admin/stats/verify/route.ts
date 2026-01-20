@@ -17,6 +17,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { auth } from '@/auth';
 import dbConnect from '@/app/lib/mongodb';
 import logger from '@/app/lib/logger';
+import { requireAdmin } from '@/app/lib/rbac';
 import PlayerSession from '@/app/lib/models/player-session';
 import PlayerProgression from '@/app/lib/models/player-progression';
 import PointsWallet from '@/app/lib/models/points-wallet';
@@ -83,17 +84,11 @@ export async function GET(request: NextRequest) {
   try {
     // Why: Only allow authenticated admin users to access verification
     const session = await auth();
-    if (!session?.user) {
-      return NextResponse.json(
-        { error: 'Unauthorized' },
-        { status: 401 }
-      );
+    const { requireAdmin } = await import('@/lib/rbac');
+    const adminCheck = requireAdmin(request, session);
+    if (adminCheck) {
+      return adminCheck;
     }
-
-    // TODO: Add admin role check when role system implemented
-    // if (session.user.role !== 'admin') {
-    //   return NextResponse.json({ error: 'Forbidden' }, { status: 403 });
-    // }
 
     await dbConnect();
 

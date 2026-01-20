@@ -32,12 +32,10 @@ export const dynamic = 'force-dynamic';
 export async function GET(request: NextRequest) {
   try {
     const session = await auth();
-    if (!session?.user) {
-      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+    const adminCheck = requireAdmin(request, session);
+    if (adminCheck) {
+      return adminCheck;
     }
-
-    // TODO: Add admin role check when role system is implemented
-    // For now, any authenticated user can access (should be restricted to admins)
 
     await connectDB();
 
