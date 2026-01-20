@@ -3119,7 +3119,7 @@ const lessons: LessonEntry[] = [
           correctIndex: 1,
         },
         {
-          question: 'Red flag?',
+          question: 'Which item is a clear red flag in a proposal?',
           options: [
             'No decision date/next step',
             'Has proof points',
