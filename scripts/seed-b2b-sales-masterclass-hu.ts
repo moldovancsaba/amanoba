@@ -2335,6 +2335,356 @@ const lessons: LessonEntry[] = [
       ],
     },
   },
+  {
+    day: 22,
+    title: 'HubSpot: erősségek, mikor jó választás',
+    content: `<h1>HubSpot: erősségek, mikor jó választás</h1>
+<p><em>Megérted, mikor éri meg a HubSpot a Pipedrive helyett, és milyen minimál beállítással indulj.</em></p>
+<hr />
+<h2>Napi cél</h2>
+<ul>
+  <li>Megnevezed a HubSpot erősségeit és korlátait.</li>
+  <li>Írsz döntési kritériumot: mikor HubSpot, mikor Pipedrive/alternatíva.</li>
+  <li>Beállítasz egy minimál lifecycle + deal pipeline + kötelező mezők csomagot.</li>
+  <li>Készítesz 1 egyszerű workflow-t (pl. form → contact → deal létrehozás).</li>
+</ul>
+<hr />
+<h2>Miért fontos</h2>
+<ul>
+  <li>Drága eszközt választani feleslegesen pénzégetés.</li>
+  <li>HubSpot akkor erős, ha marketing + sales + ügyfélút egy helyen van.</li>
+  <li>Minimál setup nélkül a komplexitás elviszi a fókuszt.</li>
+</ul>
+<hr />
+<h2>Magyarázat</h2>
+<h3>Erősségek</h3>
+<ul>
+  <li>Marketing + sales + service egyben (lifecycle státuszok).</li>
+  <li>Workflow-k és automatizmusok (form, email, deal update).</li>
+  <li>Reporting több objektumra (contact, company, deal, activity).</li>
+</ul>
+<h3>Korlátok</h3>
+<ul>
+  <li>Licenc költség nő userrel és csomaggal.</li>
+  <li>Túl sok kötelező mező lassíthatja a csapatot.</li>
+</ul>
+<h3>Minimál setup</h3>
+<ul>
+  <li>Lifecycle: subscriber → lead → MQL/SQL → opportunity → customer.</li>
+  <li>Deal pipeline: stage + kötelező mezők (forrás, érték, next step, tulajdonos).</li>
+  <li>Workflow példa: form kitöltés → contact + company enrich → deal létrehozás → owner assign.</li>
+</ul>
+<hr />
+<h2>Példák</h2>
+<p><strong>Jó:</strong> HubSpotot választasz, mert marketing automatizmus kell és több objektumra akarsz riportálni; minimál kötelező mezőkkel indulsz.</p>
+<p><strong>Rossz:</strong> HubSpotot veszel csak azért, hogy legyen pipeline, miközben nem használod a marketing és workflow részt.</p>
+<hr />
+<h2>Gyakorlat (vezetett, 10-15 perc)</h2>
+<ol>
+  <li>Írj döntési kritérium listát: mikor HubSpot, mikor Pipedrive.</li>
+  <li>Állíts be egy deal pipeline-t kötelező mezőkkel (forrás, érték, next step, tulajdonos).</li>
+  <li>Állíts be egy workflow-t: form → contact + company → deal → owner assign.</li>
+</ol>
+<h2>Gyakorlat (önálló, 5-10 perc)</h2>
+<p>Hozz létre 3 teszt contactot és 3 dealt, töltsd a mezőket, futtasd a workflow-t, ellenőrizd a riportban.</p>
+<hr />
+<h2>Önellenőrzés</h2>
+<ul>
+  <li>Megvan a döntési kritérium.</li>
+  <li>Pipeline + kötelező mezők beállítva.</li>
+  <li>Workflow fut.</li>
+  <li>3 teszt deal adata rendben.</li>
+</ul>
+<hr />
+<h2>Opcionális mélyítés</h2>
+<ul>
+  <li>HubSpot pipeline beállítás: <a href="https://knowledge.hubspot.com/deals/create-deal-pipelines-and-stages" target="_blank" rel="noreferrer">https://knowledge.hubspot.com/deals/create-deal-pipelines-and-stages</a></li>
+  <li>Workflow alapok: <a href="https://knowledge.hubspot.com/workflows/create-workflows" target="_blank" rel="noreferrer">https://knowledge.hubspot.com/workflows/create-workflows</a></li>
+</ul>`,
+    emailSubject: 'B2B Értékesítés 2026 – 22. nap: HubSpot döntés',
+    emailBody: `<h1>B2B Értékesítés 2026 – 22. nap</h1>
+<p>Megérted, mikor válaszd a HubSpotot, beállítasz minimál pipeline-t és egy workflow-t.</p>
+<p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Olvasd el a leckét →</a></p>`,
+    quiz: {
+      questions: [
+        {
+          question: 'Mikor érdemes HubSpotot választani?',
+          options: [
+            'Ha csak alap pipeline kell marketing nélkül',
+            'Ha marketing + sales + automatizmus egy helyen kell',
+            'Ha ERP-t keresel',
+            'Ha HR rendszert keresel',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'Mi a minimál setup része?',
+          options: [
+            'Lifecycle státuszok + deal pipeline + kötelező mezők + workflow',
+            'Csak logó',
+            'Csak landing page',
+            'Csak prezentáció',
+          ],
+          correctIndex: 0,
+        },
+        {
+          question: 'Mi a HubSpot egyik korlátja?',
+          options: [
+            'Nincs mobil app',
+            'Licenc költség nő és komplexebb, mint Pipedrive',
+            'Nincs pipeline funkció',
+            'Nem tud emailt küldeni',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'Mi a jó workflow példa?',
+          options: [
+            'Form → contact + company → deal → owner assign',
+            'Random emailek küldése',
+            'Csak manuális export',
+            'Csak Slack üzenet',
+          ],
+          correctIndex: 0,
+        },
+      ],
+    },
+  },
+  {
+    day: 23,
+    title: 'Integrációk és adatáramlás alapok',
+    content: `<h1>Integrációk és adatáramlás alapok</h1>
+<p><em>Feltérképezed, honnan jön az adat (form, email, naptár), hova megy (CRM), és hogyan biztosítod a minőséget.</em></p>
+<hr />
+<h2>Napi cél</h2>
+<ul>
+  <li>Megrajzolod az adatáramlást: források → feldolgozás → CRM → riport.</li>
+  <li>Definiálsz kötelező mezőket és deduplikációs szabályt.</li>
+  <li>Kiválasztasz 1 enrichment vagy validáció lépést.</li>
+  <li>Beállítasz egy alap webhook/sync folyamatot.</li>
+</ul>
+<hr />
+<h2>Miért fontos</h2>
+<ul>
+  <li>Adatminőség nélkül a pipeline hibás lesz.</li>
+  <li>Manuális export/import időt és adatot veszít.</li>
+  <li>Egységes mezők nélkül a riport félrevezető.</li>
+</ul>
+<hr />
+<h2>Magyarázat</h2>
+<h3>Források</h3>
+<ul>
+  <li>Űrlapok (web, landing).</li>
+  <li>Email és naptár (meetingek).</li>
+  <li>Enrichment (Clearbit/Clay/ZoomInfo).</li>
+  <li>Support/CSM jegyek.</li>
+</ul>
+<h3>Feldolgozás</h3>
+<ul>
+  <li>Deduplikáció: email + domain + név.</li>
+  <li>Normalizálás: ország, iparág, cégméret.</li>
+  <li>Kötelező mezők: forrás, státusz, tulajdonos.</li>
+</ul>
+<h3>Sink</h3>
+<ul>
+  <li>CRM: contact/company/deal.</li>
+  <li>Activity log: meeting, call, email.</li>
+  <li>Riport: dashboard stage konverzióra.</li>
+</ul>
+<hr />
+<h2>Példák</h2>
+<p><strong>Jó:</strong> Form → webhook → enrichment → dedup → CRM contact+company+deal, owner assign, activity log.</p>
+<p><strong>Rossz:</strong> CSV export-import hetente, kötelező mezők nélkül, duplázott contactok.</p>
+<hr />
+<h2>Gyakorlat (vezetett, 10-15 perc)</h2>
+<ol>
+  <li>Rajzold fel az adatáramlást (forrás → feldolgozás → sink).</li>
+  <li>Írd le a deduplikációs szabályt (email + domain).</li>
+  <li>Állíts be kötelező mezőket (forrás, tulajdonos, next step).</li>
+  <li>Válassz egy enrichment lépést (pl. iparág automatikus kitöltés).</li>
+</ol>
+<h2>Gyakorlat (önálló, 5-10 perc)</h2>
+<p>Hozz létre 1 webhook/sync-et (pl. form → CRM), és ellenőrizd, hogy a mezők és a dedup működik.</p>
+<hr />
+<h2>Önellenőrzés</h2>
+<ul>
+  <li>Megvan az adatáramlás térkép.</li>
+  <li>Van deduplikációs szabály.</li>
+  <li>Beállítottad a kötelező mezőket.</li>
+  <li>Fut 1 webhook/sync és ellenőrizted.</li>
+</ul>
+<hr />
+<h2>Opcionális mélyítés</h2>
+<ul>
+  <li>HubSpot integrations: <a href="https://knowledge.hubspot.com/integrations" target="_blank" rel="noreferrer">https://knowledge.hubspot.com/integrations</a></li>
+  <li>Pipedrive data import: <a href="https://support.pipedrive.com/en/article/how-can-i-import-data-into-pipedrive" target="_blank" rel="noreferrer">https://support.pipedrive.com/en/article/how-can-i-import-data-into-pipedrive</a></li>
+</ul>`,
+    emailSubject: 'B2B Értékesítés 2026 – 23. nap: Integrációk és adat',
+    emailBody: `<h1>B2B Értékesítés 2026 – 23. nap</h1>
+<p>Megrajzolod az adatáramlást, beállítod a kötelező mezőket, deduplikációt és egy webhookot.</p>
+<p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Olvasd el a leckét →</a></p>`,
+    quiz: {
+      questions: [
+        {
+          question: 'Miért fontos a deduplikáció?',
+          options: [
+            'Mert szebb a CRM',
+            'Hogy ne legyen duplikált contact és hibás riport',
+            'Mert olcsóbb a licenc',
+            'Mert így több email megy ki',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'Mi a jó adatút példa?',
+          options: [
+            'Form → webhook → enrichment → dedup → CRM + activity log',
+            'CSV export → email → manuális import',
+            'Slack üzenet → semmi',
+            'Random táblázat → semmi',
+          ],
+          correctIndex: 0,
+        },
+        {
+          question: 'Mi a kötelező mező tipikus listája?',
+          options: [
+            'Forrás, tulajdonos, next step',
+            'Emoji, fotó, hangulat',
+            'Csak név',
+            'Csak telefonszám',
+          ],
+          correctIndex: 0,
+        },
+        {
+          question: 'Mi az enrichment célja?',
+          options: [
+            'Díszítés',
+            'Adatminőség javítása (iparág, cégméret, domain)',
+            'Szórakoztatás',
+            'Ár emelése',
+          ],
+          correctIndex: 1,
+        },
+      ],
+    },
+  },
+  {
+    day: 24,
+    title: 'CRM higiénia és napi routine',
+    content: `<h1>CRM higiénia és napi routine</h1>
+<p><em>Bevezeted a napi 10 perces karbantartást és a heti riportot, hogy a pipeline valós maradjon.</em></p>
+<hr />
+<h2>Napi cél</h2>
+<ul>
+  <li>Összeállítasz egy napi 10 perces checklistet.</li>
+  <li>Beállítasz heti riport nézetet (stage konverzió, cycle time, win rate).</li>
+  <li>Bekapcsolsz emlékeztetőt a lejárt next step-ekre.</li>
+  <li>Megjelölöd a stale deal szabályt (pl. 14 nap activity nélkül = review).</li>
+</ul>
+<hr />
+<h2>Miért fontos</h2>
+<ul>
+  <li>Higiénia nélkül a forecast félrevezet.</li>
+  <li>Rövid napi routine olcsóbb, mint havi nagy takarítás.</li>
+  <li>Stale deal szabály jelzi a kockázatot.</li>
+</ul>
+<hr />
+<h2>Magyarázat</h2>
+<h3>Napi routine (10 perc)</h3>
+<ul>
+  <li>Lejárt next step-ek frissítése.</li>
+  <li>Új activity logolása (call, meeting, email).</li>
+  <li>Stage váltás, ha szükséges.</li>
+</ul>
+<h3>Heti rutin</h3>
+<ul>
+  <li>Stage konverziók áttekintése.</li>
+  <li>Cycle time és bottleneck.</li>
+  <li>Lost ok top 5 frissítés.</li>
+</ul>
+<h3>Automatizmusok</h3>
+<ul>
+  <li>Lejárt next step értesítés.</li>
+  <li>Stale deal report (14 nap activity nélkül).</li>
+  <li>Daily digest az elmaradásokról.</li>
+</ul>
+<hr />
+<h2>Példák</h2>
+<p><strong>Jó:</strong> Minden reggel 10 perc: next step frissítés, stage váltás, activity log; heti review riporttal.</p>
+<p><strong>Rossz:</strong> Havi egyszer takarítasz, addig a pipeline tele duplikáttal és lejárt taskkal.</p>
+<hr />
+<h2>Gyakorlat (vezetett, 10-15 perc)</h2>
+<ol>
+  <li>Írj napi checklistet (max 5 pont).</li>
+  <li>Állíts be emlékeztetőt a lejárt next step-ekre.</li>
+  <li>Készíts heti riport nézetet (stage konverzió, cycle time, win rate).</li>
+  <li>Állíts be stale szabályt (pl. 14 nap activity nélkül).</li>
+</ol>
+<h2>Gyakorlat (önálló, 5-10 perc)</h2>
+<p>Alkalmazd a checklistet 5 dealen, frissítsd a next step-et és a stage-et.</p>
+<hr />
+<h2>Önellenőrzés</h2>
+<ul>
+  <li>Megvan a napi checklist.</li>
+  <li>Fut az emlékeztető.</li>
+  <li>Megvan a heti riport nézet.</li>
+  <li>Stale szabály beállítva és tesztelve.</li>
+</ul>
+<hr />
+<h2>Opcionális mélyítés</h2>
+<ul>
+  <li>CRM hygiene best practices: <a href="https://www.gong.io/blog/crm-data-cleanup/" target="_blank" rel="noreferrer">https://www.gong.io/blog/crm-data-cleanup/</a></li>
+  <li>HubSpot automation példák: <a href="https://knowledge.hubspot.com/workflows/use-workflows-to-manage-crm-data" target="_blank" rel="noreferrer">https://knowledge.hubspot.com/workflows/use-workflows-to-manage-crm-data</a></li>
+</ul>`,
+    emailSubject: 'B2B Értékesítés 2026 – 24. nap: CRM higiénia',
+    emailBody: `<h1>B2B Értékesítés 2026 – 24. nap</h1>
+<p>Bevezeted a napi 10 perces higiéniai rutint, heti riportot és stale szabályt, hogy a pipeline valós maradjon.</p>
+<p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Olvasd el a leckét →</a></p>`,
+    quiz: {
+      questions: [
+        {
+          question: 'Mi a napi 10 perc rutin célja?',
+          options: [
+            'Dekoráció',
+            'Pipeline valóságának fenntartása',
+            'Marketing kampány indítása',
+            'HR feladat',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'Mi a stale deal szabály tipikus küszöbe?',
+          options: [
+            '14 nap activity nélkül review',
+            '1 nap activity nélkül azonnali zárás',
+            '6 hónap activity nélkül',
+            'Nincs ilyen',
+          ],
+          correctIndex: 0,
+        },
+        {
+          question: 'Mi tartozik a heti riportba?',
+          options: [
+            'Stage konverzió, cycle time, win rate',
+            'Csapat ebéd menüje',
+            'Irodai növények száma',
+            'Csak emailek száma',
+          ],
+          correctIndex: 0,
+        },
+        {
+          question: 'Mi a rossz példa?',
+          options: [
+            'Havi egyszer takarítasz, addig minden lejár',
+            'Minden nap frissíted a next step-et',
+            'Be van állítva emlékeztető',
+            'Van stale szabály',
+          ],
+          correctIndex: 0,
+        },
+      ],
+    },
+  },
 ];
 
 async function main() {
@@ -2433,7 +2783,7 @@ async function main() {
 
   await mongoose.disconnect();
   // eslint-disable-next-line no-console
-  console.log('Seeded B2B Értékesítés 2026 Masterclass (HU) with first 3 lessons.');
+  console.log('Seeded B2B Értékesítés 2026 Masterclass (HU) with first 24 lessons.');
 }
 
 main().catch((err) => {

@@ -2329,6 +2329,356 @@ const lessons: LessonEntry[] = [
       ],
     },
   },
+  {
+    day: 22,
+    title: 'HubSpot: strengths and when to choose it',
+    content: `<h1>HubSpot: strengths and when to choose it</h1>
+<p><em>Know when HubSpot is worth it over Pipedrive and how to start with a minimal setup.</em></p>
+<hr />
+<h2>Learning Goal</h2>
+<ul>
+  <li>Name HubSpot’s strengths and limits.</li>
+  <li>Write decision criteria: when HubSpot, when Pipedrive/alternative.</li>
+  <li>Set up a minimal lifecycle + deal pipeline + required fields pack.</li>
+  <li>Create one simple workflow (form → contact → deal creation).</li>
+</ul>
+<hr />
+<h2>Why It Matters</h2>
+<ul>
+  <li>Choosing an expensive tool without using it burns cash.</li>
+  <li>HubSpot shines when marketing + sales + customer journey live together.</li>
+  <li>A minimal setup avoids getting lost in complexity.</li>
+</ul>
+<hr />
+<h2>Explanation</h2>
+<h3>Strengths</h3>
+<ul>
+  <li>Marketing + sales + service in one place (lifecycle statuses).</li>
+  <li>Workflows and automation (form, email, deal updates).</li>
+  <li>Reporting across objects (contact, company, deal, activity).</li>
+</ul>
+<h3>Limits</h3>
+<ul>
+  <li>License cost grows with users and tiers.</li>
+  <li>Too many required fields slow the team.</li>
+</ul>
+<h3>Minimal setup</h3>
+<ul>
+  <li>Lifecycle: subscriber → lead → MQL/SQL → opportunity → customer.</li>
+  <li>Deal pipeline: stages + required fields (source, amount, next step, owner).</li>
+  <li>Workflow example: form submit → contact + company enrich → deal create → owner assign.</li>
+</ul>
+<hr />
+<h2>Examples</h2>
+<p><strong>Good:</strong> Choose HubSpot because you need marketing automation + sales and multi-object reporting; start with few required fields.</p>
+<p><strong>Bad:</strong> Buy HubSpot only for a pipeline while ignoring marketing and workflows.</p>
+<hr />
+<h2>Guided Exercise (10–15 minutes)</h2>
+<ol>
+  <li>Write decision criteria: when HubSpot vs Pipedrive.</li>
+  <li>Create a deal pipeline with required fields (source, amount, next step, owner).</li>
+  <li>Create a workflow: form → contact + company → deal → owner assign.</li>
+</ol>
+<h2>Independent Exercise (5–10 minutes)</h2>
+<p>Create 3 test contacts and 3 deals, fill required fields, run the workflow, check the report.</p>
+<hr />
+<h2>Self-check</h2>
+<ul>
+  <li>Decision criteria written.</li>
+  <li>Pipeline + required fields set.</li>
+  <li>Workflow runs.</li>
+  <li>3 test deals clean.</li>
+</ul>
+<hr />
+<h2>Optional Deep Dive</h2>
+<ul>
+  <li>HubSpot pipeline setup: <a href="https://knowledge.hubspot.com/deals/create-deal-pipelines-and-stages" target="_blank" rel="noreferrer">https://knowledge.hubspot.com/deals/create-deal-pipelines-and-stages</a></li>
+  <li>Workflows basics: <a href="https://knowledge.hubspot.com/workflows/create-workflows" target="_blank" rel="noreferrer">https://knowledge.hubspot.com/workflows/create-workflows</a></li>
+</ul>`,
+    emailSubject: 'B2B Sales 2026 – Day 22: HubSpot decision',
+    emailBody: `<h1>B2B Sales 2026 – Day 22</h1>
+<p>See when HubSpot is the right choice, set a minimal pipeline, and create a basic workflow.</p>
+<p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Read the lesson →</a></p>`,
+    quiz: {
+      questions: [
+        {
+          question: 'When is HubSpot a good choice?',
+          options: [
+            'When you only need a simple pipeline without marketing',
+            'When you need marketing + sales + automation in one place',
+            'When you need an ERP',
+            'When you need an HR system',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'What belongs in the minimal setup?',
+          options: [
+            'Lifecycle statuses + deal pipeline + required fields + workflow',
+            'Just a logo',
+            'Only a landing page',
+            'Only a slide deck',
+          ],
+          correctIndex: 0,
+        },
+        {
+          question: 'One HubSpot limitation:',
+          options: [
+            'No mobile app',
+            'License cost and complexity higher than Pipedrive',
+            'No pipeline feature',
+            'Cannot send email',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'Good workflow example:',
+          options: [
+            'Form → contact + company → deal → owner assign',
+            'Send random emails',
+            'Manual CSV export/import',
+            'Only Slack messages',
+          ],
+          correctIndex: 0,
+        },
+      ],
+    },
+  },
+  {
+    day: 23,
+    title: 'Integrations and data flow basics',
+    content: `<h1>Integrations and data flow basics</h1>
+<p><em>Map where data comes from (forms, email, calendar) and where it goes (CRM) while keeping quality.</em></p>
+<hr />
+<h2>Learning Goal</h2>
+<ul>
+  <li>Draw the data flow: sources → processing → CRM → reporting.</li>
+  <li>Define required fields and deduplication rules.</li>
+  <li>Pick one enrichment/validation step.</li>
+  <li>Set up a basic webhook/sync.</li>
+</ul>
+<hr />
+<h2>Why It Matters</h2>
+<ul>
+  <li>Bad data = bad pipeline and bad reporting.</li>
+  <li>Manual export/import loses time and accuracy.</li>
+  <li>Consistent fields make reports trustworthy.</li>
+</ul>
+<hr />
+<h2>Explanation</h2>
+<h3>Sources</h3>
+<ul>
+  <li>Forms (web, landing).</li>
+  <li>Email and calendar (meetings).</li>
+  <li>Enrichment (Clearbit/Clay/ZoomInfo).</li>
+  <li>Support/CSM tickets.</li>
+</ul>
+<h3>Processing</h3>
+<ul>
+  <li>Dedup: email + domain + name.</li>
+  <li>Normalize: country, industry, company size.</li>
+  <li>Required fields: source, status, owner.</li>
+</ul>
+<h3>Sink</h3>
+<ul>
+  <li>CRM: contact/company/deal.</li>
+  <li>Activity log: meeting, call, email.</li>
+  <li>Reporting: dashboards on stage conversion.</li>
+</ul>
+<hr />
+<h2>Examples</h2>
+<p><strong>Good:</strong> Form → webhook → enrichment → dedup → CRM contact+company+deal, owner assigned, activity logged.</p>
+<p><strong>Bad:</strong> Weekly CSV export/import with no required fields and duplicate contacts.</p>
+<hr />
+<h2>Guided Exercise (10–15 minutes)</h2>
+<ol>
+  <li>Draw your data flow (source → processing → sink).</li>
+  <li>Write the dedup rule (email + domain).</li>
+  <li>Set required fields (source, owner, next step).</li>
+  <li>Choose one enrichment step (e.g., auto industry fill).</li>
+</ol>
+<h2>Independent Exercise (5–10 minutes)</h2>
+<p>Create one webhook/sync (e.g., form → CRM), test that fields and dedup work.</p>
+<hr />
+<h2>Self-check</h2>
+<ul>
+  <li>Data flow map exists.</li>
+  <li>Dedup rule written.</li>
+  <li>Required fields set.</li>
+  <li>Webhook/sync tested.</li>
+</ul>
+<hr />
+<h2>Optional Deep Dive</h2>
+<ul>
+  <li>HubSpot integrations: <a href="https://knowledge.hubspot.com/integrations" target="_blank" rel="noreferrer">https://knowledge.hubspot.com/integrations</a></li>
+  <li>Pipedrive data import: <a href="https://support.pipedrive.com/en/article/how-can-i-import-data-into-pipedrive" target="_blank" rel="noreferrer">https://support.pipedrive.com/en/article/how-can-i-import-data-into-pipedrive</a></li>
+</ul>`,
+    emailSubject: 'B2B Sales 2026 – Day 23: Integrations & data',
+    emailBody: `<h1>B2B Sales 2026 – Day 23</h1>
+<p>Map data flows, set required fields and dedup, and run a webhook.</p>
+<p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Read the lesson →</a></p>`,
+    quiz: {
+      questions: [
+        {
+          question: 'Why deduplicate?',
+          options: [
+            'To make the CRM prettier',
+            'To avoid duplicate contacts and bad reports',
+            'To lower license cost',
+            'To send more emails',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'Good data path example:',
+          options: [
+            'Form → webhook → enrichment → dedup → CRM + activity log',
+            'CSV export → email → manual import',
+            'Slack message → nothing',
+            'Random spreadsheet → nothing',
+          ],
+          correctIndex: 0,
+        },
+        {
+          question: 'Typical required fields:',
+          options: [
+            'Source, owner, next step',
+            'Emoji, photo, mood',
+            'Only name',
+            'Only phone number',
+          ],
+          correctIndex: 0,
+        },
+        {
+          question: 'Purpose of enrichment:',
+          options: [
+            'Decoration',
+            'Improve data quality (industry, size, domain)',
+            'Entertainment',
+            'Raise price',
+          ],
+          correctIndex: 1,
+        },
+      ],
+    },
+  },
+  {
+    day: 24,
+    title: 'CRM hygiene and daily routine',
+    content: `<h1>CRM hygiene and daily routine</h1>
+<p><em>Introduce a 10-minute daily cleanup and weekly report so the pipeline stays real.</em></p>
+<hr />
+<h2>Learning Goal</h2>
+<ul>
+  <li>Create a 10-minute daily checklist.</li>
+  <li>Set a weekly report view (stage conversion, cycle time, win rate).</li>
+  <li>Enable reminders for overdue next steps.</li>
+  <li>Define a stale deal rule (e.g., 14 days no activity = review).</li>
+</ul>
+<hr />
+<h2>Why It Matters</h2>
+<ul>
+  <li>Without hygiene, the forecast misleads.</li>
+  <li>Small daily cleanup is cheaper than monthly heavy cleanup.</li>
+  <li>Stale rules surface risk early.</li>
+</ul>
+<hr />
+<h2>Explanation</h2>
+<h3>Daily routine (10 minutes)</h3>
+<ul>
+  <li>Update overdue next steps.</li>
+  <li>Log new activity (call, meeting, email).</li>
+  <li>Change stage if needed.</li>
+</ul>
+<h3>Weekly routine</h3>
+<ul>
+  <li>Review stage conversions.</li>
+  <li>Check cycle time and bottlenecks.</li>
+  <li>Refresh top 5 lost reasons.</li>
+</ul>
+<h3>Automations</h3>
+<ul>
+  <li>Overdue next step alerts.</li>
+  <li>Stale deal report (14 days no activity).</li>
+  <li>Daily digest of missing updates.</li>
+</ul>
+<hr />
+<h2>Examples</h2>
+<p><strong>Good:</strong> Every morning 10 minutes: update next steps, stages, and log activity; weekly review with a dashboard.</p>
+<p><strong>Bad:</strong> Clean once a month; until then the pipeline is full of duplicates and expired tasks.</p>
+<hr />
+<h2>Guided Exercise (10–15 minutes)</h2>
+<ol>
+  <li>Write a daily checklist (max 5 items).</li>
+  <li>Enable reminders for overdue next steps.</li>
+  <li>Create a weekly report view (stage conversion, cycle time, win rate).</li>
+  <li>Set a stale rule (e.g., 14 days no activity).</li>
+</ol>
+<h2>Independent Exercise (5–10 minutes)</h2>
+<p>Apply the checklist on 5 deals; update next steps and stages.</p>
+<hr />
+<h2>Self-check</h2>
+<ul>
+  <li>Daily checklist exists.</li>
+  <li>Reminder is on.</li>
+  <li>Weekly report view exists.</li>
+  <li>Stale rule set and tested.</li>
+</ul>
+<hr />
+<h2>Optional Deep Dive</h2>
+<ul>
+  <li>CRM hygiene best practices: <a href="https://www.gong.io/blog/crm-data-cleanup/" target="_blank" rel="noreferrer">https://www.gong.io/blog/crm-data-cleanup/</a></li>
+  <li>HubSpot automation examples: <a href="https://knowledge.hubspot.com/workflows/use-workflows-to-manage-crm-data" target="_blank" rel="noreferrer">https://knowledge.hubspot.com/workflows/use-workflows-to-manage-crm-data</a></li>
+</ul>`,
+    emailSubject: 'B2B Sales 2026 – Day 24: CRM hygiene',
+    emailBody: `<h1>B2B Sales 2026 – Day 24</h1>
+<p>Adopt a 10-minute daily hygiene routine, a weekly report, and a stale rule so the pipeline stays accurate.</p>
+<p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Read the lesson →</a></p>`,
+    quiz: {
+      questions: [
+        {
+          question: 'What is the goal of the 10-minute routine?',
+          options: [
+            'Decoration',
+            'Keep the pipeline real',
+            'Launch marketing campaigns',
+            'Handle HR tasks',
+          ],
+          correctIndex: 1,
+        },
+        {
+          question: 'Typical stale rule threshold:',
+          options: [
+            '14 days with no activity → review',
+            '1 day no activity → immediate close',
+            '6 months no activity',
+            'No such thing',
+          ],
+          correctIndex: 0,
+        },
+        {
+          question: 'What goes in the weekly report?',
+          options: [
+            'Stage conversion, cycle time, win rate',
+            'Lunch menu',
+            'Office plants count',
+            'Only email volume',
+          ],
+          correctIndex: 0,
+        },
+        {
+          question: 'Bad example:',
+          options: [
+            'Cleaning once a month while everything expires',
+            'Updating next steps daily',
+            'Having reminders on',
+            'Having a stale rule',
+          ],
+          correctIndex: 0,
+        },
+      ],
+    },
+  },
 ];
 
 async function main() {
@@ -2427,7 +2777,7 @@ async function main() {
 
   await mongoose.disconnect();
   // eslint-disable-next-line no-console
-  console.log('Seeded B2B Sales 2026 Masterclass (EN) with first 3 lessons.');
+  console.log('Seeded B2B Sales 2026 Masterclass (EN) with first 24 lessons.');
 }
 
 main().catch((err) => {
