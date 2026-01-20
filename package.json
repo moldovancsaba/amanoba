@@ -35,6 +35,7 @@
     "seed:ai-course-en": "tsx --env-file=.env.local scripts/seed-ai-course-en.ts",
     "seed:survey": "tsx --env-file=.env.local scripts/seed-onboarding-survey.ts",
     "admin:set-role": "tsx --env-file=.env.local scripts/set-admin-role.ts",
+    "admin:set-sso-role": "tsx --env-file=.env.local scripts/set-sso-admin-role.ts",
     "migrate:fix-facebookid-index": "tsx --env-file=.env.local scripts/fix-facebookid-index.ts"
   },
   "dependencies": {

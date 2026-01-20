@@ -171,8 +171,27 @@ export interface SSOUserInfo {
 export function extractSSOUserInfo(claims: SSOTokenClaims): SSOUserInfo {
   // Try both 'role' (single string) and 'roles' (array)
   // SSO might return role as a string in profile claims
-  const roleValue = claims.role || claims.roles;
+  // Also check common claim names: 'role', 'roles', 'user_role', 'groups', 'permissions'
+  const roleValue = 
+    claims.role || 
+    claims.roles || 
+    (claims as any).user_role || 
+    (claims as any).groups || 
+    (claims as any).permissions;
+  
   const role = mapSSORole(roleValue);
+  
+  // Log role extraction for debugging
+  logger.info(
+    {
+      hasRole: !!claims.role,
+      hasRoles: !!claims.roles,
+      roleValue,
+      extractedRole: role,
+      allClaimKeys: Object.keys(claims),
+    },
+    'SSO role extraction'
+  );
 
   return {
     sub: claims.sub,
