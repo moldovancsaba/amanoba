@@ -65,6 +65,11 @@ interface PlayerData {
     total: number;
     percentage: number;
   };
+  courseStats?: {
+    coursesEnrolled: number;
+    lessonsCompleted: number;
+    quizzesCompleted: number;
+  };
 }
 
 export default function Dashboard() {
@@ -536,12 +541,12 @@ export default function Dashboard() {
           <div className="bg-brand-white rounded-xl shadow-lg p-6 border-2 border-brand-accent">
             <Icon icon={MdTrendingUp} size={48} className="text-brand-accent mb-2" />
             <div className="text-3xl font-bold text-brand-black">
-              {progression?.totalGamesPlayed || 0}
+              {playerData?.courseStats?.quizzesCompleted || 0}
             </div>
             <div className="text-brand-darkGrey">{t('assessmentsCompleted')}</div>
-            {progression && (
+            {playerData?.courseStats && (
               <div className="text-xs text-brand-darkGrey mt-4">
-                {t('keepLearning')}
+                {playerData.courseStats.lessonsCompleted} {t('lessonsCompleted')} • {playerData.courseStats.coursesEnrolled} {t('coursesEnrolled')}
               </div>
             )}
           </div>

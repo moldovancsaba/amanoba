@@ -17,6 +17,8 @@ import {
   Achievement,
   PlayerSession,
   Streak,
+  CourseProgress,
+  AssessmentResult,
 } from '@/lib/models';
 import type { IAchievement } from '@/lib/models/achievement';
 import { logger } from '@/lib/logger';
@@ -63,7 +65,7 @@ export async function GET(
     await connectDB();
 
     // Fetch all profile data in parallel
-    const [player, progression, wallet, achievements, recentSessions, streaks] = await Promise.all([
+    const [player, progression, wallet, achievements, recentSessions, streaks, courseProgressList] = await Promise.all([
       Player.findById(playerId).lean(),
       PlayerProgression.findOne({ playerId }).lean(),
       PointsWallet.findOne({ playerId }).lean(),
@@ -78,7 +80,15 @@ export async function GET(
         .populate('gameId', 'name icon')
         .lean(),
       Streak.find({ playerId }).lean(),
+      CourseProgress.find({ playerId }).lean(),
     ]);
+
+    // Calculate course statistics
+    const coursesEnrolled = courseProgressList.length;
+    const lessonsCompleted = courseProgressList.reduce((sum, progress) => {
+      return sum + (progress.completedDays?.length || 0);
+    }, 0);
+    const quizzesCompleted = await AssessmentResult.countDocuments({ playerId });
 
     if (!player) {
       logger.warn({ playerId }, 'Player not found');
@@ -164,6 +174,11 @@ export async function GET(
         averageSessionTime: progression?.statistics?.averageSessionTime || 0,
         highestScore: 0, // TODO: Add to model if needed
         perfectGames: 0, // TODO: Add to model if needed
+      },
+      courseStats: {
+        coursesEnrolled,
+        lessonsCompleted,
+        quizzesCompleted,
       },
       wallet: {
         currentBalance: wallet?.currentBalance || 0,

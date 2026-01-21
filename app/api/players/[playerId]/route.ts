@@ -12,6 +12,8 @@ import {
   Achievement,
   AchievementUnlock,
   PlayerSession,
+  CourseProgress,
+  AssessmentResult,
 } from '@/lib/models';
 
 /**
@@ -46,7 +48,7 @@ export async function GET(
     await connectToDatabase();
 
     // Why: Fetch all player-related data in parallel for performance
-    const [player, progressionRaw, walletRaw, streaks, achievementCount, totalAchievements] =
+    const [player, progressionRaw, walletRaw, streaks, achievementCount, totalAchievements, courseProgressList] =
       await Promise.all([
         Player.findById(playerId),
         PlayerProgression.findOne({ playerId }),
@@ -54,7 +56,15 @@ export async function GET(
         Streak.find({ playerId, currentStreak: { $gt: 0 } }),
         AchievementUnlock.countDocuments({ playerId }),
         Achievement.countDocuments({ 'metadata.isActive': true }),
+        CourseProgress.find({ playerId }).lean(),
       ]);
+
+    // Calculate course statistics
+    const coursesEnrolled = courseProgressList.length;
+    const lessonsCompleted = courseProgressList.reduce((sum, progress) => {
+      return sum + (progress.completedDays?.length || 0);
+    }, 0);
+    const quizzesCompleted = await AssessmentResult.countDocuments({ playerId });
 
     let progression = progressionRaw;
     let wallet = walletRaw;
@@ -187,6 +197,11 @@ export async function GET(
           totalAchievements > 0
             ? Math.round((achievementCount / totalAchievements) * 100)
             : 0,
+      },
+      courseStats: {
+        coursesEnrolled,
+        lessonsCompleted,
+        quizzesCompleted,
       },
     };
 
