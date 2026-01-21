@@ -223,8 +223,13 @@ export function extractSSOUserInfo(claims: SSOTokenClaims): SSOUserInfo {
       authoritiesClaim: (claims as any).authorities,
       realmAccess: (claims as any).realm_access,
       resourceAccess: (claims as any).resource_access,
+      // Log custom SSO provider claims
+      customRolesClaim: (claims as any)['https://sso.doneisbetter.com/roles'],
+      customGroupsClaim: (claims as any)['https://sso.doneisbetter.com/groups'],
+      // Log first 500 chars of full claims for debugging
+      claimsPreview: JSON.stringify(claims).substring(0, 500),
     },
-    'SSO role extraction - enhanced (15+ claim locations)'
+    'SSO role extraction - enhanced (15+ claim locations) - checking ID token'
   );
 
   return {

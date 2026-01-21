@@ -22,7 +22,7 @@ export async function fetchUserInfo(accessToken: string): Promise<SSOUserInfo | 
       return null;
     }
 
-    logger.info({}, 'Fetching user info from SSO UserInfo endpoint');
+    logger.info({ userInfoUrl }, 'Fetching user info from SSO UserInfo endpoint (role management source)');
 
     const response = await fetch(userInfoUrl, {
       method: 'GET',
@@ -33,11 +33,30 @@ export async function fetchUserInfo(accessToken: string): Promise<SSOUserInfo | 
     });
 
     if (!response.ok) {
-      logger.warn({ status: response.status, statusText: response.statusText }, 'UserInfo endpoint returned error');
+      const errorText = await response.text().catch(() => 'Unable to read error response');
+      logger.warn(
+        { 
+          status: response.status, 
+          statusText: response.statusText,
+          errorText: errorText.substring(0, 200) // Limit error text length
+        }, 
+        'UserInfo endpoint returned error'
+      );
       return null;
     }
 
     const userInfo = await response.json();
+    
+    // Log raw UserInfo response for debugging
+    logger.info(
+      {
+        userInfoKeys: Object.keys(userInfo),
+        hasRole: !!(userInfo as any).role,
+        hasRoles: !!(userInfo as any).roles,
+        rawUserInfo: JSON.stringify(userInfo).substring(0, 500), // First 500 chars for debugging
+      },
+      'Raw UserInfo response received'
+    );
     
     // Extract user info using same logic as token claims
     const ssoUserInfo = extractSSOUserInfo(userInfo as any);
@@ -47,8 +66,9 @@ export async function fetchUserInfo(accessToken: string): Promise<SSOUserInfo | 
         sub: ssoUserInfo.sub,
         email: ssoUserInfo.email,
         role: ssoUserInfo.role,
+        extractedFromUserInfo: true,
       },
-      'UserInfo fetched successfully from SSO endpoint'
+      'UserInfo fetched and processed successfully - this is the source of truth for roles'
     );
 
     return ssoUserInfo;
@@ -56,6 +76,7 @@ export async function fetchUserInfo(accessToken: string): Promise<SSOUserInfo | 
     logger.error(
       {
         error: error instanceof Error ? error.message : String(error),
+        errorStack: error instanceof Error ? error.stack : undefined,
       },
       'Failed to fetch user info from SSO UserInfo endpoint'
     );
