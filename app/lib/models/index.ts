@@ -42,6 +42,9 @@ export { default as SystemVersion, type ISystemVersion } from './system-version'
 
 // Referral System Model (1)
 export { default as ReferralTracking, type IReferralTracking } from './referral-tracking';
+export { default as Certificate, type ICertificate } from './certificate';
+export { default as CertificateEntitlement, type ICertificateEntitlement } from './certificate-entitlement';
+export { default as FinalExamAttempt, type IFinalExamAttempt } from './final-exam-attempt';
 
 // Anonymous Auth Models (2)
 export { AnonymousNameWord, type IAnonymousNameWord } from './anonymous-name-word';

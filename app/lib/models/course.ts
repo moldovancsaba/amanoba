@@ -48,6 +48,15 @@ export interface ICourse extends Document {
     instructor?: string;
     [key: string]: unknown;
   };
+  certification?: {
+    enabled: boolean;
+    poolCourseId?: string;
+    priceMoney?: { amount: number; currency: string };
+    pricePoints?: number;
+    premiumIncludesCertification?: boolean;
+    templateId?: string;
+    credentialTitleId?: string;
+  };
   createdAt: Date;
   updatedAt: Date;
 }
@@ -200,6 +209,47 @@ const CourseSchema = new Schema<ICourse>(
         type: Number,
         required: [true, 'Lesson XP is required'],
         min: [0, 'Lesson XP cannot be negative'],
+      },
+    },
+
+    // Certification configuration
+    // Why: Controls premium gating, pricing, and pool mapping for final exam
+    certification: {
+      enabled: {
+        type: Boolean,
+        default: false,
+      },
+      poolCourseId: {
+        type: String,
+        uppercase: true,
+        trim: true,
+      },
+      priceMoney: {
+        amount: {
+          type: Number,
+          min: [0, 'Certification price cannot be negative'],
+        },
+        currency: {
+          type: String,
+          uppercase: true,
+          trim: true,
+        },
+      },
+      pricePoints: {
+        type: Number,
+        min: [0, 'Certification points price cannot be negative'],
+      },
+      premiumIncludesCertification: {
+        type: Boolean,
+        default: false,
+      },
+      templateId: {
+        type: String,
+        trim: true,
+      },
+      credentialTitleId: {
+        type: String,
+        trim: true,
       },
     },
 
