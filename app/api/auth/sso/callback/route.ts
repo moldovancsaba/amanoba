@@ -314,15 +314,34 @@ export async function POST(request: NextRequest) {
     // Extract user info from token
     let ssoUserInfo = extractSSOUserInfo(claims);
 
-    // Fallback to UserInfo endpoint if role not found in token
-    if (ssoUserInfo.role === 'user' && access_token) {
-      logger.info({}, 'Role not found in ID token, trying UserInfo endpoint');
+    // CRITICAL: Always try UserInfo endpoint as fallback (SSO role management happens there)
+    // Why: Some SSO providers (like sso.doneisbetter.com) put roles in UserInfo, not ID token
+    if (access_token) {
+      logger.info(
+        { 
+          roleFromToken: ssoUserInfo.role,
+          sub: ssoUserInfo.sub,
+          email: ssoUserInfo.email 
+        }, 
+        'Attempting UserInfo endpoint to get role (SSO role management source)'
+      );
       const userInfo = await fetchUserInfo(access_token);
-      if (userInfo && userInfo.role === 'admin') {
-        // UserInfo endpoint found admin role
-        ssoUserInfo = userInfo;
-        logger.info({}, 'Admin role found via UserInfo endpoint fallback');
+      if (userInfo) {
+        // UserInfo endpoint is source of truth for roles
+        logger.info(
+          { 
+            roleFromToken: ssoUserInfo.role,
+            roleFromUserInfo: userInfo.role,
+            sub: userInfo.sub 
+          }, 
+          'UserInfo endpoint returned role - using as source of truth'
+        );
+        ssoUserInfo = userInfo; // UserInfo wins - it's where SSO role management happens
+      } else {
+        logger.warn({}, 'UserInfo endpoint did not return data, using ID token role');
       }
+    } else {
+      logger.warn({}, 'No access token available for UserInfo endpoint fallback');
     }
 
     await connectDB();
