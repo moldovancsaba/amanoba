@@ -166,9 +166,10 @@ export async function GET(request: NextRequest) {
 
     if (player) {
       // Update existing player - sync email, name, and role from SSO
+      const previousRole = player.role;
       player.email = ssoUserInfo.email || player.email;
       player.displayName = ssoUserInfo.name || player.displayName;
-      player.role = ssoUserInfo.role; // SSO is source of truth for roles
+      player.role = ssoUserInfo.role; // SSO UserInfo endpoint is source of truth for roles
       player.authProvider = 'sso';
       player.lastLoginAt = new Date();
       await player.save();
@@ -177,11 +178,24 @@ export async function GET(request: NextRequest) {
         {
           playerId: player._id,
           ssoSub: ssoUserInfo.sub,
-          role: ssoUserInfo.role,
+          previousRole,
+          newRole: ssoUserInfo.role,
+          roleChanged: previousRole !== ssoUserInfo.role,
           updated: true,
         },
-        'SSO user updated - role synced from SSO'
+        'SSO user updated - role synced from SSO UserInfo endpoint'
       );
+      
+      if (previousRole !== ssoUserInfo.role) {
+        logger.warn(
+          {
+            playerId: player._id,
+            previousRole,
+            newRole: ssoUserInfo.role,
+          },
+          'Player role changed during SSO sync - admin access may have changed'
+        );
+      }
     } else {
       // Create new player
       player = await Player.create({
@@ -206,7 +220,7 @@ export async function GET(request: NextRequest) {
           role: ssoUserInfo.role,
           created: true,
         },
-        'SSO user created - role from SSO'
+        'SSO user created - role from SSO UserInfo endpoint'
       );
 
       // Log registration
@@ -425,9 +439,10 @@ export async function POST(request: NextRequest) {
 
     if (player) {
       // Update existing player - sync email, name, and role from SSO
+      const previousRole = player.role;
       player.email = ssoUserInfo.email || player.email;
       player.displayName = ssoUserInfo.name || player.displayName;
-      player.role = ssoUserInfo.role; // SSO is source of truth for roles
+      player.role = ssoUserInfo.role; // SSO UserInfo endpoint is source of truth for roles
       player.authProvider = 'sso';
       player.lastLoginAt = new Date();
       await player.save();
@@ -436,11 +451,24 @@ export async function POST(request: NextRequest) {
         {
           playerId: player._id,
           ssoSub: ssoUserInfo.sub,
-          role: ssoUserInfo.role,
+          previousRole,
+          newRole: ssoUserInfo.role,
+          roleChanged: previousRole !== ssoUserInfo.role,
           updated: true,
         },
-        'SSO user updated - role synced from SSO'
+        'SSO user updated - role synced from SSO UserInfo endpoint'
       );
+      
+      if (previousRole !== ssoUserInfo.role) {
+        logger.warn(
+          {
+            playerId: player._id,
+            previousRole,
+            newRole: ssoUserInfo.role,
+          },
+          'Player role changed during SSO sync - admin access may have changed'
+        );
+      }
     } else {
       // Create new player
       player = await Player.create({
@@ -465,7 +493,7 @@ export async function POST(request: NextRequest) {
           role: ssoUserInfo.role,
           created: true,
         },
-        'SSO user created - role from SSO'
+        'SSO user created - role from SSO UserInfo endpoint'
       );
 
       // Log registration
