@@ -10,6 +10,7 @@ import { auth } from '@/auth';
 import connectDB from '@/lib/mongodb';
 import { Brand } from '@/lib/models';
 import { logger } from '@/lib/logger';
+import { checkRateLimit, adminRateLimiter } from '@/lib/security';
 
 /**
  * GET /api/admin/brands?default=true
@@ -17,6 +18,12 @@ import { logger } from '@/lib/logger';
  * What: Get brands (optionally default brand only)
  */
 export async function GET(request: NextRequest) {
+  // Rate limiting for admin endpoints
+  const rateLimitResponse = await checkRateLimit(request, adminRateLimiter);
+  if (rateLimitResponse) {
+    return rateLimitResponse;
+  }
+
   try {
     const session = await auth();
     if (!session?.user) {

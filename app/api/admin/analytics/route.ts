@@ -13,6 +13,7 @@ import mongoose from 'mongoose';
 import { AnalyticsSnapshot } from '../../../lib/models';
 import { logger } from '../../../lib/logger';
 import connectDB from '../../../lib/mongodb';
+import { checkRateLimit, adminRateLimiter } from '../../../lib/security';
 
 /**
  * GET /api/admin/analytics?brandId=xxx&metricType=xxx&period=xxx&startDate=xxx&endDate=xxx
@@ -28,6 +29,12 @@ import connectDB from '../../../lib/mongodb';
  * - gameId: Game ID for game_sessions metric (optional)
  */
 export async function GET(request: NextRequest) {
+  // Rate limiting for admin endpoints
+  const rateLimitResponse = await checkRateLimit(request, adminRateLimiter);
+  if (rateLimitResponse) {
+    return rateLimitResponse;
+  }
+
   try {
     // Authentication check
     const session = await auth();
