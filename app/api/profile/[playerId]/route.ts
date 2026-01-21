@@ -3,6 +3,10 @@
  * 
  * Provides public-facing player profile data including stats, achievements,
  * recent activity, and badges. Used for profile pages and social features.
+ * 
+ * Security: Sensitive data (wallet balances, lastSeenAt) is only exposed to:
+ * - The profile owner (self)
+ * - Admins
  */
 
 import { NextRequest, NextResponse } from 'next/server';
@@ -19,6 +23,8 @@ import {
 } from '@/lib/models';
 import type { IAchievement } from '@/lib/models/achievement';
 import { logger } from '@/lib/logger';
+import { auth } from '@/auth';
+import { isAdmin } from '@/lib/rbac';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -26,16 +32,19 @@ export const dynamic = 'force-dynamic';
 /**
  * GET /api/profile/[playerId]
  * 
- * Fetches comprehensive public profile data for a player.
+ * Fetches comprehensive profile data for a player.
  * 
- * Response includes:
+ * Public data (always included):
  * - Basic player info (name, avatar, join date, premium status)
  * - Progression stats (level, XP, title)
  * - Game statistics (games played, win rate, total playtime)
- * - Points wallet (current balance, lifetime earned)
  * - Achievement showcase (total unlocks, featured achievements)
  * - Recent activity (last 10 game sessions)
  * - Streaks (current and best)
+ * 
+ * Private data (only for self/admin):
+ * - Points wallet (current balance, lifetime earned/spent)
+ * - lastSeenAt timestamp
  */
 export async function GET(
   request: NextRequest,
@@ -51,7 +60,20 @@ export async function GET(
       );
     }
 
-    logger.info({ playerId }, 'Fetching player profile');
+    // Check authentication and authorization
+    const session = await auth();
+    const currentUserId = session?.user?.id;
+    const isViewingOwnProfile = currentUserId === playerId;
+    const isAdminUser = session ? isAdmin(session) : false;
+    const canViewPrivateData = isViewingOwnProfile || isAdminUser;
+
+    logger.info({ 
+      playerId, 
+      currentUserId, 
+      isViewingOwnProfile, 
+      isAdminUser, 
+      canViewPrivateData 
+    }, 'Fetching player profile');
 
     await connectDB();
 
@@ -129,15 +151,16 @@ export async function GET(
       };
     });
 
-    // Build response
-    const profileData = {
+    // Build response with conditional private data
+    const profileData: any = {
       player: {
         id: player._id,
         displayName: player.displayName,
         profilePicture: player.profilePicture,
         isPremium: player.isPremium || false,
         createdAt: player.createdAt,
-        lastSeenAt: player.lastSeenAt,
+        // lastSeenAt is private - only include if viewing own profile or admin
+        ...(canViewPrivateData && { lastSeenAt: player.lastSeenAt }),
       },
       progression: {
         level: progression?.level || 1,
@@ -158,11 +181,14 @@ export async function GET(
         highestScore: 0, // TODO: Add to model if needed
         perfectGames: 0, // TODO: Add to model if needed
       },
-      wallet: {
-        currentBalance: wallet?.currentBalance || 0,
-        lifetimeEarned: wallet?.lifetimeEarned || 0,
-        lifetimeSpent: wallet?.lifetimeSpent || 0,
-      },
+      // Wallet data is private - only include if viewing own profile or admin
+      ...(canViewPrivateData && {
+        wallet: {
+          currentBalance: wallet?.currentBalance || 0,
+          lifetimeEarned: wallet?.lifetimeEarned || 0,
+          lifetimeSpent: wallet?.lifetimeSpent || 0,
+        },
+      }),
       achievements: {
         total: totalAchievements,
         unlocked: unlockedAchievements,
