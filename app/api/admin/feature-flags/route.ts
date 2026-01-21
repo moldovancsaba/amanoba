@@ -10,6 +10,7 @@ import { auth } from '@/auth';
 import connectDB from '@/lib/mongodb';
 import { FeatureFlags, Brand } from '@/lib/models';
 import { logger } from '@/lib/logger';
+import { checkRateLimit, adminRateLimiter } from '@/lib/security';
 
 /**
  * GET /api/admin/feature-flags
@@ -17,6 +18,12 @@ import { logger } from '@/lib/logger';
  * What: Get current feature flags
  */
 export async function GET(request: NextRequest) {
+  // Rate limiting for admin endpoints
+  const rateLimitResponse = await checkRateLimit(request, adminRateLimiter);
+  if (rateLimitResponse) {
+    return rateLimitResponse;
+  }
+
   try {
     const session = await auth();
     if (!session?.user) {
@@ -73,6 +80,12 @@ export async function GET(request: NextRequest) {
  * What: Update feature flags
  */
 export async function PATCH(request: NextRequest) {
+  // Rate limiting for admin endpoints
+  const rateLimitResponse = await checkRateLimit(request, adminRateLimiter);
+  if (rateLimitResponse) {
+    return rateLimitResponse;
+  }
+
   try {
     const session = await auth();
     if (!session?.user) {

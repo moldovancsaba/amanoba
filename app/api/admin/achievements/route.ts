@@ -10,6 +10,7 @@ import { auth } from '@/auth';
 import connectDB from '@/lib/mongodb';
 import { Achievement } from '@/lib/models';
 import { logger } from '@/lib/logger';
+import { checkRateLimit, adminRateLimiter } from '@/lib/security';
 
 /**
  * GET /api/admin/achievements
@@ -17,6 +18,12 @@ import { logger } from '@/lib/logger';
  * What: List all achievements with optional filtering
  */
 export async function GET(request: NextRequest) {
+  // Rate limiting for admin endpoints
+  const rateLimitResponse = await checkRateLimit(request, adminRateLimiter);
+  if (rateLimitResponse) {
+    return rateLimitResponse;
+  }
+
   try {
     const session = await auth();
     if (!session?.user) {
@@ -66,6 +73,12 @@ export async function GET(request: NextRequest) {
  * What: Create a new achievement
  */
 export async function POST(request: NextRequest) {
+  // Rate limiting for admin endpoints
+  const rateLimitResponse = await checkRateLimit(request, adminRateLimiter);
+  if (rateLimitResponse) {
+    return rateLimitResponse;
+  }
+
   try {
     const session = await auth();
     if (!session?.user) {
