@@ -12,7 +12,7 @@ import { getRequestConfig } from 'next-intl/server';
 
 // Supported languages
 // Why: Define available languages for the platform
-export const locales = ['hu', 'en'] as const;
+export const locales = ['hu', 'en', 'ru'] as const;
 export type Locale = (typeof locales)[number];
 
 // Default locale
