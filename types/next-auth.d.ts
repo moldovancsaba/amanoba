@@ -17,12 +17,14 @@ declare module 'next-auth' {
   interface Session {
     user: {
       id: string;
-      facebookId: string | null;
+      ssoSub: string | null;
       name?: string | null;
       email?: string | null;
       image?: string | null;
       locale: string;
       isAnonymous: boolean;
+      role: 'user' | 'admin';
+      authProvider: 'sso' | 'anonymous';
     };
   }
 
@@ -33,8 +35,10 @@ declare module 'next-auth' {
    */
   interface User {
     id: string;
-    facebookId?: string;
+    ssoSub?: string;
     isAnonymous?: boolean;
+    role?: 'user' | 'admin';
+    authProvider?: 'sso' | 'anonymous';
   }
 }
 
@@ -46,8 +50,10 @@ declare module 'next-auth/jwt' {
    */
   interface JWT {
     id: string;
-    facebookId: string | null;
+    ssoSub: string | null;
     locale: string;
     isAnonymous: boolean;
+    role: 'user' | 'admin';
+    authProvider: 'sso' | 'anonymous';
   }
 }

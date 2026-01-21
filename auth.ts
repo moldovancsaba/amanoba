@@ -192,19 +192,81 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
      * JWT Callback
      * 
      * What: Add custom fields to JWT token
-     * Why: Include Player ID and Facebook ID in session
+     * Why: Include Player ID, SSO identifier, role, and auth provider in session
      */
-    async jwt({ token, user, account, profile }) {
-      // Initial sign in
-      if (account && profile) {
-        token.facebookId = profile.id as string;
-        token.picture = (profile as any)?.picture?.data?.url || profile.image;
-        token.locale = (profile as any)?.locale || 'en';
+    async jwt({ token, user }) {
+      // Always fetch player data to get current role (important for role updates)
+      // Why: Role may change in database, so we need to refresh it on every request
+      const playerId = user?.id || token.id;
+      
+      // SIMPLIFIED: For initial sign in, use role from user object (from SSO/credentials)
+      // Then always refresh from database to ensure consistency
+      if (user && user.id && (user as any).role) {
+        token.id = user.id;
+        token.role = (user as any).role as 'user' | 'admin';
+        token.authProvider = (user as any).authProvider || 'sso';
+        token.isAnonymous = (user as any).isAnonymous || false;
+        logger.info({ 
+          playerId: user.id, 
+          role: token.role, 
+          userRole: (user as any).role,
+          source: 'user_object_initial' 
+        }, 'JWT: Initial sign in - using role from user object');
       }
       
-      // Add user data to token
-      if (user) {
-        token.id = user.id;
+      // Always refresh from database to ensure we have the latest role
+      // This is critical for SSO where role might have just been updated
+      if (playerId) {
+        try {
+          await connectDB();
+          const player = await Player.findById(playerId).lean();
+          
+          if (player) {
+            token.id = playerId as string;
+            // Always use database role - it's the source of truth after SSO update
+            const dbRole = (player.role as 'user' | 'admin') || 'user';
+            token.role = dbRole; // Database role wins (was updated from SSO)
+            token.authProvider = (player.authProvider as 'sso' | 'anonymous') || 'sso';
+            token.ssoSub = player.ssoSub || null;
+            token.locale = player.locale || 'en';
+            token.isAnonymous = player.isAnonymous || false;
+            
+            logger.info(
+              { 
+                playerId, 
+                dbRole,
+                userRole: user ? (user as any).role : undefined,
+                roleMatch: user ? dbRole === (user as any).role : 'no_user',
+                source: 'database_refresh'
+              }, 
+              'JWT: Refreshed role from database (SSO is source of truth)'
+            );
+          } else if (user && user.id && !token.role) {
+            // Fallback: player not found, use role from user object
+            token.id = user.id;
+            token.role = (user as any).role || 'user';
+            token.authProvider = (user as any).authProvider || 'sso';
+            token.isAnonymous = (user as any).isAnonymous || false;
+            logger.warn({ playerId: user.id }, 'JWT: Player not found in database, using user object role');
+          }
+        } catch (error) {
+          logger.error({ error, playerId }, 'Failed to fetch player in JWT callback');
+          // Fallback: use role from user object if database fetch fails
+          if (user && user.id) {
+            token.id = user.id;
+            token.role = (user as any).role || token.role || 'user';
+            token.authProvider = (user as any).authProvider || token.authProvider || 'sso';
+            token.isAnonymous = (user as any).isAnonymous ?? token.isAnonymous ?? false;
+            logger.warn({ playerId: user.id, role: token.role }, 'JWT: Database fetch failed, using user object role as fallback');
+          }
+        }
+      }
+      
+      // For credentials provider (anonymous)
+      if (user && (user as any).isAnonymous) {
+        token.authProvider = 'anonymous';
+        token.isAnonymous = true;
+        token.role = 'user'; // Anonymous users are always 'user'
       }
       
       return token;
@@ -214,13 +276,16 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
      * Session Callback
      * 
      * What: Make custom fields available in session
-     * Why: Frontend needs Player ID and Facebook ID
+     * Why: Frontend needs Player ID, SSO identifier, role, and auth provider
      */
     async session({ session, token }) {
       if (token && session.user) {
         session.user.id = token.id as string;
-        session.user.facebookId = token.facebookId as string;
-        session.user.locale = token.locale as string;
+        session.user.ssoSub = token.ssoSub || null;
+        session.user.locale = token.locale || 'en';
+        session.user.isAnonymous = token.isAnonymous ?? false;
+        session.user.role = (token.role as 'user' | 'admin') || 'user';
+        session.user.authProvider = (token.authProvider as 'sso' | 'anonymous') || 'sso';
       }
       return session;
     },

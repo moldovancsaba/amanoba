@@ -13,13 +13,16 @@ import mongoose, { Schema, Document, Model } from 'mongoose';
  * Why: TypeScript type safety for Player documents
  */
 export interface IPlayer extends Document {
-  facebookId: string;
+  facebookId?: string; // Optional for SSO users
+  ssoSub?: string; // SSO subject identifier (unique identifier from SSO provider)
   displayName: string;
   email?: string;
   profilePicture?: string;
   isPremium: boolean;
   premiumExpiresAt?: Date;
   isAnonymous: boolean; // Guest account flag
+  authProvider: 'facebook' | 'sso' | 'anonymous'; // Authentication provider
+  role: 'user' | 'admin'; // User role for access control
   brandId: mongoose.Types.ObjectId;
   locale: string;
   timezone?: string;
@@ -51,13 +54,43 @@ export interface IPlayer extends Document {
 const PlayerSchema = new Schema<IPlayer>(
   {
     // Facebook ID for authentication
-    // Why: Primary authentication method, unique identifier
+    // Why: Legacy authentication method, now optional for SSO migration
     facebookId: {
       type: String,
-      required: [true, 'Facebook ID is required'],
+      required: false, // Made optional to support SSO users
       unique: true,
+      sparse: true, // Allows null for SSO users
       trim: true,
       // Index created explicitly at schema level (see line 319)
+    },
+
+    // SSO subject identifier
+    // Why: Unique identifier from SSO provider (OIDC 'sub' claim)
+    ssoSub: {
+      type: String,
+      required: false,
+      unique: true,
+      sparse: true, // Allows null for Facebook/anonymous users
+      trim: true,
+      // Index created explicitly at schema level (see line 320)
+    },
+
+    // Authentication provider
+    // Why: Track which authentication method was used (for migration and analytics)
+    authProvider: {
+      type: String,
+      enum: ['facebook', 'sso', 'anonymous'],
+      default: 'facebook',
+      index: true,
+    },
+
+    // User role for access control
+    // Why: Determines access to admin features and protected resources
+    role: {
+      type: String,
+      enum: ['user', 'admin'],
+      default: 'user',
+      // Index created explicitly at schema level (see line 331)
     },
 
     // Display name shown in UI
@@ -256,7 +289,8 @@ const PlayerSchema = new Schema<IPlayer>(
 // Indexes for efficient querying
 // Why: Players are queried frequently by facebookId, brand, premium status
 
-PlayerSchema.index({ facebookId: 1 }, { name: 'player_facebook_id_unique', unique: true });
+PlayerSchema.index({ facebookId: 1 }, { name: 'player_facebook_id_unique', unique: true, sparse: true });
+PlayerSchema.index({ ssoSub: 1 }, { name: 'player_sso_sub_unique', unique: true, sparse: true });
 PlayerSchema.index({ brandId: 1 }, { name: 'player_brand' });
 PlayerSchema.index({ isPremium: 1 }, { name: 'player_premium' });
 PlayerSchema.index({ email: 1 }, { name: 'player_email', sparse: true });
@@ -266,16 +300,36 @@ PlayerSchema.index({ lastLoginAt: 1 }, { name: 'player_last_login' });
 PlayerSchema.index({ brandId: 1, isPremium: 1 }, { name: 'player_brand_premium' });
 PlayerSchema.index({ unsubscribeToken: 1 }, { name: 'player_unsubscribe_token', sparse: true });
 PlayerSchema.index({ stripeCustomerId: 1 }, { name: 'player_stripe_customer', sparse: true });
+PlayerSchema.index({ authProvider: 1, role: 1 }, { name: 'player_auth_provider_role' });
+PlayerSchema.index({ role: 1 }, { name: 'player_role' });
 
 /**
- * Pre-save hook to check premium expiration
+ * Pre-save hook to validate authentication identifiers and check premium expiration
  * 
- * Why: Automatically set isPremium to false if expired
+ * Why: Ensure at least one auth identifier exists (facebookId or ssoSub) and auto-expire premium
  */
 PlayerSchema.pre('save', function (next) {
+  // Validate: At least one auth identifier must exist (unless anonymous)
+  if (!this.isAnonymous && !this.facebookId && !this.ssoSub) {
+    return next(new Error('Player must have either facebookId or ssoSub (unless anonymous)'));
+  }
+
+  // Auto-expire premium if expired
   if (this.premiumExpiresAt && this.premiumExpiresAt < new Date()) {
     this.isPremium = false;
   }
+
+  // Ensure authProvider matches the available identifier
+  if (!this.isAnonymous) {
+    if (this.ssoSub && this.authProvider !== 'sso') {
+      this.authProvider = 'sso';
+    } else if (this.facebookId && !this.ssoSub && this.authProvider !== 'facebook') {
+      this.authProvider = 'facebook';
+    }
+  } else {
+    this.authProvider = 'anonymous';
+  }
+
   next();
 });
 

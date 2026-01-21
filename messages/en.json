@@ -76,6 +76,7 @@
     "signUp": "Sign Up",
     "continueWithoutRegistration": "Continue Without Registration",
     "signInWithFacebook": "Sign in with Facebook",
+    "signInWithSSO": "Sign in with SSO",
     "welcome": "Welcome",
     "email": "Email",
     "password": "Password",
