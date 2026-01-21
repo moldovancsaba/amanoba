@@ -11,6 +11,7 @@ import connectDB from '@/lib/mongodb';
 import { Course, Brand } from '@/lib/models';
 import { logger } from '@/lib/logger';
 import mongoose from 'mongoose';
+import { checkRateLimit, adminRateLimiter } from '@/lib/security';
 
 /**
  * GET /api/admin/courses
@@ -19,6 +20,12 @@ import mongoose from 'mongoose';
  * Why: Display courses in admin dashboard
  */
 export async function GET(request: NextRequest) {
+  // Rate limiting for admin endpoints
+  const rateLimitResponse = await checkRateLimit(request, adminRateLimiter);
+  if (rateLimitResponse) {
+    return rateLimitResponse;
+  }
+
   try {
     // Auth check
     const session = await auth();
@@ -84,6 +91,12 @@ export async function GET(request: NextRequest) {
  * Why: Allow admins to create courses via API
  */
 export async function POST(request: NextRequest) {
+  // Rate limiting for admin endpoints
+  const rateLimitResponse = await checkRateLimit(request, adminRateLimiter);
+  if (rateLimitResponse) {
+    return rateLimitResponse;
+  }
+
   try {
     // Auth check
     const session = await auth();

@@ -9,6 +9,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import connectDB from '@/lib/mongodb';
 import { Course } from '@/lib/models';
 import { logger } from '@/lib/logger';
+import { checkRateLimit, apiRateLimiter } from '@/lib/security';
 
 /**
  * GET /api/courses
@@ -16,6 +17,12 @@ import { logger } from '@/lib/logger';
  * What: List all active courses available for enrollment
  */
 export async function GET(request: NextRequest) {
+  // Rate limiting for API endpoints
+  const rateLimitResponse = await checkRateLimit(request, apiRateLimiter);
+  if (rateLimitResponse) {
+    return rateLimitResponse;
+  }
+
   try {
     await connectDB();
 

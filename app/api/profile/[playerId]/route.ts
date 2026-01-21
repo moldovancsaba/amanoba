@@ -8,6 +8,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import mongoose from 'mongoose';
 import connectDB from '@/lib/mongodb';
+import { checkRateLimit, apiRateLimiter } from '@/lib/security';
 import {
   Player,
   PlayerProgression,
@@ -41,6 +42,12 @@ export async function GET(
   request: NextRequest,
   props: { params: Promise<{ playerId: string }> }
 ) {
+  // Rate limiting for API endpoints
+  const rateLimitResponse = await checkRateLimit(request, apiRateLimiter);
+  if (rateLimitResponse) {
+    return rateLimitResponse;
+  }
+
   try {
     const { playerId } = await props.params;
 
