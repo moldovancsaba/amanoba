@@ -63,6 +63,16 @@ interface EnrollmentStatus {
   };
 }
 
+interface EntitlementStatus {
+  certificationEnabled: boolean;
+  certificationAvailable: boolean;
+  entitlementOwned: boolean;
+  premiumIncludesCertification: boolean;
+  priceMoney?: { amount: number; currency: string } | null;
+  pricePoints?: number | null;
+  poolCount: number;
+}
+
 interface Lesson {
   lessonId: string;
   dayNumber: number;
@@ -81,6 +91,7 @@ export default function CourseDetailPage({
   const locale = useLocale();
   const [course, setCourse] = useState<Course | null>(null);
   const [enrollment, setEnrollment] = useState<EnrollmentStatus | null>(null);
+  const [entitlement, setEntitlement] = useState<EntitlementStatus | null>(null);
   const [loading, setLoading] = useState(true);
   const [enrolling, setEnrolling] = useState(false);
   const [purchasing, setPurchasing] = useState(false);
@@ -103,7 +114,13 @@ export default function CourseDetailPage({
       const resolvedParams = await params;
       const id = resolvedParams.courseId;
       setCourseId(id);
-      await Promise.all([fetchCourse(id), checkEnrollment(id), checkPremiumStatus(), fetchLessons(id)]);
+      await Promise.all([
+        fetchCourse(id),
+        checkEnrollment(id),
+        checkPremiumStatus(),
+        fetchLessons(id),
+        fetchEntitlement(id),
+      ]);
 
       // Check for payment success/failure in URL
       const urlParams = new URLSearchParams(window.location.search);
@@ -143,6 +160,20 @@ export default function CourseDetailPage({
       console.error('Failed to fetch course:', error);
     } finally {
       setLoading(false);
+    }
+  };
+
+  const fetchEntitlement = async (cid: string) => {
+    try {
+      const res = await fetch(`/api/certification/entitlement?courseId=${cid}`);
+      const data = await res.json();
+      if (data.success) {
+        setEntitlement(data.data);
+      } else {
+        setEntitlement(null);
+      }
+    } catch (error) {
+      setEntitlement(null);
     }
   };
 
@@ -227,6 +258,70 @@ export default function CourseDetailPage({
     // Convert from cents to main unit
     const mainUnit = currency === 'huf' ? amount : amount / 100;
     return formatter.format(mainUnit);
+  };
+
+  const renderCertificationBlock = () => {
+    if (!course || !entitlement) return null;
+    const completed = Boolean(enrollment?.progress?.isCompleted);
+    const poolOk = entitlement.certificationEnabled && entitlement.poolCount >= 50;
+    const hasEntitlement = entitlement.entitlementOwned;
+
+    let statusLabel = 'Certification unavailable';
+    let cta: JSX.Element | null = null;
+
+    if (!entitlement.certificationEnabled) {
+      statusLabel = 'Certification unavailable';
+    } else if (!poolOk) {
+      statusLabel = `Certification unavailable (pool ${entitlement.poolCount}/50)`;
+    } else if (!completed) {
+      statusLabel = 'Complete the course to unlock certification';
+    } else if (completed && poolOk && !hasEntitlement) {
+      statusLabel = 'Completed, certificate available';
+      cta = (
+        <div className="flex flex-wrap gap-2">
+          {entitlement.pricePoints ? (
+            <button
+              onClick={() => fetch(`/api/certification/entitlement/redeem-points`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ courseId }),
+              }).then(() => fetchEntitlement(courseId))}
+              className="px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-500"
+            >
+              Redeem points ({entitlement.pricePoints})
+            </button>
+          ) : null}
+          <button
+            disabled
+            className="px-4 py-2 bg-gray-700 text-gray-400 rounded-lg cursor-not-allowed"
+          >
+            Pay (coming soon)
+          </button>
+        </div>
+      );
+    } else if (completed && poolOk && hasEntitlement) {
+      statusLabel = 'Certification unlocked';
+      cta = (
+        <LocaleLink
+          href={`/courses/${courseId}/final-exam`}
+          className="inline-flex items-center gap-2 px-4 py-2 bg-emerald-600 text-white rounded-lg hover:bg-emerald-500"
+        >
+          <Award className="w-4 h-4" />
+          Start final exam
+        </LocaleLink>
+      );
+    }
+
+    return (
+      <div className="bg-brand-darkGrey border-2 border-brand-accent rounded-xl p-4 space-y-2">
+        <div className="flex items-center gap-2 text-brand-white">
+          <Award className="w-5 h-5 text-amber-400" />
+          <span className="font-semibold">Certification</span>
+        </div>
+        <p className="text-brand-white/80 text-sm">{statusLabel}</p>
+        {cta}
+      </div>
+    );
   };
 
   const handleEnroll = async () => {
@@ -561,6 +656,11 @@ export default function CourseDetailPage({
                 )}
               </div>
             </div>
+          </div>
+
+          {/* Certification block */}
+          <div className="mt-6">
+            {renderCertificationBlock()}
           </div>
         </div>
 

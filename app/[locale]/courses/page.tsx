@@ -202,6 +202,16 @@ export default function CoursesPage() {
                         {t('freeCourse')}
                       </span>
                     )}
+                    {course.certification?.enabled ? (
+                      <span className="bg-amber-100 text-amber-800 text-xs font-semibold px-3 py-1.5 rounded-full flex items-center gap-1.5">
+                        <Award className="w-3.5 h-3.5" />
+                        Certification
+                      </span>
+                    ) : (
+                      <span className="bg-gray-200 text-gray-700 text-xs font-semibold px-3 py-1.5 rounded-full">
+                        No certification
+                      </span>
+                    )}
                   </div>
                 </div>
                 {course.requiresPremium && course.price && (
