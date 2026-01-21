@@ -1,7 +1,7 @@
 # Amanoba Roadmap — Future Plans & Strategic Directions
 
-**Version**: 2.9.0  
-**Last Updated**: 2025-01-23T10:15:00.000Z  
+**Version**: 2.8.2  
+**Last Updated**: 2025-01-27T12:00:00.000Z  
 **Vision**: Transform Amanoba into a unified 30-day learning platform with gamified education, assessment tools, email-based lesson delivery, and monetization
 
 ---
@@ -26,7 +26,7 @@
 ## 🧭 Tech Debt & Improvements
 
 ### P0 / High Priority
-- Gate admin stats APIs (`app/api/admin/stats/verify`, `.../repair`) by role (admin/superadmin), not just session presence
+- ~~Gate admin stats APIs (`app/api/admin/stats/verify`, `.../repair`) by role (admin/superadmin), not just session presence~~ ✅ FIXED (v2.8.0 - All admin routes protected with `requireAdmin()`)
 - ~~Fix runtime crash in `app/api/admin/system-info/route.ts` (missing `fs`/`path` imports or dead code removal)~~ ✅ FIXED (v2.7.1)
 - ~~Implement token-based unsubscribe in `app/api/email/unsubscribe/route.ts`~~ ✅ FIXED (v2.7.0)
 - Restrict `app/api/profile/[playerId]` data exposure (wallet balances, `lastSeenAt`) to self/admin; clarify intended visibility
@@ -358,8 +358,8 @@ EMAIL_FROM_NAME=Amanoba Learning
 - **Course Social Features**: 
   - Add Google/Facebook/other social feedback star ranking to courses
   - Add "Share this course" functionality to course pages
-- **Referral System Fix & Enable**: Fix and enable the referral system for course sharing and rewards
-- **SSO Integration**: Implement SSO via sso.doneisbetter.com for enterprise/partner authentication
+- ~~**Referral System Fix & Enable**: Fix and enable the referral system for course sharing and rewards~~ ✅ COMPLETE (v2.8.2)
+- ~~**SSO Integration**: Implement SSO via sso.doneisbetter.com for enterprise/partner authentication~~ ✅ COMPLETE (v2.8.2 - 100% SSO-aligned, Facebook removed)
 
 ### Q2 2026
 - **Short-Format Tracks**: Launch fast-path course formats:
@@ -408,6 +408,42 @@ EMAIL_FROM_NAME=Amanoba Learning
 
 ---
 
+---
+
+## ✅ Recent Major Updates (v2.8.2)
+
+### SSO Integration & Authentication Overhaul ✅ COMPLETE
+- **100% SSO-Aligned**: Removed Facebook authentication completely
+- **Role-Based Access Control**: Two personas only - `user` and `admin`
+- **SSO Role Mapping**: Automatic role extraction from SSO tokens (admin/user)
+- **Admin Route Protection**: All 29 admin API routes protected with `requireAdmin()`
+- **Terminology Cleanup**: Changed from "player"/"student" to "user" throughout UI
+- **Migration Scripts**: Database cleanup scripts for removing obsolete Facebook fields
+- **Documentation**: Comprehensive SSO integration requirements and troubleshooting guides
+
+### Dashboard Improvements ✅ COMPLETE
+- **Course Statistics**: Dashboard now shows actual course achievements
+  - Quizzes completed
+  - Lessons completed
+  - Courses enrolled
+  - Courses completed
+- **Real Data**: Replaced game statistics with course-specific metrics
+
+### Referral System ✅ ENABLED
+- **Referral Code Processing**: Automatic processing from URL parameters (`?ref=CODE`)
+- **Automatic Rewards**: 500 points awarded to referrer when friend signs up
+- **Referral Tracking**: Complete tracking system with statistics
+- **Share Options**: WhatsApp, Email, Copy Link, Native Share
+
+### Bug Fixes & Improvements
+- **Quiz Completion Tracking**: Fixed user-specific localStorage keys
+- **Course UI Language**: Consistent UI language based on course language
+- **Social Media Previews**: Open Graph and Twitter Card meta tags for course pages
+- **Default Course Thumbnail**: Automatic fallback to default thumbnail from settings
+- **SSO Admin Role**: Fixed role propagation from SSO to session
+
+---
+
 **Maintained By**: Narimato  
 **Review Cycle**: Weekly during active development  
-**Next Review**: 2026-01-25
+**Next Review**: 2026-02-03

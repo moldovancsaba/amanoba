@@ -1,13 +1,61 @@
 # Amanoba Task List
 
-**Version**: 2.9.1  
-**Last Updated**: 2025-01-23T10:15:00.000Z
+**Version**: 2.8.2  
+**Last Updated**: 2025-01-27T12:00:00.000Z
 
 ---
 
 ## Active Tasks
 
 Tasks are listed in priority order. Upon completion, tasks are moved to RELEASE_NOTES.md.
+
+---
+
+## ✅ RECENTLY COMPLETED (v2.8.2)
+
+### SSO Integration & Authentication Overhaul ✅ COMPLETE
+
+**Status**: 🟢 **COMPLETE**  
+**Completed**: 2025-01-27  
+**Priority**: HIGH
+
+#### Completed Tasks
+- ✅ Removed Facebook OAuth provider completely
+- ✅ Removed `facebookId` field from Player model and NextAuth types
+- ✅ Updated `authProvider` enum to only `'sso' | 'anonymous'`
+- ✅ Implemented SSO role extraction from multiple claim names
+- ✅ Created smart role management (preserves existing admin roles)
+- ✅ Protected all 29 admin API routes with `requireAdmin()` middleware
+- ✅ Updated Player model validation to require `ssoSub` (unless anonymous)
+- ✅ Created migration script: `migrate:remove-facebookid`
+- ✅ Updated all comments and documentation
+- ✅ Fixed SSO admin role propagation to session
+
+#### Terminology Cleanup ✅ COMPLETE
+- ✅ Changed all user-facing text from "player"/"student" to "user"
+- ✅ Updated translations (en.json, hu.json)
+- ✅ Updated page comments and documentation
+- ✅ Updated admin interfaces (Players → Users Management)
+
+#### Dashboard Improvements ✅ COMPLETE
+- ✅ Updated dashboard to show actual course achievements
+- ✅ Added course statistics API endpoint
+- ✅ Display quizzes completed, lessons completed, courses enrolled
+- ✅ Replaced game statistics with course-specific metrics
+
+#### Referral System ✅ ENABLED
+- ✅ Fixed referral system schema mismatches
+- ✅ Enabled automatic reward distribution (500 points on signup)
+- ✅ Implemented referral code processing from URL parameters
+- ✅ Added referral code cookie handling in SSO and anonymous flows
+- ✅ Updated ReferralCard component with share options
+
+#### Bug Fixes ✅ COMPLETE
+- ✅ Fixed quiz completion tracking (user-specific localStorage keys)
+- ✅ Fixed course UI language consistency (removed redirect loops)
+- ✅ Added social media previews (Open Graph, Twitter Cards) for courses
+- ✅ Fixed default course thumbnail display
+- ✅ Fixed SSO admin role not appearing in session
 
 ---
 
@@ -390,5 +438,31 @@ Tasks are listed in priority order. Upon completion, tasks are moved to RELEASE_
 
 ---
 
+---
+
+## 🔄 Current System State
+
+### Authentication
+- ✅ **SSO-Only**: 100% aligned with SSO authentication (sso.doneisbetter.com)
+- ✅ **Two Personas**: `user` (can use platform) and `admin` (can admin platform)
+- ✅ **Role-Based Access Control**: Complete RBAC system with `requireAdmin()` middleware
+- ✅ **Anonymous Login**: Guest users can still use platform without SSO
+
+### Course System
+- ✅ **30-Day Courses**: Complete course system with daily lessons
+- ✅ **Quiz Assessments**: Course-specific quizzes with configurable thresholds
+- ✅ **Email Automation**: Daily lesson emails with timezone support
+- ✅ **Payment Integration**: Stripe integration for premium courses
+- ✅ **Dashboard Stats**: Real course achievements displayed
+
+### Gamification
+- ✅ **Points & XP**: Full gamification system retained
+- ✅ **Achievements**: Course-specific achievements
+- ✅ **Leaderboards**: Game and course leaderboards
+- ✅ **Referral System**: Enabled with automatic rewards
+
+---
+
 **Maintained By**: Narimato  
-**Review Cycle**: Daily during active development
+**Review Cycle**: Daily during active development  
+**Last Major Update**: v2.8.2 (SSO Integration Complete)
