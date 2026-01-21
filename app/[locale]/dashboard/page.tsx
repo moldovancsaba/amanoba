@@ -81,6 +81,7 @@ export default function Dashboard() {
   const t = useTranslations('dashboard');
   const tCommon = useTranslations('common');
   const tAuth = useTranslations('auth');
+  const tAdmin = useTranslations('admin');
   const tGames = useTranslations('games');
   const tLeaderboard = useTranslations('leaderboard');
   const tChallenges = useTranslations('challenges');
@@ -290,6 +291,15 @@ export default function Dashboard() {
               >
                 📚 {t('browseCourses')}
               </LocaleLink>
+              {/* Admin button - only show for admin users */}
+              {session?.user && (session.user as any).role === 'admin' && (
+                <LocaleLink
+                  href="/admin"
+                  className="bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700 transition-colors font-medium font-bold"
+                >
+                  ⚙️ {tAdmin('title') || 'Admin'}
+                </LocaleLink>
+              )}
               <button
                 onClick={() => signOut({ callbackUrl: `/${locale}/auth/signin` })}
                 className="bg-brand-darkGrey text-brand-white px-4 py-2 rounded-lg hover:bg-brand-secondary-700 transition-colors font-medium"
