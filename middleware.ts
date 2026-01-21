@@ -12,6 +12,7 @@ import type { NextRequest } from 'next/server';
 import { authEdge as auth } from '@/auth.edge';
 import createIntlMiddleware from 'next-intl/middleware';
 import { locales, defaultLocale, type Locale } from './i18n';
+import { logger } from '@/lib/logger';
 
 // Default locales for different route types
 // Why: Public routes default to Hungarian, admin routes default to English
@@ -110,6 +111,47 @@ export default auth((req) => {
   const isAuthRoute =
     actualPathname.startsWith('/auth/signin') ||
     actualPathname.startsWith('/auth/signup');
+
+  // Check admin access for admin routes
+  // Why: Admin routes require admin role, not just authentication
+  if (actualPathname.startsWith('/admin') && !isPublicAdminDoc) {
+    if (!isLoggedIn) {
+      const callbackUrl = encodeURIComponent(pathname + req.nextUrl.search);
+      let locale = adminDefaultLocale;
+      for (const loc of locales) {
+        if (pathname.startsWith(`/${loc}/`) || pathname === `/${loc}`) {
+          locale = loc;
+          break;
+        }
+      }
+      const signInPath = `/${locale}/auth/signin`;
+      return NextResponse.redirect(
+        new URL(`${signInPath}?callbackUrl=${callbackUrl}`, req.url)
+      );
+    }
+
+    // Check if user has admin role
+    const userRole = (req.auth?.user as any)?.role;
+    if (userRole !== 'admin') {
+      logger.warn(
+        { 
+          pathname, 
+          userId: req.auth?.user?.id, 
+          role: userRole 
+        }, 
+        'Non-admin user attempted to access admin route'
+      );
+      // Redirect non-admin users to dashboard
+      let locale = adminDefaultLocale;
+      for (const loc of locales) {
+        if (pathname.startsWith(`/${loc}/`) || pathname === `/${loc}`) {
+          locale = loc;
+          break;
+        }
+      }
+      return NextResponse.redirect(new URL(`/${locale}/dashboard`, req.url));
+    }
+  }
 
   // Redirect unauthenticated users to sign in
   // Why: Protect content that requires authentication

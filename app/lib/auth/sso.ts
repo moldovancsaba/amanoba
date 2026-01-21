@@ -135,20 +135,32 @@ export async function validateSSOToken(token: string): Promise<SSOTokenClaims | 
 export function mapSSORole(ssoRole?: string | string[]): 'user' | 'admin' {
   // Handle single role string
   if (typeof ssoRole === 'string') {
-    return ssoRole.toLowerCase() === 'admin' || ssoRole.toLowerCase().includes('admin') 
-      ? 'admin' 
-      : 'user';
+    const normalizedRole = ssoRole.toLowerCase().trim();
+    // Check for exact match or contains "admin"
+    if (normalizedRole === 'admin' || normalizedRole.includes('admin')) {
+      logger.info({ originalRole: ssoRole, normalizedRole }, 'SSO role mapped to admin');
+      return 'admin';
+    }
+    logger.info({ originalRole: ssoRole, normalizedRole }, 'SSO role mapped to user');
+    return 'user';
   }
   
   // Handle array of roles
   if (Array.isArray(ssoRole) && ssoRole.length > 0) {
-    const hasAdminRole = ssoRole.some(
-      (role) => role.toLowerCase() === 'admin' || role.toLowerCase().includes('admin')
+    const normalizedRoles = ssoRole.map(r => typeof r === 'string' ? r.toLowerCase().trim() : String(r).toLowerCase().trim());
+    const hasAdminRole = normalizedRoles.some(
+      (role) => role === 'admin' || role.includes('admin')
     );
-    return hasAdminRole ? 'admin' : 'user';
+    if (hasAdminRole) {
+      logger.info({ originalRoles: ssoRole, normalizedRoles, foundAdmin: true }, 'SSO role array contains admin');
+      return 'admin';
+    }
+    logger.info({ originalRoles: ssoRole, normalizedRoles, foundAdmin: false }, 'SSO role array does not contain admin');
+    return 'user';
   }
 
   // Default to user if no role provided
+  logger.warn({ ssoRole, ssoRoleType: typeof ssoRole }, 'No role found in SSO token, defaulting to user');
   return 'user';
 }
 

@@ -12,6 +12,7 @@ import { PaymentTransaction, PaymentStatus, Course, Player } from '@/lib/models'
 import { logger } from '@/lib/logger';
 import mongoose from 'mongoose';
 import { checkRateLimit, adminRateLimiter } from '@/lib/security';
+import { checkAdminAccess } from '@/lib/auth/admin';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -38,8 +39,11 @@ export async function GET(request: NextRequest) {
   }
   try {
     const session = await auth();
-    if (!session?.user) {
-      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+    
+    // Admin role check
+    const adminCheck = checkAdminAccess(session, '/api/admin/payments');
+    if (adminCheck) {
+      return adminCheck;
     }
 
     // TODO: Add admin role check when role system is implemented

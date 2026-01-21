@@ -12,6 +12,7 @@ import { Course, Brand } from '@/lib/models';
 import { logger } from '@/lib/logger';
 import mongoose from 'mongoose';
 import { checkRateLimit, adminRateLimiter } from '@/lib/security';
+import { checkAdminAccess } from '@/lib/auth/admin';
 
 /**
  * GET /api/admin/courses
@@ -100,11 +101,11 @@ export async function POST(request: NextRequest) {
   try {
     // Auth check
     const session = await auth();
-    if (!session?.user) {
-      return NextResponse.json(
-        { error: 'Unauthorized' },
-        { status: 401 }
-      );
+    
+    // Admin role check
+    const adminCheck = checkAdminAccess(session, '/api/admin/courses');
+    if (adminCheck) {
+      return adminCheck;
     }
 
     await connectDB();

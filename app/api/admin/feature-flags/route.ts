@@ -11,6 +11,7 @@ import connectDB from '@/lib/mongodb';
 import { FeatureFlags, Brand } from '@/lib/models';
 import { logger } from '@/lib/logger';
 import { checkRateLimit, adminRateLimiter } from '@/lib/security';
+import { checkAdminAccess } from '@/lib/auth/admin';
 
 /**
  * GET /api/admin/feature-flags
@@ -88,8 +89,11 @@ export async function PATCH(request: NextRequest) {
 
   try {
     const session = await auth();
-    if (!session?.user) {
-      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+    
+    // Admin role check
+    const adminCheck = checkAdminAccess(session, '/api/admin/feature-flags');
+    if (adminCheck) {
+      return adminCheck;
     }
 
     await connectDB();

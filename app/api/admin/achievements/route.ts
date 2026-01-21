@@ -11,6 +11,7 @@ import connectDB from '@/lib/mongodb';
 import { Achievement } from '@/lib/models';
 import { logger } from '@/lib/logger';
 import { checkRateLimit, adminRateLimiter } from '@/lib/security';
+import { checkAdminAccess } from '@/lib/auth/admin';
 
 /**
  * GET /api/admin/achievements
@@ -81,8 +82,11 @@ export async function POST(request: NextRequest) {
 
   try {
     const session = await auth();
-    if (!session?.user) {
-      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+    
+    // Admin role check
+    const adminCheck = checkAdminAccess(session, '/api/admin/achievements');
+    if (adminCheck) {
+      return adminCheck;
     }
 
     await connectDB();

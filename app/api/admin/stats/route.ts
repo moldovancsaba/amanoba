@@ -11,6 +11,7 @@ import connectDB from '@/lib/mongodb';
 import { Player, PlayerSession, AchievementUnlock, PointsTransaction, CourseProgress, Game, RewardRedemption } from '@/lib/models';
 import { logger } from '@/lib/logger';
 import { checkRateLimit, adminRateLimiter } from '@/lib/security';
+import { checkAdminAccess } from '@/lib/auth/admin';
 
 /**
  * GET /api/admin/stats
@@ -26,8 +27,11 @@ export async function GET(request: NextRequest) {
 
   try {
     const session = await auth();
-    if (!session?.user) {
-      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+    
+    // Admin role check
+    const adminCheck = checkAdminAccess(session, '/api/admin/stats');
+    if (adminCheck) {
+      return adminCheck;
     }
 
     await connectDB();

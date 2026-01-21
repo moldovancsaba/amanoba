@@ -14,6 +14,7 @@ import { AnalyticsSnapshot } from '../../../lib/models';
 import { logger } from '../../../lib/logger';
 import connectDB from '../../../lib/mongodb';
 import { checkRateLimit, adminRateLimiter } from '../../../lib/security';
+import { checkAdminAccess } from '../../../lib/auth/admin';
 
 /**
  * GET /api/admin/analytics?brandId=xxx&metricType=xxx&period=xxx&startDate=xxx&endDate=xxx
@@ -38,8 +39,11 @@ export async function GET(request: NextRequest) {
   try {
     // Authentication check
     const session = await auth();
-    if (!session?.user) {
-      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+    
+    // Admin role check
+    const adminCheck = checkAdminAccess(session, '/api/admin/analytics');
+    if (adminCheck) {
+      return adminCheck;
     }
 
     await connectDB();
