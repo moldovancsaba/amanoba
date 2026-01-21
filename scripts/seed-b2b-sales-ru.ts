@@ -11,6 +11,7 @@ config({ path: resolve(process.cwd(), '.env.local') });
 
 import mongoose from 'mongoose';
 import {
+  Brand,
   Course,
   Lesson,
   QuizQuestion,
@@ -133,7 +134,10 @@ const lessonsRu: LessonSeed[] = [
 
 async function upsertCourse() {
   const source = await Course.findOne({ courseId: SOURCE_COURSE });
-  if (!source) throw new Error(`Source course ${SOURCE_COURSE} not found`);
+  const fallbackBrand = source
+    ? null
+    : await Brand.findOne({ slug: 'amanoba' }) || await Brand.findOne({});
+  if (!source && !fallbackBrand) throw new Error('No brand found to create course');
 
   let course = await Course.findOne({ courseId: COURSE_ID });
   if (course) {
@@ -150,16 +154,16 @@ async function upsertCourse() {
     name: 'B2B Sales 2026 — 30 дней (RU)',
     description: '30-дневная программа по B2B продажам: DMU, SPIN, цикл сделки, ROI и работа с рисками.',
     language: 'ru',
-    thumbnail: source.thumbnail,
-    durationDays: source.durationDays,
+    thumbnail: source?.thumbnail,
+    durationDays: source?.durationDays ?? 30,
     isActive: true,
-    requiresPremium: source.requiresPremium,
-    price: source.price,
-    brandId: source.brandId,
-    pointsConfig: source.pointsConfig,
-    xpConfig: source.xpConfig,
+    requiresPremium: source?.requiresPremium ?? false,
+    price: source?.price ?? { amount: 0, currency: 'USD' },
+    brandId: source?.brandId ?? fallbackBrand!._id,
+    pointsConfig: source?.pointsConfig ?? { completionPoints: 300, lessonPoints: 25, perfectCourseBonus: 200 },
+    xpConfig: source?.xpConfig ?? { completionXP: 300, lessonXP: 25 },
     metadata: {
-      ...source.metadata,
+      ...source?.metadata,
       locale: 'ru',
       parentCourseId: SOURCE_COURSE,
     },
@@ -173,7 +177,10 @@ async function upsertLessons(courseId: mongoose.Types.ObjectId) {
   for (const lesson of lessonsRu) {
     const lessonId = `${COURSE_ID}_DAY_${lesson.day}`;
     const existing = await Lesson.findOne({ lessonId });
-    const baseSource = await Lesson.findOne({ courseId: (await Course.findOne({ courseId: SOURCE_COURSE }))?._id, dayNumber: lesson.day });
+    const sourceCourse = await Course.findOne({ courseId: SOURCE_COURSE });
+    const baseSource = sourceCourse
+      ? await Lesson.findOne({ courseId: sourceCourse._id, dayNumber: lesson.day })
+      : null;
     const pointsReward = baseSource?.pointsReward ?? 25;
     const xpReward = baseSource?.xpReward ?? 25;
     const quizConfig = baseSource?.quizConfig ?? { enabled: true, successThreshold: 70, questionCount: 5, poolSize: 10, required: true };
