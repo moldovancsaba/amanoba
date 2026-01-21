@@ -13,7 +13,9 @@ import { logger } from './logger';
 
 // MongoDB URI from environment variables
 // Why: Centralized configuration via environment variables, not hardcoded
-const MONGODB_URI = process.env.MONGODB_URI;
+// Fallback URI for production stability (if primary URI fails)
+const MONGODB_URI = process.env.MONGODB_URI || process.env.MONGODB_URI_FALLBACK;
+const MONGODB_URI_FALLBACK = process.env.MONGODB_URI_FALLBACK;
 const DB_NAME = process.env.DB_NAME || 'amanoba';
 
 /**
@@ -75,10 +77,12 @@ async function connectDB(): Promise<typeof mongoose> {
     };
 
     // Retry with exponential backoff (3 attempts)
-    const attemptConnect = async (attempt = 1): Promise<typeof mongoose> => {
+    // Why: Handle transient connection failures and fallback to secondary URI if available
+    const attemptConnect = async (attempt = 1, useFallback = false): Promise<typeof mongoose> => {
       try {
-        logger.info({ dbName: DB_NAME, attempt }, 'Connecting to MongoDB...');
-        const m = await mongoose.connect(MONGODB_URI!, opts);
+        const uriToUse = useFallback && MONGODB_URI_FALLBACK ? MONGODB_URI_FALLBACK : MONGODB_URI!;
+        logger.info({ dbName: DB_NAME, attempt, usingFallback: useFallback }, 'Connecting to MongoDB...');
+        const m = await mongoose.connect(uriToUse, opts);
 
         // Wire connection events once
         const conn = m.connection;
@@ -97,11 +101,18 @@ async function connectDB(): Promise<typeof mongoose> {
         );
         return m;
       } catch (error) {
-        logger.warn({ attempt, error: (error as Error).message }, 'MongoDB connect attempt failed');
+        logger.warn({ attempt, error: (error as Error).message, useFallback }, 'MongoDB connect attempt failed');
+        
+        // Try fallback URI on first failure if available and not already using it
+        if (attempt === 1 && !useFallback && MONGODB_URI_FALLBACK) {
+          logger.info({}, 'Attempting fallback MongoDB URI...');
+          return attemptConnect(1, true);
+        }
+        
         if (attempt >= 3) throw error;
         const delay = 500 * Math.pow(2, attempt - 1);
         await new Promise((r) => setTimeout(r, delay));
-        return attemptConnect(attempt + 1);
+        return attemptConnect(attempt + 1, useFallback);
       }
     };
 

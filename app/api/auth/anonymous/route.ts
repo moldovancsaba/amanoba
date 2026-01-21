@@ -13,11 +13,18 @@ import connectDB from '@/lib/mongodb';
 import { getRandomGuestUsername, createAnonymousPlayer } from '@/lib/utils/anonymous-auth';
 import { logAuthEvent } from '@/lib/analytics';
 import logger from '@/lib/logger';
+import { checkRateLimit, authRateLimiter } from '@/lib/security';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
 
 export async function POST(req: NextRequest) {
+  // Rate limiting for auth endpoints
+  const rateLimitResponse = await checkRateLimit(req, authRateLimiter);
+  if (rateLimitResponse) {
+    return rateLimitResponse;
+  }
+
   try {
     logger.info('Starting anonymous login request');
     

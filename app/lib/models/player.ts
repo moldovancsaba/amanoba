@@ -57,9 +57,41 @@ const PlayerSchema = new Schema<IPlayer>(
       required: [true, 'Facebook ID is required'],
       unique: true,
       trim: true,
+      // Index created explicitly at schema level (see line 319)
+    },
+
+<<<<<<< Updated upstream
+=======
+    // SSO subject identifier
+    // Why: Unique identifier from SSO provider (OIDC 'sub' claim)
+    ssoSub: {
+      type: String,
+      required: false,
+      unique: true,
+      sparse: true, // Allows null for Facebook/anonymous users
+      trim: true,
+      // Index created explicitly at schema level (see line 320)
+    },
+
+    // Authentication provider
+    // Why: Track which authentication method was used (for migration and analytics)
+    authProvider: {
+      type: String,
+      enum: ['facebook', 'sso', 'anonymous'],
+      default: 'facebook',
       index: true,
     },
 
+    // User role for access control
+    // Why: Determines access to admin features and protected resources
+    role: {
+      type: String,
+      enum: ['user', 'admin'],
+      default: 'user',
+      // Index created explicitly at schema level (see line 331)
+    },
+
+>>>>>>> Stashed changes
     // Display name shown in UI
     // Why: User-friendly name for leaderboards and profiles
     displayName: {

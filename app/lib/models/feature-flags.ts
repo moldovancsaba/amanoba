@@ -33,7 +33,7 @@ const FeatureFlagsSchema = new Schema<IFeatureFlags>(
       ref: 'Brand',
       required: [true, 'Brand ID is required'],
       unique: true,
-      // Why: Index created explicitly at schema level
+      // Why: unique: true automatically creates an index, no need for explicit index
     },
     features: {
       courses: {
@@ -90,8 +90,8 @@ const FeatureFlagsSchema = new Schema<IFeatureFlags>(
   }
 );
 
-// Index for faster lookups
-FeatureFlagsSchema.index({ brandId: 1 });
+// Note: brandId index is automatically created by unique: true constraint above
+// No need for explicit index to avoid duplicates
 
 export default mongoose.models.FeatureFlags ||
   mongoose.model<IFeatureFlags>('FeatureFlags', FeatureFlagsSchema);
