@@ -190,12 +190,23 @@ export async function GET(request: NextRequest) {
 
     // Sign in with NextAuth using credentials provider
     // Why: Use NextAuth session management for consistency
+    // CRITICAL: Pass the role from SSO (which was just synced to player.role)
+    const finalRole = player.role || 'user';
+    logger.info(
+      {
+        playerId: (player._id as mongoose.Types.ObjectId).toString(),
+        role: finalRole,
+        ssoSub: player.ssoSub,
+      },
+      'Signing in with NextAuth - role from SSO (GET handler)'
+    );
+    
     await signIn('credentials', {
       redirect: false,
       playerId: (player._id as mongoose.Types.ObjectId).toString(),
       displayName: player.displayName,
       isAnonymous: 'false',
-      role: player.role,
+      role: finalRole, // This role comes from SSO (UserInfo endpoint or ID token)
     });
 
     // Clear SSO cookies and redirect
