@@ -356,7 +356,7 @@ Tasks are listed in priority order. Upon completion, tasks are moved to RELEASE_
 | 4.2 | Port Madoku engine with premium gating | AI | 2025-10-12 | ✅ DONE |
 | 4.3 | Unified game session API | AI | 2025-10-12 | ✅ DONE |
 | 4.4 | Game launcher and navigation | AI | 2025-10-12 | ✅ DONE |
-| 4.5 | Facebook OAuth authentication system | AI | 2025-10-12 | ✅ DONE |
+| 4.5 | ~~Facebook OAuth authentication system~~ → **SSO Authentication** | AI | 2025-01-27 | ✅ DONE (Replaced with SSO in v2.8.2) |
 
 ---
 
