@@ -105,14 +105,50 @@ export async function GET(request: NextRequest) {
     // Extract user info from token
     let ssoUserInfo = extractSSOUserInfo(claims);
 
-    // Fallback to UserInfo endpoint if role not found in token
-    if (ssoUserInfo.role === 'user' && access_token) {
-      logger.info({}, 'Role not found in ID token, trying UserInfo endpoint');
+    // CRITICAL: Always try UserInfo endpoint (SSO role management happens there)
+    // Why: sso.doneisbetter.com manages roles on UserInfo endpoint, not ID token
+    if (!access_token) {
+      logger.error(
+        { 
+          hasIdToken: !!id_token,
+          roleFromToken: ssoUserInfo.role,
+        }, 
+        'CRITICAL: No access token available - cannot fetch UserInfo endpoint for role'
+      );
+      // Continue with ID token role, but log warning
+    } else {
+      logger.info(
+        { 
+          roleFromToken: ssoUserInfo.role,
+          sub: ssoUserInfo.sub,
+          email: ssoUserInfo.email,
+          userInfoUrl: process.env.SSO_USERINFO_URL ? 'configured' : 'MISSING'
+        }, 
+        'Fetching role from UserInfo endpoint (SSO role management source)'
+      );
+      
       const userInfo = await fetchUserInfo(access_token);
-      if (userInfo && userInfo.role === 'admin') {
-        // UserInfo endpoint found admin role
-        ssoUserInfo = userInfo;
-        logger.info({}, 'Admin role found via UserInfo endpoint fallback');
+      if (userInfo) {
+        // UserInfo endpoint is source of truth for roles
+        logger.info(
+          { 
+            roleFromToken: ssoUserInfo.role,
+            roleFromUserInfo: userInfo.role,
+            sub: userInfo.sub,
+            roleChanged: ssoUserInfo.role !== userInfo.role
+          }, 
+          'UserInfo endpoint returned role - using as source of truth for SSO role management'
+        );
+        ssoUserInfo = userInfo; // UserInfo wins - it's where SSO role management happens
+      } else {
+        logger.error(
+          { 
+            roleFromToken: ssoUserInfo.role,
+            userInfoUrl: process.env.SSO_USERINFO_URL ? 'configured' : 'MISSING'
+          }, 
+          'CRITICAL: UserInfo endpoint did not return data - admin roles may be missing'
+        );
+        // Continue with ID token role, but this is a problem
       }
     }
 
@@ -325,17 +361,28 @@ export async function POST(request: NextRequest) {
     // Extract user info from token
     let ssoUserInfo = extractSSOUserInfo(claims);
 
-    // CRITICAL: Always try UserInfo endpoint as fallback (SSO role management happens there)
-    // Why: Some SSO providers (like sso.doneisbetter.com) put roles in UserInfo, not ID token
-    if (access_token) {
+    // CRITICAL: Always try UserInfo endpoint (SSO role management happens there)
+    // Why: sso.doneisbetter.com manages roles on UserInfo endpoint, not ID token
+    if (!access_token) {
+      logger.error(
+        { 
+          hasIdToken: !!id_token,
+          roleFromToken: ssoUserInfo.role,
+        }, 
+        'CRITICAL: No access token available - cannot fetch UserInfo endpoint for role'
+      );
+      // Continue with ID token role, but log warning
+    } else {
       logger.info(
         { 
           roleFromToken: ssoUserInfo.role,
           sub: ssoUserInfo.sub,
-          email: ssoUserInfo.email 
+          email: ssoUserInfo.email,
+          userInfoUrl: process.env.SSO_USERINFO_URL ? 'configured' : 'MISSING'
         }, 
-        'Attempting UserInfo endpoint to get role (SSO role management source)'
+        'Fetching role from UserInfo endpoint (SSO role management source)'
       );
+      
       const userInfo = await fetchUserInfo(access_token);
       if (userInfo) {
         // UserInfo endpoint is source of truth for roles
@@ -343,16 +390,22 @@ export async function POST(request: NextRequest) {
           { 
             roleFromToken: ssoUserInfo.role,
             roleFromUserInfo: userInfo.role,
-            sub: userInfo.sub 
+            sub: userInfo.sub,
+            roleChanged: ssoUserInfo.role !== userInfo.role
           }, 
-          'UserInfo endpoint returned role - using as source of truth'
+          'UserInfo endpoint returned role - using as source of truth for SSO role management'
         );
         ssoUserInfo = userInfo; // UserInfo wins - it's where SSO role management happens
       } else {
-        logger.warn({}, 'UserInfo endpoint did not return data, using ID token role');
+        logger.error(
+          { 
+            roleFromToken: ssoUserInfo.role,
+            userInfoUrl: process.env.SSO_USERINFO_URL ? 'configured' : 'MISSING'
+          }, 
+          'CRITICAL: UserInfo endpoint did not return data - admin roles may be missing'
+        );
+        // Continue with ID token role, but this is a problem
       }
-    } else {
-      logger.warn({}, 'No access token available for UserInfo endpoint fallback');
     }
 
     await connectDB();

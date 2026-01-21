@@ -18,7 +18,21 @@ export async function fetchUserInfo(accessToken: string): Promise<SSOUserInfo | 
   try {
     const userInfoUrl = process.env.SSO_USERINFO_URL;
     if (!userInfoUrl) {
-      logger.warn({}, 'SSO_USERINFO_URL not configured, skipping UserInfo fetch');
+      logger.error(
+        { 
+          hasAccessToken: !!accessToken,
+          envVars: {
+            hasSSO_ISSUER: !!process.env.SSO_ISSUER,
+            hasSSO_CLIENT_ID: !!process.env.SSO_CLIENT_ID,
+            hasSSO_JWKS_URL: !!process.env.SSO_JWKS_URL,
+            hasSSO_USERINFO_URL: false,
+          }
+        }, 
+        'SSO_USERINFO_URL not configured - CRITICAL: Admin roles come from UserInfo endpoint'
+      );
+      console.error('❌ CRITICAL: SSO_USERINFO_URL environment variable is not set.');
+      console.error('   SSO role management happens on UserInfo endpoint.');
+      console.error('   Without this, admin roles cannot be extracted.');
       return null;
     }
 

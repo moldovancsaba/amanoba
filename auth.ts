@@ -215,7 +215,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
       }
       
       // Always refresh from database to ensure we have the latest role
-      // This is critical for SSO where role might have just been updated
+      // This is critical for SSO where role might have just been updated from UserInfo endpoint
       if (playerId) {
         try {
           await connectDB();
@@ -223,13 +223,27 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
           
           if (player) {
             token.id = playerId as string;
-            // Always use database role - it's the source of truth after SSO update
+            // Always use database role - it's the source of truth after SSO UserInfo update
             const dbRole = (player.role as 'user' | 'admin') || 'user';
-            token.role = dbRole; // Database role wins (was updated from SSO)
+            const previousTokenRole = token.role;
+            token.role = dbRole; // Database role wins (was updated from SSO UserInfo endpoint)
             token.authProvider = (player.authProvider as 'sso' | 'anonymous') || 'sso';
             token.ssoSub = player.ssoSub || null;
             token.locale = player.locale || 'en';
             token.isAnonymous = player.isAnonymous || false;
+            
+            // Log if role changed
+            if (previousTokenRole && previousTokenRole !== dbRole) {
+              logger.warn(
+                { 
+                  playerId, 
+                  previousTokenRole,
+                  newDbRole: dbRole,
+                  userRole: user ? (user as any).role : undefined,
+                }, 
+                'JWT: Role changed during database refresh - SSO role sync detected'
+              );
+            }
             
             logger.info(
               { 
@@ -237,9 +251,10 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
                 dbRole,
                 userRole: user ? (user as any).role : undefined,
                 roleMatch: user ? dbRole === (user as any).role : 'no_user',
-                source: 'database_refresh'
+                source: 'database_refresh',
+                ssoSub: player.ssoSub,
               }, 
-              'JWT: Refreshed role from database (SSO is source of truth)'
+              'JWT: Refreshed role from database (SSO UserInfo endpoint is source of truth)'
             );
           } else if (user && user.id && !token.role) {
             // Fallback: player not found, use role from user object
