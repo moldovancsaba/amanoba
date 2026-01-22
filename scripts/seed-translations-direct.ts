@@ -9,14 +9,18 @@
  * Note: This script directly accesses MongoDB to avoid server-only restrictions
  */
 
-import 'dotenv/config';
+import { config } from 'dotenv';
+import { resolve } from 'path';
+
+// Load .env.local explicitly to match other seed scripts
+config({ path: resolve(process.cwd(), '.env.local') });
 import connectDB from '../app/lib/mongodb';
 import { Translation } from '../app/lib/models';
 import { logger } from '../app/lib/logger';
 import fs from 'fs';
 import path from 'path';
 
-const locales = ['hu', 'en'];
+const locales = ['hu', 'en', 'ru'];
 const messagesDir = path.join(process.cwd(), 'messages');
 
 async function seedTranslations() {
