@@ -261,6 +261,7 @@ export async function GET(request: NextRequest) {
       displayName: player.displayName,
       isAnonymous: 'false',
       role: finalRole, // This role comes from SSO (UserInfo endpoint or ID token)
+      ssoSub: player.ssoSub || undefined, // SSO subject identifier (for middleware)
       accessToken: access_token || undefined, // Store for SSO role checks
       refreshToken: tokens.refresh_token || undefined, // Store for token renewal
       tokenExpiresAt: tokens.expires_in ? Date.now() + (tokens.expires_in * 1000) : undefined, // Token expiration
@@ -541,6 +542,7 @@ export async function POST(request: NextRequest) {
       displayName: player.displayName,
       isAnonymous: 'false',
       role: finalRole, // This role comes from SSO (UserInfo endpoint or ID token)
+      ssoSub: player.ssoSub || undefined, // SSO subject identifier (for middleware)
       accessToken: access_token || undefined, // Store for SSO role checks
       refreshToken: tokens.refresh_token || undefined, // Store for token renewal
       tokenExpiresAt: tokens.expires_in ? Date.now() + (tokens.expires_in * 1000) : undefined, // Token expiration
