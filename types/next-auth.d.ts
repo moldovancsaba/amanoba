@@ -55,5 +55,8 @@ declare module 'next-auth/jwt' {
     isAnonymous: boolean;
     role: 'user' | 'admin';
     authProvider: 'sso' | 'anonymous';
+    accessToken?: string; // OAuth access token for SSO UserInfo endpoint calls
+    refreshToken?: string; // OAuth refresh token for token renewal
+    tokenExpiresAt?: number; // Unix timestamp when access token expires
   }
 }

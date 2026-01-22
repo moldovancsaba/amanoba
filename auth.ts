@@ -206,10 +206,19 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
         token.role = (user as any).role as 'user' | 'admin';
         token.authProvider = (user as any).authProvider || 'sso';
         token.isAnonymous = (user as any).isAnonymous || false;
+        
+        // Store SSO tokens for role checks
+        if ((user as any).accessToken) {
+          token.accessToken = (user as any).accessToken;
+          token.refreshToken = (user as any).refreshToken;
+          token.tokenExpiresAt = (user as any).tokenExpiresAt;
+        }
+        
         logger.info({ 
           playerId: user.id, 
           role: token.role, 
           userRole: (user as any).role,
+          hasAccessToken: !!(user as any).accessToken,
           source: 'user_object_initial' 
         }, 'JWT: Initial sign in - using role from user object');
       }
@@ -301,6 +310,11 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
         session.user.isAnonymous = token.isAnonymous ?? false;
         session.user.role = (token.role as 'user' | 'admin') || 'user';
         session.user.authProvider = (token.authProvider as 'sso' | 'anonymous') || 'sso';
+        
+        // Store access token in session for role checks (not exposed to client, server-side only)
+        (session as any).accessToken = token.accessToken;
+        (session as any).refreshToken = token.refreshToken;
+        (session as any).tokenExpiresAt = token.tokenExpiresAt;
       }
       return session;
     },

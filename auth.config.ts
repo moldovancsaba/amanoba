@@ -41,6 +41,9 @@ export const authConfig = {
         displayName: { label: 'Display Name', type: 'text' },
         isAnonymous: { label: 'Is Anonymous', type: 'text' },
         role: { label: 'Role', type: 'text' },
+        accessToken: { label: 'Access Token', type: 'text' },
+        refreshToken: { label: 'Refresh Token', type: 'text' },
+        tokenExpiresAt: { label: 'Token Expires At', type: 'text' },
       },
       async authorize(credentials) {
         // Validate credentials exist
@@ -61,6 +64,9 @@ export const authConfig = {
           isAnonymous,
           role,
           authProvider: isAnonymous ? 'anonymous' : 'sso',
+          accessToken: credentials.accessToken as string | undefined, // Store for SSO role checks
+          refreshToken: credentials.refreshToken as string | undefined, // Store for token renewal
+          tokenExpiresAt: credentials.tokenExpiresAt ? parseInt(credentials.tokenExpiresAt as string) : undefined, // Token expiration
         };
       },
     }),
@@ -102,6 +108,13 @@ export const authConfig = {
     // JWT callback
     // Why: Add custom fields to JWT token
     async jwt({ token, user, account, profile }) {
+      // Store access token and refresh token from user object (SSO callback)
+      if (user && (user as any).accessToken) {
+        token.accessToken = (user as any).accessToken;
+        token.refreshToken = (user as any).refreshToken;
+        token.tokenExpiresAt = (user as any).tokenExpiresAt;
+      }
+      
       // Initial sign in with Facebook
       if (account && profile && account.provider === 'facebook') {
         token.facebookId = profile.id as string;

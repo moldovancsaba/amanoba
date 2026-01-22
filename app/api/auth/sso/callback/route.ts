@@ -247,16 +247,23 @@ export async function GET(request: NextRequest) {
         playerId: (player._id as mongoose.Types.ObjectId).toString(),
         role: finalRole,
         ssoSub: player.ssoSub,
+        hasAccessToken: !!access_token,
+        hasRefreshToken: !!tokens.refresh_token,
       },
       'Signing in with NextAuth - role from SSO (GET handler)'
     );
     
+    // Store access token in session for role checks
+    // Why: Need access token to call SSO UserInfo endpoint for real-time role checks
     await signIn('credentials', {
       redirect: false,
       playerId: (player._id as mongoose.Types.ObjectId).toString(),
       displayName: player.displayName,
       isAnonymous: 'false',
       role: finalRole, // This role comes from SSO (UserInfo endpoint or ID token)
+      accessToken: access_token || undefined, // Store for SSO role checks
+      refreshToken: tokens.refresh_token || undefined, // Store for token renewal
+      tokenExpiresAt: tokens.expires_in ? Date.now() + (tokens.expires_in * 1000) : undefined, // Token expiration
     });
 
     // Clear SSO cookies and redirect
@@ -520,16 +527,23 @@ export async function POST(request: NextRequest) {
         playerId: (player._id as mongoose.Types.ObjectId).toString(),
         role: finalRole,
         ssoSub: player.ssoSub,
+        hasAccessToken: !!access_token,
+        hasRefreshToken: !!tokens.refresh_token,
       },
-      'Signing in with NextAuth - role from SSO'
+      'Signing in with NextAuth - role from SSO (POST handler)'
     );
     
+    // Store access token in session for role checks
+    // Why: Need access token to call SSO UserInfo endpoint for real-time role checks
     await signIn('credentials', {
       redirect: false,
       playerId: (player._id as mongoose.Types.ObjectId).toString(),
       displayName: player.displayName,
       isAnonymous: 'false',
       role: finalRole, // This role comes from SSO (UserInfo endpoint or ID token)
+      accessToken: access_token || undefined, // Store for SSO role checks
+      refreshToken: tokens.refresh_token || undefined, // Store for token renewal
+      tokenExpiresAt: tokens.expires_in ? Date.now() + (tokens.expires_in * 1000) : undefined, // Token expiration
     });
 
     // Clear SSO cookies
