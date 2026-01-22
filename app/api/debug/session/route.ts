@@ -81,6 +81,18 @@ export async function GET(request: NextRequest) {
         hasRoleInSession: !!(session.user as any).role,
         hasRoleInDatabase: !!player?.role,
         roleSource: player?.authProvider === 'sso' ? 'SSO UserInfo endpoint' : 'Unknown',
+        sessionRoleValue: (session.user as any).role,
+        databaseRoleValue: player?.role,
+      },
+      ssoRoleCheck: (session as any).accessToken && (session.user as any).ssoSub ? {
+        canCheckSSO: true,
+        message: 'Access token available - can check SSO role',
+        note: 'Try calling /api/debug/sso-role-check to verify SSO role',
+      } : {
+        canCheckSSO: false,
+        message: 'No access token or ssoSub - cannot check SSO role',
+        hasAccessToken: !!(session as any).accessToken,
+        hasSsoSub: !!(session.user as any).ssoSub,
       },
       ssoConfiguration: ssoConfigStatus,
       recommendations: [
