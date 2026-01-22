@@ -1,14 +1,12 @@
 /**
- * SSO-Centralized Role Management
+ * Legacy SSO Role Manager (Not Used for Access Control)
  * 
- * What: Single source of truth for user roles from SSO UserInfo endpoint
- * Why: Eliminate role storage in database and ensure real-time role synchronization
+ * What: Utilities to fetch roles from SSO UserInfo endpoint
+ * Why: Retained for debugging and legacy tooling only
  * 
  * Architecture:
- * - SSO UserInfo endpoint is the ONLY authoritative source for roles
- * - Roles are fetched on-demand (not stored in database)
- * - 5-minute cache to reduce SSO API calls while maintaining freshness
- * - Graceful fallback if SSO unavailable (fail-secure: deny admin access)
+ * - Roles are not used for access control (local DB roles are authoritative)
+ * - This module can be used for diagnostics only
  * 
  * Usage:
  * ```typescript

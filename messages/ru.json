@@ -134,5 +134,12 @@
     "minutes": "минут",
     "hasQuiz": "Квиз",
     "noLessonsAvailable": "Уроки пока недоступны"
+  },
+  "admin": {
+    "role": "Роль",
+    "roleUser": "Пользователь",
+    "roleAdmin": "Администратор",
+    "roleUpdateFailed": "Не удалось обновить роль. Попробуйте снова.",
+    "guest": "Гость"
   }
 }

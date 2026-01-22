@@ -18,7 +18,7 @@ import { logger } from '@/lib/logger';
  * @param session - NextAuth session object
  * @returns Promise<boolean> - true if user has admin role, false otherwise
  * 
- * Note: This is now async because it fetches from SSO
+ * Note: Async for consistency with other auth utilities
  */
 export async function isAdmin(session: Session | null | undefined): Promise<boolean> {
   if (!session?.user) {

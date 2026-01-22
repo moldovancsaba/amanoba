@@ -174,7 +174,7 @@ export const authConfigEdge: NextAuthConfig = {
         (session.user as any).role = (token.role as 'user' | 'admin') || 'user';
         (session.user as any).authProvider = (token.authProvider as 'sso' | 'anonymous') || 'sso';
         
-        // Store access token in session for role checks (not exposed to client, server-side only)
+        // Store access token in session (not exposed to client, server-side only)
         (session as any).accessToken = token.accessToken;
         (session as any).refreshToken = token.refreshToken;
         (session as any).tokenExpiresAt = token.tokenExpiresAt;

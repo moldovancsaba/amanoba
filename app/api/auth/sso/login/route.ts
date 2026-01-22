@@ -35,7 +35,7 @@ export async function GET(request: NextRequest) {
     const authUrl = process.env.SSO_AUTH_URL;
     const clientId = process.env.SSO_CLIENT_ID;
     const redirectUri = process.env.SSO_REDIRECT_URI || `${process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000'}/api/auth/sso/callback`;
-    const scopes = process.env.SSO_SCOPES || 'openid profile email roles';
+    const scopes = process.env.SSO_SCOPES || 'openid profile email';
 
     if (!authUrl || !clientId) {
       logger.error({}, 'SSO configuration missing (SSO_AUTH_URL or SSO_CLIENT_ID)');

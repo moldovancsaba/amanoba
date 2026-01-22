@@ -6,8 +6,8 @@
  * 
  * Usage: npx tsx scripts/force-admin-role.ts <playerId|email|ssoSub>
  * 
- * WARNING: This bypasses SSO role management. Use only for emergency fixes.
- * The role will be overwritten on next SSO login if SSO sync is working.
+ * WARNING: This is a manual override. Use with care.
+ * Roles are managed locally in MongoDB (SSO is login-only).
  */
 
 import connectDB from '../app/lib/mongodb';
@@ -60,8 +60,7 @@ async function forceAdminRole(identifier: string) {
     console.log(`   Previous: ${previousRole}`);
     console.log(`   New: ${player.role}`);
     console.log(`\n⚠️  WARNING: This is a manual override.`);
-    console.log(`   The role will be synced from SSO on next login.`);
-    console.log(`   If SSO role extraction is working, this change may be overwritten.`);
+    console.log(`   Roles are managed locally in MongoDB.`);
     
     logger.info(
       {

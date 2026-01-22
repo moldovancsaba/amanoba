@@ -55,8 +55,8 @@ export const authConfig = {
         const role = (credentials.role as 'user' | 'admin') || 'user';
         const isAnonymous = credentials.isAnonymous === 'true';
         
-        // Return user object for anonymous player or SSO user
-        // Why: NextAuth uses this to create session
+      // Return user object for anonymous player or SSO user
+      // Why: NextAuth uses this to create session
         // NOTE: ssoSub is passed directly from SSO callback (not fetched from DB - Edge Runtime incompatible)
         return {
           id: credentials.playerId as string,
@@ -67,7 +67,7 @@ export const authConfig = {
           role,
           authProvider: isAnonymous ? 'anonymous' : 'sso',
           ssoSub: credentials.ssoSub as string | undefined, // SSO subject identifier (passed from callback)
-          accessToken: credentials.accessToken as string | undefined, // Store for SSO role checks
+          accessToken: credentials.accessToken as string | undefined, // Stored for potential future use
           refreshToken: credentials.refreshToken as string | undefined, // Store for token renewal
           tokenExpiresAt: credentials.tokenExpiresAt ? parseInt(credentials.tokenExpiresAt as string) : undefined, // Token expiration
         };
@@ -119,7 +119,7 @@ export const authConfig = {
         token.tokenExpiresAt = (user as any).tokenExpiresAt;
       }
       
-      // CRITICAL: Preserve role from user object (from SSO callback)
+      // Preserve role from user object (from SSO callback / DB)
       // This is needed for middleware (authEdge) to check admin access
       if (user && (user as any).role) {
         token.role = (user as any).role as 'user' | 'admin';
@@ -163,7 +163,7 @@ export const authConfig = {
         (session.user as any).role = (token.role as 'user' | 'admin') || 'user';
         (session.user as any).authProvider = (token.authProvider as 'sso' | 'anonymous') || 'sso';
         
-        // Store access token in session for role checks (not exposed to client, server-side only)
+        // Store access token in session (not exposed to client, server-side only)
         (session as any).accessToken = token.accessToken;
         (session as any).refreshToken = token.refreshToken;
         (session as any).tokenExpiresAt = token.tokenExpiresAt;

@@ -359,71 +359,40 @@ export async function POST(request: NextRequest) {
 
     // Extract user info from token
     let ssoUserInfo = extractSSOUserInfo(claims);
-    const tokenRole = ssoUserInfo.role;
 
-    // CRITICAL: Always try UserInfo endpoint (SSO role management happens there)
-    // Why: sso.doneisbetter.com manages roles on UserInfo endpoint, not ID token
+    // Fetch UserInfo endpoint for profile enrichment (role ignored)
     if (!access_token) {
       logger.error(
         { 
           hasIdToken: !!id_token,
-          roleFromToken: ssoUserInfo.role,
         }, 
-        'CRITICAL: No access token available - cannot fetch UserInfo endpoint for role'
+        'No access token available - cannot fetch UserInfo endpoint'
       );
-      // Continue with ID token role, but log warning
     } else {
       logger.info(
         { 
-          roleFromToken: ssoUserInfo.role,
           sub: ssoUserInfo.sub,
           email: ssoUserInfo.email,
           userInfoUrl: process.env.SSO_USERINFO_URL ? 'configured' : 'MISSING'
         }, 
-        'Fetching role from UserInfo endpoint (SSO role management source)'
+        'Fetching UserInfo endpoint for profile enrichment'
       );
       
       const userInfo = await fetchUserInfo(access_token);
       if (userInfo) {
-        const hasUserInfoRole = userInfo.roleClaimPresent ?? false;
-        if (hasUserInfoRole) {
-          // UserInfo endpoint is source of truth for roles only if it actually contains a role claim
-          logger.info(
-            { 
-              roleFromToken: tokenRole,
-              roleFromUserInfo: userInfo.role,
-              sub: userInfo.sub,
-              roleChanged: tokenRole !== userInfo.role
-            }, 
-            'UserInfo endpoint returned role claim - using as source of truth'
-          );
-          ssoUserInfo = userInfo;
-        } else {
-          // Keep token role if UserInfo lacks role claim
-          logger.warn(
-            { 
-              roleFromToken: tokenRole,
-              roleFromUserInfo: userInfo.role,
-              sub: userInfo.sub,
-            },
-            'UserInfo endpoint missing role claim - keeping token role'
-          );
-          ssoUserInfo = {
-            ...ssoUserInfo,
-            email: userInfo.email || ssoUserInfo.email,
-            name: userInfo.name || ssoUserInfo.name,
-            sub: userInfo.sub || ssoUserInfo.sub,
-          };
-        }
+        ssoUserInfo = {
+          ...ssoUserInfo,
+          email: userInfo.email || ssoUserInfo.email,
+          name: userInfo.name || ssoUserInfo.name,
+          sub: userInfo.sub || ssoUserInfo.sub,
+        };
       } else {
         logger.error(
           { 
-            roleFromToken: tokenRole,
             userInfoUrl: process.env.SSO_USERINFO_URL ? 'configured' : 'MISSING'
           }, 
-          'CRITICAL: UserInfo endpoint did not return data - admin roles may be missing'
+          'UserInfo endpoint did not return data'
         );
-        // Continue with ID token role, but this is a problem
       }
     }
 
@@ -443,14 +412,10 @@ export async function POST(request: NextRequest) {
     let player = await Player.findOne({ ssoSub: ssoUserInfo.sub });
 
     if (player) {
-      // Update existing player - sync email/name, update role only if SSO supplied a role claim
+      // Update existing player - sync email/name (role managed locally)
       const previousRole = player.role;
-      const hasRoleClaim = ssoUserInfo.roleClaimPresent ?? false;
       player.email = ssoUserInfo.email || player.email;
       player.displayName = ssoUserInfo.name || player.displayName;
-      if (hasRoleClaim) {
-        player.role = ssoUserInfo.role; // Update role only if SSO provided a role claim
-      }
       player.authProvider = 'sso';
       player.lastLoginAt = new Date();
       await player.save();
@@ -461,33 +426,17 @@ export async function POST(request: NextRequest) {
           ssoSub: ssoUserInfo.sub,
           previousRole,
           newRole: player.role,
-          roleChanged: previousRole !== player.role,
-          roleClaimPresent: hasRoleClaim,
           updated: true,
         },
-        hasRoleClaim
-          ? 'SSO user updated - role synced from SSO role claim'
-          : 'SSO user updated - role unchanged (no role claim provided)'
+        'SSO user updated - role unchanged (managed locally)'
       );
-      
-      if (hasRoleClaim && previousRole !== ssoUserInfo.role) {
-        logger.warn(
-          {
-            playerId: player._id,
-            previousRole,
-            newRole: player.role,
-          },
-          'Player role changed during SSO sync - admin access may have changed'
-        );
-      }
     } else {
-      // Create new player
-      const hasRoleClaim = ssoUserInfo.roleClaimPresent ?? false;
+      // Create new player (role defaults to user)
       player = await Player.create({
         ssoSub: ssoUserInfo.sub,
         email: ssoUserInfo.email,
         displayName: ssoUserInfo.name || ssoUserInfo.email?.split('@')[0] || 'User',
-        role: hasRoleClaim ? ssoUserInfo.role : 'user',
+        role: 'user',
         authProvider: 'sso',
         brandId: defaultBrand._id,
         isPremium: false,
@@ -505,9 +454,7 @@ export async function POST(request: NextRequest) {
           role: player.role,
           created: true,
         },
-        hasRoleClaim
-          ? 'SSO user created - role from SSO role claim'
-          : 'SSO user created - defaulted to user (no role claim)'
+        'SSO user created - role defaulted to user (managed locally)'
       );
 
       // Log registration

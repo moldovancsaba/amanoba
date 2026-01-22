@@ -27,6 +27,7 @@ interface Player {
   isPremium: boolean;
   isActive: boolean;
   isAnonymous: boolean;
+  role: 'user' | 'admin';
   createdAt: string;
   lastLoginAt?: string;
 }
@@ -42,6 +43,8 @@ export default function AdminPlayersPage() {
     isPremium: 'all',
     isActive: 'all',
   });
+  const [roleUpdatingId, setRoleUpdatingId] = useState<string | null>(null);
+  const [roleUpdateError, setRoleUpdateError] = useState<string | null>(null);
   const [pagination, setPagination] = useState({
     page: 1,
     limit: 50,
@@ -56,6 +59,7 @@ export default function AdminPlayersPage() {
   const fetchPlayers = async () => {
     try {
       setLoading(true);
+      setRoleUpdateError(null);
       const params = new URLSearchParams();
       if (search) {
         params.append('search', search);
@@ -80,6 +84,34 @@ export default function AdminPlayersPage() {
       console.error('Failed to fetch players:', error);
     } finally {
       setLoading(false);
+    }
+  };
+
+  const updatePlayerRole = async (playerId: string, role: 'user' | 'admin') => {
+    try {
+      setRoleUpdateError(null);
+      setRoleUpdatingId(playerId);
+      const response = await fetch(`/api/admin/players/${playerId}/role`, {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ role }),
+      });
+
+      const data = await response.json();
+      if (!response.ok || !data.success) {
+        throw new Error(data.error || t('roleUpdateFailed'));
+      }
+
+      setPlayers((prev) =>
+        prev.map((player) =>
+          player._id === playerId ? { ...player, role: data.role } : player
+        )
+      );
+    } catch (error) {
+      console.error('Failed to update role:', error);
+      setRoleUpdateError(t('roleUpdateFailed'));
+    } finally {
+      setRoleUpdatingId(null);
     }
   };
 
@@ -143,6 +175,11 @@ export default function AdminPlayersPage() {
       </div>
 
       {/* Players Table */}
+      {roleUpdateError && (
+        <div className="rounded-lg border border-red-500/40 bg-red-500/10 px-4 py-3 text-sm text-red-200">
+          {roleUpdateError}
+        </div>
+      )}
       <div className="bg-gray-800 rounded-xl border border-gray-700 overflow-hidden">
         <div className="overflow-x-auto">
           <table className="w-full">
@@ -153,6 +190,9 @@ export default function AdminPlayersPage() {
                 </th>
                 <th className="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">
                   Email
+                </th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">
+                  {t('role')}
                 </th>
                 <th className="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">
                   {tCommon('status')}
@@ -174,7 +214,7 @@ export default function AdminPlayersPage() {
             <tbody className="divide-y divide-gray-700">
               {players.length === 0 ? (
                 <tr>
-                  <td colSpan={7} className="px-6 py-12 text-center text-gray-400">
+                  <td colSpan={8} className="px-6 py-12 text-center text-gray-400">
                     {tCommon('noDataFound')}
                   </td>
                 </tr>
@@ -194,6 +234,19 @@ export default function AdminPlayersPage() {
                     </td>
                     <td className="px-6 py-4">
                       <span className="text-gray-300">{player.email || '-'}</span>
+                    </td>
+                    <td className="px-6 py-4">
+                      <select
+                        value={player.role}
+                        disabled={roleUpdatingId === player._id}
+                        onChange={(event) =>
+                          updatePlayerRole(player._id, event.target.value as 'user' | 'admin')
+                        }
+                        className="w-full rounded-md border border-gray-600 bg-gray-900 px-3 py-2 text-sm text-white focus:outline-none focus:border-indigo-500 disabled:opacity-60 disabled:cursor-not-allowed"
+                      >
+                        <option value="user">{t('roleUser')}</option>
+                        <option value="admin">{t('roleAdmin')}</option>
+                      </select>
                     </td>
                     <td className="px-6 py-4">
                       {player.isActive ? (
@@ -218,7 +271,7 @@ export default function AdminPlayersPage() {
                         )}
                         {player.isAnonymous && (
                           <span className="px-2 py-1 bg-gray-500/20 text-gray-400 rounded text-xs">
-                            Vendég
+                            {t('guest')}
                           </span>
                         )}
                       </div>
