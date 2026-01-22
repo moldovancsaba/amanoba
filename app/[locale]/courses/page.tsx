@@ -8,6 +8,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Link from 'next/link';
 import { useSession } from 'next-auth/react';
 import { useTranslations } from 'next-intl';
 import { LocaleLink } from '@/components/LocaleLink';
@@ -47,6 +48,25 @@ interface Course {
     lessonXP: number;
   };
 }
+
+const localeFromLanguage = (language: string) => {
+  const normalized = (language || 'hu').toLowerCase();
+  if (normalized === 'ru') return 'ru';
+  if (normalized === 'en') return 'en';
+  return 'hu';
+};
+
+const flagEmojiByLocale: Record<string, string> = {
+  hu: '🇭🇺',
+  en: '🇬🇧',
+  ru: '🇷🇺',
+};
+
+const localeLabel: Record<string, string> = {
+  hu: 'Magyar',
+  en: 'English',
+  ru: 'Русский',
+};
 
 export default function CoursesPage() {
   const { data: session } = useSession();
@@ -183,75 +203,78 @@ export default function CoursesPage() {
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
-            {courses.map((course) => (
-              <LocaleLink
-                key={course._id}
-                href={`/courses/${course.courseId}`}
-                className="block bg-brand-white rounded-2xl p-7 border-2 border-brand-accent hover:shadow-xl transition-all"
-              >
-                {(course.thumbnail || defaultThumbnail) && (
-                  <div className="w-full h-48 bg-brand-darkGrey rounded-lg mb-4 flex items-center justify-center overflow-hidden">
-                    <img
-                      src={course.thumbnail || defaultThumbnail || ''}
-                      alt={course.name}
-                      className="w-full h-full object-cover rounded-lg"
-                    />
-                  </div>
-                )}
-                <div className="mb-3">
-                  <h3 className="text-2xl font-bold text-brand-black leading-tight mb-2">{course.name}</h3>
-                  <div className="flex items-center gap-2 flex-wrap">
-                    {/* Language Flag */}
-                    <span className="text-lg" title={course.language === 'hu' ? 'Magyar' : course.language === 'en' ? 'English' : course.language.toUpperCase()}>
-                      {course.language === 'hu' ? '🇭🇺' : course.language === 'en' ? '🇬🇧' : '🌐'}
-                    </span>
-                    {/* Premium/Free Chips */}
-                    {course.requiresPremium ? (
-                      <span className="bg-brand-accent text-brand-black text-xs font-bold px-3 py-1.5 rounded-full flex items-center gap-1.5">
-                        <Star className="w-3.5 h-3.5" />
-                        {t('premiumCourse')}
+            {courses.map((course) => {
+              const courseLocale = localeFromLanguage(course.language);
+              const flag = flagEmojiByLocale[courseLocale] || '🌐';
+              return (
+                <Link
+                  key={course._id}
+                  href={`/${courseLocale}/courses/${course.courseId}`}
+                  className="block bg-brand-white rounded-2xl p-7 border-2 border-brand-accent hover:shadow-xl transition-all"
+                >
+                  {(course.thumbnail || defaultThumbnail) && (
+                    <div className="w-full h-48 bg-brand-darkGrey rounded-lg mb-4 flex items-center justify-center overflow-hidden">
+                      <img
+                        src={course.thumbnail || defaultThumbnail || ''}
+                        alt={course.name}
+                        className="w-full h-full object-cover rounded-lg"
+                      />
+                    </div>
+                  )}
+                  <div className="mb-3">
+                    <h3 className="text-2xl font-bold text-brand-black leading-tight mb-2">{course.name}</h3>
+                    <div className="flex items-center gap-3 flex-wrap text-sm text-brand-darkGrey">
+                      <span className="text-lg" title={localeLabel[courseLocale]}>
+                        {flag}
                       </span>
-                    ) : (
-                      <span className="bg-brand-darkGrey/20 text-brand-darkGrey text-xs font-bold px-3 py-1.5 rounded-full flex items-center gap-1.5">
-                        {t('freeCourse')}
+                      <span className="uppercase tracking-wide">{localeLabel[courseLocale]}</span>
+                      {course.requiresPremium ? (
+                        <span className="bg-brand-accent text-brand-black text-xs font-bold px-3 py-1.5 rounded-full flex items-center gap-1.5">
+                          <Star className="w-3.5 h-3.5" />
+                          {t('premiumCourse')}
+                        </span>
+                      ) : (
+                        <span className="bg-brand-darkGrey/20 text-brand-darkGrey text-xs font-bold px-3 py-1.5 rounded-full flex items-center gap-1.5">
+                          {t('freeCourse')}
+                        </span>
+                      )}
+                    </div>
+                  </div>
+                  {course.requiresPremium && course.price && (
+                    <div className="mb-4 flex items-center gap-2 text-lg font-bold text-brand-black">
+                      <CreditCard className="w-5 h-5" />
+                      <span>{formatPrice(course.price.amount, course.price.currency)}</span>
+                    </div>
+                  )}
+                  {course.requiresPremium && !course.price && (
+                    <div className="mb-4 flex items-center gap-2 text-base text-brand-darkGrey">
+                      <CreditCard className="w-4 h-4" />
+                      <span>{t('premiumRequired')}</span>
+                    </div>
+                  )}
+                  <p className="text-brand-darkGrey text-base mb-5 line-clamp-2 leading-relaxed">
+                    {course.description}
+                  </p>
+                  <div className="flex items-center gap-5 text-base text-brand-darkGrey mb-5">
+                    <div className="flex items-center gap-1">
+                      <Calendar className="w-4 h-4" />
+                      <span>
+                        {course.durationDays} {t('days')}
                       </span>
-                    )}
+                    </div>
+                    <div className="flex items-center gap-1">
+                      <Award className="w-4 h-4" />
+                      <span>
+                        {course.pointsConfig.completionPoints} {tCommon('points')}
+                      </span>
+                    </div>
                   </div>
-                </div>
-                {course.requiresPremium && course.price && (
-                  <div className="mb-4 flex items-center gap-2 text-lg font-bold text-brand-black">
-                    <CreditCard className="w-5 h-5" />
-                    <span>{formatPrice(course.price.amount, course.price.currency)}</span>
+                  <div className="bg-brand-accent text-brand-black px-5 py-3 rounded-lg font-bold text-center hover:bg-brand-primary-400 transition-colors text-base">
+                    {t('viewCourse')} →
                   </div>
-                )}
-                {course.requiresPremium && !course.price && (
-                  <div className="mb-4 flex items-center gap-2 text-base text-brand-darkGrey">
-                    <CreditCard className="w-4 h-4" />
-                    <span>{t('premiumRequired')}</span>
-                  </div>
-                )}
-                <p className="text-brand-darkGrey text-base mb-5 line-clamp-2 leading-relaxed">
-                  {course.description}
-                </p>
-                <div className="flex items-center gap-5 text-base text-brand-darkGrey mb-5">
-                  <div className="flex items-center gap-1">
-                    <Calendar className="w-4 h-4" />
-                    <span>
-                      {course.durationDays} {t('days')}
-                    </span>
-                  </div>
-                  <div className="flex items-center gap-1">
-                    <Award className="w-4 h-4" />
-                    <span>
-                      {course.pointsConfig.completionPoints} {tCommon('points')}
-                    </span>
-                  </div>
-                </div>
-                <div className="bg-brand-accent text-brand-black px-5 py-3 rounded-lg font-bold text-center hover:bg-brand-primary-400 transition-colors text-base">
-                  {t('viewCourse')} →
-                </div>
-              </LocaleLink>
-            ))}
+                </Link>
+              );
+            })}
           </div>
         )}
       </main>
