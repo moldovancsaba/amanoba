@@ -57,20 +57,7 @@ export const authConfig = {
         
         // Return user object for anonymous player or SSO user
         // Why: NextAuth uses this to create session
-        // Get ssoSub from database if available (for SSO users)
-        let ssoSub: string | undefined;
-        if (!isAnonymous && credentials.playerId) {
-          try {
-            const { connectDB } = await import('@/lib/mongodb');
-            const { Player } = await import('@/lib/models');
-            await connectDB();
-            const player = await Player.findById(credentials.playerId).lean();
-            ssoSub = player?.ssoSub;
-          } catch (error) {
-            // Ignore - will be set in JWT callback
-          }
-        }
-        
+        // NOTE: ssoSub is passed directly from SSO callback (not fetched from DB - Edge Runtime incompatible)
         return {
           id: credentials.playerId as string,
           name: credentials.displayName as string,
@@ -79,7 +66,7 @@ export const authConfig = {
           isAnonymous,
           role,
           authProvider: isAnonymous ? 'anonymous' : 'sso',
-          ssoSub: ssoSub || undefined, // SSO subject identifier
+          ssoSub: credentials.ssoSub as string | undefined, // SSO subject identifier (passed from callback)
           accessToken: credentials.accessToken as string | undefined, // Store for SSO role checks
           refreshToken: credentials.refreshToken as string | undefined, // Store for token renewal
           tokenExpiresAt: credentials.tokenExpiresAt ? parseInt(credentials.tokenExpiresAt as string) : undefined, // Token expiration
