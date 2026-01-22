@@ -126,12 +126,16 @@ export const authConfig = {
 
     // Session callback
     // Why: Make custom fields available in session
+    // NOTE: This is overridden in auth.ts with the full implementation including role
+    // Keeping this for reference but auth.ts session callback takes precedence
     async session({ session, token }): Promise<Session> {
       if (token && session.user) {
         (session.user as any).id = token.id as string;
-        (session.user as any).facebookId = token.facebookId;
+        (session.user as any).ssoSub = token.ssoSub || null;
         (session.user as any).locale = token.locale || 'en';
         (session.user as any).isAnonymous = token.isAnonymous ?? false;
+        (session.user as any).role = (token.role as 'user' | 'admin') || 'user';
+        (session.user as any).authProvider = (token.authProvider as 'sso' | 'anonymous') || 'sso';
       }
       return session;
     },
