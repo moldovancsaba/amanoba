@@ -192,7 +192,7 @@ export default function AdminPlayersPage() {
                   Email
                 </th>
                 <th className="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">
-                  {t('role')}
+                  {tCommon('type')}
                 </th>
                 <th className="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">
                   {tCommon('status')}
@@ -237,15 +237,21 @@ export default function AdminPlayersPage() {
                     </td>
                     <td className="px-6 py-4">
                       <select
-                        value={player.role}
-                        disabled={roleUpdatingId === player._id}
+                        value={player.isAnonymous ? 'guest' : player.role}
+                        disabled={player.isAnonymous || roleUpdatingId === player._id}
                         onChange={(event) =>
                           updatePlayerRole(player._id, event.target.value as 'user' | 'admin')
                         }
                         className="w-full rounded-md border border-gray-600 bg-gray-900 px-3 py-2 text-sm text-white focus:outline-none focus:border-indigo-500 disabled:opacity-60 disabled:cursor-not-allowed"
                       >
-                        <option value="user">{t('roleUser')}</option>
-                        <option value="admin">{t('roleAdmin')}</option>
+                        {player.isAnonymous ? (
+                          <option value="guest">{t('guest')}</option>
+                        ) : (
+                          <>
+                            <option value="user">{t('roleUser')}</option>
+                            <option value="admin">{t('roleAdmin')}</option>
+                          </>
+                        )}
                       </select>
                     </td>
                     <td className="px-6 py-4">
