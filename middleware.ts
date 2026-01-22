@@ -104,8 +104,6 @@ export default auth((req) => {
     actualPathname !== '/' && // Root path is public (landing page)
     !actualPathname.startsWith('/courses'); // Courses listing is public (enrollment requires auth)
 
-  const isPublicAdminDoc = actualPathname.startsWith('/admin/docs/course-creation');
-
   // Define public routes
   // Why: These routes should redirect authenticated users
   const isAuthRoute =

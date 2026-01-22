@@ -9974,6 +9974,1763 @@ const lessonPlan: LessonContent[] = [
       },
     ],
   },
+  {
+    day: 18,
+    title: {
+      hu: 'CRM beállítás és automatizálás',
+      en: 'CRM Setup & Automation',
+      ru: 'Настройка CRM и автоматизация',
+    },
+    content: {
+      hu: `<h2>Miért fontos a CRM?</h2>
+<p>A CRM (Customer Relationship Management) rendszer a modern értékesítés alapja. Segít követni a Lead-eket, a Deal-eket, és automatizálja a rutin feladatokat.</p>
+
+<h2>Hogyan állítsd be?</h2>
+<h3>1. Válassz egy CRM-et</h3>
+<ul>
+<li><strong>Kezdőknek:</strong> HubSpot (ingyenes verzió), Pipedrive</li>
+<li><strong>Középvállalatoknak:</strong> Salesforce, Microsoft Dynamics</li>
+<li><strong>Kisebb csapatoknak:</strong> Zoho CRM, Monday.com</li>
+</ul>
+
+<h3>2. Alapvető mezők beállítása</h3>
+<table>
+<tr><th>Mező</th><th>Leírás</th></tr>
+<tr><td>Lead státusz</td><td>Új, Minősített, Kapcsolatban, Ajánlat elküldve, Lezárás</td></tr>
+<tr><td>Deal érték</td><td>Pénzügyi érték (HUF vagy EUR)</td></tr>
+<tr><td>Lezárás várható dátuma</td><td>Mikor várható a Win?</td></tr>
+<tr><td>Kapcsolattartó információk</td><td>Email, telefon, LinkedIn</td></tr>
+<tr><td>Jegyzetek</td><td>Meeting összefoglalók, következő lépések</td></tr>
+</table>
+
+<h3>3. Automatizálás beállítása</h3>
+<ul>
+<li><strong>Email követés:</strong> Automatikus emlékeztetők 3 nap után, ha nincs válasz</li>
+<li><strong>Deal frissítés:</strong> Automatikus státusz változás, ha meghatározott feltételek teljesülnek</li>
+<li><strong>Feladat létrehozás:</strong> Új Lead esetén automatikus feladat a minősítéshez</li>
+</ul>
+
+<h2>Hogyan mérjük?</h2>
+<ul>
+<li><strong>CRM használati arány:</strong> Hány %-a a Lead-eknek van a CRM-ben?</li>
+<li><strong>Adat frissítési gyakoriság:</strong> Hányszor frissíted a Deal státuszokat hetente?</li>
+<li><strong>Automatizálás hatékonysága:</strong> Hány óra időt takarítasz meg hetente?</li>
+</ul>
+
+<h2>Hogyan javítsunk?</h2>
+<ul>
+<li>Használj mobil alkalmazást a CRM-hez, hogy bárhol frissíthesd</li>
+<li>Állíts be napi rutint: reggel 15 perc CRM frissítés</li>
+<li>Kövesd a Deal-eket hetente, ne csak havonta</li>
+<li>Használj sablonokat a jegyzetekhez a konzisztencia érdekében</li>
+</ul>
+
+<h2>Sablonok</h2>
+<h3>CRM Lead mezők checklist</h3>
+<ul>
+<li>✓ Név és cég</li>
+<li>✓ Email és telefon</li>
+<li>✓ Lead forrása (honnan jött?)</li>
+<li>✓ Jelenlegi státusz</li>
+<li>✓ Deal érték (ha van)</li>
+<li>✓ Lezárás várható dátuma</li>
+<li>✓ Utolsó kapcsolat dátuma</li>
+</ul>
+
+<h2>További anyagok</h2>
+<ul>
+<li><a href="https://blog.hubspot.com/sales/crm-setup-guide">HubSpot CRM Setup Guide</a> - Részletes beállítási útmutató</li>
+<li><a href="https://www.salesforce.com/resources/articles/crm-automation/">Salesforce Automation Best Practices</a> - Automatizálási tippek</li>
+</ul>`,
+      en: `<h2>Why CRM Matters</h2>
+<p>CRM (Customer Relationship Management) systems are the foundation of modern sales. They help you track Leads, manage Deals, and automate routine tasks.</p>
+
+<h2>How to Set It Up</h2>
+<h3>1. Choose a CRM</h3>
+<ul>
+<li><strong>For beginners:</strong> HubSpot (free version), Pipedrive</li>
+<li><strong>For mid-market:</strong> Salesforce, Microsoft Dynamics</li>
+<li><strong>For small teams:</strong> Zoho CRM, Monday.com</li>
+</ul>
+
+<h3>2. Set Up Essential Fields</h3>
+<table>
+<tr><th>Field</th><th>Description</th></tr>
+<tr><td>Lead Status</td><td>New, Qualified, Connected, Proposal Sent, Closed</td></tr>
+<tr><td>Deal Value</td><td>Financial value (USD, EUR, etc.)</td></tr>
+<tr><td>Expected Close Date</td><td>When do you expect to Win?</td></tr>
+<tr><td>Contact Information</td><td>Email, phone, LinkedIn</td></tr>
+<tr><td>Notes</td><td>Meeting summaries, next steps</td></tr>
+</table>
+
+<h3>3. Set Up Automation</h3>
+<ul>
+<li><strong>Email follow-up:</strong> Automatic reminders after 3 days if no response</li>
+<li><strong>Deal updates:</strong> Automatic status changes when certain conditions are met</li>
+<li><strong>Task creation:</strong> Automatic task for qualification when a new Lead comes in</li>
+</ul>
+
+<h2>How to Measure</h2>
+<ul>
+<li><strong>CRM adoption rate:</strong> What % of Leads are in the CRM?</li>
+<li><strong>Data update frequency:</strong> How often do you update Deal statuses weekly?</li>
+<li><strong>Automation efficiency:</strong> How many hours do you save per week?</li>
+</ul>
+
+<h2>How to Improve</h2>
+<ul>
+<li>Use mobile CRM app to update on the go</li>
+<li>Set daily routine: 15 minutes of CRM updates each morning</li>
+<li>Review Deals weekly, not just monthly</li>
+<li>Use note templates for consistency</li>
+</ul>
+
+<h2>Templates</h2>
+<h3>CRM Lead Fields Checklist</h3>
+<ul>
+<li>✓ Name and company</li>
+<li>✓ Email and phone</li>
+<li>✓ Lead source (where did they come from?)</li>
+<li>✓ Current status</li>
+<li>✓ Deal value (if applicable)</li>
+<li>✓ Expected close date</li>
+<li>✓ Last contact date</li>
+</ul>
+
+<h2>Additional Resources</h2>
+<ul>
+<li><a href="https://blog.hubspot.com/sales/crm-setup-guide">HubSpot CRM Setup Guide</a> - Detailed setup instructions</li>
+<li><a href="https://www.salesforce.com/resources/articles/crm-automation/">Salesforce Automation Best Practices</a> - Automation tips</li>
+</ul>`,
+      ru: `<h2>Почему важен CRM?</h2>
+<p>CRM (Customer Relationship Management) системы — основа современных продаж. Они помогают отслеживать Lead-ов, управлять Deal-ами и автоматизировать рутинные задачи.</p>
+
+<h2>Как настроить</h2>
+<h3>1. Выберите CRM</h3>
+<ul>
+<li><strong>Для начинающих:</strong> HubSpot (бесплатная версия), Pipedrive</li>
+<li><strong>Для среднего бизнеса:</strong> Salesforce, Microsoft Dynamics</li>
+<li><strong>Для небольших команд:</strong> Zoho CRM, Monday.com</li>
+</ul>
+
+<h3>2. Настройте основные поля</h3>
+<table>
+<tr><th>Поле</th><th>Описание</th></tr>
+<tr><td>Статус Lead</td><td>Новый, Квалифицирован, На связи, Предложение отправлено, Закрыт</td></tr>
+<tr><td>Стоимость Deal</td><td>Финансовая стоимость (USD, EUR и т.д.)</td></tr>
+<tr><td>Ожидаемая дата закрытия</td><td>Когда ожидается Win?</td></tr>
+<tr><td>Контактная информация</td><td>Email, телефон, LinkedIn</td></tr>
+<tr><td>Заметки</td><td>Резюме встреч, следующие шаги</td></tr>
+</table>
+
+<h3>3. Настройте автоматизацию</h3>
+<ul>
+<li><strong>Email-напоминания:</strong> Автоматические напоминания через 3 дня, если нет ответа</li>
+<li><strong>Обновление Deal:</strong> Автоматическое изменение статуса при выполнении условий</li>
+<li><strong>Создание задач:</strong> Автоматическая задача на квалификацию при новом Lead</li>
+</ul>
+
+<h2>Как измерить</h2>
+<ul>
+<li><strong>Использование CRM:</strong> Какой % Lead-ов находится в CRM?</li>
+<li><strong>Частота обновления данных:</strong> Как часто вы обновляете статусы Deal в неделю?</li>
+<li><strong>Эффективность автоматизации:</strong> Сколько часов вы экономите в неделю?</li>
+</ul>
+
+<h2>Как улучшить</h2>
+<ul>
+<li>Используйте мобильное приложение CRM для обновления на ходу</li>
+<li>Установите ежедневную рутину: 15 минут обновления CRM каждое утро</li>
+<li>Проверяйте Deal еженедельно, а не только ежемесячно</li>
+<li>Используйте шаблоны заметок для консистентности</li>
+</ul>
+
+<h2>Шаблоны</h2>
+<h3>Чеклист полей Lead в CRM</h3>
+<ul>
+<li>✓ Имя и компания</li>
+<li>✓ Email и телефон</li>
+<li>✓ Источник Lead (откуда пришел?)</li>
+<li>✓ Текущий статус</li>
+<li>✓ Стоимость Deal (если применимо)</li>
+<li>✓ Ожидаемая дата закрытия</li>
+<li>✓ Дата последнего контакта</li>
+</ul>
+
+<h2>Доп. материалы</h2>
+<ul>
+<li><a href="https://blog.hubspot.com/sales/crm-setup-guide">HubSpot CRM Setup Guide</a> - Подробная инструкция по настройке</li>
+<li><a href="https://www.salesforce.com/resources/articles/crm-automation/">Salesforce Automation Best Practices</a> - Советы по автоматизации</li>
+</ul>`,
+    },
+    emailSubject: {
+      hu: 'Nap 18: CRM beállítás és automatizálás',
+      en: 'Day 18: CRM Setup & Automation',
+      ru: 'День 18: Настройка CRM и автоматизация',
+    },
+    emailBody: {
+      hu: 'Ma megtanulod, hogyan állítsd be a CRM-et és automatizáld a rutin feladatokat. Ez időt takarít meg és növeli a hatékonyságot.',
+      en: 'Today you\'ll learn how to set up your CRM and automate routine tasks. This saves time and increases efficiency.',
+      ru: 'Сегодня вы узнаете, как настроить CRM и автоматизировать рутинные задачи. Это экономит время и повышает эффективность.',
+    },
+    quiz: [
+      {
+        q: {
+          hu: 'Melyik CRM ajánlott kezdőknek?',
+          en: 'Which CRM is recommended for beginners?',
+          ru: 'Какой CRM рекомендуется для начинающих?',
+        },
+        options: {
+          hu: ['Salesforce Enterprise', 'HubSpot (ingyenes verzió)', 'SAP CRM', 'Oracle CRM'],
+          en: ['Salesforce Enterprise', 'HubSpot (free version)', 'SAP CRM', 'Oracle CRM'],
+          ru: ['Salesforce Enterprise', 'HubSpot (бесплатная версия)', 'SAP CRM', 'Oracle CRM'],
+        },
+        correct: 1,
+      },
+      {
+        q: {
+          hu: 'Melyik mező NEM alapvető a CRM-ben?',
+          en: 'Which field is NOT essential in CRM?',
+          ru: 'Какое поле НЕ является основным в CRM?',
+        },
+        options: {
+          hu: ['Lead státusz', 'Deal érték', 'Kapcsolattartó email', 'Kedvenc szín'],
+          en: ['Lead Status', 'Deal Value', 'Contact Email', 'Favorite Color'],
+          ru: ['Статус Lead', 'Стоимость Deal', 'Email контакта', 'Любимый цвет'],
+        },
+        correct: 3,
+      },
+      {
+        q: {
+          hu: 'Mi a célja az email automatizálásnak?',
+          en: 'What is the purpose of email automation?',
+          ru: 'Какова цель автоматизации email?',
+        },
+        options: {
+          hu: ['Automatikus válaszok küldése', 'Emlékeztetők küldése válasz hiányában', 'Spam küldése', 'Email törlése'],
+          en: ['Sending automatic replies', 'Sending reminders when no response', 'Sending spam', 'Deleting emails'],
+          ru: ['Отправка автоматических ответов', 'Отправка напоминаний при отсутствии ответа', 'Отправка спама', 'Удаление email'],
+        },
+        correct: 1,
+      },
+      {
+        q: {
+          hu: 'Hogyan mérhető a CRM használati arány?',
+          en: 'How is CRM adoption rate measured?',
+          ru: 'Как измеряется использование CRM?',
+        },
+        options: {
+          hu: ['Hány óra van a CRM-ben', 'Hány %-a a Lead-eknek van a CRM-ben', 'Hány emailt küldesz', 'Hány meeting van'],
+          en: ['How many hours in CRM', 'What % of Leads are in CRM', 'How many emails you send', 'How many meetings you have'],
+          ru: ['Сколько часов в CRM', 'Какой % Lead-ов находится в CRM', 'Сколько email вы отправляете', 'Сколько встреч у вас'],
+        },
+        correct: 1,
+      },
+      {
+        q: {
+          hu: 'Mi a javasolt napi rutin a CRM-hez?',
+          en: 'What is the recommended daily routine for CRM?',
+          ru: 'Какова рекомендуемая ежедневная рутина для CRM?',
+        },
+        options: {
+          hu: ['Hetente egyszer frissítés', 'Reggel 15 perc CRM frissítés', 'Csak este használat', 'Soha ne frissítsd'],
+          en: ['Update once a week', '15 minutes of CRM updates each morning', 'Only use in the evening', 'Never update'],
+          ru: ['Обновлять раз в неделю', '15 минут обновления CRM каждое утро', 'Использовать только вечером', 'Никогда не обновлять'],
+        },
+        correct: 1,
+      },
+    ],
+  },
+  {
+    day: 19,
+    title: {
+      hu: 'Napi rutinok és szokások',
+      en: 'Daily Routines & Habits',
+      ru: 'Ежедневные рутины и привычки',
+    },
+    content: {
+      hu: `<h2>Miért fontosak a rutinok?</h2>
+<p>A sikeres értékesítők nem véletlenül érnek el eredményeket. Napi rutinjaik és szokásaik teszik őket produktívvá és konzisztenssé.</p>
+
+<h2>Hogyan építsd fel?</h2>
+<h3>1. Reggeli rutin (első 2 óra)</h3>
+<ul>
+<li><strong>07:00-07:15:</strong> CRM áttekintés - hol tartasz ma?</li>
+<li><strong>07:15-07:30:</strong> Napi célok beállítása - mit akarsz elérni?</li>
+<li><strong>07:30-08:00:</strong> Prioritás lista - mi a legfontosabb ma?</li>
+<li><strong>08:00-09:00:</strong> Deep work - legfontosabb feladat (pl. nagy Deal előkészítése)</li>
+</ul>
+
+<h3>2. Napi értékesítési rutin</h3>
+<table>
+<tr><th>Időszak</th><th>Teendő</th><th>Időtartam</th></tr>
+<tr><td>Reggel</td><td>CRM frissítés, napi célok</td><td>30 perc</td></tr>
+<tr><td>Délelőtt</td><td>Outreach - új Lead-ek, follow-up</td><td>2 óra</td></tr>
+<tr><td>Délután</td><td>Meeting-ek, demo-k, ajánlatok</td><td>3 óra</td></tr>
+<tr><td>Este</td><td>Jegyzetek, CRM frissítés, holnap tervezése</td><td>30 perc</td></tr>
+</table>
+
+<h3>3. Heti rutin</h3>
+<ul>
+<li><strong>Hétfő:</strong> Heti célok beállítása, prioritás lista</li>
+<li><strong>Szerda:</strong> Középheti review - hol tartasz?</li>
+<li><strong>Péntek:</strong> Heti összefoglaló, következő hét tervezése</li>
+</ul>
+
+<h2>Hogyan mérjük?</h2>
+<ul>
+<li><strong>Rutin követés:</strong> Hány napon követted a rutint az elmúlt héten?</li>
+<li><strong>Időhasználat:</strong> Mennyi időt töltesz értékesítéssel vs adminisztrációval?</li>
+<li><strong>Eredmények:</strong> Nőtt-e a produktivitás a rutin bevezetése után?</li>
+</ul>
+
+<h2>Hogyan javítsunk?</h2>
+<ul>
+<li>Kezdj kicsiben - ne próbálj mindent egyszerre megváltoztatni</li>
+<li>Használj időzítőt (Pomodoro technika) a fókuszhoz</li>
+<li>Blokkolj időt a naptárban a fontos feladatokhoz</li>
+<li>Végy szüneteket - a fáradt agy nem produktív</li>
+<li>Kövesd a rutint legalább 21 napig, hogy szokássá váljon</li>
+</ul>
+
+<h2>Sablonok</h2>
+<h3>Napi rutin checklist</h3>
+<ul>
+<li>✓ CRM áttekintés (15 perc)</li>
+<li>✓ Napi célok beállítása (10 perc)</li>
+<li>✓ Prioritás lista (5 perc)</li>
+<li>✓ Deep work blokk (60 perc)</li>
+<li>✓ Outreach blokk (120 perc)</li>
+<li>✓ Meeting-ek (180 perc)</li>
+<li>✓ Jegyzetek és holnap tervezése (30 perc)</li>
+</ul>
+
+<h2>További anyagok</h2>
+<ul>
+<li><a href="https://www.atlassian.com/time-management/pomodoro-technique">Pomodoro Technique</a> - Időgazdálkodási módszer</li>
+<li><a href="https://jamesclear.com/atomic-habits">Atomic Habits by James Clear</a> - Szokásépítés könyv</li>
+</ul>`,
+      en: `<h2>Why Routines Matter</h2>
+<p>Successful sales professionals don't achieve results by accident. Their daily routines and habits make them productive and consistent.</p>
+
+<h2>How to Build Them</h2>
+<h3>1. Morning Routine (First 2 Hours)</h3>
+<ul>
+<li><strong>07:00-07:15:</strong> CRM review - where are you today?</li>
+<li><strong>07:15-07:30:</strong> Set daily goals - what do you want to achieve?</li>
+<li><strong>07:30-08:00:</strong> Priority list - what's most important today?</li>
+<li><strong>08:00-09:00:</strong> Deep work - most important task (e.g., preparing for big Deal)</li>
+</ul>
+
+<h3>2. Daily Sales Routine</h3>
+<table>
+<tr><th>Time</th><th>Activity</th><th>Duration</th></tr>
+<tr><td>Morning</td><td>CRM update, daily goals</td><td>30 min</td></tr>
+<tr><td>Late Morning</td><td>Outreach - new Leads, follow-ups</td><td>2 hours</td></tr>
+<tr><td>Afternoon</td><td>Meetings, demos, proposals</td><td>3 hours</td></tr>
+<tr><td>Evening</td><td>Notes, CRM update, plan tomorrow</td><td>30 min</td></tr>
+</table>
+
+<h3>3. Weekly Routine</h3>
+<ul>
+<li><strong>Monday:</strong> Set weekly goals, priority list</li>
+<li><strong>Wednesday:</strong> Mid-week review - where are you?</li>
+<li><strong>Friday:</strong> Weekly summary, plan next week</li>
+</ul>
+
+<h2>How to Measure</h2>
+<ul>
+<li><strong>Routine adherence:</strong> How many days did you follow the routine last week?</li>
+<li><strong>Time allocation:</strong> How much time do you spend on sales vs admin?</li>
+<li><strong>Results:</strong> Did productivity increase after implementing the routine?</li>
+</ul>
+
+<h2>How to Improve</h2>
+<ul>
+<li>Start small - don't try to change everything at once</li>
+<li>Use a timer (Pomodoro technique) for focus</li>
+<li>Block time in calendar for important tasks</li>
+<li>Take breaks - tired brain is not productive</li>
+<li>Follow the routine for at least 21 days to form a habit</li>
+</ul>
+
+<h2>Templates</h2>
+<h3>Daily Routine Checklist</h3>
+<ul>
+<li>✓ CRM review (15 min)</li>
+<li>✓ Set daily goals (10 min)</li>
+<li>✓ Priority list (5 min)</li>
+<li>✓ Deep work block (60 min)</li>
+<li>✓ Outreach block (120 min)</li>
+<li>✓ Meetings (180 min)</li>
+<li>✓ Notes and plan tomorrow (30 min)</li>
+</ul>
+
+<h2>Additional Resources</h2>
+<ul>
+<li><a href="https://www.atlassian.com/time-management/pomodoro-technique">Pomodoro Technique</a> - Time management method</li>
+<li><a href="https://jamesclear.com/atomic-habits">Atomic Habits by James Clear</a> - Habit building book</li>
+</ul>`,
+      ru: `<h2>Почему важны рутины</h2>
+<p>Успешные продавцы достигают результатов не случайно. Их ежедневные рутины и привычки делают их продуктивными и последовательными.</p>
+
+<h2>Как построить</h2>
+<h3>1. Утренняя рутина (первые 2 часа)</h3>
+<ul>
+<li><strong>07:00-07:15:</strong> Обзор CRM - где вы сегодня?</li>
+<li><strong>07:15-07:30:</strong> Установка ежедневных целей - чего вы хотите достичь?</li>
+<li><strong>07:30-08:00:</strong> Список приоритетов - что самое важное сегодня?</li>
+<li><strong>08:00-09:00:</strong> Глубокая работа - самая важная задача (например, подготовка к большому Deal)</li>
+</ul>
+
+<h3>2. Ежедневная рутина продаж</h3>
+<table>
+<tr><th>Время</th><th>Активность</th><th>Длительность</th></tr>
+<tr><td>Утро</td><td>Обновление CRM, ежедневные цели</td><td>30 мин</td></tr>
+<tr><td>Позднее утро</td><td>Outreach - новые Lead-ы, follow-up</td><td>2 часа</td></tr>
+<tr><td>День</td><td>Встречи, демо, предложения</td><td>3 часа</td></tr>
+<tr><td>Вечер</td><td>Заметки, обновление CRM, планирование завтра</td><td>30 мин</td></tr>
+</table>
+
+<h3>3. Еженедельная рутина</h3>
+<ul>
+<li><strong>Понедельник:</strong> Установка еженедельных целей, список приоритетов</li>
+<li><strong>Среда:</strong> Обзор середины недели - где вы?</li>
+<li><strong>Пятница:</strong> Еженедельное резюме, планирование следующей недели</li>
+</ul>
+
+<h2>Как измерить</h2>
+<ul>
+<li><strong>Соблюдение рутины:</strong> Сколько дней вы следовали рутине на прошлой неделе?</li>
+<li><strong>Распределение времени:</strong> Сколько времени вы тратите на продажи vs администрирование?</li>
+<li><strong>Результаты:</strong> Увеличилась ли продуктивность после внедрения рутины?</li>
+</ul>
+
+<h2>Как улучшить</h2>
+<ul>
+<li>Начните с малого - не пытайтесь изменить все сразу</li>
+<li>Используйте таймер (техника Pomodoro) для фокуса</li>
+<li>Блокируйте время в календаре для важных задач</li>
+<li>Делайте перерывы - уставший мозг не продуктивен</li>
+<li>Следуйте рутине минимум 21 день, чтобы сформировать привычку</li>
+</ul>
+
+<h2>Шаблоны</h2>
+<h3>Чеклист ежедневной рутины</h3>
+<ul>
+<li>✓ Обзор CRM (15 мин)</li>
+<li>✓ Установка ежедневных целей (10 мин)</li>
+<li>✓ Список приоритетов (5 мин)</li>
+<li>✓ Блок глубокой работы (60 мин)</li>
+<li>✓ Блок outreach (120 мин)</li>
+<li>✓ Встречи (180 мин)</li>
+<li>✓ Заметки и планирование завтра (30 мин)</li>
+</ul>
+
+<h2>Доп. материалы</h2>
+<ul>
+<li><a href="https://www.atlassian.com/time-management/pomodoro-technique">Pomodoro Technique</a> - Метод управления временем</li>
+<li><a href="https://jamesclear.com/atomic-habits">Atomic Habits by James Clear</a> - Книга о формировании привычек</li>
+</ul>`,
+    },
+    emailSubject: {
+      hu: 'Nap 19: Napi rutinok és szokások',
+      en: 'Day 19: Daily Routines & Habits',
+      ru: 'День 19: Ежедневные рутины и привычки',
+    },
+    emailBody: {
+      hu: 'Ma megtanulod, hogyan építsd fel a napi rutinokat és szokásokat, amelyek produktívvá tesznek.',
+      en: 'Today you\'ll learn how to build daily routines and habits that make you productive.',
+      ru: 'Сегодня вы узнаете, как построить ежедневные рутины и привычки, которые делают вас продуктивными.',
+    },
+    quiz: [
+      {
+        q: {
+          hu: 'Mennyi ideig kell követni egy rutint, hogy szokássá váljon?',
+          en: 'How long should you follow a routine to make it a habit?',
+          ru: 'Как долго нужно следовать рутине, чтобы она стала привычкой?',
+        },
+        options: {
+          hu: ['7 nap', '14 nap', '21 nap', '30 nap'],
+          en: ['7 days', '14 days', '21 days', '30 days'],
+          ru: ['7 дней', '14 дней', '21 день', '30 дней'],
+        },
+        correct: 2,
+      },
+      {
+        q: {
+          hu: 'Mi a reggeli rutin első lépése?',
+          en: 'What is the first step of morning routine?',
+          ru: 'Какой первый шаг утренней рутины?',
+        },
+        options: {
+          hu: ['Email olvasás', 'CRM áttekintés', 'Meeting', 'Kávé ivás'],
+          en: ['Reading emails', 'CRM review', 'Meeting', 'Drinking coffee'],
+          ru: ['Чтение email', 'Обзор CRM', 'Встреча', 'Пить кофе'],
+        },
+        correct: 1,
+      },
+      {
+        q: {
+          hu: 'Mennyi időt kell szánni a napi outreach-re?',
+          en: 'How much time should you allocate for daily outreach?',
+          ru: 'Сколько времени нужно выделять на ежедневный outreach?',
+        },
+        options: {
+          hu: ['30 perc', '1 óra', '2 óra', '4 óra'],
+          en: ['30 min', '1 hour', '2 hours', '4 hours'],
+          ru: ['30 мин', '1 час', '2 часа', '4 часа'],
+        },
+        correct: 2,
+      },
+      {
+        q: {
+          hu: 'Melyik nap a heti review napja?',
+          en: 'Which day is the weekly review day?',
+          ru: 'Какой день является днем еженедельного обзора?',
+        },
+        options: {
+          hu: ['Hétfő', 'Szerda', 'Péntek', 'Vasárnap'],
+          en: ['Monday', 'Wednesday', 'Friday', 'Sunday'],
+          ru: ['Понедельник', 'Среда', 'Пятница', 'Воскресенье'],
+        },
+        correct: 2,
+      },
+      {
+        q: {
+          hu: 'Mi a Pomodoro technika célja?',
+          en: 'What is the purpose of Pomodoro technique?',
+          ru: 'Какова цель техники Pomodoro?',
+        },
+        options: {
+          hu: ['Időmérés', 'Fókusz javítása', 'Meeting-ek szervezése', 'Email küldés'],
+          en: ['Time tracking', 'Improving focus', 'Organizing meetings', 'Sending emails'],
+          ru: ['Отслеживание времени', 'Улучшение фокуса', 'Организация встреч', 'Отправка email'],
+        },
+        correct: 1,
+      },
+    ],
+  },
+  {
+    day: 20,
+    title: {
+      hu: 'Heti review folyamat',
+      en: 'Weekly Review Process',
+      ru: 'Процесс еженедельного обзора',
+    },
+    content: {
+      hu: `<h2>Miért fontos a heti review?</h2>
+<p>A heti review segít látni, hol tartasz, mit csináltál jól, és mit kell javítani. Nélküle csak haladsz előre vakon.</p>
+
+<h2>Hogyan csináld?</h2>
+<h3>1. Adatok összegyűjtése</h3>
+<ul>
+<li><strong>Lead statisztikák:</strong> Hány új Lead-et szereztél?</li>
+<li><strong>Deal statisztikák:</strong> Hány Deal van a tölcsérben? Melyik szinten?</li>
+<li><strong>Konverzió arányok:</strong> Milyen %-a a Lead-eknek minősül?</li>
+<li><strong>Win/Loss:</strong> Hány Deal-et zártál le? Hányat vesztettél el?</li>
+</ul>
+
+<h3>2. Eredmények elemzése</h3>
+<table>
+<tr><th>Metrika</th><th>Eredmény</th><th>Cél</th><th>Státusz</th></tr>
+<tr><td>Új Lead-ek</td><td>X</td><td>Y</td><td>✓/✗</td></tr>
+<tr><td>Minősített Lead-ek</td><td>X</td><td>Y</td><td>✓/✗</td></tr>
+<tr><td>Meeting-ek</td><td>X</td><td>Y</td><td>✓/✗</td></tr>
+<tr><td>Ajánlatok</td><td>X</td><td>Y</td><td>✓/✗</td></tr>
+<tr><td>Lezárások</td><td>X</td><td>Y</td><td>✓/✗</td></tr>
+</table>
+
+<h3>3. Mi ment jól?</h3>
+<ul>
+<li>Melyik tevékenység hozta a legtöbb eredményt?</li>
+<li>Melyik Deal-et zártad le és miért?</li>
+<li>Melyik outreach módszer működött a legjobban?</li>
+</li>
+</ul>
+
+<h3>4. Mit kell javítani?</h3>
+<ul>
+<li>Hol van a legnagyobb szűk keresztmetszet a tölcsérben?</li>
+<li>Melyik Deal-eket vesztetted el és miért?</li>
+<li>Melyik tevékenység vett el időt, de nem hozott eredményt?</li>
+</ul>
+
+<h3>5. Következő hét tervezése</h3>
+<ul>
+<li>Milyen konkrét célokat tűzöl ki?</li>
+<li>Melyik Deal-ekre fogsz fókuszálni?</li>
+<li>Milyen új stratégiákat próbálsz ki?</li>
+</ul>
+
+<h2>Hogyan mérjük?</h2>
+<ul>
+<li><strong>Review konzisztencia:</strong> Hány héten csináltad meg a review-t?</li>
+<li><strong>Akció terv követés:</strong> Hány %-a a tervezett akcióknak készült el?</li>
+<li><strong>Eredmény változás:</strong> Javultak-e a metrikák a review bevezetése után?</li>
+</ul>
+
+<h2>Hogyan javítsunk?</h2>
+<ul>
+<li>Állíts be fix időpontot a review-ra (pl. minden péntek 16:00)</li>
+<li>Használj sablont, hogy ne maradjon ki semmi</li>
+<li>Dokumentáld a tanulságokat, hogy később vissza tudj rá nézni</li>
+<li>Oszd meg a review eredményeit a vezetőddel vagy csapatoddal</li>
+<li>Készíts akció tervet konkrét lépésekkel</li>
+</ul>
+
+<h2>Sablonok</h2>
+<h3>Heti review sablon</h3>
+<ul>
+<li>✓ Adatok összegyűjtése (10 perc)</li>
+<li>✓ Eredmények elemzése (15 perc)</li>
+<li>✓ Mi ment jól? (10 perc)</li>
+<li>✓ Mit kell javítani? (10 perc)</li>
+<li>✓ Következő hét tervezése (15 perc)</li>
+</ul>
+
+<h2>További anyagok</h2>
+<ul>
+<li><a href="https://www.salesforce.com/resources/articles/sales-review-meeting/">Sales Review Meeting Best Practices</a> - Review meeting tippek</li>
+<li><a href="https://blog.hubspot.com/sales/weekly-sales-review">Weekly Sales Review Template</a> - Részletes sablon</li>
+</ul>`,
+      en: `<h2>Why Weekly Review Matters</h2>
+<p>Weekly review helps you see where you are, what you did well, and what needs improvement. Without it, you're just moving forward blindly.</p>
+
+<h2>How to Do It</h2>
+<h3>1. Collect Data</h3>
+<ul>
+<li><strong>Lead statistics:</strong> How many new Leads did you acquire?</li>
+<li><strong>Deal statistics:</strong> How many Deals are in the funnel? At which stage?</li>
+<li><strong>Conversion rates:</strong> What % of Leads are qualified?</li>
+<li><strong>Win/Loss:</strong> How many Deals did you Close? How many did you lose?</li>
+</ul>
+
+<h3>2. Analyze Results</h3>
+<table>
+<tr><th>Metric</th><th>Result</th><th>Goal</th><th>Status</th></tr>
+<tr><td>New Leads</td><td>X</td><td>Y</td><td>✓/✗</td></tr>
+<tr><td>Qualified Leads</td><td>X</td><td>Y</td><td>✓/✗</td></tr>
+<tr><td>Meetings</td><td>X</td><td>Y</td><td>✓/✗</td></tr>
+<tr><td>Proposals</td><td>X</td><td>Y</td><td>✓/✗</td></tr>
+<tr><td>Closes</td><td>X</td><td>Y</td><td>✓/✗</td></tr>
+</table>
+
+<h3>3. What Went Well?</h3>
+<ul>
+<li>Which activity brought the most results?</li>
+<li>Which Deal did you Close and why?</li>
+<li>Which outreach method worked best?</li>
+</ul>
+
+<h3>4. What Needs Improvement?</h3>
+<ul>
+<li>Where is the biggest bottleneck in the funnel?</li>
+<li>Which Deals did you lose and why?</li>
+<li>Which activity took time but didn't bring results?</li>
+</ul>
+
+<h3>5. Plan Next Week</h3>
+<ul>
+<li>What specific goals do you set?</li>
+<li>Which Deals will you focus on?</li>
+<li>What new strategies will you try?</li>
+</ul>
+
+<h2>How to Measure</h2>
+<ul>
+<li><strong>Review consistency:</strong> How many weeks did you do the review?</li>
+<li><strong>Action plan adherence:</strong> What % of planned actions were completed?</li>
+<li><strong>Result improvement:</strong> Did metrics improve after implementing review?</li>
+</ul>
+
+<h2>How to Improve</h2>
+<ul>
+<li>Set a fixed time for review (e.g., every Friday 4 PM)</li>
+<li>Use a template so nothing is missed</li>
+<li>Document learnings so you can refer back later</li>
+<li>Share review results with your manager or team</li>
+<li>Create an action plan with concrete steps</li>
+</ul>
+
+<h2>Templates</h2>
+<h3>Weekly Review Template</h3>
+<ul>
+<li>✓ Collect data (10 min)</li>
+<li>✓ Analyze results (15 min)</li>
+<li>✓ What went well? (10 min)</li>
+<li>✓ What needs improvement? (10 min)</li>
+<li>✓ Plan next week (15 min)</li>
+</ul>
+
+<h2>Additional Resources</h2>
+<ul>
+<li><a href="https://www.salesforce.com/resources/articles/sales-review-meeting/">Sales Review Meeting Best Practices</a> - Review meeting tips</li>
+<li><a href="https://blog.hubspot.com/sales/weekly-sales-review">Weekly Sales Review Template</a> - Detailed template</li>
+</ul>`,
+      ru: `<h2>Почему важен еженедельный обзор</h2>
+<p>Еженедельный обзор помогает увидеть, где вы находитесь, что сделали хорошо, и что нужно улучшить. Без него вы просто движетесь вперед вслепую.</p>
+
+<h2>Как делать</h2>
+<h3>1. Сбор данных</h3>
+<ul>
+<li><strong>Статистика Lead:</strong> Сколько новых Lead-ов вы получили?</li>
+<li><strong>Статистика Deal:</strong> Сколько Deal в воронке? На каком этапе?</li>
+<li><strong>Коэффициенты конверсии:</strong> Какой % Lead-ов квалифицирован?</li>
+<li><strong>Win/Loss:</strong> Сколько Deal вы закрыли? Сколько потеряли?</li>
+</ul>
+
+<h3>2. Анализ результатов</h3>
+<table>
+<tr><th>Метрика</th><th>Результат</th><th>Цель</th><th>Статус</th></tr>
+<tr><td>Новые Lead-ы</td><td>X</td><td>Y</td><td>✓/✗</td></tr>
+<tr><td>Квалифицированные Lead-ы</td><td>X</td><td>Y</td><td>✓/✗</td></tr>
+<tr><td>Встречи</td><td>X</td><td>Y</td><td>✓/✗</td></tr>
+<tr><td>Предложения</td><td>X</td><td>Y</td><td>✓/✗</td></tr>
+<tr><td>Закрытия</td><td>X</td><td>Y</td><td>✓/✗</td></tr>
+</table>
+
+<h3>3. Что прошло хорошо?</h3>
+<ul>
+<li>Какая активность принесла больше всего результатов?</li>
+<li>Какой Deal вы закрыли и почему?</li>
+<li>Какой метод outreach сработал лучше всего?</li>
+</ul>
+
+<h3>4. Что нужно улучшить?</h3>
+<ul>
+<li>Где самое большое узкое место в воронке?</li>
+<li>Какие Deal вы потеряли и почему?</li>
+<li>Какая активность заняла время, но не принесла результатов?</li>
+</ul>
+
+<h3>5. Планирование следующей недели</h3>
+<ul>
+<li>Какие конкретные цели вы ставите?</li>
+<li>На каких Deal вы сосредоточитесь?</li>
+<li>Какие новые стратегии вы попробуете?</li>
+</ul>
+
+<h2>Как измерить</h2>
+<ul>
+<li><strong>Последовательность обзора:</strong> Сколько недель вы делали обзор?</li>
+<li><strong>Соблюдение плана действий:</strong> Какой % запланированных действий был выполнен?</li>
+<li><strong>Улучшение результатов:</strong> Улучшились ли метрики после внедрения обзора?</li>
+</ul>
+
+<h2>Как улучшить</h2>
+<ul>
+<li>Установите фиксированное время для обзора (например, каждую пятницу в 16:00)</li>
+<li>Используйте шаблон, чтобы ничего не пропустить</li>
+<li>Документируйте уроки, чтобы можно было вернуться позже</li>
+<li>Делитесь результатами обзора с менеджером или командой</li>
+<li>Создайте план действий с конкретными шагами</li>
+</ul>
+
+<h2>Шаблоны</h2>
+<h3>Шаблон еженедельного обзора</h3>
+<ul>
+<li>✓ Сбор данных (10 мин)</li>
+<li>✓ Анализ результатов (15 мин)</li>
+<li>✓ Что прошло хорошо? (10 мин)</li>
+<li>✓ Что нужно улучшить? (10 мин)</li>
+<li>✓ Планирование следующей недели (15 мин)</li>
+</ul>
+
+<h2>Доп. материалы</h2>
+<ul>
+<li><a href="https://www.salesforce.com/resources/articles/sales-review-meeting/">Sales Review Meeting Best Practices</a> - Советы по обзорным встречам</li>
+<li><a href="https://blog.hubspot.com/sales/weekly-sales-review">Weekly Sales Review Template</a> - Подробный шаблон</li>
+</ul>`,
+    },
+    emailSubject: {
+      hu: 'Nap 20: Heti review folyamat',
+      en: 'Day 20: Weekly Review Process',
+      ru: 'День 20: Процесс еженедельного обзора',
+    },
+    emailBody: {
+      hu: 'Ma megtanulod, hogyan végezz heti review-t, hogy lássad a haladást és javítsd az eredményeket.',
+      en: 'Today you\'ll learn how to do weekly reviews to see progress and improve results.',
+      ru: 'Сегодня вы узнаете, как проводить еженедельные обзоры, чтобы видеть прогресс и улучшать результаты.',
+    },
+    quiz: [
+      {
+        q: {
+          hu: 'Melyik nap a legjobb a heti review-ra?',
+          en: 'Which day is best for weekly review?',
+          ru: 'Какой день лучше всего для еженедельного обзора?',
+        },
+        options: {
+          hu: ['Hétfő', 'Szerda', 'Péntek', 'Vasárnap'],
+          en: ['Monday', 'Wednesday', 'Friday', 'Sunday'],
+          ru: ['Понедельник', 'Среда', 'Пятница', 'Воскресенье'],
+        },
+        correct: 2,
+      },
+      {
+        q: {
+          hu: 'Mi az első lépés a review-ban?',
+          en: 'What is the first step in review?',
+          ru: 'Какой первый шаг в обзоре?',
+        },
+        options: {
+          hu: ['Eredmények elemzése', 'Adatok összegyűjtése', 'Következő hét tervezése', 'Meeting'],
+          en: ['Analyze results', 'Collect data', 'Plan next week', 'Meeting'],
+          ru: ['Анализ результатов', 'Сбор данных', 'Планирование следующей недели', 'Встреча'],
+        },
+        correct: 1,
+      },
+      {
+        q: {
+          hu: 'Mit kell elemezni a review-ban?',
+          en: 'What should you analyze in review?',
+          ru: 'Что нужно анализировать в обзоре?',
+        },
+        options: {
+          hu: ['Csak a Win-eket', 'Csak a Loss-okat', 'Lead, Deal, Konverzió, Win/Loss', 'Csak az email-eket'],
+          en: ['Only Wins', 'Only Losses', 'Lead, Deal, Conversion, Win/Loss', 'Only emails'],
+          ru: ['Только Win', 'Только Loss', 'Lead, Deal, Конверсия, Win/Loss', 'Только email'],
+        },
+        correct: 2,
+      },
+      {
+        q: {
+          hu: 'Miért fontos dokumentálni a tanulságokat?',
+          en: 'Why is it important to document learnings?',
+          ru: 'Почему важно документировать уроки?',
+        },
+        options: {
+          hu: ['Nincs jelentősége', 'Hogy később vissza tudj rá nézni', 'Csak a vezetőnek', 'Nincs ok'],
+          en: ['No significance', 'To refer back later', 'Only for manager', 'No reason'],
+          ru: ['Нет значения', 'Чтобы вернуться позже', 'Только для менеджера', 'Нет причины'],
+        },
+        correct: 1,
+      },
+      {
+        q: {
+          hu: 'Mennyi időt kell szánni a review-ra?',
+          en: 'How much time should you allocate for review?',
+          ru: 'Сколько времени нужно выделять на обзор?',
+        },
+        options: {
+          hu: ['5 perc', '30 perc', '60 perc', '2 óra'],
+          en: ['5 min', '30 min', '60 min', '2 hours'],
+          ru: ['5 мин', '30 мин', '60 мин', '2 часа'],
+        },
+        correct: 2,
+      },
+    ],
+  },
+  {
+    day: 21,
+    title: {
+      hu: 'Fejlett tölcsér optimalizálás',
+      en: 'Advanced Funnel Optimization',
+      ru: 'Продвинутая оптимизация воронки',
+    },
+    content: {
+      hu: `<h2>Miért fontos a tölcsér optimalizálás?</h2>
+<p>Egy optimalizált tölcsér több Deal-et hoz ugyanazzal az erőfeszítéssel. A fejlett optimalizálás a szűk keresztmetszetek megtalálását és javítását jelenti.</p>
+
+<h2>Hogyan optimalizáld?</h2>
+<h3>1. Szűk keresztmetszetek azonosítása</h3>
+<ul>
+<li><strong>Konverzió arányok:</strong> Melyik szinten van a legnagyobb csökkenés?</li>
+<li><strong>Idő a tölcsérben:</strong> Hol ragadnak meg a Deal-ek?</li>
+<li><strong>Loss okok:</strong> Miért veszítesz el Deal-eket?</li>
+</ul>
+
+<h3>2. A/B tesztelés</h3>
+<table>
+<tr><th>Eszköz</th><th>Mit tesztelj?</th><th>Mérték</th></tr>
+<tr><td>Email tárgy</td><td>Különböző tárgyak</td><td>Open rate</td></tr>
+<tr><td>Outreach üzenet</td><td>Különböző üzenetek</td><td>Válasz arány</td></tr>
+<tr><td>Ajánlat formátum</td><td>Rövid vs hosszú</td><td>Elfogadás arány</td></tr>
+<tr><td>Follow-up időzítés</td><td>1 nap vs 3 nap</td><td>Válasz arány</td></tr>
+</table>
+
+<h3>3. Automatizálás bevezetése</h3>
+<ul>
+<li><strong>Email szekvenciák:</strong> Automatikus follow-up sorozatok</li>
+<li><strong>Deal frissítések:</strong> Automatikus státusz változások</li>
+<li><strong>Emlékeztetők:</strong> Automatikus feladatok kritikus pontokon</li>
+</ul>
+
+<h3>4. Adatvezérelt döntések</h3>
+<ul>
+<li>Kövesd a metrikákat hetente, ne csak havonta</li>
+<li>Használj dashboard-ot a valós idejű látásért</li>
+<li>Végezz mélyebb elemzéseket negyedévente</li>
+</ul>
+
+<h2>Hogyan mérjük?</h2>
+<ul>
+<li><strong>Konverzió arányok:</strong> Milyen %-a a Lead-eknek halad a következő szintre?</li>
+<li><strong>Idő a tölcsérben:</strong> Mennyi idő alatt zárul le egy Deal átlagosan?</li>
+<li><strong>Win rate:</strong> Milyen %-a a Deal-eknek zárul le sikeresen?</li>
+</ul>
+
+<h2>Hogyan javítsunk?</h2>
+<ul>
+<li>Fókuszálj egy szintre egyszerre - ne próbálj mindent javítani</li>
+<li>Végezz kisebb változtatásokat és mérj eredményeket</li>
+<li>Dokumentáld a változtatásokat, hogy lássad mi működik</li>
+<li>Oszd meg a tanulságokat a csapattal</li>
+<li>Légy türelmes - az optimalizálás időbe telik</li>
+</ul>
+
+<h2>Sablonok</h2>
+<h3>Tölcsér optimalizálás checklist</h3>
+<ul>
+<li>✓ Szűk keresztmetszetek azonosítása</li>
+<li>✓ Adatok összegyűjtése (minimum 30 nap)</li>
+<li>✓ Hipotézis kialakítása</li>
+<li>✓ A/B teszt tervezése</li>
+<li>✓ Teszt futtatása (minimum 2 hét)</li>
+<li>✓ Eredmények elemzése</li>
+<li>✓ Változtatások implementálása</li>
+</ul>
+
+<h2>További anyagok</h2>
+<ul>
+<li><a href="https://blog.hubspot.com/sales/sales-funnel-optimization">Sales Funnel Optimization Guide</a> - Részletes útmutató</li>
+<li><a href="https://www.salesforce.com/resources/articles/sales-funnel-analysis/">Sales Funnel Analysis</a> - Elemzési módszerek</li>
+</ul>`,
+      en: `<h2>Why Funnel Optimization Matters</h2>
+<p>An optimized funnel brings more Deals with the same effort. Advanced optimization means finding and fixing bottlenecks.</p>
+
+<h2>How to Optimize</h2>
+<h3>1. Identify Bottlenecks</h3>
+<ul>
+<li><strong>Conversion rates:</strong> At which stage is the biggest drop?</li>
+<li><strong>Time in funnel:</strong> Where do Deals get stuck?</li>
+<li><strong>Loss reasons:</strong> Why are you losing Deals?</li>
+</ul>
+
+<h3>2. A/B Testing</h3>
+<table>
+<tr><th>Element</th><th>What to Test?</th><th>Metric</th></tr>
+<tr><td>Email subject</td><td>Different subjects</td><td>Open rate</td></tr>
+<tr><td>Outreach message</td><td>Different messages</td><td>Response rate</td></tr>
+<tr><td>Proposal format</td><td>Short vs long</td><td>Acceptance rate</td></tr>
+<tr><td>Follow-up timing</td><td>1 day vs 3 days</td><td>Response rate</td></tr>
+</table>
+
+<h3>3. Implement Automation</h3>
+<ul>
+<li><strong>Email sequences:</strong> Automatic follow-up series</li>
+<li><strong>Deal updates:</strong> Automatic status changes</li>
+<li><strong>Reminders:</strong> Automatic tasks at critical points</li>
+</ul>
+
+<h3>4. Data-Driven Decisions</h3>
+<ul>
+<li>Track metrics weekly, not just monthly</li>
+<li>Use dashboard for real-time visibility</li>
+<li>Do deeper analysis quarterly</li>
+</ul>
+
+<h2>How to Measure</h2>
+<ul>
+<li><strong>Conversion rates:</strong> What % of Leads move to next stage?</li>
+<li><strong>Time in funnel:</strong> How long does it take to Close a Deal on average?</li>
+<li><strong>Win rate:</strong> What % of Deals Close successfully?</li>
+</ul>
+
+<h2>How to Improve</h2>
+<ul>
+<li>Focus on one stage at a time - don't try to fix everything</li>
+<li>Make small changes and measure results</li>
+<li>Document changes to see what works</li>
+<li>Share learnings with team</li>
+<li>Be patient - optimization takes time</li>
+</ul>
+
+<h2>Templates</h2>
+<h3>Funnel Optimization Checklist</h3>
+<ul>
+<li>✓ Identify bottlenecks</li>
+<li>✓ Collect data (minimum 30 days)</li>
+<li>✓ Form hypothesis</li>
+<li>✓ Design A/B test</li>
+<li>✓ Run test (minimum 2 weeks)</li>
+<li>✓ Analyze results</li>
+<li>✓ Implement changes</li>
+</ul>
+
+<h2>Additional Resources</h2>
+<ul>
+<li><a href="https://blog.hubspot.com/sales/sales-funnel-optimization">Sales Funnel Optimization Guide</a> - Detailed guide</li>
+<li><a href="https://www.salesforce.com/resources/articles/sales-funnel-analysis/">Sales Funnel Analysis</a> - Analysis methods</li>
+</ul>`,
+      ru: `<h2>Почему важна оптимизация воронки</h2>
+<p>Оптимизированная воронка приносит больше Deal при тех же усилиях. Продвинутая оптимизация означает поиск и исправление узких мест.</p>
+
+<h2>Как оптимизировать</h2>
+<h3>1. Идентификация узких мест</h3>
+<ul>
+<li><strong>Коэффициенты конверсии:</strong> На каком этапе самое большое падение?</li>
+<li><strong>Время в воронке:</strong> Где застревают Deal?</li>
+<li><strong>Причины потерь:</strong> Почему вы теряете Deal?</li>
+</ul>
+
+<h3>2. A/B тестирование</h3>
+<table>
+<tr><th>Элемент</th><th>Что тестировать?</th><th>Метрика</th></tr>
+<tr><td>Тема email</td><td>Разные темы</td><td>Open rate</td></tr>
+<tr><td>Outreach сообщение</td><td>Разные сообщения</td><td>Коэффициент ответа</td></tr>
+<tr><td>Формат предложения</td><td>Короткое vs длинное</td><td>Коэффициент принятия</td></tr>
+<tr><td>Время follow-up</td><td>1 день vs 3 дня</td><td>Коэффициент ответа</td></tr>
+</table>
+
+<h3>3. Внедрение автоматизации</h3>
+<ul>
+<li><strong>Email-последовательности:</strong> Автоматические серии follow-up</li>
+<li><strong>Обновления Deal:</strong> Автоматические изменения статуса</li>
+<li><strong>Напоминания:</strong> Автоматические задачи в критических точках</li>
+</ul>
+
+<h3>4. Решения на основе данных</h3>
+<ul>
+<li>Отслеживайте метрики еженедельно, а не только ежемесячно</li>
+<li>Используйте dashboard для видимости в реальном времени</li>
+<li>Проводите более глубокий анализ ежеквартально</li>
+</ul>
+
+<h2>Как измерить</h2>
+<ul>
+<li><strong>Коэффициенты конверсии:</strong> Какой % Lead-ов переходит на следующий этап?</li>
+<li><strong>Время в воронке:</strong> Сколько времени в среднем занимает закрытие Deal?</li>
+<li><strong>Win rate:</strong> Какой % Deal закрывается успешно?</li>
+</ul>
+
+<h2>Как улучшить</h2>
+<ul>
+<li>Фокусируйтесь на одном этапе за раз - не пытайтесь исправить все</li>
+<li>Делайте небольшие изменения и измеряйте результаты</li>
+<li>Документируйте изменения, чтобы видеть, что работает</li>
+<li>Делитесь уроками с командой</li>
+<li>Будьте терпеливы - оптимизация требует времени</li>
+</ul>
+
+<h2>Шаблоны</h2>
+<h3>Чеклист оптимизации воронки</h3>
+<ul>
+<li>✓ Идентификация узких мест</li>
+<li>✓ Сбор данных (минимум 30 дней)</li>
+<li>✓ Формирование гипотезы</li>
+<li>✓ Разработка A/B теста</li>
+<li>✓ Запуск теста (минимум 2 недели)</li>
+<li>✓ Анализ результатов</li>
+<li>✓ Внедрение изменений</li>
+</ul>
+
+<h2>Доп. материалы</h2>
+<ul>
+<li><a href="https://blog.hubspot.com/sales/sales-funnel-optimization">Sales Funnel Optimization Guide</a> - Подробное руководство</li>
+<li><a href="https://www.salesforce.com/resources/articles/sales-funnel-analysis/">Sales Funnel Analysis</a> - Методы анализа</li>
+</ul>`,
+    },
+    emailSubject: {
+      hu: 'Nap 21: Fejlett tölcsér optimalizálás',
+      en: 'Day 21: Advanced Funnel Optimization',
+      ru: 'День 21: Продвинутая оптимизация воронки',
+    },
+    emailBody: {
+      hu: 'Ma megtanulod, hogyan optimalizáld a tölcsért fejlett módszerekkel, hogy több Deal-et hozz ugyanazzal az erőfeszítéssel.',
+      en: 'Today you\'ll learn how to optimize your funnel with advanced methods to bring more Deals with the same effort.',
+      ru: 'Сегодня вы узнаете, как оптимизировать воронку продвинутыми методами, чтобы приносить больше Deal при тех же усилиях.',
+    },
+    quiz: [
+      {
+        q: {
+          hu: 'Mi a tölcsér optimalizálás fő célja?',
+          en: 'What is the main goal of funnel optimization?',
+          ru: 'Какова главная цель оптимизации воронки?',
+        },
+        options: {
+          hu: ['Több Lead', 'Több Deal ugyanazzal az erőfeszítéssel', 'Kevesebb munka', 'Nagyobb ajánlatok'],
+          en: ['More Leads', 'More Deals with same effort', 'Less work', 'Bigger proposals'],
+          ru: ['Больше Lead-ов', 'Больше Deal при тех же усилиях', 'Меньше работы', 'Большие предложения'],
+        },
+        correct: 1,
+      },
+      {
+        q: {
+          hu: 'Mit kell tesztelni A/B teszttel?',
+          en: 'What should you test with A/B testing?',
+          ru: 'Что нужно тестировать с помощью A/B тестирования?',
+        },
+        options: {
+          hu: ['Csak az email tárgyakat', 'Email tárgy, üzenet, ajánlat formátum, follow-up időzítés', 'Csak a meeting-eket', 'Semmit'],
+          en: ['Only email subjects', 'Email subject, message, proposal format, follow-up timing', 'Only meetings', 'Nothing'],
+          ru: ['Только темы email', 'Тема email, сообщение, формат предложения, время follow-up', 'Только встречи', 'Ничего'],
+        },
+        correct: 1,
+      },
+      {
+        q: {
+          hu: 'Mennyi adatot kell gyűjteni az optimalizáláshoz?',
+          en: 'How much data should you collect for optimization?',
+          ru: 'Сколько данных нужно собирать для оптимизации?',
+        },
+        options: {
+          hu: ['7 nap', '14 nap', '30 nap minimum', '1 nap'],
+          en: ['7 days', '14 days', '30 days minimum', '1 day'],
+          ru: ['7 дней', '14 дней', 'Минимум 30 дней', '1 день'],
+        },
+        correct: 2,
+      },
+      {
+        q: {
+          hu: 'Hány hétig kell futtatni egy A/B tesztet?',
+          en: 'How long should you run an A/B test?',
+          ru: 'Как долго нужно запускать A/B тест?',
+        },
+        options: {
+          hu: ['1 hét', '2 hét minimum', '1 nap', '1 hónap'],
+          en: ['1 week', '2 weeks minimum', '1 day', '1 month'],
+          ru: ['1 неделя', 'Минимум 2 недели', '1 день', '1 месяц'],
+        },
+        correct: 1,
+      },
+      {
+        q: {
+          hu: 'Hány szinten kell fókuszálni egyszerre?',
+          en: 'How many stages should you focus on at once?',
+          ru: 'На скольких этапах нужно фокусироваться одновременно?',
+        },
+        options: {
+          hu: ['Mindegyiken', '2-3', 'Egyenként', 'Semelyiken'],
+          en: ['All of them', '2-3', 'One at a time', 'None'],
+          ru: ['На всех', '2-3', 'По одному', 'Ни на одном'],
+        },
+        correct: 2,
+      },
+    ],
+  },
+  {
+    day: 22,
+    title: {
+      hu: 'Komplex minősítési helyzetek',
+      en: 'Complex Qualification Scenarios',
+      ru: 'Сложные сценарии квалификации',
+    },
+    content: {
+      hu: `<h2>Miért fontos a komplex minősítés?</h2>
+<p>Nem minden Lead egyforma. Komplex helyzetekben (pl. több döntéshozó, hosszú ciklus) a minősítés kritikus a sikerhez.</p>
+
+<h2>Hogyan kezeld?</h2>
+<h3>1. Több döntéshozó (DMU)</h3>
+<ul>
+<li><strong>DMU azonosítás:</strong> Kik vesznek részt a döntésben?</li>
+<li><strong>Szerepkörök:</strong> Ki a Champion, Economic Buyer, User, Influencer?</li>
+<li><strong>Kapcsolat építés:</strong> Építs kapcsolatot mindegyikkel</li>
+<li><strong>Közös cél:</strong> Találd meg a közös érdeket</li>
+</ul>
+
+<h3>2. Hosszú értékesítési ciklus</h3>
+<table>
+<tr><th>Időszak</th><th>Teendő</th><th>Cél</th></tr>
+<tr><td>1-3 hónap</td><td>Kapcsolat építés, igény azonosítás</td><td>Champion kialakítása</td></tr>
+<tr><td>3-6 hónap</td><td>Demo, ROI számítás, ajánlat</td><td>Döntés előkészítése</td></tr>
+<tr><td>6+ hónap</td><td>Follow-up, érték bizonyítása</td><td>Lezárás</td></tr>
+</table>
+
+<h3>3. Bizonytalan budget</h3>
+<ul>
+<li><strong>Igény azonosítás:</strong> Van-e valódi igény?</li>
+<li><strong>ROI számítás:</strong> Mutasd be a megtérülést</li>
+<li><strong>Alternatívák:</strong> Ajánlj részletes vagy fázisos megoldást</li>
+<li><strong>Urgálás:</strong> Hozz létre sürgősséget (pl. korlátozott ajánlat)</li>
+</ul>
+
+<h2>Hogyan mérjük?</h2>
+<ul>
+<li><strong>DMU lefedettség:</strong> Hány %-a a döntéshozóknak van kapcsolatban veled?</li>
+<li><strong>Ciklus hossz:</strong> Mennyi idő alatt zárul le egy Deal átlagosan?</li>
+<li><strong>Win rate komplex Deal-ekben:</strong> Milyen %-a a komplex Deal-eknek zárul le?</li>
+</ul>
+
+<h2>Hogyan javítsunk?</h2>
+<ul>
+<li>Készíts DMU térképet minden komplex Deal-hez</li>
+<li>Használj MEDDIC framework-ot a minősítéshez</li>
+<li>Dokumentáld a kapcsolatokat és beszélgetéseket</li>
+<li>Kövesd a Champion-t, de ne felejtsd el a többieket</li>
+<li>Légy türelmes, de proaktív</li>
+</ul>
+
+<h2>Sablonok</h2>
+<h3>DMU térkép sablon</h3>
+<ul>
+<li>✓ Economic Buyer: [név, szerepkör, kapcsolat szint]</li>
+<li>✓ Champion: [név, szerepkör, kapcsolat szint]</li>
+<li>✓ User: [név, szerepkör, kapcsolat szint]</li>
+<li>✓ Influencer: [név, szerepkör, kapcsolat szint]</li>
+<li>✓ Gatekeeper: [név, szerepkör, kapcsolat szint]</li>
+</ul>
+
+<h2>További anyagok</h2>
+<ul>
+<li><a href="https://www.meddic.org/">MEDDIC Framework</a> - Minősítési framework</li>
+<li><a href="https://blog.hubspot.com/sales/decision-making-unit">Understanding DMU</a> - Döntéshozó egység</li>
+</ul>`,
+      en: `<h2>Why Complex Qualification Matters</h2>
+<p>Not every Lead is the same. In complex situations (e.g., multiple decision makers, long cycle), qualification is critical for success.</p>
+
+<h2>How to Handle</h2>
+<h3>1. Multiple Decision Makers (DMU)</h3>
+<ul>
+<li><strong>DMU identification:</strong> Who is involved in the decision?</li>
+<li><strong>Roles:</strong> Who is the Champion, Economic Buyer, User, Influencer?</li>
+<li><strong>Relationship building:</strong> Build relationship with all of them</li>
+<li><strong>Common goal:</strong> Find the common interest</li>
+</ul>
+
+<h3>2. Long Sales Cycle</h3>
+<table>
+<tr><th>Period</th><th>Activity</th><th>Goal</th></tr>
+<tr><td>1-3 months</td><td>Relationship building, need identification</td><td>Develop Champion</td></tr>
+<tr><td>3-6 months</td><td>Demo, ROI calculation, proposal</td><td>Prepare decision</td></tr>
+<tr><td>6+ months</td><td>Follow-up, value proof</td><td>Close</td></tr>
+</table>
+
+<h3>3. Uncertain Budget</h3>
+<ul>
+<li><strong>Need identification:</strong> Is there a real need?</li>
+<li><strong>ROI calculation:</strong> Show the return on investment</li>
+<li><strong>Alternatives:</strong> Offer phased or modular solution</li>
+<li><strong>Urgency:</strong> Create urgency (e.g., limited offer)</li>
+</ul>
+
+<h2>How to Measure</h2>
+<ul>
+<li><strong>DMU coverage:</strong> What % of decision makers are you in contact with?</li>
+<li><strong>Cycle length:</strong> How long does it take to Close a Deal on average?</li>
+<li><strong>Win rate in complex Deals:</strong> What % of complex Deals Close?</li>
+</ul>
+
+<h2>How to Improve</h2>
+<ul>
+<li>Create DMU map for every complex Deal</li>
+<li>Use MEDDIC framework for qualification</li>
+<li>Document relationships and conversations</li>
+<li>Follow the Champion, but don't forget others</li>
+<li>Be patient but proactive</li>
+</ul>
+
+<h2>Templates</h2>
+<h3>DMU Map Template</h3>
+<ul>
+<li>✓ Economic Buyer: [name, role, relationship level]</li>
+<li>✓ Champion: [name, role, relationship level]</li>
+<li>✓ User: [name, role, relationship level]</li>
+<li>✓ Influencer: [name, role, relationship level]</li>
+<li>✓ Gatekeeper: [name, role, relationship level]</li>
+</ul>
+
+<h2>Additional Resources</h2>
+<ul>
+<li><a href="https://www.meddic.org/">MEDDIC Framework</a> - Qualification framework</li>
+<li><a href="https://blog.hubspot.com/sales/decision-making-unit">Understanding DMU</a> - Decision making unit</li>
+</ul>`,
+      ru: `<h2>Почему важна сложная квалификация</h2>
+<p>Не каждый Lead одинаков. В сложных ситуациях (например, несколько лиц, принимающих решения, длинный цикл) квалификация критична для успеха.</p>
+
+<h2>Как обрабатывать</h2>
+<h3>1. Несколько лиц, принимающих решения (DMU)</h3>
+<ul>
+<li><strong>Идентификация DMU:</strong> Кто участвует в решении?</li>
+<li><strong>Роли:</strong> Кто является Champion, Economic Buyer, User, Influencer?</li>
+<li><strong>Построение отношений:</strong> Стройте отношения со всеми</li>
+<li><strong>Общая цель:</strong> Найдите общий интерес</li>
+</ul>
+
+<h3>2. Длинный цикл продаж</h3>
+<table>
+<tr><th>Период</th><th>Активность</th><th>Цель</th></tr>
+<tr><td>1-3 месяца</td><td>Построение отношений, выявление потребности</td><td>Развить Champion</td></tr>
+<tr><td>3-6 месяцев</td><td>Демо, расчет ROI, предложение</td><td>Подготовить решение</td></tr>
+<tr><td>6+ месяцев</td><td>Follow-up, доказательство ценности</td><td>Закрыть</td></tr>
+</table>
+
+<h3>3. Неопределенный бюджет</h3>
+<ul>
+<li><strong>Выявление потребности:</strong> Есть ли реальная потребность?</li>
+<li><strong>Расчет ROI:</strong> Покажите возврат инвестиций</li>
+<li><strong>Альтернативы:</strong> Предложите поэтапное или модульное решение</li>
+<li><strong>Срочность:</strong> Создайте срочность (например, ограниченное предложение)</li>
+</ul>
+
+<h2>Как измерить</h2>
+<ul>
+<li><strong>Покрытие DMU:</strong> С каким % лиц, принимающих решения, вы на связи?</li>
+<li><strong>Длина цикла:</strong> Сколько времени в среднем занимает закрытие Deal?</li>
+<li><strong>Win rate в сложных Deal:</strong> Какой % сложных Deal закрывается?</li>
+</ul>
+
+<h2>Как улучшить</h2>
+<ul>
+<li>Создайте карту DMU для каждого сложного Deal</li>
+<li>Используйте framework MEDDIC для квалификации</li>
+<li>Документируйте отношения и разговоры</li>
+<li>Следуйте за Champion, но не забывайте остальных</li>
+<li>Будьте терпеливы, но проактивны</li>
+</ul>
+
+<h2>Шаблоны</h2>
+<h3>Шаблон карты DMU</h3>
+<ul>
+<li>✓ Economic Buyer: [имя, роль, уровень отношений]</li>
+<li>✓ Champion: [имя, роль, уровень отношений]</li>
+<li>✓ User: [имя, роль, уровень отношений]</li>
+<li>✓ Influencer: [имя, роль, уровень отношений]</li>
+<li>✓ Gatekeeper: [имя, роль, уровень отношений]</li>
+</ul>
+
+<h2>Доп. материалы</h2>
+<ul>
+<li><a href="https://www.meddic.org/">MEDDIC Framework</a> - Framework квалификации</li>
+<li><a href="https://blog.hubspot.com/sales/decision-making-unit">Understanding DMU</a> - Единица принятия решений</li>
+</ul>`,
+    },
+    emailSubject: {
+      hu: 'Nap 22: Komplex minősítési helyzetek',
+      en: 'Day 22: Complex Qualification Scenarios',
+      ru: 'День 22: Сложные сценарии квалификации',
+    },
+    emailBody: {
+      hu: 'Ma megtanulod, hogyan kezeld a komplex minősítési helyzeteket, amikor több döntéshozó van vagy hosszú a ciklus.',
+      en: 'Today you\'ll learn how to handle complex qualification scenarios when there are multiple decision makers or long cycles.',
+      ru: 'Сегодня вы узнаете, как обрабатывать сложные сценарии квалификации, когда есть несколько лиц, принимающих решения, или длинные циклы.',
+    },
+    quiz: [
+      {
+        q: {
+          hu: 'Mi a DMU?',
+          en: 'What is DMU?',
+          ru: 'Что такое DMU?',
+        },
+        options: {
+          hu: ['Deal Management Unit', 'Decision Making Unit', 'Daily Meeting Update', 'Deal Marketing Unit'],
+          en: ['Deal Management Unit', 'Decision Making Unit', 'Daily Meeting Update', 'Deal Marketing Unit'],
+          ru: ['Единица управления Deal', 'Единица принятия решений', 'Ежедневное обновление встреч', 'Единица маркетинга Deal'],
+        },
+        correct: 1,
+      },
+      {
+        q: {
+          hu: 'Ki a Champion a DMU-ban?',
+          en: 'Who is the Champion in DMU?',
+          ru: 'Кто является Champion в DMU?',
+        },
+        options: {
+          hu: ['Aki fizet', 'Aki támogatja a megoldást', 'Aki használja', 'Aki blokkol'],
+          en: ['Who pays', 'Who supports the solution', 'Who uses it', 'Who blocks'],
+          ru: ['Кто платит', 'Кто поддерживает решение', 'Кто использует', 'Кто блокирует'],
+        },
+        correct: 1,
+      },
+      {
+        q: {
+          hu: 'Mennyi ideig tart egy hosszú értékesítési ciklus?',
+          en: 'How long does a long sales cycle take?',
+          ru: 'Сколько длится длинный цикл продаж?',
+        },
+        options: {
+          hu: ['1-2 hónap', '3-6 hónap', '6+ hónap', '1 hét'],
+          en: ['1-2 months', '3-6 months', '6+ months', '1 week'],
+          ru: ['1-2 месяца', '3-6 месяцев', '6+ месяцев', '1 неделя'],
+        },
+        correct: 2,
+      },
+      {
+        q: {
+          hu: 'Melyik framework használható komplex minősítéshez?',
+          en: 'Which framework can be used for complex qualification?',
+          ru: 'Какой framework можно использовать для сложной квалификации?',
+        },
+        options: {
+          hu: ['BANT', 'MEDDIC', 'SMART', 'Mindkettő (BANT és MEDDIC)'],
+          en: ['BANT', 'MEDDIC', 'SMART', 'Both (BANT and MEDDIC)'],
+          ru: ['BANT', 'MEDDIC', 'SMART', 'Оба (BANT и MEDDIC)'],
+        },
+        correct: 3,
+      },
+      {
+        q: {
+          hu: 'Mit kell csinálni bizonytalan budget esetén?',
+          en: 'What should you do with uncertain budget?',
+          ru: 'Что нужно делать при неопределенном бюджете?',
+        },
+        options: {
+          hu: ['Lemondani', 'ROI számítás, alternatívák, urgálás', 'Csak várni', 'Nincs megoldás'],
+          en: ['Give up', 'ROI calculation, alternatives, urgency', 'Just wait', 'No solution'],
+          ru: ['Сдаться', 'Расчет ROI, альтернативы, срочность', 'Просто ждать', 'Нет решения'],
+        },
+        correct: 1,
+      },
+    ],
+  },
+  {
+    day: 23,
+    title: {
+      hu: 'Prémium árazási stratégiák',
+      en: 'Premium Pricing Strategies',
+      ru: 'Стратегии премиального ценообразования',
+    },
+    content: {
+      hu: `<h2>Miért fontos a prémium árazás?</h2>
+<p>A prémium árazás nem csak a magasabb ár, hanem az érték kommunikálása. Segít elkerülni a kedvezményeket és növelni a profitot.</p>
+
+<h2>Hogyan alkalmazd?</h2>
+<h3>1. Értékalapú árazás</h3>
+<ul>
+<li><strong>ROI számítás:</strong> Mennyit takarít meg a vevő?</li>
+<li><strong>Érték demonstrálása:</strong> Mutasd be a megtérülést</li>
+<li><strong>Prémium pozicionálás:</strong> Pozícionáld magad a prémium szegmensben</li>
+</ul>
+
+<h3>2. Csomagolás és bundling</h3>
+<table>
+<tr><th>Csomag</th><th>Tartalom</th><th>Ár</th></tr>
+<tr><td>Alap</td><td>Termék</td><td>X</td></tr>
+<tr><td>Prémium</td><td>Termék + Training + Support</td><td>X + 30%</td></tr>
+<tr><td>Enterprise</td><td>Minden + Dedikált account manager</td><td>X + 60%</td></tr>
+</table>
+
+<h3>3. Anchoring technika</h3>
+<ul>
+<li><strong>Magasabb ár mutatása:</strong> Mutasd először a legdrágább opciót</li>
+<li><strong>Középső választás:</strong> A középső opció tűnik ésszerűnek</li>
+<li><strong>Érték érzet:</strong> A vevő úgy érzi, jól döntött</li>
+</ul>
+
+<h2>Hogyan mérjük?</h2>
+<ul>
+<li><strong>Átlagos Deal érték:</strong> Mennyi az átlagos Deal érték?</li>
+<li><strong>Profit margin:</strong> Milyen a profit margin a prémium árazás után?</li>
+<li><strong>Win rate:</strong> Változott-e a Win rate az árazás változtatása után?</li>
+</ul>
+
+<h2>Hogyan javítsunk?</h2>
+<ul>
+<li>Ne kezdj az árról, hanem az értékről beszélj</li>
+<li>Használj ROI számításokat a bizonyításhoz</li>
+<li>Ajánlj csomagokat, ne csak egyetlen opciót</li>
+<li>Légy magabiztos az árazásban</li>
+<li>Ne ajánlj kedvezményt, hanem értéket</li>
+</ul>
+
+<h2>Sablonok</h2>
+<h3>Prémium árazás checklist</h3>
+<ul>
+<li>✓ ROI számítás elkészítése</li>
+<li>✓ Érték demonstrálása</li>
+<li>✓ Csomagok tervezése</li>
+<li>✓ Anchoring stratégia</li>
+<li>✓ Árazás kommunikálása</li>
+</ul>
+
+<h2>További anyagok</h2>
+<ul>
+<li><a href="https://blog.hubspot.com/sales/value-based-pricing">Value-Based Pricing Guide</a> - Értékalapú árazás</li>
+<li><a href="https://www.salesforce.com/resources/articles/pricing-strategies/">Pricing Strategies</a> - Árazási stratégiák</li>
+</ul>`,
+      en: `<h2>Why Premium Pricing Matters</h2>
+<p>Premium pricing is not just about higher price, but about communicating value. It helps avoid discounts and increase profit.</p>
+
+<h2>How to Apply</h2>
+<h3>1. Value-Based Pricing</h3>
+<ul>
+<li><strong>ROI calculation:</strong> How much does the customer save?</li>
+<li><strong>Value demonstration:</strong> Show the return on investment</li>
+<li><strong>Premium positioning:</strong> Position yourself in premium segment</li>
+</ul>
+
+<h3>2. Packaging and Bundling</h3>
+<table>
+<tr><th>Package</th><th>Content</th><th>Price</th></tr>
+<tr><td>Basic</td><td>Product</td><td>X</td></tr>
+<tr><td>Premium</td><td>Product + Training + Support</td><td>X + 30%</td></tr>
+<tr><td>Enterprise</td><td>Everything + Dedicated account manager</td><td>X + 60%</td></tr>
+</table>
+
+<h3>3. Anchoring Technique</h3>
+<ul>
+<li><strong>Show higher price first:</strong> Show the most expensive option first</li>
+<li><strong>Middle choice:</strong> The middle option seems reasonable</li>
+<li><strong>Value perception:</strong> Customer feels they made a good decision</li>
+</ul>
+
+<h2>How to Measure</h2>
+<ul>
+<li><strong>Average Deal value:</strong> What is the average Deal value?</li>
+<li><strong>Profit margin:</strong> What is the profit margin after premium pricing?</li>
+<li><strong>Win rate:</strong> Did Win rate change after pricing change?</li>
+</ul>
+
+<h2>How to Improve</h2>
+<ul>
+<li>Don't start with price, talk about value first</li>
+<li>Use ROI calculations for proof</li>
+<li>Offer packages, not just single option</li>
+<li>Be confident in pricing</li>
+<li>Don't offer discount, offer value</li>
+</ul>
+
+<h2>Templates</h2>
+<h3>Premium Pricing Checklist</h3>
+<ul>
+<li>✓ Prepare ROI calculation</li>
+<li>✓ Demonstrate value</li>
+<li>✓ Design packages</li>
+<li>✓ Anchoring strategy</li>
+<li>✓ Communicate pricing</li>
+</ul>
+
+<h2>Additional Resources</h2>
+<ul>
+<li><a href="https://blog.hubspot.com/sales/value-based-pricing">Value-Based Pricing Guide</a> - Value-based pricing</li>
+<li><a href="https://www.salesforce.com/resources/articles/pricing-strategies/">Pricing Strategies</a> - Pricing strategies</li>
+</ul>`,
+      ru: `<h2>Почему важно премиальное ценообразование</h2>
+<p>Премиальное ценообразование — это не просто более высокая цена, а коммуникация ценности. Это помогает избежать скидок и увеличить прибыль.</p>
+
+<h2>Как применять</h2>
+<h3>1. Ценообразование на основе ценности</h3>
+<ul>
+<li><strong>Расчет ROI:</strong> Сколько экономит клиент?</li>
+<li><strong>Демонстрация ценности:</strong> Покажите возврат инвестиций</li>
+<li><strong>Премиальное позиционирование:</strong> Позиционируйте себя в премиальном сегменте</li>
+</ul>
+
+<h3>2. Упаковка и бандлинг</h3>
+<table>
+<tr><th>Пакет</th><th>Содержание</th><th>Цена</th></tr>
+<tr><td>Базовый</td><td>Продукт</td><td>X</td></tr>
+<tr><td>Премиум</td><td>Продукт + Обучение + Поддержка</td><td>X + 30%</td></tr>
+<tr><td>Enterprise</td><td>Все + Выделенный account manager</td><td>X + 60%</td></tr>
+</table>
+
+<h3>3. Техника якорения</h3>
+<ul>
+<li><strong>Покажите более высокую цену сначала:</strong> Покажите самый дорогой вариант сначала</li>
+<li><strong>Средний выбор:</strong> Средний вариант кажется разумным</li>
+<li><strong>Восприятие ценности:</strong> Клиент чувствует, что принял хорошее решение</li>
+</ul>
+
+<h2>Как измерить</h2>
+<ul>
+<li><strong>Средняя стоимость Deal:</strong> Какова средняя стоимость Deal?</li>
+<li><strong>Маржа прибыли:</strong> Какова маржа прибыли после премиального ценообразования?</li>
+<li><strong>Win rate:</strong> Изменился ли Win rate после изменения ценообразования?</li>
+</ul>
+
+<h2>Как улучшить</h2>
+<ul>
+<li>Не начинайте с цены, сначала говорите о ценности</li>
+<li>Используйте расчеты ROI для доказательства</li>
+<li>Предлагайте пакеты, а не только один вариант</li>
+<li>Будьте уверены в ценообразовании</li>
+<li>Не предлагайте скидку, предлагайте ценность</li>
+</ul>
+
+<h2>Шаблоны</h2>
+<h3>Чеклист премиального ценообразования</h3>
+<ul>
+<li>✓ Подготовить расчет ROI</li>
+<li>✓ Продемонстрировать ценность</li>
+<li>✓ Разработать пакеты</li>
+<li>✓ Стратегия якорения</li>
+<li>✓ Коммуникация ценообразования</li>
+</ul>
+
+<h2>Доп. материалы</h2>
+<ul>
+<li><a href="https://blog.hubspot.com/sales/value-based-pricing">Value-Based Pricing Guide</a> - Ценообразование на основе ценности</li>
+<li><a href="https://www.salesforce.com/resources/articles/pricing-strategies/">Pricing Strategies</a> - Стратегии ценообразования</li>
+</ul>`,
+    },
+    emailSubject: {
+      hu: 'Nap 23: Prémium árazási stratégiák',
+      en: 'Day 23: Premium Pricing Strategies',
+      ru: 'День 23: Стратегии премиального ценообразования',
+    },
+    emailBody: {
+      hu: 'Ma megtanulod, hogyan alkalmazz prémium árazási stratégiákat, hogy elkerüld a kedvezményeket és növeld a profitot.',
+      en: 'Today you\'ll learn how to apply premium pricing strategies to avoid discounts and increase profit.',
+      ru: 'Сегодня вы узнаете, как применять стратегии премиального ценообразования, чтобы избежать скидок и увеличить прибыль.',
+    },
+    quiz: [
+      {
+        q: {
+          hu: 'Mi a prémium árazás fő célja?',
+          en: 'What is the main goal of premium pricing?',
+          ru: 'Какова главная цель премиального ценообразования?',
+        },
+        options: {
+          hu: ['Magasabb ár', 'Érték kommunikálása, kedvezmények elkerülése', 'Csak profit', 'Nincs cél'],
+          en: ['Higher price', 'Communicate value, avoid discounts', 'Just profit', 'No goal'],
+          ru: ['Более высокая цена', 'Коммуникация ценности, избежание скидок', 'Только прибыль', 'Нет цели'],
+        },
+        correct: 1,
+      },
+      {
+        q: {
+          hu: 'Mit kell mutatni elsőként az árazásnál?',
+          en: 'What should you show first in pricing?',
+          ru: 'Что нужно показывать первым при ценообразовании?',
+        },
+        options: {
+          hu: ['Az árat', 'Az értéket', 'A kedvezményt', 'A terméket'],
+          en: ['The price', 'The value', 'The discount', 'The product'],
+          ru: ['Цену', 'Ценность', 'Скидку', 'Продукт'],
+        },
+        correct: 1,
+      },
+      {
+        q: {
+          hu: 'Mi az anchoring technika?',
+          en: 'What is anchoring technique?',
+          ru: 'Что такое техника якорения?',
+        },
+        options: {
+          hu: ['Magasabb ár mutatása először', 'Alacsonyabb ár mutatása', 'Csak egy ár', 'Nincs technika'],
+          en: ['Show higher price first', 'Show lower price', 'Only one price', 'No technique'],
+          ru: ['Показать более высокую цену сначала', 'Показать более низкую цену', 'Только одна цена', 'Нет техники'],
+        },
+        correct: 0,
+      },
+      {
+        q: {
+          hu: 'Hány csomagot ajánlj?',
+          en: 'How many packages should you offer?',
+          ru: 'Сколько пакетов нужно предлагать?',
+        },
+        options: {
+          hu: ['Egyet', 'Kettőt', 'Hármat (Alap, Prémium, Enterprise)', 'Tíz'],
+          en: ['One', 'Two', 'Three (Basic, Premium, Enterprise)', 'Ten'],
+          ru: ['Один', 'Два', 'Три (Базовый, Премиум, Enterprise)', 'Десять'],
+        },
+        correct: 2,
+      },
+      {
+        q: {
+          hu: 'Mit kell csinálni, ha a vevő kedvezményt kér?',
+          en: 'What should you do when customer asks for discount?',
+          ru: 'Что нужно делать, когда клиент просит скидку?',
+        },
+        options: {
+          hu: ['Adni kedvezményt', 'Értéket ajánlani, nem kedvezményt', 'Elutasítani', 'Várni'],
+          en: ['Give discount', 'Offer value, not discount', 'Refuse', 'Wait'],
+          ru: ['Дать скидку', 'Предложить ценность, а не скидку', 'Отказать', 'Ждать'],
+        },
+        correct: 1,
+      },
+    ],
+  },
+  {
+    day: 24,
+    title: { hu: 'Enterprise értékesítési taktikák', en: 'Enterprise Sales Tactics', ru: 'Тактики корпоративных продаж' },
+    content: {
+      hu: `<h2>Miért fontos az Enterprise értékesítés?</h2><p>Az Enterprise Deal-ek nagyobb értékűek, de hosszabb ciklusúak és komplexebbek. Speciális taktikák kellenek a sikerhez.</p><h2>Hogyan kezeld?</h2><h3>1. Hosszú ciklus kezelése</h3><ul><li><strong>Kapcsolat építés:</strong> Építs erős kapcsolatot a Champion-nel</li><li><strong>Érték demonstrálása:</strong> Mutasd be a ROI-t és a megtérülést</li><li><strong>Türelem:</strong> Enterprise Deal-ek 6-12 hónapig is tarthatnak</li></ul><h3>2. DMU kezelése</h3><ul><li><strong>Minden döntéshozó azonosítása:</strong> Készíts DMU térképet</li><li><strong>Champion kialakítása:</strong> Találd meg és támogasd a Champion-t</li><li><strong>Kapcsolat mindegyikkel:</strong> Építs kapcsolatot minden döntéshozóval</li></ul><h2>Hogyan mérjük?</h2><ul><li><strong>Enterprise Win rate:</strong> Milyen %-a az Enterprise Deal-eknek zárul le?</li><li><strong>Átlagos ciklus hossz:</strong> Mennyi idő alatt zárul le egy Enterprise Deal?</li><li><strong>Átlagos Deal érték:</strong> Mennyi az átlagos Enterprise Deal érték?</li></ul><h2>További anyagok</h2><ul><li><a href="https://blog.hubspot.com/sales/enterprise-sales">Enterprise Sales Guide</a></li></ul>`,
+      en: `<h2>Why Enterprise Sales Matters</h2><p>Enterprise Deals are higher value but longer cycle and more complex. Special tactics are needed for success.</p><h2>How to Handle</h2><h3>1. Long Cycle Management</h3><ul><li><strong>Relationship building:</strong> Build strong relationship with Champion</li><li><strong>Value demonstration:</strong> Show ROI and return</li><li><strong>Patience:</strong> Enterprise Deals can take 6-12 months</li></ul><h3>2. DMU Management</h3><ul><li><strong>Identify all decision makers:</strong> Create DMU map</li><li><strong>Develop Champion:</strong> Find and support the Champion</li><li><strong>Relationship with all:</strong> Build relationship with every decision maker</li></ul><h2>How to Measure</h2><ul><li><strong>Enterprise Win rate:</strong> What % of Enterprise Deals Close?</li><li><strong>Average cycle length:</strong> How long does it take to Close an Enterprise Deal?</li><li><strong>Average Deal value:</strong> What is the average Enterprise Deal value?</li></ul><h2>Additional Resources</h2><ul><li><a href="https://blog.hubspot.com/sales/enterprise-sales">Enterprise Sales Guide</a></li></ul>`,
+      ru: `<h2>Почему важны корпоративные продажи</h2><p>Enterprise Deal более ценны, но имеют более длинный цикл и более сложны. Для успеха нужны специальные тактики.</p><h2>Как обрабатывать</h2><h3>1. Управление длинным циклом</h3><ul><li><strong>Построение отношений:</strong> Стройте сильные отношения с Champion</li><li><strong>Демонстрация ценности:</strong> Покажите ROI и возврат</li><li><strong>Терпение:</strong> Enterprise Deal могут занимать 6-12 месяцев</li></ul><h3>2. Управление DMU</h3><ul><li><strong>Идентификация всех лиц:</strong> Создайте карту DMU</li><li><strong>Развитие Champion:</strong> Найдите и поддержите Champion</li><li><strong>Отношения со всеми:</strong> Стройте отношения с каждым лицом</li></ul><h2>Как измерить</h2><ul><li><strong>Win rate Enterprise:</strong> Какой % Enterprise Deal закрывается?</li><li><strong>Средняя длина цикла:</strong> Сколько времени занимает закрытие Enterprise Deal?</li><li><strong>Средняя стоимость Deal:</strong> Какова средняя стоимость Enterprise Deal?</li></ul><h2>Доп. материалы</h2><ul><li><a href="https://blog.hubspot.com/sales/enterprise-sales">Enterprise Sales Guide</a></li></ul>`,
+    },
+    emailSubject: { hu: 'Nap 24: Enterprise értékesítési taktikák', en: 'Day 24: Enterprise Sales Tactics', ru: 'День 24: Тактики корпоративных продаж' },
+    emailBody: { hu: 'Ma megtanulod az Enterprise értékesítési taktikákat nagy értékű Deal-ekhez.', en: 'Today you\'ll learn Enterprise sales tactics for high-value Deals.', ru: 'Сегодня вы узнаете тактики корпоративных продаж для высокоценных Deal.' },
+    quiz: [
+      { q: { hu: 'Mennyi ideig tarthat egy Enterprise Deal?', en: 'How long can an Enterprise Deal take?', ru: 'Сколько может длиться Enterprise Deal?' }, options: { hu: ['1 hónap', '3 hónap', '6-12 hónap', '1 hét'], en: ['1 month', '3 months', '6-12 months', '1 week'], ru: ['1 месяц', '3 месяца', '6-12 месяцев', '1 неделя'] }, correct: 2 },
+      { q: { hu: 'Ki a legfontosabb az Enterprise Deal-ben?', en: 'Who is most important in Enterprise Deal?', ru: 'Кто самый важный в Enterprise Deal?' }, options: { hu: ['Economic Buyer', 'Champion', 'User', 'Mindegyik'], en: ['Economic Buyer', 'Champion', 'User', 'All'], ru: ['Economic Buyer', 'Champion', 'User', 'Все'] }, correct: 1 },
+    ],
+  },
+  {
+    day: 25,
+    title: { hu: 'Tárgyalás mestery', en: 'Negotiation Mastery', ru: 'Мастерство переговоров' },
+    content: {
+      hu: `<h2>Miért fontos a tárgyalás?</h2><p>A jó tárgyalás több Win-t és jobb árakat jelent. Nem csak az árról szól, hanem az értékről is.</p><h2>Hogyan tárgyalj?</h2><h3>1. Előkészítés</h3><ul><li><strong>BATNA:</strong> Mi a legjobb alternatíva?</li><li><strong>Walk-away pont:</strong> Mikor mondasz nemet?</li><li><strong>Célok:</strong> Mit akarsz elérni?</li></ul><h3>2. Tárgyalási technikák</h3><ul><li><strong>Win-Win:</strong> Keress közös megoldást</li><li><strong>Anchoring:</strong> Te kezdj az árazással</li><li><strong>Concessions:</strong> Adj kicsit, kérj sokat</li></ul><h2>További anyagok</h2><ul><li><a href="https://blog.hubspot.com/sales/negotiation-techniques">Negotiation Techniques</a></li></ul>`,
+      en: `<h2>Why Negotiation Matters</h2><p>Good negotiation means more Wins and better prices. It's not just about price, but about value.</p><h2>How to Negotiate</h2><h3>1. Preparation</h3><ul><li><strong>BATNA:</strong> What is your best alternative?</li><li><strong>Walk-away point:</strong> When do you say no?</li><li><strong>Goals:</strong> What do you want to achieve?</li></ul><h3>2. Negotiation Techniques</h3><ul><li><strong>Win-Win:</strong> Find common solution</li><li><strong>Anchoring:</strong> You start with pricing</li><li><strong>Concessions:</strong> Give little, ask for much</li></ul><h2>Additional Resources</h2><ul><li><a href="https://blog.hubspot.com/sales/negotiation-techniques">Negotiation Techniques</a></li></ul>`,
+      ru: `<h2>Почему важны переговоры</h2><p>Хорошие переговоры означают больше Win и лучшие цены. Это не только о цене, но и о ценности.</p><h2>Как вести переговоры</h2><h3>1. Подготовка</h3><ul><li><strong>BATNA:</strong> Какова ваша лучшая альтернатива?</li><li><strong>Точка ухода:</strong> Когда вы говорите нет?</li><li><strong>Цели:</strong> Чего вы хотите достичь?</li></ul><h3>2. Техники переговоров</h3><ul><li><strong>Win-Win:</strong> Найдите общее решение</li><li><strong>Якорение:</strong> Вы начинаете с ценообразования</li><li><strong>Уступки:</strong> Дайте мало, просите много</li></ul><h2>Доп. материалы</h2><ul><li><a href="https://blog.hubspot.com/sales/negotiation-techniques">Negotiation Techniques</a></li></ul>`,
+    },
+    emailSubject: { hu: 'Nap 25: Tárgyalás mestery', en: 'Day 25: Negotiation Mastery', ru: 'День 25: Мастерство переговоров' },
+    emailBody: { hu: 'Ma megtanulod a tárgyalás mestery technikáit, hogy több Win-t és jobb árakat érj el.', en: 'Today you\'ll learn negotiation mastery techniques to achieve more Wins and better prices.', ru: 'Сегодня вы узнаете техники мастерства переговоров для достижения большего количества Win и лучших цен.' },
+    quiz: [
+      { q: { hu: 'Mi a BATNA?', en: 'What is BATNA?', ru: 'Что такое BATNA?' }, options: { hu: ['Best Alternative To Negotiated Agreement', 'Bad Agreement', 'Best Agreement', 'Nincs jelentése'], en: ['Best Alternative To Negotiated Agreement', 'Bad Agreement', 'Best Agreement', 'No meaning'], ru: ['Лучшая альтернатива переговорному соглашению', 'Плохое соглашение', 'Лучшее соглашение', 'Нет значения'] }, correct: 0 },
+      { q: { hu: 'Ki kezd az árazással?', en: 'Who starts with pricing?', ru: 'Кто начинает с ценообразования?' }, options: { hu: ['A vevő', 'Te', 'Mindketten', 'Senki'], en: ['The customer', 'You', 'Both', 'Nobody'], ru: ['Клиент', 'Вы', 'Оба', 'Никто'] }, correct: 1 },
+    ],
+  },
+  {
+    day: 26,
+    title: { hu: 'Személyes értékesítési rendszer tervezése', en: 'Personal Sales System Design', ru: 'Дизайн личной системы продаж' },
+    content: {
+      hu: `<h2>Miért fontos a személyes rendszer?</h2><p>Minden értékesítő más. Tervezd meg a saját rendszeredet, ami neked működik.</p><h2>Hogyan tervezd meg?</h2><h3>1. Elemzés</h3><ul><li><strong>Erősségeid:</strong> Miben vagy jó?</li><li><strong>Gyengeségeid:</strong> Mit kell javítani?</li><li><strong>Stílusod:</strong> Milyen értékesítő vagy?</li></ul><h3>2. Rendszer építés</h3><ul><li><strong>Rutinok:</strong> Milyen napi rutinok működnek neked?</li><li><strong>Eszközök:</strong> Milyen eszközöket használsz?</li><li><strong>Metrikák:</strong> Mit mérsz?</li></ul><h2>További anyagok</h2><ul><li><a href="https://blog.hubspot.com/sales/personal-sales-system">Personal Sales System</a></li></ul>`,
+      en: `<h2>Why Personal System Matters</h2><p>Every salesperson is different. Design your own system that works for you.</p><h2>How to Design</h2><h3>1. Analysis</h3><ul><li><strong>Your strengths:</strong> What are you good at?</li><li><strong>Your weaknesses:</strong> What needs improvement?</li><li><strong>Your style:</strong> What kind of salesperson are you?</li></ul><h3>2. System Building</h3><ul><li><strong>Routines:</strong> What daily routines work for you?</li><li><strong>Tools:</strong> What tools do you use?</li><li><strong>Metrics:</strong> What do you measure?</li></ul><h2>Additional Resources</h2><ul><li><a href="https://blog.hubspot.com/sales/personal-sales-system">Personal Sales System</a></li></ul>`,
+      ru: `<h2>Почему важна личная система</h2><p>Каждый продавец разный. Разработайте свою систему, которая работает для вас.</p><h2>Как разработать</h2><h3>1. Анализ</h3><ul><li><strong>Ваши сильные стороны:</strong> В чем вы хороши?</li><li><strong>Ваши слабости:</strong> Что нужно улучшить?</li><li><strong>Ваш стиль:</strong> Какой вы продавец?</li></ul><h3>2. Построение системы</h3><ul><li><strong>Рутины:</strong> Какие ежедневные рутины работают для вас?</li><li><strong>Инструменты:</strong> Какие инструменты вы используете?</li><li><strong>Метрики:</strong> Что вы измеряете?</li></ul><h2>Доп. материалы</h2><ul><li><a href="https://blog.hubspot.com/sales/personal-sales-system">Personal Sales System</a></li></ul>`,
+    },
+    emailSubject: { hu: 'Nap 26: Személyes értékesítési rendszer tervezése', en: 'Day 26: Personal Sales System Design', ru: 'День 26: Дизайн личной системы продаж' },
+    emailBody: { hu: 'Ma tervezed meg a saját értékesítési rendszeredet, ami neked működik.', en: 'Today you\'ll design your own sales system that works for you.', ru: 'Сегодня вы разработаете свою систему продаж, которая работает для вас.' },
+    quiz: [
+      { q: { hu: 'Mi az első lépés a rendszer tervezésében?', en: 'What is the first step in system design?', ru: 'Какой первый шаг в дизайне системы?' }, options: { hu: ['Rendszer építés', 'Elemzés', 'Metrikák', 'Eszközök'], en: ['System building', 'Analysis', 'Metrics', 'Tools'], ru: ['Построение системы', 'Анализ', 'Метрики', 'Инструменты'] }, correct: 1 },
+    ],
+  },
+  {
+    day: 27,
+    title: { hu: 'Hosszú távú tervezés (90 nap)', en: 'Long-Term Planning (90 days)', ru: 'Долгосрочное планирование (90 дней)' },
+    content: {
+      hu: `<h2>Miért fontos a 90 napos tervezés?</h2><p>A 90 napos tervezés segít látni a nagy képet és elérni a hosszú távú célokat.</p><h2>Hogyan tervezz?</h2><h3>1. Célok beállítása</h3><ul><li><strong>Revenue cél:</strong> Mennyi bevétele legyen 90 nap alatt?</li><li><strong>Deal célok:</strong> Hány Deal-et zárj le?</li><li><strong>Lead célok:</strong> Hány új Lead-et szerezz?</li></ul><h3>2. Terv készítése</h3><ul><li><strong>Havi bontás:</strong> Oszd fel 3 hónapra</li><li><strong>Heti bontás:</strong> Oszd fel hétre</li><li><strong>Napi bontás:</strong> Oszd fel napra</li></ul><h2>További anyagok</h2><ul><li><a href="https://blog.hubspot.com/sales/90-day-sales-plan">90-Day Sales Plan</a></li></ul>`,
+      en: `<h2>Why 90-Day Planning Matters</h2><p>90-day planning helps you see the big picture and achieve long-term goals.</p><h2>How to Plan</h2><h3>1. Set Goals</h3><ul><li><strong>Revenue goal:</strong> How much revenue in 90 days?</li><li><strong>Deal goals:</strong> How many Deals to Close?</li><li><strong>Lead goals:</strong> How many new Leads to acquire?</li></ul><h3>2. Create Plan</h3><ul><li><strong>Monthly breakdown:</strong> Divide into 3 months</li><li><strong>Weekly breakdown:</strong> Divide into weeks</li><li><strong>Daily breakdown:</strong> Divide into days</li></ul><h2>Additional Resources</h2><ul><li><a href="https://blog.hubspot.com/sales/90-day-sales-plan">90-Day Sales Plan</a></li></ul>`,
+      ru: `<h2>Почему важно 90-дневное планирование</h2><p>90-дневное планирование помогает увидеть общую картину и достичь долгосрочных целей.</p><h2>Как планировать</h2><h3>1. Установка целей</h3><ul><li><strong>Цель по выручке:</strong> Сколько выручки за 90 дней?</li><li><strong>Цели по Deal:</strong> Сколько Deal закрыть?</li><li><strong>Цели по Lead:</strong> Сколько новых Lead получить?</li></ul><h3>2. Создание плана</h3><ul><li><strong>Месячный разбивка:</strong> Разделите на 3 месяца</li><li><strong>Недельный разбивка:</strong> Разделите на недели</li><li><strong>Дневной разбивка:</strong> Разделите на дни</li></ul><h2>Доп. материалы</h2><ul><li><a href="https://blog.hubspot.com/sales/90-day-sales-plan">90-Day Sales Plan</a></li></ul>`,
+    },
+    emailSubject: { hu: 'Nap 27: Hosszú távú tervezés (90 nap)', en: 'Day 27: Long-Term Planning (90 days)', ru: 'День 27: Долгосрочное планирование (90 дней)' },
+    emailBody: { hu: 'Ma megtanulod, hogyan tervezz 90 napra előre, hogy elérd a hosszú távú célokat.', en: 'Today you\'ll learn how to plan 90 days ahead to achieve long-term goals.', ru: 'Сегодня вы узнаете, как планировать на 90 дней вперед для достижения долгосрочных целей.' },
+    quiz: [
+      { q: { hu: 'Mennyi időre tervezünk?', en: 'How long do we plan?', ru: 'На сколько мы планируем?' }, options: { hu: ['30 nap', '60 nap', '90 nap', '1 év'], en: ['30 days', '60 days', '90 days', '1 year'], ru: ['30 дней', '60 дней', '90 дней', '1 год'] }, correct: 2 },
+    ],
+  },
+  {
+    day: 28,
+    title: { hu: 'Csapat értékesítés', en: 'Team Sales', ru: 'Командные продажи' },
+    content: {
+      hu: `<h2>Miért fontos a csapat értékesítés?</h2><p>Nagy Deal-ekben gyakran több ember dolgozik együtt. A jó csapatmunka növeli a Win esélyét.</p><h2>Hogyan működj együtt?</h2><h3>1. Szerepkörök</h3><ul><li><strong>Account Manager:</strong> Fő kapcsolattartó</li><li><strong>Sales Engineer:</strong> Technikai szakértő</li><li><strong>Sales Manager:</strong> Stratégiai támogatás</li></ul><h3>2. Kommunikáció</h3><ul><li><strong>Rendszeres sync:</strong> Heti vagy napi sync meeting-ek</li><li><strong>CRM használat:</strong> Mindenki frissítse a CRM-et</li><li><strong>Jegyzetek:</strong> Dokumentáld a meeting-eket</li></ul><h2>További anyagok</h2><ul><li><a href="https://blog.hubspot.com/sales/team-selling">Team Selling Guide</a></li></ul>`,
+      en: `<h2>Why Team Sales Matters</h2><p>In large Deals, multiple people often work together. Good teamwork increases Win chances.</p><h2>How to Collaborate</h2><h3>1. Roles</h3><ul><li><strong>Account Manager:</strong> Main contact</li><li><strong>Sales Engineer:</strong> Technical expert</li><li><strong>Sales Manager:</strong> Strategic support</li></ul><h3>2. Communication</h3><ul><li><strong>Regular sync:</strong> Weekly or daily sync meetings</li><li><strong>CRM usage:</strong> Everyone updates CRM</li><li><strong>Notes:</strong> Document meetings</li></ul><h2>Additional Resources</h2><ul><li><a href="https://blog.hubspot.com/sales/team-selling">Team Selling Guide</a></li></ul>`,
+      ru: `<h2>Почему важны командные продажи</h2><p>В крупных Deal часто работают вместе несколько человек. Хорошая командная работа увеличивает шансы Win.</p><h2>Как сотрудничать</h2><h3>1. Роли</h3><ul><li><strong>Account Manager:</strong> Основной контакт</li><li><strong>Sales Engineer:</strong> Технический эксперт</li><li><strong>Sales Manager:</strong> Стратегическая поддержка</li></ul><h3>2. Коммуникация</h3><ul><li><strong>Регулярная синхронизация:</strong> Еженедельные или ежедневные sync встречи</li><li><strong>Использование CRM:</strong> Все обновляют CRM</li><li><strong>Заметки:</strong> Документируйте встречи</li></ul><h2>Доп. материалы</h2><ul><li><a href="https://blog.hubspot.com/sales/team-selling">Team Selling Guide</a></li></ul>`,
+    },
+    emailSubject: { hu: 'Nap 28: Csapat értékesítés', en: 'Day 28: Team Sales', ru: 'День 28: Командные продажи' },
+    emailBody: { hu: 'Ma megtanulod, hogyan működj együtt a csapattal nagy Deal-ekben.', en: 'Today you\'ll learn how to collaborate with team in large Deals.', ru: 'Сегодня вы узнаете, как сотрудничать с командой в крупных Deal.' },
+    quiz: [
+      { q: { hu: 'Ki a fő kapcsolattartó?', en: 'Who is the main contact?', ru: 'Кто основной контакт?' }, options: { hu: ['Sales Engineer', 'Account Manager', 'Sales Manager', 'Mindegyik'], en: ['Sales Engineer', 'Account Manager', 'Sales Manager', 'All'], ru: ['Sales Engineer', 'Account Manager', 'Sales Manager', 'Все'] }, correct: 1 },
+    ],
+  },
+  {
+    day: 29,
+    title: { hu: 'Folyamatos fejlesztés', en: 'Continuous Improvement', ru: 'Непрерывное улучшение' },
+    content: {
+      hu: `<h2>Miért fontos a folyamatos fejlesztés?</h2><p>A legjobb értékesítők soha nem állnak meg. Folyamatosan fejlesztik magukat és a rendszerüket.</p><h2>Hogyan fejleszd magad?</h2><h3>1. Tanulás</h3><ul><li><strong>Könyvek:</strong> Olvass értékesítési könyveket</li><li><strong>Képzések:</strong> Vegyél részt képzéseken</li><li><strong>Mentorálás:</strong> Keress mentort</li></ul><h3>2. Gyakorlás</h3><ul><li><strong>Role play:</strong> Gyakorold a helyzeteket</li><li><strong>Feedback:</strong> Kérj visszajelzést</li><li><strong>Próbálj új dolgokat:</strong> Kísérletezz</li></ul><h2>További anyagok</h2><ul><li><a href="https://blog.hubspot.com/sales/continuous-improvement">Continuous Improvement</a></li></ul>`,
+      en: `<h2>Why Continuous Improvement Matters</h2><p>The best salespeople never stop. They continuously improve themselves and their system.</p><h2>How to Improve</h2><h3>1. Learning</h3><ul><li><strong>Books:</strong> Read sales books</li><li><strong>Training:</strong> Attend trainings</li><li><strong>Mentoring:</strong> Find a mentor</li></ul><h3>2. Practice</h3><ul><li><strong>Role play:</strong> Practice situations</li><li><strong>Feedback:</strong> Ask for feedback</li><li><strong>Try new things:</strong> Experiment</li></ul><h2>Additional Resources</h2><ul><li><a href="https://blog.hubspot.com/sales/continuous-improvement">Continuous Improvement</a></li></ul>`,
+      ru: `<h2>Почему важно непрерывное улучшение</h2><p>Лучшие продавцы никогда не останавливаются. Они постоянно улучшают себя и свою систему.</p><h2>Как улучшать</h2><h3>1. Обучение</h3><ul><li><strong>Книги:</strong> Читайте книги по продажам</li><li><strong>Обучение:</strong> Посещайте тренинги</li><li><strong>Менторство:</strong> Найдите ментора</li></ul><h3>2. Практика</h3><ul><li><strong>Ролевые игры:</strong> Практикуйте ситуации</li><li><strong>Обратная связь:</strong> Просите обратную связь</li><li><strong>Пробуйте новое:</strong> Экспериментируйте</li></ul><h2>Доп. материалы</h2><ul><li><a href="https://blog.hubspot.com/sales/continuous-improvement">Continuous Improvement</a></li></ul>`,
+    },
+    emailSubject: { hu: 'Nap 29: Folyamatos fejlesztés', en: 'Day 29: Continuous Improvement', ru: 'День 29: Непрерывное улучшение' },
+    emailBody: { hu: 'Ma megtanulod, hogyan fejleszd folyamatosan magad és a rendszeredet.', en: 'Today you\'ll learn how to continuously improve yourself and your system.', ru: 'Сегодня вы узнаете, как непрерывно улучшать себя и свою систему.' },
+    quiz: [
+      { q: { hu: 'Mi a folyamatos fejlesztés kulcsa?', en: 'What is the key to continuous improvement?', ru: 'В чем ключ к непрерывному улучшению?' }, options: { hu: ['Megállás', 'Tanulás és gyakorlás', 'Várás', 'Semmi'], en: ['Stopping', 'Learning and practice', 'Waiting', 'Nothing'], ru: ['Остановка', 'Обучение и практика', 'Ожидание', 'Ничего'] }, correct: 1 },
+    ],
+  },
+  {
+    day: 30,
+    title: { hu: 'Következő lépések és források', en: 'Next Steps & Resources', ru: 'Следующие шаги и ресурсы' },
+    content: {
+      hu: `<h2>Gratulálunk!</h2><p>Elkészültél a 30 napos kurzuson! Most itt az idő, hogy alkalmazd a tanultakat.</p><h2>Következő lépések</h2><h3>1. Akció terv</h3><ul><li><strong>Rövid távú (1 hét):</strong> Melyik 3 dolgot alkalmazod azonnal?</li><li><strong>Középtávú (1 hónap):</strong> Milyen rendszert építesz?</li><li><strong>Hosszú távú (90 nap):</strong> Milyen célokat tűzöl ki?</li></ul><h3>2. További tanulás</h3><ul><li><strong>Könyvek:</strong> "The Challenger Sale", "SPIN Selling"</li><li><strong>Podcast-ok:</strong> Sales podcasts hallgatása</li><li><strong>Közösségek:</strong> Csatlakozz értékesítési közösségekhez</li></ul><h3>3. Gyakorlás</h3><ul><li><strong>Alkalmazd a tanultakat:</strong> Kezdj el azonnal</li><li><strong>Mérj eredményeket:</strong> Kövesd a metrikákat</li><li><strong>Fejleszd a rendszeredet:</strong> Folyamatosan javíts</li></ul><h2>További források</h2><ul><li><a href="https://blog.hubspot.com/sales">HubSpot Sales Blog</a></li><li><a href="https://www.salesforce.com/resources/">Salesforce Resources</a></li></ul><h2>Köszönjük, hogy velünk tanultál!</h2>`,
+      en: `<h2>Congratulations!</h2><p>You've completed the 30-day course! Now it's time to apply what you've learned.</p><h2>Next Steps</h2><h3>1. Action Plan</h3><ul><li><strong>Short-term (1 week):</strong> Which 3 things will you apply immediately?</li><li><strong>Mid-term (1 month):</strong> What system will you build?</li><li><strong>Long-term (90 days):</strong> What goals will you set?</li></ul><h3>2. Further Learning</h3><ul><li><strong>Books:</strong> "The Challenger Sale", "SPIN Selling"</li><li><strong>Podcasts:</strong> Listen to sales podcasts</li><li><strong>Communities:</strong> Join sales communities</li></ul><h3>3. Practice</h3><ul><li><strong>Apply what you learned:</strong> Start immediately</li><li><strong>Measure results:</strong> Track metrics</li><li><strong>Improve your system:</strong> Continuously improve</li></ul><h2>Additional Resources</h2><ul><li><a href="https://blog.hubspot.com/sales">HubSpot Sales Blog</a></li><li><a href="https://www.salesforce.com/resources/">Salesforce Resources</a></li></ul><h2>Thank you for learning with us!</h2>`,
+      ru: `<h2>Поздравляем!</h2><p>Вы завершили 30-дневный курс! Теперь пора применить то, что вы узнали.</p><h2>Следующие шаги</h2><h3>1. План действий</h3><ul><li><strong>Краткосрочный (1 неделя):</strong> Какие 3 вещи вы примените немедленно?</li><li><strong>Среднесрочный (1 месяц):</strong> Какую систему вы построите?</li><li><strong>Долгосрочный (90 дней):</strong> Какие цели вы поставите?</li></ul><h3>2. Дальнейшее обучение</h3><ul><li><strong>Книги:</strong> "The Challenger Sale", "SPIN Selling"</li><li><strong>Подкасты:</strong> Слушайте подкасты по продажам</li><li><strong>Сообщества:</strong> Присоединяйтесь к сообществам продаж</li></ul><h3>3. Практика</h3><ul><li><strong>Применяйте изученное:</strong> Начните немедленно</li><li><strong>Измеряйте результаты:</strong> Отслеживайте метрики</li><li><strong>Улучшайте свою систему:</strong> Постоянно улучшайте</li></ul><h2>Дополнительные ресурсы</h2><ul><li><a href="https://blog.hubspot.com/sales">HubSpot Sales Blog</a></li><li><a href="https://www.salesforce.com/resources/">Salesforce Resources</a></li></ul><h2>Спасибо, что учились с нами!</h2>`,
+    },
+    emailSubject: { hu: 'Nap 30: Következő lépések és források', en: 'Day 30: Next Steps & Resources', ru: 'День 30: Следующие шаги и ресурсы' },
+    emailBody: { hu: 'Gratulálunk! Elkészültél a 30 napos kurzuson! Most alkalmazd a tanultakat.', en: 'Congratulations! You\'ve completed the 30-day course! Now apply what you learned.', ru: 'Поздравляем! Вы завершили 30-дневный курс! Теперь примените изученное.' },
+    quiz: [
+      { q: { hu: 'Mi a következő lépés a kurzus után?', en: 'What is the next step after the course?', ru: 'Какой следующий шаг после курса?' }, options: { hu: ['Semmi', 'Alkalmazni a tanultakat', 'Várni', 'Újra kezdeni'], en: ['Nothing', 'Apply what you learned', 'Wait', 'Start over'], ru: ['Ничего', 'Применить изученное', 'Ждать', 'Начать заново'] }, correct: 1 },
+    ],
+  },
 ];
 
 async function createCourse(language: 'hu' | 'en' | 'ru', courseId: string, courseName: string, courseDescription: string) {

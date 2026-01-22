@@ -17,7 +17,7 @@ import { Brand, Course, Lesson, QuizQuestion, QuestionDifficulty } from '../app/
 
 const COURSE_ID = 'KURZUS_KESZITES';
 const COURSE_NAME = 'Kurzus a kurzus készítésre';
-const COURSE_DESCRIPTION = '30 napos, lépésről lépésre útmutató, amely megtanítja, hogyan hozz létre professzionális 30 napos kurzusokat az Amanoba platformon. Napi 10-15 perces leckékkel sajátítsd el a kurzus készítés művészetét.';
+const COURSE_DESCRIPTION = '30 napos, lépésről lépésre útmutató, amely megtanítja, hogyan hozz létre professzionális 30 napos kurzusokat az Amanoba platformon. Napi 10-15 perces leckékkel sajátítsd el a kurzus készítés művészetét. A kurzus tartalmazza a legújabb funkciókat: prémium árazás, tartalomjegyzék, export/import, és további ajánlott gyakorlatokat.';
 
 // Complete lesson plan for course creation
 const lessonPlan = [
@@ -1011,6 +1011,146 @@ const lessonPlan = [
   // 21-25. nap · Haladó témák
   {
     day: 21,
+    title: 'Prémium kurzus árazás beállítása',
+    content: `<h1>Prémium kurzus árazás beállítása</h1>
+<p><em>Stripe integráció, minimális összegek, fizetési folyamat.</em></p>
+
+<hr />
+<h2>Napi cél</h2>
+<ul>
+<li>Megérted, hogyan állítasz be prémium árazást.</li>
+<li>Ismered a Stripe minimális összegeket és a fizetési folyamatot.</li>
+</ul>
+
+<hr />
+<h2>Prémium kurzus konfiguráció</h2>
+<p>Ha a <code>requiresPremium = true</code>, beállíthatod az árazást:</p>
+<ul>
+<li><strong>price.amount</strong>: Ár a legkisebb valutában (pl. 2999 = $29.99 USD, 17500 = 175 Ft HUF)</li>
+<li><strong>price.currency</strong>: ISO valutakód (<code>usd</code>, <code>eur</code>, <code>huf</code>, <code>gbp</code>)</li>
+</ul>
+
+<h2>Stripe minimális összegek (kötelező)</h2>
+<ul>
+<li>USD: $0.50 (50 cent)</li>
+<li>EUR: €0.50 (50 cent)</li>
+<li>HUF: 175 Ft</li>
+<li>GBP: £0.30 (30 penny)</li>
+</ul>
+
+<p><strong>Fontos</strong>: Az admin felület valós időben validálja a minimális összegeket. Ha a minimum alá állítasz árat, figyelmeztetést látsz és a rendszer megakadályozza a beküldést.</p>
+
+<h2>Fizetési folyamat</h2>
+<ol>
+<li>Tanuló rákattint a "Prémium vásárlása" gombra a kurzus oldalon</li>
+<li>A rendszer létrehoz egy Stripe Checkout session-t</li>
+<li>Tanuló befejezi a fizetést a Stripe-on</li>
+<li>Webhook automatikusan aktiválja a prémium státuszt</li>
+<li>Tanuló ezután beiratkozhat prémium kurzusokra</li>
+</ol>
+
+<hr />
+<h2>Gyakorlat (vezetett)</h2>
+<p>Hozz létre egy teszt prémium kurzust az adminban, állítsd be az árat (pl. 2999 USD), és teszteld a fizetési folyamatot.</p>
+
+<h2>Gyakorlat (önálló)</h2>
+<p>Ellenőrizd a Stripe minimális összegeket különböző valutákban, és dokumentáld, mi történik, ha alacsonyabb összeget állítasz be.</p>
+
+<hr />
+<h2>Tipp</h2>
+<ul>
+<li>Mindig ellenőrizd a minimális összegeket, mielőtt publikálod a prémium kurzust.</li>
+<li>A webhook automatikusan kezeli a fizetést, de ellenőrizd a Stripe dashboard-ot a sikeres tranzakciókért.</li>
+</ul>`,
+    emailSubject: 'Kurzus készítés – 21. nap: Prémium árazás',
+    emailBody: `<h1>{{courseName}}</h1>
+<h2>{{dayNumber}}. nap: {{lessonTitle}}</h2>
+<p>Ma megtanuljuk a prémium kurzus árazás beállítását.</p>
+<div>{{lessonContent}}</div>
+<p><a href="{{appUrl}}/courses/${COURSE_ID}/day/{{dayNumber}}">Olvasd el a teljes leckét →</a></p>`
+  },
+  {
+    day: 22,
+    title: 'Tartalomjegyzék és kurzus export/import',
+    content: `<h1>Tartalomjegyzék és kurzus export/import</h1>
+<p><em>Automatikus tartalomjegyzék, kurzus biztonsági mentés és megosztás.</em></p>
+
+<hr />
+<h2>Napi cél</h2>
+<ul>
+<li>Megérted, hogyan működik az automatikus tartalomjegyzék.</li>
+<li>Tudod exportálni és importálni teljes kurzusokat.</li>
+</ul>
+
+<hr />
+<h2>Tartalomjegyzék (v2.8.0+)</h2>
+<p>A kurzus részletek oldal automatikusan megjeleníti a tartalomjegyzéket:</p>
+<ul>
+<li><strong>Automatikus generálás</strong>: Az aktív leckékből generálódik</li>
+<li><strong>Lecke információ</strong>: Mutatja a nap számát, címet, becsült perceket és kvíz jelzést</li>
+<li><strong>Publikus hozzáférés</strong>: Minden felhasználó számára látható (nincs bejelentkezés szükséges)</li>
+</ul>
+
+<h2>Ajánlott gyakorlatok</h2>
+<ul>
+<li>Állítsd be a <code>metadata.estimatedMinutes</code>-t minden leckéhez</li>
+<li>Biztosítsd, hogy minden lecke <code>isActive: true</code> legyen</li>
+<li>Használj leíró lecke címeket</li>
+</ul>
+
+<hr />
+<h2>Kurzus exportálás</h2>
+<p><strong>UI útvonal</strong>: <code>/{locale}/admin/courses/{courseId}</code> → "Kurzus exportálása" gomb<br>
+<strong>API végpont</strong>: <code>GET /api/admin/courses/{courseId}/export</code></p>
+
+<p><strong>Export formátum</strong>: JSON fájl tartalmazza:</p>
+<ul>
+<li>Kurzus metaadatok</li>
+<li>Összes lecke (tartalommal, email sablonokkal, kvíz configgal)</li>
+<li>Összes kvíz kérdés</li>
+</ul>
+
+<h2>Kurzus importálás</h2>
+<p><strong>UI útvonal</strong>: <code>/{locale}/admin/courses</code> → "Kurzus importálása" gomb<br>
+<strong>API végpont</strong>: <code>POST /api/admin/courses/import</code></p>
+
+<p><strong>Import opciók</strong>:</p>
+<ul>
+<li><strong>Felülírás</strong>: Ha létezik kurzus ugyanazzal a <code>courseId</code>-vel, felülírja</li>
+<li><strong>Kihagyás</strong>: Ha létezik kurzus, kihagyja az importálást</li>
+<li><strong>Validálás</strong>: A rendszer validálja a kurzus struktúrát</li>
+</ul>
+
+<h2>Használati esetek</h2>
+<ul>
+<li>Kurzusok biztonsági mentése nagyobb változtatások előtt</li>
+<li>Kurzusok megosztása környezetek között (dev → production)</li>
+<li>Kurzusok duplikálása különböző nyelvekhez</li>
+<li>Verziókezelés kurzus tartalomhoz</li>
+</ul>
+
+<hr />
+<h2>Gyakorlat (vezetett)</h2>
+<p>Exportáld egy meglévő kurzust, nézd meg a JSON struktúrát, majd importáld vissza egy teszt kurzusba.</p>
+
+<h2>Gyakorlat (önálló)</h2>
+<p>Készíts egy biztonsági mentést a kurzusodról exportálással, majd teszteld az importálást egy másik környezetben vagy új <code>courseId</code>-vel.</p>
+
+<hr />
+<h2>Tipp</h2>
+<ul>
+<li>Rendszeresen exportáld a kurzusokat nagyobb változtatások előtt.</li>
+<li>A JSON fájl verziókezelhető (git), így követheted a változásokat.</li>
+</ul>`,
+    emailSubject: 'Kurzus készítés – 22. nap: Tartalomjegyzék és export/import',
+    emailBody: `<h1>{{courseName}}</h1>
+<h2>{{dayNumber}}. nap: {{lessonTitle}}</h2>
+<p>Ma megtanuljuk a tartalomjegyzék és export/import funkciókat.</p>
+<div>{{lessonContent}}</div>
+<p><a href="{{appUrl}}/courses/${COURSE_ID}/day/{{dayNumber}}">Olvasd el a teljes leckét →</a></p>`
+  },
+  {
+    day: 23,
     title: 'Seed script használata',
     content: `<h1>Seed script használata</h1>
 <p><em>Gyors, verziózott, ismételhető kurzus-feltöltés.</em></p>
@@ -1062,7 +1202,7 @@ const lessonPlan = [
 <p><a href="{{appUrl}}/courses/${COURSE_ID}/day/{{dayNumber}}">Olvasd el a teljes leckét →</a></p>`
   },
   {
-    day: 22,
+    day: 24,
     title: 'Metadata használata',
     content: `<h1>Metadata használata</h1>
 <p><em>Strukturált plusz információk: célok, címkék, idő, nehézség.</em></p>
@@ -1114,7 +1254,7 @@ const lessonPlan = [
 <p><a href="{{appUrl}}/courses/${COURSE_ID}/day/{{dayNumber}}">Olvasd el a teljes leckét →</a></p>`
   },
   {
-    day: 23,
+    day: 24,
     title: 'Lecke elnevezés és konvenciók',
     content: `<h1>Lecke elnevezés és konvenciók</h1>
 <p><em>Konzisztens lessonId és címek, hogy kereshető és érthető legyen.</em></p>
@@ -1157,7 +1297,7 @@ const lessonPlan = [
 <li>A jó cím segíti a navigációt és a kommunikációt (email tárgy).</li>
 <li>Használj fázisnév + konkrét téma kombinációt.</li>
 </ul>`,
-    emailSubject: 'Kurzus készítés – 23. nap: Elnevezés',
+    emailSubject: 'Kurzus készítés – 24. nap: Elnevezés',
     emailBody: `<h1>{{courseName}}</h1>
 <h2>{{dayNumber}}. nap: {{lessonTitle}}</h2>
 <p>Ma megtanuljuk a lecke elnevezés konvencióit.</p>
@@ -1165,7 +1305,7 @@ const lessonPlan = [
 <p><a href="{{appUrl}}/courses/${COURSE_ID}/day/{{dayNumber}}">Olvasd el a teljes leckét →</a></p>`
   },
   {
-    day: 24,
+    day: 26,
     title: 'Email sablon ajánlott gyakorlatai',
     content: `<h1>Email sablon ajánlott gyakorlatai</h1>
 <p><em>Rövid, személyre szabott, egy CTA, tiszta tárgy.</em></p>
@@ -1199,7 +1339,7 @@ const lessonPlan = [
 <li>Kerüld a több CTA-t; egy fő cselekvés elég.</li>
 <li>Legyen világos, mit kap, ha kattint.</li>
 </ul>`,
-    emailSubject: 'Kurzus készítés – 24. nap: Email gyakorlatok',
+    emailSubject: 'Kurzus készítés – 25. nap: Email gyakorlatok',
     emailBody: `<h1>{{courseName}}</h1>
 <h2>{{dayNumber}}. nap: {{lessonTitle}}</h2>
 <p>Ma megtanuljuk az email sablon ajánlott gyakorlatait.</p>
@@ -1207,7 +1347,7 @@ const lessonPlan = [
 <p><a href="{{appUrl}}/courses/${COURSE_ID}/day/{{dayNumber}}">Olvasd el a teljes leckét →</a></p>`
   },
   {
-    day: 25,
+    day: 26,
     title: 'Kurzus fázisok tervezése',
     content: `<h1>Kurzus fázisok tervezése</h1>
 <p><em>5 napos blokkok, világos fókusz, előre látható ív.</em></p>
@@ -1243,16 +1383,16 @@ const lessonPlan = [
 <li>A fázisok segítségével következetes tempót tartasz.</li>
 <li>Könnyebb így újraválogatni napokat, ha módosítasz.</li>
 </ul>`,
-    emailSubject: 'Kurzus készítés – 25. nap: Fázisok',
+    emailSubject: 'Kurzus készítés – 26. nap: Fázisok',
     emailBody: `<h1>{{courseName}}</h1>
 <h2>{{dayNumber}}. nap: {{lessonTitle}}</h2>
 <p>Ma megtanuljuk a kurzus fázisok tervezését.</p>
 <div>{{lessonContent}}</div>
 <p><a href="{{appUrl}}/courses/${COURSE_ID}/day/{{dayNumber}}">Olvasd el a teljes leckét →</a></p>`
   },
-  // 26-30. nap · Lezárás
+  // 28-30. nap · Lezárás
   {
-    day: 26,
+    day: 28,
     title: 'Kurzus optimalizálása',
     content: `<h1>Kurzus optimalizálása</h1>
 <p><em>Minőségjavítás: tartalom, gyakorlat, email, kvíz.</em></p>
@@ -1286,7 +1426,7 @@ const lessonPlan = [
 <li>Kezdd a legnagyobb hatású elemmel (kvíz vagy gyakorlat).</li>
 <li>Használj A/B-t: előtte/utána példák.</li>
 </ul>`,
-    emailSubject: 'Kurzus készítés – 26. nap: Optimalizálás',
+    emailSubject: 'Kurzus készítés – 28. nap: Optimalizálás',
     emailBody: `<h1>{{courseName}}</h1>
 <h2>{{dayNumber}}. nap: {{lessonTitle}}</h2>
 <p>Ma optimalizáljuk a kurzusodat.</p>
@@ -1294,9 +1434,9 @@ const lessonPlan = [
 <p><a href="{{appUrl}}/courses/${COURSE_ID}/day/{{dayNumber}}">Olvasd el a teljes leckét →</a></p>`
   },
   {
-    day: 27,
-    title: 'Kurzus dokumentáció',
-    content: `<h1>Kurzus dokumentáció</h1>
+    day: 29,
+    title: 'Kurzus elemzése és visszajelzés',
+    content: `<h1>Kurzus elemzése és visszajelzés</h1>
 <p><em>Átlátható leírás, előfeltétel, célok, struktúra.</em></p>
 
 <hr />
@@ -1335,9 +1475,10 @@ const lessonPlan = [
 <div>{{lessonContent}}</div>
 <p><a href="{{appUrl}}/courses/${COURSE_ID}/day/{{dayNumber}}">Olvasd el a teljes leckét →</a></p>`
   },
-  {
-    day: 28,
-    title: 'Kurzus karbantartása',
+  // Day 30 removed - duplicate, keeping day 30 as "Zárás: Merre tovább?"
+  // {
+  //   day: 30,
+  //   title: 'Kurzus karbantartása',
     content: `<h1>Kurzus karbantartása</h1>
 <p><em>Rendszeres frissítés: tartalom, kvíz, email, linkek.</em></p>
 
@@ -1370,7 +1511,7 @@ const lessonPlan = [
 <li>Kicsi, gyakori frissítések elég; ne várj nagy release-re.</li>
 <li>Vezess changelogot (mit, mikor, miért).</li>
 </ul>`,
-    emailSubject: 'Kurzus készítés – 28. nap: Karbantartás',
+    emailSubject: 'Kurzus készítés – 30. nap: Karbantartás',
     emailBody: `<h1>{{courseName}}</h1>
 <h2>{{dayNumber}}. nap: {{lessonTitle}}</h2>
 <p>Ma megtanuljuk a kurzus karbantartását.</p>

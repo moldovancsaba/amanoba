@@ -46,7 +46,6 @@ const navigationItems = [
   { key: 'payments', href: '/admin/payments', icon: CreditCard },
   { key: 'surveys', href: '/admin/surveys', icon: ClipboardList },
   { key: 'courses', href: '/admin/courses', icon: BookOpen },
-  { key: 'courseGuide', href: '/admin/docs/course-creation', icon: FileText },
   { key: 'certification', href: '/admin/certification', icon: Award },
   { key: 'players', href: '/admin/players', icon: Users },
   { key: 'games', href: '/admin/games', icon: Gamepad2 },
