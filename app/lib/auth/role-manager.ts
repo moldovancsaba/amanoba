@@ -134,6 +134,15 @@ export async function getRoleFromSSO(
     throw new Error('Failed to fetch role from SSO and no cache available');
   }
 
+  // If UserInfo does not contain any role claim, treat as unknown
+  if (!userInfo.roleClaimPresent) {
+    logger.error(
+      { ssoSub },
+      'SSO UserInfo response missing role claim - cannot determine role'
+    );
+    throw new Error('ROLE_CLAIM_MISSING');
+  }
+
   // Update cache with fresh role
   const now = Date.now();
   roleCache.set(ssoSub, {
@@ -219,9 +228,15 @@ export async function checkAdminAccessSSO(
 
     return isAdmin;
   } catch (error) {
+    const errorMessage = error instanceof Error ? error.message : String(error);
+    if (errorMessage === 'ROLE_CLAIM_MISSING') {
+      // Propagate so callers can fallback to session/database role
+      throw error;
+    }
+
     logger.error(
       {
-        error: error instanceof Error ? error.message : String(error),
+        error: errorMessage,
         ssoSub,
         userId: session.user.id,
       },

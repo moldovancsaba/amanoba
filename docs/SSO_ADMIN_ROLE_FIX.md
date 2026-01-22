@@ -12,13 +12,13 @@ Users with admin rights configured on the SSO server (sso.doneisbetter.com) were
 
 ## Root Cause
 
-**SSO role management happens on the UserInfo endpoint, not in the ID token.**
+**SSO role management happens on the UserInfo endpoint, but not every UserInfo payload includes role claims.**
 
-The original implementation only called the UserInfo endpoint conditionally (when role from ID token was 'user'). Since sso.doneisbetter.com manages roles on the UserInfo endpoint, admin roles were never being extracted.
+The original implementation overwrote roles with UserInfo even when the UserInfo response did **not** contain any role claims. That silently downgraded admin users to `user`. The fix now only overwrites roles when the UserInfo response actually includes a role claim.
 
 ## Solution Implemented
 
-### 1. Always Fetch UserInfo Endpoint
+### 1. Always Fetch UserInfo Endpoint (with role-claim validation)
 
 **File**: `app/api/auth/sso/callback/route.ts`
 
@@ -34,8 +34,10 @@ if (ssoUserInfo.role === 'user' && access_token) {
 // AFTER (CORRECT):
 if (access_token) {
   const userInfo = await fetchUserInfo(access_token);
-  if (userInfo) {
-    ssoUserInfo = userInfo; // UserInfo is source of truth
+  if (userInfo?.roleClaimPresent) {
+    ssoUserInfo = userInfo; // UserInfo is source of truth if it contains role claim
+  } else {
+    // Keep ID-token role when UserInfo has no role claim
   }
 }
 ```
@@ -54,7 +56,7 @@ if (!userInfoUrl) {
 }
 ```
 
-### 3. Role Change Tracking
+### 3. Role Change Tracking + Guard Against Role Downgrade
 
 **File**: `app/api/auth/sso/callback/route.ts`
 
@@ -62,7 +64,9 @@ if (!userInfoUrl) {
 
 ```typescript
 const previousRole = player.role;
-player.role = ssoUserInfo.role; // From UserInfo endpoint
+if (ssoUserInfo.roleClaimPresent) {
+  player.role = ssoUserInfo.role; // Only update when role claim exists
+}
 // ... save ...
 
 if (previousRole !== ssoUserInfo.role) {
@@ -116,7 +120,8 @@ if (player) {
 SSO_USERINFO_URL=https://sso.doneisbetter.com/userinfo
 ```
 
-Without this, admin roles cannot be extracted.
+Without this, admin roles cannot be extracted.  
+Additionally, if UserInfo does not include role claims, ID token roles will be preserved.
 
 **Full SSO Configuration**:
 - `SSO_AUTH_URL` - Authorization endpoint

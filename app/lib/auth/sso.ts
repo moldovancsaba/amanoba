@@ -172,6 +172,7 @@ export interface SSOUserInfo {
   email?: string;
   name?: string;
   role: 'user' | 'admin';
+  roleClaimPresent?: boolean; // True if any role-related claim was present in source payload
 }
 
 /**
@@ -202,7 +203,13 @@ export function extractSSOUserInfo(claims: SSOTokenClaims): SSOUserInfo {
     (claims as any).organization_roles || // Organization-specific roles
     (claims as any).role_assignments; // Role assignments array
   
-  const role = mapSSORole(roleValue);
+  const roleClaimPresent =
+    roleValue !== undefined &&
+    roleValue !== null &&
+    !(Array.isArray(roleValue) && roleValue.length === 0) &&
+    !(typeof roleValue === 'string' && roleValue.trim().length === 0);
+
+  const role = roleClaimPresent ? mapSSORole(roleValue) : 'user';
   
   // Comprehensive logging for debugging
   logger.info(
@@ -212,6 +219,7 @@ export function extractSSOUserInfo(claims: SSOTokenClaims): SSOUserInfo {
       roleValue,
       roleValueType: typeof roleValue,
       roleValueIsArray: Array.isArray(roleValue),
+      roleClaimPresent,
       extractedRole: role,
       allClaimKeys: Object.keys(claims),
       // Log all potential role-related claims
@@ -237,5 +245,6 @@ export function extractSSOUserInfo(claims: SSOTokenClaims): SSOUserInfo {
     email: claims.email,
     name: claims.name || claims.email?.split('@')[0] || 'User',
     role,
+    roleClaimPresent,
   };
 }

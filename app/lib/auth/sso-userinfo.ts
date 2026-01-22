@@ -95,6 +95,7 @@ export async function fetchUserInfo(accessToken: string): Promise<SSOUserInfo | 
         sub: ssoUserInfo.sub,
         email: ssoUserInfo.email,
         role: ssoUserInfo.role,
+        roleClaimPresent: ssoUserInfo.roleClaimPresent ?? false,
         extractedFromUserInfo: true,
       },
       'UserInfo fetched and processed successfully - this is the source of truth for roles'

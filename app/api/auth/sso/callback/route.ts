@@ -104,6 +104,7 @@ export async function GET(request: NextRequest) {
 
     // Extract user info from token
     let ssoUserInfo = extractSSOUserInfo(claims);
+    const tokenRole = ssoUserInfo.role;
 
     // CRITICAL: Always try UserInfo endpoint (SSO role management happens there)
     // Why: sso.doneisbetter.com manages roles on UserInfo endpoint, not ID token
@@ -129,21 +130,40 @@ export async function GET(request: NextRequest) {
       
       const userInfo = await fetchUserInfo(access_token);
       if (userInfo) {
-        // UserInfo endpoint is source of truth for roles
-        logger.info(
-          { 
-            roleFromToken: ssoUserInfo.role,
-            roleFromUserInfo: userInfo.role,
-            sub: userInfo.sub,
-            roleChanged: ssoUserInfo.role !== userInfo.role
-          }, 
-          'UserInfo endpoint returned role - using as source of truth for SSO role management'
-        );
-        ssoUserInfo = userInfo; // UserInfo wins - it's where SSO role management happens
+        const hasUserInfoRole = userInfo.roleClaimPresent ?? false;
+        if (hasUserInfoRole) {
+          // UserInfo endpoint is source of truth for roles only if it actually contains a role claim
+          logger.info(
+            { 
+              roleFromToken: tokenRole,
+              roleFromUserInfo: userInfo.role,
+              sub: userInfo.sub,
+              roleChanged: tokenRole !== userInfo.role
+            }, 
+            'UserInfo endpoint returned role claim - using as source of truth'
+          );
+          ssoUserInfo = userInfo;
+        } else {
+          // Keep token role if UserInfo lacks role claim
+          logger.warn(
+            { 
+              roleFromToken: tokenRole,
+              roleFromUserInfo: userInfo.role,
+              sub: userInfo.sub,
+            },
+            'UserInfo endpoint missing role claim - keeping token role'
+          );
+          ssoUserInfo = {
+            ...ssoUserInfo,
+            email: userInfo.email || ssoUserInfo.email,
+            name: userInfo.name || ssoUserInfo.name,
+            sub: userInfo.sub || ssoUserInfo.sub,
+          };
+        }
       } else {
         logger.error(
           { 
-            roleFromToken: ssoUserInfo.role,
+            roleFromToken: tokenRole,
             userInfoUrl: process.env.SSO_USERINFO_URL ? 'configured' : 'MISSING'
           }, 
           'CRITICAL: UserInfo endpoint did not return data - admin roles may be missing'
@@ -165,11 +185,14 @@ export async function GET(request: NextRequest) {
     let player = await Player.findOne({ ssoSub: ssoUserInfo.sub });
 
     if (player) {
-      // Update existing player - sync email, name, and role from SSO
+      // Update existing player - sync email/name, update role only if SSO supplied a role claim
       const previousRole = player.role;
+      const hasRoleClaim = ssoUserInfo.roleClaimPresent ?? false;
       player.email = ssoUserInfo.email || player.email;
       player.displayName = ssoUserInfo.name || player.displayName;
-      player.role = ssoUserInfo.role; // SSO UserInfo endpoint is source of truth for roles
+      if (hasRoleClaim) {
+        player.role = ssoUserInfo.role; // Update role only if SSO provided a role claim
+      }
       player.authProvider = 'sso';
       player.lastLoginAt = new Date();
       await player.save();
@@ -179,30 +202,34 @@ export async function GET(request: NextRequest) {
           playerId: player._id,
           ssoSub: ssoUserInfo.sub,
           previousRole,
-          newRole: ssoUserInfo.role,
-          roleChanged: previousRole !== ssoUserInfo.role,
+          newRole: player.role,
+          roleChanged: previousRole !== player.role,
+          roleClaimPresent: hasRoleClaim,
           updated: true,
         },
-        'SSO user updated - role synced from SSO UserInfo endpoint'
+        hasRoleClaim
+          ? 'SSO user updated - role synced from SSO role claim'
+          : 'SSO user updated - role unchanged (no role claim provided)'
       );
       
-      if (previousRole !== ssoUserInfo.role) {
+      if (hasRoleClaim && previousRole !== ssoUserInfo.role) {
         logger.warn(
           {
             playerId: player._id,
             previousRole,
-            newRole: ssoUserInfo.role,
+            newRole: player.role,
           },
           'Player role changed during SSO sync - admin access may have changed'
         );
       }
     } else {
       // Create new player
+      const hasRoleClaim = ssoUserInfo.roleClaimPresent ?? false;
       player = await Player.create({
         ssoSub: ssoUserInfo.sub,
         email: ssoUserInfo.email,
         displayName: ssoUserInfo.name || ssoUserInfo.email?.split('@')[0] || 'User',
-        role: ssoUserInfo.role,
+        role: hasRoleClaim ? ssoUserInfo.role : 'user',
         authProvider: 'sso',
         brandId: defaultBrand._id,
         isPremium: false,
@@ -217,10 +244,12 @@ export async function GET(request: NextRequest) {
         {
           playerId: player._id,
           ssoSub: ssoUserInfo.sub,
-          role: ssoUserInfo.role,
+          role: player.role,
           created: true,
         },
-        'SSO user created - role from SSO UserInfo endpoint'
+        hasRoleClaim
+          ? 'SSO user created - role from SSO role claim'
+          : 'SSO user created - defaulted to user (no role claim)'
       );
 
       // Log registration
@@ -382,6 +411,7 @@ export async function POST(request: NextRequest) {
 
     // Extract user info from token
     let ssoUserInfo = extractSSOUserInfo(claims);
+    const tokenRole = ssoUserInfo.role;
 
     // CRITICAL: Always try UserInfo endpoint (SSO role management happens there)
     // Why: sso.doneisbetter.com manages roles on UserInfo endpoint, not ID token
@@ -407,21 +437,40 @@ export async function POST(request: NextRequest) {
       
       const userInfo = await fetchUserInfo(access_token);
       if (userInfo) {
-        // UserInfo endpoint is source of truth for roles
-        logger.info(
-          { 
-            roleFromToken: ssoUserInfo.role,
-            roleFromUserInfo: userInfo.role,
-            sub: userInfo.sub,
-            roleChanged: ssoUserInfo.role !== userInfo.role
-          }, 
-          'UserInfo endpoint returned role - using as source of truth for SSO role management'
-        );
-        ssoUserInfo = userInfo; // UserInfo wins - it's where SSO role management happens
+        const hasUserInfoRole = userInfo.roleClaimPresent ?? false;
+        if (hasUserInfoRole) {
+          // UserInfo endpoint is source of truth for roles only if it actually contains a role claim
+          logger.info(
+            { 
+              roleFromToken: tokenRole,
+              roleFromUserInfo: userInfo.role,
+              sub: userInfo.sub,
+              roleChanged: tokenRole !== userInfo.role
+            }, 
+            'UserInfo endpoint returned role claim - using as source of truth'
+          );
+          ssoUserInfo = userInfo;
+        } else {
+          // Keep token role if UserInfo lacks role claim
+          logger.warn(
+            { 
+              roleFromToken: tokenRole,
+              roleFromUserInfo: userInfo.role,
+              sub: userInfo.sub,
+            },
+            'UserInfo endpoint missing role claim - keeping token role'
+          );
+          ssoUserInfo = {
+            ...ssoUserInfo,
+            email: userInfo.email || ssoUserInfo.email,
+            name: userInfo.name || ssoUserInfo.name,
+            sub: userInfo.sub || ssoUserInfo.sub,
+          };
+        }
       } else {
         logger.error(
           { 
-            roleFromToken: ssoUserInfo.role,
+            roleFromToken: tokenRole,
             userInfoUrl: process.env.SSO_USERINFO_URL ? 'configured' : 'MISSING'
           }, 
           'CRITICAL: UserInfo endpoint did not return data - admin roles may be missing'
@@ -446,11 +495,14 @@ export async function POST(request: NextRequest) {
     let player = await Player.findOne({ ssoSub: ssoUserInfo.sub });
 
     if (player) {
-      // Update existing player - sync email, name, and role from SSO
+      // Update existing player - sync email/name, update role only if SSO supplied a role claim
       const previousRole = player.role;
+      const hasRoleClaim = ssoUserInfo.roleClaimPresent ?? false;
       player.email = ssoUserInfo.email || player.email;
       player.displayName = ssoUserInfo.name || player.displayName;
-      player.role = ssoUserInfo.role; // SSO UserInfo endpoint is source of truth for roles
+      if (hasRoleClaim) {
+        player.role = ssoUserInfo.role; // Update role only if SSO provided a role claim
+      }
       player.authProvider = 'sso';
       player.lastLoginAt = new Date();
       await player.save();
@@ -460,30 +512,34 @@ export async function POST(request: NextRequest) {
           playerId: player._id,
           ssoSub: ssoUserInfo.sub,
           previousRole,
-          newRole: ssoUserInfo.role,
-          roleChanged: previousRole !== ssoUserInfo.role,
+          newRole: player.role,
+          roleChanged: previousRole !== player.role,
+          roleClaimPresent: hasRoleClaim,
           updated: true,
         },
-        'SSO user updated - role synced from SSO UserInfo endpoint'
+        hasRoleClaim
+          ? 'SSO user updated - role synced from SSO role claim'
+          : 'SSO user updated - role unchanged (no role claim provided)'
       );
       
-      if (previousRole !== ssoUserInfo.role) {
+      if (hasRoleClaim && previousRole !== ssoUserInfo.role) {
         logger.warn(
           {
             playerId: player._id,
             previousRole,
-            newRole: ssoUserInfo.role,
+            newRole: player.role,
           },
           'Player role changed during SSO sync - admin access may have changed'
         );
       }
     } else {
       // Create new player
+      const hasRoleClaim = ssoUserInfo.roleClaimPresent ?? false;
       player = await Player.create({
         ssoSub: ssoUserInfo.sub,
         email: ssoUserInfo.email,
         displayName: ssoUserInfo.name || ssoUserInfo.email?.split('@')[0] || 'User',
-        role: ssoUserInfo.role,
+        role: hasRoleClaim ? ssoUserInfo.role : 'user',
         authProvider: 'sso',
         brandId: defaultBrand._id,
         isPremium: false,
@@ -498,10 +554,12 @@ export async function POST(request: NextRequest) {
         {
           playerId: player._id,
           ssoSub: ssoUserInfo.sub,
-          role: ssoUserInfo.role,
+          role: player.role,
           created: true,
         },
-        'SSO user created - role from SSO UserInfo endpoint'
+        hasRoleClaim
+          ? 'SSO user created - role from SSO role claim'
+          : 'SSO user created - defaulted to user (no role claim)'
       );
 
       // Log registration
