@@ -41,6 +41,7 @@ export const authConfig = {
         displayName: { label: 'Display Name', type: 'text' },
         isAnonymous: { label: 'Is Anonymous', type: 'text' },
         role: { label: 'Role', type: 'text' },
+        ssoSub: { label: 'SSO Sub', type: 'text' },
         accessToken: { label: 'Access Token', type: 'text' },
         refreshToken: { label: 'Refresh Token', type: 'text' },
         tokenExpiresAt: { label: 'Token Expires At', type: 'text' },
@@ -56,6 +57,20 @@ export const authConfig = {
         
         // Return user object for anonymous player or SSO user
         // Why: NextAuth uses this to create session
+        // Get ssoSub from database if available (for SSO users)
+        let ssoSub: string | undefined;
+        if (!isAnonymous && credentials.playerId) {
+          try {
+            const { connectDB } = await import('@/lib/mongodb');
+            const { Player } = await import('@/lib/models');
+            await connectDB();
+            const player = await Player.findById(credentials.playerId).lean();
+            ssoSub = player?.ssoSub;
+          } catch (error) {
+            // Ignore - will be set in JWT callback
+          }
+        }
+        
         return {
           id: credentials.playerId as string,
           name: credentials.displayName as string,
@@ -64,6 +79,7 @@ export const authConfig = {
           isAnonymous,
           role,
           authProvider: isAnonymous ? 'anonymous' : 'sso',
+          ssoSub: ssoSub || undefined, // SSO subject identifier
           accessToken: credentials.accessToken as string | undefined, // Store for SSO role checks
           refreshToken: credentials.refreshToken as string | undefined, // Store for token renewal
           tokenExpiresAt: credentials.tokenExpiresAt ? parseInt(credentials.tokenExpiresAt as string) : undefined, // Token expiration
@@ -107,12 +123,22 @@ export const authConfig = {
 
     // JWT callback
     // Why: Add custom fields to JWT token
+    // NOTE: This is used by authEdge (middleware), so it must preserve role from user object
     async jwt({ token, user, account, profile }) {
       // Store access token and refresh token from user object (SSO callback)
       if (user && (user as any).accessToken) {
         token.accessToken = (user as any).accessToken;
         token.refreshToken = (user as any).refreshToken;
         token.tokenExpiresAt = (user as any).tokenExpiresAt;
+      }
+      
+      // CRITICAL: Preserve role from user object (from SSO callback)
+      // This is needed for middleware (authEdge) to check admin access
+      if (user && (user as any).role) {
+        token.role = (user as any).role as 'user' | 'admin';
+        token.authProvider = (user as any).authProvider || 'sso';
+        token.ssoSub = (user as any).ssoSub || null;
+        token.isAnonymous = (user as any).isAnonymous || false;
       }
       
       // Initial sign in with Facebook
@@ -139,8 +165,8 @@ export const authConfig = {
 
     // Session callback
     // Why: Make custom fields available in session
-    // NOTE: This is overridden in auth.ts with the full implementation including role
-    // Keeping this for reference but auth.ts session callback takes precedence
+    // NOTE: This is used by authEdge (middleware), so it must expose role
+    // auth.ts overrides this for full SSO integration, but this is fallback for Edge
     async session({ session, token }): Promise<Session> {
       if (token && session.user) {
         (session.user as any).id = token.id as string;
@@ -149,6 +175,11 @@ export const authConfig = {
         (session.user as any).isAnonymous = token.isAnonymous ?? false;
         (session.user as any).role = (token.role as 'user' | 'admin') || 'user';
         (session.user as any).authProvider = (token.authProvider as 'sso' | 'anonymous') || 'sso';
+        
+        // Store access token in session for role checks (not exposed to client, server-side only)
+        (session as any).accessToken = token.accessToken;
+        (session as any).refreshToken = token.refreshToken;
+        (session as any).tokenExpiresAt = token.tokenExpiresAt;
       }
       return session;
     },

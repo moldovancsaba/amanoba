@@ -57,6 +57,11 @@ export async function GET(request: NextRequest) {
         ssoSub: (session.user as any).ssoSub || 'NOT SET',
         isAnonymous: (session.user as any).isAnonymous ?? false,
         locale: (session.user as any).locale || 'NOT SET',
+        hasAccessToken: !!(session as any).accessToken,
+        accessTokenLength: (session as any).accessToken ? String((session as any).accessToken).length : 0,
+        hasRefreshToken: !!(session as any).refreshToken,
+        tokenExpiresAt: (session as any).tokenExpiresAt || null,
+        tokenExpired: (session as any).tokenExpiresAt ? Date.now() > (session as any).tokenExpiresAt : null,
       },
       database: player ? {
         playerId: player._id,
