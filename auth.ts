@@ -195,6 +195,31 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
      * Why: Include Player ID, SSO identifier, role, and auth provider in session
      */
     async jwt({ token, user }) {
+      // CRITICAL: Check if access token is expired for admin users
+      // If admin token is expired, invalidate session to force re-login
+      const tokenExpiresAt = token.tokenExpiresAt as number | undefined;
+      const currentRole = token.role as 'user' | 'admin' | undefined;
+      const isTokenExpired = tokenExpiresAt ? Date.now() > tokenExpiresAt : false;
+      
+      if (isTokenExpired && currentRole === 'admin') {
+        logger.error(
+          {
+            playerId: token.id,
+            tokenExpiresAt,
+            currentTime: Date.now(),
+            role: currentRole,
+          },
+          'CRITICAL: Admin access token expired - invalidating session to force re-login'
+        );
+        // Invalidate token by removing critical fields
+        // This will force the session callback to return null user, causing logout
+        token.role = undefined;
+        token.accessToken = undefined;
+        token.refreshToken = undefined;
+        token.tokenExpiresAt = undefined;
+        return token; // Return invalidated token
+      }
+      
       // Always fetch player data to get current role (important for role updates)
       // Why: Role may change in database, so we need to refresh it on every request
       const playerId = user?.id || token.id;
@@ -239,9 +264,12 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
             
             // SSO-CENTRALIZED ROLE MANAGEMENT
             // Try to fetch role from SSO UserInfo endpoint (single source of truth)
-            // Fall back to database if SSO unavailable
-            const accessToken = token.accessToken;
-            if (accessToken && player.ssoSub) {
+            // CRITICAL: If token is expired and user is admin, we already invalidated above
+            // For non-expired tokens or non-admin users, proceed normally
+            const accessToken = token.accessToken as string | undefined;
+            const tokenExpired = token.tokenExpiresAt ? Date.now() > (token.tokenExpiresAt as number) : false;
+            
+            if (accessToken && player.ssoSub && !tokenExpired) {
               try {
                 const { getRoleFromSSO } = await import('@/lib/auth/role-manager');
                 const ssoRole = await getRoleFromSSO(accessToken, player.ssoSub);
@@ -270,10 +298,31 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
                   'JWT: Role fetched from SSO UserInfo endpoint (single source of truth)'
                 );
               } catch (ssoError) {
-                // SSO fetch failed - fall back to database role
+                // SSO fetch failed - check if this is an admin with expired token
+                const errorMessage = ssoError instanceof Error ? ssoError.message : String(ssoError);
+                if (errorMessage.includes('expired') || errorMessage.includes('Expired')) {
+                  const dbRole = (player.role as 'user' | 'admin') || 'user';
+                  if (dbRole === 'admin') {
+                    logger.error(
+                      {
+                        playerId,
+                        error: errorMessage,
+                      },
+                      'CRITICAL: Admin SSO token expired - invalidating session'
+                    );
+                    // Invalidate token
+                    token.role = undefined;
+                    token.accessToken = undefined;
+                    token.refreshToken = undefined;
+                    token.tokenExpiresAt = undefined;
+                    return token;
+                  }
+                }
+                
+                // SSO fetch failed for non-admin or non-expired - fall back to database role
                 logger.warn(
                   {
-                    error: ssoError instanceof Error ? ssoError.message : String(ssoError),
+                    error: errorMessage,
                     playerId,
                   },
                   'JWT: SSO role fetch failed, falling back to database role'
@@ -281,8 +330,24 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
                 const dbRole = (player.role as 'user' | 'admin') || 'user';
                 token.role = dbRole;
               }
+            } else if (tokenExpired && (player.role === 'admin' || token.role === 'admin')) {
+              // Token expired and user is admin - invalidate session
+              logger.error(
+                {
+                  playerId,
+                  playerRole: player.role,
+                  tokenRole: token.role,
+                  tokenExpiresAt: token.tokenExpiresAt,
+                },
+                'CRITICAL: Admin token expired - invalidating session to force re-login'
+              );
+              token.role = undefined;
+              token.accessToken = undefined;
+              token.refreshToken = undefined;
+              token.tokenExpiresAt = undefined;
+              return token;
             } else {
-              // No access token - use database role as fallback
+              // No access token or token expired for non-admin - use database role as fallback
               const dbRole = (player.role as 'user' | 'admin') || 'user';
               const previousTokenRole = token.role;
               token.role = dbRole;
@@ -305,8 +370,9 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
                   source: 'database_fallback',
                   hasAccessToken: !!accessToken,
                   hasSsoSub: !!player.ssoSub,
+                  tokenExpired,
                 }, 
-                'JWT: Using database role (SSO token not available)'
+                'JWT: Using database role (SSO token not available or expired)'
               );
             }
           } else if (user && user.id && !token.role) {
@@ -347,6 +413,21 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
      * Why: Frontend needs Player ID, SSO identifier, role, and auth provider
      */
     async session({ session, token }) {
+      // CRITICAL: If token was invalidated (role removed due to expired admin token), return null user
+      // This will force logout on the client side
+      if (!token.role && token.id) {
+        logger.warn(
+          {
+            playerId: token.id,
+            reason: 'Token invalidated due to expired admin access token',
+          },
+          'Session callback: Returning null user to force logout'
+        );
+        // Return session with null user to force logout
+        session.user = null as any;
+        return session;
+      }
+      
       if (token && session.user) {
         session.user.id = token.id as string;
         session.user.ssoSub = token.ssoSub || null;

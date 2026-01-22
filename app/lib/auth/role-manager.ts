@@ -98,7 +98,22 @@ export async function getRoleFromSSO(
 
   const userInfo = await fetchUserInfo(accessToken);
   if (!userInfo) {
-    // SSO fetch failed - try expired cache as fallback
+    // SSO fetch failed - check if this is an expired token error
+    // If we have cached admin role and fetch failed, it's likely token expired
+    if (cached && cached.role === 'admin') {
+      logger.error(
+        {
+          ssoSub,
+          cachedRole: cached.role,
+          cacheAge: Date.now() - cached.fetchedAt,
+        },
+        'CRITICAL: SSO fetch failed for admin user - likely expired token. Throwing error to force logout.'
+      );
+      // Throw error to force logout instead of using expired cache
+      throw new Error('Access token expired - Please log in again');
+    }
+    
+    // SSO fetch failed - try expired cache as fallback (only for non-admin)
     if (cached) {
       logger.warn(
         {
@@ -106,7 +121,7 @@ export async function getRoleFromSSO(
           cachedRole: cached.role,
           cacheAge: Date.now() - cached.fetchedAt,
         },
-        'SSO fetch failed, using expired cache as fallback'
+        'SSO fetch failed, using expired cache as fallback (non-admin user)'
       );
       return cached.role;
     }

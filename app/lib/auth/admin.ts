@@ -30,15 +30,48 @@ export async function isAdmin(session: Session | null | undefined): Promise<bool
     return false;
   }
 
-  // Try SSO-based check first (if access token available)
+  // CRITICAL: Check if access token is expired for admin users
+  const tokenExpiresAt = (session as any).tokenExpiresAt;
+  const isTokenExpired = tokenExpiresAt ? Date.now() > tokenExpiresAt : false;
+  const currentRole = (session.user as any).role;
+  
+  if (isTokenExpired && currentRole === 'admin') {
+    logger.error(
+      {
+        userId: session.user.id,
+        tokenExpiresAt,
+        currentTime: Date.now(),
+        role: currentRole,
+      },
+      'CRITICAL: Admin access token expired - cannot verify admin status, returning false to force logout'
+    );
+    // Return false to deny access - this will trigger logout
+    return false;
+  }
+
+  // Try SSO-based check first (if access token available and not expired)
   const accessToken = (session as any).accessToken;
-  if (accessToken && (session.user as any).ssoSub) {
+  if (accessToken && (session.user as any).ssoSub && !isTokenExpired) {
     try {
       return await checkAdminAccessSSO(session, accessToken);
     } catch (error) {
+      const errorMessage = error instanceof Error ? error.message : String(error);
+      // If error is about expired token and user is admin, deny access
+      if ((errorMessage.includes('expired') || errorMessage.includes('Expired')) && currentRole === 'admin') {
+        logger.error(
+          {
+            error: errorMessage,
+            userId: session.user.id,
+            role: currentRole,
+          },
+          'CRITICAL: Admin SSO token expired - denying access to force logout'
+        );
+        return false;
+      }
+      
       logger.warn(
         {
-          error: error instanceof Error ? error.message : String(error),
+          error: errorMessage,
           userId: session.user.id,
         },
         'SSO role check failed, falling back to session role'
@@ -47,6 +80,7 @@ export async function isAdmin(session: Session | null | undefined): Promise<bool
   }
 
   // Fallback to session role (for backward compatibility during migration)
+  // But only if token is not expired or user is not admin
   const role = (session.user as any).role;
   return role === 'admin';
 }
@@ -106,9 +140,36 @@ export async function checkAdminAccess(
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
   }
 
-  // Try SSO-based check first (if access token available)
+  // CRITICAL: Check if access token is expired for admin users
+  const tokenExpiresAt = (session as any).tokenExpiresAt;
+  const isTokenExpired = tokenExpiresAt ? Date.now() > tokenExpiresAt : false;
+  const currentRole = (session.user as any).role;
+  
+  if (isTokenExpired && currentRole === 'admin') {
+    logger.error(
+      {
+        userId: session.user.id,
+        tokenExpiresAt,
+        currentTime: Date.now(),
+        role: currentRole,
+        path: apiPath,
+      },
+      'CRITICAL: Admin access token expired - forcing logout via 401 response'
+    );
+    // Return 401 to force client-side logout
+    return NextResponse.json(
+      { 
+        error: 'Session expired - Please log in again',
+        code: 'TOKEN_EXPIRED',
+        forceLogout: true,
+      },
+      { status: 401 }
+    );
+  }
+
+  // Try SSO-based check first (if access token available and not expired)
   const accessToken = (session as any).accessToken;
-  if (accessToken && (session.user as any).ssoSub) {
+  if (accessToken && (session.user as any).ssoSub && !isTokenExpired) {
     try {
       const isAdmin = await checkAdminAccessSSO(session, accessToken);
       if (!isAdmin) {
@@ -123,9 +184,31 @@ export async function checkAdminAccess(
       }
       return null; // Admin access granted
     } catch (error) {
+      const errorMessage = error instanceof Error ? error.message : String(error);
+      // If error is about expired token and user is admin, force logout
+      if ((errorMessage.includes('expired') || errorMessage.includes('Expired')) && currentRole === 'admin') {
+        logger.error(
+          {
+            error: errorMessage,
+            userId: session.user.id,
+            role: currentRole,
+            path: apiPath,
+          },
+          'CRITICAL: Admin SSO token expired - forcing logout via 401 response'
+        );
+        return NextResponse.json(
+          { 
+            error: 'Session expired - Please log in again',
+            code: 'TOKEN_EXPIRED',
+            forceLogout: true,
+          },
+          { status: 401 }
+        );
+      }
+      
       logger.warn(
         {
-          error: error instanceof Error ? error.message : String(error),
+          error: errorMessage,
           userId: session.user.id,
           path: apiPath,
         },
@@ -135,6 +218,7 @@ export async function checkAdminAccess(
   }
 
   // Fallback to session role check (for backward compatibility during migration)
+  // But only if token is not expired or user is not admin
   const userRole = (session.user as any).role;
   if (userRole !== 'admin') {
     logger.warn(

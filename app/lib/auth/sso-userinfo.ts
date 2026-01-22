@@ -48,6 +48,21 @@ export async function fetchUserInfo(accessToken: string): Promise<SSOUserInfo | 
 
     if (!response.ok) {
       const errorText = await response.text().catch(() => 'Unable to read error response');
+      
+      // Check if this is a token expiration error (401 Unauthorized)
+      if (response.status === 401) {
+        logger.error(
+          { 
+            status: response.status, 
+            statusText: response.statusText,
+            errorText: errorText.substring(0, 200),
+          }, 
+          'CRITICAL: UserInfo endpoint returned 401 - Access token expired'
+        );
+        // Return null but the error will be handled by caller to force logout
+        return null;
+      }
+      
       logger.warn(
         { 
           status: response.status, 

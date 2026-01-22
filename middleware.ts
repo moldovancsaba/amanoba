@@ -132,6 +132,33 @@ export default auth((req) => {
 
     // Check if user has admin role
     const userRole = (req.auth?.user as any)?.role;
+    const tokenExpiresAt = (req.auth as any)?.tokenExpiresAt;
+    const isTokenExpired = tokenExpiresAt ? Date.now() > tokenExpiresAt : false;
+    
+    // CRITICAL: If admin token is expired, force logout by redirecting to sign out
+    if (isTokenExpired && (userRole === 'admin' || !userRole)) {
+      logger.error(
+        { 
+          pathname, 
+          userId: req.auth?.user?.id, 
+          role: userRole,
+          tokenExpiresAt,
+          currentTime: Date.now(),
+        }, 
+        'CRITICAL: Admin access token expired - forcing logout'
+      );
+      // Force logout by redirecting to sign out endpoint
+      let locale = adminDefaultLocale;
+      for (const loc of locales) {
+        if (pathname.startsWith(`/${loc}/`) || pathname === `/${loc}`) {
+          locale = loc;
+          break;
+        }
+      }
+      // Redirect to sign out which will clear session and redirect to sign in
+      return NextResponse.redirect(new URL(`/api/auth/signout?callbackUrl=/${locale}/auth/signin`, req.url));
+    }
+    
     if (userRole !== 'admin') {
       logger.warn(
         { 
