@@ -263,9 +263,30 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
             token.isAnonymous = player.isAnonymous || false;
             
             // SSO-CENTRALIZED ROLE MANAGEMENT
-            // Try to fetch role from SSO UserInfo endpoint (single source of truth)
-            // CRITICAL: If token is expired and user is admin, we already invalidated above
-            // For non-expired tokens or non-admin users, proceed normally
+            // CRITICAL FIX: Always use database role as source of truth for JWT token
+            // Why: Database role is synced from SSO on login, and can be manually set
+            // This ensures the session role always matches the database role
+            const dbRole = (player.role as 'user' | 'admin') || 'user';
+            const previousTokenRole = token.role;
+            
+            // ALWAYS sync role from database to token
+            // This ensures that if database role is updated, session role updates immediately
+            token.role = dbRole;
+            
+            if (previousTokenRole && previousTokenRole !== dbRole) {
+              logger.warn(
+                { 
+                  playerId, 
+                  previousTokenRole,
+                  newDbRole: dbRole,
+                  source: 'database_sync',
+                }, 
+                'JWT: Role changed during database sync - session role updated'
+              );
+            }
+            
+            // Try to fetch role from SSO UserInfo endpoint for verification (optional)
+            // But database role is the source of truth for the session
             const accessToken = token.accessToken as string | undefined;
             const tokenExpired = token.tokenExpiresAt ? Date.now() > (token.tokenExpiresAt as number) : false;
             
@@ -273,35 +294,32 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
               try {
                 const { getRoleFromSSO } = await import('@/lib/auth/role-manager');
                 const ssoRole = await getRoleFromSSO(accessToken, player.ssoSub);
-                const previousTokenRole = token.role;
-                token.role = ssoRole; // SSO is the source of truth
                 
-                if (previousTokenRole && previousTokenRole !== ssoRole) {
+                // Log if SSO role differs from database role (for debugging)
+                if (ssoRole !== dbRole) {
                   logger.warn(
                     { 
                       playerId, 
-                      previousTokenRole,
-                      newSSORole: ssoRole,
-                      source: 'sso_userinfo',
+                      dbRole,
+                      ssoRole,
+                      source: 'sso_verification',
                     }, 
-                    'JWT: Role changed from SSO - real-time role sync'
+                    'JWT: SSO role differs from database role - database role takes precedence'
+                  );
+                } else {
+                  logger.debug(
+                    { 
+                      playerId, 
+                      role: dbRole,
+                      source: 'sso_verified',
+                    }, 
+                    'JWT: SSO role matches database role'
                   );
                 }
-                
-                logger.info(
-                  { 
-                    playerId, 
-                    ssoRole,
-                    source: 'sso_userinfo',
-                    ssoSub: player.ssoSub,
-                  }, 
-                  'JWT: Role fetched from SSO UserInfo endpoint (single source of truth)'
-                );
               } catch (ssoError) {
                 // SSO fetch failed - check if this is an admin with expired token
                 const errorMessage = ssoError instanceof Error ? ssoError.message : String(ssoError);
                 if (errorMessage.includes('expired') || errorMessage.includes('Expired')) {
-                  const dbRole = (player.role as 'user' | 'admin') || 'user';
                   if (dbRole === 'admin') {
                     logger.error(
                       {
@@ -319,24 +337,22 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
                   }
                 }
                 
-                // SSO fetch failed for non-admin or non-expired - fall back to database role
-                logger.warn(
+                // SSO fetch failed - database role is still used (already set above)
+                logger.debug(
                   {
                     error: errorMessage,
                     playerId,
+                    dbRole,
                   },
-                  'JWT: SSO role fetch failed, falling back to database role'
+                  'JWT: SSO role fetch failed, using database role (already set)'
                 );
-                const dbRole = (player.role as 'user' | 'admin') || 'user';
-                token.role = dbRole;
               }
-            } else if (tokenExpired && (player.role === 'admin' || token.role === 'admin')) {
+            } else if (tokenExpired && dbRole === 'admin') {
               // Token expired and user is admin - invalidate session
               logger.error(
                 {
                   playerId,
-                  playerRole: player.role,
-                  tokenRole: token.role,
+                  playerRole: dbRole,
                   tokenExpiresAt: token.tokenExpiresAt,
                 },
                 'CRITICAL: Admin token expired - invalidating session to force re-login'
@@ -347,27 +363,12 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
               token.tokenExpiresAt = undefined;
               return token;
             } else {
-              // No access token or token expired for non-admin - use database role as fallback
-              const dbRole = (player.role as 'user' | 'admin') || 'user';
-              const previousTokenRole = token.role;
-              token.role = dbRole;
-              
-              if (previousTokenRole && previousTokenRole !== dbRole) {
-                logger.warn(
-                  { 
-                    playerId, 
-                    previousTokenRole,
-                    newDbRole: dbRole,
-                  }, 
-                  'JWT: Role changed during database refresh (no SSO token available)'
-                );
-              }
-              
-              logger.info(
+              // No access token or token expired for non-admin - database role already set above
+              logger.debug(
                 { 
                   playerId, 
                   dbRole,
-                  source: 'database_fallback',
+                  source: 'database_only',
                   hasAccessToken: !!accessToken,
                   hasSsoSub: !!player.ssoSub,
                   tokenExpired,
