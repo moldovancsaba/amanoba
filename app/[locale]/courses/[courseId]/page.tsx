@@ -136,8 +136,8 @@ export default function CourseDetailPage({
           // Only redirect if the locale is different and valid
           if (courseLocale && courseLocale !== locale) {
             hasRedirectedRef.current = true;
-            // Use push instead of replace to avoid multiple redirects
-            router.push(`/${courseLocale}/courses/${cid}`);
+            // Replace to avoid redirect loops and extra history entries
+            router.replace(`/${courseLocale}/courses/${cid}`);
             return;
           }
         }

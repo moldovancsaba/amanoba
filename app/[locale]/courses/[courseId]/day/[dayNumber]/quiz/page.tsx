@@ -83,8 +83,8 @@ export default function LessonQuizPage({
         const courseLocale = getLocaleForLanguage(lessonData.courseLanguage);
         if (courseLocale && courseLocale !== locale) {
           hasRedirectedRef.current = true;
-          // Use push instead of replace to avoid multiple redirects
-          router.push(`/${courseLocale}/courses/${cid}/day/${day}/quiz`);
+          // Replace to avoid redirect loops and extra history entries
+          router.replace(`/${courseLocale}/courses/${cid}/day/${day}/quiz`);
           return;
         }
       }
@@ -166,7 +166,7 @@ export default function LessonQuizPage({
             localStorage.setItem(key, 'true');
           }
           setTimeout(() => {
-            router.replace(`/courses/${courseId}/day/${dayNumber}?quiz=passed`);
+            router.replace(`/${locale}/courses/${courseId}/day/${dayNumber}?quiz=passed`);
           }, 900);
         } else {
           setTimeout(() => {
@@ -191,7 +191,7 @@ export default function LessonQuizPage({
           localStorage.removeItem(key);
         }
         setTimeout(() => {
-          router.replace(`/courses/${courseId}/day/${dayNumber}?quizRetry=1`);
+          router.replace(`/${locale}/courses/${courseId}/day/${dayNumber}?quizRetry=1`);
         }, 1200);
       }
     } catch (err) {

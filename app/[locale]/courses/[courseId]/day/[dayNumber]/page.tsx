@@ -96,8 +96,8 @@ export default function DailyLessonPage({
         const courseLocale = getLocaleForLanguage(data.courseLanguage);
         if (courseLocale && courseLocale !== locale) {
           hasRedirectedRef.current = true;
-          // Use push instead of replace to avoid multiple redirects
-          router.push(`/${courseLocale}/courses/${cid}/day/${day}`);
+          // Replace to avoid redirect loops and extra history entries
+          router.replace(`/${courseLocale}/courses/${cid}/day/${day}`);
           return;
         }
       }
