@@ -192,34 +192,9 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
      * JWT Callback
      * 
      * What: Add custom fields to JWT token
-     * Why: Include Player ID, SSO identifier, role, and auth provider in session
+     * Why: Include Player ID, role, and auth provider in session (roles managed locally)
      */
     async jwt({ token, user }) {
-      // CRITICAL: Check if access token is expired for admin users
-      // If admin token is expired, invalidate session to force re-login
-      const tokenExpiresAt = token.tokenExpiresAt as number | undefined;
-      const currentRole = token.role as 'user' | 'admin' | undefined;
-      const isTokenExpired = tokenExpiresAt ? Date.now() > tokenExpiresAt : false;
-      
-      if (isTokenExpired && currentRole === 'admin') {
-        logger.error(
-          {
-            playerId: token.id,
-            tokenExpiresAt,
-            currentTime: Date.now(),
-            role: currentRole,
-          },
-          'CRITICAL: Admin access token expired - invalidating session to force re-login'
-        );
-        // Invalidate token by removing critical fields
-        // This will force the session callback to return null user, causing logout
-        token.role = undefined;
-        token.accessToken = undefined;
-        token.refreshToken = undefined;
-        token.tokenExpiresAt = undefined;
-        return token; // Return invalidated token
-      }
-      
       // Always fetch player data to get current role (important for role updates)
       // Why: Role may change in database, so we need to refresh it on every request
       const playerId = user?.id || token.id;
@@ -232,7 +207,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
         token.authProvider = (user as any).authProvider || 'sso';
         token.isAnonymous = (user as any).isAnonymous || false;
         
-        // Store SSO tokens for role checks
+        // Store SSO tokens for potential future use
         if ((user as any).accessToken) {
           token.accessToken = (user as any).accessToken;
           token.refreshToken = (user as any).refreshToken;
@@ -262,10 +237,9 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
             token.locale = player.locale || 'en';
             token.isAnonymous = player.isAnonymous || false;
             
-            // SSO-CENTRALIZED ROLE MANAGEMENT
-            // CRITICAL FIX: Always use database role as source of truth for JWT token
-            // Why: Database role is synced from SSO on login, and can be manually set
-            // This ensures the session role always matches the database role
+            // LOCAL ROLE MANAGEMENT
+            // Always use database role as source of truth for JWT token
+            // This ensures session role matches the stored role
             const dbRole = (player.role as 'user' | 'admin') || 'user';
             const previousTokenRole = token.role;
             
@@ -285,97 +259,14 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
               );
             }
             
-            // Try to fetch role from SSO UserInfo endpoint for verification (optional)
-            // But database role is the source of truth for the session
-            const accessToken = token.accessToken as string | undefined;
-            const tokenExpired = token.tokenExpiresAt ? Date.now() > (token.tokenExpiresAt as number) : false;
-            
-            if (accessToken && player.ssoSub && !tokenExpired) {
-              try {
-                const { getRoleFromSSO } = await import('@/lib/auth/role-manager');
-                const ssoRole = await getRoleFromSSO(accessToken, player.ssoSub);
-                
-                // Log if SSO role differs from database role (for debugging)
-                if (ssoRole !== dbRole) {
-                  logger.warn(
-                    { 
-                      playerId, 
-                      dbRole,
-                      ssoRole,
-                      source: 'sso_verification',
-                    }, 
-                    'JWT: SSO role differs from database role - database role takes precedence'
-                  );
-                } else {
-                  logger.debug(
-                    { 
-                      playerId, 
-                      role: dbRole,
-                      source: 'sso_verified',
-                    }, 
-                    'JWT: SSO role matches database role'
-                  );
-                }
-              } catch (ssoError) {
-                // SSO fetch failed - check if this is an admin with expired token
-                const errorMessage = ssoError instanceof Error ? ssoError.message : String(ssoError);
-                if (errorMessage.includes('expired') || errorMessage.includes('Expired')) {
-                  if (dbRole === 'admin') {
-                    logger.error(
-                      {
-                        playerId,
-                        error: errorMessage,
-                      },
-                      'CRITICAL: Admin SSO token expired - invalidating session'
-                    );
-                    // Invalidate token
-                    token.role = undefined;
-                    token.accessToken = undefined;
-                    token.refreshToken = undefined;
-                    token.tokenExpiresAt = undefined;
-                    return token;
-                  }
-                }
-                
-                // SSO fetch failed - database role is still used (already set above)
-                logger.debug(
-                  {
-                    error: errorMessage,
-                    playerId,
-                    dbRole,
-                  },
-                  'JWT: SSO role fetch failed, using database role (already set)'
-                );
-              }
-            } else if (tokenExpired && dbRole === 'admin') {
-              // Token expired and user is admin - invalidate session
-              logger.error(
-                {
-                  playerId,
-                  playerRole: dbRole,
-                  tokenExpiresAt: token.tokenExpiresAt,
-                },
-                'CRITICAL: Admin token expired - invalidating session to force re-login'
-              );
-              token.role = undefined;
-              token.accessToken = undefined;
-              token.refreshToken = undefined;
-              token.tokenExpiresAt = undefined;
-              return token;
-            } else {
-              // No access token or token expired for non-admin - database role already set above
-              logger.debug(
-                { 
-                  playerId, 
-                  dbRole,
-                  source: 'database_only',
-                  hasAccessToken: !!accessToken,
-                  hasSsoSub: !!player.ssoSub,
-                  tokenExpired,
-                }, 
-                'JWT: Using database role (SSO token not available or expired)'
-              );
-            }
+            logger.debug(
+              { 
+                playerId, 
+                dbRole,
+                source: 'database_only',
+              }, 
+              'JWT: Using database role'
+            );
           } else if (user && user.id && !token.role) {
             // Fallback: player not found, use role from user object
             token.id = user.id;
@@ -414,21 +305,6 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
      * Why: Frontend needs Player ID, SSO identifier, role, and auth provider
      */
     async session({ session, token }) {
-      // CRITICAL: If token was invalidated (role removed due to expired admin token), return null user
-      // This will force logout on the client side
-      if (!token.role && token.id) {
-        logger.warn(
-          {
-            playerId: token.id,
-            reason: 'Token invalidated due to expired admin access token',
-          },
-          'Session callback: Returning null user to force logout'
-        );
-        // Return session with null user to force logout
-        session.user = null as any;
-        return session;
-      }
-      
       if (token && session.user) {
         session.user.id = token.id as string;
         session.user.ssoSub = token.ssoSub || null;

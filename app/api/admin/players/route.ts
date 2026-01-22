@@ -70,7 +70,7 @@ export async function GET(request: NextRequest) {
         .sort({ createdAt: -1 })
         .skip(skip)
         .limit(limit)
-        .select('displayName email isPremium isActive isAnonymous createdAt lastLoginAt')
+        .select('displayName email isPremium isActive isAnonymous role createdAt lastLoginAt')
         .lean(),
       Player.countDocuments(query),
     ]);
