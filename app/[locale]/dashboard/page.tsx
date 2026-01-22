@@ -292,6 +292,11 @@ export default function Dashboard() {
               >
                 📚 {t('browseCourses')}
               </LocaleLink>
+              {(session?.user && ((session.user as any).role === 'admin' || playerData?.player?.role === 'admin')) && (
+                <span className="inline-flex items-center px-3 py-2 rounded-lg bg-emerald-600 text-white text-sm font-semibold">
+                  {tAdmin('roleAdmin')}
+                </span>
+              )}
               {/* Admin button - only show for admin users */}
               {(session?.user && ((session.user as any).role === 'admin' || playerData?.player?.role === 'admin')) && (
                 <LocaleLink
