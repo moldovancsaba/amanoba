@@ -10,6 +10,7 @@ import { useLocale, useTranslations } from 'next-intl';
 import { CheckCircle, XCircle, ArrowLeft, Loader2 } from 'lucide-react';
 import { LocaleLink } from '@/components/LocaleLink';
 import Logo from '@/components/Logo';
+import { getLocaleForLanguage } from '@/lib/locale-utils';
 import { useSession } from 'next-auth/react';
 
 interface LessonResponse {
@@ -78,10 +79,10 @@ export default function LessonQuizPage({
 
       // Check if course language matches URL locale, redirect if not
       // Only redirect once to prevent infinite loops
-      if (!hasRedirectedRef.current && lessonData.courseLanguage && lessonData.courseLanguage !== locale) {
-        const courseLocale = lessonData.courseLanguage === 'hu' ? 'hu' : lessonData.courseLanguage === 'en' ? 'en' : locale;
-        if (courseLocale !== locale) {
-          hasRedirectedRef.current = true;
+      if (!hasRedirectedRef.current && lessonData.courseLanguage) {
+        const courseLocale = getLocaleForLanguage(lessonData.courseLanguage);
+          if (courseLocale !== locale) {
+            hasRedirectedRef.current = true;
           router.replace(`/${courseLocale}/courses/${cid}/day/${day}/quiz`);
           return;
         }

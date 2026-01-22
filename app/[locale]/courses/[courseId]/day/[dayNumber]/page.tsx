@@ -23,6 +23,7 @@ import {
 } from 'lucide-react';
 import { useSearchParams } from 'next/navigation';
 import Logo from '@/components/Logo';
+import { getLocaleForLanguage } from '@/lib/locale-utils';
 
 interface Lesson {
   _id: string;
@@ -91,8 +92,8 @@ export default function DailyLessonPage({
       if (data.success) {
         // Check if course language matches URL locale, redirect if not
         // Only redirect once to prevent infinite loops
-        if (!hasRedirectedRef.current && data.courseLanguage && data.courseLanguage !== locale) {
-          const courseLocale = data.courseLanguage === 'hu' ? 'hu' : data.courseLanguage === 'en' ? 'en' : locale;
+      if (!hasRedirectedRef.current && data.courseLanguage) {
+        const courseLocale = getLocaleForLanguage(data.courseLanguage);
           if (courseLocale !== locale) {
             hasRedirectedRef.current = true;
             router.replace(`/${courseLocale}/courses/${cid}/day/${day}`);

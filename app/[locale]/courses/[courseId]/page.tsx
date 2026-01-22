@@ -23,6 +23,7 @@ import {
   CreditCard,
 } from 'lucide-react';
 import Logo from '@/components/Logo';
+import { getLocaleForLanguage } from '@/lib/locale-utils';
 
 interface Course {
   _id: string;
@@ -129,9 +130,8 @@ export default function CourseDetailPage({
         
         // Redirect to correct locale if course language doesn't match URL locale
         // Only redirect once to prevent infinite loops
-        if (!hasRedirectedRef.current && courseData.language && courseData.language !== locale) {
-          // Map course language to locale (e.g., 'hu' -> 'hu', 'en' -> 'en')
-          const courseLocale = courseData.language === 'hu' ? 'hu' : courseData.language === 'en' ? 'en' : locale;
+        if (!hasRedirectedRef.current && courseData.language) {
+          const courseLocale = getLocaleForLanguage(courseData.language);
           
           // Only redirect if the locale is different
           if (courseLocale !== locale) {
