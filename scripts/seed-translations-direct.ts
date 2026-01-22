@@ -14,7 +14,7 @@ import { resolve } from 'path';
 
 // Load .env.local explicitly to match other seed scripts
 config({ path: resolve(process.cwd(), '.env.local') });
-import connectDB from '../app/lib/mongodb';
+import mongoose from 'mongoose';
 import { Translation } from '../app/lib/models';
 import { logger } from '../app/lib/logger';
 import fs from 'fs';
@@ -25,7 +25,11 @@ const messagesDir = path.join(process.cwd(), 'messages');
 
 async function seedTranslations() {
   logger.info('Starting translation seeding...');
-  await connectDB();
+  const mongoUri = process.env.MONGODB_URI;
+  if (!mongoUri) {
+    throw new Error('MONGODB_URI not defined in .env.local');
+  }
+  await mongoose.connect(mongoUri);
 
   for (const locale of locales) {
     const filePath = path.join(messagesDir, `${locale}.json`);
