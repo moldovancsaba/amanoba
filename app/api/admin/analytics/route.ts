@@ -40,8 +40,8 @@ export async function GET(request: NextRequest) {
     // Authentication check
     const session = await auth();
     
-    // Admin role check
-    const adminCheck = checkAdminAccess(session, '/api/admin/analytics');
+    // Admin role check (SSO-based)
+    const adminCheck = await checkAdminAccess(session, '/api/admin/analytics');
     if (adminCheck) {
       return adminCheck;
     }

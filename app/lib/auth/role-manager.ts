@@ -140,7 +140,7 @@ export async function getRoleFromSSO(
 }
 
 /**
- * Check if user has admin access
+ * Check if user has admin access (SSO-based)
  * 
  * What: Verifies admin role from SSO for a given session
  * Why: Centralized admin access check using SSO as source of truth
@@ -155,7 +155,7 @@ export async function getRoleFromSSO(
  * 3. Fetch role from SSO (with cache)
  * 4. Return true if role is 'admin'
  */
-export async function checkAdminAccess(
+export async function checkAdminAccessSSO(
   session: Session | null | undefined,
   accessToken?: string
 ): Promise<boolean> {

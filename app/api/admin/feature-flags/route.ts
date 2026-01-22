@@ -90,8 +90,8 @@ export async function PATCH(request: NextRequest) {
   try {
     const session = await auth();
     
-    // Admin role check
-    const adminCheck = checkAdminAccess(session, '/api/admin/feature-flags');
+    // Admin role check (SSO-based)
+    const adminCheck = await checkAdminAccess(session, '/api/admin/feature-flags');
     if (adminCheck) {
       return adminCheck;
     }

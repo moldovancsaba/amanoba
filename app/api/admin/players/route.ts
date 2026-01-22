@@ -31,8 +31,8 @@ export async function GET(request: NextRequest) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
-    // Admin role check
-    const adminCheck = checkAdminAccess(session, '/api/admin/players');
+    // Admin role check (SSO-based)
+    const adminCheck = await checkAdminAccess(session, '/api/admin/players');
     if (adminCheck) {
       return adminCheck;
     }

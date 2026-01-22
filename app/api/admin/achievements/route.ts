@@ -83,8 +83,8 @@ export async function POST(request: NextRequest) {
   try {
     const session = await auth();
     
-    // Admin role check
-    const adminCheck = checkAdminAccess(session, '/api/admin/achievements');
+    // Admin role check (SSO-based)
+    const adminCheck = await checkAdminAccess(session, '/api/admin/achievements');
     if (adminCheck) {
       return adminCheck;
     }

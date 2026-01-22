@@ -37,6 +37,12 @@ export async function GET(request: NextRequest) {
       );
     }
 
+    // Admin role check (SSO-based)
+    const adminCheck = await checkAdminAccess(session, '/api/admin/courses');
+    if (adminCheck) {
+      return adminCheck;
+    }
+
     await connectDB();
 
     const { searchParams } = new URL(request.url);
@@ -102,8 +108,8 @@ export async function POST(request: NextRequest) {
     // Auth check
     const session = await auth();
     
-    // Admin role check
-    const adminCheck = checkAdminAccess(session, '/api/admin/courses');
+    // Admin role check (SSO-based)
+    const adminCheck = await checkAdminAccess(session, '/api/admin/courses');
     if (adminCheck) {
       return adminCheck;
     }

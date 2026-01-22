@@ -232,39 +232,83 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
           
           if (player) {
             token.id = playerId as string;
-            // Always use database role - it's the source of truth after SSO UserInfo update
-            const dbRole = (player.role as 'user' | 'admin') || 'user';
-            const previousTokenRole = token.role;
-            token.role = dbRole; // Database role wins (was updated from SSO UserInfo endpoint)
             token.authProvider = (player.authProvider as 'sso' | 'anonymous') || 'sso';
             token.ssoSub = player.ssoSub || null;
             token.locale = player.locale || 'en';
             token.isAnonymous = player.isAnonymous || false;
             
-            // Log if role changed
-            if (previousTokenRole && previousTokenRole !== dbRole) {
-              logger.warn(
+            // SSO-CENTRALIZED ROLE MANAGEMENT
+            // Try to fetch role from SSO UserInfo endpoint (single source of truth)
+            // Fall back to database if SSO unavailable
+            const accessToken = token.accessToken;
+            if (accessToken && player.ssoSub) {
+              try {
+                const { getRoleFromSSO } = await import('@/lib/auth/role-manager');
+                const ssoRole = await getRoleFromSSO(accessToken, player.ssoSub);
+                const previousTokenRole = token.role;
+                token.role = ssoRole; // SSO is the source of truth
+                
+                if (previousTokenRole && previousTokenRole !== ssoRole) {
+                  logger.warn(
+                    { 
+                      playerId, 
+                      previousTokenRole,
+                      newSSORole: ssoRole,
+                      source: 'sso_userinfo',
+                    }, 
+                    'JWT: Role changed from SSO - real-time role sync'
+                  );
+                }
+                
+                logger.info(
+                  { 
+                    playerId, 
+                    ssoRole,
+                    source: 'sso_userinfo',
+                    ssoSub: player.ssoSub,
+                  }, 
+                  'JWT: Role fetched from SSO UserInfo endpoint (single source of truth)'
+                );
+              } catch (ssoError) {
+                // SSO fetch failed - fall back to database role
+                logger.warn(
+                  {
+                    error: ssoError instanceof Error ? ssoError.message : String(ssoError),
+                    playerId,
+                  },
+                  'JWT: SSO role fetch failed, falling back to database role'
+                );
+                const dbRole = (player.role as 'user' | 'admin') || 'user';
+                token.role = dbRole;
+              }
+            } else {
+              // No access token - use database role as fallback
+              const dbRole = (player.role as 'user' | 'admin') || 'user';
+              const previousTokenRole = token.role;
+              token.role = dbRole;
+              
+              if (previousTokenRole && previousTokenRole !== dbRole) {
+                logger.warn(
+                  { 
+                    playerId, 
+                    previousTokenRole,
+                    newDbRole: dbRole,
+                  }, 
+                  'JWT: Role changed during database refresh (no SSO token available)'
+                );
+              }
+              
+              logger.info(
                 { 
                   playerId, 
-                  previousTokenRole,
-                  newDbRole: dbRole,
-                  userRole: user ? (user as any).role : undefined,
+                  dbRole,
+                  source: 'database_fallback',
+                  hasAccessToken: !!accessToken,
+                  hasSsoSub: !!player.ssoSub,
                 }, 
-                'JWT: Role changed during database refresh - SSO role sync detected'
+                'JWT: Using database role (SSO token not available)'
               );
             }
-            
-            logger.info(
-              { 
-                playerId, 
-                dbRole,
-                userRole: user ? (user as any).role : undefined,
-                roleMatch: user ? dbRole === (user as any).role : 'no_user',
-                source: 'database_refresh',
-                ssoSub: player.ssoSub,
-              }, 
-              'JWT: Refreshed role from database (SSO UserInfo endpoint is source of truth)'
-            );
           } else if (user && user.id && !token.role) {
             // Fallback: player not found, use role from user object
             token.id = user.id;

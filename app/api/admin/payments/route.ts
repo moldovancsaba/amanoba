@@ -40,14 +40,11 @@ export async function GET(request: NextRequest) {
   try {
     const session = await auth();
     
-    // Admin role check
-    const adminCheck = checkAdminAccess(session, '/api/admin/payments');
+    // Admin role check (SSO-based)
+    const adminCheck = await checkAdminAccess(session, '/api/admin/payments');
     if (adminCheck) {
       return adminCheck;
     }
-
-    // TODO: Add admin role check when role system is implemented
-    // For now, any authenticated user can access (should be restricted to admins)
 
     await connectDB();
 
