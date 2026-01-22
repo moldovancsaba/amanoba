@@ -242,7 +242,7 @@ export default function AdminPlayersPage() {
                         onChange={(event) =>
                           updatePlayerRole(player._id, event.target.value as 'user' | 'admin')
                         }
-                        className="w-full rounded-md border border-gray-600 bg-gray-900 px-3 py-2 text-sm text-white focus:outline-none focus:border-indigo-500 disabled:opacity-60 disabled:cursor-not-allowed"
+                        className="min-w-[140px] rounded-md border border-gray-600 bg-gray-900 px-3 py-2 text-sm text-white focus:outline-none focus:border-indigo-500 disabled:opacity-60 disabled:cursor-not-allowed"
                       >
                         {player.isAnonymous ? (
                           <option value="guest">{t('guest')}</option>
