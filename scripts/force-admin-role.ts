@@ -10,6 +10,7 @@
  * Roles are managed locally in MongoDB (SSO is login-only).
  */
 
+import mongoose from 'mongoose';
 import connectDB from '../app/lib/mongodb';
 import { Player } from '../app/lib/models';
 import { logger } from '../app/lib/logger';
@@ -20,7 +21,10 @@ async function forceAdminRole(identifier: string) {
     logger.info({ identifier }, 'Force admin role - starting');
 
     // Find player by ID, email, or ssoSub
-    let player = await Player.findById(identifier);
+    let player = null;
+    if (mongoose.isValidObjectId(identifier)) {
+      player = await Player.findById(identifier);
+    }
     
     if (!player) {
       player = await Player.findOne({ email: identifier });
