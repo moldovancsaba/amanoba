@@ -40,31 +40,29 @@ cp .env.local.example .env.local
 
 ### 3. Required Variables
 
-#### MongoDB (Using Madoku Atlas Cluster)
-```env
-MONGODB_URI=mongodb+srv://moldovancsaba:x0OMCvaTFhSicXEb@madoku-cluster.kqamwf8.mongodb.net/amanoba?retryWrites=true&w=majority&appName=madoku-cluster
-DB_NAME=amanoba
-```
+#### MongoDB (MongoDB Atlas)
 
-**What**: Connection to MongoDB Atlas  
-**Why**: Stores all game data, player profiles, gamification state, and analytics  
-**Source**: Madoku cluster, database name changed to "amanoba"
+We use **MongoDB Atlas** for development and production. Do not commit connection strings to git.
+
+Set these in `.env.local` (the file is git‑ignored):
+- `MONGODB_URI` (secret): MongoDB Atlas connection string
+- `DB_NAME`: database name (default: `amanoba`)
 
 #### Admin Authentication
-```env
-ADMIN_PASSWORD=amanoba2025
-```
+
+Set in `.env.local` (secret):
+- `ADMIN_PASSWORD`: strong password for admin access (if still used)
 
 **What**: Password for admin dashboard access  
 **Why**: Secures admin panel for game management and analytics  
 **Security**: Change this in production to a strong password
 
-#### Facebook Login
-```env
-NEXT_PUBLIC_FACEBOOK_APP_ID=804700345578279
-FACEBOOK_APP_ID=804700345578279
-FACEBOOK_APP_SECRET=7adcee3e1fa1e36feb0ea81599c9c537
-```
+#### Facebook Login (only if enabled)
+
+Set in `.env.local`:
+- `NEXT_PUBLIC_FACEBOOK_APP_ID`
+- `FACEBOOK_APP_ID`
+- `FACEBOOK_APP_SECRET` (secret)
 
 **What**: Facebook App credentials for player authentication  
 **Why**: Enables social login for seamless player onboarding  
@@ -82,12 +80,12 @@ NODE_ENV=development
 **Why**: Required for OAuth redirects and branding  
 **Production**: Update NEXT_PUBLIC_APP_URL to your domain
 
-#### PWA Push Notifications
-```env
-NEXT_PUBLIC_VAPID_PUBLIC_KEY=BJutDYURhY88PRhFGkIgV0i9xrR7IvbKHg1y7TlRH_ddnJsbvkXm0Dpf51wjm5nWuIZqvB2d8h7aPM1LDWWQDVE
-VAPID_PRIVATE_KEY=VkJfSJPSnNKxFpyQrKUS7lfCbzJvX0dJEoCeYo4lZX0
-VAPID_SUBJECT=mailto:csaba@doneisbetter.com
-```
+#### PWA Push Notifications (only if enabled)
+
+Set in `.env.local`:
+- `NEXT_PUBLIC_VAPID_PUBLIC_KEY`
+- `VAPID_PRIVATE_KEY` (secret)
+- `VAPID_SUBJECT`
 
 **What**: VAPID keys for web push notifications  
 **Why**: Enables push notifications for achievements, challenges, etc.  
@@ -154,7 +152,7 @@ STRIPE_WEBHOOK_SECRET=[YOUR_STRIPE_WEBHOOK_SECRET]
    | `NEXT_PUBLIC_FACEBOOK_APP_ID` | 804700345578279 | ❌ |
    | `NEXT_PUBLIC_VAPID_PUBLIC_KEY` | [VAPID public key] | ❌ |
    | `NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY` | [Stripe publishable key] | ❌ |
-   | `VAPID_SUBJECT` | mailto:csaba@doneisbetter.com | ❌ |
+   | `VAPID_SUBJECT` | mailto:support@amanoba.com | ❌ |
    | `EMAIL_FROM` | noreply@amanoba.com | ❌ |
    | `EMAIL_FROM_NAME` | Amanoba Learning | ❌ |
    | `EMAIL_REPLY_TO` | support@amanoba.com | ❌ |
@@ -338,7 +336,7 @@ npm run db:seed
 ## Contact & Support
 
 For environment setup issues:
-- Email: csaba@doneisbetter.com
+- Email: support@amanoba.com
 - Check: LEARNINGS.md for common issues
 - Review: MongoDB Atlas dashboard for connection logs
 

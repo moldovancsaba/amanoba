@@ -22,25 +22,22 @@ These errors suggest either:
 
 ### Authentication (CRITICAL)
 
-```bash
-# NextAuth Configuration
-AUTH_SECRET=<generate with: openssl rand -base64 32>
-NEXTAUTH_URL=https://amanoba.com
+Set these in Vercel → Project → Settings → Environment Variables.
 
-# Facebook OAuth
-FACEBOOK_APP_ID=1522241068777501
-FACEBOOK_APP_SECRET=36f35cfc31152fbe9fba13ab76908f4c
+**Auth.js / NextAuth**
+- `AUTH_SECRET` (secret): generate with `openssl rand -base64 32`
+- `NEXTAUTH_URL`: `https://amanoba.com` (or `https://www.amanoba.com` if you enforce `www`)
 
-# Public Facebook App ID (for client-side)
-NEXT_PUBLIC_FACEBOOK_APP_ID=1522241068777501
-```
+**Facebook OAuth** (only if Facebook login is enabled)
+- `FACEBOOK_APP_ID`
+- `FACEBOOK_APP_SECRET` (secret)
+- `NEXT_PUBLIC_FACEBOOK_APP_ID` (same value as `FACEBOOK_APP_ID`)
 
 ### Database (CRITICAL)
 
-```bash
-# MongoDB Connection
-MONGODB_URI=mongodb+srv://playmass:xeDfip-7gavvo-betgab@playmass-cluster.lbzmcrq.mongodb.net/?retryWrites=true&w=majority&appName=playmass-cluster
-```
+**MongoDB**
+- `MONGODB_URI` (secret): MongoDB Atlas connection string for the production cluster
+- `DB_NAME`: the application database name (default is `amanoba`)
 
 ### Application URLs
 
@@ -54,21 +51,19 @@ NODE_ENV=production
 
 ### Optional but Recommended
 
-```bash
-# Admin Dashboard
-ADMIN_PASSWORD=<your_secure_password>
+**Admin**
+- `ADMIN_PASSWORD` (secret): strong password for admin access (if still used)
 
-# ImgBB for image uploads
-IMGBB_API_KEY=0f1b0fe82d360879dc65778de2697b50
+**ImgBB**
+- `IMGBB_API_KEY` (secret): API key for uploads (store only in Vercel, never in git)
 
-# PWA Push Notifications (if using)
-NEXT_PUBLIC_VAPID_PUBLIC_KEY=<your_key>
-VAPID_PRIVATE_KEY=<your_key>
-VAPID_SUBJECT=mailto:info@amanoba.com
+**PWA Push** (if enabled)
+- `NEXT_PUBLIC_VAPID_PUBLIC_KEY`
+- `VAPID_PRIVATE_KEY` (secret)
+- `VAPID_SUBJECT`
 
-# Analytics (optional)
-NEXT_PUBLIC_GA_ID=<your_ga_id>
-```
+**Analytics** (optional)
+- `NEXT_PUBLIC_GA_ID`
 
 ---
 
@@ -163,8 +158,9 @@ curl -X POST https://amanoba.com/api/auth/anonymous
 **Fix**:
 ```bash
 # Seed guest usernames in production DB
-# You'll need to run this script against production DB
-MONGODB_URI="mongodb+srv://playmass:..." npm run seed:guest-usernames
+# You'll need to run this script against the production DB
+# Provide MONGODB_URI securely (shell env or .env.local) – do not commit it.
+npm run seed:guest-usernames
 ```
 
 #### "Server Configuration Error" (Facebook)
@@ -198,8 +194,8 @@ Before each major deployment:
 After deploying, seed production database:
 
 ```bash
-# Set production MongoDB URI temporarily
-export MONGODB_URI="mongodb+srv://playmass:xeDfip-7gavvo-betgab@playmass-cluster.lbzmcrq.mongodb.net/?retryWrites=true&w=majority&appName=playmass-cluster"
+# Provide production MongoDB credentials securely (shell env or .env.local)
+# Do not paste secrets into documentation or commit history.
 
 # Seed guest usernames (required for anonymous login)
 npm run seed:guest-usernames

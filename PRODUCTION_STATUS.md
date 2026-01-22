@@ -100,14 +100,15 @@ Go to: **https://vercel.com/[your-username]/amanoba/settings/environment-variabl
 
 **Required Variables for Production**:
 
-| Variable | Value | Status |
-|----------|-------|--------|
-| `AUTH_SECRET` | `<32-char base64 string>` | ❓ |
-| `NEXTAUTH_URL` | `https://amanoba.com` | ❓ |
-| `MONGODB_URI` | `mongodb+srv://playmass:xeDfip-7gavvo-betgab@playmass-cluster.lbzmcrq.mongodb.net/?retryWrites=true&w=majority&appName=playmass-cluster` | ❓ |
-| `FACEBOOK_APP_ID` | `1522241068777501` | ❓ |
-| `FACEBOOK_APP_SECRET` | `36f35cfc31152fbe9fba13ab76908f4c` | ❓ |
-| `NODE_ENV` | `production` | ❓ |
+| Variable | Type | Status |
+|----------|------|--------|
+| `AUTH_SECRET` | Secret | ❓ |
+| `NEXTAUTH_URL` | Public | ❓ |
+| `MONGODB_URI` | Secret | ❓ |
+| `DB_NAME` | Public | ❓ |
+| `FACEBOOK_APP_ID` | Public | ❓ |
+| `FACEBOOK_APP_SECRET` | Secret | ❓ |
+| `NODE_ENV` | Public | ❓ |
 
 **If ANY are missing**:
 

@@ -29,7 +29,8 @@ async function seedTranslations() {
   if (!mongoUri) {
     throw new Error('MONGODB_URI not defined in .env.local');
   }
-  await mongoose.connect(mongoUri);
+  const dbName = process.env.DB_NAME || 'amanoba';
+  await mongoose.connect(mongoUri, { dbName });
 
   for (const locale of locales) {
     const filePath = path.join(messagesDir, `${locale}.json`);
@@ -68,7 +69,9 @@ async function seedTranslations() {
     // Upsert translations
     for (const translation of flatTranslations) {
       await Translation.findOneAndUpdate(
-        { locale: translation.locale, namespace: translation.namespace || 'common', key: translation.key },
+        // IMPORTANT: Unique index is (locale, key) in MongoDB.
+        // Upsert must match that to avoid duplicate key collisions.
+        { locale: translation.locale, key: translation.key },
         {
           locale: translation.locale,
           namespace: translation.namespace || 'common',
@@ -83,6 +86,7 @@ async function seedTranslations() {
   }
 
   logger.info('All translations seeded successfully.');
+  await mongoose.disconnect();
   process.exit(0);
 }
 
