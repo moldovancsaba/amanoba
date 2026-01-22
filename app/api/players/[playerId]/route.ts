@@ -157,6 +157,9 @@ export async function GET(
         interests: player.interests || [],
         createdAt: player.createdAt,
         lastLoginAt: player.lastLoginAt,
+        role: (player.role as 'user' | 'admin') || 'user', // Role from database (synced from SSO)
+        authProvider: player.authProvider || 'sso',
+        ssoSub: player.ssoSub || null,
       },
       progression: progression
         ? {

@@ -37,6 +37,7 @@ interface PlayerData {
     displayName: string;
     isPremium: boolean;
     createdAt: string;
+    role?: 'user' | 'admin'; // Role from database
   };
   progression: {
     level: number;
@@ -292,7 +293,7 @@ export default function Dashboard() {
                 📚 {t('browseCourses')}
               </LocaleLink>
               {/* Admin button - only show for admin users */}
-              {session?.user && (session.user as any).role === 'admin' && (
+              {(session?.user && ((session.user as any).role === 'admin' || playerData?.player?.role === 'admin')) && (
                 <LocaleLink
                   href="/admin"
                   className="bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700 transition-colors font-medium font-bold"
