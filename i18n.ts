@@ -16,8 +16,8 @@ export const locales = ['hu', 'en', 'ru'] as const;
 export type Locale = (typeof locales)[number];
 
 // Default locale
-// Why: Hungarian is the default language
-export const defaultLocale: Locale = 'hu';
+// Why: English is the default language for fallback
+export const defaultLocale: Locale = 'en';
 
 /**
  * Get request configuration
@@ -98,15 +98,18 @@ export default getRequestConfig(async ({ locale }) => {
   }
 
   // Fallback to JSON files if database is unavailable or empty
-  // Additionally, merge with default locale to avoid missing keys showing raw ids
-  const defaultMessages = (await import(`./messages/${defaultLocale}.json`)).default;
+  // CRITICAL: Always use English as base, then merge with target locale
+  // This ensures English fallback instead of Hungarian
+  const defaultMessages = (await import(`./messages/en.json`)).default;
   const localeMessages =
-    resolvedLocale === defaultLocale
+    resolvedLocale === 'en'
       ? defaultMessages
       : (await import(`./messages/${resolvedLocale}.json`)).default;
 
+  // Always merge English as base, then target locale
+  // This ensures missing keys show English, not Hungarian
   const messages =
-    resolvedLocale === defaultLocale ? defaultMessages : deepMerge(defaultMessages, localeMessages);
+    resolvedLocale === 'en' ? defaultMessages : deepMerge(defaultMessages, localeMessages);
 
   return {
     locale: resolvedLocale,

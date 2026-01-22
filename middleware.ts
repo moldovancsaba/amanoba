@@ -15,8 +15,8 @@ import { locales, defaultLocale, type Locale } from './i18n';
 import { logger } from '@/lib/logger';
 
 // Default locales for different route types
-// Why: Public routes default to Hungarian, admin routes default to English
-const publicDefaultLocale: Locale = 'hu';
+// Why: Public routes default to English, admin routes default to English
+const publicDefaultLocale: Locale = 'en';
 const adminDefaultLocale: Locale = 'en';
 
 // Create next-intl middleware for language routing

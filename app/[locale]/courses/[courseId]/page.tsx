@@ -133,10 +133,11 @@ export default function CourseDetailPage({
         if (!hasRedirectedRef.current && courseData.language) {
           const courseLocale = getLocaleForLanguage(courseData.language);
           
-          // Only redirect if the locale is different
-          if (courseLocale !== locale) {
+          // Only redirect if the locale is different and valid
+          if (courseLocale && courseLocale !== locale) {
             hasRedirectedRef.current = true;
-            router.replace(`/${courseLocale}/courses/${cid}`);
+            // Use push instead of replace to avoid multiple redirects
+            router.push(`/${courseLocale}/courses/${cid}`);
             return;
           }
         }
@@ -443,7 +444,7 @@ export default function CourseDetailPage({
                     {t('pointsReward')}
                   </div>
                   <div className="text-2xl font-bold text-brand-black">
-                    {course.pointsConfig.completionPoints} {tCommon('points')}
+                    {course.pointsConfig.completionPoints} {t('points') || tCommon('points')}
                   </div>
                 </div>
 
@@ -478,7 +479,7 @@ export default function CourseDetailPage({
                             })}
                           </div>
                           <div className="mt-1 text-xs">
-                            {t('daysCompleted', { count: enrollment.progress.completedDays })}
+                            {t('daysCompleted', { count: enrollment.progress.completedDays || 0 })}
                           </div>
                           <div className="mt-2 bg-brand-darkGrey/20 rounded-full h-2 overflow-hidden">
                             <div

@@ -81,9 +81,10 @@ export default function LessonQuizPage({
       // Only redirect once to prevent infinite loops
       if (!hasRedirectedRef.current && lessonData.courseLanguage) {
         const courseLocale = getLocaleForLanguage(lessonData.courseLanguage);
-          if (courseLocale !== locale) {
-            hasRedirectedRef.current = true;
-          router.replace(`/${courseLocale}/courses/${cid}/day/${day}/quiz`);
+        if (courseLocale && courseLocale !== locale) {
+          hasRedirectedRef.current = true;
+          // Use push instead of replace to avoid multiple redirects
+          router.push(`/${courseLocale}/courses/${cid}/day/${day}/quiz`);
           return;
         }
       }

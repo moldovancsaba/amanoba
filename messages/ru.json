@@ -103,6 +103,7 @@
     "progress": "Прогресс",
     "dayOf": "День {{currentDay}} из {{totalDays}}",
     "daysCompleted": "{{count}} дней завершено",
+    "points": "очков",
     "backToCourses": "Назад к курсам",
     "aboutThisCourse": "О курсе",
     "whatYoullLearn": "Чему вы научитесь",

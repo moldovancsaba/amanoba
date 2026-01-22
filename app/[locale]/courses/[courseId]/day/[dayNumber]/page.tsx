@@ -90,16 +90,17 @@ export default function DailyLessonPage({
       const data = await response.json();
 
       if (data.success) {
-        // Check if course language matches URL locale, redirect if not
-        // Only redirect once to prevent infinite loops
+      // Check if course language matches URL locale, redirect if not
+      // Only redirect once to prevent infinite loops
       if (!hasRedirectedRef.current && data.courseLanguage) {
         const courseLocale = getLocaleForLanguage(data.courseLanguage);
-          if (courseLocale !== locale) {
-            hasRedirectedRef.current = true;
-            router.replace(`/${courseLocale}/courses/${cid}/day/${day}`);
-            return;
-          }
+        if (courseLocale && courseLocale !== locale) {
+          hasRedirectedRef.current = true;
+          // Use push instead of replace to avoid multiple redirects
+          router.push(`/${courseLocale}/courses/${cid}/day/${day}`);
+          return;
         }
+      }
 
         setLesson(data.lesson);
         setNavigation(data.navigation);
@@ -245,7 +246,7 @@ export default function DailyLessonPage({
             <div className="flex items-center gap-4 text-base text-brand-darkGrey mt-2">
               <div className="flex items-center gap-1">
                 <Award className="w-4 h-4" />
-                <span>{lesson.pointsReward} {tCommon('points')}</span>
+                <span>{lesson.pointsReward} {t('points') || tCommon('points')}</span>
               </div>
               <div className="flex items-center gap-1">
                 <Award className="w-4 h-4" />
