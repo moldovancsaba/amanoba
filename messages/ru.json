@@ -133,13 +133,51 @@
     "tableOfContents": "Содержание",
     "minutes": "минут",
     "hasQuiz": "Квиз",
-    "noLessonsAvailable": "Уроки пока недоступны"
+    "noLessonsAvailable": "Уроки пока недоступны",
+    "certificateDescription": "Курс завершён. Вы можете выпустить и поделиться сертификатом.",
+    "issueCertificate": "Выпустить сертификат",
+    "issuingCertificate": "Выпускаем сертификат...",
+    "viewCertificate": "Посмотреть сертификат",
+    "downloadCertificateImage": "Скачать изображение",
+    "certificateIssueFailed": "Не удалось выпустить сертификат"
   },
   "admin": {
     "role": "Роль",
     "roleUser": "Пользователь",
     "roleAdmin": "Администратор",
     "roleUpdateFailed": "Не удалось обновить роль. Попробуйте снова.",
-    "guest": "Гость"
+    "guest": "Гость",
+    "certification": "Сертификация",
+    "certificationDescription": "Глобальные настройки сертификатов",
+    "certificationEnabled": "Включить сертификацию",
+    "autoIssueOnCompletion": "Автоматически выдавать после завершения",
+    "template": "Шаблон",
+    "credential": "Квалификация",
+    "completionPhrase": "Фраза завершения",
+    "awardedPhrase": "Фраза награждения",
+    "bullets": "Пункты",
+    "bulletLimit": "Можно выбрать до 4 пунктов",
+    "price": "Цена сертификата",
+    "saveSettings": "Сохранить настройки",
+    "saving": "Сохранение...",
+    "failedToLoadSettings": "Не удалось загрузить настройки",
+    "failedToSaveSettings": "Не удалось сохранить настройки"
+  },
+  "certificates": {
+    "title": "Проверка сертификата",
+    "subtitle": "Официальный сертификат Amanoba",
+    "loading": "Загрузка сертификата...",
+    "notFound": "Сертификат не найден",
+    "failedToLoad": "Не удалось загрузить сертификат",
+    "verified": "Сертификат подтверждён",
+    "revoked": "Сертификат отозван",
+    "credential": "Квалификация",
+    "issuedAt": "Выдан",
+    "certificateNumber": "Сертификат",
+    "browseCourses": "Посмотреть курсы",
+    "viewImage": "Открыть изображение",
+    "verification": "Ссылка проверки",
+    "certificateImageAlt": "Изображение сертификата",
+    "imagePending": "Генерация изображения в процессе"
   }
 }

@@ -40,6 +40,9 @@ export const dynamic = 'force-dynamic';
  * }
  */
 export async function POST(request: NextRequest) {
+  let courseId: string | undefined;
+  let player: any = null;
+  
   try {
     // Check authentication
     const session = await auth();
@@ -60,7 +63,8 @@ export async function POST(request: NextRequest) {
 
     // Get request body
     const body = await request.json();
-    const { courseId, amount, currency, premiumDurationDays = 30 } = body;
+    const { courseId: bodyCourseId, amount, currency, premiumDurationDays = 30 } = body;
+    courseId = bodyCourseId;
 
     // Validate required fields
     if (!courseId) {
@@ -73,7 +77,7 @@ export async function POST(request: NextRequest) {
     // Get player
     const user = session.user as { id?: string; playerId?: string };
     const playerId = user.playerId || user.id;
-    const player = await Player.findById(playerId);
+    player = await Player.findById(playerId);
     if (!player) {
       return NextResponse.json({ error: 'Player not found' }, { status: 404 });
     }

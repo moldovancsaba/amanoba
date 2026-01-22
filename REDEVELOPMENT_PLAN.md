@@ -183,7 +183,7 @@
 - `ROADMAP.md`
 
 ### 10. **Certification System** (HIGH PRIORITY - P1)
-**Status**: Must re-implement  
+**Status**: Core enabled (settings, issue, verify, render)  
 **Commits**:
 - d710ccb: feat: certificate page with owner privacy toggle and API guard
 - 6cfa38f: chore: render certificate with score and revoked watermark
@@ -194,22 +194,19 @@
 - 356780d: feat: admin certification dashboard and backfill/seed helpers
 
 **What to Re-implement**:
-- Certification configuration on courses
 - Final certification exam (50 questions, randomized)
-- Certificate issuance and storage
-- Certificate verification API
-- Certificate page with privacy toggle
+- Certificate page privacy toggle
 - Admin certification dashboard and analytics
 - Pool audit and seed scripts
 - Dynamic OG tags for certificates
 
-**Files Changed**:
-- `app/lib/models/certification-settings.ts` - NEW: Certification settings model
-- `app/api/certificates/**` - Certificate APIs
-- `app/api/certification/**` - Certification exam APIs
-- `app/[locale]/certificate/[slug]/page.tsx` - Certificate display page
-- `app/[locale]/admin/certification/**` - Admin certification pages
-- `scripts/certification-*.ts` - Certification utility scripts
+**Files Implemented (Core)**:
+- `app/lib/models/certificate.ts`
+- `app/lib/models/certificate-settings.ts`
+- `app/lib/certificates/*`
+- `app/api/certificates/**`
+- `app/[locale]/certificate/[slug]/page.tsx`
+- `app/[locale]/admin/certification/page.tsx`
 
 ### 11. **Diagnostic Tools** (LOW PRIORITY - P3)
 **Status**: Nice to have  

@@ -79,6 +79,10 @@ export { default as Lesson, type ILesson } from './lesson';
 export { default as CourseProgress, type ICourseProgress, CourseProgressStatus } from './course-progress';
 export { default as AssessmentResult, type IAssessmentResult } from './assessment-result';
 
+// Certification Models (2)
+export { default as Certificate, type ICertificate } from './certificate';
+export { default as CertificateSettings, type ICertificateSettings } from './certificate-settings';
+
 // Translation Model (1)
 export { default as Translation, type ITranslation } from './translation';
 
@@ -89,4 +93,4 @@ export { default as FeatureFlags, type IFeatureFlags } from './feature-flags';
 export { default as Survey, type ISurvey, QuestionType } from './survey';
 export { default as SurveyResponse, type ISurveyResponse } from './survey-response';
 
-// Total: 32 models
+// Total: 34 models

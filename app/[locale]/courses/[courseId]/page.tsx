@@ -90,6 +90,9 @@ export default function CourseDetailPage({
   const [courseId, setCourseId] = useState<string>('');
   const [lessons, setLessons] = useState<Lesson[]>([]);
   const [loadingLessons, setLoadingLessons] = useState(false);
+  const [certificate, setCertificate] = useState<any | null>(null);
+  const [issuingCertificate, setIssuingCertificate] = useState(false);
+  const [error, setError] = useState<string | null>(null);
   const hasRedirectedRef = useRef(false);
 
   useEffect(() => {
@@ -98,6 +101,7 @@ export default function CourseDetailPage({
       const id = resolvedParams.courseId;
       setCourseId(id);
       await Promise.all([fetchCourse(id), checkEnrollment(id), checkPremiumStatus(), fetchLessons(id)]);
+      await fetchCertificate(id);
 
       // Check for payment success/failure in URL
       const urlParams = new URLSearchParams(window.location.search);
@@ -213,6 +217,42 @@ export default function CourseDetailPage({
     }
   };
 
+  const fetchCertificate = async (cid: string) => {
+    if (!session) return;
+    try {
+      const response = await fetch(`/api/certificates/by-course?courseId=${cid}`);
+      const data = await response.json();
+      if (data.success) {
+        setCertificate(data.certificate || null);
+      }
+    } catch (error) {
+      console.error('Failed to fetch certificate:', error);
+    }
+  };
+
+  const handleIssueCertificate = async () => {
+    if (!courseId || issuingCertificate) return;
+    try {
+      setIssuingCertificate(true);
+      const response = await fetch('/api/certificates/issue', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ courseId }),
+      });
+      const data = await response.json();
+      if (data.success) {
+        setCertificate(data.certificate);
+      } else {
+        alert(data.error || t('certificateIssueFailed'));
+      }
+    } catch (error) {
+      console.error('Failed to issue certificate:', error);
+      alert(t('certificateIssueFailed'));
+    } finally {
+      setIssuingCertificate(false);
+    }
+  };
+
   const formatCurrency = (amount: number, currency: string): string => {
     const formatter = new Intl.NumberFormat(
       currency === 'huf' ? 'hu-HU' : currency === 'eur' ? 'de-DE' : currency === 'gbp' ? 'en-GB' : 'en-US',
@@ -265,6 +305,7 @@ export default function CourseDetailPage({
     if (!session || !course || !courseId) return;
 
     setPurchasing(true);
+    setError(null);
     try {
       // Get pricing from course or use defaults
       const premiumDurationDays = 30;
@@ -283,16 +324,33 @@ export default function CourseDetailPage({
 
       const data = await response.json();
 
+      if (!response.ok) {
+        // Handle HTTP error responses
+        const errorMessage = data.error || data.message || t('paymentFailed');
+        console.error('Payment error:', {
+          status: response.status,
+          statusText: response.statusText,
+          error: errorMessage,
+          details: data.details,
+        });
+        setError(errorMessage);
+        setPurchasing(false);
+        return;
+      }
+
       if (data.success && data.url) {
         // Redirect to Stripe Checkout
         window.location.href = data.url;
       } else {
-        alert(data.error || t('paymentFailed'));
+        const errorMessage = data.error || t('paymentFailed');
+        console.error('Payment failed:', data);
+        setError(errorMessage);
         setPurchasing(false);
       }
     } catch (error) {
       console.error('Failed to create checkout:', error);
-      alert(t('paymentFailed'));
+      const errorMessage = error instanceof Error ? error.message : t('paymentFailed');
+      setError(errorMessage);
       setPurchasing(false);
     }
   };
@@ -496,6 +554,41 @@ export default function CourseDetailPage({
                     >
                       {t('continueLearning')}
                     </LocaleLink>
+                    {enrollment.progress?.isCompleted && (
+                      <div className="bg-brand-accent/10 border border-brand-accent rounded-lg p-3">
+                        <div className="text-brand-darkGrey text-sm mb-3">
+                          {t('certificateDescription')}
+                        </div>
+                        {certificate ? (
+                          <div className="flex flex-wrap gap-2">
+                            <LocaleLink
+                              href={`/certificate/${certificate.verificationSlug}`}
+                              className="bg-brand-accent text-brand-black px-4 py-2 rounded-lg font-bold hover:bg-brand-primary-400"
+                            >
+                              {t('viewCertificate')}
+                            </LocaleLink>
+                            {certificate.imageUrl && (
+                              <a
+                                href={certificate.imageUrl}
+                                target="_blank"
+                                rel="noreferrer"
+                                className="bg-brand-darkGrey text-brand-white px-4 py-2 rounded-lg font-bold hover:bg-brand-secondary-700"
+                              >
+                                {t('downloadCertificateImage')}
+                              </a>
+                            )}
+                          </div>
+                        ) : (
+                          <button
+                            onClick={handleIssueCertificate}
+                            disabled={issuingCertificate}
+                            className="bg-brand-accent text-brand-black px-4 py-2 rounded-lg font-bold hover:bg-brand-primary-400 disabled:opacity-60"
+                          >
+                            {issuingCertificate ? t('issuingCertificate') : t('issueCertificate')}
+                          </button>
+                        )}
+                      </div>
+                    )}
                   </div>
                 ) : !session ? (
                   <LocaleLink
@@ -511,6 +604,19 @@ export default function CourseDetailPage({
                         {t('premiumRequired')}
                       </div>
                     </div>
+                    {error && (
+                      <div className="bg-red-500/20 border border-red-500 rounded-lg p-3">
+                        <div className="text-sm text-red-600 font-medium">
+                          {error}
+                        </div>
+                        <button
+                          onClick={() => setError(null)}
+                          className="mt-2 text-xs text-red-500 hover:text-red-700 underline"
+                        >
+                          ✕ {tCommon('close') || 'Close'}
+                        </button>
+                      </div>
+                    )}
                     <button
                       onClick={handlePurchase}
                       disabled={purchasing}

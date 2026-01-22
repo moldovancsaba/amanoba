@@ -8,7 +8,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { auth } from '@/auth';
 import connectDB from '@/lib/mongodb';
-import { Course, Lesson, CourseProgress, Player } from '@/lib/models';
+import { Course, Lesson, CourseProgress, Player, CourseProgressStatus } from '@/lib/models';
 import { logger } from '@/lib/logger';
 
 /**
@@ -62,7 +62,7 @@ export async function GET(
         startedAt: new Date(),
         currentDay: 1,
         completedDays: [],
-        status: 'IN_PROGRESS',
+        status: CourseProgressStatus.IN_PROGRESS,
         lastAccessedAt: new Date(),
       });
       await progress.save();
@@ -166,7 +166,7 @@ export async function POST(
         startedAt: new Date(),
         currentDay: 1,
         completedDays: [],
-        status: 'IN_PROGRESS',
+        status: CourseProgressStatus.IN_PROGRESS,
         lastAccessedAt: new Date(),
       });
       await progress.save();
@@ -191,7 +191,7 @@ export async function POST(
 
       // Check if course is completed
       if (progress.completedDays.length >= course.durationDays) {
-        progress.status = 'COMPLETED';
+        progress.status = CourseProgressStatus.COMPLETED;
         progress.completedAt = new Date();
       }
 
@@ -203,6 +203,23 @@ export async function POST(
       await player.save();
 
       logger.info({ courseId, day, playerId: player._id.toString() }, 'Lesson completed');
+
+      // Auto-issue certificate if enabled
+      if (progress.status === 'COMPLETED') {
+        try {
+          const { getOrCreateCertificateSettings } = await import('@/lib/certificates/settings');
+          const settings = await getOrCreateCertificateSettings();
+          if (settings.isActive && settings.autoIssueOnCompletion) {
+            const { issueCertificateForCompletion } = await import('@/lib/certificates/issue');
+            await issueCertificateForCompletion({
+              playerId: player._id.toString(),
+              courseId: course.courseId,
+            });
+          }
+        } catch (certError) {
+          logger.error({ certError, courseId, playerId: player._id.toString() }, 'Certificate auto-issue failed');
+        }
+      }
     }
 
     return NextResponse.json({
