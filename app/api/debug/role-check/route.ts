@@ -39,11 +39,17 @@ export async function GET(request: NextRequest) {
     // Try SSO role check
     let ssoRole: 'user' | 'admin' | null = null;
     let ssoCheckError: string | null = null;
+    const tokenExpired = (session as any).tokenExpiresAt ? Date.now() > (session as any).tokenExpiresAt : false;
+    
     if (sessionAccessToken && sessionSsoSub) {
-      try {
-        ssoRole = await getUserRole(session, sessionAccessToken);
-      } catch (error) {
-        ssoCheckError = error instanceof Error ? error.message : String(error);
+      if (tokenExpired) {
+        ssoCheckError = 'Access token is expired - cannot check SSO role. Please log out and log back in to get a fresh token.';
+      } else {
+        try {
+          ssoRole = await getUserRole(session, sessionAccessToken);
+        } catch (error) {
+          ssoCheckError = error instanceof Error ? error.message : String(error);
+        }
       }
     }
 
@@ -51,10 +57,14 @@ export async function GET(request: NextRequest) {
     let ssoIsAdmin = false;
     let ssoAdminCheckError: string | null = null;
     if (sessionAccessToken && sessionSsoSub) {
-      try {
-        ssoIsAdmin = await checkAdminAccessSSO(session, sessionAccessToken);
-      } catch (error) {
-        ssoAdminCheckError = error instanceof Error ? error.message : String(error);
+      if (tokenExpired) {
+        ssoAdminCheckError = 'Access token is expired - cannot check SSO role. Please log out and log back in to get a fresh token.';
+      } else {
+        try {
+          ssoIsAdmin = await checkAdminAccessSSO(session, sessionAccessToken);
+        } catch (error) {
+          ssoAdminCheckError = error instanceof Error ? error.message : String(error);
+        }
       }
     }
 
@@ -99,16 +109,18 @@ export async function GET(request: NextRequest) {
       recommendations: [
         !sessionRole || sessionRole === 'NOT SET' ? '❌ CRITICAL: Session role is not set - log out and log back in via SSO' : `✅ Session role: ${sessionRole}`,
         !databaseRole || databaseRole === 'NOT SET' ? '⚠️ Database role is not set - SSO sync may have failed' : `✅ Database role: ${databaseRole}`,
-        !ssoRole ? '⚠️ Cannot check SSO role - access token may be missing or expired' : `✅ SSO role: ${ssoRole}`,
+        tokenExpired ? '❌ CRITICAL: Access token is EXPIRED - cannot check SSO role. Log out and log back in to get a fresh token.' : (!ssoRole ? '⚠️ Cannot check SSO role - access token may be missing' : `✅ SSO role: ${ssoRole}`),
         !sessionAccessToken ? '❌ CRITICAL: No access token in session - log out and log back in via SSO' : '✅ Access token available',
         !sessionSsoSub ? '❌ CRITICAL: No ssoSub in session - log out and log back in via SSO' : '✅ ssoSub available',
-        sessionRole !== 'admin' && databaseRole !== 'admin' && ssoRole !== 'admin' ? '❌ You do not have admin role from any source' : '✅ Admin role detected',
+        sessionRole !== 'admin' && databaseRole !== 'admin' && ssoRole !== 'admin' ? '❌ You do not have admin role from any source. If you have admin on SSO server, run: npx tsx scripts/force-admin-role.ts <your-email>' : '✅ Admin role detected',
         sessionRole !== databaseRole ? '⚠️ Session role does not match database role - session may need refresh' : '✅ Session and database roles match',
         databaseRole !== ssoRole && ssoRole ? '⚠️ Database role does not match SSO role - database may be stale' : '✅ Database and SSO roles match',
       ],
-      actionRequired: !sessionRole || sessionRole === 'NOT SET' || sessionRole !== 'admin' 
-        ? 'LOG OUT AND LOG BACK IN VIA SSO to refresh your session with the correct role'
-        : 'Session role is set correctly',
+      actionRequired: tokenExpired 
+        ? 'CRITICAL: Access token is EXPIRED. You MUST log out and log back in via SSO to get a fresh token and sync your role.'
+        : (!sessionRole || sessionRole === 'NOT SET' || sessionRole !== 'admin' 
+          ? 'LOG OUT AND LOG BACK IN VIA SSO to refresh your session with the correct role. If you have admin on SSO but database shows "user", run: npx tsx scripts/force-admin-role.ts <your-email>'
+          : 'Session role is set correctly'),
     });
   } catch (error) {
     logger.error({ error }, 'Role check endpoint failed');
