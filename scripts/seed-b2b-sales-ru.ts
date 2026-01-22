@@ -21,7 +21,8 @@ import {
 async function connectDB() {
   const uri = process.env.MONGODB_URI;
   if (!uri) throw new Error('MONGODB_URI missing');
-  await mongoose.connect(uri);
+  const dbName = process.env.DB_NAME || 'amanoba';
+  await mongoose.connect(uri, { dbName });
   console.log('✅ Connected');
 }
 

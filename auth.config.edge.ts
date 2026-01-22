@@ -105,20 +105,33 @@ export const authConfigEdge: NextAuthConfig = {
 
     // JWT callback - preserve role from user object
     async jwt({ token, user, account, profile }) {
-      // Store access token and refresh token from user object (SSO callback)
-      if (user && (user as any).accessToken) {
-        token.accessToken = (user as any).accessToken;
-        token.refreshToken = (user as any).refreshToken;
-        token.tokenExpiresAt = (user as any).tokenExpiresAt;
-      }
-      
-      // CRITICAL: Preserve role from user object (from SSO callback)
-      // This is needed for middleware (authEdge) to check admin access
-      if (user && (user as any).role) {
-        token.role = (user as any).role as 'user' | 'admin';
-        token.authProvider = (user as any).authProvider || 'sso';
-        token.ssoSub = (user as any).ssoSub || null;
-        token.isAnonymous = (user as any).isAnonymous || false;
+      // CRITICAL: On initial sign-in, preserve ALL user data including role
+      if (user) {
+        token.id = user.id;
+        
+        // Preserve role from user object (from SSO callback)
+        // This is needed for middleware (authEdge) to check admin access
+        if ((user as any).role) {
+          token.role = (user as any).role as 'user' | 'admin';
+        }
+        
+        // Preserve auth provider and SSO data
+        if ((user as any).authProvider) {
+          token.authProvider = (user as any).authProvider;
+        }
+        if ((user as any).ssoSub) {
+          token.ssoSub = (user as any).ssoSub;
+        }
+        if ((user as any).isAnonymous !== undefined) {
+          token.isAnonymous = (user as any).isAnonymous;
+        }
+        
+        // Store access token and refresh token from user object (SSO callback)
+        if ((user as any).accessToken) {
+          token.accessToken = (user as any).accessToken;
+          token.refreshToken = (user as any).refreshToken;
+          token.tokenExpiresAt = (user as any).tokenExpiresAt;
+        }
       }
       
       // Initial sign in with Facebook
@@ -127,17 +140,25 @@ export const authConfigEdge: NextAuthConfig = {
         token.picture = (profile.picture as any)?.data?.url || profile.image;
         token.locale = (profile.locale as string) || 'en';
         token.isAnonymous = false;
+        // Facebook users default to 'user' role
+        if (!token.role) {
+          token.role = 'user';
+        }
       }
       
       // Initial sign in with Credentials (anonymous)
       if (user && (user as any).isAnonymous) {
         token.isAnonymous = true;
         token.facebookId = null;
+        // Anonymous users default to 'user' role
+        if (!token.role) {
+          token.role = 'user';
+        }
       }
       
-      // Add user data to token
-      if (user) {
-        token.id = user.id;
+      // Ensure role is always set (default to 'user' if not set)
+      if (!token.role) {
+        token.role = 'user';
       }
       
       return token;
