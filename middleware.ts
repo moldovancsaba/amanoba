@@ -112,7 +112,7 @@ export default auth((req) => {
 
   // Check admin access for admin routes
   // Why: Admin routes require admin role, not just authentication
-  if (actualPathname.startsWith('/admin') && !isPublicAdminDoc) {
+  if (actualPathname.startsWith('/admin')) {
     if (!isLoggedIn) {
       const callbackUrl = encodeURIComponent(pathname + req.nextUrl.search);
       let locale = adminDefaultLocale;
@@ -154,7 +154,7 @@ export default auth((req) => {
 
   // Redirect unauthenticated users to sign in
   // Why: Protect content that requires authentication
-  if (isProtectedRoute && !isLoggedIn && !isPublicAdminDoc) {
+  if (isProtectedRoute && !isLoggedIn) {
     const callbackUrl = encodeURIComponent(pathname + req.nextUrl.search);
     // Determine locale from pathname
     // Admin routes should use English, public routes use Hungarian
