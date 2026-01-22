@@ -172,12 +172,14 @@ app/
 ### Current Languages
 - **Hungarian (hu)** - Default, no URL prefix
 - **English (en)** - Available at `/en/...`
+- **Russian (ru)** - Available at `/ru/...` (seeded via `scripts/seed-b2b-sales-ru.ts`)
 
 ### Adding New Languages
-1. Add locale to `locales` array in `i18n.ts`
-2. Create `messages/{locale}.json` file
-3. Add language name to `LanguageSwitcher.tsx`
-4. Update `languageNames` object
+1. Add the locale code to the `locales` array in `i18n.ts` and to `supportedCourseLocales` in `app/lib/locale-utils.ts`.
+2. Create `messages/{locale}.json` with the `common`, `courses`, and `auth` namespaces at a minimum and ensure missing keys fall back to `hu` in `i18n.ts`.
+3. Update `languageNames`/`localeFlags`/`LanguageSwitcher.tsx` so the new language is discoverable in the UI.
+4. Seed course, lesson, and quiz data for the new language (see `scripts/seed-b2b-sales-ru.ts` for the Russian example).
+5. Document every addition in `docs/language-expansion-guide.md` so future launches reuse the same checklist.
 
 ---
 
