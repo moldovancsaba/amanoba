@@ -198,6 +198,17 @@ export default function AdminCoursesPage() {
               key={course._id}
               className="bg-brand-white rounded-xl p-6 border-2 border-brand-accent hover:shadow-lg transition-all"
             >
+              {/* Course Thumbnail */}
+              {course.thumbnail && (
+                <div className="w-full h-40 bg-brand-darkGrey rounded-lg mb-4 overflow-hidden">
+                  <img
+                    src={course.thumbnail}
+                    alt={course.name}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              )}
+              
               {/* Course Header */}
               <div className="flex items-start justify-between mb-4">
                 <div className="flex-1">
