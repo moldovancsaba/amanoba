@@ -46,9 +46,9 @@ Tasks are listed in priority order. Upon completion, tasks are moved to RELEASE_
 | BUG1 | `/admin/analytics` page does not load | P0 | **Fixed**: Convert brandId ObjectId to string when setting state. Handle both ObjectId and string formats. | ✅ DONE |
 | BUG2 | `/admin/payments` does not show payments (3+ payments exist in DB) | P0 | **Fixed**: Added fallback to `createdAt` if `metadata.createdAt` doesn't exist. Fixed populate to use `displayName`. Improved error handling. | ✅ DONE |
 | BUG3 | `/admin/surveys` cannot toggle on/off for new users | P0 | **Fixed**: Added PATCH endpoint to update `isActive` and `isDefault`. Added toggle UI similar to feature-flags. Admins can now enable/disable survey for new users. | ✅ DONE |
-| BUG4 | `/admin/courses` thumbnails not visible on card view | P1 | **Investigate**: Course cards in `app/[locale]/admin/courses/page.tsx` (lines 196-269) don't render thumbnails at all. Need to add thumbnail image display. Check if `course.thumbnail` exists in API response. Add `<img>` or Next.js `<Image>` component to show thumbnail. Verify thumbnail URL format (absolute vs relative paths). | ⏳ PENDING |
+| BUG4 | `/admin/courses` thumbnails not visible on card view | P1 | **Fixed**: Added thumbnail image display to course cards. Uses same pattern as other pages. Shows thumbnail if `course.thumbnail` exists. Styled with rounded corners and proper aspect ratio. | ✅ DONE |
 | BUG5 | `/admin/players` shows "Premium" type incorrectly | P0 | **Fixed**: Replaced `isPremium` badge with GUEST/USER/ADMIN types. Updated API to support `userType` filter. Updated UI and stats. Removed premium filter. | ✅ DONE |
-| BUG6 | `/admin/quests` returns 404 | P1 | **Investigate**: Route doesn't exist. Check if quests feature is deprecated or needs implementation. If deprecated, remove from navigation menu. If needed, create page similar to other admin pages. Check if `/api/admin/quests` API exists. | ⏳ PENDING |
+| BUG6 | `/admin/quests` returns 404 | P1 | **Fixed**: Created admin quests page and API endpoint. Displays quest list with filtering (status, search). Shows quest details and statistics. Handles empty state with helpful message. | ✅ DONE |
 
 
 ---
