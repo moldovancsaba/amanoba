@@ -11,6 +11,28 @@ Tasks are listed in priority order. Upon completion, tasks are moved to RELEASE_
 
 ---
 
+## 🔧 MEDIUM PRIORITY: Admin UI Improvements
+
+**Status**: ⏳ **PENDING**  
+**Estimated**: 1 day  
+**Priority**: MEDIUM  
+**Documentation**: `docs/2026-01-21_ADMIN_UI_IMPROVEMENTS.md`
+
+### User Stories
+- As an admin, I want to see my actual name in the top right corner instead of "Admin User"
+- As an admin, I want a logout button in the sidebar for easy access
+- As an admin, I don't want to see deprecated menu items that no longer work
+- As an admin, I want consistent terminology ("Users" instead of "Players")
+
+| ID | Task | Owner | Expected Delivery | Status |
+|----|------|-------|-------------------|--------|
+| ADMIN1 | Remove deprecated admin docs menu item and content (`/admin/docs/course-creation`) | AI | TBD | ⏳ PENDING |
+| ADMIN2 | Add logout button to admin sidebar bottom | AI | TBD | ⏳ PENDING |
+| ADMIN3 | Rename "Players" to "Users" everywhere in admin interface (menu, pages, translations) | AI | TBD | ⏳ PENDING |
+| ADMIN4 | Show actual user name in top right corner instead of "Admin User" | AI | TBD | ⏳ PENDING |
+
+---
+
 ## ✅ RECENTLY COMPLETED (v2.8.2)
 
 ### SSO Integration & Authentication Overhaul ✅ COMPLETE
