@@ -13,6 +13,7 @@ import { useLocale } from 'next-intl';
 import { ArrowLeft, Save } from 'lucide-react';
 import Link from 'next/link';
 import { getStripeMinimum, getFormattedMinimum, meetsStripeMinimum } from '@/app/lib/utils/stripe-minimums';
+import { COURSE_LANGUAGE_OPTIONS } from '@/app/lib/constants/course-languages';
 
 export default function NewCoursePage() {
   const router = useRouter();
@@ -123,8 +124,11 @@ export default function NewCoursePage() {
                   onChange={(e) => setFormData({ ...formData, language: e.target.value })}
                   className="w-full px-4 py-2 bg-brand-white border-2 border-brand-darkGrey rounded-lg text-brand-black focus:outline-none focus:border-brand-accent"
                 >
-                  <option value="hu">Hungarian</option>
-                  <option value="en">English</option>
+                  {COURSE_LANGUAGE_OPTIONS.map((option) => (
+                    <option key={option.code} value={option.code}>
+                      {option.label}
+                    </option>
+                  ))}
                 </select>
               </div>
 

@@ -287,7 +287,7 @@ This document defines the standardized process for creating and delivering cours
 
 ```typescript
 // 1. Create courses for all languages
-const languages = ['hu', 'en', 'tr', 'bg', 'pl', 'vi', 'id', 'ar', 'pt', 'hi'];
+const languages = ['hu', 'en', 'ru', 'tr', 'bg', 'pl', 'vi', 'id', 'ar', 'pt', 'hi'];
 
 for (const lang of languages) {
   const course = await Course.create({

@@ -27,6 +27,7 @@ import {
 import RichTextEditor from '@/app/components/ui/rich-text-editor';
 import { getStripeMinimum, getFormattedMinimum, meetsStripeMinimum } from '@/app/lib/utils/stripe-minimums';
 import { marked } from 'marked';
+import { COURSE_LANGUAGE_OPTIONS } from '@/app/lib/constants/course-languages';
 
 interface Course {
   _id: string;
@@ -88,6 +89,14 @@ export default function CourseEditorPage({
   const [editingLesson, setEditingLesson] = useState<number | null>(null);
   const [showLessonForm, setShowLessonForm] = useState(false);
   const [courseId, setCourseId] = useState<string>('');
+  const resolvedLanguageOptions = course
+    ? [
+        ...(!COURSE_LANGUAGE_OPTIONS.some((option) => option.code === course.language)
+          ? [{ code: course.language, label: course.language.toUpperCase() }]
+          : []),
+        ...COURSE_LANGUAGE_OPTIONS,
+      ]
+    : COURSE_LANGUAGE_OPTIONS;
 
   useEffect(() => {
     const loadData = async () => {
@@ -357,8 +366,11 @@ export default function CourseEditorPage({
               onChange={(e) => setCourse({ ...course, language: e.target.value })}
               className="w-full px-4 py-2 bg-brand-white border-2 border-brand-darkGrey rounded-lg text-brand-black focus:outline-none focus:border-brand-accent"
             >
-              <option value="hu">Hungarian</option>
-              <option value="en">English</option>
+              {resolvedLanguageOptions.map((option) => (
+                <option key={option.code} value={option.code}>
+                  {option.label}
+                </option>
+              ))}
             </select>
           </div>
           <div className="md:col-span-2">
