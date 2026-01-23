@@ -1,4 +1,6 @@
-# Amanoba — Unified 30-Day Learning Platform
+# Amanoba
+
+**Current Version**: Restored to working baseline f20c34a — Unified 30-Day Learning Platform
 
 **Current Version**: 2.8.0  
 **Last Updated**: 2025-01-20T23:00:00.000Z  
