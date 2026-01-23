@@ -1134,6 +1134,24 @@ Version must be synchronized across:
 
 ## 🌐 Deployment
 
+### API Route JSX Parse Failure (Vercel Build)
+
+**Context**: Production build failed and `/en/admin*` routes did not load after adding the certificate render route.
+
+**Root Cause**:
+- Commit `1d4d18a` added `app/api/certificates/[certificateId]/render/route.tsx` with inline JSX.
+- Vercel’s build pipeline treated the module as `.ts`, causing a JSX parse error: `Expected '>', got 'style'`.
+- Build failure blocked deployment, so admin pages were unavailable.
+
+**Learning**:
+- Do not rely on inline JSX inside API route files that may be compiled as `.ts`.
+- For OG image routes, use `jsx/jsxs` helper functions or keep JSX in a context Vercel compiles as `.tsx`.
+- Always run `npm run build` locally before pushing to `main`.
+
+**Why It Matters**: Prevents production outages caused by compilation mismatches between local and Vercel.
+
+**Applied In**: Rolled back to `3cbba4a` and added a deployment checklist note to treat JSX in API routes as high risk.
+
 ### Vercel Edge Functions: Limitations
 
 **Context**: Not all code can run on Vercel Edge Runtime.

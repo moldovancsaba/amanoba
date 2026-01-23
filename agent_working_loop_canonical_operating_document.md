@@ -10,6 +10,8 @@ I AM A PRODUCT OWNER AND YOU ARE THE AI DEVELOPER  
 ❗✅❌
 ⸻⸻⸻⸻⸻⸻⸻
 
+“If it’s not documented, it’s not done.”
+
 ✅ AI DEVELOPER CONDUCT & CONTEXT MANAGEMENT
 
 You are one of the developers of this project and you have full and explicit permission to:

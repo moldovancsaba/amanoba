@@ -1,8 +1,8 @@
 # Production Deployment Status
 
-**Last Check**: 2025-01-14T11:19:00.000Z  
-**Current Issues**: Anonymous login and Facebook login both failing in production  
-**Status**: 🔴 Waiting for Vercel redeployment
+**Last Check**: 2026-01-23T22:45:00.000Z  
+**Current Issues**: Admin pages were down due to build failure; rolled back to last known good commit  
+**Status**: 🟡 Rollback completed, waiting for Vercel redeployment
 
 ---
 
@@ -14,7 +14,7 @@
 - ✅ Facebook OAuth PlayerProgression initialization (`auth.ts`)
 - ✅ All required fields added to PlayerProgression creation
 - ✅ Streak types corrected (WIN_STREAK, DAILY_LOGIN)
-- ✅ Latest commit: `745dbfc` (force redeploy trigger)
+- ✅ Latest commit: `756add2` (language selector fix after rollback)
 
 ### Database (Production MongoDB Seeded)
 - ✅ Guest usernames: 104 names available
@@ -32,9 +32,27 @@
 
 ---
 
-## 🔴 Current Errors in Production
+## 🟡 Current Errors in Production
 
-### Error 1: Anonymous Login
+### Error 1: Admin pages not loading (post-rollback incident)
+```
+https://www.amanoba.com/en/admin
+https://www.amanoba.com/en/admin/courses
+```
+
+**Observed**:
+- Build failed on Vercel with JSX parse error in OG certificate render route
+- Admin routes did not load while deployment failed
+
+**Root Cause**:
+- Commit `1d4d18a` introduced `app/api/certificates/[certificateId]/render/route.tsx` with inline JSX
+- Vercel build pipeline treated the module as `.ts` during compilation, producing `Expected '>', got 'style'` and failing the build
+
+**Resolution**:
+- Reverted all commits after `3cbba4a` to return to last known good state
+- Pushed rollback to `main` and verified local `npm run build` passes
+
+### Error 2: Anonymous Login
 ```
 https://amanoba.com/auth/signin
 "Failed to create anonymous session"
@@ -46,7 +64,7 @@ curl -X POST https://amanoba.com/api/auth/anonymous
 {"success":false,"error":"Failed to create anonymous session"}
 ```
 
-### Error 2: Facebook Login
+### Error 3: Facebook Login
 ```
 https://amanoba.com/auth/signin
 "Server Configuration Error
@@ -73,6 +91,23 @@ The errors persist because **ONE or MORE** of these issues:
 **Symptoms**: Recent code changes not reflected  
 **Cause**: Vercel using cached build with old code  
 **Solution**: Redeploy WITHOUT cache
+
+### Issue 4: JSX Parse Error in API Route ⚠️
+**Symptoms**: Build fails with `Expected '>', got 'style'` in certificate render route  
+**Cause**: Inline JSX in a route file that Vercel compiled as `.ts`  
+**Solution**: Keep JSX out of `.ts` files or use `jsx/jsxs` helpers; validate with `npm run build` before deploy
+
+---
+
+## ✅ Fail-Safe Recovery Plan (Error-Free Delivery)
+
+1. **Freeze main**: no feature changes while production is unstable.
+2. **Rollback first**: return to last known good commit (`3cbba4a`) and redeploy without cache.
+3. **Rebuild in isolation**: reintroduce features in a feature branch only.
+4. **Local validation**: run `npm run build` before every merge.
+5. **Deploy with clean cache**: redeploy on Vercel with “Use existing Build Cache” unchecked.
+6. **Post-deploy smoke check**: verify `/en/admin`, `/en/admin/courses`, and key APIs.
+7. **Document immediately**: update `docs/LEARNINGS.md` and `docs/PRODUCTION_STATUS.md` after each change.
 
 ---
 
