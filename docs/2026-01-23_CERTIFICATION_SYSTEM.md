@@ -1,7 +1,7 @@
 # Certification System with Final Exam
 
 **Date**: 2026-01-23  
-**Status**: ⏳ PENDING (To be redeveloped from working baseline)  
+**Status**: 🟡 IN PROGRESS (Rebuilding from working baseline)  
 **Priority**: HIGH  
 **Estimated**: 5-7 days  
 **Related Documents**: `docs/FEATURES_SINCE_F20C34A_COMPLETE_DOCUMENTATION copy.md` (Section 1)
@@ -11,6 +11,43 @@
 ## Overview
 
 Complete certification system that allows learners to purchase certification access, take a 50-question randomized final exam, and receive certificates with scores. Includes premium gating, unlimited retakes, and certificate revocation on fail.
+
+---
+
+## Current Implementation Status (Post-Rollback Audit)
+
+### ✅ Already Implemented in Codebase
+- Certificate model: `app/lib/models/certificate.ts`
+- Certificate entitlement model: `app/lib/models/certificate-entitlement.ts`
+- Final exam attempt model: `app/lib/models/final-exam-attempt.ts`
+- Certification settings model: `app/lib/models/certification-settings.ts`
+- Course model certification fields: `app/lib/models/course.ts`
+- Certification utilities: `app/lib/certification.ts`
+- Certification entitlement APIs:
+  - `app/api/certification/entitlement/route.ts`
+  - `app/api/certification/entitlement/redeem-points/route.ts`
+  - `app/api/certification/entitlement/purchase/route.ts`
+- Final exam APIs:
+  - `app/api/certification/final-exam/start/route.ts`
+  - `app/api/certification/final-exam/answer/route.ts`
+  - `app/api/certification/final-exam/submit/route.ts`
+  - `app/api/certification/final-exam/discard/route.ts`
+- Final exam page: `app/[locale]/courses/[courseId]/final-exam/page.tsx`
+
+### ❌ Missing After Rollback (Needs Rebuild)
+- Certificate verification API: `app/api/certificates/[slug]/route.ts`
+- Certificate render API (image): `app/api/certificates/[certificateId]/render/route.ts`
+- Profile certificates API: `app/api/profile/[playerId]/certificates/route.ts`
+- Certificate verification page: `app/[locale]/certificate/[slug]/page.tsx`
+- Certificate sharing/visibility components:
+  - `components/CertificatePrivacyToggle.tsx`
+  - `components/ShareLinkButton.tsx`
+- Admin certification APIs:
+  - `app/api/admin/certificates/route.ts`
+  - `app/api/admin/certification/analytics/route.ts`
+  - `app/api/admin/certification/pools/route.ts`
+  - `app/api/admin/certification/settings/route.ts`
+- Admin certification pages (analytics, settings, certificates list)
 
 ---
 
