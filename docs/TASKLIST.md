@@ -11,11 +11,11 @@ Tasks are listed in priority order. Upon completion, tasks are moved to RELEASE_
 
 ---
 
-## 🔧 MEDIUM PRIORITY: Admin UI Improvements
+## 🔧 P0 - CRITICAL: Admin UI Improvements
 
 **Status**: ⏳ **PENDING**  
 **Estimated**: 1 day  
-**Priority**: MEDIUM  
+**Priority**: P0 (Quick wins, immediate UX improvement)  
 **Documentation**: `docs/2026-01-23_ADMIN_UI_IMPROVEMENTS.md`
 
 ### User Stories
@@ -30,10 +30,6 @@ Tasks are listed in priority order. Upon completion, tasks are moved to RELEASE_
 | ADMIN2 | Add logout button to admin sidebar bottom | AI | TBD | ⏳ PENDING |
 | ADMIN3 | Rename "Players" to "Users" everywhere in admin interface (menu, pages, translations) | AI | TBD | ⏳ PENDING |
 | ADMIN4 | Show actual user name in top right corner instead of "Admin User" | AI | TBD | ⏳ PENDING |
-
----
-
-## 🔧 MEDIUM PRIORITY: Admin UI Improvements
 
 **Status**: ⏳ **PENDING**  
 **Estimated**: 1 day  

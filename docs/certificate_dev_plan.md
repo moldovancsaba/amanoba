@@ -1,5 +1,5 @@
 # certificate_dev_plan.md
-Last updated: 2026-01-20
+Last updated: 2026-01-21
 
 ## 0) Objective
 
@@ -11,6 +11,20 @@ Implement a **simple, unified, configurable certificate system** for Amanoba cou
 - Generate **PDF** + **LinkedIn-ready image** + **verification URL**
 
 The learner can view, download, and share the certificate reliably.
+
+---
+
+## Status snapshot (2026-01-21)
+- ✅ Data model (`Certificate`) saved in MongoDB.
+- ✅ Admin issuance API (`POST /api/certificates/issue`) with completion check.
+- ✅ Public verification API + page (`/certificate/[slug]`).
+- ✅ Image render endpoint + auto-upload to imgbb (PNG, 1200×627).
+- ✅ Admin UI page: issue + list certificates (`/admin/certificates`).
+- 🔄 Referral link attached to certificate view/share (uses player referral code).
+- ⏳ PDF export (decide if needed; currently image-only).
+- ⏳ Admin analytics (issuance counts, course breakdown).
+- ⏳ Auto certificate issuance after course completion (cron/hook).
+- ⏳ Design templates system (currently single default_v1).
 
 ---
 
@@ -266,3 +280,22 @@ Optional: “Add to LinkedIn” guidance (copy snippet + link to verification pa
 - Verification page works for any issued certificate
 - i18n works for EN and HU for all phrases used
 - Tests pass and visual verification completed on at least 2 templates
+
+## 12) Referral hook (growth)
+
+- Verification page must show the related course and link to it with the referrer’s referral code (`?ref=CODE`).
+- The referral code should be generated from the issuing player (same logic as `/api/referrals`).
+- When a visitor clicks “Enroll” from the certificate page and signs up/enrolls, the referral flow should award points as per the referral program.
+
+## Status (2026-01-20)
+- ✅ Model created (`Certificate`)
+- ✅ Public verification API `/api/certificates/[slug]` returns certificate + course + referral code
+- ✅ Public verification page `/[locale]/certificate/[slug]` with enroll CTA (referral-aware)
+- ✅ Shared referral code helper (`app/lib/referral-code.ts`) reused by certificate and referral APIs
+- ✅ EN/HU i18n strings for certificate UI
+- ✅ Admin-only issuance endpoint `/api/certificates/issue` creates certificate snapshots (assets pending)
+- ✅ PNG rendering endpoint `/api/certificates/{id}/render?format=png&variant=share_1200x627` (edge ImageResponse)
+- ✅ Imgbb upload on issuance: render → upload image → store imageAssetPath
+- ⏳ PDF rendering (not required if we stay image-only)
+- ⏳ Admin certificate builder UI
+- ⏳ Course-completion gated issuance UX (UI)
