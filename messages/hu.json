@@ -557,7 +557,7 @@
     "medium": "Közepes",
     "hard": "Nehéz",
     "completionRate": "Befejezési arány",
-    "players": "játékos",
+    "users": "felhasználó",
     "totalChallenges": "Összes kihívás",
     "avgCompletion": "Átlagos befejezés",
     "playersManagement": "Felhasználók kezelése",

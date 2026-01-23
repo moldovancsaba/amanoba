@@ -553,7 +553,7 @@
     "medium": "Medium",
     "hard": "Hard",
     "completionRate": "Completion Rate",
-    "players": "players",
+    "users": "users",
     "totalChallenges": "Total Challenges",
     "avgCompletion": "Average Completion",
     "playersManagement": "Users Management",
