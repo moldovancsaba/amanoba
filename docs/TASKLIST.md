@@ -49,6 +49,7 @@ Tasks are listed in priority order. Upon completion, tasks are moved to RELEASE_
 | BUG4 | `/admin/courses` thumbnails not visible on card view | P1 | **Fixed**: Added thumbnail image display to course cards. Uses same pattern as other pages. Shows thumbnail if `course.thumbnail` exists. Styled with rounded corners and proper aspect ratio. | ✅ DONE |
 | BUG5 | `/admin/players` shows "Premium" type incorrectly | P0 | **Fixed**: Replaced `isPremium` badge with GUEST/USER/ADMIN types. Updated API to support `userType` filter. Updated UI and stats. Removed premium filter. | ✅ DONE |
 | BUG6 | `/admin/quests` returns 404 | P1 | **Fixed**: Created admin quests page and API endpoint. Displays quest list with filtering (status, search). Shows quest details and statistics. Handles empty state with helpful message. | ✅ DONE |
+| BUG7 | `/profile/[playerId]` user profiles do not load | P0 | **Investigate**: Profile page shows welcome/sign-in page instead of profile content. Check route handler at `app/[locale]/profile/[playerId]/page.tsx`. Verify authentication/authorization logic. Check if middleware is blocking access. Verify playerId parameter handling. Check if profile data fetch is working. | ⏳ PENDING |
 
 
 ---
