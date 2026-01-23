@@ -11,25 +11,25 @@ Tasks are listed in priority order. Upon completion, tasks are moved to RELEASE_
 
 ---
 
-## 🔧 P0 - CRITICAL: Admin UI Improvements
+## ✅ P0 - COMPLETE: Admin UI Improvements
 
-**Status**: ⏳ **PENDING**  
-**Estimated**: 1 day  
+**Status**: ✅ **COMPLETE**  
+**Completed**: 2026-01-23  
 **Priority**: P0 (Quick wins, immediate UX improvement)  
 **Documentation**: `docs/2026-01-23_ADMIN_UI_IMPROVEMENTS.md`
 
 ### User Stories
-- As an admin, I want to see my actual name in the top right corner instead of "Admin User"
-- As an admin, I want a logout button in the sidebar for easy access
-- As an admin, I don't want to see deprecated menu items that no longer work
-- As an admin, I want consistent terminology ("Users" instead of "Players")
+- ✅ As an admin, I want to see my actual name in the top right corner instead of "Admin User"
+- ✅ As an admin, I want a logout button in the sidebar for easy access
+- ✅ As an admin, I don't want to see deprecated menu items that no longer work
+- ✅ As an admin, I want consistent terminology ("Users" instead of "Players")
 
 | ID | Task | Owner | Expected Delivery | Status |
 |----|------|-------|-------------------|--------|
-| ADMIN1 | Remove deprecated admin docs menu item and content (`/admin/docs/course-creation`) | AI | TBD | ⏳ PENDING |
-| ADMIN2 | Add logout button to admin sidebar bottom | AI | TBD | ⏳ PENDING |
-| ADMIN3 | Rename "Players" to "Users" everywhere in admin interface (menu, pages, translations) | AI | TBD | ⏳ PENDING |
-| ADMIN4 | Show actual user name in top right corner instead of "Admin User" | AI | TBD | ⏳ PENDING |
+| ADMIN1 | Remove deprecated admin docs menu item and content (`/admin/docs/course-creation`) | AI | 2026-01-23 | ✅ DONE |
+| ADMIN2 | Add logout button to admin sidebar bottom | AI | 2026-01-23 | ✅ DONE |
+| ADMIN3 | Rename "Players" to "Users" everywhere in admin interface (menu, pages, translations) | AI | 2026-01-23 | ✅ DONE |
+| ADMIN4 | Show actual user name in top right corner instead of "Admin User" | AI | 2026-01-23 | ✅ DONE |
 
 **Status**: ⏳ **PENDING**  
 **Estimated**: 1 day  
