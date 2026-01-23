@@ -31,23 +31,25 @@ Tasks are listed in priority order. Upon completion, tasks are moved to RELEASE_
 | ADMIN3 | Rename "Players" to "Users" everywhere in admin interface (menu, pages, translations) | AI | 2026-01-23 | ✅ DONE |
 | ADMIN4 | Show actual user name in top right corner instead of "Admin User" | AI | 2026-01-23 | ✅ DONE |
 
+---
+
+## 🐛 P0 - CRITICAL: Admin Page Bugs
+
 **Status**: ⏳ **PENDING**  
-**Estimated**: 1 day  
-**Priority**: MEDIUM  
-**Documentation**: `docs/2026-01-23_ADMIN_UI_IMPROVEMENTS.md`
+**Priority**: P0 (Critical bugs blocking admin functionality)  
+**Reported**: 2026-01-23
 
-### User Stories
-- As an admin, I want to see my actual name in the top right corner instead of "Admin User"
-- As an admin, I want a logout button in the sidebar for easy access
-- As an admin, I don't want to see deprecated menu items that no longer work
-- As an admin, I want consistent terminology ("Users" instead of "Players")
+### Bug Reports
 
-| ID | Task | Owner | Expected Delivery | Status |
-|----|------|-------|-------------------|--------|
-| ADMIN1 | Remove deprecated admin docs menu item and content (`/admin/docs/course-creation`) | AI | TBD | ⏳ PENDING |
-| ADMIN2 | Add logout button to admin sidebar bottom | AI | TBD | ⏳ PENDING |
-| ADMIN3 | Rename "Players" to "Users" everywhere in admin interface (menu, pages, translations) | AI | TBD | ⏳ PENDING |
-| ADMIN4 | Show actual user name in top right corner instead of "Admin User" | AI | TBD | ⏳ PENDING |
+| ID | Bug | Priority | Investigation Notes | Status |
+|----|-----|-----------|---------------------|--------|
+| BUG1 | `/admin/analytics` page does not load | P0 | **Investigate**: Check if `brandId` fetch is failing (`/api/admin/brands?default=true`). Verify API route `/api/admin/analytics` and `/api/admin/analytics/realtime` are working. Check browser console for errors. May need fallback brand selection logic. | ⏳ PENDING |
+| BUG2 | `/admin/payments` does not show payments (3+ payments exist in DB) | P0 | **Investigate**: Check PaymentTransaction query in `/api/admin/payments/route.ts`. Query uses `metadata.createdAt` - verify payments are stored with this field. Check if `populate` is working correctly. Verify payment status filtering. Check if payments are linked to correct courseId/playerId. | ⏳ PENDING |
+| BUG3 | `/admin/surveys` cannot toggle on/off for new users | P0 | **Investigate**: Current page only shows analytics. Need to check if Survey model has `isActive` or `enabledForNewUsers` field. May need to add toggle UI similar to feature-flags page. Check `/api/admin/surveys` route - currently only GET, may need PATCH endpoint. | ⏳ PENDING |
+| BUG4 | `/admin/courses` thumbnails not visible on card view | P1 | **Investigate**: Check course card rendering in `app/[locale]/admin/courses/page.tsx`. Verify `course.thumbnail` field is being used in `<img>` tag. Check if thumbnail URLs are correct (absolute vs relative). Verify Next.js Image component usage. Check if thumbnail field exists in API response. | ⏳ PENDING |
+| BUG5 | `/admin/players` shows "Premium" type incorrectly | P0 | **Investigate**: Page shows `isPremium` badge, but user types should be GUEST/USER/ADMIN only. Check Player model for `role` or `type` field. Remove `isPremium` badge display. May need to derive type from `isAnonymous` (GUEST), `role` (ADMIN), or default (USER). Verify user type logic matches business rules. | ⏳ PENDING |
+| BUG6 | `/admin/quests` returns 404 | P1 | **Investigate**: Route doesn't exist. Check if quests feature is deprecated or needs implementation. If deprecated, remove from navigation menu. If needed, create page similar to other admin pages. Check if `/api/admin/quests` API exists. | ⏳ PENDING |
+
 
 ---
 
