@@ -86,10 +86,15 @@ export default function AdminAnalyticsPage() {
     endDate: new Date().toISOString().split('T')[0],
   });
 
+  const [loadingBrandId, setLoadingBrandId] = useState(true);
+  const [brandIdError, setBrandIdError] = useState<string | null>(null);
+
   // Fetch default brand ID on mount
   useEffect(() => {
     const fetchBrandId = async () => {
       try {
+        setLoadingBrandId(true);
+        setBrandIdError(null);
         const res = await fetch('/api/admin/brands?default=true');
         if (!res.ok) {
           console.error('Failed to fetch brand ID:', res.status, res.statusText);
@@ -105,10 +110,13 @@ export default function AdminAnalyticsPage() {
                 // Convert ObjectId to string if needed
                 const brandIdValue = amanobaBrand._id?.toString() || amanobaBrand._id;
                 setBrandId(brandIdValue);
+                setLoadingBrandId(false);
                 return;
               }
             }
           }
+          setBrandIdError('Failed to load brand information. Please refresh the page.');
+          setLoadingBrandId(false);
           return;
         }
         const json = await res.json();
@@ -118,9 +126,13 @@ export default function AdminAnalyticsPage() {
           setBrandId(brandIdValue);
         } else {
           console.error('No brands found in response:', json);
+          setBrandIdError('No brands found. Please contact support.');
         }
       } catch (error) {
         console.error('Failed to fetch brand ID:', error);
+        setBrandIdError('Failed to load analytics. Please refresh the page.');
+      } finally {
+        setLoadingBrandId(false);
       }
     };
     fetchBrandId();
@@ -272,7 +284,7 @@ export default function AdminAnalyticsPage() {
   }));
 
   // Show loading state if brandId is not yet loaded
-  if (!brandId) {
+  if (loadingBrandId) {
     return (
       <div className="page-shell p-6">
         <div className="page-container">
@@ -284,6 +296,31 @@ export default function AdminAnalyticsPage() {
             <div className="text-center text-brand-white">
               <div className="inline-block w-8 h-8 border-4 border-brand-accent border-t-transparent rounded-full animate-spin mb-4"></div>
               <p>Loading analytics data...</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  // Show error state if brandId failed to load
+  if (brandIdError || !brandId) {
+    return (
+      <div className="page-shell p-6">
+        <div className="page-container">
+          <header className="mb-8">
+            <h1 className="text-4xl font-bold text-brand-white mb-2">Analytics Dashboard</h1>
+            <p className="text-brand-white/70">Comprehensive metrics and insights</p>
+          </header>
+          <div className="page-card-dark p-6">
+            <div className="text-center">
+              <div className="text-red-400 text-xl mb-4">{brandIdError || 'Failed to load brand information'}</div>
+              <button
+                onClick={() => window.location.reload()}
+                className="px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700"
+              >
+                Refresh Page
+              </button>
             </div>
           </div>
         </div>
