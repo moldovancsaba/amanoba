@@ -9,8 +9,9 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import { useLocale, useTranslations } from 'next-intl';
+import { useSession, signOut } from 'next-auth/react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import {
   LayoutDashboard,
@@ -26,9 +27,9 @@ import {
   X,
   Crown,
   BookOpen,
-  FileText,
   CreditCard,
   ClipboardList,
+  LogOut,
 } from 'lucide-react';
 import Logo from '@/components/Logo';
 
@@ -46,8 +47,7 @@ const navigationItems = [
   { key: 'payments', href: '/admin/payments', icon: CreditCard },
   { key: 'surveys', href: '/admin/surveys', icon: ClipboardList },
   { key: 'courses', href: '/admin/courses', icon: BookOpen },
-  { key: 'courseGuide', href: '/admin/docs/course-creation', icon: FileText },
-  { key: 'players', href: '/admin/players', icon: Users },
+  { key: 'users', href: '/admin/players', icon: Users },
   { key: 'games', href: '/admin/games', icon: Gamepad2 },
   { key: 'achievements', href: '/admin/achievements', icon: Trophy },
   { key: 'rewards', href: '/admin/rewards', icon: Gift },
@@ -73,6 +73,8 @@ export default function AdminLayout({
   children: React.ReactNode;
 }) {
   const locale = useLocale();
+  const router = useRouter();
+  const { data: session } = useSession();
   const t = useTranslations('admin');
   const [sidebarOpen, setSidebarOpen] = useState(true);
   const [version, setVersion] = useState<string>('2.7.0');
@@ -151,7 +153,18 @@ export default function AdminLayout({
         </nav>
 
         {/* Footer */}
-        <div className="flex-shrink-0 p-4 border-t border-gray-700">
+        <div className="flex-shrink-0 p-4 border-t border-gray-700 space-y-2">
+          {/* Logout Button */}
+          <button
+            onClick={async () => {
+              await signOut({ redirect: false });
+              router.push(`/${locale}/auth/signin`);
+            }}
+            className="w-full flex items-center gap-3 px-4 py-3 rounded-lg text-gray-300 hover:bg-gray-700 hover:text-white transition-all"
+          >
+            <LogOut className="w-5 h-5" />
+            <span className="font-medium">{t('logout')}</span>
+          </button>
           <div className="text-xs text-gray-500 text-center">
             v{version} | Admin Mode
           </div>
@@ -179,7 +192,9 @@ export default function AdminLayout({
 
           <div className="flex items-center gap-4">
             <div className="text-right">
-              <div className="text-white text-sm font-medium">Admin User</div>
+              <div className="text-white text-sm font-medium">
+                {session?.user?.name || session?.user?.email || 'Admin User'}
+              </div>
               <div className="text-gray-400 text-xs">Administrator</div>
             </div>
             <div className="w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 flex items-center justify-center">

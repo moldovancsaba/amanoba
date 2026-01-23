@@ -257,7 +257,7 @@ export default function AdminPlayersPage() {
           <div className="text-gray-400 text-sm">
             {t('showing')} {((pagination.page - 1) * pagination.limit) + 1} {t('to')}{' '}
             {Math.min(pagination.page * pagination.limit, pagination.total)} {t('of')}{' '}
-            {pagination.total} {t('players')}
+            {pagination.total} {t('users')}
           </div>
           <div className="flex items-center gap-2">
             <button
@@ -284,23 +284,23 @@ export default function AdminPlayersPage() {
       {/* Stats */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
         <div className="bg-gray-800 rounded-xl p-4 border border-gray-700">
-          <div className="text-gray-400 text-sm mb-1">{t('totalPlayers')}</div>
+          <div className="text-gray-400 text-sm mb-1">{t('totalUsers')}</div>
           <div className="text-2xl font-bold text-white">{pagination.total}</div>
         </div>
         <div className="bg-gray-800 rounded-xl p-4 border border-gray-700">
-          <div className="text-gray-400 text-sm mb-1">{t('activePlayers')}</div>
+          <div className="text-gray-400 text-sm mb-1">{t('activeUsers')}</div>
           <div className="text-2xl font-bold text-green-400">
             {players.filter((p) => p.isActive).length}
           </div>
         </div>
         <div className="bg-gray-800 rounded-xl p-4 border border-gray-700">
-          <div className="text-gray-400 text-sm mb-1">{t('premiumPlayers')}</div>
+          <div className="text-gray-400 text-sm mb-1">{t('premiumUsers')}</div>
           <div className="text-2xl font-bold text-yellow-400">
             {players.filter((p) => p.isPremium).length}
           </div>
         </div>
         <div className="bg-gray-800 rounded-xl p-4 border border-gray-700">
-          <div className="text-gray-400 text-sm mb-1">{t('guestPlayers')}</div>
+          <div className="text-gray-400 text-sm mb-1">{t('guestUsers')}</div>
           <div className="text-2xl font-bold text-blue-400">
             {players.filter((p) => p.isAnonymous).length}
           </div>

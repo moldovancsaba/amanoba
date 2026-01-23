@@ -92,6 +92,32 @@ TEAM:
 - Tribeca, Auto Agent via Cursor, Developer
 - Sultan, Product Owner, Decision maker
 
+## INTER-AGENT COMMUNICATION PROTOCOL
+
+Use this protocol whenever you need another agent’s help. Keeping to the same structure ensures everyone understands quickly, can copy the request into documentation or chat, and can reply without guessing the intent.
+
+1. Keep each message focused on a single topic or task so replies stay tidy.
+2. Reference relevant files, docs, or tasks under `context` so the recipient can jump straight to the source.
+3. Reply with “Re: message from: …” plus your own block when you respond so conversations stay traceable.
+4. If an action has a due date or is blocking work, call it out under `actions`.
+
+```text
+// --- message start
+from: SULTAN
+to: KATJA
+subject: [short subject, e.g., “Admin UI copy refresh”]
+context: [optional but helpful: doc/path, task ID, date]
+body:
+- [First point or clarification]
+- [Second point if needed]
+actions:
+- [Explicit action and deadline if needed]
+timestamp: 2026-01-23T12:34:00Z
+// --- message end
+```
+
+Keep the markers (`// --- message start`/`end`) and field names exactly as shown. Agents should edit `subject`, `context`, `body`, and `actions` for their needs. This snippet suits code comments, docs, and direct messages.
+
 ## LOOPBACK BY AGENT
 
 #### You work here:
