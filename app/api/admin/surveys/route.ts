@@ -165,6 +165,8 @@ export async function GET(request: NextRequest) {
         name: survey.name,
         description: survey.description,
         questionCount: survey.questions.length,
+        isActive: survey.isActive,
+        isDefault: survey.isDefault,
       },
       statistics: {
         totalResponses,
@@ -183,6 +185,73 @@ export async function GET(request: NextRequest) {
     logger.error({ error }, 'Failed to fetch survey analytics');
     return NextResponse.json(
       { error: 'Failed to fetch survey analytics' },
+      { status: 500 }
+    );
+  }
+}
+
+/**
+ * PATCH /api/admin/surveys
+ * 
+ * What: Update survey settings (enable/disable for new users)
+ * Body: { surveyId: string, isActive?: boolean, isDefault?: boolean }
+ */
+export async function PATCH(request: NextRequest) {
+  try {
+    const session = await auth();
+    const adminCheck = requireAdmin(request, session);
+    if (adminCheck) {
+      return adminCheck;
+    }
+
+    await connectDB();
+
+    const body = await request.json();
+    const { surveyId, isActive, isDefault } = body;
+
+    if (!surveyId) {
+      return NextResponse.json(
+        { error: 'Survey ID is required' },
+        { status: 400 }
+      );
+    }
+
+    const updateData: Record<string, unknown> = {};
+    if (typeof isActive === 'boolean') {
+      updateData.isActive = isActive;
+    }
+    if (typeof isDefault === 'boolean') {
+      updateData.isDefault = isDefault;
+    }
+
+    const survey = await Survey.findOneAndUpdate(
+      { surveyId },
+      { $set: updateData },
+      { new: true }
+    );
+
+    if (!survey) {
+      return NextResponse.json(
+        { error: 'Survey not found' },
+        { status: 404 }
+      );
+    }
+
+    logger.info({ surveyId, updateData }, 'Survey settings updated');
+
+    return NextResponse.json({
+      success: true,
+      survey: {
+        surveyId: survey.surveyId,
+        name: survey.name,
+        isActive: survey.isActive,
+        isDefault: survey.isDefault,
+      },
+    });
+  } catch (error) {
+    logger.error({ error }, 'Failed to update survey settings');
+    return NextResponse.json(
+      { error: 'Failed to update survey settings' },
       { status: 500 }
     );
   }

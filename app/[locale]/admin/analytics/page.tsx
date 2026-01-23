@@ -102,7 +102,9 @@ export default function AdminAnalyticsPage() {
               const amanobaBrand = fallbackJson.brands.find((b: any) => b.slug === 'amanoba') || 
                                   fallbackJson.brands.find((b: any) => b.isActive);
               if (amanobaBrand) {
-                setBrandId(amanobaBrand._id);
+                // Convert ObjectId to string if needed
+                const brandIdValue = amanobaBrand._id?.toString() || amanobaBrand._id;
+                setBrandId(brandIdValue);
                 return;
               }
             }
@@ -111,7 +113,9 @@ export default function AdminAnalyticsPage() {
         }
         const json = await res.json();
         if (json.success && json.brands && json.brands.length > 0) {
-          setBrandId(json.brands[0]._id);
+          // Convert ObjectId to string if needed
+          const brandIdValue = json.brands[0]._id?.toString() || json.brands[0]._id;
+          setBrandId(brandIdValue);
         } else {
           console.error('No brands found in response:', json);
         }

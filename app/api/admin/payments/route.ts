@@ -90,10 +90,11 @@ export async function GET(request: NextRequest) {
 
     // Fetch transactions
     // Note: PaymentTransaction uses metadata.createdAt, not createdAt
+    // If no query filters, fetch all transactions
     const transactions = await PaymentTransaction.find(query)
-      .populate('playerId', 'username displayName email')
+      .populate('playerId', 'displayName email')
       .populate('courseId', 'courseId name')
-      .sort({ 'metadata.createdAt': -1 })
+      .sort({ 'metadata.createdAt': -1, createdAt: -1 }) // Fallback to createdAt if metadata.createdAt doesn't exist
       .limit(limit)
       .skip(offset)
       .lean();
@@ -120,11 +121,11 @@ export async function GET(request: NextRequest) {
       stripeCheckoutSessionId: tx.stripeCheckoutSessionId || null,
       stripeCustomerId: tx.stripeCustomerId || null,
       stripeChargeId: tx.stripeChargeId || null,
-      createdAt: tx.metadata.createdAt,
-      processedAt: tx.metadata.processedAt || null,
-      refundedAt: tx.metadata.refundedAt || null,
-      failureReason: tx.metadata.failureReason || null,
-      refundReason: tx.metadata.refundReason || null,
+      createdAt: tx.metadata?.createdAt || tx.createdAt || new Date(),
+      processedAt: tx.metadata?.processedAt || null,
+      refundedAt: tx.metadata?.refundedAt || null,
+      failureReason: tx.metadata?.failureReason || null,
+      refundReason: tx.metadata?.refundReason || null,
     }));
 
     // Calculate analytics if requested

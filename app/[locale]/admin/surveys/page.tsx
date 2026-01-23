@@ -33,6 +33,8 @@ interface SurveyAnalytics {
   survey: {
     surveyId: string;
     name: string;
+    isActive?: boolean;
+    isDefault?: boolean;
     description?: string;
     questionCount: number;
   };
@@ -59,6 +61,7 @@ export default function AdminSurveysPage() {
   const t = useTranslations('admin');
   const [analytics, setAnalytics] = useState<SurveyAnalytics | null>(null);
   const [loading, setLoading] = useState(true);
+  const [saving, setSaving] = useState(false);
 
   useEffect(() => {
     fetchAnalytics();
@@ -85,6 +88,42 @@ export default function AdminSurveysPage() {
     const minutes = Math.floor(seconds / 60);
     const remainingSeconds = seconds % 60;
     return `${minutes}m ${remainingSeconds}s`;
+  };
+
+  const handleToggleSurvey = async (field: 'isActive' | 'isDefault') => {
+    if (!analytics?.survey) return;
+
+    try {
+      setSaving(true);
+      const newValue = !analytics.survey[field];
+      const response = await fetch('/api/admin/surveys', {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          surveyId: analytics.survey.surveyId,
+          [field]: newValue,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        setAnalytics({
+          ...analytics,
+          survey: {
+            ...analytics.survey,
+            [field]: newValue,
+          },
+        });
+      } else {
+        alert(data.error || 'Failed to update survey settings');
+      }
+    } catch (error) {
+      console.error('Failed to update survey settings:', error);
+      alert('Failed to update survey settings');
+    } finally {
+      setSaving(false);
+    }
   };
 
   if (loading) {
@@ -120,13 +159,58 @@ export default function AdminSurveysPage() {
 
       {/* Survey Info */}
       <div className="bg-brand-darkGrey rounded-xl p-6 border-2 border-brand-accent">
-        <h2 className="text-xl font-bold text-white mb-2">{analytics.survey.name}</h2>
-        {analytics.survey.description && (
-          <p className="text-gray-400 mb-4">{analytics.survey.description}</p>
-        )}
-        <div className="flex items-center gap-6 text-sm text-gray-400">
-          <span>Survey ID: {analytics.survey.surveyId}</span>
-          <span>Questions: {analytics.survey.questionCount}</span>
+        <div className="flex items-start justify-between mb-4">
+          <div>
+            <h2 className="text-xl font-bold text-white mb-2">{analytics.survey.name}</h2>
+            {analytics.survey.description && (
+              <p className="text-gray-400 mb-4">{analytics.survey.description}</p>
+            )}
+            <div className="flex items-center gap-6 text-sm text-gray-400">
+              <span>Survey ID: {analytics.survey.surveyId}</span>
+              <span>Questions: {analytics.survey.questionCount}</span>
+            </div>
+          </div>
+        </div>
+        
+        {/* Survey Settings Toggles */}
+        <div className="mt-4 pt-4 border-t border-brand-accent/30 space-y-3">
+          <div className="flex items-center justify-between">
+            <div>
+              <h3 className="text-white font-medium">Enable for New Users</h3>
+              <p className="text-gray-400 text-sm">
+                {analytics.survey.isDefault ? 'Survey will be shown to new users' : 'Survey will not be shown to new users'}
+              </p>
+            </div>
+            <label className="relative inline-flex items-center cursor-pointer">
+              <input
+                type="checkbox"
+                checked={analytics.survey.isDefault || false}
+                onChange={() => handleToggleSurvey('isDefault')}
+                disabled={saving}
+                className="sr-only peer"
+              />
+              <div className="w-11 h-6 bg-gray-600 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-indigo-800 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-indigo-600 disabled:opacity-50"></div>
+            </label>
+          </div>
+          
+          <div className="flex items-center justify-between">
+            <div>
+              <h3 className="text-white font-medium">Survey Active</h3>
+              <p className="text-gray-400 text-sm">
+                {analytics.survey.isActive ? 'Survey is currently active' : 'Survey is disabled'}
+              </p>
+            </div>
+            <label className="relative inline-flex items-center cursor-pointer">
+              <input
+                type="checkbox"
+                checked={analytics.survey.isActive || false}
+                onChange={() => handleToggleSurvey('isActive')}
+                disabled={saving}
+                className="sr-only peer"
+              />
+              <div className="w-11 h-6 bg-gray-600 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-indigo-800 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-indigo-600 disabled:opacity-50"></div>
+            </label>
+          </div>
         </div>
       </div>
 

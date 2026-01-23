@@ -29,7 +29,7 @@ export async function GET(request: NextRequest) {
 
     const { searchParams } = new URL(request.url);
     const search = searchParams.get('search');
-    const isPremium = searchParams.get('isPremium');
+    const userType = searchParams.get('userType');
     const isActive = searchParams.get('isActive');
     const page = parseInt(searchParams.get('page') || '1');
     const limit = parseInt(searchParams.get('limit') || '50');
@@ -37,8 +37,16 @@ export async function GET(request: NextRequest) {
 
     const query: Record<string, unknown> = {};
 
-    if (isPremium !== null) {
-      query.isPremium = isPremium === 'true';
+    if (userType && userType !== 'all') {
+      if (userType === 'guest') {
+        query.isAnonymous = true;
+      } else if (userType === 'admin') {
+        query.role = 'admin';
+        query.isAnonymous = false;
+      } else if (userType === 'user') {
+        query.role = 'user';
+        query.isAnonymous = false;
+      }
     }
 
     if (isActive !== null) {
@@ -58,7 +66,7 @@ export async function GET(request: NextRequest) {
         .sort({ createdAt: -1 })
         .skip(skip)
         .limit(limit)
-        .select('displayName email isPremium isActive isAnonymous createdAt lastLoginAt')
+        .select('displayName email isPremium isActive isAnonymous role createdAt lastLoginAt')
         .lean(),
       Player.countDocuments(query),
     ]);

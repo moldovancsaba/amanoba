@@ -27,6 +27,7 @@ interface Player {
   isPremium: boolean;
   isActive: boolean;
   isAnonymous: boolean;
+  role: 'user' | 'admin';
   createdAt: string;
   lastLoginAt?: string;
 }
@@ -39,8 +40,8 @@ export default function AdminPlayersPage() {
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState('');
   const [filters, setFilters] = useState({
-    isPremium: 'all',
     isActive: 'all',
+    userType: 'all', // 'all' | 'guest' | 'user' | 'admin'
   });
   const [pagination, setPagination] = useState({
     page: 1,
@@ -60,11 +61,11 @@ export default function AdminPlayersPage() {
       if (search) {
         params.append('search', search);
       }
-      if (filters.isPremium !== 'all') {
-        params.append('isPremium', filters.isPremium);
-      }
       if (filters.isActive !== 'all') {
         params.append('isActive', filters.isActive);
+      }
+      if (filters.userType !== 'all') {
+        params.append('userType', filters.userType);
       }
       params.append('page', pagination.page.toString());
       params.append('limit', pagination.limit.toString());
@@ -117,16 +118,17 @@ export default function AdminPlayersPage() {
           />
         </div>
         <select
-          value={filters.isPremium}
+          value={filters.userType}
           onChange={(e) => {
-            setFilters({ ...filters, isPremium: e.target.value });
+            setFilters({ ...filters, userType: e.target.value });
             setPagination({ ...pagination, page: 1 });
           }}
           className="px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white focus:outline-none focus:border-indigo-500"
         >
-          <option value="all">{t('allPlayers')}</option>
-          <option value="true">{t('premiumOnly')}</option>
-          <option value="false">{t('freeOnly')}</option>
+          <option value="all">{t('allUsers')}</option>
+          <option value="guest">GUEST</option>
+          <option value="user">USER</option>
+          <option value="admin">ADMIN</option>
         </select>
         <select
           value={filters.isActive}
@@ -210,15 +212,18 @@ export default function AdminPlayersPage() {
                     </td>
                     <td className="px-6 py-4">
                       <div className="flex items-center gap-2">
-                        {player.isPremium && (
-                          <span className="px-2 py-1 bg-yellow-500/20 text-yellow-400 rounded text-xs font-medium flex items-center gap-1">
-                            <Crown className="w-3 h-3" />
-                            {tCommon('premium')}
+                        {player.isAnonymous ? (
+                          <span className="px-2 py-1 bg-gray-500/20 text-gray-400 rounded text-xs font-medium">
+                            GUEST
                           </span>
-                        )}
-                        {player.isAnonymous && (
-                          <span className="px-2 py-1 bg-gray-500/20 text-gray-400 rounded text-xs">
-                            Vendég
+                        ) : player.role === 'admin' ? (
+                          <span className="px-2 py-1 bg-purple-500/20 text-purple-400 rounded text-xs font-medium flex items-center gap-1">
+                            <Crown className="w-3 h-3" />
+                            ADMIN
+                          </span>
+                        ) : (
+                          <span className="px-2 py-1 bg-blue-500/20 text-blue-400 rounded text-xs font-medium">
+                            USER
                           </span>
                         )}
                       </div>
@@ -294,9 +299,9 @@ export default function AdminPlayersPage() {
           </div>
         </div>
         <div className="bg-gray-800 rounded-xl p-4 border border-gray-700">
-          <div className="text-gray-400 text-sm mb-1">{t('premiumUsers')}</div>
-          <div className="text-2xl font-bold text-yellow-400">
-            {players.filter((p) => p.isPremium).length}
+          <div className="text-gray-400 text-sm mb-1">Admin Users</div>
+          <div className="text-2xl font-bold text-purple-400">
+            {players.filter((p) => p.role === 'admin').length}
           </div>
         </div>
         <div className="bg-gray-800 rounded-xl p-4 border border-gray-700">
