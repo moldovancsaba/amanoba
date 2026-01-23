@@ -29,6 +29,7 @@ import {
   FileText,
   CreditCard,
   ClipboardList,
+  Award,
 } from 'lucide-react';
 import Logo from '@/components/Logo';
 
