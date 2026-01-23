@@ -118,25 +118,6 @@ timestamp: 2026-01-23T12:34:00Z
 
 Keep the markers (`// --- message start`/`end`) and field names exactly as shown. Agents should edit `subject`, `context`, `body`, and `actions` for their needs. This snippet suits code comments, docs, and direct messages.
 
-Use this template as the canonical help-request/request-response form so every agent can instantly copy it into their reply or documentation. Always fill every field (only leave `context` empty when there is truly no relevant reference) and keep `body` limited to concise bullet points. Here is a reply-ready version for convenience:
-
-```text
-// --- message start
-from: KATJA
-to: SULTAN
-subject: Re: [original subject]
-context: [doc/path, task ID, sprint, or Due 2026-01-23]
-body:
-- [Summary response, e.g., “Updated the admin layout per request; see `app/[locale]/admin/layout.tsx`.]
-- [Optional clarification or question.]
-actions:
-- [Next explicit step, e.g., “Review and confirm; due 2026-01-24T16:00:00Z”]
-timestamp: 2026-01-23T13:58:00Z
-// --- message end
-```
-
-When you reply in-chat, keep the same structure but change `from`, `to`, `subject`, `context`, `body`, and `actions` to reflect the ongoing conversation. This keeps the thread traceable and ready for copy/paste into docs or comments.
-
 ## LOOPBACK BY AGENT
 
 #### You work here:
