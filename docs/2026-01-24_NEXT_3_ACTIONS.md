@@ -26,10 +26,10 @@
 5. Check if route requires authentication (should be public or optional)
 
 ### Expected Outcome
-- Profile pages load correctly for all users
-- Public profiles accessible without login
-- Own profile accessible when logged in
-- Proper error handling for invalid playerIds
+- ✅ Profile pages load correctly for all users (public + auth)
+- ✅ Public profiles accessible without login
+- ✅ Own profile accessible when logged in
+- ✅ Proper error handling for invalid playerIds
 
 ### Files to Check/Modify
 - `middleware.ts` - Route protection logic

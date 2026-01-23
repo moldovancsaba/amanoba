@@ -224,10 +224,12 @@ Tasks are listed in priority order. Upon completion, tasks are moved to RELEASE_
 | CS1 | Certificate model + eligibility hooks in course settings (inherit to children by default) | AI | TBD | ⏳ PENDING |
 | CS2 | Certificate rendering pipeline (OG-friendly image) with per-course assets and CDN URL storage | AI | TBD | ⏳ PENDING |
 | CS3 | Public share endpoint (unguessable ID) with course/result display + social meta | AI | TBD | ⏳ PENDING |
-| CS4 | Profile certificates tab: list, view, download, share | AI | TBD | ⏳ PENDING |
+| CS4 | Profile certificates tab: list, view, download, share | AI | 2026-01-24 | ✅ COMPLETE |
 | CS5 | Admin revoke/regenerate flow; reissue when branding/rules change | AI | TBD | ⏳ PENDING |
 | CS6 | Achievement tie-in: certificate issuance recorded as achievement entry | AI | TBD | ⏳ PENDING |
 | CS7 | Score-band rule mapping for 1-day pass % and 1-hour recommendations to course slugs | AI | TBD | ⏳ PENDING |
+
+> **Status update (2026-01-24)**: The core backend stack (CS1 + CS3), verification page, profile certificates tab (CS4), and admin certification endpoints respectively for certificates/analytics/pools/settings (CS5 partial) are live—see `docs/2026-01-23_CERTIFICATION_SYSTEM.md` for details. Next focus stays on CS2 (asset pipeline), the remaining admin dashboards/pools/settings (CS5), and the achievement/variant tie-ins (CS6/CS7).
 
 ---
 
