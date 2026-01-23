@@ -16,7 +16,7 @@ Tasks are listed in priority order. Upon completion, tasks are moved to RELEASE_
 **Status**: ⏳ **PENDING**  
 **Estimated**: 1 day  
 **Priority**: MEDIUM  
-**Documentation**: `docs/2026-01-21_ADMIN_UI_IMPROVEMENTS.md`
+**Documentation**: `docs/2026-01-23_ADMIN_UI_IMPROVEMENTS.md`
 
 ### User Stories
 - As an admin, I want to see my actual name in the top right corner instead of "Admin User"
