@@ -1,9 +1,10 @@
-import { ImageResponse, NextRequest, NextResponse } from 'next/server';
+import { ImageResponse } from '@vercel/og';
+import { NextRequest, NextResponse } from 'next/server';
 import connectDB from '@/lib/mongodb';
 import { Certificate, Course } from '@/lib/models';
 import { format } from 'date-fns';
 
-export const runtime = 'edge';
+export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
 
 interface RouteParams {
