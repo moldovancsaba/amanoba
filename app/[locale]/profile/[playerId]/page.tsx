@@ -9,13 +9,9 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import type { SVGProps } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { useSession } from 'next-auth/react';
-import { useParams } from 'next/navigation';
 import PlayerAvatar from '@/components/PlayerAvatar';
-import ShareLinkButton from '@/components/ShareLinkButton';
-import { LocaleLink } from '@/components/LocaleLink';
 import { 
   Trophy, 
   Target, 
@@ -122,21 +118,9 @@ interface PaymentTransaction {
   stripeCheckoutSessionId: string | null;
 }
 
-interface ProfileCertificate {
-  certificateId: string;
-  courseId: string;
-  courseTitle: string;
-  scorePercentInteger: number;
-  status: 'certified' | 'revoked';
-  issuedAt?: string;
-  verificationSlug: string;
-  isPublic: boolean;
-}
-
 export default function ProfilePage({ params }: { params: Promise<{ playerId: string }> }) {
   const { data: session } = useSession();
-  type ProfileTab = 'overview' | 'achievements' | 'activity' | 'payments' | 'certificates';
-  const [activeTab, setActiveTab] = useState<ProfileTab>('overview');
+  const [activeTab, setActiveTab] = useState<'overview' | 'achievements' | 'activity' | 'payments'>('overview');
   const [playerId, setPlayerId] = useState<string | null>(null);
 
   // Unwrap async params
@@ -148,9 +132,6 @@ export default function ProfilePage({ params }: { params: Promise<{ playerId: st
   const user = session?.user as { id?: string; playerId?: string } | undefined;
   const currentUserId = user?.playerId || user?.id;
   const isOwnProfile = currentUserId === playerId;
-
-  const navigationParams = useParams<{ locale?: string }>();
-  const currentLocale = navigationParams.locale || 'en';
 
   // Fetch profile data
   const { data, isLoading, error } = useQuery<{ success: boolean; profile: ProfileData }>({
@@ -172,28 +153,6 @@ export default function ProfilePage({ params }: { params: Promise<{ playerId: st
     },
     enabled: !!playerId && isOwnProfile && !!session,
   });
-
-  const {
-    data: certificateResponse,
-    isLoading: loadingCertificates,
-    isError: certificatesError,
-  } = useQuery<{ success: boolean; certificates: ProfileCertificate[] }>(
-    ['profileCertificates', playerId],
-    async () => {
-      if (!playerId) throw new Error('Player ID missing');
-      const res = await fetch(`/api/profile/${playerId}/certificates`);
-      if (!res.ok) {
-        const body = await res.json().catch(() => ({}));
-        throw new Error(body.error || 'Failed to load certificates');
-      }
-      return res.json();
-    },
-    {
-      enabled: !!playerId && isOwnProfile && activeTab === 'certificates',
-    }
-  );
-
-  const certificateList = certificateResponse?.certificates ?? [];
 
   if (isLoading) {
     return (
@@ -289,35 +248,28 @@ export default function ProfilePage({ params }: { params: Promise<{ playerId: st
 
         {/* Tabs */}
         <div className="flex gap-2 mb-6">
-          {(() => {
-            const baseTabs: Array<{ id: ProfileTab; label: string; icon: (props: SVGProps<SVGSVGElement>) => JSX.Element }> = [
-              { id: 'overview', label: 'Overview', icon: TrendingUp },
-              { id: 'achievements', label: 'Achievements', icon: Trophy },
-              { id: 'activity', label: 'Activity', icon: Clock },
-            ];
-            if (isOwnProfile) {
-              baseTabs.push({ id: 'payments', label: 'Payments', icon: CreditCard });
-              baseTabs.push({ id: 'certificates', label: 'Certificates', icon: Award });
-            }
-
-            return baseTabs.map((tab) => {
-              const Icon = tab.icon;
-              return (
-                <button
-                  key={tab.id}
-                  onClick={() => setActiveTab(tab.id)}
-                  className={`flex items-center gap-2 px-6 py-3 rounded-lg font-semibold transition-all ${
-                    activeTab === tab.id
-                      ? 'bg-brand-darkGrey text-brand-white'
-                      : 'bg-brand-darkGrey text-brand-white/70 hover:bg-brand-black/20'
-                  }`}
-                >
-                  <Icon className="w-5 h-5" />
-                  {tab.label}
-                </button>
-              );
-            });
-          })()}
+          {[
+            { id: 'overview', label: 'Overview', icon: TrendingUp },
+            { id: 'achievements', label: 'Achievements', icon: Trophy },
+            { id: 'activity', label: 'Activity', icon: Clock },
+            ...(isOwnProfile ? [{ id: 'payments', label: 'Payments', icon: CreditCard }] : []),
+          ].map((tab) => {
+            const Icon = tab.icon;
+            return (
+              <button
+                key={tab.id}
+                onClick={() => setActiveTab(tab.id as 'overview' | 'achievements' | 'activity' | 'payments')}
+                className={`flex items-center gap-2 px-6 py-3 rounded-lg font-semibold transition-all ${
+                  activeTab === tab.id
+                    ? 'bg-brand-darkGrey text-brand-white'
+                    : 'bg-brand-darkGrey text-brand-white/70 hover:bg-brand-black/20'
+                }`}
+              >
+                <Icon className="w-5 h-5" />
+                {tab.label}
+              </button>
+            );
+          })}
         </div>
 
         {/* Tab Content */}
@@ -508,93 +460,6 @@ export default function ProfilePage({ params }: { params: Promise<{ playerId: st
                     </div>
                   </div>
                 ))}
-              </div>
-            </div>
-          )}
-
-          {activeTab === 'certificates' && isOwnProfile && (
-            <div className="page-card-dark p-6 space-y-4">
-              <div className="flex items-center justify-between">
-                <h3 className="text-2xl font-bold text-white">Certificates</h3>
-                <span className="text-sm uppercase tracking-[0.3em] text-white/60">
-                  {certificateList.length} issued
-                </span>
-              </div>
-
-              {loadingCertificates && (
-                <div className="text-white/80">Loading certificates…</div>
-              )}
-
-              {certificatesError && (
-                <div className="text-rose-400 text-sm">Unable to load certificates.</div>
-              )}
-
-              {!loadingCertificates && certificateList.length === 0 && (
-                <p className="text-gray-400 text-sm">No certificates issued yet.</p>
-              )}
-
-              <div className="space-y-4">
-                {certificateList.map((certificate) => {
-                  const issuedDate = certificate.issuedAt
-                    ? new Date(certificate.issuedAt).toLocaleDateString(currentLocale, {
-                        year: 'numeric',
-                        month: 'long',
-                        day: 'numeric',
-                      })
-                    : 'Pending';
-                  const certStatusColor = certificate.status === 'revoked' ? 'text-rose-400' : 'text-emerald-400';
-                  const sharePath = `/${currentLocale}/certificate/${certificate.verificationSlug}`;
-                  return (
-                    <div
-                      key={certificate.certificateId}
-                      className="rounded-2xl border border-white/10 bg-brand-black/20 p-4 space-y-3"
-                    >
-                      <div className="flex items-start justify-between flex-wrap gap-2">
-                        <div>
-                          <p className="text-sm uppercase tracking-[0.3em] text-white/60">{certificate.courseId}</p>
-                          <h4 className="text-lg font-semibold text-white">{certificate.courseTitle}</h4>
-                        </div>
-                        <span className={`text-xs font-semibold ${certStatusColor}`}>
-                          {certificate.status.toUpperCase()}
-                        </span>
-                      </div>
-
-                      <div className="grid grid-cols-2 gap-4 text-sm text-white/70">
-                        <div>
-                          <p className="text-gray-400 text-xs uppercase tracking-[0.3em]">Score</p>
-                          <p className="text-white font-semibold text-lg">{certificate.scorePercentInteger}%</p>
-                        </div>
-                        <div>
-                          <p className="text-gray-400 text-xs uppercase tracking-[0.3em]">Issued</p>
-                          <p className="text-white/80">{issuedDate}</p>
-                        </div>
-                      </div>
-
-                      <div className="flex flex-wrap gap-2">
-                        <LocaleLink
-                          href={`/certificate/${certificate.verificationSlug}`}
-                          className="px-4 py-2 rounded-lg bg-indigo-600 text-white text-xs font-semibold tracking-wide uppercase hover:bg-indigo-500"
-                        >
-                          View certificate
-                        </LocaleLink>
-                        <a
-                          href={`/api/certificates/${certificate.certificateId}/render?variant=share_1200x627`}
-                          target="_blank"
-                          rel="noreferrer"
-                          className="px-4 py-2 rounded-lg bg-white/10 text-white text-xs font-semibold tracking-wide uppercase hover:bg-white/20"
-                        >
-                          Download PNG
-                        </a>
-                        <ShareLinkButton shareUrl={sharePath} />
-                        {!certificate.isPublic && (
-                          <span className="px-3 py-1 text-xs font-semibold uppercase tracking-[0.3em] border border-white/20 rounded-full text-white/80">
-                            Private
-                          </span>
-                        )}
-                      </div>
-                    </div>
-                  );
-                })}
               </div>
             </div>
           )}

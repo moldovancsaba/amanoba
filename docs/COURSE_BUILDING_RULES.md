@@ -2,8 +2,7 @@
 
 **Date**: 2026-01-24  
 **Status**: ✅ ACTIVE  
-**Version**: 1.1  
-**Last Updated**: 2026-01-24 (Added 3-language pack rule)
+**Version**: 1.0
 
 ---
 
@@ -109,40 +108,9 @@ This document defines the standardized process for creating and delivering cours
 
 ## Course Delivery Process
 
-### Language Pack Strategy
-
-**IMPORTANT: When working with more than 3 languages, always break content creation into 3-language packs.**
-
-**Why:**
-- Prevents overwhelming the creation process
-- Allows for quality review between packs
-- Makes it easier to test and validate before moving to the next pack
-- Reduces risk of errors across all languages
-
-**How to apply:**
-1. **Pack 1**: Create content for languages 1-3, review, test, then proceed
-2. **Pack 2**: Create content for languages 4-6, review, test, then proceed
-3. **Pack 3**: Create content for languages 7-9, review, test, then proceed
-4. **Pack 4+**: Continue with remaining languages in groups of 3
-
-**Example for 10 languages:**
-- Pack 1: hu, en, tr (review & test)
-- Pack 2: bg, pl, vi (review & test)
-- Pack 3: id, ar, pt (review & test)
-- Pack 4: hi (final language)
-
-**This applies to:**
-- Course creation
-- Lesson content creation
-- Quiz question creation
-- UI translation files
-- Any multi-language content delivery
-
----
-
 ### Step 1: Create Course & Language Variants
 
-**For each language (work in 3-language packs if more than 3 languages):**
+**For each language:**
 
 1. **Create course record** via API or seed script:
    ```typescript
@@ -180,13 +148,6 @@ This document defines the standardized process for creating and delivering cours
 
 ### Step 2: Create First Lesson & Quiz
 
-**Work in 3-language packs if more than 3 languages:**
-- Create lesson content for Pack 1 (languages 1-3)
-- Review and test Pack 1
-- Create lesson content for Pack 2 (languages 4-6)
-- Review and test Pack 2
-- Continue with remaining packs
-
 **Quality Standards:**
 
 #### Lesson Content:
@@ -215,13 +176,6 @@ This document defines the standardized process for creating and delivering cours
 ---
 
 ### Step 3: Translation Quality Standards
-
-**Work in 3-language packs if more than 3 languages:**
-- Translate Pack 1 (languages 1-3)
-- Review translations for Pack 1
-- Translate Pack 2 (languages 4-6)
-- Review translations for Pack 2
-- Continue with remaining packs
 
 **Translation Requirements:**
 
@@ -268,17 +222,14 @@ This document defines the standardized process for creating and delivering cours
 3. ✅ Configure points and XP
 4. ✅ Set premium/free status
 
-### Phase 3: Content Creation (Work in 3-Language Packs)
+### Phase 3: Content Creation
 
-1. ✅ Write Lesson 1 content (high quality, valuable) - **Pack 1 (languages 1-3)**
-2. ✅ Create Quiz 1 (5-10 questions, practical, clear) - **Pack 1**
-3. ✅ Review and test Pack 1 content
-4. ✅ Translate Lesson 1 to **Pack 2 (languages 4-6)**
-5. ✅ Translate Quiz 1 to **Pack 2**
-6. ✅ Review and test Pack 2 content
-7. ✅ Continue with **Pack 3, Pack 4, etc.** (remaining languages in groups of 3)
-8. ✅ Final review of all translations for quality
-9. ✅ Test content in each language
+1. ✅ Write Lesson 1 content (high quality, valuable)
+2. ✅ Create Quiz 1 (5-10 questions, practical, clear)
+3. ✅ Translate Lesson 1 to all target languages
+4. ✅ Translate Quiz 1 to all target languages
+5. ✅ Review translations for quality
+6. ✅ Test content in each language
 
 ### Phase 4: Database Injection
 
@@ -380,7 +331,6 @@ for (const lang of languages) {
 5. ❌ **Translating industry terms** - Keep IT/Medical/Business terms in original
 6. ❌ **Missing source materials** - Document all sources
 7. ❌ **Skipping quality review** - Always review translations before delivery
-8. ❌ **Trying to create all languages at once** - Always work in 3-language packs when you have more than 3 languages
 
 ---
 

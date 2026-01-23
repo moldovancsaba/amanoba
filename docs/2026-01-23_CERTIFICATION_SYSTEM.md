@@ -1,7 +1,7 @@
 # Certification System with Final Exam
 
 **Date**: 2026-01-23  
-**Status**: 🚧 IN PROGRESS (entitlement + final exam implemented; certificate verification and admin tooling ongoing)  
+**Status**: ⏳ PENDING (To be redeveloped from working baseline)  
 **Priority**: HIGH  
 **Estimated**: 5-7 days  
 **Related Documents**: `docs/FEATURES_SINCE_F20C34A_COMPLETE_DOCUMENTATION copy.md` (Section 1)
@@ -11,22 +11,6 @@
 ## Overview
 
 Complete certification system that allows learners to purchase certification access, take a 50-question randomized final exam, and receive certificates with scores. Includes premium gating, unlimited retakes, and certificate revocation on fail.
-
----
-
-## Current Progress (2026-01-24)
-
-- ✅ **Phases 1-3** (models, entitlement, exam flow) have been executed: the backend now enforces course completion, entitlement ownership, pool availability, randomized selection, scoring, revocation, and certificate creation.
-- ✅ **CS4: Profile Certificates Tab** – Added `/api/profile/[playerId]/certificates`, the profile tab UI, share link copy, and PNG download actions for learners to manage their credentials.
-- 🚀 **Phase 4** now exposes `/api/certificates/[slug]` (GET + PATCH) with privacy controls, the on-demand `/api/certificates/[certificateId]/render` generator, and the public verification experience at `app/[locale]/certificate/[slug]/page.tsx`.
-- ✅ **CS5 (Partial)** – `/api/admin/certificates` and `/api/admin/certification/analytics` endpoints are live; analytics aggregates certificate counts, pass/fail attempts, and entitlement breakdowns.
-- ❌ **Phase 5** (admin dashboards/settings, analytics, achievement ties, asset storage) remains pending, though `/api/admin/certificates` is now live (see “Next Actions” below and Section 1 of `docs/FEATURES_SINCE_F20C34A_COMPLETE_DOCUMENTATION copy.md` for the remaining checklist).
-
-## Next Actions
-
-1. **Finalize asset pipeline (CS2)** – Stabilize CDN/storage handling for rendered certificate PNG/PDF assets and ensure admin exports expose those URLs.
-2. **Complete admin certification surface (CS5)** – Ship the remaining endpoints (`/api/admin/certification/pools`, `/api/admin/certification/settings`) and the associated admin pages (analytics, pools, settings) to give teams complete auditing/control.
-3. **Achievement & variant integration (CS6/CS7)** – Record issuance events in the achievements feed and implement score-band recommendations for short-course variants before moving to the broader transformation backlog.
 
 ---
 

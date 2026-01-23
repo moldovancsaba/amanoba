@@ -576,8 +576,6 @@ certification?: {
 
 **GET `/api/admin/certificates`**
 
-**Status**: ✅ Implemented (admin route validates `requireAdmin`, supports search/status filters, and paginates certificates sorted by issue date).
-
 **Purpose**: List issued certificates for admins (with search and pagination).
 
 **Query Parameters**:
@@ -600,10 +598,6 @@ certification?: {
 ```
 
 **GET `/api/admin/certification/analytics`**
-
-**Status**: ✅ Implemented (returns certificate totals, pass/fail attempt breakdowns grouped by course, and entitlement counts; requires admin role).
-
-**Status**: ✅ Implemented (returns certificate totals, pass/fail attempt breakdowns grouped by course, and entitlement counts; requires admin role).
 
 **Purpose**: Certification analytics for admin dashboard.
 
@@ -636,8 +630,6 @@ certification?: {
 
 **GET `/api/admin/certification/pools`**
 
-**Status**: ✅ Implemented (lists all certification-enabled courses with pool counts, price data, and pool course information).
-
 **Purpose**: Audit question pool sizes for all courses.
 
 **Response**:
@@ -656,8 +648,6 @@ certification?: {
 
 **GET `/api/admin/certification/settings`**
 
-**Status**: ✅ Implemented (returns dynamic CertificationSettings document; upserts default config if none exists).
-
 **Purpose**: Get global certification settings.
 
 **Response**:
@@ -669,8 +659,6 @@ certification?: {
 ```
 
 **PUT `/api/admin/certification/settings`**
-
-**Status**: ✅ Implemented (accepts updates to global exam thresholds, gating, and paywall copy; requires admin role).
 
 **Purpose**: Update global certification settings.
 
@@ -863,7 +851,7 @@ certification?: {
 - [ ] Add certification CTA to course detail page
 - [ ] Add certification status to course list
 - [ ] Add referral code generation for certificate owners
-- ✅ Added profile certificates tab with `/api/profile/[playerId]/certificates` so learners can view, download, and share issued certificates.
+- [ ] Add certificate link to user profile
 
 ---
 
