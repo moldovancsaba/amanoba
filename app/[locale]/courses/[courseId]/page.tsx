@@ -100,7 +100,7 @@ export default function CourseDetailPage({
   const [loadingLessons, setLoadingLessons] = useState(false);
   
   // Use URL locale for translations (guaranteed = course language by design)
-  const { t, tCommon, loading: translationsLoading } = useTranslations();
+  const t = useTranslations();
 
   const tocLessons = useMemo(
     () => [...lessons].sort((a, b) => a.dayNumber - b.dayNumber),
@@ -388,7 +388,7 @@ export default function CourseDetailPage({
     }
   };
 
-  if (loading || translationsLoading) {
+  if (loading) {
     return (
       <div className="min-h-screen bg-brand-black flex items-center justify-center">
         <div className="text-brand-white text-xl">{t('loadingCourse')}</div>
@@ -463,7 +463,7 @@ export default function CourseDetailPage({
                 <div className="flex items-start gap-3">
                   <Award className="w-6 h-6 text-brand-accent flex-shrink-0 mt-1" />
                   <div>
-                    <h3 className="font-bold text-brand-black text-lg">{course.pointsConfig.completionPoints} {tCommon('points')}</h3>
+                    <h3 className="font-bold text-brand-black text-lg">{course.pointsConfig.completionPoints} {t('points')}</h3>
                     <p className="text-base text-brand-darkGrey">{t('pointsEarned')}</p>
                   </div>
                 </div>
@@ -488,7 +488,7 @@ export default function CourseDetailPage({
             <div className="bg-brand-white rounded-2xl p-8 border-2 border-brand-accent shadow-lg">
               <h2 className="text-2xl sm:text-3xl font-bold text-brand-black mb-6">{t('tableOfContents')}</h2>
               {loadingLessons && tocLessons.length === 0 ? (
-                <div className="text-brand-darkGrey text-center py-8">{tCommon('loading')}</div>
+                <div className="text-brand-darkGrey text-center py-8">{t('loading')}</div>
               ) : tocLessons.length === 0 ? (
                 <div className="text-brand-darkGrey text-center py-8">{t('noLessonsAvailable')}</div>
               ) : (
@@ -535,7 +535,7 @@ export default function CourseDetailPage({
                     {t('pointsReward')}
                   </div>
                   <div className="text-2xl font-bold text-brand-black">
-                    {course.pointsConfig.completionPoints} {tCommon('points')}
+                    {course.pointsConfig.completionPoints} {t('points')}
                   </div>
                 </div>
 
