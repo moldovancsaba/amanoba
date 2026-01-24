@@ -62,12 +62,14 @@ export default function DailyLessonPage({
   const [loading, setLoading] = useState(true);
   const [completing, setCompleting] = useState(false);
   const [courseId, setCourseId] = useState<string>('');
+  const [courseLanguage, setCourseLanguage] = useState<string>('');
   const [dayNumber, setDayNumber] = useState<number>(0);
   const [quizPassed, setQuizPassed] = useState(false);
   const searchParams = useSearchParams();
   const locale = useLocale();
   
-  // Use URL locale for translations (guaranteed = course language by design)
+  // CRITICAL: Use course language for translations, not URL locale
+  // If course language is different from URL locale, we're in a wrong URL
   const t = useTranslations('courses');
 
   useEffect(() => {
@@ -78,10 +80,31 @@ export default function DailyLessonPage({
       
       setCourseId(cid);
       setDayNumber(day);
+      
+      // CRITICAL: Fetch course to verify language matches URL locale
+      try {
+        const courseRes = await fetch(`/api/courses/${cid}`, { cache: 'no-store' });
+        const courseData = await courseRes.json();
+        if (courseData.success && courseData.course?.language) {
+          const courseLanguage = courseData.course.language;
+          setCourseLanguage(courseLanguage);
+          
+          // ENFORCE: If URL locale doesn't match course language, redirect to correct URL
+          if (courseLanguage !== locale) {
+            console.warn(`URL locale mismatch: URL=${locale}, course=${courseLanguage}. Redirecting...`);
+            router.replace(`/${courseLanguage}/courses/${cid}/day/${day}`);
+            return;
+          }
+        }
+      } catch (err) {
+        console.error('Failed to fetch course:', err);
+        // Continue anyway - lesson will load
+      }
+      
       await fetchLesson(cid, day);
     };
     loadData();
-  }, [params]);
+  }, [params, locale, router]);
 
   const fetchLesson = async (cid: string, day: number, opts: { silent?: boolean } = {}) => {
     try {
