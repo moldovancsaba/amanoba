@@ -9,11 +9,8 @@
  */
 
 import { getRequestConfig } from 'next-intl/server';
-
-// Supported languages
-// Why: Define available languages for the platform
-export const locales = ['hu', 'en', 'ar', 'hi', 'id', 'pt', 'vi', 'tr', 'bg', 'pl', 'ru'] as const;
-export type Locale = (typeof locales)[number];
+import { locales, type Locale } from '@/app/lib/i18n/locales';
+export { locales, type Locale } from '@/app/lib/i18n/locales';
 
 // Default locale
 // Why: Hungarian is the default language

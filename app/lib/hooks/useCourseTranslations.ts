@@ -12,7 +12,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { locales, type Locale } from '@/i18n';
+import { locales, type Locale } from '@/app/lib/i18n/locales';
 
 interface Translations {
   [key: string]: any;

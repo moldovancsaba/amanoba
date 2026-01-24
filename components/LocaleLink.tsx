@@ -10,7 +10,7 @@
 import Link from 'next/link';
 import { useLocale } from 'next-intl';
 import type { ComponentProps } from 'react';
-import { locales } from '@/i18n';
+import { locales } from '@/app/lib/i18n/locales';
 
 /**
  * LocaleLink Component

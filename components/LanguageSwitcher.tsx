@@ -9,7 +9,7 @@
 
 import { useLocale } from 'next-intl';
 import { usePathname, useRouter } from 'next/navigation';
-import { locales, type Locale } from '@/i18n';
+import { locales, type Locale } from '@/app/lib/i18n/locales';
 
 const languageNames: Record<Locale, string> = {
   hu: 'Magyar',
