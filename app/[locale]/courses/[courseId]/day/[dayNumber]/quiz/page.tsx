@@ -162,7 +162,7 @@ export default function LessonQuizPage({
             localStorage.setItem(key, 'true');
           }
           setTimeout(() => {
-            router.replace(`/${courseLanguage || locale}/courses/${courseId}/day/${dayNumber}?quiz=passed`);
+            router.replace(`/${courseLocale}/courses/${courseId}/day/${dayNumber}?quiz=passed`);
           }, 900);
         } else {
           setTimeout(() => {
@@ -187,7 +187,7 @@ export default function LessonQuizPage({
           localStorage.removeItem(key);
         }
         setTimeout(() => {
-          router.replace(`/${courseLanguage || locale}/courses/${courseId}/day/${dayNumber}?quizRetry=1`);
+          router.replace(`/${courseLocale}/courses/${courseId}/day/${dayNumber}?quizRetry=1`);
         }, 1200);
       }
     } catch (err) {
