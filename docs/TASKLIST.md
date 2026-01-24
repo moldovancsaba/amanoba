@@ -11,6 +11,26 @@ Tasks are listed in priority order. Upon completion, tasks are moved to RELEASE_
 
 ---
 
+## 🟡 P1 - HIGH: Course Locale Alignment (URL = Course Language)
+
+**Status**: ⏳ **PENDING**  
+**Priority**: P1 (High impact UX consistency)  
+**Reported**: 2026-01-24  
+**Documentation**: `docs/2026-01-24_COURSE_LOCALE_ALIGNMENT.md`
+
+### Goal
+Course pages must always use the course’s own language as the URL locale and UI language. No course should render under a mismatched locale.
+
+| ID | Task | Owner | Expected Delivery | Status |
+|----|------|-------|-------------------|--------|
+| LOCALE1 | Inventory all course routes that need enforcement (`/[locale]/courses/*`, final exam, day pages, quiz pages, my-courses) | AI | 2026-01-24 | ⏳ PENDING |
+| LOCALE2 | Add locale enforcement: redirect mismatched locale → course.language URL | AI | 2026-01-24 | ⏳ PENDING |
+| LOCALE3 | Ensure UI translations on course pages use course.language consistently (no mixed labels) | AI | 2026-01-24 | ⏳ PENDING |
+| LOCALE4 | Confirm supported locales list includes all course languages (router + messages) | AI | 2026-01-24 | ⏳ PENDING |
+| LOCALE5 | Update tests/QA checklist and verify sample courses across languages | AI | 2026-01-24 | ⏳ PENDING |
+
+---
+
 ## ✅ P0 - COMPLETE: Admin UI Improvements
 
 **Status**: ✅ **COMPLETE**  
