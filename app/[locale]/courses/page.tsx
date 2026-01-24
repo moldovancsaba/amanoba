@@ -143,6 +143,8 @@ export default function CoursesPage() {
       certification: 'Certyfikat',
       noCertification: 'Brak certyfikatu',
       viewCourse: 'Wyświetl kurs',
+      days: 'dni',
+      points: 'punkty',
     },
     vi: {
       premium: 'Khóa học cao cấp',
@@ -150,6 +152,8 @@ export default function CoursesPage() {
       certification: 'Chứng chỉ',
       noCertification: 'Không có chứng chỉ',
       viewCourse: 'Xem khóa học',
+      days: 'ngày',
+      points: 'điểm',
     },
     id: {
       premium: 'Kursus Premium',
@@ -157,6 +161,8 @@ export default function CoursesPage() {
       certification: 'Sertifikat',
       noCertification: 'Tanpa sertifikat',
       viewCourse: 'Lihat kursus',
+      days: 'hari',
+      points: 'poin',
     },
     ar: {
       premium: 'دورة متميزة',
@@ -164,6 +170,8 @@ export default function CoursesPage() {
       certification: 'شهادة',
       noCertification: 'بدون شهادة',
       viewCourse: 'عرض الدورة',
+      days: 'أيام',
+      points: 'نقاط',
     },
     pt: {
       premium: 'Curso Premium',
@@ -171,6 +179,8 @@ export default function CoursesPage() {
       certification: 'Certificado',
       noCertification: 'Sem certificado',
       viewCourse: 'Ver curso',
+      days: 'dias',
+      points: 'pontos',
     },
     hi: {
       premium: 'प्रीमियम कोर्स',
@@ -178,6 +188,8 @@ export default function CoursesPage() {
       certification: 'प्रमाणपत्र',
       noCertification: 'कोई प्रमाणपत्र नहीं',
       viewCourse: 'कोर्स देखें',
+      days: 'दिन',
+      points: 'अंक',
     },
     ru: {
       premium: 'Премиум курс',
@@ -185,6 +197,8 @@ export default function CoursesPage() {
       certification: 'Сертификат',
       noCertification: 'Без сертификата',
       viewCourse: 'Посмотреть курс',
+      days: 'дни',
+      points: 'баллы',
     },
   };
 
