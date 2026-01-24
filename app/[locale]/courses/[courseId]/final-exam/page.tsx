@@ -8,8 +8,10 @@
 
 import { useEffect, useState } from 'react';
 import { useParams, useRouter } from 'next/navigation';
+import { useLocale } from 'next-intl';
 import { useSession } from 'next-auth/react';
 import { Loader2, ShieldCheck, AlertTriangle, CheckCircle, XCircle } from 'lucide-react';
+import { useCourseTranslations } from '@/app/lib/hooks/useCourseTranslations';
 
 interface EntitlementResp {
   certificationEnabled: boolean;
@@ -33,6 +35,7 @@ export default function FinalExamPage() {
   const params = useParams<{ courseId: string; locale: string }>();
   const courseId = params.courseId;
   const router = useRouter();
+  const locale = useLocale();
   const { data: session, status } = useSession();
 
   const [entitlement, setEntitlement] = useState<EntitlementResp | null>(null);
@@ -42,6 +45,9 @@ export default function FinalExamPage() {
   const [submitting, setSubmitting] = useState(false);
   const [result, setResult] = useState<{ score?: number; passed?: boolean } | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [courseLanguage, setCourseLanguage] = useState<string | undefined>(undefined);
+
+  const { t } = useCourseTranslations(courseLanguage);
 
   useEffect(() => {
     if (status === 'authenticated') {
@@ -57,6 +63,12 @@ export default function FinalExamPage() {
       const data = await res.json();
       if (!data.success) throw new Error(data.error || 'Failed to load');
       setEntitlement(data.data);
+      if (data.data?.courseLanguage) {
+        setCourseLanguage(data.data.courseLanguage);
+        if (data.data.courseLanguage !== params.locale) {
+          router.replace(`/${data.data.courseLanguage}/courses/${courseId}/final-exam`);
+        }
+      }
     } catch (e: any) {
       setError(e.message);
     } finally {
@@ -157,7 +169,7 @@ export default function FinalExamPage() {
   if (status === 'loading' || loadingEnt) {
     return (
       <div className="flex items-center justify-center h-80 text-white">
-        <Loader2 className="w-5 h-5 animate-spin mr-2" /> Loading...
+        <Loader2 className="w-5 h-5 animate-spin mr-2" /> {t('loadingCourse', { defaultValue: 'Loading...' })}
       </div>
     );
   }
@@ -165,7 +177,7 @@ export default function FinalExamPage() {
   if (!session) {
     return (
       <div className="p-6 text-white">
-        <p>Please sign in to access the certification exam.</p>
+        <p>{t('signInToEnroll', { defaultValue: 'Please sign in to access the certification exam.' })}</p>
       </div>
     );
   }
@@ -178,7 +190,7 @@ export default function FinalExamPage() {
     <div className="max-w-3xl mx-auto p-6 text-white space-y-6">
       <div className="flex items-center gap-3">
         <ShieldCheck className="w-6 h-6 text-amber-400" />
-        <h1 className="text-2xl font-bold">Final Certification Exam</h1>
+        <h1 className="text-2xl font-bold">{t('finalExamTitle', { defaultValue: 'Final Certification Exam' })}</h1>
       </div>
 
       {error && (
@@ -190,25 +202,31 @@ export default function FinalExamPage() {
 
       {unavailable && (
         <div className="bg-gray-800 border border-gray-700 rounded p-4">
-          <p className="text-lg font-semibold">Certification unavailable</p>
+          <p className="text-lg font-semibold">{t('certificationUnavailable', { defaultValue: 'Certification unavailable' })}</p>
           <p className="text-gray-300 mt-1">
-            Pool size: {ent?.poolCount ?? 0}. Certification is disabled until the pool has at least 50 questions.
+            {t('certificationPoolMessage', {
+              poolCount: ent?.poolCount ?? 0,
+              defaultValue: `Pool size: ${ent?.poolCount ?? 0}. Certification is disabled until the pool has at least 50 questions.`,
+            })}
           </p>
           <button
             className="mt-3 text-sm text-indigo-300 underline"
-            onClick={() => router.push(`/${params.locale}/courses/${courseId}`)}
+            onClick={() => router.push(`/${courseLanguage || locale}/courses/${courseId}`)}
           >
-            Back to course
+            {t('backToCourse', { defaultValue: 'Back to course' })}
           </button>
         </div>
       )}
 
       {!unavailable && !ent?.entitlementOwned && (
         <div className="bg-gray-800 border border-gray-700 rounded p-4 space-y-3">
-          <p className="font-semibold">Get certification access</p>
+          <p className="font-semibold">{t('certificationAccess', { defaultValue: 'Get certification access' })}</p>
           <p className="text-gray-300">
-            Price: {ent?.priceMoney ? `${ent.priceMoney.amount} ${ent.priceMoney.currency}` : 'Not set'} | Points:{' '}
-            {ent?.pricePoints ?? 'N/A'}
+            {t('certificationPriceLine', {
+              price: ent?.priceMoney ? `${ent.priceMoney.amount} ${ent.priceMoney.currency}` : 'Not set',
+              points: ent?.pricePoints ?? 'N/A',
+              defaultValue: `Price: ${ent?.priceMoney ? `${ent.priceMoney.amount} ${ent.priceMoney.currency}` : 'Not set'} | Points: ${ent?.pricePoints ?? 'N/A'}`,
+            })}
           </p>
           <div className="flex gap-2">
             {ent?.pricePoints ? (
@@ -217,7 +235,7 @@ export default function FinalExamPage() {
                 onClick={redeemPoints}
                 className="px-4 py-2 rounded bg-indigo-600 hover:bg-indigo-500 disabled:opacity-50"
               >
-                Redeem points
+                {t('redeemPoints', { defaultValue: 'Redeem points' })}
               </button>
             ) : null}
             <button
@@ -291,7 +309,7 @@ export default function FinalExamPage() {
               Refresh status
             </button>
             <button
-              onClick={() => router.push(`/${params.locale}/courses/${courseId}`)}
+              onClick={() => router.push(`/${courseLanguage || locale}/courses/${courseId}`)}
               className="px-4 py-2 rounded bg-gray-700 hover:bg-gray-600"
             >
               Back to course

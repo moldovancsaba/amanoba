@@ -6,6 +6,7 @@
 
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
+import { useLocale } from 'next-intl';
 import { CheckCircle, XCircle, ArrowLeft, Loader2 } from 'lucide-react';
 import { LocaleLink } from '@/components/LocaleLink';
 import Logo from '@/components/Logo';
@@ -38,6 +39,7 @@ export default function LessonQuizPage({
 }) {
   const { data: session } = useSession();
   const router = useRouter();
+  const locale = useLocale();
   const [courseId, setCourseId] = useState<string>('');
   const [dayNumber, setDayNumber] = useState<number>(0);
   const [lessonId, setLessonId] = useState<string>('');
@@ -160,7 +162,7 @@ export default function LessonQuizPage({
             localStorage.setItem(key, 'true');
           }
           setTimeout(() => {
-            router.replace(`/courses/${courseId}/day/${dayNumber}?quiz=passed`);
+            router.replace(`/${courseLanguage || locale}/courses/${courseId}/day/${dayNumber}?quiz=passed`);
           }, 900);
         } else {
           setTimeout(() => {
@@ -185,7 +187,7 @@ export default function LessonQuizPage({
           localStorage.removeItem(key);
         }
         setTimeout(() => {
-          router.replace(`/courses/${courseId}/day/${dayNumber}?quizRetry=1`);
+          router.replace(`/${courseLanguage || locale}/courses/${courseId}/day/${dayNumber}?quizRetry=1`);
         }, 1200);
       }
     } catch (err) {

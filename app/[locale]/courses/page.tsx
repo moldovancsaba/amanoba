@@ -172,7 +172,7 @@ export default function CoursesPage() {
             {courses.map((course) => (
               <LocaleLink
                 key={course._id}
-                href={`/courses/${course.courseId}`}
+                href={`/${course.language}/courses/${course.courseId}`}
                 className="block bg-brand-white rounded-2xl p-6 sm:p-7 border-2 border-brand-accent hover:shadow-xl transition-all"
               >
                 {course.thumbnail && (

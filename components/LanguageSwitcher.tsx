@@ -14,6 +14,15 @@ import { locales, type Locale } from '@/i18n';
 const languageNames: Record<Locale, string> = {
   hu: 'Magyar',
   en: 'English',
+  ar: 'العربية',
+  hi: 'हिन्दी',
+  id: 'Bahasa Indonesia',
+  pt: 'Português',
+  vi: 'Tiếng Việt',
+  tr: 'Türkçe',
+  bg: 'Български',
+  pl: 'Polski',
+  ru: 'Русский',
 };
 
 /**
@@ -27,6 +36,9 @@ export default function LanguageSwitcher() {
   const pathname = usePathname();
 
   const handleLanguageChange = (newLocale: Locale) => {
+    if (pathname.startsWith(`/${locale}/courses/`)) {
+      return;
+    }
     // Remove current locale from pathname
     const pathWithoutLocale = pathname.replace(`/${locale}`, '') || '/';
     

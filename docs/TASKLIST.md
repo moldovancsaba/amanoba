@@ -1,7 +1,7 @@
 # Amanoba Task List
 
 **Version**: 2.8.2  
-**Last Updated**: 2025-01-27T12:00:00.000Z
+**Last Updated**: 2026-01-24T12:00:00.000Z
 
 ---
 
@@ -13,7 +13,7 @@ Tasks are listed in priority order. Upon completion, tasks are moved to RELEASE_
 
 ## 🟡 P1 - HIGH: Course Locale Alignment (URL = Course Language)
 
-**Status**: ⏳ **PENDING**  
+**Status**: 🟡 **IN PROGRESS**  
 **Priority**: P1 (High impact UX consistency)  
 **Reported**: 2026-01-24  
 **Documentation**: `docs/2026-01-24_COURSE_LOCALE_ALIGNMENT.md`
@@ -23,11 +23,12 @@ Course pages must always use the course’s own language as the URL locale and U
 
 | ID | Task | Owner | Expected Delivery | Status |
 |----|------|-------|-------------------|--------|
-| LOCALE1 | Inventory all course routes that need enforcement (`/[locale]/courses/*`, final exam, day pages, quiz pages, my-courses) | AI | 2026-01-24 | ⏳ PENDING |
-| LOCALE2 | Add locale enforcement: redirect mismatched locale → course.language URL | AI | 2026-01-24 | ⏳ PENDING |
-| LOCALE3 | Ensure UI translations on course pages use course.language consistently (no mixed labels) | AI | 2026-01-24 | ⏳ PENDING |
-| LOCALE4 | Confirm supported locales list includes all course languages (router + messages) | AI | 2026-01-24 | ⏳ PENDING |
+| LOCALE1 | Inventory all course routes that need enforcement (`/[locale]/courses/*`, final exam, day pages, quiz pages, my-courses) | AI | 2026-01-24 | ✅ DONE |
+| LOCALE2 | Add locale enforcement: redirect mismatched locale → course.language URL | AI | 2026-01-24 | ✅ DONE |
+| LOCALE3 | Ensure UI translations on course pages use course.language consistently (no mixed labels) | AI | 2026-01-24 | ✅ DONE |
+| LOCALE4 | Confirm supported locales list includes all course languages (router + messages) | AI | 2026-01-24 | ✅ DONE |
 | LOCALE5 | Update tests/QA checklist and verify sample courses across languages | AI | 2026-01-24 | ⏳ PENDING |
+| LOCALE6 | Provide source translations for all active course locales (ar, ru, hi, id, pt, vi, tr, bg, pl) and seed DB/JSON | AI + Content | 2026-01-24 | ✅ DONE |
 
 ---
 

@@ -6,7 +6,7 @@
  */
 
 import type { Metadata } from 'next';
-import { notFound } from 'next/navigation';
+import { notFound, redirect } from 'next/navigation';
 import connectDB from '@/app/lib/mongodb';
 import { Course } from '@/app/lib/models';
 import { Brand } from '@/app/lib/models';
@@ -68,8 +68,9 @@ export async function generateMetadata({
       absoluteImageUrl = `${baseUrl}/AMANOBA.png`;
     }
 
-    // Build course URL
-    const courseUrl = `${baseUrl}/${locale}/courses/${courseId}`;
+    // Build course URL (force course language in URL)
+    const courseLocale = course.language || locale;
+    const courseUrl = `${baseUrl}/${courseLocale}/courses/${courseId}`;
 
     // Prepare title and description
     const title = course.name || 'Course';
@@ -88,7 +89,7 @@ export async function generateMetadata({
     }
 
     // Determine locale for Open Graph
-    const ogLocale = locale === 'hu' ? 'hu_HU' : 'en_US';
+    const ogLocale = courseLocale === 'hu' ? 'hu_HU' : courseLocale === 'ar' ? 'ar_AR' : 'en_US';
 
     return {
       title: `${title} | Amanoba`,
@@ -127,8 +128,7 @@ export async function generateMetadata({
       alternates: {
         canonical: courseUrl,
         languages: {
-          'hu': `${baseUrl}/hu/courses/${courseId}`,
-          'en': `${baseUrl}/en/courses/${courseId}`,
+          [courseLocale]: courseUrl,
         },
       },
       robots: {
@@ -157,10 +157,28 @@ export async function generateMetadata({
  * Layout component (just passes through children)
  * Metadata is handled by generateMetadata function above
  */
-export default function CourseDetailLayout({
+export default async function CourseDetailLayout({
   children,
+  params,
 }: {
   children: React.ReactNode;
+  params: Promise<{ courseId: string; locale: string }>;
 }) {
+  const { courseId, locale } = await params;
+  await connectDB();
+
+  const course = await Course.findOne({ courseId })
+    .select('courseId language isActive')
+    .lean();
+
+  if (!course || !course.isActive) {
+    notFound();
+  }
+
+  const courseLocale = course.language || locale;
+  if (courseLocale !== locale) {
+    redirect(`/${courseLocale}/courses/${courseId}`);
+  }
+
   return <>{children}</>;
 }

@@ -1,7 +1,7 @@
 # Course Locale Alignment (URL = Course Language)
 
 **Date**: 2026-01-24  
-**Status**: ⏳ PLANNED  
+**Status**: 🟡 IN PROGRESS  
 **Priority**: HIGH  
 **Owner**: AI Developer  
 **Related**: `docs/TASKLIST.md`
@@ -41,9 +41,24 @@ Ensure every course page uses the course’s own language as the URL locale and 
 
 ---
 
+## Progress Update (2026-01-24)
+
+### ✅ Implemented
+- **Locale enforcement**: Course detail layout redirects mismatched locales to `course.language` URL.
+- **Client safety net**: Course detail page redirects if the fetched course language differs from the current URL locale.
+- **Link alignment**: Course list + my-courses links now point to the course’s language locale.
+- **Course-localized translations**: Course pages use `useCourseTranslations(courseLanguage)` instead of URL locale.
+- **No wrong-language fallbacks**: Removed automatic fallback to Hungarian/English for course locales to avoid mixed-language UI.
+- **Translation API**: Added `/api/translations` to merge DB translations with locale JSON per locale.
+- **Locale list expanded**: Routing now accepts all active course locales.
+
+### ✅ Completed
+- **UI translation coverage**: Course-specific UI strings provided for all active locales (ar, ru, hi, id, pt, vi, tr, bg, pl) in JSON.
+
+---
+
 ## Success Criteria
 
 - Visiting any course with mismatched locale auto-redirects to the correct language URL.
 - Course pages render UI labels in the same language as the course content.
 - No regression in `/[locale]/courses/*` or `/[locale]/my-courses` flows.
-

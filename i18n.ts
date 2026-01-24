@@ -12,7 +12,7 @@ import { getRequestConfig } from 'next-intl/server';
 
 // Supported languages
 // Why: Define available languages for the platform
-export const locales = ['hu', 'en'] as const;
+export const locales = ['hu', 'en', 'ar', 'hi', 'id', 'pt', 'vi', 'tr', 'bg', 'pl', 'ru'] as const;
 export type Locale = (typeof locales)[number];
 
 // Default locale
@@ -78,10 +78,22 @@ export default getRequestConfig(async ({ locale }) => {
       // If we have translations from database, merge them with defaults to avoid missing-key display
       if (dbTranslations && Object.keys(dbTranslations).length > 0) {
         const defaultMessages = (await import(`./messages/${defaultLocale}.json`)).default;
+        let resolvedMessages: Record<string, any> = {};
+        if (resolvedLocale !== defaultLocale) {
+          try {
+            resolvedMessages = (await import(`./messages/${resolvedLocale}.json`)).default;
+          } catch (error) {
+            if (process.env.NODE_ENV === 'development') {
+              console.warn(`Missing locale file for ${resolvedLocale}, returning empty messages.`);
+            }
+            resolvedMessages = {};
+          }
+        }
+
         const base =
           resolvedLocale === defaultLocale
             ? defaultMessages
-            : deepMerge(defaultMessages, (await import(`./messages/${resolvedLocale}.json`)).default);
+            : resolvedMessages;
 
         return {
           locale: resolvedLocale,
@@ -100,13 +112,20 @@ export default getRequestConfig(async ({ locale }) => {
   // Fallback to JSON files if database is unavailable or empty
   // Additionally, merge with default locale to avoid missing keys showing raw ids
   const defaultMessages = (await import(`./messages/${defaultLocale}.json`)).default;
-  const localeMessages =
-    resolvedLocale === defaultLocale
-      ? defaultMessages
-      : (await import(`./messages/${resolvedLocale}.json`)).default;
+  let localeMessages: Record<string, any> = defaultMessages;
+  if (resolvedLocale !== defaultLocale) {
+    try {
+      localeMessages = (await import(`./messages/${resolvedLocale}.json`)).default;
+    } catch (error) {
+      if (process.env.NODE_ENV === 'development') {
+        console.warn(`Missing locale file for ${resolvedLocale}, returning empty messages.`);
+      }
+      localeMessages = {};
+    }
+  }
 
   const messages =
-    resolvedLocale === defaultLocale ? defaultMessages : deepMerge(defaultMessages, localeMessages);
+    resolvedLocale === defaultLocale ? defaultMessages : localeMessages;
 
   return {
     locale: resolvedLocale,

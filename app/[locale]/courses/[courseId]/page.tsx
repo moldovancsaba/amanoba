@@ -103,6 +103,7 @@ export default function CourseDetailPage({
   
   // Use course language for translations instead of URL locale
   const { t, tCommon } = useCourseTranslations(courseLanguage);
+  const courseLocale = courseLanguage || locale;
 
   const tocLessons = useMemo(
     () => [...lessons].sort((a, b) => a.dayNumber - b.dayNumber),
@@ -154,6 +155,9 @@ export default function CourseDetailPage({
         // Store course language for UI translations (no redirect needed)
         if (courseData.language) {
           setCourseLanguage(courseData.language);
+        }
+        if (courseData.language && courseData.language !== locale) {
+          router.replace(`/${courseData.language}/courses/${cid}`);
         }
       }
     } catch (error) {
@@ -345,7 +349,8 @@ export default function CourseDetailPage({
           },
         });
         // Redirect directly to first lesson
-        router.push(`/${locale}/courses/${courseId}/day/1`);
+        const targetLocale = courseLanguage || locale;
+        router.push(`/${targetLocale}/courses/${courseId}/day/1`);
       } else {
         alert(data.error || t('failedToEnroll'));
       }
@@ -599,7 +604,7 @@ export default function CourseDetailPage({
                   </div>
                 ) : !session ? (
                   <LocaleLink
-                    href={`/auth/signin?callbackUrl=${encodeURIComponent(`/${locale}/courses/${courseId}`)}`}
+                    href={`/auth/signin?callbackUrl=${encodeURIComponent(`/${courseLocale}/courses/${courseId}`)}`}
                     className="block w-full bg-brand-accent text-brand-black px-5 py-3.5 rounded-lg font-bold text-center hover:bg-brand-primary-400 transition-colors text-base"
                   >
                     {t('signInToEnroll')}
@@ -687,7 +692,7 @@ export default function CourseDetailPage({
                   </LocaleLink>
                 ) : !session ? (
                   <LocaleLink
-                    href={`/auth/signin?callbackUrl=${encodeURIComponent(`/${locale}/courses/${courseId}`)}`}
+                    href={`/auth/signin?callbackUrl=${encodeURIComponent(`/${courseLocale}/courses/${courseId}`)}`}
                     className="w-full bg-brand-accent text-brand-black px-4 py-2.5 rounded-lg font-bold text-center hover:bg-brand-primary-400 transition-colors text-sm"
                   >
                     {t('signInToEnroll')}

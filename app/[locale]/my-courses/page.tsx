@@ -182,7 +182,7 @@ export default function MyCoursesPage() {
 
                 {/* Actions */}
                 <LocaleLink
-                  href={`/courses/${item.course.courseId}/day/${item.progress.currentDay}`}
+                  href={`/${item.course.language}/courses/${item.course.courseId}/day/${item.progress.currentDay}`}
                   className="block w-full bg-brand-accent text-brand-black px-4 py-3 rounded-lg font-bold text-center hover:bg-brand-primary-400 transition-colors mobile-full-width"
                 >
                   {item.progress.isCompleted

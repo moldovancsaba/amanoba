@@ -298,6 +298,13 @@
     "minutes": "perc",
     "hasQuiz": "Kvíz",
     "noLessonsAvailable": "Jelenleg nincsenek elérhető leckék"
+    ,
+    "finalExamTitle": "Záró minősítő vizsga",
+    "certificationUnavailable": "Tanúsítvány nem elérhető",
+    "certificationPoolMessage": "A kérdésbank mérete: {{poolCount}}. A minősítés csak 50 kérdés felett elérhető.",
+    "certificationAccess": "Minősítés elérése",
+    "certificationPriceLine": "Ár: {{price}} | Pontok: {{points}}",
+    "redeemPoints": "Pontok beváltása"
   },
   "games": {
     "title": "Játékok",

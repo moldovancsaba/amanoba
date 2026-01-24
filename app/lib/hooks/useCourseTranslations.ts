@@ -12,7 +12,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import type { Locale } from '@/i18n';
+import { locales, type Locale } from '@/i18n';
 
 interface Translations {
   [key: string]: any;
@@ -30,17 +30,25 @@ async function loadTranslations(locale: Locale): Promise<Translations> {
   }
 
   try {
+    const response = await fetch(`/api/translations?locale=${locale}`);
+    if (response.ok) {
+      const data = await response.json();
+      if (data?.success && data?.messages) {
+        translationCache[locale] = data.messages;
+        return data.messages;
+      }
+    }
+  } catch (error) {
+    console.error(`Failed to load translations from API for locale ${locale}:`, error);
+  }
+
+  try {
     // Load from JSON files (client-side compatible)
     const messages = await import(`@/messages/${locale}.json`);
     translationCache[locale] = messages.default;
     return messages.default;
   } catch (error) {
     console.error(`Failed to load translations for locale ${locale}:`, error);
-    // Fallback to English if locale fails
-    if (locale !== 'en') {
-      const fallback = await import(`@/messages/en.json`);
-      return fallback.default;
-    }
     return {};
   }
 }
@@ -69,10 +77,9 @@ export function useCourseTranslations(courseLanguage: string | undefined) {
   const [loading, setLoading] = useState(true);
 
   // Determine course locale (fallback to 'en' if invalid)
-  const courseLocale: Locale = 
-    courseLanguage === 'hu' || courseLanguage === 'en' 
-      ? (courseLanguage as Locale)
-      : 'en';
+  const courseLocale: Locale = locales.includes(courseLanguage as Locale)
+    ? (courseLanguage as Locale)
+    : 'en';
 
   useEffect(() => {
     let mounted = true;

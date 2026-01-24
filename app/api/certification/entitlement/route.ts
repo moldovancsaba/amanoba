@@ -50,6 +50,7 @@ export async function GET(request: NextRequest) {
       priceMoney,
       pricePoints,
       poolCourseId: (await resolvePoolCourse(courseIdParam))?.courseId || course.courseId,
+      courseLanguage: course.language,
     },
   });
 }
