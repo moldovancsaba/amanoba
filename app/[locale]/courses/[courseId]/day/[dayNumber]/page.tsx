@@ -68,7 +68,7 @@ export default function DailyLessonPage({
   const locale = useLocale();
   
   // Use URL locale for translations (guaranteed = course language by design)
-  const t = useTranslations();
+  const t = useTranslations('courses');
 
   useEffect(() => {
     const loadData = async () => {
