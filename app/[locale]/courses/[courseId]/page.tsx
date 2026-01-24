@@ -123,6 +123,8 @@ export default function CourseDetailPage({
       pointsReward: 'Pontok',
       days: 'nap',
       points: 'pont',
+      enrolled: 'Beiratkozott',
+      backToCourses: 'Vissza a kurzusokhoz',
     },
     en: {
       aboutThisCourse: 'Course Overview',
@@ -142,6 +144,8 @@ export default function CourseDetailPage({
       pointsReward: 'Points',
       days: 'days',
       points: 'points',
+      enrolled: 'Enrolled',
+      backToCourses: 'Back to Courses',
     },
     tr: {
       aboutThisCourse: 'Kurs Özeti',
@@ -161,6 +165,8 @@ export default function CourseDetailPage({
       pointsReward: 'Puanlar',
       days: 'gün',
       points: 'puan',
+      enrolled: 'Kaydoldu',
+      backToCourses: 'Kurslara Geri Dön',
     },
     bg: {
       aboutThisCourse: 'Преглед на курса',
@@ -180,6 +186,8 @@ export default function CourseDetailPage({
       pointsReward: 'Точки',
       days: 'дни',
       points: 'точки',
+      enrolled: 'Записан',
+      backToCourses: 'Назад към курсовете',
     },
     pl: {
       aboutThisCourse: 'Przegląd Kursu',
@@ -199,6 +207,8 @@ export default function CourseDetailPage({
       pointsReward: 'Punkty',
       days: 'dni',
       points: 'punkty',
+      enrolled: 'Zapisany',
+      backToCourses: 'Wróć do kursów',
     },
     vi: {
       aboutThisCourse: 'Tổng Quan Khóa Học',
@@ -218,6 +228,8 @@ export default function CourseDetailPage({
       pointsReward: 'Điểm',
       days: 'ngày',
       points: 'điểm',
+      enrolled: 'Đã đăng ký',
+      backToCourses: 'Quay lại các khóa học',
     },
     id: {
       aboutThisCourse: 'Ringkasan Kursus',
@@ -237,6 +249,8 @@ export default function CourseDetailPage({
       pointsReward: 'Poin',
       days: 'hari',
       points: 'poin',
+      enrolled: 'Terdaftar',
+      backToCourses: 'Kembali ke Kursus',
     },
     ar: {
       aboutThisCourse: 'نظرة عامة على الدورة',
@@ -256,6 +270,8 @@ export default function CourseDetailPage({
       pointsReward: 'النقاط',
       days: 'أيام',
       points: 'نقاط',
+      enrolled: 'مسجل',
+      backToCourses: 'العودة للدورات',
     },
     pt: {
       aboutThisCourse: 'Visão Geral do Curso',
@@ -275,6 +291,8 @@ export default function CourseDetailPage({
       pointsReward: 'Pontos',
       days: 'dias',
       points: 'pontos',
+      enrolled: 'Inscrito',
+      backToCourses: 'Voltar aos Cursos',
     },
     hi: {
       aboutThisCourse: 'कोर्स की जानकारी',
@@ -294,6 +312,8 @@ export default function CourseDetailPage({
       pointsReward: 'अंक',
       days: 'दिन',
       points: 'अंक',
+      enrolled: 'नामांकित',
+      backToCourses: 'कोर्स पर वापस जाएं',
     },
     ru: {
       aboutThisCourse: 'О курсе',
@@ -313,6 +333,8 @@ export default function CourseDetailPage({
       pointsReward: 'Баллы',
       days: 'дней',
       points: 'баллы',
+      enrolled: 'Записан',
+      backToCourses: 'Вернуться к курсам',
     },
   };
 
@@ -636,7 +658,7 @@ export default function CourseDetailPage({
             href="/courses"
             className="inline-block bg-brand-accent text-brand-black px-6 py-3 rounded-lg font-bold hover:bg-brand-primary-400"
           >
-            {t('backToCourses')}
+            {getCourseDetailTexts().backToCourses}
           </LocaleLink>
         </div>
       </div>
@@ -655,7 +677,7 @@ export default function CourseDetailPage({
               className="inline-flex items-center gap-2 text-brand-white hover:text-brand-accent"
             >
               <ArrowLeft className="w-5 h-5" />
-              {t('backToCourses')}
+              {getCourseDetailTexts().backToCourses}
             </LocaleLink>
           </div>
           <h1 className="text-2xl sm:text-4xl font-bold text-brand-white leading-tight">{course.name}</h1>
@@ -798,7 +820,7 @@ export default function CourseDetailPage({
                     <div className="bg-green-500/20 border border-green-500 rounded-lg p-3">
                       <div className="flex items-center gap-2 text-green-700 font-bold mb-2">
                         <CheckCircle className="w-5 h-5" />
-                        {t('enrolled')}
+                        {getCourseDetailTexts().enrolled}
                       </div>
                   {enrollment.progress && (
                     <div className="text-sm text-brand-darkGrey">
@@ -826,7 +848,7 @@ export default function CourseDetailPage({
                       href={`/courses/${courseId}/day/${enrollment.progress?.currentDay || 1}`}
                       className="block w-full bg-brand-accent text-brand-black px-5 py-3.5 rounded-lg font-bold text-center hover:bg-brand-primary-400 transition-colors text-base"
                     >
-                      {t('continueLearning')}
+                      {getCourseDetailTexts().continuelLearning}
                     </LocaleLink>
                   </div>
                 ) : !session ? (
@@ -915,7 +937,7 @@ export default function CourseDetailPage({
                     href={`/courses/${courseId}/day/${enrollment.progress?.currentDay || 1}`}
                     className="w-full bg-brand-accent text-brand-black px-4 py-2.5 rounded-lg font-bold text-center hover:bg-brand-primary-400 transition-colors text-sm"
                   >
-                    {t('continueLearning')}
+                    {getCourseDetailTexts().continuelLearning}
                   </LocaleLink>
                 ) : !session ? (
                   <LocaleLink
