@@ -511,7 +511,7 @@ export default function DailyLessonPage({
             <div className="flex items-center gap-4">
               <Logo size="sm" showText={false} linkTo={session?.user ? "/dashboard" : "/"} className="flex-shrink-0" />
               <LocaleLink
-                href={`/courses/${courseId}`}
+                href={`/${courseLanguage}/courses/${courseId}`}
                 className="inline-flex items-center gap-2 text-brand-white hover:text-brand-accent"
               >
                 <ArrowLeft className="w-5 h-5" />
@@ -575,7 +575,7 @@ export default function DailyLessonPage({
                 <div className="flex-1 flex justify-start">
                   {navigation?.previous && (
                     <LocaleLink
-                      href={`/courses/${courseId}/day/${navigation.previous.day}`}
+                      href={`/${courseLanguage}/courses/${courseId}/day/${navigation.previous.day}`}
                       className="flex items-center justify-center gap-2 bg-brand-darkGrey text-brand-white px-6 py-3 rounded-lg font-bold hover:bg-brand-secondary-700 transition-colors w-full"
                     >
                       <ArrowLeft className="w-5 h-5" />
@@ -589,7 +589,7 @@ export default function DailyLessonPage({
                   {/* Show quiz button if quiz is enabled and lesson not completed */}
                   {lesson.quizConfig?.enabled && !lesson.isCompleted && (
                     <LocaleLink
-                      href={`/courses/${courseId}/day/${dayNumber}/quiz`}
+                      href={`/${courseLanguage}/courses/${courseId}/day/${dayNumber}/quiz`}
                       className={`flex items-center justify-center gap-2 px-6 py-3 rounded-lg font-bold transition-colors text-base whitespace-nowrap ${
                         lesson.quizConfig.required && !quizPassed
                           ? 'bg-brand-accent text-brand-black hover:bg-brand-primary-400 px-7 py-3.5 w-full'
@@ -628,7 +628,7 @@ export default function DailyLessonPage({
                 <div className="flex-1 flex justify-end">
                   {navigation?.next && (
                     <LocaleLink
-                      href={`/courses/${courseId}/day/${navigation.next.day}`}
+                      href={`/${courseLanguage}/courses/${courseId}/day/${navigation.next.day}`}
                       className="flex items-center justify-center gap-2 bg-brand-accent text-brand-black px-6 py-3 rounded-lg font-bold hover:bg-brand-primary-400 transition-colors w-full"
                     >
                       {getDayPageText('nextDay', courseLanguage)}
@@ -714,7 +714,7 @@ export default function DailyLessonPage({
             </p>
               {navigation?.previous && (
                 <LocaleLink
-                  href={`/courses/${courseId}/day/${navigation.previous.day}`}
+                  href={`/${courseLanguage}/courses/${courseId}/day/${navigation.previous.day}`}
                   className="inline-block bg-brand-accent text-brand-black px-6 py-3 rounded-lg font-bold hover:bg-brand-primary-400 transition-colors"
                 >
                   {getDayPageText('goToDay', courseLanguage, { day: navigation.previous.day })}

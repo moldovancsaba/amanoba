@@ -361,7 +361,7 @@ export default function LessonQuizPage({
         <div className="bg-brand-white rounded-xl p-8 border-2 border-brand-accent max-w-lg w-full text-center">
           <p className="text-brand-black mb-6">{errorMessage}</p>
           <LocaleLink
-            href={`/courses/${courseId}/day/${dayNumber}`}
+            href={`/${courseLanguage}/courses/${courseId}/day/${dayNumber}`}
             className="inline-flex items-center gap-2 bg-brand-accent text-brand-black px-6 py-3 rounded-lg font-bold hover:bg-brand-primary-400 transition-colors"
           >
             <ArrowLeft className="w-5 h-5" />
@@ -384,7 +384,7 @@ export default function LessonQuizPage({
           <div className="flex items-center gap-4">
             <Logo size="sm" showText={false} linkTo={session?.user ? "/dashboard" : "/"} className="flex-shrink-0" />
             <LocaleLink
-              href={`/courses/${courseId}/day/${dayNumber}`}
+              href={`/${courseLanguage}/courses/${courseId}/day/${dayNumber}`}
               className="inline-flex items-center gap-2 text-brand-white hover:text-brand-accent"
             >
               <ArrowLeft className="w-5 h-5" />
