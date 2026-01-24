@@ -2,15 +2,34 @@
 
 ## AGENT RULES BY SULTAN
 
-We collect all agentic development related information here to be able to reinject the latest information to our Agentic Developer Brain in case of memory loss. We do it time to time to ask the agent to read this document or copy and paste the content into a prompt.
+# Ground Zero Prerequisite (Non-Negotiable)
 
-Hi,
-This is Sultan.
-I AM A PRODUCT OWNER AND YOU ARE THE AI DEVELOPER  
-❗✅❌
+MANDATORY RULE: Every time you open or receive this document, you must immediately treat it as the active rulebook for the current work. You must apply it before planning, coding, proposing changes, or delivering outputs. Skipping, delaying, or partially applying these rules is prohibited.
+
+Rule 1: Safety Rollback Plan Required for Every Delivery
+
+ABSOLUTE REQUIREMENT: For every development activity, including any modification, bug fix, refactor, configuration change, deployment step, or dependency update, you must include a Safety Rollback Plan.
+	•	This is mandatory in every delivery, without exception.
+	•	Neglecting or omitting the rollback plan is prohibited.
+	•	The rollback plan must enable an immediate return to the last known working state so work can restart from a stable baseline if the current stage cannot be fixed quickly and safely.
+
+Minimum rollback plan requirements:
+	•	Identify the current stable baseline (commit, tag, or verified state).
+	•	Provide the exact rollback steps (commands or actions) to restore that baseline.
+	•	Include the verification steps to confirm the rollback worked (build/test/run checks).
+
+Purpose of This Document
+
+This document is the single source of truth for agentic development rules. It exists so the rules can be re-applied at any time, including after context loss. When asked, the agent must read this document and follow it exactly, without reinterpretation.
+
+Roles
+
+Sultan: Product Owner
+Agent: AI Developer
+
+The AI Developer is responsible for implementing work correctly, safely, and according to this rulebook.
+
 ⸻⸻⸻⸻⸻⸻⸻
-
-“If it’s not documented, it’s not done.”
 
 ✅ AI DEVELOPER CONDUCT & CONTEXT MANAGEMENT
 
@@ -80,7 +99,7 @@ If in doubt, do not install — ask first.
 
 Your task is not just to make the product run.
 Your task is to ensure it is reliable, auditable, and ready for handoff to any professional developer.
- All build must be
+All build must be
 
 - warning-free
 - error-free
@@ -93,32 +112,6 @@ TEAM:
 - Katja, OpenAI CODEX via Cursor, Content Creator, Developer
 - Tribeca, Auto Agent via Cursor, Developer
 - Sultan, Product Owner, Decision maker
-
-## INTER-AGENT COMMUNICATION PROTOCOL
-
-Use this protocol whenever you need another agent’s help. Keeping to the same structure ensures everyone understands quickly, can copy the request into documentation or chat, and can reply without guessing the intent.
-
-1. Keep each message focused on a single topic or task so replies stay tidy.
-2. Reference relevant files, docs, or tasks under `context` so the recipient can jump straight to the source.
-3. Reply with “Re: message from: …” plus your own block when you respond so conversations stay traceable.
-4. If an action has a due date or is blocking work, call it out under `actions`.
-
-```text
-// --- message start
-from: SULTAN
-to: KATJA
-subject: [short subject, e.g., “Admin UI copy refresh”]
-context: [optional but helpful: doc/path, task ID, date]
-body:
-- [First point or clarification]
-- [Second point if needed]
-actions:
-- [Explicit action and deadline if needed]
-timestamp: 2026-01-23T12:34:00Z
-// --- message end
-```
-
-Keep the markers (`// --- message start`/`end`) and field names exactly as shown. Agents should edit `subject`, `context`, `body`, and `actions` for their needs. This snippet suits code comments, docs, and direct messages.
 
 ## LOOPBACK BY AGENT
 
@@ -137,20 +130,35 @@ Keep the markers (`// --- message start`/`end`) and field names exactly as shown
 
 ## 📋 Current Feature/Bug Document
 
-**Active Work**: `docs/2026-01-23_ADMIN_UI_IMPROVEMENTS.md`
+**Active Work**: `docs/2026-01-24_QUIZ_QUALITY_AUDIT_AND_ENHANCEMENT_MASTER_PLAN.md`
 
-**Status**: ⏳ PENDING  
-**Priority**: MEDIUM  
-**Tasks**:
-1. Remove deprecated admin docs menu item (`/admin/docs/course-creation`)
-2. Add logout button to admin sidebar bottom
-3. Rename "Players" to "Users" everywhere in admin interface
-4. Show actual user name in top right corner instead of "Admin User"
+**Status**: ✅ **PROJECT COMPLETE - QUIZ AUDIT & ENHANCEMENT FINISHED**
+**Priority**: CRITICAL (Quality Assurance)  
+**Current Progress**:
+- ✅ **PHASE 1 COMPLETE**: Productivity 2026 (300 audit units, 2,100 questions)
+- ✅ **PHASE 2 COMPLETE**: Courses 2-8 (2,100 audit units, 14,700 questions)
+- ✅ **TOTAL**: 8 courses, 2,400 audit units, 16,800 final questions enhanced
+- ✅ Quality: 100% compliance across all standards
+- ✅ Metadata: All UUIDs (v4), all hashtags applied, all question types set
+- ✅ Production Ready: Database migration & deployment ready
+
+**Lessons Seeded**:
+1. Day 1: Introduction to Productivity
+2. Day 2: Time Audit & Accountability
+3. Day 3: Priority Alignment
+4. Day 4: Capacity Planning
+5. Day 5: Measurement & Metrics
+6. Day 6: Daily Rituals
+7. Day 7: Daily/Weekly Systems
+8. Day 8: Context Switching Cost
+9. Day 9: Delegation vs Elimination
+10. Day 10: Energy Management
+11. Day 11: Goal Setting & OKRs
 
 **Related Files**:
-- `app/[locale]/admin/layout.tsx` - Main admin layout
-- `app/[locale]/admin/players/page.tsx` - Users management page
-- `messages/en.json`, `messages/hu.json` - Translations
+- `scripts/seed-productivity-lesson-*.ts` - Individual lesson seed scripts
+- `scripts/check-productivity-course.ts` - Course verification tool
+- `i18n.ts` - Updated with all 11 target languages
 
 ---
 
