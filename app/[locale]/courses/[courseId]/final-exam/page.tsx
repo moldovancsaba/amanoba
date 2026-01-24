@@ -161,7 +161,7 @@ export default function FinalExamPage() {
     setResult(null);
   };
 
-  if (status === 'loading' || loadingEnt || translationsLoading) {
+  if (status === 'loading' || loadingEnt) {
     return (
       <div className="flex items-center justify-center h-80 text-white" dir={locale === 'ar' ? 'rtl' : 'ltr'}>
         <Loader2 className="w-5 h-5 animate-spin mr-2" /> {t('loadingCourse', { defaultValue: 'Loading...' })}

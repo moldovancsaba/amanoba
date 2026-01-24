@@ -194,7 +194,7 @@ export default function LessonQuizPage({
     }
   };
 
-  if (loading || translationsLoading) {
+  if (loading) {
     return (
       <div className="min-h-screen bg-brand-black flex items-center justify-center" dir={locale === 'ar' ? 'rtl' : 'ltr'}>
         <Loader2 className="w-8 h-8 text-brand-white animate-spin" />
