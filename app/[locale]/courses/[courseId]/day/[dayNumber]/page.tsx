@@ -68,7 +68,7 @@ export default function DailyLessonPage({
   const locale = useLocale();
   
   // Use URL locale for translations (guaranteed = course language by design)
-  const { t, tCommon, loading: translationsLoading } = useTranslations();
+  const t = useTranslations();
 
   useEffect(() => {
     const loadData = async () => {
@@ -176,9 +176,9 @@ export default function DailyLessonPage({
     }
   }, [searchParams, lesson, courseId, session]);
 
-  if (loading || translationsLoading) {
+  if (loading) {
     return (
-      <div className="min-h-screen bg-brand-black flex items-center justify-center" dir={courseLocale === 'ar' ? 'rtl' : 'ltr'}>
+      <div className="min-h-screen bg-brand-black flex items-center justify-center" dir={locale === 'ar' ? 'rtl' : 'ltr'}>
         <div className="text-brand-white text-xl">{t('loadingLesson')}</div>
       </div>
     );
@@ -186,7 +186,7 @@ export default function DailyLessonPage({
 
   if (!lesson) {
     return (
-      <div className="min-h-screen bg-brand-black flex items-center justify-center" dir={courseLocale === 'ar' ? 'rtl' : 'ltr'}>
+      <div className="min-h-screen bg-brand-black flex items-center justify-center" dir={locale === 'ar' ? 'rtl' : 'ltr'}>
         <div className="text-center">
           <h2 className="text-2xl font-bold text-brand-white mb-4">{t('lessonNotFound')}</h2>
           <LocaleLink
@@ -256,11 +256,11 @@ export default function DailyLessonPage({
             <div className="flex items-center gap-4 text-base text-brand-darkGrey mt-2">
               <div className="flex items-center gap-1">
                 <Award className="w-4 h-4" />
-                <span>{lesson.pointsReward} {tCommon('points')}</span>
+                <span>{lesson.pointsReward} {t('points')}</span>
               </div>
               <div className="flex items-center gap-1">
                 <Award className="w-4 h-4" />
-                <span>{lesson.xpReward} {tCommon('xp')}</span>
+                <span>{lesson.xpReward} {t('xp')}</span>
               </div>
             </div>
           )}
