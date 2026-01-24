@@ -52,7 +52,7 @@ export default function LessonQuizPage({
   const [error, setError] = useState<string | null>(null);
   
   // Use URL locale for translations (guaranteed = course language by design)
-  const t = useTranslations();
+  const t = useTranslations('courses');
 
   useEffect(() => {
     const init = async () => {
