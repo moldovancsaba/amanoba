@@ -107,6 +107,8 @@ export default function CoursesPage() {
       certification: 'Tanúsítvány',
       noCertification: 'Nincs tanúsítvány',
       viewCourse: 'Kurzus megtekintése',
+      days: 'nap',
+      points: 'pont',
     },
     en: {
       premium: 'Premium Course',
@@ -114,6 +116,8 @@ export default function CoursesPage() {
       certification: 'Certification',
       noCertification: 'No certification',
       viewCourse: 'View course',
+      days: 'days',
+      points: 'points',
     },
     tr: {
       premium: 'Premium Kurs',
@@ -121,6 +125,8 @@ export default function CoursesPage() {
       certification: 'Sertifika',
       noCertification: 'Sertifika yok',
       viewCourse: 'Kursu görüntüle',
+      days: 'gün',
+      points: 'puan',
     },
     bg: {
       premium: 'Премиум курс',
@@ -128,6 +134,8 @@ export default function CoursesPage() {
       certification: 'Сертификат',
       noCertification: 'Без сертификат',
       viewCourse: 'Преглед на курса',
+      days: 'дни',
+      points: 'точки',
     },
     pl: {
       premium: 'Kurs Premium',
@@ -326,13 +334,13 @@ export default function CoursesPage() {
                     <div className="flex items-center gap-1">
                       <Calendar className="w-4 h-4" />
                       <span>
-                        {course.durationDays} {t('days')}
+                        {course.durationDays} {courseTexts.days}
                       </span>
                     </div>
                     <div className="flex items-center gap-1">
                       <Award className="w-4 h-4" />
                       <span>
-                        {course.pointsConfig.completionPoints} {tCommon('points')}
+                        {course.pointsConfig.completionPoints} {courseTexts.points}
                       </span>
                     </div>
                   </div>
