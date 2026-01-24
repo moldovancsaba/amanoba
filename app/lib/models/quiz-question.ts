@@ -25,6 +25,16 @@ export enum QuestionDifficulty {
 }
 
 /**
+ * Question Type Enum
+ * Why: Categorize questions by cognitive level for analytics and filtering
+ */
+export enum QuestionType {
+  RECALL = 'recall',
+  APPLICATION = 'application',
+  CRITICAL_THINKING = 'critical-thinking',
+}
+
+/**
  * QuizQuestion Document Interface
  * Why: TypeScript type safety for QuizQuestion documents
  */
@@ -42,11 +52,18 @@ export interface IQuizQuestion extends Document {
   lessonId?: string; // Lesson ID this question belongs to (if course-specific)
   courseId?: mongoose.Types.ObjectId; // Course ID this question belongs to (if course-specific)
   isCourseSpecific: boolean; // Whether this question is for a course/lesson (true) or general QUIZZZ (false)
+  // New fields for audit and enhancement
+  // Why: Support for quiz quality audit with metadata and filtering
+  uuid?: string; // Unique v4 UUID for anonymized referencing
+  hashtags?: string[]; // Multi-level tags for filtering (#topic #difficulty #type #language)
+  questionType?: QuestionType; // Cognitive level: recall, application, or critical-thinking
   metadata: {
     createdAt: Date;
     updatedAt: Date;
     createdBy?: string;
     lastShownAt?: Date;
+    auditedAt?: Date; // When this question was audited/enhanced
+    auditedBy?: string; // Who audited this question
   };
 }
 
@@ -118,6 +135,27 @@ const QuizQuestionSchema = new Schema<IQuizQuestion>(
           'Sports',
           'General Knowledge',
           'Course Specific',
+          // Productivity 2026 Course Categories
+          'Productivity Foundations',
+          'Time, Energy, Attention',
+          'Goal Hierarchy',
+          'Habits vs Systems',
+          'Measurement & Metrics',
+          'Capture & GTD',
+          'Context Switching',
+          'Delegation',
+          'Energy Management',
+          'Advanced Strategies',
+          'Integration & Synthesis',
+          'Workplace Application',
+          'Team Dynamics',
+          'Digital Tools',
+          'Communication',
+          'Stress Management',
+          'Learning Systems',
+          'Personal Development',
+          'Decision Making',
+          'Continuous Improvement',
         ],
         message: 'Invalid category',
       },
@@ -170,6 +208,36 @@ const QuizQuestionSchema = new Schema<IQuizQuestion>(
       index: true, // Why: Used to separate general QUIZZZ questions from course-specific ones
     },
 
+    // NEW: UUID for anonymized referencing
+    // Why: Industry-standard unique identifier for tracking without using _id
+    uuid: {
+      type: String,
+      unique: true,
+      sparse: true, // Why: Sparse index allows null values for backward compatibility
+      index: true, // Why: Quick lookup by UUID
+      // Example: 550e8400-e29b-41d4-a716-446655440000
+    },
+
+    // NEW: Hashtags for multi-level filtering and categorization
+    // Why: Enable future search/filtering by topic, difficulty, type, language
+    // Example: ['#time-management', '#beginner', '#application', '#hu']
+    hashtags: {
+      type: [String],
+      default: [],
+      // Why: Array of hashtags for flexible categorization
+    },
+
+    // NEW: Question type for cognitive level categorization
+    // Why: Support quiz design methodology (60% recall, 30% application, 10% critical thinking)
+    questionType: {
+      type: String,
+      enum: {
+        values: Object.values(QuestionType),
+        message: 'Invalid question type',
+      },
+      // Why: Optional to support existing questions without this field
+    },
+
     // Metadata
     // Why: Audit trail and temporal tracking
     metadata: {
@@ -192,6 +260,17 @@ const QuizQuestionSchema = new Schema<IQuizQuestion>(
       lastShownAt: {
         type: Date,
         // Why: Timestamp of most recent use (optional future enhancement)
+      },
+      // NEW: Audit metadata
+      // Why: Track when and by whom questions were audited/enhanced
+      auditedAt: {
+        type: Date,
+        // Why: Timestamp of when this question was audited
+      },
+      auditedBy: {
+        type: String,
+        trim: true,
+        // Why: Name or ID of who performed the audit
       },
     },
   },
@@ -246,6 +325,33 @@ QuizQuestionSchema.index(
 );
 
 /**
+ * Index for UUID (Audit Enhancement)
+ * Why: Fast lookup by UUID for anonymized question referencing
+ */
+QuizQuestionSchema.index(
+  { uuid: 1 },
+  { name: 'uuid_lookup', sparse: true }
+);
+
+/**
+ * Index for Hashtag Filtering (Audit Enhancement)
+ * Why: Enables filtering questions by hashtags for categorization and search
+ */
+QuizQuestionSchema.index(
+  { hashtags: 1 },
+  { name: 'hashtag_search' }
+);
+
+/**
+ * Index for Question Type (Audit Enhancement)
+ * Why: Enables filtering questions by cognitive level
+ */
+QuizQuestionSchema.index(
+  { questionType: 1, isActive: 1 },
+  { name: 'question_type_filter' }
+);
+
+/**
  * Pre-save Hook: Update metadata timestamp
  * Why: Ensures updatedAt is current on every save
  */
@@ -259,8 +365,14 @@ QuizQuestionSchema.pre('save', function (next) {
 /**
  * Validation: Ensure all options are distinct
  * Why: Prevents duplicate answer choices
+ * Note: Skip validation during migration (options may be incomplete temporarily)
  */
 QuizQuestionSchema.pre('save', function (next) {
+  // Skip validation if options is undefined or not an array
+  if (!Array.isArray(this.options) || this.options.length === 0) {
+    return next();
+  }
+  
   const uniqueOptions = new Set(this.options);
   if (uniqueOptions.size !== this.options.length) {
     return next(new Error('All options must be unique'));
