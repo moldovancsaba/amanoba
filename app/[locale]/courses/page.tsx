@@ -113,6 +113,88 @@ export default function CoursesPage() {
     return () => clearTimeout(timeoutId);
   }, [search]);
 
+  // Map course language to UI text translations
+  // This ensures course cards display in their NATIVE language, not URL locale
+  const courseCardTranslations: Record<string, Record<string, string>> = {
+    hu: {
+      premium: 'Premium Kurs',
+      free: 'Ingyenes Kurs',
+      certification: 'Tanúsítvány',
+      noCertification: 'Nincs tanúsítvány',
+      viewCourse: 'Kurzus megtekintése',
+    },
+    en: {
+      premium: 'Premium Course',
+      free: 'Free Course',
+      certification: 'Certification',
+      noCertification: 'No certification',
+      viewCourse: 'View course',
+    },
+    tr: {
+      premium: 'Premium Kurs',
+      free: 'Ücretsiz Kurs',
+      certification: 'Sertifika',
+      noCertification: 'Sertifika yok',
+      viewCourse: 'Kursu görüntüle',
+    },
+    bg: {
+      premium: 'Премиум курс',
+      free: 'Безплатен курс',
+      certification: 'Сертификат',
+      noCertification: 'Без сертификат',
+      viewCourse: 'Преглед на курса',
+    },
+    pl: {
+      premium: 'Kurs Premium',
+      free: 'Darmowy kurs',
+      certification: 'Certyfikat',
+      noCertification: 'Brak certyfikatu',
+      viewCourse: 'Wyświetl kurs',
+    },
+    vi: {
+      premium: 'Khóa học cao cấp',
+      free: 'Khóa học miễn phí',
+      certification: 'Chứng chỉ',
+      noCertification: 'Không có chứng chỉ',
+      viewCourse: 'Xem khóa học',
+    },
+    id: {
+      premium: 'Kursus Premium',
+      free: 'Kursus Gratis',
+      certification: 'Sertifikat',
+      noCertification: 'Tanpa sertifikat',
+      viewCourse: 'Lihat kursus',
+    },
+    ar: {
+      premium: 'دورة متميزة',
+      free: 'دورة مجانية',
+      certification: 'شهادة',
+      noCertification: 'بدون شهادة',
+      viewCourse: 'عرض الدورة',
+    },
+    pt: {
+      premium: 'Curso Premium',
+      free: 'Curso Gratuito',
+      certification: 'Certificado',
+      noCertification: 'Sem certificado',
+      viewCourse: 'Ver curso',
+    },
+    hi: {
+      premium: 'प्रीमियम कोर्स',
+      free: 'मुफ्त कोर्स',
+      certification: 'प्रमाणपत्र',
+      noCertification: 'कोई प्रमाणपत्र नहीं',
+      viewCourse: 'कोर्स देखें',
+    },
+    ru: {
+      premium: 'Премиум курс',
+      free: 'Бесплатный курс',
+      certification: 'Сертификат',
+      noCertification: 'Без сертификата',
+      viewCourse: 'Посмотреть курс',
+    },
+  };
+
   const formatPrice = (amount: number, currency: string): string => {
     const formatter = new Intl.NumberFormat(
       currency === 'huf' ? 'hu-HU' : currency === 'eur' ? 'de-DE' : currency === 'gbp' ? 'en-GB' : 'en-US',
@@ -190,85 +272,91 @@ export default function CoursesPage() {
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7">
-            {courses.map((course) => (
-              <LocaleLink
-                key={course._id}
-                href={`/${course.language}/courses/${course.courseId}`}
-                className="block bg-brand-white rounded-2xl p-6 sm:p-7 border-2 border-brand-accent hover:shadow-xl transition-all"
-              >
-                {course.thumbnail && (
-                  <div className="w-full h-44 sm:h-48 bg-brand-darkGrey rounded-lg mb-4 flex items-center justify-center overflow-hidden">
-                    <img
-                      src={course.thumbnail}
-                      alt={course.name}
-                      className="w-full h-full object-cover rounded-lg"
-                    />
-                  </div>
-                )}
-                <div className="mb-3">
-                  <h3 className="text-xl sm:text-2xl font-bold text-brand-black leading-tight mb-2 line-clamp-2">{course.name}</h3>
-                  <div className="flex items-center gap-2 flex-wrap text-sm sm:text-base">
-                    {/* Language Flag */}
-                    <span className="text-lg" title={course.language === 'hu' ? 'Magyar' : course.language === 'en' ? 'English' : course.language.toUpperCase()}>
-                      {course.language === 'hu' ? '🇭🇺' : course.language === 'en' ? '🇬🇧' : '🌐'}
-                    </span>
-                    {/* Premium/Free Chips */}
-                    {course.requiresPremium ? (
-                      <span className="bg-brand-accent text-brand-black text-xs font-bold px-3 py-1.5 rounded-full flex items-center gap-1.5">
-                        <Star className="w-3.5 h-3.5" />
-                        {t('premiumCourse')}
+            {courses.map((course) => {
+              // Get translations in COURSE language (not URL locale)
+              // This ensures card text matches the course's native language
+              const courseTexts = courseCardTranslations[course.language as keyof typeof courseCardTranslations] || courseCardTranslations.en;
+              
+              return (
+                <LocaleLink
+                  key={course._id}
+                  href={`/${course.language}/courses/${course.courseId}`}
+                  className="block bg-brand-white rounded-2xl p-6 sm:p-7 border-2 border-brand-accent hover:shadow-xl transition-all"
+                >
+                  {course.thumbnail && (
+                    <div className="w-full h-44 sm:h-48 bg-brand-darkGrey rounded-lg mb-4 flex items-center justify-center overflow-hidden">
+                      <img
+                        src={course.thumbnail}
+                        alt={course.name}
+                        className="w-full h-full object-cover rounded-lg"
+                      />
+                    </div>
+                  )}
+                  <div className="mb-3">
+                    <h3 className="text-xl sm:text-2xl font-bold text-brand-black leading-tight mb-2 line-clamp-2">{course.name}</h3>
+                    <div className="flex items-center gap-2 flex-wrap text-sm sm:text-base">
+                      {/* Language Flag */}
+                      <span className="text-lg" title={course.language === 'hu' ? 'Magyar' : course.language === 'en' ? 'English' : course.language.toUpperCase()}>
+                        {course.language === 'hu' ? '🇭🇺' : course.language === 'en' ? '🇬🇧' : course.language === 'ar' ? '🇸🇦' : course.language === 'ru' ? '🇷🇺' : '🌐'}
                       </span>
-                    ) : (
-                      <span className="bg-brand-darkGrey/20 text-brand-darkGrey text-xs font-bold px-3 py-1.5 rounded-full flex items-center gap-1.5">
-                        {t('freeCourse')}
+                      {/* Premium/Free Chips - CRITICAL: Use course language, not URL locale */}
+                      {course.requiresPremium ? (
+                        <span className="bg-brand-accent text-brand-black text-xs font-bold px-3 py-1.5 rounded-full flex items-center gap-1.5">
+                          <Star className="w-3.5 h-3.5" />
+                          {courseTexts.premium}
+                        </span>
+                      ) : (
+                        <span className="bg-brand-darkGrey/20 text-brand-darkGrey text-xs font-bold px-3 py-1.5 rounded-full flex items-center gap-1.5">
+                          {courseTexts.free}
+                        </span>
+                      )}
+                      {course.certification?.enabled ? (
+                        <span className="bg-amber-100 text-amber-800 text-xs font-semibold px-3 py-1.5 rounded-full flex items-center gap-1.5">
+                          <Award className="w-3.5 h-3.5" />
+                          {courseTexts.certification}
+                        </span>
+                      ) : (
+                        <span className="bg-gray-200 text-gray-700 text-xs font-semibold px-3 py-1.5 rounded-full">
+                          {courseTexts.noCertification}
+                        </span>
+                      )}
+                    </div>
+                  </div>
+                  {course.requiresPremium && course.price && (
+                    <div className="mb-4 flex items-center gap-2 text-lg font-bold text-brand-black">
+                      <CreditCard className="w-5 h-5" />
+                      <span>{formatPrice(course.price.amount, course.price.currency)}</span>
+                    </div>
+                  )}
+                  {course.requiresPremium && !course.price && (
+                    <div className="mb-4 flex items-center gap-2 text-base text-brand-darkGrey">
+                      <CreditCard className="w-4 h-4" />
+                      <span>{t('premiumRequired')}</span>
+                    </div>
+                  )}
+                  <p className="text-brand-darkGrey text-sm sm:text-base mb-5 line-clamp-2 leading-relaxed">
+                    {course.description}
+                  </p>
+                  <div className="flex items-center gap-4 text-sm sm:text-base text-brand-darkGrey mb-5">
+                    <div className="flex items-center gap-1">
+                      <Calendar className="w-4 h-4" />
+                      <span>
+                        {course.durationDays} {t('days')}
                       </span>
-                    )}
-                    {course.certification?.enabled ? (
-                      <span className="bg-amber-100 text-amber-800 text-xs font-semibold px-3 py-1.5 rounded-full flex items-center gap-1.5">
-                        <Award className="w-3.5 h-3.5" />
-                        Certification
+                    </div>
+                    <div className="flex items-center gap-1">
+                      <Award className="w-4 h-4" />
+                      <span>
+                        {course.pointsConfig.completionPoints} {tCommon('points')}
                       </span>
-                    ) : (
-                      <span className="bg-gray-200 text-gray-700 text-xs font-semibold px-3 py-1.5 rounded-full">
-                        No certification
-                      </span>
-                    )}
+                    </div>
                   </div>
-                </div>
-                {course.requiresPremium && course.price && (
-                  <div className="mb-4 flex items-center gap-2 text-lg font-bold text-brand-black">
-                    <CreditCard className="w-5 h-5" />
-                    <span>{formatPrice(course.price.amount, course.price.currency)}</span>
+                  <div className="bg-brand-accent text-brand-black px-5 py-3 rounded-lg font-bold text-center hover:bg-brand-primary-400 transition-colors text-base w-full">
+                    {courseTexts.viewCourse} →
                   </div>
-                )}
-                {course.requiresPremium && !course.price && (
-                  <div className="mb-4 flex items-center gap-2 text-base text-brand-darkGrey">
-                    <CreditCard className="w-4 h-4" />
-                    <span>{t('premiumRequired')}</span>
-                  </div>
-                )}
-                <p className="text-brand-darkGrey text-sm sm:text-base mb-5 line-clamp-2 leading-relaxed">
-                  {course.description}
-                </p>
-                <div className="flex items-center gap-4 text-sm sm:text-base text-brand-darkGrey mb-5">
-                  <div className="flex items-center gap-1">
-                    <Calendar className="w-4 h-4" />
-                    <span>
-                      {course.durationDays} {t('days')}
-                    </span>
-                  </div>
-                  <div className="flex items-center gap-1">
-                    <Award className="w-4 h-4" />
-                    <span>
-                      {course.pointsConfig.completionPoints} {tCommon('points')}
-                    </span>
-                  </div>
-                </div>
-                <div className="bg-brand-accent text-brand-black px-5 py-3 rounded-lg font-bold text-center hover:bg-brand-primary-400 transition-colors text-base w-full">
-                  {t('viewCourse')} →
-                </div>
-              </LocaleLink>
-            ))}
+                </LocaleLink>
+              );
+            })}
           </div>
         )}
       </main>
