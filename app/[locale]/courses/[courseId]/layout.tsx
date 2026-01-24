@@ -11,6 +11,8 @@ import connectDB from '@/app/lib/mongodb';
 import { Course } from '@/app/lib/models';
 import { Brand } from '@/app/lib/models';
 
+const courseLocales = ['hu', 'en', 'ar', 'hi', 'id', 'pt', 'vi', 'tr', 'bg', 'pl', 'ru'] as const;
+
 const baseUrl = process.env.NEXT_PUBLIC_APP_URL || 'https://www.amanoba.com';
 
 /**
@@ -178,18 +180,18 @@ export default async function CourseDetailLayout({
   const normalizeLocale = (value: string | undefined) => {
     if (!value) return undefined;
     const normalized = value.toLowerCase();
-    if (locales.includes(normalized as (typeof locales)[number])) {
+    if (courseLocales.includes(normalized as (typeof courseLocales)[number])) {
       return normalized;
     }
     const prefix = normalized.split(/[-_]/)[0];
-    if (locales.includes(prefix as (typeof locales)[number])) {
+    if (courseLocales.includes(prefix as (typeof courseLocales)[number])) {
       return prefix;
     }
     return undefined;
   };
 
   const courseLocale = normalizeLocale(course.language) || locale;
-  if (courseLocale !== locale && locales.includes(courseLocale as (typeof locales)[number])) {
+  if (courseLocale !== locale && courseLocales.includes(courseLocale as (typeof courseLocales)[number])) {
     redirect(`/${courseLocale}/courses/${courseId}`);
   }
 
