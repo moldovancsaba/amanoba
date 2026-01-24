@@ -70,7 +70,7 @@ export default function DailyLessonPage({
   const locale = useLocale();
   
   // Use course language for translations instead of URL locale
-  const { t, tCommon, courseLocale } = useCourseTranslations(courseLanguage, locale);
+  const { t, tCommon, courseLocale, loading: translationsLoading } = useCourseTranslations(courseLanguage, locale);
 
   useEffect(() => {
     const loadData = async () => {
@@ -97,6 +97,11 @@ export default function DailyLessonPage({
         // Store course language for UI translations (no redirect needed)
         if (data.courseLanguage) {
           setCourseLanguage(data.courseLanguage);
+          const normalized = data.courseLanguage.toLowerCase().split(/[-_]/)[0];
+          if (normalized && normalized !== locale) {
+            router.replace(`/${normalized}/courses/${cid}/day/${day}`);
+            return;
+          }
         }
 
         setLesson(data.lesson);
@@ -179,7 +184,7 @@ export default function DailyLessonPage({
     }
   }, [searchParams, lesson, courseId, session]);
 
-  if (loading) {
+  if (loading || translationsLoading) {
     return (
       <div className="min-h-screen bg-brand-black flex items-center justify-center" dir={courseLocale === 'ar' ? 'rtl' : 'ltr'}>
         <div className="text-brand-white text-xl">{t('loadingLesson')}</div>

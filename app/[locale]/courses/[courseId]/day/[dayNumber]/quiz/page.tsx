@@ -54,7 +54,7 @@ export default function LessonQuizPage({
   const [courseLanguage, setCourseLanguage] = useState<string | undefined>(undefined);
   
   // Use course language for translations instead of URL locale
-  const { t, courseLocale } = useCourseTranslations(courseLanguage, locale);
+  const { t, courseLocale, loading: translationsLoading } = useCourseTranslations(courseLanguage, locale);
 
   useEffect(() => {
     const init = async () => {
@@ -83,6 +83,11 @@ export default function LessonQuizPage({
       // Store course language for UI translations (no redirect needed)
       if (lessonData.courseLanguage) {
         setCourseLanguage(lessonData.courseLanguage);
+        const normalized = lessonData.courseLanguage.toLowerCase().split(/[-_]/)[0];
+        if (normalized && normalized !== locale) {
+          router.replace(`/${normalized}/courses/${cid}/day/${day}/quiz`);
+          return;
+        }
       }
 
       setLessonId(lessonData.lesson.lessonId);
@@ -198,7 +203,7 @@ export default function LessonQuizPage({
     }
   };
 
-  if (loading) {
+  if (loading || translationsLoading) {
     return (
       <div className="min-h-screen bg-brand-black flex items-center justify-center" dir={courseLocale === 'ar' ? 'rtl' : 'ltr'}>
         <Loader2 className="w-8 h-8 text-brand-white animate-spin" />

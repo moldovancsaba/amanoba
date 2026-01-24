@@ -102,7 +102,7 @@ export default function CourseDetailPage({
   const [courseLanguage, setCourseLanguage] = useState<string | undefined>(undefined);
   
   // Use course language for translations instead of URL locale
-  const { t, tCommon, courseLocale } = useCourseTranslations(courseLanguage, locale);
+  const { t, tCommon, courseLocale, loading: translationsLoading } = useCourseTranslations(courseLanguage, locale);
 
   const tocLessons = useMemo(
     () => [...lessons].sort((a, b) => a.dayNumber - b.dayNumber),
@@ -154,6 +154,10 @@ export default function CourseDetailPage({
         // Store course language for UI translations (no redirect needed)
         if (courseData.language) {
           setCourseLanguage(courseData.language);
+          const normalized = courseData.language.toLowerCase().split(/[-_]/)[0];
+          if (normalized && normalized !== locale) {
+            router.replace(`/${normalized}/courses/${cid}`);
+          }
         }
       }
     } catch (error) {
@@ -393,7 +397,7 @@ export default function CourseDetailPage({
     }
   };
 
-  if (loading) {
+  if (loading || translationsLoading) {
     return (
       <div className="min-h-screen bg-brand-black flex items-center justify-center">
         <div className="text-brand-white text-xl">{t('loadingCourse')}</div>

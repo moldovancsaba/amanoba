@@ -177,23 +177,7 @@ export default async function CourseDetailLayout({
     notFound();
   }
 
-  const normalizeLocale = (value: string | undefined) => {
-    if (!value) return undefined;
-    const normalized = value.toLowerCase();
-    if (courseLocales.includes(normalized as (typeof courseLocales)[number])) {
-      return normalized;
-    }
-    const prefix = normalized.split(/[-_]/)[0];
-    if (courseLocales.includes(prefix as (typeof courseLocales)[number])) {
-      return prefix;
-    }
-    return undefined;
-  };
-
-  const courseLocale = normalizeLocale(course.language) || locale;
-  if (courseLocale !== locale && courseLocales.includes(courseLocale as (typeof courseLocales)[number])) {
-    redirect(`/${courseLocale}/courses/${courseId}`);
-  }
+  // Redirects handled in page components to preserve sub-routes (day/quiz/final-exam).
 
   return <>{children}</>;
 }
