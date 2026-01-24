@@ -10,9 +10,8 @@
 import { useState, useEffect, useRef, useMemo } from 'react';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
-import { useLocale } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import { LocaleLink } from '@/components/LocaleLink';
-import { useCourseTranslations } from '@/app/lib/hooks/useCourseTranslations';
 import {
   ArrowLeft,
   Calendar,
@@ -99,10 +98,9 @@ export default function CourseDetailPage({
   const [courseId, setCourseId] = useState<string>('');
   const [lessons, setLessons] = useState<Lesson[]>([]);
   const [loadingLessons, setLoadingLessons] = useState(false);
-  const [courseLanguage, setCourseLanguage] = useState<string | undefined>(undefined);
   
-  // Use course language for translations instead of URL locale
-  const { t, tCommon, courseLocale, loading: translationsLoading } = useCourseTranslations(courseLanguage, locale);
+  // Use URL locale for translations (guaranteed = course language by design)
+  const { t, tCommon, loading: translationsLoading } = useTranslations();
 
   const tocLessons = useMemo(
     () => [...lessons].sort((a, b) => a.dayNumber - b.dayNumber),
@@ -150,15 +148,8 @@ export default function CourseDetailPage({
       if (data.success) {
         const courseData = data.course;
         setCourse(courseData);
-        
-        // Store course language for UI translations (no redirect needed)
-        if (courseData.language) {
-          setCourseLanguage(courseData.language);
-          const normalized = courseData.language.toLowerCase().split(/[-_]/)[0];
-          if (normalized && normalized !== locale) {
-            router.replace(`/${normalized}/courses/${cid}`);
-          }
-        }
+        // Trust architecture: Card links guarantee URL locale = course language
+        // No redirect or courseLanguage extraction needed
       }
     } catch (error) {
       console.error('Failed to fetch course:', error);
@@ -348,8 +339,8 @@ export default function CourseDetailPage({
             isCompleted: false,
           },
         });
-        // Redirect directly to first lesson
-        router.push(`/${courseLocale}/courses/${courseId}/day/1`);
+        // Redirect to first lesson
+        router.push(`/${locale}/courses/${courseId}/day/1`);
       } else {
         alert(data.error || t('failedToEnroll'));
       }
@@ -422,7 +413,7 @@ export default function CourseDetailPage({
   }
 
   return (
-    <div className="min-h-screen bg-brand-black" dir={courseLocale === 'ar' ? 'rtl' : 'ltr'}>
+    <div className="min-h-screen bg-brand-black" dir={locale === 'ar' ? 'rtl' : 'ltr'}>
       {/* Header */}
       <header className="bg-brand-darkGrey border-b-2 border-brand-accent sticky top-0 z-30">
         <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-10 py-5 sm:py-7">
@@ -603,7 +594,7 @@ export default function CourseDetailPage({
                   </div>
                 ) : !session ? (
                   <LocaleLink
-                    href={`/auth/signin?callbackUrl=${encodeURIComponent(`/${courseLocale}/courses/${courseId}`)}`}
+                    href={`/auth/signin?callbackUrl=${encodeURIComponent(`/${locale}/courses/${courseId}`)}`}
                     className="block w-full bg-brand-accent text-brand-black px-5 py-3.5 rounded-lg font-bold text-center hover:bg-brand-primary-400 transition-colors text-base"
                   >
                     {t('signInToEnroll')}
@@ -691,7 +682,7 @@ export default function CourseDetailPage({
                   </LocaleLink>
                 ) : !session ? (
                   <LocaleLink
-                    href={`/auth/signin?callbackUrl=${encodeURIComponent(`/${courseLocale}/courses/${courseId}`)}`}
+                    href={`/auth/signin?callbackUrl=${encodeURIComponent(`/${locale}/courses/${courseId}`)}`}
                     className="w-full bg-brand-accent text-brand-black px-4 py-2.5 rounded-lg font-bold text-center hover:bg-brand-primary-400 transition-colors text-sm"
                   >
                     {t('signInToEnroll')}
