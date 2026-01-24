@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getTranslationsForLocale } from '@/app/lib/i18n/translation-service';
-import { defaultLocale, locales } from '@/i18n';
+import { defaultLocale } from '@/i18n';
+import { locales } from '@/app/lib/i18n/locales';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';

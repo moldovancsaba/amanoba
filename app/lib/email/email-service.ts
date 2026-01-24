@@ -11,7 +11,7 @@ import connectDB from '../mongodb';
 import { Player, Course, Lesson } from '@/app/lib/models';
 import type { ILesson } from '@/app/lib/models/lesson';
 import type { IPlayer } from '@/app/lib/models/player';
-import type { Locale } from '@/i18n';
+import type { Locale } from '@/app/lib/i18n/locales';
 import { generateSecureToken } from '../security';
 
 // Initialize Resend client

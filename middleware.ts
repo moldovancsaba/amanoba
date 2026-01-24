@@ -11,7 +11,8 @@ import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 import { authEdge as auth } from '@/auth.edge';
 import createIntlMiddleware from 'next-intl/middleware';
-import { locales, defaultLocale, type Locale } from './i18n';
+import { defaultLocale } from './i18n';
+import { locales, type Locale } from '@/app/lib/i18n/locales';
 
 // Default locales for different route types
 // Why: Public routes default to Hungarian, admin routes default to English

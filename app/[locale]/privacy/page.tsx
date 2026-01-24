@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { Locale, defaultLocale, locales } from "@/i18n";
+import { defaultLocale } from "@/i18n";
+import { Locale, locales } from "@/app/lib/i18n/locales";
 
 type Section = {
   id?: string;

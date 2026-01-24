@@ -12,7 +12,7 @@ import SessionProvider from "@/components/session-provider";
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import { notFound } from 'next/navigation';
-import { locales } from '@/i18n';
+import { locales } from '@/app/lib/i18n/locales';
 import "../globals.css";
 import "../mobile-styles.css";
 
