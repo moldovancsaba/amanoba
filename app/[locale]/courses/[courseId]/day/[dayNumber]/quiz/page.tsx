@@ -6,7 +6,7 @@
 
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { useLocale, useTranslations } from 'next-intl';
+import { useLocale } from 'next-intl';
 import { CheckCircle, XCircle, ArrowLeft, Loader2 } from 'lucide-react';
 import { LocaleLink } from '@/components/LocaleLink';
 import Logo from '@/components/Logo';
@@ -31,6 +31,155 @@ interface Question {
   options: string[];
 }
 
+// Static translations for quiz page - keyed by COURSE LANGUAGE
+const quizPageTranslations: Record<string, Record<string, string>> = {
+  ar: {
+    failedToLoadLesson: 'فشل تحميل الدرس',
+    quizError: 'حدث خطأ في الاختبار',
+    someQuestionsNotFound: 'بعض الأسئلة غير موجودة. حاول مرة أخرى.',
+    quizCorrect: 'إجابة صحيحة، أحسنت! 🚀',
+    quizSupportiveRetry: 'إجابة غير صحيحة. حاول مرة أخرى!',
+    backToLesson: 'العودة إلى الدرس',
+    questionProgress: 'السؤال {{current}} / {{total}}',
+    lessonQuiz: 'اختبار الدرس',
+    quiz: 'اختبار',
+    question: 'سؤال',
+  },
+  hu: {
+    failedToLoadLesson: 'Nem sikerült betölteni a leckét',
+    quizError: 'Hiba történt a kérdések betöltésekor.',
+    someQuestionsNotFound: 'Néhány kérdés nem található. Kérjük, próbáld meg újra.',
+    quizCorrect: 'Helyes válasz, szép munka! 🚀',
+    quizSupportiveRetry: 'Most nem talált. Nézzük át újra a leckét, aztán próbáld meg ismét.',
+    backToLesson: 'Vissza a leckéhez',
+    questionProgress: 'Kérdés: {{current}} / {{total}}',
+    lessonQuiz: 'Lecke értékelés',
+    quiz: 'Kvíz',
+    question: 'Kérdés',
+  },
+  en: {
+    failedToLoadLesson: 'Failed to load lesson',
+    quizError: 'An error occurred while loading questions.',
+    someQuestionsNotFound: 'Some questions not found. Please try again.',
+    quizCorrect: 'Correct. Well done.',
+    quizSupportiveRetry: 'Not quite. Let\'s review the lesson, then try again.',
+    backToLesson: 'Back to lesson',
+    questionProgress: 'Question {{current}} / {{total}}',
+    lessonQuiz: 'Lesson Quiz',
+    quiz: 'Quiz',
+    question: 'Question',
+  },
+  ru: {
+    failedToLoadLesson: 'Не удалось загрузить урок',
+    quizError: 'Ошибка загрузки вопросов.',
+    someQuestionsNotFound: 'Некоторые вопросы не найдены. Попробуйте снова.',
+    quizCorrect: 'Верно. Отлично!',
+    quizSupportiveRetry: 'Не совсем. Давайте вернемся к уроку и попробуем снова.',
+    backToLesson: 'Назад к уроку',
+    questionProgress: 'Вопрос {{current}} / {{total}}',
+    lessonQuiz: 'Квиз к уроку',
+    quiz: 'Квиз',
+    question: 'Вопрос',
+  },
+  pt: {
+    failedToLoadLesson: 'Falha ao carregar a aula',
+    quizError: 'Erro no questionário',
+    someQuestionsNotFound: 'Algumas perguntas não foram encontradas. Tente novamente.',
+    quizCorrect: 'Resposta correta, ótimo trabalho! 🚀',
+    quizSupportiveRetry: 'Resposta incorreta. Tente novamente!',
+    backToLesson: 'Voltar à aula',
+    questionProgress: 'Pergunta {{current}} / {{total}}',
+    lessonQuiz: 'Questionário da aula',
+    quiz: 'Questionário',
+    question: 'Pergunta',
+  },
+  vi: {
+    failedToLoadLesson: 'Không thể tải bài học',
+    quizError: 'Lỗi bài kiểm tra',
+    someQuestionsNotFound: 'Một số câu hỏi không tìm thấy. Vui lòng thử lại.',
+    quizCorrect: 'Câu trả lời đúng, làm tốt! 🚀',
+    quizSupportiveRetry: 'Câu trả lời chưa đúng. Hãy thử lại!',
+    backToLesson: 'Quay lại bài học',
+    questionProgress: 'Câu hỏi {{current}} / {{total}}',
+    lessonQuiz: 'Bài kiểm tra bài học',
+    quiz: 'Bài kiểm tra',
+    question: 'Câu hỏi',
+  },
+  id: {
+    failedToLoadLesson: 'Gagal memuat pelajaran',
+    quizError: 'Terjadi kesalahan kuis',
+    someQuestionsNotFound: 'Beberapa pertanyaan tidak ditemukan. Silakan coba lagi.',
+    quizCorrect: 'Jawaban benar, kerja bagus! 🚀',
+    quizSupportiveRetry: 'Jawaban salah. Coba lagi!',
+    backToLesson: 'Kembali ke pelajaran',
+    questionProgress: 'Pertanyaan {{current}} / {{total}}',
+    lessonQuiz: 'Kuis pelajaran',
+    quiz: 'Kuis',
+    question: 'Pertanyaan',
+  },
+  hi: {
+    failedToLoadLesson: 'पाठ लोड नहीं हो सका',
+    quizError: 'प्रश्नोत्तरी त्रुटि',
+    someQuestionsNotFound: 'कुछ प्रश्न नहीं मिले। कृपया फिर से प्रयास करें।',
+    quizCorrect: 'सही उत्तर, बढ़िया काम! 🚀',
+    quizSupportiveRetry: 'गलत उत्तर। फिर से प्रयास करें!',
+    backToLesson: 'पाठ पर वापस जाएँ',
+    questionProgress: 'प्रश्न {{current}} / {{total}}',
+    lessonQuiz: 'पाठ प्रश्नोत्तरी',
+    quiz: 'प्रश्नोत्तरी',
+    question: 'प्रश्न',
+  },
+  tr: {
+    failedToLoadLesson: 'Ders yüklenemedi',
+    quizError: 'Sınav hatası',
+    someQuestionsNotFound: 'Bazı sorular bulunamadı. Lütfen tekrar deneyin.',
+    quizCorrect: 'Doğru cevap, harika iş! 🚀',
+    quizSupportiveRetry: 'Yanlış cevap. Tekrar deneyin!',
+    backToLesson: 'Derse dön',
+    questionProgress: 'Soru {{current}} / {{total}}',
+    lessonQuiz: 'Ders sınavı',
+    quiz: 'Sınav',
+    question: 'Soru',
+  },
+  bg: {
+    failedToLoadLesson: 'Неуспешно зареждане на урока',
+    quizError: 'Грешка в теста',
+    someQuestionsNotFound: 'Някои въпроси не са намерени. Моля, опитайте отново.',
+    quizCorrect: 'Правилен отговор, браво! 🚀',
+    quizSupportiveRetry: 'Грешен отговор. Опитайте отново!',
+    backToLesson: 'Назад към урока',
+    questionProgress: 'Въпрос {{current}} / {{total}}',
+    lessonQuiz: 'Тест за урока',
+    quiz: 'Тест',
+    question: 'Въпрос',
+  },
+  pl: {
+    failedToLoadLesson: 'Nie udało się załadować lekcji',
+    quizError: 'Błąd quizu',
+    someQuestionsNotFound: 'Nie znaleziono niektórych pytań. Spróbuj ponownie.',
+    quizCorrect: 'Poprawna odpowiedź, świetna robota! 🚀',
+    quizSupportiveRetry: 'Niepoprawna odpowiedź. Spróbuj ponownie!',
+    backToLesson: 'Wróć do lekcji',
+    questionProgress: 'Pytanie {{current}} / {{total}}',
+    lessonQuiz: 'Quiz lekcji',
+    quiz: 'Quiz',
+    question: 'Pytanie',
+  },
+};
+
+// Helper to get translation by course language
+const getQuizPageText = (key: string, courseLang: string, params?: Record<string, string | number>): string => {
+  const lang = courseLang || 'en';
+  const translations = quizPageTranslations[lang] || quizPageTranslations.en;
+  let text = translations[key] || quizPageTranslations.en[key] || key;
+  if (params) {
+    Object.entries(params).forEach(([k, v]) => {
+      text = text.replace(`{{${k}}}`, String(v));
+    });
+  }
+  return text;
+};
+
 export default function LessonQuizPage({
   params,
 }: {
@@ -40,7 +189,7 @@ export default function LessonQuizPage({
   const router = useRouter();
   const locale = useLocale();
   const [courseId, setCourseId] = useState<string>('');
-  const [courseLanguage, setCourseLanguage] = useState<string>('');
+  const [courseLanguage, setCourseLanguage] = useState<string>('en');
   const [dayNumber, setDayNumber] = useState<number>(0);
   const [lessonId, setLessonId] = useState<string>('');
   const [lessonTitle, setLessonTitle] = useState<string>('');
@@ -51,9 +200,6 @@ export default function LessonQuizPage({
   const [feedback, setFeedback] = useState<string | null>(null);
   const [isAnswerCorrect, setIsAnswerCorrect] = useState<boolean | null>(null);
   const [error, setError] = useState<string | null>(null);
-  
-  // Use URL locale for translations (guaranteed = course language by design)
-  const t = useTranslations('courses');
 
   useEffect(() => {
     const init = async () => {
@@ -63,17 +209,6 @@ export default function LessonQuizPage({
       
       setCourseId(cid);
       setDayNumber(day);
-      
-      // Fetch course to get language
-      try {
-        const courseRes = await fetch(`/api/courses/${cid}`, { cache: 'no-store' });
-        const courseData = await courseRes.json();
-        if (courseData.success && courseData.course?.language) {
-          setCourseLanguage(courseData.course.language);
-        }
-      } catch (err) {
-        console.error('Failed to fetch course language:', err);
-      }
       
       await loadLessonAndQuestions(cid, day);
     };
@@ -85,14 +220,17 @@ export default function LessonQuizPage({
       setLoading(true);
       setError(null);
       const lessonRes = await fetch(`/api/courses/${cid}/day/${day}`, { cache: 'no-store' });
-      const lessonData: LessonResponse = await lessonRes.json();
+      const lessonData: any = await lessonRes.json();
+      
+      // Get course language from API response FIRST
+      if (lessonData.courseLanguage) {
+        setCourseLanguage(lessonData.courseLanguage);
+      }
+      
       if (!lessonData.success || !lessonData.lesson) {
-        setError(lessonData.error || t('failedToLoadLesson'));
+        setError(lessonData.error || getQuizPageText('failedToLoadLesson', lessonData.courseLanguage || courseLanguage));
         return;
       }
-
-      // Trust architecture: Card links guarantee URL locale = course language
-      // No redirect or courseLanguage extraction needed
       
       setLessonId(lessonData.lesson.lessonId);
       setLessonTitle(lessonData.lesson.title);
@@ -107,11 +245,11 @@ export default function LessonQuizPage({
         setQuestions(qData.data.questions);
         setCurrentIndex(0);
       } else {
-        setError(qData.error?.message || t('quizError'));
+        setError(qData.error?.message || getQuizPageText('quizError', lessonData.courseLanguage || courseLanguage));
       }
     } catch (err) {
       console.error(err);
-      setError(t('quizError'));
+      setError(getQuizPageText('quizError', courseLanguage));
     } finally {
       setLoading(false);
     }
@@ -145,9 +283,9 @@ export default function LessonQuizPage({
       if (!data.success) {
         // Handle specific error codes with translated messages
         if (data.errorCode === 'QUESTIONS_NOT_FOUND') {
-          setError(t('someQuestionsNotFound', { defaultValue: 'Néhány kérdés nem található. Kérjük, próbáld meg újra.' }));
+          setError(getQuizPageText('someQuestionsNotFound', courseLanguage));
         } else {
-          setError(data.error || t('quizError'));
+          setError(data.error || getQuizPageText('quizError', courseLanguage));
         }
         setAnswering(false);
         return;
@@ -157,7 +295,7 @@ export default function LessonQuizPage({
       const isCorrect = result?.isCorrect;
       setIsAnswerCorrect(isCorrect);
       if (isCorrect) {
-        setFeedback(t('quizCorrect', { defaultValue: 'Helyes válasz, szép munka! 🚀' }));
+        setFeedback(getQuizPageText('quizCorrect', courseLanguage));
         const nextIndex = currentIndex + 1;
         if (nextIndex >= questions.length) {
           // Quiz finished; mark passed locally
@@ -181,11 +319,7 @@ export default function LessonQuizPage({
           }, 700);
         }
       } else {
-        setFeedback(
-          t('quizSupportiveRetry', {
-            defaultValue: 'Most nem talált. Nézzük át újra a leckét, utána próbáld meg ismét.',
-          })
-        );
+        setFeedback(getQuizPageText('quizSupportiveRetry', courseLanguage));
         if (lessonId) {
           // Include player ID in key to make it user-specific
           const user = session?.user as { id?: string; playerId?: string } | undefined;
@@ -201,7 +335,7 @@ export default function LessonQuizPage({
       }
     } catch (err) {
       console.error(err);
-      setError(t('quizError'));
+      setError(getQuizPageText('quizError', courseLanguage));
     } finally {
       setAnswering(false);
     }
@@ -209,7 +343,7 @@ export default function LessonQuizPage({
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-brand-black flex items-center justify-center" dir={locale === 'ar' ? 'rtl' : 'ltr'}>
+      <div className="min-h-screen bg-brand-black flex items-center justify-center" dir={courseLanguage === 'ar' ? 'rtl' : 'ltr'}>
         <Loader2 className="w-8 h-8 text-brand-white animate-spin" />
       </div>
     );
@@ -217,13 +351,13 @@ export default function LessonQuizPage({
 
   if (error || !currentQuestion) {
     // Show translated error message
-    let errorMessage = error || t('quizError');
+    let errorMessage = error || getQuizPageText('quizError', courseLanguage);
     if (error && (error.includes('Some questions not found') || error.includes('someQuestionsNotFound'))) {
-      errorMessage = t('someQuestionsNotFound');
+      errorMessage = getQuizPageText('someQuestionsNotFound', courseLanguage);
     }
     
     return (
-      <div className="min-h-screen bg-brand-black flex items-center justify-center px-4" dir={locale === 'ar' ? 'rtl' : 'ltr'}>
+      <div className="min-h-screen bg-brand-black flex items-center justify-center px-4" dir={courseLanguage === 'ar' ? 'rtl' : 'ltr'}>
         <div className="bg-brand-white rounded-xl p-8 border-2 border-brand-accent max-w-lg w-full text-center">
           <p className="text-brand-black mb-6">{errorMessage}</p>
           <LocaleLink
@@ -231,21 +365,20 @@ export default function LessonQuizPage({
             className="inline-flex items-center gap-2 bg-brand-accent text-brand-black px-6 py-3 rounded-lg font-bold hover:bg-brand-primary-400 transition-colors"
           >
             <ArrowLeft className="w-5 h-5" />
-            {t('backToLesson')}
+            {getQuizPageText('backToLesson', courseLanguage)}
           </LocaleLink>
         </div>
       </div>
     );
   }
 
-  const progressText = t('questionProgress', {
+  const progressText = getQuizPageText('questionProgress', courseLanguage, {
     current: currentIndex + 1,
     total: questions.length,
-    defaultValue: `${currentIndex + 1}/${questions.length}`,
   });
 
   return (
-    <div className="min-h-screen bg-brand-black" dir={locale === 'ar' ? 'rtl' : 'ltr'}>
+    <div className="min-h-screen bg-brand-black" dir={courseLanguage === 'ar' ? 'rtl' : 'ltr'}>
       <header className="bg-brand-darkGrey border-b-2 border-brand-accent">
         <div className="max-w-4xl mx-auto px-6 sm:px-8 lg:px-10 py-6 flex items-center justify-between">
           <div className="flex items-center gap-4">
@@ -255,11 +388,11 @@ export default function LessonQuizPage({
               className="inline-flex items-center gap-2 text-brand-white hover:text-brand-accent"
             >
               <ArrowLeft className="w-5 h-5" />
-              {t('backToLesson')}
+              {getQuizPageText('backToLesson', courseLanguage)}
             </LocaleLink>
           </div>
           <div className="text-brand-white text-sm">
-            {t('lessonQuiz', { defaultValue: 'Kvíz' })}: {lessonTitle || t('quiz')}
+            {getQuizPageText('lessonQuiz', courseLanguage)}: {lessonTitle || getQuizPageText('quiz', courseLanguage)}
           </div>
         </div>
       </header>
@@ -268,7 +401,7 @@ export default function LessonQuizPage({
         <div className="bg-brand-white rounded-2xl p-8 border-2 border-brand-accent shadow-lg">
           <div className="flex items-center justify-between mb-6">
             <h1 className="text-3xl font-bold text-brand-black leading-tight">
-              {t('question', { defaultValue: 'Kérdés' })} {currentIndex + 1}
+              {getQuizPageText('question', courseLanguage)} {currentIndex + 1}
             </h1>
             <span className="text-base font-semibold text-brand-darkGrey">{progressText}</span>
           </div>
@@ -280,7 +413,7 @@ export default function LessonQuizPage({
                 key={idx}
                 disabled={answering}
                 onClick={() => handleAnswer(option, idx)}
-                className={`w-full ${locale === 'ar' ? 'text-right' : 'text-left'} border-2 border-brand-darkGrey/15 hover:border-brand-accent transition-colors rounded-xl px-5 py-4 font-semibold text-brand-black text-lg disabled:opacity-60 disabled:cursor-not-allowed shadow-sm hover:shadow-md`}
+                className={`w-full ${courseLanguage === 'ar' ? 'text-right' : 'text-left'} border-2 border-brand-darkGrey/15 hover:border-brand-accent transition-colors rounded-xl px-5 py-4 font-semibold text-brand-black text-lg disabled:opacity-60 disabled:cursor-not-allowed shadow-sm hover:shadow-md`}
               >
                 {option}
               </button>
