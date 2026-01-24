@@ -177,7 +177,13 @@ export default async function CourseDetailLayout({
     notFound();
   }
 
-  // Redirects handled in page components to preserve sub-routes (day/quiz/final-exam).
+  // CRITICAL: Enforce URL locale MUST match course language
+  // If URL locale doesn't match course language, return 404
+  // This ensures only correct URLs work: /ru/courses/SALES_PRODUCTIVITY_30_RU
+  // Wrong URLs like /hu/courses/SALES_PRODUCTIVITY_30_RU will return 404
+  if (locale !== course.language) {
+    notFound();
+  }
 
   return <>{children}</>;
 }
