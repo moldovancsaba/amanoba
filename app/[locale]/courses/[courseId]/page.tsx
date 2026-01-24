@@ -156,9 +156,6 @@ export default function CourseDetailPage({
         if (courseData.language) {
           setCourseLanguage(courseData.language);
         }
-        if (courseData.language && courseData.language !== locale) {
-          router.replace(`/${courseData.language}/courses/${cid}`);
-        }
       }
     } catch (error) {
       console.error('Failed to fetch course:', error);
@@ -423,7 +420,7 @@ export default function CourseDetailPage({
   }
 
   return (
-    <div className="min-h-screen bg-brand-black">
+    <div className="min-h-screen bg-brand-black" dir={courseLanguage === 'ar' ? 'rtl' : 'ltr'}>
       {/* Header */}
       <header className="bg-brand-darkGrey border-b-2 border-brand-accent sticky top-0 z-30">
         <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-10 py-5 sm:py-7">

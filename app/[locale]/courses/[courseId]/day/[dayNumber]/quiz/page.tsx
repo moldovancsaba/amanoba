@@ -200,7 +200,7 @@ export default function LessonQuizPage({
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-brand-black flex items-center justify-center">
+      <div className="min-h-screen bg-brand-black flex items-center justify-center" dir={courseLanguage === 'ar' ? 'rtl' : 'ltr'}>
         <Loader2 className="w-8 h-8 text-brand-white animate-spin" />
       </div>
     );
@@ -214,7 +214,7 @@ export default function LessonQuizPage({
     }
     
     return (
-      <div className="min-h-screen bg-brand-black flex items-center justify-center px-4">
+      <div className="min-h-screen bg-brand-black flex items-center justify-center px-4" dir={courseLanguage === 'ar' ? 'rtl' : 'ltr'}>
         <div className="bg-brand-white rounded-xl p-8 border-2 border-brand-accent max-w-lg w-full text-center">
           <p className="text-brand-black mb-6">{errorMessage}</p>
           <LocaleLink
@@ -236,7 +236,7 @@ export default function LessonQuizPage({
   });
 
   return (
-    <div className="min-h-screen bg-brand-black">
+    <div className="min-h-screen bg-brand-black" dir={courseLanguage === 'ar' ? 'rtl' : 'ltr'}>
       <header className="bg-brand-darkGrey border-b-2 border-brand-accent">
         <div className="max-w-4xl mx-auto px-6 sm:px-8 lg:px-10 py-6 flex items-center justify-between">
           <div className="flex items-center gap-4">
@@ -271,7 +271,7 @@ export default function LessonQuizPage({
                 key={idx}
                 disabled={answering}
                 onClick={() => handleAnswer(option, idx)}
-                className="w-full text-left border-2 border-brand-darkGrey/15 hover:border-brand-accent transition-colors rounded-xl px-5 py-4 font-semibold text-brand-black text-lg disabled:opacity-60 disabled:cursor-not-allowed shadow-sm hover:shadow-md"
+                className={`w-full ${courseLanguage === 'ar' ? 'text-right' : 'text-left'} border-2 border-brand-darkGrey/15 hover:border-brand-accent transition-colors rounded-xl px-5 py-4 font-semibold text-brand-black text-lg disabled:opacity-60 disabled:cursor-not-allowed shadow-sm hover:shadow-md`}
               >
                 {option}
               </button>

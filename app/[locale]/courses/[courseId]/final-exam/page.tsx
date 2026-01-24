@@ -65,9 +65,6 @@ export default function FinalExamPage() {
       setEntitlement(data.data);
       if (data.data?.courseLanguage) {
         setCourseLanguage(data.data.courseLanguage);
-        if (data.data.courseLanguage !== params.locale) {
-          router.replace(`/${data.data.courseLanguage}/courses/${courseId}/final-exam`);
-        }
       }
     } catch (e: any) {
       setError(e.message);
@@ -168,7 +165,7 @@ export default function FinalExamPage() {
 
   if (status === 'loading' || loadingEnt) {
     return (
-      <div className="flex items-center justify-center h-80 text-white">
+      <div className="flex items-center justify-center h-80 text-white" dir={courseLanguage === 'ar' ? 'rtl' : 'ltr'}>
         <Loader2 className="w-5 h-5 animate-spin mr-2" /> {t('loadingCourse', { defaultValue: 'Loading...' })}
       </div>
     );
@@ -176,7 +173,7 @@ export default function FinalExamPage() {
 
   if (!session) {
     return (
-      <div className="p-6 text-white">
+      <div className="p-6 text-white" dir={courseLanguage === 'ar' ? 'rtl' : 'ltr'}>
         <p>{t('signInToEnroll', { defaultValue: 'Please sign in to access the certification exam.' })}</p>
       </div>
     );
@@ -187,7 +184,7 @@ export default function FinalExamPage() {
   const canStart = ent?.entitlementOwned && !unavailable;
 
   return (
-    <div className="max-w-3xl mx-auto p-6 text-white space-y-6">
+    <div className="max-w-3xl mx-auto p-6 text-white space-y-6" dir={courseLanguage === 'ar' ? 'rtl' : 'ltr'}>
       <div className="flex items-center gap-3">
         <ShieldCheck className="w-6 h-6 text-amber-400" />
         <h1 className="text-2xl font-bold">{t('finalExamTitle', { defaultValue: 'Final Certification Exam' })}</h1>
