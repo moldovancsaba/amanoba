@@ -47,7 +47,7 @@ export default function FinalExamPage() {
   const [error, setError] = useState<string | null>(null);
   const [courseLanguage, setCourseLanguage] = useState<string | undefined>(undefined);
 
-  const { t, courseLocale } = useCourseTranslations(courseLanguage, locale);
+  const { t, courseLocale, loading: translationsLoading } = useCourseTranslations(courseLanguage, locale);
 
   useEffect(() => {
     if (status === 'authenticated') {
@@ -65,6 +65,11 @@ export default function FinalExamPage() {
       setEntitlement(data.data);
       if (data.data?.courseLanguage) {
         setCourseLanguage(data.data.courseLanguage);
+        const normalized = data.data.courseLanguage.toLowerCase().split(/[-_]/)[0];
+        if (normalized && normalized !== locale) {
+          router.replace(`/${normalized}/courses/${courseId}/final-exam`);
+          return;
+        }
       }
     } catch (e: any) {
       setError(e.message);
@@ -163,7 +168,7 @@ export default function FinalExamPage() {
     setResult(null);
   };
 
-  if (status === 'loading' || loadingEnt) {
+  if (status === 'loading' || loadingEnt || translationsLoading) {
     return (
       <div className="flex items-center justify-center h-80 text-white" dir={courseLocale === 'ar' ? 'rtl' : 'ltr'}>
         <Loader2 className="w-5 h-5 animate-spin mr-2" /> {t('loadingCourse', { defaultValue: 'Loading...' })}
