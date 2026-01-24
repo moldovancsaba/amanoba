@@ -307,4 +307,37 @@ However, all changes follow best practices and should be stable.
 
 ---
 
-*This phase successfully transformed the course UI layer from a complex, defensive architecture into a simple, trustworthy design that relies on the correct structural foundation (card links + course language separation) already in place.*
+## CRITICAL FIX: Discovery Page Course Filtering ✅
+
+**Issue**: After Phase 1 & 2, discovery page was filtering courses by URL locale
+- `/en/courses` → Only showed English courses
+- `/hu/courses` → Only showed Hungarian courses
+- Result: User couldn't see ALL available courses
+
+**Root Cause**: 
+```typescript
+// ❌ Wrong
+const courseLanguage = localeToLanguageMap[locale] || 'en';
+params.append('language', courseLanguage);  // Filtered by URL locale!
+```
+
+**Solution**: Remove language filter entirely
+```typescript
+// ✅ Correct
+// No language parameter
+// Show ALL courses
+// Each card displays in its native language via courseCardTranslations
+```
+
+**Result**:
+- `/en/courses` → Shows ALL courses (EN, HU, AR, RU, etc.)
+- `/hu/courses` → Shows ALL courses (same as /en/courses)
+- `/ar/courses` → Shows ALL courses (same as /en/courses)
+- Each card displays in its course's native language
+- User can enroll in any course
+
+**Commit**: `452f492`
+
+---
+
+*This phase successfully transformed the course UI layer from a complex, defensive architecture into a simple, trustworthy design that relies on the correct structural foundation (card links + course language separation) already in place. Final critical fix ensures discovery page shows all courses with proper language-specific card rendering.*
