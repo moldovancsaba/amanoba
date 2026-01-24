@@ -112,16 +112,22 @@ export default async function LocaleLayout({
   // The locale comes from params, and we pass it explicitly to avoid context issues
   const messages = await getMessages({ locale });
 
-  // Determine HTML lang attribute
+  // Determine HTML lang attribute and text direction
   const htmlLang = locale === 'hu' ? 'hu' : locale;
+  const rtlLocales = new Set(['ar']);
+  const direction = rtlLocales.has(locale) ? 'rtl' : 'ltr';
 
   return (
     <html
       lang={htmlLang}
+      dir={direction}
       className={`${notoSans.variable} ${inter.variable} ${playfair.variable} ${afacad.variable}`}
       suppressHydrationWarning
     >
-      <body className="antialiased bg-brand-white dark:bg-brand-black text-brand-black dark:text-brand-white">
+      <body
+        dir={direction}
+        className="antialiased bg-brand-white dark:bg-brand-black text-brand-black dark:text-brand-white"
+      >
         <NextIntlClientProvider messages={messages}>
           <SessionProvider>
             <ThemeProvider

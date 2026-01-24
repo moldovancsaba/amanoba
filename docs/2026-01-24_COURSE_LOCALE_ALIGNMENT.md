@@ -49,6 +49,7 @@ Ensure every course page uses the course’s own language as the URL locale and 
 - **Link alignment**: Course list + my-courses links now point to the course’s language locale.
 - **Course-localized translations**: Course pages use `useCourseTranslations(courseLanguage)` instead of URL locale.
 - **No wrong-language fallbacks**: Removed automatic fallback to Hungarian/English for course locales to avoid mixed-language UI.
+- **RTL direction**: Locale layout sets `dir=rtl` for Arabic to ensure right-to-left page flow.
 - **Translation API**: Added `/api/translations` to merge DB translations with locale JSON per locale.
 - **Locale list expanded**: Routing now accepts all active course locales.
 
