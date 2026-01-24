@@ -592,8 +592,11 @@ export default function CourseDetailPage({
             isCompleted: false,
           },
         });
-        // Redirect to first lesson
-        router.push(`/${locale}/courses/${courseId}/day/1`);
+        // Redirect to first lesson using COURSE language, not URL locale
+        // CRITICAL: Must match course.language to enforce URL locale = course language
+        if (course) {
+          router.push(`/${course.language}/courses/${courseId}/day/1`);
+        }
       } else {
         alert(data.error || t('failedToEnroll'));
       }
@@ -853,7 +856,7 @@ export default function CourseDetailPage({
                   </div>
                 ) : !session ? (
                   <LocaleLink
-                    href={`/auth/signin?callbackUrl=${encodeURIComponent(`/${locale}/courses/${courseId}`)}`}
+                    href={`/auth/signin?callbackUrl=${encodeURIComponent(`/${course.language}/courses/${courseId}`)}`}
                     className="block w-full bg-brand-accent text-brand-black px-5 py-3.5 rounded-lg font-bold text-center hover:bg-brand-primary-400 transition-colors text-base"
                   >
                     {t('signInToEnroll')}
@@ -941,7 +944,7 @@ export default function CourseDetailPage({
                   </LocaleLink>
                 ) : !session ? (
                   <LocaleLink
-                    href={`/auth/signin?callbackUrl=${encodeURIComponent(`/${locale}/courses/${courseId}`)}`}
+                    href={`/auth/signin?callbackUrl=${encodeURIComponent(`/${course.language}/courses/${courseId}`)}`}
                     className="w-full bg-brand-accent text-brand-black px-4 py-2.5 rounded-lg font-bold text-center hover:bg-brand-primary-400 transition-colors text-sm"
                   >
                     {t('signInToEnroll')}

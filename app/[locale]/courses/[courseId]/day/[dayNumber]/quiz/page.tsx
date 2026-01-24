@@ -40,6 +40,7 @@ export default function LessonQuizPage({
   const router = useRouter();
   const locale = useLocale();
   const [courseId, setCourseId] = useState<string>('');
+  const [courseLanguage, setCourseLanguage] = useState<string>('');
   const [dayNumber, setDayNumber] = useState<number>(0);
   const [lessonId, setLessonId] = useState<string>('');
   const [lessonTitle, setLessonTitle] = useState<string>('');
@@ -62,6 +63,18 @@ export default function LessonQuizPage({
       
       setCourseId(cid);
       setDayNumber(day);
+      
+      // Fetch course to get language
+      try {
+        const courseRes = await fetch(`/api/courses/${cid}`, { cache: 'no-store' });
+        const courseData = await courseRes.json();
+        if (courseData.success && courseData.course?.language) {
+          setCourseLanguage(courseData.course.language);
+        }
+      } catch (err) {
+        console.error('Failed to fetch course language:', err);
+      }
+      
       await loadLessonAndQuestions(cid, day);
     };
     init();
@@ -158,7 +171,7 @@ export default function LessonQuizPage({
             localStorage.setItem(key, 'true');
           }
           setTimeout(() => {
-            router.replace(`/${locale}/courses/${courseId}/day/${dayNumber}?quiz=passed`);
+            router.replace(`/${courseLanguage || locale}/courses/${courseId}/day/${dayNumber}?quiz=passed`);
           }, 900);
         } else {
           setTimeout(() => {
@@ -183,7 +196,7 @@ export default function LessonQuizPage({
           localStorage.removeItem(key);
         }
         setTimeout(() => {
-          router.replace(`/${locale}/courses/${courseId}/day/${dayNumber}?quizRetry=1`);
+          router.replace(`/${courseLanguage || locale}/courses/${courseId}/day/${dayNumber}?quizRetry=1`);
         }, 1200);
       }
     } catch (err) {

@@ -37,6 +37,7 @@ export default function FinalExamPage() {
   const locale = useLocale();
   const { data: session, status } = useSession();
 
+  const [courseLanguage, setCourseLanguage] = useState<string>('');
   const [entitlement, setEntitlement] = useState<EntitlementResp | null>(null);
   const [loadingEnt, setLoadingEnt] = useState(true);
   const [attemptId, setAttemptId] = useState<string | null>(null);
@@ -58,6 +59,14 @@ export default function FinalExamPage() {
     setLoadingEnt(true);
     setError(null);
     try {
+      // First fetch the course to get language
+      const courseRes = await fetch(`/api/courses/${courseId}`, { cache: 'no-store' });
+      const courseData = await courseRes.json();
+      if (courseData.success && courseData.course?.language) {
+        setCourseLanguage(courseData.course.language);
+      }
+
+      // Then fetch entitlement
       const res = await fetch(`/api/certification/entitlement?courseId=${courseId}`);
       const data = await res.json();
       if (!data.success) throw new Error(data.error || 'Failed to load');
@@ -206,7 +215,7 @@ export default function FinalExamPage() {
           </p>
           <button
             className="mt-3 text-sm text-indigo-300 underline"
-            onClick={() => router.push(`/${locale}/courses/${courseId}`)}
+            onClick={() => router.push(`/${courseLanguage || locale}/courses/${courseId}`)}
           >
             {t('backToCourse', { defaultValue: 'Back to course' })}
           </button>
@@ -304,7 +313,7 @@ export default function FinalExamPage() {
               Refresh status
             </button>
             <button
-              onClick={() => router.push(`/${locale}/courses/${courseId}`)}
+              onClick={() => router.push(`/${courseLanguage || locale}/courses/${courseId}`)}
               className="px-4 py-2 rounded bg-gray-700 hover:bg-gray-600"
             >
               Back to course
