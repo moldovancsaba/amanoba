@@ -10,7 +10,7 @@
 import { useState, useEffect, useRef, useMemo } from 'react';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
-import { useLocale, useTranslations } from 'next-intl';
+import { useLocale } from 'next-intl';
 import { LocaleLink } from '@/components/LocaleLink';
 import {
   ArrowLeft,
@@ -99,8 +99,7 @@ export default function CourseDetailPage({
   const [lessons, setLessons] = useState<Lesson[]>([]);
   const [loadingLessons, setLoadingLessons] = useState(false);
   
-  // Use URL locale for translations (guaranteed = course language by design)
-  const t = useTranslations('courses');
+  // All translations use course language via getCourseDetailText()
 
   // Static course detail page translations (like courseCardTranslations)
   // Ensures all course detail UI is in the course's native language, not URL locale
@@ -125,6 +124,30 @@ export default function CourseDetailPage({
       points: 'pont',
       enrolled: 'Beiratkozott',
       backToCourses: 'Vissza a kurzusokhoz',
+      failedToEnroll: 'Nem sikerült beiratkozni a kurzusra',
+      paymentFailed: 'Fizetés sikertelen',
+      loadingCourse: 'Kurzus betöltése...',
+      courseNotFound: 'Kurzus nem található',
+      loading: 'Betöltés...',
+      noLessonsAvailable: 'Jelenleg nincsenek elérhető leckék',
+      day: 'Nap',
+      minutes: 'perc',
+      premiumCourse: 'Prémium kurzus',
+      signInToEnroll: 'Jelentkezz be a feliratkozáshoz',
+      premiumRequired: 'Prémium szükséges',
+      purchasing: 'Vásárlás...',
+      purchasePremium: 'Prémium vásárlása',
+      alreadyPremium: 'Már van prémium hozzáférésed',
+      enrolling: 'Feliratkozás...',
+      enrollNow: 'Feliratkozás most',
+      certification: 'Tanúsítvány',
+      certificationUnavailable: 'Tanúsítvány nem elérhető',
+      certificationUnavailablePool: 'Tanúsítvány nem elérhető (készlet {{poolCount}}/50)',
+      completeCourseForCertification: 'Teljesítsd a kurzust a tanúsítvány feloldásához',
+      certificationAvailable: 'Befejezve, tanúsítvány elérhető',
+      certificationUnlocked: 'Tanúsítvány feloldva',
+      redeemPointsCert: 'Pontok beváltása ({{points}})',
+      startFinalExam: 'Végső vizsga indítása',
     },
     en: {
       aboutThisCourse: 'Course Overview',
@@ -146,6 +169,30 @@ export default function CourseDetailPage({
       points: 'points',
       enrolled: 'Enrolled',
       backToCourses: 'Back to Courses',
+      failedToEnroll: 'Failed to enroll in course',
+      paymentFailed: 'Payment failed',
+      loadingCourse: 'Loading course...',
+      courseNotFound: 'Course not found',
+      loading: 'Loading...',
+      noLessonsAvailable: 'No lessons available at this time',
+      day: 'Day',
+      minutes: 'minutes',
+      premiumCourse: 'Premium Course',
+      signInToEnroll: 'Sign In to Enroll',
+      premiumRequired: 'Premium Required',
+      purchasing: 'Purchasing...',
+      purchasePremium: 'Purchase Premium',
+      alreadyPremium: 'You already have premium access',
+      enrolling: 'Enrolling...',
+      enrollNow: 'Enroll Now',
+      certification: 'Certification',
+      certificationUnavailable: 'Certification unavailable',
+      certificationUnavailablePool: 'Certification unavailable (pool {{poolCount}}/50)',
+      completeCourseForCertification: 'Complete the course to unlock certification',
+      certificationAvailable: 'Completed, certificate available',
+      certificationUnlocked: 'Certification unlocked',
+      redeemPointsCert: 'Redeem points ({{points}})',
+      startFinalExam: 'Start final exam',
     },
     tr: {
       aboutThisCourse: 'Kurs Özeti',
@@ -167,6 +214,30 @@ export default function CourseDetailPage({
       points: 'puan',
       enrolled: 'Kaydoldu',
       backToCourses: 'Kurslara Geri Dön',
+      certification: 'Sertifika',
+      certificationUnavailable: 'Sertifika kullanılamıyor',
+      certificationUnavailablePool: 'Sertifika kullanılamıyor (havuz {{poolCount}}/50)',
+      completeCourseForCertification: 'Sertifikayı açmak için kursu tamamla',
+      certificationAvailable: 'Tamamlandı, sertifika mevcut',
+      certificationUnlocked: 'Sertifika açıldı',
+      redeemPointsCert: 'Puan kullan ({{points}})',
+      startFinalExam: 'Final sınavını başlat',
+      failedToEnroll: 'Kursa kayıt olunamadı',
+      paymentFailed: 'Ödeme başarısız',
+      loadingCourse: 'Kurs yükleniyor...',
+      courseNotFound: 'Kurs bulunamadı',
+      loading: 'Yükleniyor...',
+      noLessonsAvailable: 'Şu anda ders mevcut değil',
+      day: 'Gün',
+      minutes: 'dakika',
+      premiumCourse: 'Premium Kurs',
+      signInToEnroll: 'Kayıt olmak için giriş yap',
+      premiumRequired: 'Premium Gerekli',
+      purchasing: 'Satın alınıyor...',
+      purchasePremium: 'Premium Satın Al',
+      alreadyPremium: 'Zaten premium erişiminiz var',
+      enrolling: 'Kayıt olunuyor...',
+      enrollNow: 'Şimdi Kayıt Ol',
     },
     bg: {
       aboutThisCourse: 'Преглед на курса',
@@ -188,6 +259,30 @@ export default function CourseDetailPage({
       points: 'точки',
       enrolled: 'Записан',
       backToCourses: 'Назад към курсовете',
+      certification: 'Сертификация',
+      certificationUnavailable: 'Сертификацията не е налична',
+      certificationUnavailablePool: 'Сертификацията не е налична (банка {{poolCount}}/50)',
+      completeCourseForCertification: 'Завършете курса, за да отключите сертификация',
+      certificationAvailable: 'Завършено, сертификат наличен',
+      certificationUnlocked: 'Сертификацията е отключена',
+      redeemPointsCert: 'Осребри точки ({{points}})',
+      startFinalExam: 'Започнете финален изпит',
+      failedToEnroll: 'Неуспешно записване в курс',
+      paymentFailed: 'Неуспешно плащане',
+      loadingCourse: 'Зареждане на курса...',
+      courseNotFound: 'Курсът не е намерен',
+      loading: 'Зареждане...',
+      noLessonsAvailable: 'В момента няма налични уроци',
+      day: 'Ден',
+      minutes: 'минути',
+      premiumCourse: 'Премиум курс',
+      signInToEnroll: 'Влезте, за да се запишете',
+      premiumRequired: 'Премиум е задължителен',
+      purchasing: 'Купуване...',
+      purchasePremium: 'Купете премиум',
+      alreadyPremium: 'Вече имате премиум достъп',
+      enrolling: 'Записване...',
+      enrollNow: 'Запишете се сега',
     },
     pl: {
       aboutThisCourse: 'Przegląd Kursu',
@@ -209,6 +304,30 @@ export default function CourseDetailPage({
       points: 'punkty',
       enrolled: 'Zapisany',
       backToCourses: 'Wróć do kursów',
+      certification: 'Certyfikacja',
+      certificationUnavailable: 'Certyfikacja niedostępna',
+      certificationUnavailablePool: 'Certyfikacja niedostępna (pula {{poolCount}}/50)',
+      completeCourseForCertification: 'Ukończ kurs, aby odblokować certyfikację',
+      certificationAvailable: 'Ukończono, certyfikat dostępny',
+      certificationUnlocked: 'Certyfikacja odblokowana',
+      redeemPointsCert: 'Wymień punkty ({{points}})',
+      startFinalExam: 'Rozpocznij egzamin końcowy',
+      failedToEnroll: 'Nie udało się zapisać na kurs',
+      paymentFailed: 'Płatność nie powiodła się',
+      loadingCourse: 'Ładowanie kursu...',
+      courseNotFound: 'Kurs nie został znaleziony',
+      loading: 'Ładowanie...',
+      noLessonsAvailable: 'Obecnie brak dostępnych lekcji',
+      day: 'Dzień',
+      minutes: 'minuty',
+      premiumCourse: 'Kurs Premium',
+      signInToEnroll: 'Zaloguj się, aby się zapisać',
+      premiumRequired: 'Wymagany Premium',
+      purchasing: 'Kupowanie...',
+      purchasePremium: 'Kup Premium',
+      alreadyPremium: 'Masz już dostęp premium',
+      enrolling: 'Zapisywanie...',
+      enrollNow: 'Zapisz się teraz',
     },
     vi: {
       aboutThisCourse: 'Tổng Quan Khóa Học',
@@ -230,6 +349,30 @@ export default function CourseDetailPage({
       points: 'điểm',
       enrolled: 'Đã đăng ký',
       backToCourses: 'Quay lại các khóa học',
+      certification: 'Chứng Chỉ',
+      certificationUnavailable: 'Chứng chỉ không khả dụng',
+      certificationUnavailablePool: 'Chứng chỉ không khả dụng (nhóm {{poolCount}}/50)',
+      completeCourseForCertification: 'Hoàn thành khóa học để mở khóa chứng chỉ',
+      certificationAvailable: 'Đã hoàn thành, chứng chỉ có sẵn',
+      certificationUnlocked: 'Chứng chỉ đã mở khóa',
+      redeemPointsCert: 'Đổi điểm ({{points}})',
+      startFinalExam: 'Bắt đầu bài kiểm tra cuối',
+      failedToEnroll: 'Không thể đăng ký khóa học',
+      paymentFailed: 'Thanh toán thất bại',
+      loadingCourse: 'Đang tải khóa học...',
+      courseNotFound: 'Không tìm thấy khóa học',
+      loading: 'Đang tải...',
+      noLessonsAvailable: 'Hiện tại không có bài học nào',
+      day: 'Ngày',
+      minutes: 'phút',
+      premiumCourse: 'Khóa Học Premium',
+      signInToEnroll: 'Đăng nhập để đăng ký',
+      premiumRequired: 'Yêu Cầu Premium',
+      purchasing: 'Đang mua...',
+      purchasePremium: 'Mua Premium',
+      alreadyPremium: 'Bạn đã có quyền truy cập premium',
+      enrolling: 'Đang đăng ký...',
+      enrollNow: 'Đăng Ký Ngay',
     },
     id: {
       aboutThisCourse: 'Ringkasan Kursus',
@@ -251,6 +394,30 @@ export default function CourseDetailPage({
       points: 'poin',
       enrolled: 'Terdaftar',
       backToCourses: 'Kembali ke Kursus',
+      certification: 'Sertifikasi',
+      certificationUnavailable: 'Sertifikasi tidak tersedia',
+      certificationUnavailablePool: 'Sertifikasi tidak tersedia (pool {{poolCount}}/50)',
+      completeCourseForCertification: 'Selesaikan kursus untuk membuka kunci sertifikasi',
+      certificationAvailable: 'Selesai, sertifikat tersedia',
+      certificationUnlocked: 'Sertifikasi terbuka',
+      redeemPointsCert: 'Tukar poin ({{points}})',
+      startFinalExam: 'Mulai ujian akhir',
+      failedToEnroll: 'Gagal mendaftar ke kursus',
+      paymentFailed: 'Pembayaran gagal',
+      loadingCourse: 'Memuat kursus...',
+      courseNotFound: 'Kursus tidak ditemukan',
+      loading: 'Memuat...',
+      noLessonsAvailable: 'Saat ini tidak ada pelajaran yang tersedia',
+      day: 'Hari',
+      minutes: 'menit',
+      premiumCourse: 'Kursus Premium',
+      signInToEnroll: 'Masuk untuk mendaftar',
+      premiumRequired: 'Premium Diperlukan',
+      purchasing: 'Membeli...',
+      purchasePremium: 'Beli Premium',
+      alreadyPremium: 'Anda sudah memiliki akses premium',
+      enrolling: 'Mendaftar...',
+      enrollNow: 'Daftar Sekarang',
     },
     ar: {
       aboutThisCourse: 'نظرة عامة على الدورة',
@@ -272,6 +439,30 @@ export default function CourseDetailPage({
       points: 'نقاط',
       enrolled: 'مسجل',
       backToCourses: 'العودة للدورات',
+      certification: 'الشهادة',
+      certificationUnavailable: 'الشهادة غير متاحة',
+      certificationUnavailablePool: 'الشهادة غير متاحة (المجموعة {{poolCount}}/50)',
+      completeCourseForCertification: 'أكمل الدورة لفتح الشهادة',
+      certificationAvailable: 'مكتمل، الشهادة متاحة',
+      certificationUnlocked: 'تم فتح الشهادة',
+      redeemPointsCert: 'استبدال النقاط ({{points}})',
+      startFinalExam: 'بدء الامتحان النهائي',
+      failedToEnroll: 'فشل التسجيل في الدورة',
+      paymentFailed: 'فشلت عملية الدفع',
+      loadingCourse: 'جارٍ تحميل الدورة...',
+      courseNotFound: 'الدورة غير موجودة',
+      loading: 'جارٍ التحميل...',
+      noLessonsAvailable: 'لا توجد دروس متاحة حالياً',
+      day: 'يوم',
+      minutes: 'دقائق',
+      premiumCourse: 'دورة مميزة',
+      signInToEnroll: 'قم بتسجيل الدخول للتسجيل',
+      premiumRequired: 'مطلوب اشتراك مميز',
+      purchasing: 'جارٍ الشراء...',
+      purchasePremium: 'شراء الاشتراك المميز',
+      alreadyPremium: 'لديك بالفعل اشتراك مميز',
+      enrolling: 'جارٍ التسجيل...',
+      enrollNow: 'سجل الآن',
     },
     pt: {
       aboutThisCourse: 'Visão Geral do Curso',
@@ -293,6 +484,30 @@ export default function CourseDetailPage({
       points: 'pontos',
       enrolled: 'Inscrito',
       backToCourses: 'Voltar aos Cursos',
+      certification: 'Certificação',
+      certificationUnavailable: 'Certificação indisponível',
+      certificationUnavailablePool: 'Certificação indisponível (pool {{poolCount}}/50)',
+      completeCourseForCertification: 'Complete o curso para desbloquear a certificação',
+      certificationAvailable: 'Concluído, certificado disponível',
+      certificationUnlocked: 'Certificação desbloqueada',
+      redeemPointsCert: 'Resgatar pontos ({{points}})',
+      startFinalExam: 'Iniciar exame final',
+      failedToEnroll: 'Falha ao se inscrever no curso',
+      paymentFailed: 'Pagamento falhou',
+      loadingCourse: 'Carregando curso...',
+      courseNotFound: 'Curso não encontrado',
+      loading: 'Carregando...',
+      noLessonsAvailable: 'Nenhuma aula disponível no momento',
+      day: 'Dia',
+      minutes: 'minutos',
+      premiumCourse: 'Curso Premium',
+      signInToEnroll: 'Entre para se inscrever',
+      premiumRequired: 'Premium Obrigatório',
+      purchasing: 'Comprando...',
+      purchasePremium: 'Comprar Premium',
+      alreadyPremium: 'Você já tem acesso premium',
+      enrolling: 'Inscrevendo...',
+      enrollNow: 'Inscrever-se Agora',
     },
     hi: {
       aboutThisCourse: 'कोर्स की जानकारी',
@@ -314,6 +529,22 @@ export default function CourseDetailPage({
       points: 'अंक',
       enrolled: 'नामांकित',
       backToCourses: 'कोर्स पर वापस जाएं',
+      failedToEnroll: 'कोर्स में नामांकन विफल',
+      paymentFailed: 'भुगतान विफल',
+      loadingCourse: 'कोर्स लोड हो रहा है...',
+      courseNotFound: 'कोर्स नहीं मिला',
+      loading: 'लोड हो रहा है...',
+      noLessonsAvailable: 'इस समय कोई पाठ उपलब्ध नहीं',
+      day: 'दिन',
+      minutes: 'मिनट',
+      premiumCourse: 'प्रीमियम कोर्स',
+      signInToEnroll: 'नामांकन के लिए साइन इन करें',
+      premiumRequired: 'प्रीमियम आवश्यक',
+      purchasing: 'खरीद रहे हैं...',
+      purchasePremium: 'प्रीमियम खरीदें',
+      alreadyPremium: 'आपके पास पहले से प्रीमियम पहुंच है',
+      enrolling: 'नामांकन हो रहा है...',
+      enrollNow: 'अभी नामांकन करें',
     },
     ru: {
       aboutThisCourse: 'О курсе',
@@ -335,6 +566,30 @@ export default function CourseDetailPage({
       points: 'баллы',
       enrolled: 'Записан',
       backToCourses: 'Вернуться к курсам',
+      certification: 'Сертификация',
+      certificationUnavailable: 'Сертификация недоступна',
+      certificationUnavailablePool: 'Сертификация недоступна (пул {{poolCount}}/50)',
+      completeCourseForCertification: 'Завершите курс, чтобы разблокировать сертификацию',
+      certificationAvailable: 'Завершено, сертификат доступен',
+      certificationUnlocked: 'Сертификация разблокирована',
+      redeemPointsCert: 'Потратить баллы ({{points}})',
+      startFinalExam: 'Начать финальный экзамен',
+      failedToEnroll: 'Не удалось записаться на курс',
+      paymentFailed: 'Оплата не удалась',
+      loadingCourse: 'Загрузка курса...',
+      courseNotFound: 'Курс не найден',
+      loading: 'Загрузка...',
+      noLessonsAvailable: 'В данный момент уроки недоступны',
+      day: 'День',
+      minutes: 'минут',
+      premiumCourse: 'Премиум курс',
+      signInToEnroll: 'Войдите, чтобы записаться',
+      premiumRequired: 'Требуется премиум',
+      purchasing: 'Покупка...',
+      purchasePremium: 'Купить премиум',
+      alreadyPremium: 'У вас уже есть премиум доступ',
+      enrolling: 'Запись...',
+      enrollNow: 'Записаться сейчас',
     },
   };
 
@@ -514,17 +769,17 @@ export default function CourseDetailPage({
     const poolOk = entitlement.certificationEnabled && entitlement.poolCount >= 50;
     const hasEntitlement = entitlement.entitlementOwned;
 
-    let statusLabel = 'Certification unavailable';
+    let statusLabel = getCourseDetailText('certificationUnavailable');
     let cta: JSX.Element | null = null;
 
     if (!entitlement.certificationEnabled) {
-      statusLabel = 'Certification unavailable';
+      statusLabel = getCourseDetailText('certificationUnavailable');
     } else if (!poolOk) {
-      statusLabel = `Certification unavailable (pool ${entitlement.poolCount}/50)`;
+      statusLabel = getCourseDetailText('certificationUnavailablePool', { poolCount: entitlement.poolCount });
     } else if (!completed) {
-      statusLabel = 'Complete the course to unlock certification';
+      statusLabel = getCourseDetailText('completeCourseForCertification');
     } else if (completed && poolOk && !hasEntitlement) {
-      statusLabel = 'Completed, certificate available';
+      statusLabel = getCourseDetailText('certificationAvailable');
       cta = (
         <div className="flex flex-wrap gap-2">
           {entitlement.pricePoints ? (
@@ -536,7 +791,7 @@ export default function CourseDetailPage({
               }).then(() => fetchEntitlement(courseId))}
               className="px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-500"
             >
-              Redeem points ({entitlement.pricePoints})
+              {getCourseDetailText('redeemPointsCert', { points: entitlement.pricePoints })}
             </button>
           ) : null}
           <button
@@ -548,14 +803,14 @@ export default function CourseDetailPage({
         </div>
       );
     } else if (completed && poolOk && hasEntitlement) {
-      statusLabel = 'Certification unlocked';
+      statusLabel = getCourseDetailText('certificationUnlocked');
       cta = (
         <LocaleLink
           href={`/courses/${courseId}/final-exam`}
           className="inline-flex items-center gap-2 px-4 py-2 bg-emerald-600 text-white rounded-lg hover:bg-emerald-500"
         >
           <Award className="w-4 h-4" />
-          Start final exam
+          {getCourseDetailText('startFinalExam')}
         </LocaleLink>
       );
     }
@@ -564,7 +819,7 @@ export default function CourseDetailPage({
       <div className="bg-brand-darkGrey border-2 border-brand-accent rounded-xl p-4 space-y-2">
         <div className="flex items-center gap-2 text-brand-white">
           <Award className="w-5 h-5 text-amber-400" />
-          <span className="font-semibold">Certification</span>
+          <span className="font-semibold">{getCourseDetailText('certification')}</span>
         </div>
         <p className="text-brand-white/80 text-sm">{statusLabel}</p>
         {cta}
@@ -598,11 +853,11 @@ export default function CourseDetailPage({
           router.push(`/${course.language}/courses/${courseId}/day/1`);
         }
       } else {
-        alert(data.error || t('failedToEnroll'));
+        alert(data.error || getCourseDetailText('failedToEnroll'));
       }
     } catch (error) {
       console.error('Failed to enroll:', error);
-      alert(t('failedToEnroll'));
+      alert(getCourseDetailText('failedToEnroll'));
     } finally {
       setEnrolling(false);
     }
@@ -634,29 +889,29 @@ export default function CourseDetailPage({
         // Redirect to Stripe Checkout
         window.location.href = data.url;
       } else {
-        alert(data.error || t('paymentFailed'));
+        alert(data.error || getCourseDetailText('paymentFailed'));
         setPurchasing(false);
       }
     } catch (error) {
       console.error('Failed to create checkout:', error);
-      alert(t('paymentFailed'));
+      alert(getCourseDetailText('paymentFailed'));
       setPurchasing(false);
     }
   };
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-brand-black flex items-center justify-center">
-        <div className="text-brand-white text-xl">{t('loadingCourse')}</div>
+      <div className="min-h-screen bg-brand-black flex items-center justify-center" dir={course?.language === 'ar' ? 'rtl' : 'ltr'}>
+        <div className="text-brand-white text-xl">{getCourseDetailText('loadingCourse')}</div>
       </div>
     );
   }
 
   if (!course) {
     return (
-      <div className="min-h-screen bg-brand-black flex items-center justify-center">
+      <div className="min-h-screen bg-brand-black flex items-center justify-center" dir={locale === 'ar' ? 'rtl' : 'ltr'}>
         <div className="text-center">
-          <h2 className="text-2xl font-bold text-brand-white mb-4">{t('courseNotFound')}</h2>
+          <h2 className="text-2xl font-bold text-brand-white mb-4">{getCourseDetailText('courseNotFound')}</h2>
           <LocaleLink
             href="/courses"
             className="inline-block bg-brand-accent text-brand-black px-6 py-3 rounded-lg font-bold hover:bg-brand-primary-400"
@@ -752,9 +1007,9 @@ export default function CourseDetailPage({
             <div className="bg-brand-white rounded-2xl p-8 border-2 border-brand-accent shadow-lg">
               <h2 className="text-2xl sm:text-3xl font-bold text-brand-black mb-6">{getCourseDetailTexts().tableOfContents}</h2>
               {loadingLessons && tocLessons.length === 0 ? (
-                <div className="text-brand-darkGrey text-center py-8">{t('loading')}</div>
+                <div className="text-brand-darkGrey text-center py-8">{getCourseDetailText('loading')}</div>
               ) : tocLessons.length === 0 ? (
-                <div className="text-brand-darkGrey text-center py-8">{t('noLessonsAvailable')}</div>
+                <div className="text-brand-darkGrey text-center py-8">{getCourseDetailText('noLessonsAvailable')}</div>
               ) : (
                 <div className="space-y-3">
                   {tocLessons.map((lesson) => (
@@ -768,9 +1023,9 @@ export default function CourseDetailPage({
                       <div className="flex-1 min-w-0">
                         <h3 className="font-bold text-brand-black text-lg truncate mb-1">{lesson.title}</h3>
                         <div className="flex items-center gap-4 text-sm text-brand-darkGrey">
-                          <span>{t('day')} {lesson.dayNumber}</span>
+                          <span>{getCourseDetailText('day')} {lesson.dayNumber}</span>
                           {lesson.estimatedMinutes && (
-                            <span>• {lesson.estimatedMinutes} {t('minutes')}</span>
+                            <span>• {lesson.estimatedMinutes} {getCourseDetailText('minutes')}</span>
                           )}
                         </div>
                       </div>
@@ -807,7 +1062,7 @@ export default function CourseDetailPage({
                   <div className="bg-brand-darkGrey/5 border border-brand-darkGrey/25 rounded-lg p-3">
                     <div className="flex items-center gap-2 text-brand-darkGrey font-bold text-base mb-2">
                       <Star className="w-5 h-5 text-brand-darkGrey" />
-                      {t('premiumCourse')}
+                      {getCourseDetailText('premiumCourse')}
                     </div>
                     {course.price && (
                       <div className="flex items-center gap-2 text-brand-black font-bold text-lg">
@@ -859,13 +1114,13 @@ export default function CourseDetailPage({
                     href={`/auth/signin?callbackUrl=${encodeURIComponent(`/${course.language}/courses/${courseId}`)}`}
                     className="block w-full bg-brand-accent text-brand-black px-5 py-3.5 rounded-lg font-bold text-center hover:bg-brand-primary-400 transition-colors text-base"
                   >
-                    {t('signInToEnroll')}
+                    {getCourseDetailText('signInToEnroll')}
                   </LocaleLink>
                 ) : course.requiresPremium && !isPremium ? (
                   <div className="space-y-3">
                     <div className="bg-brand-accent/20 border border-brand-accent rounded-lg p-3">
                       <div className="text-sm text-brand-darkGrey mb-3">
-                        {t('premiumRequired')}
+                        {getCourseDetailText('premiumRequired')}
                       </div>
                     </div>
                     <button
@@ -876,12 +1131,12 @@ export default function CourseDetailPage({
                       {purchasing ? (
                         <>
                           <span className="animate-spin">⏳</span>
-                          {t('purchasing')}
+                          {getCourseDetailText('purchasing')}
                         </>
                       ) : (
                         <>
                           <CreditCard className="w-5 h-5" />
-                          {t('purchasePremium')}
+                          {getCourseDetailText('purchasePremium')}
                         </>
                       )}
                     </button>
@@ -891,7 +1146,7 @@ export default function CourseDetailPage({
                     <div className="bg-green-500/20 border border-green-500 rounded-lg p-3">
                       <div className="flex items-center gap-2 text-green-700 font-bold mb-2">
                         <Star className="w-5 h-5" />
-                        {t('alreadyPremium')}
+                        {getCourseDetailText('alreadyPremium')}
                       </div>
                     </div>
                     <button
@@ -899,7 +1154,7 @@ export default function CourseDetailPage({
                       disabled={enrolling}
                       className="w-full bg-brand-accent text-brand-black px-5 py-3.5 rounded-lg font-bold hover:bg-brand-primary-400 transition-colors disabled:opacity-50 disabled:cursor-not-allowed text-base"
                     >
-                      {enrolling ? t('enrolling') : t('enrollNow')}
+                      {enrolling ? getCourseDetailText('enrolling') : getCourseDetailText('enrollNow')}
                     </button>
                   </div>
                 ) : (
@@ -908,7 +1163,7 @@ export default function CourseDetailPage({
                     disabled={enrolling}
                     className="w-full bg-brand-accent text-brand-black px-5 py-3.5 rounded-lg font-bold hover:bg-brand-primary-400 transition-colors disabled:opacity-50 disabled:cursor-not-allowed text-base"
                   >
-                    {enrolling ? t('enrolling') : t('enrollNow')}
+                    {enrolling ? getCourseDetailText('enrolling') : getCourseDetailText('enrollNow')}
                   </button>
                 )}
               </div>
@@ -947,7 +1202,7 @@ export default function CourseDetailPage({
                     href={`/auth/signin?callbackUrl=${encodeURIComponent(`/${course.language}/courses/${courseId}`)}`}
                     className="w-full bg-brand-accent text-brand-black px-4 py-2.5 rounded-lg font-bold text-center hover:bg-brand-primary-400 transition-colors text-sm"
                   >
-                    {t('signInToEnroll')}
+                    {getCourseDetailText('signInToEnroll')}
                   </LocaleLink>
                 ) : course.requiresPremium && !isPremium ? (
                   <button
@@ -955,7 +1210,7 @@ export default function CourseDetailPage({
                     disabled={purchasing}
                     className="w-full bg-brand-accent text-brand-black px-4 py-2.5 rounded-lg font-bold hover:bg-brand-primary-400 transition-colors disabled:opacity-50 disabled:cursor-not-allowed text-sm"
                   >
-                    {purchasing ? t('purchasing') : t('purchasePremium')}
+                    {purchasing ? getCourseDetailText('purchasing') : getCourseDetailText('purchasePremium')}
                   </button>
                 ) : (
                   <button
@@ -963,7 +1218,7 @@ export default function CourseDetailPage({
                     disabled={enrolling}
                     className="w-full bg-brand-accent text-brand-black px-4 py-2.5 rounded-lg font-bold hover:bg-brand-primary-400 transition-colors disabled:opacity-50 disabled:cursor-not-allowed text-sm"
                   >
-                    {enrolling ? t('enrolling') : t('enrollNow')}
+                    {enrolling ? getCourseDetailText('enrolling') : getCourseDetailText('enrollNow')}
                   </button>
                 )}
               </div>
