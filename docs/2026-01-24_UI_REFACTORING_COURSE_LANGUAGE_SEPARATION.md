@@ -9,6 +9,25 @@
 
 ---
 
+## ARCHITECTURAL PRINCIPLES - STRONG, SIMPLE, ROCK-SOLID
+
+### Core Philosophy
+1. **TRUST THE ARCHITECTURE**: Card links enforce URL locale = course language pairing
+2. **NO UNNECESSARY REDIRECTS**: Redirect logic only when absolutely required by design
+3. **SIMPLIFY TRANSLATIONS**: Use URL locale directly - never "translate" between locales
+4. **REMOVE COMPLEXITY**: Every redirect, every conditional, every mapping must be justified
+
+### Why This Matters
+```
+Card Link:     /hu/courses/PRODUCTIVITY_2026_HU
+                ↓
+User sees:     URL locale = hu, course language = HU
+                ↓
+Assumption:    If card sends user here, locale WILL match language
+                ↓
+Result:        No redirect needed. Trust the link.
+```
+
 ## CRITICAL REQUIREMENT
 
 **When a user is on a course page:**
@@ -30,6 +49,8 @@ MUST NOT SEE:
 ❌ Arabic text
 ❌ Any language other than Hungarian
 ❌ Fallback language text
+
+PRINCIPLE: Trust that URL locale = course language (enforced by card link)
 ```
 
 ---
