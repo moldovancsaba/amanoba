@@ -1,7 +1,7 @@
 # Amanoba Task List
 
-**Version**: 2.8.2  
-**Last Updated**: 2026-01-24T12:00:00.000Z
+**Version**: 2.9.0  
+**Last Updated**: 2026-01-24T20:00:00.000Z
 
 ---
 
