@@ -68,24 +68,9 @@ export default function CoursesPage() {
       const params = new URLSearchParams();
       params.append('status', 'active');
       
-      // CRITICAL FIX: Filter courses by current locale/language
-      // Map URL locale to course language code
-      const localeToLanguageMap: Record<string, string> = {
-        'hu': 'hu',
-        'en': 'en',
-        'tr': 'tr',
-        'bg': 'bg',
-        'pl': 'pl',
-        'vi': 'vi',
-        'id': 'id',
-        'ar': 'ar',
-        'pt': 'pt',
-        'hi': 'hi',
-        'ru': 'ru',
-      };
-      
-      const courseLanguage = localeToLanguageMap[locale] || 'en';
-      params.append('language', courseLanguage);
+      // SHOW ALL COURSES: No language filter
+      // Each course card displays in its native language via courseCardTranslations
+      // User can see courses in all languages and choose to enroll
       
       if (search) {
         params.append('search', search);
