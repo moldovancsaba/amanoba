@@ -71,9 +71,9 @@ From Architecture Fix:
 | Component | Current | Target | Status |
 |-----------|---------|--------|--------|
 | **Course Cards** | Show URL locale language | Show course native language | ✅ FIXED |
-| **Course Detail Page** | Already correct | Verify 100% language | 🟡 VERIFY |
-| **Course Content Pages** | Mixed language possible | 100% course language enforced | 🔴 TODO |
-| **Admin Course Management** | Not language-aware | Language-specific management | 🔴 TODO |
+| **Course Detail Page** | Already correct | Verify 100% language | ✅ SIMPLIFIED |
+| **Course Content Pages** | Mixed language possible | 100% course language enforced | ✅ SIMPLIFIED |
+| **Admin Course Management** | Not language-aware | Language-specific management | 🔄 NEXT |
 | **Discovery Header/UI** | Generic text | Language-aware UI | 🟡 PARTIAL |
 
 ---
