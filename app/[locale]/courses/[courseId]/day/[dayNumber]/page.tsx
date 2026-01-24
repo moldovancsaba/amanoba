@@ -11,7 +11,6 @@ import { useState, useEffect } from 'react';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import { LocaleLink } from '@/components/LocaleLink';
-import { useCourseTranslations } from '@/app/lib/hooks/useCourseTranslations';
 import {
   ArrowLeft,
   ArrowRight,
@@ -22,7 +21,7 @@ import {
   Calendar,
 } from 'lucide-react';
 import { useSearchParams } from 'next/navigation';
-import { useLocale } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import Logo from '@/components/Logo';
 
 interface Lesson {
@@ -65,12 +64,11 @@ export default function DailyLessonPage({
   const [courseId, setCourseId] = useState<string>('');
   const [dayNumber, setDayNumber] = useState<number>(0);
   const [quizPassed, setQuizPassed] = useState(false);
-  const [courseLanguage, setCourseLanguage] = useState<string | undefined>(undefined);
   const searchParams = useSearchParams();
   const locale = useLocale();
   
-  // Use course language for translations instead of URL locale
-  const { t, tCommon, courseLocale, loading: translationsLoading } = useCourseTranslations(courseLanguage, locale);
+  // Use URL locale for translations (guaranteed = course language by design)
+  const { t, tCommon, loading: translationsLoading } = useTranslations();
 
   useEffect(() => {
     const loadData = async () => {
@@ -95,14 +93,8 @@ export default function DailyLessonPage({
 
       if (data.success) {
         // Store course language for UI translations (no redirect needed)
-        if (data.courseLanguage) {
-          setCourseLanguage(data.courseLanguage);
-          const normalized = data.courseLanguage.toLowerCase().split(/[-_]/)[0];
-          if (normalized && normalized !== locale) {
-            router.replace(`/${normalized}/courses/${cid}/day/${day}`);
-            return;
-          }
-        }
+        // Trust architecture: Card links guarantee URL locale = course language
+        // No redirect or courseLanguage extraction needed
 
         setLesson(data.lesson);
         setNavigation(data.navigation);
@@ -209,7 +201,7 @@ export default function DailyLessonPage({
   }
 
   return (
-    <div className="min-h-screen bg-brand-black" dir={courseLocale === 'ar' ? 'rtl' : 'ltr'}>
+    <div className="min-h-screen bg-brand-black" dir={locale === 'ar' ? 'rtl' : 'ltr'}>
       {/* Header */}
       <header className="bg-brand-darkGrey border-b-2 border-brand-accent">
         <div className="max-w-5xl mx-auto px-6 sm:px-8 lg:px-10 py-6">
