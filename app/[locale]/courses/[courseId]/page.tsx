@@ -100,7 +100,7 @@ export default function CourseDetailPage({
   const [loadingLessons, setLoadingLessons] = useState(false);
   
   // Use URL locale for translations (guaranteed = course language by design)
-  const t = useTranslations();
+  const t = useTranslations('courses');
 
   // Static course detail page translations (like courseCardTranslations)
   // Ensures all course detail UI is in the course's native language, not URL locale
