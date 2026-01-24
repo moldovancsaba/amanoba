@@ -9,7 +9,7 @@
 
 import { useState, useEffect } from 'react';
 import { useSession } from 'next-auth/react';
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 import { LocaleLink } from '@/components/LocaleLink';
 import {
   BookOpen,
@@ -53,6 +53,7 @@ export default function CoursesPage() {
   const t = useTranslations('courses');
   const tCommon = useTranslations('common');
   const tAuth = useTranslations('auth');
+  const locale = useLocale();
   const [courses, setCourses] = useState<Course[]>([]);
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState('');
@@ -66,6 +67,26 @@ export default function CoursesPage() {
       setLoading(true);
       const params = new URLSearchParams();
       params.append('status', 'active');
+      
+      // CRITICAL FIX: Filter courses by current locale/language
+      // Map URL locale to course language code
+      const localeToLanguageMap: Record<string, string> = {
+        'hu': 'hu',
+        'en': 'en',
+        'tr': 'tr',
+        'bg': 'bg',
+        'pl': 'pl',
+        'vi': 'vi',
+        'id': 'id',
+        'ar': 'ar',
+        'pt': 'pt',
+        'hi': 'hi',
+        'ru': 'ru',
+      };
+      
+      const courseLanguage = localeToLanguageMap[locale] || 'en';
+      params.append('language', courseLanguage);
+      
       if (search) {
         params.append('search', search);
       }
