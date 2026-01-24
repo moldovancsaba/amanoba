@@ -64,96 +64,77 @@ Instead of splitting courses in database, we need to verify/fix:
 - 443 total lessons, 2,136 quizzes
 - **ACTION**: Database structure is CORRECT. Issue is in CODE/UI, not database!
 
-**Step 1.2: Review Current Code** ⏳ PENDING  
-- [ ] Review: `app/lib/models/course.ts`
-- [ ] Review: `app/[locale]/courses/page.tsx`
-- [ ] Review: `app/[locale]/courses/[courseId]/page.tsx`
-- **Status**: NOT STARTED
+**Step 1.2: Review Current Code** ✅ COMPLETE
+- [x] Reviewed: `app/lib/models/course.ts`
+- [x] Reviewed: `app/[locale]/courses/page.tsx`
+- [x] Reviewed: `app/[locale]/courses/[courseId]/page.tsx`
+- [x] Reviewed: `app/api/courses/route.ts`
+- **Status**: ✅ COMPLETE
 
-**Step 1.3: Document Gap Analysis** ⏳ PENDING
-- [ ] Create: `docs/ARCHITECTURE_GAP_ANALYSIS.md`
-- [ ] Document: Current vs. Required structure
-- [ ] Document: Impact & complexity
-- **Status**: NOT STARTED
+**CODE REVIEW FINDINGS:**
+- ✅ Database model: Perfect language support
+- ✅ API: Has language filtering capability
+- ✅ Course detail page: 100% enforces language
+- ⚠️ Discovery page: Missing language filter
+- **Issue**: Discovery shows ALL courses in ALL languages (should filter by current locale)
+- **Complexity**: LOW - Simple fix needed
+- **Time to Fix**: 1-2 hours
 
-### PHASE 2: Code Changes (Week 2-3)
-**Duration**: 21 hours  
-**Deliverable**: Code ready for new architecture  
+**Step 1.3: Document Gap Analysis** ✅ COMPLETE
+- [x] Created: `docs/ARCHITECTURE_GAP_ANALYSIS.md`
+- [x] Document: Findings from code review
+- [x] Document: Required fixes
+- **Status**: ✅ COMPLETE
 
-**Step 2.1: Update Course Model** ⏳ PENDING
-- [ ] Add `courseLanguage` field
-- [ ] Add `baseCourseTopic` field
-- [ ] Add unique constraint: (baseCourseTopic, courseLanguage)
-- **Status**: NOT STARTED
+**DISCOVERY PAGE ISSUE IDENTIFIED:**
+- Discovery page shows ALL courses in ALL languages
+- Should filter by user's current locale
+- User in `/hu/courses` sees Hungarian, English, Russian, Arabic, etc.
+- Fix: Add language parameter to API call in discovery page
+- Complexity: LOW - 1 file change
+- Time: 15-30 minutes
 
-**Step 2.2: Update Course Discovery** ⏳ PENDING
-- [ ] Multi-language filtering
-- [ ] Language-aware course cards
-- [ ] Filter by user-selected languages
-- **Status**: NOT STARTED
+### PHASE 2: Code Verification & Fixes (Week 2) 🔄 IN PROGRESS
+**Duration**: 8 hours (ESTIMATED - was Phase 2 code changes, ADJUSTED scope)
+**Deliverable**: Discovery page language filtering implemented  
 
-**Step 2.3: Update Course Page** ⏳ PENDING
-- [ ] 100% course language isolation
-- [ ] No English fallbacks
-- [ ] Strict language enforcement
-- **Status**: NOT STARTED
+**Step 2.1: Add Language Filter to Discovery Page** 🔄 NEXT
+- [ ] Add locale-to-language mapping
+- [ ] Pass language parameter to API
+- [ ] Test with multiple locales
+- **Complexity**: LOW
+- **Time**: 30-45 minutes
 
-**Step 2.4: Update Admin Management** ⏳ PENDING
-- [ ] Manage courses per language
-- [ ] Admin can't mix languages
-- **Status**: NOT STARTED
+**Step 2.2: Update UI Labels (OPTIONAL)** ⏳ PENDING
+- [ ] Show language in discovery page header (optional)
+- [ ] Add helper text about language selection (optional)
+- **Complexity**: LOW
+- **Time**: 15-20 minutes
 
-### PHASE 3: Database Migration (Week 3-4)
-**Duration**: 10 hours  
-**Deliverable**: Database restructured  
-
-**Step 3.1: Create Migration Script** ⏳ PENDING
-- [ ] Script: `scripts/migrate-courses-to-language-separation.ts`
-- [ ] Splits mixed courses into language-specific courses
-- **Status**: NOT STARTED
-
-**Step 3.2: Test Migration** ⏳ PENDING
-- [ ] Test on staging database
-- [ ] Verify language isolation
-- [ ] Check referential integrity
-- **Status**: NOT STARTED
-
-**Step 3.3: Deploy Migration** ⏳ PENDING
-- [ ] Backup production
-- [ ] Run migration
-- [ ] Verify result
-- **Status**: NOT STARTED
-
-### PHASE 4: Testing (Week 4)
-**Duration**: 12 hours  
+### PHASE 3: Testing (Week 2-3) ⏳ PENDING
+**Duration**: 4 hours  
 **Deliverable**: Verified working system  
 
-**Step 4.1: Functional Testing** ⏳ PENDING
-- [ ] Discovery filtering works
-- [ ] Course pages in correct language
+**Step 3.1: Functional Testing** ⏳ PENDING
+- [ ] `/hu/courses` shows only Hungarian
+- [ ] `/en/courses` shows only English  
+- [ ] `/ar/courses` shows only Arabic
+- [ ] Search works within language
+- [ ] Course cards in correct language
+- **Status**: NOT STARTED
+
+**Step 3.2: Language Isolation Testing** ⏳ PENDING
+- [ ] No English on Hungarian page
+- [ ] No Hungarian on English page
 - [ ] No mixed languages
+- [ ] Correct flags showing
 - **Status**: NOT STARTED
 
-**Step 4.2: QA Testing** ⏳ PENDING
-- [ ] Visual inspection
-- [ ] Content verification
-- [ ] Performance check
-- **Status**: NOT STARTED
-
-**Step 4.3: Verification** ⏳ PENDING
-- [ ] Deploy to production (if not done)
-- [ ] Monitor system
-- [ ] Verify stability
-- **Status**: NOT STARTED
-
-### PHASE 5: Documentation (Week 4)
-**Duration**: 5 hours  
-**Deliverable**: Updated documentation  
-
-**Step 5.1: Update Docs** ⏳ PENDING
-- [ ] Update architecture documentation
-- [ ] Update admin guide
-- [ ] Create migration documentation
+**Step 3.3: QA & Edge Cases** ⏳ PENDING
+- [ ] RTL for Arabic
+- [ ] Mobile responsive
+- [ ] Navigation works
+- [ ] Performance acceptable
 - **Status**: NOT STARTED
 
 ---
@@ -231,5 +212,32 @@ Rollback testing doesn't affect code. If issues found, document and return to Ph
 
 ---
 
-**Last Updated**: 2026-01-24 (Audit complete, Database verified CORRECT, code review next)
+## CURRENT STATUS UPDATE
+
+**Overall Progress**: 35% (Phase 1 complete, Phase 2 starting)
+
+**What's Done**: 
+- ✅ Phase 1, Step 1.1: Database audited & verified CORRECT
+- ✅ Phase 1, Step 1.2: Code reviewed, found issue
+- ✅ Phase 1, Step 1.3: Gap analysis documented
+
+**What's Next**:
+- 🔄 Phase 2, Step 2.1: Fix discovery page language filtering (IMMEDIATE NEXT)
+- 🔄 Phase 3: Test all locales thoroughly
+
+**Critical Discovery**: 
+- Database: ✅ PERFECT
+- Course model: ✅ PERFECT  
+- API: ✅ PERFECT
+- Course detail page: ✅ PERFECT
+- Discovery page: ❌ NEEDS FIX (missing language filter)
+
+**Estimated New Timeline**: 2-4 days (was 2 weeks!)
+- Discovery fix: 1 hour
+- Testing: 2-3 hours  
+- Deployment: 1 hour
+
+---
+
+**Last Updated**: 2026-01-24 (Phase 1 COMPLETE, Scope Dramatically Reduced to 1 Issue)
 
