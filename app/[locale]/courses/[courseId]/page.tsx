@@ -102,6 +102,237 @@ export default function CourseDetailPage({
   // Use URL locale for translations (guaranteed = course language by design)
   const t = useTranslations();
 
+  // Static course detail page translations (like courseCardTranslations)
+  // Ensures all course detail UI is in the course's native language, not URL locale
+  const courseDetailTranslations: Record<string, Record<string, string>> = {
+    hu: {
+      aboutThisCourse: 'A kurzusról',
+      whatYoullLearn: 'Mit fogsz tanulni',
+      dailyLessons: 'Napi leckék',
+      structuredLearning: '30 napos strukturált tanulás',
+      pointsEarned: 'Pont szerzése befejezéskor',
+      emailDelivery: 'E-mail kézbesítés',
+      dailyLessonsSent: 'Napi leckék az e-mailbe küldve',
+      interactiveAssessments: 'Interaktív értékelések',
+      testKnowledge: 'Tudásod tesztelése játékokkal',
+      tableOfContents: 'Tartalomjegyzék',
+      dayOf: 'Nap {{currentDay}} / {{totalDays}}',
+      daysCompleted: '{{count}} nap befejezve',
+      continuelLearning: 'Tanulás folytatása',
+      duration: 'Időtartam',
+      pointsReward: 'Pont jutalma',
+      days: 'nap',
+      points: 'pont',
+    },
+    en: {
+      aboutThisCourse: 'About This Course',
+      whatYoullLearn: "What You'll Learn",
+      dailyLessons: 'Daily Lessons',
+      structuredLearning: 'Structured learning over 30 days',
+      pointsEarned: 'Points earned for completion',
+      emailDelivery: 'Email Delivery',
+      dailyLessonsSent: 'Daily lessons sent to your email',
+      interactiveAssessments: 'Interactive Assessments',
+      testKnowledge: 'Test your knowledge with games',
+      tableOfContents: 'Table of Contents',
+      dayOf: 'Day {{currentDay}} of {{totalDays}}',
+      daysCompleted: '{{count}} days completed',
+      continuelLearning: 'Continue Learning',
+      duration: 'Duration',
+      pointsReward: 'Points Reward',
+      days: 'days',
+      points: 'points',
+    },
+    tr: {
+      aboutThisCourse: 'Bu Kurs Hakkında',
+      whatYoullLearn: 'Öğreneceklerin',
+      dailyLessons: 'Günlük Dersler',
+      structuredLearning: '30 günü kapsayan yapılandırılmış öğrenme',
+      pointsEarned: 'Tamamlama için kazanılan puan',
+      emailDelivery: 'E-posta Teslimi',
+      dailyLessonsSent: 'Günlük dersler e-postanıza gönderildi',
+      interactiveAssessments: 'İnteraktif Değerlendirmeler',
+      testKnowledge: 'Oyunlarla bilginizi test edin',
+      tableOfContents: 'İçindekiler',
+      dayOf: '{{currentDay}}. Gün / {{totalDays}}. Gün',
+      daysCompleted: '{{count}} gün tamamlandı',
+      continuelLearning: 'Derslere Devam Et',
+      duration: 'Süre',
+      pointsReward: 'Puan Ödülü',
+      days: 'gün',
+      points: 'puan',
+    },
+    bg: {
+      aboutThisCourse: 'За този курс',
+      whatYoullLearn: 'Какво ще научиш',
+      dailyLessons: 'Ежедневни уроци',
+      structuredLearning: 'Структурирано обучение в продължение на 30 дни',
+      pointsEarned: 'Точки, спечелени при завършване',
+      emailDelivery: 'Доставка чрез имейл',
+      dailyLessonsSent: 'Ежедневни уроци, изпращани до твоята електронна поща',
+      interactiveAssessments: 'Интерактивни оценки',
+      testKnowledge: 'Тествай своите знания с игри',
+      tableOfContents: 'Съдържание',
+      dayOf: 'Ден {{currentDay}} от {{totalDays}}',
+      daysCompleted: '{{count}} дни завършени',
+      continuelLearning: 'Продължи обучението',
+      duration: 'Продължителност',
+      pointsReward: 'Награда в точки',
+      days: 'дни',
+      points: 'точки',
+    },
+    pl: {
+      aboutThisCourse: 'O tym kursie',
+      whatYoullLearn: 'Czego się nauczysz',
+      dailyLessons: 'Lekcje codzienne',
+      structuredLearning: 'Uczenie strukturalne w ciągu 30 dni',
+      pointsEarned: 'Punkty uzyskane za ukończenie',
+      emailDelivery: 'Dostarczanie pocztą e-mail',
+      dailyLessonsSent: 'Codzienne lekcje wysyłane na Twoją skrzynkę e-mail',
+      interactiveAssessments: 'Interaktywne oceny',
+      testKnowledge: 'Przetestuj swoją wiedzę za pomocą gier',
+      tableOfContents: 'Spis treści',
+      dayOf: 'Dzień {{currentDay}} z {{totalDays}}',
+      daysCompleted: 'Ukończono {{count}} dni',
+      continuelLearning: 'Kontynuuj naukę',
+      duration: 'Czas trwania',
+      pointsReward: 'Nagroda punktów',
+      days: 'dni',
+      points: 'punkty',
+    },
+    vi: {
+      aboutThisCourse: 'Về khóa học này',
+      whatYoullLearn: 'Những gì bạn sẽ học',
+      dailyLessons: 'Bài học hàng ngày',
+      structuredLearning: 'Học tập có cấu trúc trong vòng 30 ngày',
+      pointsEarned: 'Điểm kiếm được khi hoàn thành',
+      emailDelivery: 'Giao hàng qua e-mail',
+      dailyLessonsSent: 'Các bài học hàng ngày được gửi đến email của bạn',
+      interactiveAssessments: 'Đánh giá tương tác',
+      testKnowledge: 'Kiểm tra kiến thức của bạn bằng trò chơi',
+      tableOfContents: 'Mục lục',
+      dayOf: 'Ngày {{currentDay}} của {{totalDays}}',
+      daysCompleted: '{{count}} ngày hoàn thành',
+      continuelLearning: 'Tiếp tục học tập',
+      duration: 'Thời lượng',
+      pointsReward: 'Phần thưởng điểm',
+      days: 'ngày',
+      points: 'điểm',
+    },
+    id: {
+      aboutThisCourse: 'Tentang Kursus Ini',
+      whatYoullLearn: 'Apa yang Akan Anda Pelajari',
+      dailyLessons: 'Pelajaran Harian',
+      structuredLearning: 'Pembelajaran terstruktur selama 30 hari',
+      pointsEarned: 'Poin yang diperoleh saat penyelesaian',
+      emailDelivery: 'Pengiriman Email',
+      dailyLessonsSent: 'Pelajaran harian dikirim ke email Anda',
+      interactiveAssessments: 'Penilaian Interaktif',
+      testKnowledge: 'Uji pengetahuan Anda dengan permainan',
+      tableOfContents: 'Daftar Isi',
+      dayOf: 'Hari {{currentDay}} dari {{totalDays}}',
+      daysCompleted: '{{count}} hari selesai',
+      continuelLearning: 'Lanjutkan Pembelajaran',
+      duration: 'Durasi',
+      pointsReward: 'Hadiah Poin',
+      days: 'hari',
+      points: 'poin',
+    },
+    ar: {
+      aboutThisCourse: 'عن هذه الدورة',
+      whatYoullLearn: 'ما ستتعلمه',
+      dailyLessons: 'دروس يومية',
+      structuredLearning: 'تعلم منظم لمدة 30 يوماً',
+      pointsEarned: 'النقاط المكتسبة عند الانتهاء',
+      emailDelivery: 'التسليم عبر البريد الإلكتروني',
+      dailyLessonsSent: 'تُرسل الدروس اليومية إلى بريدك الإلكتروني',
+      interactiveAssessments: 'التقييمات التفاعلية',
+      testKnowledge: 'اختبر معرفتك من خلال الألعاب',
+      tableOfContents: 'جدول المحتويات',
+      dayOf: 'اليوم {{currentDay}} من {{totalDays}}',
+      daysCompleted: 'تم الانتهاء من {{count}} يوم',
+      continuelLearning: 'متابعة التعلم',
+      duration: 'المدة الزمنية',
+      pointsReward: 'مكافأة النقاط',
+      days: 'أيام',
+      points: 'نقاط',
+    },
+    pt: {
+      aboutThisCourse: 'Sobre Este Curso',
+      whatYoullLearn: 'O Que Você Aprenderá',
+      dailyLessons: 'Aulas Diárias',
+      structuredLearning: 'Aprendizado estruturado ao longo de 30 dias',
+      pointsEarned: 'Pontos obtidos na conclusão',
+      emailDelivery: 'Entrega por E-mail',
+      dailyLessonsSent: 'Aulas diárias enviadas para seu e-mail',
+      interactiveAssessments: 'Avaliações Interativas',
+      testKnowledge: 'Teste seu conhecimento com jogos',
+      tableOfContents: 'Índice',
+      dayOf: 'Dia {{currentDay}} de {{totalDays}}',
+      daysCompleted: '{{count}} dias concluídos',
+      continuelLearning: 'Continuar Aprendizado',
+      duration: 'Duração',
+      pointsReward: 'Recompensa de Pontos',
+      days: 'dias',
+      points: 'pontos',
+    },
+    hi: {
+      aboutThisCourse: 'इस कोर्स के बारे में',
+      whatYoullLearn: 'आप क्या सीखेंगे',
+      dailyLessons: 'दैनिक पाठ',
+      structuredLearning: '30 दिनों में संरचित सीखना',
+      pointsEarned: 'पूरा करने पर अर्जित अंक',
+      emailDelivery: 'ईमेल डिलीवरी',
+      dailyLessonsSent: 'दैनिक पाठ आपके ईमेल पर भेजे गए',
+      interactiveAssessments: 'इंटरैक्टिव मूल्यांकन',
+      testKnowledge: 'गेम के साथ अपने ज्ञान का परीक्षण करें',
+      tableOfContents: 'विषय सूची',
+      dayOf: 'दिन {{currentDay}} / {{totalDays}}',
+      daysCompleted: '{{count}} दिन पूरे हुए',
+      continuelLearning: 'सीखना जारी रखें',
+      duration: 'अवधि',
+      pointsReward: 'अंक पुरस्कार',
+      days: 'दिन',
+      points: 'अंक',
+    },
+    ru: {
+      aboutThisCourse: 'Об этом курсе',
+      whatYoullLearn: 'Что вы научитесь',
+      dailyLessons: 'Ежедневные уроки',
+      structuredLearning: 'Структурированное обучение в течение 30 дней',
+      pointsEarned: 'Баллы получены при завершении',
+      emailDelivery: 'Доставка по электронной почте',
+      dailyLessonsSent: 'Ежедневные уроки отправляются на вашу электронную почту',
+      interactiveAssessments: 'Интерактивные оценки',
+      testKnowledge: 'Проверьте свои знания с помощью игр',
+      tableOfContents: 'Оглавление',
+      dayOf: 'День {{currentDay}} из {{totalDays}}',
+      daysCompleted: '{{count}} дней завершено',
+      continuelLearning: 'Продолжить обучение',
+      duration: 'Продолжительность',
+      pointsReward: 'Награда баллами',
+      days: 'дни',
+      points: 'баллы',
+    },
+  };
+
+  // Helper function to get course detail translations based on course language
+  const getCourseDetailTexts = () => {
+    if (!course) return courseDetailTranslations.en;
+    return courseDetailTranslations[course.language as keyof typeof courseDetailTranslations] || courseDetailTranslations.en;
+  };
+
+  // Helper function to substitute parameters in course detail translations
+  const getCourseDetailText = (key: keyof typeof courseDetailTranslations.en, params?: Record<string, string | number>): string => {
+    let text = getCourseDetailTexts()[key] || '';
+    if (params) {
+      Object.entries(params).forEach(([paramKey, paramValue]) => {
+        text = text.replace(`{{${paramKey}}}`, String(paramValue));
+      });
+    }
+    return text;
+  };
+
   const tocLessons = useMemo(
     () => [...lessons].sort((a, b) => a.dayNumber - b.dayNumber),
     [lessons]
@@ -446,12 +677,12 @@ export default function CourseDetailPage({
             )}
 
             <div className="bg-brand-white rounded-2xl p-8 border-2 border-brand-accent shadow-lg">
-              <h2 className="text-2xl sm:text-3xl font-bold text-brand-black mb-4">{t('aboutThisCourse')}</h2>
+              <h2 className="text-2xl sm:text-3xl font-bold text-brand-black mb-4">{getCourseDetailTexts().aboutThisCourse}</h2>
               <p className="text-brand-darkGrey leading-relaxed text-base sm:text-xl">{course.description}</p>
             </div>
 
             <div className="bg-brand-white rounded-2xl p-8 border-2 border-brand-accent shadow-lg">
-              <h2 className="text-2xl sm:text-3xl font-bold text-brand-black mb-5">{t('whatYoullLearn')}</h2>
+              <h2 className="text-2xl sm:text-3xl font-bold text-brand-black mb-5">{getCourseDetailTexts().whatYoullLearn}</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
                 <div className="flex items-start gap-3">
                   <CheckCircle className="w-6 h-6 text-brand-accent flex-shrink-0 mt-1" />
@@ -463,8 +694,8 @@ export default function CourseDetailPage({
                 <div className="flex items-start gap-3">
                   <Award className="w-6 h-6 text-brand-accent flex-shrink-0 mt-1" />
                   <div>
-                    <h3 className="font-bold text-brand-black text-lg">{course.pointsConfig.completionPoints} {t('points')}</h3>
-                    <p className="text-base text-brand-darkGrey">{t('pointsEarned')}</p>
+                    <h3 className="font-bold text-brand-black text-lg">{course.pointsConfig.completionPoints} {getCourseDetailTexts().points}</h3>
+                    <p className="text-base text-brand-darkGrey">{getCourseDetailTexts().pointsEarned}</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
@@ -486,7 +717,7 @@ export default function CourseDetailPage({
 
             {/* Table of Contents */}
             <div className="bg-brand-white rounded-2xl p-8 border-2 border-brand-accent shadow-lg">
-              <h2 className="text-2xl sm:text-3xl font-bold text-brand-black mb-6">{t('tableOfContents')}</h2>
+              <h2 className="text-2xl sm:text-3xl font-bold text-brand-black mb-6">{getCourseDetailTexts().tableOfContents}</h2>
               {loadingLessons && tocLessons.length === 0 ? (
                 <div className="text-brand-darkGrey text-center py-8">{t('loading')}</div>
               ) : tocLessons.length === 0 ? (
@@ -524,18 +755,18 @@ export default function CourseDetailPage({
                 <div>
                   <div className="flex items-center gap-2 text-brand-darkGrey text-sm mb-1">
                     <Calendar className="w-4 h-4" />
-                    {t('duration')}
+                    {getCourseDetailTexts().duration}
                   </div>
-                  <div className="text-2xl font-bold text-brand-black">{course.durationDays} {t('days')}</div>
+                  <div className="text-2xl font-bold text-brand-black">{course.durationDays} {getCourseDetailTexts().days}</div>
                 </div>
 
                 <div>
                   <div className="flex items-center gap-2 text-brand-darkGrey text-sm mb-1">
                     <Award className="w-4 h-4" />
-                    {t('pointsReward')}
+                    {getCourseDetailTexts().pointsReward}
                   </div>
                   <div className="text-2xl font-bold text-brand-black">
-                    {course.pointsConfig.completionPoints} {t('points')}
+                    {course.pointsConfig.completionPoints} {getCourseDetailTexts().points}
                   </div>
                 </div>
 
@@ -564,16 +795,14 @@ export default function CourseDetailPage({
                   {enrollment.progress && (
                     <div className="text-sm text-brand-darkGrey">
                       <div>
-                        {t('dayOf', {
+                        {getCourseDetailText('dayOf', {
                           currentDay: enrollment.progress.currentDay,
                           totalDays: course.durationDays,
-                          defaultValue: `Day ${enrollment.progress.currentDay} of ${course.durationDays}`,
                         })}
                       </div>
                       <div className="mt-1 text-xs">
-                        {t('daysCompleted', {
+                        {getCourseDetailText('daysCompleted', {
                           count: enrollment.progress.completedDays,
-                          defaultValue: `${enrollment.progress.completedDays} days completed`,
                         })}
                       </div>
                           <div className="mt-2 bg-brand-darkGrey/20 rounded-full h-2 overflow-hidden">
@@ -667,7 +896,7 @@ export default function CourseDetailPage({
                 <div className="font-bold text-base line-clamp-1">{course.name}</div>
                 {enrollment?.progress && (
                   <div className="text-xs opacity-80">
-                    {t('dayOf', { currentDay: enrollment.progress.currentDay, totalDays: course.durationDays })} • {t('daysCompleted', { count: enrollment.progress.completedDays })}
+                    {getCourseDetailText('dayOf', { currentDay: enrollment.progress.currentDay, totalDays: course.durationDays })} • {getCourseDetailText('daysCompleted', { count: enrollment.progress.completedDays })}
                   </div>
                 )}
               </div>
