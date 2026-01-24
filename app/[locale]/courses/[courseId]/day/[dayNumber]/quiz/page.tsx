@@ -6,12 +6,11 @@
 
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { useLocale } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import { CheckCircle, XCircle, ArrowLeft, Loader2 } from 'lucide-react';
 import { LocaleLink } from '@/components/LocaleLink';
 import Logo from '@/components/Logo';
 import { useSession } from 'next-auth/react';
-import { useCourseTranslations } from '@/app/lib/hooks/useCourseTranslations';
 
 interface LessonResponse {
   success: boolean;
@@ -51,10 +50,9 @@ export default function LessonQuizPage({
   const [feedback, setFeedback] = useState<string | null>(null);
   const [isAnswerCorrect, setIsAnswerCorrect] = useState<boolean | null>(null);
   const [error, setError] = useState<string | null>(null);
-  const [courseLanguage, setCourseLanguage] = useState<string | undefined>(undefined);
   
-  // Use course language for translations instead of URL locale
-  const { t, courseLocale, loading: translationsLoading } = useCourseTranslations(courseLanguage, locale);
+  // Use URL locale for translations (guaranteed = course language by design)
+  const t = useTranslations();
 
   useEffect(() => {
     const init = async () => {
@@ -74,22 +72,15 @@ export default function LessonQuizPage({
       setLoading(true);
       setError(null);
       const lessonRes = await fetch(`/api/courses/${cid}/day/${day}`, { cache: 'no-store' });
-      const lessonData: LessonResponse & { courseLanguage?: string } = await lessonRes.json();
+      const lessonData: LessonResponse = await lessonRes.json();
       if (!lessonData.success || !lessonData.lesson) {
         setError(lessonData.error || t('failedToLoadLesson'));
         return;
       }
 
-      // Store course language for UI translations (no redirect needed)
-      if (lessonData.courseLanguage) {
-        setCourseLanguage(lessonData.courseLanguage);
-        const normalized = lessonData.courseLanguage.toLowerCase().split(/[-_]/)[0];
-        if (normalized && normalized !== locale) {
-          router.replace(`/${normalized}/courses/${cid}/day/${day}/quiz`);
-          return;
-        }
-      }
-
+      // Trust architecture: Card links guarantee URL locale = course language
+      // No redirect or courseLanguage extraction needed
+      
       setLessonId(lessonData.lesson.lessonId);
       setLessonTitle(lessonData.lesson.title);
 
@@ -167,7 +158,7 @@ export default function LessonQuizPage({
             localStorage.setItem(key, 'true');
           }
           setTimeout(() => {
-            router.replace(`/${courseLocale}/courses/${courseId}/day/${dayNumber}?quiz=passed`);
+            router.replace(`/${locale}/courses/${courseId}/day/${dayNumber}?quiz=passed`);
           }, 900);
         } else {
           setTimeout(() => {
@@ -192,7 +183,7 @@ export default function LessonQuizPage({
           localStorage.removeItem(key);
         }
         setTimeout(() => {
-          router.replace(`/${courseLocale}/courses/${courseId}/day/${dayNumber}?quizRetry=1`);
+          router.replace(`/${locale}/courses/${courseId}/day/${dayNumber}?quizRetry=1`);
         }, 1200);
       }
     } catch (err) {
@@ -205,7 +196,7 @@ export default function LessonQuizPage({
 
   if (loading || translationsLoading) {
     return (
-      <div className="min-h-screen bg-brand-black flex items-center justify-center" dir={courseLocale === 'ar' ? 'rtl' : 'ltr'}>
+      <div className="min-h-screen bg-brand-black flex items-center justify-center" dir={locale === 'ar' ? 'rtl' : 'ltr'}>
         <Loader2 className="w-8 h-8 text-brand-white animate-spin" />
       </div>
     );
@@ -219,7 +210,7 @@ export default function LessonQuizPage({
     }
     
     return (
-      <div className="min-h-screen bg-brand-black flex items-center justify-center px-4" dir={courseLocale === 'ar' ? 'rtl' : 'ltr'}>
+      <div className="min-h-screen bg-brand-black flex items-center justify-center px-4" dir={locale === 'ar' ? 'rtl' : 'ltr'}>
         <div className="bg-brand-white rounded-xl p-8 border-2 border-brand-accent max-w-lg w-full text-center">
           <p className="text-brand-black mb-6">{errorMessage}</p>
           <LocaleLink
@@ -241,7 +232,7 @@ export default function LessonQuizPage({
   });
 
   return (
-    <div className="min-h-screen bg-brand-black" dir={courseLocale === 'ar' ? 'rtl' : 'ltr'}>
+    <div className="min-h-screen bg-brand-black" dir={locale === 'ar' ? 'rtl' : 'ltr'}>
       <header className="bg-brand-darkGrey border-b-2 border-brand-accent">
         <div className="max-w-4xl mx-auto px-6 sm:px-8 lg:px-10 py-6 flex items-center justify-between">
           <div className="flex items-center gap-4">
@@ -276,7 +267,7 @@ export default function LessonQuizPage({
                 key={idx}
                 disabled={answering}
                 onClick={() => handleAnswer(option, idx)}
-                className={`w-full ${courseLocale === 'ar' ? 'text-right' : 'text-left'} border-2 border-brand-darkGrey/15 hover:border-brand-accent transition-colors rounded-xl px-5 py-4 font-semibold text-brand-black text-lg disabled:opacity-60 disabled:cursor-not-allowed shadow-sm hover:shadow-md`}
+                className={`w-full ${locale === 'ar' ? 'text-right' : 'text-left'} border-2 border-brand-darkGrey/15 hover:border-brand-accent transition-colors rounded-xl px-5 py-4 font-semibold text-brand-black text-lg disabled:opacity-60 disabled:cursor-not-allowed shadow-sm hover:shadow-md`}
               >
                 {option}
               </button>
