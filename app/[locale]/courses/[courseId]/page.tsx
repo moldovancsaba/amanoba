@@ -666,13 +666,21 @@ export default function CourseDetailPage({
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-10">
           {/* Main Content */}
           <div className="lg:col-span-2 space-y-8">
-            {course.thumbnail && (
+            {course.thumbnail ? (
               <div className="w-full rounded-2xl overflow-hidden" style={{ aspectRatio: '16/9' }}>
                 <img
                   src={course.thumbnail}
                   alt={course.name}
                   className="w-full h-full object-cover"
+                  onError={(e) => {
+                    // Fallback to a placeholder if image fails to load
+                    (e.target as HTMLImageElement).src = '/icon-192.svg';
+                  }}
                 />
+              </div>
+            ) : (
+              <div className="w-full rounded-2xl overflow-hidden bg-gradient-to-br from-brand-accent to-brand-primary-400 flex items-center justify-center" style={{ aspectRatio: '16/9' }}>
+                <BookOpen className="w-20 h-20 text-brand-white opacity-50" />
               </div>
             )}
 
@@ -687,8 +695,8 @@ export default function CourseDetailPage({
                 <div className="flex items-start gap-3">
                   <CheckCircle className="w-6 h-6 text-brand-accent flex-shrink-0 mt-1" />
                   <div>
-                    <h3 className="font-bold text-brand-black text-lg">{course.durationDays} {t('dailyLessons')}</h3>
-                    <p className="text-base text-brand-darkGrey">{t('structuredLearning')}</p>
+                    <h3 className="font-bold text-brand-black text-lg">{course.durationDays} {getCourseDetailTexts().dailyLessons}</h3>
+                    <p className="text-base text-brand-darkGrey">{getCourseDetailTexts().structuredLearning}</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
@@ -701,15 +709,15 @@ export default function CourseDetailPage({
                 <div className="flex items-start gap-3">
                   <BookOpen className="w-6 h-6 text-brand-accent flex-shrink-0 mt-1" />
                   <div>
-                    <h3 className="font-bold text-brand-black text-lg">{t('emailDelivery')}</h3>
-                    <p className="text-base text-brand-darkGrey">{t('dailyLessonsSent')}</p>
+                    <h3 className="font-bold text-brand-black text-lg">{getCourseDetailTexts().emailDelivery}</h3>
+                    <p className="text-base text-brand-darkGrey">{getCourseDetailTexts().dailyLessonsSent}</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
                   <Play className="w-6 h-6 text-brand-accent flex-shrink-0 mt-1" />
                   <div>
-                    <h3 className="font-bold text-brand-black text-lg">{t('interactiveAssessments')}</h3>
-                    <p className="text-base text-brand-darkGrey">{t('testKnowledge')}</p>
+                    <h3 className="font-bold text-brand-black text-lg">{getCourseDetailTexts().interactiveAssessments}</h3>
+                    <p className="text-base text-brand-darkGrey">{getCourseDetailTexts().testKnowledge}</p>
                   </div>
                 </div>
               </div>
