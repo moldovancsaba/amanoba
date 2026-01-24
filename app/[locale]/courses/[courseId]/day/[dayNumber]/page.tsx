@@ -22,6 +22,7 @@ import {
   Calendar,
 } from 'lucide-react';
 import { useSearchParams } from 'next/navigation';
+import { useLocale } from 'next-intl';
 import Logo from '@/components/Logo';
 
 interface Lesson {
@@ -66,9 +67,10 @@ export default function DailyLessonPage({
   const [quizPassed, setQuizPassed] = useState(false);
   const [courseLanguage, setCourseLanguage] = useState<string | undefined>(undefined);
   const searchParams = useSearchParams();
+  const locale = useLocale();
   
   // Use course language for translations instead of URL locale
-  const { t, tCommon, courseLocale } = useCourseTranslations(courseLanguage);
+  const { t, tCommon, courseLocale } = useCourseTranslations(courseLanguage, locale);
 
   useEffect(() => {
     const loadData = async () => {
@@ -179,7 +181,7 @@ export default function DailyLessonPage({
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-brand-black flex items-center justify-center" dir={courseLanguage === 'ar' ? 'rtl' : 'ltr'}>
+      <div className="min-h-screen bg-brand-black flex items-center justify-center" dir={courseLocale === 'ar' ? 'rtl' : 'ltr'}>
         <div className="text-brand-white text-xl">{t('loadingLesson')}</div>
       </div>
     );
@@ -187,7 +189,7 @@ export default function DailyLessonPage({
 
   if (!lesson) {
     return (
-      <div className="min-h-screen bg-brand-black flex items-center justify-center" dir={courseLanguage === 'ar' ? 'rtl' : 'ltr'}>
+      <div className="min-h-screen bg-brand-black flex items-center justify-center" dir={courseLocale === 'ar' ? 'rtl' : 'ltr'}>
         <div className="text-center">
           <h2 className="text-2xl font-bold text-brand-white mb-4">{t('lessonNotFound')}</h2>
           <LocaleLink
@@ -202,7 +204,7 @@ export default function DailyLessonPage({
   }
 
   return (
-    <div className="min-h-screen bg-brand-black" dir={courseLanguage === 'ar' ? 'rtl' : 'ltr'}>
+    <div className="min-h-screen bg-brand-black" dir={courseLocale === 'ar' ? 'rtl' : 'ltr'}>
       {/* Header */}
       <header className="bg-brand-darkGrey border-b-2 border-brand-accent">
         <div className="max-w-5xl mx-auto px-6 sm:px-8 lg:px-10 py-6">

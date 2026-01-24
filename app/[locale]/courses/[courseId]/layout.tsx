@@ -175,8 +175,21 @@ export default async function CourseDetailLayout({
     notFound();
   }
 
-  const courseLocale = course.language || locale;
-  if (courseLocale !== locale) {
+  const normalizeLocale = (value: string | undefined) => {
+    if (!value) return undefined;
+    const normalized = value.toLowerCase();
+    if (locales.includes(normalized as (typeof locales)[number])) {
+      return normalized;
+    }
+    const prefix = normalized.split(/[-_]/)[0];
+    if (locales.includes(prefix as (typeof locales)[number])) {
+      return prefix;
+    }
+    return undefined;
+  };
+
+  const courseLocale = normalizeLocale(course.language) || locale;
+  if (courseLocale !== locale && locales.includes(courseLocale as (typeof locales)[number])) {
     redirect(`/${courseLocale}/courses/${courseId}`);
   }
 

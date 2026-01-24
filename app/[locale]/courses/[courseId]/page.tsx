@@ -102,8 +102,7 @@ export default function CourseDetailPage({
   const [courseLanguage, setCourseLanguage] = useState<string | undefined>(undefined);
   
   // Use course language for translations instead of URL locale
-  const { t, tCommon } = useCourseTranslations(courseLanguage);
-  const courseLocale = courseLanguage || locale;
+  const { t, tCommon, courseLocale } = useCourseTranslations(courseLanguage, locale);
 
   const tocLessons = useMemo(
     () => [...lessons].sort((a, b) => a.dayNumber - b.dayNumber),
@@ -346,8 +345,7 @@ export default function CourseDetailPage({
           },
         });
         // Redirect directly to first lesson
-        const targetLocale = courseLanguage || locale;
-        router.push(`/${targetLocale}/courses/${courseId}/day/1`);
+        router.push(`/${courseLocale}/courses/${courseId}/day/1`);
       } else {
         alert(data.error || t('failedToEnroll'));
       }
@@ -420,7 +418,7 @@ export default function CourseDetailPage({
   }
 
   return (
-    <div className="min-h-screen bg-brand-black" dir={courseLanguage === 'ar' ? 'rtl' : 'ltr'}>
+    <div className="min-h-screen bg-brand-black" dir={courseLocale === 'ar' ? 'rtl' : 'ltr'}>
       {/* Header */}
       <header className="bg-brand-darkGrey border-b-2 border-brand-accent sticky top-0 z-30">
         <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-10 py-5 sm:py-7">

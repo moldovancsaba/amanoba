@@ -72,14 +72,26 @@ function getNestedValue(obj: any, path: string): string {
 /**
  * Custom translation hook that uses course language
  */
-export function useCourseTranslations(courseLanguage: string | undefined) {
+export function useCourseTranslations(courseLanguage: string | undefined, fallbackLocale?: string) {
   const [translations, setTranslations] = useState<Translations | null>(null);
   const [loading, setLoading] = useState(true);
 
-  // Determine course locale (fallback to 'en' if invalid)
-  const courseLocale: Locale = locales.includes(courseLanguage as Locale)
-    ? (courseLanguage as Locale)
-    : 'en';
+  const normalizeLocale = (value: string | undefined): Locale | undefined => {
+    if (!value) return undefined;
+    const normalized = value.toLowerCase();
+    if (locales.includes(normalized as Locale)) {
+      return normalized as Locale;
+    }
+    const prefix = normalized.split(/[-_]/)[0];
+    if (locales.includes(prefix as Locale)) {
+      return prefix as Locale;
+    }
+    return undefined;
+  };
+
+  // Determine course locale (normalize locale variants like ar-SA)
+  const resolvedFallback = normalizeLocale(fallbackLocale) || 'en';
+  const courseLocale: Locale = normalizeLocale(courseLanguage) || resolvedFallback;
 
   useEffect(() => {
     let mounted = true;
