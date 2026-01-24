@@ -49,7 +49,7 @@ From Architecture Fix:
 
 | Component | Current | Target | Status |
 |-----------|---------|--------|--------|
-| **Course Cards** | Show URL locale language | Show course native language | 🔴 TODO |
+| **Course Cards** | Show URL locale language | Show course native language | ✅ FIXED |
 | **Course Detail Page** | Already correct | Verify 100% language | 🟡 VERIFY |
 | **Course Content Pages** | Mixed language possible | 100% course language enforced | 🔴 TODO |
 | **Admin Course Management** | Not language-aware | Language-specific management | 🔴 TODO |
@@ -61,7 +61,7 @@ From Architecture Fix:
 
 **File**: `app/[locale]/courses/page.tsx`  
 **Time**: 1-1.5 hours  
-**Status**: 🟢 READY TO START
+**Status**: ✅ COMPLETE - Course cards now display in course native language
 
 ### Current Issue
 
