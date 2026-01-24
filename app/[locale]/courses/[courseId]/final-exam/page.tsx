@@ -8,10 +8,9 @@
 
 import { useEffect, useState } from 'react';
 import { useParams, useRouter } from 'next/navigation';
-import { useLocale } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import { useSession } from 'next-auth/react';
 import { Loader2, ShieldCheck, AlertTriangle, CheckCircle, XCircle } from 'lucide-react';
-import { useCourseTranslations } from '@/app/lib/hooks/useCourseTranslations';
 
 interface EntitlementResp {
   certificationEnabled: boolean;
@@ -45,9 +44,9 @@ export default function FinalExamPage() {
   const [submitting, setSubmitting] = useState(false);
   const [result, setResult] = useState<{ score?: number; passed?: boolean } | null>(null);
   const [error, setError] = useState<string | null>(null);
-  const [courseLanguage, setCourseLanguage] = useState<string | undefined>(undefined);
 
-  const { t, courseLocale, loading: translationsLoading } = useCourseTranslations(courseLanguage, locale);
+  // Use URL locale for translations (guaranteed = course language by design)
+  const t = useTranslations();
 
   useEffect(() => {
     if (status === 'authenticated') {
@@ -63,14 +62,8 @@ export default function FinalExamPage() {
       const data = await res.json();
       if (!data.success) throw new Error(data.error || 'Failed to load');
       setEntitlement(data.data);
-      if (data.data?.courseLanguage) {
-        setCourseLanguage(data.data.courseLanguage);
-        const normalized = data.data.courseLanguage.toLowerCase().split(/[-_]/)[0];
-        if (normalized && normalized !== locale) {
-          router.replace(`/${normalized}/courses/${courseId}/final-exam`);
-          return;
-        }
-      }
+      // Trust architecture: Card links guarantee URL locale = course language
+      // No redirect or courseLanguage extraction needed
     } catch (e: any) {
       setError(e.message);
     } finally {
@@ -170,7 +163,7 @@ export default function FinalExamPage() {
 
   if (status === 'loading' || loadingEnt || translationsLoading) {
     return (
-      <div className="flex items-center justify-center h-80 text-white" dir={courseLocale === 'ar' ? 'rtl' : 'ltr'}>
+      <div className="flex items-center justify-center h-80 text-white" dir={locale === 'ar' ? 'rtl' : 'ltr'}>
         <Loader2 className="w-5 h-5 animate-spin mr-2" /> {t('loadingCourse', { defaultValue: 'Loading...' })}
       </div>
     );
@@ -178,7 +171,7 @@ export default function FinalExamPage() {
 
   if (!session) {
     return (
-      <div className="p-6 text-white" dir={courseLocale === 'ar' ? 'rtl' : 'ltr'}>
+      <div className="p-6 text-white" dir={locale === 'ar' ? 'rtl' : 'ltr'}>
         <p>{t('signInToEnroll', { defaultValue: 'Please sign in to access the certification exam.' })}</p>
       </div>
     );
@@ -189,7 +182,7 @@ export default function FinalExamPage() {
   const canStart = ent?.entitlementOwned && !unavailable;
 
   return (
-    <div className="max-w-3xl mx-auto p-6 text-white space-y-6" dir={courseLocale === 'ar' ? 'rtl' : 'ltr'}>
+    <div className="max-w-3xl mx-auto p-6 text-white space-y-6" dir={locale === 'ar' ? 'rtl' : 'ltr'}>
       <div className="flex items-center gap-3">
         <ShieldCheck className="w-6 h-6 text-amber-400" />
         <h1 className="text-2xl font-bold">{t('finalExamTitle', { defaultValue: 'Final Certification Exam' })}</h1>
@@ -213,7 +206,7 @@ export default function FinalExamPage() {
           </p>
           <button
             className="mt-3 text-sm text-indigo-300 underline"
-            onClick={() => router.push(`/${courseLanguage || locale}/courses/${courseId}`)}
+            onClick={() => router.push(`/${locale}/courses/${courseId}`)}
           >
             {t('backToCourse', { defaultValue: 'Back to course' })}
           </button>
@@ -311,7 +304,7 @@ export default function FinalExamPage() {
               Refresh status
             </button>
             <button
-              onClick={() => router.push(`/${courseLanguage || locale}/courses/${courseId}`)}
+              onClick={() => router.push(`/${locale}/courses/${courseId}`)}
               className="px-4 py-2 rounded bg-gray-700 hover:bg-gray-600"
             >
               Back to course
