@@ -1,12 +1,12 @@
 {
-  "auditDate": "2026-01-25T18:58:16.114Z",
+  "auditDate": "2026-01-25T19:14:03.375Z",
   "summary": {
     "totalCourses": 18,
     "totalLessons": 388,
-    "totalLessonsWithQuizzes": 378,
-    "totalLessonsWithoutQuizzes": 10,
-    "totalQuestions": 2116,
-    "totalIssues": 387
+    "totalLessonsWithQuizzes": 388,
+    "totalLessonsWithoutQuizzes": 0,
+    "totalQuestions": 3421,
+    "totalIssues": 377
   },
   "courses": [
     {
@@ -1110,22 +1110,29 @@
       "courseName": "Termelékenység 2026: Hogyan kezelj csapatokat és időt",
       "language": "hu",
       "totalLessons": 30,
-      "lessonsWithQuizzes": 29,
-      "lessonsWithoutQuizzes": 1,
-      "totalQuestions": 207,
+      "lessonsWithQuizzes": 30,
+      "lessonsWithoutQuizzes": 0,
+      "totalQuestions": 313,
       "questionsByLanguage": {
-        "HU": 207
+        "HU": 313
       },
-      "issues": [
-        "Day 10: No quiz questions"
-      ],
-      "missingDays": [
-        10
-      ],
+      "issues": [],
+      "missingDays": [],
       "incompleteQuizzes": [
         {
           "lessonId": "PRODUCTIVITY_2026_HU_DAY_01",
           "dayNumber": 1,
+          "questionCount": 12,
+          "expectedCount": 7,
+          "issues": [
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
+            "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
+          ]
+        },
+        {
+          "lessonId": "PRODUCTIVITY_2026_HU_DAY_02",
+          "dayNumber": 2,
           "questionCount": 12,
           "expectedCount": 7,
           "issues": [
@@ -1148,11 +1155,11 @@
         {
           "lessonId": "PRODUCTIVITY_2026_HU_DAY_04",
           "dayNumber": 4,
-          "questionCount": 8,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Too many questions: 8 (expected 7)",
-            "3 questions missing metadata (UUID, hashtags, or questionType)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
@@ -1181,11 +1188,11 @@
         {
           "lessonId": "PRODUCTIVITY_2026_HU_DAY_07",
           "dayNumber": 7,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
-            "5 questions missing metadata (UUID, hashtags, or questionType)",
+            "Too many questions: 12 (expected 7)",
+            "12 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 0 recall (expected 4), 0 application (expected 2), 0 critical (expected 1)"
           ]
         },
@@ -1225,31 +1232,33 @@
         {
           "lessonId": "PRODUCTIVITY_2026_HU_DAY_12",
           "dayNumber": 12,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
         {
           "lessonId": "PRODUCTIVITY_2026_HU_DAY_13",
           "dayNumber": 13,
-          "questionCount": 6,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 6 questions (expected 7)",
-            "1 questions missing metadata (UUID, hashtags, or questionType)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
         {
           "lessonId": "PRODUCTIVITY_2026_HU_DAY_14",
           "dayNumber": 14,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
@@ -1267,90 +1276,99 @@
         {
           "lessonId": "PRODUCTIVITY_2026_HU_DAY_16",
           "dayNumber": 16,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
         {
           "lessonId": "PRODUCTIVITY_2026_HU_DAY_17",
           "dayNumber": 17,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
         {
           "lessonId": "PRODUCTIVITY_2026_HU_DAY_18",
           "dayNumber": 18,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
         {
           "lessonId": "PRODUCTIVITY_2026_HU_DAY_19",
           "dayNumber": 19,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
         {
           "lessonId": "PRODUCTIVITY_2026_HU_DAY_20",
           "dayNumber": 20,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
         {
           "lessonId": "PRODUCTIVITY_2026_HU_DAY_21",
           "dayNumber": 21,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
         {
           "lessonId": "PRODUCTIVITY_2026_HU_DAY_22",
           "dayNumber": 22,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
         {
           "lessonId": "PRODUCTIVITY_2026_HU_DAY_23",
           "dayNumber": 23,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
         {
           "lessonId": "PRODUCTIVITY_2026_HU_DAY_24",
           "dayNumber": 24,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
@@ -1423,18 +1441,14 @@
       "courseName": "Productivity 2026: How to Manage Teams and Time",
       "language": "en",
       "totalLessons": 30,
-      "lessonsWithQuizzes": 29,
-      "lessonsWithoutQuizzes": 1,
-      "totalQuestions": 201,
+      "lessonsWithQuizzes": 30,
+      "lessonsWithoutQuizzes": 0,
+      "totalQuestions": 308,
       "questionsByLanguage": {
-        "EN": 201
+        "EN": 308
       },
-      "issues": [
-        "Day 10: No quiz questions"
-      ],
-      "missingDays": [
-        10
-      ],
+      "issues": [],
+      "missingDays": [],
       "incompleteQuizzes": [
         {
           "lessonId": "PRODUCTIVITY_2026_EN_DAY_01",
@@ -1450,10 +1464,11 @@
         {
           "lessonId": "PRODUCTIVITY_2026_EN_DAY_02",
           "dayNumber": 2,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
@@ -1471,10 +1486,11 @@
         {
           "lessonId": "PRODUCTIVITY_2026_EN_DAY_04",
           "dayNumber": 4,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
@@ -1503,11 +1519,11 @@
         {
           "lessonId": "PRODUCTIVITY_2026_EN_DAY_07",
           "dayNumber": 7,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
-            "5 questions missing metadata (UUID, hashtags, or questionType)",
+            "Too many questions: 12 (expected 7)",
+            "12 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 0 recall (expected 4), 0 application (expected 2), 0 critical (expected 1)"
           ]
         },
@@ -1547,30 +1563,33 @@
         {
           "lessonId": "PRODUCTIVITY_2026_EN_DAY_12",
           "dayNumber": 12,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
         {
           "lessonId": "PRODUCTIVITY_2026_EN_DAY_13",
           "dayNumber": 13,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
         {
           "lessonId": "PRODUCTIVITY_2026_EN_DAY_14",
           "dayNumber": 14,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
@@ -1588,90 +1607,88 @@
         {
           "lessonId": "PRODUCTIVITY_2026_EN_DAY_16",
           "dayNumber": 16,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
         {
           "lessonId": "PRODUCTIVITY_2026_EN_DAY_17",
           "dayNumber": 17,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
         {
           "lessonId": "PRODUCTIVITY_2026_EN_DAY_18",
           "dayNumber": 18,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
         {
           "lessonId": "PRODUCTIVITY_2026_EN_DAY_19",
           "dayNumber": 19,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
         {
           "lessonId": "PRODUCTIVITY_2026_EN_DAY_20",
           "dayNumber": 20,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
         {
           "lessonId": "PRODUCTIVITY_2026_EN_DAY_21",
           "dayNumber": 21,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
         {
           "lessonId": "PRODUCTIVITY_2026_EN_DAY_22",
           "dayNumber": 22,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
         {
           "lessonId": "PRODUCTIVITY_2026_EN_DAY_23",
           "dayNumber": 23,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
-            "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
-          ]
-        },
-        {
-          "lessonId": "PRODUCTIVITY_2026_EN_DAY_24",
-          "dayNumber": 24,
-          "questionCount": 5,
-          "expectedCount": 7,
-          "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
@@ -1744,18 +1761,14 @@
       "courseName": "Verimlilik 2026: Ekipler ve Zaman Nasıl Yönetilir",
       "language": "tr",
       "totalLessons": 30,
-      "lessonsWithQuizzes": 29,
-      "lessonsWithoutQuizzes": 1,
-      "totalQuestions": 187,
+      "lessonsWithQuizzes": 30,
+      "lessonsWithoutQuizzes": 0,
+      "totalQuestions": 299,
       "questionsByLanguage": {
-        "TR": 187
+        "TR": 299
       },
-      "issues": [
-        "Day 10: No quiz questions"
-      ],
-      "missingDays": [
-        10
-      ],
+      "issues": [],
+      "missingDays": [],
       "incompleteQuizzes": [
         {
           "lessonId": "PRODUCTIVITY_2026_TR_DAY_01",
@@ -1771,10 +1784,11 @@
         {
           "lessonId": "PRODUCTIVITY_2026_TR_DAY_02",
           "dayNumber": 2,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
@@ -1792,10 +1806,11 @@
         {
           "lessonId": "PRODUCTIVITY_2026_TR_DAY_04",
           "dayNumber": 4,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
@@ -1813,21 +1828,22 @@
         {
           "lessonId": "PRODUCTIVITY_2026_TR_DAY_06",
           "dayNumber": 6,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
         {
           "lessonId": "PRODUCTIVITY_2026_TR_DAY_07",
           "dayNumber": 7,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
-            "5 questions missing metadata (UUID, hashtags, or questionType)",
+            "Too many questions: 12 (expected 7)",
+            "12 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 0 recall (expected 4), 0 application (expected 2), 0 critical (expected 1)"
           ]
         },
@@ -1867,30 +1883,33 @@
         {
           "lessonId": "PRODUCTIVITY_2026_TR_DAY_12",
           "dayNumber": 12,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
         {
           "lessonId": "PRODUCTIVITY_2026_TR_DAY_13",
           "dayNumber": 13,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
         {
           "lessonId": "PRODUCTIVITY_2026_TR_DAY_14",
           "dayNumber": 14,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
@@ -1908,80 +1927,88 @@
         {
           "lessonId": "PRODUCTIVITY_2026_TR_DAY_16",
           "dayNumber": 16,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
         {
           "lessonId": "PRODUCTIVITY_2026_TR_DAY_17",
           "dayNumber": 17,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
         {
           "lessonId": "PRODUCTIVITY_2026_TR_DAY_18",
           "dayNumber": 18,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
         {
           "lessonId": "PRODUCTIVITY_2026_TR_DAY_19",
           "dayNumber": 19,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
         {
           "lessonId": "PRODUCTIVITY_2026_TR_DAY_20",
           "dayNumber": 20,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
         {
           "lessonId": "PRODUCTIVITY_2026_TR_DAY_21",
           "dayNumber": 21,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
         {
           "lessonId": "PRODUCTIVITY_2026_TR_DAY_22",
           "dayNumber": 22,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
         {
           "lessonId": "PRODUCTIVITY_2026_TR_DAY_23",
           "dayNumber": 23,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
@@ -2063,87 +2090,89 @@
       "courseName": "Продуктивност 2026: Как да управляваме екипи и време",
       "language": "bg",
       "totalLessons": 30,
-      "lessonsWithQuizzes": 29,
-      "lessonsWithoutQuizzes": 1,
-      "totalQuestions": 159,
+      "lessonsWithQuizzes": 30,
+      "lessonsWithoutQuizzes": 0,
+      "totalQuestions": 299,
       "questionsByLanguage": {
-        "BG": 159
+        "BG": 299
       },
-      "issues": [
-        "Day 10: No quiz questions"
-      ],
-      "missingDays": [
-        10
-      ],
+      "issues": [],
+      "missingDays": [],
       "incompleteQuizzes": [
         {
           "lessonId": "PRODUCTIVITY_2026_BG_DAY_01",
           "dayNumber": 1,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
         {
           "lessonId": "PRODUCTIVITY_2026_BG_DAY_02",
           "dayNumber": 2,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
         {
           "lessonId": "PRODUCTIVITY_2026_BG_DAY_03",
           "dayNumber": 3,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
         {
           "lessonId": "PRODUCTIVITY_2026_BG_DAY_04",
           "dayNumber": 4,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
         {
           "lessonId": "PRODUCTIVITY_2026_BG_DAY_05",
           "dayNumber": 5,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
         {
           "lessonId": "PRODUCTIVITY_2026_BG_DAY_06",
           "dayNumber": 6,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
         {
           "lessonId": "PRODUCTIVITY_2026_BG_DAY_07",
           "dayNumber": 7,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
-            "5 questions missing metadata (UUID, hashtags, or questionType)",
+            "Too many questions: 12 (expected 7)",
+            "12 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 0 recall (expected 4), 0 application (expected 2), 0 critical (expected 1)"
           ]
         },
@@ -2172,40 +2201,44 @@
         {
           "lessonId": "PRODUCTIVITY_2026_BG_DAY_11",
           "dayNumber": 11,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
         {
           "lessonId": "PRODUCTIVITY_2026_BG_DAY_12",
           "dayNumber": 12,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
         {
           "lessonId": "PRODUCTIVITY_2026_BG_DAY_13",
           "dayNumber": 13,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
         {
           "lessonId": "PRODUCTIVITY_2026_BG_DAY_14",
           "dayNumber": 14,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
@@ -2223,80 +2256,88 @@
         {
           "lessonId": "PRODUCTIVITY_2026_BG_DAY_16",
           "dayNumber": 16,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
         {
           "lessonId": "PRODUCTIVITY_2026_BG_DAY_17",
           "dayNumber": 17,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
         {
           "lessonId": "PRODUCTIVITY_2026_BG_DAY_18",
           "dayNumber": 18,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
         {
           "lessonId": "PRODUCTIVITY_2026_BG_DAY_19",
           "dayNumber": 19,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
         {
           "lessonId": "PRODUCTIVITY_2026_BG_DAY_20",
           "dayNumber": 20,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
         {
           "lessonId": "PRODUCTIVITY_2026_BG_DAY_21",
           "dayNumber": 21,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
         {
           "lessonId": "PRODUCTIVITY_2026_BG_DAY_22",
           "dayNumber": 22,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
         {
           "lessonId": "PRODUCTIVITY_2026_BG_DAY_23",
           "dayNumber": 23,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
@@ -2378,87 +2419,89 @@
       "courseName": "Produktywność 2026: Jak zarządzać zespołami i czasem",
       "language": "pl",
       "totalLessons": 30,
-      "lessonsWithQuizzes": 29,
-      "lessonsWithoutQuizzes": 1,
-      "totalQuestions": 159,
+      "lessonsWithQuizzes": 30,
+      "lessonsWithoutQuizzes": 0,
+      "totalQuestions": 299,
       "questionsByLanguage": {
-        "PL": 159
+        "PL": 299
       },
-      "issues": [
-        "Day 10: No quiz questions"
-      ],
-      "missingDays": [
-        10
-      ],
+      "issues": [],
+      "missingDays": [],
       "incompleteQuizzes": [
         {
           "lessonId": "PRODUCTIVITY_2026_PL_DAY_01",
           "dayNumber": 1,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
         {
           "lessonId": "PRODUCTIVITY_2026_PL_DAY_02",
           "dayNumber": 2,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
         {
           "lessonId": "PRODUCTIVITY_2026_PL_DAY_03",
           "dayNumber": 3,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
         {
           "lessonId": "PRODUCTIVITY_2026_PL_DAY_04",
           "dayNumber": 4,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
         {
           "lessonId": "PRODUCTIVITY_2026_PL_DAY_05",
           "dayNumber": 5,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
         {
           "lessonId": "PRODUCTIVITY_2026_PL_DAY_06",
           "dayNumber": 6,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
         {
           "lessonId": "PRODUCTIVITY_2026_PL_DAY_07",
           "dayNumber": 7,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
-            "5 questions missing metadata (UUID, hashtags, or questionType)",
+            "Too many questions: 12 (expected 7)",
+            "12 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 0 recall (expected 4), 0 application (expected 2), 0 critical (expected 1)"
           ]
         },
@@ -2487,40 +2530,44 @@
         {
           "lessonId": "PRODUCTIVITY_2026_PL_DAY_11",
           "dayNumber": 11,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
         {
           "lessonId": "PRODUCTIVITY_2026_PL_DAY_12",
           "dayNumber": 12,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
         {
           "lessonId": "PRODUCTIVITY_2026_PL_DAY_13",
           "dayNumber": 13,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
         {
           "lessonId": "PRODUCTIVITY_2026_PL_DAY_14",
           "dayNumber": 14,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
@@ -2538,80 +2585,88 @@
         {
           "lessonId": "PRODUCTIVITY_2026_PL_DAY_16",
           "dayNumber": 16,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
         {
           "lessonId": "PRODUCTIVITY_2026_PL_DAY_17",
           "dayNumber": 17,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
         {
           "lessonId": "PRODUCTIVITY_2026_PL_DAY_18",
           "dayNumber": 18,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
         {
           "lessonId": "PRODUCTIVITY_2026_PL_DAY_19",
           "dayNumber": 19,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
         {
           "lessonId": "PRODUCTIVITY_2026_PL_DAY_20",
           "dayNumber": 20,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
         {
           "lessonId": "PRODUCTIVITY_2026_PL_DAY_21",
           "dayNumber": 21,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
         {
           "lessonId": "PRODUCTIVITY_2026_PL_DAY_22",
           "dayNumber": 22,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
         {
           "lessonId": "PRODUCTIVITY_2026_PL_DAY_23",
           "dayNumber": 23,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
@@ -2693,87 +2748,89 @@
       "courseName": "Năng suất 2026: Cách quản lý nhóm và thời gian",
       "language": "vi",
       "totalLessons": 30,
-      "lessonsWithQuizzes": 29,
-      "lessonsWithoutQuizzes": 1,
-      "totalQuestions": 159,
+      "lessonsWithQuizzes": 30,
+      "lessonsWithoutQuizzes": 0,
+      "totalQuestions": 299,
       "questionsByLanguage": {
-        "VI": 159
+        "VI": 299
       },
-      "issues": [
-        "Day 10: No quiz questions"
-      ],
-      "missingDays": [
-        10
-      ],
+      "issues": [],
+      "missingDays": [],
       "incompleteQuizzes": [
         {
           "lessonId": "PRODUCTIVITY_2026_VI_DAY_01",
           "dayNumber": 1,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
         {
           "lessonId": "PRODUCTIVITY_2026_VI_DAY_02",
           "dayNumber": 2,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
         {
           "lessonId": "PRODUCTIVITY_2026_VI_DAY_03",
           "dayNumber": 3,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
         {
           "lessonId": "PRODUCTIVITY_2026_VI_DAY_04",
           "dayNumber": 4,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
         {
           "lessonId": "PRODUCTIVITY_2026_VI_DAY_05",
           "dayNumber": 5,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
         {
           "lessonId": "PRODUCTIVITY_2026_VI_DAY_06",
           "dayNumber": 6,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
         {
           "lessonId": "PRODUCTIVITY_2026_VI_DAY_07",
           "dayNumber": 7,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
-            "5 questions missing metadata (UUID, hashtags, or questionType)",
+            "Too many questions: 12 (expected 7)",
+            "12 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 0 recall (expected 4), 0 application (expected 2), 0 critical (expected 1)"
           ]
         },
@@ -2802,40 +2859,44 @@
         {
           "lessonId": "PRODUCTIVITY_2026_VI_DAY_11",
           "dayNumber": 11,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
         {
           "lessonId": "PRODUCTIVITY_2026_VI_DAY_12",
           "dayNumber": 12,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
         {
           "lessonId": "PRODUCTIVITY_2026_VI_DAY_13",
           "dayNumber": 13,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
         {
           "lessonId": "PRODUCTIVITY_2026_VI_DAY_14",
           "dayNumber": 14,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
@@ -2853,80 +2914,88 @@
         {
           "lessonId": "PRODUCTIVITY_2026_VI_DAY_16",
           "dayNumber": 16,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
         {
           "lessonId": "PRODUCTIVITY_2026_VI_DAY_17",
           "dayNumber": 17,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
         {
           "lessonId": "PRODUCTIVITY_2026_VI_DAY_18",
           "dayNumber": 18,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
         {
           "lessonId": "PRODUCTIVITY_2026_VI_DAY_19",
           "dayNumber": 19,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
         {
           "lessonId": "PRODUCTIVITY_2026_VI_DAY_20",
           "dayNumber": 20,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
         {
           "lessonId": "PRODUCTIVITY_2026_VI_DAY_21",
           "dayNumber": 21,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
         {
           "lessonId": "PRODUCTIVITY_2026_VI_DAY_22",
           "dayNumber": 22,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
         {
           "lessonId": "PRODUCTIVITY_2026_VI_DAY_23",
           "dayNumber": 23,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
@@ -3008,87 +3077,89 @@
       "courseName": "Produktivitas 2026: Cara Mengelola Tim dan Waktu",
       "language": "id",
       "totalLessons": 30,
-      "lessonsWithQuizzes": 29,
-      "lessonsWithoutQuizzes": 1,
-      "totalQuestions": 159,
+      "lessonsWithQuizzes": 30,
+      "lessonsWithoutQuizzes": 0,
+      "totalQuestions": 299,
       "questionsByLanguage": {
-        "ID": 159
+        "ID": 299
       },
-      "issues": [
-        "Day 10: No quiz questions"
-      ],
-      "missingDays": [
-        10
-      ],
+      "issues": [],
+      "missingDays": [],
       "incompleteQuizzes": [
         {
           "lessonId": "PRODUCTIVITY_2026_ID_DAY_01",
           "dayNumber": 1,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
         {
           "lessonId": "PRODUCTIVITY_2026_ID_DAY_02",
           "dayNumber": 2,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
         {
           "lessonId": "PRODUCTIVITY_2026_ID_DAY_03",
           "dayNumber": 3,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
         {
           "lessonId": "PRODUCTIVITY_2026_ID_DAY_04",
           "dayNumber": 4,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
         {
           "lessonId": "PRODUCTIVITY_2026_ID_DAY_05",
           "dayNumber": 5,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
         {
           "lessonId": "PRODUCTIVITY_2026_ID_DAY_06",
           "dayNumber": 6,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
         {
           "lessonId": "PRODUCTIVITY_2026_ID_DAY_07",
           "dayNumber": 7,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
-            "5 questions missing metadata (UUID, hashtags, or questionType)",
+            "Too many questions: 12 (expected 7)",
+            "12 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 0 recall (expected 4), 0 application (expected 2), 0 critical (expected 1)"
           ]
         },
@@ -3117,40 +3188,44 @@
         {
           "lessonId": "PRODUCTIVITY_2026_ID_DAY_11",
           "dayNumber": 11,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
         {
           "lessonId": "PRODUCTIVITY_2026_ID_DAY_12",
           "dayNumber": 12,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
         {
           "lessonId": "PRODUCTIVITY_2026_ID_DAY_13",
           "dayNumber": 13,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
         {
           "lessonId": "PRODUCTIVITY_2026_ID_DAY_14",
           "dayNumber": 14,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
@@ -3168,80 +3243,88 @@
         {
           "lessonId": "PRODUCTIVITY_2026_ID_DAY_16",
           "dayNumber": 16,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
         {
           "lessonId": "PRODUCTIVITY_2026_ID_DAY_17",
           "dayNumber": 17,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
         {
           "lessonId": "PRODUCTIVITY_2026_ID_DAY_18",
           "dayNumber": 18,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
         {
           "lessonId": "PRODUCTIVITY_2026_ID_DAY_19",
           "dayNumber": 19,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
         {
           "lessonId": "PRODUCTIVITY_2026_ID_DAY_20",
           "dayNumber": 20,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
         {
           "lessonId": "PRODUCTIVITY_2026_ID_DAY_21",
           "dayNumber": 21,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
         {
           "lessonId": "PRODUCTIVITY_2026_ID_DAY_22",
           "dayNumber": 22,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
         {
           "lessonId": "PRODUCTIVITY_2026_ID_DAY_23",
           "dayNumber": 23,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
@@ -3323,87 +3406,89 @@
       "courseName": "الإنتاجية 2026: كيفية إدارة الفرق والوقت",
       "language": "ar",
       "totalLessons": 30,
-      "lessonsWithQuizzes": 29,
-      "lessonsWithoutQuizzes": 1,
-      "totalQuestions": 159,
+      "lessonsWithQuizzes": 30,
+      "lessonsWithoutQuizzes": 0,
+      "totalQuestions": 299,
       "questionsByLanguage": {
-        "AR": 159
+        "AR": 299
       },
-      "issues": [
-        "Day 10: No quiz questions"
-      ],
-      "missingDays": [
-        10
-      ],
+      "issues": [],
+      "missingDays": [],
       "incompleteQuizzes": [
         {
           "lessonId": "PRODUCTIVITY_2026_AR_DAY_01",
           "dayNumber": 1,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
         {
           "lessonId": "PRODUCTIVITY_2026_AR_DAY_02",
           "dayNumber": 2,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
         {
           "lessonId": "PRODUCTIVITY_2026_AR_DAY_03",
           "dayNumber": 3,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
         {
           "lessonId": "PRODUCTIVITY_2026_AR_DAY_04",
           "dayNumber": 4,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
         {
           "lessonId": "PRODUCTIVITY_2026_AR_DAY_05",
           "dayNumber": 5,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
         {
           "lessonId": "PRODUCTIVITY_2026_AR_DAY_06",
           "dayNumber": 6,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
         {
           "lessonId": "PRODUCTIVITY_2026_AR_DAY_07",
           "dayNumber": 7,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
-            "5 questions missing metadata (UUID, hashtags, or questionType)",
+            "Too many questions: 12 (expected 7)",
+            "12 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 0 recall (expected 4), 0 application (expected 2), 0 critical (expected 1)"
           ]
         },
@@ -3432,40 +3517,44 @@
         {
           "lessonId": "PRODUCTIVITY_2026_AR_DAY_11",
           "dayNumber": 11,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
         {
           "lessonId": "PRODUCTIVITY_2026_AR_DAY_12",
           "dayNumber": 12,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
         {
           "lessonId": "PRODUCTIVITY_2026_AR_DAY_13",
           "dayNumber": 13,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
         {
           "lessonId": "PRODUCTIVITY_2026_AR_DAY_14",
           "dayNumber": 14,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
@@ -3483,80 +3572,88 @@
         {
           "lessonId": "PRODUCTIVITY_2026_AR_DAY_16",
           "dayNumber": 16,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
         {
           "lessonId": "PRODUCTIVITY_2026_AR_DAY_17",
           "dayNumber": 17,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
         {
           "lessonId": "PRODUCTIVITY_2026_AR_DAY_18",
           "dayNumber": 18,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
         {
           "lessonId": "PRODUCTIVITY_2026_AR_DAY_19",
           "dayNumber": 19,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
         {
           "lessonId": "PRODUCTIVITY_2026_AR_DAY_20",
           "dayNumber": 20,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
         {
           "lessonId": "PRODUCTIVITY_2026_AR_DAY_21",
           "dayNumber": 21,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
         {
           "lessonId": "PRODUCTIVITY_2026_AR_DAY_22",
           "dayNumber": 22,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
         {
           "lessonId": "PRODUCTIVITY_2026_AR_DAY_23",
           "dayNumber": 23,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
@@ -3638,87 +3735,89 @@
       "courseName": "Produtividade 2026: Como Gerenciar Equipes e Tempo",
       "language": "pt",
       "totalLessons": 30,
-      "lessonsWithQuizzes": 29,
-      "lessonsWithoutQuizzes": 1,
-      "totalQuestions": 159,
+      "lessonsWithQuizzes": 30,
+      "lessonsWithoutQuizzes": 0,
+      "totalQuestions": 299,
       "questionsByLanguage": {
-        "PT": 159
+        "PT": 299
       },
-      "issues": [
-        "Day 10: No quiz questions"
-      ],
-      "missingDays": [
-        10
-      ],
+      "issues": [],
+      "missingDays": [],
       "incompleteQuizzes": [
         {
           "lessonId": "PRODUCTIVITY_2026_PT_DAY_01",
           "dayNumber": 1,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
         {
           "lessonId": "PRODUCTIVITY_2026_PT_DAY_02",
           "dayNumber": 2,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
         {
           "lessonId": "PRODUCTIVITY_2026_PT_DAY_03",
           "dayNumber": 3,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
         {
           "lessonId": "PRODUCTIVITY_2026_PT_DAY_04",
           "dayNumber": 4,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
         {
           "lessonId": "PRODUCTIVITY_2026_PT_DAY_05",
           "dayNumber": 5,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
         {
           "lessonId": "PRODUCTIVITY_2026_PT_DAY_06",
           "dayNumber": 6,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
         {
           "lessonId": "PRODUCTIVITY_2026_PT_DAY_07",
           "dayNumber": 7,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
-            "5 questions missing metadata (UUID, hashtags, or questionType)",
+            "Too many questions: 12 (expected 7)",
+            "12 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 0 recall (expected 4), 0 application (expected 2), 0 critical (expected 1)"
           ]
         },
@@ -3747,40 +3846,44 @@
         {
           "lessonId": "PRODUCTIVITY_2026_PT_DAY_11",
           "dayNumber": 11,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
         {
           "lessonId": "PRODUCTIVITY_2026_PT_DAY_12",
           "dayNumber": 12,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
         {
           "lessonId": "PRODUCTIVITY_2026_PT_DAY_13",
           "dayNumber": 13,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
         {
           "lessonId": "PRODUCTIVITY_2026_PT_DAY_14",
           "dayNumber": 14,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
@@ -3798,80 +3901,88 @@
         {
           "lessonId": "PRODUCTIVITY_2026_PT_DAY_16",
           "dayNumber": 16,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
         {
           "lessonId": "PRODUCTIVITY_2026_PT_DAY_17",
           "dayNumber": 17,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
         {
           "lessonId": "PRODUCTIVITY_2026_PT_DAY_18",
           "dayNumber": 18,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
         {
           "lessonId": "PRODUCTIVITY_2026_PT_DAY_19",
           "dayNumber": 19,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
         {
           "lessonId": "PRODUCTIVITY_2026_PT_DAY_20",
           "dayNumber": 20,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
         {
           "lessonId": "PRODUCTIVITY_2026_PT_DAY_21",
           "dayNumber": 21,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
         {
           "lessonId": "PRODUCTIVITY_2026_PT_DAY_22",
           "dayNumber": 22,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
         {
           "lessonId": "PRODUCTIVITY_2026_PT_DAY_23",
           "dayNumber": 23,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
@@ -3953,87 +4064,89 @@
       "courseName": "उत्पादकता 2026: टीमों और समय का प्रबंधन कैसे करें",
       "language": "hi",
       "totalLessons": 30,
-      "lessonsWithQuizzes": 29,
-      "lessonsWithoutQuizzes": 1,
-      "totalQuestions": 159,
+      "lessonsWithQuizzes": 30,
+      "lessonsWithoutQuizzes": 0,
+      "totalQuestions": 299,
       "questionsByLanguage": {
-        "HI": 159
+        "HI": 299
       },
-      "issues": [
-        "Day 10: No quiz questions"
-      ],
-      "missingDays": [
-        10
-      ],
+      "issues": [],
+      "missingDays": [],
       "incompleteQuizzes": [
         {
           "lessonId": "PRODUCTIVITY_2026_HI_DAY_01",
           "dayNumber": 1,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
         {
           "lessonId": "PRODUCTIVITY_2026_HI_DAY_02",
           "dayNumber": 2,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
         {
           "lessonId": "PRODUCTIVITY_2026_HI_DAY_03",
           "dayNumber": 3,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
         {
           "lessonId": "PRODUCTIVITY_2026_HI_DAY_04",
           "dayNumber": 4,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
         {
           "lessonId": "PRODUCTIVITY_2026_HI_DAY_05",
           "dayNumber": 5,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
         {
           "lessonId": "PRODUCTIVITY_2026_HI_DAY_06",
           "dayNumber": 6,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
         {
           "lessonId": "PRODUCTIVITY_2026_HI_DAY_07",
           "dayNumber": 7,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
-            "5 questions missing metadata (UUID, hashtags, or questionType)",
+            "Too many questions: 12 (expected 7)",
+            "12 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 0 recall (expected 4), 0 application (expected 2), 0 critical (expected 1)"
           ]
         },
@@ -4062,40 +4175,44 @@
         {
           "lessonId": "PRODUCTIVITY_2026_HI_DAY_11",
           "dayNumber": 11,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
         {
           "lessonId": "PRODUCTIVITY_2026_HI_DAY_12",
           "dayNumber": 12,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
         {
           "lessonId": "PRODUCTIVITY_2026_HI_DAY_13",
           "dayNumber": 13,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
         {
           "lessonId": "PRODUCTIVITY_2026_HI_DAY_14",
           "dayNumber": 14,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
@@ -4113,80 +4230,88 @@
         {
           "lessonId": "PRODUCTIVITY_2026_HI_DAY_16",
           "dayNumber": 16,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
         {
           "lessonId": "PRODUCTIVITY_2026_HI_DAY_17",
           "dayNumber": 17,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
         {
           "lessonId": "PRODUCTIVITY_2026_HI_DAY_18",
           "dayNumber": 18,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
         {
           "lessonId": "PRODUCTIVITY_2026_HI_DAY_19",
           "dayNumber": 19,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
         {
           "lessonId": "PRODUCTIVITY_2026_HI_DAY_20",
           "dayNumber": 20,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
         {
           "lessonId": "PRODUCTIVITY_2026_HI_DAY_21",
           "dayNumber": 21,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
         {
           "lessonId": "PRODUCTIVITY_2026_HI_DAY_22",
           "dayNumber": 22,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
         {
           "lessonId": "PRODUCTIVITY_2026_HI_DAY_23",
           "dayNumber": 23,
-          "questionCount": 5,
+          "questionCount": 12,
           "expectedCount": 7,
           "issues": [
-            "Only 5 questions (expected 7)",
+            "Too many questions: 12 (expected 7)",
+            "7 questions missing metadata (UUID, hashtags, or questionType)",
             "Wrong cognitive mix: 3 recall (expected 4), 2 application (expected 2), 0 critical (expected 1)"
           ]
         },
@@ -4273,25 +4398,15 @@
     "Fix 11 incomplete quizzes for SALES_PRODUCTIVITY_30_HU",
     "Fix 11 incomplete quizzes for SALES_PRODUCTIVITY_30_EN",
     "Fix 11 incomplete quizzes for SALES_PRODUCTIVITY_30_RU",
-    "Create 1 quizzes for PRODUCTIVITY_2026_HU (missing days: 10)",
-    "Fix 28 incomplete quizzes for PRODUCTIVITY_2026_HU",
-    "Create 1 quizzes for PRODUCTIVITY_2026_EN (missing days: 10)",
-    "Fix 29 incomplete quizzes for PRODUCTIVITY_2026_EN",
-    "Create 1 quizzes for PRODUCTIVITY_2026_TR (missing days: 10)",
+    "Fix 29 incomplete quizzes for PRODUCTIVITY_2026_HU",
+    "Fix 28 incomplete quizzes for PRODUCTIVITY_2026_EN",
     "Fix 29 incomplete quizzes for PRODUCTIVITY_2026_TR",
-    "Create 1 quizzes for PRODUCTIVITY_2026_BG (missing days: 10)",
     "Fix 29 incomplete quizzes for PRODUCTIVITY_2026_BG",
-    "Create 1 quizzes for PRODUCTIVITY_2026_PL (missing days: 10)",
     "Fix 29 incomplete quizzes for PRODUCTIVITY_2026_PL",
-    "Create 1 quizzes for PRODUCTIVITY_2026_VI (missing days: 10)",
     "Fix 29 incomplete quizzes for PRODUCTIVITY_2026_VI",
-    "Create 1 quizzes for PRODUCTIVITY_2026_ID (missing days: 10)",
     "Fix 29 incomplete quizzes for PRODUCTIVITY_2026_ID",
-    "Create 1 quizzes for PRODUCTIVITY_2026_AR (missing days: 10)",
     "Fix 29 incomplete quizzes for PRODUCTIVITY_2026_AR",
-    "Create 1 quizzes for PRODUCTIVITY_2026_PT (missing days: 10)",
     "Fix 29 incomplete quizzes for PRODUCTIVITY_2026_PT",
-    "Create 1 quizzes for PRODUCTIVITY_2026_HI (missing days: 10)",
     "Fix 29 incomplete quizzes for PRODUCTIVITY_2026_HI"
   ]
 }

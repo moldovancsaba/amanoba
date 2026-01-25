@@ -1,8 +1,8 @@
 # Amanoba Architecture
 
-**Version**: 2.9.2  
-**Last Updated**: 2026-01-25T18:00:00.000Z  
-**Status**: Active - Course System Complete - Payment System Integrated - Google Analytics with Consent Mode v2 - Course Progress Fixed
+**Version**: 2.9.3  
+**Last Updated**: 2026-01-25T20:00:00.000Z  
+**Status**: Active - Course System Complete - Certificate System Complete - Payment System Integrated - Google Analytics with Consent Mode v2 - Course Progress Fixed
 
 ---
 
@@ -319,11 +319,15 @@ amanoba/
 15. **FeatureFlags**: Feature toggle configuration (courses, games, leaderboards, etc.)
 
 ### Course System (NEW)
-16. **Course**: 30-day course definitions with metadata, points/XP config, multi-language support
+16. **Course**: 30-day course definitions with metadata, points/XP config, multi-language support, certification settings
 17. **Lesson**: Daily lesson content (30 per course) with HTML content, email templates, quiz config
 18. **CourseProgress**: Student progress tracking through courses (current day, completed days, status)
 19. **AssessmentResult**: Game session results linked to course lessons
 20. **QuizQuestion**: Course-specific quiz questions with options, correct answers, difficulty, category
+21. **Certificate**: Issued course completion certificates with verification slugs, privacy controls, revocation status
+22. **CertificateEntitlement**: Certificate purchase/entitlement tracking for students
+23. **FinalExamAttempt**: Final exam attempts with scoring, grading status, and pass/fail determination
+24. **CertificationSettings**: Global certification configuration (pricing, templates, defaults)
 
 ### Analytics & Leaderboards
 21. **EventLog**: Event-sourcing for all player actions
@@ -503,6 +507,104 @@ amanoba/
 **Why**: Course UI should match course language, not URL locale. This eliminates redirects and provides smooth navigation.
 
 ### 7. Course System (NEW)
+
+**Course Structure**
+- 30-day structured courses with daily lessons
+- Multi-language support (11 languages)
+- Points and XP configuration per course
+- Premium course gating
+- Course catalog with filtering and search
+
+**Lesson System**
+- Daily lessons with HTML content
+- Email templates for lesson delivery
+- Quiz integration per lesson
+- Progress tracking (completed days, current day)
+
+**Quiz System**
+- Course-specific quiz questions
+- Multiple choice questions with options
+- Difficulty levels and categories
+- Assessment results linked to lessons
+
+**Progress Tracking**
+- `CourseProgress` tracks student advancement
+- `completedDays` array tracks completed lessons
+- `currentDay` points to next uncompleted lesson
+- `assessmentResults` Map tracks quiz completions
+- Status: 'in_progress', 'completed', 'abandoned'
+
+**Final Exam System**
+- Final exam required for course completion
+- Minimum 50 questions in certification pool
+- Scoring: percentage-based, pass threshold > 50%
+- Multiple attempts allowed
+- `FinalExamAttempt` tracks all attempts
+
+### 8. Certificate System (NEW)
+
+**Automatic Certificate Issuance**
+- Certificates automatically created when all requirements met:
+  1. Student enrolled in course
+  2. All lessons completed
+  3. All quizzes passed
+  4. Final exam passed (> 50%)
+- Certificate creation/update handled in final exam submission API
+- Revocation if requirements no longer met
+
+**Certificate Data Model**
+- `certificateId`: UUID for internal tracking
+- `verificationSlug`: Unique, unguessable 20-char hex string for public verification
+- `playerId`, `courseId`, `recipientName`, `courseTitle`: Certificate details
+- `issuedAtISO`: Timestamp of issuance
+- `finalExamScorePercentInteger`: Final exam score
+- `isPublic`: Privacy control (default: true)
+- `isRevoked`: Revocation status (default: false)
+- `revokedAtISO`, `revokedReason`: Revocation details
+
+**Certificate Verification**
+- **New Format**: `/certificate/[slug]` - Secure, unguessable URLs
+- **Legacy Format**: `/certificate/verify/[playerId]/[courseId]` - Backward compatible
+- Public verification page shows certificate details
+- Privacy controls: Owners can toggle public/private
+- Revoked certificates clearly marked
+
+**Certificate Entitlement**
+- Students need entitlement to take final exam
+- Entitlement sources:
+  - Purchase with points
+  - Included in premium course (if configured)
+  - Admin grant (future)
+- `CertificateEntitlement` tracks entitlements
+
+**Admin Certificate Management**
+- Admin certificate list at `/admin/certificates`
+- Search by certificate ID, name, course, player, slug
+- Filter by status (all, active, revoked)
+- View certificate verification page
+- Link to comprehensive creation guide
+
+**API Endpoints**
+- `GET /api/certificates/[slug]` - Public verification (respects privacy)
+- `PATCH /api/certificates/[slug]` - Privacy toggle (owner only)
+- `GET /api/profile/[playerId]/certificate-status?courseId=[courseId]` - Eligibility check
+- `GET /api/admin/certificates` - Admin certificate list (admin only)
+
+**Course Certification Configuration**
+- Per-course settings in course editor:
+  - Enable/disable certification
+  - Price in points
+  - Premium includes certification
+  - Template ID
+  - Credential Title ID
+- Global settings in admin settings
+
+**Documentation**
+- Comprehensive guide: `docs/CERTIFICATE_CREATION_GUIDE.md`
+- Linked from admin certificates page
+- Covers creation, verification, management, troubleshooting
+
+### 9. Admin Dashboard
 
 **30-Day Course Structure**
 - Each course consists of exactly 30 daily lessons

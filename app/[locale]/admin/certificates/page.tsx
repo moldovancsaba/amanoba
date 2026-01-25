@@ -107,6 +107,17 @@ export default function AdminCertificatesPage() {
           <h1 className="text-3xl font-bold text-white mb-2">Certificates Management</h1>
           <p className="text-gray-400">View, search, and manage all certificates</p>
         </div>
+        <div className="flex items-center gap-4">
+          <a
+            href="/docs/CERTIFICATE_CREATION_GUIDE.md"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg font-medium transition-colors"
+          >
+            <Award className="w-5 h-5" />
+            Certificate Creation Guide
+          </a>
+        </div>
       </div>
 
       {/* Search and Filters */}

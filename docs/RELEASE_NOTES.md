@@ -1,11 +1,88 @@
 # Amanoba Release Notes
 
-**Current Version**: 2.9.2  
-**Last Updated**: 2026-01-25T18:00:00.000Z
+**Current Version**: 2.9.3  
+**Last Updated**: 2026-01-25T20:00:00.000Z
 
 ---
 
 All completed tasks are documented here in reverse chronological order. This file follows the Changelog format and is updated with every version bump.
+
+---
+
+## [v2.9.3] — 2026-01-25 🔐📜
+
+**Status**: MINOR RELEASE - Certificate Verification Enhancement  
+**Type**: Feature Addition + Security Improvement
+
+### 🔐 Certificate Verification with Slug
+
+**Problem**: Certificate verification URLs exposed player IDs and course IDs, reducing privacy and security.
+
+**Solution**: Implemented secure slug-based certificate verification with privacy controls.
+
+#### Features
+- ✅ Secure verification URLs using unguessable slugs (`/certificate/[slug]`)
+- ✅ Privacy controls: Certificate owners can toggle public/private visibility
+- ✅ Owner-only privacy toggle API endpoint
+- ✅ Public verification page with privacy status display
+- ✅ Backward compatible: Old `/certificate/verify/[playerId]/[courseId]` URLs still work
+- ✅ Admin certificate list updated to use slug-based links
+- ✅ Certificate page "Copy Link" updated to use slug (with fallback)
+
+#### Components Created
+- `app/api/certificates/[slug]/route.ts` - GET and PATCH endpoints for certificate verification
+- `app/[locale]/certificate/[slug]/page.tsx` - Public verification page with privacy controls
+
+#### Files Modified
+- `app/[locale]/admin/certificates/page.tsx` - Updated View link to use slug
+- `app/[locale]/profile/[playerId]/certificate/[courseId]/page.tsx` - Updated copy link to use slug
+- `app/api/profile/[playerId]/certificate-status/route.ts` - Added verificationSlug to response
+
+#### Security Improvements
+- **Privacy by Default**: Certificates can be set to private (owner-only)
+- **Unguessable URLs**: Verification slugs are cryptographically random (20 hex chars)
+- **No Information Leakage**: 404 responses for private/not-found certificates don't reveal existence
+- **Owner Verification**: Privacy toggle requires authentication and ownership verification
+
+**Documentation**: 
+- `docs/2026-01-25_CERTIFICATE_VERIFICATION_SLUG_DELIVERY_PLAN.md`
+- `docs/CERTIFICATE_CREATION_GUIDE.md`
+
+### 📜 Certificate Creation Guide
+
+**Problem**: No comprehensive documentation for certificate creation and management.
+
+**Solution**: Created comprehensive certificate creation guide covering all aspects of the certificate system.
+
+#### Documentation Created
+- `docs/CERTIFICATE_CREATION_GUIDE.md` - Complete guide covering:
+  - How certificates are automatically created
+  - Certificate requirements for students
+  - Course configuration for admins
+  - Certificate data model
+  - Verification system
+  - Admin management
+  - Troubleshooting
+  - API endpoints
+  - Best practices
+
+#### Integration
+- Guide linked from admin certificates page (`/admin/certificates`)
+- Accessible via direct link in admin UI
+
+### 📊 Metrics
+
+- **Files Created**: 2 (API route, verification page, guide)
+- **Files Modified**: 3 (admin page, certificate page, certificate-status API)
+- **Documentation**: 1 comprehensive guide
+- **Build Status**: ✅ SUCCESS - 0 errors, 0 warnings
+
+### 🛡️ Safety Rollback Plan
+
+**Baseline**: Current HEAD commit  
+**Previous Stable**: v2.9.2 (Google Analytics + Course Progress Fix)  
+**Rollback Time**: <10 minutes  
+**Backward Compatibility**: Old verification URLs still work
 
 ---
 
