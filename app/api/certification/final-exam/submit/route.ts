@@ -4,10 +4,12 @@ import connectDB from '@/lib/mongodb';
 import {
   Certificate,
   Course,
+  CourseProgress,
   FinalExamAttempt,
   Player,
 } from '@/lib/models';
 import crypto from 'crypto';
+import mongoose from 'mongoose';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -55,12 +57,32 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ success: false, error: 'Course or player not found' }, { status: 404 });
   }
 
+  // Check all certificate requirements
+  const progress = await CourseProgress.findOne({
+    playerId: new mongoose.Types.ObjectId(session.user.id),
+    courseId: attempt.courseId,
+  }).lean();
+
+  const enrolled = !!progress;
+  const allLessonsCompleted = enrolled && progress && 
+    (progress.completedDays?.length || 0) >= (course.durationDays || 0);
+  
+  // Check if all quizzes are passed (assessmentResults has entries for all days)
+  const assessmentResults = progress?.assessmentResults || new Map();
+  const allQuizzesPassed = enrolled && course.durationDays > 0 && 
+    Array.from({ length: course.durationDays }, (_, i) => (i + 1).toString())
+      .every((dayStr) => assessmentResults.has(dayStr));
+
+  // Certificate is eligible only if ALL requirements are met
+  const certificateEligible = enrolled && allLessonsCompleted && allQuizzesPassed && passed;
+
   const existing = await Certificate.findOne({
     playerId: player._id.toString(),
     courseId: course.courseId,
   });
 
-  if (passed) {
+  if (certificateEligible) {
+    // All requirements met - issue or update certificate
     if (existing) {
       existing.finalExamScorePercentInteger = scorePercentInteger;
       existing.lastAttemptId = attempt._id.toString();
@@ -69,15 +91,16 @@ export async function POST(request: NextRequest) {
       existing.revokedReason = undefined;
       await existing.save();
     } else {
+      // Create new certificate
       await Certificate.create({
         certificateId: crypto.randomUUID(),
         playerId: player._id.toString(),
         recipientName: player.displayName || player.email || 'Learner',
         courseId: course.courseId,
-        courseTitle: course.name,
-        locale: course.language || 'hu',
-        designTemplateId: course.certification?.templateId || 'default_v1',
-        credentialId: course.certification?.credentialTitleId || 'CERT',
+        courseTitle: course.name || course.courseId,
+        locale: course.language || 'en',
+        designTemplateId: 'default_v1',
+        credentialId: 'CERT',
         completionPhraseId: 'completion_final_exam',
         deliverableBulletIds: [],
         issuedAtISO: new Date().toISOString(),
@@ -90,11 +113,14 @@ export async function POST(request: NextRequest) {
       });
     }
   } else if (existing) {
+    // Requirements not met - revoke certificate if it exists
     existing.finalExamScorePercentInteger = scorePercentInteger;
     existing.lastAttemptId = attempt._id.toString();
     existing.isRevoked = true;
     existing.revokedAtISO = new Date().toISOString();
-    existing.revokedReason = 'score_below_threshold';
+    existing.revokedReason = passed 
+      ? 'requirements_not_met' 
+      : 'score_below_threshold';
     await existing.save();
   }
 
