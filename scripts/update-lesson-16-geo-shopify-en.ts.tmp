@@ -1,0 +1,153 @@
+/**
+ * Update Lesson 2 for GEO_SHOPIFY_30_EN (English) - Quality Fix
+ */
+
+import { config } from 'dotenv';
+import { resolve } from 'path';
+config({ path: resolve(process.cwd(), '.env.local') });
+
+import mongoose from 'mongoose';
+import { Brand, Course, Lesson } from '../app/lib/models';
+
+const COURSE_ID = 'GEO_SHOPIFY_30_EN';
+
+const UPDATED_LESSON_16 = {
+  day: 16,
+  title: 'Collection page as guide, not just grid',
+  content: `<h1>Variant clarity: no mix-ups</h1>
+<p><em>Today you'll make variant data unambiguous for AI and feeds.</em></p>
+<hr />
+<h2>What you'll learn today</h2>
+<p>Today you'll achieve these two things:</p>
+<ul>
+<li>You'll review 10 variants and standardize naming so they're clear.</li>
+<li>You'll pair images at variant level so each variant has its own image.</li>
+</ul>
+<hr />
+<h2>Why this matters to you</h2>
+<p>Mixed variants cause wrong recommendations. AI cites clear variant data more reliably. Without clear variants, AI can't accurately distinguish between product options.</p>
+<hr />
+<h2>Variant labeling: what to check</h2>
+<h3>Variant title</h3>
+<p>Check that variant titles include:</p>
+<ul>
+<li>Size clearly stated (e.g., "42", "L", "XL")</li>
+<li>Color clearly stated (e.g., "blue", "black")</li>
+<li>No mixing of attributes</li>
+</ul>
+<h3>Images</h3>
+<p>Check that images are:</p>
+<ul>
+<li>Paired per variant</li>
+<li>Each variant has its own image</li>
+<li>Images clearly show the variant</li>
+</ul>
+<h3>SKU and GTIN</h3>
+<p>Check that identifiers are:</p>
+<ul>
+<li>SKU variant-specific – unique per variant</li>
+<li>GTIN variant-specific – unique per variant (if available)</li>
+<li>No duplicates</li>
+</ul>
+<hr />
+<h2>Examples: what works, what doesn't?</h2>
+<h3>✅ Good variant clarity</h3>
+<p>"Men, blue, 42" + blue image + unique SKU/GTIN.</p>
+<h3>❌ Poor variant clarity</h3>
+<p>"42 blue/black" one image, shared SKU – unclear and confusing.</p>
+<hr />
+<h2>Practice: standardize your variants (10-15 min)</h2>
+<p>Now you'll review 10 variants and standardize naming. Here are the steps:</p>
+<ol>
+<li>Pick 5 products: set variant names (size, color fields), pair images per variant.</li>
+<li>Check SKU/GTIN per variant to ensure they're unique.</li>
+</ol>
+<h2>Independent practice: expand to more products (5-10 min)</h2>
+<p>Now expand variant clarity to 5–10 more products.</p>
+<hr />
+<h2>Self-check</h2>
+<p>Before moving on, check that:</p>
+<ul>
+<li>✅ 10 variants reviewed</li>
+<li>✅ Variant naming standardized</li>
+<li>✅ Images paired per variant</li>
+<li>✅ SKU/GTIN variant-specific</li>
+</ul>
+<hr />
+<h2>If you want to go deeper</h2>
+<ul>
+<li>Shopify variant management: <a href="https://help.shopify.com/en/manual/products/products/product-variants" target="_blank" rel="noreferrer">https://help.shopify.com/en/manual/products/products/product-variants</a></li>
+<li>Google Merchant Center – Variant requirements: <a href="https://support.google.com/merchants/answer/6324484" target="_blank" rel="noreferrer">https://support.google.com/merchants/answer/6324484</a></li>
+</ul>`,
+  emailSubject: 'GEO Shopify – Day 16: Variant clarity',
+  emailBody: `<h1>GEO Shopify – Day 16</h1>
+<h2>Variant clarity: no mix-ups</h2>
+<p>Today you'll make variant data unambiguous for AI and feeds.</p>
+<p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Read the lesson →</a></p>`
+};
+
+async function updateLesson16() {
+  try {
+    const mongoUri = process.env.MONGODB_URI;
+    if (!mongoUri) throw new Error('MONGODB_URI not set');
+    const { default: connectDB } = await import('../app/lib/mongodb');
+    await connectDB();
+    console.log('✅ Connected to MongoDB');
+
+    let brand = await Brand.findOne({ slug: 'amanoba' });
+    if (!brand) {
+      brand = await Brand.create({
+        name: 'Amanoba', slug: 'amanoba', displayName: 'Amanoba',
+        description: 'Unified Learning Platform', logo: '/AMANOBA.png',
+        themeColors: { primary: '#FAB908', secondary: '#2D2D2D', accent: '#FAB908' },
+        allowedDomains: ['amanoba.com', 'www.amanoba.com', 'localhost'],
+        supportedLanguages: ['hu', 'en'], defaultLanguage: 'hu', isActive: true
+      });
+      console.log('✅ Brand created');
+    }
+
+    const course = await Course.findOneAndUpdate(
+      { courseId: COURSE_ID },
+      {
+        $set: {
+          courseId: COURSE_ID,
+          name: 'GEO Shopify – 30-day course',
+          description: '30 days of practical GEO training for Shopify merchants: in 20–30 minutes a day you build product and content foundations so generative systems can safely find, parse, and cite your store.',
+          language: 'en', durationDays: 30, isActive: true, requiresPremium: false,
+          brandId: brand._id,
+          pointsConfig: { completionPoints: 1000, lessonPoints: 50, perfectCourseBonus: 500 },
+          xpConfig: { completionXP: 500, lessonXP: 25 },
+          metadata: { category: 'education', difficulty: 'intermediate', estimatedHours: 10, tags: ['geo', 'shopify', 'ecommerce'], instructor: 'Amanoba' }
+        }
+      },
+      { upsert: true, new: true, setDefaultsOnInsert: true }
+    );
+    console.log(`✅ Course ${COURSE_ID} found/created: ${course.name}`);
+
+    const lessonId = `${COURSE_ID}_DAY_16`;
+    const lesson = await Lesson.findOneAndUpdate(
+      { lessonId },
+      {
+        $set: {
+          lessonId, courseId: course._id, dayNumber: UPDATED_LESSON_16.day,
+          language: 'en', title: UPDATED_LESSON_16.title, content: UPDATED_LESSON_16.content,
+          emailSubject: UPDATED_LESSON_16.emailSubject, emailBody: UPDATED_LESSON_16.emailBody, isActive: true,
+        }
+      },
+      { upsert: true, new: true, setDefaultsOnInsert: true }
+    );
+
+    console.log(`✅ Lesson 2 updated successfully`);
+    console.log(`   Lesson ID: ${lesson.lessonId}`);
+    console.log(`   Title: ${lesson.title}`);
+
+    await mongoose.disconnect();
+    console.log('✅ Disconnected from MongoDB');
+  } catch (error) {
+    console.error('❌ Error:', error);
+    await mongoose.disconnect();
+    process.exit(1);
+  }
+}
+
+updateLesson16();
