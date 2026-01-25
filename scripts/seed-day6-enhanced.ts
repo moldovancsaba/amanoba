@@ -59,7 +59,7 @@ const DAY6_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 0,
       difficulty: QuestionDifficulty.EASY,
-      category: "Capture",
+      category: "Capture & GTD",
       questionType: QuestionType.RECALL,
       hashtags: ["#capture", "#beginner", "#recall", "#en", "#all-languages"]
     },
@@ -74,7 +74,7 @@ const DAY6_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 2,
       difficulty: QuestionDifficulty.EASY,
-      category: "Capture",
+      category: "Capture & GTD",
       questionType: QuestionType.RECALL,
       hashtags: ["#capture", "#beginner", "#recall", "#en", "#all-languages"]
     },
@@ -89,7 +89,7 @@ const DAY6_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 0,
       difficulty: QuestionDifficulty.EASY,
-      category: "Capture",
+      category: "Capture & GTD",
       questionType: QuestionType.RECALL,
       hashtags: ["#capture", "#beginner", "#recall", "#en", "#all-languages"]
     },
@@ -104,7 +104,7 @@ const DAY6_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Capture",
+      category: "Capture & GTD",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#capture", "#intermediate", "#application", "#en", "#all-languages"]
     },
@@ -119,7 +119,7 @@ const DAY6_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Capture",
+      category: "Capture & GTD",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#capture", "#intermediate", "#application", "#en", "#all-languages"]
     },
@@ -134,7 +134,7 @@ const DAY6_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Capture",
+      category: "Capture & GTD",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#capture", "#intermediate", "#application", "#en", "#all-languages"]
     },
@@ -149,7 +149,7 @@ const DAY6_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.HARD,
-      category: "Capture",
+      category: "Capture & GTD",
       questionType: QuestionType.CRITICAL_THINKING,
       hashtags: ["#capture", "#advanced", "#critical-thinking", "#en", "#all-languages"]
     }
@@ -166,7 +166,7 @@ const DAY6_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 0,
       difficulty: QuestionDifficulty.EASY,
-      category: "Rögzítés",
+      category: "Capture & GTD",
       questionType: QuestionType.RECALL,
       hashtags: ["#capture", "#beginner", "#recall", "#hu", "#all-languages"]
     },
@@ -180,7 +180,7 @@ const DAY6_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 2,
       difficulty: QuestionDifficulty.EASY,
-      category: "Rögzítés",
+      category: "Capture & GTD",
       questionType: QuestionType.RECALL,
       hashtags: ["#capture", "#beginner", "#recall", "#hu", "#all-languages"]
     },
@@ -194,7 +194,7 @@ const DAY6_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 0,
       difficulty: QuestionDifficulty.EASY,
-      category: "Rögzítés",
+      category: "Capture & GTD",
       questionType: QuestionType.RECALL,
       hashtags: ["#capture", "#beginner", "#recall", "#hu", "#all-languages"]
     },
@@ -208,7 +208,7 @@ const DAY6_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Rögzítés",
+      category: "Capture & GTD",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#capture", "#intermediate", "#application", "#hu", "#all-languages"]
     },
@@ -222,7 +222,7 @@ const DAY6_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Rögzítés",
+      category: "Capture & GTD",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#capture", "#intermediate", "#application", "#hu", "#all-languages"]
     },
@@ -236,7 +236,7 @@ const DAY6_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Rögzítés",
+      category: "Capture & GTD",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#capture", "#intermediate", "#application", "#hu", "#all-languages"]
     },
@@ -250,7 +250,7 @@ const DAY6_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.HARD,
-      category: "Rögzítés",
+      category: "Capture & GTD",
       questionType: QuestionType.CRITICAL_THINKING,
       hashtags: ["#capture", "#advanced", "#critical-thinking", "#hu", "#all-languages"]
     }
@@ -1098,11 +1098,11 @@ async function seedDay6Enhanced() {
       console.log(`   ✅ Lesson found: "${lesson.title}"`);
 
       // Get questions for this language
-      const questions = DAY6_QUESTIONS[lang] || DAY6_QUESTIONS['EN']; // Fallback to EN if not translated
+      const questions = DAY6_QUESTIONS[lang];
       
       if (!questions || questions.length === 0) {
-        console.log(`   ⚠️  No questions defined for ${lang}, using English as fallback`);
-        continue;
+        console.error(`   ❌ ERROR: No questions defined for ${lang}! Questions MUST be in course language.`);
+        throw new Error(`Missing translations for ${lang} - Day 6 questions must be in course language, not English fallback`);
       }
 
       console.log(`   📝 Seeding ${questions.length} questions...`);

@@ -1097,11 +1097,11 @@ async function seedDay7Enhanced() {
       console.log(`   ✅ Lesson found: "${lesson.title}"`);
 
       // Get questions for this language
-      const questions = DAY7_QUESTIONS[lang] || DAY7_QUESTIONS['EN']; // Fallback to EN if not translated
+      const questions = DAY7_QUESTIONS[lang];
       
       if (!questions || questions.length === 0) {
-        console.log(`   ⚠️  No questions defined for ${lang}, using English as fallback`);
-        continue;
+        console.error(`   ❌ ERROR: No questions defined for ${lang}! Questions MUST be in course language.`);
+        throw new Error(`Missing translations for ${lang} - Day 7 questions must be in course language, not English fallback`);
       }
 
       console.log(`   📝 Seeding ${questions.length} questions...`);

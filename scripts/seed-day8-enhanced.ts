@@ -166,7 +166,7 @@ const DAY8_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "Kontextusváltás",
+      category: "Context Switching",
       questionType: QuestionType.RECALL,
       hashtags: ["#context-switching", "#beginner", "#recall", "#hu", "#all-languages"]
     },
@@ -180,7 +180,7 @@ const DAY8_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "Kontextusváltás",
+      category: "Context Switching",
       questionType: QuestionType.RECALL,
       hashtags: ["#context-switching", "#beginner", "#recall", "#hu", "#all-languages"]
     },
@@ -194,7 +194,7 @@ const DAY8_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 2,
       difficulty: QuestionDifficulty.EASY,
-      category: "Kontextusváltás",
+      category: "Context Switching",
       questionType: QuestionType.RECALL,
       hashtags: ["#context-switching", "#beginner", "#recall", "#hu", "#all-languages"]
     },
@@ -208,7 +208,7 @@ const DAY8_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Kontextusváltás",
+      category: "Context Switching",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#context-switching", "#intermediate", "#application", "#hu", "#all-languages"]
     },
@@ -222,7 +222,7 @@ const DAY8_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 2,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Kontextusváltás",
+      category: "Context Switching",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#context-switching", "#intermediate", "#application", "#hu", "#all-languages"]
     },
@@ -236,7 +236,7 @@ const DAY8_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Kontextusváltás",
+      category: "Context Switching",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#context-switching", "#intermediate", "#application", "#hu", "#all-languages"]
     },
@@ -250,7 +250,7 @@ const DAY8_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.HARD,
-      category: "Kontextusváltás",
+      category: "Context Switching",
       questionType: QuestionType.CRITICAL_THINKING,
       hashtags: ["#context-switching", "#advanced", "#critical-thinking", "#hu", "#all-languages"]
     }
@@ -1098,11 +1098,11 @@ async function seedDay8Enhanced() {
       console.log(`   ✅ Lesson found: "${lesson.title}"`);
 
       // Get questions for this language
-      const questions = DAY8_QUESTIONS[lang] || DAY8_QUESTIONS['EN']; // Fallback to EN if not translated
+      const questions = DAY8_QUESTIONS[lang];
       
       if (!questions || questions.length === 0) {
-        console.log(`   ⚠️  No questions defined for ${lang}, using English as fallback`);
-        continue;
+        console.error(`   ❌ ERROR: No questions defined for ${lang}! Questions MUST be in course language.`);
+        throw new Error(`Missing translations for ${lang} - Day 8 questions must be in course language, not English fallback`);
       }
 
       console.log(`   📝 Seeding ${questions.length} questions...`);

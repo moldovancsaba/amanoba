@@ -59,7 +59,7 @@ const DAY15_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "Teamwork",
+      category: "Team Dynamics",
       questionType: QuestionType.RECALL,
       hashtags: ["#teamwork", "#beginner", "#recall", "#en", "#all-languages"]
     },
@@ -74,7 +74,7 @@ const DAY15_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "Teamwork",
+      category: "Team Dynamics",
       questionType: QuestionType.RECALL,
       hashtags: ["#teamwork", "#beginner", "#recall", "#en", "#all-languages"]
     },
@@ -89,7 +89,7 @@ const DAY15_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "Teamwork",
+      category: "Team Dynamics",
       questionType: QuestionType.RECALL,
       hashtags: ["#teamwork", "#beginner", "#recall", "#en", "#all-languages"]
     },
@@ -104,7 +104,7 @@ const DAY15_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Teamwork",
+      category: "Team Dynamics",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#teamwork", "#intermediate", "#application", "#en", "#all-languages"]
     },
@@ -119,7 +119,7 @@ const DAY15_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Teamwork",
+      category: "Team Dynamics",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#teamwork", "#intermediate", "#application", "#en", "#all-languages"]
     },
@@ -134,7 +134,7 @@ const DAY15_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Teamwork",
+      category: "Team Dynamics",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#teamwork", "#intermediate", "#application", "#en", "#all-languages"]
     },
@@ -149,7 +149,7 @@ const DAY15_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.HARD,
-      category: "Teamwork",
+      category: "Team Dynamics",
       questionType: QuestionType.CRITICAL_THINKING,
       hashtags: ["#teamwork", "#advanced", "#critical-thinking", "#en", "#all-languages"]
     }
@@ -166,7 +166,7 @@ const DAY15_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "Csapatmunka",
+      category: "Team Dynamics",
       questionType: QuestionType.RECALL,
       hashtags: ["#teamwork", "#beginner", "#recall", "#hu", "#all-languages"]
     },
@@ -180,7 +180,7 @@ const DAY15_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "Csapatmunka",
+      category: "Team Dynamics",
       questionType: QuestionType.RECALL,
       hashtags: ["#teamwork", "#beginner", "#recall", "#hu", "#all-languages"]
     },
@@ -194,7 +194,7 @@ const DAY15_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "Csapatmunka",
+      category: "Team Dynamics",
       questionType: QuestionType.RECALL,
       hashtags: ["#teamwork", "#beginner", "#recall", "#hu", "#all-languages"]
     },
@@ -208,7 +208,7 @@ const DAY15_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Csapatmunka",
+      category: "Team Dynamics",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#teamwork", "#intermediate", "#application", "#hu", "#all-languages"]
     },
@@ -222,7 +222,7 @@ const DAY15_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Csapatmunka",
+      category: "Team Dynamics",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#teamwork", "#intermediate", "#application", "#hu", "#all-languages"]
     },
@@ -236,7 +236,7 @@ const DAY15_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Csapatmunka",
+      category: "Team Dynamics",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#teamwork", "#intermediate", "#application", "#hu", "#all-languages"]
     },
@@ -250,7 +250,7 @@ const DAY15_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.HARD,
-      category: "Csapatmunka",
+      category: "Team Dynamics",
       questionType: QuestionType.CRITICAL_THINKING,
       hashtags: ["#teamwork", "#advanced", "#critical-thinking", "#hu", "#all-languages"]
     }
@@ -267,7 +267,7 @@ const DAY15_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "Takım Çalışması",
+      category: "Team Dynamics",
       questionType: QuestionType.RECALL,
       hashtags: ["#teamwork", "#beginner", "#recall", "#tr", "#all-languages"]
     },
@@ -281,7 +281,7 @@ const DAY15_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "Takım Çalışması",
+      category: "Team Dynamics",
       questionType: QuestionType.RECALL,
       hashtags: ["#teamwork", "#beginner", "#recall", "#tr", "#all-languages"]
     },
@@ -295,7 +295,7 @@ const DAY15_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "Takım Çalışması",
+      category: "Team Dynamics",
       questionType: QuestionType.RECALL,
       hashtags: ["#teamwork", "#beginner", "#recall", "#tr", "#all-languages"]
     },
@@ -309,7 +309,7 @@ const DAY15_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Takım Çalışması",
+      category: "Team Dynamics",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#teamwork", "#intermediate", "#application", "#tr", "#all-languages"]
     },
@@ -323,7 +323,7 @@ const DAY15_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Takım Çalışması",
+      category: "Team Dynamics",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#teamwork", "#intermediate", "#application", "#tr", "#all-languages"]
     },
@@ -337,7 +337,7 @@ const DAY15_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Takım Çalışması",
+      category: "Team Dynamics",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#teamwork", "#intermediate", "#application", "#tr", "#all-languages"]
     },
@@ -351,7 +351,7 @@ const DAY15_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.HARD,
-      category: "Takım Çalışması",
+      category: "Team Dynamics",
       questionType: QuestionType.CRITICAL_THINKING,
       hashtags: ["#teamwork", "#advanced", "#critical-thinking", "#tr", "#all-languages"]
     }
@@ -368,7 +368,7 @@ const DAY15_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "Работа в Екип",
+      category: "Team Dynamics",
       questionType: QuestionType.RECALL,
       hashtags: ["#teamwork", "#beginner", "#recall", "#bg", "#all-languages"]
     },
@@ -382,7 +382,7 @@ const DAY15_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "Работа в Екип",
+      category: "Team Dynamics",
       questionType: QuestionType.RECALL,
       hashtags: ["#teamwork", "#beginner", "#recall", "#bg", "#all-languages"]
     },
@@ -396,7 +396,7 @@ const DAY15_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "Работа в Екип",
+      category: "Team Dynamics",
       questionType: QuestionType.RECALL,
       hashtags: ["#teamwork", "#beginner", "#recall", "#bg", "#all-languages"]
     },
@@ -410,7 +410,7 @@ const DAY15_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Работа в Екип",
+      category: "Team Dynamics",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#teamwork", "#intermediate", "#application", "#bg", "#all-languages"]
     },
@@ -424,7 +424,7 @@ const DAY15_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Работа в Екип",
+      category: "Team Dynamics",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#teamwork", "#intermediate", "#application", "#bg", "#all-languages"]
     },
@@ -438,7 +438,7 @@ const DAY15_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Работа в Екип",
+      category: "Team Dynamics",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#teamwork", "#intermediate", "#application", "#bg", "#all-languages"]
     },
@@ -452,7 +452,7 @@ const DAY15_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.HARD,
-      category: "Работа в Екип",
+      category: "Team Dynamics",
       questionType: QuestionType.CRITICAL_THINKING,
       hashtags: ["#teamwork", "#advanced", "#critical-thinking", "#bg", "#all-languages"]
     }
@@ -469,7 +469,7 @@ const DAY15_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "Praca Zespołowa",
+      category: "Team Dynamics",
       questionType: QuestionType.RECALL,
       hashtags: ["#teamwork", "#beginner", "#recall", "#pl", "#all-languages"]
     },
@@ -483,7 +483,7 @@ const DAY15_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "Praca Zespołowa",
+      category: "Team Dynamics",
       questionType: QuestionType.RECALL,
       hashtags: ["#teamwork", "#beginner", "#recall", "#pl", "#all-languages"]
     },
@@ -497,7 +497,7 @@ const DAY15_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "Praca Zespołowa",
+      category: "Team Dynamics",
       questionType: QuestionType.RECALL,
       hashtags: ["#teamwork", "#beginner", "#recall", "#pl", "#all-languages"]
     },
@@ -511,7 +511,7 @@ const DAY15_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Praca Zespołowa",
+      category: "Team Dynamics",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#teamwork", "#intermediate", "#application", "#pl", "#all-languages"]
     },
@@ -525,7 +525,7 @@ const DAY15_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Praca Zespołowa",
+      category: "Team Dynamics",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#teamwork", "#intermediate", "#application", "#pl", "#all-languages"]
     },
@@ -539,7 +539,7 @@ const DAY15_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Praca Zespołowa",
+      category: "Team Dynamics",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#teamwork", "#intermediate", "#application", "#pl", "#all-languages"]
     },
@@ -553,7 +553,7 @@ const DAY15_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.HARD,
-      category: "Praca Zespołowa",
+      category: "Team Dynamics",
       questionType: QuestionType.CRITICAL_THINKING,
       hashtags: ["#teamwork", "#advanced", "#critical-thinking", "#pl", "#all-languages"]
     }
@@ -570,7 +570,7 @@ const DAY15_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "Làm Việc Nhóm",
+      category: "Team Dynamics",
       questionType: QuestionType.RECALL,
       hashtags: ["#teamwork", "#beginner", "#recall", "#vi", "#all-languages"]
     },
@@ -584,7 +584,7 @@ const DAY15_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "Làm Việc Nhóm",
+      category: "Team Dynamics",
       questionType: QuestionType.RECALL,
       hashtags: ["#teamwork", "#beginner", "#recall", "#vi", "#all-languages"]
     },
@@ -598,7 +598,7 @@ const DAY15_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "Làm Việc Nhóm",
+      category: "Team Dynamics",
       questionType: QuestionType.RECALL,
       hashtags: ["#teamwork", "#beginner", "#recall", "#vi", "#all-languages"]
     },
@@ -612,7 +612,7 @@ const DAY15_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Làm Việc Nhóm",
+      category: "Team Dynamics",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#teamwork", "#intermediate", "#application", "#vi", "#all-languages"]
     },
@@ -626,7 +626,7 @@ const DAY15_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Làm Việc Nhóm",
+      category: "Team Dynamics",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#teamwork", "#intermediate", "#application", "#vi", "#all-languages"]
     },
@@ -640,7 +640,7 @@ const DAY15_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Làm Việc Nhóm",
+      category: "Team Dynamics",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#teamwork", "#intermediate", "#application", "#vi", "#all-languages"]
     },
@@ -654,7 +654,7 @@ const DAY15_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.HARD,
-      category: "Làm Việc Nhóm",
+      category: "Team Dynamics",
       questionType: QuestionType.CRITICAL_THINKING,
       hashtags: ["#teamwork", "#advanced", "#critical-thinking", "#vi", "#all-languages"]
     }
@@ -671,7 +671,7 @@ const DAY15_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "Kerja Tim",
+      category: "Team Dynamics",
       questionType: QuestionType.RECALL,
       hashtags: ["#teamwork", "#beginner", "#recall", "#id", "#all-languages"]
     },
@@ -685,7 +685,7 @@ const DAY15_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "Kerja Tim",
+      category: "Team Dynamics",
       questionType: QuestionType.RECALL,
       hashtags: ["#teamwork", "#beginner", "#recall", "#id", "#all-languages"]
     },
@@ -699,7 +699,7 @@ const DAY15_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "Kerja Tim",
+      category: "Team Dynamics",
       questionType: QuestionType.RECALL,
       hashtags: ["#teamwork", "#beginner", "#recall", "#id", "#all-languages"]
     },
@@ -713,7 +713,7 @@ const DAY15_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Kerja Tim",
+      category: "Team Dynamics",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#teamwork", "#intermediate", "#application", "#id", "#all-languages"]
     },
@@ -727,7 +727,7 @@ const DAY15_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Kerja Tim",
+      category: "Team Dynamics",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#teamwork", "#intermediate", "#application", "#id", "#all-languages"]
     },
@@ -741,7 +741,7 @@ const DAY15_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Kerja Tim",
+      category: "Team Dynamics",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#teamwork", "#intermediate", "#application", "#id", "#all-languages"]
     },
@@ -755,7 +755,7 @@ const DAY15_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.HARD,
-      category: "Kerja Tim",
+      category: "Team Dynamics",
       questionType: QuestionType.CRITICAL_THINKING,
       hashtags: ["#teamwork", "#advanced", "#critical-thinking", "#id", "#all-languages"]
     }
@@ -772,7 +772,7 @@ const DAY15_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "العمل الجماعي",
+      category: "Team Dynamics",
       questionType: QuestionType.RECALL,
       hashtags: ["#teamwork", "#beginner", "#recall", "#ar", "#all-languages"]
     },
@@ -786,7 +786,7 @@ const DAY15_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "العمل الجماعي",
+      category: "Team Dynamics",
       questionType: QuestionType.RECALL,
       hashtags: ["#teamwork", "#beginner", "#recall", "#ar", "#all-languages"]
     },
@@ -800,7 +800,7 @@ const DAY15_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "العمل الجماعي",
+      category: "Team Dynamics",
       questionType: QuestionType.RECALL,
       hashtags: ["#teamwork", "#beginner", "#recall", "#ar", "#all-languages"]
     },
@@ -814,7 +814,7 @@ const DAY15_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "العمل الجماعي",
+      category: "Team Dynamics",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#teamwork", "#intermediate", "#application", "#ar", "#all-languages"]
     },
@@ -828,7 +828,7 @@ const DAY15_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "العمل الجماعي",
+      category: "Team Dynamics",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#teamwork", "#intermediate", "#application", "#ar", "#all-languages"]
     },
@@ -842,7 +842,7 @@ const DAY15_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "العمل الجماعي",
+      category: "Team Dynamics",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#teamwork", "#intermediate", "#application", "#ar", "#all-languages"]
     },
@@ -856,7 +856,7 @@ const DAY15_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.HARD,
-      category: "العمل الجماعي",
+      category: "Team Dynamics",
       questionType: QuestionType.CRITICAL_THINKING,
       hashtags: ["#teamwork", "#advanced", "#critical-thinking", "#ar", "#all-languages"]
     }
@@ -873,7 +873,7 @@ const DAY15_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "Trabalho em Equipe",
+      category: "Team Dynamics",
       questionType: QuestionType.RECALL,
       hashtags: ["#teamwork", "#beginner", "#recall", "#pt", "#all-languages"]
     },
@@ -887,7 +887,7 @@ const DAY15_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "Trabalho em Equipe",
+      category: "Team Dynamics",
       questionType: QuestionType.RECALL,
       hashtags: ["#teamwork", "#beginner", "#recall", "#pt", "#all-languages"]
     },
@@ -901,7 +901,7 @@ const DAY15_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "Trabalho em Equipe",
+      category: "Team Dynamics",
       questionType: QuestionType.RECALL,
       hashtags: ["#teamwork", "#beginner", "#recall", "#pt", "#all-languages"]
     },
@@ -915,7 +915,7 @@ const DAY15_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Trabalho em Equipe",
+      category: "Team Dynamics",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#teamwork", "#intermediate", "#application", "#pt", "#all-languages"]
     },
@@ -929,7 +929,7 @@ const DAY15_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Trabalho em Equipe",
+      category: "Team Dynamics",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#teamwork", "#intermediate", "#application", "#pt", "#all-languages"]
     },
@@ -943,7 +943,7 @@ const DAY15_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Trabalho em Equipe",
+      category: "Team Dynamics",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#teamwork", "#intermediate", "#application", "#pt", "#all-languages"]
     },
@@ -957,7 +957,7 @@ const DAY15_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.HARD,
-      category: "Trabalho em Equipe",
+      category: "Team Dynamics",
       questionType: QuestionType.CRITICAL_THINKING,
       hashtags: ["#teamwork", "#advanced", "#critical-thinking", "#pt", "#all-languages"]
     }
@@ -974,7 +974,7 @@ const DAY15_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "टीमवर्क",
+      category: "Team Dynamics",
       questionType: QuestionType.RECALL,
       hashtags: ["#teamwork", "#beginner", "#recall", "#hi", "#all-languages"]
     },
@@ -988,7 +988,7 @@ const DAY15_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "टीमवर्क",
+      category: "Team Dynamics",
       questionType: QuestionType.RECALL,
       hashtags: ["#teamwork", "#beginner", "#recall", "#hi", "#all-languages"]
     },
@@ -1002,7 +1002,7 @@ const DAY15_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "टीमवर्क",
+      category: "Team Dynamics",
       questionType: QuestionType.RECALL,
       hashtags: ["#teamwork", "#beginner", "#recall", "#hi", "#all-languages"]
     },
@@ -1016,7 +1016,7 @@ const DAY15_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "टीमवर्क",
+      category: "Team Dynamics",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#teamwork", "#intermediate", "#application", "#hi", "#all-languages"]
     },
@@ -1030,7 +1030,7 @@ const DAY15_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "टीमवर्क",
+      category: "Team Dynamics",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#teamwork", "#intermediate", "#application", "#hi", "#all-languages"]
     },
@@ -1044,7 +1044,7 @@ const DAY15_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "टीमवर्क",
+      category: "Team Dynamics",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#teamwork", "#intermediate", "#application", "#hi", "#all-languages"]
     },
@@ -1058,7 +1058,7 @@ const DAY15_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.HARD,
-      category: "टीमवर्क",
+      category: "Team Dynamics",
       questionType: QuestionType.CRITICAL_THINKING,
       hashtags: ["#teamwork", "#advanced", "#critical-thinking", "#hi", "#all-languages"]
     }
@@ -1098,11 +1098,11 @@ async function seedDay15Enhanced() {
       console.log(`   ✅ Lesson found: "${lesson.title}"`);
 
       // Get questions for this language
-      const questions = DAY15_QUESTIONS[lang] || DAY15_QUESTIONS['EN']; // Fallback to EN if not translated
+      const questions = DAY15_QUESTIONS[lang];
       
       if (!questions || questions.length === 0) {
-        console.log(`   ⚠️  No questions defined for ${lang}, using English as fallback`);
-        continue;
+        console.error(`   ❌ ERROR: No questions defined for ${lang}! Questions MUST be in course language.`);
+        throw new Error(`Missing translations for ${lang} - Day 15 questions must be in course language, not English fallback`);
       }
 
       console.log(`   📝 Seeding ${questions.length} questions...`);

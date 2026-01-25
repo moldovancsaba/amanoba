@@ -56,7 +56,7 @@ const DAY1_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 0,
       difficulty: QuestionDifficulty.EASY,
-      category: "Productivity",
+      category: "Productivity Foundations",
       questionType: QuestionType.RECALL,
       hashtags: ["#productivity", "#beginner", "#recall", "#en", "#all-languages"]
     },
@@ -71,7 +71,7 @@ const DAY1_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Productivity",
+      category: "Productivity Foundations",
       questionType: QuestionType.RECALL,
       hashtags: ["#productivity", "#intermediate", "#recall", "#en", "#all-languages"]
     },
@@ -101,7 +101,7 @@ const DAY1_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Goal Setting",
+      category: "Goal Hierarchy",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#goal-setting", "#intermediate", "#application", "#en", "#all-languages"]
     },
@@ -116,7 +116,7 @@ const DAY1_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 2,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Planning",
+      category: "Goal Hierarchy",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#planning", "#intermediate", "#application", "#en", "#all-languages"]
     },
@@ -131,7 +131,7 @@ const DAY1_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 0,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Measurement",
+      category: "Measurement & Metrics",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#measurement", "#intermediate", "#application", "#en", "#all-languages"]
     },
@@ -146,7 +146,7 @@ const DAY1_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 2,
       difficulty: QuestionDifficulty.HARD,
-      category: "Productivity",
+      category: "Productivity Foundations",
       questionType: QuestionType.CRITICAL_THINKING,
       hashtags: ["#productivity", "#advanced", "#critical-thinking", "#en", "#all-languages"]
     }
@@ -163,7 +163,7 @@ const DAY1_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 0,
       difficulty: QuestionDifficulty.EASY,
-      category: "Termelékenység",
+      category: "Productivity Foundations",
       questionType: QuestionType.RECALL,
       hashtags: ["#productivity", "#beginner", "#recall", "#hu", "#all-languages"]
     },
@@ -177,7 +177,7 @@ const DAY1_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Termelékenység",
+      category: "Productivity Foundations",
       questionType: QuestionType.RECALL,
       hashtags: ["#productivity", "#intermediate", "#recall", "#hu", "#all-languages"]
     },
@@ -191,7 +191,7 @@ const DAY1_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Kontextusváltás",
+      category: "Context Switching",
       questionType: QuestionType.RECALL,
       hashtags: ["#context-switching", "#intermediate", "#recall", "#hu", "#all-languages"]
     },
@@ -205,7 +205,7 @@ const DAY1_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Célkitűzés",
+      category: "Goal Hierarchy",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#goal-setting", "#intermediate", "#application", "#hu", "#all-languages"]
     },
@@ -219,7 +219,7 @@ const DAY1_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 2,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Tervezés",
+      category: "Goal Hierarchy",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#planning", "#intermediate", "#application", "#hu", "#all-languages"]
     },
@@ -233,7 +233,7 @@ const DAY1_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 0,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Mérés",
+      category: "Measurement & Metrics",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#measurement", "#intermediate", "#application", "#hu", "#all-languages"]
     },
@@ -247,7 +247,7 @@ const DAY1_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 2,
       difficulty: QuestionDifficulty.HARD,
-      category: "Termelékenység",
+      category: "Productivity Foundations",
       questionType: QuestionType.CRITICAL_THINKING,
       hashtags: ["#productivity", "#advanced", "#critical-thinking", "#hu", "#all-languages"]
     }
@@ -264,7 +264,7 @@ const DAY1_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 0,
       difficulty: QuestionDifficulty.EASY,
-      category: "Verimlilik",
+      category: "Productivity Foundations",
       questionType: QuestionType.RECALL,
       hashtags: ["#productivity", "#beginner", "#recall", "#tr", "#all-languages"]
     },
@@ -278,7 +278,7 @@ const DAY1_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Verimlilik",
+      category: "Productivity Foundations",
       questionType: QuestionType.RECALL,
       hashtags: ["#productivity", "#intermediate", "#recall", "#tr", "#all-languages"]
     },
@@ -292,7 +292,7 @@ const DAY1_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Bağlam Değiştirme",
+      category: "Context Switching",
       questionType: QuestionType.RECALL,
       hashtags: ["#context-switching", "#intermediate", "#recall", "#tr", "#all-languages"]
     },
@@ -306,7 +306,7 @@ const DAY1_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Hedef Belirleme",
+      category: "Goal Hierarchy",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#goal-setting", "#intermediate", "#application", "#tr", "#all-languages"]
     },
@@ -320,7 +320,7 @@ const DAY1_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 2,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Planlama",
+      category: "Goal Hierarchy",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#planning", "#intermediate", "#application", "#tr", "#all-languages"]
     },
@@ -334,7 +334,7 @@ const DAY1_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 0,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Ölçüm",
+      category: "Measurement & Metrics",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#measurement", "#intermediate", "#application", "#tr", "#all-languages"]
     },
@@ -348,7 +348,7 @@ const DAY1_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 2,
       difficulty: QuestionDifficulty.HARD,
-      category: "Verimlilik",
+      category: "Productivity Foundations",
       questionType: QuestionType.CRITICAL_THINKING,
       hashtags: ["#productivity", "#advanced", "#critical-thinking", "#tr", "#all-languages"]
     }
@@ -1095,11 +1095,11 @@ async function seedDay1Enhanced() {
       console.log(`   ✅ Lesson found: "${lesson.title}"`);
 
       // Get questions for this language
-      const questions = DAY1_QUESTIONS[lang] || DAY1_QUESTIONS['EN']; // Fallback to EN if not translated
+      const questions = DAY1_QUESTIONS[lang];
       
       if (!questions || questions.length === 0) {
-        console.log(`   ⚠️  No questions defined for ${lang}, using English as fallback`);
-        continue;
+        console.error(`   ❌ ERROR: No questions defined for ${lang}! Questions MUST be in course language.`);
+        throw new Error(`Missing translations for ${lang} - Day 1 questions must be in course language, not English fallback`);
       }
 
       console.log(`   📝 Seeding ${questions.length} questions...`);

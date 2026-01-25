@@ -104,7 +104,7 @@ const DAY2_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Time Management",
+      category: "Time, Energy, Attention",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#time-management", "#intermediate", "#application", "#en", "#all-languages"]
     },
@@ -166,7 +166,7 @@ const DAY2_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "Termelékenység alapok",
+      category: "Productivity Foundations",
       questionType: QuestionType.RECALL,
       hashtags: ["#productivity", "#beginner", "#recall", "#hu", "#all-languages"]
     },
@@ -180,7 +180,7 @@ const DAY2_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 0,
       difficulty: QuestionDifficulty.EASY,
-      category: "Energia kezelés",
+      category: "Energy Management",
       questionType: QuestionType.RECALL,
       hashtags: ["#energy-management", "#beginner", "#recall", "#hu", "#all-languages"]
     },
@@ -222,7 +222,7 @@ const DAY2_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Energia kezelés",
+      category: "Energy Management",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#energy-management", "#intermediate", "#application", "#hu", "#all-languages"]
     },
@@ -1098,11 +1098,11 @@ async function seedDay2Enhanced() {
       console.log(`   ✅ Lesson found: "${lesson.title}"`);
 
       // Get questions for this language
-      const questions = DAY2_QUESTIONS[lang] || DAY2_QUESTIONS['EN']; // Fallback to EN if not translated
+      const questions = DAY2_QUESTIONS[lang];
       
       if (!questions || questions.length === 0) {
-        console.log(`   ⚠️  No questions defined for ${lang}, using English as fallback`);
-        continue;
+        console.error(`   ❌ ERROR: No questions defined for ${lang}! Questions MUST be in course language.`);
+        throw new Error(`Missing translations for ${lang} - Day 2 questions must be in course language, not English fallback`);
       }
 
       console.log(`   📝 Seeding ${questions.length} questions...`);

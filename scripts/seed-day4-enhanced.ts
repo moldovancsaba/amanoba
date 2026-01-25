@@ -166,7 +166,7 @@ const DAY4_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "Szokások és rendszerek",
+      category: "Habits vs Systems",
       questionType: QuestionType.RECALL,
       hashtags: ["#habits", "#beginner", "#recall", "#hu", "#all-languages"]
     },
@@ -180,7 +180,7 @@ const DAY4_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 2,
       difficulty: QuestionDifficulty.EASY,
-      category: "Szokások és rendszerek",
+      category: "Habits vs Systems",
       questionType: QuestionType.RECALL,
       hashtags: ["#systems", "#beginner", "#recall", "#hu", "#all-languages"]
     },
@@ -194,7 +194,7 @@ const DAY4_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Szokások és rendszerek",
+      category: "Habits vs Systems",
       questionType: QuestionType.RECALL,
       hashtags: ["#habits", "#systems", "#intermediate", "#recall", "#hu", "#all-languages"]
     },
@@ -222,7 +222,7 @@ const DAY4_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Szokások és rendszerek",
+      category: "Habits vs Systems",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#systems", "#intermediate", "#application", "#hu", "#all-languages"]
     },
@@ -1098,11 +1098,11 @@ async function seedDay4Enhanced() {
       console.log(`   ✅ Lesson found: "${lesson.title}"`);
 
       // Get questions for this language
-      const questions = DAY4_QUESTIONS[lang] || DAY4_QUESTIONS['EN']; // Fallback to EN if not translated
+      const questions = DAY4_QUESTIONS[lang];
       
       if (!questions || questions.length === 0) {
-        console.log(`   ⚠️  No questions defined for ${lang}, using English as fallback`);
-        continue;
+        console.error(`   ❌ ERROR: No questions defined for ${lang}! Questions MUST be in course language.`);
+        throw new Error(`Missing translations for ${lang} - Day 4 questions must be in course language, not English fallback`);
       }
 
       console.log(`   📝 Seeding ${questions.length} questions...`);

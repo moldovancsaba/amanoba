@@ -219,7 +219,7 @@ export default function ProfilePage({ params }: { params: Promise<{ playerId: st
                   </p>
 
                   {/* Stats Row */}
-                  <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                  <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
                     <div className="bg-brand-black/20 rounded-lg p-3">
                       <div className="text-gray-400 text-sm">Level</div>
                       <div className="text-white text-2xl font-bold">
@@ -243,6 +243,17 @@ export default function ProfilePage({ params }: { params: Promise<{ playerId: st
                       <div className="text-white text-2xl font-bold">
                         {profileData.achievements?.unlocked || 0}/{profileData.achievements?.total || 0}
                       </div>
+                    </div>
+                    <div className="bg-brand-black/20 rounded-lg p-3 relative">
+                      <div className="text-gray-400 text-sm">Certificates</div>
+                      <div className="text-white text-2xl font-bold">
+                        {certificatesData.length}
+                      </div>
+                      {certificatesData.length > 0 && (
+                        <div className="absolute -top-1 -right-1 w-5 h-5 bg-brand-accent rounded-full flex items-center justify-center">
+                          <Award className="w-3 h-3 text-brand-black" />
+                        </div>
+                      )}
                     </div>
                   </div>
 
@@ -608,7 +619,19 @@ export default function ProfilePage({ params }: { params: Promise<{ playerId: st
                         <h3 className="text-xl font-bold text-white">Certificates</h3>
                       </div>
                       {certificatesLoading ? (
-                        <div className="text-center py-4 text-gray-400">Loading certificates...</div>
+                        <div className="space-y-3">
+                          {[1, 2, 3].map((i) => (
+                            <div key={i} className="bg-brand-black/20 rounded-lg p-4 animate-pulse">
+                              <div className="flex items-center justify-between">
+                                <div className="flex-1">
+                                  <div className="h-5 bg-brand-darkGrey/50 rounded w-3/4 mb-2"></div>
+                                  <div className="h-4 bg-brand-darkGrey/50 rounded w-1/2"></div>
+                                </div>
+                                <div className="h-4 bg-brand-darkGrey/50 rounded w-24"></div>
+                              </div>
+                            </div>
+                          ))}
+                        </div>
                       ) : certificatesData.length > 0 ? (
                         <div className="space-y-3">
                           {certificatesData.map((cert) => (

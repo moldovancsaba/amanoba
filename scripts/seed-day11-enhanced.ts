@@ -59,7 +59,7 @@ const DAY11_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 2,
       difficulty: QuestionDifficulty.EASY,
-      category: "Goal Setting",
+      category: "Goal Hierarchy",
       questionType: QuestionType.RECALL,
       hashtags: ["#goal-setting", "#beginner", "#recall", "#en", "#all-languages"]
     },
@@ -74,7 +74,7 @@ const DAY11_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "Goal Setting",
+      category: "Goal Hierarchy",
       questionType: QuestionType.RECALL,
       hashtags: ["#goal-setting", "#beginner", "#recall", "#en", "#all-languages"]
     },
@@ -89,7 +89,7 @@ const DAY11_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 2,
       difficulty: QuestionDifficulty.EASY,
-      category: "Goal Setting",
+      category: "Goal Hierarchy",
       questionType: QuestionType.RECALL,
       hashtags: ["#goal-setting", "#beginner", "#recall", "#en", "#all-languages"]
     },
@@ -104,7 +104,7 @@ const DAY11_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Goal Setting",
+      category: "Goal Hierarchy",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#goal-setting", "#intermediate", "#application", "#en", "#all-languages"]
     },
@@ -119,7 +119,7 @@ const DAY11_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Goal Setting",
+      category: "Goal Hierarchy",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#goal-setting", "#intermediate", "#application", "#en", "#all-languages"]
     },
@@ -134,7 +134,7 @@ const DAY11_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Goal Setting",
+      category: "Goal Hierarchy",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#goal-setting", "#intermediate", "#application", "#en", "#all-languages"]
     },
@@ -149,7 +149,7 @@ const DAY11_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.HARD,
-      category: "Goal Setting",
+      category: "Goal Hierarchy",
       questionType: QuestionType.CRITICAL_THINKING,
       hashtags: ["#goal-setting", "#advanced", "#critical-thinking", "#en", "#all-languages"]
     }
@@ -166,7 +166,7 @@ const DAY11_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 2,
       difficulty: QuestionDifficulty.EASY,
-      category: "Célkitűzés",
+      category: "Goal Hierarchy",
       questionType: QuestionType.RECALL,
       hashtags: ["#goal-setting", "#beginner", "#recall", "#hu", "#all-languages"]
     },
@@ -180,7 +180,7 @@ const DAY11_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "Célkitűzés",
+      category: "Goal Hierarchy",
       questionType: QuestionType.RECALL,
       hashtags: ["#goal-setting", "#beginner", "#recall", "#hu", "#all-languages"]
     },
@@ -194,7 +194,7 @@ const DAY11_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 2,
       difficulty: QuestionDifficulty.EASY,
-      category: "Célkitűzés",
+      category: "Goal Hierarchy",
       questionType: QuestionType.RECALL,
       hashtags: ["#goal-setting", "#beginner", "#recall", "#hu", "#all-languages"]
     },
@@ -208,7 +208,7 @@ const DAY11_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Célkitűzés",
+      category: "Goal Hierarchy",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#goal-setting", "#intermediate", "#application", "#hu", "#all-languages"]
     },
@@ -222,7 +222,7 @@ const DAY11_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Célkitűzés",
+      category: "Goal Hierarchy",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#goal-setting", "#intermediate", "#application", "#hu", "#all-languages"]
     },
@@ -236,7 +236,7 @@ const DAY11_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Célkitűzés",
+      category: "Goal Hierarchy",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#goal-setting", "#intermediate", "#application", "#hu", "#all-languages"]
     },
@@ -250,7 +250,7 @@ const DAY11_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.HARD,
-      category: "Célkitűzés",
+      category: "Goal Hierarchy",
       questionType: QuestionType.CRITICAL_THINKING,
       hashtags: ["#goal-setting", "#advanced", "#critical-thinking", "#hu", "#all-languages"]
     }
@@ -267,7 +267,7 @@ const DAY11_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 2,
       difficulty: QuestionDifficulty.EASY,
-      category: "Hedef Belirleme",
+      category: "Goal Hierarchy",
       questionType: QuestionType.RECALL,
       hashtags: ["#goal-setting", "#beginner", "#recall", "#tr", "#all-languages"]
     },
@@ -281,7 +281,7 @@ const DAY11_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "Hedef Belirleme",
+      category: "Goal Hierarchy",
       questionType: QuestionType.RECALL,
       hashtags: ["#goal-setting", "#beginner", "#recall", "#tr", "#all-languages"]
     },
@@ -295,7 +295,7 @@ const DAY11_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 2,
       difficulty: QuestionDifficulty.EASY,
-      category: "Hedef Belirleme",
+      category: "Goal Hierarchy",
       questionType: QuestionType.RECALL,
       hashtags: ["#goal-setting", "#beginner", "#recall", "#tr", "#all-languages"]
     },
@@ -309,7 +309,7 @@ const DAY11_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Hedef Belirleme",
+      category: "Goal Hierarchy",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#goal-setting", "#intermediate", "#application", "#tr", "#all-languages"]
     },
@@ -323,7 +323,7 @@ const DAY11_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Hedef Belirleme",
+      category: "Goal Hierarchy",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#goal-setting", "#intermediate", "#application", "#tr", "#all-languages"]
     },
@@ -337,7 +337,7 @@ const DAY11_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Hedef Belirleme",
+      category: "Goal Hierarchy",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#goal-setting", "#intermediate", "#application", "#tr", "#all-languages"]
     },
@@ -351,7 +351,7 @@ const DAY11_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.HARD,
-      category: "Hedef Belirleme",
+      category: "Goal Hierarchy",
       questionType: QuestionType.CRITICAL_THINKING,
       hashtags: ["#goal-setting", "#advanced", "#critical-thinking", "#tr", "#all-languages"]
     }
@@ -1098,11 +1098,11 @@ async function seedDay11Enhanced() {
       console.log(`   ✅ Lesson found: "${lesson.title}"`);
 
       // Get questions for this language
-      const questions = DAY11_QUESTIONS[lang] || DAY11_QUESTIONS['EN']; // Fallback to EN if not translated
+      const questions = DAY11_QUESTIONS[lang];
       
       if (!questions || questions.length === 0) {
-        console.log(`   ⚠️  No questions defined for ${lang}, using English as fallback`);
-        continue;
+        console.error(`   ❌ ERROR: No questions defined for ${lang}! Questions MUST be in course language.`);
+        throw new Error(`Missing translations for ${lang} - Day 11 questions must be in course language, not English fallback`);
       }
 
       console.log(`   📝 Seeding ${questions.length} questions...`);
