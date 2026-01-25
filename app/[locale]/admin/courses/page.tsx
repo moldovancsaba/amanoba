@@ -10,6 +10,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useLocale } from 'next-intl';
+import { useDebounce } from '@/app/lib/hooks/useDebounce';
 import {
   Plus,
   Search,
@@ -52,13 +53,14 @@ export default function AdminCoursesPage() {
   const [courses, setCourses] = useState<Course[]>([]);
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState('');
+  const debouncedSearch = useDebounce(search, 500); // Wait 500ms after user stops typing
   const [statusFilter, setStatusFilter] = useState<'all' | 'active' | 'inactive'>('all');
   const [deletingCourseId, setDeletingCourseId] = useState<string | null>(null);
 
   // Fetch courses
   useEffect(() => {
     fetchCourses();
-  }, [statusFilter, search]);
+  }, [statusFilter, debouncedSearch]);
 
   const fetchCourses = async () => {
     try {
@@ -67,8 +69,8 @@ export default function AdminCoursesPage() {
       if (statusFilter !== 'all') {
         params.append('status', statusFilter);
       }
-      if (search) {
-        params.append('search', search);
+      if (debouncedSearch) {
+        params.append('search', debouncedSearch);
       }
 
       const response = await fetch(`/api/admin/courses?${params.toString()}`);

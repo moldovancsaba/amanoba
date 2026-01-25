@@ -10,6 +10,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useLocale, useTranslations } from 'next-intl';
+import { useDebounce } from '@/app/lib/hooks/useDebounce';
 import {
   Search,
   Award,
@@ -45,6 +46,7 @@ export default function AdminCertificatesPage() {
   const [certificates, setCertificates] = useState<Certificate[]>([]);
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState('');
+  const debouncedSearch = useDebounce(search, 500); // Wait 500ms after user stops typing
   const [filters, setFilters] = useState({
     status: 'all', // 'all' | 'active' | 'revoked'
   });
@@ -57,14 +59,14 @@ export default function AdminCertificatesPage() {
 
   useEffect(() => {
     fetchCertificates();
-  }, [search, filters, pagination.page]);
+  }, [debouncedSearch, filters, pagination.page]);
 
   const fetchCertificates = async () => {
     try {
       setLoading(true);
       const params = new URLSearchParams();
-      if (search) {
-        params.append('search', search);
+      if (debouncedSearch) {
+        params.append('search', debouncedSearch);
       }
       if (filters.status !== 'all') {
         params.append('status', filters.status);

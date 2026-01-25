@@ -10,6 +10,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useLocale, useTranslations } from 'next-intl';
+import { useDebounce } from '@/app/lib/hooks/useDebounce';
 import {
   Search,
   Users,
@@ -39,6 +40,7 @@ export default function AdminPlayersPage() {
   const [players, setPlayers] = useState<Player[]>([]);
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState('');
+  const debouncedSearch = useDebounce(search, 500); // Wait 500ms after user stops typing
   const [filters, setFilters] = useState({
     isActive: 'all',
     userType: 'all', // 'all' | 'guest' | 'user' | 'admin'
@@ -52,14 +54,14 @@ export default function AdminPlayersPage() {
 
   useEffect(() => {
     fetchPlayers();
-  }, [search, filters, pagination.page]);
+  }, [debouncedSearch, filters, pagination.page]);
 
   const fetchPlayers = async () => {
     try {
       setLoading(true);
       const params = new URLSearchParams();
-      if (search) {
-        params.append('search', search);
+      if (debouncedSearch) {
+        params.append('search', debouncedSearch);
       }
       if (filters.isActive !== 'all') {
         params.append('isActive', filters.isActive);
