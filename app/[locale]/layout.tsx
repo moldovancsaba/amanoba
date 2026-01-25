@@ -9,6 +9,7 @@ import type { Metadata, Viewport } from "next";
 import { Inter, Noto_Sans, Playfair_Display, Afacad } from "next/font/google";
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
 import SessionProvider from "@/components/session-provider";
+import GoogleAnalytics from "@/components/GoogleAnalytics";
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import { notFound } from 'next/navigation';
@@ -128,6 +129,7 @@ export default async function LocaleLayout({
         dir={direction}
         className="antialiased bg-brand-white dark:bg-brand-black text-brand-black dark:text-brand-white"
       >
+        <GoogleAnalytics />
         <NextIntlClientProvider messages={messages}>
           <SessionProvider>
             <ThemeProvider
