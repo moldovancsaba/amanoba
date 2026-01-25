@@ -655,5 +655,25 @@
     "selectOptions": "Select one or more options",
     "enterText": "Enter your answer",
     "selectRating": "Select a rating"
+  },
+  "consent": {
+    "title": "Çerez Onayı",
+    "description": "Deneyiminizi geliştirmek, site kullanımını analiz etmek ve pazarlama çabalarımıza yardımcı olmak için çerezler ve benzeri teknolojiler kullanıyoruz. Hangi çerezleri kabul edeceğinizi seçebilirsiniz.",
+    "acceptAll": "Tümünü Kabul Et",
+    "rejectAll": "Tümünü Reddet",
+    "showDetails": "Özelleştir",
+    "hideDetails": "Detayları Gizle",
+    "analytics": {
+      "title": "Analitik Çerezler",
+      "description": "Bu çerezler, ziyaretçilerin web sitemizle nasıl etkileşime girdiğini anlamamıza yardımcı olur, bilgileri anonim olarak toplayarak ve raporlayarak.",
+      "label": "Analitik Çerezleri İzin Ver"
+    },
+    "advertising": {
+      "title": "Reklam Çerezleri",
+      "description": "Bu çerezler, reklam mesajlarını sizin ve ilgi alanlarınız için daha alakalı hale getirmek için kullanılır.",
+      "storageLabel": "Reklam Depolamaya İzin Ver",
+      "userDataLabel": "Reklam Kullanıcı Verilerine İzin Ver",
+      "personalizationLabel": "Reklam Kişiselleştirmesine İzin Ver"
+    }
   }
 }

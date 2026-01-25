@@ -666,5 +666,25 @@
     "selectOptions": "Select one or more options",
     "enterText": "Enter your answer",
     "selectRating": "Select a rating"
+  },
+  "consent": {
+    "title": "Cookie Consent",
+    "description": "We use cookies and similar technologies to enhance your experience, analyze site usage, and assist in our marketing efforts. You can choose which cookies to accept.",
+    "acceptAll": "Accept All",
+    "rejectAll": "Reject All",
+    "showDetails": "Customize",
+    "hideDetails": "Hide Details",
+    "analytics": {
+      "title": "Analytics Cookies",
+      "description": "These cookies help us understand how visitors interact with our website by collecting and reporting information anonymously.",
+      "label": "Allow Analytics Cookies"
+    },
+    "advertising": {
+      "title": "Advertising Cookies",
+      "description": "These cookies are used to make advertising messages more relevant to you and your interests.",
+      "storageLabel": "Allow Ad Storage",
+      "userDataLabel": "Allow Ad User Data",
+      "personalizationLabel": "Allow Ad Personalization"
+    }
   }
 }

@@ -655,5 +655,25 @@
     "selectOptions": "Select one or more options",
     "enterText": "Enter your answer",
     "selectRating": "Select a rating"
+  },
+  "consent": {
+    "title": "Zgoda na pliki cookie",
+    "description": "Używamy plików cookie i podobnych technologii, aby poprawić Twoje doświadczenie, analizować wykorzystanie strony i wspierać nasze działania marketingowe. Możesz wybrać, które pliki cookie zaakceptować.",
+    "acceptAll": "Zaakceptuj wszystkie",
+    "rejectAll": "Odrzuć wszystkie",
+    "showDetails": "Dostosuj",
+    "hideDetails": "Ukryj szczegóły",
+    "analytics": {
+      "title": "Pliki cookie analityczne",
+      "description": "Te pliki cookie pomagają nam zrozumieć, jak odwiedzający wchodzą w interakcję z naszą stroną internetową, zbierając i raportując informacje anonimowo.",
+      "label": "Zezwól na pliki cookie analityczne"
+    },
+    "advertising": {
+      "title": "Pliki cookie reklamowe",
+      "description": "Te pliki cookie są używane do uczynienia wiadomości reklamowych bardziej odpowiednimi dla Ciebie i Twoich zainteresowań.",
+      "storageLabel": "Zezwól na przechowywanie reklam",
+      "userDataLabel": "Zezwól na dane użytkownika reklam",
+      "personalizationLabel": "Zezwól na personalizację reklam"
+    }
   }
 }

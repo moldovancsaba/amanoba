@@ -1,8 +1,8 @@
 /**
  * Google Analytics Component
  * 
- * What: Integrates Google Analytics (gtag.js) into the application
- * Why: Tracks user behavior and provides analytics insights
+ * What: Integrates Google Analytics (gtag.js) with Consent Mode v2
+ * Why: Tracks user behavior while respecting user consent (GDPR/CCPA compliance)
  */
 
 'use client';
@@ -12,26 +12,46 @@ import Script from 'next/script';
 const GA_MEASUREMENT_ID = 'G-53XPWHKJTM';
 
 /**
- * Google Analytics Component
+ * Google Analytics Component with Consent Mode v2
  * 
- * Why: Loads Google Analytics scripts and initializes tracking
- * Note: Uses Next.js Script component for optimal loading performance
+ * Why: Implements Google Consent Mode to dynamically adapt cookie usage based on user consent
+ * Note: Consent defaults to 'denied' until user explicitly grants consent
  */
 export default function GoogleAnalytics() {
   return (
     <>
+      {/* Initialize dataLayer and gtag function BEFORE loading gtag.js */}
+      <Script id="google-analytics-init" strategy="beforeInteractive">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          
+          // Set default consent state to 'denied' (required for Consent Mode v2)
+          // This ensures no cookies are set until user grants consent
+          gtag('consent', 'default', {
+            'analytics_storage': 'denied',
+            'ad_storage': 'denied',
+            'ad_user_data': 'denied',
+            'ad_personalization': 'denied',
+            'wait_for_update': 500, // Wait up to 500ms for consent update
+          });
+        `}
+      </Script>
+      
       {/* Google tag (gtag.js) - External script */}
       <Script
         src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
         strategy="afterInteractive"
       />
-      {/* Google Analytics initialization script */}
-      <Script id="google-analytics" strategy="afterInteractive">
+      
+      {/* Google Analytics configuration */}
+      <Script id="google-analytics-config" strategy="afterInteractive">
         {`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
-          gtag('config', '${GA_MEASUREMENT_ID}');
+          gtag('config', '${GA_MEASUREMENT_ID}', {
+            // Additional configuration can be added here
+            // Consent will be updated by ConsentProvider when user makes choices
+          });
         `}
       </Script>
     </>

@@ -255,9 +255,814 @@ const DAY8_QUESTIONS: Record<string, Array<{
       hashtags: ["#context-switching", "#advanced", "#critical-thinking", "#hu", "#all-languages"]
     }
   ],
-  // Turkish (TR), Bulgarian (BG), Polish (PL), Vietnamese (VI), Indonesian (ID), Arabic (AR), Portuguese (PT), Hindi (HI)
-  // Using English structure as template - these need professional translation
-  TR: [], BG: [], PL: [], VI: [], ID: [], AR: [], PT: [], HI: []
+  // Turkish (TR) - Professional translations
+  TR: [
+    {
+      question: "Derse göre konteks değiştirdikten sonra yeni bir göreve tam olarak odaklanmak genellikle ne kadar sürer?",
+      options: [
+        "2-5 dakika",
+        "10-25 dakika",
+        "30-45 dakika",
+        "1-2 saat"
+      ],
+      correctIndex: 1,
+      difficulty: QuestionDifficulty.EASY,
+      category: "Konteks Değiştirme",
+      questionType: QuestionType.RECALL,
+      hashtags: ["#context-switching", "#beginner", "#recall", "#tr", "#all-languages"]
+    },
+    {
+      question: "Derse göre 'dikkat kalıntısı' ne anlama gelir?",
+      options: [
+        "Anında odak değiştirme başarısı",
+        "Beyninizin bir kısmı önceki görevde kalır",
+        "Uzun görevleri başarıyla tamamlama",
+        "E-posta okuma"
+      ],
+      correctIndex: 1,
+      difficulty: QuestionDifficulty.EASY,
+      category: "Konteks Değiştirme",
+      questionType: QuestionType.RECALL,
+      hashtags: ["#context-switching", "#beginner", "#recall", "#tr", "#all-languages"]
+    },
+    {
+      question: "Derse göre derin çalışma bloğu için optimal süre nedir?",
+      options: [
+        "15-30 dakika",
+        "45-60 dakika",
+        "90-120 dakika",
+        "150+ dakika"
+      ],
+      correctIndex: 2,
+      difficulty: QuestionDifficulty.EASY,
+      category: "Konteks Değiştirme",
+      questionType: QuestionType.RECALL,
+      hashtags: ["#context-switching", "#beginner", "#recall", "#tr", "#all-languages"]
+    },
+    {
+      question: "Derse göre benzer görevleri birlikte toplu işleme neden önemlidir?",
+      options: [
+        "Daha uzun saatler çalışmanıza olanak tanır",
+        "Konteks değişimlerini azaltır, odağı korur ve dikkat kalıntısını en aza indirir",
+        "Görevleri tamamlamayı kolaylaştırır",
+        "Sadece e-posta yönetimine uygulanır"
+      ],
+      correctIndex: 1,
+      difficulty: QuestionDifficulty.MEDIUM,
+      category: "Konteks Değiştirme",
+      questionType: QuestionType.APPLICATION,
+      hashtags: ["#context-switching", "#intermediate", "#application", "#tr", "#all-languages"]
+    },
+    {
+      question: "Derse göre konteks değişimleri için günlük ideal hedef nedir?",
+      options: [
+        "10-15",
+        "5-10",
+        "1-4",
+        "Verimli kalırken gerektiği kadar"
+      ],
+      correctIndex: 2,
+      difficulty: QuestionDifficulty.MEDIUM,
+      category: "Konteks Değiştirme",
+      questionType: QuestionType.APPLICATION,
+      hashtags: ["#context-switching", "#intermediate", "#application", "#tr", "#all-languages"]
+    },
+    {
+      question: "Bir kişi gün boyunca e-posta, kodlama, toplantılar ve telefon görüşmeleri arasında geçiş yapıyor ve düşük verimlilik yaşıyor. Derse göre ne yapmalı?",
+      options: [
+        "Telafi etmek için daha hızlı çalışmak",
+        "Konteks değişimlerini en aza indirmek için benzer görevleri birlikte toplu işlemek (örn. tüm e-postalar bir blokta, tüm kodlama başka bir blokta)",
+        "Daha fazla mola almak",
+        "Daha uzun saatler çalışmak"
+      ],
+      correctIndex: 1,
+      difficulty: QuestionDifficulty.MEDIUM,
+      category: "Konteks Değiştirme",
+      questionType: QuestionType.APPLICATION,
+      hashtags: ["#context-switching", "#intermediate", "#application", "#tr", "#all-languages"]
+    },
+    {
+      question: "Bir yöneticinin günde 8 konteks değişimi var, sürekli dikkat kalıntısı yaşıyor ve derin çalışma blokları yok. Dersin çerçevesine göre bu model onların verimliliği hakkında neyi gösterir?",
+      options: [
+        "Optimal verimlilik yönetimi",
+        "Önemli verimlilik kaybı - aşırı konteks değişimi derin çalışmayı engeller ve gün boyunca dikkat kalıntısına neden olur",
+        "Verimli çoklu görev",
+        "İyi zaman yönetimi"
+      ],
+      correctIndex: 1,
+      difficulty: QuestionDifficulty.HARD,
+      category: "Konteks Değiştirme",
+      questionType: QuestionType.CRITICAL_THINKING,
+      hashtags: ["#context-switching", "#advanced", "#critical-thinking", "#tr", "#all-languages"]
+    }
+  ],
+  // Bulgarian (BG) - Professional translations
+  BG: [
+    {
+      question: "Според урока, колко време отнема типично пълното повторно фокусиране върху нова задача след превключване на контекст?",
+      options: [
+        "2-5 минути",
+        "10-25 минути",
+        "30-45 минути",
+        "1-2 часа"
+      ],
+      correctIndex: 1,
+      difficulty: QuestionDifficulty.EASY,
+      category: "Превключване на контекст",
+      questionType: QuestionType.RECALL,
+      hashtags: ["#context-switching", "#beginner", "#recall", "#bg", "#all-languages"]
+    },
+    {
+      question: "Според урока, какво означава 'остатък от внимание'?",
+      options: [
+        "Моментален успех при превключване на фокуса",
+        "Части от мозъка ви остават на предишната задача",
+        "Успешно завършване на дълги задачи",
+        "Четене на имейли"
+      ],
+      correctIndex: 1,
+      difficulty: QuestionDifficulty.EASY,
+      category: "Превключване на контекст",
+      questionType: QuestionType.RECALL,
+      hashtags: ["#context-switching", "#beginner", "#recall", "#bg", "#all-languages"]
+    },
+    {
+      question: "Според урока, каква е оптималната продължителност на блок за дълбока работа?",
+      options: [
+        "15-30 минути",
+        "45-60 минути",
+        "90-120 минути",
+        "150+ минути"
+      ],
+      correctIndex: 2,
+      difficulty: QuestionDifficulty.EASY,
+      category: "Превключване на контекст",
+      questionType: QuestionType.RECALL,
+      hashtags: ["#context-switching", "#beginner", "#recall", "#bg", "#all-languages"]
+    },
+    {
+      question: "Защо е важно групирането на подобни задачи заедно според урока?",
+      options: [
+        "Позволява ви да работите по-дълги часове",
+        "Намалява превключванията на контекст, поддържа фокуса и минимизира остатъка от внимание",
+        "Прави задачите по-лесни за завършване",
+        "Прилага се само за управление на имейл"
+      ],
+      correctIndex: 1,
+      difficulty: QuestionDifficulty.MEDIUM,
+      category: "Превключване на контекст",
+      questionType: QuestionType.APPLICATION,
+      hashtags: ["#context-switching", "#intermediate", "#application", "#bg", "#all-languages"]
+    },
+    {
+      question: "Според урока, какъв е дневният идеален целеви брой превключвания на контекст?",
+      options: [
+        "10-15",
+        "5-10",
+        "1-4",
+        "Колкото е необходимо, докато оставате продуктивни"
+      ],
+      correctIndex: 2,
+      difficulty: QuestionDifficulty.MEDIUM,
+      category: "Превключване на контекст",
+      questionType: QuestionType.APPLICATION,
+      hashtags: ["#context-switching", "#intermediate", "#application", "#bg", "#all-languages"]
+    },
+    {
+      question: "Човек превключва между имейл, кодиране, срещи и телефонни обаждания през деня, изпитвайки ниска продуктивност. Според урока, какво трябва да направи?",
+      options: [
+        "Работи по-бързо за компенсация",
+        "Групира подобни задачи заедно (напр. всички имейли в един блок, всичко кодиране в друг) за минимизиране на превключванията на контекст",
+        "Прави повече почивки",
+        "Работи по-дълги часове"
+      ],
+      correctIndex: 1,
+      difficulty: QuestionDifficulty.MEDIUM,
+      category: "Превключване на контекст",
+      questionType: QuestionType.APPLICATION,
+      hashtags: ["#context-switching", "#intermediate", "#application", "#bg", "#all-languages"]
+    },
+    {
+      question: "Мениджърът има 8 превключвания на контекст на ден, изпитва постоянен остатък от внимание и няма блокове за дълбока работа. Според рамката на урока, какво предполага този модел за тяхната продуктивност?",
+      options: [
+        "Оптимално управление на продуктивността",
+        "Значителна загуба на продуктивност - прекомерното превключване на контекст предотвратява дълбоката работа и причинява остатък от внимание през целия ден",
+        "Ефективна многозадачност",
+        "Добро управление на времето"
+      ],
+      correctIndex: 1,
+      difficulty: QuestionDifficulty.HARD,
+      category: "Превключване на контекст",
+      questionType: QuestionType.CRITICAL_THINKING,
+      hashtags: ["#context-switching", "#advanced", "#critical-thinking", "#bg", "#all-languages"]
+    }
+  ],
+  // Polish (PL) - Professional translations
+  PL: [
+    {
+      question: "Według lekcji, ile czasu zazwyczaj zajmuje pełne ponowne skupienie się na nowym zadaniu po przełączeniu kontekstu?",
+      options: [
+        "2-5 minut",
+        "10-25 minut",
+        "30-45 minut",
+        "1-2 godziny"
+      ],
+      correctIndex: 1,
+      difficulty: QuestionDifficulty.EASY,
+      category: "Przełączanie kontekstu",
+      questionType: QuestionType.RECALL,
+      hashtags: ["#context-switching", "#beginner", "#recall", "#pl", "#all-languages"]
+    },
+    {
+      question: "Według lekcji, co oznacza 'reszta uwagi'?",
+      options: [
+        "Natychmiastowy sukces przełączania skupienia",
+        "Części mózgu pozostają przy poprzednim zadaniu",
+        "Udane ukończenie długich zadań",
+        "Czytanie e-maili"
+      ],
+      correctIndex: 1,
+      difficulty: QuestionDifficulty.EASY,
+      category: "Przełączanie kontekstu",
+      questionType: QuestionType.RECALL,
+      hashtags: ["#context-switching", "#beginner", "#recall", "#pl", "#all-languages"]
+    },
+    {
+      question: "Według lekcji, jaki jest optymalny czas trwania bloku głębokiej pracy?",
+      options: [
+        "15-30 minut",
+        "45-60 minut",
+        "90-120 minut",
+        "150+ minut"
+      ],
+      correctIndex: 2,
+      difficulty: QuestionDifficulty.EASY,
+      category: "Przełączanie kontekstu",
+      questionType: QuestionType.RECALL,
+      hashtags: ["#context-switching", "#beginner", "#recall", "#pl", "#all-languages"]
+    },
+    {
+      question: "Dlaczego grupowanie podobnych zadań razem jest ważne według lekcji?",
+      options: [
+        "Pozwala pracować dłużej",
+        "Zmniejsza przełączania kontekstu, utrzymuje skupienie i minimalizuje resztę uwagi",
+        "Ułatwia ukończenie zadań",
+        "Dotyczy tylko zarządzania e-mailem"
+      ],
+      correctIndex: 1,
+      difficulty: QuestionDifficulty.MEDIUM,
+      category: "Przełączanie kontekstu",
+      questionType: QuestionType.APPLICATION,
+      hashtags: ["#context-switching", "#intermediate", "#application", "#pl", "#all-languages"]
+    },
+    {
+      question: "Według lekcji, jaki jest dzienny idealny cel dla przełączeń kontekstu?",
+      options: [
+        "10-15",
+        "5-10",
+        "1-4",
+        "Tyle, ile potrzeba, pozostając produktywnym"
+      ],
+      correctIndex: 2,
+      difficulty: QuestionDifficulty.MEDIUM,
+      category: "Przełączanie kontekstu",
+      questionType: QuestionType.APPLICATION,
+      hashtags: ["#context-switching", "#intermediate", "#application", "#pl", "#all-languages"]
+    },
+    {
+      question: "Osoba przełącza się między e-mailem, kodowaniem, spotkaniami i rozmowami telefonicznymi w ciągu dnia, doświadczając niskiej produktywności. Według lekcji, co powinna zrobić?",
+      options: [
+        "Pracować szybciej, aby zrekompensować",
+        "Grupować podobne zadania razem (np. wszystkie e-maile w jednym bloku, całe kodowanie w innym), aby zminimalizować przełączania kontekstu",
+        "Robić więcej przerw",
+        "Pracować dłużej"
+      ],
+      correctIndex: 1,
+      difficulty: QuestionDifficulty.MEDIUM,
+      category: "Przełączanie kontekstu",
+      questionType: QuestionType.APPLICATION,
+      hashtags: ["#context-switching", "#intermediate", "#application", "#pl", "#all-languages"]
+    },
+    {
+      question: "Menedżer ma 8 przełączeń kontekstu dziennie, doświadcza ciągłej reszty uwagi i nie ma bloków głębokiej pracy. Według ram lekcji, co sugeruje ten wzorzec o ich produktywności?",
+      options: [
+        "Optymalne zarządzanie produktywnością",
+        "Znaczna utrata produktywności - nadmierne przełączanie kontekstu uniemożliwia głęboką pracę i powoduje resztę uwagi przez cały dzień",
+        "Skuteczna wielozadaniowość",
+        "Dobre zarządzanie czasem"
+      ],
+      correctIndex: 1,
+      difficulty: QuestionDifficulty.HARD,
+      category: "Przełączanie kontekstu",
+      questionType: QuestionType.CRITICAL_THINKING,
+      hashtags: ["#context-switching", "#advanced", "#critical-thinking", "#pl", "#all-languages"]
+    }
+  ],
+  // Vietnamese (VI) - Professional translations
+  VI: [
+    {
+      question: "Theo bài học, thường mất bao lâu để hoàn toàn tập trung lại vào một nhiệm vụ mới sau khi chuyển đổi ngữ cảnh?",
+      options: [
+        "2-5 phút",
+        "10-25 phút",
+        "30-45 phút",
+        "1-2 giờ"
+      ],
+      correctIndex: 1,
+      difficulty: QuestionDifficulty.EASY,
+      category: "Chuyển đổi ngữ cảnh",
+      questionType: QuestionType.RECALL,
+      hashtags: ["#context-switching", "#beginner", "#recall", "#vi", "#all-languages"]
+    },
+    {
+      question: "Theo bài học, 'phần dư chú ý' có nghĩa là gì?",
+      options: [
+        "Thành công chuyển đổi tập trung ngay lập tức",
+        "Các bộ phận của não vẫn ở nhiệm vụ trước đó",
+        "Hoàn thành thành công các nhiệm vụ dài",
+        "Đọc email"
+      ],
+      correctIndex: 1,
+      difficulty: QuestionDifficulty.EASY,
+      category: "Chuyển đổi ngữ cảnh",
+      questionType: QuestionType.RECALL,
+      hashtags: ["#context-switching", "#beginner", "#recall", "#vi", "#all-languages"]
+    },
+    {
+      question: "Theo bài học, thời lượng tối ưu cho khối công việc sâu là bao nhiêu?",
+      options: [
+        "15-30 phút",
+        "45-60 phút",
+        "90-120 phút",
+        "150+ phút"
+      ],
+      correctIndex: 2,
+      difficulty: QuestionDifficulty.EASY,
+      category: "Chuyển đổi ngữ cảnh",
+      questionType: QuestionType.RECALL,
+      hashtags: ["#context-switching", "#beginner", "#recall", "#vi", "#all-languages"]
+    },
+    {
+      question: "Tại sao việc nhóm các nhiệm vụ tương tự lại với nhau lại quan trọng theo bài học?",
+      options: [
+        "Cho phép bạn làm việc nhiều giờ hơn",
+        "Giảm chuyển đổi ngữ cảnh, duy trì tập trung và giảm thiểu phần dư chú ý",
+        "Làm cho nhiệm vụ dễ hoàn thành hơn",
+        "Chỉ áp dụng cho quản lý email"
+      ],
+      correctIndex: 1,
+      difficulty: QuestionDifficulty.MEDIUM,
+      category: "Chuyển đổi ngữ cảnh",
+      questionType: QuestionType.APPLICATION,
+      hashtags: ["#context-switching", "#intermediate", "#application", "#vi", "#all-languages"]
+    },
+    {
+      question: "Theo bài học, mục tiêu lý tưởng hàng ngày cho chuyển đổi ngữ cảnh là gì?",
+      options: [
+        "10-15",
+        "5-10",
+        "1-4",
+        "Nhiều như cần thiết trong khi vẫn năng suất"
+      ],
+      correctIndex: 2,
+      difficulty: QuestionDifficulty.MEDIUM,
+      category: "Chuyển đổi ngữ cảnh",
+      questionType: QuestionType.APPLICATION,
+      hashtags: ["#context-switching", "#intermediate", "#application", "#vi", "#all-languages"]
+    },
+    {
+      question: "Một người chuyển đổi giữa email, lập trình, cuộc họp và cuộc gọi điện thoại trong suốt ngày, trải qua năng suất thấp. Theo bài học, họ nên làm gì?",
+      options: [
+        "Làm việc nhanh hơn để bù đắp",
+        "Nhóm các nhiệm vụ tương tự lại với nhau (ví dụ: tất cả email trong một khối, tất cả lập trình trong khối khác) để giảm thiểu chuyển đổi ngữ cảnh",
+        "Nghỉ giải lao nhiều hơn",
+        "Làm việc nhiều giờ hơn"
+      ],
+      correctIndex: 1,
+      difficulty: QuestionDifficulty.MEDIUM,
+      category: "Chuyển đổi ngữ cảnh",
+      questionType: QuestionType.APPLICATION,
+      hashtags: ["#context-switching", "#intermediate", "#application", "#vi", "#all-languages"]
+    },
+    {
+      question: "Một người quản lý có 8 lần chuyển đổi ngữ cảnh mỗi ngày, trải qua phần dư chú ý liên tục và không có khối công việc sâu. Theo khung của bài học, mô hình này cho thấy điều gì về năng suất của họ?",
+      options: [
+        "Quản lý năng suất tối ưu",
+        "Mất năng suất đáng kể - chuyển đổi ngữ cảnh quá mức ngăn cản công việc sâu và gây ra phần dư chú ý suốt cả ngày",
+        "Đa nhiệm hiệu quả",
+        "Quản lý thời gian tốt"
+      ],
+      correctIndex: 1,
+      difficulty: QuestionDifficulty.HARD,
+      category: "Chuyển đổi ngữ cảnh",
+      questionType: QuestionType.CRITICAL_THINKING,
+      hashtags: ["#context-switching", "#advanced", "#critical-thinking", "#vi", "#all-languages"]
+    }
+  ],
+  // Indonesian (ID) - Professional translations
+  ID: [
+    {
+      question: "Menurut pelajaran, berapa lama biasanya diperlukan untuk sepenuhnya fokus kembali pada tugas baru setelah pergantian konteks?",
+      options: [
+        "2-5 menit",
+        "10-25 menit",
+        "30-45 menit",
+        "1-2 jam"
+      ],
+      correctIndex: 1,
+      difficulty: QuestionDifficulty.EASY,
+      category: "Pergantian Konteks",
+      questionType: QuestionType.RECALL,
+      hashtags: ["#context-switching", "#beginner", "#recall", "#id", "#all-languages"]
+    },
+    {
+      question: "Menurut pelajaran, apa artinya 'sisa perhatian'?",
+      options: [
+        "Keberhasilan pengalihan fokus instan",
+        "Bagian otak tetap pada tugas sebelumnya",
+        "Menyelesaikan tugas panjang dengan sukses",
+        "Membaca email"
+      ],
+      correctIndex: 1,
+      difficulty: QuestionDifficulty.EASY,
+      category: "Pergantian Konteks",
+      questionType: QuestionType.RECALL,
+      hashtags: ["#context-switching", "#beginner", "#recall", "#id", "#all-languages"]
+    },
+    {
+      question: "Menurut pelajaran, berapa durasi optimal untuk blok kerja mendalam?",
+      options: [
+        "15-30 menit",
+        "45-60 menit",
+        "90-120 menit",
+        "150+ menit"
+      ],
+      correctIndex: 2,
+      difficulty: QuestionDifficulty.EASY,
+      category: "Pergantian Konteks",
+      questionType: QuestionType.RECALL,
+      hashtags: ["#context-switching", "#beginner", "#recall", "#id", "#all-languages"]
+    },
+    {
+      question: "Mengapa mengelompokkan tugas serupa bersama-sama penting menurut pelajaran?",
+      options: [
+        "Memungkinkan Anda bekerja lebih lama",
+        "Mengurangi pergantian konteks, mempertahankan fokus, dan meminimalkan sisa perhatian",
+        "Membuat tugas lebih mudah diselesaikan",
+        "Hanya berlaku untuk manajemen email"
+      ],
+      correctIndex: 1,
+      difficulty: QuestionDifficulty.MEDIUM,
+      category: "Pergantian Konteks",
+      questionType: QuestionType.APPLICATION,
+      hashtags: ["#context-switching", "#intermediate", "#application", "#id", "#all-languages"]
+    },
+    {
+      question: "Menurut pelajaran, apa target ideal harian untuk pergantian konteks?",
+      options: [
+        "10-15",
+        "5-10",
+        "1-4",
+        "Sebanyak yang diperlukan sambil tetap produktif"
+      ],
+      correctIndex: 2,
+      difficulty: QuestionDifficulty.MEDIUM,
+      category: "Pergantian Konteks",
+      questionType: QuestionType.APPLICATION,
+      hashtags: ["#context-switching", "#intermediate", "#application", "#id", "#all-languages"]
+    },
+    {
+      question: "Seseorang beralih antara email, coding, rapat, dan panggilan telepon sepanjang hari, mengalami produktivitas rendah. Menurut pelajaran, apa yang harus mereka lakukan?",
+      options: [
+        "Bekerja lebih cepat untuk mengkompensasi",
+        "Kelompokkan tugas serupa bersama-sama (mis. semua email dalam satu blok, semua coding di blok lain) untuk meminimalkan pergantian konteks",
+        "Istirahat lebih banyak",
+        "Bekerja lebih lama"
+      ],
+      correctIndex: 1,
+      difficulty: QuestionDifficulty.MEDIUM,
+      category: "Pergantian Konteks",
+      questionType: QuestionType.APPLICATION,
+      hashtags: ["#context-switching", "#intermediate", "#application", "#id", "#all-languages"]
+    },
+    {
+      question: "Seorang manajer memiliki 8 pergantian konteks per hari, mengalami sisa perhatian konstan, dan tidak memiliki blok kerja mendalam. Menurut kerangka pelajaran, apa yang ditunjukkan pola ini tentang produktivitas mereka?",
+      options: [
+        "Manajemen produktivitas optimal",
+        "Kehilangan produktivitas signifikan - pergantian konteks yang berlebihan mencegah kerja mendalam dan menyebabkan sisa perhatian sepanjang hari",
+        "Multitasking yang efisien",
+        "Manajemen waktu yang baik"
+      ],
+      correctIndex: 1,
+      difficulty: QuestionDifficulty.HARD,
+      category: "Pergantian Konteks",
+      questionType: QuestionType.CRITICAL_THINKING,
+      hashtags: ["#context-switching", "#advanced", "#critical-thinking", "#id", "#all-languages"]
+    }
+  ],
+  // Arabic (AR) - Professional translations (RTL)
+  AR: [
+    {
+      question: "وفقًا للدرس، كم من الوقت يستغرق عادةً إعادة التركيز بالكامل على مهمة جديدة بعد تبديل السياق؟",
+      options: [
+        "2-5 دقائق",
+        "10-25 دقيقة",
+        "30-45 دقيقة",
+        "1-2 ساعة"
+      ],
+      correctIndex: 1,
+      difficulty: QuestionDifficulty.EASY,
+      category: "تبديل السياق",
+      questionType: QuestionType.RECALL,
+      hashtags: ["#context-switching", "#beginner", "#recall", "#ar", "#all-languages"]
+    },
+    {
+      question: "وفقًا للدرس، ماذا تعني 'بقايا الانتباه'؟",
+      options: [
+        "نجاح فوري في تبديل التركيز",
+        "أجزاء من دماغك تبقى على المهمة السابقة",
+        "إكمال المهام الطويلة بنجاح",
+        "قراءة البريد الإلكتروني"
+      ],
+      correctIndex: 1,
+      difficulty: QuestionDifficulty.EASY,
+      category: "تبديل السياق",
+      questionType: QuestionType.RECALL,
+      hashtags: ["#context-switching", "#beginner", "#recall", "#ar", "#all-languages"]
+    },
+    {
+      question: "وفقًا للدرس، ما هي المدة المثلى لكتلة العمل العميق؟",
+      options: [
+        "15-30 دقيقة",
+        "45-60 دقيقة",
+        "90-120 دقيقة",
+        "150+ دقيقة"
+      ],
+      correctIndex: 2,
+      difficulty: QuestionDifficulty.EASY,
+      category: "تبديل السياق",
+      questionType: QuestionType.RECALL,
+      hashtags: ["#context-switching", "#beginner", "#recall", "#ar", "#all-languages"]
+    },
+    {
+      question: "لماذا من المهم تجميع المهام المتشابهة معًا وفقًا للدرس؟",
+      options: [
+        "يسمح لك بالعمل لساعات أطول",
+        "يقلل من تبديلات السياق، يحافظ على التركيز، ويقلل من بقايا الانتباه",
+        "يجعل المهام أسهل في الإكمال",
+        "ينطبق فقط على إدارة البريد الإلكتروني"
+      ],
+      correctIndex: 1,
+      difficulty: QuestionDifficulty.MEDIUM,
+      category: "تبديل السياق",
+      questionType: QuestionType.APPLICATION,
+      hashtags: ["#context-switching", "#intermediate", "#application", "#ar", "#all-languages"]
+    },
+    {
+      question: "وفقًا للدرس، ما هو الهدف المثالي اليومي لتبديلات السياق؟",
+      options: [
+        "10-15",
+        "5-10",
+        "1-4",
+        "بقدر ما هو ضروري مع البقاء منتجًا"
+      ],
+      correctIndex: 2,
+      difficulty: QuestionDifficulty.MEDIUM,
+      category: "تبديل السياق",
+      questionType: QuestionType.APPLICATION,
+      hashtags: ["#context-switching", "#intermediate", "#application", "#ar", "#all-languages"]
+    },
+    {
+      question: "شخص ينتقل بين البريد الإلكتروني والبرمجة والاجتماعات والمكالمات الهاتفية طوال اليوم، ويعاني من إنتاجية منخفضة. وفقًا للدرس، ماذا يجب أن يفعل؟",
+      options: [
+        "العمل بشكل أسرع للتعويض",
+        "تجميع المهام المتشابهة معًا (مثلًا، كل البريد الإلكتروني في كتلة واحدة، كل البرمجة في كتلة أخرى) لتقليل تبديلات السياق",
+        "أخذ المزيد من الاستراحات",
+        "العمل لساعات أطول"
+      ],
+      correctIndex: 1,
+      difficulty: QuestionDifficulty.MEDIUM,
+      category: "تبديل السياق",
+      questionType: QuestionType.APPLICATION,
+      hashtags: ["#context-switching", "#intermediate", "#application", "#ar", "#all-languages"]
+    },
+    {
+      question: "لدى مدير 8 تبديلات سياق يوميًا، ويعاني من بقايا انتباه مستمرة، وليس لديه كتل عمل عميق. وفقًا لإطار الدرس، ماذا يوحي هذا النمط حول إنتاجيتهم؟",
+      options: [
+        "إدارة إنتاجية مثلى",
+        "فقدان إنتاجية كبير - تبديل السياق المفرط يمنع العمل العميق ويسبب بقايا الانتباه طوال اليوم",
+        "تعدد المهام بكفاءة",
+        "إدارة وقت جيدة"
+      ],
+      correctIndex: 1,
+      difficulty: QuestionDifficulty.HARD,
+      category: "تبديل السياق",
+      questionType: QuestionType.CRITICAL_THINKING,
+      hashtags: ["#context-switching", "#advanced", "#critical-thinking", "#ar", "#all-languages"]
+    }
+  ],
+  // Portuguese (PT) - Professional translations (Brazilian)
+  PT: [
+    {
+      question: "De acordo com a lição, quanto tempo normalmente leva para se reconcentrar completamente em uma nova tarefa após mudança de contexto?",
+      options: [
+        "2-5 minutos",
+        "10-25 minutos",
+        "30-45 minutos",
+        "1-2 horas"
+      ],
+      correctIndex: 1,
+      difficulty: QuestionDifficulty.EASY,
+      category: "Mudança de Contexto",
+      questionType: QuestionType.RECALL,
+      hashtags: ["#context-switching", "#beginner", "#recall", "#pt", "#all-languages"]
+    },
+    {
+      question: "De acordo com a lição, o que significa 'resíduo de atenção'?",
+      options: [
+        "Sucesso instantâneo na mudança de foco",
+        "Partes do cérebro permanecem na tarefa anterior",
+        "Conclusão bem-sucedida de tarefas longas",
+        "Ler e-mails"
+      ],
+      correctIndex: 1,
+      difficulty: QuestionDifficulty.EASY,
+      category: "Mudança de Contexto",
+      questionType: QuestionType.RECALL,
+      hashtags: ["#context-switching", "#beginner", "#recall", "#pt", "#all-languages"]
+    },
+    {
+      question: "De acordo com a lição, qual é a duração ideal para um bloco de trabalho profundo?",
+      options: [
+        "15-30 minutos",
+        "45-60 minutos",
+        "90-120 minutos",
+        "150+ minutos"
+      ],
+      correctIndex: 2,
+      difficulty: QuestionDifficulty.EASY,
+      category: "Mudança de Contexto",
+      questionType: QuestionType.RECALL,
+      hashtags: ["#context-switching", "#beginner", "#recall", "#pt", "#all-languages"]
+    },
+    {
+      question: "Por que agrupar tarefas semelhantes é importante de acordo com a lição?",
+      options: [
+        "Permite trabalhar mais horas",
+        "Reduz mudanças de contexto, mantém o foco e minimiza o resíduo de atenção",
+        "Torna as tarefas mais fáceis de completar",
+        "Aplica-se apenas ao gerenciamento de e-mail"
+      ],
+      correctIndex: 1,
+      difficulty: QuestionDifficulty.MEDIUM,
+      category: "Mudança de Contexto",
+      questionType: QuestionType.APPLICATION,
+      hashtags: ["#context-switching", "#intermediate", "#application", "#pt", "#all-languages"]
+    },
+    {
+      question: "De acordo com a lição, qual é a meta ideal diária para mudanças de contexto?",
+      options: [
+        "10-15",
+        "5-10",
+        "1-4",
+        "Quantas forem necessárias mantendo-se produtivo"
+      ],
+      correctIndex: 2,
+      difficulty: QuestionDifficulty.MEDIUM,
+      category: "Mudança de Contexto",
+      questionType: QuestionType.APPLICATION,
+      hashtags: ["#context-switching", "#intermediate", "#application", "#pt", "#all-languages"]
+    },
+    {
+      question: "Uma pessoa alterna entre e-mail, codificação, reuniões e chamadas telefônicas ao longo do dia, experimentando baixa produtividade. De acordo com a lição, o que ela deve fazer?",
+      options: [
+        "Trabalhar mais rápido para compensar",
+        "Agrupar tarefas semelhantes (ex: todos os e-mails em um bloco, toda a codificação em outro) para minimizar mudanças de contexto",
+        "Fazer mais pausas",
+        "Trabalhar mais horas"
+      ],
+      correctIndex: 1,
+      difficulty: QuestionDifficulty.MEDIUM,
+      category: "Mudança de Contexto",
+      questionType: QuestionType.APPLICATION,
+      hashtags: ["#context-switching", "#intermediate", "#application", "#pt", "#all-languages"]
+    },
+    {
+      question: "Um gerente tem 8 mudanças de contexto por dia, experimenta resíduo de atenção constante e não tem blocos de trabalho profundo. De acordo com a estrutura da lição, o que esse padrão sugere sobre sua produtividade?",
+      options: [
+        "Gestão ideal de produtividade",
+        "Perda significativa de produtividade - mudanças excessivas de contexto impedem trabalho profundo e causam resíduo de atenção durante todo o dia",
+        "Multitarefa eficiente",
+        "Boa gestão de tempo"
+      ],
+      correctIndex: 1,
+      difficulty: QuestionDifficulty.HARD,
+      category: "Mudança de Contexto",
+      questionType: QuestionType.CRITICAL_THINKING,
+      hashtags: ["#context-switching", "#advanced", "#critical-thinking", "#pt", "#all-languages"]
+    }
+  ],
+  // Hindi (HI) - Professional translations
+  HI: [
+    {
+      question: "पाठ के अनुसार, संदर्भ स्विच करने के बाद एक नए कार्य पर पूरी तरह से फिर से ध्यान केंद्रित करने में आमतौर पर कितना समय लगता है?",
+      options: [
+        "2-5 मिनट",
+        "10-25 मिनट",
+        "30-45 मिनट",
+        "1-2 घंटे"
+      ],
+      correctIndex: 1,
+      difficulty: QuestionDifficulty.EASY,
+      category: "संदर्भ स्विचिंग",
+      questionType: QuestionType.RECALL,
+      hashtags: ["#context-switching", "#beginner", "#recall", "#hi", "#all-languages"]
+    },
+    {
+      question: "पाठ के अनुसार, 'ध्यान अवशेष' का क्या अर्थ है?",
+      options: [
+        "तत्काल फोकस स्विचिंग सफलता",
+        "मस्तिष्क के कुछ हिस्से पिछले कार्य पर बने रहते हैं",
+        "लंबे कार्यों को सफलतापूर्वक पूरा करना",
+        "ईमेल पढ़ना"
+      ],
+      correctIndex: 1,
+      difficulty: QuestionDifficulty.EASY,
+      category: "संदर्भ स्विचिंग",
+      questionType: QuestionType.RECALL,
+      hashtags: ["#context-switching", "#beginner", "#recall", "#hi", "#all-languages"]
+    },
+    {
+      question: "पाठ के अनुसार, गहरे कार्य ब्लॉक के लिए इष्टतम अवधि क्या है?",
+      options: [
+        "15-30 मिनट",
+        "45-60 मिनट",
+        "90-120 मिनट",
+        "150+ मिनट"
+      ],
+      correctIndex: 2,
+      difficulty: QuestionDifficulty.EASY,
+      category: "संदर्भ स्विचिंग",
+      questionType: QuestionType.RECALL,
+      hashtags: ["#context-switching", "#beginner", "#recall", "#hi", "#all-languages"]
+    },
+    {
+      question: "पाठ के अनुसार समान कार्यों को एक साथ बैच करना क्यों महत्वपूर्ण है?",
+      options: [
+        "यह आपको अधिक घंटे काम करने की अनुमति देता है",
+        "यह संदर्भ स्विच को कम करता है, फोकस बनाए रखता है, और ध्यान अवशेष को कम करता है",
+        "यह कार्यों को पूरा करना आसान बनाता है",
+        "यह केवल ईमेल प्रबंधन पर लागू होता है"
+      ],
+      correctIndex: 1,
+      difficulty: QuestionDifficulty.MEDIUM,
+      category: "संदर्भ स्विचिंग",
+      questionType: QuestionType.APPLICATION,
+      hashtags: ["#context-switching", "#intermediate", "#application", "#hi", "#all-languages"]
+    },
+    {
+      question: "पाठ के अनुसार, संदर्भ स्विच के लिए दैनिक आदर्श लक्ष्य क्या है?",
+      options: [
+        "10-15",
+        "5-10",
+        "1-4",
+        "उत्पादक बने रहते हुए जितनी आवश्यकता हो"
+      ],
+      correctIndex: 2,
+      difficulty: QuestionDifficulty.MEDIUM,
+      category: "संदर्भ स्विचिंग",
+      questionType: QuestionType.APPLICATION,
+      hashtags: ["#context-switching", "#intermediate", "#application", "#hi", "#all-languages"]
+    },
+    {
+      question: "एक व्यक्ति दिन भर ईमेल, कोडिंग, बैठकों और फोन कॉल के बीच स्विच करता है, कम उत्पादकता का अनुभव करता है। पाठ के अनुसार, उन्हें क्या करना चाहिए?",
+      options: [
+        "क्षतिपूर्ति के लिए तेजी से काम करना",
+        "संदर्भ स्विच को कम करने के लिए समान कार्यों को एक साथ बैच करना (उदा. सभी ईमेल एक ब्लॉक में, सभी कोडिंग दूसरे में)",
+        "अधिक ब्रेक लेना",
+        "अधिक घंटे काम करना"
+      ],
+      correctIndex: 1,
+      difficulty: QuestionDifficulty.MEDIUM,
+      category: "संदर्भ स्विचिंग",
+      questionType: QuestionType.APPLICATION,
+      hashtags: ["#context-switching", "#intermediate", "#application", "#hi", "#all-languages"]
+    },
+    {
+      question: "एक प्रबंधक का प्रति दिन 8 संदर्भ स्विच है, निरंतर ध्यान अवशेष का अनुभव करता है, और उसके पास गहरे कार्य ब्लॉक नहीं हैं। पाठ के ढांचे के अनुसार, यह पैटर्न उनकी उत्पादकता के बारे में क्या सुझाव देता है?",
+      options: [
+        "इष्टतम उत्पादकता प्रबंधन",
+        "उत्पादकता में महत्वपूर्ण हानि - अत्यधिक संदर्भ स्विचिंग गहरे कार्य को रोकता है और पूरे दिन ध्यान अवशेष का कारण बनता है",
+        "कुशल मल्टीटास्किंग",
+        "अच्छा समय प्रबंधन"
+      ],
+      correctIndex: 1,
+      difficulty: QuestionDifficulty.HARD,
+      category: "संदर्भ स्विचिंग",
+      questionType: QuestionType.CRITICAL_THINKING,
+      hashtags: ["#context-switching", "#advanced", "#critical-thinking", "#hi", "#all-languages"]
+    }
+  ]
 };
 
 async function seedDay8Enhanced() {

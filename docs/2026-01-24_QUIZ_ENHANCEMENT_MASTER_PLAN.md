@@ -422,9 +422,17 @@ Let's begin with Productivity 2026, Day 1 (Introduction to Productivity).
 - ✅ Verification script created: `scripts/verify-day7-enhancement.ts`
 - ✅ Total questions ready: 70 (7 × 10 languages)
 
+**Day 8 Progress**:
+- ✅ 7 questions created (3 recall, 3 application, 1 critical thinking)
+- ✅ Topic: Context Switching Cost (attention residue, batching, deep work blocks)
+- ✅ All 10 languages translated (HU, EN, TR, BG, PL, VI, ID, AR, PT, HI)
+- ✅ Seed script created: `scripts/seed-day8-enhanced.ts`
+- ✅ Verification script created: `scripts/verify-day8-enhancement.ts`
+- ✅ Total questions ready: 70 (7 × 10 languages)
+
 **Combined Progress**:
-- ✅ Days completed: 7/30 (23.3%)
-- ✅ Total questions ready: 490 (49 × 10 languages)
+- ✅ Days completed: 8/30 (26.7%)
+- ✅ Total questions ready: 560 (56 × 10 languages)
 - ✅ Day 1: ✅ COMPLETE
 - ✅ Day 2: ✅ COMPLETE
 - ✅ Day 3: ✅ COMPLETE
@@ -432,4 +440,5 @@ Let's begin with Productivity 2026, Day 1 (Introduction to Productivity).
 - ✅ Day 5: ✅ COMPLETE
 - ✅ Day 6: ✅ COMPLETE
 - ✅ Day 7: ✅ COMPLETE
-- ⏳ **Next**: Run seed scripts and verify, then continue with Day 8
+- ✅ Day 8: ✅ COMPLETE
+- ⏳ **Next**: Run seed scripts and verify, then continue with Day 9

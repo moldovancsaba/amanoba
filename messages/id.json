@@ -655,5 +655,25 @@
     "selectOptions": "Select one or more options",
     "enterText": "Enter your answer",
     "selectRating": "Select a rating"
+  },
+  "consent": {
+    "title": "Persetujuan Cookie",
+    "description": "Kami menggunakan cookie dan teknologi serupa untuk meningkatkan pengalaman Anda, menganalisis penggunaan situs, dan membantu upaya pemasaran kami. Anda dapat memilih cookie mana yang akan diterima.",
+    "acceptAll": "Terima Semua",
+    "rejectAll": "Tolak Semua",
+    "showDetails": "Sesuaikan",
+    "hideDetails": "Sembunyikan Detail",
+    "analytics": {
+      "title": "Cookie Analitik",
+      "description": "Cookie ini membantu kami memahami cara pengunjung berinteraksi dengan situs web kami dengan mengumpulkan dan melaporkan informasi secara anonim.",
+      "label": "Izinkan Cookie Analitik"
+    },
+    "advertising": {
+      "title": "Cookie Iklan",
+      "description": "Cookie ini digunakan untuk membuat pesan iklan lebih relevan untuk Anda dan minat Anda.",
+      "storageLabel": "Izinkan Penyimpanan Iklan",
+      "userDataLabel": "Izinkan Data Pengguna Iklan",
+      "personalizationLabel": "Izinkan Personalisasi Iklan"
+    }
   }
 }

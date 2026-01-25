@@ -694,5 +694,25 @@
     "selectOptions": "Válassz egy vagy több opciót",
     "enterText": "Írd be a válaszod",
     "selectRating": "Válassz értékelést"
+  },
+  "consent": {
+    "title": "Süti hozzájárulás",
+    "description": "Sütiket és hasonló technológiákat használunk a felhasználói élmény javításához, a webhely használatának elemzéséhez és a marketing tevékenységek támogatásához. Kiválaszthatod, hogy mely sütiket fogadod el.",
+    "acceptAll": "Összes elfogadása",
+    "rejectAll": "Összes elutasítása",
+    "showDetails": "Testreszabás",
+    "hideDetails": "Részletek elrejtése",
+    "analytics": {
+      "title": "Analitikai sütik",
+      "description": "Ezek a sütik segítenek megérteni, hogyan lépnek kapcsolatba a látogatók weboldalunkkal, névtelenül gyűjtve és jelentve az információkat.",
+      "label": "Analitikai sütik engedélyezése"
+    },
+    "advertising": {
+      "title": "Hirdetési sütik",
+      "description": "Ezeket a sütiket arra használjuk, hogy a hirdetési üzenetek relevánsabbak legyenek számodra és az érdeklődési körödnek megfelelőek.",
+      "storageLabel": "Hirdetési tárolás engedélyezése",
+      "userDataLabel": "Hirdetési felhasználói adatok engedélyezése",
+      "personalizationLabel": "Hirdetési személyre szabás engedélyezése"
+    }
   }
 }

@@ -8,8 +8,10 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, Noto_Sans, Playfair_Display, Afacad } from "next/font/google";
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
+import { ConsentProvider } from "@/app/components/providers/ConsentProvider";
 import SessionProvider from "@/components/session-provider";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
+import CookieConsentBanner from "@/components/CookieConsentBanner";
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import { notFound } from 'next/navigation';
@@ -131,19 +133,23 @@ export default async function LocaleLayout({
       >
         <GoogleAnalytics />
         <NextIntlClientProvider messages={messages}>
-          <SessionProvider>
-            <ThemeProvider
-              attribute="class"
-              defaultTheme="system"
-              enableSystem
-              disableTransitionOnChange
-            >
-              {/* Main content wrapper */}
-              <div className="min-h-screen flex flex-col">
-                {children}
-              </div>
-            </ThemeProvider>
-          </SessionProvider>
+          <ConsentProvider>
+            <SessionProvider>
+              <ThemeProvider
+                attribute="class"
+                defaultTheme="system"
+                enableSystem
+                disableTransitionOnChange
+              >
+                {/* Main content wrapper */}
+                <div className="min-h-screen flex flex-col">
+                  {children}
+                </div>
+                {/* Cookie Consent Banner */}
+                <CookieConsentBanner />
+              </ThemeProvider>
+            </SessionProvider>
+          </ConsentProvider>
         </NextIntlClientProvider>
       </body>
     </html>

@@ -655,5 +655,25 @@
     "selectOptions": "Select one or more options",
     "enterText": "Enter your answer",
     "selectRating": "Select a rating"
+  },
+  "consent": {
+    "title": "Consentimento de Cookies",
+    "description": "Usamos cookies e tecnologias semelhantes para melhorar sua experiência, analisar o uso do site e auxiliar nossos esforços de marketing. Você pode escolher quais cookies aceitar.",
+    "acceptAll": "Aceitar Tudo",
+    "rejectAll": "Rejeitar Tudo",
+    "showDetails": "Personalizar",
+    "hideDetails": "Ocultar Detalhes",
+    "analytics": {
+      "title": "Cookies de Análise",
+      "description": "Esses cookies nos ajudam a entender como os visitantes interagem com nosso site, coletando e relatando informações anonimamente.",
+      "label": "Permitir Cookies de Análise"
+    },
+    "advertising": {
+      "title": "Cookies de Publicidade",
+      "description": "Esses cookies são usados para tornar as mensagens publicitárias mais relevantes para você e seus interesses.",
+      "storageLabel": "Permitir Armazenamento de Anúncios",
+      "userDataLabel": "Permitir Dados de Usuário de Anúncios",
+      "personalizationLabel": "Permitir Personalização de Anúncios"
+    }
   }
 }
