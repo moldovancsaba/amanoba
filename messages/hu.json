@@ -714,5 +714,29 @@
       "userDataLabel": "Hirdetési felhasználói adatok engedélyezése",
       "personalizationLabel": "Hirdetési személyre szabás engedélyezése"
     }
+  },
+  "certificates": {
+    "title": "Tanúsítványok",
+    "noCertificates": "Még nincsenek tanúsítványok",
+    "noCertificatesDescription": "Teljesíts kurzusokat és töltsd le a záróvizsgát tanúsítványok megszerzéséhez",
+    "viewCertificate": "Tanúsítvány megtekintése",
+    "certificateVerified": "Tanúsítvány ellenőrizve",
+    "certificateRevoked": "Tanúsítvány visszavonva",
+    "revokedReason": "Ok",
+    "awardedTo": "Kiadva",
+    "finalExamScore": "Záróvizsga pontszám",
+    "issued": "Kiadva",
+    "revoked": "Visszavonva",
+    "certificateId": "Tanúsítvány azonosító",
+    "verificationInfo": "Ez a tanúsítvány bármikor ellenőrizhető a verifikációs link használatával.",
+    "copyLink": "Link másolása",
+    "downloadImage": "Kép letöltése",
+    "makePublic": "Nyilvánossá tétel",
+    "makePrivate": "Priváttá tétel",
+    "certificateNotFound": "Tanúsítvány nem található",
+    "certificateNotFoundDescription": "Ez a tanúsítvány privát lehet, vagy a verifikációs link érvénytelen.",
+    "goHome": "Kezdőlap",
+    "backToHome": "Vissza a kezdőlapra",
+    "loadingCertificate": "Tanúsítvány betöltése..."
   }
 }
