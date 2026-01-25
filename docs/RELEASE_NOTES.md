@@ -1,11 +1,64 @@
 # Amanoba Release Notes
 
-**Current Version**: 2.9.0  
-**Last Updated**: 2026-01-24T20:00:00.000Z
+**Current Version**: 2.9.1  
+**Last Updated**: 2026-01-25T14:30:00.000Z
 
 ---
 
 All completed tasks are documented here in reverse chronological order. This file follows the Changelog format and is updated with every version bump.
+
+---
+
+## [v2.9.1] — 2026-01-25 🔧🌍
+
+**Status**: PATCH RELEASE - Navigation & URL Enforcement Fixes  
+**Type**: Bug Fixes + Architecture Refinement
+
+### 🔧 Critical Navigation Fixes
+
+#### All Course Navigation Links Use Course Language
+- **Problem**: Quiz links, day navigation, and back links were using relative paths, causing URL locale changes during navigation
+- **Fix**: All links now use `/${courseLanguage}/courses/...` instead of relative paths
+- **Impact**: URLs stay consistent throughout course flow, no more locale changes
+
+**Files Modified**:
+- `app/[locale]/courses/[courseId]/day/[dayNumber]/page.tsx` - Quiz, previous/next day, back to course links
+- `app/[locale]/courses/[courseId]/day/[dayNumber]/quiz/page.tsx` - Back to lesson links
+
+#### Course Language Extraction Timing Fix
+- **Problem**: `courseLanguage` was set to 'en' initially, only updated after API call, causing links to render with wrong language
+- **Fix**: Extract language from courseId suffix immediately (e.g., `PRODUCTIVITY_2026_AR` → `ar`)
+- **Impact**: Links use correct language from first render, no timing issues
+
+**Files Modified**:
+- `app/[locale]/courses/[courseId]/day/[dayNumber]/page.tsx` - Extract language from courseId
+- `app/[locale]/courses/[courseId]/day/[dayNumber]/quiz/page.tsx` - Extract language from courseId
+
+### 🌍 URL Enforcement Architecture (Option 2)
+
+#### Allow Any URL Locale, Show Course Language UI
+- **Decision**: Implemented Option 2 - Allow any URL locale, but UI always uses course language
+- **Rationale**: 
+  - URL locale controls general site navigation (header, menus)
+  - Course language controls ALL course-related UI (buttons, labels, content)
+  - Secure because `courseLanguage` is fetched from API, not URL
+  - Result: `/hu/courses/PRODUCTIVITY_2026_AR` works and shows 100% Arabic UI
+
+**Files Modified**:
+- `app/[locale]/courses/[courseId]/layout.tsx` - Removed 404 enforcement, added Option 2 comment
+
+### 📊 Metrics
+
+- **Commits**: 5 additional commits (19 total for language separation)
+- **Files Modified**: 3 files
+- **Build Status**: ✅ SUCCESS - 0 errors, 0 warnings
+
+### 🛡️ Safety Rollback Plan
+
+**Baseline**: Commit `876c27a` (current HEAD)  
+**Previous Stable**: `a046aaf` (before navigation fixes)  
+**Rollback Time**: <5 minutes  
+**Documentation**: See feature document for detailed rollback steps
 
 ---
 

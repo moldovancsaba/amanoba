@@ -1,7 +1,7 @@
 # Amanoba Task List
 
-**Version**: 2.9.0  
-**Last Updated**: 2026-01-24T20:00:00.000Z
+**Version**: 2.9.1  
+**Last Updated**: 2026-01-25T14:30:00.000Z
 
 ---
 
@@ -32,10 +32,12 @@ Course pages must always use the course’s own language as the URL locale and U
 | LOCALE6 | Fix certification block, day/minutes labels, loading messages | AI | 2026-01-24 | ✅ DONE |
 | LOCALE7 | Build verification and deployment preparation | AI | 2026-01-24 | ✅ DONE |
 
-**Commits**: 14 commits delivered  
-**Files Modified**: 5 core course pages + 1 cleanup script  
+**Commits**: 19 commits delivered  
+**Files Modified**: 5 core course pages + 1 cleanup script + layout  
 **Translations Added**: 770+ (70 keys × 11 languages)  
-**Build Status**: ✅ SUCCESS - 0 errors, 0 warnings
+**Architecture**: Option 2 - Any URL locale works, UI always uses course language  
+**Build Status**: ✅ SUCCESS - 0 errors, 0 warnings  
+**Status**: ✅ COMPLETE - All navigation links fixed, language extraction optimized
 
 ---
 

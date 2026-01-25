@@ -5,8 +5,9 @@
 **Date**: 2026-01-24  
 **Status**: ✅ **COMPLETE - DELIVERED**  
 **Priority**: P0 (Critical for localization requirement)  
-**Commits**: 14 commits delivered  
-**Build Status**: ✅ SUCCESS - 0 errors, 0 warnings
+**Commits**: 19 commits delivered  
+**Build Status**: ✅ SUCCESS - 0 errors, 0 warnings  
+**Last Updated**: 2026-01-25
 
 ---
 
@@ -20,7 +21,7 @@
 
 ---
 
-## COMMITS DELIVERED (14 Total)
+## COMMITS DELIVERED (19 Total)
 
 ### Commit 1: `2e778e7` - Native Speaker Quality Translations
 - Revamped all courseDetailTranslations for authentic UX
@@ -83,6 +84,32 @@
 - Fixed certification block hardcoded English strings
 - Fixed 'day' and 'minutes' labels in course language
 - Fixed all loading/error/enrollment messages
+
+### Commit 15: `084fd76` - Complete Documentation
+- Created comprehensive feature document
+- Updated TASKLIST.md, RELEASE_NOTES.md, agent working document
+- Added safety rollback plan
+
+### Commit 16: `5df9e37` - URL Enforcement (Later Removed)
+- Added 404 enforcement for URL locale mismatch
+- Later removed per user preference for Option 2
+
+### Commit 17: `6f54e1c` - All Navigation Links Use Course Language
+- Fixed quiz link to use courseLanguage
+- Fixed previous/next day links to use courseLanguage
+- Fixed back to course links to use courseLanguage
+- Fixed quiz page back links to use courseLanguage
+
+### Commit 18: `876c27a` - Extract Language from courseId Immediately
+- Extract language from courseId suffix immediately (e.g., PRODUCTIVITY_2026_AR → ar)
+- Set courseLanguage before API call completes
+- Links use correct language from first render
+- No more timing issues
+
+### Commit 19: Layout Option 2 Implementation
+- Removed 404 enforcement
+- Implemented Option 2: Allow any URL locale, UI uses course language
+- Added comprehensive comments explaining architecture
 
 ---
 
@@ -270,16 +297,27 @@ if (data.courseLanguage) setCourseLanguage(data.courseLanguage);
 ## SAFETY ROLLBACK PLAN
 
 ### Baseline Commit
-**Last Known Working State**: `a046aaf` (current HEAD)
+**Last Known Working State**: `876c27a` (current HEAD - all fixes complete)
 **Previous Stable Baseline**: `f20c34a` (from agent_working_loop_canonical_operating_document.md)
+**Language Separation Baseline**: `a046aaf` (before navigation fixes)
 
 ### Rollback Steps
 
-#### Option 1: Revert Last 14 Commits (If Issues Found)
+#### Option 1: Revert Last 19 Commits (If Issues Found)
 ```bash
 cd /Users/moldovancsaba/Projects/amanoba
-git revert --no-commit a046aaf^..HEAD
-git commit -m "ROLLBACK: Revert course language separation changes"
+git revert --no-commit 876c27a^..HEAD
+git commit -m "ROLLBACK: Revert course language separation and navigation fixes"
+npm run build
+# Verify build succeeds
+git push origin main
+```
+
+#### Option 1b: Revert Only Navigation Fixes (Keep Language Separation)
+```bash
+cd /Users/moldovancsaba/Projects/amanoba
+git revert --no-commit 876c27a 6f54e1c 5df9e37
+git commit -m "ROLLBACK: Revert navigation fixes, keep language separation"
 npm run build
 # Verify build succeeds
 git push origin main
@@ -421,6 +459,7 @@ git push origin main --force
 
 ---
 
-**Status**: ✅ **COMPLETE - READY FOR DEPLOYMENT**  
-**Last Updated**: 2026-01-24  
-**Next Action**: Deploy to staging and verify all 11 locales
+**Status**: ✅ **COMPLETE - DELIVERED & DEPLOYED**  
+**Last Updated**: 2026-01-25  
+**Architecture**: Option 2 Active - Any URL locale works, UI always uses course language  
+**Next Action**: Resume Quiz Quality Enhancement work
