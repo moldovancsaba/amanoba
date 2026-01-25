@@ -58,7 +58,7 @@ const DAY7_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 2,
       difficulty: QuestionDifficulty.EASY,
-      category: "Daily/Weekly Systems",
+      category: "Productivity Foundations",
       questionType: QuestionType.RECALL,
       hashtags: ["#rituals", "#beginner", "#recall", "#en", "#all-languages"]
     },
@@ -73,7 +73,7 @@ const DAY7_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "Daily/Weekly Systems",
+      category: "Productivity Foundations",
       questionType: QuestionType.RECALL,
       hashtags: ["#rituals", "#beginner", "#recall", "#en", "#all-languages"]
     },
@@ -88,7 +88,7 @@ const DAY7_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 2,
       difficulty: QuestionDifficulty.EASY,
-      category: "Daily/Weekly Systems",
+      category: "Productivity Foundations",
       questionType: QuestionType.RECALL,
       hashtags: ["#rituals", "#beginner", "#recall", "#en", "#all-languages"]
     },
@@ -103,7 +103,7 @@ const DAY7_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "Daily/Weekly Systems",
+      category: "Productivity Foundations",
       questionType: QuestionType.RECALL,
       hashtags: ["#rituals", "#beginner", "#recall", "#en", "#all-languages"]
     },
@@ -118,7 +118,7 @@ const DAY7_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Daily/Weekly Systems",
+      category: "Productivity Foundations",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#rituals", "#intermediate", "#application", "#en", "#all-languages"]
     },
@@ -133,7 +133,7 @@ const DAY7_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Daily/Weekly Systems",
+      category: "Productivity Foundations",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#rituals", "#intermediate", "#application", "#en", "#all-languages"]
     },
@@ -148,7 +148,7 @@ const DAY7_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.HARD,
-      category: "Daily/Weekly Systems",
+      category: "Productivity Foundations",
       questionType: QuestionType.CRITICAL_THINKING,
       hashtags: ["#rituals", "#advanced", "#critical-thinking", "#en", "#all-languages"]
     }
@@ -165,7 +165,7 @@ const DAY7_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 2,
       difficulty: QuestionDifficulty.EASY,
-      category: "Napi/heti rendszerek",
+      category: "Productivity Foundations",
       questionType: QuestionType.RECALL,
       hashtags: ["#rituals", "#beginner", "#recall", "#hu", "#all-languages"]
     },
@@ -179,7 +179,7 @@ const DAY7_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "Napi/heti rendszerek",
+      category: "Productivity Foundations",
       questionType: QuestionType.RECALL,
       hashtags: ["#rituals", "#beginner", "#recall", "#hu", "#all-languages"]
     },
@@ -193,7 +193,7 @@ const DAY7_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 2,
       difficulty: QuestionDifficulty.EASY,
-      category: "Napi/heti rendszerek",
+      category: "Productivity Foundations",
       questionType: QuestionType.RECALL,
       hashtags: ["#rituals", "#beginner", "#recall", "#hu", "#all-languages"]
     },
@@ -207,7 +207,7 @@ const DAY7_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "Napi/heti rendszerek",
+      category: "Productivity Foundations",
       questionType: QuestionType.RECALL,
       hashtags: ["#rituals", "#beginner", "#recall", "#hu", "#all-languages"]
     },
@@ -221,7 +221,7 @@ const DAY7_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Napi/heti rendszerek",
+      category: "Productivity Foundations",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#rituals", "#intermediate", "#application", "#hu", "#all-languages"]
     },
@@ -235,7 +235,7 @@ const DAY7_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Napi/heti rendszerek",
+      category: "Productivity Foundations",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#rituals", "#intermediate", "#application", "#hu", "#all-languages"]
     },
@@ -249,7 +249,7 @@ const DAY7_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.HARD,
-      category: "Napi/heti rendszerek",
+      category: "Productivity Foundations",
       questionType: QuestionType.CRITICAL_THINKING,
       hashtags: ["#rituals", "#advanced", "#critical-thinking", "#hu", "#all-languages"]
     }
@@ -266,7 +266,7 @@ const DAY7_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 2,
       difficulty: QuestionDifficulty.EASY,
-      category: "Günlük/Haftalık Sistemler",
+      category: "Productivity Foundations",
       questionType: QuestionType.RECALL,
       hashtags: ["#rituals", "#beginner", "#recall", "#tr", "#all-languages"]
     },
@@ -280,7 +280,7 @@ const DAY7_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "Günlük/Haftalık Sistemler",
+      category: "Productivity Foundations",
       questionType: QuestionType.RECALL,
       hashtags: ["#rituals", "#beginner", "#recall", "#tr", "#all-languages"]
     },
@@ -294,7 +294,7 @@ const DAY7_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 2,
       difficulty: QuestionDifficulty.EASY,
-      category: "Günlük/Haftalık Sistemler",
+      category: "Productivity Foundations",
       questionType: QuestionType.RECALL,
       hashtags: ["#rituals", "#beginner", "#recall", "#tr", "#all-languages"]
     },
@@ -308,7 +308,7 @@ const DAY7_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "Günlük/Haftalık Sistemler",
+      category: "Productivity Foundations",
       questionType: QuestionType.RECALL,
       hashtags: ["#rituals", "#beginner", "#recall", "#tr", "#all-languages"]
     },
@@ -322,7 +322,7 @@ const DAY7_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Günlük/Haftalık Sistemler",
+      category: "Productivity Foundations",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#rituals", "#intermediate", "#application", "#tr", "#all-languages"]
     },
@@ -336,7 +336,7 @@ const DAY7_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Günlük/Haftalık Sistemler",
+      category: "Productivity Foundations",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#rituals", "#intermediate", "#application", "#tr", "#all-languages"]
     },
@@ -350,7 +350,7 @@ const DAY7_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.HARD,
-      category: "Günlük/Haftalık Sistemler",
+      category: "Productivity Foundations",
       questionType: QuestionType.CRITICAL_THINKING,
       hashtags: ["#rituals", "#advanced", "#critical-thinking", "#tr", "#all-languages"]
     }
@@ -367,7 +367,7 @@ const DAY7_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 2,
       difficulty: QuestionDifficulty.EASY,
-      category: "Дневни/Седмични системи",
+      category: "Productivity Foundations",
       questionType: QuestionType.RECALL,
       hashtags: ["#rituals", "#beginner", "#recall", "#bg", "#all-languages"]
     },
@@ -381,7 +381,7 @@ const DAY7_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "Дневни/Седмични системи",
+      category: "Productivity Foundations",
       questionType: QuestionType.RECALL,
       hashtags: ["#rituals", "#beginner", "#recall", "#bg", "#all-languages"]
     },
@@ -395,7 +395,7 @@ const DAY7_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 2,
       difficulty: QuestionDifficulty.EASY,
-      category: "Дневни/Седмични системи",
+      category: "Productivity Foundations",
       questionType: QuestionType.RECALL,
       hashtags: ["#rituals", "#beginner", "#recall", "#bg", "#all-languages"]
     },
@@ -409,7 +409,7 @@ const DAY7_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "Дневни/Седмични системи",
+      category: "Productivity Foundations",
       questionType: QuestionType.RECALL,
       hashtags: ["#rituals", "#beginner", "#recall", "#bg", "#all-languages"]
     },
@@ -423,7 +423,7 @@ const DAY7_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Дневни/Седмични системи",
+      category: "Productivity Foundations",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#rituals", "#intermediate", "#application", "#bg", "#all-languages"]
     },
@@ -437,7 +437,7 @@ const DAY7_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Дневни/Седмични системи",
+      category: "Productivity Foundations",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#rituals", "#intermediate", "#application", "#bg", "#all-languages"]
     },
@@ -451,7 +451,7 @@ const DAY7_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.HARD,
-      category: "Дневни/Седмични системи",
+      category: "Productivity Foundations",
       questionType: QuestionType.CRITICAL_THINKING,
       hashtags: ["#rituals", "#advanced", "#critical-thinking", "#bg", "#all-languages"]
     }
@@ -468,7 +468,7 @@ const DAY7_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 2,
       difficulty: QuestionDifficulty.EASY,
-      category: "Systemy dzienne/tygodniowe",
+      category: "Productivity Foundations",
       questionType: QuestionType.RECALL,
       hashtags: ["#rituals", "#beginner", "#recall", "#pl", "#all-languages"]
     },
@@ -482,7 +482,7 @@ const DAY7_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "Systemy dzienne/tygodniowe",
+      category: "Productivity Foundations",
       questionType: QuestionType.RECALL,
       hashtags: ["#rituals", "#beginner", "#recall", "#pl", "#all-languages"]
     },
@@ -496,7 +496,7 @@ const DAY7_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 2,
       difficulty: QuestionDifficulty.EASY,
-      category: "Systemy dzienne/tygodniowe",
+      category: "Productivity Foundations",
       questionType: QuestionType.RECALL,
       hashtags: ["#rituals", "#beginner", "#recall", "#pl", "#all-languages"]
     },
@@ -510,7 +510,7 @@ const DAY7_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "Systemy dzienne/tygodniowe",
+      category: "Productivity Foundations",
       questionType: QuestionType.RECALL,
       hashtags: ["#rituals", "#beginner", "#recall", "#pl", "#all-languages"]
     },
@@ -524,7 +524,7 @@ const DAY7_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Systemy dzienne/tygodniowe",
+      category: "Productivity Foundations",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#rituals", "#intermediate", "#application", "#pl", "#all-languages"]
     },
@@ -538,7 +538,7 @@ const DAY7_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Systemy dzienne/tygodniowe",
+      category: "Productivity Foundations",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#rituals", "#intermediate", "#application", "#pl", "#all-languages"]
     },
@@ -552,7 +552,7 @@ const DAY7_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.HARD,
-      category: "Systemy dzienne/tygodniowe",
+      category: "Productivity Foundations",
       questionType: QuestionType.CRITICAL_THINKING,
       hashtags: ["#rituals", "#advanced", "#critical-thinking", "#pl", "#all-languages"]
     }
@@ -569,7 +569,7 @@ const DAY7_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 2,
       difficulty: QuestionDifficulty.EASY,
-      category: "Hệ thống Hàng ngày/Hàng tuần",
+      category: "Productivity Foundations",
       questionType: QuestionType.RECALL,
       hashtags: ["#rituals", "#beginner", "#recall", "#vi", "#all-languages"]
     },
@@ -583,7 +583,7 @@ const DAY7_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "Hệ thống Hàng ngày/Hàng tuần",
+      category: "Productivity Foundations",
       questionType: QuestionType.RECALL,
       hashtags: ["#rituals", "#beginner", "#recall", "#vi", "#all-languages"]
     },
@@ -597,7 +597,7 @@ const DAY7_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 2,
       difficulty: QuestionDifficulty.EASY,
-      category: "Hệ thống Hàng ngày/Hàng tuần",
+      category: "Productivity Foundations",
       questionType: QuestionType.RECALL,
       hashtags: ["#rituals", "#beginner", "#recall", "#vi", "#all-languages"]
     },
@@ -611,7 +611,7 @@ const DAY7_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "Hệ thống Hàng ngày/Hàng tuần",
+      category: "Productivity Foundations",
       questionType: QuestionType.RECALL,
       hashtags: ["#rituals", "#beginner", "#recall", "#vi", "#all-languages"]
     },
@@ -625,7 +625,7 @@ const DAY7_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Hệ thống Hàng ngày/Hàng tuần",
+      category: "Productivity Foundations",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#rituals", "#intermediate", "#application", "#vi", "#all-languages"]
     },
@@ -639,7 +639,7 @@ const DAY7_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Hệ thống Hàng ngày/Hàng tuần",
+      category: "Productivity Foundations",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#rituals", "#intermediate", "#application", "#vi", "#all-languages"]
     },
@@ -653,7 +653,7 @@ const DAY7_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.HARD,
-      category: "Hệ thống Hàng ngày/Hàng tuần",
+      category: "Productivity Foundations",
       questionType: QuestionType.CRITICAL_THINKING,
       hashtags: ["#rituals", "#advanced", "#critical-thinking", "#vi", "#all-languages"]
     }
@@ -670,7 +670,7 @@ const DAY7_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 2,
       difficulty: QuestionDifficulty.EASY,
-      category: "Sistem Harian/Mingguan",
+      category: "Productivity Foundations",
       questionType: QuestionType.RECALL,
       hashtags: ["#rituals", "#beginner", "#recall", "#id", "#all-languages"]
     },
@@ -684,7 +684,7 @@ const DAY7_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "Sistem Harian/Mingguan",
+      category: "Productivity Foundations",
       questionType: QuestionType.RECALL,
       hashtags: ["#rituals", "#beginner", "#recall", "#id", "#all-languages"]
     },
@@ -698,7 +698,7 @@ const DAY7_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 2,
       difficulty: QuestionDifficulty.EASY,
-      category: "Sistem Harian/Mingguan",
+      category: "Productivity Foundations",
       questionType: QuestionType.RECALL,
       hashtags: ["#rituals", "#beginner", "#recall", "#id", "#all-languages"]
     },
@@ -712,7 +712,7 @@ const DAY7_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "Sistem Harian/Mingguan",
+      category: "Productivity Foundations",
       questionType: QuestionType.RECALL,
       hashtags: ["#rituals", "#beginner", "#recall", "#id", "#all-languages"]
     },
@@ -726,7 +726,7 @@ const DAY7_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Sistem Harian/Mingguan",
+      category: "Productivity Foundations",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#rituals", "#intermediate", "#application", "#id", "#all-languages"]
     },
@@ -740,7 +740,7 @@ const DAY7_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Sistem Harian/Mingguan",
+      category: "Productivity Foundations",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#rituals", "#intermediate", "#application", "#id", "#all-languages"]
     },
@@ -754,7 +754,7 @@ const DAY7_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.HARD,
-      category: "Sistem Harian/Mingguan",
+      category: "Productivity Foundations",
       questionType: QuestionType.CRITICAL_THINKING,
       hashtags: ["#rituals", "#advanced", "#critical-thinking", "#id", "#all-languages"]
     }
@@ -771,7 +771,7 @@ const DAY7_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 2,
       difficulty: QuestionDifficulty.EASY,
-      category: "الأنظمة اليومية/الأسبوعية",
+      category: "Productivity Foundations",
       questionType: QuestionType.RECALL,
       hashtags: ["#rituals", "#beginner", "#recall", "#ar", "#all-languages"]
     },
@@ -785,7 +785,7 @@ const DAY7_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "الأنظمة اليومية/الأسبوعية",
+      category: "Productivity Foundations",
       questionType: QuestionType.RECALL,
       hashtags: ["#rituals", "#beginner", "#recall", "#ar", "#all-languages"]
     },
@@ -799,7 +799,7 @@ const DAY7_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 2,
       difficulty: QuestionDifficulty.EASY,
-      category: "الأنظمة اليومية/الأسبوعية",
+      category: "Productivity Foundations",
       questionType: QuestionType.RECALL,
       hashtags: ["#rituals", "#beginner", "#recall", "#ar", "#all-languages"]
     },
@@ -813,7 +813,7 @@ const DAY7_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "الأنظمة اليومية/الأسبوعية",
+      category: "Productivity Foundations",
       questionType: QuestionType.RECALL,
       hashtags: ["#rituals", "#beginner", "#recall", "#ar", "#all-languages"]
     },
@@ -827,7 +827,7 @@ const DAY7_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "الأنظمة اليومية/الأسبوعية",
+      category: "Productivity Foundations",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#rituals", "#intermediate", "#application", "#ar", "#all-languages"]
     },
@@ -841,7 +841,7 @@ const DAY7_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "الأنظمة اليومية/الأسبوعية",
+      category: "Productivity Foundations",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#rituals", "#intermediate", "#application", "#ar", "#all-languages"]
     },
@@ -855,7 +855,7 @@ const DAY7_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.HARD,
-      category: "الأنظمة اليومية/الأسبوعية",
+      category: "Productivity Foundations",
       questionType: QuestionType.CRITICAL_THINKING,
       hashtags: ["#rituals", "#advanced", "#critical-thinking", "#ar", "#all-languages"]
     }
@@ -872,7 +872,7 @@ const DAY7_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 2,
       difficulty: QuestionDifficulty.EASY,
-      category: "Sistemas Diários/Semanais",
+      category: "Productivity Foundations",
       questionType: QuestionType.RECALL,
       hashtags: ["#rituals", "#beginner", "#recall", "#pt", "#all-languages"]
     },
@@ -886,7 +886,7 @@ const DAY7_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "Sistemas Diários/Semanais",
+      category: "Productivity Foundations",
       questionType: QuestionType.RECALL,
       hashtags: ["#rituals", "#beginner", "#recall", "#pt", "#all-languages"]
     },
@@ -900,7 +900,7 @@ const DAY7_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 2,
       difficulty: QuestionDifficulty.EASY,
-      category: "Sistemas Diários/Semanais",
+      category: "Productivity Foundations",
       questionType: QuestionType.RECALL,
       hashtags: ["#rituals", "#beginner", "#recall", "#pt", "#all-languages"]
     },
@@ -914,7 +914,7 @@ const DAY7_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "Sistemas Diários/Semanais",
+      category: "Productivity Foundations",
       questionType: QuestionType.RECALL,
       hashtags: ["#rituals", "#beginner", "#recall", "#pt", "#all-languages"]
     },
@@ -928,7 +928,7 @@ const DAY7_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Sistemas Diários/Semanais",
+      category: "Productivity Foundations",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#rituals", "#intermediate", "#application", "#pt", "#all-languages"]
     },
@@ -942,7 +942,7 @@ const DAY7_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Sistemas Diários/Semanais",
+      category: "Productivity Foundations",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#rituals", "#intermediate", "#application", "#pt", "#all-languages"]
     },
@@ -956,7 +956,7 @@ const DAY7_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.HARD,
-      category: "Sistemas Diários/Semanais",
+      category: "Productivity Foundations",
       questionType: QuestionType.CRITICAL_THINKING,
       hashtags: ["#rituals", "#advanced", "#critical-thinking", "#pt", "#all-languages"]
     }
@@ -973,7 +973,7 @@ const DAY7_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 2,
       difficulty: QuestionDifficulty.EASY,
-      category: "दैनिक/साप्ताहिक प्रणालियां",
+      category: "Productivity Foundations",
       questionType: QuestionType.RECALL,
       hashtags: ["#rituals", "#beginner", "#recall", "#hi", "#all-languages"]
     },
@@ -987,7 +987,7 @@ const DAY7_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "दैनिक/साप्ताहिक प्रणालियां",
+      category: "Productivity Foundations",
       questionType: QuestionType.RECALL,
       hashtags: ["#rituals", "#beginner", "#recall", "#hi", "#all-languages"]
     },
@@ -1001,7 +1001,7 @@ const DAY7_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 2,
       difficulty: QuestionDifficulty.EASY,
-      category: "दैनिक/साप्ताहिक प्रणालियां",
+      category: "Productivity Foundations",
       questionType: QuestionType.RECALL,
       hashtags: ["#rituals", "#beginner", "#recall", "#hi", "#all-languages"]
     },
@@ -1015,7 +1015,7 @@ const DAY7_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "दैनिक/साप्ताहिक प्रणालियां",
+      category: "Productivity Foundations",
       questionType: QuestionType.RECALL,
       hashtags: ["#rituals", "#beginner", "#recall", "#hi", "#all-languages"]
     },
@@ -1029,7 +1029,7 @@ const DAY7_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "दैनिक/साप्ताहिक प्रणालियां",
+      category: "Productivity Foundations",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#rituals", "#intermediate", "#application", "#hi", "#all-languages"]
     },
@@ -1043,7 +1043,7 @@ const DAY7_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "दैनिक/साप्ताहिक प्रणालियां",
+      category: "Productivity Foundations",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#rituals", "#intermediate", "#application", "#hi", "#all-languages"]
     },
@@ -1057,7 +1057,7 @@ const DAY7_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.HARD,
-      category: "दैनिक/साप्ताहिक प्रणालियां",
+      category: "Productivity Foundations",
       questionType: QuestionType.CRITICAL_THINKING,
       hashtags: ["#rituals", "#advanced", "#critical-thinking", "#hi", "#all-languages"]
     }

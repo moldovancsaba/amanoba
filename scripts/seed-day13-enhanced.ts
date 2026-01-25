@@ -74,7 +74,7 @@ const DAY13_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "Decision Matrix",
+      category: "Productivity Foundations",
       questionType: QuestionType.RECALL,
       hashtags: ["#decision-matrix", "#beginner", "#recall", "#en", "#all-languages"]
     },
@@ -180,7 +180,7 @@ const DAY13_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "Döntési Mátrix",
+      category: "Productivity Foundations",
       questionType: QuestionType.RECALL,
       hashtags: ["#decision-matrix", "#beginner", "#recall", "#hu", "#all-languages"]
     },
@@ -267,7 +267,7 @@ const DAY13_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "Karar Verme",
+      category: "Productivity Foundations",
       questionType: QuestionType.RECALL,
       hashtags: ["#decision-making", "#beginner", "#recall", "#tr", "#all-languages"]
     },
@@ -281,7 +281,7 @@ const DAY13_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "Karar Matrisi",
+      category: "Productivity Foundations",
       questionType: QuestionType.RECALL,
       hashtags: ["#decision-matrix", "#beginner", "#recall", "#tr", "#all-languages"]
     },
@@ -295,7 +295,7 @@ const DAY13_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 2,
       difficulty: QuestionDifficulty.EASY,
-      category: "Karar Verme",
+      category: "Productivity Foundations",
       questionType: QuestionType.RECALL,
       hashtags: ["#decision-making", "#beginner", "#recall", "#tr", "#all-languages"]
     },
@@ -309,7 +309,7 @@ const DAY13_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Karar Verme",
+      category: "Productivity Foundations",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#decision-making", "#intermediate", "#application", "#tr", "#all-languages"]
     },
@@ -323,7 +323,7 @@ const DAY13_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Karar Verme",
+      category: "Productivity Foundations",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#decision-making", "#intermediate", "#application", "#tr", "#all-languages"]
     },
@@ -337,7 +337,7 @@ const DAY13_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Karar Verme",
+      category: "Productivity Foundations",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#decision-making", "#intermediate", "#application", "#tr", "#all-languages"]
     },
@@ -351,7 +351,7 @@ const DAY13_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.HARD,
-      category: "Karar Verme",
+      category: "Productivity Foundations",
       questionType: QuestionType.CRITICAL_THINKING,
       hashtags: ["#decision-making", "#advanced", "#critical-thinking", "#tr", "#all-languages"]
     }
@@ -368,7 +368,7 @@ const DAY13_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "Взимане на Решения",
+      category: "Productivity Foundations",
       questionType: QuestionType.RECALL,
       hashtags: ["#decision-making", "#beginner", "#recall", "#bg", "#all-languages"]
     },
@@ -382,7 +382,7 @@ const DAY13_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "Матрица за Решения",
+      category: "Productivity Foundations",
       questionType: QuestionType.RECALL,
       hashtags: ["#decision-matrix", "#beginner", "#recall", "#bg", "#all-languages"]
     },
@@ -396,7 +396,7 @@ const DAY13_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 2,
       difficulty: QuestionDifficulty.EASY,
-      category: "Взимане на Решения",
+      category: "Productivity Foundations",
       questionType: QuestionType.RECALL,
       hashtags: ["#decision-making", "#beginner", "#recall", "#bg", "#all-languages"]
     },
@@ -410,7 +410,7 @@ const DAY13_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Взимане на Решения",
+      category: "Productivity Foundations",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#decision-making", "#intermediate", "#application", "#bg", "#all-languages"]
     },
@@ -424,7 +424,7 @@ const DAY13_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Взимане на Решения",
+      category: "Productivity Foundations",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#decision-making", "#intermediate", "#application", "#bg", "#all-languages"]
     },
@@ -438,7 +438,7 @@ const DAY13_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Взимане на Решения",
+      category: "Productivity Foundations",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#decision-making", "#intermediate", "#application", "#bg", "#all-languages"]
     },
@@ -452,7 +452,7 @@ const DAY13_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.HARD,
-      category: "Взимане на Решения",
+      category: "Productivity Foundations",
       questionType: QuestionType.CRITICAL_THINKING,
       hashtags: ["#decision-making", "#advanced", "#critical-thinking", "#bg", "#all-languages"]
     }
@@ -469,7 +469,7 @@ const DAY13_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "Podejmowanie Decyzji",
+      category: "Productivity Foundations",
       questionType: QuestionType.RECALL,
       hashtags: ["#decision-making", "#beginner", "#recall", "#pl", "#all-languages"]
     },
@@ -483,7 +483,7 @@ const DAY13_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "Macierz Decyzyjna",
+      category: "Productivity Foundations",
       questionType: QuestionType.RECALL,
       hashtags: ["#decision-matrix", "#beginner", "#recall", "#pl", "#all-languages"]
     },
@@ -497,7 +497,7 @@ const DAY13_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 2,
       difficulty: QuestionDifficulty.EASY,
-      category: "Podejmowanie Decyzji",
+      category: "Productivity Foundations",
       questionType: QuestionType.RECALL,
       hashtags: ["#decision-making", "#beginner", "#recall", "#pl", "#all-languages"]
     },
@@ -511,7 +511,7 @@ const DAY13_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Podejmowanie Decyzji",
+      category: "Productivity Foundations",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#decision-making", "#intermediate", "#application", "#pl", "#all-languages"]
     },
@@ -525,7 +525,7 @@ const DAY13_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Podejmowanie Decyzji",
+      category: "Productivity Foundations",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#decision-making", "#intermediate", "#application", "#pl", "#all-languages"]
     },
@@ -539,7 +539,7 @@ const DAY13_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Podejmowanie Decyzji",
+      category: "Productivity Foundations",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#decision-making", "#intermediate", "#application", "#pl", "#all-languages"]
     },
@@ -553,7 +553,7 @@ const DAY13_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.HARD,
-      category: "Podejmowanie Decyzji",
+      category: "Productivity Foundations",
       questionType: QuestionType.CRITICAL_THINKING,
       hashtags: ["#decision-making", "#advanced", "#critical-thinking", "#pl", "#all-languages"]
     }
@@ -570,7 +570,7 @@ const DAY13_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "Ra Quyết Định",
+      category: "Productivity Foundations",
       questionType: QuestionType.RECALL,
       hashtags: ["#decision-making", "#beginner", "#recall", "#vi", "#all-languages"]
     },
@@ -584,7 +584,7 @@ const DAY13_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "Ma Trận Quyết Định",
+      category: "Productivity Foundations",
       questionType: QuestionType.RECALL,
       hashtags: ["#decision-matrix", "#beginner", "#recall", "#vi", "#all-languages"]
     },
@@ -598,7 +598,7 @@ const DAY13_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 2,
       difficulty: QuestionDifficulty.EASY,
-      category: "Ra Quyết Định",
+      category: "Productivity Foundations",
       questionType: QuestionType.RECALL,
       hashtags: ["#decision-making", "#beginner", "#recall", "#vi", "#all-languages"]
     },
@@ -612,7 +612,7 @@ const DAY13_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Ra Quyết Định",
+      category: "Productivity Foundations",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#decision-making", "#intermediate", "#application", "#vi", "#all-languages"]
     },
@@ -626,7 +626,7 @@ const DAY13_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Ra Quyết Định",
+      category: "Productivity Foundations",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#decision-making", "#intermediate", "#application", "#vi", "#all-languages"]
     },
@@ -640,7 +640,7 @@ const DAY13_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Ra Quyết Định",
+      category: "Productivity Foundations",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#decision-making", "#intermediate", "#application", "#vi", "#all-languages"]
     },
@@ -654,7 +654,7 @@ const DAY13_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.HARD,
-      category: "Ra Quyết Định",
+      category: "Productivity Foundations",
       questionType: QuestionType.CRITICAL_THINKING,
       hashtags: ["#decision-making", "#advanced", "#critical-thinking", "#vi", "#all-languages"]
     }
@@ -671,7 +671,7 @@ const DAY13_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "Pengambilan Keputusan",
+      category: "Productivity Foundations",
       questionType: QuestionType.RECALL,
       hashtags: ["#decision-making", "#beginner", "#recall", "#id", "#all-languages"]
     },
@@ -685,7 +685,7 @@ const DAY13_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "Matriks Keputusan",
+      category: "Productivity Foundations",
       questionType: QuestionType.RECALL,
       hashtags: ["#decision-matrix", "#beginner", "#recall", "#id", "#all-languages"]
     },
@@ -699,7 +699,7 @@ const DAY13_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 2,
       difficulty: QuestionDifficulty.EASY,
-      category: "Pengambilan Keputusan",
+      category: "Productivity Foundations",
       questionType: QuestionType.RECALL,
       hashtags: ["#decision-making", "#beginner", "#recall", "#id", "#all-languages"]
     },
@@ -713,7 +713,7 @@ const DAY13_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Pengambilan Keputusan",
+      category: "Productivity Foundations",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#decision-making", "#intermediate", "#application", "#id", "#all-languages"]
     },
@@ -727,7 +727,7 @@ const DAY13_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Pengambilan Keputusan",
+      category: "Productivity Foundations",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#decision-making", "#intermediate", "#application", "#id", "#all-languages"]
     },
@@ -741,7 +741,7 @@ const DAY13_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Pengambilan Keputusan",
+      category: "Productivity Foundations",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#decision-making", "#intermediate", "#application", "#id", "#all-languages"]
     },
@@ -755,7 +755,7 @@ const DAY13_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.HARD,
-      category: "Pengambilan Keputusan",
+      category: "Productivity Foundations",
       questionType: QuestionType.CRITICAL_THINKING,
       hashtags: ["#decision-making", "#advanced", "#critical-thinking", "#id", "#all-languages"]
     }
@@ -772,7 +772,7 @@ const DAY13_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "اتخاذ القرار",
+      category: "Productivity Foundations",
       questionType: QuestionType.RECALL,
       hashtags: ["#decision-making", "#beginner", "#recall", "#ar", "#all-languages"]
     },
@@ -786,7 +786,7 @@ const DAY13_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "مصفوفة القرار",
+      category: "Productivity Foundations",
       questionType: QuestionType.RECALL,
       hashtags: ["#decision-matrix", "#beginner", "#recall", "#ar", "#all-languages"]
     },
@@ -800,7 +800,7 @@ const DAY13_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 2,
       difficulty: QuestionDifficulty.EASY,
-      category: "اتخاذ القرار",
+      category: "Productivity Foundations",
       questionType: QuestionType.RECALL,
       hashtags: ["#decision-making", "#beginner", "#recall", "#ar", "#all-languages"]
     },
@@ -814,7 +814,7 @@ const DAY13_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "اتخاذ القرار",
+      category: "Productivity Foundations",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#decision-making", "#intermediate", "#application", "#ar", "#all-languages"]
     },
@@ -828,7 +828,7 @@ const DAY13_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "اتخاذ القرار",
+      category: "Productivity Foundations",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#decision-making", "#intermediate", "#application", "#ar", "#all-languages"]
     },
@@ -842,7 +842,7 @@ const DAY13_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "اتخاذ القرار",
+      category: "Productivity Foundations",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#decision-making", "#intermediate", "#application", "#ar", "#all-languages"]
     },
@@ -856,7 +856,7 @@ const DAY13_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.HARD,
-      category: "اتخاذ القرار",
+      category: "Productivity Foundations",
       questionType: QuestionType.CRITICAL_THINKING,
       hashtags: ["#decision-making", "#advanced", "#critical-thinking", "#ar", "#all-languages"]
     }
@@ -873,7 +873,7 @@ const DAY13_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "Tomada de Decisão",
+      category: "Productivity Foundations",
       questionType: QuestionType.RECALL,
       hashtags: ["#decision-making", "#beginner", "#recall", "#pt", "#all-languages"]
     },
@@ -887,7 +887,7 @@ const DAY13_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "Matriz de Decisão",
+      category: "Productivity Foundations",
       questionType: QuestionType.RECALL,
       hashtags: ["#decision-matrix", "#beginner", "#recall", "#pt", "#all-languages"]
     },
@@ -901,7 +901,7 @@ const DAY13_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 2,
       difficulty: QuestionDifficulty.EASY,
-      category: "Tomada de Decisão",
+      category: "Productivity Foundations",
       questionType: QuestionType.RECALL,
       hashtags: ["#decision-making", "#beginner", "#recall", "#pt", "#all-languages"]
     },
@@ -915,7 +915,7 @@ const DAY13_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Tomada de Decisão",
+      category: "Productivity Foundations",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#decision-making", "#intermediate", "#application", "#pt", "#all-languages"]
     },
@@ -929,7 +929,7 @@ const DAY13_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Tomada de Decisão",
+      category: "Productivity Foundations",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#decision-making", "#intermediate", "#application", "#pt", "#all-languages"]
     },
@@ -943,7 +943,7 @@ const DAY13_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Tomada de Decisão",
+      category: "Productivity Foundations",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#decision-making", "#intermediate", "#application", "#pt", "#all-languages"]
     },
@@ -957,7 +957,7 @@ const DAY13_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.HARD,
-      category: "Tomada de Decisão",
+      category: "Productivity Foundations",
       questionType: QuestionType.CRITICAL_THINKING,
       hashtags: ["#decision-making", "#advanced", "#critical-thinking", "#pt", "#all-languages"]
     }
@@ -974,7 +974,7 @@ const DAY13_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "निर्णय लेना",
+      category: "Productivity Foundations",
       questionType: QuestionType.RECALL,
       hashtags: ["#decision-making", "#beginner", "#recall", "#hi", "#all-languages"]
     },
@@ -988,7 +988,7 @@ const DAY13_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "निर्णय मैट्रिक्स",
+      category: "Productivity Foundations",
       questionType: QuestionType.RECALL,
       hashtags: ["#decision-matrix", "#beginner", "#recall", "#hi", "#all-languages"]
     },
@@ -1002,7 +1002,7 @@ const DAY13_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 2,
       difficulty: QuestionDifficulty.EASY,
-      category: "निर्णय लेना",
+      category: "Productivity Foundations",
       questionType: QuestionType.RECALL,
       hashtags: ["#decision-making", "#beginner", "#recall", "#hi", "#all-languages"]
     },
@@ -1016,7 +1016,7 @@ const DAY13_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "निर्णय लेना",
+      category: "Productivity Foundations",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#decision-making", "#intermediate", "#application", "#hi", "#all-languages"]
     },
@@ -1030,7 +1030,7 @@ const DAY13_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "निर्णय लेना",
+      category: "Productivity Foundations",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#decision-making", "#intermediate", "#application", "#hi", "#all-languages"]
     },
@@ -1044,7 +1044,7 @@ const DAY13_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "निर्णय लेना",
+      category: "Productivity Foundations",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#decision-making", "#intermediate", "#application", "#hi", "#all-languages"]
     },
@@ -1058,7 +1058,7 @@ const DAY13_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.HARD,
-      category: "निर्णय लेना",
+      category: "Productivity Foundations",
       questionType: QuestionType.CRITICAL_THINKING,
       hashtags: ["#decision-making", "#advanced", "#critical-thinking", "#hi", "#all-languages"]
     }

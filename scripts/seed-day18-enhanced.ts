@@ -59,7 +59,7 @@ const DAY18_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "Adaptability",
+      category: "Productivity Foundations",
       questionType: QuestionType.RECALL,
       hashtags: ["#adaptability", "#beginner", "#recall", "#en", "#all-languages"]
     },
@@ -74,7 +74,7 @@ const DAY18_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "Crisis Management",
+      category: "Productivity Foundations",
       questionType: QuestionType.RECALL,
       hashtags: ["#crisis-management", "#beginner", "#recall", "#en", "#all-languages"]
     },
@@ -89,7 +89,7 @@ const DAY18_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "Adaptability",
+      category: "Productivity Foundations",
       questionType: QuestionType.RECALL,
       hashtags: ["#adaptability", "#beginner", "#recall", "#en", "#all-languages"]
     },
@@ -104,7 +104,7 @@ const DAY18_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Adaptability",
+      category: "Productivity Foundations",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#adaptability", "#intermediate", "#application", "#en", "#all-languages"]
     },
@@ -119,7 +119,7 @@ const DAY18_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Crisis Management",
+      category: "Productivity Foundations",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#crisis-management", "#intermediate", "#application", "#en", "#all-languages"]
     },
@@ -134,7 +134,7 @@ const DAY18_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Adaptability",
+      category: "Productivity Foundations",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#adaptability", "#intermediate", "#application", "#en", "#all-languages"]
     },
@@ -149,7 +149,7 @@ const DAY18_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.HARD,
-      category: "Adaptability",
+      category: "Productivity Foundations",
       questionType: QuestionType.CRITICAL_THINKING,
       hashtags: ["#adaptability", "#advanced", "#critical-thinking", "#en", "#all-languages"]
     }
@@ -166,7 +166,7 @@ const DAY18_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "Alkalmazkodóképesség",
+      category: "Productivity Foundations",
       questionType: QuestionType.RECALL,
       hashtags: ["#adaptability", "#beginner", "#recall", "#hu", "#all-languages"]
     },
@@ -180,7 +180,7 @@ const DAY18_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "Kríziskezelés",
+      category: "Productivity Foundations",
       questionType: QuestionType.RECALL,
       hashtags: ["#crisis-management", "#beginner", "#recall", "#hu", "#all-languages"]
     },
@@ -194,7 +194,7 @@ const DAY18_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "Alkalmazkodóképesség",
+      category: "Productivity Foundations",
       questionType: QuestionType.RECALL,
       hashtags: ["#adaptability", "#beginner", "#recall", "#hu", "#all-languages"]
     },
@@ -208,7 +208,7 @@ const DAY18_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Alkalmazkodóképesség",
+      category: "Productivity Foundations",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#adaptability", "#intermediate", "#application", "#hu", "#all-languages"]
     },
@@ -222,7 +222,7 @@ const DAY18_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Kríziskezelés",
+      category: "Productivity Foundations",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#crisis-management", "#intermediate", "#application", "#hu", "#all-languages"]
     },
@@ -236,7 +236,7 @@ const DAY18_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Alkalmazkodóképesség",
+      category: "Productivity Foundations",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#adaptability", "#intermediate", "#application", "#hu", "#all-languages"]
     },
@@ -250,7 +250,7 @@ const DAY18_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.HARD,
-      category: "Alkalmazkodóképesség",
+      category: "Productivity Foundations",
       questionType: QuestionType.CRITICAL_THINKING,
       hashtags: ["#adaptability", "#advanced", "#critical-thinking", "#hu", "#all-languages"]
     }
@@ -267,7 +267,7 @@ const DAY18_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "Uyarlanabilirlik",
+      category: "Productivity Foundations",
       questionType: QuestionType.RECALL,
       hashtags: ["#adaptability", "#beginner", "#recall", "#tr", "#all-languages"]
     },
@@ -281,7 +281,7 @@ const DAY18_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "Kriz Yönetimi",
+      category: "Productivity Foundations",
       questionType: QuestionType.RECALL,
       hashtags: ["#crisis-management", "#beginner", "#recall", "#tr", "#all-languages"]
     },
@@ -295,7 +295,7 @@ const DAY18_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "Uyarlanabilirlik",
+      category: "Productivity Foundations",
       questionType: QuestionType.RECALL,
       hashtags: ["#adaptability", "#beginner", "#recall", "#tr", "#all-languages"]
     },
@@ -309,7 +309,7 @@ const DAY18_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Uyarlanabilirlik",
+      category: "Productivity Foundations",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#adaptability", "#intermediate", "#application", "#tr", "#all-languages"]
     },
@@ -323,7 +323,7 @@ const DAY18_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Kriz Yönetimi",
+      category: "Productivity Foundations",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#crisis-management", "#intermediate", "#application", "#tr", "#all-languages"]
     },
@@ -337,7 +337,7 @@ const DAY18_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Uyarlanabilirlik",
+      category: "Productivity Foundations",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#adaptability", "#intermediate", "#application", "#tr", "#all-languages"]
     },
@@ -351,7 +351,7 @@ const DAY18_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.HARD,
-      category: "Uyarlanabilirlik",
+      category: "Productivity Foundations",
       questionType: QuestionType.CRITICAL_THINKING,
       hashtags: ["#adaptability", "#advanced", "#critical-thinking", "#tr", "#all-languages"]
     }
@@ -368,7 +368,7 @@ const DAY18_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "Адаптивност",
+      category: "Productivity Foundations",
       questionType: QuestionType.RECALL,
       hashtags: ["#adaptability", "#beginner", "#recall", "#bg", "#all-languages"]
     },
@@ -382,7 +382,7 @@ const DAY18_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "Управление на криза",
+      category: "Productivity Foundations",
       questionType: QuestionType.RECALL,
       hashtags: ["#crisis-management", "#beginner", "#recall", "#bg", "#all-languages"]
     },
@@ -396,7 +396,7 @@ const DAY18_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "Адаптивност",
+      category: "Productivity Foundations",
       questionType: QuestionType.RECALL,
       hashtags: ["#adaptability", "#beginner", "#recall", "#bg", "#all-languages"]
     },
@@ -410,7 +410,7 @@ const DAY18_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Адаптивност",
+      category: "Productivity Foundations",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#adaptability", "#intermediate", "#application", "#bg", "#all-languages"]
     },
@@ -424,7 +424,7 @@ const DAY18_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Управление на криза",
+      category: "Productivity Foundations",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#crisis-management", "#intermediate", "#application", "#bg", "#all-languages"]
     },
@@ -438,7 +438,7 @@ const DAY18_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Адаптивност",
+      category: "Productivity Foundations",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#adaptability", "#intermediate", "#application", "#bg", "#all-languages"]
     },
@@ -452,7 +452,7 @@ const DAY18_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.HARD,
-      category: "Адаптивност",
+      category: "Productivity Foundations",
       questionType: QuestionType.CRITICAL_THINKING,
       hashtags: ["#adaptability", "#advanced", "#critical-thinking", "#bg", "#all-languages"]
     }
@@ -469,7 +469,7 @@ const DAY18_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "Adaptacyjność",
+      category: "Productivity Foundations",
       questionType: QuestionType.RECALL,
       hashtags: ["#adaptability", "#beginner", "#recall", "#pl", "#all-languages"]
     },
@@ -483,7 +483,7 @@ const DAY18_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "Zarządzanie Kryzysem",
+      category: "Productivity Foundations",
       questionType: QuestionType.RECALL,
       hashtags: ["#crisis-management", "#beginner", "#recall", "#pl", "#all-languages"]
     },
@@ -497,7 +497,7 @@ const DAY18_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "Adaptacyjność",
+      category: "Productivity Foundations",
       questionType: QuestionType.RECALL,
       hashtags: ["#adaptability", "#beginner", "#recall", "#pl", "#all-languages"]
     },
@@ -511,7 +511,7 @@ const DAY18_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Adaptacyjność",
+      category: "Productivity Foundations",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#adaptability", "#intermediate", "#application", "#pl", "#all-languages"]
     },
@@ -525,7 +525,7 @@ const DAY18_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Zarządzanie Kryzysem",
+      category: "Productivity Foundations",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#crisis-management", "#intermediate", "#application", "#pl", "#all-languages"]
     },
@@ -539,7 +539,7 @@ const DAY18_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Adaptacyjność",
+      category: "Productivity Foundations",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#adaptability", "#intermediate", "#application", "#pl", "#all-languages"]
     },
@@ -553,7 +553,7 @@ const DAY18_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.HARD,
-      category: "Adaptacyjność",
+      category: "Productivity Foundations",
       questionType: QuestionType.CRITICAL_THINKING,
       hashtags: ["#adaptability", "#advanced", "#critical-thinking", "#pl", "#all-languages"]
     }
@@ -570,7 +570,7 @@ const DAY18_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "Tính Thích Ứng",
+      category: "Productivity Foundations",
       questionType: QuestionType.RECALL,
       hashtags: ["#adaptability", "#beginner", "#recall", "#vi", "#all-languages"]
     },
@@ -584,7 +584,7 @@ const DAY18_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "Quản Lý Khủng Hoảng",
+      category: "Productivity Foundations",
       questionType: QuestionType.RECALL,
       hashtags: ["#crisis-management", "#beginner", "#recall", "#vi", "#all-languages"]
     },
@@ -598,7 +598,7 @@ const DAY18_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "Tính Thích Ứng",
+      category: "Productivity Foundations",
       questionType: QuestionType.RECALL,
       hashtags: ["#adaptability", "#beginner", "#recall", "#vi", "#all-languages"]
     },
@@ -612,7 +612,7 @@ const DAY18_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Tính Thích Ứng",
+      category: "Productivity Foundations",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#adaptability", "#intermediate", "#application", "#vi", "#all-languages"]
     },
@@ -626,7 +626,7 @@ const DAY18_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Quản Lý Khủng Hoảng",
+      category: "Productivity Foundations",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#crisis-management", "#intermediate", "#application", "#vi", "#all-languages"]
     },
@@ -640,7 +640,7 @@ const DAY18_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Tính Thích Ứng",
+      category: "Productivity Foundations",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#adaptability", "#intermediate", "#application", "#vi", "#all-languages"]
     },
@@ -654,7 +654,7 @@ const DAY18_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.HARD,
-      category: "Tính Thích Ứng",
+      category: "Productivity Foundations",
       questionType: QuestionType.CRITICAL_THINKING,
       hashtags: ["#adaptability", "#advanced", "#critical-thinking", "#vi", "#all-languages"]
     }
@@ -671,7 +671,7 @@ const DAY18_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "Kemampuan Beradaptasi",
+      category: "Productivity Foundations",
       questionType: QuestionType.RECALL,
       hashtags: ["#adaptability", "#beginner", "#recall", "#id", "#all-languages"]
     },
@@ -685,7 +685,7 @@ const DAY18_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "Manajemen Krisis",
+      category: "Productivity Foundations",
       questionType: QuestionType.RECALL,
       hashtags: ["#crisis-management", "#beginner", "#recall", "#id", "#all-languages"]
     },
@@ -699,7 +699,7 @@ const DAY18_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "Kemampuan Beradaptasi",
+      category: "Productivity Foundations",
       questionType: QuestionType.RECALL,
       hashtags: ["#adaptability", "#beginner", "#recall", "#id", "#all-languages"]
     },
@@ -713,7 +713,7 @@ const DAY18_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Kemampuan Beradaptasi",
+      category: "Productivity Foundations",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#adaptability", "#intermediate", "#application", "#id", "#all-languages"]
     },
@@ -727,7 +727,7 @@ const DAY18_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Manajemen Krisis",
+      category: "Productivity Foundations",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#crisis-management", "#intermediate", "#application", "#id", "#all-languages"]
     },
@@ -741,7 +741,7 @@ const DAY18_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Kemampuan Beradaptasi",
+      category: "Productivity Foundations",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#adaptability", "#intermediate", "#application", "#id", "#all-languages"]
     },
@@ -755,7 +755,7 @@ const DAY18_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.HARD,
-      category: "Kemampuan Beradaptasi",
+      category: "Productivity Foundations",
       questionType: QuestionType.CRITICAL_THINKING,
       hashtags: ["#adaptability", "#advanced", "#critical-thinking", "#id", "#all-languages"]
     }
@@ -772,7 +772,7 @@ const DAY18_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "القدرة على التكيف",
+      category: "Productivity Foundations",
       questionType: QuestionType.RECALL,
       hashtags: ["#adaptability", "#beginner", "#recall", "#ar", "#all-languages"]
     },
@@ -786,7 +786,7 @@ const DAY18_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "إدارة الأزمات",
+      category: "Productivity Foundations",
       questionType: QuestionType.RECALL,
       hashtags: ["#crisis-management", "#beginner", "#recall", "#ar", "#all-languages"]
     },
@@ -800,7 +800,7 @@ const DAY18_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "القدرة على التكيف",
+      category: "Productivity Foundations",
       questionType: QuestionType.RECALL,
       hashtags: ["#adaptability", "#beginner", "#recall", "#ar", "#all-languages"]
     },
@@ -814,7 +814,7 @@ const DAY18_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "القدرة على التكيف",
+      category: "Productivity Foundations",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#adaptability", "#intermediate", "#application", "#ar", "#all-languages"]
     },
@@ -828,7 +828,7 @@ const DAY18_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "إدارة الأزمات",
+      category: "Productivity Foundations",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#crisis-management", "#intermediate", "#application", "#ar", "#all-languages"]
     },
@@ -842,7 +842,7 @@ const DAY18_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "القدرة على التكيف",
+      category: "Productivity Foundations",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#adaptability", "#intermediate", "#application", "#ar", "#all-languages"]
     },
@@ -856,7 +856,7 @@ const DAY18_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.HARD,
-      category: "القدرة على التكيف",
+      category: "Productivity Foundations",
       questionType: QuestionType.CRITICAL_THINKING,
       hashtags: ["#adaptability", "#advanced", "#critical-thinking", "#ar", "#all-languages"]
     }
@@ -873,7 +873,7 @@ const DAY18_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "Adaptabilidade",
+      category: "Productivity Foundations",
       questionType: QuestionType.RECALL,
       hashtags: ["#adaptability", "#beginner", "#recall", "#pt", "#all-languages"]
     },
@@ -887,7 +887,7 @@ const DAY18_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "Gerenciamento de Crise",
+      category: "Productivity Foundations",
       questionType: QuestionType.RECALL,
       hashtags: ["#crisis-management", "#beginner", "#recall", "#pt", "#all-languages"]
     },
@@ -901,7 +901,7 @@ const DAY18_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "Adaptabilidade",
+      category: "Productivity Foundations",
       questionType: QuestionType.RECALL,
       hashtags: ["#adaptability", "#beginner", "#recall", "#pt", "#all-languages"]
     },
@@ -915,7 +915,7 @@ const DAY18_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Adaptabilidade",
+      category: "Productivity Foundations",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#adaptability", "#intermediate", "#application", "#pt", "#all-languages"]
     },
@@ -929,7 +929,7 @@ const DAY18_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Gerenciamento de Crise",
+      category: "Productivity Foundations",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#crisis-management", "#intermediate", "#application", "#pt", "#all-languages"]
     },
@@ -943,7 +943,7 @@ const DAY18_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Adaptabilidade",
+      category: "Productivity Foundations",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#adaptability", "#intermediate", "#application", "#pt", "#all-languages"]
     },
@@ -957,7 +957,7 @@ const DAY18_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.HARD,
-      category: "Adaptabilidade",
+      category: "Productivity Foundations",
       questionType: QuestionType.CRITICAL_THINKING,
       hashtags: ["#adaptability", "#advanced", "#critical-thinking", "#pt", "#all-languages"]
     }
@@ -974,7 +974,7 @@ const DAY18_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "अनुकूलनशीलता",
+      category: "Productivity Foundations",
       questionType: QuestionType.RECALL,
       hashtags: ["#adaptability", "#beginner", "#recall", "#hi", "#all-languages"]
     },
@@ -988,7 +988,7 @@ const DAY18_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "संकट प्रबंधन",
+      category: "Productivity Foundations",
       questionType: QuestionType.RECALL,
       hashtags: ["#crisis-management", "#beginner", "#recall", "#hi", "#all-languages"]
     },
@@ -1002,7 +1002,7 @@ const DAY18_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "अनुकूलनशीलता",
+      category: "Productivity Foundations",
       questionType: QuestionType.RECALL,
       hashtags: ["#adaptability", "#beginner", "#recall", "#hi", "#all-languages"]
     },
@@ -1016,7 +1016,7 @@ const DAY18_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "अनुकूलनशीलता",
+      category: "Productivity Foundations",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#adaptability", "#intermediate", "#application", "#hi", "#all-languages"]
     },
@@ -1030,7 +1030,7 @@ const DAY18_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "संकट प्रबंधन",
+      category: "Productivity Foundations",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#crisis-management", "#intermediate", "#application", "#hi", "#all-languages"]
     },
@@ -1044,7 +1044,7 @@ const DAY18_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "अनुकूलनशीलता",
+      category: "Productivity Foundations",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#adaptability", "#intermediate", "#application", "#hi", "#all-languages"]
     },
@@ -1058,7 +1058,7 @@ const DAY18_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.HARD,
-      category: "अनुकूलनशीलता",
+      category: "Productivity Foundations",
       questionType: QuestionType.CRITICAL_THINKING,
       hashtags: ["#adaptability", "#advanced", "#critical-thinking", "#hi", "#all-languages"]
     }

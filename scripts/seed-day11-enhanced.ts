@@ -469,7 +469,7 @@ const DAY11_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 2,
       difficulty: QuestionDifficulty.EASY,
-      category: "Ustalanie Celów",
+      category: "Productivity Foundations",
       questionType: QuestionType.RECALL,
       hashtags: ["#goal-setting", "#beginner", "#recall", "#pl", "#all-languages"]
     },
@@ -483,7 +483,7 @@ const DAY11_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "Ustalanie Celów",
+      category: "Productivity Foundations",
       questionType: QuestionType.RECALL,
       hashtags: ["#goal-setting", "#beginner", "#recall", "#pl", "#all-languages"]
     },
@@ -497,7 +497,7 @@ const DAY11_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 2,
       difficulty: QuestionDifficulty.EASY,
-      category: "Ustalanie Celów",
+      category: "Productivity Foundations",
       questionType: QuestionType.RECALL,
       hashtags: ["#goal-setting", "#beginner", "#recall", "#pl", "#all-languages"]
     },
@@ -511,7 +511,7 @@ const DAY11_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Ustalanie Celów",
+      category: "Productivity Foundations",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#goal-setting", "#intermediate", "#application", "#pl", "#all-languages"]
     },
@@ -525,7 +525,7 @@ const DAY11_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Ustalanie Celów",
+      category: "Productivity Foundations",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#goal-setting", "#intermediate", "#application", "#pl", "#all-languages"]
     },
@@ -539,7 +539,7 @@ const DAY11_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Ustalanie Celów",
+      category: "Productivity Foundations",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#goal-setting", "#intermediate", "#application", "#pl", "#all-languages"]
     },
@@ -553,7 +553,7 @@ const DAY11_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.HARD,
-      category: "Ustalanie Celów",
+      category: "Productivity Foundations",
       questionType: QuestionType.CRITICAL_THINKING,
       hashtags: ["#goal-setting", "#advanced", "#critical-thinking", "#pl", "#all-languages"]
     }
@@ -570,7 +570,7 @@ const DAY11_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 2,
       difficulty: QuestionDifficulty.EASY,
-      category: "Đặt Mục Tiêu",
+      category: "Productivity Foundations",
       questionType: QuestionType.RECALL,
       hashtags: ["#goal-setting", "#beginner", "#recall", "#vi", "#all-languages"]
     },
@@ -584,7 +584,7 @@ const DAY11_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "Đặt Mục Tiêu",
+      category: "Productivity Foundations",
       questionType: QuestionType.RECALL,
       hashtags: ["#goal-setting", "#beginner", "#recall", "#vi", "#all-languages"]
     },
@@ -598,7 +598,7 @@ const DAY11_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 2,
       difficulty: QuestionDifficulty.EASY,
-      category: "Đặt Mục Tiêu",
+      category: "Productivity Foundations",
       questionType: QuestionType.RECALL,
       hashtags: ["#goal-setting", "#beginner", "#recall", "#vi", "#all-languages"]
     },
@@ -612,7 +612,7 @@ const DAY11_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Đặt Mục Tiêu",
+      category: "Productivity Foundations",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#goal-setting", "#intermediate", "#application", "#vi", "#all-languages"]
     },
@@ -626,7 +626,7 @@ const DAY11_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Đặt Mục Tiêu",
+      category: "Productivity Foundations",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#goal-setting", "#intermediate", "#application", "#vi", "#all-languages"]
     },
@@ -640,7 +640,7 @@ const DAY11_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Đặt Mục Tiêu",
+      category: "Productivity Foundations",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#goal-setting", "#intermediate", "#application", "#vi", "#all-languages"]
     },
@@ -654,7 +654,7 @@ const DAY11_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.HARD,
-      category: "Đặt Mục Tiêu",
+      category: "Productivity Foundations",
       questionType: QuestionType.CRITICAL_THINKING,
       hashtags: ["#goal-setting", "#advanced", "#critical-thinking", "#vi", "#all-languages"]
     }

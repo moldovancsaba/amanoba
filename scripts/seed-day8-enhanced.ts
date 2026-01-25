@@ -267,7 +267,7 @@ const DAY8_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "Konteks Değiştirme",
+      category: "Productivity Foundations",
       questionType: QuestionType.RECALL,
       hashtags: ["#context-switching", "#beginner", "#recall", "#tr", "#all-languages"]
     },
@@ -281,7 +281,7 @@ const DAY8_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "Konteks Değiştirme",
+      category: "Productivity Foundations",
       questionType: QuestionType.RECALL,
       hashtags: ["#context-switching", "#beginner", "#recall", "#tr", "#all-languages"]
     },
@@ -295,7 +295,7 @@ const DAY8_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 2,
       difficulty: QuestionDifficulty.EASY,
-      category: "Konteks Değiştirme",
+      category: "Productivity Foundations",
       questionType: QuestionType.RECALL,
       hashtags: ["#context-switching", "#beginner", "#recall", "#tr", "#all-languages"]
     },
@@ -309,7 +309,7 @@ const DAY8_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Konteks Değiştirme",
+      category: "Productivity Foundations",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#context-switching", "#intermediate", "#application", "#tr", "#all-languages"]
     },
@@ -323,7 +323,7 @@ const DAY8_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 2,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Konteks Değiştirme",
+      category: "Productivity Foundations",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#context-switching", "#intermediate", "#application", "#tr", "#all-languages"]
     },
@@ -337,7 +337,7 @@ const DAY8_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Konteks Değiştirme",
+      category: "Productivity Foundations",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#context-switching", "#intermediate", "#application", "#tr", "#all-languages"]
     },
@@ -351,7 +351,7 @@ const DAY8_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.HARD,
-      category: "Konteks Değiştirme",
+      category: "Productivity Foundations",
       questionType: QuestionType.CRITICAL_THINKING,
       hashtags: ["#context-switching", "#advanced", "#critical-thinking", "#tr", "#all-languages"]
     }
@@ -873,7 +873,7 @@ const DAY8_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "Mudança de Contexto",
+      category: "Productivity Foundations",
       questionType: QuestionType.RECALL,
       hashtags: ["#context-switching", "#beginner", "#recall", "#pt", "#all-languages"]
     },
@@ -887,7 +887,7 @@ const DAY8_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "Mudança de Contexto",
+      category: "Productivity Foundations",
       questionType: QuestionType.RECALL,
       hashtags: ["#context-switching", "#beginner", "#recall", "#pt", "#all-languages"]
     },
@@ -901,7 +901,7 @@ const DAY8_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 2,
       difficulty: QuestionDifficulty.EASY,
-      category: "Mudança de Contexto",
+      category: "Productivity Foundations",
       questionType: QuestionType.RECALL,
       hashtags: ["#context-switching", "#beginner", "#recall", "#pt", "#all-languages"]
     },
@@ -915,7 +915,7 @@ const DAY8_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Mudança de Contexto",
+      category: "Productivity Foundations",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#context-switching", "#intermediate", "#application", "#pt", "#all-languages"]
     },
@@ -929,7 +929,7 @@ const DAY8_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 2,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Mudança de Contexto",
+      category: "Productivity Foundations",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#context-switching", "#intermediate", "#application", "#pt", "#all-languages"]
     },
@@ -943,7 +943,7 @@ const DAY8_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Mudança de Contexto",
+      category: "Productivity Foundations",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#context-switching", "#intermediate", "#application", "#pt", "#all-languages"]
     },
@@ -957,7 +957,7 @@ const DAY8_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.HARD,
-      category: "Mudança de Contexto",
+      category: "Productivity Foundations",
       questionType: QuestionType.CRITICAL_THINKING,
       hashtags: ["#context-switching", "#advanced", "#critical-thinking", "#pt", "#all-languages"]
     }
