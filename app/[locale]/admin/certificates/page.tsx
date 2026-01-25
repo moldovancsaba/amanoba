@@ -109,7 +109,7 @@ export default function AdminCertificatesPage() {
         </div>
         <div className="flex items-center gap-4">
           <a
-            href="/docs/CERTIFICATE_CREATION_GUIDE.md"
+            href="https://github.com/moldovancsaba/amanoba/blob/main/docs/CERTIFICATE_CREATION_GUIDE.md"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-2 px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg font-medium transition-colors"
