@@ -239,7 +239,7 @@ export default function AdminCertificatesPage() {
                     <td className="px-6 py-4 text-right">
                       <div className="flex items-center justify-end gap-2">
                         <Link
-                          href={`/${locale}/certificate/verify/${cert.playerId}/${cert.courseId}`}
+                          href={`/${locale}/certificate/${cert.verificationSlug}`}
                           target="_blank"
                           className="text-indigo-400 hover:text-indigo-300 text-sm font-medium flex items-center gap-1"
                         >

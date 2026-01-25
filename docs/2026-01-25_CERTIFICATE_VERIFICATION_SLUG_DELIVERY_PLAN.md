@@ -1,11 +1,11 @@
 # Certificate Verification with Slug - Delivery Plan
 
 **Date**: 2026-01-25  
-**Status**: ✅ **PHASES 1-3 COMPLETE**  
+**Status**: ✅ **ALL PHASES COMPLETE**  
 **Priority**: P1 (Security & UX Improvement)  
 **Estimated**: 1-2 days  
-**Approach**: Ultra-Safe Incremental - New Files Only, No Core Modifications  
-**Completion**: Phases 1-3 delivered, Phase 4 (link updates) optional
+**Approach**: Ultra-Safe Incremental - New Files Only, Minimal Core Modifications  
+**Completion**: All phases delivered (1-4), fully functional
 
 ---
 
@@ -114,12 +114,15 @@ npm run build  # Verify build passes
 - [x] Verify no impact on existing pages
 - [x] Commit: "feat: Add certificate verification page with slug"
 
-### Phase 4: Update Links to Use Slug (Optional - Can Be Separate) ⏸️
-- [ ] Find all places that link to `/certificate/verify/[playerId]/[courseId]`
-- [ ] Update to use `/certificate/[slug]` instead
-- [ ] Test all updated links
-- [ ] Verify backward compatibility (old links still work)
-- [ ] Commit: "feat: Update certificate links to use slug"
+### Phase 4: Update Links to Use Slug ✅
+- [x] Find all places that link to `/certificate/verify/[playerId]/[courseId]`
+- [x] Update to use `/certificate/[slug]` instead
+  - [x] Admin certificates page: Updated "View" link to use slug
+  - [x] Certificate page: Updated "Copy Verification Link" to use slug (with fallback)
+  - [x] Certificate-status API: Added verificationSlug to response
+- [x] Test all updated links
+- [x] Verify backward compatibility (old links still work)
+- [x] Commit: "feat: Update certificate links to use slug"
 
 ### Phase 5: Testing & Verification ✅
 - [ ] Full system test:
@@ -313,14 +316,16 @@ Body: { isPublic: boolean }
 
 ### Commits Made
 - [x] Combined commit: "feat: Add certificate verification with slug (Phases 1-3)" ✅
-- [ ] Phase 4 commit: "feat: Update certificate links to use slug" (optional, can be separate)
+- [x] Phase 4 commit: "feat: Update certificate links to use slug" ✅
 
 ### Files Created
 - [x] `app/api/certificates/[slug]/route.ts` ✅
 - [x] `app/[locale]/certificate/[slug]/page.tsx` ✅
 
 ### Files Modified
-- [ ] None (new files only approach)
+- [x] `app/[locale]/admin/certificates/page.tsx` - Updated View link to use slug
+- [x] `app/[locale]/profile/[playerId]/certificate/[courseId]/page.tsx` - Updated copy link to use slug (with fallback)
+- [x] `app/api/profile/[playerId]/certificate-status/route.ts` - Added verificationSlug to response
 
 ### Tests Performed
 - [x] API GET endpoint tested (build passes)
@@ -364,6 +369,5 @@ Body: { isPublic: boolean }
 ---
 
 **Last Updated**: 2026-01-25  
-**Current Phase**: Phase 3 (Verification Page) - ✅ COMPLETE  
-**Next Phase**: Phase 4 (Update Links) - Optional, can be separate  
-**Status**: Phases 1-3 complete, ready for testing and commit
+**Current Phase**: Phase 4 (Update Links) - ✅ COMPLETE  
+**Status**: ✅ **ALL PHASES COMPLETE** - Feature fully delivered and functional

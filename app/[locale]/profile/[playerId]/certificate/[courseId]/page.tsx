@@ -27,6 +27,7 @@ interface CertificateStatus {
   certificateEligible: boolean;
   courseTitle: string;
   playerName: string;
+  verificationSlug?: string | null; // Optional verification slug for certificate link
 }
 
 export default function CertificatePage({
@@ -231,7 +232,15 @@ export default function CertificatePage({
   const handleCopyLink = async () => {
     if (!playerId || !courseId) return;
 
-    const verificationUrl = `${window.location.origin}/${locale}/certificate/verify/${playerId}/${courseId}`;
+    // Use slug-based URL if available, otherwise fall back to old format
+    let verificationUrl: string;
+    if (certificateData?.verificationSlug) {
+      // Use new slug-based verification URL
+      verificationUrl = `${window.location.origin}/${locale}/certificate/${certificateData.verificationSlug}`;
+    } else {
+      // Fallback to old format for backward compatibility
+      verificationUrl = `${window.location.origin}/${locale}/certificate/verify/${playerId}/${courseId}`;
+    }
     
     try {
       await navigator.clipboard.writeText(verificationUrl);

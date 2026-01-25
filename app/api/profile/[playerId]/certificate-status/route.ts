@@ -30,6 +30,7 @@ import {
   Course,
   CourseProgress,
   FinalExamAttempt,
+  Certificate,
 } from '@/lib/models';
 import { logger } from '@/lib/logger';
 
@@ -157,6 +158,19 @@ export async function GET(
       allQuizzesPassed && 
       finalExamPassed;
 
+    // Fetch certificate record if it exists to get verificationSlug
+    let verificationSlug: string | null = null;
+    if (certificateEligible) {
+      const certificate = await Certificate.findOne({
+        playerId,
+        courseId,
+        isRevoked: { $ne: true },
+      }).lean();
+      if (certificate) {
+        verificationSlug = certificate.verificationSlug;
+      }
+    }
+
     logger.info({
       playerId,
       courseId,
@@ -165,6 +179,7 @@ export async function GET(
       allQuizzesPassed,
       finalExamPassed,
       certificateEligible,
+      hasVerificationSlug: !!verificationSlug,
     }, 'Certificate status fetched');
 
     return NextResponse.json({
@@ -178,6 +193,7 @@ export async function GET(
         certificateEligible,
         courseTitle: course.title || course.courseId,
         playerName: player.displayName || 'Unknown',
+        verificationSlug, // Include verificationSlug if certificate exists
       },
     }, {
       headers: {
