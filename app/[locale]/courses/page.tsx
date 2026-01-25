@@ -303,8 +303,32 @@ export default function CoursesPage() {
                     <h3 className="text-xl sm:text-2xl font-bold text-brand-black leading-tight mb-2 line-clamp-2">{course.name}</h3>
                     <div className="flex items-center gap-2 flex-wrap text-sm sm:text-base">
                       {/* Language Flag */}
-                      <span className="text-lg" title={course.language === 'hu' ? 'Magyar' : course.language === 'en' ? 'English' : course.language.toUpperCase()}>
-                        {course.language === 'hu' ? '🇭🇺' : course.language === 'en' ? '🇬🇧' : course.language === 'ar' ? '🇸🇦' : course.language === 'ru' ? '🇷🇺' : '🌐'}
+                      <span className="text-lg" title={
+                        course.language === 'hu' ? 'Magyar' :
+                        course.language === 'en' ? 'English' :
+                        course.language === 'tr' ? 'Türkçe' :
+                        course.language === 'bg' ? 'Български' :
+                        course.language === 'pl' ? 'Polski' :
+                        course.language === 'vi' ? 'Tiếng Việt' :
+                        course.language === 'id' ? 'Bahasa Indonesia' :
+                        course.language === 'ar' ? 'العربية' :
+                        course.language === 'pt' ? 'Português' :
+                        course.language === 'hi' ? 'हिन्दी' :
+                        course.language === 'ru' ? 'Русский' :
+                        course.language.toUpperCase()
+                      }>
+                        {course.language === 'hu' ? '🇭🇺' :
+                         course.language === 'en' ? '🇬🇧' :
+                         course.language === 'tr' ? '🇹🇷' :
+                         course.language === 'bg' ? '🇧🇬' :
+                         course.language === 'pl' ? '🇵🇱' :
+                         course.language === 'vi' ? '🇻🇳' :
+                         course.language === 'id' ? '🇮🇩' :
+                         course.language === 'ar' ? '🇸🇦' :
+                         course.language === 'pt' ? '🇵🇹' :
+                         course.language === 'hi' ? '🇮🇳' :
+                         course.language === 'ru' ? '🇷🇺' :
+                         '🌐'}
                       </span>
                       {/* Premium/Free Chips - CRITICAL: Use course language, not URL locale */}
                       {course.requiresPremium ? (
