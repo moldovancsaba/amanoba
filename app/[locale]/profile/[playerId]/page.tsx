@@ -9,6 +9,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import PlayerAvatar from '@/components/PlayerAvatar';
 
 // Force dynamic rendering
 export const dynamic = 'force-dynamic';
@@ -103,19 +104,88 @@ export default function ProfilePage({ params }: { params: Promise<{ playerId: st
           
           {profileData && (
             <div className="mt-4">
-              {/* Step 2: Display Basic Profile Info */}
-              <div className="mb-6">
-                <h2 className="text-3xl font-bold text-white mb-2">
-                  {profileData.player?.displayName || 'Unknown Player'}
-                </h2>
-                <p className="text-brand-white text-xl">
-                  Level {profileData.progression?.level || 1}
-                </p>
-                {profileData.progression?.title && (
-                  <p className="text-gray-400 text-lg mt-2">
-                    {profileData.progression.title}
+              {/* Step 3: Add Profile Header */}
+              <div className="flex flex-col md:flex-row items-center md:items-start gap-6 mb-6">
+                {/* Avatar */}
+                <PlayerAvatar
+                  playerId={profileData.player?.id}
+                  displayName={profileData.player?.displayName || 'Unknown'}
+                  profilePicture={profileData.player?.profilePicture}
+                  level={profileData.progression?.level || 1}
+                  isPremium={profileData.player?.isPremium || false}
+                  size="xl"
+                  clickable={false}
+                />
+
+                {/* Info */}
+                <div className="flex-1 text-center md:text-left">
+                  <div className="flex items-center gap-3 justify-center md:justify-start mb-2">
+                    <h2 className="text-4xl font-bold text-white">
+                      {profileData.player?.displayName || 'Unknown Player'}
+                    </h2>
+                    {profileData.player?.isPremium && (
+                      <span className="px-3 py-1 bg-brand-darkGrey text-brand-white rounded-full text-sm font-bold">
+                        PREMIUM
+                      </span>
+                    )}
+                  </div>
+                  <p className="text-2xl text-brand-white font-semibold mb-4">
+                    {profileData.progression?.title || 'Rookie'}
                   </p>
-                )}
+
+                  {/* Stats Row */}
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <div className="bg-brand-black/20 rounded-lg p-3">
+                      <div className="text-gray-400 text-sm">Level</div>
+                      <div className="text-white text-2xl font-bold">
+                        {profileData.progression?.level || 1}
+                      </div>
+                    </div>
+                    <div className="bg-brand-black/20 rounded-lg p-3">
+                      <div className="text-gray-400 text-sm">Games Played</div>
+                      <div className="text-white text-2xl font-bold">
+                        {profileData.statistics?.totalGamesPlayed || 0}
+                      </div>
+                    </div>
+                    <div className="bg-brand-black/20 rounded-lg p-3">
+                      <div className="text-gray-400 text-sm">Win Rate</div>
+                      <div className="text-white text-2xl font-bold">
+                        {profileData.statistics?.winRate || 0}%
+                      </div>
+                    </div>
+                    <div className="bg-brand-black/20 rounded-lg p-3">
+                      <div className="text-gray-400 text-sm">Achievements</div>
+                      <div className="text-white text-2xl font-bold">
+                        {profileData.achievements?.unlocked || 0}/{profileData.achievements?.total || 0}
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* XP Progress */}
+                  {profileData.progression && (
+                    <div className="mt-4">
+                      <div className="flex justify-between text-sm text-gray-300 mb-2">
+                        <span>Level {profileData.progression.level}</span>
+                        <span>
+                          {profileData.progression.currentXP} / {profileData.progression.xpToNextLevel} XP
+                        </span>
+                      </div>
+                      <div className="h-3 bg-brand-black/40 rounded-full overflow-hidden">
+                        <div
+                          className="h-full bg-brand-darkGrey transition-all duration-500"
+                          style={{
+                            width: `${(profileData.progression.currentXP / profileData.progression.xpToNextLevel) * 100}%`,
+                          }}
+                        />
+                      </div>
+                      {profileData.progression.nextTitle && (
+                        <p className="text-gray-400 text-sm mt-2">
+                          Next title: {profileData.progression.nextTitle}
+                        </p>
+                      )}
+                    </div>
+                  )}
+                </div>
               </div>
               
               {/* Debug: Show API response (can be removed later) */}
