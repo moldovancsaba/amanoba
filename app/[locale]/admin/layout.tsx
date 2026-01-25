@@ -30,6 +30,7 @@ import {
   CreditCard,
   ClipboardList,
   LogOut,
+  Award,
 } from 'lucide-react';
 import Logo from '@/components/Logo';
 
@@ -47,6 +48,7 @@ const navigationItems = [
   { key: 'payments', href: '/admin/payments', icon: CreditCard },
   { key: 'surveys', href: '/admin/surveys', icon: ClipboardList },
   { key: 'courses', href: '/admin/courses', icon: BookOpen },
+  { key: 'certificates', href: '/admin/certificates', icon: Award },
   { key: 'users', href: '/admin/players', icon: Users },
   { key: 'games', href: '/admin/games', icon: Gamepad2 },
   { key: 'achievements', href: '/admin/achievements', icon: Trophy },
