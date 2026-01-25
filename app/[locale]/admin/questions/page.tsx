@@ -31,30 +31,7 @@ import {
   FileText,
   Zap,
 } from 'lucide-react';
-import { QuestionDifficulty, QuestionType } from '@/app/lib/models/quiz-question';
-
-interface Question {
-  _id: string;
-  uuid?: string;
-  question: string;
-  options: string[];
-  correctIndex: number;
-  difficulty: QuestionDifficulty;
-  category: string;
-  questionType?: QuestionType;
-  hashtags?: string[];
-  isActive: boolean;
-  isCourseSpecific: boolean;
-  lessonId?: string;
-  courseId?: string;
-  showCount: number;
-  correctCount: number;
-  metadata: {
-    createdAt: string;
-    updatedAt: string;
-    createdBy?: string;
-  };
-}
+import { QuestionDifficulty, QuestionType, Question } from '@/types/quiz-question';
 
 interface Course {
   _id: string;
