@@ -84,11 +84,6 @@ export default function ProfilePage({ params }: { params: Promise<{ playerId: st
   const currentUserId = user?.playerId || user?.id;
   const isOwnProfile = currentUserId === playerId;
 
-  // Check if viewing own profile
-  const user = session?.user as { id?: string; playerId?: string } | undefined;
-  const currentUserId = user?.playerId || user?.id;
-  const isOwnProfile = currentUserId === playerId;
-
   if (loading) {
     return (
       <div className="page-shell flex items-center justify-center">
@@ -411,9 +406,127 @@ export default function ProfilePage({ params }: { params: Promise<{ playerId: st
               {/* Tab Content */}
               <div className="space-y-6">
                 {activeTab === 'overview' && (
-                  <div className="page-card-dark p-6">
-                    <h3 className="text-2xl font-bold text-white mb-4">Overview</h3>
-                    <p className="text-gray-400">Overview content will be added in Step 5.</p>
+                  <div className="space-y-6">
+                    {/* Step 5: Add Overview Tab Content */}
+                    {/* Streaks */}
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      <div className="page-card-dark p-6">
+                        <div className="flex items-center gap-3 mb-4">
+                          <div className="w-12 h-12 bg-orange-500 rounded-lg flex items-center justify-center">
+                            <span className="text-white text-2xl">🔥</span>
+                          </div>
+                          <div>
+                            <h3 className="text-xl font-bold text-white">Win Streak</h3>
+                            <p className="text-gray-400 text-sm">Current winning streak</p>
+                          </div>
+                        </div>
+                        <div className="grid grid-cols-2 gap-4">
+                          <div>
+                            <div className="text-gray-400 text-sm">Current</div>
+                            <div className="text-3xl font-bold text-orange-400">
+                              {profileData.streaks?.win?.current || 0}
+                            </div>
+                          </div>
+                          <div>
+                            <div className="text-gray-400 text-sm">Best</div>
+                            <div className="text-3xl font-bold text-orange-400">
+                              {profileData.streaks?.win?.longest || 0}
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div className="page-card-dark p-6">
+                        <div className="flex items-center gap-3 mb-4">
+                          <div className="w-12 h-12 bg-green-500 rounded-lg flex items-center justify-center">
+                            <span className="text-white text-2xl">📅</span>
+                          </div>
+                          <div>
+                            <h3 className="text-xl font-bold text-white">Daily Streak</h3>
+                            <p className="text-gray-400 text-sm">Consecutive login days</p>
+                          </div>
+                        </div>
+                        <div className="grid grid-cols-2 gap-4">
+                          <div>
+                            <div className="text-gray-400 text-sm">Current</div>
+                            <div className="text-3xl font-bold text-green-400">
+                              {profileData.streaks?.daily?.current || 0}
+                            </div>
+                          </div>
+                          <div>
+                            <div className="text-gray-400 text-sm">Best</div>
+                            <div className="text-3xl font-bold text-green-400">
+                              {profileData.streaks?.daily?.longest || 0}
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Wallet & Performance */}
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      {profileData.wallet && (
+                        <div className="page-card-dark p-6">
+                          <div className="flex items-center gap-3 mb-4">
+                            <div className="w-12 h-12 bg-purple-500 rounded-lg flex items-center justify-center">
+                              <span className="text-white text-2xl">💰</span>
+                            </div>
+                            <h3 className="text-xl font-bold text-white">Points Wallet</h3>
+                          </div>
+                          <div className="space-y-3">
+                            <div className="flex justify-between">
+                              <span className="text-gray-400">Current Balance</span>
+                              <span className="text-white font-bold">
+                                {profileData.wallet.currentBalance.toLocaleString()}
+                              </span>
+                            </div>
+                            <div className="flex justify-between">
+                              <span className="text-gray-400">Lifetime Earned</span>
+                              <span className="text-green-400 font-bold">
+                                {profileData.wallet.lifetimeEarned.toLocaleString()}
+                              </span>
+                            </div>
+                            <div className="flex justify-between">
+                              <span className="text-gray-400">Lifetime Spent</span>
+                              <span className="text-red-400 font-bold">
+                                {profileData.wallet.lifetimeSpent.toLocaleString()}
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      )}
+
+                      <div className="page-card-dark p-6">
+                        <div className="flex items-center gap-3 mb-4">
+                          <div className="w-12 h-12 bg-indigo-500 rounded-lg flex items-center justify-center">
+                            <span className="text-white text-2xl">🎯</span>
+                          </div>
+                          <h3 className="text-xl font-bold text-white">Performance</h3>
+                        </div>
+                        <div className="space-y-3">
+                          <div className="flex justify-between">
+                            <span className="text-gray-400">Highest Score</span>
+                            <span className="text-white font-bold">
+                              {profileData.statistics?.highestScore?.toLocaleString() || '0'}
+                            </span>
+                          </div>
+                          <div className="flex justify-between">
+                            <span className="text-gray-400">Perfect Games</span>
+                            <span className="text-white font-bold">
+                              {profileData.statistics?.perfectGames || 0}
+                            </span>
+                          </div>
+                          <div className="flex justify-between">
+                            <span className="text-gray-400">Avg Session</span>
+                            <span className="text-white font-bold">
+                              {profileData.statistics?.averageSessionTime
+                                ? `${Math.round(profileData.statistics.averageSessionTime / 60)}m`
+                                : '0m'}
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 )}
 
