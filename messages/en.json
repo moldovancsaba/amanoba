@@ -686,5 +686,29 @@
       "userDataLabel": "Allow Ad User Data",
       "personalizationLabel": "Allow Ad Personalization"
     }
+  },
+  "certificates": {
+    "title": "Certificates",
+    "noCertificates": "No certificates yet",
+    "noCertificatesDescription": "Complete courses and pass final exams to earn certificates",
+    "viewCertificate": "View Certificate",
+    "certificateVerified": "Certificate Verified",
+    "certificateRevoked": "Certificate Revoked",
+    "revokedReason": "Reason",
+    "awardedTo": "Awarded to",
+    "finalExamScore": "Final Exam Score",
+    "issued": "Issued",
+    "revoked": "Revoked",
+    "certificateId": "Certificate ID",
+    "verificationInfo": "This certificate can be verified at any time using the verification link.",
+    "copyLink": "Copy Link",
+    "downloadImage": "Download Image",
+    "makePublic": "Make Public",
+    "makePrivate": "Make Private",
+    "certificateNotFound": "Certificate Not Found",
+    "certificateNotFoundDescription": "This certificate may be private or the verification link is invalid.",
+    "goHome": "Go Home",
+    "backToHome": "Back to Home",
+    "loadingCertificate": "Loading certificate..."
   }
 }
