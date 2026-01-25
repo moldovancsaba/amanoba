@@ -1,21 +1,21 @@
 {
-  "auditDate": "2026-01-25T20:25:09.348Z",
+  "auditDate": "2026-01-25T20:29:28.667Z",
   "summary": {
     "totalCourses": 19,
-    "totalLessons": 428,
-    "totalLessonsWithQuizzes": 399,
-    "totalLessonsWithoutQuizzes": 29,
-    "totalQuestions": 2793,
-    "totalIssues": 29
+    "totalLessons": 437,
+    "totalLessonsWithQuizzes": 418,
+    "totalLessonsWithoutQuizzes": 19,
+    "totalQuestions": 2926,
+    "totalIssues": 19
   },
   "courses": [
     {
       "courseId": "GEO_SHOPIFY_30_EN",
       "courseName": "GEO Shopify – 30-day course",
       "language": "en",
-      "totalLessons": 21,
+      "totalLessons": 30,
       "lessonsWithQuizzes": 11,
-      "lessonsWithoutQuizzes": 10,
+      "lessonsWithoutQuizzes": 19,
       "totalQuestions": 77,
       "questionsByLanguage": {
         "EN": 77
@@ -30,7 +30,16 @@
         "Day 2: No quiz questions",
         "Day 8: No quiz questions",
         "Day 9: No quiz questions",
-        "Day 12: No quiz questions"
+        "Day 12: No quiz questions",
+        "Day 13: No quiz questions",
+        "Day 14: No quiz questions",
+        "Day 15: No quiz questions",
+        "Day 16: No quiz questions",
+        "Day 17: No quiz questions",
+        "Day 18: No quiz questions",
+        "Day 19: No quiz questions",
+        "Day 20: No quiz questions",
+        "Day 21: No quiz questions"
       ],
       "missingDays": [
         1,
@@ -42,7 +51,16 @@
         2,
         8,
         9,
-        12
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
       ],
       "incompleteQuizzes": []
     },
@@ -306,59 +324,18 @@
       "courseName": "GEO Shopify – 30 napos kurzus",
       "language": "hu",
       "totalLessons": 30,
-      "lessonsWithQuizzes": 11,
-      "lessonsWithoutQuizzes": 19,
-      "totalQuestions": 77,
+      "lessonsWithQuizzes": 30,
+      "lessonsWithoutQuizzes": 0,
+      "totalQuestions": 210,
       "questionsByLanguage": {
-        "HU": 77
+        "HU": 210
       },
-      "issues": [
-        "Day 12: No quiz questions",
-        "Day 13: No quiz questions",
-        "Day 14: No quiz questions",
-        "Day 15: No quiz questions",
-        "Day 16: No quiz questions",
-        "Day 17: No quiz questions",
-        "Day 18: No quiz questions",
-        "Day 19: No quiz questions",
-        "Day 20: No quiz questions",
-        "Day 21: No quiz questions",
-        "Day 22: No quiz questions",
-        "Day 23: No quiz questions",
-        "Day 24: No quiz questions",
-        "Day 25: No quiz questions",
-        "Day 26: No quiz questions",
-        "Day 27: No quiz questions",
-        "Day 28: No quiz questions",
-        "Day 29: No quiz questions",
-        "Day 30: No quiz questions"
-      ],
-      "missingDays": [
-        12,
-        13,
-        14,
-        15,
-        16,
-        17,
-        18,
-        19,
-        20,
-        21,
-        22,
-        23,
-        24,
-        25,
-        26,
-        27,
-        28,
-        29,
-        30
-      ],
+      "issues": [],
+      "missingDays": [],
       "incompleteQuizzes": []
     }
   ],
   "actionItems": [
-    "Create 10 quizzes for GEO_SHOPIFY_30_EN (missing days: 1, 2, 2, 2, 2, 2, 2, 8, 9, 12)",
-    "Create 19 quizzes for GEO_SHOPIFY_30 (missing days: 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30)"
+    "Create 19 quizzes for GEO_SHOPIFY_30_EN (missing days: 1, 2, 2, 2, 2, 2, 2, 8, 9, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21)"
   ]
 }

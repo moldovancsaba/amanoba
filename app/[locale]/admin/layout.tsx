@@ -31,6 +31,7 @@ import {
   ClipboardList,
   LogOut,
   Award,
+  HelpCircle,
 } from 'lucide-react';
 import Logo from '@/components/Logo';
 
@@ -48,6 +49,7 @@ const navigationItems = [
   { key: 'payments', href: '/admin/payments', icon: CreditCard },
   { key: 'surveys', href: '/admin/surveys', icon: ClipboardList },
   { key: 'courses', href: '/admin/courses', icon: BookOpen },
+  { key: 'questions', href: '/admin/questions', icon: HelpCircle },
   { key: 'certificates', href: '/admin/certificates', icon: Award },
   { key: 'users', href: '/admin/players', icon: Users },
   { key: 'games', href: '/admin/games', icon: Gamepad2 },
@@ -144,11 +146,6 @@ export default function AdminLayout({
               >
                 <Icon className="w-5 h-5" />
                 <span className="font-medium">{item.label}</span>
-                {item.badge && (
-                  <span className="ml-auto bg-red-500 text-white text-xs px-2 py-0.5 rounded-full">
-                    {item.badge}
-                  </span>
-                )}
               </Link>
             );
           })}

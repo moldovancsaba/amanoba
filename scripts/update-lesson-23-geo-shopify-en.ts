@@ -11,82 +11,79 @@ import { Brand, Course, Lesson } from '../app/lib/models';
 
 const COURSE_ID = 'GEO_SHOPIFY_30_EN';
 
-const UPDATED_LESSON_16 = {
-  day: 16,
-  title: 'Collection page as guide, not just grid',
-  content: `<h1>Variant clarity: no mix-ups</h1>
-<p><em>Today you'll make variant data unambiguous for AI and feeds.</em></p>
+const UPDATED_LESSON_23 = {
+  day: 23,
+  title: 'Comparison pages: honest tradeoffs',
+  content: `<h1>Comparison pages: honest tradeoffs</h1>
+<p><em>Today you'll create comparisons that AI can quote without distortion.</em></p>
 <hr />
 <h2>What you'll learn today</h2>
 <p>Today you'll achieve these two things:</p>
 <ul>
-<li>You'll review 10 variants and standardize naming so they're clear.</li>
-<li>You'll pair images at variant level so each variant has its own image.</li>
+<li>You'll build one comparison table for 2–3 products.</li>
+<li>You'll include who it's for / not for so the comparison is honest.</li>
 </ul>
 <hr />
 <h2>Why this matters to you</h2>
-<p>Mixed variants cause wrong recommendations. AI cites clear variant data more reliably. Without clear variants, AI can't accurately distinguish between product options.</p>
+<p>AI often gets "X vs Y" questions: provide real data. Honesty lowers returns. Without honest comparisons, AI may misquote your products and customers may be disappointed.</p>
 <hr />
-<h2>Variant labeling: what to check</h2>
-<h3>Variant title</h3>
-<p>Check that variant titles include:</p>
+<h2>Comparison table: what to include</h2>
+<p>A good comparison table includes:</p>
 <ul>
-<li>Size clearly stated (e.g., "42", "L", "XL")</li>
-<li>Color clearly stated (e.g., "blue", "black")</li>
-<li>No mixing of attributes</li>
-</ul>
-<h3>Images</h3>
-<p>Check that images are:</p>
-<ul>
-<li>Paired per variant</li>
-<li>Each variant has its own image</li>
-<li>Images clearly show the variant</li>
-</ul>
-<h3>SKU and GTIN</h3>
-<p>Check that identifiers are:</p>
-<ul>
-<li>SKU variant-specific – unique per variant</li>
-<li>GTIN variant-specific – unique per variant (if available)</li>
-<li>No duplicates</li>
+<li><strong>Key features</strong> – main features of each product</li>
+<li><strong>Price</strong> – accurate price for each</li>
+<li><strong>Policy</strong> – shipping, returns</li>
+<li><strong>Who for</strong> – target audience</li>
+<li><strong>Who not for</strong> – who shouldn't buy this</li>
+<li><strong>PDP link</strong> – link to each product page</li>
 </ul>
 <hr />
 <h2>Examples: what works, what doesn't?</h2>
-<h3>✅ Good variant clarity</h3>
-<p>"Men, blue, 42" + blue image + unique SKU/GTIN.</p>
-<h3>❌ Poor variant clarity</h3>
-<p>"42 blue/black" one image, shared SKU – unclear and confusing.</p>
+<h3>✅ Good comparison</h3>
+<p>"X stable, Y lighter; X pricier; Y less warranty." – honest tradeoffs with real data.</p>
+<h3>❌ Poor comparison</h3>
+<p>"Both are awesome!" with no data, no tradeoffs, no honesty.</p>
 <hr />
-<h2>Practice: standardize your variants (10-15 min)</h2>
-<p>Now you'll review 10 variants and standardize naming. Here are the steps:</p>
+<h2>Practice: create your comparison table (10-15 min)</h2>
+<p>Now you'll create a comparison table for 2–3 products. Here are the steps:</p>
 <ol>
-<li>Pick 5 products: set variant names (size, color fields), pair images per variant.</li>
-<li>Check SKU/GTIN per variant to ensure they're unique.</li>
+<li>Create a table for 2–3 products with these columns:
+   <ul>
+   <li>Product name</li>
+   <li>Key features</li>
+   <li>Price</li>
+   <li>Policy</li>
+   <li>Who for</li>
+   <li>Who not for</li>
+   <li>PDP link</li>
+   </ul>
+</li>
+<li>Include honest tradeoffs for each product.</li>
 </ol>
-<h2>Independent practice: expand to more products (5-10 min)</h2>
-<p>Now expand variant clarity to 5–10 more products.</p>
+<h2>Independent practice: create another comparison (5-10 min)</h2>
+<p>Now create another comparison for a different product pair.</p>
 <hr />
 <h2>Self-check</h2>
 <p>Before moving on, check that:</p>
 <ul>
-<li>✅ 10 variants reviewed</li>
-<li>✅ Variant naming standardized</li>
-<li>✅ Images paired per variant</li>
-<li>✅ SKU/GTIN variant-specific</li>
+<li>✅ Table created with links</li>
+<li>✅ Who for/not for included</li>
+<li>✅ Policy/price real</li>
 </ul>
 <hr />
 <h2>If you want to go deeper</h2>
 <ul>
-<li>Shopify variant management: <a href="https://help.shopify.com/en/manual/products/products/product-variants" target="_blank" rel="noreferrer">https://help.shopify.com/en/manual/products/products/product-variants</a></li>
-<li>Google Merchant Center – Variant requirements: <a href="https://support.google.com/merchants/answer/6324484" target="_blank" rel="noreferrer">https://support.google.com/merchants/answer/6324484</a></li>
+<li>Copilot merchant blog: <a href="https://www.microsoft.com/en-us/microsoft-copilot/blog/2025/04/18/introducing-the-copilot-merchant-program/" target="_blank" rel="noreferrer">https://www.microsoft.com/en-us/microsoft-copilot/blog/2025/04/18/introducing-the-copilot-merchant-program/</a></li>
+<li>Comparison page best practices: <a href="https://www.shopify.com/blog/product-comparison-pages" target="_blank" rel="noreferrer">https://www.shopify.com/blog/product-comparison-pages</a></li>
 </ul>`,
-  emailSubject: 'GEO Shopify – Day 16: Variant clarity',
-  emailBody: `<h1>GEO Shopify – Day 16</h1>
-<h2>Variant clarity: no mix-ups</h2>
-<p>Today you'll make variant data unambiguous for AI and feeds.</p>
+  emailSubject: 'GEO Shopify – Day 23: Comparison pages',
+  emailBody: `<h1>GEO Shopify – Day 23</h1>
+<h2>Comparison pages: honest tradeoffs</h2>
+<p>Today you'll create comparisons that AI can quote without distortion.</p>
 <p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Read the lesson →</a></p>`
 };
 
-async function updateLesson16() {
+async function updateLesson23() {
   try {
     const mongoUri = process.env.MONGODB_URI;
     if (!mongoUri) throw new Error('MONGODB_URI not set');
@@ -124,14 +121,14 @@ async function updateLesson16() {
     );
     console.log(`✅ Course ${COURSE_ID} found/created: ${course.name}`);
 
-    const lessonId = `${COURSE_ID}_DAY_16`;
+    const lessonId = `${COURSE_ID}_DAY_23`;
     const lesson = await Lesson.findOneAndUpdate(
       { lessonId },
       {
         $set: {
-          lessonId, courseId: course._id, dayNumber: UPDATED_LESSON_16.day,
-          language: 'en', title: UPDATED_LESSON_16.title, content: UPDATED_LESSON_16.content,
-          emailSubject: UPDATED_LESSON_16.emailSubject, emailBody: UPDATED_LESSON_16.emailBody, isActive: true,
+          lessonId, courseId: course._id, dayNumber: UPDATED_LESSON_23.day,
+          language: 'en', title: UPDATED_LESSON_23.title, content: UPDATED_LESSON_23.content,
+          emailSubject: UPDATED_LESSON_23.emailSubject, emailBody: UPDATED_LESSON_23.emailBody, isActive: true,
         }
       },
       { upsert: true, new: true, setDefaultsOnInsert: true }
@@ -150,4 +147,4 @@ async function updateLesson16() {
   }
 }
 
-updateLesson16();
+updateLesson23();

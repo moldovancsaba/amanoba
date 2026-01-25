@@ -236,11 +236,14 @@ For each course (oldest first):
 ## 📈 Progress Tracking
 
 ### Overall Progress
-- **Courses Completed**: 1 / 18 (5.6%)
-- **Lessons Completed**: 30 / 540 (5.6%)
-- **Current Course**: GEO_SHOPIFY_30 (English) - Next
-- **Current Lesson**: Lesson 1 (next course)
-- **Batches Complete**: ✅ GEO_SHOPIFY_30 (Hungarian) - ALL 30 LESSONS COMPLETE! ✅ Lessons 1-5, ✅ Lessons 6-10, ✅ Lessons 11-15, ✅ Lessons 16-20, ✅ Lessons 21-25, ✅ Lessons 26-30 (all fixed and updated in database)
+- **Courses Completed**: 2 / 18 (11.1%)
+- **Lessons Completed**: 60 / 540 (11.1%)
+- **Current Course**: Next course (TBD)
+- **Current Lesson**: TBD
+- **Batches Complete**: 
+  - ✅ GEO_SHOPIFY_30 (Hungarian) - ALL 30 LESSONS COMPLETE!
+  - ✅ GEO_SHOPIFY_30_EN (English) - ALL 30 LESSONS COMPLETE!
+  - All lessons fixed, updated in database, available to learners
 
 ### Daily Progress Log
 

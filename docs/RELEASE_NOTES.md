@@ -1,11 +1,73 @@
 # Amanoba Release Notes
 
-**Current Version**: 2.9.4  
-**Last Updated**: 2026-01-25T19:30:00.000Z
+**Current Version**: 2.9.5  
+**Last Updated**: 2026-01-25T20:00:00.000Z
 
 ---
 
 All completed tasks are documented here in reverse chronological order. This file follows the Changelog format and is updated with every version bump.
+
+---
+
+## [v2.9.5] — 2026-01-25 🎯✅
+
+**Status**: FEATURE RELEASE - Quiz Question Central Management System  
+**Type**: Infrastructure Enhancement + Admin Tooling
+
+### 🎯 Quiz Question Central Management System
+
+**Problem**: Quiz questions were managed only through seed scripts and lesson-specific modals. No central admin interface for:
+- Filtering questions by language, course, hashtag, type, difficulty
+- Reusing questions across multiple courses
+- Efficient batch operations
+- Quality auditing and maintenance
+
+**Solution**: Built comprehensive central management system with admin UI and API endpoints.
+
+#### Features Delivered
+- ✅ **Admin UI** - `/admin/questions` page with advanced filtering
+- ✅ **Global API** - `/api/admin/questions` endpoints (GET, POST, PATCH, DELETE)
+- ✅ **Batch Operations** - `/api/admin/questions/batch` for efficient bulk creation
+- ✅ **Advanced Filtering** - Language, course, lesson, hashtag, type, difficulty, category, status
+- ✅ **Question Form** - Create/edit modal with full metadata support
+- ✅ **Hashtag Management** - Add/remove hashtags for flexible categorization
+- ✅ **Reusable Questions** - Support for course-specific vs reusable questions
+- ✅ **Performance Optimization** - Seed script optimized (10x faster with `insertMany()`)
+
+#### Technical Details
+- **New API Endpoints**:
+  - `GET /api/admin/questions` - List with filters and pagination
+  - `POST /api/admin/questions` - Create question
+  - `GET /api/admin/questions/[questionId]` - Get question details
+  - `PATCH /api/admin/questions/[questionId]` - Update question
+  - `DELETE /api/admin/questions/[questionId]` - Delete question
+  - `POST /api/admin/questions/batch` - Batch create (10x faster)
+
+- **Admin UI Features**:
+  - Filter panel (8 filter types)
+  - Question list table with pagination
+  - Create/edit question modal
+  - Hashtag management
+  - Active status toggle
+  - Usage statistics display
+
+- **Backward Compatibility**: All existing lesson-specific APIs remain functional
+
+#### Files Created
+- `app/api/admin/questions/route.ts`
+- `app/api/admin/questions/[questionId]/route.ts`
+- `app/api/admin/questions/batch/route.ts`
+- `app/[locale]/admin/questions/page.tsx`
+- `docs/2026-01-25_QUIZ_QUESTION_CENTRAL_MANAGEMENT_COMPLETE.md`
+- `docs/2026-01-25_SEED_VS_API_PERFORMANCE_ANALYSIS.md`
+
+#### Files Modified
+- `app/[locale]/admin/layout.tsx` - Added "Quiz Questions" navigation
+- `messages/en.json` - Added translation
+- `messages/hu.json` - Added translation
+- `scripts/generate-geo-shopify-quizzes.ts` - Optimized with `insertMany()`
+
+**Documentation**: `docs/2026-01-25_QUIZ_QUESTION_CENTRAL_MANAGEMENT_COMPLETE.md`
 
 ---
 
