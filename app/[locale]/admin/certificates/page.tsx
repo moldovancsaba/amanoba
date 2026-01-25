@@ -44,7 +44,8 @@ export default function AdminCertificatesPage() {
   const t = useTranslations('admin');
   const tCommon = useTranslations('common');
   const [certificates, setCertificates] = useState<Certificate[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [initialLoading, setInitialLoading] = useState(true); // Only for first load
+  const [loading, setLoading] = useState(false); // For subsequent searches
   const [search, setSearch] = useState('');
   const debouncedSearch = useDebounce(search, 500); // Wait 500ms after user stops typing
   const [filters, setFilters] = useState({
@@ -85,10 +86,12 @@ export default function AdminCertificatesPage() {
       console.error('Failed to fetch certificates:', error);
     } finally {
       setLoading(false);
+      setInitialLoading(false);
     }
   };
 
-  if (loading) {
+  // Only show full-page loader on initial load
+  if (initialLoading) {
     return (
       <div className="flex items-center justify-center min-h-[400px]">
         <div className="text-white text-xl">{tCommon('loading')}</div>
@@ -136,7 +139,12 @@ export default function AdminCertificatesPage() {
       </div>
 
       {/* Certificates Table */}
-      <div className="bg-gray-800 rounded-xl border border-gray-700 overflow-hidden">
+      <div className="bg-gray-800 rounded-xl border border-gray-700 overflow-hidden relative">
+        {loading && (
+          <div className="absolute inset-0 bg-gray-800/80 flex items-center justify-center z-10 rounded-xl">
+            <div className="text-white text-sm">Searching...</div>
+          </div>
+        )}
         <div className="overflow-x-auto">
           <table className="w-full">
             <thead className="bg-gray-700">

@@ -51,7 +51,8 @@ interface Course {
 export default function AdminCoursesPage() {
   const locale = useLocale();
   const [courses, setCourses] = useState<Course[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [initialLoading, setInitialLoading] = useState(true); // Only for first load
+  const [loading, setLoading] = useState(false); // For subsequent searches
   const [search, setSearch] = useState('');
   const debouncedSearch = useDebounce(search, 500); // Wait 500ms after user stops typing
   const [statusFilter, setStatusFilter] = useState<'all' | 'active' | 'inactive'>('all');
@@ -83,6 +84,7 @@ export default function AdminCoursesPage() {
       console.error('Failed to fetch courses:', error);
     } finally {
       setLoading(false);
+      setInitialLoading(false);
     }
   };
 
@@ -176,11 +178,17 @@ export default function AdminCoursesPage() {
       </div>
 
       {/* Courses List */}
-      {loading ? (
-        <div className="text-center py-12">
-          <div className="text-brand-white text-lg">Loading courses...</div>
-        </div>
-      ) : courses.length === 0 ? (
+      <div className="relative">
+        {loading && !initialLoading && (
+          <div className="absolute inset-0 bg-brand-darkGrey/80 flex items-center justify-center z-10 rounded-xl">
+            <div className="text-brand-white text-sm">Searching...</div>
+          </div>
+        )}
+        {initialLoading ? (
+          <div className="text-center py-12">
+            <div className="text-brand-white text-lg">Loading courses...</div>
+          </div>
+        ) : courses.length === 0 ? (
         <div className="bg-brand-darkGrey rounded-xl p-12 text-center border-2 border-brand-accent">
           <BookOpen className="w-16 h-16 text-brand-white/30 mx-auto mb-4" />
           <h3 className="text-xl font-bold text-brand-white mb-2">No courses found</h3>
@@ -281,7 +289,8 @@ export default function AdminCoursesPage() {
             </div>
           ))}
         </div>
-      )}
+        )}
+      </div>
     </div>
   );
 }
