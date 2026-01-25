@@ -12,7 +12,7 @@
 import { useState, useEffect } from 'react';
 import { useTranslations } from 'next-intl';
 import { useLocale } from 'next-intl';
-import { CheckCircle, XCircle, Download } from 'lucide-react';
+import { CheckCircle, XCircle, Download, Link as LinkIcon, Check } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 
 // Force dynamic rendering
@@ -42,6 +42,7 @@ export default function CertificatePage({
   const [loading, setLoading] = useState(true);
   const [certificateData, setCertificateData] = useState<CertificateStatus | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [linkCopied, setLinkCopied] = useState(false);
 
   // Unwrap async params - following pattern from ProfilePage
   useEffect(() => {
@@ -226,6 +227,30 @@ export default function CertificatePage({
     }
   };
 
+  // Copy verification link
+  const handleCopyLink = async () => {
+    if (!playerId || !courseId) return;
+
+    const verificationUrl = `${window.location.origin}/${locale}/certificate/verify/${playerId}/${courseId}`;
+    
+    try {
+      await navigator.clipboard.writeText(verificationUrl);
+      setLinkCopied(true);
+      setTimeout(() => setLinkCopied(false), 2000);
+    } catch (error) {
+      console.error('Failed to copy link:', error);
+      // Fallback for older browsers
+      const textArea = document.createElement('textarea');
+      textArea.value = verificationUrl;
+      document.body.appendChild(textArea);
+      textArea.select();
+      document.execCommand('copy');
+      document.body.removeChild(textArea);
+      setLinkCopied(true);
+      setTimeout(() => setLinkCopied(false), 2000);
+    }
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-brand-black via-brand-dark to-brand-black p-4 py-8">
       <div className="max-w-5xl mx-auto">
@@ -335,24 +360,51 @@ export default function CertificatePage({
                 </div>
               </div>
 
-              {/* Download Buttons - Only show if certificate is eligible */}
+              {/* Actions - Only show if certificate is eligible */}
               {certificateEligible && (
                 <div className="mt-8 pt-8 border-t border-brand-accent/20">
-                  <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                    <button
-                      onClick={() => handleDownloadImage('share_1200x627')}
-                      className="flex items-center justify-center gap-2 bg-brand-accent text-brand-black px-6 py-3 rounded-lg font-bold hover:opacity-90 transition-opacity"
-                    >
-                      <Download className="w-5 h-5" />
-                      Download Image (Share)
-                    </button>
-                    <button
-                      onClick={() => handleDownloadImage('print_a4')}
-                      className="flex items-center justify-center gap-2 bg-brand-darkGrey text-white px-6 py-3 rounded-lg font-bold hover:opacity-90 transition-opacity border border-brand-accent"
-                    >
-                      <Download className="w-5 h-5" />
-                      Download Image (Print)
-                    </button>
+                  <div className="space-y-4">
+                    {/* Share Section */}
+                    <div className="text-center mb-4">
+                      <h4 className="text-lg font-bold text-white mb-2">Share Certificate</h4>
+                      <button
+                        onClick={handleCopyLink}
+                        className="flex items-center justify-center gap-2 bg-brand-darkGrey text-white px-6 py-3 rounded-lg font-bold hover:opacity-90 transition-opacity border border-brand-accent mx-auto"
+                      >
+                        {linkCopied ? (
+                          <>
+                            <Check className="w-5 h-5" />
+                            Link Copied!
+                          </>
+                        ) : (
+                          <>
+                            <LinkIcon className="w-5 h-5" />
+                            Copy Verification Link
+                          </>
+                        )}
+                      </button>
+                    </div>
+
+                    {/* Download Section */}
+                    <div className="text-center">
+                      <h4 className="text-lg font-bold text-white mb-2">Download Certificate</h4>
+                      <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                        <button
+                          onClick={() => handleDownloadImage('share_1200x627')}
+                          className="flex items-center justify-center gap-2 bg-brand-accent text-brand-black px-6 py-3 rounded-lg font-bold hover:opacity-90 transition-opacity"
+                        >
+                          <Download className="w-5 h-5" />
+                          Download Image (Share)
+                        </button>
+                        <button
+                          onClick={() => handleDownloadImage('print_a4')}
+                          className="flex items-center justify-center gap-2 bg-brand-darkGrey text-white px-6 py-3 rounded-lg font-bold hover:opacity-90 transition-opacity border border-brand-accent"
+                        >
+                          <Download className="w-5 h-5" />
+                          Download Image (Print)
+                        </button>
+                      </div>
+                    </div>
                   </div>
                 </div>
               )}
