@@ -18,6 +18,7 @@ import {
   Globe,
   Image,
   Upload,
+  Award,
 } from 'lucide-react';
 
 export default function AdminSettingsPage() {
@@ -28,10 +29,65 @@ export default function AdminSettingsPage() {
   const [saved, setSaved] = useState(false);
   const [defaultThumbnail, setDefaultThumbnail] = useState<string | null>(null);
   const [uploadingThumbnail, setUploadingThumbnail] = useState(false);
+  
+  // Certification settings state
+  const [certSettings, setCertSettings] = useState<any>(null);
+  const [certSettingsLoading, setCertSettingsLoading] = useState(true);
+  const [certSaving, setCertSaving] = useState(false);
 
   useEffect(() => {
     fetchDefaultThumbnail();
+    fetchCertificationSettings();
   }, []);
+
+  const fetchCertificationSettings = async () => {
+    try {
+      setCertSettingsLoading(true);
+      const response = await fetch('/api/admin/certification/settings');
+      const data = await response.json();
+      if (data.success && data.settings) {
+        setCertSettings(data.settings);
+      }
+    } catch (error) {
+      console.error('Failed to fetch certification settings:', error);
+    } finally {
+      setCertSettingsLoading(false);
+    }
+  };
+
+  const handleSaveCertSettings = async () => {
+    if (!certSettings) return;
+
+    try {
+      setCertSaving(true);
+      const response = await fetch('/api/admin/certification/settings', {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          priceMoney: certSettings.priceMoney,
+          pricePoints: certSettings.pricePoints,
+          templateId: certSettings.templateId,
+          credentialId: certSettings.credentialId,
+          completionPhraseId: certSettings.completionPhraseId,
+          deliverableBulletIds: certSettings.deliverableBulletIds || [],
+          backgroundUrl: certSettings.backgroundUrl,
+        }),
+      });
+
+      const data = await response.json();
+      if (data.success) {
+        setCertSettings(data.settings);
+        alert('Certification settings saved successfully!');
+      } else {
+        alert(data.error || 'Failed to save certification settings');
+      }
+    } catch (error) {
+      console.error('Failed to save certification settings:', error);
+      alert('Failed to save certification settings. Please try again.');
+    } finally {
+      setCertSaving(false);
+    }
+  };
 
   const fetchDefaultThumbnail = async () => {
     try {
@@ -268,6 +324,129 @@ export default function AdminSettingsPage() {
               </select>
             </div>
           </div>
+        </div>
+
+        {/* Certification Settings */}
+        <div className="bg-gray-800 rounded-xl p-6 border border-gray-700">
+          <div className="flex items-center gap-3 mb-4">
+            <Award className="w-6 h-6 text-indigo-500" />
+            <h2 className="text-xl font-bold text-white">Certification Settings</h2>
+          </div>
+          {certSettingsLoading ? (
+            <div className="text-center py-8 text-gray-400">Loading certification settings...</div>
+          ) : certSettings ? (
+            <div className="space-y-4">
+              <div>
+                <label className="block text-sm font-medium text-gray-300 mb-2">
+                  Default Price (Money)
+                </label>
+                <div className="grid grid-cols-2 gap-4">
+                  <input
+                    type="number"
+                    value={certSettings.priceMoney?.amount || 0}
+                    onChange={(e) => setCertSettings({
+                      ...certSettings,
+                      priceMoney: {
+                        ...certSettings.priceMoney,
+                        amount: parseFloat(e.target.value) || 0,
+                        currency: certSettings.priceMoney?.currency || 'USD',
+                      },
+                    })}
+                    className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white focus:outline-none focus:border-indigo-500"
+                    placeholder="0"
+                  />
+                  <select
+                    value={certSettings.priceMoney?.currency || 'USD'}
+                    onChange={(e) => setCertSettings({
+                      ...certSettings,
+                      priceMoney: {
+                        ...certSettings.priceMoney,
+                        amount: certSettings.priceMoney?.amount || 0,
+                        currency: e.target.value,
+                      },
+                    })}
+                    className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white focus:outline-none focus:border-indigo-500"
+                  >
+                    <option value="USD">USD</option>
+                    <option value="EUR">EUR</option>
+                    <option value="HUF">HUF</option>
+                  </select>
+                </div>
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-300 mb-2">
+                  Default Price (Points)
+                </label>
+                <input
+                  type="number"
+                  value={certSettings.pricePoints || 0}
+                  onChange={(e) => setCertSettings({
+                    ...certSettings,
+                    pricePoints: parseInt(e.target.value) || 0,
+                  })}
+                  className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white focus:outline-none focus:border-indigo-500"
+                  placeholder="0"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-300 mb-2">
+                  Template ID
+                </label>
+                <input
+                  type="text"
+                  value={certSettings.templateId || 'default_v1'}
+                  onChange={(e) => setCertSettings({
+                    ...certSettings,
+                    templateId: e.target.value,
+                  })}
+                  className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white focus:outline-none focus:border-indigo-500"
+                  placeholder="default_v1"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-300 mb-2">
+                  Credential ID
+                </label>
+                <input
+                  type="text"
+                  value={certSettings.credentialId || 'CERT'}
+                  onChange={(e) => setCertSettings({
+                    ...certSettings,
+                    credentialId: e.target.value,
+                  })}
+                  className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white focus:outline-none focus:border-indigo-500"
+                  placeholder="CERT"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-300 mb-2">
+                  Completion Phrase ID
+                </label>
+                <input
+                  type="text"
+                  value={certSettings.completionPhraseId || 'completion_final_exam'}
+                  onChange={(e) => setCertSettings({
+                    ...certSettings,
+                    completionPhraseId: e.target.value,
+                  })}
+                  className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white focus:outline-none focus:border-indigo-500"
+                  placeholder="completion_final_exam"
+                />
+              </div>
+              <div className="pt-4 border-t border-gray-700">
+                <button
+                  onClick={handleSaveCertSettings}
+                  disabled={certSaving}
+                  className="flex items-center gap-2 bg-indigo-600 text-white px-6 py-3 rounded-lg font-bold hover:bg-indigo-700 transition-colors disabled:opacity-50"
+                >
+                  <Save className="w-5 h-5" />
+                  {certSaving ? 'Saving...' : 'Save Certification Settings'}
+                </button>
+              </div>
+            </div>
+          ) : (
+            <div className="text-center py-8 text-gray-400">Failed to load certification settings</div>
+          )}
         </div>
 
         {/* Course Settings */}
