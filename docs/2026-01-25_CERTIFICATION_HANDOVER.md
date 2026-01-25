@@ -61,7 +61,8 @@
 - ✅ GET /api/certificates/[slug] route
 - ✅ PATCH /api/certificates/[slug] route (privacy toggle)
 - ✅ /certificate/[slug] verification page
-- ⚠️ Links update (optional, can be done separately)
+- ✅ Links updated: Admin page and certificate page now use slug URLs
+- ✅ Backward compatible: Old /certificate/verify/[playerId]/[courseId] still works
 
 **Priority 3: Profile Certificates Tab** (0.5-1 day)
 - Dedicated certificates tab in profile
