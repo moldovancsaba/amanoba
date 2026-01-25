@@ -102,8 +102,8 @@ export default function CoursesPage() {
   // This ensures course cards display in their NATIVE language, not URL locale
   const courseCardTranslations: Record<string, Record<string, string>> = {
     hu: {
-      premium: 'Premium Kurs',
-      free: 'Ingyenes Kurs',
+      premium: 'Premium',
+      free: 'Ingyenes',
       certification: 'Tanúsítvány',
       noCertification: 'Nincs tanúsítvány',
       viewCourse: 'Kurzus megtekintése',
@@ -111,8 +111,8 @@ export default function CoursesPage() {
       points: 'pont',
     },
     en: {
-      premium: 'Premium Course',
-      free: 'Free Course',
+      premium: 'Premium',
+      free: 'Free',
       certification: 'Certification',
       noCertification: 'No certification',
       viewCourse: 'View course',
@@ -120,8 +120,8 @@ export default function CoursesPage() {
       points: 'points',
     },
     tr: {
-      premium: 'Premium Kurs',
-      free: 'Ücretsiz Kurs',
+      premium: 'Premium',
+      free: 'Ücretsiz',
       certification: 'Sertifika',
       noCertification: 'Sertifika yok',
       viewCourse: 'Kursu görüntüle',
@@ -129,8 +129,8 @@ export default function CoursesPage() {
       points: 'puan',
     },
     bg: {
-      premium: 'Премиум курс',
-      free: 'Безплатен курс',
+      premium: 'Премиум',
+      free: 'Безплатен',
       certification: 'Сертификат',
       noCertification: 'Без сертификат',
       viewCourse: 'Преглед на курса',
@@ -138,8 +138,8 @@ export default function CoursesPage() {
       points: 'точки',
     },
     pl: {
-      premium: 'Kurs Premium',
-      free: 'Darmowy kurs',
+      premium: 'Premium',
+      free: 'Darmowy',
       certification: 'Certyfikat',
       noCertification: 'Brak certyfikatu',
       viewCourse: 'Wyświetl kurs',
@@ -156,8 +156,8 @@ export default function CoursesPage() {
       points: 'điểm',
     },
     id: {
-      premium: 'Kursus Premium',
-      free: 'Kursus Gratis',
+      premium: 'Premium',
+      free: 'Gratis',
       certification: 'Sertifikat',
       noCertification: 'Tanpa sertifikat',
       viewCourse: 'Lihat kursus',
