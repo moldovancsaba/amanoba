@@ -93,11 +93,12 @@ export default auth((req) => {
 
   // Define protected routes (without locale prefix)
   // Why: These routes require authentication
-  // Note: Root path '/' and '/courses' are public - users can browse before signing in
+  // Note: Root path '/', '/courses', and '/profile/[playerId]' are public - users can browse before signing in
+  // Profile pages are public so anyone can view user profiles
   const isProtectedRoute =
     (actualPathname.startsWith('/dashboard') ||
     actualPathname.startsWith('/games') ||
-    actualPathname.startsWith('/profile') ||
+    (actualPathname.startsWith('/profile') && actualPathname === '/profile') || // Only /profile (own profile) is protected, not /profile/[playerId]
     actualPathname.startsWith('/rewards') ||
     actualPathname.startsWith('/my-courses') ||
     actualPathname.startsWith('/admin')) &&
