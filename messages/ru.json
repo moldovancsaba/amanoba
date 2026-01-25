@@ -162,5 +162,29 @@
       "userDataLabel": "Разрешить пользовательские данные рекламы",
       "personalizationLabel": "Разрешить персонализацию рекламы"
     }
+  },
+  "certificates": {
+    "title": "Сертификаты",
+    "noCertificates": "Сертификатов пока нет",
+    "noCertificatesDescription": "Завершите курсы и сдайте финальные экзамены, чтобы получить сертификаты",
+    "viewCertificate": "Просмотреть сертификат",
+    "certificateVerified": "Сертификат подтвержден",
+    "certificateRevoked": "Сертификат отозван",
+    "revokedReason": "Причина",
+    "awardedTo": "Выдан",
+    "finalExamScore": "Оценка финального экзамена",
+    "issued": "Выдан",
+    "revoked": "Отозван",
+    "certificateId": "Идентификатор сертификата",
+    "verificationInfo": "Этот сертификат можно проверить в любое время, используя ссылку для проверки.",
+    "copyLink": "Копировать ссылку",
+    "downloadImage": "Скачать изображение",
+    "makePublic": "Сделать публичным",
+    "makePrivate": "Сделать приватным",
+    "certificateNotFound": "Сертификат не найден",
+    "certificateNotFoundDescription": "Этот сертификат может быть приватным, или ссылка для проверки недействительна.",
+    "goHome": "На главную",
+    "backToHome": "Вернуться на главную",
+    "loadingCertificate": "Загрузка сертификата..."
   }
 }

@@ -675,5 +675,29 @@
       "userDataLabel": "السماح ببيانات مستخدم الإعلانات",
       "personalizationLabel": "السماح بتخصيص الإعلانات"
     }
+  },
+  "certificates": {
+    "title": "الشهادات",
+    "noCertificates": "لا توجد شهادات بعد",
+    "noCertificatesDescription": "أكمل الدورات واجتاز الامتحانات النهائية للحصول على الشهادات",
+    "viewCertificate": "عرض الشهادة",
+    "certificateVerified": "تم التحقق من الشهادة",
+    "certificateRevoked": "تم إلغاء الشهادة",
+    "revokedReason": "السبب",
+    "awardedTo": "منحت إلى",
+    "finalExamScore": "نتيجة الامتحان النهائي",
+    "issued": "صدرت",
+    "revoked": "ملغاة",
+    "certificateId": "معرف الشهادة",
+    "verificationInfo": "يمكن التحقق من هذه الشهادة في أي وقت باستخدام رابط التحقق.",
+    "copyLink": "نسخ الرابط",
+    "downloadImage": "تحميل الصورة",
+    "makePublic": "جعلها عامة",
+    "makePrivate": "جعلها خاصة",
+    "certificateNotFound": "الشهادة غير موجودة",
+    "certificateNotFoundDescription": "قد تكون هذه الشهادة خاصة أو رابط التحقق غير صالح.",
+    "goHome": "الذهاب إلى الصفحة الرئيسية",
+    "backToHome": "العودة إلى الصفحة الرئيسية",
+    "loadingCertificate": "جارٍ تحميل الشهادة..."
   }
 }

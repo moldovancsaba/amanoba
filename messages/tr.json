@@ -675,5 +675,29 @@
       "userDataLabel": "Reklam Kullanıcı Verilerine İzin Ver",
       "personalizationLabel": "Reklam Kişiselleştirmesine İzin Ver"
     }
+  },
+  "certificates": {
+    "title": "Sertifikalar",
+    "noCertificates": "Henüz sertifika yok",
+    "noCertificatesDescription": "Sertifika kazanmak için kursları tamamlayın ve final sınavlarını geçin",
+    "viewCertificate": "Sertifikayı Görüntüle",
+    "certificateVerified": "Sertifika Doğrulandı",
+    "certificateRevoked": "Sertifika İptal Edildi",
+    "revokedReason": "Sebep",
+    "awardedTo": "Verildi",
+    "finalExamScore": "Final Sınav Puanı",
+    "issued": "Verildi",
+    "revoked": "İptal Edildi",
+    "certificateId": "Sertifika Kimliği",
+    "verificationInfo": "Bu sertifika, doğrulama bağlantısını kullanarak istediğiniz zaman doğrulanabilir.",
+    "copyLink": "Bağlantıyı Kopyala",
+    "downloadImage": "Görüntüyü İndir",
+    "makePublic": "Herkese Açık Yap",
+    "makePrivate": "Özel Yap",
+    "certificateNotFound": "Sertifika Bulunamadı",
+    "certificateNotFoundDescription": "Bu sertifika özel olabilir veya doğrulama bağlantısı geçersiz.",
+    "goHome": "Ana Sayfa",
+    "backToHome": "Ana Sayfaya Dön",
+    "loadingCertificate": "Sertifika yükleniyor..."
   }
 }

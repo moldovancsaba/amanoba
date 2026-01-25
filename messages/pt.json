@@ -675,5 +675,29 @@
       "userDataLabel": "Permitir Dados de Usuário de Anúncios",
       "personalizationLabel": "Permitir Personalização de Anúncios"
     }
+  },
+  "certificates": {
+    "title": "Certificados",
+    "noCertificates": "Ainda não há certificados",
+    "noCertificatesDescription": "Complete cursos e passe nos exames finais para ganhar certificados",
+    "viewCertificate": "Ver Certificado",
+    "certificateVerified": "Certificado Verificado",
+    "certificateRevoked": "Certificado Revogado",
+    "revokedReason": "Motivo",
+    "awardedTo": "Concedido a",
+    "finalExamScore": "Pontuação do Exame Final",
+    "issued": "Emitido",
+    "revoked": "Revogado",
+    "certificateId": "ID do Certificado",
+    "verificationInfo": "Este certificado pode ser verificado a qualquer momento usando o link de verificação.",
+    "copyLink": "Copiar Link",
+    "downloadImage": "Baixar Imagem",
+    "makePublic": "Tornar Público",
+    "makePrivate": "Tornar Privado",
+    "certificateNotFound": "Certificado Não Encontrado",
+    "certificateNotFoundDescription": "Este certificado pode ser privado ou o link de verificação é inválido.",
+    "goHome": "Ir para Início",
+    "backToHome": "Voltar para Início",
+    "loadingCertificate": "Carregando certificado..."
   }
 }

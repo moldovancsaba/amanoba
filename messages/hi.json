@@ -675,5 +675,29 @@
       "userDataLabel": "विज्ञापन उपयोगकर्ता डेटा की अनुमति दें",
       "personalizationLabel": "विज्ञापन व्यक्तिकरण की अनुमति दें"
     }
+  },
+  "certificates": {
+    "title": "प्रमाणपत्र",
+    "noCertificates": "अभी तक कोई प्रमाणपत्र नहीं",
+    "noCertificatesDescription": "प्रमाणपत्र अर्जित करने के लिए पाठ्यक्रम पूरे करें और अंतिम परीक्षा उत्तीर्ण करें",
+    "viewCertificate": "प्रमाणपत्र देखें",
+    "certificateVerified": "प्रमाणपत्र सत्यापित",
+    "certificateRevoked": "प्रमाणपत्र रद्द",
+    "revokedReason": "कारण",
+    "awardedTo": "प्रदान किया गया",
+    "finalExamScore": "अंतिम परीक्षा स्कोर",
+    "issued": "जारी किया गया",
+    "revoked": "रद्द",
+    "certificateId": "प्रमाणपत्र आईडी",
+    "verificationInfo": "इस प्रमाणपत्र को सत्यापन लिंक का उपयोग करके किसी भी समय सत्यापित किया जा सकता है।",
+    "copyLink": "लिंक कॉपी करें",
+    "downloadImage": "छवि डाउनलोड करें",
+    "makePublic": "सार्वजनिक करें",
+    "makePrivate": "निजी करें",
+    "certificateNotFound": "प्रमाणपत्र नहीं मिला",
+    "certificateNotFoundDescription": "यह प्रमाणपत्र निजी हो सकता है या सत्यापन लिंक अमान्य है।",
+    "goHome": "होम पर जाएं",
+    "backToHome": "होम पर वापस जाएं",
+    "loadingCertificate": "प्रमाणपत्र लोड हो रहा है..."
   }
 }

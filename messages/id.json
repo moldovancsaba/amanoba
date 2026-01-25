@@ -675,5 +675,29 @@
       "userDataLabel": "Izinkan Data Pengguna Iklan",
       "personalizationLabel": "Izinkan Personalisasi Iklan"
     }
+  },
+  "certificates": {
+    "title": "Sertifikat",
+    "noCertificates": "Belum ada sertifikat",
+    "noCertificatesDescription": "Selesaikan kursus dan lulus ujian akhir untuk mendapatkan sertifikat",
+    "viewCertificate": "Lihat Sertifikat",
+    "certificateVerified": "Sertifikat Terverifikasi",
+    "certificateRevoked": "Sertifikat Dicabut",
+    "revokedReason": "Alasan",
+    "awardedTo": "Diberikan kepada",
+    "finalExamScore": "Skor Ujian Akhir",
+    "issued": "Diterbitkan",
+    "revoked": "Dicabut",
+    "certificateId": "ID Sertifikat",
+    "verificationInfo": "Sertifikat ini dapat diverifikasi kapan saja menggunakan tautan verifikasi.",
+    "copyLink": "Salin Tautan",
+    "downloadImage": "Unduh Gambar",
+    "makePublic": "Buat Publik",
+    "makePrivate": "Buat Privat",
+    "certificateNotFound": "Sertifikat Tidak Ditemukan",
+    "certificateNotFoundDescription": "Sertifikat ini mungkin bersifat privat atau tautan verifikasi tidak valid.",
+    "goHome": "Ke Beranda",
+    "backToHome": "Kembali ke Beranda",
+    "loadingCertificate": "Memuat sertifikat..."
   }
 }

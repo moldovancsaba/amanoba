@@ -675,5 +675,29 @@
       "userDataLabel": "Разреши потребителски данни за реклами",
       "personalizationLabel": "Разреши персонализация на реклами"
     }
+  },
+  "certificates": {
+    "title": "Сертификати",
+    "noCertificates": "Все още няма сертификати",
+    "noCertificatesDescription": "Завършете курсове и преминете финални изпити, за да спечелите сертификати",
+    "viewCertificate": "Преглед на сертификат",
+    "certificateVerified": "Сертификатът е потвърден",
+    "certificateRevoked": "Сертификатът е отменен",
+    "revokedReason": "Причина",
+    "awardedTo": "Издаден",
+    "finalExamScore": "Резултат от финален изпит",
+    "issued": "Издаден",
+    "revoked": "Отменен",
+    "certificateId": "Идентификатор на сертификат",
+    "verificationInfo": "Този сертификат може да бъде проверен по всяко време, като използвате връзката за проверка.",
+    "copyLink": "Копиране на връзка",
+    "downloadImage": "Изтегляне на изображение",
+    "makePublic": "Направи публичен",
+    "makePrivate": "Направи частен",
+    "certificateNotFound": "Сертификатът не е намерен",
+    "certificateNotFoundDescription": "Този сертификат може да е частен или връзката за проверка е невалидна.",
+    "goHome": "Начална страница",
+    "backToHome": "Обратно към началната страница",
+    "loadingCertificate": "Зареждане на сертификат..."
   }
 }

@@ -675,5 +675,29 @@
       "userDataLabel": "Cho phép Dữ liệu Người dùng Quảng cáo",
       "personalizationLabel": "Cho phép Cá nhân hóa Quảng cáo"
     }
+  },
+  "certificates": {
+    "title": "Chứng chỉ",
+    "noCertificates": "Chưa có chứng chỉ",
+    "noCertificatesDescription": "Hoàn thành khóa học và vượt qua kỳ thi cuối để nhận chứng chỉ",
+    "viewCertificate": "Xem Chứng chỉ",
+    "certificateVerified": "Chứng chỉ đã được xác minh",
+    "certificateRevoked": "Chứng chỉ đã bị thu hồi",
+    "revokedReason": "Lý do",
+    "awardedTo": "Cấp cho",
+    "finalExamScore": "Điểm thi cuối",
+    "issued": "Đã cấp",
+    "revoked": "Đã thu hồi",
+    "certificateId": "ID Chứng chỉ",
+    "verificationInfo": "Chứng chỉ này có thể được xác minh bất cứ lúc nào bằng cách sử dụng liên kết xác minh.",
+    "copyLink": "Sao chép Liên kết",
+    "downloadImage": "Tải xuống Hình ảnh",
+    "makePublic": "Công khai",
+    "makePrivate": "Riêng tư",
+    "certificateNotFound": "Không tìm thấy Chứng chỉ",
+    "certificateNotFoundDescription": "Chứng chỉ này có thể là riêng tư hoặc liên kết xác minh không hợp lệ.",
+    "goHome": "Về Trang chủ",
+    "backToHome": "Quay lại Trang chủ",
+    "loadingCertificate": "Đang tải chứng chỉ..."
   }
 }
