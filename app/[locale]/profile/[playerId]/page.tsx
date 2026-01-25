@@ -532,8 +532,55 @@ export default function ProfilePage({ params }: { params: Promise<{ playerId: st
 
                 {activeTab === 'achievements' && (
                   <div className="page-card-dark p-6">
-                    <h3 className="text-2xl font-bold text-white mb-4">Achievements</h3>
-                    <p className="text-gray-400">Achievements content will be added in Step 6.</p>
+                    <div className="mb-6">
+                      <div className="flex justify-between items-center mb-2">
+                        <h3 className="text-2xl font-bold text-white">Achievement Progress</h3>
+                        <span className="text-indigo-300 text-lg font-semibold">
+                          {profileData.achievements?.progress || 0}% Complete
+                        </span>
+                      </div>
+                      <div className="h-3 bg-brand-black/40 rounded-full overflow-hidden">
+                        <div
+                          className="h-full bg-brand-darkGrey"
+                          style={{ width: `${profileData.achievements?.progress || 0}%` }}
+                        />
+                      </div>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                      {profileData.achievements?.featured && profileData.achievements.featured.length > 0 ? (
+                        profileData.achievements.featured.map((achievement: any) => (
+                          <div key={achievement.id} className="bg-brand-black/20 rounded-lg p-4">
+                            <div className="flex items-start gap-3">
+                              <div className="w-12 h-12 bg-brand-darkGrey/40 rounded-lg flex items-center justify-center text-2xl text-white">
+                                {achievement.icon || '🏆'}
+                              </div>
+                              <div className="flex-1">
+                                <div className="flex items-center gap-2 mb-1">
+                                  <h4 className="text-white font-bold">{achievement.name}</h4>
+                                  <span className={`text-xs px-2 py-0.5 rounded ${
+                                    achievement.tier === 'legendary' ? 'bg-amber-600 text-white' :
+                                    achievement.tier === 'epic' ? 'bg-purple-500 text-white' :
+                                    achievement.tier === 'rare' ? 'bg-blue-500 text-white' :
+                                    'bg-gray-500 text-white'
+                                  }`}>
+                                    {achievement.tier?.toUpperCase() || 'COMMON'}
+                                  </span>
+                                </div>
+                                <p className="text-gray-400 text-sm mb-2">{achievement.description}</p>
+                                <p className="text-gray-500 text-xs">
+                                  Unlocked {new Date(achievement.unlockedAt).toLocaleDateString()}
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        ))
+                      ) : (
+                        <div className="col-span-full text-center py-8">
+                          <p className="text-gray-400">No achievements unlocked yet.</p>
+                        </div>
+                      )}
+                    </div>
                   </div>
                 )}
 
