@@ -586,8 +586,39 @@ export default function ProfilePage({ params }: { params: Promise<{ playerId: st
 
                 {activeTab === 'activity' && (
                   <div className="page-card-dark p-6">
-                    <h3 className="text-2xl font-bold text-white mb-4">Activity</h3>
-                    <p className="text-gray-400">Activity content will be added in Step 7.</p>
+                    <h3 className="text-2xl font-bold text-white mb-6">Recent Activity</h3>
+                    <div className="space-y-3">
+                      {profileData.recentActivity && profileData.recentActivity.length > 0 ? (
+                        profileData.recentActivity.map((activity: any, index: number) => (
+                          <div key={index} className="bg-brand-black/20 rounded-lg p-4 flex items-center justify-between">
+                            <div className="flex items-center gap-4">
+                              <div className="text-3xl">{activity.gameIcon || '🎮'}</div>
+                              <div>
+                                <h4 className="text-white font-semibold">{activity.gameName}</h4>
+                                <p className="text-gray-400 text-sm">
+                                  {activity.outcome === 'win' ? '🏆 Victory' :
+                                   activity.outcome === 'loss' ? '❌ Defeat' : '🤝 Draw'}
+                                  {' · '}Score: {activity.score}
+                                  {' · '}+{activity.pointsEarned} points
+                                </p>
+                              </div>
+                            </div>
+                            <div className="text-right">
+                              <p className="text-gray-400 text-sm">
+                                {new Date(activity.playedAt).toLocaleDateString()}
+                              </p>
+                              <p className="text-gray-500 text-xs">
+                                {Math.round(activity.duration / 60)}m {activity.duration % 60}s
+                              </p>
+                            </div>
+                          </div>
+                        ))
+                      ) : (
+                        <div className="text-center py-12">
+                          <p className="text-gray-400">No recent activity.</p>
+                        </div>
+                      )}
+                    </div>
                   </div>
                 )}
 
