@@ -15,10 +15,10 @@ import { NextRequest, NextResponse } from 'next/server';
 import { auth } from '@/auth';
 import connectDB from '@/lib/mongodb';
 import { QuizQuestion, QuestionDifficulty, QuestionType, Course } from '@/lib/models';
+import mongoose from 'mongoose';
 import { logger } from '@/lib/logger';
 import { requireAdmin } from '@/lib/rbac';
 import { randomUUID } from 'crypto';
-import mongoose from 'mongoose';
 
 /**
  * GET /api/admin/questions
@@ -137,7 +137,9 @@ export async function GET(request: NextRequest) {
     const total = await QuizQuestion.countDocuments(filter);
 
     // Get questions with pagination
+    // Populate relatedCourseIds to get course names
     const questions = await QuizQuestion.find(filter)
+      .populate('relatedCourseIds', 'courseId name language')
       .sort({ 'metadata.createdAt': -1 }) // Newest first
       .limit(limit)
       .skip(offset)
@@ -188,6 +190,7 @@ export async function POST(request: NextRequest) {
       hashtags = [],
       isCourseSpecific = false,
       courseId,
+      relatedCourseIds = [],
       lessonId,
     } = body;
 
@@ -249,6 +252,21 @@ export async function POST(request: NextRequest) {
       }
     }
 
+    // Resolve relatedCourseIds if provided
+    let resolvedRelatedCourseIds: mongoose.Types.ObjectId[] = [];
+    if (relatedCourseIds && Array.isArray(relatedCourseIds) && relatedCourseIds.length > 0) {
+      for (const relatedId of relatedCourseIds) {
+        if (typeof relatedId === 'string') {
+          const course = await Course.findOne({ courseId: relatedId });
+          if (course) {
+            resolvedRelatedCourseIds.push(course._id);
+          }
+        } else if (mongoose.Types.ObjectId.isValid(relatedId)) {
+          resolvedRelatedCourseIds.push(new mongoose.Types.ObjectId(relatedId));
+        }
+      }
+    }
+
     // Create quiz question
     const quizQuestion = new QuizQuestion({
       uuid: randomUUID(),
@@ -261,6 +279,7 @@ export async function POST(request: NextRequest) {
       hashtags: hashtags.map((tag: string) => tag.trim()),
       isCourseSpecific: isCourseSpecific || !!resolvedCourseId || !!lessonId,
       courseId: resolvedCourseId,
+      relatedCourseIds: resolvedRelatedCourseIds,
       lessonId: lessonId || undefined,
       showCount: 0,
       correctCount: 0,

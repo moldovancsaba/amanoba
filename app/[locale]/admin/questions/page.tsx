@@ -86,11 +86,13 @@ export default function AdminQuestionsPage() {
     hashtags: [] as string[],
     isCourseSpecific: false,
     courseId: '',
+    relatedCourseIds: [] as string[],
     lessonId: '',
     isActive: true,
   });
   
   const [hashtagInput, setHashtagInput] = useState('');
+  const [courseSelectInput, setCourseSelectInput] = useState('');
 
   // Fetch courses for filter dropdown
   useEffect(() => {
@@ -168,6 +170,7 @@ export default function AdminQuestionsPage() {
       hashtags: [],
       isCourseSpecific: false,
       courseId: '',
+      relatedCourseIds: [],
       lessonId: '',
       isActive: true,
     });
@@ -176,6 +179,11 @@ export default function AdminQuestionsPage() {
 
   const handleEditQuestion = (question: Question) => {
     setEditingQuestion(question);
+    // Convert relatedCourseIds to string array
+    const relatedIds = question.relatedCourseIds 
+      ? question.relatedCourseIds.map(id => typeof id === 'string' ? id : id.toString())
+      : [];
+    
     setQuestionForm({
       question: question.question,
       options: [...question.options],
@@ -186,6 +194,7 @@ export default function AdminQuestionsPage() {
       hashtags: question.hashtags || [],
       isCourseSpecific: question.isCourseSpecific,
       courseId: question.courseId?.toString() || '',
+      relatedCourseIds: relatedIds,
       lessonId: question.lessonId || '',
       isActive: question.isActive,
     });
@@ -228,6 +237,9 @@ export default function AdminQuestionsPage() {
 
       if (questionForm.courseId) {
         body.courseId = questionForm.courseId;
+      }
+      if (questionForm.relatedCourseIds && questionForm.relatedCourseIds.length > 0) {
+        body.relatedCourseIds = questionForm.relatedCourseIds;
       }
       if (questionForm.lessonId) {
         body.lessonId = questionForm.lessonId;
@@ -317,6 +329,23 @@ export default function AdminQuestionsPage() {
     setQuestionForm(prev => ({
       ...prev,
       hashtags: prev.hashtags.filter(t => t !== tag),
+    }));
+  };
+
+  const addRelatedCourse = (courseId: string) => {
+    if (courseId && !questionForm.relatedCourseIds.includes(courseId)) {
+      setQuestionForm(prev => ({
+        ...prev,
+        relatedCourseIds: [...prev.relatedCourseIds, courseId],
+      }));
+      setCourseSelectInput('');
+    }
+  };
+
+  const removeRelatedCourse = (courseId: string) => {
+    setQuestionForm(prev => ({
+      ...prev,
+      relatedCourseIds: prev.relatedCourseIds.filter(id => id !== courseId),
     }));
   };
 
@@ -612,6 +641,7 @@ export default function AdminQuestionsPage() {
                       className="rounded"
                     />
                   </th>
+                  <th className="px-4 py-3 text-left text-sm font-medium text-gray-300">UUID</th>
                   <th className="px-4 py-3 text-left text-sm font-medium text-gray-300">Question</th>
                   <th className="px-4 py-3 text-left text-sm font-medium text-gray-300">Type</th>
                   <th className="px-4 py-3 text-left text-sm font-medium text-gray-300">Difficulty</th>
@@ -636,6 +666,27 @@ export default function AdminQuestionsPage() {
                         onChange={() => toggleQuestionSelection(question._id)}
                         className="rounded"
                       />
+                    </td>
+                    <td className="px-4 py-3">
+                      {question.uuid ? (
+                        <div className="max-w-xs">
+                          <code className="text-xs text-indigo-300 font-mono break-all">
+                            {question.uuid}
+                          </code>
+                          <button
+                            onClick={() => {
+                              navigator.clipboard.writeText(question.uuid!);
+                              alert('UUID copied to clipboard!');
+                            }}
+                            className="ml-2 text-xs text-indigo-400 hover:text-indigo-300"
+                            title="Copy UUID"
+                          >
+                            📋
+                          </button>
+                        </div>
+                      ) : (
+                        <span className="text-xs text-gray-500">No UUID</span>
+                      )}
                     </td>
                     <td className="px-4 py-3">
                       <div className="max-w-md">
@@ -879,6 +930,60 @@ export default function AdminQuestionsPage() {
                     ))}
                   </select>
                 </div>
+              </div>
+
+              {/* Related Courses */}
+              <div>
+                <label className="block text-sm font-medium text-gray-300 mb-2">
+                  Related Courses (Multiple)
+                </label>
+                <div className="flex gap-2 mb-2">
+                  <select
+                    value={courseSelectInput}
+                    onChange={(e) => setCourseSelectInput(e.target.value)}
+                    className="flex-1 px-3 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white"
+                  >
+                    <option value="">Select a course to add...</option>
+                    {courses
+                      .filter(course => !questionForm.relatedCourseIds.includes(course.courseId))
+                      .map(course => (
+                        <option key={course._id} value={course.courseId}>
+                          {course.name} ({course.language.toUpperCase()})
+                        </option>
+                      ))}
+                  </select>
+                  <button
+                    onClick={() => courseSelectInput && addRelatedCourse(courseSelectInput)}
+                    disabled={!courseSelectInput}
+                    className="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg disabled:opacity-50 disabled:cursor-not-allowed"
+                  >
+                    Add
+                  </button>
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  {questionForm.relatedCourseIds.map((courseId) => {
+                    const course = courses.find(c => c.courseId === courseId);
+                    return (
+                      <span
+                        key={courseId}
+                        className="inline-flex items-center gap-1 px-2 py-1 bg-green-500/20 text-green-300 rounded text-sm"
+                      >
+                        {course ? `${course.name} (${course.language.toUpperCase()})` : courseId}
+                        <button
+                          onClick={() => removeRelatedCourse(courseId)}
+                          className="hover:text-green-200"
+                        >
+                          <X className="w-3 h-3" />
+                        </button>
+                      </span>
+                    );
+                  })}
+                </div>
+                {questionForm.relatedCourseIds.length === 0 && (
+                  <p className="text-xs text-gray-400 mt-1">
+                    Add courses that can use this question. Leave empty for reusable questions.
+                  </p>
+                )}
               </div>
 
               {/* Hashtags */}

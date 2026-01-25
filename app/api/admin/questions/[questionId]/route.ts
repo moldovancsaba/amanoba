@@ -166,6 +166,29 @@ export async function PATCH(
       updateData.lessonId = body.lessonId || undefined;
     }
 
+    // Handle relatedCourseIds
+    if (body.relatedCourseIds !== undefined) {
+      if (!Array.isArray(body.relatedCourseIds)) {
+        return NextResponse.json(
+          { error: 'relatedCourseIds must be an array' },
+          { status: 400 }
+        );
+      }
+      
+      const resolvedRelatedCourseIds: mongoose.Types.ObjectId[] = [];
+      for (const relatedId of body.relatedCourseIds) {
+        if (typeof relatedId === 'string') {
+          const course = await Course.findOne({ courseId: relatedId });
+          if (course) {
+            resolvedRelatedCourseIds.push(course._id);
+          }
+        } else if (mongoose.Types.ObjectId.isValid(relatedId)) {
+          resolvedRelatedCourseIds.push(new mongoose.Types.ObjectId(relatedId));
+        }
+      }
+      updateData.relatedCourseIds = resolvedRelatedCourseIds;
+    }
+
     // Apply update
     await QuizQuestion.findByIdAndUpdate(questionId, { $set: updateData });
 

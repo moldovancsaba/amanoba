@@ -46,6 +46,7 @@ export interface Question {
   isCourseSpecific: boolean;
   lessonId?: string;
   courseId?: string | { toString(): string };
+  relatedCourseIds?: string[];
   showCount: number;
   correctCount: number;
   metadata: {

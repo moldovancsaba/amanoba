@@ -50,7 +50,8 @@ export interface IQuizQuestion extends Document {
   // Course/Lesson context (for lesson-specific assessments)
   // Why: Allows questions to be tied to specific lessons/courses
   lessonId?: string; // Lesson ID this question belongs to (if course-specific)
-  courseId?: mongoose.Types.ObjectId; // Course ID this question belongs to (if course-specific)
+  courseId?: mongoose.Types.ObjectId; // Course ID this question belongs to (if course-specific) - primary course
+  relatedCourseIds?: mongoose.Types.ObjectId[]; // Additional courses this question is related to (for reusable questions)
   isCourseSpecific: boolean; // Whether this question is for a course/lesson (true) or general QUIZZZ (false)
   // New fields for audit and enhancement
   // Why: Support for quiz quality audit with metadata and filtering
@@ -200,7 +201,15 @@ const QuizQuestionSchema = new Schema<IQuizQuestion>(
     courseId: {
       type: Schema.Types.ObjectId,
       ref: 'Course',
-      index: true, // Why: Used to filter questions by course
+      index: true, // Why: Used to filter questions by course (primary course)
+    },
+    // NEW: Related courses (multiple courses can use the same question)
+    // Why: Enables reusable questions across multiple courses
+    relatedCourseIds: {
+      type: [Schema.Types.ObjectId],
+      ref: 'Course',
+      default: [],
+      index: true, // Why: Used to filter questions by related courses
     },
     isCourseSpecific: {
       type: Boolean,
