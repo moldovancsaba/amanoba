@@ -29,6 +29,8 @@ export default function ProfilePage({ params }: { params: Promise<{ playerId: st
   const [apiError, setApiError] = useState<string | null>(null);
   const [apiLoading, setApiLoading] = useState(false);
   const [activeTab, setActiveTab] = useState<'overview' | 'achievements' | 'activity' | 'payments'>('overview');
+  const [paymentData, setPaymentData] = useState<any>(null);
+  const [paymentLoading, setPaymentLoading] = useState(false);
 
   // Unwrap async params - following pattern from CourseDetailPage
   useEffect(() => {
@@ -78,6 +80,28 @@ export default function ProfilePage({ params }: { params: Promise<{ playerId: st
 
     fetchProfile();
   }, [playerId]);
+
+  // Step 8: Fetch payment history (only for own profile)
+  useEffect(() => {
+    if (!isOwnProfile || !session) return;
+
+    const fetchPayments = async () => {
+      setPaymentLoading(true);
+      try {
+        const res = await fetch('/api/payments/history');
+        const data = await res.json();
+        if (data.success) {
+          setPaymentData(data.transactions || []);
+        }
+      } catch (error) {
+        console.error('Failed to fetch payment history:', error);
+      } finally {
+        setPaymentLoading(false);
+      }
+    };
+
+    fetchPayments();
+  }, [isOwnProfile, session]);
 
   // Check if viewing own profile
   const user = session?.user as { id?: string; playerId?: string } | undefined;
@@ -624,8 +648,96 @@ export default function ProfilePage({ params }: { params: Promise<{ playerId: st
 
                 {activeTab === 'payments' && isOwnProfile && (
                   <div className="page-card-dark p-6">
-                    <h3 className="text-2xl font-bold text-white mb-4">Payments</h3>
-                    <p className="text-gray-400">Payments content will be added in Step 8.</p>
+                    <h3 className="text-2xl font-bold text-white mb-6">Payment History</h3>
+                    {paymentLoading ? (
+                      <div className="text-center py-8 text-gray-400">Loading payment history...</div>
+                    ) : paymentData && paymentData.length > 0 ? (
+                      <div className="space-y-3">
+                        {paymentData.map((tx: any) => {
+                          const formattedAmount = new Intl.NumberFormat('en-US', {
+                            style: 'currency',
+                            currency: tx.currency.toUpperCase(),
+                          }).format(tx.amount / 100);
+
+                          const statusColors: Record<string, string> = {
+                            succeeded: 'text-green-400',
+                            pending: 'text-yellow-400',
+                            failed: 'text-red-400',
+                            refunded: 'text-gray-400',
+                          };
+
+                          return (
+                            <div key={tx.id} className="bg-brand-black/20 rounded-lg p-4">
+                              <div className="flex items-start justify-between mb-3">
+                                <div>
+                                  <h4 className="text-white font-semibold mb-1">
+                                    {tx.courseName || 'Premium Access'}
+                                  </h4>
+                                  <p className="text-gray-400 text-sm">
+                                    {new Date(tx.createdAt).toLocaleDateString('en-US', {
+                                      year: 'numeric',
+                                      month: 'long',
+                                      day: 'numeric',
+                                      hour: '2-digit',
+                                      minute: '2-digit',
+                                    })}
+                                  </p>
+                                </div>
+                                <div className="text-right">
+                                  <div className="text-white font-bold text-lg">{formattedAmount}</div>
+                                  <div className={`text-sm ${statusColors[tx.status] || 'text-gray-400'}`}>
+                                    {tx.status.charAt(0).toUpperCase() + tx.status.slice(1)}
+                                  </div>
+                                </div>
+                              </div>
+                              <div className="grid grid-cols-2 gap-4 pt-3 border-t border-brand-black/40">
+                                {tx.premiumGranted && tx.premiumExpiresAt && (
+                                  <div>
+                                    <p className="text-gray-400 text-xs mb-1">Premium Expires</p>
+                                    <p className="text-white text-sm">
+                                      {new Date(tx.premiumExpiresAt).toLocaleDateString('en-US', {
+                                        year: 'numeric',
+                                        month: 'long',
+                                        day: 'numeric',
+                                      })}
+                                    </p>
+                                  </div>
+                                )}
+                                {tx.paymentMethod && (
+                                  <div>
+                                    <p className="text-gray-400 text-xs mb-1">Payment Method</p>
+                                    <p className="text-white text-sm">
+                                      {tx.paymentMethod.brand ? (
+                                        <>
+                                          {tx.paymentMethod.brand.charAt(0).toUpperCase() + tx.paymentMethod.brand.slice(1)}
+                                          {' •••• '}
+                                          {tx.paymentMethod.last4}
+                                        </>
+                                      ) : (
+                                        'Card'
+                                      )}
+                                    </p>
+                                  </div>
+                                )}
+                              </div>
+                              {tx.stripeCheckoutSessionId && (
+                                <p className="text-gray-500 text-xs mt-3">
+                                  Transaction ID: {tx.stripePaymentIntentId}
+                                </p>
+                              )}
+                            </div>
+                          );
+                        })}
+                      </div>
+                    ) : (
+                      <div className="text-center py-12">
+                        <CreditCard className="w-16 h-16 text-gray-500 mx-auto mb-4" />
+                        <p className="text-gray-400 text-lg">No payment history</p>
+                        <p className="text-gray-500 text-sm mt-2">
+                          Your payment transactions will appear here
+                        </p>
+                      </div>
+                    )}
                   </div>
                 )}
               </div>
