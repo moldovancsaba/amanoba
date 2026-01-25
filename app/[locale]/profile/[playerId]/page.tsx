@@ -9,17 +9,26 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { useSession } from 'next-auth/react';
 import PlayerAvatar from '@/components/PlayerAvatar';
+import { 
+  Trophy, 
+  TrendingUp, 
+  Clock, 
+  CreditCard
+} from 'lucide-react';
 
 // Force dynamic rendering
 export const dynamic = 'force-dynamic';
 
 export default function ProfilePage({ params }: { params: Promise<{ playerId: string }> }) {
+  const { data: session } = useSession();
   const [playerId, setPlayerId] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
   const [profileData, setProfileData] = useState<any>(null);
   const [apiError, setApiError] = useState<string | null>(null);
   const [apiLoading, setApiLoading] = useState(false);
+  const [activeTab, setActiveTab] = useState<'overview' | 'achievements' | 'activity' | 'payments'>('overview');
 
   // Unwrap async params - following pattern from CourseDetailPage
   useEffect(() => {
@@ -186,6 +195,59 @@ export default function ProfilePage({ params }: { params: Promise<{ playerId: st
                     </div>
                   )}
                 </div>
+              </div>
+              
+              {/* Step 4: Add Tabs */}
+              <div className="flex gap-2 mb-6 mt-8">
+                {[
+                  { id: 'overview', label: 'Overview', icon: TrendingUp },
+                  { id: 'achievements', label: 'Achievements', icon: Trophy },
+                  { id: 'activity', label: 'Activity', icon: Clock },
+                  ...(profileData.wallet ? [{ id: 'payments', label: 'Payments', icon: CreditCard }] : []),
+                ].map((tab) => {
+                  const Icon = tab.icon;
+                  return (
+                    <button
+                      key={tab.id}
+                      onClick={() => setActiveTab(tab.id as 'overview' | 'achievements' | 'activity' | 'payments')}
+                      className={`flex items-center gap-2 px-6 py-3 rounded-lg font-semibold transition-all ${
+                        activeTab === tab.id
+                          ? 'bg-brand-darkGrey text-brand-white'
+                          : 'bg-brand-darkGrey text-brand-white/70 hover:bg-brand-black/20'
+                      }`}
+                    >
+                      <Icon className="w-5 h-5" />
+                      {tab.label}
+                    </button>
+                  );
+                })}
+              </div>
+
+              {/* Tab Content */}
+              <div className="space-y-6">
+                {activeTab === 'overview' && (
+                  <div className="page-card-dark p-6">
+                    <p className="text-brand-white">Overview tab content - coming in Step 5</p>
+                  </div>
+                )}
+
+                {activeTab === 'achievements' && (
+                  <div className="page-card-dark p-6">
+                    <p className="text-brand-white">Achievements tab content - coming in Step 6</p>
+                  </div>
+                )}
+
+                {activeTab === 'activity' && (
+                  <div className="page-card-dark p-6">
+                    <p className="text-brand-white">Activity tab content - coming in Step 7</p>
+                  </div>
+                )}
+
+                {activeTab === 'payments' && profileData.wallet && (
+                  <div className="page-card-dark p-6">
+                    <p className="text-brand-white">Payments tab content - coming in Step 8</p>
+                  </div>
+                )}
               </div>
               
               {/* Debug: Show API response (can be removed later) */}
