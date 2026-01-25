@@ -52,6 +52,18 @@ interface Course {
     completionXP: number;
     lessonXP: number;
   };
+  certification?: {
+    enabled: boolean;
+    poolCourseId?: string;
+    priceMoney?: {
+      amount: number;
+      currency: string;
+    };
+    pricePoints?: number;
+    premiumIncludesCertification?: boolean;
+    templateId?: string;
+    credentialTitleId?: string;
+  };
 }
 
 interface Lesson {
@@ -529,6 +541,146 @@ export default function CourseEditorPage({
                 </select>
                 <p className="text-xs text-brand-darkGrey mt-1">
                   Minimum: {getFormattedMinimum(course.price?.currency || 'usd')}
+                </p>
+              </div>
+            </>
+          )}
+        </div>
+      </div>
+
+      {/* Certification Settings */}
+      <div className="bg-brand-white rounded-xl p-6 border-2 border-brand-accent">
+        <h2 className="text-xl font-bold text-brand-black mb-4">Certification Settings</h2>
+        <div className="space-y-4">
+          <div>
+            <label className="flex items-center gap-2 cursor-pointer">
+              <input
+                type="checkbox"
+                checked={course.certification?.enabled || false}
+                onChange={(e) => setCourse({
+                  ...course,
+                  certification: {
+                    ...course.certification,
+                    enabled: e.target.checked,
+                    pricePoints: course.certification?.pricePoints || 0,
+                    premiumIncludesCertification: course.certification?.premiumIncludesCertification || false,
+                    templateId: course.certification?.templateId || 'default_v1',
+                    credentialTitleId: course.certification?.credentialTitleId || '',
+                  },
+                })}
+                className="w-5 h-5 text-brand-accent border-brand-darkGrey rounded focus:ring-brand-accent"
+              />
+              <span className="text-sm font-medium text-brand-black">Enable Certification</span>
+            </label>
+            <p className="text-xs text-brand-darkGrey mt-1 ml-7">
+              Allow students to earn certificates for completing this course
+            </p>
+          </div>
+
+          {course.certification?.enabled && (
+            <>
+              <div>
+                <label className="block text-sm font-medium text-brand-black mb-2">
+                  Price (Points)
+                </label>
+                <input
+                  type="number"
+                  min="0"
+                  step="1"
+                  value={course.certification?.pricePoints || 0}
+                  onChange={(e) => setCourse({
+                    ...course,
+                    certification: {
+                      ...course.certification,
+                      enabled: true,
+                      pricePoints: parseInt(e.target.value) || 0,
+                      premiumIncludesCertification: course.certification?.premiumIncludesCertification || false,
+                      templateId: course.certification?.templateId || 'default_v1',
+                      credentialTitleId: course.certification?.credentialTitleId || '',
+                    },
+                  })}
+                  className="w-full px-4 py-2 bg-brand-white border-2 border-brand-darkGrey rounded-lg text-brand-black focus:outline-none focus:border-brand-accent"
+                  placeholder="0"
+                />
+                <p className="text-xs text-brand-darkGrey mt-1">
+                  Points required to unlock certification exam (0 = free)
+                </p>
+              </div>
+
+              <div>
+                <label className="flex items-center gap-2 cursor-pointer">
+                  <input
+                    type="checkbox"
+                    checked={course.certification?.premiumIncludesCertification || false}
+                    onChange={(e) => setCourse({
+                      ...course,
+                      certification: {
+                        ...course.certification,
+                        enabled: true,
+                        pricePoints: course.certification?.pricePoints || 0,
+                        premiumIncludesCertification: e.target.checked,
+                        templateId: course.certification?.templateId || 'default_v1',
+                        credentialTitleId: course.certification?.credentialTitleId || '',
+                      },
+                    })}
+                    className="w-5 h-5 text-brand-accent border-brand-darkGrey rounded focus:ring-brand-accent"
+                  />
+                  <span className="text-sm font-medium text-brand-black">Premium Includes Certification</span>
+                </label>
+                <p className="text-xs text-brand-darkGrey mt-1 ml-7">
+                  Automatically grant certification access to premium course purchasers
+                </p>
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-brand-black mb-2">
+                  Template ID (Optional)
+                </label>
+                <input
+                  type="text"
+                  value={course.certification?.templateId || 'default_v1'}
+                  onChange={(e) => setCourse({
+                    ...course,
+                    certification: {
+                      ...course.certification,
+                      enabled: true,
+                      pricePoints: course.certification?.pricePoints || 0,
+                      premiumIncludesCertification: course.certification?.premiumIncludesCertification || false,
+                      templateId: e.target.value,
+                      credentialTitleId: course.certification?.credentialTitleId || '',
+                    },
+                  })}
+                  className="w-full px-4 py-2 bg-brand-white border-2 border-brand-darkGrey rounded-lg text-brand-black focus:outline-none focus:border-brand-accent"
+                  placeholder="default_v1"
+                />
+                <p className="text-xs text-brand-darkGrey mt-1">
+                  Certificate design template (default: default_v1)
+                </p>
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-brand-black mb-2">
+                  Credential Title ID (Optional)
+                </label>
+                <input
+                  type="text"
+                  value={course.certification?.credentialTitleId || ''}
+                  onChange={(e) => setCourse({
+                    ...course,
+                    certification: {
+                      ...course.certification,
+                      enabled: true,
+                      pricePoints: course.certification?.pricePoints || 0,
+                      premiumIncludesCertification: course.certification?.premiumIncludesCertification || false,
+                      templateId: course.certification?.templateId || 'default_v1',
+                      credentialTitleId: e.target.value,
+                    },
+                  })}
+                  className="w-full px-4 py-2 bg-brand-white border-2 border-brand-darkGrey rounded-lg text-brand-black focus:outline-none focus:border-brand-accent"
+                  placeholder="e.g., AAE, CERT"
+                />
+                <p className="text-xs text-brand-darkGrey mt-1">
+                  Credential identifier shown on certificate (e.g., "AAE" for Amanoba-Accredited Expert)
                 </p>
               </div>
             </>
