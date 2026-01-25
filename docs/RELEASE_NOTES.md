@@ -1,11 +1,85 @@
 # Amanoba Release Notes
 
-**Current Version**: 2.9.1  
-**Last Updated**: 2026-01-25T14:30:00.000Z
+**Current Version**: 2.9.2  
+**Last Updated**: 2026-01-25T18:00:00.000Z
 
 ---
 
 All completed tasks are documented here in reverse chronological order. This file follows the Changelog format and is updated with every version bump.
+
+---
+
+## [v2.9.2] — 2026-01-25 🔒📊🐛
+
+**Status**: MINOR RELEASE - Legal Compliance + Critical Bug Fix  
+**Type**: Feature Addition + Critical Bug Fix
+
+### 🔒 Google Analytics with Consent Mode v2 (GDPR/CCPA Compliance)
+
+**Problem**: No analytics tracking, no GDPR/CCPA compliance for cookie consent
+
+**Solution**: Implemented Google Analytics with Consent Mode v2 for legal compliance and user behavior tracking.
+
+#### Features
+- ✅ Google Analytics integration with measurement ID `G-53XPWHKJTM`
+- ✅ Consent Mode v2 implementation (default consent: denied)
+- ✅ Cookie consent banner with granular controls
+- ✅ Four consent types: analytics_storage, ad_storage, ad_user_data, ad_personalization
+- ✅ Persistent consent storage in localStorage
+- ✅ Fully translated in all 11 languages (88 new translations)
+
+#### Components Created
+- `components/GoogleAnalytics.tsx` - Google Analytics integration with Consent Mode v2
+- `components/CookieConsentBanner.tsx` - User-facing consent banner
+- `app/components/providers/ConsentProvider.tsx` - Consent state management
+
+#### Files Modified
+- `app/[locale]/layout.tsx` - Added ConsentProvider and CookieConsentBanner
+- `messages/*.json` (11 files) - Added consent translations
+
+**Documentation**: `docs/2026-01-25_GOOGLE_ANALYTICS_CONSENT_MODE_AND_COURSE_PROGRESS_FIX.md`
+
+### 🐛 Critical Bug Fix: Course Progress Tracking
+
+**Problem**: System did not properly store lesson completion state. Users had to manually close already-completed lessons to reach their current position. Every course visit started from lesson 1.
+
+**Root Cause**: `currentDay` was calculated incorrectly - it didn't account for gaps in completed days or point to the first uncompleted lesson.
+
+**Solution**: Implemented `calculateCurrentDay()` helper function that:
+- Finds the first uncompleted lesson based on `completedDays` array
+- Handles out-of-order completion correctly
+- Returns `totalDays + 1` if all lessons are completed
+- Ensures `currentDay` always points to the next lesson user should take
+
+#### Implementation
+- Added helper function to calculate correct `currentDay` from `completedDays`
+- Updated lesson completion API to recalculate `currentDay` after marking lesson complete
+- Updated lesson fetch API to validate and auto-fix `currentDay` if out of sync
+- Updated my-courses API to calculate `currentDay` on-the-fly for display
+
+#### Files Modified
+- `app/api/courses/[courseId]/day/[dayNumber]/route.ts` - Added helper, fixed completion logic, added validation
+- `app/api/my-courses/route.ts` - Added helper, calculate currentDay on-the-fly
+
+**Impact**: 
+- ✅ Users are taken directly to their next uncompleted lesson
+- ✅ Progress is correctly restored when revisiting courses
+- ✅ Out-of-order completion is handled correctly
+- ✅ No more manual lesson closing required
+
+### 📊 Metrics
+
+- **Files Created**: 3 (Google Analytics components)
+- **Files Modified**: 14 (1 layout + 11 translations + 2 API routes)
+- **Translations Added**: 88 (8 keys × 11 languages)
+- **Build Status**: ✅ SUCCESS - 0 errors, 0 warnings
+
+### 🛡️ Safety Rollback Plan
+
+**Baseline**: Current HEAD commit  
+**Previous Stable**: v2.9.1 (Course Language Separation Complete)  
+**Rollback Time**: <10 minutes  
+**Documentation**: See feature document for detailed rollback steps
 
 ---
 

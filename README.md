@@ -2,9 +2,9 @@
 
 **Current Version**: Restored to working baseline f20c34a — Unified 30-Day Learning Platform
 
-**Current Version**: 2.8.0  
-**Last Updated**: 2025-01-20T23:00:00.000Z  
-**Status**: Production Stable — Stripe Integration Complete — Premium Course Pricing Enabled
+**Current Version**: 2.9.2  
+**Last Updated**: 2026-01-25T18:00:00.000Z  
+**Status**: Production Stable — Google Analytics with Consent Mode v2 — Course Progress Tracking Fixed
 
 ## 🎓 Overview
 

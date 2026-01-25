@@ -1,7 +1,7 @@
 # Amanoba Roadmap — Future Plans & Strategic Directions
 
-**Version**: 2.8.2  
-**Last Updated**: 2025-01-27T12:00:00.000Z  
+**Version**: 2.9.2  
+**Last Updated**: 2026-01-25T18:00:00.000Z  
 **Vision**: Transform Amanoba into a unified 30-day learning platform with gamified education, assessment tools, email-based lesson delivery, and monetization
 
 ---
@@ -29,6 +29,8 @@
 - ~~Gate admin stats APIs (`app/api/admin/stats/verify`, `.../repair`) by role (admin/superadmin), not just session presence~~ ✅ FIXED (v2.8.0 - All admin routes protected with `requireAdmin()`)
 - ~~Fix runtime crash in `app/api/admin/system-info/route.ts` (missing `fs`/`path` imports or dead code removal)~~ ✅ FIXED (v2.7.1)
 - ~~Implement token-based unsubscribe in `app/api/email/unsubscribe/route.ts`~~ ✅ FIXED (v2.7.0)
+- ~~Implement Google Analytics with Consent Mode v2 for GDPR/CCPA compliance~~ ✅ FIXED (v2.9.2 - Full consent management system)
+- ~~Fix course progress tracking to properly restore user's position~~ ✅ FIXED (v2.9.2 - currentDay calculation fixed)
 - Restrict `app/api/profile/[playerId]` data exposure (wallet balances, `lastSeenAt`) to self/admin; clarify intended visibility
 - Wire rate limiting (`app/lib/security.ts`) into auth/profile/admin/progress endpoints
 

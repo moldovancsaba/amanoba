@@ -12,6 +12,32 @@ import { CourseProgress, Course, Player } from '@/lib/models';
 import { logger } from '@/lib/logger';
 
 /**
+ * Calculate the current day (first uncompleted lesson) based on completed days
+ * 
+ * What: Finds the first day number that is not in the completedDays array
+ * Why: Ensures currentDay always points to the next lesson the user should take
+ */
+function calculateCurrentDay(completedDays: number[], totalDays: number): number {
+  // If no days completed, start at day 1
+  if (!completedDays || completedDays.length === 0) {
+    return 1;
+  }
+
+  // Sort completed days to handle out-of-order completion
+  const sortedCompleted = [...completedDays].sort((a, b) => a - b);
+
+  // Find the first gap in completed days
+  for (let day = 1; day <= totalDays; day++) {
+    if (!sortedCompleted.includes(day)) {
+      return day;
+    }
+  }
+
+  // All days completed
+  return totalDays + 1;
+}
+
+/**
  * GET /api/my-courses
  * 
  * What: Get all courses student is enrolled in
@@ -41,9 +67,14 @@ export async function GET(request: NextRequest) {
     // Calculate progress for each course
     const courses = progressList.map((progress: any) => {
       const course = progress.courseId;
-      const completedDays = progress.completedDays?.length || 0;
+      const completedDaysArray = progress.completedDays || [];
+      const completedDays = completedDaysArray.length;
       const totalDays = course?.durationDays || 30;
       const progressPercentage = (completedDays / totalDays) * 100;
+
+      // Calculate correct currentDay based on completed days
+      // This ensures the UI always shows the correct next lesson
+      const correctCurrentDay = calculateCurrentDay(completedDaysArray, totalDays);
 
       return {
         course: {
@@ -55,7 +86,7 @@ export async function GET(request: NextRequest) {
           durationDays: course?.durationDays,
         },
         progress: {
-          currentDay: progress.currentDay,
+          currentDay: correctCurrentDay, // Use calculated currentDay instead of stored one
           completedDays,
           totalDays,
           progressPercentage: Math.round(progressPercentage),

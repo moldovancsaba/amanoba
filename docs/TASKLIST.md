@@ -1,13 +1,48 @@
 # Amanoba Task List
 
-**Version**: 2.9.1  
-**Last Updated**: 2026-01-25T14:30:00.000Z
+**Version**: 2.9.2  
+**Last Updated**: 2026-01-25T18:00:00.000Z
 
 ---
 
 ## Active Tasks
 
 Tasks are listed in priority order. Upon completion, tasks are moved to RELEASE_NOTES.md.
+
+---
+
+## ✅ P0 - COMPLETE: Google Analytics Consent Mode v2 & Course Progress Fix
+
+**Status**: ✅ **COMPLETE**  
+**Priority**: P0 (Legal Compliance + Critical Bug Fix)  
+**Reported**: 2026-01-25  
+**Documentation**: `docs/2026-01-25_GOOGLE_ANALYTICS_CONSENT_MODE_AND_COURSE_PROGRESS_FIX.md`  
+**Completed**: 2026-01-25
+
+### Goal
+1. Implement Google Analytics with Consent Mode v2 for GDPR/CCPA compliance
+2. Fix course progress tracking to properly restore user's position in courses
+
+### Tasks Completed
+
+| ID | Task | Owner | Expected Delivery | Status |
+|----|------|-------|-------------------|--------|
+| GA1 | Create GoogleAnalytics component with Consent Mode v2 | AI | 2026-01-25 | ✅ DONE |
+| GA2 | Create ConsentProvider for consent state management | AI | 2026-01-25 | ✅ DONE |
+| GA3 | Create CookieConsentBanner component with granular controls | AI | 2026-01-25 | ✅ DONE |
+| GA4 | Add consent translations to all 11 languages | AI | 2026-01-25 | ✅ DONE |
+| GA5 | Integrate consent system into layout | AI | 2026-01-25 | ✅ DONE |
+| PROG1 | Create calculateCurrentDay() helper function | AI | 2026-01-25 | ✅ DONE |
+| PROG2 | Fix lesson completion API to recalculate currentDay | AI | 2026-01-25 | ✅ DONE |
+| PROG3 | Add currentDay validation to lesson fetch API | AI | 2026-01-25 | ✅ DONE |
+| PROG4 | Update my-courses API to calculate currentDay on-the-fly | AI | 2026-01-25 | ✅ DONE |
+
+**Commits**: 2 commits delivered  
+**Files Created**: 3 (Google Analytics components)  
+**Files Modified**: 14 (1 layout + 11 translations + 2 API routes)  
+**Translations Added**: 88 (8 keys × 11 languages)  
+**Build Status**: ✅ SUCCESS - 0 errors, 0 warnings  
+**Status**: ✅ COMPLETE - Google Analytics active, course progress fixed
 
 ---
 

@@ -1,8 +1,8 @@
 # Amanoba Architecture
 
-**Version**: 2.9.0  
-**Last Updated**: 2025-01-23T10:00:00.000Z  
-**Status**: Active - Course System Complete - Payment System Integrated - CTA Yellow Rule Enforced
+**Version**: 2.9.2  
+**Last Updated**: 2026-01-25T18:00:00.000Z  
+**Status**: Active - Course System Complete - Payment System Integrated - Google Analytics with Consent Mode v2 - Course Progress Fixed
 
 ---
 
@@ -430,6 +430,16 @@ amanoba/
 - Difficulty Breakdown: Mastery by level
 - Time of Day: Performance by hour
 
+**Google Analytics with Consent Mode v2** (v2.9.2)
+- Google Analytics integration with measurement ID `G-53XPWHKJTM`
+- Consent Mode v2 implementation for GDPR/CCPA compliance
+- Default consent state: denied (privacy-first approach)
+- Four consent types: analytics_storage, ad_storage, ad_user_data, ad_personalization
+- Cookie consent banner with granular controls
+- Persistent consent storage in localStorage
+- Fully translated in all 11 languages
+- Components: `GoogleAnalytics.tsx`, `CookieConsentBanner.tsx`, `ConsentProvider.tsx`
+
 ### 4. Security
 
 **Authentication**
@@ -530,13 +540,17 @@ amanoba/
 - Email preferences per student (frequency, time, timezone)
 - Unsubscribe functionality with token-based verification
 
-**Course Progress Tracking**
+**Course Progress Tracking** (v2.9.2)
 - `CourseProgress` model tracks:
-  - Current day (1-30)
-  - Completed days array
+  - Current day (1-30) - Calculated from completedDays array (first uncompleted lesson)
+  - Completed days array - Tracks which lessons have been completed
   - Assessment results per lesson
   - Email delivery tracking
   - Status (not_started, in_progress, completed, abandoned)
+- `calculateCurrentDay()` helper function ensures currentDay always points to next uncompleted lesson
+- Handles out-of-order completion correctly
+- Auto-fixes currentDay if out of sync when fetching lessons
+- Users are taken directly to their next uncompleted lesson when revisiting courses
 
 **Cascading Deletes**
 - Course deletion removes:

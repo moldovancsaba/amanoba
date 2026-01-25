@@ -12,6 +12,32 @@ import { Course, Lesson, CourseProgress, Player } from '@/lib/models';
 import { logger } from '@/lib/logger';
 
 /**
+ * Calculate the current day (first uncompleted lesson) based on completed days
+ * 
+ * What: Finds the first day number that is not in the completedDays array
+ * Why: Ensures currentDay always points to the next lesson the user should take
+ */
+function calculateCurrentDay(completedDays: number[], totalDays: number): number {
+  // If no days completed, start at day 1
+  if (!completedDays || completedDays.length === 0) {
+    return 1;
+  }
+
+  // Sort completed days to handle out-of-order completion
+  const sortedCompleted = [...completedDays].sort((a, b) => a - b);
+
+  // Find the first gap in completed days
+  for (let day = 1; day <= totalDays; day++) {
+    if (!sortedCompleted.includes(day)) {
+      return day;
+    }
+  }
+
+  // All days completed
+  return totalDays + 1;
+}
+
+/**
  * GET /api/courses/[courseId]/day/[dayNumber]
  * 
  * What: Get lesson for a specific day, check if unlocked
@@ -69,6 +95,23 @@ export async function GET(
       logger.info({ courseId, playerId: player._id.toString() }, 'Auto-enrolled in course for testing');
     }
 
+    // Ensure currentDay is correct based on completedDays
+    // This fixes cases where currentDay might be out of sync
+    const correctCurrentDay = calculateCurrentDay(
+      progress.completedDays || [],
+      course.durationDays
+    );
+    if (progress.currentDay !== correctCurrentDay) {
+      const oldCurrentDay = progress.currentDay;
+      progress.currentDay = correctCurrentDay;
+      progress.lastAccessedAt = new Date();
+      await progress.save();
+      logger.info(
+        { courseId, oldCurrentDay, newCurrentDay: correctCurrentDay, playerId: player._id.toString() },
+        'Updated currentDay to match completedDays'
+      );
+    }
+
     // Find lesson
     const lesson = await Lesson.findOne({
       courseId: course._id,
@@ -81,6 +124,7 @@ export async function GET(
     }
 
     // Check if lesson is unlocked
+    // Lesson is unlocked if it's day 1, or if the previous day is completed, or if currentDay >= day
     const isUnlocked =
       day === 1 ||
       progress.completedDays?.includes(day - 1) ||
@@ -186,13 +230,22 @@ export async function POST(
     // Mark as completed
     if (!progress.completedDays?.includes(day)) {
       progress.completedDays.push(day);
-      progress.currentDay = Math.max(progress.currentDay, day + 1);
+      
+      // Recalculate currentDay based on all completed days
+      // This ensures currentDay always points to the first uncompleted lesson
+      progress.currentDay = calculateCurrentDay(
+        progress.completedDays,
+        course.durationDays
+      );
+      
       progress.lastAccessedAt = new Date();
 
       // Check if course is completed
       if (progress.completedDays.length >= course.durationDays) {
         progress.status = 'COMPLETED';
         progress.completedAt = new Date();
+        // If all days completed, currentDay should be totalDays + 1
+        progress.currentDay = course.durationDays + 1;
       }
 
       await progress.save();
@@ -202,7 +255,10 @@ export async function POST(
       player.xp += lesson.xpReward;
       await player.save();
 
-      logger.info({ courseId, day, playerId: player._id.toString() }, 'Lesson completed');
+      logger.info(
+        { courseId, day, currentDay: progress.currentDay, completedDays: progress.completedDays.length, playerId: player._id.toString() },
+        'Lesson completed'
+      );
     }
 
     return NextResponse.json({
