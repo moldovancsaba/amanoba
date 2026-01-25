@@ -36,7 +36,7 @@ interface ProfileData {
     profilePicture?: string;
     isPremium: boolean;
     createdAt: string;
-    lastSeenAt: string;
+    lastSeenAt?: string; // Optional - only included for own profile/admin
   };
   progression: {
     level: number;
@@ -57,11 +57,11 @@ interface ProfileData {
     highestScore: number;
     perfectGames: number;
   };
-  wallet: {
+  wallet?: {
     currentBalance: number;
     lifetimeEarned: number;
     lifetimeSpent: number;
-  };
+  }; // Optional - only included for own profile/admin
   achievements: {
     total: number;
     unlocked: number;
@@ -79,12 +79,12 @@ interface ProfileData {
     win: {
       current: number;
       longest: number;
-      lastActivity: string;
+      lastActivity?: string; // Optional - may be undefined
     };
     daily: {
       current: number;
       longest: number;
-      lastActivity: string;
+      lastActivity?: string; // Optional - may be undefined
     };
   };
   recentActivity: Array<{
@@ -349,28 +349,30 @@ export default function ProfilePage({ params }: { params: Promise<{ playerId: st
 
               {/* Wallet & Stats */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="page-card-dark p-6">
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className="w-12 h-12 bg-purple-500 rounded-lg flex items-center justify-center">
-                      <Coins className="w-6 h-6 text-white" />
+                {profile.wallet && (
+                  <div className="page-card-dark p-6">
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className="w-12 h-12 bg-purple-500 rounded-lg flex items-center justify-center">
+                        <Coins className="w-6 h-6 text-white" />
+                      </div>
+                      <h3 className="text-xl font-bold text-white">Points Wallet</h3>
                     </div>
-                    <h3 className="text-xl font-bold text-white">Points Wallet</h3>
+                    <div className="space-y-3">
+                      <div className="flex justify-between">
+                        <span className="text-gray-400">Current Balance</span>
+                        <span className="text-white font-bold">{profile.wallet.currentBalance.toLocaleString()}</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span className="text-gray-400">Lifetime Earned</span>
+                        <span className="text-green-400 font-bold">{profile.wallet.lifetimeEarned.toLocaleString()}</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span className="text-gray-400">Lifetime Spent</span>
+                        <span className="text-red-400 font-bold">{profile.wallet.lifetimeSpent.toLocaleString()}</span>
+                      </div>
+                    </div>
                   </div>
-                  <div className="space-y-3">
-                    <div className="flex justify-between">
-                      <span className="text-gray-400">Current Balance</span>
-                      <span className="text-white font-bold">{profile.wallet.currentBalance.toLocaleString()}</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-gray-400">Lifetime Earned</span>
-                      <span className="text-green-400 font-bold">{profile.wallet.lifetimeEarned.toLocaleString()}</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-gray-400">Lifetime Spent</span>
-                      <span className="text-red-400 font-bold">{profile.wallet.lifetimeSpent.toLocaleString()}</span>
-                    </div>
-                  </div>
-                </div>
+                )}
 
                 <div className="page-card-dark p-6">
                   <div className="flex items-center gap-3 mb-4">
