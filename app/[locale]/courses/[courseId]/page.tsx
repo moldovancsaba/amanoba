@@ -107,7 +107,7 @@ export default function CourseDetailPage({
     hu: {
       aboutThisCourse: 'Mire számíthatsz',
       whatYoullLearn: 'Amit megtanulhatsz',
-      dailyLessons: '30 napos kurzus',
+      dailyLessons: 'napos kurzus',
       structuredLearning: 'Napi 20-30 perces leckék, AI-támogatással',
       pointsEarned: 'Értékeljük a tudásod',
       emailDelivery: 'E-mailben megkapod',
@@ -152,7 +152,7 @@ export default function CourseDetailPage({
     en: {
       aboutThisCourse: 'Course Overview',
       whatYoullLearn: 'What You Get',
-      dailyLessons: '30-day course',
+      dailyLessons: 'day course',
       structuredLearning: 'Daily 20-30 min lessons with AI support',
       pointsEarned: 'Earn points for completion',
       emailDelivery: 'Delivered to your inbox',
@@ -197,7 +197,7 @@ export default function CourseDetailPage({
     tr: {
       aboutThisCourse: 'Kurs Özeti',
       whatYoullLearn: 'Neler Öğreneceksin',
-      dailyLessons: '30 günlük kurs',
+      dailyLessons: 'günlük kurs',
       structuredLearning: 'Günde 20-30 dakikalık AI destekli dersler',
       pointsEarned: 'Tamamlama için puan kazan',
       emailDelivery: 'E-postana teslim edilir',
@@ -242,7 +242,7 @@ export default function CourseDetailPage({
     bg: {
       aboutThisCourse: 'Преглед на курса',
       whatYoullLearn: 'Какво получаваш',
-      dailyLessons: '30-дневен курс',
+      dailyLessons: 'дневен курс',
       structuredLearning: 'Ежедневни 20-30 минутни уроци с ИИ подкрепа',
       pointsEarned: 'Спечели точки при завършване',
       emailDelivery: 'Доставено в твоята пощенска кутия',
@@ -287,7 +287,7 @@ export default function CourseDetailPage({
     pl: {
       aboutThisCourse: 'Przegląd Kursu',
       whatYoullLearn: 'Co otrzymujesz',
-      dailyLessons: 'Kurs 30-dniowy',
+      dailyLessons: 'dniowy kurs',
       structuredLearning: 'Codzienne lekcje 20-30 minut wspierane przez AI',
       pointsEarned: 'Zdobądź punkty za ukończenie',
       emailDelivery: 'Dostarczane na Twoją skrzynkę',
@@ -332,7 +332,7 @@ export default function CourseDetailPage({
     vi: {
       aboutThisCourse: 'Tổng Quan Khóa Học',
       whatYoullLearn: 'Những Gì Bạn Nhận Được',
-      dailyLessons: 'Khóa học 30 ngày',
+      dailyLessons: 'ngày khóa học',
       structuredLearning: 'Các bài học 20-30 phút mỗi ngày hỗ trợ AI',
       pointsEarned: 'Kiếm điểm khi hoàn thành',
       emailDelivery: 'Gửi đến hộp thư của bạn',
@@ -377,7 +377,7 @@ export default function CourseDetailPage({
     id: {
       aboutThisCourse: 'Ringkasan Kursus',
       whatYoullLearn: 'Apa yang Anda Dapatkan',
-      dailyLessons: 'Kursus 30 hari',
+      dailyLessons: 'hari kursus',
       structuredLearning: 'Pelajaran harian 20-30 menit dengan dukungan AI',
       pointsEarned: 'Dapatkan poin saat menyelesaikan',
       emailDelivery: 'Dikirim ke inbox Anda',
@@ -422,7 +422,7 @@ export default function CourseDetailPage({
     ar: {
       aboutThisCourse: 'نظرة عامة على الدورة',
       whatYoullLearn: 'ما ستحصل عليه',
-      dailyLessons: 'دورة 30 يوم',
+      dailyLessons: 'يوم دورة',
       structuredLearning: 'دروس يومية 20-30 دقيقة بدعم الذكاء الاصطناعي',
       pointsEarned: 'اكسب نقاطاً عند الإكمال',
       emailDelivery: 'يتم إرسالها إلى بريدك',
@@ -467,7 +467,7 @@ export default function CourseDetailPage({
     pt: {
       aboutThisCourse: 'Visão Geral do Curso',
       whatYoullLearn: 'O Que Você Recebe',
-      dailyLessons: 'Curso de 30 dias',
+      dailyLessons: 'dias curso',
       structuredLearning: 'Aulas de 20-30 min diárias com suporte de IA',
       pointsEarned: 'Ganhe pontos ao concluir',
       emailDelivery: 'Entregue na sua caixa de entrada',
@@ -512,7 +512,7 @@ export default function CourseDetailPage({
     hi: {
       aboutThisCourse: 'कोर्स की जानकारी',
       whatYoullLearn: 'आप क्या पाएंगे',
-      dailyLessons: '30 दिन का कोर्स',
+      dailyLessons: 'दिन का कोर्स',
       structuredLearning: 'रोज 20-30 मिनट की पाठें, AI के साथ',
       pointsEarned: 'पूरा करने पर अंक प्राप्त करें',
       emailDelivery: 'आपके ईमेल में मिलेगा',

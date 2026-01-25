@@ -468,3 +468,118 @@ export async function getPlayerAchievementsByCategory(
   
   return grouped;
 }
+
+/**
+ * Check and unlock course completion achievements
+ * 
+ * What: Unlocks achievements when a course is completed
+ * Why: Rewards players for completing courses
+ * 
+ * @param playerId - The player who completed the course
+ * @param courseId - The course that was completed
+ * @returns Array of unlocked achievements
+ */
+export async function checkAndUnlockCourseCompletionAchievements(
+  playerId: mongoose.Types.ObjectId,
+  courseId: mongoose.Types.ObjectId
+): Promise<AchievementUnlockResult[]> {
+  const results: AchievementUnlockResult[] = [];
+  
+  try {
+    // Import CourseProgress here to avoid circular dependencies
+    const { CourseProgress } = await import('../models');
+    
+    // Verify course is actually completed
+    const progress = await CourseProgress.findOne({
+      playerId,
+      courseId,
+    }).lean();
+    
+    if (!progress || progress.status !== 'completed') {
+      logger.info(
+        { playerId, courseId, status: progress?.status },
+        'Course not completed, skipping achievement check'
+      );
+      return results;
+    }
+    
+    // Find course completion achievements
+    // Look for achievements with "course" or "completion" in name, or custom criteria
+    const courseCompletionAchievements = await Achievement.find({
+      'metadata.isActive': true,
+      $or: [
+        { name: { $regex: /course.*complet|complet.*course/i } },
+        { 
+          criteria: { 
+            type: 'custom',
+            condition: { $regex: /course.*complet|complet.*course/i }
+          }
+        },
+      ],
+    }).lean();
+    
+    if (courseCompletionAchievements.length === 0) {
+      logger.info(
+        { playerId, courseId },
+        'No course completion achievements found'
+      );
+      return results;
+    }
+    
+    // Get existing unlocks
+    const existingUnlocks = await AchievementUnlock.find({
+      playerId,
+      achievementId: { $in: courseCompletionAchievements.map(a => a._id) },
+    }).lean();
+    
+    const unlockedIds = new Set(
+      existingUnlocks
+        .filter(u => u.progress >= 100)
+        .map(u => u.achievementId.toString())
+    );
+    
+    // Unlock achievements that aren't already unlocked
+    for (const achievement of courseCompletionAchievements) {
+      const achievementId = achievement._id.toString();
+      
+      if (unlockedIds.has(achievementId)) {
+        continue; // Already unlocked
+      }
+      
+      logger.info(
+        {
+          playerId,
+          courseId,
+          achievementId,
+          achievementName: achievement.name,
+        },
+        '🎉 UNLOCKING COURSE COMPLETION ACHIEVEMENT'
+      );
+      
+      const result = await unlockAchievement(
+        playerId,
+        achievement as IAchievement,
+        1, // currentValue = 1 (course completed)
+        undefined // no source session
+      );
+      
+      if (result) {
+        results.push(result);
+      }
+    }
+    
+    logger.info(
+      { playerId, courseId, unlockedCount: results.length },
+      'Course completion achievement check completed'
+    );
+    
+    return results;
+  } catch (error) {
+    logger.error(
+      { err: error, playerId, courseId },
+      'Failed to check course completion achievements'
+    );
+    // Don't throw - achievement unlock shouldn't block course completion
+    return results;
+  }
+}

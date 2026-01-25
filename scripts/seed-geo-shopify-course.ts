@@ -38,59 +38,72 @@ const lessonPlan: LessonEntry[] = [
     day: 1,
     title: 'Mi a GEO, és mi nem az (Shopify kontextusban)',
     content: `<h1>Mi a GEO, és mi nem az (Shopify)</h1>
-<p><em>Megérted, hogy a GEO hogyan különbözik az SEO-tól, és mit jelent az AI-válaszokban való megjelenés.</em></p>
+<p><em>Ma megtanulod, hogy a GEO hogyan különbözik az SEO-tól, és mit jelent, amikor a boltod az AI-válaszokban megjelenik.</em></p>
 <hr />
-<h2>Napi cél</h2>
+<h2>Mit fogsz ma megtanulni?</h2>
+<p>Ma ezt a három dolgot fogod elérni:</p>
 <ul>
-<li>Tisztán különválasztod a GEO és az SEO fogalmát.</li>
-<li>Azonosítod, milyen eredményt vársz GEO-tól (idézet, bevonás, következetesség).</li>
-<li>Készítesz 5 próba promptot a saját boltodra.</li>
+<li>Tisztán megérted a GEO és az SEO különbségét.</li>
+<li>Pontosan tudod, mit várhatsz a GEO-tól: idézést, bevonást és következetességet.</li>
+<li>Készítesz 5 saját GEO promptot a boltodra, amit azonnal használhatsz.</li>
 </ul>
 <hr />
-<h2>Miért számít?</h2>
+<h2>Miért fontos ez neked?</h2>
+<p>Az AI-válaszokban a boltod csak akkor jelenik meg, ha az információ könnyen előhívható és biztonságosan idézhető. A GEO növeli az esélyt, hogy megjelenj, de nem garantálja a tranzakciót. A jó GEO-alap csökkenti a kockázatot, hogy félreértett ajánlásokban szerepelj (téves ár, készlet vagy szállítási információk).</p>
+<hr />
+<h2>GEO vs SEO: mi a különbség?</h2>
+<h3>SEO: a hagyományos keresés</h3>
+<p>Az SEO a keresőmotor rangsorolása a 10 kék linkben. Célod, hogy a keresési találatok között minél feljebb jelenj meg.</p>
+<h3>GEO: az AI-válaszokban való szereplés</h3>
+<p>A GEO azt jelenti, hogy a generatív motor válaszaiban szerepelsz és idézhető vagy. Nem a keresési listán vagy, hanem közvetlenül az AI válaszban.</p>
+<h3>Mit várhatsz a GEO-tól?</h3>
 <ul>
-<li>Az AI-válaszokban a boltok csak akkor jelennek meg, ha az információ könnyen előhívható és biztonságosan idézhető.</li>
-<li>A GEO növeli az esélyt a megjelenésre; nem garantálja a tranzakciót.</li>
-<li>A jó GEO-alap csökkenti a félreértett ajánlások kockázatát (téves ár, készlet, szállítás).</li>
+<li><strong>Inklúzió</strong>: bekerül-e a termék vagy a márkád az AI válaszba</li>
+<li><strong>Idézés</strong>: hivatkozik-e a domainre, amikor a boltodat említi</li>
+<li><strong>Konzisztencia</strong>: ismétlődik-e a megjelenés több futtatásban is</li>
 </ul>
 <hr />
-<h2>Magyarázat</h2>
-<h3>GEO vs SEO</h3>
+<h2>Példák: mi működik, mi nem?</h2>
+<h3>✅ Jó GEO-alap</h3>
 <ul>
-<li><strong>SEO</strong>: keresőmotor rangsor a 10 kék linkben.</li>
-<li><strong>GEO</strong>: generatív motor válaszaiban való szereplés, idézhetőség.</li>
+<li>Egyértelmű termékadatok: GTIN, ár, készlet minden terméknél</li>
+<li>Világos szállítási és visszaküldési információk</li>
+<li>Tiszta HTML struktúra</li>
+<li>Stabil URL-ek, amelyek nem változnak</li>
 </ul>
-<h3>Mit várhatsz GEO-tól?</h3>
+<h3>❌ Rossz GEO-alap</h3>
 <ul>
-<li>Inklúzió: bekerül-e a termék/brand az AI válaszba.</li>
-<li>Idézés: hivatkozik-e a domainre.</li>
-<li>Konzisztencia: ismétlődik-e több futtatásban.</li>
-</ul>
-<hr />
-<h2>Példák</h2>
-<ul>
-<li><strong>Jó</strong>: Egyértelmű termékadatok (GTIN, ár, készlet), világos szállítás/retour, tiszta HTML, stabil URL.</li>
-<li><strong>Rossz</strong>: Hiányzó azonosítók, félrevezető ár, dinamikus vagy duplikált URL-ek, átláthatatlan szállítás.</li>
+<li>Hiányzó azonosítók (GTIN, SKU)</li>
+<li>Félrevezető vagy hiányzó ár</li>
+<li>Dinamikus vagy duplikált URL-ek</li>
+<li>Átláthatatlan szállítási információk</li>
 </ul>
 <hr />
-<h2>Gyakorlat (vezetett, 10-15 perc)</h2>
+<h2>Gyakorlat: írd meg az első GEO promptjaidat (10-15 perc)</h2>
+<p>Most készíts 5 GEO promptot a boltodra. Íme a lépések:</p>
 <ol>
-<li>Írj 5 GEO promptot a boltodra (pl. „Legjobb [termékkategória] 2025-ben [ország]”).</li>
-<li>Jegyezd fel, mit vársz: inklúzió, idézés, konzisztencia.</li>
-<li>Mentés egy táblázatba (Prompt, Várt kimenet, Jegyzet).</li>
+<li>Írj 5 GEO promptot a boltodra. Példa: „Legjobb [termékkategória] 2026-ban [ország]”.</li>
+<li>Minden promptnál jegyezd fel, mit vársz: inklúziót, idézést vagy konzisztenciát?</li>
+<li>Mentsd el egy táblázatba ezekkel az oszlopokkal: Prompt, Várt kimenet, Jegyzet.</li>
 </ol>
-<h2>Gyakorlat (önálló, 5-10 perc)</h2>
-<p>Futtasd kézzel a 5 promptot ChatGPT/Copilot/Google AI felületen, jegyezd: megjelenik-e a boltod, hivatkozik-e rád.</p>
-<hr />
-<h2>Önellenőrzés (igen/nem)</h2>
+<h2>Önálló gyakorlat: teszteld a promptjaidat (5-10 perc)</h2>
+<p>Most futtasd le a 5 promptot kézzel a ChatGPT, Copilot vagy Google AI felületén. Jegyezd fel:</p>
 <ul>
-<li>Megvan 5 saját GEO prompt.</li>
-<li>Érted a különbséget GEO és SEO között.</li>
-<li>Felírtad, mit vársz a GEO-tól (inklúzió, idézés, konzisztencia).</li>
-<li>Elvégezted az első manuális futtatást és jegyzeteltél.</li>
+<li>Megjelenik-e a boltod a válaszokban?</li>
+<li>Hivatkozik-e rád a rendszer?</li>
+<li>Milyen információt használ az AI a boltodról?</li>
 </ul>
 <hr />
-<h2>Opcionális mélyítés</h2>
+<h2>Önellenőrzés</h2>
+<p>Mielőtt továbblépnél, ellenőrizd le:</p>
+<ul>
+<li>✅ Megvan 5 saját GEO promptod</li>
+<li>✅ Érted a különbséget a GEO és az SEO között</li>
+<li>✅ Felírtad, mit vársz a GEO-tól (inklúzió, idézés, konzisztencia)</li>
+<li>✅ Elvégzed az első manuális futtatást és jegyzetelsz</li>
+</ul>
+<hr />
+<h2>Ha mélyebbre szeretnél menni</h2>
 <ul>
 <li>arXiv: GEO (Generative Engine Optimization): <a href="https://arxiv.org/abs/2311.09735" target="_blank" rel="noreferrer">https://arxiv.org/abs/2311.09735</a></li>
 <li>Search Engine Land – What is GEO: <a href="https://searchengineland.com/guide/what-is-geo" target="_blank" rel="noreferrer">https://searchengineland.com/guide/what-is-geo</a></li>
@@ -98,65 +111,83 @@ const lessonPlan: LessonEntry[] = [
     emailSubject: 'GEO Shopify – 1. nap: Mi a GEO, és mi nem az',
     emailBody: `<h1>GEO Shopify – 1. nap</h1>
 <h2>Mi a GEO, és mi nem az</h2>
-<p>Ma megérted a GEO és az SEO különbségét, és 5 saját GEO promptot írsz a boltodra.</p>
+<p>Ma megtanulod a GEO és az SEO különbségét, és készítesz 5 saját GEO promptot a boltodra.</p>
 <p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Olvasd el a leckét →</a></p>`
   },
   {
     day: 2,
     title: 'GEO vs SEO Shopify-n: mire figyelj?',
     content: `<h1>GEO vs SEO Shopify-n: mire figyelj?</h1>
-<p><em>Rávilágítunk, mely elemek számítanak a generatív felületekben, és hogyan egészítik ki az SEO-t.</em></p>
+<p><em>Ma megtanulod, mely elemek számítanak a generatív felületekben, és hogyan egészítik ki ezek az SEO-t.</em></p>
 <hr />
-<h2>Napi cél</h2>
+<h2>Mit fogsz ma megtanulni?</h2>
+<p>Ma ezt a két dolgot fogod elérni:</p>
 <ul>
-<li>Listázod, mi SEO-first és mi GEO-first.</li>
-<li>Készítesz egy 10 pontos ellenőrzőlistát Shopify-hoz GEO szempontból.</li>
+<li>Pontosan megérted, mi az SEO-first és mi a GEO-first elemek közötti különbség.</li>
+<li>Készítesz egy 10 pontos ellenőrzőlistát Shopify-hoz GEO szempontból, amit azonnal használhatsz.</li>
 </ul>
 <hr />
-<h2>Miért számít?</h2>
+<h2>Miért fontos ez neked?</h2>
+<p>Az AI válaszok gyakran összefoglalják a fő termékadatokat. Ha ezek hiányosak, kimaradsz a válaszokból. A GEO nem csak rangsorolásról szól: a cél a világos, idézhető tartalom, amit az AI biztonságosan használhat.</p>
+<hr />
+<h2>SEO-first vs GEO-first: mi a különbség?</h2>
+<h3>SEO-first elemek (a hagyományos kereséshez)</h3>
+<p>Ezek az elemek a keresőmotor rangsorolásához segítenek:</p>
 <ul>
-<li>Az AI válaszok gyakran összefoglalják a fő termékadatokat: ha hiányos, kimaradsz.</li>
-<li>A GEO nem csak rangsor: a világos, idézhető tartalom a cél.</li>
+<li>Meta title és description</li>
+<li>Belső linkek</li>
+<li>Canonical URL-ek</li>
+<li>Page speed optimalizálás</li>
+<li>Backlinkek</li>
+<li>Strukturált tartalom hosszabb formában</li>
+</ul>
+<h3>GEO-first elemek (az AI-válaszokhoz)</h3>
+<p>Ezek az elemek segítenek, hogy az AI válaszokban szerepelj:</p>
+<ul>
+<li>Pontos termékadatok (ár, készlet, azonosítók) egyértelműen olvasható formában</li>
+<li>Visszaigazolható policy-k (szállítás, visszaküldés)</li>
+<li>Stabil URL-ek, amelyek nem változnak</li>
+<li>Tiszta, rövid válaszképes blokkok (answer capsule) a termékoldal tetején</li>
 </ul>
 <hr />
-<h2>Magyarázat</h2>
-<h3>SEO-first elemek</h3>
+<h2>Példák: mi működik, mi nem?</h2>
+<h3>✅ Jó GEO-alap</h3>
 <ul>
-<li>Meta title/description, belső linkek, canonical, page speed.</li>
-<li>Backlinkek, strukturált tartalom hosszabb formában.</li>
+<li>Termékoldal tetején tömör összegzés</li>
+<li>Jól strukturált ár és készlet információ</li>
+<li>GTIN és SKU minden terméknél feltüntetve</li>
+<li>Világos policy linkek</li>
 </ul>
-<h3>GEO-first elemek</h3>
+<h3>❌ Rossz GEO-alap</h3>
 <ul>
-<li>Pontos termékadatok (ár, készlet, azonosítók) egyértelműen olvashatóan.</li>
-<li>Visszaigazolható policy-k (szállítás, visszaküldés), stabil URL-ek.</li>
-<li>Tiszta, rövid válaszképes blokkok (answer capsule).</li>
-</ul>
-<hr />
-<h2>Példák</h2>
-<ul>
-<li><strong>Jó</strong>: Termékoldal tetején tömör összegzés, jól strukturált ár/stock, GTIN és SKU feltüntetve.</li>
-<li><strong>Rossz</strong>: Hosszú, rendezetlen leírás, hiányzó azonosítók, összemosott variánsadatok.</li>
+<li>Hosszú, rendezetlen leírás</li>
+<li>Hiányzó azonosítók (GTIN, SKU)</li>
+<li>Összemosott variánsadatok</li>
+<li>Nehezen megtalálható policy információk</li>
 </ul>
 <hr />
-<h2>Gyakorlat (vezetett, 10-15 perc)</h2>
+<h2>Gyakorlat: készítsd el a GEO checklistedet (10-15 perc)</h2>
+<p>Most készíts egy 10 pontos GEO checklistet Shopify-hoz. Íme a lépések:</p>
 <ol>
-<li>Készíts 10 pontos GEO checklistet Shopify-hoz (ár, készlet, GTIN/SKU, policy, answer capsule, stabil URL, alt text, structured data, belső link, reviews szabály).</li>
-<li>Jelöld, mi van rendben, mi hiányzik egy minta PDP-n.</li>
+<li>Készíts egy checklistet ezekkel a pontokkal: ár, készlet, GTIN/SKU, policy, answer capsule, stabil URL, alt text, structured data, belső link, reviews szabály.</li>
+<li>Válassz ki egy minta termékoldalt (PDP) a boltodban.</li>
+<li>Jelöld meg a checklisten, mi van rendben és mi hiányzik ezen az oldalon.</li>
 </ol>
-<h2>Gyakorlat (önálló, 5-10 perc)</h2>
-<p>Alkalmazd a checklistet 1 további termékoldalra, és írd fel 3 hiányosságot.</p>
+<h2>Önálló gyakorlat: alkalmazd a checklistet (5-10 perc)</h2>
+<p>Most alkalmazd a checklistet egy másik termékoldalra is. Írd fel 3 hiányosságot, amit javítanod kell.</p>
 <hr />
 <h2>Önellenőrzés</h2>
+<p>Mielőtt továbblépnél, ellenőrizd le:</p>
 <ul>
-<li>Megvan a 10 pontos GEO checklist.</li>
-<li>Egy PDP-n kipipáltad, mi van rendben/hiányzik.</li>
-<li>Felírtál 3 javítandó elemet egy másik PDP-n.</li>
+<li>✅ Megvan a 10 pontos GEO checklisted</li>
+<li>✅ Egy PDP-n kipipáltad, mi van rendben és mi hiányzik</li>
+<li>✅ Felírtál 3 javítandó elemet egy másik PDP-n</li>
 </ul>
 <hr />
-<h2>Opcionális mélyítés</h2>
+<h2>Ha mélyebbre szeretnél menni</h2>
 <ul>
 <li>Google Search Central – GenAI content: <a href="https://developers.google.com/search/docs/fundamentals/using-gen-ai-content" target="_blank" rel="noreferrer">https://developers.google.com/search/docs/fundamentals/using-gen-ai-content</a></li>
-<li>Shopify termékadat: <a href="https://shopify.dev/docs/api/liquid/objects/product" target="_blank" rel="noreferrer">https://shopify.dev/docs/api/liquid/objects/product</a></li>
+<li>Shopify termékadat API (2026 januárjában aktuális): <a href="https://shopify.dev/docs/api/liquid/objects/product" target="_blank" rel="noreferrer">https://shopify.dev/docs/api/liquid/objects/product</a></li>
 </ul>`,
     emailSubject: 'GEO Shopify – 2. nap: GEO vs SEO Shopify-n',
     emailBody: `<h1>GEO Shopify – 2. nap</h1>
@@ -216,15 +247,15 @@ const lessonPlan: LessonEntry[] = [
 <li>Készítettél egy rövid answer capsule-t egy PDP tetejére.</li>
 </ul>
 <hr />
-<h2>Opcionális mélyítés</h2>
+<h2>Ha mélyebbre szeretnél menni</h2>
 <ul>
 <li>OpenAI Shopping help: <a href="https://help.openai.com/en/articles/11128490-shopping-with-chatgpt-search" target="_blank" rel="noreferrer">https://help.openai.com/en/articles/11128490-shopping-with-chatgpt-search</a></li>
-<li>Copilot Merchant Program: <a href="https://www.microsoft.com/en-us/microsoft-copilot/blog/2025/04/18/introducing-the-copilot-merchant-program/" target="_blank" rel="noreferrer">https://www.microsoft.com/en-us/microsoft-copilot/blog/2025/04/18/introducing-the-copilot-merchant-program/</a></li>
+<li>Copilot Merchant Program (2025 áprilisában bejelentve): <a href="https://www.microsoft.com/en-us/microsoft-copilot/blog/2025/04/18/introducing-the-copilot-merchant-program/" target="_blank" rel="noreferrer">https://www.microsoft.com/en-us/microsoft-copilot/blog/2025/04/18/introducing-the-copilot-merchant-program/</a></li>
 </ul>`,
     emailSubject: 'GEO Shopify – 3. nap: AI és a vásárlói út',
     emailBody: `<h1>GEO Shopify – 3. nap</h1>
 <h2>AI és a vásárlói út</h2>
-<p>Ma feltérképezed az AI touchpointokat, és írsz egy rövid answer capsule-t egy PDP-re.</p>
+<p>Ma feltérképezed az AI touchpointokat, és készítesz egy rövid answer capsule-t egy PDP-re.</p>
 <p><a href="{{APP_URL}}/courses/${COURSE_ID}/day/{{dayNumber}}">Olvasd el a leckét →</a></p>`
   }
   ,

@@ -158,20 +158,34 @@ This document defines the standardized process for creating and delivering cours
 - ✅ **20-30 minute reading time** - Appropriate length for daily lesson
 - ✅ **Clear structure** - Introduction, main content, summary, action items
 
-#### Quiz Questions:
-- ✅ **Avoid stupid questions** - No obvious answers, no trick questions
-- ✅ **Test understanding** - Questions should verify comprehension, not memorization
-- ✅ **Practical application** - Questions should relate to real-world scenarios
-- ✅ **Appropriate difficulty** - Match the lesson complexity
-- ✅ **Clear, unambiguous** - No confusing wording
-- ✅ **4 answer options** - Standard format (1 correct + 3 distractors)
-- ✅ **5-10 questions per lesson** - Appropriate number for 20-30 min lesson
+#### Quiz Questions (MANDATORY QUALITY STANDARDS):
+- ✅ **Exactly 7 questions per quiz** - NO exceptions, NO more, NO less
+- ✅ **100% related to lesson content** - Every question must test actual lesson material
+- ✅ **Same language as course** - 100% language consistency, no mixing, no fallbacks
+- ✅ **Native quality** - Professional, native-level writing, not machine translation
+- ✅ **Proper industry jargon** - Keep industry terms in appropriate language
+- ✅ **Educational value** - Questions teach, not just test. All answers are educational
+- ✅ **No stupid answers** - Wrong options are plausible and educational (teach common mistakes)
+- ✅ **Standalone questions** - Each question works independently, no references to other questions
+- ✅ **Test understanding** - Questions verify comprehension and application, not just memorization
+- ✅ **Clear, unambiguous** - No confusing wording, no trick questions
+- ✅ **4 answer options** - Exactly 4 options (1 correct + 3 plausible distractors)
+- ✅ **Proper metadata** - Every question must have:
+  - UUID v4 (unique identifier)
+  - Hashtags: `[#topic, #difficulty, #type, #language, #all-languages]`
+  - questionType: `RECALL`, `APPLICATION`, or `CRITICAL_THINKING`
+  - difficulty: `EASY`, `MEDIUM`, `HARD`, or `EXPERT`
+  - category: Valid English enum value (not translated)
 
-**Quiz Structure:**
-- Minimum 5 questions
-- Maximum 10 questions
-- Pass threshold: 70% (configurable per course)
-- Question types: Multiple choice only (for now)
+**Quiz Structure (MANDATORY):**
+- **Exactly 7 questions** - NO exceptions
+- **Cognitive mix** (MANDATORY):
+  - 4-5 questions: RECALL (60%) - Foundational concepts, definitions, facts
+  - 2-3 questions: APPLICATION (30%) - Practical scenarios, real-world use
+  - 0-1 questions: CRITICAL_THINKING (10%) - Analysis, synthesis, evaluation
+- **Pass threshold**: 70% (configurable per course)
+- **Question types**: Multiple choice only (for now)
+- **Language**: 100% same as course language, no fallbacks
 
 ---
 
@@ -225,11 +239,16 @@ This document defines the standardized process for creating and delivering cours
 ### Phase 3: Content Creation
 
 1. ✅ Write Lesson 1 content (high quality, valuable)
-2. ✅ Create Quiz 1 (5-10 questions, practical, clear)
+2. ✅ Create Quiz 1 (exactly 7 questions, following quality standards)
+   - Q1-Q4: Recall questions (foundational concepts)
+   - Q5-Q6: Application questions (practical scenarios)
+   - Q7: Critical Thinking question (systems integration)
+   - All questions: UUID, hashtags, questionType, proper metadata
 3. ✅ Translate Lesson 1 to all target languages
-4. ✅ Translate Quiz 1 to all target languages
+4. ✅ Translate Quiz 1 to all target languages (native quality)
 5. ✅ Review translations for quality
-6. ✅ Test content in each language
+6. ✅ Verify all 7 questions have proper metadata
+7. ✅ Test content in each language
 
 ### Phase 4: Database Injection
 

@@ -8,8 +8,9 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { auth } from '@/auth';
 import connectDB from '@/lib/mongodb';
-import { Course, Lesson, CourseProgress, Player } from '@/lib/models';
+import { Course, Lesson, CourseProgress, Player, CourseProgressStatus } from '@/lib/models';
 import { logger } from '@/lib/logger';
+import { checkAndUnlockCourseCompletionAchievements } from '@/lib/gamification';
 
 /**
  * Calculate the current day (first uncompleted lesson) based on completed days
@@ -242,10 +243,42 @@ export async function POST(
 
       // Check if course is completed
       if (progress.completedDays.length >= course.durationDays) {
-        progress.status = 'COMPLETED';
+        progress.status = CourseProgressStatus.COMPLETED;
         progress.completedAt = new Date();
         // If all days completed, currentDay should be totalDays + 1
         progress.currentDay = course.durationDays + 1;
+        
+        // Check and unlock course completion achievements
+        try {
+          const unlockedAchievements = await checkAndUnlockCourseCompletionAchievements(
+            player._id,
+            course._id
+          );
+          
+          if (unlockedAchievements.length > 0) {
+            logger.info(
+              {
+                courseId,
+                playerId: player._id.toString(),
+                completedDays: progress.completedDays.length,
+                achievementsUnlocked: unlockedAchievements.length,
+                achievementNames: unlockedAchievements.map(a => a.achievement.name),
+              },
+              'Course completed - achievements unlocked'
+            );
+          } else {
+            logger.info(
+              { courseId, playerId: player._id.toString(), completedDays: progress.completedDays.length },
+              'Course completed - no achievements to unlock'
+            );
+          }
+        } catch (achievementError) {
+          // Don't fail course completion if achievement unlock fails
+          logger.warn(
+            { error: achievementError, courseId, playerId: player._id.toString() },
+            'Failed to unlock course completion achievements'
+          );
+        }
       }
 
       await progress.save();
