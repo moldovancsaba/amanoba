@@ -406,12 +406,21 @@ Let's begin with Productivity 2026, Day 1 (Introduction to Productivity).
 - ✅ Verification script created: `scripts/verify-day5-enhancement.ts`
 - ✅ Total questions ready: 70 (7 × 10 languages)
 
+**Day 6 Progress**:
+- ✅ 7 questions created (3 recall, 3 application, 1 critical thinking)
+- ✅ Topic: Capture (inboxes, triggers list, capture habits)
+- ✅ All 10 languages translated (HU, EN, TR, BG, PL, VI, ID, AR, PT, HI)
+- ✅ Seed script created: `scripts/seed-day6-enhanced.ts`
+- ✅ Verification script created: `scripts/verify-day6-enhancement.ts`
+- ✅ Total questions ready: 70 (7 × 10 languages)
+
 **Combined Progress**:
-- ✅ Days completed: 5/30 (16.7%)
-- ✅ Total questions ready: 350 (35 × 10 languages)
+- ✅ Days completed: 6/30 (20%)
+- ✅ Total questions ready: 420 (42 × 10 languages)
 - ✅ Day 1: ✅ COMPLETE
 - ✅ Day 2: ✅ COMPLETE
 - ✅ Day 3: ✅ COMPLETE
 - ✅ Day 4: ✅ COMPLETE
 - ✅ Day 5: ✅ COMPLETE
-- ⏳ **Next**: Run seed scripts and verify, then continue with Day 6
+- ✅ Day 6: ✅ COMPLETE
+- ⏳ **Next**: Run seed scripts and verify, then continue with Day 7
