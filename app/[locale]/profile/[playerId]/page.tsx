@@ -123,9 +123,25 @@ export default function ProfilePage({ params }: { params: Promise<{ playerId: st
   const [activeTab, setActiveTab] = useState<'overview' | 'achievements' | 'activity' | 'payments'>('overview');
   const [playerId, setPlayerId] = useState<string | null>(null);
 
-  // Unwrap async params
+  // Unwrap async params - following pattern from CourseDetailPage
   useEffect(() => {
-    params.then((p) => setPlayerId(p.playerId));
+    const loadParams = async () => {
+      try {
+        const resolvedParams = await params;
+        setPlayerId(resolvedParams.playerId);
+      } catch (error) {
+        console.error('Failed to unwrap params:', error);
+        // Fallback: extract playerId from URL
+        if (typeof window !== 'undefined') {
+          const pathParts = window.location.pathname.split('/');
+          const profileIndex = pathParts.findIndex(part => part === 'profile');
+          if (profileIndex !== -1 && pathParts[profileIndex + 1]) {
+            setPlayerId(pathParts[profileIndex + 1]);
+          }
+        }
+      }
+    };
+    loadParams();
   }, [params]);
 
   // Check if viewing own profile
