@@ -103,8 +103,23 @@ export default function ProfilePage({ params }: { params: Promise<{ playerId: st
           
           {profileData && (
             <div className="mt-4">
-              <p className="text-green-400 mb-2">✅ API call successful!</p>
-              <details className="text-gray-400 text-sm">
+              {/* Step 2: Display Basic Profile Info */}
+              <div className="mb-6">
+                <h2 className="text-3xl font-bold text-white mb-2">
+                  {profileData.player?.displayName || 'Unknown Player'}
+                </h2>
+                <p className="text-brand-white text-xl">
+                  Level {profileData.progression?.level || 1}
+                </p>
+                {profileData.progression?.title && (
+                  <p className="text-gray-400 text-lg mt-2">
+                    {profileData.progression.title}
+                  </p>
+                )}
+              </div>
+              
+              {/* Debug: Show API response (can be removed later) */}
+              <details className="text-gray-400 text-sm mt-4">
                 <summary className="cursor-pointer text-brand-white">View API Response (for debugging)</summary>
                 <pre className="mt-2 p-4 bg-brand-black/40 rounded overflow-auto max-h-96">
                   {JSON.stringify(profileData, null, 2)}
