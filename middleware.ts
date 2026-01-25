@@ -95,10 +95,12 @@ export default auth((req) => {
   // Why: These routes require authentication
   // Note: Root path '/', '/courses', and '/profile/[playerId]' are public - users can browse before signing in
   // Profile pages are public so anyone can view user profiles
+  // Only /profile (exact match, redirects to own profile) requires auth, not /profile/[playerId]
+  const isProfileWithPlayerId = actualPathname.startsWith('/profile/') && actualPathname !== '/profile';
   const isProtectedRoute =
     (actualPathname.startsWith('/dashboard') ||
     actualPathname.startsWith('/games') ||
-    (actualPathname.startsWith('/profile') && actualPathname === '/profile') || // Only /profile (own profile) is protected, not /profile/[playerId]
+    (actualPathname.startsWith('/profile') && !isProfileWithPlayerId) || // Only /profile (own profile) is protected, not /profile/[playerId]
     actualPathname.startsWith('/rewards') ||
     actualPathname.startsWith('/my-courses') ||
     actualPathname.startsWith('/admin')) &&
