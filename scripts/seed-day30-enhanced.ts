@@ -267,7 +267,7 @@ const DAY30_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "Verimlilik Ustası",
+      category: "Productivity Foundations",
       questionType: QuestionType.RECALL,
       hashtags: ["#productivity-master", "#beginner", "#recall", "#tr", "#all-languages"]
     },
@@ -281,7 +281,7 @@ const DAY30_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "Entegrasyon",
+      category: "Integration & Synthesis",
       questionType: QuestionType.RECALL,
       hashtags: ["#integration", "#beginner", "#recall", "#tr", "#all-languages"]
     },
@@ -295,7 +295,7 @@ const DAY30_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "Taahhüt",
+      category: "Personal Development",
       questionType: QuestionType.RECALL,
       hashtags: ["#commitment", "#beginner", "#recall", "#tr", "#all-languages"]
     },
@@ -309,7 +309,7 @@ const DAY30_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Verimlilik Ustası",
+      category: "Productivity Foundations",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#productivity-master", "#intermediate", "#application", "#tr", "#all-languages"]
     },
@@ -323,7 +323,7 @@ const DAY30_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Entegrasyon",
+      category: "Integration & Synthesis",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#integration", "#intermediate", "#application", "#tr", "#all-languages"]
     },
@@ -337,7 +337,7 @@ const DAY30_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Taahhüt",
+      category: "Personal Development",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#commitment", "#intermediate", "#application", "#tr", "#all-languages"]
     },
@@ -351,7 +351,7 @@ const DAY30_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.HARD,
-      category: "Verimlilik Ustası",
+      category: "Productivity Foundations",
       questionType: QuestionType.CRITICAL_THINKING,
       hashtags: ["#productivity-master", "#advanced", "#critical-thinking", "#tr", "#all-languages"]
     }
@@ -368,7 +368,7 @@ const DAY30_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "Майстор на Производителността",
+      category: "Productivity Foundations",
       questionType: QuestionType.RECALL,
       hashtags: ["#productivity-master", "#beginner", "#recall", "#bg", "#all-languages"]
     },
@@ -382,7 +382,7 @@ const DAY30_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "Интеграция",
+      category: "Integration & Synthesis",
       questionType: QuestionType.RECALL,
       hashtags: ["#integration", "#beginner", "#recall", "#bg", "#all-languages"]
     },
@@ -396,7 +396,7 @@ const DAY30_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "Ангажиране",
+      category: "Personal Development",
       questionType: QuestionType.RECALL,
       hashtags: ["#commitment", "#beginner", "#recall", "#bg", "#all-languages"]
     },
@@ -410,7 +410,7 @@ const DAY30_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Майстор на Производителността",
+      category: "Productivity Foundations",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#productivity-master", "#intermediate", "#application", "#bg", "#all-languages"]
     },
@@ -424,7 +424,7 @@ const DAY30_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Интеграция",
+      category: "Integration & Synthesis",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#integration", "#intermediate", "#application", "#bg", "#all-languages"]
     },
@@ -438,7 +438,7 @@ const DAY30_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Ангажиране",
+      category: "Personal Development",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#commitment", "#intermediate", "#application", "#bg", "#all-languages"]
     },
@@ -452,7 +452,7 @@ const DAY30_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.HARD,
-      category: "Майстор на Производителността",
+      category: "Productivity Foundations",
       questionType: QuestionType.CRITICAL_THINKING,
       hashtags: ["#productivity-master", "#advanced", "#critical-thinking", "#bg", "#all-languages"]
     }
@@ -469,7 +469,7 @@ const DAY30_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "Mistrz Produktywności",
+      category: "Productivity Foundations",
       questionType: QuestionType.RECALL,
       hashtags: ["#productivity-master", "#beginner", "#recall", "#pl", "#all-languages"]
     },
@@ -483,7 +483,7 @@ const DAY30_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "Integracja",
+      category: "Integration & Synthesis",
       questionType: QuestionType.RECALL,
       hashtags: ["#integration", "#beginner", "#recall", "#pl", "#all-languages"]
     },
@@ -497,7 +497,7 @@ const DAY30_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "Zaangażowanie",
+      category: "Personal Development",
       questionType: QuestionType.RECALL,
       hashtags: ["#commitment", "#beginner", "#recall", "#pl", "#all-languages"]
     },
@@ -511,7 +511,7 @@ const DAY30_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Mistrz Produktywności",
+      category: "Productivity Foundations",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#productivity-master", "#intermediate", "#application", "#pl", "#all-languages"]
     },
@@ -525,7 +525,7 @@ const DAY30_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Integracja",
+      category: "Integration & Synthesis",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#integration", "#intermediate", "#application", "#pl", "#all-languages"]
     },
@@ -539,7 +539,7 @@ const DAY30_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Zaangażowanie",
+      category: "Personal Development",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#commitment", "#intermediate", "#application", "#pl", "#all-languages"]
     },
@@ -553,7 +553,7 @@ const DAY30_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.HARD,
-      category: "Mistrz Produktywności",
+      category: "Productivity Foundations",
       questionType: QuestionType.CRITICAL_THINKING,
       hashtags: ["#productivity-master", "#advanced", "#critical-thinking", "#pl", "#all-languages"]
     }
@@ -570,7 +570,7 @@ const DAY30_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "Bậc Thầy Năng Suất",
+      category: "Productivity Foundations",
       questionType: QuestionType.RECALL,
       hashtags: ["#productivity-master", "#beginner", "#recall", "#vi", "#all-languages"]
     },
@@ -584,7 +584,7 @@ const DAY30_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "Tích Hợp",
+      category: "Integration & Synthesis",
       questionType: QuestionType.RECALL,
       hashtags: ["#integration", "#beginner", "#recall", "#vi", "#all-languages"]
     },
@@ -598,7 +598,7 @@ const DAY30_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "Cam Kết",
+      category: "Personal Development",
       questionType: QuestionType.RECALL,
       hashtags: ["#commitment", "#beginner", "#recall", "#vi", "#all-languages"]
     },
@@ -612,7 +612,7 @@ const DAY30_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Bậc Thầy Năng Suất",
+      category: "Productivity Foundations",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#productivity-master", "#intermediate", "#application", "#vi", "#all-languages"]
     },
@@ -626,7 +626,7 @@ const DAY30_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Tích Hợp",
+      category: "Integration & Synthesis",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#integration", "#intermediate", "#application", "#vi", "#all-languages"]
     },
@@ -640,7 +640,7 @@ const DAY30_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Cam Kết",
+      category: "Personal Development",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#commitment", "#intermediate", "#application", "#vi", "#all-languages"]
     },
@@ -654,7 +654,7 @@ const DAY30_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.HARD,
-      category: "Bậc Thầy Năng Suất",
+      category: "Productivity Foundations",
       questionType: QuestionType.CRITICAL_THINKING,
       hashtags: ["#productivity-master", "#advanced", "#critical-thinking", "#vi", "#all-languages"]
     }
@@ -671,7 +671,7 @@ const DAY30_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "Master Produktivitas",
+      category: "Productivity Foundations",
       questionType: QuestionType.RECALL,
       hashtags: ["#productivity-master", "#beginner", "#recall", "#id", "#all-languages"]
     },
@@ -685,7 +685,7 @@ const DAY30_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "Integrasi",
+      category: "Integration & Synthesis",
       questionType: QuestionType.RECALL,
       hashtags: ["#integration", "#beginner", "#recall", "#id", "#all-languages"]
     },
@@ -699,7 +699,7 @@ const DAY30_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "Komitmen",
+      category: "Personal Development",
       questionType: QuestionType.RECALL,
       hashtags: ["#commitment", "#beginner", "#recall", "#id", "#all-languages"]
     },
@@ -713,7 +713,7 @@ const DAY30_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Master Produktivitas",
+      category: "Productivity Foundations",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#productivity-master", "#intermediate", "#application", "#id", "#all-languages"]
     },
@@ -727,7 +727,7 @@ const DAY30_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Integrasi",
+      category: "Integration & Synthesis",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#integration", "#intermediate", "#application", "#id", "#all-languages"]
     },
@@ -741,7 +741,7 @@ const DAY30_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Komitmen",
+      category: "Personal Development",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#commitment", "#intermediate", "#application", "#id", "#all-languages"]
     },
@@ -755,7 +755,7 @@ const DAY30_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.HARD,
-      category: "Master Produktivitas",
+      category: "Productivity Foundations",
       questionType: QuestionType.CRITICAL_THINKING,
       hashtags: ["#productivity-master", "#advanced", "#critical-thinking", "#id", "#all-languages"]
     }
@@ -772,7 +772,7 @@ const DAY30_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "سيد الإنتاجية",
+      category: "Productivity Foundations",
       questionType: QuestionType.RECALL,
       hashtags: ["#productivity-master", "#beginner", "#recall", "#ar", "#all-languages"]
     },
@@ -786,7 +786,7 @@ const DAY30_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "التكامل",
+      category: "Integration & Synthesis",
       questionType: QuestionType.RECALL,
       hashtags: ["#integration", "#beginner", "#recall", "#ar", "#all-languages"]
     },
@@ -800,7 +800,7 @@ const DAY30_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "الالتزام",
+      category: "Personal Development",
       questionType: QuestionType.RECALL,
       hashtags: ["#commitment", "#beginner", "#recall", "#ar", "#all-languages"]
     },
@@ -814,7 +814,7 @@ const DAY30_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "سيد الإنتاجية",
+      category: "Productivity Foundations",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#productivity-master", "#intermediate", "#application", "#ar", "#all-languages"]
     },
@@ -828,7 +828,7 @@ const DAY30_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "التكامل",
+      category: "Integration & Synthesis",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#integration", "#intermediate", "#application", "#ar", "#all-languages"]
     },
@@ -842,7 +842,7 @@ const DAY30_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "الالتزام",
+      category: "Personal Development",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#commitment", "#intermediate", "#application", "#ar", "#all-languages"]
     },
@@ -856,7 +856,7 @@ const DAY30_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.HARD,
-      category: "سيد الإنتاجية",
+      category: "Productivity Foundations",
       questionType: QuestionType.CRITICAL_THINKING,
       hashtags: ["#productivity-master", "#advanced", "#critical-thinking", "#ar", "#all-languages"]
     }
@@ -873,7 +873,7 @@ const DAY30_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "Mestre de Produtividade",
+      category: "Productivity Foundations",
       questionType: QuestionType.RECALL,
       hashtags: ["#productivity-master", "#beginner", "#recall", "#pt", "#all-languages"]
     },
@@ -887,7 +887,7 @@ const DAY30_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "Integração",
+      category: "Integration & Synthesis",
       questionType: QuestionType.RECALL,
       hashtags: ["#integration", "#beginner", "#recall", "#pt", "#all-languages"]
     },
@@ -901,7 +901,7 @@ const DAY30_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "Compromisso",
+      category: "Personal Development",
       questionType: QuestionType.RECALL,
       hashtags: ["#commitment", "#beginner", "#recall", "#pt", "#all-languages"]
     },
@@ -915,7 +915,7 @@ const DAY30_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Mestre de Produtividade",
+      category: "Productivity Foundations",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#productivity-master", "#intermediate", "#application", "#pt", "#all-languages"]
     },
@@ -929,7 +929,7 @@ const DAY30_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Integração",
+      category: "Integration & Synthesis",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#integration", "#intermediate", "#application", "#pt", "#all-languages"]
     },
@@ -943,7 +943,7 @@ const DAY30_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Compromisso",
+      category: "Personal Development",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#commitment", "#intermediate", "#application", "#pt", "#all-languages"]
     },
@@ -957,7 +957,7 @@ const DAY30_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.HARD,
-      category: "Mestre de Produtividade",
+      category: "Productivity Foundations",
       questionType: QuestionType.CRITICAL_THINKING,
       hashtags: ["#productivity-master", "#advanced", "#critical-thinking", "#pt", "#all-languages"]
     }
@@ -974,7 +974,7 @@ const DAY30_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "उत्पादकता का मास्टर",
+      category: "Productivity Foundations",
       questionType: QuestionType.RECALL,
       hashtags: ["#productivity-master", "#beginner", "#recall", "#hi", "#all-languages"]
     },
@@ -988,7 +988,7 @@ const DAY30_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "एकीकरण",
+      category: "Integration & Synthesis",
       questionType: QuestionType.RECALL,
       hashtags: ["#integration", "#beginner", "#recall", "#hi", "#all-languages"]
     },
@@ -1002,7 +1002,7 @@ const DAY30_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "प्रतिबद्धता",
+      category: "Personal Development",
       questionType: QuestionType.RECALL,
       hashtags: ["#commitment", "#beginner", "#recall", "#hi", "#all-languages"]
     },
@@ -1016,7 +1016,7 @@ const DAY30_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "उत्पादकता का मास्टर",
+      category: "Productivity Foundations",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#productivity-master", "#intermediate", "#application", "#hi", "#all-languages"]
     },
@@ -1030,7 +1030,7 @@ const DAY30_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "एकीकरण",
+      category: "Integration & Synthesis",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#integration", "#intermediate", "#application", "#hi", "#all-languages"]
     },
@@ -1044,7 +1044,7 @@ const DAY30_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "प्रतिबद्धता",
+      category: "Personal Development",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#commitment", "#intermediate", "#application", "#hi", "#all-languages"]
     },
@@ -1058,7 +1058,7 @@ const DAY30_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.HARD,
-      category: "उत्पादकता का मास्टर",
+      category: "Productivity Foundations",
       questionType: QuestionType.CRITICAL_THINKING,
       hashtags: ["#productivity-master", "#advanced", "#critical-thinking", "#hi", "#all-languages"]
     }

@@ -95,10 +95,48 @@ const categoryMap: Record<string, string> = {
   
   // Turkish
   'Verimlilik': 'Productivity Foundations',
+  'Verimlilik Ustası': 'Productivity Foundations',
   'Bağlam Değiştirme': 'Context Switching',
   'Hedef Belirleme': 'Goal Hierarchy',
   'Planlama': 'Goal Hierarchy',
   'Ölçüm': 'Measurement & Metrics',
+  'Entegrasyon': 'Integration & Synthesis',
+  'Taahhüt': 'Personal Development',
+  
+  // Bulgarian
+  'Майстор на Производителността': 'Productivity Foundations',
+  'Интеграция': 'Integration & Synthesis',
+  'Ангажиране': 'Personal Development',
+  
+  // Polish
+  'Mistrz Produktywności': 'Productivity Foundations',
+  'Integracja': 'Integration & Synthesis',
+  'Zaangażowanie': 'Personal Development',
+  
+  // Vietnamese
+  'Bậc Thầy Năng Suất': 'Productivity Foundations',
+  'Tích Hợp': 'Integration & Synthesis',
+  'Cam Kết': 'Personal Development',
+  
+  // Indonesian
+  'Master Produktivitas': 'Productivity Foundations',
+  'Integrasi': 'Integration & Synthesis',
+  'Komitmen': 'Personal Development',
+  
+  // Arabic
+  'سيد الإنتاجية': 'Productivity Foundations',
+  'التكامل': 'Integration & Synthesis',
+  'الالتزام': 'Personal Development',
+  
+  // Portuguese
+  'Mestre de Produtividade': 'Productivity Foundations',
+  'Integração': 'Integration & Synthesis',
+  'Compromisso': 'Personal Development',
+  
+  // Hindi
+  'उत्पादकता का मास्टर': 'Productivity Foundations',
+  'एकीकरण': 'Integration & Synthesis',
+  'प्रतिबद्धता': 'Personal Development',
   
   // Add more language mappings as needed
 };

@@ -12,7 +12,7 @@
 import { useState, useEffect } from 'react';
 import { useTranslations } from 'next-intl';
 import { useLocale } from 'next-intl';
-import { CheckCircle, XCircle } from 'lucide-react';
+import { CheckCircle, XCircle, Download } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 
 // Force dynamic rendering
@@ -201,6 +201,31 @@ export default function CertificatePage({
     day: 'numeric' 
   });
 
+  // Download certificate image
+  const handleDownloadImage = async (variant: 'share_1200x627' | 'print_a4' = 'share_1200x627') => {
+    if (!playerId || !courseId || !certificateEligible) return;
+    
+    try {
+      const response = await fetch(`/api/profile/${playerId}/certificate/${courseId}/image?variant=${variant}`);
+      if (!response.ok) {
+        throw new Error('Failed to generate certificate image');
+      }
+      
+      const blob = await response.blob();
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `certificate-${courseId}-${variant}.png`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      window.URL.revokeObjectURL(url);
+    } catch (error) {
+      console.error('Failed to download certificate:', error);
+      alert('Failed to download certificate. Please try again.');
+    }
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-brand-black via-brand-dark to-brand-black p-4 py-8">
       <div className="max-w-5xl mx-auto">
@@ -309,6 +334,28 @@ export default function CertificatePage({
                   <p className="text-white font-semibold">{issuedDate}</p>
                 </div>
               </div>
+
+              {/* Download Buttons - Only show if certificate is eligible */}
+              {certificateEligible && (
+                <div className="mt-8 pt-8 border-t border-brand-accent/20">
+                  <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                    <button
+                      onClick={() => handleDownloadImage('share_1200x627')}
+                      className="flex items-center justify-center gap-2 bg-brand-accent text-brand-black px-6 py-3 rounded-lg font-bold hover:opacity-90 transition-opacity"
+                    >
+                      <Download className="w-5 h-5" />
+                      Download Image (Share)
+                    </button>
+                    <button
+                      onClick={() => handleDownloadImage('print_a4')}
+                      className="flex items-center justify-center gap-2 bg-brand-darkGrey text-white px-6 py-3 rounded-lg font-bold hover:opacity-90 transition-opacity border border-brand-accent"
+                    >
+                      <Download className="w-5 h-5" />
+                      Download Image (Print)
+                    </button>
+                  </div>
+                </div>
+              )}
             </div>
 
             {/* Decorative bottom corners */}
