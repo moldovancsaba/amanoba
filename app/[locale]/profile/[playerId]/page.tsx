@@ -15,7 +15,8 @@ import {
   Trophy, 
   TrendingUp, 
   Clock, 
-  CreditCard
+  CreditCard,
+  Award
 } from 'lucide-react';
 
 // Force dynamic rendering
@@ -31,6 +32,8 @@ export default function ProfilePage({ params }: { params: Promise<{ playerId: st
   const [activeTab, setActiveTab] = useState<'overview' | 'achievements' | 'activity' | 'payments'>('overview');
   const [paymentData, setPaymentData] = useState<any>(null);
   const [paymentLoading, setPaymentLoading] = useState(false);
+  const [certificatesData, setCertificatesData] = useState<any[]>([]);
+  const [certificatesLoading, setCertificatesLoading] = useState(false);
 
   // Unwrap async params - following pattern from CourseDetailPage
   useEffect(() => {
@@ -107,6 +110,50 @@ export default function ProfilePage({ params }: { params: Promise<{ playerId: st
 
     fetchPayments();
   }, [isOwnProfile, session]);
+
+  // Fetch certificates (for all profiles)
+  useEffect(() => {
+    if (!playerId) return;
+
+    const fetchCertificates = async () => {
+      setCertificatesLoading(true);
+      try {
+        // Get enrolled courses
+        const coursesRes = await fetch(`/api/profile/${playerId}/courses`);
+        const coursesData = await coursesRes.json();
+        
+        if (coursesData.success && coursesData.courses.length > 0) {
+          // For each course, check certificate status
+          const certificatePromises = coursesData.courses.map(async (course: any) => {
+            try {
+              const statusRes = await fetch(`/api/profile/${playerId}/certificate-status?courseId=${encodeURIComponent(course.courseId)}`);
+              const statusData = await statusRes.json();
+              if (statusData.success && statusData.data.certificateEligible) {
+                return {
+                  courseId: course.courseId,
+                  courseTitle: course.title,
+                  score: statusData.data.finalExamScore,
+                };
+              }
+              return null;
+            } catch (error) {
+              console.error(`Failed to fetch certificate status for ${course.courseId}:`, error);
+              return null;
+            }
+          });
+
+          const certificates = (await Promise.all(certificatePromises)).filter((c) => c !== null);
+          setCertificatesData(certificates);
+        }
+      } catch (error) {
+        console.error('Failed to fetch certificates:', error);
+      } finally {
+        setCertificatesLoading(false);
+      }
+    };
+
+    fetchCertificates();
+  }, [playerId]);
 
   if (loading) {
     return (
@@ -550,6 +597,46 @@ export default function ProfilePage({ params }: { params: Promise<{ playerId: st
                           </div>
                         </div>
                       </div>
+                    </div>
+
+                    {/* Certificates Section */}
+                    <div className="page-card-dark p-6 mt-6">
+                      <div className="flex items-center gap-3 mb-4">
+                        <div className="w-12 h-12 bg-yellow-500 rounded-lg flex items-center justify-center">
+                          <Award className="w-6 h-6 text-white" />
+                        </div>
+                        <h3 className="text-xl font-bold text-white">Certificates</h3>
+                      </div>
+                      {certificatesLoading ? (
+                        <div className="text-center py-4 text-gray-400">Loading certificates...</div>
+                      ) : certificatesData.length > 0 ? (
+                        <div className="space-y-3">
+                          {certificatesData.map((cert) => (
+                            <a
+                              key={cert.courseId}
+                              href={`/${locale}/profile/${playerId}/certificate/${cert.courseId}`}
+                              className="block bg-brand-black/20 rounded-lg p-4 hover:bg-brand-black/30 transition-colors"
+                            >
+                              <div className="flex items-center justify-between">
+                                <div>
+                                  <h4 className="text-white font-bold">{cert.courseTitle}</h4>
+                                  {cert.score !== null && (
+                                    <p className="text-gray-400 text-sm">Score: {cert.score}%</p>
+                                  )}
+                                </div>
+                                <span className="text-brand-accent">View Certificate →</span>
+                              </div>
+                            </a>
+                          ))}
+                        </div>
+                      ) : (
+                        <div className="text-center py-4">
+                          <p className="text-gray-400">No certificates yet</p>
+                          <p className="text-gray-500 text-sm mt-2">
+                            Complete courses and pass final exams to earn certificates
+                          </p>
+                        </div>
+                      )}
                     </div>
                   </div>
                 )}
