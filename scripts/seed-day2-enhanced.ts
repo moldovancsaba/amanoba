@@ -194,7 +194,7 @@ const DAY2_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 2,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Figyelem kezelés",
+      category: "Time, Energy, Attention",
       questionType: QuestionType.RECALL,
       hashtags: ["#attention-management", "#intermediate", "#recall", "#hu", "#all-languages"]
     },
@@ -208,7 +208,7 @@ const DAY2_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Idő kezelés",
+      category: "Time, Energy, Attention",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#time-management", "#intermediate", "#application", "#hu", "#all-languages"]
     },
@@ -236,7 +236,7 @@ const DAY2_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Figyelem kezelés",
+      category: "Time, Energy, Attention",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#attention-management", "#intermediate", "#application", "#hu", "#all-languages"]
     },
@@ -250,7 +250,7 @@ const DAY2_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.HARD,
-      category: "Termelékenységi rendszerek",
+      category: "Productivity Foundations",
       questionType: QuestionType.CRITICAL_THINKING,
       hashtags: ["#productivity", "#advanced", "#critical-thinking", "#hu", "#all-languages"]
     }
@@ -267,7 +267,7 @@ const DAY2_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "Verimlilik Temelleri",
+      category: "Productivity Foundations",
       questionType: QuestionType.RECALL,
       hashtags: ["#productivity", "#beginner", "#recall", "#tr", "#all-languages"]
     },
@@ -281,7 +281,7 @@ const DAY2_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 0,
       difficulty: QuestionDifficulty.EASY,
-      category: "Enerji Yönetimi",
+      category: "Energy Management",
       questionType: QuestionType.RECALL,
       hashtags: ["#energy-management", "#beginner", "#recall", "#tr", "#all-languages"]
     },
@@ -295,7 +295,7 @@ const DAY2_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 2,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Dikkat Yönetimi",
+      category: "Time, Energy, Attention",
       questionType: QuestionType.RECALL,
       hashtags: ["#attention-management", "#intermediate", "#recall", "#tr", "#all-languages"]
     },
@@ -309,7 +309,7 @@ const DAY2_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Zaman Yönetimi",
+      category: "Time, Energy, Attention",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#time-management", "#intermediate", "#application", "#tr", "#all-languages"]
     },
@@ -323,7 +323,7 @@ const DAY2_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Enerji Yönetimi",
+      category: "Energy Management",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#energy-management", "#intermediate", "#application", "#tr", "#all-languages"]
     },
@@ -337,7 +337,7 @@ const DAY2_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Dikkat Yönetimi",
+      category: "Time, Energy, Attention",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#attention-management", "#intermediate", "#application", "#tr", "#all-languages"]
     },
@@ -351,7 +351,7 @@ const DAY2_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.HARD,
-      category: "Verimlilik Sistemleri",
+      category: "Productivity Foundations",
       questionType: QuestionType.CRITICAL_THINKING,
       hashtags: ["#productivity", "#advanced", "#critical-thinking", "#tr", "#all-languages"]
     }
@@ -368,7 +368,7 @@ const DAY2_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "Основи на производителността",
+      category: "Productivity Foundations",
       questionType: QuestionType.RECALL,
       hashtags: ["#productivity", "#beginner", "#recall", "#bg", "#all-languages"]
     },
@@ -382,7 +382,7 @@ const DAY2_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 0,
       difficulty: QuestionDifficulty.EASY,
-      category: "Управление на енергията",
+      category: "Energy Management",
       questionType: QuestionType.RECALL,
       hashtags: ["#energy-management", "#beginner", "#recall", "#bg", "#all-languages"]
     },
@@ -396,7 +396,7 @@ const DAY2_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 2,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Управление на вниманието",
+      category: "Time, Energy, Attention",
       questionType: QuestionType.RECALL,
       hashtags: ["#attention-management", "#intermediate", "#recall", "#bg", "#all-languages"]
     },
@@ -410,7 +410,7 @@ const DAY2_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Управление на времето",
+      category: "Time, Energy, Attention",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#time-management", "#intermediate", "#application", "#bg", "#all-languages"]
     },
@@ -424,7 +424,7 @@ const DAY2_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Управление на енергията",
+      category: "Energy Management",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#energy-management", "#intermediate", "#application", "#bg", "#all-languages"]
     },
@@ -438,7 +438,7 @@ const DAY2_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Управление на вниманието",
+      category: "Time, Energy, Attention",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#attention-management", "#intermediate", "#application", "#bg", "#all-languages"]
     },
@@ -452,7 +452,7 @@ const DAY2_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.HARD,
-      category: "Системи за производителност",
+      category: "Productivity Foundations",
       questionType: QuestionType.CRITICAL_THINKING,
       hashtags: ["#productivity", "#advanced", "#critical-thinking", "#bg", "#all-languages"]
     }
@@ -469,7 +469,7 @@ const DAY2_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "Podstawy produktywności",
+      category: "Productivity Foundations",
       questionType: QuestionType.RECALL,
       hashtags: ["#productivity", "#beginner", "#recall", "#pl", "#all-languages"]
     },
@@ -598,7 +598,7 @@ const DAY2_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 2,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Quản lý sự chú ý",
+      category: "Time, Energy, Attention",
       questionType: QuestionType.RECALL,
       hashtags: ["#attention-management", "#intermediate", "#recall", "#vi", "#all-languages"]
     },
@@ -640,7 +640,7 @@ const DAY2_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Quản lý sự chú ý",
+      category: "Time, Energy, Attention",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#attention-management", "#intermediate", "#application", "#vi", "#all-languages"]
     },
@@ -901,7 +901,7 @@ const DAY2_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 2,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Gestão de Atenção",
+      category: "Time, Energy, Attention",
       questionType: QuestionType.RECALL,
       hashtags: ["#attention-management", "#intermediate", "#recall", "#pt", "#all-languages"]
     },
@@ -943,7 +943,7 @@ const DAY2_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Gestão de Atenção",
+      category: "Time, Energy, Attention",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#attention-management", "#intermediate", "#application", "#pt", "#all-languages"]
     },

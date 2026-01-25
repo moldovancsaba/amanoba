@@ -368,7 +368,7 @@ const DAY8_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "Превключване на контекст",
+      category: "Context Switching",
       questionType: QuestionType.RECALL,
       hashtags: ["#context-switching", "#beginner", "#recall", "#bg", "#all-languages"]
     },
@@ -382,7 +382,7 @@ const DAY8_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "Превключване на контекст",
+      category: "Context Switching",
       questionType: QuestionType.RECALL,
       hashtags: ["#context-switching", "#beginner", "#recall", "#bg", "#all-languages"]
     },
@@ -396,7 +396,7 @@ const DAY8_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 2,
       difficulty: QuestionDifficulty.EASY,
-      category: "Превключване на контекст",
+      category: "Context Switching",
       questionType: QuestionType.RECALL,
       hashtags: ["#context-switching", "#beginner", "#recall", "#bg", "#all-languages"]
     },
@@ -410,7 +410,7 @@ const DAY8_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Превключване на контекст",
+      category: "Context Switching",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#context-switching", "#intermediate", "#application", "#bg", "#all-languages"]
     },
@@ -424,7 +424,7 @@ const DAY8_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 2,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Превключване на контекст",
+      category: "Context Switching",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#context-switching", "#intermediate", "#application", "#bg", "#all-languages"]
     },
@@ -438,7 +438,7 @@ const DAY8_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Превключване на контекст",
+      category: "Context Switching",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#context-switching", "#intermediate", "#application", "#bg", "#all-languages"]
     },
@@ -452,7 +452,7 @@ const DAY8_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.HARD,
-      category: "Превключване на контекст",
+      category: "Context Switching",
       questionType: QuestionType.CRITICAL_THINKING,
       hashtags: ["#context-switching", "#advanced", "#critical-thinking", "#bg", "#all-languages"]
     }
@@ -469,7 +469,7 @@ const DAY8_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "Przełączanie kontekstu",
+      category: "Context Switching",
       questionType: QuestionType.RECALL,
       hashtags: ["#context-switching", "#beginner", "#recall", "#pl", "#all-languages"]
     },
@@ -483,7 +483,7 @@ const DAY8_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "Przełączanie kontekstu",
+      category: "Context Switching",
       questionType: QuestionType.RECALL,
       hashtags: ["#context-switching", "#beginner", "#recall", "#pl", "#all-languages"]
     },
@@ -497,7 +497,7 @@ const DAY8_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 2,
       difficulty: QuestionDifficulty.EASY,
-      category: "Przełączanie kontekstu",
+      category: "Context Switching",
       questionType: QuestionType.RECALL,
       hashtags: ["#context-switching", "#beginner", "#recall", "#pl", "#all-languages"]
     },
@@ -511,7 +511,7 @@ const DAY8_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Przełączanie kontekstu",
+      category: "Context Switching",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#context-switching", "#intermediate", "#application", "#pl", "#all-languages"]
     },
@@ -525,7 +525,7 @@ const DAY8_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 2,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Przełączanie kontekstu",
+      category: "Context Switching",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#context-switching", "#intermediate", "#application", "#pl", "#all-languages"]
     },
@@ -539,7 +539,7 @@ const DAY8_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Przełączanie kontekstu",
+      category: "Context Switching",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#context-switching", "#intermediate", "#application", "#pl", "#all-languages"]
     },
@@ -553,7 +553,7 @@ const DAY8_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.HARD,
-      category: "Przełączanie kontekstu",
+      category: "Context Switching",
       questionType: QuestionType.CRITICAL_THINKING,
       hashtags: ["#context-switching", "#advanced", "#critical-thinking", "#pl", "#all-languages"]
     }
@@ -570,7 +570,7 @@ const DAY8_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "Chuyển đổi ngữ cảnh",
+      category: "Context Switching",
       questionType: QuestionType.RECALL,
       hashtags: ["#context-switching", "#beginner", "#recall", "#vi", "#all-languages"]
     },
@@ -584,7 +584,7 @@ const DAY8_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "Chuyển đổi ngữ cảnh",
+      category: "Context Switching",
       questionType: QuestionType.RECALL,
       hashtags: ["#context-switching", "#beginner", "#recall", "#vi", "#all-languages"]
     },
@@ -598,7 +598,7 @@ const DAY8_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 2,
       difficulty: QuestionDifficulty.EASY,
-      category: "Chuyển đổi ngữ cảnh",
+      category: "Context Switching",
       questionType: QuestionType.RECALL,
       hashtags: ["#context-switching", "#beginner", "#recall", "#vi", "#all-languages"]
     },
@@ -612,7 +612,7 @@ const DAY8_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Chuyển đổi ngữ cảnh",
+      category: "Context Switching",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#context-switching", "#intermediate", "#application", "#vi", "#all-languages"]
     },
@@ -626,7 +626,7 @@ const DAY8_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 2,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Chuyển đổi ngữ cảnh",
+      category: "Context Switching",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#context-switching", "#intermediate", "#application", "#vi", "#all-languages"]
     },
@@ -640,7 +640,7 @@ const DAY8_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Chuyển đổi ngữ cảnh",
+      category: "Context Switching",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#context-switching", "#intermediate", "#application", "#vi", "#all-languages"]
     },
@@ -654,7 +654,7 @@ const DAY8_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.HARD,
-      category: "Chuyển đổi ngữ cảnh",
+      category: "Context Switching",
       questionType: QuestionType.CRITICAL_THINKING,
       hashtags: ["#context-switching", "#advanced", "#critical-thinking", "#vi", "#all-languages"]
     }
@@ -671,7 +671,7 @@ const DAY8_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "Pergantian Konteks",
+      category: "Context Switching",
       questionType: QuestionType.RECALL,
       hashtags: ["#context-switching", "#beginner", "#recall", "#id", "#all-languages"]
     },
@@ -685,7 +685,7 @@ const DAY8_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "Pergantian Konteks",
+      category: "Context Switching",
       questionType: QuestionType.RECALL,
       hashtags: ["#context-switching", "#beginner", "#recall", "#id", "#all-languages"]
     },
@@ -699,7 +699,7 @@ const DAY8_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 2,
       difficulty: QuestionDifficulty.EASY,
-      category: "Pergantian Konteks",
+      category: "Context Switching",
       questionType: QuestionType.RECALL,
       hashtags: ["#context-switching", "#beginner", "#recall", "#id", "#all-languages"]
     },
@@ -713,7 +713,7 @@ const DAY8_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Pergantian Konteks",
+      category: "Context Switching",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#context-switching", "#intermediate", "#application", "#id", "#all-languages"]
     },
@@ -727,7 +727,7 @@ const DAY8_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 2,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Pergantian Konteks",
+      category: "Context Switching",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#context-switching", "#intermediate", "#application", "#id", "#all-languages"]
     },
@@ -741,7 +741,7 @@ const DAY8_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Pergantian Konteks",
+      category: "Context Switching",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#context-switching", "#intermediate", "#application", "#id", "#all-languages"]
     },
@@ -755,7 +755,7 @@ const DAY8_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.HARD,
-      category: "Pergantian Konteks",
+      category: "Context Switching",
       questionType: QuestionType.CRITICAL_THINKING,
       hashtags: ["#context-switching", "#advanced", "#critical-thinking", "#id", "#all-languages"]
     }
@@ -772,7 +772,7 @@ const DAY8_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "تبديل السياق",
+      category: "Context Switching",
       questionType: QuestionType.RECALL,
       hashtags: ["#context-switching", "#beginner", "#recall", "#ar", "#all-languages"]
     },
@@ -786,7 +786,7 @@ const DAY8_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "تبديل السياق",
+      category: "Context Switching",
       questionType: QuestionType.RECALL,
       hashtags: ["#context-switching", "#beginner", "#recall", "#ar", "#all-languages"]
     },
@@ -800,7 +800,7 @@ const DAY8_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 2,
       difficulty: QuestionDifficulty.EASY,
-      category: "تبديل السياق",
+      category: "Context Switching",
       questionType: QuestionType.RECALL,
       hashtags: ["#context-switching", "#beginner", "#recall", "#ar", "#all-languages"]
     },
@@ -814,7 +814,7 @@ const DAY8_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "تبديل السياق",
+      category: "Context Switching",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#context-switching", "#intermediate", "#application", "#ar", "#all-languages"]
     },
@@ -828,7 +828,7 @@ const DAY8_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 2,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "تبديل السياق",
+      category: "Context Switching",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#context-switching", "#intermediate", "#application", "#ar", "#all-languages"]
     },
@@ -842,7 +842,7 @@ const DAY8_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "تبديل السياق",
+      category: "Context Switching",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#context-switching", "#intermediate", "#application", "#ar", "#all-languages"]
     },
@@ -856,7 +856,7 @@ const DAY8_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.HARD,
-      category: "تبديل السياق",
+      category: "Context Switching",
       questionType: QuestionType.CRITICAL_THINKING,
       hashtags: ["#context-switching", "#advanced", "#critical-thinking", "#ar", "#all-languages"]
     }
@@ -974,7 +974,7 @@ const DAY8_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "संदर्भ स्विचिंग",
+      category: "Context Switching",
       questionType: QuestionType.RECALL,
       hashtags: ["#context-switching", "#beginner", "#recall", "#hi", "#all-languages"]
     },
@@ -988,7 +988,7 @@ const DAY8_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "संदर्भ स्विचिंग",
+      category: "Context Switching",
       questionType: QuestionType.RECALL,
       hashtags: ["#context-switching", "#beginner", "#recall", "#hi", "#all-languages"]
     },
@@ -1002,7 +1002,7 @@ const DAY8_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 2,
       difficulty: QuestionDifficulty.EASY,
-      category: "संदर्भ स्विचिंग",
+      category: "Context Switching",
       questionType: QuestionType.RECALL,
       hashtags: ["#context-switching", "#beginner", "#recall", "#hi", "#all-languages"]
     },
@@ -1016,7 +1016,7 @@ const DAY8_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "संदर्भ स्विचिंग",
+      category: "Context Switching",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#context-switching", "#intermediate", "#application", "#hi", "#all-languages"]
     },
@@ -1030,7 +1030,7 @@ const DAY8_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 2,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "संदर्भ स्विचिंग",
+      category: "Context Switching",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#context-switching", "#intermediate", "#application", "#hi", "#all-languages"]
     },
@@ -1044,7 +1044,7 @@ const DAY8_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "संदर्भ स्विचिंग",
+      category: "Context Switching",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#context-switching", "#intermediate", "#application", "#hi", "#all-languages"]
     },
@@ -1058,7 +1058,7 @@ const DAY8_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.HARD,
-      category: "संदर्भ स्विचिंग",
+      category: "Context Switching",
       questionType: QuestionType.CRITICAL_THINKING,
       hashtags: ["#context-switching", "#advanced", "#critical-thinking", "#hi", "#all-languages"]
     }

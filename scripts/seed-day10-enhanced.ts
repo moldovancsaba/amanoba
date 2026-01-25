@@ -166,7 +166,7 @@ const DAY10_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "Energia Menedzselés",
+      category: "Energy Management",
       questionType: QuestionType.RECALL,
       hashtags: ["#energy-management", "#beginner", "#recall", "#hu", "#all-languages"]
     },
@@ -180,7 +180,7 @@ const DAY10_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "Energia Menedzselés",
+      category: "Energy Management",
       questionType: QuestionType.RECALL,
       hashtags: ["#energy-management", "#beginner", "#recall", "#hu", "#all-languages"]
     },
@@ -194,7 +194,7 @@ const DAY10_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "Energia Menedzselés",
+      category: "Energy Management",
       questionType: QuestionType.RECALL,
       hashtags: ["#energy-management", "#beginner", "#recall", "#hu", "#all-languages"]
     },
@@ -208,7 +208,7 @@ const DAY10_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Energia Menedzselés",
+      category: "Energy Management",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#energy-management", "#intermediate", "#application", "#hu", "#all-languages"]
     },
@@ -222,7 +222,7 @@ const DAY10_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Energia Menedzselés",
+      category: "Energy Management",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#energy-management", "#intermediate", "#application", "#hu", "#all-languages"]
     },
@@ -236,7 +236,7 @@ const DAY10_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Energia Menedzselés",
+      category: "Energy Management",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#energy-management", "#intermediate", "#application", "#hu", "#all-languages"]
     },
@@ -250,7 +250,7 @@ const DAY10_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.HARD,
-      category: "Energia Menedzselés",
+      category: "Energy Management",
       questionType: QuestionType.CRITICAL_THINKING,
       hashtags: ["#energy-management", "#advanced", "#critical-thinking", "#hu", "#all-languages"]
     }
@@ -267,7 +267,7 @@ const DAY10_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "Enerji Yönetimi",
+      category: "Energy Management",
       questionType: QuestionType.RECALL,
       hashtags: ["#energy-management", "#beginner", "#recall", "#tr", "#all-languages"]
     },
@@ -281,7 +281,7 @@ const DAY10_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "Enerji Yönetimi",
+      category: "Energy Management",
       questionType: QuestionType.RECALL,
       hashtags: ["#energy-management", "#beginner", "#recall", "#tr", "#all-languages"]
     },
@@ -295,7 +295,7 @@ const DAY10_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "Enerji Yönetimi",
+      category: "Energy Management",
       questionType: QuestionType.RECALL,
       hashtags: ["#energy-management", "#beginner", "#recall", "#tr", "#all-languages"]
     },
@@ -309,7 +309,7 @@ const DAY10_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Enerji Yönetimi",
+      category: "Energy Management",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#energy-management", "#intermediate", "#application", "#tr", "#all-languages"]
     },
@@ -323,7 +323,7 @@ const DAY10_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Enerji Yönetimi",
+      category: "Energy Management",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#energy-management", "#intermediate", "#application", "#tr", "#all-languages"]
     },
@@ -337,7 +337,7 @@ const DAY10_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Enerji Yönetimi",
+      category: "Energy Management",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#energy-management", "#intermediate", "#application", "#tr", "#all-languages"]
     },
@@ -351,7 +351,7 @@ const DAY10_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.HARD,
-      category: "Enerji Yönetimi",
+      category: "Energy Management",
       questionType: QuestionType.CRITICAL_THINKING,
       hashtags: ["#energy-management", "#advanced", "#critical-thinking", "#tr", "#all-languages"]
     }
@@ -368,7 +368,7 @@ const DAY10_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "Управление на енергията",
+      category: "Energy Management",
       questionType: QuestionType.RECALL,
       hashtags: ["#energy-management", "#beginner", "#recall", "#bg", "#all-languages"]
     },
@@ -382,7 +382,7 @@ const DAY10_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "Управление на енергията",
+      category: "Energy Management",
       questionType: QuestionType.RECALL,
       hashtags: ["#energy-management", "#beginner", "#recall", "#bg", "#all-languages"]
     },
@@ -396,7 +396,7 @@ const DAY10_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "Управление на енергията",
+      category: "Energy Management",
       questionType: QuestionType.RECALL,
       hashtags: ["#energy-management", "#beginner", "#recall", "#bg", "#all-languages"]
     },
@@ -410,7 +410,7 @@ const DAY10_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Управление на енергията",
+      category: "Energy Management",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#energy-management", "#intermediate", "#application", "#bg", "#all-languages"]
     },
@@ -424,7 +424,7 @@ const DAY10_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Управление на енергията",
+      category: "Energy Management",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#energy-management", "#intermediate", "#application", "#bg", "#all-languages"]
     },
@@ -438,7 +438,7 @@ const DAY10_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Управление на енергията",
+      category: "Energy Management",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#energy-management", "#intermediate", "#application", "#bg", "#all-languages"]
     },
@@ -452,7 +452,7 @@ const DAY10_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.HARD,
-      category: "Управление на енергията",
+      category: "Energy Management",
       questionType: QuestionType.CRITICAL_THINKING,
       hashtags: ["#energy-management", "#advanced", "#critical-thinking", "#bg", "#all-languages"]
     }

@@ -166,7 +166,7 @@ const DAY20_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.EASY,
-      category: "Magánéleti Termelékenység",
+      category: "Personal Development",
       questionType: QuestionType.RECALL,
       hashtags: ["#personal-productivity", "#beginner", "#recall", "#hu", "#all-languages"]
     },
@@ -208,7 +208,7 @@ const DAY20_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Magánéleti Termelékenység",
+      category: "Personal Development",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#personal-productivity", "#intermediate", "#application", "#hu", "#all-languages"]
     },
@@ -236,7 +236,7 @@ const DAY20_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Magánéleti Termelékenység",
+      category: "Personal Development",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#personal-productivity", "#intermediate", "#application", "#hu", "#all-languages"]
     },
@@ -250,7 +250,7 @@ const DAY20_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.HARD,
-      category: "Magánéleti Termelékenység",
+      category: "Personal Development",
       questionType: QuestionType.CRITICAL_THINKING,
       hashtags: ["#personal-productivity", "#advanced", "#critical-thinking", "#hu", "#all-languages"]
     }
