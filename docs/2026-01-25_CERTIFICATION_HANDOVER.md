@@ -39,7 +39,7 @@
 
 **User Features**
 - ❌ Profile Certificates Tab — dedicated tab (currently in Overview)
-- ❌ Certificate Verification with Slug — more secure verification
+- ✅ Certificate Verification with Slug — more secure verification ✅ **COMPLETE** (2026-01-25)
 
 **Advanced Features**
 - ❌ PDF Generation — PDF export
@@ -55,9 +55,13 @@
 - ✅ View details functionality
 - ⚠️ Revoke functionality (can be added later if needed)
 
-**Priority 2: Certificate Verification with Slug** (1-2 days)
-- More secure verification using slug instead of playerId/courseId
-- Privacy controls (public/private toggle)
+**Priority 2: Certificate Verification with Slug** ✅ **COMPLETE** (2026-01-25)
+- ✅ More secure verification using slug instead of playerId/courseId
+- ✅ Privacy controls (public/private toggle)
+- ✅ GET /api/certificates/[slug] route
+- ✅ PATCH /api/certificates/[slug] route (privacy toggle)
+- ✅ /certificate/[slug] verification page
+- ⚠️ Links update (optional, can be done separately)
 
 **Priority 3: Profile Certificates Tab** (0.5-1 day)
 - Dedicated certificates tab in profile

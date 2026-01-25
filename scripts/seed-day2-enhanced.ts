@@ -89,7 +89,7 @@ const DAY2_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 2,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Attention Management",
+      category: "Time, Energy, Attention",
       questionType: QuestionType.RECALL,
       hashtags: ["#attention-management", "#intermediate", "#recall", "#en", "#all-languages"]
     },
@@ -134,7 +134,7 @@ const DAY2_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.MEDIUM,
-      category: "Attention Management",
+      category: "Time, Energy, Attention",
       questionType: QuestionType.APPLICATION,
       hashtags: ["#attention-management", "#intermediate", "#application", "#en", "#all-languages"]
     },
@@ -149,7 +149,7 @@ const DAY2_QUESTIONS: Record<string, Array<{
       ],
       correctIndex: 1,
       difficulty: QuestionDifficulty.HARD,
-      category: "Productivity Systems",
+      category: "Productivity Foundations",
       questionType: QuestionType.CRITICAL_THINKING,
       hashtags: ["#productivity", "#advanced", "#critical-thinking", "#en", "#all-languages"]
     }

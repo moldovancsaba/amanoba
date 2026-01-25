@@ -54,6 +54,10 @@ const categoryMap: Record<string, string> = {
   'Planowanie': 'Goal Hierarchy',
   'Pomiar': 'Measurement & Metrics',
   
+  // English (invalid enum values that need fixing)
+  'Attention Management': 'Time, Energy, Attention',
+  'Productivity Systems': 'Productivity Foundations',
+  
   // Turkish
   'Verimlilik': 'Productivity Foundations',
   'Hedef Belirleme': 'Goal Hierarchy',
