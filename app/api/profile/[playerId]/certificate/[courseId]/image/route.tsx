@@ -2,11 +2,14 @@
  * Certificate Image Generation API
  * 
  * What: Generates PNG certificate images using next/og ImageResponse
- * Why: V2.0 feature - allows users to download/share certificate images
+ * Why: Allows users to download and share certificate images
  * 
  * Endpoint: GET /api/profile/[playerId]/certificate/[courseId]/image
  * 
- * Returns: PNG image (1200x627 for sharing, or 1200x1697 for A4 print)
+ * Query Parameters:
+ * - variant: 'share_1200x627' (default) or 'print_a4'
+ * 
+ * Returns: PNG image
  */
 
 import { NextRequest } from 'next/server';
@@ -28,9 +31,6 @@ export const dynamic = 'force-dynamic';
  * GET /api/profile/[playerId]/certificate/[courseId]/image
  * 
  * Generates a PNG certificate image.
- * 
- * Query Parameters:
- * - variant (optional): 'share_1200x627' (default) or 'print_a4'
  */
 export async function GET(
   request: NextRequest,
@@ -48,29 +48,28 @@ export async function GET(
 
     // Dimensions based on variant
     const dimensions = variant === 'print_a4' 
-      ? { width: 1200, height: 1697 } // A4 ratio
-      : { width: 1200, height: 627 }; // LinkedIn/social sharing ratio
+      ? { width: 1200, height: 1697 } // A4 ratio (1:1.414)
+      : { width: 1200, height: 627 }; // LinkedIn/social ratio (1.91:1)
 
     logger.info({ playerId, courseId, variant }, 'Generating certificate image');
 
     await connectDB();
 
-    // Fetch player and course
-    const [player, course] = await Promise.all([
+    // Fetch data
+    const [player, course, progress] = await Promise.all([
       Player.findById(playerId).lean(),
       Course.findOne({ courseId }).lean(),
+      CourseProgress.findOne({
+        playerId: new mongoose.Types.ObjectId(playerId),
+        courseId: new mongoose.Types.ObjectId(courseId),
+      }).lean(),
     ]);
 
     if (!player || !course) {
       return new Response('Player or course not found', { status: 404 });
     }
 
-    // Fetch progress and final exam
-    const progress = await CourseProgress.findOne({
-      playerId: new mongoose.Types.ObjectId(playerId),
-      courseId: course._id,
-    }).lean();
-
+    // Get final exam score
     const finalExamAttempt = await FinalExamAttempt.findOne({
       playerId: new mongoose.Types.ObjectId(playerId),
       courseId: course._id,
@@ -79,31 +78,18 @@ export async function GET(
       .sort({ submittedAtISO: -1 })
       .lean();
 
-    // Check eligibility
-    const enrolled = !!progress;
-    const allLessonsCompleted = enrolled && progress && 
-      (progress.completedDays?.length || 0) >= (course.durationDays || 0);
-    const assessmentResults = progress?.assessmentResults || new Map();
-    const allQuizzesPassed = course.durationDays > 0 && 
-      Array.from({ length: course.durationDays }, (_, i) => (i + 1).toString())
-        .every((dayStr) => assessmentResults.has(dayStr));
-    const finalExamPassed = !!finalExamAttempt?.passed;
-    const certificateEligible = enrolled && allLessonsCompleted && allQuizzesPassed && finalExamPassed;
-
-    if (!certificateEligible) {
-      return new Response('Certificate not eligible', { status: 403 });
-    }
-
+    const finalExamScore = finalExamAttempt?.scorePercentInteger || null;
     const playerName = player.displayName || 'Unknown';
     const courseTitle = course.title || course.courseId;
-    const finalExamScore = finalExamAttempt?.scorePercentInteger || 0;
     const issuedDate = new Date().toLocaleDateString('en-US', { 
       year: 'numeric', 
       month: 'long', 
       day: 'numeric' 
     });
 
-    // Generate certificate image
+    // Generate certificate ID
+    const certificateId = `${playerId.slice(-8)}-${courseId.slice(-8)}`.toUpperCase();
+
     return new ImageResponse(
       (
         <div
@@ -115,8 +101,8 @@ export async function GET(
             alignItems: 'center',
             justifyContent: 'center',
             background: 'linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%)',
+            position: 'relative',
             padding: '80px',
-            fontFamily: 'system-ui, -apple-system, sans-serif',
           }}
         >
           {/* Decorative border */}
@@ -131,6 +117,17 @@ export async function GET(
               borderRadius: '16px',
             }}
           />
+          <div
+            style={{
+              position: 'absolute',
+              top: '8px',
+              left: '8px',
+              right: '8px',
+              bottom: '8px',
+              border: '4px solid rgba(255, 215, 0, 0.3)',
+              borderRadius: '12px',
+            }}
+          />
 
           {/* Main content */}
           <div
@@ -139,19 +136,21 @@ export async function GET(
               flexDirection: 'column',
               alignItems: 'center',
               justifyContent: 'center',
-              textAlign: 'center',
               width: '100%',
+              height: '100%',
+              textAlign: 'center',
             }}
           >
-            {/* Title */}
+            {/* Certificate Title */}
             <div
               style={{
-                fontSize: variant === 'print_a4' ? '72px' : '56px',
+                fontSize: variant === 'print_a4' ? 72 : 56,
                 fontWeight: 'bold',
                 background: 'linear-gradient(90deg, #FFD700 0%, #FFA500 100%)',
                 backgroundClip: 'text',
                 color: 'transparent',
                 marginBottom: '40px',
+                lineHeight: 1.2,
               }}
             >
               Certificate of Completion
@@ -167,13 +166,15 @@ export async function GET(
               }}
             />
 
-            {/* Course title */}
+            {/* Course Title */}
             <div
               style={{
-                fontSize: variant === 'print_a4' ? '48px' : '36px',
+                fontSize: variant === 'print_a4' ? 48 : 36,
                 fontWeight: 'bold',
                 color: '#FFFFFF',
                 marginBottom: '40px',
+                lineHeight: 1.3,
+                maxWidth: '90%',
               }}
             >
               {courseTitle}
@@ -182,7 +183,7 @@ export async function GET(
             {/* Awarded to */}
             <div
               style={{
-                fontSize: variant === 'print_a4' ? '32px' : '24px',
+                fontSize: variant === 'print_a4' ? 32 : 24,
                 color: '#CCCCCC',
                 marginBottom: '20px',
               }}
@@ -190,13 +191,14 @@ export async function GET(
               This is to certify that
             </div>
 
-            {/* Player name */}
+            {/* Player Name */}
             <div
               style={{
-                fontSize: variant === 'print_a4' ? '48px' : '40px',
+                fontSize: variant === 'print_a4' ? 56 : 42,
                 fontWeight: 'bold',
                 color: '#FFD700',
                 marginBottom: '20px',
+                lineHeight: 1.2,
               }}
             >
               {playerName}
@@ -205,7 +207,7 @@ export async function GET(
             {/* Completion text */}
             <div
               style={{
-                fontSize: variant === 'print_a4' ? '32px' : '24px',
+                fontSize: variant === 'print_a4' ? 32 : 24,
                 color: '#CCCCCC',
                 marginBottom: '60px',
               }}
@@ -213,13 +215,13 @@ export async function GET(
               has successfully completed the course
             </div>
 
-            {/* Score */}
-            {finalExamScore > 0 && (
+            {/* Score (if available) */}
+            {finalExamScore !== null && (
               <div
                 style={{
-                  fontSize: variant === 'print_a4' ? '36px' : '28px',
+                  fontSize: variant === 'print_a4' ? 40 : 32,
                   color: '#FFD700',
-                  marginBottom: '60px',
+                  marginBottom: '40px',
                   fontWeight: 'bold',
                 }}
               >
@@ -230,19 +232,20 @@ export async function GET(
             {/* Footer */}
             <div
               style={{
+                position: 'absolute',
+                bottom: '60px',
+                left: 0,
+                right: 0,
                 display: 'flex',
-                flexDirection: 'row',
                 justifyContent: 'space-between',
-                width: '100%',
-                marginTop: 'auto',
-                paddingTop: '60px',
-                borderTop: '2px solid #FFD700',
-                fontSize: '18px',
+                alignItems: 'center',
+                padding: '0 80px',
+                fontSize: variant === 'print_a4' ? 20 : 16,
                 color: '#999999',
               }}
             >
-              <div>Issued: {issuedDate}</div>
-              <div>Amanoba Learning Platform</div>
+              <div>ID: {certificateId}</div>
+              <div>{issuedDate}</div>
             </div>
           </div>
         </div>
@@ -252,7 +255,7 @@ export async function GET(
       }
     );
   } catch (error) {
-    logger.error({ error, playerId, courseId }, 'Failed to generate certificate image');
+    logger.error({ error }, 'Failed to generate certificate image');
     return new Response('Failed to generate certificate image', { status: 500 });
   }
 }
