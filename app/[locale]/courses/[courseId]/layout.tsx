@@ -177,13 +177,11 @@ export default async function CourseDetailLayout({
     notFound();
   }
 
-  // CRITICAL: Enforce URL locale MUST match course language
-  // If URL locale doesn't match course language, return 404
-  // This ensures only correct URLs work: /ru/courses/SALES_PRODUCTIVITY_30_RU
-  // Wrong URLs like /hu/courses/SALES_PRODUCTIVITY_30_RU will return 404
-  if (locale !== course.language) {
-    notFound();
-  }
+  // OPTION 2: Allow any URL locale, but UI will use course language
+  // URL locale controls general site navigation (header, menus)
+  // Course language controls ALL course-related UI (buttons, labels, content)
+  // This is secure because courseLanguage is fetched from API, not URL
+  // Result: /hu/courses/PRODUCTIVITY_2026_AR works and shows 100% Arabic UI
 
   return <>{children}</>;
 }

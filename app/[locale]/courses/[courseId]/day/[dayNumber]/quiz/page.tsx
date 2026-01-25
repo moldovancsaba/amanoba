@@ -210,6 +210,15 @@ export default function LessonQuizPage({
       setCourseId(cid);
       setDayNumber(day);
       
+      // Extract language from courseId suffix (e.g., PRODUCTIVITY_2026_AR → ar)
+      // This ensures links use correct language immediately, before API call
+      const parts = cid.split('_');
+      const suffix = parts[parts.length - 1].toLowerCase();
+      const validLanguages = ['hu', 'en', 'ar', 'ru', 'pt', 'vi', 'id', 'hi', 'tr', 'bg', 'pl'];
+      if (validLanguages.includes(suffix)) {
+        setCourseLanguage(suffix);
+      }
+      
       await loadLessonAndQuestions(cid, day);
     };
     init();
