@@ -81,6 +81,11 @@ export default function ProfilePage({ params }: { params: Promise<{ playerId: st
     fetchProfile();
   }, [playerId]);
 
+  // Check if viewing own profile - MUST be defined BEFORE useEffect that uses it
+  const user = session?.user as { id?: string; playerId?: string } | undefined;
+  const currentUserId = user?.playerId || user?.id;
+  const isOwnProfile = currentUserId === playerId;
+
   // Step 8: Fetch payment history (only for own profile)
   useEffect(() => {
     if (!isOwnProfile || !session) return;
@@ -102,11 +107,6 @@ export default function ProfilePage({ params }: { params: Promise<{ playerId: st
 
     fetchPayments();
   }, [isOwnProfile, session]);
-
-  // Check if viewing own profile
-  const user = session?.user as { id?: string; playerId?: string } | undefined;
-  const currentUserId = user?.playerId || user?.id;
-  const isOwnProfile = currentUserId === playerId;
 
   if (loading) {
     return (
