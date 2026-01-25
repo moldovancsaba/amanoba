@@ -79,6 +79,11 @@ export default function ProfilePage({ params }: { params: Promise<{ playerId: st
     fetchProfile();
   }, [playerId]);
 
+  // Check if viewing own profile
+  const user = session?.user as { id?: string; playerId?: string } | undefined;
+  const currentUserId = user?.playerId || user?.id;
+  const isOwnProfile = currentUserId === playerId;
+
   if (loading) {
     return (
       <div className="page-shell flex items-center justify-center">
@@ -246,6 +251,63 @@ export default function ProfilePage({ params }: { params: Promise<{ playerId: st
                 {activeTab === 'payments' && profileData.wallet && (
                   <div className="page-card-dark p-6">
                     <p className="text-brand-white">Payments tab content - coming in Step 8</p>
+                  </div>
+                )}
+              </div>
+              
+              {/* Step 4: Add Tabs */}
+              <div className="flex gap-2 mb-6 mt-8">
+                {[
+                  { id: 'overview', label: 'Overview', icon: TrendingUp },
+                  { id: 'achievements', label: 'Achievements', icon: Trophy },
+                  { id: 'activity', label: 'Activity', icon: Clock },
+                  ...(isOwnProfile ? [{ id: 'payments', label: 'Payments', icon: CreditCard }] : []),
+                ].map((tab) => {
+                  const Icon = tab.icon;
+                  return (
+                    <button
+                      key={tab.id}
+                      onClick={() => setActiveTab(tab.id as 'overview' | 'achievements' | 'activity' | 'payments')}
+                      className={`flex items-center gap-2 px-6 py-3 rounded-lg font-semibold transition-all ${
+                        activeTab === tab.id
+                          ? 'bg-brand-darkGrey text-brand-white'
+                          : 'bg-brand-darkGrey text-brand-white/70 hover:bg-brand-black/20'
+                      }`}
+                    >
+                      <Icon className="w-5 h-5" />
+                      {tab.label}
+                    </button>
+                  );
+                })}
+              </div>
+
+              {/* Tab Content */}
+              <div className="space-y-6">
+                {activeTab === 'overview' && (
+                  <div className="page-card-dark p-6">
+                    <h3 className="text-2xl font-bold text-white mb-4">Overview</h3>
+                    <p className="text-gray-400">Overview content will be added in Step 5.</p>
+                  </div>
+                )}
+
+                {activeTab === 'achievements' && (
+                  <div className="page-card-dark p-6">
+                    <h3 className="text-2xl font-bold text-white mb-4">Achievements</h3>
+                    <p className="text-gray-400">Achievements content will be added in Step 6.</p>
+                  </div>
+                )}
+
+                {activeTab === 'activity' && (
+                  <div className="page-card-dark p-6">
+                    <h3 className="text-2xl font-bold text-white mb-4">Activity</h3>
+                    <p className="text-gray-400">Activity content will be added in Step 7.</p>
+                  </div>
+                )}
+
+                {activeTab === 'payments' && isOwnProfile && (
+                  <div className="page-card-dark p-6">
+                    <h3 className="text-2xl font-bold text-white mb-4">Payments</h3>
+                    <p className="text-gray-400">Payments content will be added in Step 8.</p>
                   </div>
                 )}
               </div>
