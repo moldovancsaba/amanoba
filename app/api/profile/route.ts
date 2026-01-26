@@ -10,6 +10,7 @@ import { auth } from '@/auth';
 import connectDB from '@/lib/mongodb';
 import { Player } from '@/lib/models';
 import { logger } from '@/lib/logger';
+import { checkRateLimit, apiRateLimiter } from '@/lib/security';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -20,6 +21,12 @@ export const dynamic = 'force-dynamic';
  * What: Get current user's profile
  */
 export async function GET(request: NextRequest) {
+  // Rate limiting: 100 requests per 15 minutes per IP
+  const rateLimitResponse = await checkRateLimit(request, apiRateLimiter);
+  if (rateLimitResponse) {
+    return rateLimitResponse;
+  }
+
   try {
     const session = await auth();
     if (!session?.user) {
@@ -69,6 +76,12 @@ export async function GET(request: NextRequest) {
  * - locale?: Locale string
  */
 export async function PATCH(request: NextRequest) {
+  // Rate limiting: 100 requests per 15 minutes per IP
+  const rateLimitResponse = await checkRateLimit(request, apiRateLimiter);
+  if (rateLimitResponse) {
+    return rateLimitResponse;
+  }
+
   try {
     const session = await auth();
     if (!session?.user) {

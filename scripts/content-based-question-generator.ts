@@ -387,6 +387,146 @@ function generateGeoIntroLessonQuestionsEN(
   return questions;
 }
 
+function generateProductivityLesson1QuestionsPL(
+  day: number,
+  title: string,
+  courseId: string
+): ContentBasedQuestion[] {
+  const questions: ContentBasedQuestion[] = [];
+
+  const normalizedCourseId = String(courseId || '').toLowerCase();
+  const baseTags = [`#day${day}`, '#pl', '#all-languages', ...(normalizedCourseId ? [`#course-${normalizedCourseId}`] : [])];
+  const topicTags = ['#productivity'];
+
+  const tags = (type: QuizQuestionType, diff: QuestionDifficulty) => [
+    ...baseTags,
+    ...topicTags,
+    diff === QuestionDifficulty.HARD ? '#advanced' : '#intermediate',
+    type === QuizQuestionType.APPLICATION ? '#application' : '#critical-thinking',
+  ];
+
+  // Application 1: output vs outcome classification
+  questions.push({
+    question:
+      'Które zdanie jest przykładem “rezultatu” (efektu), a nie “wyniku” (samej aktywności) w kontekście produktywności?',
+    options: [
+      '„Zamknąłem(-am) projekt na czas i klient zaakceptował rezultat bez poprawek, bo problem został rozwiązany.”',
+      '„Wysłałem(-am) dziś 80 e‑maili i miałem(-am) 7 godzin spotkań, więc byłem(-am) bardzo zajęty(-a).”',
+      '„Napisałem(-am) 15 notatek ze spotkań, ale nie podjęliśmy żadnej decyzji ani nie ruszyliśmy zadania.”',
+      '„Zrobiłem(-am) 25 zadań z listy, ale najważniejszy problem klienta nadal nie jest rozwiązany.”',
+    ],
+    correctIndex: 0,
+    difficulty: QuestionDifficulty.MEDIUM,
+    category: 'Course Specific',
+    questionType: QuizQuestionType.APPLICATION,
+    hashtags: tags(QuizQuestionType.APPLICATION, QuestionDifficulty.MEDIUM),
+  });
+
+  // Application 2: productivity formula thinking
+  questions.push({
+    question:
+      'W ujęciu z lekcji: produktywność = rezultat / ograniczenia. Która decyzja najbardziej zwiększa produktywność przy stałym czasie pracy?',
+    options: [
+      'Skupiam się na jednym kluczowym problemie klienta i doprowadzam go do zakończenia, zamiast mnożyć drobne aktywności.',
+      'Dodaję kolejne spotkania statusowe, żeby “być na bieżąco”, nawet jeśli nie ma decyzji do podjęcia.',
+      'Zwiększam liczbę wysyłanych wiadomości, bez mierzenia, czy coś realnie się zmieniło po drugiej stronie.',
+      'Rozbijam pracę na jak najwięcej mikro‑zadań, aby wyglądało, że “dużo zrobiłem(-am)”.',
+    ],
+    correctIndex: 0,
+    difficulty: QuestionDifficulty.MEDIUM,
+    category: 'Course Specific',
+    questionType: QuizQuestionType.APPLICATION,
+    hashtags: tags(QuizQuestionType.APPLICATION, QuestionDifficulty.MEDIUM),
+  });
+
+  // Application 3: constraint identification (energy)
+  questions.push({
+    question:
+      'Masz 8 godzin pracy, ale po południu spada Ci jakość decyzji i skupienia. Które “ograniczenie” z lekcji powinieneś/powinnaś zoptymalizować w pierwszej kolejności?',
+    options: [
+      'Energię: zaplanować trudne zadania na czas największej świeżości i ograniczyć wyczerpujące aktywności.',
+      'Zasoby: kupić nowe narzędzie, nawet jeśli problemem jest zmęczenie i brak regeneracji.',
+      'Czas: wydłużyć dzień pracy, mimo że spadek energii obniża jakość rezultatu.',
+      'Wynik: zwiększyć liczbę wykonanych czynności, aby “nadgonić”, bez poprawy energii.',
+    ],
+    correctIndex: 0,
+    difficulty: QuestionDifficulty.MEDIUM,
+    category: 'Course Specific',
+    questionType: QuizQuestionType.APPLICATION,
+    hashtags: tags(QuizQuestionType.APPLICATION, QuestionDifficulty.MEDIUM),
+  });
+
+  // Application 4: attention constraint and distractors
+  questions.push({
+    question:
+      'Próbujesz pracować nad ważnym zadaniem, ale co kilka minut wracasz do czatu i powiadomień. Jaki krok jest najbardziej zgodny z lekcją (ograniczenia: uwaga)?',
+    options: [
+      'Wyłączam powiadomienia i rezerwuję blok skupienia, bo produktywność zależy od rezultatu w ramach mojej uwagi.',
+      'Zostawiam powiadomienia włączone, ale obiecuję sobie “będę silniejszy(-a)” i jakoś to wytrzymam.',
+      'Dodaję więcej drobnych zadań równolegle, żeby nie czuć frustracji z jednego trudnego tematu.',
+      'Zwiększam liczbę spotkań, bo wtedy “ktoś mnie poprowadzi” i nie muszę się skupiać.',
+    ],
+    correctIndex: 0,
+    difficulty: QuestionDifficulty.MEDIUM,
+    category: 'Course Specific',
+    questionType: QuizQuestionType.APPLICATION,
+    hashtags: tags(QuizQuestionType.APPLICATION, QuestionDifficulty.MEDIUM),
+  });
+
+  // Application 5: personal definition
+  questions.push({
+    question:
+      'Która definicja produktywności jest najbardziej spójna z lekcją (rezultat względem ograniczeń, a nie objętość działań)?',
+    options: [
+      'Produktywność to dostarczanie mierzalnych rezultatów przy świadomym zarządzaniu czasem, energią, uwagą i zasobami.',
+      'Produktywność to robienie jak największej liczby rzeczy dziennie, aby “zawsze być zajętym”.',
+      'Produktywność to wyłącznie liczba godzin przepracowanych w tygodniu, niezależnie od efektu.',
+      'Produktywność to szybkie odpowiadanie na wiadomości, nawet jeśli nie przybliża to do celu.',
+    ],
+    correctIndex: 0,
+    difficulty: QuestionDifficulty.MEDIUM,
+    category: 'Course Specific',
+    questionType: QuizQuestionType.APPLICATION,
+    hashtags: tags(QuizQuestionType.APPLICATION, QuestionDifficulty.MEDIUM),
+  });
+
+  // Critical thinking 1: high output, low outcome
+  questions.push({
+    question:
+      'Dlaczego “wysoki wynik” (dużo aktywności) może obniżać produktywność, mimo że czujesz, że pracujesz ciężko?',
+    options: [
+      'Bo aktywność zużywa ograniczenia (czas/energia/uwaga), a bez przełożenia na rezultat mianownik rośnie, a licznik nie.',
+      'Bo każda aktywność automatycznie zamienia się w rezultat, więc to zawsze poprawia produktywność.',
+      'Bo jedyną miarą produktywności jest liczba zadań odhaczonych na liście, niezależnie od celu.',
+      'Bo rezultaty są losowe i nie da się nimi zarządzać, więc jedyne co pozostaje to zwiększać wynik.',
+    ],
+    correctIndex: 0,
+    difficulty: QuestionDifficulty.HARD,
+    category: 'Course Specific',
+    questionType: QuizQuestionType.CRITICAL_THINKING,
+    hashtags: tags(QuizQuestionType.CRITICAL_THINKING, QuestionDifficulty.HARD),
+  });
+
+  // Critical thinking 2: constraint tradeoff
+  questions.push({
+    question:
+      'Zespół naciska na więcej spotkań “żeby kontrolować postęp”. Jakie jest największe ryzyko dla produktywności według definicji z lekcji?',
+    options: [
+      'Spotkania mogą zwiększyć “wynik” (aktywność), ale zabrać ograniczenia i obniżyć realny rezultat w kluczowych zadaniach.',
+      'Spotkania zawsze zwiększają rezultat, bo sama synchronizacja jest równoznaczna z wykonaniem pracy.',
+      'Spotkania nie wpływają na ograniczenia czasu i uwagi, więc nie mają kosztu dla produktywności.',
+      'Spotkania automatycznie podnoszą energię zespołu, więc im więcej tym lepiej dla rezultatów.',
+    ],
+    correctIndex: 0,
+    difficulty: QuestionDifficulty.HARD,
+    category: 'Course Specific',
+    questionType: QuizQuestionType.CRITICAL_THINKING,
+    hashtags: tags(QuizQuestionType.CRITICAL_THINKING, QuestionDifficulty.HARD),
+  });
+
+  return questions;
+}
+
 /**
  * Language-specific question templates
  */
@@ -1097,6 +1237,18 @@ export function generateContentBasedQuestions(
   ) {
     const geoIntro = generateGeoIntroLessonQuestionsEN(day, title, contentLower, courseId);
     return geoIntro.slice(0, needed);
+  }
+
+  // Special-case: Productivity 2026 Day 1 (PL) — output vs outcome vs constraints.
+  if (
+    language.toLowerCase() === 'pl' &&
+    courseId.includes('PRODUCTIVITY_2026') &&
+    day === 1 &&
+    (contentLower.includes('wynik') && contentLower.includes('rezultat') && contentLower.includes('ogranicze'))
+  ) {
+    const qs = generateProductivityLesson1QuestionsPL(day, title, courseId);
+    // Return a slightly larger pool so callers can select valid questions after strict QC.
+    return qs.slice(0, Math.max(needed, 9));
   }
 
   // Get language-specific templates (pass title for context)

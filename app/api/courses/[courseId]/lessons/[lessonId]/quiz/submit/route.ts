@@ -11,6 +11,7 @@ import connectDB from '@/lib/mongodb';
 import { Course, Lesson, QuizQuestion } from '@/lib/models';
 import { logger } from '@/lib/logger';
 import mongoose from 'mongoose';
+import { checkRateLimit, apiRateLimiter } from '@/lib/security';
 
 /**
  * POST /api/courses/[courseId]/lessons/[lessonId]/quiz/submit
@@ -21,6 +22,12 @@ export async function POST(
   request: NextRequest,
   { params }: { params: Promise<{ courseId: string; lessonId: string }> }
 ) {
+  // Rate limiting: 100 requests per 15 minutes per IP
+  const rateLimitResponse = await checkRateLimit(request, apiRateLimiter);
+  if (rateLimitResponse) {
+    return rateLimitResponse;
+  }
+
   try {
     const session = await auth();
     if (!session?.user) {

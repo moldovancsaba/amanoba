@@ -1,0 +1,160 @@
+{
+  "backedUpAt": "2026-01-26T20:46:43.027Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_PL",
+    "name": "Produktywność 2026: Jak zarządzać zespołami i czasem",
+    "language": "pl"
+  },
+  "lesson": {
+    "dayNumber": 1,
+    "title": "Definicja produktywności: wynik, rezultaty i ograniczenia",
+    "lessonId": "PRODUCTIVITY_2026_PL_DAY_01"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a308260c12d7a7ac55e",
+      "uuid": "36202107-0d25-4cfd-b02f-02ad86b77f2f",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Jaka jest różnica między wynikiem a rezultatem?",
+      "options": [
+        "Wynik to ilość działań, rezultat to rzeczywista zmiana lub efekt",
+        "Wynik i rezultat to to samo",
+        "Rezultat to ilość działań, wynik to rzeczywisty efekt",
+        "Nie ma między nimi różnicy"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day-01",
+        "#foundation",
+        "#recall",
+        "#pl"
+      ]
+    },
+    {
+      "_id": "69776a308260c12d7a7ac55f",
+      "uuid": "22f63112-ba82-4697-a343-b773c66d6b1b",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Który przykład pokazuje skupienie na rezultacie?",
+      "options": [
+        "\"Dzisiaj wyślę 100 e-maili!\"",
+        "\"Dzisiaj rozwiążę 3 krytyczne problemy klientów, co zwiększa satysfakcję o 15%\"",
+        "\"Dzisiaj będę miał 8 godzin spotkań\"",
+        "\"Dzisiaj napiszę 20 dokumentów\""
+      ],
+      "correctIndex": 1,
+      "hashtags": [
+        "#day-01",
+        "#scenario",
+        "#application",
+        "#pl"
+      ]
+    },
+    {
+      "_id": "69776a308260c12d7a7ac560",
+      "uuid": "5ef74cf2-5c11-4b20-b817-14e1481927c3",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Które NIE jest uważane za ograniczenie produktywności?",
+      "options": [
+        "Czas",
+        "Energia",
+        "Uwaga",
+        "Liczba działań"
+      ],
+      "correctIndex": 3,
+      "hashtags": [
+        "#day-01",
+        "#purpose",
+        "#application",
+        "#pl"
+      ]
+    },
+    {
+      "_id": "69776a308260c12d7a7ac561",
+      "uuid": "321f6fad-1f9c-4519-9aa9-54725b5ca0ff",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Jaka jest poprawna definicja produktywności?",
+      "options": [
+        "Maksymalna liczba działań",
+        "Rezultat / ograniczenia (wyniki względem limitów)",
+        "Więcej wyników zawsze jest lepsze",
+        "Nie ma potrzeby zarządzania ograniczeniami"
+      ],
+      "correctIndex": 1,
+      "hashtags": [
+        "#day-01",
+        "#foundation",
+        "#recall",
+        "#pl"
+      ]
+    },
+    {
+      "_id": "69776a308260c12d7a7ac562",
+      "uuid": "ac6d947d-11c7-4a4e-98fa-57599a1d95e4",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Dlaczego skupienie na rezultacie jest ważniejsze niż na wyniku?",
+      "options": [
+        "Ponieważ wysoki wynik automatycznie gwarantuje dobre rezultaty",
+        "Ponieważ rezultat przynosi rzeczywistą wartość, a nie ilość działań",
+        "Ponieważ wynik jest łatwiejszy do zmierzenia",
+        "Ponieważ nie ma różnicy"
+      ],
+      "correctIndex": 1,
+      "hashtags": [
+        "#day-01",
+        "#foundation",
+        "#recall",
+        "#pl"
+      ]
+    },
+    {
+      "_id": "69776a308260c12d7a7ac563",
+      "uuid": "e3878e9f-f610-42b6-8fca-0985d0f25c67",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ Rozróżniasz wynik i rezultat.\n✅ Zident...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day1",
+        "#pl",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a308260c12d7a7ac564",
+      "uuid": "f2391ec2-71f1-4074-b740-ac46449b0f36",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Jak koncepcja \"Definicja produktywności: wynik, rezultaty i ogran...\", wspomniana w lekcji, wpływa na osiągnięcie twoich goals?",
+      "options": [
+        "Jak szczegółowo opisano w lekcji, Definicja produktywności: wyni... zwiększa skuteczność i zmniejsza ryzyko",
+        "Brak znaczącego wpływu",
+        "Ma znaczenie tylko teoretycznie",
+        "Tylko opcjonalny element"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day1",
+        "#pl",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    }
+  ]
+}

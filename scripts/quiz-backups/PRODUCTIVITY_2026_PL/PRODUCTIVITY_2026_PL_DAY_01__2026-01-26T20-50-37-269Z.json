@@ -1,0 +1,174 @@
+{
+  "backedUpAt": "2026-01-26T20:50:37.269Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_PL",
+    "name": "Produktywność 2026: Jak zarządzać zespołami i czasem",
+    "language": "pl"
+  },
+  "lesson": {
+    "dayNumber": 1,
+    "title": "Definicja produktywności: wynik, rezultaty i ograniczenia",
+    "lessonId": "PRODUCTIVITY_2026_PL_DAY_01"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a308260c12d7a7ac55f",
+      "uuid": "22f63112-ba82-4697-a343-b773c66d6b1b",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Który przykład pokazuje skupienie na rezultacie?",
+      "options": [
+        "\"Dzisiaj wyślę 100 e-maili!\"",
+        "\"Dzisiaj rozwiążę 3 krytyczne problemy klientów, co zwiększa satysfakcję o 15%\"",
+        "\"Dzisiaj będę miał 8 godzin spotkań\"",
+        "\"Dzisiaj napiszę 20 dokumentów\""
+      ],
+      "correctIndex": 1,
+      "hashtags": [
+        "#day-01",
+        "#scenario",
+        "#application",
+        "#pl"
+      ]
+    },
+    {
+      "_id": "6977d2b30e45b16fd24f91f2",
+      "uuid": "d973b1ff-be93-4726-982d-4907bb90892f",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Które zdanie jest przykładem “rezultatu” (efektu), a nie “wyniku” (samej aktywności) w kontekście produktywności?",
+      "options": [
+        "„Zamknąłem(-am) projekt na czas i klient zaakceptował rezultat bez poprawek, bo problem został rozwiązany.”",
+        "„Wysłałem(-am) dziś 80 e‑maili i miałem(-am) 7 godzin spotkań, więc byłem(-am) bardzo zajęty(-a).”",
+        "„Napisałem(-am) 15 notatek ze spotkań, ale nie podjęliśmy żadnej decyzji ani nie ruszyliśmy zadania.”",
+        "„Zrobiłem(-am) 25 zadań z listy, ale najważniejszy problem klienta nadal nie jest rozwiązany.”"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day1",
+        "#pl",
+        "#all-languages",
+        "#course-productivity_2026_pl",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "6977d2b30e45b16fd24f91f3",
+      "uuid": "a2bb1792-6067-40f1-98bc-d49a9c3519a9",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "W ujęciu z lekcji: produktywność = rezultat / ograniczenia. Która decyzja najbardziej zwiększa produktywność przy stałym czasie pracy?",
+      "options": [
+        "Skupiam się na jednym kluczowym problemie klienta i doprowadzam go do zakończenia, zamiast mnożyć drobne aktywności.",
+        "Dodaję kolejne spotkania statusowe, żeby “być na bieżąco”, nawet jeśli nie ma decyzji do podjęcia.",
+        "Zwiększam liczbę wysyłanych wiadomości, bez mierzenia, czy coś realnie się zmieniło po drugiej stronie.",
+        "Rozbijam pracę na jak najwięcej mikro‑zadań, aby wyglądało, że “dużo zrobiłem(-am)”."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day1",
+        "#pl",
+        "#all-languages",
+        "#course-productivity_2026_pl",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "6977d2b30e45b16fd24f91f4",
+      "uuid": "c8090c14-aa16-46c2-8872-efc5533286e0",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Masz 8 godzin pracy, ale po południu spada Ci jakość decyzji i skupienia. Które “ograniczenie” z lekcji powinieneś/powinnaś zoptymalizować w pierwszej kolejności?",
+      "options": [
+        "Energię: zaplanować trudne zadania na czas największej świeżości i ograniczyć wyczerpujące aktywności.",
+        "Zasoby: kupić nowe narzędzie, nawet jeśli problemem jest zmęczenie i brak regeneracji.",
+        "Czas: wydłużyć dzień pracy, mimo że spadek energii obniża jakość rezultatu.",
+        "Wynik: zwiększyć liczbę wykonanych czynności, aby “nadgonić”, bez poprawy energii."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day1",
+        "#pl",
+        "#all-languages",
+        "#course-productivity_2026_pl",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "6977d2b30e45b16fd24f91f5",
+      "uuid": "2b484128-1510-4ab7-aada-01c254580e7c",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Próbujesz pracować nad ważnym zadaniem, ale co kilka minut wracasz do czatu i powiadomień. Jaki krok jest najbardziej zgodny z lekcją (ograniczenia: uwaga)?",
+      "options": [
+        "Wyłączam powiadomienia i rezerwuję blok skupienia, bo produktywność zależy od rezultatu w ramach mojej uwagi.",
+        "Zostawiam powiadomienia włączone, ale obiecuję sobie “będę silniejszy(-a)” i jakoś to wytrzymam.",
+        "Dodaję więcej drobnych zadań równolegle, żeby nie czuć frustracji z jednego trudnego tematu.",
+        "Zwiększam liczbę spotkań, bo wtedy “ktoś mnie poprowadzi” i nie muszę się skupiać."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day1",
+        "#pl",
+        "#all-languages",
+        "#course-productivity_2026_pl",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "6977d2b30e45b16fd24f91f6",
+      "uuid": "6f62c68d-e708-4ee7-955d-2353522e765b",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Która definicja produktywności jest najbardziej spójna z lekcją (rezultat względem ograniczeń, a nie objętość działań)?",
+      "options": [
+        "Produktywność to dostarczanie mierzalnych rezultatów przy świadomym zarządzaniu czasem, energią, uwagą i zasobami.",
+        "Produktywność to robienie jak największej liczby rzeczy dziennie, aby “zawsze być zajętym”.",
+        "Produktywność to wyłącznie liczba godzin przepracowanych w tygodniu, niezależnie od efektu.",
+        "Produktywność to szybkie odpowiadanie na wiadomości, nawet jeśli nie przybliża to do celu."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day1",
+        "#pl",
+        "#all-languages",
+        "#course-productivity_2026_pl",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "6977d2b30e45b16fd24f91f7",
+      "uuid": "ddf00fe4-53de-4153-800e-d1636c0702df",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Dlaczego “wysoki wynik” (dużo aktywności) może obniżać produktywność, mimo że czujesz, że pracujesz ciężko?",
+      "options": [
+        "Bo aktywność zużywa ograniczenia (czas/energia/uwaga), a bez przełożenia na rezultat mianownik rośnie, a licznik nie.",
+        "Bo każda aktywność automatycznie zamienia się w rezultat, więc to zawsze poprawia produktywność.",
+        "Bo jedyną miarą produktywności jest liczba zadań odhaczonych na liście, niezależnie od celu.",
+        "Bo rezultaty są losowe i nie da się nimi zarządzać, więc jedyne co pozostaje to zwiększać wynik."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day1",
+        "#pl",
+        "#all-languages",
+        "#course-productivity_2026_pl",
+        "#productivity",
+        "#advanced",
+        "#critical-thinking"
+      ]
+    }
+  ]
+}

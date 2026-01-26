@@ -11,6 +11,7 @@ import connectDB from '@/lib/mongodb';
 import { Player, PlayerSession, AchievementUnlock, PointsTransaction, CourseProgress, Game, RewardRedemption } from '@/lib/models';
 import { logger } from '@/lib/logger';
 import { requireAdmin } from '@/lib/rbac';
+import { checkRateLimit, adminRateLimiter } from '@/lib/security';
 
 /**
  * GET /api/admin/stats
@@ -18,6 +19,12 @@ import { requireAdmin } from '@/lib/rbac';
  * What: Get dashboard statistics
  */
 export async function GET(request: NextRequest) {
+  // Rate limiting: 50 requests per 15 minutes per IP (admin endpoints)
+  const rateLimitResponse = await checkRateLimit(request, adminRateLimiter);
+  if (rateLimitResponse) {
+    return rateLimitResponse;
+  }
+
   try {
     const session = await auth();
     const adminCheck = requireAdmin(request, session);

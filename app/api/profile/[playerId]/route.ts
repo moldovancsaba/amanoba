@@ -25,6 +25,7 @@ import type { IAchievement } from '@/lib/models/achievement';
 import { logger } from '@/lib/logger';
 import { auth } from '@/auth';
 import { isAdmin } from '@/lib/rbac';
+import { checkRateLimit, apiRateLimiter } from '@/lib/security';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -50,6 +51,12 @@ export async function GET(
   request: NextRequest,
   props: { params: Promise<{ playerId: string }> }
 ) {
+  // Rate limiting: 100 requests per 15 minutes per IP
+  const rateLimitResponse = await checkRateLimit(request, apiRateLimiter);
+  if (rateLimitResponse) {
+    return rateLimitResponse;
+  }
+
   try {
     const { playerId } = await props.params;
 

@@ -26,6 +26,7 @@ import { join, resolve } from 'path';
 
 const COURSE_ID = process.argv[2];
 const DRY_RUN = process.argv.includes('--dry-run');
+const FORCE_REWRITE = process.argv.includes('--force-rewrite');
 const DAY_ONLY = (() => {
   const idx = process.argv.indexOf('--day');
   if (idx === -1) return undefined;
@@ -40,7 +41,7 @@ const BACKUP_DIR = (() => {
 
 if (!COURSE_ID) {
   console.error('❌ Please provide a course ID');
-  console.log('Usage: npx tsx --env-file=.env.local scripts/process-course-questions-generic.ts COURSE_ID [--day 1] [--backup-dir path] [--dry-run]');
+  console.log('Usage: npx tsx --env-file=.env.local scripts/process-course-questions-generic.ts COURSE_ID [--day 1] [--force-rewrite] [--backup-dir path] [--dry-run]');
   process.exit(1);
 }
 
@@ -153,6 +154,10 @@ async function processCourse() {
         if (v.isValid) validExisting.push(q);
         else invalidExisting.push(q);
       }
+      if (FORCE_REWRITE) {
+        invalidExisting.push(...validExisting);
+        validExisting.length = 0;
+      }
 
       const existingCounts = {
         valid: validExisting.length,
@@ -162,7 +167,7 @@ async function processCourse() {
       };
 
       // If already meets minimum requirements, skip rewrite.
-      if (existingCounts.valid >= 7 && existingCounts.application >= 5 && existingCounts.recall === 0) {
+      if (!FORCE_REWRITE && existingCounts.valid >= 7 && existingCounts.application >= 5 && existingCounts.recall === 0) {
         if (!DRY_RUN && existingCounts.invalid > 0) {
           const delInvalid = await QuizQuestion.deleteMany({ _id: { $in: invalidExisting.map(q => q._id) } });
           totalDeleted += delInvalid.deletedCount || 0;

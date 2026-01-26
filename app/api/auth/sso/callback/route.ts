@@ -12,6 +12,7 @@ import { Player, Brand } from '@/lib/models';
 import { validateSSOToken, extractSSOUserInfo } from '@/lib/auth/sso';
 import { signIn } from '@/auth';
 import { logAuthEvent, logPlayerRegistration } from '@/lib/analytics/event-logger';
+import { checkRateLimit, authRateLimiter } from '@/lib/security';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -24,6 +25,11 @@ export const dynamic = 'force-dynamic';
  * - state: State parameter for CSRF protection
  */
 export async function GET(request: NextRequest) {
+  // Rate limiting: 5 attempts per 15 minutes per IP
+  const rateLimitResponse = await checkRateLimit(request, authRateLimiter);
+  if (rateLimitResponse) {
+    return rateLimitResponse;
+  }
   const { searchParams } = new URL(request.url);
   
   // Helper function to extract locale from a path

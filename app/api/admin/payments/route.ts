@@ -12,6 +12,7 @@ import { PaymentTransaction, PaymentStatus, Course, Player } from '@/lib/models'
 import { logger } from '@/lib/logger';
 import { requireAdmin } from '@/lib/rbac';
 import mongoose from 'mongoose';
+import { checkRateLimit, adminRateLimiter } from '@/lib/security';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -31,6 +32,12 @@ export const dynamic = 'force-dynamic';
  *   - analytics?: boolean (include analytics in response)
  */
 export async function GET(request: NextRequest) {
+  // Rate limiting: 50 requests per 15 minutes per IP (admin endpoints)
+  const rateLimitResponse = await checkRateLimit(request, adminRateLimiter);
+  if (rateLimitResponse) {
+    return rateLimitResponse;
+  }
+
   try {
     const session = await auth();
     const adminCheck = requireAdmin(request, session);

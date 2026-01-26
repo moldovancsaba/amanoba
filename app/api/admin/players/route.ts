@@ -11,6 +11,7 @@ import { requireAdmin } from '@/lib/rbac';
 import connectDB from '@/lib/mongodb';
 import { Player } from '@/lib/models';
 import { logger } from '@/lib/logger';
+import { checkRateLimit, adminRateLimiter } from '@/lib/security';
 
 /**
  * GET /api/admin/players
@@ -18,6 +19,12 @@ import { logger } from '@/lib/logger';
  * What: List all players with optional filtering and pagination
  */
 export async function GET(request: NextRequest) {
+  // Rate limiting: 50 requests per 15 minutes per IP (admin endpoints)
+  const rateLimitResponse = await checkRateLimit(request, adminRateLimiter);
+  if (rateLimitResponse) {
+    return rateLimitResponse;
+  }
+
   try {
     const session = await auth();
     const adminCheck = requireAdmin(request, session);

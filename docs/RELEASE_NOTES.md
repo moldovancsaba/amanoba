@@ -9,6 +9,60 @@ All completed tasks are documented here in reverse chronological order. This fil
 
 ---
 
+## [v2.9.8] — 2026-01-26 🔒✅
+
+**Status**: SECURITY ENHANCEMENT - Rate Limiting Implementation  
+**Type**: Security Hardening
+
+### 🔒 Rate Limiting Implementation
+
+**Problem**: API endpoints were vulnerable to abuse, DDoS attacks, and brute force attempts. No rate limiting was in place to protect endpoints.
+
+**Solution**: Wired rate limiting to all critical API endpoints using existing rate limiting infrastructure.
+
+#### Features Delivered
+- ✅ **Auth Endpoints Protected** - Anonymous login, SSO login/callback/logout (5 attempts per 15 min)
+- ✅ **Profile Endpoints Protected** - GET/PATCH profile, profile by ID (100 requests per 15 min)
+- ✅ **Course Endpoints Protected** - Enroll, day lesson, quiz submit (100 requests per 15 min)
+- ✅ **Admin Endpoints Protected** - Payments, players, courses, stats (50 requests per 15 min, examples)
+- ✅ **Rate Limiter Configuration** - Different limits for different endpoint types
+
+#### Technical Details
+- **Rate Limiters Used**:
+  - `authRateLimiter`: 5 attempts per 15 minutes (stricter for security)
+  - `apiRateLimiter`: 100 requests per 15 minutes (standard API)
+  - `adminRateLimiter`: 50 requests per 15 minutes (admin endpoints)
+
+- **Endpoints Protected**:
+  - Auth: 5 endpoints (anonymous, sso/login, sso/callback, sso/logout GET/POST)
+  - Profile: 3 endpoints (GET/PATCH profile, GET profile by ID)
+  - Course: 3 endpoints (enroll, day lesson, quiz submit)
+  - Admin: 5 endpoints (payments, players, courses GET/POST, stats) - pattern established for 30 remaining
+
+#### Files Modified
+- `app/api/auth/anonymous/route.ts`
+- `app/api/auth/sso/login/route.ts`
+- `app/api/auth/sso/callback/route.ts`
+- `app/api/auth/sso/logout/route.ts`
+- `app/api/profile/route.ts`
+- `app/api/profile/[playerId]/route.ts`
+- `app/api/courses/[courseId]/enroll/route.ts`
+- `app/api/courses/[courseId]/day/[dayNumber]/route.ts`
+- `app/api/courses/[courseId]/lessons/[lessonId]/quiz/submit/route.ts`
+- `app/api/admin/payments/route.ts`
+- `app/api/admin/players/route.ts`
+- `app/api/admin/courses/route.ts`
+- `app/api/admin/stats/route.ts`
+
+#### Documentation
+- `docs/RATE_LIMITING_IMPLEMENTATION_PLAN.md` - Complete implementation details
+- `docs/RATE_LIMITING_ROLLBACK_PLAN.md` - Rollback instructions
+
+**Build Status**: ✅ SUCCESS  
+**Status**: ✅ COMPLETE - Rate limiting wired to critical endpoints, pattern established for remaining admin endpoints
+
+---
+
 ## [v2.9.7] — 2026-01-26 🐛✅
 
 **Status**: BUG FIX - Stripe Payment Checkout  

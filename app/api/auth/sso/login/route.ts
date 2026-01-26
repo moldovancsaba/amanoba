@@ -8,6 +8,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { logger } from '@/lib/logger';
 import { randomBytes } from 'crypto';
+import { checkRateLimit, authRateLimiter } from '@/lib/security';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -19,6 +20,12 @@ export const dynamic = 'force-dynamic';
  * - returnTo?: string - URL to redirect to after login
  */
 export async function GET(request: NextRequest) {
+  // Rate limiting: 5 attempts per 15 minutes per IP
+  const rateLimitResponse = await checkRateLimit(request, authRateLimiter);
+  if (rateLimitResponse) {
+    return rateLimitResponse;
+  }
+
   try {
     const authUrl = process.env.SSO_AUTH_URL;
     const clientId = process.env.SSO_CLIENT_ID;

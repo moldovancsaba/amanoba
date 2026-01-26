@@ -12,6 +12,7 @@ import { Course, Brand } from '@/lib/models';
 import { logger } from '@/lib/logger';
 import { requireAdmin } from '@/lib/rbac';
 import mongoose from 'mongoose';
+import { checkRateLimit, adminRateLimiter } from '@/lib/security';
 
 /**
  * GET /api/admin/courses
@@ -20,6 +21,12 @@ import mongoose from 'mongoose';
  * Why: Display courses in admin dashboard
  */
 export async function GET(request: NextRequest) {
+  // Rate limiting: 50 requests per 15 minutes per IP (admin endpoints)
+  const rateLimitResponse = await checkRateLimit(request, adminRateLimiter);
+  if (rateLimitResponse) {
+    return rateLimitResponse;
+  }
+
   try {
     // Auth and admin role check
     const session = await auth();
@@ -83,6 +90,12 @@ export async function GET(request: NextRequest) {
  * Why: Allow admins to create courses via API
  */
 export async function POST(request: NextRequest) {
+  // Rate limiting: 50 requests per 15 minutes per IP (admin endpoints)
+  const rateLimitResponse = await checkRateLimit(request, adminRateLimiter);
+  if (rateLimitResponse) {
+    return rateLimitResponse;
+  }
+
   try {
     // Auth and admin role check
     const session = await auth();

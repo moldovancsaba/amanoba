@@ -8,6 +8,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { signOut } from '@/auth';
 import { logger } from '@/lib/logger';
+import { checkRateLimit, apiRateLimiter } from '@/lib/security';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -19,6 +20,12 @@ export const dynamic = 'force-dynamic';
  * - returnTo?: string - URL to redirect to after logout
  */
 export async function POST(request: NextRequest) {
+  // Rate limiting: 100 requests per 15 minutes per IP
+  const rateLimitResponse = await checkRateLimit(request, apiRateLimiter);
+  if (rateLimitResponse) {
+    return rateLimitResponse;
+  }
+
   try {
     const body = await request.json().catch(() => ({}));
     const returnTo = body.returnTo || '/';
@@ -65,6 +72,12 @@ export async function POST(request: NextRequest) {
  * Convenience GET endpoint for logout
  */
 export async function GET(request: NextRequest) {
+  // Rate limiting: 100 requests per 15 minutes per IP
+  const rateLimitResponse = await checkRateLimit(request, apiRateLimiter);
+  if (rateLimitResponse) {
+    return rateLimitResponse;
+  }
+
   const { searchParams } = new URL(request.url);
   const returnTo = searchParams.get('returnTo') || '/';
 

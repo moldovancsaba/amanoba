@@ -11,6 +11,7 @@ import connectDB from '@/lib/mongodb';
 import { Course, Lesson, CourseProgress, Player, CourseProgressStatus } from '@/lib/models';
 import { logger } from '@/lib/logger';
 import { checkAndUnlockCourseCompletionAchievements } from '@/lib/gamification';
+import { checkRateLimit, apiRateLimiter } from '@/lib/security';
 
 /**
  * Calculate the current day (first uncompleted lesson) based on completed days
@@ -47,6 +48,12 @@ export async function GET(
   request: NextRequest,
   { params }: { params: Promise<{ courseId: string; dayNumber: string }> }
 ) {
+  // Rate limiting: 100 requests per 15 minutes per IP
+  const rateLimitResponse = await checkRateLimit(request, apiRateLimiter);
+  if (rateLimitResponse) {
+    return rateLimitResponse;
+  }
+
   try {
     const session = await auth();
     if (!session?.user) {
