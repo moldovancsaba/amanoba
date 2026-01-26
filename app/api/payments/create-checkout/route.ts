@@ -40,6 +40,10 @@ export const dynamic = 'force-dynamic';
  * }
  */
 export async function POST(request: NextRequest) {
+  let normalizedCourseId: string | undefined;
+  let originalCourseId: string | undefined;
+  let player: any = null;
+
   try {
     // Check authentication
     const session = await auth();
@@ -61,6 +65,7 @@ export async function POST(request: NextRequest) {
     // Get request body
     const body = await request.json();
     const { courseId, amount, currency, premiumDurationDays = 30 } = body;
+    originalCourseId = courseId;
 
     // Validate required fields
     if (!courseId) {
@@ -70,17 +75,28 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    // Normalize courseId to uppercase (Course schema stores courseId in uppercase)
+    const normalizedCourseId = courseId.toUpperCase().trim();
+
     // Get player
     const user = session.user as { id?: string; playerId?: string };
     const playerId = user.playerId || user.id;
-    const player = await Player.findById(playerId);
+    player = await Player.findById(playerId);
     if (!player) {
       return NextResponse.json({ error: 'Player not found' }, { status: 404 });
     }
 
-    // Find course
-    const course = await Course.findOne({ courseId });
+    // Find course (using normalized courseId)
+    const course = await Course.findOne({ courseId: normalizedCourseId });
     if (!course) {
+      logger.error(
+        {
+          courseId: normalizedCourseId,
+          originalCourseId: courseId,
+          playerId: player._id.toString(),
+        },
+        'Course not found in payment checkout'
+      );
       return NextResponse.json({ error: 'Course not found' }, { status: 404 });
     }
 
@@ -183,7 +199,7 @@ export async function POST(request: NextRequest) {
         },
       ],
       success_url: `${APP_URL}/api/payments/success?session_id={CHECKOUT_SESSION_ID}`,
-      cancel_url: `${APP_URL}/courses/${courseId}?canceled=true`,
+      cancel_url: `${APP_URL}/courses/${normalizedCourseId}?canceled=true`,
       metadata: {
         playerId: player._id.toString(),
         courseId: course.courseId,
@@ -221,7 +237,8 @@ export async function POST(request: NextRequest) {
       {
         error: errorMessage,
         stack: errorStack,
-        courseId,
+        courseId: normalizedCourseId || originalCourseId,
+        originalCourseId: originalCourseId,
         playerId: player?._id?.toString(),
       },
       'Failed to create checkout session'

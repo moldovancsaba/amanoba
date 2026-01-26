@@ -194,6 +194,8 @@ async function handleCheckoutSessionCompleted(session: Stripe.Checkout.Session) 
 
     const playerId = metadata.playerId;
     const courseId = metadata.courseId;
+    // Normalize courseId to uppercase (Course schema stores courseId in uppercase)
+    const normalizedCourseId = courseId ? courseId.toUpperCase().trim() : null;
     const premiumDurationDays = parseInt(metadata.premiumDurationDays || '30', 10);
     const premiumExpiresAt = metadata.premiumExpiresAt
       ? new Date(metadata.premiumExpiresAt)
@@ -206,10 +208,10 @@ async function handleCheckoutSessionCompleted(session: Stripe.Checkout.Session) 
       return;
     }
 
-    // Get course if provided
+    // Get course if provided (using normalized courseId)
     let course = null;
-    if (courseId) {
-      course = await Course.findOne({ courseId });
+    if (normalizedCourseId) {
+      course = await Course.findOne({ courseId: normalizedCourseId });
     }
 
     // Get brand
