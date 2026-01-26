@@ -1,0 +1,177 @@
+{
+  "backedUpAt": "2026-01-26T19:15:39.140Z",
+  "course": {
+    "courseId": "GEO_SHOPIFY_30_EN",
+    "name": "GEO Shopify – 30-day course",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 1,
+    "title": "What GEO is (and is not) for Shopify",
+    "lessonId": "GEO_SHOPIFY_30_EN_DAY_01"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a12b7889cedb02a2933",
+      "uuid": "7803430d-f282-4ad3-9f8e-50a8ad3b3f93",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"exercise (10–15 min)\n\nWrite 5 GEO prompt...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day1",
+        "#en",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a12b7889cedb02a2934",
+      "uuid": "5e9009d8-e57f-43af-9224-334babb95d26",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"exercise (5–10 min)\nRun the 5 prompts in...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day1",
+        "#en",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a12b7889cedb02a2935",
+      "uuid": "37328159-2b2a-4ad3-bb9a-fba16839951d",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"exercise (10–15 min)\n\nWrite 5 GEO prompt...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day1",
+        "#en",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a12b7889cedb02a2936",
+      "uuid": "5a633b87-bfcc-4414-bf4b-6d1fae1c805b",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "How does the concept \"What GEO is (and is not) for Shopify Understand ho...\" mentioned in the lesson impact achieving your GEO?",
+      "options": [
+        "As described in detail in the lesson, What GEO is (and is not) for S... increases effectiveness and reduces risk",
+        "No significant impact",
+        "Only matters theoretically",
+        "Only an optional element"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day1",
+        "#en",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a12b7889cedb02a2937",
+      "uuid": "3c0c90fa-17ac-46dc-a40d-a8332f8f99a2",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is Poor in the context of What GEO is (and is not) for Shopify as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, Poor plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day1",
+        "#en",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a12b7889cedb02a2938",
+      "uuid": "f6ff4d3f-cdf9-4790-879b-1163bc22d0a8",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is (and in the context of What GEO is (and is not) for Shopify as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, (and plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day1",
+        "#en",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a12b7889cedb02a2939",
+      "uuid": "38575cb6-0cab-4940-beaa-de8b35203c01",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is Shopify in the context of What GEO is (and is not) for Shopify as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, Shopify plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day1",
+        "#en",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

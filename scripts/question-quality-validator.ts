@@ -1,0 +1,334 @@
+/**
+ * Question Quality Validator
+ * 
+ * Purpose: Validate questions meet all quality requirements before saving
+ * This ensures no generic templates, proper context, and educational value
+ */
+
+import { QuestionDifficulty, QuizQuestionType } from '../app/lib/models';
+
+export interface QuestionValidationResult {
+  isValid: boolean;
+  errors: string[];
+  warnings: string[];
+}
+
+/**
+ * Generic patterns that are completely unacceptable
+ */
+const UNACCEPTABLE_PATTERNS = {
+  questions: [
+    'What is a key concept from',
+    'Mi a kulcsfontosságú koncepció',
+    'Mi a fő célja a(z)',
+    'Mit ellenőriznél a(z)',
+    'Mi a következménye, ha a(z)',
+    'Miért fontos a(z)',
+    'Hogyan alkalmazod a(z)',
+    'A(z) "',
+    'leckében tanultak alapján',
+    'témakörből',
+    // Template patterns for "What does X mean in the context"
+    'Mit jelent a "',
+    'What does "',
+    'Что означает "',
+    'Ne anlama gelir "',
+    'Co oznacza "',
+    'O que significa "',
+    'Có nghĩa là gì "',
+    'Apa arti "',
+    'Какво означава "',
+    'का मतलब है "'
+  ],
+  answers: [
+    'A fundamental principle related to this topic',
+    'An advanced technique not covered here',
+    'A completely unrelated concept',
+    'A basic misunderstanding',
+    'Egy alapvető elv, amely kapcsolódik ehhez a témához',
+    'Egy fejlett technika, amelyet itt nem tárgyalunk',
+    'Egy teljesen kapcsolatban nem álló koncepció',
+    'Egy alapvető félreértés',
+    // Generic template answers
+    'A leckében részletesen magyarázott',
+    'A leckében részletesen leírt',
+    'specifikus definíció és használat',
+    'The specific definition and usage',
+    'Конкретное определение и использование',
+    'Spesifik tanım ve kullanım',
+    'Konkretna definicja i użycie',
+    'Definição e uso específicos',
+    'Định nghĩa và cách sử dụng cụ thể',
+    'Definisi dan penggunaan spesifik',
+    'Конкретна дефиниция и употреба',
+    'विशिष्ट परिभाषा और उपयोग',
+    // Disallowed “refer back to lesson” answers
+    'as described in the lesson',
+    'as described in detail in the lesson',
+    'described in the lesson',
+    'follow the method described in the lesson',
+    'léckében leírt',
+    'leckében részletesen leírt',
+    // Too-generic low-information options (multi-language)
+    'no significant impact',
+    'no impact',
+    'only matters theoretically',
+    'only an optional element',
+    'only optional',
+    'only theoretical knowledge',
+    'only general information',
+    'no specific content',
+    'not mentioned in the lesson',
+    'nincs jelentős hatás',
+    'nincs hatás',
+    'csak elméleti',
+    'csak opcionális',
+    'csak általános',
+    'nincs konkrét',
+    'nem szerepel a leckében',
+    'нет значительного влияния',
+    'нет влияния',
+    'только теоретически',
+    'только опционально',
+    'нет конкретного содержания',
+    'не упоминается в уроке',
+    'önemli bir etkisi yok',
+    'sadece teorik',
+    'sadece isteğe bağlı',
+    'không có tác động đáng kể',
+    'chỉ mang tính lý thuyết',
+    'tidak ada dampak signifikan',
+    'hanya penting secara teoritis',
+    'sem impacto significativo',
+    'apenas teoricamente',
+    'لا تأثير كبير',
+    'فقط نظريًا',
+    'कोई महत्वपूर्ण प्रभाव नहीं',
+    'सिर्फ सैद्धांतिक'
+  ]
+};
+
+/**
+ * Validate a single question for quality
+ */
+export function validateQuestionQuality(
+  question: string,
+  options: string[],
+  questionType: QuizQuestionType,
+  difficulty: QuestionDifficulty,
+  language: string,
+  lessonTitle?: string,
+  lessonContent?: string
+): QuestionValidationResult {
+  const errors: string[] = [];
+  const warnings: string[] = [];
+
+  // 0. RECALL is disallowed (hard rule)
+  if (questionType === QuizQuestionType.RECALL || String(questionType) === 'recall') {
+    errors.push('RECALL questions are disallowed. Regenerate this question as APPLICATION or CRITICAL_THINKING.');
+  }
+
+  // 1. Check minimum length (context-rich requirement)
+  if (question.length < 40) {
+    errors.push(`Question too short (${question.length} chars, minimum 40). Must provide full context.`);
+  }
+
+  // 2. Check for generic template patterns
+  // Only flag if the pattern appears at the START of the question (indicating a template)
+  // or if it's a standalone generic phrase
+  const questionLower = question.toLowerCase();
+  const questionTrimmed = questionLower.trim();
+  
+  for (const pattern of UNACCEPTABLE_PATTERNS.questions) {
+    const patternLower = pattern.toLowerCase();
+    
+    // Check if pattern appears at start (definitely a template)
+    if (questionTrimmed.startsWith(patternLower)) {
+      errors.push(`Starts with generic template pattern: "${pattern}". Questions must be content-specific, not templates.`);
+    }
+    // Check for standalone generic phrases (not part of a larger, specific question)
+    else if (patternLower.includes('tanultak alapján') || patternLower.includes('témakörből') || 
+             patternLower.includes('mit jelent') || patternLower.includes('what does') ||
+             patternLower.includes('что означает') || patternLower.includes('ne anlama')) {
+      if (questionLower.includes(patternLower)) {
+        errors.push(`Contains generic template phrase: "${pattern}". Questions must be content-specific.`);
+      }
+    }
+  }
+  
+  // Check for invalid/fragment terms in quotes (like "mestere" - too short, not a real term)
+  const quotedTermMatch = question.match(/"([^"]+)"/);
+  if (quotedTermMatch) {
+    const quotedTerm = quotedTermMatch[1].trim();
+    // If the quoted term is very short (< 4 chars) or looks like a fragment, it's likely invalid
+    if (quotedTerm.length < 4) {
+      errors.push(`Question contains invalid/fragment term in quotes: "${quotedTerm}". Terms must be meaningful and complete.`);
+    }
+    // Check if it's a common word fragment (like "mestere" which is incomplete)
+    const commonFragments = ['mestere', 'ra', 're', 'ban', 'ben', 'bol', 'ből', 'val', 'vel'];
+    if (commonFragments.includes(quotedTerm.toLowerCase())) {
+      errors.push(`Question contains fragment/invalid term: "${quotedTerm}". Must use complete, meaningful terms.`);
+    }
+  }
+
+  // 3. Check for placeholder answers
+  for (const option of options) {
+    const optionLower = option.toLowerCase();
+    for (const pattern of UNACCEPTABLE_PATTERNS.answers) {
+      const patternLower = pattern.toLowerCase();
+      // Check if pattern appears in the answer (especially at the start)
+      if (optionLower.includes(patternLower)) {
+        // If it's a generic template answer pattern, reject it
+        if (patternLower.includes('specifikus definíció') || patternLower.includes('specific definition') ||
+            patternLower.includes('конкретное определение') || patternLower.includes('spesifik tanım')) {
+          errors.push(`Contains generic template answer: "${pattern}". Answers must be educational and specific, not templates.`);
+        } else {
+          errors.push(`Contains placeholder answer: "${pattern}". Answers must be educational and plausible.`);
+        }
+      }
+    }
+    
+    // Check for generic answer patterns like "A leckében részletesen magyarázott, X-ra vonatkozó..."
+    if (optionLower.match(/a leckében részletesen (magyarázott|leírt).*?vonatkozó specifikus/i) ||
+        optionLower.match(/the specific definition and usage.*?as explained.*?in the lesson/i) ||
+        optionLower.match(/конкретное определение.*?как.*?объяснено.*?в уроке/i)) {
+      errors.push(`Contains generic template answer pattern. Answers must be specific and educational, not generic templates.`);
+    }
+  }
+
+  // 4. Check options quality
+  if (options.length !== 4) {
+    errors.push(`Must have exactly 4 options, found ${options.length}`);
+  }
+
+  // Enforce non-trivial educational options
+  options.forEach((opt, index) => {
+    if (opt.trim().length < 25) {
+      errors.push(`Option ${index + 1} is too short (${opt.trim().length} chars). Options must be detailed and educational.`);
+    }
+  });
+
+  // Check for duplicate options
+  const uniqueOptions = new Set(options.map(opt => opt.trim().toLowerCase()));
+  if (uniqueOptions.size < options.length) {
+    errors.push('Duplicate options found. All options must be unique.');
+  }
+
+  // Check option lengths (too short = not educational)
+  options.forEach((opt, index) => {
+    if (opt.trim().length < 10) {
+      warnings.push(`Option ${index + 1} is very short (${opt.length} chars). Consider making it more educational.`);
+    }
+  });
+
+  // 5. Check if question is too generic (doesn't reference lesson content)
+  if (lessonTitle && !questionLower.includes(lessonTitle.toLowerCase().substring(0, 10))) {
+    // Allow some flexibility, but warn if completely unrelated
+    if (!questionLower.includes('lesson') && !questionLower.includes('leck') && !questionLower.includes('course')) {
+      warnings.push('Question may not be specific to lesson content. Verify it tests actual lesson material.');
+    }
+  }
+
+  // 6. Validate question type is set
+  // QuestionType enum values are: 'recall', 'application', 'critical-thinking'
+  const validQuestionTypes = ['recall', 'application', 'critical-thinking'];
+  const questionTypeStr = typeof questionType === 'string' ? questionType : questionType?.toString();
+  if (!questionTypeStr || !validQuestionTypes.includes(questionTypeStr.toLowerCase())) {
+    errors.push(`Question type must be set (RECALL, APPLICATION, or CRITICAL_THINKING). Got: ${questionTypeStr || 'undefined'}`);
+  }
+
+  // 7. Validate difficulty is set
+  if (!difficulty) {
+    errors.push('Difficulty must be set (EASY, MEDIUM, HARD, or EXPERT)');
+  }
+
+  // 8. Check cognitive mix appropriateness
+  if (questionType === QuizQuestionType.CRITICAL_THINKING && difficulty !== QuestionDifficulty.HARD && difficulty !== QuestionDifficulty.EXPERT) {
+    warnings.push('Critical thinking questions should typically be HARD or EXPERT difficulty.');
+  }
+
+  // 9. Check for proper context (not just "What is X?" without context)
+  if (questionLower.match(/^(what|mi|mit|miért|hogyan|как|что|почему)\s+(is|a|az|есть)/) && question.length < 60) {
+    warnings.push('Question may lack context. Ensure it provides enough context to be understood standalone.');
+  }
+
+  return {
+    isValid: errors.length === 0,
+    errors,
+    warnings
+  };
+}
+
+/**
+ * Validate a batch of questions for a lesson
+ */
+export function validateLessonQuestions(
+  questions: Array<{
+    question: string;
+    options: string[];
+    questionType: QuizQuestionType;
+    difficulty: QuestionDifficulty;
+  }>,
+  language: string,
+  lessonTitle?: string
+): QuestionValidationResult {
+  const errors: string[] = [];
+  const warnings: string[] = [];
+
+  // Check count (MINIMUM 7)
+  if (questions.length < 7) {
+    errors.push(`Must have at least 7 questions per lesson, found ${questions.length}`);
+  }
+
+  // Check cognitive mix (rules)
+  // - 0 RECALL (hard)
+  // - APPLICATION >= 5 (hard)
+  // - CRITICAL_THINKING recommended >= 2 (warning)
+  const recallCount = questions.filter(q => {
+    const qType = typeof q.questionType === 'string' ? q.questionType : q.questionType?.toString();
+    return qType === 'recall' || qType === QuizQuestionType.RECALL;
+  }).length;
+  const appCount = questions.filter(q => {
+    const qType = typeof q.questionType === 'string' ? q.questionType : q.questionType?.toString();
+    return qType === 'application' || qType === QuizQuestionType.APPLICATION;
+  }).length;
+  const criticalCount = questions.filter(q => {
+    const qType = typeof q.questionType === 'string' ? q.questionType : q.questionType?.toString();
+    return qType === 'critical-thinking' || qType === QuizQuestionType.CRITICAL_THINKING;
+  }).length;
+
+  if (recallCount !== 0) {
+    errors.push(`RECALL questions: ${recallCount} (must be 0). Regenerate the lesson quiz.`);
+  }
+  if (appCount < 5) {
+    errors.push(`APPLICATION questions: ${appCount} (must be at least 5). Regenerate/add questions.`);
+  }
+  if (criticalCount < 2) {
+    warnings.push(`CRITICAL_THINKING questions: ${criticalCount} (recommended at least 2).`);
+  }
+
+  // Validate each question
+  questions.forEach((q, index) => {
+    const result = validateQuestionQuality(
+      q.question,
+      q.options,
+      q.questionType,
+      q.difficulty,
+      language,
+      lessonTitle
+    );
+
+    if (!result.isValid) {
+      errors.push(`Question ${index + 1}: ${result.errors.join('; ')}`);
+    }
+    if (result.warnings.length > 0) {
+      warnings.push(`Question ${index + 1}: ${result.warnings.join('; ')}`);
+    }
+  });
+
+  return {
+    isValid: errors.length === 0,
+    errors,
+    warnings
+  };
+}

@@ -74,7 +74,12 @@ export {
 } from './quest';
 
 // Game Content Models (2)
-export { default as QuizQuestion, type IQuizQuestion, QuestionDifficulty } from './quiz-question';
+export {
+  default as QuizQuestion,
+  type IQuizQuestion,
+  QuestionDifficulty,
+  QuestionType as QuizQuestionType,
+} from './quiz-question';
 export { default as WhackPopEmoji, type IWhackPopEmoji } from './whackpop-emoji';
 
 // Learning Platform Models (4)

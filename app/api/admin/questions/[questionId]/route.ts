@@ -8,7 +8,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { auth } from '@/auth';
 import connectDB from '@/lib/mongodb';
-import { QuizQuestion, QuestionDifficulty, QuestionType, Course } from '@/lib/models';
+import { QuizQuestion, QuestionDifficulty, QuizQuestionType, Course } from '@/lib/models';
 import { logger } from '@/lib/logger';
 import { requireAdmin } from '@/lib/rbac';
 import mongoose from 'mongoose';
@@ -127,7 +127,7 @@ export async function PATCH(
       updateData.category = body.category;
     }
     if (body.questionType !== undefined) {
-      updateData.questionType = body.questionType as QuestionType;
+      updateData.questionType = body.questionType as QuizQuestionType;
     }
     if (body.hashtags !== undefined) {
       if (!Array.isArray(body.hashtags)) {

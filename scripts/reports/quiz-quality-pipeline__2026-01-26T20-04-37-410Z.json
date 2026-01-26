@@ -1,0 +1,1158 @@
+{
+  "generatedAt": "2026-01-26T20:04:37.411Z",
+  "dryRun": true,
+  "minLessonScore": 70,
+  "courseFilter": "GEO_SHOPIFY_30_EN",
+  "totals": {
+    "courses": 1,
+    "lessonsEvaluated": 30,
+    "lessonsNeedingRefine": 3,
+    "lessonsRewritten": 27,
+    "lessonsFailedRewrite": 0,
+    "questionsDeleted": 0,
+    "questionsInserted": 0
+  },
+  "lessons": [
+    {
+      "courseId": "GEO_SHOPIFY_30_EN",
+      "courseName": "GEO Shopify – 30-day course",
+      "language": "en",
+      "dayNumber": 1,
+      "lessonId": "GEO_SHOPIFY_30_EN_DAY_01",
+      "title": "What GEO is (and is not) for Shopify",
+      "lessonCreatedAt": "2026-01-19T21:54:46.516Z",
+      "lessonQuality": {
+        "score": 100,
+        "issues": [],
+        "signals": {
+          "charCount": 1623,
+          "wordCount": 245,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "action": "VALIDATED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/GEO_SHOPIFY_30_EN/GEO_SHOPIFY_30_EN_DAY_01__2026-01-26T20-04-37-410Z.json",
+        "insertedCount": 7,
+        "warnings": [
+          "Question 3: Question may not be specific to lesson content. Verify it tests actual lesson material.",
+          "Question 5: Question may not be specific to lesson content. Verify it tests actual lesson material.",
+          "Question 7: Question may not be specific to lesson content. Verify it tests actual lesson material."
+        ]
+      }
+    },
+    {
+      "courseId": "GEO_SHOPIFY_30_EN",
+      "courseName": "GEO Shopify – 30-day course",
+      "language": "en",
+      "dayNumber": 2,
+      "lessonId": "GEO_SHOPIFY_30_EN_DAY_02",
+      "title": "GEO vs SEO on Shopify: what to watch",
+      "lessonCreatedAt": "2026-01-19T21:54:47.433Z",
+      "lessonQuality": {
+        "score": 85,
+        "issues": [
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 1382,
+          "wordCount": 185,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": true
+        }
+      },
+      "action": "VALIDATED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/GEO_SHOPIFY_30_EN/GEO_SHOPIFY_30_EN_DAY_02__2026-01-26T20-04-37-410Z.json",
+        "insertedCount": 7,
+        "warnings": []
+      }
+    },
+    {
+      "courseId": "GEO_SHOPIFY_30_EN",
+      "courseName": "GEO Shopify – 30-day course",
+      "language": "en",
+      "dayNumber": 3,
+      "lessonId": "GEO_SHOPIFY_30_EN_DAY_03",
+      "title": "How AI reshapes the buying journey",
+      "lessonCreatedAt": "2026-01-19T21:54:48.000Z",
+      "lessonQuality": {
+        "score": 85,
+        "issues": [
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 1391,
+          "wordCount": 183,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": true
+        }
+      },
+      "action": "VALIDATED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/GEO_SHOPIFY_30_EN/GEO_SHOPIFY_30_EN_DAY_03__2026-01-26T20-04-37-410Z.json",
+        "insertedCount": 7,
+        "warnings": []
+      }
+    },
+    {
+      "courseId": "GEO_SHOPIFY_30_EN",
+      "courseName": "GEO Shopify – 30-day course",
+      "language": "en",
+      "dayNumber": 4,
+      "lessonId": "GEO_SHOPIFY_30_EN_DAY_04",
+      "title": "Sell in chat: influence vs transaction",
+      "lessonCreatedAt": "2026-01-19T21:54:48.284Z",
+      "lessonQuality": {
+        "score": 85,
+        "issues": [
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 1442,
+          "wordCount": 188,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": true
+        }
+      },
+      "action": "VALIDATED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/GEO_SHOPIFY_30_EN/GEO_SHOPIFY_30_EN_DAY_04__2026-01-26T20-04-37-410Z.json",
+        "insertedCount": 7,
+        "warnings": []
+      }
+    },
+    {
+      "courseId": "GEO_SHOPIFY_30_EN",
+      "courseName": "GEO Shopify – 30-day course",
+      "language": "en",
+      "dayNumber": 5,
+      "lessonId": "GEO_SHOPIFY_30_EN_DAY_05",
+      "title": "Platform map: ChatGPT, Copilot, Google AI",
+      "lessonCreatedAt": "2026-01-19T21:54:48.500Z",
+      "lessonQuality": {
+        "score": 85,
+        "issues": [
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 1302,
+          "wordCount": 167,
+          "hasBullets": true,
+          "hasNumberedSteps": true,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": true
+        }
+      },
+      "action": "VALIDATED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/GEO_SHOPIFY_30_EN/GEO_SHOPIFY_30_EN_DAY_05__2026-01-26T20-04-37-410Z.json",
+        "insertedCount": 7,
+        "warnings": []
+      }
+    },
+    {
+      "courseId": "GEO_SHOPIFY_30_EN",
+      "courseName": "GEO Shopify – 30-day course",
+      "language": "en",
+      "dayNumber": 6,
+      "lessonId": "GEO_SHOPIFY_30_EN_DAY_06",
+      "title": "Define success: GEO prompt set + KPIs",
+      "lessonCreatedAt": "2026-01-19T22:01:12.283Z",
+      "lessonQuality": {
+        "score": 100,
+        "issues": [],
+        "signals": {
+          "charCount": 1227,
+          "wordCount": 170,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "action": "VALIDATED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/GEO_SHOPIFY_30_EN/GEO_SHOPIFY_30_EN_DAY_06__2026-01-26T20-04-37-410Z.json",
+        "insertedCount": 7,
+        "warnings": []
+      }
+    },
+    {
+      "courseId": "GEO_SHOPIFY_30_EN",
+      "courseName": "GEO Shopify – 30-day course",
+      "language": "en",
+      "dayNumber": 7,
+      "lessonId": "GEO_SHOPIFY_30_EN_DAY_07",
+      "title": "Shopify product data audit: title, description, variants",
+      "lessonCreatedAt": "2026-01-19T22:01:12.472Z",
+      "lessonQuality": {
+        "score": 45,
+        "issues": [
+          "TOO_SHORT",
+          "NO_CLEAR_DEFINITIONS",
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 1080,
+          "wordCount": 151,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": true
+        }
+      },
+      "action": "REFINE_LESSON_FIRST",
+      "rewrite": null
+    },
+    {
+      "courseId": "GEO_SHOPIFY_30_EN",
+      "courseName": "GEO Shopify – 30-day course",
+      "language": "en",
+      "dayNumber": 8,
+      "lessonId": "GEO_SHOPIFY_30_EN_DAY_08",
+      "title": "Why feeds matter: “offer truth”",
+      "lessonCreatedAt": "2026-01-19T22:01:12.654Z",
+      "lessonQuality": {
+        "score": 60,
+        "issues": [
+          "TOO_SHORT",
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 1020,
+          "wordCount": 142,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": true
+        }
+      },
+      "action": "REFINE_LESSON_FIRST",
+      "rewrite": null
+    },
+    {
+      "courseId": "GEO_SHOPIFY_30_EN",
+      "courseName": "GEO Shopify – 30-day course",
+      "language": "en",
+      "dayNumber": 9,
+      "lessonId": "GEO_SHOPIFY_30_EN_DAY_09",
+      "title": "Identifiers clean: SKU, GTIN, brand, variants",
+      "lessonCreatedAt": "2026-01-19T22:01:12.851Z",
+      "lessonQuality": {
+        "score": 45,
+        "issues": [
+          "TOO_SHORT",
+          "NO_CLEAR_DEFINITIONS",
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 1018,
+          "wordCount": 142,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": true
+        }
+      },
+      "action": "REFINE_LESSON_FIRST",
+      "rewrite": null
+    },
+    {
+      "courseId": "GEO_SHOPIFY_30_EN",
+      "courseName": "GEO Shopify – 30-day course",
+      "language": "en",
+      "dayNumber": 10,
+      "lessonId": "GEO_SHOPIFY_30_EN_DAY_10",
+      "title": "Shipping and returns: clarity",
+      "lessonCreatedAt": "2026-01-19T22:01:13.048Z",
+      "lessonQuality": {
+        "score": 85,
+        "issues": [
+          "NO_CLEAR_DEFINITIONS"
+        ],
+        "signals": {
+          "charCount": 1942,
+          "wordCount": 289,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "action": "VALIDATED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/GEO_SHOPIFY_30_EN/GEO_SHOPIFY_30_EN_DAY_10__2026-01-26T20-04-37-410Z.json",
+        "insertedCount": 7,
+        "warnings": []
+      }
+    },
+    {
+      "courseId": "GEO_SHOPIFY_30_EN",
+      "courseName": "GEO Shopify – 30-day course",
+      "language": "en",
+      "dayNumber": 11,
+      "lessonId": "GEO_SHOPIFY_30_EN_DAY_11",
+      "title": "Trust signals: identity, support, proof",
+      "lessonCreatedAt": "2026-01-19T22:04:18.011Z",
+      "lessonQuality": {
+        "score": 70,
+        "issues": [
+          "NO_CLEAR_DEFINITIONS",
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 1979,
+          "wordCount": 286,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": true
+        }
+      },
+      "action": "VALIDATED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/GEO_SHOPIFY_30_EN/GEO_SHOPIFY_30_EN_DAY_11__2026-01-26T20-04-37-410Z.json",
+        "insertedCount": 7,
+        "warnings": []
+      }
+    },
+    {
+      "courseId": "GEO_SHOPIFY_30_EN",
+      "courseName": "GEO Shopify – 30-day course",
+      "language": "en",
+      "dayNumber": 12,
+      "lessonId": "GEO_SHOPIFY_30_EN_DAY_12",
+      "title": "Merchant readiness checklist: top 10 fixes",
+      "lessonCreatedAt": "2026-01-25T20:24:15.449Z",
+      "lessonQuality": {
+        "score": 85,
+        "issues": [
+          "NO_CLEAR_DEFINITIONS"
+        ],
+        "signals": {
+          "charCount": 1989,
+          "wordCount": 296,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "action": "VALIDATED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/GEO_SHOPIFY_30_EN/GEO_SHOPIFY_30_EN_DAY_12__2026-01-26T20-04-37-410Z.json",
+        "insertedCount": 7,
+        "warnings": []
+      }
+    },
+    {
+      "courseId": "GEO_SHOPIFY_30_EN",
+      "courseName": "GEO Shopify – 30-day course",
+      "language": "en",
+      "dayNumber": 13,
+      "lessonId": "GEO_SHOPIFY_30_EN_DAY_13",
+      "title": "Citable PDP blueprint",
+      "lessonCreatedAt": "2026-01-25T20:24:44.210Z",
+      "lessonQuality": {
+        "score": 70,
+        "issues": [
+          "NO_CLEAR_DEFINITIONS",
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 1820,
+          "wordCount": 278,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": true
+        }
+      },
+      "action": "VALIDATED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/GEO_SHOPIFY_30_EN/GEO_SHOPIFY_30_EN_DAY_13__2026-01-26T20-04-37-410Z.json",
+        "insertedCount": 7,
+        "warnings": []
+      }
+    },
+    {
+      "courseId": "GEO_SHOPIFY_30_EN",
+      "courseName": "GEO Shopify – 30-day course",
+      "language": "en",
+      "dayNumber": 14,
+      "lessonId": "GEO_SHOPIFY_30_EN_DAY_14",
+      "title": "Answer capsule: 5-line top summary",
+      "lessonCreatedAt": "2026-01-25T20:25:10.083Z",
+      "lessonQuality": {
+        "score": 70,
+        "issues": [
+          "NO_CLEAR_DEFINITIONS",
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 1801,
+          "wordCount": 277,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": true
+        }
+      },
+      "action": "VALIDATED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/GEO_SHOPIFY_30_EN/GEO_SHOPIFY_30_EN_DAY_14__2026-01-26T20-04-37-410Z.json",
+        "insertedCount": 7,
+        "warnings": []
+      }
+    },
+    {
+      "courseId": "GEO_SHOPIFY_30_EN",
+      "courseName": "GEO Shopify – 30-day course",
+      "language": "en",
+      "dayNumber": 15,
+      "lessonId": "GEO_SHOPIFY_30_EN_DAY_15",
+      "title": "Variant clarity: no mix-ups",
+      "lessonCreatedAt": "2026-01-25T20:25:34.864Z",
+      "lessonQuality": {
+        "score": 70,
+        "issues": [
+          "NO_CLEAR_DEFINITIONS",
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 1871,
+          "wordCount": 271,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": true
+        }
+      },
+      "action": "VALIDATED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/GEO_SHOPIFY_30_EN/GEO_SHOPIFY_30_EN_DAY_15__2026-01-26T20-04-37-410Z.json",
+        "insertedCount": 7,
+        "warnings": []
+      }
+    },
+    {
+      "courseId": "GEO_SHOPIFY_30_EN",
+      "courseName": "GEO Shopify – 30-day course",
+      "language": "en",
+      "dayNumber": 16,
+      "lessonId": "GEO_SHOPIFY_30_EN_DAY_16",
+      "title": "Collection page as guide, not just grid",
+      "lessonCreatedAt": "2026-01-25T20:26:04.097Z",
+      "lessonQuality": {
+        "score": 85,
+        "issues": [
+          "NO_CLEAR_DEFINITIONS"
+        ],
+        "signals": {
+          "charCount": 1875,
+          "wordCount": 272,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "action": "VALIDATED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/GEO_SHOPIFY_30_EN/GEO_SHOPIFY_30_EN_DAY_16__2026-01-26T20-04-37-410Z.json",
+        "insertedCount": 7,
+        "warnings": []
+      }
+    },
+    {
+      "courseId": "GEO_SHOPIFY_30_EN",
+      "courseName": "GEO Shopify – 30-day course",
+      "language": "en",
+      "dayNumber": 17,
+      "lessonId": "GEO_SHOPIFY_30_EN_DAY_17",
+      "title": "Structured data check (schema)",
+      "lessonCreatedAt": "2026-01-25T20:26:29.435Z",
+      "lessonQuality": {
+        "score": 70,
+        "issues": [
+          "NO_CLEAR_DEFINITIONS",
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 1752,
+          "wordCount": 259,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": true
+        }
+      },
+      "action": "VALIDATED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/GEO_SHOPIFY_30_EN/GEO_SHOPIFY_30_EN_DAY_17__2026-01-26T20-04-37-410Z.json",
+        "insertedCount": 7,
+        "warnings": []
+      }
+    },
+    {
+      "courseId": "GEO_SHOPIFY_30_EN",
+      "courseName": "GEO Shopify – 30-day course",
+      "language": "en",
+      "dayNumber": 18,
+      "lessonId": "GEO_SHOPIFY_30_EN_DAY_18",
+      "title": "Prices, offers, reviews safely",
+      "lessonCreatedAt": "2026-01-25T20:26:52.085Z",
+      "lessonQuality": {
+        "score": 70,
+        "issues": [
+          "NO_CLEAR_DEFINITIONS",
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 2076,
+          "wordCount": 287,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": true
+        }
+      },
+      "action": "VALIDATED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/GEO_SHOPIFY_30_EN/GEO_SHOPIFY_30_EN_DAY_18__2026-01-26T20-04-37-410Z.json",
+        "insertedCount": 7,
+        "warnings": []
+      }
+    },
+    {
+      "courseId": "GEO_SHOPIFY_30_EN",
+      "courseName": "GEO Shopify – 30-day course",
+      "language": "en",
+      "dayNumber": 19,
+      "lessonId": "GEO_SHOPIFY_30_EN_DAY_19",
+      "title": "Image and video GEO: alt, filename, variant visuals",
+      "lessonCreatedAt": "2026-01-25T20:27:19.289Z",
+      "lessonQuality": {
+        "score": 70,
+        "issues": [
+          "NO_CLEAR_DEFINITIONS",
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 1980,
+          "wordCount": 284,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": true
+        }
+      },
+      "action": "VALIDATED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/GEO_SHOPIFY_30_EN/GEO_SHOPIFY_30_EN_DAY_19__2026-01-26T20-04-37-410Z.json",
+        "insertedCount": 7,
+        "warnings": []
+      }
+    },
+    {
+      "courseId": "GEO_SHOPIFY_30_EN",
+      "courseName": "GEO Shopify – 30-day course",
+      "language": "en",
+      "dayNumber": 20,
+      "lessonId": "GEO_SHOPIFY_30_EN_DAY_20",
+      "title": "Minimum content: no \"thin\" PDP",
+      "lessonCreatedAt": "2026-01-25T20:28:19.442Z",
+      "lessonQuality": {
+        "score": 70,
+        "issues": [
+          "NO_CLEAR_DEFINITIONS",
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 1957,
+          "wordCount": 297,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": true
+        }
+      },
+      "action": "VALIDATED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/GEO_SHOPIFY_30_EN/GEO_SHOPIFY_30_EN_DAY_20__2026-01-26T20-04-37-410Z.json",
+        "insertedCount": 7,
+        "warnings": []
+      }
+    },
+    {
+      "courseId": "GEO_SHOPIFY_30_EN",
+      "courseName": "GEO Shopify – 30-day course",
+      "language": "en",
+      "dayNumber": 21,
+      "lessonId": "GEO_SHOPIFY_30_EN_DAY_21",
+      "title": "Prompt intent map: best / vs / alternatives / policy",
+      "lessonCreatedAt": "2026-01-25T20:28:56.904Z",
+      "lessonQuality": {
+        "score": 85,
+        "issues": [
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 2094,
+          "wordCount": 312,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": true
+        }
+      },
+      "action": "VALIDATED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/GEO_SHOPIFY_30_EN/GEO_SHOPIFY_30_EN_DAY_21__2026-01-26T20-04-37-410Z.json",
+        "insertedCount": 7,
+        "warnings": []
+      }
+    },
+    {
+      "courseId": "GEO_SHOPIFY_30_EN",
+      "courseName": "GEO Shopify – 30-day course",
+      "language": "en",
+      "dayNumber": 22,
+      "lessonId": "GEO_SHOPIFY_30_EN_DAY_22",
+      "title": "Buying guide: AI-friendly structure",
+      "lessonCreatedAt": "2026-01-25T20:29:28.301Z",
+      "lessonQuality": {
+        "score": 85,
+        "issues": [
+          "NO_CLEAR_DEFINITIONS"
+        ],
+        "signals": {
+          "charCount": 1684,
+          "wordCount": 251,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "action": "VALIDATED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/GEO_SHOPIFY_30_EN/GEO_SHOPIFY_30_EN_DAY_22__2026-01-26T20-04-37-410Z.json",
+        "insertedCount": 7,
+        "warnings": []
+      }
+    },
+    {
+      "courseId": "GEO_SHOPIFY_30_EN",
+      "courseName": "GEO Shopify – 30-day course",
+      "language": "en",
+      "dayNumber": 23,
+      "lessonId": "GEO_SHOPIFY_30_EN_DAY_23",
+      "title": "Comparison pages: honest tradeoffs",
+      "lessonCreatedAt": "2026-01-25T20:29:54.770Z",
+      "lessonQuality": {
+        "score": 85,
+        "issues": [
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 1735,
+          "wordCount": 259,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": true
+        }
+      },
+      "action": "VALIDATED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/GEO_SHOPIFY_30_EN/GEO_SHOPIFY_30_EN_DAY_23__2026-01-26T20-04-37-410Z.json",
+        "insertedCount": 7,
+        "warnings": []
+      }
+    },
+    {
+      "courseId": "GEO_SHOPIFY_30_EN",
+      "courseName": "GEO Shopify – 30-day course",
+      "language": "en",
+      "dayNumber": 24,
+      "lessonId": "GEO_SHOPIFY_30_EN_DAY_24",
+      "title": "Use-case landing: gift, season, sport, budget",
+      "lessonCreatedAt": "2026-01-25T20:30:28.593Z",
+      "lessonQuality": {
+        "score": 85,
+        "issues": [
+          "NO_CLEAR_DEFINITIONS"
+        ],
+        "signals": {
+          "charCount": 1727,
+          "wordCount": 240,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "action": "VALIDATED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/GEO_SHOPIFY_30_EN/GEO_SHOPIFY_30_EN_DAY_24__2026-01-26T20-04-37-410Z.json",
+        "insertedCount": 7,
+        "warnings": []
+      }
+    },
+    {
+      "courseId": "GEO_SHOPIFY_30_EN",
+      "courseName": "GEO Shopify – 30-day course",
+      "language": "en",
+      "dayNumber": 25,
+      "lessonId": "GEO_SHOPIFY_30_EN_DAY_25",
+      "title": "Off-site GEO: when it helps, when it harms",
+      "lessonCreatedAt": "2026-01-25T20:30:56.826Z",
+      "lessonQuality": {
+        "score": 100,
+        "issues": [],
+        "signals": {
+          "charCount": 1693,
+          "wordCount": 244,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "action": "VALIDATED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/GEO_SHOPIFY_30_EN/GEO_SHOPIFY_30_EN_DAY_25__2026-01-26T20-04-37-410Z.json",
+        "insertedCount": 7,
+        "warnings": []
+      }
+    },
+    {
+      "courseId": "GEO_SHOPIFY_30_EN",
+      "courseName": "GEO Shopify – 30-day course",
+      "language": "en",
+      "dayNumber": 26,
+      "lessonId": "GEO_SHOPIFY_30_EN_DAY_26",
+      "title": "Anti-spam and quality for AI-assisted content",
+      "lessonCreatedAt": "2026-01-25T20:31:34.888Z",
+      "lessonQuality": {
+        "score": 70,
+        "issues": [
+          "NO_CLEAR_DEFINITIONS",
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 1859,
+          "wordCount": 266,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": true
+        }
+      },
+      "action": "VALIDATED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/GEO_SHOPIFY_30_EN/GEO_SHOPIFY_30_EN_DAY_26__2026-01-26T20-04-37-410Z.json",
+        "insertedCount": 7,
+        "warnings": []
+      }
+    },
+    {
+      "courseId": "GEO_SHOPIFY_30_EN",
+      "courseName": "GEO Shopify – 30-day course",
+      "language": "en",
+      "dayNumber": 27,
+      "lessonId": "GEO_SHOPIFY_30_EN_DAY_27",
+      "title": "Feed operations: refresh, monitor, error handling",
+      "lessonCreatedAt": "2026-01-25T20:32:16.501Z",
+      "lessonQuality": {
+        "score": 70,
+        "issues": [
+          "NO_CLEAR_DEFINITIONS",
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 1747,
+          "wordCount": 264,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": true
+        }
+      },
+      "action": "VALIDATED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/GEO_SHOPIFY_30_EN/GEO_SHOPIFY_30_EN_DAY_27__2026-01-26T20-04-37-410Z.json",
+        "insertedCount": 7,
+        "warnings": []
+      }
+    },
+    {
+      "courseId": "GEO_SHOPIFY_30_EN",
+      "courseName": "GEO Shopify – 30-day course",
+      "language": "en",
+      "dayNumber": 28,
+      "lessonId": "GEO_SHOPIFY_30_EN_DAY_28",
+      "title": "Merchant programs: eligibility and onboarding",
+      "lessonCreatedAt": "2026-01-25T20:33:01.107Z",
+      "lessonQuality": {
+        "score": 70,
+        "issues": [
+          "NO_CLEAR_DEFINITIONS",
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 1795,
+          "wordCount": 240,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": true
+        }
+      },
+      "action": "VALIDATED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/GEO_SHOPIFY_30_EN/GEO_SHOPIFY_30_EN_DAY_28__2026-01-26T20-04-37-410Z.json",
+        "insertedCount": 7,
+        "warnings": []
+      }
+    },
+    {
+      "courseId": "GEO_SHOPIFY_30_EN",
+      "courseName": "GEO Shopify – 30-day course",
+      "language": "en",
+      "dayNumber": 29,
+      "lessonId": "GEO_SHOPIFY_30_EN_DAY_29",
+      "title": "Measurement system: weekly GEO run and report",
+      "lessonCreatedAt": "2026-01-25T20:33:44.743Z",
+      "lessonQuality": {
+        "score": 100,
+        "issues": [],
+        "signals": {
+          "charCount": 1946,
+          "wordCount": 298,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "action": "VALIDATED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/GEO_SHOPIFY_30_EN/GEO_SHOPIFY_30_EN_DAY_29__2026-01-26T20-04-37-410Z.json",
+        "insertedCount": 7,
+        "warnings": []
+      }
+    },
+    {
+      "courseId": "GEO_SHOPIFY_30_EN",
+      "courseName": "GEO Shopify – 30-day course",
+      "language": "en",
+      "dayNumber": 30,
+      "lessonId": "GEO_SHOPIFY_30_EN_DAY_30",
+      "title": "Capstone sprint: one collection end-to-end",
+      "lessonCreatedAt": "2026-01-25T20:34:25.796Z",
+      "lessonQuality": {
+        "score": 70,
+        "issues": [
+          "NO_CLEAR_DEFINITIONS",
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 1604,
+          "wordCount": 248,
+          "hasBullets": true,
+          "hasNumberedSteps": true,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": true
+        }
+      },
+      "action": "VALIDATED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/GEO_SHOPIFY_30_EN/GEO_SHOPIFY_30_EN_DAY_30__2026-01-26T20-04-37-410Z.json",
+        "insertedCount": 7,
+        "warnings": []
+      }
+    }
+  ]
+}

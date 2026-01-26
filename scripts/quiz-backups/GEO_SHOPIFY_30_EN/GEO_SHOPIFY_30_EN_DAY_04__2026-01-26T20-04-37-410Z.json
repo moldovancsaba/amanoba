@@ -1,0 +1,177 @@
+{
+  "backedUpAt": "2026-01-26T20:04:38.955Z",
+  "course": {
+    "courseId": "GEO_SHOPIFY_30_EN",
+    "name": "GEO Shopify – 30-day course",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 4,
+    "title": "Sell in chat: influence vs transaction",
+    "lessonId": "GEO_SHOPIFY_30_EN_DAY_04"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a14b7889cedb02a2a2f",
+      "uuid": "69d0c901-115e-4f54-8879-73154bc96481",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "How does the concept \"critical statements/policies the AI must quote cor...\" mentioned in the lesson impact achieving your goals?",
+      "options": [
+        "As described in detail in the lesson, critical statements/policies t... increases effectiveness and reduces risk",
+        "No significant impact",
+        "Only matters theoretically",
+        "Only an optional element"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day4",
+        "#en",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a14b7889cedb02a2a30",
+      "uuid": "f646abd7-85e2-42c1-8681-9a8f29b1e120",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"exercise (10–15 min)\n\nWrite 5 statements...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day4",
+        "#en",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a14b7889cedb02a2a31",
+      "uuid": "438d3aa4-fd52-41f3-84b8-91ec1cdf454c",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"exercise (5–10 min)\nPlace this snippet i...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day4",
+        "#en",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a14b7889cedb02a2a32",
+      "uuid": "4264d2c3-20c8-4c19-a9d6-2bb0afaf65f8",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"exercise (10–15 min)\n\nWrite 5 statements...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day4",
+        "#en",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a14b7889cedb02a2a33",
+      "uuid": "efe39005-9cdd-450f-a735-689d6b40d9ab",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is Poor in the context of Sell in chat: influence vs transaction as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, Poor plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day4",
+        "#en",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a14b7889cedb02a2a34",
+      "uuid": "addba268-083e-4779-b648-a2dc85de1dc7",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is chat in the context of Sell in chat: influence vs transaction as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, chat plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day4",
+        "#en",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a14b7889cedb02a2a35",
+      "uuid": "70674a45-8aaf-48e9-ac45-8a6710e7fe35",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is transaction in the context of Sell in chat: influence vs transaction as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, transaction plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day4",
+        "#en",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

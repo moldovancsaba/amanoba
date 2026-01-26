@@ -209,7 +209,8 @@ export async function POST(request: NextRequest) {
         premiumDurationDays: premiumDurationDays.toString(),
         premiumExpiresAt: premiumExpiresAt.toISOString(),
       },
-      customer_email: player.email || undefined,
+      // Note: customer_email is not set because we always use customer (stripeCustomerId)
+      // Stripe only allows one of: customer OR customer_email, not both
       allow_promotion_codes: true, // Allow discount codes
     });
 

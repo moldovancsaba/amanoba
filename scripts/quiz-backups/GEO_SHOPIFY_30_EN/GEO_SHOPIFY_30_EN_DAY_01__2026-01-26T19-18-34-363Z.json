@@ -1,0 +1,184 @@
+{
+  "backedUpAt": "2026-01-26T19:18:34.363Z",
+  "course": {
+    "courseId": "GEO_SHOPIFY_30_EN",
+    "name": "GEO Shopify – 30-day course",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 1,
+    "title": "What GEO is (and is not) for Shopify",
+    "lessonId": "GEO_SHOPIFY_30_EN_DAY_01"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "6977bd5bf4fe760bd6591bb6",
+      "uuid": "cbcdf101-2bd2-4c5d-b2e4-cf2e6c054a99",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "In a \"What GEO is (and is not) for Shopify\" scenario, how would applying \"What GEO is (and is not) for Shopify Understand ho...\" change your ability to achieve GEO, and what is the most likely risk if you implement it incorrectly?",
+      "options": [
+        "What GEO is (and is not) for S... applied correctly improves outcome quality and reduces risk; applied poorly it increases errors and downstream rework",
+        "No significant impact",
+        "Only matters theoretically",
+        "Only an optional element"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day1",
+        "#en",
+        "#all-languages",
+        "#course-geo_shopify_30_en",
+        "#geo",
+        "#shopify",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "6977bd5bf4fe760bd6591bb7",
+      "uuid": "2ef31554-6edc-459b-8bb3-ae97124e991a",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "In a \"What GEO is (and is not) for Shopify\" scenario, how would applying \"Learning goal Separate GEO from SEO clearly...\" change your ability to achieve GEO, and what is the most likely risk if you implement it incorrectly?",
+      "options": [
+        "Learning goal Separate GEO fro... applied correctly improves outcome quality and reduces risk; applied poorly it increases errors and downstream rework",
+        "No significant impact",
+        "Only matters theoretically",
+        "Only an optional element"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day1",
+        "#en",
+        "#all-languages",
+        "#course-geo_shopify_30_en",
+        "#geo",
+        "#shopify",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "6977bd5bf4fe760bd6591bb8",
+      "uuid": "b334ba63-7725-417a-9819-545b49028a12",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "In your own workflow, how would you implement the \"exercise (10–15 min) Write 5 GEO prompts...\" step from \"What GEO is (and is not) for Shopify\" (specific steps + a way to verify it worked)?",
+      "options": [
+        "I implement it step by step, define before/after checks, document results, and iterate based on what fails",
+        "I change everything at once and skip verification",
+        "I only read about it but never integrate it into my process",
+        "I wait for someone else to produce the solution"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day1",
+        "#en",
+        "#all-languages",
+        "#course-geo_shopify_30_en",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "6977bd5bf4fe760bd6591bb9",
+      "uuid": "78b7ff68-56ef-469a-88a7-e099a9006f7b",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "In your own workflow, how would you implement the \"exercise (5–10 min) Run the 5 prompts in...\" step from \"What GEO is (and is not) for Shopify\" (specific steps + a way to verify it worked)?",
+      "options": [
+        "I implement it step by step, define before/after checks, document results, and iterate based on what fails",
+        "I change everything at once and skip verification",
+        "I only read about it but never integrate it into my process",
+        "I wait for someone else to produce the solution"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day1",
+        "#en",
+        "#all-languages",
+        "#course-geo_shopify_30_en",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "6977bd5bf4fe760bd6591bba",
+      "uuid": "2fd25f2b-93ce-456d-9953-f68981c14bf7",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you apply the \"Good\" concept to a \"What GEO is (and is not) for Shopify\" task so the outcome is measurable and verifiable?",
+      "options": [
+        "I create a checklist, apply it to a small scope first, measure the impact, then roll it out to the full scope",
+        "I keep it as a definition and never validate it in practice",
+        "I skip implementation because it seems time-consuming",
+        "I implement it but do not measure or document anything"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day1",
+        "#en",
+        "#all-languages",
+        "#course-geo_shopify_30_en",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "6977bd5bf4fe760bd6591bbb",
+      "uuid": "a4930698-be71-4b19-a119-a5a4564da373",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you apply the \"Poor\" concept to a \"What GEO is (and is not) for Shopify\" task so the outcome is measurable and verifiable?",
+      "options": [
+        "I create a checklist, apply it to a small scope first, measure the impact, then roll it out to the full scope",
+        "I keep it as a definition and never validate it in practice",
+        "I skip implementation because it seems time-consuming",
+        "I implement it but do not measure or document anything"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day1",
+        "#en",
+        "#all-languages",
+        "#course-geo_shopify_30_en",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "6977bd5bf4fe760bd6591bbc",
+      "uuid": "ae04c453-e056-4677-b23a-969f47dbda1d",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you apply the \"What\" concept to a \"What GEO is (and is not) for Shopify\" task so the outcome is measurable and verifiable?",
+      "options": [
+        "I create a checklist, apply it to a small scope first, measure the impact, then roll it out to the full scope",
+        "I keep it as a definition and never validate it in practice",
+        "I skip implementation because it seems time-consuming",
+        "I implement it but do not measure or document anything"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day1",
+        "#en",
+        "#all-languages",
+        "#course-geo_shopify_30_en",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

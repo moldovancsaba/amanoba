@@ -10,7 +10,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { auth } from '@/auth';
 import connectDB from '@/lib/mongodb';
-import { QuizQuestion, QuestionDifficulty, QuestionType } from '@/lib/models';
+import { QuizQuestion, QuestionDifficulty, QuizQuestionType } from '@/lib/models';
 import { logger } from '@/lib/logger';
 import { requireAdmin } from '@/lib/rbac';
 import { randomUUID } from 'crypto';
@@ -82,7 +82,7 @@ export async function POST(request: NextRequest) {
         difficulty: (q.difficulty || QuestionDifficulty.MEDIUM) as QuestionDifficulty,
         category: q.category || 'Course Specific',
         isCourseSpecific: q.isCourseSpecific !== undefined ? q.isCourseSpecific : (q.courseId ? true : false),
-        questionType: q.questionType as QuestionType | undefined,
+        questionType: q.questionType as QuizQuestionType | undefined,
         hashtags: Array.isArray(q.hashtags) ? q.hashtags : [],
         isActive: q.isActive !== undefined ? q.isActive : true,
         showCount: 0,

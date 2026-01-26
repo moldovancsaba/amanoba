@@ -5,7 +5,7 @@
  * Why: Identify gaps, issues, and create action plan for complete quiz system
  * 
  * Requirements:
- * - 7 questions per quiz
+ * - At least 7 questions per quiz (pool may be larger)
  * - Quiz for all lessons
  * - All questions in same language as course
  * - All questions 100% related to actual lesson
@@ -13,6 +13,7 @@
  * - Native quality, proper answers
  * - For every language
  * - For every course
+ * - Cognitive rules: 0 recall, application >= 5
  */
 
 import { config } from 'dotenv';
@@ -111,8 +112,8 @@ async function auditFullSystem() {
         } else {
           result.lessonsWithQuizzes++;
           
-          // Check if quiz is complete (7 questions)
-          if (questionCount !== 7) {
+          // Check if quiz has minimum pool size (>=7 questions)
+          if (questionCount < 7) {
             const incomplete = {
               lessonId: lesson.lessonId,
               dayNumber: lesson.dayNumber,
@@ -121,11 +122,7 @@ async function auditFullSystem() {
               issues: [],
             };
 
-            if (questionCount < 7) {
-              incomplete.issues.push(`Only ${questionCount} questions (expected 7)`);
-            } else {
-              incomplete.issues.push(`Too many questions: ${questionCount} (expected 7)`);
-            }
+            incomplete.issues.push(`Only ${questionCount} questions (minimum 7)`);
 
             // Check for language mismatch
             const hasLanguageMismatch = questions.some(q => {
@@ -142,21 +139,16 @@ async function auditFullSystem() {
               incomplete.issues.push(`${missingMetadata.length} questions missing metadata (UUID, hashtags, or questionType)`);
             }
 
-            // Check cognitive mix (60% recall, 30% application, 10% critical thinking)
+            // Check cognitive rules: 0 recall, application >= 5
             const recallCount = questions.filter(q => q.questionType === 'recall').length;
             const applicationCount = questions.filter(q => q.questionType === 'application').length;
             const criticalCount = questions.filter(q => q.questionType === 'critical-thinking').length;
-            
-            const expectedRecall = Math.round(7 * 0.6); // ~4
-            const expectedApplication = Math.round(7 * 0.3); // ~2
-            const expectedCritical = Math.round(7 * 0.1); // ~1
 
-            if (recallCount !== expectedRecall || applicationCount !== expectedApplication || criticalCount !== expectedCritical) {
-              incomplete.issues.push(
-                `Wrong cognitive mix: ${recallCount} recall (expected ${expectedRecall}), ` +
-                `${applicationCount} application (expected ${expectedApplication}), ` +
-                `${criticalCount} critical (expected ${expectedCritical})`
-              );
+            if (recallCount !== 0) {
+              incomplete.issues.push(`Has recall questions: ${recallCount} (must be 0)`);
+            }
+            if (applicationCount < 5) {
+              incomplete.issues.push(`Not enough application questions: ${applicationCount} (minimum 5)`);
             }
 
             if (incomplete.issues.length > 0) {

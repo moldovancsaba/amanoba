@@ -9,6 +9,37 @@ All completed tasks are documented here in reverse chronological order. This fil
 
 ---
 
+## [v2.9.7] — 2026-01-26 🐛✅
+
+**Status**: BUG FIX - Stripe Payment Checkout  
+**Type**: Critical Payment System Bug Fix
+
+### 🐛 Stripe Customer Email Fix
+
+**Problem**: Payment checkout failed with error: `Invalid payment request: You may only specify one of these parameters: customer, customer_email.`
+
+**Root Cause**:
+- Both `customer` (customer ID) and `customer_email` (email string) were being passed to Stripe checkout session creation
+- Stripe API only allows **one** of these parameters, not both
+- This caused all payment checkouts to fail
+
+**Solution**: 
+- Removed `customer_email` parameter from checkout session creation
+- We always use `customer` (customer ID) since we create/get a customer before checkout
+- Stripe automatically uses the email from the customer record
+
+#### Files Modified
+- `app/api/payments/create-checkout/route.ts` - Removed conflicting `customer_email` parameter
+
+#### Documentation
+- `docs/STRIPE_CUSTOMER_EMAIL_FIX_PLAN.md` - Root cause analysis and fix details
+- `docs/STRIPE_CUSTOMER_EMAIL_FIX_ROLLBACK_PLAN.md` - Complete rollback instructions
+
+**Build Status**: ✅ SUCCESS  
+**Status**: ✅ FIX APPLIED - Payment checkout now works correctly
+
+---
+
 ## [v2.9.6] — 2026-01-26 🐛✅
 
 **Status**: BUG FIX - Admin Payments Page  

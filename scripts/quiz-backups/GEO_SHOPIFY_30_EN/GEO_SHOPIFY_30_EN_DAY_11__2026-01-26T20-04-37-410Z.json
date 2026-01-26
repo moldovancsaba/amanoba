@@ -1,0 +1,177 @@
+{
+  "backedUpAt": "2026-01-26T20:04:39.303Z",
+  "course": {
+    "courseId": "GEO_SHOPIFY_30_EN",
+    "name": "GEO Shopify – 30-day course",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 11,
+    "title": "Trust signals: identity, support, proof",
+    "lessonId": "GEO_SHOPIFY_30_EN_DAY_11"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a15b7889cedb02a2a92",
+      "uuid": "45d15c1a-67d0-4a73-8fa6-893c610a0044",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"Practice: build your trust block (10-15 ...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day11",
+        "#en",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a15b7889cedb02a2a93",
+      "uuid": "c85f74d1-a4c9-454c-a6b9-655e4fe4fe9a",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"practice: update your feed (5-10 min)\nNo...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day11",
+        "#en",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a15b7889cedb02a2a94",
+      "uuid": "b9acbf72-d934-4c3b-979f-34abfe617f5e",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"Practice: build your trust block (10-15 ...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day11",
+        "#en",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a15b7889cedb02a2a95",
+      "uuid": "9017ac62-b6f5-4d68-8da6-33102b09487c",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "What does the \"What you'll learn today\" section contain in the lesson?",
+      "options": [
+        "Specific information, methods, and examples related to what you'll learn today as described in detail in the lesson",
+        "Only general information",
+        "Only theoretical knowledge",
+        "No specific content"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day11",
+        "#en",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a15b7889cedb02a2a96",
+      "uuid": "9de63caa-4e72-480d-a285-841e2c319689",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "What does the \"Why this matters to you\" section contain in the lesson?",
+      "options": [
+        "Specific information, methods, and examples related to why this matters to you as described in detail in the lesson",
+        "Only general information",
+        "Only theoretical knowledge",
+        "No specific content"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day11",
+        "#en",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a15b7889cedb02a2a97",
+      "uuid": "3297770f-628e-4e4e-8ffb-2f4eb7c7a22d",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "What does the \"Trust elements: what to include\" section contain in the lesson?",
+      "options": [
+        "Specific information, methods, and examples related to trust elements: what to include as described in detail in the lesson",
+        "Only general information",
+        "Only theoretical knowledge",
+        "No specific content"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day11",
+        "#en",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a15b7889cedb02a2a98",
+      "uuid": "658649f8-b937-4c9e-9a5c-1f5fa74fdb23",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "What does the \"Examples: what works, what doesn't?\" section contain in the lesson?",
+      "options": [
+        "Specific information, methods, and examples related to examples: what works, what doesn't? as described in detail in the lesson",
+        "Only general information",
+        "Only theoretical knowledge",
+        "No specific content"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day11",
+        "#en",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

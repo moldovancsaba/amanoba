@@ -1,0 +1,177 @@
+{
+  "backedUpAt": "2026-01-26T20:04:39.401Z",
+  "course": {
+    "courseId": "GEO_SHOPIFY_30_EN",
+    "name": "GEO Shopify – 30-day course",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 13,
+    "title": "Citable PDP blueprint",
+    "lessonId": "GEO_SHOPIFY_30_EN_DAY_13"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a15b7889cedb02a2aa6",
+      "uuid": "cc20da99-0291-4874-bb37-d3e70c4c109a",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "How does the concept \"important at the top\nMain image + variant visual –...\" mentioned in the lesson impact achieving your goals?",
+      "options": [
+        "As described in detail in the lesson, important at the top\nMain imag... increases effectiveness and reduces risk",
+        "No significant impact",
+        "Only matters theoretically",
+        "Only an optional element"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day13",
+        "#en",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a15b7889cedb02a2aa7",
+      "uuid": "dd4f0ee0-5307-4076-9ec3-177901f9d1a8",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"Practice: refactor your PDP (10-15 min)\n...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day13",
+        "#en",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a15b7889cedb02a2aa8",
+      "uuid": "db083ab6-ca09-4a1a-825d-51205913a740",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"practice: apply to another PDP (5-10 min...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day13",
+        "#en",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a15b7889cedb02a2aa9",
+      "uuid": "f04278ca-af4a-4628-93c5-d8c18d5c1cd3",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"Practice: refactor your PDP (10-15 min)\n...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day13",
+        "#en",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a15b7889cedb02a2aaa",
+      "uuid": "54c94fb9-6b36-4a55-8fe9-3b56b1c30ac2",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "In the \"Citable PDP blueprint\" lesson, what role does Main image + variant visual play?",
+      "options": [
+        "As described in detail in the lesson, Main image + variant visual plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day13",
+        "#en",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a15b7889cedb02a2aab",
+      "uuid": "f70d0e81-f151-43aa-aa1a-8a337ecb5c2e",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is Policy block in the context of Citable PDP blueprint as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, Policy block plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day13",
+        "#en",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a15b7889cedb02a2aac",
+      "uuid": "d81b1fcd-a2c7-4f8e-892a-a34663b42110",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is Trust in the context of Citable PDP blueprint as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, Trust plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day13",
+        "#en",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

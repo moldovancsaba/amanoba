@@ -14,7 +14,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { auth } from '@/auth';
 import connectDB from '@/lib/mongodb';
-import { QuizQuestion, QuestionDifficulty, QuestionType, Course } from '@/lib/models';
+import { QuizQuestion, QuestionDifficulty, QuizQuestionType, Course } from '@/lib/models';
 import mongoose from 'mongoose';
 import { logger } from '@/lib/logger';
 import { requireAdmin } from '@/lib/rbac';
@@ -275,7 +275,7 @@ export async function POST(request: NextRequest) {
       correctIndex,
       difficulty: difficulty as QuestionDifficulty,
       category,
-      questionType: questionType as QuestionType | undefined,
+      questionType: questionType as QuizQuestionType | undefined,
       hashtags: hashtags.map((tag: string) => tag.trim()),
       isCourseSpecific: isCourseSpecific || !!resolvedCourseId || !!lessonId,
       courseId: resolvedCourseId,
