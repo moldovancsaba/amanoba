@@ -179,10 +179,17 @@ This document defines the standardized process for creating and delivering cours
 
 **Quiz Structure (MANDATORY):**
 - **Exactly 7 questions** - NO exceptions
-- **Cognitive mix** (MANDATORY):
-  - 4-5 questions: RECALL (60%) - Foundational concepts, definitions, facts
-  - 2-3 questions: APPLICATION (30%) - Practical scenarios, real-world use
-  - 0-1 questions: CRITICAL_THINKING (10%) - Analysis, synthesis, evaluation
+- **Cognitive mix** (MANDATORY - STRICT RULES):
+  - **0 questions: RECALL** - NO recall questions allowed (hard rule)
+  - **At least 5 questions: APPLICATION** - Minimum 5 application questions (hard rule)
+  - **At least 2 questions: CRITICAL_THINKING** - Recommended minimum 2 critical thinking questions (warning if less)
+- **Question Quality Requirements**:
+  - Minimum 40 characters per question
+  - Minimum 25 characters per answer option
+  - No generic template patterns (e.g., "What is a key concept from...", "Mit jelent a...")
+  - No fragmented terms in quotes (e.g., "mestere" without context)
+  - All questions must be 100% related to actual lesson content
+  - All answers must have educational value (no "stupid" answers)
 - **Pass threshold**: 70% (configurable per course)
 - **Question types**: Multiple choice only (for now)
 - **Language**: 100% same as course language, no fallbacks

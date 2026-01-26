@@ -283,16 +283,23 @@ Minden lecke esetében:
 - [ ] **difficulty**: `EASY`, `MEDIUM`, `HARD`, vagy `EXPERT`
 - [ ] **category**: Érvényes angol enum érték (nem fordított)
 
-#### 10.8.3) Kognitív Mix (MANDATORY)
-- [ ] **4-5 kérdés: RECALL (60%)** - Alapfogalmak, definíciók, tények
-- [ ] **2-3 kérdés: APPLICATION (30%)** - Gyakorlati forgatókönyvek, valós világbeli használat
-- [ ] **0-1 kérdés: CRITICAL_THINKING (10%)** - Elemzés, szintézis, értékelés
+#### 10.8.3) Kognitív Mix (MANDATORY - STRICT RULES)
+- [ ] **0 kérdés: RECALL** - NINCS recall kérdés engedélyezve (hard rule)
+- [ ] **Legalább 5 kérdés: APPLICATION** - Minimum 5 application kérdés (hard rule)
+- [ ] **Legalább 2 kérdés: CRITICAL_THINKING** - Ajánlott minimum 2 critical thinking kérdés (warning ha kevesebb)
 
 #### 10.8.4) Tartalom Kapcsolat (MANDATORY)
 - [ ] **100% kapcsolódik a leckéhez** - Minden kérdés a lecke tényleges anyagát teszteli
 - [ ] **Olvasd el a lecke tartalmát** - A kérdések létrehozása előtt olvasd el a teljes lecke tartalmát
 - [ ] **Értsd meg a tanulási célokat** - A kérdések a lecke tanulási céljait tükrözik
 - [ ] **Teszteld a kulcsfogalmakat** - A kérdések a lecke kulcsfogalmait és tanítási pontjait fedik le
+
+#### 10.8.5) Minőségi Követelmények (MANDATORY)
+- [ ] **Minimum 40 karakter kérdés** - Minden kérdés legalább 40 karakter hosszú
+- [ ] **Minimum 25 karakter válaszlehetőség** - Minden válaszlehetőség legalább 25 karakter hosszú
+- [ ] **Nincs generikus sablon** - Nincs "Mi a kulcsfontosságú koncepció...", "Mit jelent a..." stb.
+- [ ] **Nincs töredékes kifejezés idézőjelben** - Nincs "mestere" stb. kontextus nélkül
+- [ ] **Oktatási érték** - Minden válasz oktatási értékkel bír, nincs "hülye" válasz
 
 ### 10.9) Kapcsolódó Dokumentumok
 

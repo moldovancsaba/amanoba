@@ -10,6 +10,7 @@ import { auth } from '@/auth';
 import connectDB from '@/lib/mongodb';
 import { PaymentTransaction, PaymentStatus, Course, Player } from '@/lib/models';
 import { logger } from '@/lib/logger';
+import { requireAdmin } from '@/lib/rbac';
 import mongoose from 'mongoose';
 
 export const runtime = 'nodejs';
@@ -57,8 +58,10 @@ export async function GET(request: NextRequest) {
     }
 
     if (courseId) {
+      // Normalize courseId to uppercase (Course schema stores courseId in uppercase)
+      const normalizedCourseId = courseId.toUpperCase().trim();
       // Find course by courseId string
-      const course = await Course.findOne({ courseId }).lean();
+      const course = await Course.findOne({ courseId: normalizedCourseId }).lean();
       if (course) {
         query.courseId = course._id;
       } else {

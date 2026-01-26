@@ -32,6 +32,7 @@
 - ~~Implement Google Analytics with Consent Mode v2 for GDPR/CCPA compliance~~ ✅ FIXED (v2.9.2 - Full consent management system)
 - ~~Fix course progress tracking to properly restore user's position~~ ✅ FIXED (v2.9.2 - currentDay calculation fixed)
 - ~~Complete quiz system fix - all courses with 7 questions, proper metadata, quality standards~~ ✅ FIXED (v2.9.4 - All 18 courses complete)
+- ~~Fix admin payments page showing "No transactions found"~~ ✅ FIXED (v2.9.6 - Missing requireAdmin import and courseId normalization)
 - Restrict `app/api/profile/[playerId]` data exposure (wallet balances, `lastSeenAt`) to self/admin; clarify intended visibility
 - Wire rate limiting (`app/lib/security.ts`) into auth/profile/admin/progress endpoints
 

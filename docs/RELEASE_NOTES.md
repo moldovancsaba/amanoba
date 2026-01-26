@@ -9,6 +9,35 @@ All completed tasks are documented here in reverse chronological order. This fil
 
 ---
 
+## [v2.9.6] — 2026-01-26 🐛✅
+
+**Status**: BUG FIX - Admin Payments Page  
+**Type**: Critical Bug Fix
+
+### 🐛 Admin Payments Page Fix
+
+**Problem**: Admin payments page (`/admin/payments`) showed "No transactions found" even though paid users existed in the database.
+
+**Root Cause**:
+1. **Missing Import**: `requireAdmin` function was called but not imported, causing `ReferenceError: requireAdmin is not defined`
+2. **Case-Sensitivity Issue**: `courseId` filter parameter was not normalized to uppercase before querying, causing lookups to fail for lowercase/mixed-case inputs
+
+**Solution**: 
+- Added missing `import { requireAdmin } from '@/lib/rbac';` to `app/api/admin/payments/route.ts`
+- Normalized `courseId` to uppercase before querying (same pattern as buy premium fix)
+
+#### Files Modified
+- `app/api/admin/payments/route.ts` - Added import, fixed courseId normalization
+
+#### Documentation
+- `docs/ADMIN_PAYMENTS_FIX_PLAN.md` - Root cause analysis and fix details
+- `docs/ADMIN_PAYMENTS_FIX_ROLLBACK_PLAN.md` - Complete rollback instructions
+
+**Build Status**: ✅ SUCCESS  
+**Status**: ✅ COMPLETE - Admin payments page now displays transactions correctly
+
+---
+
 ## [v2.9.5] — 2026-01-25 🎯✅
 
 **Status**: FEATURE RELEASE - Quiz Question Central Management System  
