@@ -33,6 +33,7 @@
 - ~~Fix course progress tracking to properly restore user's position~~ ✅ FIXED (v2.9.2 - currentDay calculation fixed)
 - ~~Complete quiz system fix - all courses with 7 questions, proper metadata, quality standards~~ ✅ FIXED (v2.9.4 - All 18 courses complete)
 - ~~Fix admin payments page showing "No transactions found"~~ ✅ FIXED (v2.9.6 - Missing requireAdmin import and courseId normalization)
+- ~~Fix Stripe payment checkout - customer_email conflict~~ ✅ FIXED (v2.9.7 - Removed conflicting customer_email parameter)
 - Restrict `app/api/profile/[playerId]` data exposure (wallet balances, `lastSeenAt`) to self/admin; clarify intended visibility
 - Wire rate limiting (`app/lib/security.ts`) into auth/profile/admin/progress endpoints
 
@@ -86,9 +87,13 @@
 - ✅ Added Stripe minimum amount validation
 - ✅ Environment variables configured: `STRIPE_SECRET_KEY`, `STRIPE_PUBLISHABLE_KEY`, `STRIPE_WEBHOOK_SECRET`
 
+**Completed (v2.9.6 - v2.9.7)**:
+- ✅ Admin payment dashboard: View all transactions, revenue analytics (v2.9.6)
+- ✅ Fixed payment checkout: Removed conflicting customer_email parameter (v2.9.7)
+- ✅ Fixed admin payments page: Missing requireAdmin import and courseId normalization (v2.9.6)
+
 **Remaining Enhancements**:
-- ⏳ Admin payment dashboard: View all transactions, revenue analytics
-- ⏳ End-to-end payment flow testing
+- ⏳ End-to-end payment flow testing (recommended before production)
 - ⏳ Enhanced error handling and edge cases
 - ⏳ Recurring subscriptions (monthly/yearly premium access)
 - ⏳ Payment method management
