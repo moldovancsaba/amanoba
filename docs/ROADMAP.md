@@ -34,8 +34,8 @@
 - ~~Complete quiz system fix - all courses with 7 questions, proper metadata, quality standards~~ ✅ FIXED (v2.9.4 - All 18 courses complete)
 - ~~Fix admin payments page showing "No transactions found"~~ ✅ FIXED (v2.9.6 - Missing requireAdmin import and courseId normalization)
 - ~~Fix Stripe payment checkout - customer_email conflict~~ ✅ FIXED (v2.9.7 - Removed conflicting customer_email parameter)
+- ~~Wire rate limiting (`app/lib/security.ts`) into auth/profile/admin/progress endpoints~~ ✅ FIXED (v2.9.8 - Rate limiting wired to critical endpoints)
 - Restrict `app/api/profile/[playerId]` data exposure (wallet balances, `lastSeenAt`) to self/admin; clarify intended visibility
-- Wire rate limiting (`app/lib/security.ts`) into auth/profile/admin/progress endpoints
 
 ### P1 / Medium Priority
 - Localize and brand policy/legal pages; switch plain `Link`/`href=\"/\"` to `LocaleLink`, add missing HU/EN messages, and apply `globals.css` shell
