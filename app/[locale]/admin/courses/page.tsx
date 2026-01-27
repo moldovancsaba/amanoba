@@ -141,6 +141,9 @@ export default function AdminCoursesPage() {
   const [statusFilter, setStatusFilter] = useState<'all' | 'active' | 'inactive'>('all');
   const [deletingCourseId, setDeletingCourseId] = useState<string | null>(null);
   const [ccsError, setCcsError] = useState<string | null>(null);
+  const [editingCcsId, setEditingCcsId] = useState<string | null>(null);
+  const [editForm, setEditForm] = useState<{ name: string; idea: string; outline: string }>({ name: '', idea: '', outline: '' });
+  const [deletingCcsId, setDeletingCcsId] = useState<string | null>(null);
 
   useEffect(() => {
     setInitialLoading(true);
@@ -263,6 +266,60 @@ export default function AdminCoursesPage() {
       else next.add(id);
       return next;
     });
+  };
+
+  const startEditCcs = (ccs: CCSItem) => {
+    setEditingCcsId(ccs.ccsId);
+    setEditForm({
+      name: ccs.name || ccs.ccsId,
+      idea: ccs.idea || '',
+      outline: ccs.outline || '',
+    });
+  };
+
+  const saveEditCcs = async () => {
+    if (!editingCcsId) return;
+    try {
+      const res = await fetch(`/api/admin/ccs/${encodeURIComponent(editingCcsId)}`, {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name: editForm.name.trim(), idea: editForm.idea.trim() || undefined, outline: editForm.outline.trim() || undefined }),
+      });
+      const data = await res.json();
+      if (!res.ok) {
+        alert(data.error || 'Update failed');
+        return;
+      }
+      setEditingCcsId(null);
+      fetchCCS();
+    } catch (e) {
+      console.error(e);
+      alert('Update failed');
+    }
+  };
+
+  const deleteCcs = async (ccsId: string, variantCount: number) => {
+    if (variantCount > 0) {
+      alert(`Cannot delete: ${variantCount} course(s) are linked. Unlink or remove them first.`);
+      return;
+    }
+    if (!confirm('Delete this course family? This cannot be undone.')) return;
+    setDeletingCcsId(ccsId);
+    try {
+      const res = await fetch(`/api/admin/ccs/${encodeURIComponent(ccsId)}`, { method: 'DELETE' });
+      const data = await res.json();
+      if (!res.ok) {
+        alert(data.error || 'Delete failed');
+        return;
+      }
+      setEditingCcsId(null);
+      fetchCCS();
+    } catch (e) {
+      console.error(e);
+      alert('Delete failed');
+    } finally {
+      setDeletingCcsId(null);
+    }
   };
 
   return (
@@ -401,7 +458,56 @@ export default function AdminCoursesPage() {
                       </span>
                     </button>
                     {isExpanded && (
-                      <div className="border-t border-brand-accent/30 bg-brand-darkGrey/5 p-4">
+                      <div className="border-t border-brand-accent/30 bg-brand-darkGrey/5 p-4" onClick={(e) => e.stopPropagation()}>
+                        <div className="flex flex-wrap items-center gap-2 mb-3">
+                          <button
+                            type="button"
+                            onClick={() => startEditCcs(ccs)}
+                            className="inline-flex items-center gap-1 bg-brand-darkGrey text-brand-white px-3 py-1.5 rounded-lg text-sm font-bold hover:bg-brand-secondary-700"
+                          >
+                            <Edit className="w-4 h-4" />
+                            Edit
+                          </button>
+                          <button
+                            type="button"
+                            onClick={() => deleteCcs(ccs.ccsId, variants.length)}
+                            disabled={!!deletingCcsId}
+                            className="inline-flex items-center gap-1 bg-red-600/80 text-white px-3 py-1.5 rounded-lg text-sm font-bold hover:bg-red-600 disabled:opacity-50"
+                          >
+                            <Trash2 className="w-4 h-4" />
+                            Delete
+                          </button>
+                        </div>
+                        {editingCcsId === ccs.ccsId && (
+                          <div className="mb-4 p-3 bg-brand-white rounded-lg border border-brand-accent/30 space-y-2">
+                            <label className="block text-sm font-bold text-brand-black">Name</label>
+                            <input
+                              type="text"
+                              value={editForm.name}
+                              onChange={(e) => setEditForm((f) => ({ ...f, name: e.target.value }))}
+                              className="w-full px-3 py-2 border border-brand-accent/30 rounded text-brand-black"
+                              placeholder="Display name"
+                            />
+                            <label className="block text-sm font-bold text-brand-black">Idea (optional)</label>
+                            <textarea
+                              value={editForm.idea}
+                              onChange={(e) => setEditForm((f) => ({ ...f, idea: e.target.value }))}
+                              className="w-full px-3 py-2 border border-brand-accent/30 rounded text-brand-black min-h-[60px]"
+                              placeholder="Course idea / markdown"
+                            />
+                            <label className="block text-sm font-bold text-brand-black">Outline (optional)</label>
+                            <textarea
+                              value={editForm.outline}
+                              onChange={(e) => setEditForm((f) => ({ ...f, outline: e.target.value }))}
+                              className="w-full px-3 py-2 border border-brand-accent/30 rounded text-brand-black min-h-[80px]"
+                              placeholder="30-day outline / markdown"
+                            />
+                            <div className="flex gap-2">
+                              <button type="button" onClick={saveEditCcs} className="px-4 py-2 bg-brand-accent text-brand-black rounded-lg font-bold text-sm">Save</button>
+                              <button type="button" onClick={() => setEditingCcsId(null)} className="px-4 py-2 bg-brand-darkGrey text-brand-white rounded-lg font-bold text-sm">Cancel</button>
+                            </div>
+                          </div>
+                        )}
                         <p className="text-sm text-brand-darkGrey mb-2">Language variants — click to edit course</p>
                         <div className="flex flex-wrap gap-2">
                           {variants.length === 0 ? (

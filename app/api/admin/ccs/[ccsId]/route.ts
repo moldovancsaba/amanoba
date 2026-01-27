@@ -104,3 +104,50 @@ export async function PATCH(
     return NextResponse.json({ error: 'Failed to update CCS' }, { status: 500 });
   }
 }
+
+/**
+ * DELETE /api/admin/ccs/[ccsId]
+ * Delete a CCS. Allowed only when no courses have this ccsId (so the list shows 0 variants).
+ */
+export async function DELETE(
+  request: NextRequest,
+  { params }: { params: Promise<{ ccsId: string }> }
+) {
+  const rateLimitResponse = await checkRateLimit(request, adminRateLimiter);
+  if (rateLimitResponse) return rateLimitResponse;
+
+  try {
+    const session = await auth();
+    const adminCheck = requireAdmin(request, session);
+    if (adminCheck) return adminCheck;
+
+    await connectDB();
+    const { ccsId } = await params;
+    const id = ccsId?.toUpperCase();
+
+    const linked = await Course.countDocuments({
+      ccsId: id,
+      $or: [
+        { parentCourseId: { $in: [null, undefined, ''] } },
+        { parentCourseId: { $exists: false } },
+      ],
+    });
+    if (linked > 0) {
+      return NextResponse.json(
+        { error: `Cannot delete: ${linked} course(s) are linked to this CCS. Unlink or delete them first, or use a different CCS.` },
+        { status: 400 }
+      );
+    }
+
+    const ccs = await CCS.findOneAndDelete({ ccsId: id });
+    if (!ccs) {
+      return NextResponse.json({ error: 'CCS not found' }, { status: 404 });
+    }
+
+    logger.info({ ccsId: id }, 'Admin deleted CCS');
+    return NextResponse.json({ success: true, deleted: id });
+  } catch (error) {
+    logger.error({ error, ccsId: (await params).ccsId }, 'Failed to delete CCS');
+    return NextResponse.json({ error: 'Failed to delete CCS' }, { status: 500 });
+  }
+}
