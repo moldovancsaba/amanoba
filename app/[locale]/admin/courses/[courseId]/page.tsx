@@ -767,7 +767,7 @@ export default function CourseEditorPage({
               </ul>
             </div>
           )}
-          {/* Create short */}
+          {/* Create short — when active, checkboxes appear on the 30-Day Lesson Builder cards below */}
           <div>
             <button
               type="button"
@@ -779,80 +779,61 @@ export default function CourseEditorPage({
             </button>
             {showShortsCreate && lessons.length > 0 && (
               <div className="mt-4 p-4 bg-brand-darkGrey/10 rounded-lg space-y-4">
-                <p className="text-sm text-brand-black font-medium">Select lessons (order = Day 1..N)</p>
-                <div className="flex flex-wrap gap-2 max-h-48 overflow-y-auto">
-                  {lessons.map((l) => (
-                    <label
-                      key={l._id}
-                      className="flex items-center gap-2 cursor-pointer bg-brand-white px-3 py-2 rounded border-2 border-brand-accent/50"
-                    >
-                      <input
-                        type="checkbox"
-                        checked={shortSelectedIds.includes(l._id)}
-                        onChange={(e) => {
-                          if (e.target.checked) {
-                            setShortSelectedIds((prev) => [...prev, l._id]);
-                          } else {
-                            setShortSelectedIds((prev) => prev.filter((id) => id !== l._id));
-                          }
-                        }}
-                        className="w-4 h-4 text-brand-accent"
-                      />
-                      <span className="text-sm">
-                        Day {l.dayNumber}: {l.title.slice(0, 40)}
-                        {l.title.length > 40 ? '…' : ''}
-                      </span>
-                    </label>
-                  ))}
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-brand-black mb-1">
-                    Cert question count
-                  </label>
-                  <input
-                    type="number"
-                    min={1}
-                    max={50}
-                    value={shortCertCount}
-                    onChange={(e) => setShortCertCount(parseInt(e.target.value, 10) || 25)}
-                    className="w-24 px-2 py-1 border-2 border-brand-darkGrey rounded"
-                  />
-                </div>
-                <button
-                  type="button"
-                  disabled={shortSelectedIds.length === 0 || shortCreating}
-                  onClick={async () => {
-                    if (!course?.courseId || shortSelectedIds.length === 0) return;
-                    setShortCreating(true);
-                    try {
-                      const r = await fetch('/api/admin/courses/fork', {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({
-                          parentCourseId: course.courseId,
-                          selectedLessonIds: shortSelectedIds,
-                          certQuestionCount: shortCertCount,
-                        }),
-                      });
-                      const d = await r.json();
-                      if (d.success) {
-                        setShorts((prev) => [...prev, { courseId: d.course.courseId, name: d.course.name, courseVariant: d.course.courseVariant, isDraft: d.course.isDraft ?? true }]);
-                        setShowShortsCreate(false);
-                        setShortSelectedIds([]);
-                      } else {
-                        alert(d.error || 'Failed to create short');
+                <p className="text-sm text-brand-black font-medium">
+                  Tick the lessons you want in the short on the <strong>30-Day Lesson Builder</strong> cards below (order = Day 1..N). Then set cert question count and click Save short.
+                </p>
+                <div className="flex flex-wrap items-center gap-4">
+                  <div>
+                    <label className="block text-sm font-medium text-brand-black mb-1">Cert question count</label>
+                    <input
+                      type="number"
+                      min={1}
+                      max={50}
+                      value={shortCertCount}
+                      onChange={(e) => setShortCertCount(parseInt(e.target.value, 10) || 25)}
+                      className="w-24 px-2 py-1 border-2 border-brand-darkGrey rounded"
+                    />
+                  </div>
+                  <button
+                    type="button"
+                    disabled={shortSelectedIds.length === 0 || shortCreating}
+                    onClick={async () => {
+                      if (!course?.courseId || shortSelectedIds.length === 0) return;
+                      const orderedIds = lessons
+                        .filter((l) => shortSelectedIds.includes(l._id))
+                        .sort((a, b) => a.dayNumber - b.dayNumber)
+                        .map((l) => l._id);
+                      setShortCreating(true);
+                      try {
+                        const r = await fetch('/api/admin/courses/fork', {
+                          method: 'POST',
+                          headers: { 'Content-Type': 'application/json' },
+                          body: JSON.stringify({
+                            parentCourseId: course.courseId,
+                            selectedLessonIds: orderedIds,
+                            certQuestionCount: shortCertCount,
+                          }),
+                        });
+                        const d = await r.json();
+                        if (d.success) {
+                          setShorts((prev) => [...prev, { courseId: d.course.courseId, name: d.course.name, courseVariant: d.course.courseVariant, isDraft: d.course.isDraft ?? true }]);
+                          setShowShortsCreate(false);
+                          setShortSelectedIds([]);
+                        } else {
+                          alert(d.error || 'Failed to create short');
+                        }
+                      } catch (e) {
+                        console.error(e);
+                        alert('Failed to create short');
+                      } finally {
+                        setShortCreating(false);
                       }
-                    } catch (e) {
-                      console.error(e);
-                      alert('Failed to create short');
-                    } finally {
-                      setShortCreating(false);
-                    }
-                  }}
-                  className="bg-brand-accent text-brand-black px-4 py-2 rounded-lg font-bold hover:bg-brand-primary-400 disabled:opacity-50"
-                >
-                  {shortCreating ? 'Creating…' : 'Save short'}
-                </button>
+                    }}
+                    className="bg-brand-accent text-brand-black px-4 py-2 rounded-lg font-bold hover:bg-brand-primary-400 disabled:opacity-50"
+                  >
+                    {shortCreating ? 'Creating…' : 'Save short'}
+                  </button>
+                </div>
               </div>
             )}
           </div>
@@ -880,10 +861,11 @@ export default function CourseEditorPage({
             This is a short course. Lesson and quiz content are managed in the parent course. Only preview is available here.
           </p>
         )}
-        {/* Lessons Grid */}
+        {/* Lessons Grid — when Create short is on, lesson cards get a "Include in short" checkbox */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {Array.from({ length: course.parentCourseId ? lessons.length : 30 }, (_, i) => i + 1).map((day) => {
             const lesson = lessons.find((l) => l.dayNumber === day);
+            const inShortSelection = !course.parentCourseId && showShortsCreate && lesson;
             return (
               <div
                 key={day}
@@ -891,10 +873,27 @@ export default function CourseEditorPage({
                   lesson
                     ? 'bg-brand-accent/10 border-brand-accent'
                     : 'bg-brand-darkGrey/10 border-brand-darkGrey/30'
-                }`}
+                } ${inShortSelection && shortSelectedIds.includes(lesson._id) ? 'ring-2 ring-brand-accent ring-offset-2' : ''}`}
               >
                 <div className="flex items-center justify-between mb-2">
-                  <div className="flex items-center gap-2">
+                  <div className="flex items-center gap-2 flex-wrap">
+                    {inShortSelection && (
+                      <label className="flex items-center gap-1.5 cursor-pointer" onClick={(e) => e.stopPropagation()}>
+                        <input
+                          type="checkbox"
+                          checked={shortSelectedIds.includes(lesson._id)}
+                          onChange={(e) => {
+                            if (e.target.checked) {
+                              setShortSelectedIds((prev) => [...prev, lesson._id]);
+                            } else {
+                              setShortSelectedIds((prev) => prev.filter((id) => id !== lesson._id));
+                            }
+                          }}
+                          className="w-4 h-4 text-brand-accent rounded"
+                        />
+                        <span className="text-xs font-medium text-brand-black">Short</span>
+                      </label>
+                    )}
                     <Calendar className="w-4 h-4 text-brand-accent" />
                     <span className="font-bold text-brand-black">Day {day}</span>
                   </div>
