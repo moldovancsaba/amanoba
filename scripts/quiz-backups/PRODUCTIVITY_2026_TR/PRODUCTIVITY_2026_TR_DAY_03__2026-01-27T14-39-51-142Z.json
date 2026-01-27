@@ -1,0 +1,164 @@
+{
+  "backedUpAt": "2026-01-27T14:39:53.326Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_TR",
+    "name": "Verimlilik 2026: Ekipler ve Zaman Nasıl Yönetilir",
+    "language": "tr"
+  },
+  "lesson": {
+    "dayNumber": 3,
+    "title": "Hedef hiyerarşisi: vizyon → sonuçlar → projeler → sonraki adımlar",
+    "lessonId": "PRODUCTIVITY_2026_TR_DAY_03"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a49e7e0d478c4e50190",
+      "uuid": "f884fe55-ed3d-4d2a-845c-8896aec7b254",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Hedef hiyerarşisinin kaç seviyesi vardır?",
+      "options": [
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "correctIndex": 2,
+      "hashtags": [
+        "#day-03",
+        "#foundation",
+        "#recall",
+        "#tr"
+      ]
+    },
+    {
+      "_id": "69776a49e7e0d478c4e50191",
+      "uuid": "1a3329bb-7829-42ba-afc0-8b79ae4342a3",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Hedef hiyerarşisinde en yüksek seviye hangisidir?",
+      "options": [
+        "Sonraki adımlar",
+        "Projeler",
+        "Sonuçlar",
+        "Vizyon"
+      ],
+      "correctIndex": 3,
+      "hashtags": [
+        "#day-03",
+        "#foundation",
+        "#recall",
+        "#tr"
+      ]
+    },
+    {
+      "_id": "69776a49e7e0d478c4e50192",
+      "uuid": "638aed87-c3d6-45cc-b02b-3f4febc27cb0",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Vizyonsuz projeler yaparken yaygın hata nedir?",
+      "options": [
+        "Çok yavaş ilerliyorsunuz",
+        "Neden yaptığınızı bilmiyorsunuz",
+        "Çok hızlı ilerliyorsunuz",
+        "Hata yok"
+      ],
+      "correctIndex": 1,
+      "hashtags": [
+        "#day-03",
+        "#scenario",
+        "#application",
+        "#tr"
+      ]
+    },
+    {
+      "_id": "69776a49e7e0d478c4e50193",
+      "uuid": "798de410-ef92-4576-80bd-33f3fc8101d8",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ Bir vizyonunuz var (3-5 yıl).\n✅ 2-3 öl...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day3",
+        "#tr",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a49e7e0d478c4e50194",
+      "uuid": "19f1625d-b687-42e0-818a-50eb33177726",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ Hiyerarşi mantıksal olarak bağlanır: v...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day3",
+        "#tr",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a49e7e0d478c4e50195",
+      "uuid": "08f678e1-6eb2-4076-94ce-daa2324c581a",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Ders içinde bahsedilen \"Kişisel bir hedef hiyerarşisi oluşturmak...\" kavramı goals hedeflerinize ulaşmayı nasıl etkiler?",
+      "options": [
+        "Ders içinde detaylı olarak açıklandığı gibi, Kişisel bir hedef hiyerarşisi ... etkinliği artırır ve riski azaltır",
+        "Önemli bir etkisi yok",
+        "Sadece teorik olarak önemli",
+        "Sadece isteğe bağlı bir öğe"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day3",
+        "#tr",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a49e7e0d478c4e50196",
+      "uuid": "0703a7ae-e55b-412a-8df0-1a9390f9b716",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Ders içinde tartışıldığı gibi Vizyon Hedef hiyerarşisi: vizyon → sonuçlar → projeler → sonraki adımlar bağlamında ne kadar önemlidir?",
+      "options": [
+        "Ders içinde detaylı olarak açıklandığı gibi, Vizyon süreçlerin optimize edilmesinde ve hedeflere ulaşmada kritik bir rol oynar",
+        "Sadece önemsiz bilgi, önemli bir rolü yok",
+        "Sadece teorik bir kavram, pratik uygulaması yok",
+        "Ders içinde bahsedilmiyor"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day3",
+        "#tr",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

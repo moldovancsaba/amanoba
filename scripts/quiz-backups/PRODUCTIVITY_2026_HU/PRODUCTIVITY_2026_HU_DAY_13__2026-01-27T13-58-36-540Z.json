@@ -1,0 +1,174 @@
+{
+  "backedUpAt": "2026-01-27T13:58:39.081Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_HU",
+    "name": "Termelékenység 2026: Hogyan kezelj csapatokat és időt",
+    "language": "hu"
+  },
+  "lesson": {
+    "dayNumber": 13,
+    "title": "Döntéshozatali Keretek: Gyors döntés, döntési mátrix, az elemzési bénultság elkerülése",
+    "lessonId": "PRODUCTIVITY_2026_HU_DAY_13"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "697766db9b3efa4704456059",
+      "uuid": "00467044-0c30-4293-9345-127b720c2104",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "A leckében leírt \"✅ Tudom, mi az elemzési bénultság és hog...\" gyakorlatot hogyan implementálnád a saját munkádban?",
+      "options": [
+        "Lépésről lépésre követem a leckében leírt módszert, dokumentálom az eredményeket, és finomhangolom a folyamatot",
+        "Egyszerre próbálom ki mindent",
+        "Csak olvasom, nem alkalmazom",
+        "Várok, amíg mások megcsinálják"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day13",
+        "#hu",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "697766db9b3efa470445605a",
+      "uuid": "de48f0a4-d51b-4c13-a9cd-ec895d2370e3",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "A leckében leírt \"✅ Tudom, hogyan kell az érzelmi faktorok...\" gyakorlatot hogyan implementálnád a saját munkádban?",
+      "options": [
+        "Lépésről lépésre követem a leckében leírt módszert, dokumentálom az eredményeket, és finomhangolom a folyamatot",
+        "Egyszerre próbálom ki mindent",
+        "Csak olvasom, nem alkalmazom",
+        "Várok, amíg mások megcsinálják"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day13",
+        "#hu",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "697766db9b3efa470445605b",
+      "uuid": "2251072d-0a1e-47de-9f9b-5ae296b58783",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "A leckében leírt \"✅ Tudom, mi az elemzési bénultság és hog...\" gyakorlatot hogyan implementálnád a saját munkádban?",
+      "options": [
+        "Lépésről lépésre követem a leckében leírt módszert, dokumentálom az eredményeket, és finomhangolom a folyamatot",
+        "Egyszerre próbálom ki mindent",
+        "Csak olvasom, nem alkalmazom",
+        "Várok, amíg mások megcsinálják"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day13",
+        "#hu",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69789bb74990e68a049b3082",
+      "uuid": "d9d2d053-601d-4f52-b457-8a2b1862dbe6",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Egy vezető a következő elv szerint dönt: „fontos vagy nagy? Mi történne, ha rossz? Érzelmi ítélet: Írd le az”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?",
+      "options": [
+        "A fókusz növelheti az eredményességet, mert a korlátok mellett a legnagyobb hatású kimenetre koncentrál; kockázat: rossz mérőszámra optimalizálva „látszat‑output” készül.",
+        "Az output automatikusan egyenlő az eredménnyel, ezért elég több feladatot lezárni; kockázat: nő az aktivitás, de romlik az ügyfélérték és a minőség.",
+        "A korlátok (idő/energia/figyelem) figyelmen kívül hagyhatók, mert a termelékenység csak akaraterő kérdése; kockázat: túlterhelés, hibák és kiégés.",
+        "A sebesség maximalizálása a legfontosabb, a minőség majd „később” javítható; kockázat: utómunka, újranyitások és bizalomvesztés alakul ki."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day13",
+        "#hu",
+        "#all-languages",
+        "#course-productivity_2026_hu",
+        "#productivity",
+        "#advanced",
+        "#critical-thinking"
+      ]
+    },
+    {
+      "_id": "69789bb74990e68a049b3083",
+      "uuid": "a5cd9450-23a1-440d-86fc-bb7f0b8c43b4",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Egy vezető a következő elv szerint dönt: „Döntéshozatali Keretek: Gyors döntés, döntési mátrix, az elemzési bénultság elke”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?",
+      "options": [
+        "A fókusz növelheti az eredményességet, mert a korlátok mellett a legnagyobb hatású kimenetre koncentrál; kockázat: rossz mérőszámra optimalizálva „látszat‑output” készül.",
+        "Az output automatikusan egyenlő az eredménnyel, ezért elég több feladatot lezárni; kockázat: nő az aktivitás, de romlik az ügyfélérték és a minőség.",
+        "A korlátok (idő/energia/figyelem) figyelmen kívül hagyhatók, mert a termelékenység csak akaraterő kérdése; kockázat: túlterhelés, hibák és kiégés.",
+        "A sebesség maximalizálása a legfontosabb, a minőség majd „később” javítható; kockázat: utómunka, újranyitások és bizalomvesztés alakul ki."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day13",
+        "#hu",
+        "#all-languages",
+        "#course-productivity_2026_hu",
+        "#productivity",
+        "#advanced",
+        "#critical-thinking"
+      ]
+    },
+    {
+      "_id": "69789bb74990e68a049b3084",
+      "uuid": "f603eddc-38fc-4795-8f91-43bb6cbefc3b",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Egy új gyakorlatot vezetsz be: „✅ Tudom, mi az elemzési bénultság és hogyan működik. ✅ Tudom”. Melyik bevezetési terv biztosít mérhető kimenetet és gyors visszacsatolást?",
+      "options": [
+        "Lépésről lépésre bevezetem, előtte/utána mérőpontokat állítok be, dokumentálom az eredményt, és iterálok a hibák alapján",
+        "Egyszerre mindent átállítok, majd nem ellenőrzöm, mi romlott el",
+        "Csak elolvasom, de nem építem be a folyamatomba",
+        "Megvárom, hogy valaki más készítsen helyettem megoldást"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day13",
+        "#hu",
+        "#all-languages",
+        "#course-productivity_2026_hu",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "69789bb74990e68a049b3085",
+      "uuid": "1e93207a-2e35-44cd-9988-01eb1c517a05",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Egy új gyakorlatot vezetsz be: „✅ Tudom, hogyan kell az érzelmi faktorokat az információs dö”. Melyik bevezetési terv biztosít mérhető kimenetet és gyors visszacsatolást?",
+      "options": [
+        "Lépésről lépésre bevezetem, előtte/utána mérőpontokat állítok be, dokumentálom az eredményt, és iterálok a hibák alapján",
+        "Egyszerre mindent átállítok, majd nem ellenőrzöm, mi romlott el",
+        "Csak elolvasom, de nem építem be a folyamatomba",
+        "Megvárom, hogy valaki más készítsen helyettem megoldást"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day13",
+        "#hu",
+        "#all-languages",
+        "#course-productivity_2026_hu",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    }
+  ]
+}

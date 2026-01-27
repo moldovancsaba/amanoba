@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-27T14:39:55.126Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_TR",
+    "name": "Verimlilik 2026: Ekipler ve Zaman Nasıl Yönetilir",
+    "language": "tr"
+  },
+  "lesson": {
+    "dayNumber": 18,
+    "title": "Kriz Yönetimi ve Uyarlanabilirlik: Uyum, Hızlı Öğrenme",
+    "lessonId": "PRODUCTIVITY_2026_TR_DAY_18"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a4be7e0d478c4e50262",
+      "uuid": "15201b60-2a32-4934-b5ff-6cfb0a0041fc",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Beklenmedik zorluklar için hazırlık ve yanıt.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day18",
+        "#tr",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a4be7e0d478c4e50263",
+      "uuid": "72ddcf13-cba0-4c27-a149-ba1cf45b0c87",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Beklenmedik zorluklar için hazırlık ve yanıt.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day18",
+        "#tr",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a4be7e0d478c4e50264",
+      "uuid": "07dcb938-ee29-4549-8cba-ddd8fa1375eb",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Beklenmedik zorluklar için hazırlık ve yanıt.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day18",
+        "#tr",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a4be7e0d478c4e50265",
+      "uuid": "fc9673d8-b3e5-4625-95f2-a9a26e65c4d5",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Ders içinde bahsedilen \"Kriz Yönetimi ve Uyarlanabilirlik: Uyum, Hızlı Öğr...\" kavramı goals hedeflerinize ulaşmayı nasıl etkiler?",
+      "options": [
+        "Ders içinde detaylı olarak açıklandığı gibi, Kriz Yönetimi ve Uyarlanabilir... etkinliği artırır ve riski azaltır",
+        "Önemli bir etkisi yok",
+        "Sadece teorik olarak önemli",
+        "Sadece isteğe bağlı bir öğe"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day18",
+        "#tr",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a4be7e0d478c4e50266",
+      "uuid": "fe573a45-6d97-45e5-a486-7734c3d265a9",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Ders içinde tartışıldığı gibi Kriz Kriz Yönetimi ve Uyarlanabilirlik: Uyum, Hızlı Öğrenme bağlamında ne kadar önemlidir?",
+      "options": [
+        "Ders içinde detaylı olarak açıklandığı gibi, Kriz süreçlerin optimize edilmesinde ve hedeflere ulaşmada kritik bir rol oynar",
+        "Sadece önemsiz bilgi, önemli bir rolü yok",
+        "Sadece teorik bir kavram, pratik uygulaması yok",
+        "Ders içinde bahsedilmiyor"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day18",
+        "#tr",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a4be7e0d478c4e50267",
+      "uuid": "789a93d7-deb5-4c86-a598-02ad70736436",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Uyarlanabilirlik \"Kriz Yönetimi ve Uyarlanabilirlik: Uyum, Hızlı Öğrenme\" dersinde nasıl bir rol oynar?",
+      "options": [
+        "Ders içinde detaylı olarak açıklandığı gibi, Uyarlanabilirlik süreçlerin optimize edilmesinde ve hedeflere ulaşmada kritik bir rol oynar",
+        "Sadece önemsiz bilgi, önemli bir rolü yok",
+        "Sadece teorik bir kavram, pratik uygulaması yok",
+        "Ders içinde bahsedilmiyor"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day18",
+        "#tr",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a4be7e0d478c4e50268",
+      "uuid": "2b9dd8e1-0728-438d-9140-e0bb3bcf09bc",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Ders içinde tartışıldığı gibi Hızlı Kriz Yönetimi ve Uyarlanabilirlik: Uyum, Hızlı Öğrenme bağlamında ne kadar önemlidir?",
+      "options": [
+        "Ders içinde detaylı olarak açıklandığı gibi, Hızlı süreçlerin optimize edilmesinde ve hedeflere ulaşmada kritik bir rol oynar",
+        "Sadece önemsiz bilgi, önemli bir rolü yok",
+        "Sadece teorik bir kavram, pratik uygulaması yok",
+        "Ders içinde bahsedilmiyor"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day18",
+        "#tr",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

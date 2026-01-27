@@ -245,9 +245,10 @@ function buildTRLessonHtml(params: {
 
   const metrics = buildMetricsTr(requiredConcepts, requiredProcedures.map((p) => p.id));
 
+  const cleanTitle = title.includes('—') ? title.split('—').pop()!.trim() : title;
   const content =
     `<h1>${escapeHtml(`Verimlilik 2026 — Gün ${day}`)}</h1>\n` +
-    `<h2>${escapeHtml(title)}</h2>\n` +
+    `<h2>${escapeHtml(cleanTitle)}</h2>\n` +
     `<p><strong>Neden önemli?</strong> ${escapeHtml(intent)}</p>\n` +
     `<h2>Bugünün hedefleri (outcome)</h2>\n` +
     ul(goals.map((g) => escapeHtml(g))) +

@@ -1,0 +1,1963 @@
+{
+  "generatedAt": "2026-01-27T14:39:30.683Z",
+  "courseId": "PRODUCTIVITY_2026_TR",
+  "fromDay": 1,
+  "toDay": 30,
+  "apply": true,
+  "totals": {
+    "considered": 30,
+    "eligible70": 30,
+    "below70": 0,
+    "applied": 18
+  },
+  "planRows": [
+    {
+      "day": 1,
+      "lessonId": "PRODUCTIVITY_2026_TR_DAY_01",
+      "title": "Verimlilik tanımı: çıktı, sonuçlar ve kısıtlamalar",
+      "action": "SKIP_ALREADY_OK",
+      "quality": {
+        "old": {
+          "score": 85,
+          "issues": [
+            "NO_METRICS_OR_CRITERIA"
+          ],
+          "signals": {
+            "charCount": 2565,
+            "wordCount": 340,
+            "hasBullets": true,
+            "hasNumberedSteps": true,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": false,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": true
+          }
+        },
+        "next": {
+          "score": 85,
+          "issues": [
+            "NO_METRICS_OR_CRITERIA"
+          ],
+          "signals": {
+            "charCount": 2565,
+            "wordCount": 340,
+            "hasBullets": true,
+            "hasNumberedSteps": true,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": false,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": true
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 2565,
+        "nextChars": 2565
+      },
+      "applyEligible": true
+    },
+    {
+      "day": 2,
+      "lessonId": "PRODUCTIVITY_2026_TR_DAY_02",
+      "title": "Zaman, enerji, dikkat: pratikte yönettiğiniz şeyler",
+      "action": "SKIP_ALREADY_OK",
+      "quality": {
+        "old": {
+          "score": 85,
+          "issues": [
+            "NO_METRICS_OR_CRITERIA"
+          ],
+          "signals": {
+            "charCount": 3261,
+            "wordCount": 452,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": false,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": true
+          }
+        },
+        "next": {
+          "score": 85,
+          "issues": [
+            "NO_METRICS_OR_CRITERIA"
+          ],
+          "signals": {
+            "charCount": 3261,
+            "wordCount": 452,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": false,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": true
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 3261,
+        "nextChars": 3261
+      },
+      "applyEligible": true
+    },
+    {
+      "day": 3,
+      "lessonId": "PRODUCTIVITY_2026_TR_DAY_03",
+      "title": "Hedef hiyerarşisi: vizyon → sonuçlar → projeler → sonraki adımlar",
+      "action": "SKIP_ALREADY_OK",
+      "quality": {
+        "old": {
+          "score": 85,
+          "issues": [
+            "NO_METRICS_OR_CRITERIA"
+          ],
+          "signals": {
+            "charCount": 2652,
+            "wordCount": 376,
+            "hasBullets": true,
+            "hasNumberedSteps": true,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": false,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": true
+          }
+        },
+        "next": {
+          "score": 85,
+          "issues": [
+            "NO_METRICS_OR_CRITERIA"
+          ],
+          "signals": {
+            "charCount": 2652,
+            "wordCount": 376,
+            "hasBullets": true,
+            "hasNumberedSteps": true,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": false,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": true
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 2652,
+        "nextChars": 2652
+      },
+      "applyEligible": true
+    },
+    {
+      "day": 4,
+      "lessonId": "PRODUCTIVITY_2026_TR_DAY_04",
+      "title": "Alışkanlıklar vs sistemler: sistemler neden daha iyi ölçeklenir",
+      "action": "SKIP_ALREADY_OK",
+      "quality": {
+        "old": {
+          "score": 85,
+          "issues": [
+            "NO_METRICS_OR_CRITERIA"
+          ],
+          "signals": {
+            "charCount": 2779,
+            "wordCount": 352,
+            "hasBullets": true,
+            "hasNumberedSteps": true,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": false,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": true
+          }
+        },
+        "next": {
+          "score": 85,
+          "issues": [
+            "NO_METRICS_OR_CRITERIA"
+          ],
+          "signals": {
+            "charCount": 2779,
+            "wordCount": 352,
+            "hasBullets": true,
+            "hasNumberedSteps": true,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": false,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": true
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 2779,
+        "nextChars": 2779
+      },
+      "applyEligible": true
+    },
+    {
+      "day": 5,
+      "lessonId": "PRODUCTIVITY_2026_TR_DAY_05",
+      "title": "Ölçüm: basit haftalık inceleme metrikleri (throughput, odak blokları, carryover)",
+      "action": "SKIP_ALREADY_OK",
+      "quality": {
+        "old": {
+          "score": 85,
+          "issues": [
+            "NO_CLEAR_DEFINITIONS"
+          ],
+          "signals": {
+            "charCount": 2319,
+            "wordCount": 321,
+            "hasBullets": true,
+            "hasNumberedSteps": true,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": false
+          },
+          "refineTemplate": {
+            "addDefinitionSection": true,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        },
+        "next": {
+          "score": 85,
+          "issues": [
+            "NO_CLEAR_DEFINITIONS"
+          ],
+          "signals": {
+            "charCount": 2319,
+            "wordCount": 321,
+            "hasBullets": true,
+            "hasNumberedSteps": true,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": false
+          },
+          "refineTemplate": {
+            "addDefinitionSection": true,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 2319,
+        "nextChars": 2319
+      },
+      "applyEligible": true
+    },
+    {
+      "day": 6,
+      "lessonId": "PRODUCTIVITY_2026_TR_DAY_06",
+      "title": "Yakalama: gelen kutuları, tetikleyici listesi, yakalama alışkanlıkları",
+      "action": "SKIP_ALREADY_OK",
+      "quality": {
+        "old": {
+          "score": 85,
+          "issues": [
+            "NO_METRICS_OR_CRITERIA"
+          ],
+          "signals": {
+            "charCount": 2659,
+            "wordCount": 350,
+            "hasBullets": true,
+            "hasNumberedSteps": true,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": false,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": true
+          }
+        },
+        "next": {
+          "score": 85,
+          "issues": [
+            "NO_METRICS_OR_CRITERIA"
+          ],
+          "signals": {
+            "charCount": 2659,
+            "wordCount": 350,
+            "hasBullets": true,
+            "hasNumberedSteps": true,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": false,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": true
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 2659,
+        "nextChars": 2659
+      },
+      "applyEligible": true
+    },
+    {
+      "day": 7,
+      "lessonId": "PRODUCTIVITY_2026_TR_DAY_07",
+      "title": "Günlük/Haftalık Sistem: sabah ritüeli, günlük huddle, haftalık inceleme",
+      "action": "SKIP_ALREADY_OK",
+      "quality": {
+        "old": {
+          "score": 85,
+          "issues": [
+            "NO_EXAMPLES"
+          ],
+          "signals": {
+            "charCount": 1992,
+            "wordCount": 292,
+            "hasBullets": true,
+            "hasNumberedSteps": true,
+            "hasExamples": false,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": true,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        },
+        "next": {
+          "score": 85,
+          "issues": [
+            "NO_EXAMPLES"
+          ],
+          "signals": {
+            "charCount": 1992,
+            "wordCount": 292,
+            "hasBullets": true,
+            "hasNumberedSteps": true,
+            "hasExamples": false,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": true,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 1992,
+        "nextChars": 1992
+      },
+      "applyEligible": true
+    },
+    {
+      "day": 8,
+      "lessonId": "PRODUCTIVITY_2026_TR_DAY_8",
+      "title": "Bağlam Değiştirme Maliyeti: Dikkat Artığı, Toplu İşleme, Derin Çalışma Blokları",
+      "action": "SKIP_ALREADY_OK",
+      "quality": {
+        "old": {
+          "score": 85,
+          "issues": [
+            "NO_CLEAR_DEFINITIONS"
+          ],
+          "signals": {
+            "charCount": 2462,
+            "wordCount": 351,
+            "hasBullets": true,
+            "hasNumberedSteps": true,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": false
+          },
+          "refineTemplate": {
+            "addDefinitionSection": true,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        },
+        "next": {
+          "score": 85,
+          "issues": [
+            "NO_CLEAR_DEFINITIONS"
+          ],
+          "signals": {
+            "charCount": 2462,
+            "wordCount": 351,
+            "hasBullets": true,
+            "hasNumberedSteps": true,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": false
+          },
+          "refineTemplate": {
+            "addDefinitionSection": true,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 2462,
+        "nextChars": 2462
+      },
+      "applyEligible": true
+    },
+    {
+      "day": 9,
+      "lessonId": "PRODUCTIVITY_2026_TR_DAY_9",
+      "title": "Delegasyon vs İlim: Ne Zaman Delege Et, Ne Silin",
+      "action": "SKIP_ALREADY_OK",
+      "quality": {
+        "old": {
+          "score": 100,
+          "issues": [],
+          "signals": {
+            "charCount": 2686,
+            "wordCount": 367,
+            "hasBullets": true,
+            "hasNumberedSteps": true,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        },
+        "next": {
+          "score": 100,
+          "issues": [],
+          "signals": {
+            "charCount": 2686,
+            "wordCount": 367,
+            "hasBullets": true,
+            "hasNumberedSteps": true,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 2686,
+        "nextChars": 2686
+      },
+      "applyEligible": true
+    },
+    {
+      "day": 10,
+      "lessonId": "PRODUCTIVITY_2026_TR_DAY_10",
+      "title": "Enerji Yönetimi: Ne Zaman Çalış, Ne Zaman Dinlen, İyileştirme Ritüelleri",
+      "action": "SKIP_ALREADY_OK",
+      "quality": {
+        "old": {
+          "score": 70,
+          "issues": [
+            "NO_EXAMPLES",
+            "NO_METRICS_OR_CRITERIA"
+          ],
+          "signals": {
+            "charCount": 2972,
+            "wordCount": 424,
+            "hasBullets": true,
+            "hasNumberedSteps": true,
+            "hasExamples": false,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": false,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": true,
+            "addPitfallsSection": false,
+            "addMetricsSection": true
+          }
+        },
+        "next": {
+          "score": 70,
+          "issues": [
+            "NO_EXAMPLES",
+            "NO_METRICS_OR_CRITERIA"
+          ],
+          "signals": {
+            "charCount": 2972,
+            "wordCount": 424,
+            "hasBullets": true,
+            "hasNumberedSteps": true,
+            "hasExamples": false,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": false,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": true,
+            "addPitfallsSection": false,
+            "addMetricsSection": true
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 2972,
+        "nextChars": 2972
+      },
+      "applyEligible": true
+    },
+    {
+      "day": 11,
+      "lessonId": "PRODUCTIVITY_2026_TR_DAY_11",
+      "title": "Hedef Belirleme ve OKR'ler: Ne Başarmak İstiyorsunuz?",
+      "action": "REFINE",
+      "quality": {
+        "old": {
+          "score": 35,
+          "issues": [
+            "TOO_SHORT",
+            "NO_CLEAR_DEFINITIONS",
+            "NO_EXAMPLES",
+            "NO_CONTRASTS_GOOD_BAD"
+          ],
+          "signals": {
+            "charCount": 466,
+            "wordCount": 58,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": false,
+            "hasGoodBadContrast": false,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": false
+          },
+          "refineTemplate": {
+            "addDefinitionSection": true,
+            "addChecklistSection": false,
+            "addExamplesSection": true,
+            "addPitfallsSection": true,
+            "addMetricsSection": false
+          }
+        },
+        "next": {
+          "score": 100,
+          "issues": [],
+          "signals": {
+            "charCount": 1267,
+            "wordCount": 193,
+            "hasBullets": true,
+            "hasNumberedSteps": true,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 466,
+        "nextChars": 1267
+      },
+      "applyEligible": true
+    },
+    {
+      "day": 12,
+      "lessonId": "PRODUCTIVITY_2026_TR_DAY_12",
+      "title": "Muhasebeleştirme Yapıları: Sizi Piste Tutacak Sistemler",
+      "action": "SKIP_ALREADY_OK",
+      "quality": {
+        "old": {
+          "score": 85,
+          "issues": [
+            "NO_EXAMPLES"
+          ],
+          "signals": {
+            "charCount": 2980,
+            "wordCount": 396,
+            "hasBullets": true,
+            "hasNumberedSteps": true,
+            "hasExamples": false,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": true,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        },
+        "next": {
+          "score": 85,
+          "issues": [
+            "NO_EXAMPLES"
+          ],
+          "signals": {
+            "charCount": 2980,
+            "wordCount": 396,
+            "hasBullets": true,
+            "hasNumberedSteps": true,
+            "hasExamples": false,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": true,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 2980,
+        "nextChars": 2980
+      },
+      "applyEligible": true
+    },
+    {
+      "day": 13,
+      "lessonId": "PRODUCTIVITY_2026_TR_DAY_13",
+      "title": "Karar Verme Çerçeveleri: Hızlı Kararlar, Karar Matrisi, Analiz Felçini Önlemek",
+      "action": "SKIP_ALREADY_OK",
+      "quality": {
+        "old": {
+          "score": 85,
+          "issues": [
+            "NO_EXAMPLES"
+          ],
+          "signals": {
+            "charCount": 3304,
+            "wordCount": 457,
+            "hasBullets": true,
+            "hasNumberedSteps": true,
+            "hasExamples": false,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": true,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        },
+        "next": {
+          "score": 85,
+          "issues": [
+            "NO_EXAMPLES"
+          ],
+          "signals": {
+            "charCount": 3304,
+            "wordCount": 457,
+            "hasBullets": true,
+            "hasNumberedSteps": true,
+            "hasExamples": false,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": true,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 3304,
+        "nextChars": 3304
+      },
+      "applyEligible": true
+    },
+    {
+      "day": 14,
+      "lessonId": "PRODUCTIVITY_2026_TR_DAY_14",
+      "title": "Toplantı Verimliliği: Gündem, Zaman Sınırı, Karar Günlüğü",
+      "action": "REFINE",
+      "quality": {
+        "old": {
+          "score": 20,
+          "issues": [
+            "TOO_SHORT",
+            "NO_CLEAR_DEFINITIONS",
+            "NO_EXAMPLES",
+            "NO_CONTRASTS_GOOD_BAD",
+            "NO_METRICS_OR_CRITERIA"
+          ],
+          "signals": {
+            "charCount": 164,
+            "wordCount": 21,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": false,
+            "hasGoodBadContrast": false,
+            "hasMetricsOrCriteria": false,
+            "hasDefinitionsOrComparisons": false
+          },
+          "refineTemplate": {
+            "addDefinitionSection": true,
+            "addChecklistSection": false,
+            "addExamplesSection": true,
+            "addPitfallsSection": true,
+            "addMetricsSection": true
+          }
+        },
+        "next": {
+          "score": 100,
+          "issues": [],
+          "signals": {
+            "charCount": 1225,
+            "wordCount": 185,
+            "hasBullets": true,
+            "hasNumberedSteps": true,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 164,
+        "nextChars": 1225
+      },
+      "applyEligible": true
+    },
+    {
+      "day": 15,
+      "lessonId": "PRODUCTIVITY_2026_TR_DAY_15",
+      "title": "Takım Çalışması ve Sinerji: Roller, Sorumluluk, Koordinasyon",
+      "action": "REFINE",
+      "quality": {
+        "old": {
+          "score": 30,
+          "issues": [
+            "TOO_SHORT",
+            "NO_CLEAR_DEFINITIONS",
+            "NO_EXAMPLES",
+            "NO_METRICS_OR_CRITERIA"
+          ],
+          "signals": {
+            "charCount": 169,
+            "wordCount": 23,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": false,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": false,
+            "hasDefinitionsOrComparisons": false
+          },
+          "refineTemplate": {
+            "addDefinitionSection": true,
+            "addChecklistSection": false,
+            "addExamplesSection": true,
+            "addPitfallsSection": false,
+            "addMetricsSection": true
+          }
+        },
+        "next": {
+          "score": 100,
+          "issues": [],
+          "signals": {
+            "charCount": 1531,
+            "wordCount": 226,
+            "hasBullets": true,
+            "hasNumberedSteps": true,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 169,
+        "nextChars": 1531
+      },
+      "applyEligible": true
+    },
+    {
+      "day": 16,
+      "lessonId": "PRODUCTIVITY_2026_TR_DAY_16",
+      "title": "Stres Yönetimi ve Yorgunluk: Kurtarma, İş-Yaşam Dengesi",
+      "action": "REFINE",
+      "quality": {
+        "old": {
+          "score": 20,
+          "issues": [
+            "TOO_SHORT",
+            "NO_CLEAR_DEFINITIONS",
+            "NO_EXAMPLES",
+            "NO_CONTRASTS_GOOD_BAD",
+            "NO_METRICS_OR_CRITERIA"
+          ],
+          "signals": {
+            "charCount": 154,
+            "wordCount": 21,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": false,
+            "hasGoodBadContrast": false,
+            "hasMetricsOrCriteria": false,
+            "hasDefinitionsOrComparisons": false
+          },
+          "refineTemplate": {
+            "addDefinitionSection": true,
+            "addChecklistSection": false,
+            "addExamplesSection": true,
+            "addPitfallsSection": true,
+            "addMetricsSection": true
+          }
+        },
+        "next": {
+          "score": 100,
+          "issues": [],
+          "signals": {
+            "charCount": 1069,
+            "wordCount": 160,
+            "hasBullets": true,
+            "hasNumberedSteps": true,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 154,
+        "nextChars": 1069
+      },
+      "applyEligible": true
+    },
+    {
+      "day": 17,
+      "lessonId": "PRODUCTIVITY_2026_TR_DAY_17",
+      "title": "Motivasyonu Sürdürme: İlerlemeyi Takip, Kazançları Kutla",
+      "action": "REFINE",
+      "quality": {
+        "old": {
+          "score": 30,
+          "issues": [
+            "TOO_SHORT",
+            "NO_CLEAR_DEFINITIONS",
+            "NO_EXAMPLES",
+            "NO_METRICS_OR_CRITERIA"
+          ],
+          "signals": {
+            "charCount": 143,
+            "wordCount": 20,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": false,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": false,
+            "hasDefinitionsOrComparisons": false
+          },
+          "refineTemplate": {
+            "addDefinitionSection": true,
+            "addChecklistSection": false,
+            "addExamplesSection": true,
+            "addPitfallsSection": false,
+            "addMetricsSection": true
+          }
+        },
+        "next": {
+          "score": 100,
+          "issues": [],
+          "signals": {
+            "charCount": 1282,
+            "wordCount": 189,
+            "hasBullets": true,
+            "hasNumberedSteps": true,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 143,
+        "nextChars": 1282
+      },
+      "applyEligible": true
+    },
+    {
+      "day": 18,
+      "lessonId": "PRODUCTIVITY_2026_TR_DAY_18",
+      "title": "Kriz Yönetimi ve Uyarlanabilirlik: Uyum, Hızlı Öğrenme",
+      "action": "REFINE",
+      "quality": {
+        "old": {
+          "score": 20,
+          "issues": [
+            "TOO_SHORT",
+            "NO_CLEAR_DEFINITIONS",
+            "NO_EXAMPLES",
+            "NO_CONTRASTS_GOOD_BAD",
+            "NO_METRICS_OR_CRITERIA"
+          ],
+          "signals": {
+            "charCount": 159,
+            "wordCount": 21,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": false,
+            "hasGoodBadContrast": false,
+            "hasMetricsOrCriteria": false,
+            "hasDefinitionsOrComparisons": false
+          },
+          "refineTemplate": {
+            "addDefinitionSection": true,
+            "addChecklistSection": false,
+            "addExamplesSection": true,
+            "addPitfallsSection": true,
+            "addMetricsSection": true
+          }
+        },
+        "next": {
+          "score": 100,
+          "issues": [],
+          "signals": {
+            "charCount": 1540,
+            "wordCount": 223,
+            "hasBullets": true,
+            "hasNumberedSteps": true,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 159,
+        "nextChars": 1540
+      },
+      "applyEligible": true
+    },
+    {
+      "day": 19,
+      "lessonId": "PRODUCTIVITY_2026_TR_DAY_19",
+      "title": "Uzun Vadeli Planlama: Yıllar İleri, Strateji, Evrim",
+      "action": "REFINE",
+      "quality": {
+        "old": {
+          "score": 20,
+          "issues": [
+            "TOO_SHORT",
+            "NO_CLEAR_DEFINITIONS",
+            "NO_EXAMPLES",
+            "NO_CONTRASTS_GOOD_BAD",
+            "NO_METRICS_OR_CRITERIA"
+          ],
+          "signals": {
+            "charCount": 156,
+            "wordCount": 23,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": false,
+            "hasGoodBadContrast": false,
+            "hasMetricsOrCriteria": false,
+            "hasDefinitionsOrComparisons": false
+          },
+          "refineTemplate": {
+            "addDefinitionSection": true,
+            "addChecklistSection": false,
+            "addExamplesSection": true,
+            "addPitfallsSection": true,
+            "addMetricsSection": true
+          }
+        },
+        "next": {
+          "score": 100,
+          "issues": [],
+          "signals": {
+            "charCount": 1398,
+            "wordCount": 205,
+            "hasBullets": true,
+            "hasNumberedSteps": true,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 156,
+        "nextChars": 1398
+      },
+      "applyEligible": true
+    },
+    {
+      "day": 20,
+      "lessonId": "PRODUCTIVITY_2026_TR_DAY_20",
+      "title": "Kişisel Yaşam Verimliliği: Ev Düzeni, Kişisel Projeler",
+      "action": "REFINE",
+      "quality": {
+        "old": {
+          "score": 20,
+          "issues": [
+            "TOO_SHORT",
+            "NO_CLEAR_DEFINITIONS",
+            "NO_EXAMPLES",
+            "NO_CONTRASTS_GOOD_BAD",
+            "NO_METRICS_OR_CRITERIA"
+          ],
+          "signals": {
+            "charCount": 157,
+            "wordCount": 19,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": false,
+            "hasGoodBadContrast": false,
+            "hasMetricsOrCriteria": false,
+            "hasDefinitionsOrComparisons": false
+          },
+          "refineTemplate": {
+            "addDefinitionSection": true,
+            "addChecklistSection": false,
+            "addExamplesSection": true,
+            "addPitfallsSection": true,
+            "addMetricsSection": true
+          }
+        },
+        "next": {
+          "score": 100,
+          "issues": [],
+          "signals": {
+            "charCount": 1254,
+            "wordCount": 186,
+            "hasBullets": true,
+            "hasNumberedSteps": true,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 157,
+        "nextChars": 1254
+      },
+      "applyEligible": true
+    },
+    {
+      "day": 21,
+      "lessonId": "PRODUCTIVITY_2026_TR_DAY_21",
+      "title": "Topluluk ve Ağ: İlişkiler, Diğerleriyle Öğrenme",
+      "action": "REFINE",
+      "quality": {
+        "old": {
+          "score": 20,
+          "issues": [
+            "TOO_SHORT",
+            "NO_CLEAR_DEFINITIONS",
+            "NO_EXAMPLES",
+            "NO_CONTRASTS_GOOD_BAD",
+            "NO_METRICS_OR_CRITERIA"
+          ],
+          "signals": {
+            "charCount": 152,
+            "wordCount": 20,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": false,
+            "hasGoodBadContrast": false,
+            "hasMetricsOrCriteria": false,
+            "hasDefinitionsOrComparisons": false
+          },
+          "refineTemplate": {
+            "addDefinitionSection": true,
+            "addChecklistSection": false,
+            "addExamplesSection": true,
+            "addPitfallsSection": true,
+            "addMetricsSection": true
+          }
+        },
+        "next": {
+          "score": 100,
+          "issues": [],
+          "signals": {
+            "charCount": 1189,
+            "wordCount": 176,
+            "hasBullets": true,
+            "hasNumberedSteps": true,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 152,
+        "nextChars": 1189
+      },
+      "applyEligible": true
+    },
+    {
+      "day": 22,
+      "lessonId": "PRODUCTIVITY_2026_TR_DAY_22",
+      "title": "Teknoloji ve Araçlar: Otomasyon, Doğru Teknolojiyi Seçme",
+      "action": "REFINE",
+      "quality": {
+        "old": {
+          "score": 30,
+          "issues": [
+            "TOO_SHORT",
+            "NO_CLEAR_DEFINITIONS",
+            "NO_EXAMPLES",
+            "NO_METRICS_OR_CRITERIA"
+          ],
+          "signals": {
+            "charCount": 161,
+            "wordCount": 19,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": false,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": false,
+            "hasDefinitionsOrComparisons": false
+          },
+          "refineTemplate": {
+            "addDefinitionSection": true,
+            "addChecklistSection": false,
+            "addExamplesSection": true,
+            "addPitfallsSection": false,
+            "addMetricsSection": true
+          }
+        },
+        "next": {
+          "score": 100,
+          "issues": [],
+          "signals": {
+            "charCount": 1221,
+            "wordCount": 176,
+            "hasBullets": true,
+            "hasNumberedSteps": true,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 161,
+        "nextChars": 1221
+      },
+      "applyEligible": true
+    },
+    {
+      "day": 23,
+      "lessonId": "PRODUCTIVITY_2026_TR_DAY_23",
+      "title": "Yaratıcılık ve Yenilik: Yeniden Düşünme, Deneyler",
+      "action": "REFINE",
+      "quality": {
+        "old": {
+          "score": 20,
+          "issues": [
+            "TOO_SHORT",
+            "NO_CLEAR_DEFINITIONS",
+            "NO_EXAMPLES",
+            "NO_CONTRASTS_GOOD_BAD",
+            "NO_METRICS_OR_CRITERIA"
+          ],
+          "signals": {
+            "charCount": 142,
+            "wordCount": 20,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": false,
+            "hasGoodBadContrast": false,
+            "hasMetricsOrCriteria": false,
+            "hasDefinitionsOrComparisons": false
+          },
+          "refineTemplate": {
+            "addDefinitionSection": true,
+            "addChecklistSection": false,
+            "addExamplesSection": true,
+            "addPitfallsSection": true,
+            "addMetricsSection": true
+          }
+        },
+        "next": {
+          "score": 100,
+          "issues": [],
+          "signals": {
+            "charCount": 1532,
+            "wordCount": 226,
+            "hasBullets": true,
+            "hasNumberedSteps": true,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 142,
+        "nextChars": 1532
+      },
+      "applyEligible": true
+    },
+    {
+      "day": 24,
+      "lessonId": "PRODUCTIVITY_2026_TR_DAY_24",
+      "title": "Filtreleme ve Öncelikler: Neyi Görmezden Gelir, Önemli Olan",
+      "action": "REFINE",
+      "quality": {
+        "old": {
+          "score": 20,
+          "issues": [
+            "TOO_SHORT",
+            "NO_CLEAR_DEFINITIONS",
+            "NO_EXAMPLES",
+            "NO_CONTRASTS_GOOD_BAD",
+            "NO_METRICS_OR_CRITERIA"
+          ],
+          "signals": {
+            "charCount": 176,
+            "wordCount": 24,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": false,
+            "hasGoodBadContrast": false,
+            "hasMetricsOrCriteria": false,
+            "hasDefinitionsOrComparisons": false
+          },
+          "refineTemplate": {
+            "addDefinitionSection": true,
+            "addChecklistSection": false,
+            "addExamplesSection": true,
+            "addPitfallsSection": true,
+            "addMetricsSection": true
+          }
+        },
+        "next": {
+          "score": 100,
+          "issues": [],
+          "signals": {
+            "charCount": 1186,
+            "wordCount": 174,
+            "hasBullets": true,
+            "hasNumberedSteps": true,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 176,
+        "nextChars": 1186
+      },
+      "applyEligible": true
+    },
+    {
+      "day": 25,
+      "lessonId": "PRODUCTIVITY_2026_TR_DAY_25",
+      "title": "Beceri Geliştirme: Daha Yüksek Seviyeler, Yeni Yetkinlikler",
+      "action": "REFINE",
+      "quality": {
+        "old": {
+          "score": 20,
+          "issues": [
+            "TOO_SHORT",
+            "NO_CLEAR_DEFINITIONS",
+            "NO_EXAMPLES",
+            "NO_CONTRASTS_GOOD_BAD",
+            "NO_METRICS_OR_CRITERIA"
+          ],
+          "signals": {
+            "charCount": 162,
+            "wordCount": 19,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": false,
+            "hasGoodBadContrast": false,
+            "hasMetricsOrCriteria": false,
+            "hasDefinitionsOrComparisons": false
+          },
+          "refineTemplate": {
+            "addDefinitionSection": true,
+            "addChecklistSection": false,
+            "addExamplesSection": true,
+            "addPitfallsSection": true,
+            "addMetricsSection": true
+          }
+        },
+        "next": {
+          "score": 100,
+          "issues": [],
+          "signals": {
+            "charCount": 1210,
+            "wordCount": 177,
+            "hasBullets": true,
+            "hasNumberedSteps": true,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 162,
+        "nextChars": 1210
+      },
+      "applyEligible": true
+    },
+    {
+      "day": 26,
+      "lessonId": "PRODUCTIVITY_2026_TR_DAY_26",
+      "title": "Mentorlaştırma ve Öğretim: Bilgi Paylaşma, Başkalarına Yardım",
+      "action": "REFINE",
+      "quality": {
+        "old": {
+          "score": 20,
+          "issues": [
+            "TOO_SHORT",
+            "NO_CLEAR_DEFINITIONS",
+            "NO_EXAMPLES",
+            "NO_CONTRASTS_GOOD_BAD",
+            "NO_METRICS_OR_CRITERIA"
+          ],
+          "signals": {
+            "charCount": 178,
+            "wordCount": 19,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": false,
+            "hasGoodBadContrast": false,
+            "hasMetricsOrCriteria": false,
+            "hasDefinitionsOrComparisons": false
+          },
+          "refineTemplate": {
+            "addDefinitionSection": true,
+            "addChecklistSection": false,
+            "addExamplesSection": true,
+            "addPitfallsSection": true,
+            "addMetricsSection": true
+          }
+        },
+        "next": {
+          "score": 100,
+          "issues": [],
+          "signals": {
+            "charCount": 1562,
+            "wordCount": 234,
+            "hasBullets": true,
+            "hasNumberedSteps": true,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 178,
+        "nextChars": 1562
+      },
+      "applyEligible": true
+    },
+    {
+      "day": 27,
+      "lessonId": "PRODUCTIVITY_2026_TR_DAY_27",
+      "title": "Alışkanlıklar ve Ritueller: Günlük Rutinler, Uzun Vadeli Eylem",
+      "action": "REFINE",
+      "quality": {
+        "old": {
+          "score": 20,
+          "issues": [
+            "TOO_SHORT",
+            "NO_CLEAR_DEFINITIONS",
+            "NO_EXAMPLES",
+            "NO_CONTRASTS_GOOD_BAD",
+            "NO_METRICS_OR_CRITERIA"
+          ],
+          "signals": {
+            "charCount": 153,
+            "wordCount": 18,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": false,
+            "hasGoodBadContrast": false,
+            "hasMetricsOrCriteria": false,
+            "hasDefinitionsOrComparisons": false
+          },
+          "refineTemplate": {
+            "addDefinitionSection": true,
+            "addChecklistSection": false,
+            "addExamplesSection": true,
+            "addPitfallsSection": true,
+            "addMetricsSection": true
+          }
+        },
+        "next": {
+          "score": 100,
+          "issues": [],
+          "signals": {
+            "charCount": 1097,
+            "wordCount": 167,
+            "hasBullets": true,
+            "hasNumberedSteps": true,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 153,
+        "nextChars": 1097
+      },
+      "applyEligible": true
+    },
+    {
+      "day": 28,
+      "lessonId": "PRODUCTIVITY_2026_TR_DAY_28",
+      "title": "Değerler ve Hedefler: Yaşam Amacı, Uzun Vadeli Vizyon",
+      "action": "REFINE",
+      "quality": {
+        "old": {
+          "score": 20,
+          "issues": [
+            "TOO_SHORT",
+            "NO_CLEAR_DEFINITIONS",
+            "NO_EXAMPLES",
+            "NO_CONTRASTS_GOOD_BAD",
+            "NO_METRICS_OR_CRITERIA"
+          ],
+          "signals": {
+            "charCount": 156,
+            "wordCount": 20,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": false,
+            "hasGoodBadContrast": false,
+            "hasMetricsOrCriteria": false,
+            "hasDefinitionsOrComparisons": false
+          },
+          "refineTemplate": {
+            "addDefinitionSection": true,
+            "addChecklistSection": false,
+            "addExamplesSection": true,
+            "addPitfallsSection": true,
+            "addMetricsSection": true
+          }
+        },
+        "next": {
+          "score": 75,
+          "issues": [
+            "TOO_SHORT"
+          ],
+          "signals": {
+            "charCount": 1051,
+            "wordCount": 159,
+            "hasBullets": true,
+            "hasNumberedSteps": true,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 156,
+        "nextChars": 1051
+      },
+      "applyEligible": true
+    },
+    {
+      "day": 29,
+      "lessonId": "PRODUCTIVITY_2026_TR_DAY_29",
+      "title": "Sürekli İyileştirme: Öğrenme, Geri Bildirim, İterasyon",
+      "action": "REFINE",
+      "quality": {
+        "old": {
+          "score": 20,
+          "issues": [
+            "TOO_SHORT",
+            "NO_CLEAR_DEFINITIONS",
+            "NO_EXAMPLES",
+            "NO_CONTRASTS_GOOD_BAD",
+            "NO_METRICS_OR_CRITERIA"
+          ],
+          "signals": {
+            "charCount": 155,
+            "wordCount": 18,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": false,
+            "hasGoodBadContrast": false,
+            "hasMetricsOrCriteria": false,
+            "hasDefinitionsOrComparisons": false
+          },
+          "refineTemplate": {
+            "addDefinitionSection": true,
+            "addChecklistSection": false,
+            "addExamplesSection": true,
+            "addPitfallsSection": true,
+            "addMetricsSection": true
+          }
+        },
+        "next": {
+          "score": 100,
+          "issues": [],
+          "signals": {
+            "charCount": 1636,
+            "wordCount": 237,
+            "hasBullets": true,
+            "hasNumberedSteps": true,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 155,
+        "nextChars": 1636
+      },
+      "applyEligible": true
+    },
+    {
+      "day": 30,
+      "lessonId": "PRODUCTIVITY_2026_TR_DAY_30",
+      "title": "Verimlilik Ustası: Kapsamlı Entegrasyon, Taahhüt",
+      "action": "REFINE",
+      "quality": {
+        "old": {
+          "score": 20,
+          "issues": [
+            "TOO_SHORT",
+            "NO_CLEAR_DEFINITIONS",
+            "NO_EXAMPLES",
+            "NO_CONTRASTS_GOOD_BAD",
+            "NO_METRICS_OR_CRITERIA"
+          ],
+          "signals": {
+            "charCount": 131,
+            "wordCount": 17,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": false,
+            "hasGoodBadContrast": false,
+            "hasMetricsOrCriteria": false,
+            "hasDefinitionsOrComparisons": false
+          },
+          "refineTemplate": {
+            "addDefinitionSection": true,
+            "addChecklistSection": false,
+            "addExamplesSection": true,
+            "addPitfallsSection": true,
+            "addMetricsSection": true
+          }
+        },
+        "next": {
+          "score": 100,
+          "issues": [],
+          "signals": {
+            "charCount": 1682,
+            "wordCount": 246,
+            "hasBullets": true,
+            "hasNumberedSteps": true,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 131,
+        "nextChars": 1682
+      },
+      "applyEligible": true
+    }
+  ],
+  "applyResults": [
+    {
+      "day": 11,
+      "lessonId": "PRODUCTIVITY_2026_TR_DAY_11",
+      "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/lesson-backups/PRODUCTIVITY_2026_TR/PRODUCTIVITY_2026_TR_DAY_11__2026-01-27T14-39-28-509Z.json",
+      "matched": 1,
+      "modified": 1,
+      "newScore": 100
+    },
+    {
+      "day": 14,
+      "lessonId": "PRODUCTIVITY_2026_TR_DAY_14",
+      "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/lesson-backups/PRODUCTIVITY_2026_TR/PRODUCTIVITY_2026_TR_DAY_14__2026-01-27T14-39-28-509Z.json",
+      "matched": 1,
+      "modified": 1,
+      "newScore": 100
+    },
+    {
+      "day": 15,
+      "lessonId": "PRODUCTIVITY_2026_TR_DAY_15",
+      "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/lesson-backups/PRODUCTIVITY_2026_TR/PRODUCTIVITY_2026_TR_DAY_15__2026-01-27T14-39-28-509Z.json",
+      "matched": 1,
+      "modified": 1,
+      "newScore": 100
+    },
+    {
+      "day": 16,
+      "lessonId": "PRODUCTIVITY_2026_TR_DAY_16",
+      "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/lesson-backups/PRODUCTIVITY_2026_TR/PRODUCTIVITY_2026_TR_DAY_16__2026-01-27T14-39-28-509Z.json",
+      "matched": 1,
+      "modified": 1,
+      "newScore": 100
+    },
+    {
+      "day": 17,
+      "lessonId": "PRODUCTIVITY_2026_TR_DAY_17",
+      "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/lesson-backups/PRODUCTIVITY_2026_TR/PRODUCTIVITY_2026_TR_DAY_17__2026-01-27T14-39-28-509Z.json",
+      "matched": 1,
+      "modified": 1,
+      "newScore": 100
+    },
+    {
+      "day": 18,
+      "lessonId": "PRODUCTIVITY_2026_TR_DAY_18",
+      "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/lesson-backups/PRODUCTIVITY_2026_TR/PRODUCTIVITY_2026_TR_DAY_18__2026-01-27T14-39-28-509Z.json",
+      "matched": 1,
+      "modified": 1,
+      "newScore": 100
+    },
+    {
+      "day": 19,
+      "lessonId": "PRODUCTIVITY_2026_TR_DAY_19",
+      "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/lesson-backups/PRODUCTIVITY_2026_TR/PRODUCTIVITY_2026_TR_DAY_19__2026-01-27T14-39-28-509Z.json",
+      "matched": 1,
+      "modified": 1,
+      "newScore": 100
+    },
+    {
+      "day": 20,
+      "lessonId": "PRODUCTIVITY_2026_TR_DAY_20",
+      "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/lesson-backups/PRODUCTIVITY_2026_TR/PRODUCTIVITY_2026_TR_DAY_20__2026-01-27T14-39-28-509Z.json",
+      "matched": 1,
+      "modified": 1,
+      "newScore": 100
+    },
+    {
+      "day": 21,
+      "lessonId": "PRODUCTIVITY_2026_TR_DAY_21",
+      "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/lesson-backups/PRODUCTIVITY_2026_TR/PRODUCTIVITY_2026_TR_DAY_21__2026-01-27T14-39-28-509Z.json",
+      "matched": 1,
+      "modified": 1,
+      "newScore": 100
+    },
+    {
+      "day": 22,
+      "lessonId": "PRODUCTIVITY_2026_TR_DAY_22",
+      "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/lesson-backups/PRODUCTIVITY_2026_TR/PRODUCTIVITY_2026_TR_DAY_22__2026-01-27T14-39-28-509Z.json",
+      "matched": 1,
+      "modified": 1,
+      "newScore": 100
+    },
+    {
+      "day": 23,
+      "lessonId": "PRODUCTIVITY_2026_TR_DAY_23",
+      "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/lesson-backups/PRODUCTIVITY_2026_TR/PRODUCTIVITY_2026_TR_DAY_23__2026-01-27T14-39-28-509Z.json",
+      "matched": 1,
+      "modified": 1,
+      "newScore": 100
+    },
+    {
+      "day": 24,
+      "lessonId": "PRODUCTIVITY_2026_TR_DAY_24",
+      "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/lesson-backups/PRODUCTIVITY_2026_TR/PRODUCTIVITY_2026_TR_DAY_24__2026-01-27T14-39-28-509Z.json",
+      "matched": 1,
+      "modified": 1,
+      "newScore": 100
+    },
+    {
+      "day": 25,
+      "lessonId": "PRODUCTIVITY_2026_TR_DAY_25",
+      "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/lesson-backups/PRODUCTIVITY_2026_TR/PRODUCTIVITY_2026_TR_DAY_25__2026-01-27T14-39-28-509Z.json",
+      "matched": 1,
+      "modified": 1,
+      "newScore": 100
+    },
+    {
+      "day": 26,
+      "lessonId": "PRODUCTIVITY_2026_TR_DAY_26",
+      "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/lesson-backups/PRODUCTIVITY_2026_TR/PRODUCTIVITY_2026_TR_DAY_26__2026-01-27T14-39-28-509Z.json",
+      "matched": 1,
+      "modified": 1,
+      "newScore": 100
+    },
+    {
+      "day": 27,
+      "lessonId": "PRODUCTIVITY_2026_TR_DAY_27",
+      "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/lesson-backups/PRODUCTIVITY_2026_TR/PRODUCTIVITY_2026_TR_DAY_27__2026-01-27T14-39-28-509Z.json",
+      "matched": 1,
+      "modified": 1,
+      "newScore": 100
+    },
+    {
+      "day": 28,
+      "lessonId": "PRODUCTIVITY_2026_TR_DAY_28",
+      "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/lesson-backups/PRODUCTIVITY_2026_TR/PRODUCTIVITY_2026_TR_DAY_28__2026-01-27T14-39-28-509Z.json",
+      "matched": 1,
+      "modified": 1,
+      "newScore": 75
+    },
+    {
+      "day": 29,
+      "lessonId": "PRODUCTIVITY_2026_TR_DAY_29",
+      "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/lesson-backups/PRODUCTIVITY_2026_TR/PRODUCTIVITY_2026_TR_DAY_29__2026-01-27T14-39-28-509Z.json",
+      "matched": 1,
+      "modified": 1,
+      "newScore": 100
+    },
+    {
+      "day": 30,
+      "lessonId": "PRODUCTIVITY_2026_TR_DAY_30",
+      "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/lesson-backups/PRODUCTIVITY_2026_TR/PRODUCTIVITY_2026_TR_DAY_30__2026-01-27T14-39-28-509Z.json",
+      "matched": 1,
+      "modified": 1,
+      "newScore": 100
+    }
+  ]
+}

@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-27T14:39:43.415Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_TR",
+    "name": "Verimlilik 2026: Ekipler ve Zaman Nasıl Yönetilir",
+    "language": "tr"
+  },
+  "lesson": {
+    "dayNumber": 22,
+    "title": "Teknoloji ve Araçlar: Otomasyon, Doğru Teknolojiyi Seçme",
+    "lessonId": "PRODUCTIVITY_2026_TR_DAY_22"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a4be7e0d478c4e5028a",
+      "uuid": "32bbb9c4-ecf6-4d49-a2e8-2af82b4110d2",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Verimliliği artırmak için teknoloji yararlan.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day22",
+        "#tr",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a4be7e0d478c4e5028b",
+      "uuid": "08575ff6-ec96-4ab6-b9c0-b7662850c9ba",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Verimliliği artırmak için teknoloji yararlan.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day22",
+        "#tr",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a4be7e0d478c4e5028c",
+      "uuid": "d0c47848-c886-458e-a673-61b50c47e480",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Verimliliği artırmak için teknoloji yararlan.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day22",
+        "#tr",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a4be7e0d478c4e5028d",
+      "uuid": "fbd286a9-2aef-4ac4-897b-e9709ca1b83a",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Ders içinde bahsedilen \"Teknoloji ve Araçlar: Otomasyon, Doğru Teknolojiyi...\" kavramı goals hedeflerinize ulaşmayı nasıl etkiler?",
+      "options": [
+        "Ders içinde detaylı olarak açıklandığı gibi, Teknoloji ve Araçlar: Otomasyo... etkinliği artırır ve riski azaltır",
+        "Önemli bir etkisi yok",
+        "Sadece teorik olarak önemli",
+        "Sadece isteğe bağlı bir öğe"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day22",
+        "#tr",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a4be7e0d478c4e5028e",
+      "uuid": "af1eb981-0e87-4584-baf5-5a507d5d9edb",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Ders içinde tartışıldığı gibi Teknoloji Teknoloji ve Araçlar: Otomasyon, Doğru Teknolojiyi Seçme bağlamında ne kadar önemlidir?",
+      "options": [
+        "Ders içinde detaylı olarak açıklandığı gibi, Teknoloji süreçlerin optimize edilmesinde ve hedeflere ulaşmada kritik bir rol oynar",
+        "Sadece önemsiz bilgi, önemli bir rolü yok",
+        "Sadece teorik bir kavram, pratik uygulaması yok",
+        "Ders içinde bahsedilmiyor"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day22",
+        "#tr",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a4be7e0d478c4e5028f",
+      "uuid": "34108c57-a4ff-4d86-9967-cb79bc754a69",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Ders içinde tartışıldığı gibi Otomasyon Teknoloji ve Araçlar: Otomasyon, Doğru Teknolojiyi Seçme bağlamında ne kadar önemlidir?",
+      "options": [
+        "Ders içinde detaylı olarak açıklandığı gibi, Otomasyon süreçlerin optimize edilmesinde ve hedeflere ulaşmada kritik bir rol oynar",
+        "Sadece önemsiz bilgi, önemli bir rolü yok",
+        "Sadece teorik bir kavram, pratik uygulaması yok",
+        "Ders içinde bahsedilmiyor"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day22",
+        "#tr",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a4be7e0d478c4e50290",
+      "uuid": "84982149-1529-4dbd-ab9d-e8e7d76228b9",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Ders içinde tartışıldığı gibi Teknolojiyi Teknoloji ve Araçlar: Otomasyon, Doğru Teknolojiyi Seçme bağlamında ne kadar önemlidir?",
+      "options": [
+        "Ders içinde detaylı olarak açıklandığı gibi, Teknolojiyi süreçlerin optimize edilmesinde ve hedeflere ulaşmada kritik bir rol oynar",
+        "Sadece önemsiz bilgi, önemli bir rolü yok",
+        "Sadece teorik bir kavram, pratik uygulaması yok",
+        "Ders içinde bahsedilmiyor"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day22",
+        "#tr",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

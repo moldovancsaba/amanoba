@@ -1,0 +1,38 @@
+{
+  "generatedAt": "2026-01-27T14:03:00.899Z",
+  "backupFileUsed": "scripts/quiz-backups/PRODUCTIVITY_2026_HU/PRODUCTIVITY_2026_HU_DAY_01__2026-01-27T14-02-20-443Z.json",
+  "badDeletedSample": {
+    "backupQuestionId": "697766d99b3efa4704455f54",
+    "question": "A leckében leírt \"✅ Különbséget teszel az output és outcom...\" gyakorlatot hogyan implementálnád a saját munkádban?",
+    "options": [
+      "Lépésről lépésre követem a leckében leírt módszert, dokumentálom az eredményeket, és finomhangolom a folyamatot",
+      "Egyszerre próbálom ki mindent",
+      "Csak olvasom, nem alkalmazom",
+      "Várok, amíg mások megcsinálják"
+    ],
+    "existsInDbNow": false
+  },
+  "goodInsertedSample": {
+    "_id": "6978c56d8e16cabae961e1f7",
+    "uuid": "4637ae5c-e44b-4fe6-9a9f-a7398f9f30e5",
+    "questionType": "application",
+    "difficulty": "MEDIUM",
+    "hashtags": [
+      "#day1",
+      "#hu",
+      "#all-languages",
+      "#course-productivity_2026_hu",
+      "#productivity",
+      "#intermediate",
+      "#application"
+    ],
+    "question": "Egy új gyakorlatot vezetsz be: „Tudod, hogy a cél az outcome maximalizálása, nem az output n”. Melyik bevezetési terv biztosít mérhető kimenetet és gyors visszacsatolást?",
+    "options": [
+      "Lépésről lépésre bevezetem, előtte/utána mérőpontokat állítok be, dokumentálom az eredményt, és iterálok a hibák alapján",
+      "Egyszerre mindent átállítok, majd nem ellenőrzöm, mi romlott el",
+      "Csak elolvasom, de nem építem be a folyamatomba",
+      "Megvárom, hogy valaki más készítsen helyettem megoldást"
+    ],
+    "correctIndex": 0
+  }
+}

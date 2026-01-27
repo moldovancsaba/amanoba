@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-27T14:39:56.178Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_TR",
+    "name": "Verimlilik 2026: Ekipler ve Zaman Nasıl Yönetilir",
+    "language": "tr"
+  },
+  "lesson": {
+    "dayNumber": 28,
+    "title": "Değerler ve Hedefler: Yaşam Amacı, Uzun Vadeli Vizyon",
+    "lessonId": "PRODUCTIVITY_2026_TR_DAY_28"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a4ce7e0d478c4e502c6",
+      "uuid": "889b3f40-e8c7-4da5-8d5d-867c684c5683",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Verimliliği hayatın değerleriyle uyumlu kıl.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day28",
+        "#tr",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a4ce7e0d478c4e502c7",
+      "uuid": "748ffb5a-a0b7-4212-950b-93adad31c034",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Verimliliği hayatın değerleriyle uyumlu kıl.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day28",
+        "#tr",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a4ce7e0d478c4e502c8",
+      "uuid": "a48760fa-8e35-40ff-a7f4-63c78d298e83",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Verimliliği hayatın değerleriyle uyumlu kıl.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day28",
+        "#tr",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a4ce7e0d478c4e502c9",
+      "uuid": "f4a55efd-76c3-4bc7-ab13-338d86c3f237",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Ders içinde bahsedilen \"Değerler ve Hedefler: Yaşam Amacı, Uzun Vadeli Viz...\" kavramı goals hedeflerinize ulaşmayı nasıl etkiler?",
+      "options": [
+        "Ders içinde detaylı olarak açıklandığı gibi, Değerler ve Hedefler: Yaşam Am... etkinliği artırır ve riski azaltır",
+        "Önemli bir etkisi yok",
+        "Sadece teorik olarak önemli",
+        "Sadece isteğe bağlı bir öğe"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day28",
+        "#tr",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a4ce7e0d478c4e502ca",
+      "uuid": "62109afd-552f-4db5-8110-2095f434de7e",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Ders içinde tartışıldığı gibi Değerler Değerler ve Hedefler: Yaşam Amacı, Uzun Vadeli Vizyon bağlamında ne kadar önemlidir?",
+      "options": [
+        "Ders içinde detaylı olarak açıklandığı gibi, Değerler süreçlerin optimize edilmesinde ve hedeflere ulaşmada kritik bir rol oynar",
+        "Sadece önemsiz bilgi, önemli bir rolü yok",
+        "Sadece teorik bir kavram, pratik uygulaması yok",
+        "Ders içinde bahsedilmiyor"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day28",
+        "#tr",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a4ce7e0d478c4e502cb",
+      "uuid": "63f01147-80ca-4cdf-af9e-6ea8ada22835",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Ders içinde tartışıldığı gibi Yaşam Değerler ve Hedefler: Yaşam Amacı, Uzun Vadeli Vizyon bağlamında ne kadar önemlidir?",
+      "options": [
+        "Ders içinde detaylı olarak açıklandığı gibi, Yaşam süreçlerin optimize edilmesinde ve hedeflere ulaşmada kritik bir rol oynar",
+        "Sadece önemsiz bilgi, önemli bir rolü yok",
+        "Sadece teorik bir kavram, pratik uygulaması yok",
+        "Ders içinde bahsedilmiyor"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day28",
+        "#tr",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a4ce7e0d478c4e502cc",
+      "uuid": "4181ac72-0281-45fd-af17-e758885f2c5c",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Ders içinde tartışıldığı gibi Uzun Değerler ve Hedefler: Yaşam Amacı, Uzun Vadeli Vizyon bağlamında ne kadar önemlidir?",
+      "options": [
+        "Ders içinde detaylı olarak açıklandığı gibi, Uzun süreçlerin optimize edilmesinde ve hedeflere ulaşmada kritik bir rol oynar",
+        "Sadece önemsiz bilgi, önemli bir rolü yok",
+        "Sadece teorik bir kavram, pratik uygulaması yok",
+        "Ders içinde bahsedilmiyor"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day28",
+        "#tr",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

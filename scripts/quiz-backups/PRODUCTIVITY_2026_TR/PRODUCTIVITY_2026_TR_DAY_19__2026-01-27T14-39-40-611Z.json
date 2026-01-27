@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-27T14:39:43.320Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_TR",
+    "name": "Verimlilik 2026: Ekipler ve Zaman Nasıl Yönetilir",
+    "language": "tr"
+  },
+  "lesson": {
+    "dayNumber": 19,
+    "title": "Uzun Vadeli Planlama: Yıllar İleri, Strateji, Evrim",
+    "lessonId": "PRODUCTIVITY_2026_TR_DAY_19"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a4be7e0d478c4e5026c",
+      "uuid": "a16128a6-445e-4b5e-bc25-03629633222d",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Yıllık ve çok yıllı hedeflere doğru ilerleme.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day19",
+        "#tr",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a4be7e0d478c4e5026d",
+      "uuid": "24640d78-21ae-4cb5-a657-b1472e01e842",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Yıllık ve çok yıllı hedeflere doğru ilerleme.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day19",
+        "#tr",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a4be7e0d478c4e5026e",
+      "uuid": "a42960a3-851b-4206-8923-350e8f0c0c59",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Yıllık ve çok yıllı hedeflere doğru ilerleme.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day19",
+        "#tr",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a4be7e0d478c4e5026f",
+      "uuid": "5b7e129d-c7f3-416b-95e7-a372c52fd5e2",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Ders içinde bahsedilen \"Uzun Vadeli Planlama: Yıllar İleri, Strateji, Evri...\" kavramı goals hedeflerinize ulaşmayı nasıl etkiler?",
+      "options": [
+        "Ders içinde detaylı olarak açıklandığı gibi, Uzun Vadeli Planlama: Yıllar İ... etkinliği artırır ve riski azaltır",
+        "Önemli bir etkisi yok",
+        "Sadece teorik olarak önemli",
+        "Sadece isteğe bağlı bir öğe"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day19",
+        "#tr",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a4be7e0d478c4e50270",
+      "uuid": "a6806c96-8fb0-4e2c-8baa-950dc8561350",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Ders içinde tartışıldığı gibi Uzun Uzun Vadeli Planlama: Yıllar İleri, Strateji, Evrim bağlamında ne kadar önemlidir?",
+      "options": [
+        "Ders içinde detaylı olarak açıklandığı gibi, Uzun süreçlerin optimize edilmesinde ve hedeflere ulaşmada kritik bir rol oynar",
+        "Sadece önemsiz bilgi, önemli bir rolü yok",
+        "Sadece teorik bir kavram, pratik uygulaması yok",
+        "Ders içinde bahsedilmiyor"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day19",
+        "#tr",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a4be7e0d478c4e50271",
+      "uuid": "fa97e166-eb19-4081-a29e-dc35a41c50a2",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Ders içinde tartışıldığı gibi Planlama Uzun Vadeli Planlama: Yıllar İleri, Strateji, Evrim bağlamında ne kadar önemlidir?",
+      "options": [
+        "Ders içinde detaylı olarak açıklandığı gibi, Planlama süreçlerin optimize edilmesinde ve hedeflere ulaşmada kritik bir rol oynar",
+        "Sadece önemsiz bilgi, önemli bir rolü yok",
+        "Sadece teorik bir kavram, pratik uygulaması yok",
+        "Ders içinde bahsedilmiyor"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day19",
+        "#tr",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a4be7e0d478c4e50272",
+      "uuid": "2b9464e5-fe8d-489f-848e-bcd8682ea6d5",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Ders içinde tartışıldığı gibi İleri Uzun Vadeli Planlama: Yıllar İleri, Strateji, Evrim bağlamında ne kadar önemlidir?",
+      "options": [
+        "Ders içinde detaylı olarak açıklandığı gibi, İleri süreçlerin optimize edilmesinde ve hedeflere ulaşmada kritik bir rol oynar",
+        "Sadece önemsiz bilgi, önemli bir rolü yok",
+        "Sadece teorik bir kavram, pratik uygulaması yok",
+        "Ders içinde bahsedilmiyor"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day19",
+        "#tr",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

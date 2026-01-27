@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-27T14:39:53.903Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_TR",
+    "name": "Verimlilik 2026: Ekipler ve Zaman Nasıl Yönetilir",
+    "language": "tr"
+  },
+  "lesson": {
+    "dayNumber": 7,
+    "title": "Günlük/Haftalık Sistem: sabah ritüeli, günlük huddle, haftalık inceleme",
+    "lessonId": "PRODUCTIVITY_2026_TR_DAY_07"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a4ae7e0d478c4e501de",
+      "uuid": "4f669411-346e-4ea6-9630-5d971770a9bf",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ 15 dakikalık bir sabah ritüeline sahip...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day7",
+        "#tr",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a4ae7e0d478c4e501df",
+      "uuid": "ac3e6a2b-1622-428b-84d7-500f430b46d2",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ 15 dakikalık bir sabah ritüeline sahip...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day7",
+        "#tr",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a4ae7e0d478c4e501e0",
+      "uuid": "2931de11-62ac-4ca6-8b67-e674ce6c7585",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ 15 dakikalık bir sabah ritüeline sahip...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day7",
+        "#tr",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a4ae7e0d478c4e501e1",
+      "uuid": "7bb3b944-bffe-460c-9d43-102c89c893ee",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Ders içinde bahsedilen \"Günlük/Haftalık Sistem: sabah ritüeli, günlük hudd...\" kavramı goals hedeflerinize ulaşmayı nasıl etkiler?",
+      "options": [
+        "Ders içinde detaylı olarak açıklandığı gibi, Günlük/Haftalık Sistem: sabah ... etkinliği artırır ve riski azaltır",
+        "Önemli bir etkisi yok",
+        "Sadece teorik olarak önemli",
+        "Sadece isteğe bağlı bir öğe"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day7",
+        "#tr",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a4ae7e0d478c4e501e2",
+      "uuid": "62b87ece-2485-4be6-94ca-27fd7a445823",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Ders içinde tartışıldığı gibi Sabah ritüeli Günlük/Haftalık Sistem: sabah ritüeli, günlük huddle, haftalık inceleme bağlamında ne kadar önemlidir?",
+      "options": [
+        "Ders içinde detaylı olarak açıklandığı gibi, Sabah ritüeli süreçlerin optimize edilmesinde ve hedeflere ulaşmada kritik bir rol oynar",
+        "Sadece önemsiz bilgi, önemli bir rolü yok",
+        "Sadece teorik bir kavram, pratik uygulaması yok",
+        "Ders içinde bahsedilmiyor"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day7",
+        "#tr",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a4ae7e0d478c4e501e3",
+      "uuid": "b38a9807-f09d-4cf1-8f6f-e19cd5c1fe40",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Haftalık inceleme \"Günlük/Haftalık Sistem: sabah ritüeli, günlük huddle, haftalık inceleme\" dersinde nasıl bir rol oynar?",
+      "options": [
+        "Ders içinde detaylı olarak açıklandığı gibi, Haftalık inceleme süreçlerin optimize edilmesinde ve hedeflere ulaşmada kritik bir rol oynar",
+        "Sadece önemsiz bilgi, önemli bir rolü yok",
+        "Sadece teorik bir kavram, pratik uygulaması yok",
+        "Ders içinde bahsedilmiyor"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day7",
+        "#tr",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a4ae7e0d478c4e501e4",
+      "uuid": "1c0d2434-0f54-4a1d-8ea9-82f346d4ba47",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "2. Planlama (8 dakika) \"Günlük/Haftalık Sistem: sabah ritüeli, günlük huddle, haftalık inceleme\" dersinde nasıl bir rol oynar?",
+      "options": [
+        "Ders içinde detaylı olarak açıklandığı gibi, 2. Planlama (8 dakika) süreçlerin optimize edilmesinde ve hedeflere ulaşmada kritik bir rol oynar",
+        "Sadece önemsiz bilgi, önemli bir rolü yok",
+        "Sadece teorik bir kavram, pratik uygulaması yok",
+        "Ders içinde bahsedilmiyor"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day7",
+        "#tr",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

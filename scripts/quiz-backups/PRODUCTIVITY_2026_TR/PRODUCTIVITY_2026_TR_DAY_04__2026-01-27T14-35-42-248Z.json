@@ -1,0 +1,164 @@
+{
+  "backedUpAt": "2026-01-27T14:35:43.822Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_TR",
+    "name": "Verimlilik 2026: Ekipler ve Zaman Nasıl Yönetilir",
+    "language": "tr"
+  },
+  "lesson": {
+    "dayNumber": 4,
+    "title": "Alışkanlıklar vs sistemler: sistemler neden daha iyi ölçeklenir",
+    "lessonId": "PRODUCTIVITY_2026_TR_DAY_04"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a49e7e0d478c4e501a9",
+      "uuid": "85380f21-0d5a-4370-9f6d-3a6a91a98c2c",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Alışkanlıklar ve sistemler arasındaki ana fark nedir?",
+      "options": [
+        "Fark yok",
+        "Alışkanlıklar ölçeklenir, sistemler ölçeklenmez",
+        "Sistemler ölçeklenir, alışkanlıklar ölçeklenmez",
+        "İkisi de aynı"
+      ],
+      "correctIndex": 2,
+      "hashtags": [
+        "#day-04",
+        "#foundation",
+        "#recall",
+        "#tr"
+      ]
+    },
+    {
+      "_id": "69776a49e7e0d478c4e501aa",
+      "uuid": "9ce07217-89eb-4569-b4ec-cb27fbf0012d",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Alışkanlık yerine ne zaman sistem kullanmalısınız?",
+      "options": [
+        "Her zaman",
+        "Başkalarıyla çalışması gerektiğinde",
+        "Asla",
+        "Sadece hafta sonları"
+      ],
+      "correctIndex": 1,
+      "hashtags": [
+        "#day-04",
+        "#foundation",
+        "#recall",
+        "#tr"
+      ]
+    },
+    {
+      "_id": "69776a49e7e0d478c4e501ab",
+      "uuid": "0e255f64-3331-4609-ba14-1629031f424f",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Aşağıdakilerden hangisi bir sistem özelliği DEĞİLDİR?",
+      "options": [
+        "Belgelenebilir",
+        "Ölçeklenebilir",
+        "Sadece bir kişiyle çalışır",
+        "Yapılandırılmış süreç"
+      ],
+      "correctIndex": 2,
+      "hashtags": [
+        "#day-04",
+        "#foundation",
+        "#recall",
+        "#tr"
+      ]
+    },
+    {
+      "_id": "69776a49e7e0d478c4e501ac",
+      "uuid": "47bd493b-752b-41e7-9657-677b9a0a316b",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ Alışkanlıklar ve sistemler arasındaki ...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day4",
+        "#tr",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a49e7e0d478c4e501ad",
+      "uuid": "6fed77e9-0a96-4a23-afa8-ce8ef5593c19",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ Alışkanlıklar ve sistemler arasındaki ...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day4",
+        "#tr",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a49e7e0d478c4e501ae",
+      "uuid": "8cd4b89a-70c4-4bcd-811b-98e8638ce45c",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ Alışkanlıklar ve sistemler arasındaki ...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day4",
+        "#tr",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a49e7e0d478c4e501af",
+      "uuid": "c8a5f976-2949-4807-9744-5f0c943a68ea",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Ders içinde bahsedilen \"Alışkanlıklar vs sistemler: sistemler neden daha i...\" kavramı goals hedeflerinize ulaşmayı nasıl etkiler?",
+      "options": [
+        "Ders içinde detaylı olarak açıklandığı gibi, Alışkanlıklar vs sistemler: si... etkinliği artırır ve riski azaltır",
+        "Önemli bir etkisi yok",
+        "Sadece teorik olarak önemli",
+        "Sadece isteğe bağlı bir öğe"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day4",
+        "#tr",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    }
+  ]
+}

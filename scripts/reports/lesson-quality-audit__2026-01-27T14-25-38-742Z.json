@@ -1,0 +1,987 @@
+{
+  "generatedAt": "2026-01-27T14:25:38.742Z",
+  "minScore": 70,
+  "courseFilter": "PRODUCTIVITY_2026_TR",
+  "total": 30,
+  "belowThreshold": 20,
+  "results": [
+    {
+      "courseId": "PRODUCTIVITY_2026_TR",
+      "courseName": "Verimlilik 2026: Ekipler ve Zaman Nasıl Yönetilir",
+      "language": "tr",
+      "dayNumber": 1,
+      "lessonId": "PRODUCTIVITY_2026_TR_DAY_01",
+      "title": "Verimlilik tanımı: çıktı, sonuçlar ve kısıtlamalar",
+      "createdAt": "2026-01-23T19:27:03.117Z",
+      "score": 85,
+      "issues": [
+        "NO_METRICS_OR_CRITERIA"
+      ],
+      "signals": {
+        "charCount": 2565,
+        "wordCount": 340,
+        "hasBullets": true,
+        "hasNumberedSteps": true,
+        "hasExamples": true,
+        "hasGoodBadContrast": true,
+        "hasMetricsOrCriteria": false,
+        "hasDefinitionsOrComparisons": true
+      },
+      "refineTemplate": {
+        "addDefinitionSection": false,
+        "addChecklistSection": false,
+        "addExamplesSection": false,
+        "addPitfallsSection": false,
+        "addMetricsSection": true
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_TR",
+      "courseName": "Verimlilik 2026: Ekipler ve Zaman Nasıl Yönetilir",
+      "language": "tr",
+      "dayNumber": 2,
+      "lessonId": "PRODUCTIVITY_2026_TR_DAY_02",
+      "title": "Zaman, enerji, dikkat: pratikte yönettiğiniz şeyler",
+      "createdAt": "2026-01-23T21:18:33.197Z",
+      "score": 70,
+      "issues": [
+        "NO_CLEAR_DEFINITIONS",
+        "NO_METRICS_OR_CRITERIA"
+      ],
+      "signals": {
+        "charCount": 3261,
+        "wordCount": 452,
+        "hasBullets": true,
+        "hasNumberedSteps": false,
+        "hasExamples": true,
+        "hasGoodBadContrast": true,
+        "hasMetricsOrCriteria": false,
+        "hasDefinitionsOrComparisons": false
+      },
+      "refineTemplate": {
+        "addDefinitionSection": true,
+        "addChecklistSection": false,
+        "addExamplesSection": false,
+        "addPitfallsSection": false,
+        "addMetricsSection": true
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_TR",
+      "courseName": "Verimlilik 2026: Ekipler ve Zaman Nasıl Yönetilir",
+      "language": "tr",
+      "dayNumber": 3,
+      "lessonId": "PRODUCTIVITY_2026_TR_DAY_03",
+      "title": "Hedef hiyerarşisi: vizyon → sonuçlar → projeler → sonraki adımlar",
+      "createdAt": "2026-01-23T21:24:48.585Z",
+      "score": 70,
+      "issues": [
+        "NO_CLEAR_DEFINITIONS",
+        "NO_METRICS_OR_CRITERIA"
+      ],
+      "signals": {
+        "charCount": 2652,
+        "wordCount": 376,
+        "hasBullets": true,
+        "hasNumberedSteps": true,
+        "hasExamples": true,
+        "hasGoodBadContrast": true,
+        "hasMetricsOrCriteria": false,
+        "hasDefinitionsOrComparisons": false
+      },
+      "refineTemplate": {
+        "addDefinitionSection": true,
+        "addChecklistSection": false,
+        "addExamplesSection": false,
+        "addPitfallsSection": false,
+        "addMetricsSection": true
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_TR",
+      "courseName": "Verimlilik 2026: Ekipler ve Zaman Nasıl Yönetilir",
+      "language": "tr",
+      "dayNumber": 4,
+      "lessonId": "PRODUCTIVITY_2026_TR_DAY_04",
+      "title": "Alışkanlıklar vs sistemler: sistemler neden daha iyi ölçeklenir",
+      "createdAt": "2026-01-23T21:30:00.041Z",
+      "score": 85,
+      "issues": [
+        "NO_METRICS_OR_CRITERIA"
+      ],
+      "signals": {
+        "charCount": 2779,
+        "wordCount": 352,
+        "hasBullets": true,
+        "hasNumberedSteps": true,
+        "hasExamples": true,
+        "hasGoodBadContrast": true,
+        "hasMetricsOrCriteria": false,
+        "hasDefinitionsOrComparisons": true
+      },
+      "refineTemplate": {
+        "addDefinitionSection": false,
+        "addChecklistSection": false,
+        "addExamplesSection": false,
+        "addPitfallsSection": false,
+        "addMetricsSection": true
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_TR",
+      "courseName": "Verimlilik 2026: Ekipler ve Zaman Nasıl Yönetilir",
+      "language": "tr",
+      "dayNumber": 5,
+      "lessonId": "PRODUCTIVITY_2026_TR_DAY_05",
+      "title": "Ölçüm: basit haftalık inceleme metrikleri (throughput, odak blokları, carryover)",
+      "createdAt": "2026-01-23T21:40:13.911Z",
+      "score": 70,
+      "issues": [
+        "NO_CLEAR_DEFINITIONS",
+        "NO_METRICS_OR_CRITERIA"
+      ],
+      "signals": {
+        "charCount": 2319,
+        "wordCount": 321,
+        "hasBullets": true,
+        "hasNumberedSteps": true,
+        "hasExamples": true,
+        "hasGoodBadContrast": true,
+        "hasMetricsOrCriteria": false,
+        "hasDefinitionsOrComparisons": false
+      },
+      "refineTemplate": {
+        "addDefinitionSection": true,
+        "addChecklistSection": false,
+        "addExamplesSection": false,
+        "addPitfallsSection": false,
+        "addMetricsSection": true
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_TR",
+      "courseName": "Verimlilik 2026: Ekipler ve Zaman Nasıl Yönetilir",
+      "language": "tr",
+      "dayNumber": 6,
+      "lessonId": "PRODUCTIVITY_2026_TR_DAY_06",
+      "title": "Yakalama: gelen kutuları, tetikleyici listesi, yakalama alışkanlıkları",
+      "createdAt": "2026-01-23T21:43:43.398Z",
+      "score": 70,
+      "issues": [
+        "NO_CLEAR_DEFINITIONS",
+        "NO_METRICS_OR_CRITERIA"
+      ],
+      "signals": {
+        "charCount": 2659,
+        "wordCount": 350,
+        "hasBullets": true,
+        "hasNumberedSteps": true,
+        "hasExamples": true,
+        "hasGoodBadContrast": true,
+        "hasMetricsOrCriteria": false,
+        "hasDefinitionsOrComparisons": false
+      },
+      "refineTemplate": {
+        "addDefinitionSection": true,
+        "addChecklistSection": false,
+        "addExamplesSection": false,
+        "addPitfallsSection": false,
+        "addMetricsSection": true
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_TR",
+      "courseName": "Verimlilik 2026: Ekipler ve Zaman Nasıl Yönetilir",
+      "language": "tr",
+      "dayNumber": 7,
+      "lessonId": "PRODUCTIVITY_2026_TR_DAY_07",
+      "title": "Günlük/Haftalık Sistem: sabah ritüeli, günlük huddle, haftalık inceleme",
+      "createdAt": "2026-01-24T08:15:46.926Z",
+      "score": 55,
+      "issues": [
+        "NO_CLEAR_DEFINITIONS",
+        "NO_EXAMPLES",
+        "NO_METRICS_OR_CRITERIA"
+      ],
+      "signals": {
+        "charCount": 1992,
+        "wordCount": 292,
+        "hasBullets": true,
+        "hasNumberedSteps": true,
+        "hasExamples": false,
+        "hasGoodBadContrast": true,
+        "hasMetricsOrCriteria": false,
+        "hasDefinitionsOrComparisons": false
+      },
+      "refineTemplate": {
+        "addDefinitionSection": true,
+        "addChecklistSection": false,
+        "addExamplesSection": true,
+        "addPitfallsSection": false,
+        "addMetricsSection": true
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_TR",
+      "courseName": "Verimlilik 2026: Ekipler ve Zaman Nasıl Yönetilir",
+      "language": "tr",
+      "dayNumber": 8,
+      "lessonId": "PRODUCTIVITY_2026_TR_DAY_8",
+      "title": "Bağlam Değiştirme Maliyeti: Dikkat Artığı, Toplu İşleme, Derin Çalışma Blokları",
+      "createdAt": "2026-01-24T08:31:19.049Z",
+      "score": 70,
+      "issues": [
+        "NO_CLEAR_DEFINITIONS",
+        "NO_METRICS_OR_CRITERIA"
+      ],
+      "signals": {
+        "charCount": 2462,
+        "wordCount": 351,
+        "hasBullets": true,
+        "hasNumberedSteps": true,
+        "hasExamples": true,
+        "hasGoodBadContrast": true,
+        "hasMetricsOrCriteria": false,
+        "hasDefinitionsOrComparisons": false
+      },
+      "refineTemplate": {
+        "addDefinitionSection": true,
+        "addChecklistSection": false,
+        "addExamplesSection": false,
+        "addPitfallsSection": false,
+        "addMetricsSection": true
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_TR",
+      "courseName": "Verimlilik 2026: Ekipler ve Zaman Nasıl Yönetilir",
+      "language": "tr",
+      "dayNumber": 9,
+      "lessonId": "PRODUCTIVITY_2026_TR_DAY_9",
+      "title": "Delegasyon vs İlim: Ne Zaman Delege Et, Ne Silin",
+      "createdAt": "2026-01-24T08:36:24.499Z",
+      "score": 100,
+      "issues": [],
+      "signals": {
+        "charCount": 2686,
+        "wordCount": 367,
+        "hasBullets": true,
+        "hasNumberedSteps": true,
+        "hasExamples": true,
+        "hasGoodBadContrast": true,
+        "hasMetricsOrCriteria": true,
+        "hasDefinitionsOrComparisons": true
+      },
+      "refineTemplate": {
+        "addDefinitionSection": false,
+        "addChecklistSection": false,
+        "addExamplesSection": false,
+        "addPitfallsSection": false,
+        "addMetricsSection": false
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_TR",
+      "courseName": "Verimlilik 2026: Ekipler ve Zaman Nasıl Yönetilir",
+      "language": "tr",
+      "dayNumber": 10,
+      "lessonId": "PRODUCTIVITY_2026_TR_DAY_10",
+      "title": "Enerji Yönetimi: Ne Zaman Çalış, Ne Zaman Dinlen, İyileştirme Ritüelleri",
+      "createdAt": "2026-01-24T08:40:14.424Z",
+      "score": 70,
+      "issues": [
+        "NO_EXAMPLES",
+        "NO_METRICS_OR_CRITERIA"
+      ],
+      "signals": {
+        "charCount": 2972,
+        "wordCount": 424,
+        "hasBullets": true,
+        "hasNumberedSteps": true,
+        "hasExamples": false,
+        "hasGoodBadContrast": true,
+        "hasMetricsOrCriteria": false,
+        "hasDefinitionsOrComparisons": true
+      },
+      "refineTemplate": {
+        "addDefinitionSection": false,
+        "addChecklistSection": false,
+        "addExamplesSection": true,
+        "addPitfallsSection": false,
+        "addMetricsSection": true
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_TR",
+      "courseName": "Verimlilik 2026: Ekipler ve Zaman Nasıl Yönetilir",
+      "language": "tr",
+      "dayNumber": 11,
+      "lessonId": "PRODUCTIVITY_2026_TR_DAY_11",
+      "title": "Hedef Belirleme ve OKR'ler: Ne Başarmak İstiyorsunuz?",
+      "createdAt": "2026-01-24T08:41:51.517Z",
+      "score": 20,
+      "issues": [
+        "TOO_SHORT",
+        "NO_CLEAR_DEFINITIONS",
+        "NO_EXAMPLES",
+        "NO_CONTRASTS_GOOD_BAD",
+        "NO_METRICS_OR_CRITERIA"
+      ],
+      "signals": {
+        "charCount": 466,
+        "wordCount": 58,
+        "hasBullets": true,
+        "hasNumberedSteps": false,
+        "hasExamples": false,
+        "hasGoodBadContrast": false,
+        "hasMetricsOrCriteria": false,
+        "hasDefinitionsOrComparisons": false
+      },
+      "refineTemplate": {
+        "addDefinitionSection": true,
+        "addChecklistSection": false,
+        "addExamplesSection": true,
+        "addPitfallsSection": true,
+        "addMetricsSection": true
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_TR",
+      "courseName": "Verimlilik 2026: Ekipler ve Zaman Nasıl Yönetilir",
+      "language": "tr",
+      "dayNumber": 12,
+      "lessonId": "PRODUCTIVITY_2026_TR_DAY_12",
+      "title": "Muhasebeleştirme Yapıları: Sizi Piste Tutacak Sistemler",
+      "createdAt": "2026-01-24T09:15:53.925Z",
+      "score": 55,
+      "issues": [
+        "NO_CLEAR_DEFINITIONS",
+        "NO_EXAMPLES",
+        "NO_METRICS_OR_CRITERIA"
+      ],
+      "signals": {
+        "charCount": 2980,
+        "wordCount": 396,
+        "hasBullets": true,
+        "hasNumberedSteps": true,
+        "hasExamples": false,
+        "hasGoodBadContrast": true,
+        "hasMetricsOrCriteria": false,
+        "hasDefinitionsOrComparisons": false
+      },
+      "refineTemplate": {
+        "addDefinitionSection": true,
+        "addChecklistSection": false,
+        "addExamplesSection": true,
+        "addPitfallsSection": false,
+        "addMetricsSection": true
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_TR",
+      "courseName": "Verimlilik 2026: Ekipler ve Zaman Nasıl Yönetilir",
+      "language": "tr",
+      "dayNumber": 13,
+      "lessonId": "PRODUCTIVITY_2026_TR_DAY_13",
+      "title": "Karar Verme Çerçeveleri: Hızlı Kararlar, Karar Matrisi, Analiz Felçini Önlemek",
+      "createdAt": "2026-01-24T09:23:08.777Z",
+      "score": 70,
+      "issues": [
+        "NO_EXAMPLES",
+        "NO_METRICS_OR_CRITERIA"
+      ],
+      "signals": {
+        "charCount": 3304,
+        "wordCount": 457,
+        "hasBullets": true,
+        "hasNumberedSteps": true,
+        "hasExamples": false,
+        "hasGoodBadContrast": true,
+        "hasMetricsOrCriteria": false,
+        "hasDefinitionsOrComparisons": true
+      },
+      "refineTemplate": {
+        "addDefinitionSection": false,
+        "addChecklistSection": false,
+        "addExamplesSection": true,
+        "addPitfallsSection": false,
+        "addMetricsSection": true
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_TR",
+      "courseName": "Verimlilik 2026: Ekipler ve Zaman Nasıl Yönetilir",
+      "language": "tr",
+      "dayNumber": 14,
+      "lessonId": "PRODUCTIVITY_2026_TR_DAY_14",
+      "title": "Toplantı Verimliliği: Gündem, Zaman Sınırı, Karar Günlüğü",
+      "createdAt": "2026-01-24T09:29:49.166Z",
+      "score": 20,
+      "issues": [
+        "TOO_SHORT",
+        "NO_CLEAR_DEFINITIONS",
+        "NO_EXAMPLES",
+        "NO_CONTRASTS_GOOD_BAD",
+        "NO_METRICS_OR_CRITERIA"
+      ],
+      "signals": {
+        "charCount": 164,
+        "wordCount": 21,
+        "hasBullets": true,
+        "hasNumberedSteps": false,
+        "hasExamples": false,
+        "hasGoodBadContrast": false,
+        "hasMetricsOrCriteria": false,
+        "hasDefinitionsOrComparisons": false
+      },
+      "refineTemplate": {
+        "addDefinitionSection": true,
+        "addChecklistSection": false,
+        "addExamplesSection": true,
+        "addPitfallsSection": true,
+        "addMetricsSection": true
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_TR",
+      "courseName": "Verimlilik 2026: Ekipler ve Zaman Nasıl Yönetilir",
+      "language": "tr",
+      "dayNumber": 15,
+      "lessonId": "PRODUCTIVITY_2026_TR_DAY_15",
+      "title": "Takım Çalışması ve Sinerji: Roller, Sorumluluk, Koordinasyon",
+      "createdAt": "2026-01-24T09:29:51.957Z",
+      "score": 30,
+      "issues": [
+        "TOO_SHORT",
+        "NO_CLEAR_DEFINITIONS",
+        "NO_EXAMPLES",
+        "NO_METRICS_OR_CRITERIA"
+      ],
+      "signals": {
+        "charCount": 169,
+        "wordCount": 23,
+        "hasBullets": true,
+        "hasNumberedSteps": false,
+        "hasExamples": false,
+        "hasGoodBadContrast": true,
+        "hasMetricsOrCriteria": false,
+        "hasDefinitionsOrComparisons": false
+      },
+      "refineTemplate": {
+        "addDefinitionSection": true,
+        "addChecklistSection": false,
+        "addExamplesSection": true,
+        "addPitfallsSection": false,
+        "addMetricsSection": true
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_TR",
+      "courseName": "Verimlilik 2026: Ekipler ve Zaman Nasıl Yönetilir",
+      "language": "tr",
+      "dayNumber": 16,
+      "lessonId": "PRODUCTIVITY_2026_TR_DAY_16",
+      "title": "Stres Yönetimi ve Yorgunluk: Kurtarma, İş-Yaşam Dengesi",
+      "createdAt": "2026-01-24T09:29:55.569Z",
+      "score": 20,
+      "issues": [
+        "TOO_SHORT",
+        "NO_CLEAR_DEFINITIONS",
+        "NO_EXAMPLES",
+        "NO_CONTRASTS_GOOD_BAD",
+        "NO_METRICS_OR_CRITERIA"
+      ],
+      "signals": {
+        "charCount": 154,
+        "wordCount": 21,
+        "hasBullets": true,
+        "hasNumberedSteps": false,
+        "hasExamples": false,
+        "hasGoodBadContrast": false,
+        "hasMetricsOrCriteria": false,
+        "hasDefinitionsOrComparisons": false
+      },
+      "refineTemplate": {
+        "addDefinitionSection": true,
+        "addChecklistSection": false,
+        "addExamplesSection": true,
+        "addPitfallsSection": true,
+        "addMetricsSection": true
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_TR",
+      "courseName": "Verimlilik 2026: Ekipler ve Zaman Nasıl Yönetilir",
+      "language": "tr",
+      "dayNumber": 17,
+      "lessonId": "PRODUCTIVITY_2026_TR_DAY_17",
+      "title": "Motivasyonu Sürdürme: İlerlemeyi Takip, Kazançları Kutla",
+      "createdAt": "2026-01-24T09:29:58.459Z",
+      "score": 30,
+      "issues": [
+        "TOO_SHORT",
+        "NO_CLEAR_DEFINITIONS",
+        "NO_EXAMPLES",
+        "NO_METRICS_OR_CRITERIA"
+      ],
+      "signals": {
+        "charCount": 143,
+        "wordCount": 20,
+        "hasBullets": true,
+        "hasNumberedSteps": false,
+        "hasExamples": false,
+        "hasGoodBadContrast": true,
+        "hasMetricsOrCriteria": false,
+        "hasDefinitionsOrComparisons": false
+      },
+      "refineTemplate": {
+        "addDefinitionSection": true,
+        "addChecklistSection": false,
+        "addExamplesSection": true,
+        "addPitfallsSection": false,
+        "addMetricsSection": true
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_TR",
+      "courseName": "Verimlilik 2026: Ekipler ve Zaman Nasıl Yönetilir",
+      "language": "tr",
+      "dayNumber": 18,
+      "lessonId": "PRODUCTIVITY_2026_TR_DAY_18",
+      "title": "Kriz Yönetimi ve Uyarlanabilirlik: Uyum, Hızlı Öğrenme",
+      "createdAt": "2026-01-24T09:30:01.435Z",
+      "score": 20,
+      "issues": [
+        "TOO_SHORT",
+        "NO_CLEAR_DEFINITIONS",
+        "NO_EXAMPLES",
+        "NO_CONTRASTS_GOOD_BAD",
+        "NO_METRICS_OR_CRITERIA"
+      ],
+      "signals": {
+        "charCount": 159,
+        "wordCount": 21,
+        "hasBullets": true,
+        "hasNumberedSteps": false,
+        "hasExamples": false,
+        "hasGoodBadContrast": false,
+        "hasMetricsOrCriteria": false,
+        "hasDefinitionsOrComparisons": false
+      },
+      "refineTemplate": {
+        "addDefinitionSection": true,
+        "addChecklistSection": false,
+        "addExamplesSection": true,
+        "addPitfallsSection": true,
+        "addMetricsSection": true
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_TR",
+      "courseName": "Verimlilik 2026: Ekipler ve Zaman Nasıl Yönetilir",
+      "language": "tr",
+      "dayNumber": 19,
+      "lessonId": "PRODUCTIVITY_2026_TR_DAY_19",
+      "title": "Uzun Vadeli Planlama: Yıllar İleri, Strateji, Evrim",
+      "createdAt": "2026-01-24T09:30:04.684Z",
+      "score": 20,
+      "issues": [
+        "TOO_SHORT",
+        "NO_CLEAR_DEFINITIONS",
+        "NO_EXAMPLES",
+        "NO_CONTRASTS_GOOD_BAD",
+        "NO_METRICS_OR_CRITERIA"
+      ],
+      "signals": {
+        "charCount": 156,
+        "wordCount": 23,
+        "hasBullets": true,
+        "hasNumberedSteps": false,
+        "hasExamples": false,
+        "hasGoodBadContrast": false,
+        "hasMetricsOrCriteria": false,
+        "hasDefinitionsOrComparisons": false
+      },
+      "refineTemplate": {
+        "addDefinitionSection": true,
+        "addChecklistSection": false,
+        "addExamplesSection": true,
+        "addPitfallsSection": true,
+        "addMetricsSection": true
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_TR",
+      "courseName": "Verimlilik 2026: Ekipler ve Zaman Nasıl Yönetilir",
+      "language": "tr",
+      "dayNumber": 20,
+      "lessonId": "PRODUCTIVITY_2026_TR_DAY_20",
+      "title": "Kişisel Yaşam Verimliliği: Ev Düzeni, Kişisel Projeler",
+      "createdAt": "2026-01-24T09:30:07.594Z",
+      "score": 20,
+      "issues": [
+        "TOO_SHORT",
+        "NO_CLEAR_DEFINITIONS",
+        "NO_EXAMPLES",
+        "NO_CONTRASTS_GOOD_BAD",
+        "NO_METRICS_OR_CRITERIA"
+      ],
+      "signals": {
+        "charCount": 157,
+        "wordCount": 19,
+        "hasBullets": true,
+        "hasNumberedSteps": false,
+        "hasExamples": false,
+        "hasGoodBadContrast": false,
+        "hasMetricsOrCriteria": false,
+        "hasDefinitionsOrComparisons": false
+      },
+      "refineTemplate": {
+        "addDefinitionSection": true,
+        "addChecklistSection": false,
+        "addExamplesSection": true,
+        "addPitfallsSection": true,
+        "addMetricsSection": true
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_TR",
+      "courseName": "Verimlilik 2026: Ekipler ve Zaman Nasıl Yönetilir",
+      "language": "tr",
+      "dayNumber": 21,
+      "lessonId": "PRODUCTIVITY_2026_TR_DAY_21",
+      "title": "Topluluk ve Ağ: İlişkiler, Diğerleriyle Öğrenme",
+      "createdAt": "2026-01-24T09:30:10.372Z",
+      "score": 20,
+      "issues": [
+        "TOO_SHORT",
+        "NO_CLEAR_DEFINITIONS",
+        "NO_EXAMPLES",
+        "NO_CONTRASTS_GOOD_BAD",
+        "NO_METRICS_OR_CRITERIA"
+      ],
+      "signals": {
+        "charCount": 152,
+        "wordCount": 20,
+        "hasBullets": true,
+        "hasNumberedSteps": false,
+        "hasExamples": false,
+        "hasGoodBadContrast": false,
+        "hasMetricsOrCriteria": false,
+        "hasDefinitionsOrComparisons": false
+      },
+      "refineTemplate": {
+        "addDefinitionSection": true,
+        "addChecklistSection": false,
+        "addExamplesSection": true,
+        "addPitfallsSection": true,
+        "addMetricsSection": true
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_TR",
+      "courseName": "Verimlilik 2026: Ekipler ve Zaman Nasıl Yönetilir",
+      "language": "tr",
+      "dayNumber": 22,
+      "lessonId": "PRODUCTIVITY_2026_TR_DAY_22",
+      "title": "Teknoloji ve Araçlar: Otomasyon, Doğru Teknolojiyi Seçme",
+      "createdAt": "2026-01-24T09:30:13.143Z",
+      "score": 30,
+      "issues": [
+        "TOO_SHORT",
+        "NO_CLEAR_DEFINITIONS",
+        "NO_EXAMPLES",
+        "NO_METRICS_OR_CRITERIA"
+      ],
+      "signals": {
+        "charCount": 161,
+        "wordCount": 19,
+        "hasBullets": true,
+        "hasNumberedSteps": false,
+        "hasExamples": false,
+        "hasGoodBadContrast": true,
+        "hasMetricsOrCriteria": false,
+        "hasDefinitionsOrComparisons": false
+      },
+      "refineTemplate": {
+        "addDefinitionSection": true,
+        "addChecklistSection": false,
+        "addExamplesSection": true,
+        "addPitfallsSection": false,
+        "addMetricsSection": true
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_TR",
+      "courseName": "Verimlilik 2026: Ekipler ve Zaman Nasıl Yönetilir",
+      "language": "tr",
+      "dayNumber": 23,
+      "lessonId": "PRODUCTIVITY_2026_TR_DAY_23",
+      "title": "Yaratıcılık ve Yenilik: Yeniden Düşünme, Deneyler",
+      "createdAt": "2026-01-24T09:30:15.923Z",
+      "score": 20,
+      "issues": [
+        "TOO_SHORT",
+        "NO_CLEAR_DEFINITIONS",
+        "NO_EXAMPLES",
+        "NO_CONTRASTS_GOOD_BAD",
+        "NO_METRICS_OR_CRITERIA"
+      ],
+      "signals": {
+        "charCount": 142,
+        "wordCount": 20,
+        "hasBullets": true,
+        "hasNumberedSteps": false,
+        "hasExamples": false,
+        "hasGoodBadContrast": false,
+        "hasMetricsOrCriteria": false,
+        "hasDefinitionsOrComparisons": false
+      },
+      "refineTemplate": {
+        "addDefinitionSection": true,
+        "addChecklistSection": false,
+        "addExamplesSection": true,
+        "addPitfallsSection": true,
+        "addMetricsSection": true
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_TR",
+      "courseName": "Verimlilik 2026: Ekipler ve Zaman Nasıl Yönetilir",
+      "language": "tr",
+      "dayNumber": 24,
+      "lessonId": "PRODUCTIVITY_2026_TR_DAY_24",
+      "title": "Filtreleme ve Öncelikler: Neyi Görmezden Gelir, Önemli Olan",
+      "createdAt": "2026-01-24T09:30:18.760Z",
+      "score": 20,
+      "issues": [
+        "TOO_SHORT",
+        "NO_CLEAR_DEFINITIONS",
+        "NO_EXAMPLES",
+        "NO_CONTRASTS_GOOD_BAD",
+        "NO_METRICS_OR_CRITERIA"
+      ],
+      "signals": {
+        "charCount": 176,
+        "wordCount": 24,
+        "hasBullets": true,
+        "hasNumberedSteps": false,
+        "hasExamples": false,
+        "hasGoodBadContrast": false,
+        "hasMetricsOrCriteria": false,
+        "hasDefinitionsOrComparisons": false
+      },
+      "refineTemplate": {
+        "addDefinitionSection": true,
+        "addChecklistSection": false,
+        "addExamplesSection": true,
+        "addPitfallsSection": true,
+        "addMetricsSection": true
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_TR",
+      "courseName": "Verimlilik 2026: Ekipler ve Zaman Nasıl Yönetilir",
+      "language": "tr",
+      "dayNumber": 25,
+      "lessonId": "PRODUCTIVITY_2026_TR_DAY_25",
+      "title": "Beceri Geliştirme: Daha Yüksek Seviyeler, Yeni Yetkinlikler",
+      "createdAt": "2026-01-24T09:30:21.308Z",
+      "score": 20,
+      "issues": [
+        "TOO_SHORT",
+        "NO_CLEAR_DEFINITIONS",
+        "NO_EXAMPLES",
+        "NO_CONTRASTS_GOOD_BAD",
+        "NO_METRICS_OR_CRITERIA"
+      ],
+      "signals": {
+        "charCount": 162,
+        "wordCount": 19,
+        "hasBullets": true,
+        "hasNumberedSteps": false,
+        "hasExamples": false,
+        "hasGoodBadContrast": false,
+        "hasMetricsOrCriteria": false,
+        "hasDefinitionsOrComparisons": false
+      },
+      "refineTemplate": {
+        "addDefinitionSection": true,
+        "addChecklistSection": false,
+        "addExamplesSection": true,
+        "addPitfallsSection": true,
+        "addMetricsSection": true
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_TR",
+      "courseName": "Verimlilik 2026: Ekipler ve Zaman Nasıl Yönetilir",
+      "language": "tr",
+      "dayNumber": 26,
+      "lessonId": "PRODUCTIVITY_2026_TR_DAY_26",
+      "title": "Mentorlaştırma ve Öğretim: Bilgi Paylaşma, Başkalarına Yardım",
+      "createdAt": "2026-01-24T09:30:24.052Z",
+      "score": 20,
+      "issues": [
+        "TOO_SHORT",
+        "NO_CLEAR_DEFINITIONS",
+        "NO_EXAMPLES",
+        "NO_CONTRASTS_GOOD_BAD",
+        "NO_METRICS_OR_CRITERIA"
+      ],
+      "signals": {
+        "charCount": 178,
+        "wordCount": 19,
+        "hasBullets": true,
+        "hasNumberedSteps": false,
+        "hasExamples": false,
+        "hasGoodBadContrast": false,
+        "hasMetricsOrCriteria": false,
+        "hasDefinitionsOrComparisons": false
+      },
+      "refineTemplate": {
+        "addDefinitionSection": true,
+        "addChecklistSection": false,
+        "addExamplesSection": true,
+        "addPitfallsSection": true,
+        "addMetricsSection": true
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_TR",
+      "courseName": "Verimlilik 2026: Ekipler ve Zaman Nasıl Yönetilir",
+      "language": "tr",
+      "dayNumber": 27,
+      "lessonId": "PRODUCTIVITY_2026_TR_DAY_27",
+      "title": "Alışkanlıklar ve Ritueller: Günlük Rutinler, Uzun Vadeli Eylem",
+      "createdAt": "2026-01-24T09:30:26.830Z",
+      "score": 20,
+      "issues": [
+        "TOO_SHORT",
+        "NO_CLEAR_DEFINITIONS",
+        "NO_EXAMPLES",
+        "NO_CONTRASTS_GOOD_BAD",
+        "NO_METRICS_OR_CRITERIA"
+      ],
+      "signals": {
+        "charCount": 153,
+        "wordCount": 18,
+        "hasBullets": true,
+        "hasNumberedSteps": false,
+        "hasExamples": false,
+        "hasGoodBadContrast": false,
+        "hasMetricsOrCriteria": false,
+        "hasDefinitionsOrComparisons": false
+      },
+      "refineTemplate": {
+        "addDefinitionSection": true,
+        "addChecklistSection": false,
+        "addExamplesSection": true,
+        "addPitfallsSection": true,
+        "addMetricsSection": true
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_TR",
+      "courseName": "Verimlilik 2026: Ekipler ve Zaman Nasıl Yönetilir",
+      "language": "tr",
+      "dayNumber": 28,
+      "lessonId": "PRODUCTIVITY_2026_TR_DAY_28",
+      "title": "Değerler ve Hedefler: Yaşam Amacı, Uzun Vadeli Vizyon",
+      "createdAt": "2026-01-24T09:30:30.554Z",
+      "score": 20,
+      "issues": [
+        "TOO_SHORT",
+        "NO_CLEAR_DEFINITIONS",
+        "NO_EXAMPLES",
+        "NO_CONTRASTS_GOOD_BAD",
+        "NO_METRICS_OR_CRITERIA"
+      ],
+      "signals": {
+        "charCount": 156,
+        "wordCount": 20,
+        "hasBullets": true,
+        "hasNumberedSteps": false,
+        "hasExamples": false,
+        "hasGoodBadContrast": false,
+        "hasMetricsOrCriteria": false,
+        "hasDefinitionsOrComparisons": false
+      },
+      "refineTemplate": {
+        "addDefinitionSection": true,
+        "addChecklistSection": false,
+        "addExamplesSection": true,
+        "addPitfallsSection": true,
+        "addMetricsSection": true
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_TR",
+      "courseName": "Verimlilik 2026: Ekipler ve Zaman Nasıl Yönetilir",
+      "language": "tr",
+      "dayNumber": 29,
+      "lessonId": "PRODUCTIVITY_2026_TR_DAY_29",
+      "title": "Sürekli İyileştirme: Öğrenme, Geri Bildirim, İterasyon",
+      "createdAt": "2026-01-24T09:30:34.287Z",
+      "score": 20,
+      "issues": [
+        "TOO_SHORT",
+        "NO_CLEAR_DEFINITIONS",
+        "NO_EXAMPLES",
+        "NO_CONTRASTS_GOOD_BAD",
+        "NO_METRICS_OR_CRITERIA"
+      ],
+      "signals": {
+        "charCount": 155,
+        "wordCount": 18,
+        "hasBullets": true,
+        "hasNumberedSteps": false,
+        "hasExamples": false,
+        "hasGoodBadContrast": false,
+        "hasMetricsOrCriteria": false,
+        "hasDefinitionsOrComparisons": false
+      },
+      "refineTemplate": {
+        "addDefinitionSection": true,
+        "addChecklistSection": false,
+        "addExamplesSection": true,
+        "addPitfallsSection": true,
+        "addMetricsSection": true
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_TR",
+      "courseName": "Verimlilik 2026: Ekipler ve Zaman Nasıl Yönetilir",
+      "language": "tr",
+      "dayNumber": 30,
+      "lessonId": "PRODUCTIVITY_2026_TR_DAY_30",
+      "title": "Verimlilik Ustası: Kapsamlı Entegrasyon, Taahhüt",
+      "createdAt": "2026-01-24T09:30:37.635Z",
+      "score": 20,
+      "issues": [
+        "TOO_SHORT",
+        "NO_CLEAR_DEFINITIONS",
+        "NO_EXAMPLES",
+        "NO_CONTRASTS_GOOD_BAD",
+        "NO_METRICS_OR_CRITERIA"
+      ],
+      "signals": {
+        "charCount": 131,
+        "wordCount": 17,
+        "hasBullets": true,
+        "hasNumberedSteps": false,
+        "hasExamples": false,
+        "hasGoodBadContrast": false,
+        "hasMetricsOrCriteria": false,
+        "hasDefinitionsOrComparisons": false
+      },
+      "refineTemplate": {
+        "addDefinitionSection": true,
+        "addChecklistSection": false,
+        "addExamplesSection": true,
+        "addPitfallsSection": true,
+        "addMetricsSection": true
+      }
+    }
+  ]
+}

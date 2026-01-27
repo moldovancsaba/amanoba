@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-27T14:39:55.330Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_TR",
+    "name": "Verimlilik 2026: Ekipler ve Zaman Nasıl Yönetilir",
+    "language": "tr"
+  },
+  "lesson": {
+    "dayNumber": 20,
+    "title": "Kişisel Yaşam Verimliliği: Ev Düzeni, Kişisel Projeler",
+    "lessonId": "PRODUCTIVITY_2026_TR_DAY_20"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a4be7e0d478c4e50276",
+      "uuid": "20d89f94-8c25-4d0e-b8d0-40ad5e51bbb6",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Verimliliği hayatın tüm alanlarına genişlet.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day20",
+        "#tr",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a4be7e0d478c4e50277",
+      "uuid": "be73ce4c-f805-42de-b9b8-f0a0d9064235",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Verimliliği hayatın tüm alanlarına genişlet.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day20",
+        "#tr",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a4be7e0d478c4e50278",
+      "uuid": "e799fcd3-56eb-4e6c-a3c5-7a1b0e0cdfc5",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Verimliliği hayatın tüm alanlarına genişlet.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day20",
+        "#tr",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a4be7e0d478c4e50279",
+      "uuid": "1dab94d7-7ced-4b8e-adc1-450fd5e45f4b",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Ders içinde bahsedilen \"Kişisel Yaşam Verimliliği: Ev Düzeni, Kişisel Proj...\" kavramı goals hedeflerinize ulaşmayı nasıl etkiler?",
+      "options": [
+        "Ders içinde detaylı olarak açıklandığı gibi, Kişisel Yaşam Verimliliği: Ev ... etkinliği artırır ve riski azaltır",
+        "Önemli bir etkisi yok",
+        "Sadece teorik olarak önemli",
+        "Sadece isteğe bağlı bir öğe"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day20",
+        "#tr",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a4be7e0d478c4e5027a",
+      "uuid": "16c12cff-e539-441d-9311-ae96a8ac568a",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Ders içinde tartışıldığı gibi Kişisel Kişisel Yaşam Verimliliği: Ev Düzeni, Kişisel Projeler bağlamında ne kadar önemlidir?",
+      "options": [
+        "Ders içinde detaylı olarak açıklandığı gibi, Kişisel süreçlerin optimize edilmesinde ve hedeflere ulaşmada kritik bir rol oynar",
+        "Sadece önemsiz bilgi, önemli bir rolü yok",
+        "Sadece teorik bir kavram, pratik uygulaması yok",
+        "Ders içinde bahsedilmiyor"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day20",
+        "#tr",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a4be7e0d478c4e5027b",
+      "uuid": "d2a57f76-c225-4643-9305-0b6665ae9370",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Ders içinde tartışıldığı gibi Verimliliği Kişisel Yaşam Verimliliği: Ev Düzeni, Kişisel Projeler bağlamında ne kadar önemlidir?",
+      "options": [
+        "Ders içinde detaylı olarak açıklandığı gibi, Verimliliği süreçlerin optimize edilmesinde ve hedeflere ulaşmada kritik bir rol oynar",
+        "Sadece önemsiz bilgi, önemli bir rolü yok",
+        "Sadece teorik bir kavram, pratik uygulaması yok",
+        "Ders içinde bahsedilmiyor"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day20",
+        "#tr",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a4be7e0d478c4e5027c",
+      "uuid": "3f267512-0fdb-456d-a2f8-1a3365c40457",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Ders içinde tartışıldığı gibi Projeler Kişisel Yaşam Verimliliği: Ev Düzeni, Kişisel Projeler bağlamında ne kadar önemlidir?",
+      "options": [
+        "Ders içinde detaylı olarak açıklandığı gibi, Projeler süreçlerin optimize edilmesinde ve hedeflere ulaşmada kritik bir rol oynar",
+        "Sadece önemsiz bilgi, önemli bir rolü yok",
+        "Sadece teorik bir kavram, pratik uygulaması yok",
+        "Ders içinde bahsedilmiyor"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day20",
+        "#tr",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

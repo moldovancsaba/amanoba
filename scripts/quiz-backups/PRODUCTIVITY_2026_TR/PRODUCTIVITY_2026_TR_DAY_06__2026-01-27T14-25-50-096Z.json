@@ -1,0 +1,166 @@
+{
+  "backedUpAt": "2026-01-27T14:25:52.237Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_TR",
+    "name": "Verimlilik 2026: Ekipler ve Zaman Nasıl Yönetilir",
+    "language": "tr"
+  },
+  "lesson": {
+    "dayNumber": 6,
+    "title": "Yakalama: gelen kutuları, tetikleyici listesi, yakalama alışkanlıkları",
+    "lessonId": "PRODUCTIVITY_2026_TR_DAY_06"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a4ae7e0d478c4e501d0",
+      "uuid": "b9015588-9702-4ff7-87d7-f8ab5c3f5a4d",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Gelen kutularını ne sıklıkla boşaltmalısınız?",
+      "options": [
+        "Haftada bir",
+        "Ayda bir",
+        "Günde en az bir kez",
+        "Asla"
+      ],
+      "correctIndex": 2,
+      "hashtags": [
+        "#day-06",
+        "#foundation",
+        "#recall",
+        "#tr"
+      ]
+    },
+    {
+      "_id": "69776a4ae7e0d478c4e501d1",
+      "uuid": "a7d2b593-a68f-4637-874b-a2f01deaf37b",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Yakalama alışkanlığı nasıl geliştirilir?",
+      "options": [
+        "Bir kez kullanın",
+        "Otomatik hale gelene kadar tekrarlayın",
+        "Asla kullanmayın",
+        "Sadece hafta sonları kullanın"
+      ],
+      "correctIndex": 1,
+      "hashtags": [
+        "#day-06",
+        "#scenario",
+        "#application",
+        "#tr"
+      ]
+    },
+    {
+      "_id": "69776a4ae7e0d478c4e501d2",
+      "uuid": "b6151008-ca2f-4963-b41b-3fa3a2a19b04",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ Güvenilir bir gelen kutusu sisteminiz ...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day6",
+        "#tr",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a4ae7e0d478c4e501d3",
+      "uuid": "8f3c2731-6b79-45ab-967e-3043fce051e5",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ Tüm önemli bilgiler yakalanmış, hiçbir...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day6",
+        "#tr",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a4ae7e0d478c4e501d4",
+      "uuid": "10508613-760f-48b4-9823-c5e96f6cb448",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Ders içinde bahsedilen \"önemli bilgilerin yakalandığından emin olmak için ...\" kavramı goals hedeflerinize ulaşmayı nasıl etkiler?",
+      "options": [
+        "Ders içinde detaylı olarak açıklandığı gibi, önemli bilgilerin yakalandığın... etkinliği artırır ve riski azaltır",
+        "Önemli bir etkisi yok",
+        "Sadece teorik olarak önemli",
+        "Sadece isteğe bağlı bir öğe"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day6",
+        "#tr",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a4ae7e0d478c4e501d5",
+      "uuid": "35d1910c-606d-483d-ac39-54e699c24c99",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Tetikleyici listesi \"Yakalama: gelen kutuları, tetikleyici listesi, yakalama alışkanlıkları\" dersinde nasıl bir rol oynar?",
+      "options": [
+        "Ders içinde detaylı olarak açıklandığı gibi, Tetikleyici listesi süreçlerin optimize edilmesinde ve hedeflere ulaşmada kritik bir rol oynar",
+        "Sadece önemsiz bilgi, önemli bir rolü yok",
+        "Sadece teorik bir kavram, pratik uygulaması yok",
+        "Ders içinde bahsedilmiyor"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day6",
+        "#tr",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a4ae7e0d478c4e501d6",
+      "uuid": "e0961a2c-fdf6-4add-b68a-1c0e876cede6",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Ders içinde tartışıldığı gibi Tanım Yakalama: gelen kutuları, tetikleyici listesi, yakalama alışkanlıkları bağlamında ne kadar önemlidir?",
+      "options": [
+        "Ders içinde detaylı olarak açıklandığı gibi, Tanım süreçlerin optimize edilmesinde ve hedeflere ulaşmada kritik bir rol oynar",
+        "Sadece önemsiz bilgi, önemli bir rolü yok",
+        "Sadece teorik bir kavram, pratik uygulaması yok",
+        "Ders içinde bahsedilmiyor"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day6",
+        "#tr",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

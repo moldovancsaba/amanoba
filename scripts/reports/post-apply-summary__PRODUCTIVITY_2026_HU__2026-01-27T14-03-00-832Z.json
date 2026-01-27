@@ -1,0 +1,376 @@
+{
+  "generatedAt": "2026-01-27T14:03:00.831Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_HU",
+    "language": "hu",
+    "name": "Termelékenység 2026: Hogyan kezelj csapatokat és időt"
+  },
+  "totals": {
+    "lessons": 30,
+    "ok": 30,
+    "notOk": 0
+  },
+  "notOkDays": [],
+  "perLesson": [
+    {
+      "dayNumber": 1,
+      "lessonId": "PRODUCTIVITY_2026_HU_DAY_01",
+      "title": "A termelékenység definíciója: output, eredmények és korlátok",
+      "counts": {
+        "total": 7,
+        "application": 5,
+        "criticalThinking": 2,
+        "recall": 0
+      },
+      "ok": true
+    },
+    {
+      "dayNumber": 2,
+      "lessonId": "PRODUCTIVITY_2026_HU_DAY_02",
+      "title": "Idő, energia, figyelem: amit a gyakorlatban kezelsz",
+      "counts": {
+        "total": 7,
+        "application": 5,
+        "criticalThinking": 2,
+        "recall": 0
+      },
+      "ok": true
+    },
+    {
+      "dayNumber": 3,
+      "lessonId": "PRODUCTIVITY_2026_HU_DAY_03",
+      "title": "Célhierarchia: vízió → eredmények → projektek → következő lépések",
+      "counts": {
+        "total": 7,
+        "application": 5,
+        "criticalThinking": 2,
+        "recall": 0
+      },
+      "ok": true
+    },
+    {
+      "dayNumber": 4,
+      "lessonId": "PRODUCTIVITY_2026_HU_DAY_04",
+      "title": "Szokások vs rendszerek: miért skálázódnak jobban a rendszerek",
+      "counts": {
+        "total": 7,
+        "application": 5,
+        "criticalThinking": 2,
+        "recall": 0
+      },
+      "ok": true
+    },
+    {
+      "dayNumber": 5,
+      "lessonId": "PRODUCTIVITY_2026_HU_DAY_05",
+      "title": "Mérés: egyszerű heti áttekintési metrikák (throughput, fókusz blokkok, carryover)",
+      "counts": {
+        "total": 7,
+        "application": 5,
+        "criticalThinking": 2,
+        "recall": 0
+      },
+      "ok": true
+    },
+    {
+      "dayNumber": 6,
+      "lessonId": "PRODUCTIVITY_2026_HU_DAY_06",
+      "title": "Rögzítés: inboxok, trigger lista, rögzítési szokások",
+      "counts": {
+        "total": 7,
+        "application": 6,
+        "criticalThinking": 1,
+        "recall": 0
+      },
+      "ok": true
+    },
+    {
+      "dayNumber": 7,
+      "lessonId": "PRODUCTIVITY_2026_HU_DAY_07",
+      "title": "Napi/heti rendszer: reggeli ritual, napi huddle, heti áttekintés",
+      "counts": {
+        "total": 7,
+        "application": 5,
+        "criticalThinking": 2,
+        "recall": 0
+      },
+      "ok": true
+    },
+    {
+      "dayNumber": 8,
+      "lessonId": "PRODUCTIVITY_2026_HU_DAY_8",
+      "title": "Kontextusváltás költsége: figyelmi maradványa, kötegelt feldolgozás, mély munkablokkok",
+      "counts": {
+        "total": 7,
+        "application": 5,
+        "criticalThinking": 2,
+        "recall": 0
+      },
+      "ok": true
+    },
+    {
+      "dayNumber": 9,
+      "lessonId": "PRODUCTIVITY_2026_HU_DAY_9",
+      "title": "Delegálás vs Kiiktatás: mikor delegálj, mit iktatj ki",
+      "counts": {
+        "total": 7,
+        "application": 5,
+        "criticalThinking": 2,
+        "recall": 0
+      },
+      "ok": true
+    },
+    {
+      "dayNumber": 10,
+      "lessonId": "PRODUCTIVITY_2026_HU_DAY_10",
+      "title": "Energia menedzselés: mikor dolgozz, mikor pihenj, helyreállítási ritualok",
+      "counts": {
+        "total": 7,
+        "application": 5,
+        "criticalThinking": 2,
+        "recall": 0
+      },
+      "ok": true
+    },
+    {
+      "dayNumber": 11,
+      "lessonId": "PRODUCTIVITY_2026_HU_DAY_11",
+      "title": "Célkitűzés és OKR-ek: Mit szeretnél elérni?",
+      "counts": {
+        "total": 7,
+        "application": 5,
+        "criticalThinking": 2,
+        "recall": 0
+      },
+      "ok": true
+    },
+    {
+      "dayNumber": 12,
+      "lessonId": "PRODUCTIVITY_2026_HU_DAY_12",
+      "title": "Elszámoltathatósági Struktúrák: Rendszerek, amelyek pályán tartanak",
+      "counts": {
+        "total": 7,
+        "application": 5,
+        "criticalThinking": 2,
+        "recall": 0
+      },
+      "ok": true
+    },
+    {
+      "dayNumber": 13,
+      "lessonId": "PRODUCTIVITY_2026_HU_DAY_13",
+      "title": "Döntéshozatali Keretek: Gyors döntés, döntési mátrix, az elemzési bénultság elkerülése",
+      "counts": {
+        "total": 7,
+        "application": 5,
+        "criticalThinking": 2,
+        "recall": 0
+      },
+      "ok": true
+    },
+    {
+      "dayNumber": 14,
+      "lessonId": "PRODUCTIVITY_2026_HU_DAY_14",
+      "title": "Értekezlet-hatékonyság: Napirend, időkorlát, döntési jegyzőkönyv",
+      "counts": {
+        "total": 7,
+        "application": 5,
+        "criticalThinking": 2,
+        "recall": 0
+      },
+      "ok": true
+    },
+    {
+      "dayNumber": 15,
+      "lessonId": "PRODUCTIVITY_2026_HU_DAY_15",
+      "title": "Csapatmunka és szinergia: Szerepek, felelősség, koordináció",
+      "counts": {
+        "total": 7,
+        "application": 5,
+        "criticalThinking": 2,
+        "recall": 0
+      },
+      "ok": true
+    },
+    {
+      "dayNumber": 16,
+      "lessonId": "PRODUCTIVITY_2026_HU_DAY_16",
+      "title": "Stressz-kezelés és fáradtság: Regeneráció, munka-élet egyensúly",
+      "counts": {
+        "total": 7,
+        "application": 5,
+        "criticalThinking": 2,
+        "recall": 0
+      },
+      "ok": true
+    },
+    {
+      "dayNumber": 17,
+      "lessonId": "PRODUCTIVITY_2026_HU_DAY_17",
+      "title": "Motiváció fenntartása: Célok nyilvántartása, sikerek ünneplése",
+      "counts": {
+        "total": 7,
+        "application": 5,
+        "criticalThinking": 2,
+        "recall": 0
+      },
+      "ok": true
+    },
+    {
+      "dayNumber": 18,
+      "lessonId": "PRODUCTIVITY_2026_HU_DAY_18",
+      "title": "Krízis-kezelés és rugalmasság: Adaptáció, gyors tanulás",
+      "counts": {
+        "total": 7,
+        "application": 5,
+        "criticalThinking": 2,
+        "recall": 0
+      },
+      "ok": true
+    },
+    {
+      "dayNumber": 19,
+      "lessonId": "PRODUCTIVITY_2026_HU_DAY_19",
+      "title": "Hosszú távú tervezés: Évek, stratégia, evolúció",
+      "counts": {
+        "total": 7,
+        "application": 5,
+        "criticalThinking": 2,
+        "recall": 0
+      },
+      "ok": true
+    },
+    {
+      "dayNumber": 20,
+      "lessonId": "PRODUCTIVITY_2026_HU_DAY_20",
+      "title": "Magánéleti termelékenység: Otthoni szervezés, személyes projektek",
+      "counts": {
+        "total": 7,
+        "application": 5,
+        "criticalThinking": 2,
+        "recall": 0
+      },
+      "ok": true
+    },
+    {
+      "dayNumber": 21,
+      "lessonId": "PRODUCTIVITY_2026_HU_DAY_21",
+      "title": "Közösség és hálózat: Kapcsolatok, tanulás mások mellett",
+      "counts": {
+        "total": 7,
+        "application": 5,
+        "criticalThinking": 2,
+        "recall": 0
+      },
+      "ok": true
+    },
+    {
+      "dayNumber": 22,
+      "lessonId": "PRODUCTIVITY_2026_HU_DAY_22",
+      "title": "Technológia és eszközök: Automatizáció, a megfelelő technológia kiválasztása",
+      "counts": {
+        "total": 7,
+        "application": 5,
+        "criticalThinking": 2,
+        "recall": 0
+      },
+      "ok": true
+    },
+    {
+      "dayNumber": 23,
+      "lessonId": "PRODUCTIVITY_2026_HU_DAY_23",
+      "title": "Kreativitás és innováció: Újgondolkodás, kísérletezés",
+      "counts": {
+        "total": 7,
+        "application": 5,
+        "criticalThinking": 2,
+        "recall": 0
+      },
+      "ok": true
+    },
+    {
+      "dayNumber": 24,
+      "lessonId": "PRODUCTIVITY_2026_HU_DAY_24",
+      "title": "Szűrés és prioritás: Mit kell ignorálni, mit fontosnak tartani",
+      "counts": {
+        "total": 7,
+        "application": 5,
+        "criticalThinking": 2,
+        "recall": 0
+      },
+      "ok": true
+    },
+    {
+      "dayNumber": 25,
+      "lessonId": "PRODUCTIVITY_2026_HU_DAY_25",
+      "title": "Szakértelmi fejlesztés: Magasabb szint, új készségek",
+      "counts": {
+        "total": 7,
+        "application": 5,
+        "criticalThinking": 2,
+        "recall": 0
+      },
+      "ok": true
+    },
+    {
+      "dayNumber": 26,
+      "lessonId": "PRODUCTIVITY_2026_HU_DAY_26",
+      "title": "Mentorálás és tanítás: Tudás megosztása, másoknak segítés",
+      "counts": {
+        "total": 7,
+        "application": 5,
+        "criticalThinking": 2,
+        "recall": 0
+      },
+      "ok": true
+    },
+    {
+      "dayNumber": 27,
+      "lessonId": "PRODUCTIVITY_2026_HU_DAY_27",
+      "title": "Szokások és rituálok: Napi rutin, hosszú távú cselekvés",
+      "counts": {
+        "total": 7,
+        "application": 5,
+        "criticalThinking": 2,
+        "recall": 0
+      },
+      "ok": true
+    },
+    {
+      "dayNumber": 28,
+      "lessonId": "PRODUCTIVITY_2026_HU_DAY_28",
+      "title": "Értékek és célok: Élet célja, hosszú távú jövőkép",
+      "counts": {
+        "total": 7,
+        "application": 5,
+        "criticalThinking": 2,
+        "recall": 0
+      },
+      "ok": true
+    },
+    {
+      "dayNumber": 29,
+      "lessonId": "PRODUCTIVITY_2026_HU_DAY_29",
+      "title": "Folyamatos fejlesztés: Tanulás, visszajelzés, iteráció",
+      "counts": {
+        "total": 7,
+        "application": 5,
+        "criticalThinking": 2,
+        "recall": 0
+      },
+      "ok": true
+    },
+    {
+      "dayNumber": 30,
+      "lessonId": "PRODUCTIVITY_2026_HU_DAY_30",
+      "title": "A termelékenység mestere: Komprehenzív integráció, elkötelezettség",
+      "counts": {
+        "total": 7,
+        "application": 5,
+        "criticalThinking": 2,
+        "recall": 0
+      },
+      "ok": true
+    }
+  ]
+}

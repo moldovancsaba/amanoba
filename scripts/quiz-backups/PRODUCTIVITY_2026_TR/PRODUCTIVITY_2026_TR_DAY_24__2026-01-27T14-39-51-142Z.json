@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-27T14:39:55.758Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_TR",
+    "name": "Verimlilik 2026: Ekipler ve Zaman Nasıl Yönetilir",
+    "language": "tr"
+  },
+  "lesson": {
+    "dayNumber": 24,
+    "title": "Filtreleme ve Öncelikler: Neyi Görmezden Gelir, Önemli Olan",
+    "lessonId": "PRODUCTIVITY_2026_TR_DAY_24"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a4ce7e0d478c4e5029e",
+      "uuid": "9bc12b25-9f9e-49e3-88e1-bbf6d48b1705",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Ders içinde bahsedilen \"Önemli OlanHayır demesini ve önemli olana odaklanm...\" kavramı goals hedeflerinize ulaşmayı nasıl etkiler?",
+      "options": [
+        "Ders içinde detaylı olarak açıklandığı gibi, Önemli OlanHayır demesini ve ö... etkinliği artırır ve riski azaltır",
+        "Önemli bir etkisi yok",
+        "Sadece teorik olarak önemli",
+        "Sadece isteğe bağlı bir öğe"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day24",
+        "#tr",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a4ce7e0d478c4e5029f",
+      "uuid": "5dab186c-289a-4a28-9393-fc01c157ecbc",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "\"Filtreleme\" kavramını ders içinde açıklandığı gibi pratikte nasıl kullanırsınız?",
+      "options": [
+        "Ders içinde detaylı olarak açıklanan adımları takip ederim, sonuçları test ederim ve deneyimlerimi belgelerim",
+        "Sadece teorik olarak anlıyorum",
+        "Uygulamıyorum",
+        "Daha fazla talimat bekliyorum"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day24",
+        "#tr",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a4ce7e0d478c4e502a0",
+      "uuid": "351b68c1-a3dd-4c3e-8bbb-ccc9f09a0e63",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "\"Öncelikler\" kavramını ders içinde açıklandığı gibi pratikte nasıl kullanırsınız?",
+      "options": [
+        "Ders içinde detaylı olarak açıklanan adımları takip ederim, sonuçları test ederim ve deneyimlerimi belgelerim",
+        "Sadece teorik olarak anlıyorum",
+        "Uygulamıyorum",
+        "Daha fazla talimat bekliyorum"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day24",
+        "#tr",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a4ce7e0d478c4e502a1",
+      "uuid": "39249533-e1f9-479e-a401-7a774550b54b",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "\"Neyi\" kavramını ders içinde açıklandığı gibi pratikte nasıl kullanırsınız?",
+      "options": [
+        "Ders içinde detaylı olarak açıklanan adımları takip ederim, sonuçları test ederim ve deneyimlerimi belgelerim",
+        "Sadece teorik olarak anlıyorum",
+        "Uygulamıyorum",
+        "Daha fazla talimat bekliyorum"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day24",
+        "#tr",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a4ce7e0d478c4e502a2",
+      "uuid": "d6849639-78f8-4c4a-9947-04ad671ebd13",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Ders içinde tartışıldığı gibi Öncelikler Filtreleme ve Öncelikler: Neyi Görmezden Gelir, Önemli Olan bağlamında ne kadar önemlidir?",
+      "options": [
+        "Ders içinde detaylı olarak açıklandığı gibi, Öncelikler süreçlerin optimize edilmesinde ve hedeflere ulaşmada kritik bir rol oynar",
+        "Sadece önemsiz bilgi, önemli bir rolü yok",
+        "Sadece teorik bir kavram, pratik uygulaması yok",
+        "Ders içinde bahsedilmiyor"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day24",
+        "#tr",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a4ce7e0d478c4e502a3",
+      "uuid": "13e7c967-a06e-4170-a350-f233320fc9a3",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Ders içinde tartışıldığı gibi Görmezden Filtreleme ve Öncelikler: Neyi Görmezden Gelir, Önemli Olan bağlamında ne kadar önemlidir?",
+      "options": [
+        "Ders içinde detaylı olarak açıklandığı gibi, Görmezden süreçlerin optimize edilmesinde ve hedeflere ulaşmada kritik bir rol oynar",
+        "Sadece önemsiz bilgi, önemli bir rolü yok",
+        "Sadece teorik bir kavram, pratik uygulaması yok",
+        "Ders içinde bahsedilmiyor"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day24",
+        "#tr",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a4ce7e0d478c4e502a4",
+      "uuid": "92e259da-038e-40a7-b721-0c0a107f3409",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Ders içinde tartışıldığı gibi Önemli Filtreleme ve Öncelikler: Neyi Görmezden Gelir, Önemli Olan bağlamında ne kadar önemlidir?",
+      "options": [
+        "Ders içinde detaylı olarak açıklandığı gibi, Önemli süreçlerin optimize edilmesinde ve hedeflere ulaşmada kritik bir rol oynar",
+        "Sadece önemsiz bilgi, önemli bir rolü yok",
+        "Sadece teorik bir kavram, pratik uygulaması yok",
+        "Ders içinde bahsedilmiyor"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day24",
+        "#tr",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

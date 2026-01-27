@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-27T14:39:43.148Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_TR",
+    "name": "Verimlilik 2026: Ekipler ve Zaman Nasıl Yönetilir",
+    "language": "tr"
+  },
+  "lesson": {
+    "dayNumber": 14,
+    "title": "Toplantı Verimliliği: Gündem, Zaman Sınırı, Karar Günlüğü",
+    "lessonId": "PRODUCTIVITY_2026_TR_DAY_14"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a4ae7e0d478c4e50236",
+      "uuid": "59f87cb6-e45b-4d27-bf60-de52fb696b70",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Toplantıları verimlilik için tasarla ve yönet.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day14",
+        "#tr",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a4ae7e0d478c4e50237",
+      "uuid": "992e6066-e9e1-42b3-b7a3-bcc5f22bd8e1",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Toplantıları verimlilik için tasarla ve yönet.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day14",
+        "#tr",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a4ae7e0d478c4e50238",
+      "uuid": "755b03ce-eabb-4570-bf3b-f3fc5236b879",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Toplantıları verimlilik için tasarla ve yönet.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day14",
+        "#tr",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a4ae7e0d478c4e50239",
+      "uuid": "8eaf34a9-3044-44ef-be99-5da600ab6726",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Ders içinde bahsedilen \"Toplantı Verimliliği: Gündem, Zaman Sınırı, Karar ...\" kavramı goals hedeflerinize ulaşmayı nasıl etkiler?",
+      "options": [
+        "Ders içinde detaylı olarak açıklandığı gibi, Toplantı Verimliliği: Gündem, ... etkinliği artırır ve riski azaltır",
+        "Önemli bir etkisi yok",
+        "Sadece teorik olarak önemli",
+        "Sadece isteğe bağlı bir öğe"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day14",
+        "#tr",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a4ae7e0d478c4e5023a",
+      "uuid": "5598b682-303b-4ba6-a4d6-407bc6b78a27",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Ders içinde tartışıldığı gibi Toplantı Toplantı Verimliliği: Gündem, Zaman Sınırı, Karar Günlüğü bağlamında ne kadar önemlidir?",
+      "options": [
+        "Ders içinde detaylı olarak açıklandığı gibi, Toplantı süreçlerin optimize edilmesinde ve hedeflere ulaşmada kritik bir rol oynar",
+        "Sadece önemsiz bilgi, önemli bir rolü yok",
+        "Sadece teorik bir kavram, pratik uygulaması yok",
+        "Ders içinde bahsedilmiyor"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day14",
+        "#tr",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a4ae7e0d478c4e5023b",
+      "uuid": "f7690549-2233-4f45-8703-176bc609b4f3",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Ders içinde tartışıldığı gibi Gündem Toplantı Verimliliği: Gündem, Zaman Sınırı, Karar Günlüğü bağlamında ne kadar önemlidir?",
+      "options": [
+        "Ders içinde detaylı olarak açıklandığı gibi, Gündem süreçlerin optimize edilmesinde ve hedeflere ulaşmada kritik bir rol oynar",
+        "Sadece önemsiz bilgi, önemli bir rolü yok",
+        "Sadece teorik bir kavram, pratik uygulaması yok",
+        "Ders içinde bahsedilmiyor"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day14",
+        "#tr",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a4ae7e0d478c4e5023c",
+      "uuid": "5648acdc-53d2-4f93-b51b-5cb18a538cac",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Ders içinde tartışıldığı gibi Sınırı Toplantı Verimliliği: Gündem, Zaman Sınırı, Karar Günlüğü bağlamında ne kadar önemlidir?",
+      "options": [
+        "Ders içinde detaylı olarak açıklandığı gibi, Sınırı süreçlerin optimize edilmesinde ve hedeflere ulaşmada kritik bir rol oynar",
+        "Sadece önemsiz bilgi, önemli bir rolü yok",
+        "Sadece teorik bir kavram, pratik uygulaması yok",
+        "Ders içinde bahsedilmiyor"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day14",
+        "#tr",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

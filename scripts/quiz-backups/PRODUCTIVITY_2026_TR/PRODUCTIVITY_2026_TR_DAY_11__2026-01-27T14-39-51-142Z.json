@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-27T14:39:54.351Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_TR",
+    "name": "Verimlilik 2026: Ekipler ve Zaman Nasıl Yönetilir",
+    "language": "tr"
+  },
+  "lesson": {
+    "dayNumber": 11,
+    "title": "Hedef Belirleme ve OKR'ler: Ne Başarmak İstiyorsunuz?",
+    "lessonId": "PRODUCTIVITY_2026_TR_DAY_11"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a4ae7e0d478c4e50213",
+      "uuid": "309fece1-a0a6-4db9-8db1-63b945c72f8c",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Amaçsız verimlilik = sadece meşgul olmak.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day11",
+        "#tr",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a4ae7e0d478c4e50214",
+      "uuid": "91c3ee4a-181a-4913-a034-ce2cdc3162fe",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Motivasyon\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day11",
+        "#tr",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a4ae7e0d478c4e50215",
+      "uuid": "6cca71ba-e973-4514-9288-f490a89a50fc",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Ders içinde bahsedilen \"Hedef Belirleme ve OKR'ler: Ne Başarmak İstiyorsun...\" kavramı goals hedeflerinize ulaşmayı nasıl etkiler?",
+      "options": [
+        "Ders içinde detaylı olarak açıklandığı gibi, Hedef Belirleme ve OKR'ler: Ne... etkinliği artırır ve riski azaltır",
+        "Önemli bir etkisi yok",
+        "Sadece teorik olarak önemli",
+        "Sadece isteğe bağlı bir öğe"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day11",
+        "#tr",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a4ae7e0d478c4e50216",
+      "uuid": "fbc5bf98-a9bd-40bc-a484-4195e05739dc",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "\"Amaçsız verimlilik = sadece meşgul olmak.\" kavramını ders içinde açıklandığı gibi pratikte nasıl kullanırsınız?",
+      "options": [
+        "Ders içinde detaylı olarak açıklanan adımları takip ederim, sonuçları test ederim ve deneyimlerimi belgelerim",
+        "Sadece teorik olarak anlıyorum",
+        "Uygulamıyorum",
+        "Daha fazla talimat bekliyorum"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day11",
+        "#tr",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a4ae7e0d478c4e50217",
+      "uuid": "71aeecd2-c0f4-4b5f-b45a-64aa5e2ec754",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Ders içinde tartışıldığı gibi Motivasyon Hedef Belirleme ve OKR'ler: Ne Başarmak İstiyorsunuz? bağlamında ne kadar önemlidir?",
+      "options": [
+        "Ders içinde detaylı olarak açıklandığı gibi, Motivasyon süreçlerin optimize edilmesinde ve hedeflere ulaşmada kritik bir rol oynar",
+        "Sadece önemsiz bilgi, önemli bir rolü yok",
+        "Sadece teorik bir kavram, pratik uygulaması yok",
+        "Ders içinde bahsedilmiyor"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day11",
+        "#tr",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a4ae7e0d478c4e50218",
+      "uuid": "c01ac164-d32c-4128-8d56-4b132f7d71b4",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Ders içinde tartışıldığı gibi Hedef Hedef Belirleme ve OKR'ler: Ne Başarmak İstiyorsunuz? bağlamında ne kadar önemlidir?",
+      "options": [
+        "Ders içinde detaylı olarak açıklandığı gibi, Hedef süreçlerin optimize edilmesinde ve hedeflere ulaşmada kritik bir rol oynar",
+        "Sadece önemsiz bilgi, önemli bir rolü yok",
+        "Sadece teorik bir kavram, pratik uygulaması yok",
+        "Ders içinde bahsedilmiyor"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day11",
+        "#tr",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a4ae7e0d478c4e50219",
+      "uuid": "10a71a75-74a3-4458-8a21-42f14680026d",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Ders içinde tartışıldığı gibi OKR'ler Hedef Belirleme ve OKR'ler: Ne Başarmak İstiyorsunuz? bağlamında ne kadar önemlidir?",
+      "options": [
+        "Ders içinde detaylı olarak açıklandığı gibi, OKR'ler süreçlerin optimize edilmesinde ve hedeflere ulaşmada kritik bir rol oynar",
+        "Sadece önemsiz bilgi, önemli bir rolü yok",
+        "Sadece teorik bir kavram, pratik uygulaması yok",
+        "Ders içinde bahsedilmiyor"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day11",
+        "#tr",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

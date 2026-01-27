@@ -1,0 +1,162 @@
+{
+  "backedUpAt": "2026-01-27T14:25:51.336Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_TR",
+    "name": "Verimlilik 2026: Ekipler ve Zaman Nasıl Yönetilir",
+    "language": "tr"
+  },
+  "lesson": {
+    "dayNumber": 2,
+    "title": "Zaman, enerji, dikkat: pratikte yönettiğiniz şeyler",
+    "lessonId": "PRODUCTIVITY_2026_TR_DAY_02"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a49e7e0d478c4e50166",
+      "uuid": "b724a107-199e-4d8f-927e-7ad46a3082fe",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Aşağıdakilerden hangisi bir verimlilik kaynağı DEĞİLDİR?",
+      "options": [
+        "Zaman",
+        "Enerji",
+        "Dikkat",
+        "Para"
+      ],
+      "correctIndex": 3,
+      "hashtags": [
+        "#day-02",
+        "#foundation",
+        "#recall",
+        "#tr"
+      ]
+    },
+    {
+      "_id": "69776a49e7e0d478c4e50167",
+      "uuid": "55246db6-b46e-490d-80a0-4feaee818f3a",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Bir kesintiden sonra dikkati geri kazanmak ne kadar sürer?",
+      "options": [
+        "5 dakika",
+        "15-20 dakika",
+        "1 saat",
+        "Geri kazanmaya gerek yok"
+      ],
+      "correctIndex": 1,
+      "hashtags": [
+        "#day-02",
+        "#foundation",
+        "#recall",
+        "#tr"
+      ]
+    },
+    {
+      "_id": "69776a49e7e0d478c4e50168",
+      "uuid": "448a03a4-2fb2-460f-8f6c-8aa9c6a4e476",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Günlük programınızda ne kadar tampon zaman bırakmalısınız?",
+      "options": [
+        "%0",
+        "%10",
+        "%20-30",
+        "%50"
+      ],
+      "correctIndex": 2,
+      "hashtags": [
+        "#day-02",
+        "#scenario",
+        "#application",
+        "#tr"
+      ]
+    },
+    {
+      "_id": "69776a49e7e0d478c4e50169",
+      "uuid": "6cbd1990-e655-4e40-9ef0-a775a50460c4",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Derin çalışma bloğunun ideal uzunluğu nedir?",
+      "options": [
+        "30 dakika",
+        "60 dakika",
+        "90-120 dakika",
+        "4 saat"
+      ],
+      "correctIndex": 2,
+      "hashtags": [
+        "#day-02",
+        "#foundation",
+        "#recall",
+        "#tr"
+      ]
+    },
+    {
+      "_id": "69776a49e7e0d478c4e5016a",
+      "uuid": "cff4dcb9-3696-4112-a072-39bd54c0520f",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ Zaman, enerji ve dikkatin birlikte nas...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day2",
+        "#tr",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a49e7e0d478c4e5016b",
+      "uuid": "e3760bd2-043a-443a-8659-f3be75892593",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ Hedefin sadece zamanı yönetmek değil, ...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day2",
+        "#tr",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a49e7e0d478c4e5016c",
+      "uuid": "5fd99fd9-7ff2-4cf4-b825-917cfecb5a75",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Ders içinde bahsedilen \"Önemli görevler için takviminizde zaman ayırın...\" kavramı goals hedeflerinize ulaşmayı nasıl etkiler?",
+      "options": [
+        "Ders içinde detaylı olarak açıklandığı gibi, Önemli görevler için takvimini... etkinliği artırır ve riski azaltır",
+        "Önemli bir etkisi yok",
+        "Sadece teorik olarak önemli",
+        "Sadece isteğe bağlı bir öğe"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day2",
+        "#tr",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    }
+  ]
+}

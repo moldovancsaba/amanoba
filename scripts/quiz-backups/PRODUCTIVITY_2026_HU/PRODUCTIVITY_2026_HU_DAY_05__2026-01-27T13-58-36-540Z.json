@@ -1,0 +1,174 @@
+{
+  "backedUpAt": "2026-01-27T13:58:38.286Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_HU",
+    "name": "Termelékenység 2026: Hogyan kezelj csapatokat és időt",
+    "language": "hu"
+  },
+  "lesson": {
+    "dayNumber": 5,
+    "title": "Mérés: egyszerű heti áttekintési metrikák (throughput, fókusz blokkok, carryover)",
+    "lessonId": "PRODUCTIVITY_2026_HU_DAY_05"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "697766da9b3efa4704455fe7",
+      "uuid": "f461f9d0-8198-4f9f-9b09-105f1c18dbed",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "A leckében leírt \"✅ Ismered a három kulcsmetrikát: through...\" gyakorlatot hogyan implementálnád a saját munkádban?",
+      "options": [
+        "Lépésről lépésre követem a leckében leírt módszert, dokumentálom az eredményeket, és finomhangolom a folyamatot",
+        "Egyszerre próbálom ki mindent",
+        "Csak olvasom, nem alkalmazom",
+        "Várok, amíg mások megcsinálják"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day5",
+        "#hu",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "697766da9b3efa4704455fe8",
+      "uuid": "19e3f813-de17-43e5-a3c1-3c2ce3703309",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "A leckében leírt \"✅ A mérés objektív, nem csak érzésalapú....\" gyakorlatot hogyan implementálnád a saját munkádban?",
+      "options": [
+        "Lépésről lépésre követem a leckében leírt módszert, dokumentálom az eredményeket, és finomhangolom a folyamatot",
+        "Egyszerre próbálom ki mindent",
+        "Csak olvasom, nem alkalmazom",
+        "Várok, amíg mások megcsinálják"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day5",
+        "#hu",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "697766da9b3efa4704455fe9",
+      "uuid": "3b624f85-9113-4a9b-afd1-26293986740b",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "A leckében leírt \"✅ Ismered a három kulcsmetrikát: through...\" gyakorlatot hogyan implementálnád a saját munkádban?",
+      "options": [
+        "Lépésről lépésre követem a leckében leírt módszert, dokumentálom az eredményeket, és finomhangolom a folyamatot",
+        "Egyszerre próbálom ki mindent",
+        "Csak olvasom, nem alkalmazom",
+        "Várok, amíg mások megcsinálják"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day5",
+        "#hu",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69789bb64990e68a049b3043",
+      "uuid": "7167199d-900b-4048-abcd-cc249485468c",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Egy vezető a következő elv szerint dönt: „fontos feladatot fejeztél be egy héten? Ez a valódi termelékenységed”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?",
+      "options": [
+        "A fókusz növelheti az eredményességet, mert a korlátok mellett a legnagyobb hatású kimenetre koncentrál; kockázat: rossz mérőszámra optimalizálva „látszat‑output” készül.",
+        "Az output automatikusan egyenlő az eredménnyel, ezért elég több feladatot lezárni; kockázat: nő az aktivitás, de romlik az ügyfélérték és a minőség.",
+        "A korlátok (idő/energia/figyelem) figyelmen kívül hagyhatók, mert a termelékenység csak akaraterő kérdése; kockázat: túlterhelés, hibák és kiégés.",
+        "A sebesség maximalizálása a legfontosabb, a minőség majd „később” javítható; kockázat: utómunka, újranyitások és bizalomvesztés alakul ki."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day5",
+        "#hu",
+        "#all-languages",
+        "#course-productivity_2026_hu",
+        "#productivity",
+        "#advanced",
+        "#critical-thinking"
+      ]
+    },
+    {
+      "_id": "69789bb64990e68a049b3044",
+      "uuid": "e5d4e78e-12f0-4c3f-9694-03266c4193ba",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Egy vezető a következő elv szerint dönt: „fontos feladatok száma hetente”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?",
+      "options": [
+        "A fókusz növelheti az eredményességet, mert a korlátok mellett a legnagyobb hatású kimenetre koncentrál; kockázat: rossz mérőszámra optimalizálva „látszat‑output” készül.",
+        "Az output automatikusan egyenlő az eredménnyel, ezért elég több feladatot lezárni; kockázat: nő az aktivitás, de romlik az ügyfélérték és a minőség.",
+        "A korlátok (idő/energia/figyelem) figyelmen kívül hagyhatók, mert a termelékenység csak akaraterő kérdése; kockázat: túlterhelés, hibák és kiégés.",
+        "A sebesség maximalizálása a legfontosabb, a minőség majd „később” javítható; kockázat: utómunka, újranyitások és bizalomvesztés alakul ki."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day5",
+        "#hu",
+        "#all-languages",
+        "#course-productivity_2026_hu",
+        "#productivity",
+        "#advanced",
+        "#critical-thinking"
+      ]
+    },
+    {
+      "_id": "69789bb64990e68a049b3045",
+      "uuid": "93a2e171-c80c-4cbd-bafa-c4f8f0a9c878",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Egy új gyakorlatot vezetsz be: „✅ Ismered a három kulcsmetrikát: throughput, fókusz blokkok,”. Melyik bevezetési terv biztosít mérhető kimenetet és gyors visszacsatolást?",
+      "options": [
+        "Lépésről lépésre bevezetem, előtte/utána mérőpontokat állítok be, dokumentálom az eredményt, és iterálok a hibák alapján",
+        "Egyszerre mindent átállítok, majd nem ellenőrzöm, mi romlott el",
+        "Csak elolvasom, de nem építem be a folyamatomba",
+        "Megvárom, hogy valaki más készítsen helyettem megoldást"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day5",
+        "#hu",
+        "#all-languages",
+        "#course-productivity_2026_hu",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "69789bb64990e68a049b3046",
+      "uuid": "a140c13f-5d53-4c5e-bd25-19b7504d69b0",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Egy új gyakorlatot vezetsz be: „✅ A mérés objektív, nem csak érzésalapú. Opcionális mélyítés”. Melyik bevezetési terv biztosít mérhető kimenetet és gyors visszacsatolást?",
+      "options": [
+        "Lépésről lépésre bevezetem, előtte/utána mérőpontokat állítok be, dokumentálom az eredményt, és iterálok a hibák alapján",
+        "Egyszerre mindent átállítok, majd nem ellenőrzöm, mi romlott el",
+        "Csak elolvasom, de nem építem be a folyamatomba",
+        "Megvárom, hogy valaki más készítsen helyettem megoldást"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day5",
+        "#hu",
+        "#all-languages",
+        "#course-productivity_2026_hu",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    }
+  ]
+}

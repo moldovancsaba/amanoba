@@ -1,0 +1,174 @@
+{
+  "backedUpAt": "2026-01-27T13:58:38.969Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_HU",
+    "name": "Termelékenység 2026: Hogyan kezelj csapatokat és időt",
+    "language": "hu"
+  },
+  "lesson": {
+    "dayNumber": 10,
+    "title": "Energia menedzselés: mikor dolgozz, mikor pihenj, helyreállítási ritualok",
+    "lessonId": "PRODUCTIVITY_2026_HU_DAY_10"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "697766da9b3efa4704456035",
+      "uuid": "40253979-d521-4db5-9fcd-9ec0b1397b6d",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "A leckében leírt \"✅ Tudom, mik az én csúcsenergia-sávjaim....\" gyakorlatot hogyan implementálnád a saját munkádban?",
+      "options": [
+        "Lépésről lépésre követem a leckében leírt módszert, dokumentálom az eredményeket, és finomhangolom a folyamatot",
+        "Egyszerre próbálom ki mindent",
+        "Csak olvasom, nem alkalmazom",
+        "Várok, amíg mások megcsinálják"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day10",
+        "#hu",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "697766da9b3efa4704456036",
+      "uuid": "3d7c62ce-c8a6-4e05-8009-bf535d031b99",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "A leckében leírt \"✅ Az alvás nem valaha szacrificsálódik t...\" gyakorlatot hogyan implementálnád a saját munkádban?",
+      "options": [
+        "Lépésről lépésre követem a leckében leírt módszert, dokumentálom az eredményeket, és finomhangolom a folyamatot",
+        "Egyszerre próbálom ki mindent",
+        "Csak olvasom, nem alkalmazom",
+        "Várok, amíg mások megcsinálják"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day10",
+        "#hu",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "697766da9b3efa4704456037",
+      "uuid": "bd24c6bf-50b8-4ba6-aaca-a3206e1b1adb",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "A leckében leírt \"✅ Tudom, mik az én csúcsenergia-sávjaim....\" gyakorlatot hogyan implementálnád a saját munkádban?",
+      "options": [
+        "Lépésről lépésre követem a leckében leírt módszert, dokumentálom az eredményeket, és finomhangolom a folyamatot",
+        "Egyszerre próbálom ki mindent",
+        "Csak olvasom, nem alkalmazom",
+        "Várok, amíg mások megcsinálják"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day10",
+        "#hu",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69789bb74990e68a049b3074",
+      "uuid": "ae70f110-92ac-4cc8-8da8-1e6aed0971a9",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Egy vezető a következő elv szerint dönt: „Energia menedzselés: mikor dolgozz, mikor pihenj, helyreállítási ritualok A prod”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?",
+      "options": [
+        "A fókusz növelheti az eredményességet, mert a korlátok mellett a legnagyobb hatású kimenetre koncentrál; kockázat: rossz mérőszámra optimalizálva „látszat‑output” készül.",
+        "Az output automatikusan egyenlő az eredménnyel, ezért elég több feladatot lezárni; kockázat: nő az aktivitás, de romlik az ügyfélérték és a minőség.",
+        "A korlátok (idő/energia/figyelem) figyelmen kívül hagyhatók, mert a termelékenység csak akaraterő kérdése; kockázat: túlterhelés, hibák és kiégés.",
+        "A sebesség maximalizálása a legfontosabb, a minőség majd „később” javítható; kockázat: utómunka, újranyitások és bizalomvesztés alakul ki."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day10",
+        "#hu",
+        "#all-languages",
+        "#course-productivity_2026_hu",
+        "#productivity",
+        "#advanced",
+        "#critical-thinking"
+      ]
+    },
+    {
+      "_id": "69789bb74990e68a049b3075",
+      "uuid": "84887b28-6200-47bf-ab8a-a091d716f5a9",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Egy vezető a következő elv szerint dönt: „Az ütemről és a helyreállításról szól”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?",
+      "options": [
+        "A fókusz növelheti az eredményességet, mert a korlátok mellett a legnagyobb hatású kimenetre koncentrál; kockázat: rossz mérőszámra optimalizálva „látszat‑output” készül.",
+        "Az output automatikusan egyenlő az eredménnyel, ezért elég több feladatot lezárni; kockázat: nő az aktivitás, de romlik az ügyfélérték és a minőség.",
+        "A korlátok (idő/energia/figyelem) figyelmen kívül hagyhatók, mert a termelékenység csak akaraterő kérdése; kockázat: túlterhelés, hibák és kiégés.",
+        "A sebesség maximalizálása a legfontosabb, a minőség majd „később” javítható; kockázat: utómunka, újranyitások és bizalomvesztés alakul ki."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day10",
+        "#hu",
+        "#all-languages",
+        "#course-productivity_2026_hu",
+        "#productivity",
+        "#advanced",
+        "#critical-thinking"
+      ]
+    },
+    {
+      "_id": "69789bb74990e68a049b3076",
+      "uuid": "4d198564-e30f-4255-a517-8fcfa5367198",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Egy új gyakorlatot vezetsz be: „✅ Tudom, mik az én csúcsenergia-sávjaim. ✅ A mély munkát a c”. Melyik bevezetési terv biztosít mérhető kimenetet és gyors visszacsatolást?",
+      "options": [
+        "Lépésről lépésre bevezetem, előtte/utána mérőpontokat állítok be, dokumentálom az eredményt, és iterálok a hibák alapján",
+        "Egyszerre mindent átállítok, majd nem ellenőrzöm, mi romlott el",
+        "Csak elolvasom, de nem építem be a folyamatomba",
+        "Megvárom, hogy valaki más készítsen helyettem megoldást"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day10",
+        "#hu",
+        "#all-languages",
+        "#course-productivity_2026_hu",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "69789bb74990e68a049b3077",
+      "uuid": "2823e465-2d3e-4d7e-8da7-209819731857",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Egy új gyakorlatot vezetsz be: „✅ Az alvás nem valaha szacrificsálódik termelékenységért.”. Melyik bevezetési terv biztosít mérhető kimenetet és gyors visszacsatolást?",
+      "options": [
+        "Lépésről lépésre bevezetem, előtte/utána mérőpontokat állítok be, dokumentálom az eredményt, és iterálok a hibák alapján",
+        "Egyszerre mindent átállítok, majd nem ellenőrzöm, mi romlott el",
+        "Csak elolvasom, de nem építem be a folyamatomba",
+        "Megvárom, hogy valaki más készítsen helyettem megoldást"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day10",
+        "#hu",
+        "#all-languages",
+        "#course-productivity_2026_hu",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    }
+  ]
+}

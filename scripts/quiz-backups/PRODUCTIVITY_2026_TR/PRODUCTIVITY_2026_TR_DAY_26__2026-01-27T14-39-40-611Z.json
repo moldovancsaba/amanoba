@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-27T14:39:43.577Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_TR",
+    "name": "Verimlilik 2026: Ekipler ve Zaman Nasıl Yönetilir",
+    "language": "tr"
+  },
+  "lesson": {
+    "dayNumber": 26,
+    "title": "Mentorlaştırma ve Öğretim: Bilgi Paylaşma, Başkalarına Yardım",
+    "lessonId": "PRODUCTIVITY_2026_TR_DAY_26"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a4ce7e0d478c4e502b2",
+      "uuid": "d28c388b-769d-4762-85f8-a30705f1d335",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Ders içinde bahsedilen \"Mentorlaştırma ve Öğretim: Bilgi Paylaşma, Başkala...\" kavramı goals hedeflerinize ulaşmayı nasıl etkiler?",
+      "options": [
+        "Ders içinde detaylı olarak açıklandığı gibi, Mentorlaştırma ve Öğretim: Bil... etkinliği artırır ve riski azaltır",
+        "Önemli bir etkisi yok",
+        "Sadece teorik olarak önemli",
+        "Sadece isteğe bağlı bir öğe"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day26",
+        "#tr",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a4ce7e0d478c4e502b3",
+      "uuid": "34ed4c44-615d-4da3-bae9-043414d070fe",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "\"Mentorlaştırma\" kavramını ders içinde açıklandığı gibi pratikte nasıl kullanırsınız?",
+      "options": [
+        "Ders içinde detaylı olarak açıklanan adımları takip ederim, sonuçları test ederim ve deneyimlerimi belgelerim",
+        "Sadece teorik olarak anlıyorum",
+        "Uygulamıyorum",
+        "Daha fazla talimat bekliyorum"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day26",
+        "#tr",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a4ce7e0d478c4e502b4",
+      "uuid": "46c0a3fe-4ff3-4329-b5b6-0a7768a0e3d3",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "\"Öğretim\" kavramını ders içinde açıklandığı gibi pratikte nasıl kullanırsınız?",
+      "options": [
+        "Ders içinde detaylı olarak açıklanan adımları takip ederim, sonuçları test ederim ve deneyimlerimi belgelerim",
+        "Sadece teorik olarak anlıyorum",
+        "Uygulamıyorum",
+        "Daha fazla talimat bekliyorum"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day26",
+        "#tr",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a4ce7e0d478c4e502b5",
+      "uuid": "fc6d101d-b7b7-42f6-a125-601164c0f592",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "\"Bilgi\" kavramını ders içinde açıklandığı gibi pratikte nasıl kullanırsınız?",
+      "options": [
+        "Ders içinde detaylı olarak açıklanan adımları takip ederim, sonuçları test ederim ve deneyimlerimi belgelerim",
+        "Sadece teorik olarak anlıyorum",
+        "Uygulamıyorum",
+        "Daha fazla talimat bekliyorum"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day26",
+        "#tr",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a4ce7e0d478c4e502b6",
+      "uuid": "6a002882-dec0-40b5-86c0-2bad912fa042",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Ders içinde tartışıldığı gibi Öğretim Mentorlaştırma ve Öğretim: Bilgi Paylaşma, Başkalarına Yardım bağlamında ne kadar önemlidir?",
+      "options": [
+        "Ders içinde detaylı olarak açıklandığı gibi, Öğretim süreçlerin optimize edilmesinde ve hedeflere ulaşmada kritik bir rol oynar",
+        "Sadece önemsiz bilgi, önemli bir rolü yok",
+        "Sadece teorik bir kavram, pratik uygulaması yok",
+        "Ders içinde bahsedilmiyor"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day26",
+        "#tr",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a4ce7e0d478c4e502b7",
+      "uuid": "366b785b-9e3e-4ebc-8d28-429b9f7e256d",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Ders içinde tartışıldığı gibi Paylaşma Mentorlaştırma ve Öğretim: Bilgi Paylaşma, Başkalarına Yardım bağlamında ne kadar önemlidir?",
+      "options": [
+        "Ders içinde detaylı olarak açıklandığı gibi, Paylaşma süreçlerin optimize edilmesinde ve hedeflere ulaşmada kritik bir rol oynar",
+        "Sadece önemsiz bilgi, önemli bir rolü yok",
+        "Sadece teorik bir kavram, pratik uygulaması yok",
+        "Ders içinde bahsedilmiyor"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day26",
+        "#tr",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a4ce7e0d478c4e502b8",
+      "uuid": "33dad5e3-8da1-489b-aeb1-680f97094bb4",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Ders içinde tartışıldığı gibi Yardım Mentorlaştırma ve Öğretim: Bilgi Paylaşma, Başkalarına Yardım bağlamında ne kadar önemlidir?",
+      "options": [
+        "Ders içinde detaylı olarak açıklandığı gibi, Yardım süreçlerin optimize edilmesinde ve hedeflere ulaşmada kritik bir rol oynar",
+        "Sadece önemsiz bilgi, önemli bir rolü yok",
+        "Sadece teorik bir kavram, pratik uygulaması yok",
+        "Ders içinde bahsedilmiyor"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day26",
+        "#tr",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

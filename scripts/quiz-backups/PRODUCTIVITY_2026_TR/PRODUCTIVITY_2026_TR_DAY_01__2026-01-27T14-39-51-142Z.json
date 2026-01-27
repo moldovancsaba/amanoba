@@ -1,0 +1,164 @@
+{
+  "backedUpAt": "2026-01-27T14:39:51.806Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_TR",
+    "name": "Verimlilik 2026: Ekipler ve Zaman Nasıl Yönetilir",
+    "language": "tr"
+  },
+  "lesson": {
+    "dayNumber": 1,
+    "title": "Verimlilik tanımı: çıktı, sonuçlar ve kısıtlamalar",
+    "lessonId": "PRODUCTIVITY_2026_TR_DAY_01"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a48e7e0d478c4e5011f",
+      "uuid": "224ac7cc-5087-4a0f-8fe6-2a495dfd4d51",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Hangi örnek sonuç odaklı yaklaşımı gösterir?",
+      "options": [
+        "\"Bugün 100 e-posta göndereceğim!\"",
+        "\"Bugün 3 kritik müşteri problemini çözeceğim, bu da memnuniyeti %15 artırır\"",
+        "\"Bugün 8 saat toplantı yapacağım\"",
+        "\"Bugün 20 belge yazacağım\""
+      ],
+      "correctIndex": 1,
+      "hashtags": [
+        "#day-01",
+        "#foundation",
+        "#recall",
+        "#tr"
+      ]
+    },
+    {
+      "_id": "69776a48e7e0d478c4e50120",
+      "uuid": "230e6eda-6401-4e99-8804-f25014573340",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Hangisi verimlilik açısından kısıtlama olarak kabul edilmez?",
+      "options": [
+        "Zaman",
+        "Enerji",
+        "Dikkat",
+        "Aktivitelerin sayısı"
+      ],
+      "correctIndex": 3,
+      "hashtags": [
+        "#day-01",
+        "#foundation",
+        "#recall",
+        "#tr"
+      ]
+    },
+    {
+      "_id": "69776a48e7e0d478c4e50121",
+      "uuid": "632800da-ba5b-43b7-afdf-7999f16da3fe",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Neden çıktı odaklı yerine sonuç odaklı yaklaşım önemlidir?",
+      "options": [
+        "Çünkü yüksek çıktı otomatik olarak iyi sonuçları garanti eder",
+        "Çünkü sonuç gerçek değeri getirir, aktivite miktarı değil",
+        "Çünkü çıktı ölçülmesi daha kolaydır",
+        "Çünkü fark yoktur"
+      ],
+      "correctIndex": 1,
+      "hashtags": [
+        "#day-01",
+        "#foundation",
+        "#recall",
+        "#tr"
+      ]
+    },
+    {
+      "_id": "69776a48e7e0d478c4e50122",
+      "uuid": "ce982fdd-b64b-417d-b355-72bbe24b3d17",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ Çıktı ve sonuç arasında ayrım yapıyors...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day1",
+        "#tr",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a48e7e0d478c4e50123",
+      "uuid": "05eabde9-5816-4310-9e3b-97d95011ca51",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ Çıktı ve sonuç arasında ayrım yapıyors...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day1",
+        "#tr",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a48e7e0d478c4e50124",
+      "uuid": "88fdc330-b53d-439b-8942-6e85bf51a40e",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ Çıktı ve sonuç arasında ayrım yapıyors...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day1",
+        "#tr",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a48e7e0d478c4e50125",
+      "uuid": "4826cd07-a529-409a-b527-4341453e7955",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Ders içinde bahsedilen \"Verimlilik tanımı: çıktı, sonuçlar ve kısıtlamalar...\" kavramı goals hedeflerinize ulaşmayı nasıl etkiler?",
+      "options": [
+        "Ders içinde detaylı olarak açıklandığı gibi, Verimlilik tanımı: çıktı, sonu... etkinliği artırır ve riski azaltır",
+        "Önemli bir etkisi yok",
+        "Sadece teorik olarak önemli",
+        "Sadece isteğe bağlı bir öğe"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day1",
+        "#tr",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    }
+  ]
+}
