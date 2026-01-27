@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-27T08:53:22.055Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_EN",
+    "name": "Productivity 2026: How to Manage Teams and Time",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 25,
+    "title": "Skill development (higher levels, new competencies)",
+    "lessonId": "PRODUCTIVITY_2026_EN_DAY_25"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a250494239f69e45bb0",
+      "uuid": "43a59226-3b01-484b-8ce1-1a7f49aebe9e",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Develop your core competencies and expertise.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day25",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a250494239f69e45bb1",
+      "uuid": "d00aef60-9d58-45e6-9703-2bc847296322",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Develop your core competencies and expertise.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day25",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a250494239f69e45bb2",
+      "uuid": "16c41db2-0546-403c-a8cf-574ce2631f3b",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Develop your core competencies and expertise.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day25",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a250494239f69e45bb3",
+      "uuid": "59cce1bc-6913-4694-9edc-8d7a8bb9b34e",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "How does the concept \"Skill Development: Higher Levels, New Competencies...\" mentioned in the lesson impact achieving your goals?",
+      "options": [
+        "As described in detail in the lesson, Skill Development: Higher Leve... increases effectiveness and reduces risk",
+        "No significant impact",
+        "Only matters theoretically",
+        "Only an optional element"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day25",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a250494239f69e45bb4",
+      "uuid": "592fefd6-9aaf-498b-9cc5-a4d1cd36c127",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is Skill in the context of Skill Development: Higher Levels, New Competencies as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, Skill plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day25",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a250494239f69e45bb5",
+      "uuid": "712fb871-7fe0-4ee1-834e-70750c0535b1",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is Higher in the context of Skill Development: Higher Levels, New Competencies as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, Higher plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day25",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a250494239f69e45bb6",
+      "uuid": "fa3053b5-1786-4194-959d-c70b7eae68b8",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is Competencies in the context of Skill Development: Higher Levels, New Competencies as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, Competencies plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day25",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

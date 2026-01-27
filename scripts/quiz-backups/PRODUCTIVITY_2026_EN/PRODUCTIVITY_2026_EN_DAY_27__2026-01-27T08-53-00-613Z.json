@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-27T08:53:03.980Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_EN",
+    "name": "Productivity 2026: How to Manage Teams and Time",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 27,
+    "title": "Habits and rituals (daily routines, long-term action)",
+    "lessonId": "PRODUCTIVITY_2026_EN_DAY_27"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a250494239f69e45bc4",
+      "uuid": "89c9869d-c9db-4db5-be3c-e5e0bec69559",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Build habits that compound over time.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day27",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a250494239f69e45bc5",
+      "uuid": "f6981b1e-f1fa-40c2-b352-1fd41d40259e",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Build habits that compound over time.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day27",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a250494239f69e45bc6",
+      "uuid": "aeb1292d-5a70-483e-a81b-1a79f5894587",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Build habits that compound over time.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day27",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a250494239f69e45bc7",
+      "uuid": "c67a8466-2274-4675-943c-95e2691f2059",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "How does the concept \"Habits and Rituals: Daily Routines, Long-Term Acti...\" mentioned in the lesson impact achieving your goals?",
+      "options": [
+        "As described in detail in the lesson, Habits and Rituals: Daily Rout... increases effectiveness and reduces risk",
+        "No significant impact",
+        "Only matters theoretically",
+        "Only an optional element"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day27",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a250494239f69e45bc8",
+      "uuid": "ccf74a82-5dcc-47f3-b6cb-897d80af6e61",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is Habits in the context of Habits and Rituals: Daily Routines, Long-Term Action as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, Habits plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day27",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a250494239f69e45bc9",
+      "uuid": "4e9abc65-8a7b-4c8d-9d92-057444d8e01c",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is Daily in the context of Habits and Rituals: Daily Routines, Long-Term Action as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, Daily plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day27",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a250494239f69e45bca",
+      "uuid": "71d2c105-5c05-4478-b5b1-649d4b17887d",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is Long in the context of Habits and Rituals: Daily Routines, Long-Term Action as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, Long plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day27",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

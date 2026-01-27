@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-27T08:55:33.417Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_EN",
+    "name": "Productivity 2026: How to Manage Teams and Time",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 8,
+    "title": "Context Switching Cost: Attention Residue, Batching, Deep Work Blocks",
+    "lessonId": "PRODUCTIVITY_2026_EN_DAY_8"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69787a1b406e073a0d5f5580",
+      "uuid": "f2b0d392-791f-4ce8-bf91-c2d5131fecc8",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "In context switching cost, which change best reduces attention residue and protects deep work?",
+      "options": [
+        "Batch similar tasks (email/messages) into fixed windows and keep a 90–120 minute deep work block interruption-free.",
+        "Keep notifications on so you can respond instantly and “stay in flow” across multiple tasks.",
+        "Work on three projects at once to increase variety and prevent boredom from deep focus.",
+        "Schedule meetings between every task so you never have to refocus for long periods."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day8",
+        "#en",
+        "#course-productivity_2026_en",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "69787a1b406e073a0d5f5581",
+      "uuid": "45d6ed27-3c20-41bb-a3cd-42223beb7c98",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "You switch between tasks 20+ times per day and feel exhausted. Which measurement would best validate the problem using the course approach?",
+      "options": [
+        "Log the number of context switches and compare focus blocks completed before and after batching changes.",
+        "Count how many messages you answered; more messages answered means less switching cost.",
+        "Track only hours worked; switching cannot affect outcomes if time stays constant.",
+        "Measure number of browser tabs open; more tabs means better multitasking ability."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day8",
+        "#en",
+        "#course-productivity_2026_en",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "69787a1b406e073a0d5f5582",
+      "uuid": "13b4583c-7086-4d96-b716-45686c607ab7",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Which deep work block rule is most aligned with preventing context switching cost?",
+      "options": [
+        "Define “no email, no chat, no phone” rules and remove triggers so interruptions cannot happen during the block.",
+        "Promise yourself you will not get distracted, while keeping all notifications visible.",
+        "Switch tasks whenever a new idea appears, so you capture creativity immediately.",
+        "Use deep work time primarily for meetings so alignment is maintained continuously."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day8",
+        "#en",
+        "#course-productivity_2026_en",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "69787a1b406e073a0d5f5583",
+      "uuid": "dcf89f88-b5b6-4e73-88a6-00203b58d68f",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "If you add more tools but keep switching contexts constantly, what is the most likely result?",
+      "options": [
+        "Tool changes won’t fix the core constraint; attention residue still reduces outcome quality and throughput.",
+        "Tools eliminate attention residue automatically, so context switching becomes free and harmless.",
+        "More tools guarantee deeper focus because complexity forces the brain to concentrate.",
+        "Context switching improves deep work because frequent novelty trains sustained attention."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day8",
+        "#en",
+        "#course-productivity_2026_en",
+        "#productivity",
+        "#advanced",
+        "#critical-thinking"
+      ]
+    },
+    {
+      "_id": "69787a1b406e073a0d5f5584",
+      "uuid": "f5a2fa9c-a819-4012-b871-0e56fa2faaed",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Why is batching considered a high-leverage tactic in the course’s focus economics?",
+      "options": [
+        "Because it reduces refocus costs, decision fatigue, and fragmentation, allowing more deep work and higher-quality outcomes.",
+        "Because batching increases the number of tasks started, which is the best measure of productivity.",
+        "Because batching makes work more exciting, so motivation replaces the need for planning.",
+        "Because batching removes the need for prioritization, since all tasks can be done in any order equally well."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day8",
+        "#en",
+        "#course-productivity_2026_en",
+        "#productivity",
+        "#advanced",
+        "#critical-thinking"
+      ]
+    },
+    {
+      "_id": "69787a1b406e073a0d5f5585",
+      "uuid": "8d4ada77-3f91-4417-968e-c51c0654dfa1",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Your calendar has deep work blocks, but you keep breaking them for “quick replies”. What is the best system-level fix?",
+      "options": [
+        "Create a communication policy: two reply windows per day and an escalation rule, so deep work blocks stay protected.",
+        "Keep blocks flexible; if you break them often, it means deep work is unrealistic and should be removed.",
+        "Add more deep work blocks and hope that a larger quantity compensates for frequent interruptions.",
+        "Turn deep work into chat time so you can progress while staying responsive to everyone."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day8",
+        "#en",
+        "#course-productivity_2026_en",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "69787a1b406e073a0d5f5586",
+      "uuid": "1593e188-fbd1-47de-98a1-c7861c6c34ef",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "You feel “busy” all day but produce little. In the context switching lesson, what is the most likely root cause?",
+      "options": [
+        "Frequent context switches create attention residue, so deep work never reaches enough uninterrupted time to produce outcomes.",
+        "Your task list is too short; adding more tasks will increase throughput automatically.",
+        "Your email response speed is too slow; responding instantly would create better outcomes by itself.",
+        "Your calendar has too much deep work; replacing it with meetings increases clarity and therefore results."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day8",
+        "#en",
+        "#course-productivity_2026_en",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    }
+  ]
+}

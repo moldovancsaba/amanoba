@@ -1,0 +1,166 @@
+{
+  "backedUpAt": "2026-01-27T00:33:17.404Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_EN",
+    "name": "Productivity 2026: How to Manage Teams and Time",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 5,
+    "title": "Measurement: simple weekly review metrics (throughput, focus blocks, carryover)",
+    "lessonId": "PRODUCTIVITY_2026_EN_DAY_05"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a230494239f69e45ac4",
+      "uuid": "f13d1b09-0320-48e1-9762-a40028823f72",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How many metrics do we use in weekly review?",
+      "options": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "correctIndex": 2,
+      "hashtags": [
+        "#day-05",
+        "#foundation",
+        "#recall",
+        "#en"
+      ]
+    },
+    {
+      "_id": "69776a230494239f69e45ac5",
+      "uuid": "8a2085f2-e137-4c10-88ae-8bd0f3464f60",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "What is the ideal length of a focus block?",
+      "options": [
+        "30 minutes",
+        "60 minutes",
+        "90-120 minutes",
+        "4 hours"
+      ],
+      "correctIndex": 2,
+      "hashtags": [
+        "#day-05",
+        "#purpose",
+        "#application",
+        "#en"
+      ]
+    },
+    {
+      "_id": "69776a230494239f69e45ac6",
+      "uuid": "5b03797a-a650-40d1-9a66-7396cee60f05",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "How does the concept \"important tasks did you complete in a week? This i...\" mentioned in the lesson impact achieving your goals?",
+      "options": [
+        "As described in detail in the lesson, important tasks did you comple... increases effectiveness and reduces risk",
+        "No significant impact",
+        "Only matters theoretically",
+        "Only an optional element"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day5",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a230494239f69e45ac7",
+      "uuid": "97c94979-55a4-4b7b-a305-c63078054444",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"exercise (25-30 min) — First weekly revi...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day5",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a230494239f69e45ac8",
+      "uuid": "b3b04c72-c5ee-46c1-92ed-d1896eac9d4d",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"exercise (25-30 min) — First weekly revi...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day5",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a230494239f69e45ac9",
+      "uuid": "fbe55f00-5bb5-430f-afae-2adafc7d6f0d",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is Throughput in the context of Measurement: simple weekly review metrics (throughput, focus blocks, carryover) as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, Throughput plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day5",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a230494239f69e45aca",
+      "uuid": "044d8200-752f-440e-a59b-b2a9d56cd6b6",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is Carryover in the context of Measurement: simple weekly review metrics (throughput, focus blocks, carryover) as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, Carryover plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day5",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

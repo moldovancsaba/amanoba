@@ -1,0 +1,164 @@
+{
+  "backedUpAt": "2026-01-27T08:40:57.767Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_EN",
+    "name": "Productivity 2026: How to Manage Teams and Time",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 2,
+    "title": "Time, energy, attention: what you manage in practice",
+    "lessonId": "PRODUCTIVITY_2026_EN_DAY_02"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a220494239f69e45a6e",
+      "uuid": "4a274a2e-5073-4d9c-a80e-68067046475e",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How long does it take to restore attention after an interruption?",
+      "options": [
+        "5 minutes",
+        "15-20 minutes",
+        "1 hour",
+        "No restoration needed"
+      ],
+      "correctIndex": 1,
+      "hashtags": [
+        "#day-02",
+        "#foundation",
+        "#recall",
+        "#en"
+      ]
+    },
+    {
+      "_id": "69776a220494239f69e45a6f",
+      "uuid": "0d27c428-71e6-4f63-adcc-7098a2b888d4",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How much buffer time should you leave in your daily schedule?",
+      "options": [
+        "0%",
+        "10%",
+        "20-30%",
+        "50%"
+      ],
+      "correctIndex": 2,
+      "hashtags": [
+        "#day-02",
+        "#foundation",
+        "#recall",
+        "#en"
+      ]
+    },
+    {
+      "_id": "69776a220494239f69e45a70",
+      "uuid": "0c72f04b-c074-4511-8dc2-d587a43b9b95",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "What is the ideal length of a deep work block?",
+      "options": [
+        "30 minutes",
+        "60 minutes",
+        "90-120 minutes",
+        "4 hours"
+      ],
+      "correctIndex": 2,
+      "hashtags": [
+        "#day-02",
+        "#foundation",
+        "#recall",
+        "#en"
+      ]
+    },
+    {
+      "_id": "69776a220494239f69e45a71",
+      "uuid": "5b9ae98b-6d53-422d-b37d-db0768b67746",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"exercise (20-25 min) — Daily energy and ...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day2",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a220494239f69e45a72",
+      "uuid": "58cdafd8-01c6-48cf-b7d7-8d434c3c3eb3",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"exercise (20-25 min) — Daily energy and ...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day2",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a220494239f69e45a73",
+      "uuid": "c76d20cc-9681-4d00-a4f4-bf79d10343dc",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"exercise (20-25 min) — Daily energy and ...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day2",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a220494239f69e45a74",
+      "uuid": "ee02dd4a-3277-4e21-a72c-59dfc7432d7d",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "How does the concept \"Time, energy, attention: what you manage in practi...\" mentioned in the lesson impact achieving your goals?",
+      "options": [
+        "As described in detail in the lesson, Time, energy, attention: what ... increases effectiveness and reduces risk",
+        "No significant impact",
+        "Only matters theoretically",
+        "Only an optional element"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day2",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    }
+  ]
+}

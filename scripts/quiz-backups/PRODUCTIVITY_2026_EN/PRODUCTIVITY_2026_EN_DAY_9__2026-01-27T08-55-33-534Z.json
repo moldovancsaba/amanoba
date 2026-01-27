@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-27T08:55:33.535Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_EN",
+    "name": "Productivity 2026: How to Manage Teams and Time",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 9,
+    "title": "Delegation vs Elimination: When to Delegate, What to Eliminate",
+    "lessonId": "PRODUCTIVITY_2026_EN_DAY_9"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69787a1b406e073a0d5f5590",
+      "uuid": "390df442-741b-47e3-9f5a-fb57999ece11",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "In “delegation vs elimination”, which task is the best candidate to eliminate (drop) rather than delegate?",
+      "options": [
+        "A weekly report nobody uses and that does not change any decisions or outcomes.",
+        "Customer support triage that must happen daily to prevent churn and revenue loss.",
+        "A repeatable data entry task that can be done reliably by someone else with instructions.",
+        "Formatting a document that still must be produced, but could be handled by another team member."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day9",
+        "#en",
+        "#course-productivity_2026_en",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "69787a1b406e073a0d5f5591",
+      "uuid": "87211f99-c160-48d7-ba51-80de928037d9",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Which delegation brief best protects outcome quality while giving autonomy (as recommended in the course)?",
+      "options": [
+        "Define expected output, deadline, success criteria, check-in points, and constraints; allow the delegate to choose the method.",
+        "Tell them “just handle it” with no criteria, then judge the result harshly at the end.",
+        "Micromanage every step daily so the delegate cannot make independent decisions.",
+        "Delegate only the easiest parts so you keep all meaningful work and still stay overloaded."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day9",
+        "#en",
+        "#course-productivity_2026_en",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "69787a1b406e073a0d5f5592",
+      "uuid": "8dfd18b8-6ebc-46ed-88f4-6f1d08f2174d",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "The elimination test in the course is: “What value is lost if this is not done?” Which conclusion fits the method?",
+      "options": [
+        "If the honest answer is “very little”, eliminate it and reinvest time into higher-outcome work.",
+        "If the answer is unclear, keep it forever because uncertainty means it must be important.",
+        "If it feels uncomfortable to stop, keep doing it; discomfort is evidence of high value.",
+        "If it takes time, it must be valuable; time cost is proof of importance."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day9",
+        "#en",
+        "#course-productivity_2026_en",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "69787a1b406e073a0d5f5593",
+      "uuid": "2e41a7bf-a3a9-44b4-af91-7c57668d5d00",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "A leader delegates strategic decisions to save time. According to the course framing, why is this risky?",
+      "options": [
+        "Some decisions are non-delegable; delegating them can reduce outcome quality and create rework that costs more time than it saves.",
+        "Strategic decisions are always easy to delegate because they do not affect real outcomes.",
+        "Delegation automatically improves decision quality because the delegate has more information by default.",
+        "Strategic decisions are only about speed, so outcome quality is irrelevant when delegating."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day9",
+        "#en",
+        "#course-productivity_2026_en",
+        "#productivity",
+        "#advanced",
+        "#critical-thinking"
+      ]
+    },
+    {
+      "_id": "69787a1b406e073a0d5f5594",
+      "uuid": "8e2f93dd-378a-41ef-bd0c-43e62af4a5a6",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "If you delegate low-value tasks without eliminating any, what is the likely second-order effect?",
+      "options": [
+        "You may still carry too much coordination overhead; eliminating truly unnecessary tasks often yields higher leverage than delegating everything.",
+        "Coordination overhead always drops to zero because delegation removes communication needs completely.",
+        "Delegation guarantees that all tasks become high value, so elimination is never necessary.",
+        "Delegation replaces prioritization, because once delegated, tasks no longer matter to outcomes."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day9",
+        "#en",
+        "#course-productivity_2026_en",
+        "#productivity",
+        "#advanced",
+        "#critical-thinking"
+      ]
+    },
+    {
+      "_id": "69787a1b406e073a0d5f5595",
+      "uuid": "35022cea-5d11-45af-bf53-16d5a831f6d4",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "You keep doing “quick fixes” yourself because delegating feels slower. What is the best course-aligned adjustment?",
+      "options": [
+        "Invest once in a clear delegation process and documentation so future repeats cost less than repeated solo fixes.",
+        "Keep doing everything yourself; delegation is always slower and never pays back.",
+        "Delegate without context to save time; unclear expectations are fine because speed is the priority.",
+        "Eliminate all tasks, including critical customer work, because any work is a productivity problem."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day9",
+        "#en",
+        "#course-productivity_2026_en",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "69787a1b406e073a0d5f5596",
+      "uuid": "a2cc7974-5c12-451d-98a5-9621cf2edab6",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "You delegated a task but got a poor result. Which fix is most aligned with the course’s delegation guidance?",
+      "options": [
+        "Clarify expected output, success criteria, and check-in points, then give autonomy on method while providing feedback early.",
+        "Take back all delegation permanently; one failure proves delegation never works.",
+        "Add more meetings to discuss the task repeatedly instead of improving the delegation brief.",
+        "Remove all constraints and deadlines so the delegate can work indefinitely without accountability."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day9",
+        "#en",
+        "#course-productivity_2026_en",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    }
+  ]
+}

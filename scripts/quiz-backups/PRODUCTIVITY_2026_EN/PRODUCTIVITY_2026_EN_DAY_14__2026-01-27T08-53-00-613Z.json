@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-27T08:53:03.256Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_EN",
+    "name": "Productivity 2026: How to Manage Teams and Time",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 14,
+    "title": "Meeting efficiency (agenda, time limits, decision log)",
+    "lessonId": "PRODUCTIVITY_2026_EN_DAY_14"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a240494239f69e45b3e",
+      "uuid": "86b579ab-36b2-41b9-9866-6f581057610a",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Design and run meetings for maximum efficiency.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day14",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a240494239f69e45b3f",
+      "uuid": "86cd7aa7-b0e1-4dc6-8f2e-8c4af1233259",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Design and run meetings for maximum efficiency.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day14",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a240494239f69e45b40",
+      "uuid": "7363da0a-466c-4446-8b0c-93d669f7525d",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Design and run meetings for maximum efficiency.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day14",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a240494239f69e45b41",
+      "uuid": "c7b1ba73-bff8-4f3d-b74d-975753eea70e",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "How does the concept \"Meeting Efficiency: Agenda, Time Limits, Decision ...\" mentioned in the lesson impact achieving your goals?",
+      "options": [
+        "As described in detail in the lesson, Meeting Efficiency: Agenda, Ti... increases effectiveness and reduces risk",
+        "No significant impact",
+        "Only matters theoretically",
+        "Only an optional element"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day14",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a240494239f69e45b42",
+      "uuid": "6db8242f-4bf9-4f29-a075-ea8f591da60a",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is Meeting in the context of Meeting Efficiency: Agenda, Time Limits, Decision Log as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, Meeting plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day14",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a240494239f69e45b43",
+      "uuid": "f9eac2fc-a37e-43c5-8c22-246ff05ed503",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is Agenda in the context of Meeting Efficiency: Agenda, Time Limits, Decision Log as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, Agenda plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day14",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a240494239f69e45b44",
+      "uuid": "433443d4-4e0d-41e2-a42f-b8dbb2fe799b",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is Limits in the context of Meeting Efficiency: Agenda, Time Limits, Decision Log as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, Limits plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day14",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

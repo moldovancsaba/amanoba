@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-27T08:55:54.286Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_EN",
+    "name": "Productivity 2026: How to Manage Teams and Time",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 6,
+    "title": "Capture: inboxes, triggers list, capture habits",
+    "lessonId": "PRODUCTIVITY_2026_EN_DAY_06"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69787a1a406e073a0d5f5560",
+      "uuid": "002c3628-3e06-436c-9d74-407aadc68e01",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "In the capture system, what is the purpose of having a single reliable “inbox” for incoming items before processing?",
+      "options": [
+        "To prevent loss and reduce mental load by ensuring everything lands in one trusted place before decisions are made.",
+        "To avoid deciding at all; the inbox replaces planning and automatically completes tasks for you.",
+        "To increase urgency by keeping items scattered across apps so you feel constant pressure to act.",
+        "To make capture harder so only the most important items survive by being remembered."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day6",
+        "#en",
+        "#course-productivity_2026_en",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "69787a1a406e073a0d5f5561",
+      "uuid": "0f33dca3-d94d-4902-80d5-db169f433975",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Which example best fits a “triggers list” used for capture habits?",
+      "options": [
+        "After every meeting, immediately capture action items in your inbox before starting the next task.",
+        "Whenever you feel anxious, start a new project so you feel productive again.",
+        "If something seems important, try to remember it and write it down later when you have time.",
+        "Check email continuously so nothing can surprise you and you never miss a message."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day6",
+        "#en",
+        "#course-productivity_2026_en",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "69787a1a406e073a0d5f5562",
+      "uuid": "f46968f2-ecec-489d-b899-899dbf09b1e8",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "You have three inboxes (email, notes, chat) and none is ever empty. Which change aligns with the course’s capture rule?",
+      "options": [
+        "Set a daily processing time to empty inboxes and apply a decision rule for every item (delete, archive, reply, delegate, schedule).",
+        "Add a fourth inbox to distribute load so each app looks less crowded day to day.",
+        "Stop capturing items to reduce inbox clutter; only keep tasks you can finish immediately.",
+        "Process inboxes only when you feel motivated, because consistency is less important than mood."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day6",
+        "#en",
+        "#course-productivity_2026_en",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "69787a1a406e073a0d5f5563",
+      "uuid": "275eba58-ba59-479a-9a93-493f0575338b",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "A capture habit becomes reliable when it is triggered automatically. Which design best supports that?",
+      "options": [
+        "Choose one trigger (e.g., after calls) and always capture next steps immediately into the same inbox until it becomes automatic.",
+        "Rely on memory and capture only when you remember, so you practice flexibility and resilience.",
+        "Capture only big items; small items can be held in your head to train focus.",
+        "Capture in different places each time to keep the process “fresh” and interesting."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day6",
+        "#en",
+        "#course-productivity_2026_en",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "69787a1a406e073a0d5f5564",
+      "uuid": "d8c8b8fb-ea1b-4bc4-954a-18f5d98720dc",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "What is the main failure mode if you capture everything but never process the inboxes on schedule?",
+      "options": [
+        "The system becomes a dumping ground, trust collapses, and you revert to memory-based work with higher stress and missed outcomes.",
+        "The system still works perfectly because capture alone is enough to produce results without decisions.",
+        "The system improves automatically over time because unprocessed items become less important.",
+        "The system eliminates the need for prioritization, because all items are equally urgent by default."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day6",
+        "#en",
+        "#course-productivity_2026_en",
+        "#productivity",
+        "#advanced",
+        "#critical-thinking"
+      ]
+    },
+    {
+      "_id": "69787a1a406e073a0d5f5565",
+      "uuid": "561109ef-056b-47ee-844f-671fb0414ae7",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Why does a capture system improve productivity under the outcome/constraints framing from Day 1?",
+      "options": [
+        "Because it reduces attention waste (constraint) and prevents loss, allowing more focused execution that produces measurable outcomes.",
+        "Because it increases output volume by creating more tasks, which automatically improves productivity.",
+        "Because it eliminates the need for deep work by turning all work into quick inbox processing.",
+        "Because it replaces outcomes with activity tracking, so results no longer need to be measured."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day6",
+        "#en",
+        "#course-productivity_2026_en",
+        "#productivity",
+        "#advanced",
+        "#critical-thinking"
+      ]
+    },
+    {
+      "_id": "69787a1a406e073a0d5f5566",
+      "uuid": "68e107fe-9624-47dd-b07d-ca1ae8ca667d",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "You captured action items after a meeting but forgot them until next week. Which change most directly fixes this within the capture system?",
+      "options": [
+        "Add a daily inbox-processing block where each item becomes a scheduled next action, delegated task, or explicitly dropped.",
+        "Capture more items into more places so the chance of remembering at least one location is higher.",
+        "Stop capturing after meetings so you can stay present; memory is more reliable than systems.",
+        "Only capture when the task feels urgent; non-urgent tasks do not need a system."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day6",
+        "#en",
+        "#course-productivity_2026_en",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    }
+  ]
+}

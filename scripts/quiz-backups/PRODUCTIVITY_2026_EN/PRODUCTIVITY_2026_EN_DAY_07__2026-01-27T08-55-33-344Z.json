@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-27T08:55:33.344Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_EN",
+    "name": "Productivity 2026: How to Manage Teams and Time",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 7,
+    "title": "Daily/Weekly System: morning ritual, daily huddle, weekly review",
+    "lessonId": "PRODUCTIVITY_2026_EN_DAY_07"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69787a1a406e073a0d5f5571",
+      "uuid": "f7534c91-7f11-4518-aa23-a30e14c882e9",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "In a daily/weekly system, what is the primary purpose of a short daily huddle (5–10 minutes)?",
+      "options": [
+        "To choose today’s priority outcomes and align the day’s blocks, not to add more tasks or hold long discussions.",
+        "To debate every open topic until consensus is perfect, even if execution time disappears.",
+        "To track who is working the hardest by counting messages and visible activity.",
+        "To replace weekly review, because daily planning makes reflection unnecessary."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day7",
+        "#en",
+        "#course-productivity_2026_en",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "69787a1a406e073a0d5f5572",
+      "uuid": "892cdabe-7a04-44d7-b313-3320f38b3c87",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Which morning ritual best supports the course’s system approach to execution?",
+      "options": [
+        "Review priorities, schedule at least one deep work block, and decide what will be ignored today to protect outcomes.",
+        "Start by checking notifications and email so you can react quickly to anything new.",
+        "Open multiple projects and pick whichever feels easiest in the moment to build momentum.",
+        "Hold a meeting first thing so everyone is immediately busy and visible."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day7",
+        "#en",
+        "#course-productivity_2026_en",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "69787a1a406e073a0d5f5573",
+      "uuid": "9d62e81a-4ed9-4465-bcd1-eff74188621c",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "You finish the week with high carryover again. Which weekly system adjustment is most aligned with the course?",
+      "options": [
+        "Reduce scope, improve prioritization, and schedule focus blocks earlier while protecting buffer time.",
+        "Add more tasks to the plan to force higher throughput by sheer volume.",
+        "Stop measuring carryover and focus only on how productive the week felt emotionally.",
+        "Schedule more meetings to create pressure instead of changing the execution system."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day7",
+        "#en",
+        "#course-productivity_2026_en",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "69787a1a406e073a0d5f5574",
+      "uuid": "f135d3db-223c-4257-95b6-d5180ceaea90",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Which choice best integrates time blocking and weekly review into one coherent system?",
+      "options": [
+        "Use weekly review to choose outcomes, then block deep work windows and batch shallow work so the plan matches constraints.",
+        "Block every hour with meetings so the calendar is full and nothing unexpected can occur.",
+        "Avoid blocking time; flexibility is more important than protecting deep work or outcomes.",
+        "Plan only in your head; writing schedules reduces creativity and therefore reduces outcomes."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day7",
+        "#en",
+        "#course-productivity_2026_en",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "69787a1a406e073a0d5f5575",
+      "uuid": "e202a041-20b6-4184-b6a6-abba8575932c",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Why does the course treat a weekly review as essential rather than optional in a productivity system?",
+      "options": [
+        "Because without a feedback loop you cannot see what worked, correct the system, or improve outcomes over time.",
+        "Because weekly review increases activity volume, which is the main definition of productivity in this course.",
+        "Because weekly review eliminates the need for daily planning and execution once done once.",
+        "Because weekly review replaces the need for prioritization; every task becomes equally important."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day7",
+        "#en",
+        "#course-productivity_2026_en",
+        "#productivity",
+        "#advanced",
+        "#critical-thinking"
+      ]
+    },
+    {
+      "_id": "69787a1a406e073a0d5f5576",
+      "uuid": "1c1e20e7-7024-4b87-919b-0b0c0265aee1",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "If a team runs daily huddles but never clarifies outcomes or next actions, what will most likely happen?",
+      "options": [
+        "Coordination time increases, but execution remains unclear, so activity rises while outcomes stagnate.",
+        "Outcomes accelerate automatically because daily meetings always produce completed work.",
+        "Deep work time increases because huddles reduce interruptions by default.",
+        "Carryover becomes irrelevant because talking about tasks completes them."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day7",
+        "#en",
+        "#course-productivity_2026_en",
+        "#productivity",
+        "#advanced",
+        "#critical-thinking"
+      ]
+    },
+    {
+      "_id": "69787a1a406e073a0d5f5577",
+      "uuid": "334f940c-8fab-4d9b-9b5a-abff266fef99",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "A daily plan looks good on paper but fails by noon due to surprises. Which adjustment best matches the course’s system design?",
+      "options": [
+        "Add buffer time and define an explicit re-planning moment (e.g., midday), so the system adapts without destroying deep work blocks.",
+        "Remove buffer time to force discipline; surprises should be handled by working faster, not by planning slack.",
+        "Add more tasks in the morning so you can “make up” for interruptions later in the day.",
+        "Schedule meetings during deep work windows so surprises are discussed instead of executed."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day7",
+        "#en",
+        "#course-productivity_2026_en",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    }
+  ]
+}

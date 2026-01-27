@@ -24,6 +24,7 @@ It is designed to be used as a **handover prompt + operating manual**, similar i
 ### Question requirements
 - Standalone: answerable without opening the lesson.
 - No lesson references: no “as described in the lesson”, no “follow the method in the lesson”, no title-based crutches.
+- No checklist-snippet crutches: reject questions that quote truncated checklist snippets (e.g. `✅ ...` or quoted `...`) instead of giving a clear scenario.
 - No throwaway options: no “no impact / only theoretical / not mentioned…”.
 - Options must be detailed and educational (minimum length enforced by validator).
 - 0 RECALL questions (`questionType: recall` is forbidden).
@@ -154,4 +155,3 @@ For the requested scope (course/day/all):
 - Lessons below threshold are listed in `lesson-refine-tasks.md`
 - Generator gaps are listed in `rewrite-failures.md`
 - If apply mode was requested: DB updated without deleting valid >7 pools (only invalid removed; new valid questions added until minimums met)
-

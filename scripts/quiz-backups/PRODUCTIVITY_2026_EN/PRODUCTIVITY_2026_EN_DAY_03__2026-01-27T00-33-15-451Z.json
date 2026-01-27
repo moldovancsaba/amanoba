@@ -1,0 +1,162 @@
+{
+  "backedUpAt": "2026-01-27T00:33:16.968Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_EN",
+    "name": "Productivity 2026: How to Manage Teams and Time",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 3,
+    "title": "Goal hierarchy: vision → outcomes → projects → next actions",
+    "lessonId": "PRODUCTIVITY_2026_EN_DAY_03"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a220494239f69e45a93",
+      "uuid": "ff83d8db-e4b1-43a1-b07e-dbadd87ec287",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How many levels does the goal hierarchy have?",
+      "options": [
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "correctIndex": 2,
+      "hashtags": [
+        "#day-03",
+        "#foundation",
+        "#recall",
+        "#en"
+      ]
+    },
+    {
+      "_id": "69776a220494239f69e45a94",
+      "uuid": "cce99d4c-9d30-4650-ae82-9e4a1b05ca23",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Which is the highest level in the goal hierarchy?",
+      "options": [
+        "Next actions",
+        "Projects",
+        "Outcomes",
+        "Vision"
+      ],
+      "correctIndex": 3,
+      "hashtags": [
+        "#day-03",
+        "#scenario",
+        "#application",
+        "#en"
+      ]
+    },
+    {
+      "_id": "69776a220494239f69e45a95",
+      "uuid": "e207221f-846b-447b-8ce6-0d63a64d1b5b",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "What is the definition of a next action?",
+      "options": [
+        "A big project",
+        "A measurable outcome",
+        "A concrete, actionable step (today, tomorrow)",
+        "A long-term goal"
+      ],
+      "correctIndex": 2,
+      "hashtags": [
+        "#day-03",
+        "#foundation",
+        "#recall",
+        "#en"
+      ]
+    },
+    {
+      "_id": "69776a220494239f69e45a96",
+      "uuid": "841cb6e8-524b-4078-9e6d-135885ff64c2",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "What is the common mistake when doing projects without vision?",
+      "options": [
+        "You progress too slowly",
+        "You don't know why you're doing it",
+        "You progress too quickly",
+        "There's no mistake"
+      ],
+      "correctIndex": 1,
+      "hashtags": [
+        "#day-03",
+        "#foundation",
+        "#recall",
+        "#en"
+      ]
+    },
+    {
+      "_id": "69776a220494239f69e45a97",
+      "uuid": "51ed7a20-fd4d-44c8-8d52-13bb319d712c",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"exercise (25-30 min) — Personal goal hie...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day3",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a220494239f69e45a98",
+      "uuid": "401e5923-10b5-4ee5-96d3-db8f7ac74ce3",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"exercise (25-30 min) — Personal goal hie...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day3",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a220494239f69e45a99",
+      "uuid": "ced09f57-dcf1-4a20-acec-d7cd690140ba",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "How does the concept \"Create a personal goal hierarchy...\" mentioned in the lesson impact achieving your goals?",
+      "options": [
+        "As described in detail in the lesson, Create a personal goal hierarc... increases effectiveness and reduces risk",
+        "No significant impact",
+        "Only matters theoretically",
+        "Only an optional element"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day3",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    }
+  ]
+}

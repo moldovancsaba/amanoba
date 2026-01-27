@@ -1,0 +1,37 @@
+{
+  "generatedAt": "2026-01-27T11:24:30.934Z",
+  "note": "Post-apply sample read from DB (one question).",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_HU",
+    "language": "hu",
+    "name": "Termelékenység 2026: Hogyan kezelj csapatokat és időt"
+  },
+  "lesson": {
+    "lessonId": "PRODUCTIVITY_2026_HU_DAY_30",
+    "dayNumber": 30,
+    "title": "A termelékenység mestere: Komprehenzív integráció, elkötelezettség"
+  },
+  "question": {
+    "_id": "6978a03babea34442b979d51",
+    "uuid": "9088597b-cdf2-437f-90e1-6af70c674c86",
+    "questionType": "application",
+    "difficulty": "MEDIUM",
+    "hashtags": [
+      "#day30",
+      "#hu",
+      "#all-languages",
+      "#course-productivity_2026_hu",
+      "#productivity",
+      "#intermediate",
+      "#application"
+    ],
+    "question": "Egy projektben a „Outcome (eredmény/hatás):” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?",
+    "options": [
+      "Konkrét ellenőrzőlistát készítek, implementálom egy kis scope-on, tesztelem a hatást, majd kiterjesztem a teljes scope-ra",
+      "Csak definícióként kezelem, ezért nem derül ki, működik-e a gyakorlatban",
+      "Kihagyom az implementációt, mert túl időigényesnek tűnik",
+      "Végrehajtom, de nem mérek és nem dokumentálok semmit"
+    ],
+    "correctIndex": 0
+  }
+}

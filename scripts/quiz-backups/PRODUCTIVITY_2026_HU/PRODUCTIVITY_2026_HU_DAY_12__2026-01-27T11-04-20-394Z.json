@@ -1,0 +1,82 @@
+{
+  "backedUpAt": "2026-01-27T11:04:23.367Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_HU",
+    "name": "Termelékenység 2026: Hogyan kezelj csapatokat és időt",
+    "language": "hu"
+  },
+  "lesson": {
+    "dayNumber": 12,
+    "title": "Elszámoltathatósági Struktúrák: Rendszerek, amelyek pályán tartanak",
+    "lessonId": "PRODUCTIVITY_2026_HU_DAY_12"
+  },
+  "questionCount": 3,
+  "questions": [
+    {
+      "_id": "697766db9b3efa470445604c",
+      "uuid": "62349c54-57ba-4610-b91d-c4f6006ae1f4",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "A leckében leírt \"✅ Van egy egyértelmű, 4-8 hetes célt az ...\" gyakorlatot hogyan implementálnád a saját munkádban?",
+      "options": [
+        "Lépésről lépésre követem a leckében leírt módszert, dokumentálom az eredményeket, és finomhangolom a folyamatot",
+        "Egyszerre próbálom ki mindent",
+        "Csak olvasom, nem alkalmazom",
+        "Várok, amíg mások megcsinálják"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day12",
+        "#hu",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "697766db9b3efa470445604d",
+      "uuid": "94829cc7-e79d-4ad0-91e4-2e3b0638d8dd",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "A leckében leírt \"✅ Megírtam a célt egy egyszerű nyilatkoz...\" gyakorlatot hogyan implementálnád a saját munkádban?",
+      "options": [
+        "Lépésről lépésre követem a leckében leírt módszert, dokumentálom az eredményeket, és finomhangolom a folyamatot",
+        "Egyszerre próbálom ki mindent",
+        "Csak olvasom, nem alkalmazom",
+        "Várok, amíg mások megcsinálják"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day12",
+        "#hu",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "697766db9b3efa470445604e",
+      "uuid": "d486b1ef-5fc5-4c97-aa72-401e7ed28537",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "A leckében leírt \"✅ Van egy egyértelmű, 4-8 hetes célt az ...\" gyakorlatot hogyan implementálnád a saját munkádban?",
+      "options": [
+        "Lépésről lépésre követem a leckében leírt módszert, dokumentálom az eredményeket, és finomhangolom a folyamatot",
+        "Egyszerre próbálom ki mindent",
+        "Csak olvasom, nem alkalmazom",
+        "Várok, amíg mások megcsinálják"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day12",
+        "#hu",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

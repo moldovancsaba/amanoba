@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-27T08:52:02.639Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_EN",
+    "name": "Productivity 2026: How to Manage Teams and Time",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 11,
+    "title": "Goal setting & OKRs (SMART goals, OKR framework)",
+    "lessonId": "PRODUCTIVITY_2026_EN_DAY_11"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a230494239f69e45b1b",
+      "uuid": "1569bcca-1ee8-4154-8a5f-1c00dc03e579",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Productivity without purpose = just busy.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day11",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a230494239f69e45b1c",
+      "uuid": "5bab077c-c822-441a-84e3-3fc748b93cc3",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Direction\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day11",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a230494239f69e45b1d",
+      "uuid": "999d6aa7-7c58-41e2-bfac-949fb5ee28c4",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Motivation\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day11",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a230494239f69e45b1e",
+      "uuid": "757ae2dd-e506-4899-858f-30534cd64e7c",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "How does the concept \"Goal Setting & OKRs: What Do You Want to Achieve...\" mentioned in the lesson impact achieving your goals?",
+      "options": [
+        "As described in detail in the lesson, Goal Setting & OKRs: What Do Y... increases effectiveness and reduces risk",
+        "No significant impact",
+        "Only matters theoretically",
+        "Only an optional element"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day11",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a230494239f69e45b1f",
+      "uuid": "0f86579e-e112-486f-95a2-0ca14989348d",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is Direction in the context of Goal Setting & OKRs: What Do You Want to Achieve? as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, Direction plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day11",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a230494239f69e45b20",
+      "uuid": "17926097-9f27-4c20-8cd0-ca8b8b6f48bb",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is Measurement in the context of Goal Setting & OKRs: What Do You Want to Achieve? as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, Measurement plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day11",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a230494239f69e45b21",
+      "uuid": "405de51a-30b3-423b-bac9-4cb04fdad50b",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is Setting in the context of Goal Setting & OKRs: What Do You Want to Achieve? as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, Setting plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day11",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1361 @@
+{
+  "generatedAt": "2026-01-27T08:53:17.634Z",
+  "dryRun": false,
+  "minLessonScore": 70,
+  "courseFilter": "PRODUCTIVITY_2026_EN",
+  "totals": {
+    "courses": 1,
+    "lessonsEvaluated": 30,
+    "lessonsNeedingRefine": 0,
+    "lessonsRewritten": 18,
+    "lessonsFailedRewrite": 0,
+    "questionsDeleted": 126,
+    "questionsInserted": 126
+  },
+  "lessons": [
+    {
+      "courseId": "PRODUCTIVITY_2026_EN",
+      "courseName": "Productivity 2026: How to Manage Teams and Time",
+      "language": "en",
+      "dayNumber": 1,
+      "lessonId": "PRODUCTIVITY_2026_EN_DAY_01",
+      "title": "Productivity definition: output, outcomes, and constraints",
+      "lessonCreatedAt": "2026-01-23T19:27:02.531Z",
+      "lessonQuality": {
+        "score": 85,
+        "issues": [
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 2622,
+          "wordCount": 390,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": true
+        }
+      },
+      "action": "PASS",
+      "rewrite": {
+        "existingCounts": {
+          "total": 7,
+          "valid": 7,
+          "invalid": 0,
+          "application": 6,
+          "critical": 1,
+          "recall": 0
+        },
+        "cleanedInvalid": false
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_EN",
+      "courseName": "Productivity 2026: How to Manage Teams and Time",
+      "language": "en",
+      "dayNumber": 2,
+      "lessonId": "PRODUCTIVITY_2026_EN_DAY_02",
+      "title": "Time, energy, attention: what you manage in practice",
+      "lessonCreatedAt": "2026-01-23T21:16:54.803Z",
+      "lessonQuality": {
+        "score": 70,
+        "issues": [
+          "NO_CLEAR_DEFINITIONS",
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 3091,
+          "wordCount": 465,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": true
+        }
+      },
+      "action": "PASS",
+      "rewrite": {
+        "existingCounts": {
+          "total": 7,
+          "valid": 7,
+          "invalid": 0,
+          "application": 5,
+          "critical": 2,
+          "recall": 0
+        },
+        "cleanedInvalid": false
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_EN",
+      "courseName": "Productivity 2026: How to Manage Teams and Time",
+      "language": "en",
+      "dayNumber": 3,
+      "lessonId": "PRODUCTIVITY_2026_EN_DAY_03",
+      "title": "Goal hierarchy: vision → outcomes → projects → next actions",
+      "lessonCreatedAt": "2026-01-23T21:23:43.506Z",
+      "lessonQuality": {
+        "score": 70,
+        "issues": [
+          "NO_CLEAR_DEFINITIONS",
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 2719,
+          "wordCount": 439,
+          "hasBullets": true,
+          "hasNumberedSteps": true,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": true
+        }
+      },
+      "action": "PASS",
+      "rewrite": {
+        "existingCounts": {
+          "total": 7,
+          "valid": 7,
+          "invalid": 0,
+          "application": 5,
+          "critical": 2,
+          "recall": 0
+        },
+        "cleanedInvalid": false
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_EN",
+      "courseName": "Productivity 2026: How to Manage Teams and Time",
+      "language": "en",
+      "dayNumber": 4,
+      "lessonId": "PRODUCTIVITY_2026_EN_DAY_04",
+      "title": "Habits vs systems: why systems scale better",
+      "lessonCreatedAt": "2026-01-23T21:29:08.529Z",
+      "lessonQuality": {
+        "score": 85,
+        "issues": [
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 2579,
+          "wordCount": 397,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": true
+        }
+      },
+      "action": "PASS",
+      "rewrite": {
+        "existingCounts": {
+          "total": 7,
+          "valid": 7,
+          "invalid": 0,
+          "application": 5,
+          "critical": 2,
+          "recall": 0
+        },
+        "cleanedInvalid": false
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_EN",
+      "courseName": "Productivity 2026: How to Manage Teams and Time",
+      "language": "en",
+      "dayNumber": 5,
+      "lessonId": "PRODUCTIVITY_2026_EN_DAY_05",
+      "title": "Measurement: simple weekly review metrics (throughput, focus blocks, carryover)",
+      "lessonCreatedAt": "2026-01-23T21:35:51.713Z",
+      "lessonQuality": {
+        "score": 85,
+        "issues": [
+          "NO_CLEAR_DEFINITIONS"
+        ],
+        "signals": {
+          "charCount": 2368,
+          "wordCount": 380,
+          "hasBullets": true,
+          "hasNumberedSteps": true,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "action": "PASS",
+      "rewrite": {
+        "existingCounts": {
+          "total": 7,
+          "valid": 7,
+          "invalid": 0,
+          "application": 5,
+          "critical": 2,
+          "recall": 0
+        },
+        "cleanedInvalid": false
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_EN",
+      "courseName": "Productivity 2026: How to Manage Teams and Time",
+      "language": "en",
+      "dayNumber": 6,
+      "lessonId": "PRODUCTIVITY_2026_EN_DAY_06",
+      "title": "Capture: inboxes, triggers list, capture habits",
+      "lessonCreatedAt": "2026-01-23T21:43:42.771Z",
+      "lessonQuality": {
+        "score": 85,
+        "issues": [
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 2390,
+          "wordCount": 380,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": true
+        }
+      },
+      "action": "PASS",
+      "rewrite": {
+        "existingCounts": {
+          "total": 7,
+          "valid": 7,
+          "invalid": 0,
+          "application": 5,
+          "critical": 2,
+          "recall": 0
+        },
+        "cleanedInvalid": false
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_EN",
+      "courseName": "Productivity 2026: How to Manage Teams and Time",
+      "language": "en",
+      "dayNumber": 7,
+      "lessonId": "PRODUCTIVITY_2026_EN_DAY_07",
+      "title": "Daily/Weekly System: morning ritual, daily huddle, weekly review",
+      "lessonCreatedAt": "2026-01-24T08:15:46.220Z",
+      "lessonQuality": {
+        "score": 70,
+        "issues": [
+          "NO_CLEAR_DEFINITIONS",
+          "NO_EXAMPLES"
+        ],
+        "signals": {
+          "charCount": 1840,
+          "wordCount": 307,
+          "hasBullets": true,
+          "hasNumberedSteps": true,
+          "hasExamples": false,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": true,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "action": "PASS",
+      "rewrite": {
+        "existingCounts": {
+          "total": 7,
+          "valid": 7,
+          "invalid": 0,
+          "application": 5,
+          "critical": 2,
+          "recall": 0
+        },
+        "cleanedInvalid": false
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_EN",
+      "courseName": "Productivity 2026: How to Manage Teams and Time",
+      "language": "en",
+      "dayNumber": 8,
+      "lessonId": "PRODUCTIVITY_2026_EN_DAY_8",
+      "title": "Context Switching Cost: Attention Residue, Batching, Deep Work Blocks",
+      "lessonCreatedAt": "2026-01-24T08:31:18.313Z",
+      "lessonQuality": {
+        "score": 85,
+        "issues": [
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 2284,
+          "wordCount": 385,
+          "hasBullets": true,
+          "hasNumberedSteps": true,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": true
+        }
+      },
+      "action": "PASS",
+      "rewrite": {
+        "existingCounts": {
+          "total": 7,
+          "valid": 7,
+          "invalid": 0,
+          "application": 5,
+          "critical": 2,
+          "recall": 0
+        },
+        "cleanedInvalid": false
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_EN",
+      "courseName": "Productivity 2026: How to Manage Teams and Time",
+      "language": "en",
+      "dayNumber": 9,
+      "lessonId": "PRODUCTIVITY_2026_EN_DAY_9",
+      "title": "Delegation vs Elimination: When to Delegate, What to Eliminate",
+      "lessonCreatedAt": "2026-01-24T08:36:24.274Z",
+      "lessonQuality": {
+        "score": 100,
+        "issues": [],
+        "signals": {
+          "charCount": 2482,
+          "wordCount": 393,
+          "hasBullets": true,
+          "hasNumberedSteps": true,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "action": "PASS",
+      "rewrite": {
+        "existingCounts": {
+          "total": 7,
+          "valid": 7,
+          "invalid": 0,
+          "application": 5,
+          "critical": 2,
+          "recall": 0
+        },
+        "cleanedInvalid": false
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_EN",
+      "courseName": "Productivity 2026: How to Manage Teams and Time",
+      "language": "en",
+      "dayNumber": 10,
+      "lessonId": "PRODUCTIVITY_2026_EN_DAY_10",
+      "title": "Energy Management: When to Work, When to Rest, Recovery Rituals",
+      "lessonCreatedAt": "2026-01-24T08:40:13.617Z",
+      "lessonQuality": {
+        "score": 70,
+        "issues": [
+          "NO_EXAMPLES",
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 2697,
+          "wordCount": 429,
+          "hasBullets": true,
+          "hasNumberedSteps": true,
+          "hasExamples": false,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": true,
+          "addPitfallsSection": false,
+          "addMetricsSection": true
+        }
+      },
+      "action": "PASS",
+      "rewrite": {
+        "existingCounts": {
+          "total": 7,
+          "valid": 7,
+          "invalid": 0,
+          "application": 5,
+          "critical": 2,
+          "recall": 0
+        },
+        "cleanedInvalid": false
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_EN",
+      "courseName": "Productivity 2026: How to Manage Teams and Time",
+      "language": "en",
+      "dayNumber": 11,
+      "lessonId": "PRODUCTIVITY_2026_EN_DAY_11",
+      "title": "Goal setting & OKRs (SMART goals, OKR framework)",
+      "lessonCreatedAt": "2026-01-24T08:41:50.846Z",
+      "lessonQuality": {
+        "score": 100,
+        "issues": [],
+        "signals": {
+          "charCount": 2585,
+          "wordCount": 410,
+          "hasBullets": true,
+          "hasNumberedSteps": true,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "action": "ENRICHED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/PRODUCTIVITY_2026_EN/PRODUCTIVITY_2026_EN_DAY_11__2026-01-27T08-53-17-634Z.json",
+        "insertedCount": 7,
+        "deletedInvalidCount": 7,
+        "warnings": [
+          "Question 1: Question may not be specific to lesson content. Verify it tests actual lesson material.",
+          "Question 2: Question may not be specific to lesson content. Verify it tests actual lesson material.",
+          "Question 6: Question may not be specific to lesson content. Verify it tests actual lesson material."
+        ],
+        "existingCounts": {
+          "total": 7,
+          "valid": 0,
+          "invalid": 7,
+          "application": 0,
+          "critical": 0,
+          "recall": 0
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_EN",
+      "courseName": "Productivity 2026: How to Manage Teams and Time",
+      "language": "en",
+      "dayNumber": 12,
+      "lessonId": "PRODUCTIVITY_2026_EN_DAY_12",
+      "title": "Accountability Structures: Systems That Keep You on Track",
+      "lessonCreatedAt": "2026-01-24T09:15:53.315Z",
+      "lessonQuality": {
+        "score": 85,
+        "issues": [
+          "NO_CLEAR_DEFINITIONS"
+        ],
+        "signals": {
+          "charCount": 2733,
+          "wordCount": 421,
+          "hasBullets": true,
+          "hasNumberedSteps": true,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "action": "PASS",
+      "rewrite": {
+        "existingCounts": {
+          "total": 7,
+          "valid": 7,
+          "invalid": 0,
+          "application": 5,
+          "critical": 2,
+          "recall": 0
+        },
+        "cleanedInvalid": false
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_EN",
+      "courseName": "Productivity 2026: How to Manage Teams and Time",
+      "language": "en",
+      "dayNumber": 13,
+      "lessonId": "PRODUCTIVITY_2026_EN_DAY_13",
+      "title": "Decision-Making Frameworks: Rapid Decisions, Decision Matrix, Avoiding Analysis Paralysis",
+      "lessonCreatedAt": "2026-01-24T09:23:07.897Z",
+      "lessonQuality": {
+        "score": 85,
+        "issues": [
+          "NO_EXAMPLES"
+        ],
+        "signals": {
+          "charCount": 3357,
+          "wordCount": 517,
+          "hasBullets": true,
+          "hasNumberedSteps": true,
+          "hasExamples": false,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": true,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "action": "PASS",
+      "rewrite": {
+        "existingCounts": {
+          "total": 7,
+          "valid": 7,
+          "invalid": 0,
+          "application": 5,
+          "critical": 2,
+          "recall": 0
+        },
+        "cleanedInvalid": false
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_EN",
+      "courseName": "Productivity 2026: How to Manage Teams and Time",
+      "language": "en",
+      "dayNumber": 14,
+      "lessonId": "PRODUCTIVITY_2026_EN_DAY_14",
+      "title": "Meeting efficiency (agenda, time limits, decision log)",
+      "lessonCreatedAt": "2026-01-24T09:29:48.519Z",
+      "lessonQuality": {
+        "score": 100,
+        "issues": [],
+        "signals": {
+          "charCount": 2592,
+          "wordCount": 405,
+          "hasBullets": true,
+          "hasNumberedSteps": true,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "action": "ENRICHED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/PRODUCTIVITY_2026_EN/PRODUCTIVITY_2026_EN_DAY_14__2026-01-27T08-53-17-634Z.json",
+        "insertedCount": 7,
+        "deletedInvalidCount": 7,
+        "warnings": [],
+        "existingCounts": {
+          "total": 7,
+          "valid": 0,
+          "invalid": 7,
+          "application": 0,
+          "critical": 0,
+          "recall": 0
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_EN",
+      "courseName": "Productivity 2026: How to Manage Teams and Time",
+      "language": "en",
+      "dayNumber": 15,
+      "lessonId": "PRODUCTIVITY_2026_EN_DAY_15",
+      "title": "Teamwork and synergy (roles, responsibility, coordination)",
+      "lessonCreatedAt": "2026-01-24T09:29:51.632Z",
+      "lessonQuality": {
+        "score": 100,
+        "issues": [],
+        "signals": {
+          "charCount": 2640,
+          "wordCount": 401,
+          "hasBullets": true,
+          "hasNumberedSteps": true,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "action": "ENRICHED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/PRODUCTIVITY_2026_EN/PRODUCTIVITY_2026_EN_DAY_15__2026-01-27T08-53-17-634Z.json",
+        "insertedCount": 7,
+        "deletedInvalidCount": 7,
+        "warnings": [],
+        "existingCounts": {
+          "total": 7,
+          "valid": 0,
+          "invalid": 7,
+          "application": 0,
+          "critical": 0,
+          "recall": 0
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_EN",
+      "courseName": "Productivity 2026: How to Manage Teams and Time",
+      "language": "en",
+      "dayNumber": 16,
+      "lessonId": "PRODUCTIVITY_2026_EN_DAY_16",
+      "title": "Stress management and fatigue (recovery, work-life balance)",
+      "lessonCreatedAt": "2026-01-24T09:29:55.025Z",
+      "lessonQuality": {
+        "score": 100,
+        "issues": [],
+        "signals": {
+          "charCount": 2652,
+          "wordCount": 399,
+          "hasBullets": true,
+          "hasNumberedSteps": true,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "action": "ENRICHED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/PRODUCTIVITY_2026_EN/PRODUCTIVITY_2026_EN_DAY_16__2026-01-27T08-53-17-634Z.json",
+        "insertedCount": 7,
+        "deletedInvalidCount": 7,
+        "warnings": [],
+        "existingCounts": {
+          "total": 7,
+          "valid": 0,
+          "invalid": 7,
+          "application": 0,
+          "critical": 0,
+          "recall": 0
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_EN",
+      "courseName": "Productivity 2026: How to Manage Teams and Time",
+      "language": "en",
+      "dayNumber": 17,
+      "lessonId": "PRODUCTIVITY_2026_EN_DAY_17",
+      "title": "Sustaining motivation (tracking progress, celebrating wins)",
+      "lessonCreatedAt": "2026-01-24T09:29:58.198Z",
+      "lessonQuality": {
+        "score": 100,
+        "issues": [],
+        "signals": {
+          "charCount": 2622,
+          "wordCount": 403,
+          "hasBullets": true,
+          "hasNumberedSteps": true,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "action": "ENRICHED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/PRODUCTIVITY_2026_EN/PRODUCTIVITY_2026_EN_DAY_17__2026-01-27T08-53-17-634Z.json",
+        "insertedCount": 7,
+        "deletedInvalidCount": 7,
+        "warnings": [],
+        "existingCounts": {
+          "total": 7,
+          "valid": 0,
+          "invalid": 7,
+          "application": 0,
+          "critical": 0,
+          "recall": 0
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_EN",
+      "courseName": "Productivity 2026: How to Manage Teams and Time",
+      "language": "en",
+      "dayNumber": 18,
+      "lessonId": "PRODUCTIVITY_2026_EN_DAY_18",
+      "title": "Crisis management and adaptability (adaptation, quick learning)",
+      "lessonCreatedAt": "2026-01-24T09:30:01.057Z",
+      "lessonQuality": {
+        "score": 100,
+        "issues": [],
+        "signals": {
+          "charCount": 2697,
+          "wordCount": 408,
+          "hasBullets": true,
+          "hasNumberedSteps": true,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "action": "ENRICHED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/PRODUCTIVITY_2026_EN/PRODUCTIVITY_2026_EN_DAY_18__2026-01-27T08-53-17-634Z.json",
+        "insertedCount": 7,
+        "deletedInvalidCount": 7,
+        "warnings": [],
+        "existingCounts": {
+          "total": 7,
+          "valid": 0,
+          "invalid": 7,
+          "application": 0,
+          "critical": 0,
+          "recall": 0
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_EN",
+      "courseName": "Productivity 2026: How to Manage Teams and Time",
+      "language": "en",
+      "dayNumber": 19,
+      "lessonId": "PRODUCTIVITY_2026_EN_DAY_19",
+      "title": "Long-term planning (years ahead, strategy, evolution)",
+      "lessonCreatedAt": "2026-01-24T09:30:04.447Z",
+      "lessonQuality": {
+        "score": 100,
+        "issues": [],
+        "signals": {
+          "charCount": 2629,
+          "wordCount": 395,
+          "hasBullets": true,
+          "hasNumberedSteps": true,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "action": "ENRICHED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/PRODUCTIVITY_2026_EN/PRODUCTIVITY_2026_EN_DAY_19__2026-01-27T08-53-17-634Z.json",
+        "insertedCount": 7,
+        "deletedInvalidCount": 7,
+        "warnings": [],
+        "existingCounts": {
+          "total": 7,
+          "valid": 0,
+          "invalid": 7,
+          "application": 0,
+          "critical": 0,
+          "recall": 0
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_EN",
+      "courseName": "Productivity 2026: How to Manage Teams and Time",
+      "language": "en",
+      "dayNumber": 20,
+      "lessonId": "PRODUCTIVITY_2026_EN_DAY_20",
+      "title": "Personal life productivity (home organization, personal projects)",
+      "lessonCreatedAt": "2026-01-24T09:30:07.220Z",
+      "lessonQuality": {
+        "score": 100,
+        "issues": [],
+        "signals": {
+          "charCount": 2645,
+          "wordCount": 410,
+          "hasBullets": true,
+          "hasNumberedSteps": true,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "action": "ENRICHED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/PRODUCTIVITY_2026_EN/PRODUCTIVITY_2026_EN_DAY_20__2026-01-27T08-53-17-634Z.json",
+        "insertedCount": 7,
+        "deletedInvalidCount": 7,
+        "warnings": [],
+        "existingCounts": {
+          "total": 7,
+          "valid": 0,
+          "invalid": 7,
+          "application": 0,
+          "critical": 0,
+          "recall": 0
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_EN",
+      "courseName": "Productivity 2026: How to Manage Teams and Time",
+      "language": "en",
+      "dayNumber": 21,
+      "lessonId": "PRODUCTIVITY_2026_EN_DAY_21",
+      "title": "Community and network (relationships, learning with others)",
+      "lessonCreatedAt": "2026-01-24T09:30:10.110Z",
+      "lessonQuality": {
+        "score": 100,
+        "issues": [],
+        "signals": {
+          "charCount": 2621,
+          "wordCount": 389,
+          "hasBullets": true,
+          "hasNumberedSteps": true,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "action": "ENRICHED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/PRODUCTIVITY_2026_EN/PRODUCTIVITY_2026_EN_DAY_21__2026-01-27T08-53-17-634Z.json",
+        "insertedCount": 7,
+        "deletedInvalidCount": 7,
+        "warnings": [],
+        "existingCounts": {
+          "total": 7,
+          "valid": 0,
+          "invalid": 7,
+          "application": 0,
+          "critical": 0,
+          "recall": 0
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_EN",
+      "courseName": "Productivity 2026: How to Manage Teams and Time",
+      "language": "en",
+      "dayNumber": 22,
+      "lessonId": "PRODUCTIVITY_2026_EN_DAY_22",
+      "title": "Technology and tools (automation, choosing the right technology)",
+      "lessonCreatedAt": "2026-01-24T09:30:12.935Z",
+      "lessonQuality": {
+        "score": 100,
+        "issues": [],
+        "signals": {
+          "charCount": 2596,
+          "wordCount": 389,
+          "hasBullets": true,
+          "hasNumberedSteps": true,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "action": "ENRICHED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/PRODUCTIVITY_2026_EN/PRODUCTIVITY_2026_EN_DAY_22__2026-01-27T08-53-17-634Z.json",
+        "insertedCount": 7,
+        "deletedInvalidCount": 7,
+        "warnings": [],
+        "existingCounts": {
+          "total": 7,
+          "valid": 0,
+          "invalid": 7,
+          "application": 0,
+          "critical": 0,
+          "recall": 0
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_EN",
+      "courseName": "Productivity 2026: How to Manage Teams and Time",
+      "language": "en",
+      "dayNumber": 23,
+      "lessonId": "PRODUCTIVITY_2026_EN_DAY_23",
+      "title": "Creativity and innovation (rethinking, experimentation)",
+      "lessonCreatedAt": "2026-01-24T09:30:15.709Z",
+      "lessonQuality": {
+        "score": 100,
+        "issues": [],
+        "signals": {
+          "charCount": 2594,
+          "wordCount": 401,
+          "hasBullets": true,
+          "hasNumberedSteps": true,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "action": "ENRICHED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/PRODUCTIVITY_2026_EN/PRODUCTIVITY_2026_EN_DAY_23__2026-01-27T08-53-17-634Z.json",
+        "insertedCount": 7,
+        "deletedInvalidCount": 7,
+        "warnings": [],
+        "existingCounts": {
+          "total": 7,
+          "valid": 0,
+          "invalid": 7,
+          "application": 0,
+          "critical": 0,
+          "recall": 0
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_EN",
+      "courseName": "Productivity 2026: How to Manage Teams and Time",
+      "language": "en",
+      "dayNumber": 24,
+      "lessonId": "PRODUCTIVITY_2026_EN_DAY_24",
+      "title": "Filtering and priorities (what to ignore, what matters)",
+      "lessonCreatedAt": "2026-01-24T09:30:18.349Z",
+      "lessonQuality": {
+        "score": 100,
+        "issues": [],
+        "signals": {
+          "charCount": 2539,
+          "wordCount": 388,
+          "hasBullets": true,
+          "hasNumberedSteps": true,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "action": "ENRICHED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/PRODUCTIVITY_2026_EN/PRODUCTIVITY_2026_EN_DAY_24__2026-01-27T08-53-17-634Z.json",
+        "insertedCount": 7,
+        "deletedInvalidCount": 7,
+        "warnings": [],
+        "existingCounts": {
+          "total": 7,
+          "valid": 0,
+          "invalid": 7,
+          "application": 0,
+          "critical": 0,
+          "recall": 0
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_EN",
+      "courseName": "Productivity 2026: How to Manage Teams and Time",
+      "language": "en",
+      "dayNumber": 25,
+      "lessonId": "PRODUCTIVITY_2026_EN_DAY_25",
+      "title": "Skill development (higher levels, new competencies)",
+      "lessonCreatedAt": "2026-01-24T09:30:20.890Z",
+      "lessonQuality": {
+        "score": 100,
+        "issues": [],
+        "signals": {
+          "charCount": 2490,
+          "wordCount": 377,
+          "hasBullets": true,
+          "hasNumberedSteps": true,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "action": "ENRICHED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/PRODUCTIVITY_2026_EN/PRODUCTIVITY_2026_EN_DAY_25__2026-01-27T08-53-17-634Z.json",
+        "insertedCount": 7,
+        "deletedInvalidCount": 7,
+        "warnings": [],
+        "existingCounts": {
+          "total": 7,
+          "valid": 0,
+          "invalid": 7,
+          "application": 0,
+          "critical": 0,
+          "recall": 0
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_EN",
+      "courseName": "Productivity 2026: How to Manage Teams and Time",
+      "language": "en",
+      "dayNumber": 26,
+      "lessonId": "PRODUCTIVITY_2026_EN_DAY_26",
+      "title": "Mentoring and teaching (sharing knowledge, helping others)",
+      "lessonCreatedAt": "2026-01-24T09:30:23.856Z",
+      "lessonQuality": {
+        "score": 100,
+        "issues": [],
+        "signals": {
+          "charCount": 2602,
+          "wordCount": 400,
+          "hasBullets": true,
+          "hasNumberedSteps": true,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "action": "ENRICHED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/PRODUCTIVITY_2026_EN/PRODUCTIVITY_2026_EN_DAY_26__2026-01-27T08-53-17-634Z.json",
+        "insertedCount": 7,
+        "deletedInvalidCount": 7,
+        "warnings": [],
+        "existingCounts": {
+          "total": 7,
+          "valid": 0,
+          "invalid": 7,
+          "application": 0,
+          "critical": 0,
+          "recall": 0
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_EN",
+      "courseName": "Productivity 2026: How to Manage Teams and Time",
+      "language": "en",
+      "dayNumber": 27,
+      "lessonId": "PRODUCTIVITY_2026_EN_DAY_27",
+      "title": "Habits and rituals (daily routines, long-term action)",
+      "lessonCreatedAt": "2026-01-24T09:30:26.443Z",
+      "lessonQuality": {
+        "score": 100,
+        "issues": [],
+        "signals": {
+          "charCount": 2520,
+          "wordCount": 383,
+          "hasBullets": true,
+          "hasNumberedSteps": true,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "action": "ENRICHED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/PRODUCTIVITY_2026_EN/PRODUCTIVITY_2026_EN_DAY_27__2026-01-27T08-53-17-634Z.json",
+        "insertedCount": 7,
+        "deletedInvalidCount": 7,
+        "warnings": [],
+        "existingCounts": {
+          "total": 7,
+          "valid": 0,
+          "invalid": 7,
+          "application": 0,
+          "critical": 0,
+          "recall": 0
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_EN",
+      "courseName": "Productivity 2026: How to Manage Teams and Time",
+      "language": "en",
+      "dayNumber": 28,
+      "lessonId": "PRODUCTIVITY_2026_EN_DAY_28",
+      "title": "Values and goals (life purpose, long-term vision)",
+      "lessonCreatedAt": "2026-01-24T09:30:30.106Z",
+      "lessonQuality": {
+        "score": 100,
+        "issues": [],
+        "signals": {
+          "charCount": 2529,
+          "wordCount": 386,
+          "hasBullets": true,
+          "hasNumberedSteps": true,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "action": "ENRICHED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/PRODUCTIVITY_2026_EN/PRODUCTIVITY_2026_EN_DAY_28__2026-01-27T08-53-17-634Z.json",
+        "insertedCount": 7,
+        "deletedInvalidCount": 7,
+        "warnings": [],
+        "existingCounts": {
+          "total": 7,
+          "valid": 0,
+          "invalid": 7,
+          "application": 0,
+          "critical": 0,
+          "recall": 0
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_EN",
+      "courseName": "Productivity 2026: How to Manage Teams and Time",
+      "language": "en",
+      "dayNumber": 29,
+      "lessonId": "PRODUCTIVITY_2026_EN_DAY_29",
+      "title": "Continuous improvement (learning, feedback, iteration)",
+      "lessonCreatedAt": "2026-01-24T09:30:33.695Z",
+      "lessonQuality": {
+        "score": 100,
+        "issues": [],
+        "signals": {
+          "charCount": 2533,
+          "wordCount": 384,
+          "hasBullets": true,
+          "hasNumberedSteps": true,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "action": "ENRICHED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/PRODUCTIVITY_2026_EN/PRODUCTIVITY_2026_EN_DAY_29__2026-01-27T08-53-17-634Z.json",
+        "insertedCount": 7,
+        "deletedInvalidCount": 7,
+        "warnings": [],
+        "existingCounts": {
+          "total": 7,
+          "valid": 0,
+          "invalid": 7,
+          "application": 0,
+          "critical": 0,
+          "recall": 0
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_EN",
+      "courseName": "Productivity 2026: How to Manage Teams and Time",
+      "language": "en",
+      "dayNumber": 30,
+      "lessonId": "PRODUCTIVITY_2026_EN_DAY_30",
+      "title": "The productivity master (comprehensive integration, commitment)",
+      "lessonCreatedAt": "2026-01-24T09:30:37.387Z",
+      "lessonQuality": {
+        "score": 100,
+        "issues": [],
+        "signals": {
+          "charCount": 2590,
+          "wordCount": 390,
+          "hasBullets": true,
+          "hasNumberedSteps": true,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "action": "ENRICHED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/PRODUCTIVITY_2026_EN/PRODUCTIVITY_2026_EN_DAY_30__2026-01-27T08-53-17-634Z.json",
+        "insertedCount": 7,
+        "deletedInvalidCount": 7,
+        "warnings": [],
+        "existingCounts": {
+          "total": 7,
+          "valid": 0,
+          "invalid": 7,
+          "application": 0,
+          "critical": 0,
+          "recall": 0
+        }
+      }
+    }
+  ]
+}

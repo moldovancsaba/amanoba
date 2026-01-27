@@ -4,7 +4,8 @@
 **Status**: ⏳ PENDING (Partially implemented - poolCourseId exists)  
 **Priority**: LOW  
 **Estimated**: 7-10 days  
-**Related Documents**: `docs/FEATURES_SINCE_F20C34A_COMPLETE_DOCUMENTATION copy.md` (Section 2), `docs/ROADMAP.md`
+**Related Documents**: `docs/FEATURES_SINCE_F20C34A_COMPLETE_DOCUMENTATION copy.md` (Section 2), `docs/ROADMAP.md`  
+**Detailed action plan & handover (2026-01-27)**: `docs/2026-01-27_RAPID_CHILDREN_COURSES_ACTION_PLAN_AND_HANDOVER.md` — Admin grouping (Course Idea → Outline → CCS → Language variants → Course); Short types by lesson count (1–3 Essentials, 4–7 Beginner, 8–12 Foundations, 13–20 Core Skills, 21+ Full Program); Shorts section like Certification Settings; checkbox selection; read-only child editor; certificate with limited questions; timeline (goLiveAt); rollback plan; **Section 10** = clarification questions (storage, CCS entity, naming, timeline).
 
 ---
 

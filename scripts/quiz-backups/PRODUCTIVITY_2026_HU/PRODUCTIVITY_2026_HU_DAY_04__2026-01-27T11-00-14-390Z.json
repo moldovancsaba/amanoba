@@ -1,0 +1,100 @@
+{
+  "backedUpAt": "2026-01-27T11:00:16.047Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_HU",
+    "name": "Termelékenység 2026: Hogyan kezelj csapatokat és időt",
+    "language": "hu"
+  },
+  "lesson": {
+    "dayNumber": 4,
+    "title": "Szokások vs rendszerek: miért skálázódnak jobban a rendszerek",
+    "lessonId": "PRODUCTIVITY_2026_HU_DAY_04"
+  },
+  "questionCount": 4,
+  "questions": [
+    {
+      "_id": "697766da9b3efa4704455fd1",
+      "uuid": "876eb22c-3db5-4e31-ad6b-d023535d9578",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Mi a fő különbség szokások és rendszerek között?",
+      "options": [
+        "Nincs különbség",
+        "A szokások skálázódnak, a rendszerek nem",
+        "A rendszerek skálázódnak, a szokások nem",
+        "Mindkettő ugyanaz"
+      ],
+      "correctIndex": 2,
+      "hashtags": [
+        "#day-04",
+        "#foundation",
+        "#recall",
+        "#hu"
+      ]
+    },
+    {
+      "_id": "697766da9b3efa4704455fd2",
+      "uuid": "98dee597-0a07-4667-8e17-772878efd3ee",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Mikor érdemes rendszert használni szokás helyett?",
+      "options": [
+        "Mindig",
+        "Amikor másokkal is működnie kell",
+        "Soha",
+        "Csak hétvégén"
+      ],
+      "correctIndex": 1,
+      "hashtags": [
+        "#day-04",
+        "#purpose",
+        "#application",
+        "#hu"
+      ]
+    },
+    {
+      "_id": "697766da9b3efa4704455fd3",
+      "uuid": "4169d1ac-75d6-4f0f-9b0b-fc867be1e4b7",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "A leckében leírt \"✅ Megérted a különbséget szokások és ren...\" gyakorlatot hogyan implementálnád a saját munkádban?",
+      "options": [
+        "Lépésről lépésre követem a leckében leírt módszert, dokumentálom az eredményeket, és finomhangolom a folyamatot",
+        "Egyszerre próbálom ki mindent",
+        "Csak olvasom, nem alkalmazom",
+        "Várok, amíg mások megcsinálják"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day4",
+        "#hu",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "697766da9b3efa4704455fd4",
+      "uuid": "36241c3e-a9e3-4d3b-8ab1-4bc47db75632",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "A leckében leírt \"✅ Megérted a különbséget szokások és ren...\" gyakorlatot hogyan implementálnád a saját munkádban?",
+      "options": [
+        "Lépésről lépésre követem a leckében leírt módszert, dokumentálom az eredményeket, és finomhangolom a folyamatot",
+        "Egyszerre próbálom ki mindent",
+        "Csak olvasom, nem alkalmazom",
+        "Várok, amíg mások megcsinálják"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day4",
+        "#hu",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

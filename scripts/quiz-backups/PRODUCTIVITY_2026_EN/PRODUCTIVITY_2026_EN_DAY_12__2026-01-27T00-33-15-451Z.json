@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-27T00:33:17.967Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_EN",
+    "name": "Productivity 2026: How to Manage Teams and Time",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 12,
+    "title": "Accountability Structures: Systems That Keep You on Track",
+    "lessonId": "PRODUCTIVITY_2026_EN_DAY_12"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a230494239f69e45b26",
+      "uuid": "bb080472-46bf-419f-89cc-b7d9a92c7283",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"Exercise (45 minutes)\n\nSet a Goal: Choos...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day12",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a230494239f69e45b27",
+      "uuid": "22831959-a1e3-42ab-b01f-8585bb46c5a7",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"Exercise (45 minutes)\n\nSet a Goal: Choos...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day12",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a230494239f69e45b28",
+      "uuid": "3c0a1404-2816-4281-b8a8-71f4c866a12d",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"Exercise (45 minutes)\n\nSet a Goal: Choos...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day12",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a230494239f69e45b29",
+      "uuid": "36767b1d-c617-4fe8-a355-c7e5a185b31f",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "How does the concept \"Accountability Structures: Systems That Keep You o...\" mentioned in the lesson impact achieving your goals?",
+      "options": [
+        "As described in detail in the lesson, Accountability Structures: Sys... increases effectiveness and reduces risk",
+        "No significant impact",
+        "Only matters theoretically",
+        "Only an optional element"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day12",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a230494239f69e45b2a",
+      "uuid": "f7f36775-feeb-4424-8a50-2783df8c00c4",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "In the \"Accountability Structures: Systems That Keep You on Track\" lesson, what role does Power of Transparency play?",
+      "options": [
+        "As described in detail in the lesson, Power of Transparency plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day12",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a230494239f69e45b2b",
+      "uuid": "e01c4b46-4271-4a0b-b3ad-399ab61f4296",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "In the \"Accountability Structures: Systems That Keep You on Track\" lesson, what role does Systematic Correction play?",
+      "options": [
+        "As described in detail in the lesson, Systematic Correction plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day12",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a230494239f69e45b2c",
+      "uuid": "17393957-765c-4430-b603-0d50acbf4455",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is Technique in the context of Accountability Structures: Systems That Keep You on Track as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, Technique plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day12",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

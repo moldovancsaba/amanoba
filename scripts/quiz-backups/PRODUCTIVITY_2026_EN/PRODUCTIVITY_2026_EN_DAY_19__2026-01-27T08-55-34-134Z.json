@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-27T08:55:34.134Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_EN",
+    "name": "Productivity 2026: How to Manage Teams and Time",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 19,
+    "title": "Long-term planning (years ahead, strategy, evolution)",
+    "lessonId": "PRODUCTIVITY_2026_EN_DAY_19"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69787d01e05462bc4887c2ed",
+      "uuid": "d2163da9-c71c-440b-b249-9adfc7685c09",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "You are applying \"Long-term planning (years ahead, strategy, evolution)\" this week. Which next step most directly turns intent into an outcome instead of extra activity?",
+      "options": [
+        "Pick one real scenario, apply the checklist, define a success metric/criterion, and review results at week’s end.",
+        "Add more meetings and messages so progress is visible, then assume the outcome improved.",
+        "Start multiple unrelated tasks to stay busy and increase the feeling of productivity.",
+        "Delay action until the plan is perfect, because execution without certainty risks mistakes."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day19",
+        "#en",
+        "#course-productivity_2026_en",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "69787d01e05462bc4887c2ee",
+      "uuid": "c359c77a-3b6e-4c3c-851c-b99a29a6dab7",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Which option is the best example of a measurable metric/criterion for \"Long-term planning (years ahead, strategy, evolution)\" (so you can prove progress)?",
+      "options": [
+        "A specific number tracked weekly (e.g., decision latency, cycle time, time saved) with a threshold for success.",
+        "A general intention like “be better at this”, without numbers or a deadline.",
+        "A count of messages sent, regardless of whether outcomes improved.",
+        "A feeling-based check (“did it feel productive?”) with no measurable signal."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day19",
+        "#en",
+        "#course-productivity_2026_en",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "69787d01e05462bc4887c2ef",
+      "uuid": "189b5488-f2ba-423e-9c52-05ac7154b2b9",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "In a \"Good vs Bad\" comparison for \"Long-term planning (years ahead, strategy, evolution)\", which option is closest to a “Good” implementation?",
+      "options": [
+        "Clear outcomes, explicit owners/criteria, and fewer distractions so execution produces measurable results.",
+        "More activity (more meetings/updates) without decisions, owners, or measurable progress.",
+        "More tools and dashboards without changing the process or defining success criteria.",
+        "More urgency and overtime without adjusting constraints or simplifying the system."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day19",
+        "#en",
+        "#course-productivity_2026_en",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "69787d01e05462bc4887c2f0",
+      "uuid": "d1e73e49-9187-453d-8a9d-662b327b35b6",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Which mistake is most likely to break \"Long-term planning (years ahead, strategy, evolution)\" in practice, according to the course’s systems framing?",
+      "options": [
+        "Optimizing visible activity instead of outcomes, so constraints get consumed without measurable progress.",
+        "Defining one clear metric and reviewing it weekly to adjust one rule at a time.",
+        "Reducing context switching and protecting focus blocks so outcomes can be produced.",
+        "Creating a short checklist and documenting it so the process is repeatable."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day19",
+        "#en",
+        "#course-productivity_2026_en",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "69787d01e05462bc4887c2f1",
+      "uuid": "66bfede0-4fec-4625-87b8-e65f2adcb339",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "You want \"Long-term planning (years ahead, strategy, evolution)\" to work for a team, not just one person. Which change best makes it a scalable system?",
+      "options": [
+        "Document the checklist, define owners and success criteria, and run a lightweight cadence (review + adjustment).",
+        "Rely on individual willpower and hope everyone copies the best performer’s habits.",
+        "Make the process optional with no shared metrics so nobody feels pressured by measurement.",
+        "Increase coordination time so everyone stays busy and visible, even if execution time drops."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day19",
+        "#en",
+        "#course-productivity_2026_en",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "69787d01e05462bc4887c2f2",
+      "uuid": "54a5cd90-bc5f-421b-85f4-db3a2a5fe57f",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "What is the biggest risk if you implement \"Long-term planning (years ahead, strategy, evolution)\" incorrectly by adding more activity without changing outcomes?",
+      "options": [
+        "Constraints get consumed (time/energy/attention) while outcomes stagnate, so productivity drops even if work feels intense.",
+        "Outcomes improve automatically because activity volume guarantees results in complex systems.",
+        "Measurement becomes unnecessary because visible effort is a sufficient success signal.",
+        "Decision quality improves because fatigue forces faster thinking and fewer debates."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day19",
+        "#en",
+        "#course-productivity_2026_en",
+        "#productivity",
+        "#advanced",
+        "#critical-thinking"
+      ]
+    },
+    {
+      "_id": "69787d01e05462bc4887c2f3",
+      "uuid": "e126778c-2925-4d20-99bb-c848466939ab",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "When \"Long-term planning (years ahead, strategy, evolution)\" fails, which diagnosis is most aligned with the course’s outcome/constraints definition?",
+      "options": [
+        "The system lacks clear criteria/metrics or protected execution time, so outcomes cannot be reliably produced and proven.",
+        "People are not working long enough hours, so adding overtime is the main fix regardless of constraints.",
+        "The team needs more tools, because tools replace the need for clear definitions and checklists.",
+        "The best fix is to stop reviewing results, because reflection slows execution."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day19",
+        "#en",
+        "#course-productivity_2026_en",
+        "#productivity",
+        "#advanced",
+        "#critical-thinking"
+      ]
+    }
+  ]
+}

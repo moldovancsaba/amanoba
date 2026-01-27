@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-27T08:53:03.464Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_EN",
+    "name": "Productivity 2026: How to Manage Teams and Time",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 18,
+    "title": "Crisis management and adaptability (adaptation, quick learning)",
+    "lessonId": "PRODUCTIVITY_2026_EN_DAY_18"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a240494239f69e45b6a",
+      "uuid": "4f2052af-2d6f-4ad2-9adb-9fae2fe56f31",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Prepare for and respond to unexpected challenges.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day18",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a240494239f69e45b6b",
+      "uuid": "550f7216-567a-4a50-be96-f0a22c889deb",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Prepare for and respond to unexpected challenges.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day18",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a240494239f69e45b6c",
+      "uuid": "f6cd7367-afd6-42e3-8854-617e6884613b",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Prepare for and respond to unexpected challenges.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day18",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a240494239f69e45b6d",
+      "uuid": "1d5f0c32-c0fd-4272-b150-7b0bfb33683d",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "How does the concept \"Crisis Management and Adaptability: Adaptation, Qu...\" mentioned in the lesson impact achieving your goals?",
+      "options": [
+        "As described in detail in the lesson, Crisis Management and Adaptabi... increases effectiveness and reduces risk",
+        "No significant impact",
+        "Only matters theoretically",
+        "Only an optional element"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day18",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a240494239f69e45b6e",
+      "uuid": "5506e4b2-8f1f-43e1-bb33-ff9faf145b5e",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is Crisis in the context of Crisis Management and Adaptability: Adaptation, Quick Learning as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, Crisis plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day18",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a240494239f69e45b6f",
+      "uuid": "418ac8c5-065f-4508-872d-cf15694d0bdc",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is Adaptability in the context of Crisis Management and Adaptability: Adaptation, Quick Learning as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, Adaptability plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day18",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a240494239f69e45b70",
+      "uuid": "b9b6d5c7-db5b-48a1-be89-02b145a470ce",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is Quick in the context of Crisis Management and Adaptability: Adaptation, Quick Learning as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, Quick plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day18",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-27T08:55:32.296Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_EN",
+    "name": "Productivity 2026: How to Manage Teams and Time",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 2,
+    "title": "Time, energy, attention: what you manage in practice",
+    "lessonId": "PRODUCTIVITY_2026_EN_DAY_02"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69787a19406e073a0d5f54fa",
+      "uuid": "49f3b3e9-d0bc-44ae-acdc-82c6e052083a",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "In “time, energy, attention”, which schedule best respects constraints by placing deep work in a peak energy window and batching shallow work?",
+      "options": [
+        "90–120 minutes of deep work in the morning, email/messages in two short batches, and 20–30% buffer time for surprises.",
+        "Email and chat open all day with deep work “whenever there is time”, no buffer for interruptions.",
+        "Back-to-back meetings all morning, then attempt deep work late afternoon when energy is lowest.",
+        "Switch between deep work and notifications every 5 minutes to stay responsive and “connected”."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day2",
+        "#en",
+        "#course-productivity_2026_en",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "69787a19406e073a0d5f54fb",
+      "uuid": "3fee7944-090d-48a8-854f-6dbe60842411",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "You plan an 8-hour day with 8 hours of scheduled tasks. According to the course, what is the most practical fix?",
+      "options": [
+        "Add 20–30% buffer time, because a calendar with zero slack converts small surprises into stress and missed outcomes.",
+        "Keep it fully packed; a zero-buffer schedule forces discipline and always produces better results.",
+        "Add more meetings so every hour has an owner and nothing is “wasted” on execution time.",
+        "Work later at night to compensate, even if energy and attention quality drop significantly."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day2",
+        "#en",
+        "#course-productivity_2026_en",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "69787a19406e073a0d5f54fc",
+      "uuid": "caaf1d20-de14-4667-8569-66a8fffeb45e",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Which deep work rule best matches the attention constraint logic in the course?",
+      "options": [
+        "During deep work: no email, no phone, no chats; interruptions are prevented by design, not willpower.",
+        "During deep work: keep chat open so you can respond quickly without losing focus.",
+        "During deep work: multitask across two projects to reduce boredom and maintain momentum.",
+        "During deep work: accept meetings as they come and “return to focus” instantly afterward."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day2",
+        "#en",
+        "#course-productivity_2026_en",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "69787a19406e073a0d5f54fd",
+      "uuid": "1a05e64b-62ea-410c-968a-05cb767af154",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Your energy is high from 9–11 AM and low from 3–5 PM. Which choice is aligned with managing energy as a constraint?",
+      "options": [
+        "Put creative/strategic work in 9–11 AM and schedule routine/admin tasks for 3–5 PM.",
+        "Put the hardest creative work in 3–5 PM because difficulty builds character regardless of outcomes.",
+        "Schedule random work whenever it appears, because energy patterns are not predictable or usable.",
+        "Add a meeting-heavy block at 9–11 AM so the best hours are used for coordination, not execution."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day2",
+        "#en",
+        "#course-productivity_2026_en",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "69787a19406e073a0d5f54fe",
+      "uuid": "6f41264d-ac10-4475-9625-b31be21c57b0",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Why does the course treat attention as a primary constraint (not a minor detail) when planning a day?",
+      "options": [
+        "Because frequent interruptions impose refocus costs and reduce the quality and speed of outcomes, even if hours worked stay constant.",
+        "Because attention is unlimited if you have enough motivation, so planning for it is unnecessary.",
+        "Because attention only matters for reading, not for problem-solving or creative output.",
+        "Because attention is automatically restored the moment you switch tasks, so interruptions are free."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day2",
+        "#en",
+        "#course-productivity_2026_en",
+        "#productivity",
+        "#advanced",
+        "#critical-thinking"
+      ]
+    },
+    {
+      "_id": "69787a19406e073a0d5f54ff",
+      "uuid": "8408a641-8db1-438b-94d8-7f88cd0c183f",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "If you ignore energy management and schedule deep work in low-energy windows, what is the most likely long-term outcome?",
+      "options": [
+        "You will compensate with longer hours, but outcome quality drops and burnout risk rises because constraints are mismanaged.",
+        "You will always outperform peak-hour work, because difficulty increases creativity and accuracy automatically.",
+        "You will remove the need for breaks, because low energy is solved by more caffeine and willpower.",
+        "You will make faster decisions, because fatigue reduces thinking and therefore reduces time spent."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day2",
+        "#en",
+        "#course-productivity_2026_en",
+        "#productivity",
+        "#advanced",
+        "#critical-thinking"
+      ]
+    },
+    {
+      "_id": "69787a19406e073a0d5f5500",
+      "uuid": "2f7b73b4-e76a-4d2b-80b6-6f4c0133ab76",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "You have two hours before a deadline and constant incoming messages. Which action best preserves attention while still staying responsive?",
+      "options": [
+        "Set a short “response window” after the deep work block and communicate it, so the two hours stay interruption-free.",
+        "Answer every message immediately to reduce anxiety, even if it breaks focus and lowers the outcome quality.",
+        "Keep switching tasks to show availability, because responsiveness is the same as productivity.",
+        "Schedule a meeting during the two hours so alignment improves while execution happens later somehow."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day2",
+        "#en",
+        "#course-productivity_2026_en",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    }
+  ]
+}

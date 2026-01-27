@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-27T08:53:20.754Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_EN",
+    "name": "Productivity 2026: How to Manage Teams and Time",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 15,
+    "title": "Teamwork and synergy (roles, responsibility, coordination)",
+    "lessonId": "PRODUCTIVITY_2026_EN_DAY_15"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a240494239f69e45b4a",
+      "uuid": "1dc19b08-ee12-4582-8fe5-08f06f98b17e",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Organize teams for improved performance.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day15",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a240494239f69e45b4b",
+      "uuid": "950dac4b-2034-4b64-be0b-61525fc101e3",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Organize teams for improved performance.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day15",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a240494239f69e45b4c",
+      "uuid": "c5931d3f-1853-4420-89fd-4f78152c3361",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Organize teams for improved performance.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day15",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a240494239f69e45b4d",
+      "uuid": "3f76c287-6cf4-45d0-9295-bd2207fd06c9",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "How does the concept \"Teamwork and Synergy: Roles, Responsibility, Coord...\" mentioned in the lesson impact achieving your goals?",
+      "options": [
+        "As described in detail in the lesson, Teamwork and Synergy: Roles, R... increases effectiveness and reduces risk",
+        "No significant impact",
+        "Only matters theoretically",
+        "Only an optional element"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day15",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a240494239f69e45b4e",
+      "uuid": "d299f10c-fd7a-4a23-b7b1-0011fffdf405",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is Teamwork in the context of Teamwork and Synergy: Roles, Responsibility, Coordination as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, Teamwork plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day15",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a240494239f69e45b4f",
+      "uuid": "015483b5-43ed-4751-b9bb-acb370c1c0e2",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is Roles in the context of Teamwork and Synergy: Roles, Responsibility, Coordination as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, Roles plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day15",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a240494239f69e45b50",
+      "uuid": "734d76a7-b292-47b5-b24a-3ffb1412797b",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is Coordination in the context of Teamwork and Synergy: Roles, Responsibility, Coordination as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, Coordination plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day15",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

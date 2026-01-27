@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-27T08:53:21.671Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_EN",
+    "name": "Productivity 2026: How to Manage Teams and Time",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 22,
+    "title": "Technology and tools (automation, choosing the right technology)",
+    "lessonId": "PRODUCTIVITY_2026_EN_DAY_22"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a250494239f69e45b92",
+      "uuid": "fc77749a-c936-40d9-86b2-9399a1b02b3e",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Leverage technology to enhance productivity.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day22",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a250494239f69e45b93",
+      "uuid": "9dc4eac9-645a-47ef-8bbc-864302c53d9b",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Leverage technology to enhance productivity.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day22",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a250494239f69e45b94",
+      "uuid": "a1163012-d26a-4ae5-88d7-86c0d5b18bfd",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Leverage technology to enhance productivity.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day22",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a250494239f69e45b95",
+      "uuid": "bfb35b43-5633-4fa7-b699-c1df324a88f4",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "How does the concept \"Technology and Tools: Automation, Choosing the Rig...\" mentioned in the lesson impact achieving your goals?",
+      "options": [
+        "As described in detail in the lesson, Technology and Tools: Automati... increases effectiveness and reduces risk",
+        "No significant impact",
+        "Only matters theoretically",
+        "Only an optional element"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day22",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a250494239f69e45b96",
+      "uuid": "4fff990a-327d-489a-b0b0-21cff6cd609e",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is Technology in the context of Technology and Tools: Automation, Choosing the Right Tech as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, Technology plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day22",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a250494239f69e45b97",
+      "uuid": "1cfd2505-336a-4d20-91f9-fd9360452d49",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is Automation in the context of Technology and Tools: Automation, Choosing the Right Tech as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, Automation plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day22",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a250494239f69e45b98",
+      "uuid": "70afc6cb-880a-4670-8a96-74ece7896443",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is Right in the context of Technology and Tools: Automation, Choosing the Right Tech as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, Right plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day22",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

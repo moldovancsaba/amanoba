@@ -1,0 +1,168 @@
+{
+  "backedUpAt": "2026-01-27T08:40:58.828Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_EN",
+    "name": "Productivity 2026: How to Manage Teams and Time",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 6,
+    "title": "Capture: inboxes, triggers list, capture habits",
+    "lessonId": "PRODUCTIVITY_2026_EN_DAY_06"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a230494239f69e45ad7",
+      "uuid": "6e2f4732-02d3-401e-826f-b8c02a796f05",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "What happens if something is not captured?",
+      "options": [
+        "It's automatically managed",
+        "It's lost",
+        "It's automatically deleted",
+        "Nothing"
+      ],
+      "correctIndex": 1,
+      "hashtags": [
+        "#day-06",
+        "#foundation",
+        "#recall",
+        "#en"
+      ]
+    },
+    {
+      "_id": "69776a230494239f69e45ad8",
+      "uuid": "257dcbbe-2a3c-4dd4-b582-b6e3157990de",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "How does the concept \"important information is captured...\" mentioned in the lesson impact achieving your goals?",
+      "options": [
+        "As described in detail in the lesson, important information is captu... increases effectiveness and reduces risk",
+        "No significant impact",
+        "Only matters theoretically",
+        "Only an optional element"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day6",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a230494239f69e45ad9",
+      "uuid": "33996325-d6af-4a18-9821-a9ea98064e18",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"Practice capturing after every trigger f...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day6",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a230494239f69e45ada",
+      "uuid": "6671c473-4325-432d-840a-0492afe2e643",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"exercise (20-25 min) — Creating a captur...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day6",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a230494239f69e45adb",
+      "uuid": "eb9deabf-43e1-43db-bd61-5b072134df86",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"Practice capturing after every trigger f...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day6",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a230494239f69e45adc",
+      "uuid": "bf270382-1eaf-4a2d-9df2-2b425e5b2b81",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is Triggers list in the context of Capture: inboxes, triggers list, capture habits as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, Triggers list plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day6",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a230494239f69e45add",
+      "uuid": "2bbebd47-8831-48c9-b9a9-6f2151f3c894",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is Definition in the context of Capture: inboxes, triggers list, capture habits as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, Definition plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day6",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

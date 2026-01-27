@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-27T08:53:21.409Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_EN",
+    "name": "Productivity 2026: How to Manage Teams and Time",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 20,
+    "title": "Personal life productivity (home organization, personal projects)",
+    "lessonId": "PRODUCTIVITY_2026_EN_DAY_20"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a240494239f69e45b7e",
+      "uuid": "c759c28d-3e42-4db7-a7df-81989b8d089d",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Extend productivity into all areas of life.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day20",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a240494239f69e45b7f",
+      "uuid": "10cd6d53-02f3-4d5f-8ae5-2283822c2377",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Extend productivity into all areas of life.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day20",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a240494239f69e45b80",
+      "uuid": "f9eef3ea-e9b6-497b-973a-f8faca8ca7a5",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Extend productivity into all areas of life.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day20",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a240494239f69e45b81",
+      "uuid": "5bb6c2ae-1229-45fe-8834-22f6c4f07cb8",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "How does the concept \"Personal Life Productivity: Home Organization, Per...\" mentioned in the lesson impact achieving your goals?",
+      "options": [
+        "As described in detail in the lesson, Personal Life Productivity: Ho... increases effectiveness and reduces risk",
+        "No significant impact",
+        "Only matters theoretically",
+        "Only an optional element"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day20",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a240494239f69e45b82",
+      "uuid": "cf3af316-1aa4-4c1b-b4d0-2df38bfe16ce",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is Personal in the context of Personal Life Productivity: Home Organization, Personal Projects as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, Personal plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day20",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a240494239f69e45b83",
+      "uuid": "c7652351-522b-4b28-85d1-4fe60c69c6c0",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is Productivity in the context of Personal Life Productivity: Home Organization, Personal Projects as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, Productivity plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day20",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a240494239f69e45b84",
+      "uuid": "c3252a41-9a46-4343-ba26-d2b69f708153",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is Organization in the context of Personal Life Productivity: Home Organization, Personal Projects as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, Organization plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day20",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

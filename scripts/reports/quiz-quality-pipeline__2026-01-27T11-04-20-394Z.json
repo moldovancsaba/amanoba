@@ -1,0 +1,1303 @@
+{
+  "generatedAt": "2026-01-27T11:04:20.395Z",
+  "dryRun": false,
+  "minLessonScore": 70,
+  "courseFilter": "PRODUCTIVITY_2026_HU",
+  "totals": {
+    "courses": 1,
+    "lessonsEvaluated": 30,
+    "lessonsNeedingRefine": 19,
+    "lessonsRewritten": 11,
+    "lessonsFailedRewrite": 0,
+    "questionsDeleted": 14,
+    "questionsInserted": 48
+  },
+  "lessons": [
+    {
+      "courseId": "PRODUCTIVITY_2026_HU",
+      "courseName": "Termelékenység 2026: Hogyan kezelj csapatokat és időt",
+      "language": "hu",
+      "dayNumber": 1,
+      "lessonId": "PRODUCTIVITY_2026_HU_DAY_01",
+      "title": "A termelékenység definíciója: output, eredmények és korlátok",
+      "lessonCreatedAt": "2026-01-23T19:27:00.922Z",
+      "lessonQuality": {
+        "score": 100,
+        "issues": [],
+        "signals": {
+          "charCount": 2676,
+          "wordCount": 372,
+          "hasBullets": true,
+          "hasNumberedSteps": true,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "action": "ENRICHED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/PRODUCTIVITY_2026_HU/PRODUCTIVITY_2026_HU_DAY_01__2026-01-27T11-04-20-394Z.json",
+        "insertedCount": 5,
+        "deletedInvalidCount": 4,
+        "warnings": [
+          "Question 3: Question may not be specific to lesson content. Verify it tests actual lesson material.",
+          "Question 4: Question may not be specific to lesson content. Verify it tests actual lesson material.",
+          "Question 5: Question may not be specific to lesson content. Verify it tests actual lesson material.",
+          "Question 6: Question may not be specific to lesson content. Verify it tests actual lesson material.",
+          "Question 7: Question may not be specific to lesson content. Verify it tests actual lesson material."
+        ],
+        "existingCounts": {
+          "total": 6,
+          "valid": 2,
+          "invalid": 4,
+          "application": 2,
+          "critical": 0,
+          "recall": 0
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_HU",
+      "courseName": "Termelékenység 2026: Hogyan kezelj csapatokat és időt",
+      "language": "hu",
+      "dayNumber": 2,
+      "lessonId": "PRODUCTIVITY_2026_HU_DAY_02",
+      "title": "Idő, energia, figyelem: amit a gyakorlatban kezelsz",
+      "lessonCreatedAt": "2026-01-23T21:16:53.389Z",
+      "lessonQuality": {
+        "score": 70,
+        "issues": [
+          "NO_CLEAR_DEFINITIONS",
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 3272,
+          "wordCount": 458,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": true
+        }
+      },
+      "action": "ENRICHED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/PRODUCTIVITY_2026_HU/PRODUCTIVITY_2026_HU_DAY_02__2026-01-27T11-04-20-394Z.json",
+        "insertedCount": 5,
+        "deletedInvalidCount": 4,
+        "warnings": [
+          "Question 4: Question may not be specific to lesson content. Verify it tests actual lesson material.",
+          "Question 6: Question may not be specific to lesson content. Verify it tests actual lesson material.",
+          "Question 7: Question may not be specific to lesson content. Verify it tests actual lesson material."
+        ],
+        "existingCounts": {
+          "total": 6,
+          "valid": 2,
+          "invalid": 4,
+          "application": 2,
+          "critical": 0,
+          "recall": 0
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_HU",
+      "courseName": "Termelékenység 2026: Hogyan kezelj csapatokat és időt",
+      "language": "hu",
+      "dayNumber": 3,
+      "lessonId": "PRODUCTIVITY_2026_HU_DAY_03",
+      "title": "Célhierarchia: vízió → eredmények → projektek → következő lépések",
+      "lessonCreatedAt": "2026-01-23T21:23:41.637Z",
+      "lessonQuality": {
+        "score": 85,
+        "issues": [
+          "NO_CLEAR_DEFINITIONS"
+        ],
+        "signals": {
+          "charCount": 2733,
+          "wordCount": 395,
+          "hasBullets": true,
+          "hasNumberedSteps": true,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "action": "ENRICHED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/PRODUCTIVITY_2026_HU/PRODUCTIVITY_2026_HU_DAY_03__2026-01-27T11-04-20-394Z.json",
+        "insertedCount": 4,
+        "deletedInvalidCount": 2,
+        "warnings": [
+          "Question 5: Question may not be specific to lesson content. Verify it tests actual lesson material.",
+          "Question 6: Question may not be specific to lesson content. Verify it tests actual lesson material.",
+          "Question 7: Question may not be specific to lesson content. Verify it tests actual lesson material."
+        ],
+        "existingCounts": {
+          "total": 5,
+          "valid": 3,
+          "invalid": 2,
+          "application": 3,
+          "critical": 0,
+          "recall": 0
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_HU",
+      "courseName": "Termelékenység 2026: Hogyan kezelj csapatokat és időt",
+      "language": "hu",
+      "dayNumber": 4,
+      "lessonId": "PRODUCTIVITY_2026_HU_DAY_04",
+      "title": "Szokások vs rendszerek: miért skálázódnak jobban a rendszerek",
+      "lessonCreatedAt": "2026-01-23T21:29:06.119Z",
+      "lessonQuality": {
+        "score": 85,
+        "issues": [
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 2846,
+          "wordCount": 367,
+          "hasBullets": true,
+          "hasNumberedSteps": true,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": true
+        }
+      },
+      "action": "ENRICHED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/PRODUCTIVITY_2026_HU/PRODUCTIVITY_2026_HU_DAY_04__2026-01-27T11-04-20-394Z.json",
+        "insertedCount": 5,
+        "deletedInvalidCount": 2,
+        "warnings": [
+          "Question 4: Question may not be specific to lesson content. Verify it tests actual lesson material.",
+          "Question 5: Question may not be specific to lesson content. Verify it tests actual lesson material.",
+          "Question 6: Question may not be specific to lesson content. Verify it tests actual lesson material.",
+          "Question 7: Question may not be specific to lesson content. Verify it tests actual lesson material."
+        ],
+        "existingCounts": {
+          "total": 4,
+          "valid": 2,
+          "invalid": 2,
+          "application": 2,
+          "critical": 0,
+          "recall": 0
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_HU",
+      "courseName": "Termelékenység 2026: Hogyan kezelj csapatokat és időt",
+      "language": "hu",
+      "dayNumber": 5,
+      "lessonId": "PRODUCTIVITY_2026_HU_DAY_05",
+      "title": "Mérés: egyszerű heti áttekintési metrikák (throughput, fókusz blokkok, carryover)",
+      "lessonCreatedAt": "2026-01-23T21:35:50.259Z",
+      "lessonQuality": {
+        "score": 85,
+        "issues": [
+          "NO_CLEAR_DEFINITIONS"
+        ],
+        "signals": {
+          "charCount": 2340,
+          "wordCount": 346,
+          "hasBullets": true,
+          "hasNumberedSteps": true,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "action": "ENRICHED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/PRODUCTIVITY_2026_HU/PRODUCTIVITY_2026_HU_DAY_05__2026-01-27T11-04-20-394Z.json",
+        "insertedCount": 4,
+        "deletedInvalidCount": 1,
+        "warnings": [
+          "Question 4: Question may not be specific to lesson content. Verify it tests actual lesson material.",
+          "Question 5: Question may not be specific to lesson content. Verify it tests actual lesson material.",
+          "Question 6: Question may not be specific to lesson content. Verify it tests actual lesson material.",
+          "Question 7: Question may not be specific to lesson content. Verify it tests actual lesson material."
+        ],
+        "existingCounts": {
+          "total": 4,
+          "valid": 3,
+          "invalid": 1,
+          "application": 3,
+          "critical": 0,
+          "recall": 0
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_HU",
+      "courseName": "Termelékenység 2026: Hogyan kezelj csapatokat és időt",
+      "language": "hu",
+      "dayNumber": 6,
+      "lessonId": "PRODUCTIVITY_2026_HU_DAY_06",
+      "title": "Rögzítés: inboxok, trigger lista, rögzítési szokások",
+      "lessonCreatedAt": "2026-01-23T21:43:41.143Z",
+      "lessonQuality": {
+        "score": 70,
+        "issues": [
+          "NO_CLEAR_DEFINITIONS",
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 2540,
+          "wordCount": 348,
+          "hasBullets": true,
+          "hasNumberedSteps": true,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": true
+        }
+      },
+      "action": "ENRICHED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/PRODUCTIVITY_2026_HU/PRODUCTIVITY_2026_HU_DAY_06__2026-01-27T11-04-20-394Z.json",
+        "insertedCount": 5,
+        "deletedInvalidCount": 1,
+        "warnings": [
+          "CRITICAL_THINKING questions: 1 (recommended at least 2).",
+          "Question 3: Question may not be specific to lesson content. Verify it tests actual lesson material.",
+          "Question 4: Question may not be specific to lesson content. Verify it tests actual lesson material.",
+          "Question 5: Question may not be specific to lesson content. Verify it tests actual lesson material.",
+          "Question 6: Question may not be specific to lesson content. Verify it tests actual lesson material.",
+          "Question 7: Question may not be specific to lesson content. Verify it tests actual lesson material."
+        ],
+        "existingCounts": {
+          "total": 3,
+          "valid": 2,
+          "invalid": 1,
+          "application": 2,
+          "critical": 0,
+          "recall": 0
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_HU",
+      "courseName": "Termelékenység 2026: Hogyan kezelj csapatokat és időt",
+      "language": "hu",
+      "dayNumber": 7,
+      "lessonId": "PRODUCTIVITY_2026_HU_DAY_07",
+      "title": "Napi/heti rendszer: reggeli ritual, napi huddle, heti áttekintés",
+      "lessonCreatedAt": "2026-01-24T08:15:44.827Z",
+      "lessonQuality": {
+        "score": 55,
+        "issues": [
+          "NO_CLEAR_DEFINITIONS",
+          "NO_EXAMPLES",
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 1948,
+          "wordCount": 302,
+          "hasBullets": true,
+          "hasNumberedSteps": true,
+          "hasExamples": false,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": true,
+          "addPitfallsSection": false,
+          "addMetricsSection": true
+        }
+      },
+      "action": "REFINE_LESSON_FIRST",
+      "rewrite": null
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_HU",
+      "courseName": "Termelékenység 2026: Hogyan kezelj csapatokat és időt",
+      "language": "hu",
+      "dayNumber": 8,
+      "lessonId": "PRODUCTIVITY_2026_HU_DAY_8",
+      "title": "Kontextusváltás költsége: figyelmi maradványa, kötegelt feldolgozás, mély munkablokkok",
+      "lessonCreatedAt": "2026-01-24T08:31:17.806Z",
+      "lessonQuality": {
+        "score": 70,
+        "issues": [
+          "NO_CLEAR_DEFINITIONS",
+          "NO_EXAMPLES"
+        ],
+        "signals": {
+          "charCount": 2679,
+          "wordCount": 369,
+          "hasBullets": true,
+          "hasNumberedSteps": true,
+          "hasExamples": false,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": true,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "action": "ENRICHED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/PRODUCTIVITY_2026_HU/PRODUCTIVITY_2026_HU_DAY_8__2026-01-27T11-04-20-394Z.json",
+        "insertedCount": 4,
+        "deletedInvalidCount": 0,
+        "warnings": [
+          "Question 5: Question may not be specific to lesson content. Verify it tests actual lesson material.",
+          "Question 6: Question may not be specific to lesson content. Verify it tests actual lesson material.",
+          "Question 7: Question may not be specific to lesson content. Verify it tests actual lesson material."
+        ],
+        "existingCounts": {
+          "total": 3,
+          "valid": 3,
+          "invalid": 0,
+          "application": 3,
+          "critical": 0,
+          "recall": 0
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_HU",
+      "courseName": "Termelékenység 2026: Hogyan kezelj csapatokat és időt",
+      "language": "hu",
+      "dayNumber": 9,
+      "lessonId": "PRODUCTIVITY_2026_HU_DAY_9",
+      "title": "Delegálás vs Kiiktatás: mikor delegálj, mit iktatj ki",
+      "lessonCreatedAt": "2026-01-24T08:36:22.276Z",
+      "lessonQuality": {
+        "score": 100,
+        "issues": [],
+        "signals": {
+          "charCount": 2683,
+          "wordCount": 366,
+          "hasBullets": true,
+          "hasNumberedSteps": true,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "action": "ENRICHED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/PRODUCTIVITY_2026_HU/PRODUCTIVITY_2026_HU_DAY_9__2026-01-27T11-04-20-394Z.json",
+        "insertedCount": 4,
+        "deletedInvalidCount": 0,
+        "warnings": [
+          "Question 5: Question may not be specific to lesson content. Verify it tests actual lesson material.",
+          "Question 6: Question may not be specific to lesson content. Verify it tests actual lesson material.",
+          "Question 7: Question may not be specific to lesson content. Verify it tests actual lesson material."
+        ],
+        "existingCounts": {
+          "total": 3,
+          "valid": 3,
+          "invalid": 0,
+          "application": 3,
+          "critical": 0,
+          "recall": 0
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_HU",
+      "courseName": "Termelékenység 2026: Hogyan kezelj csapatokat és időt",
+      "language": "hu",
+      "dayNumber": 10,
+      "lessonId": "PRODUCTIVITY_2026_HU_DAY_10",
+      "title": "Energia menedzselés: mikor dolgozz, mikor pihenj, helyreállítási ritualok",
+      "lessonCreatedAt": "2026-01-24T08:40:13.061Z",
+      "lessonQuality": {
+        "score": 70,
+        "issues": [
+          "NO_EXAMPLES",
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 2998,
+          "wordCount": 423,
+          "hasBullets": true,
+          "hasNumberedSteps": true,
+          "hasExamples": false,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": true,
+          "addPitfallsSection": false,
+          "addMetricsSection": true
+        }
+      },
+      "action": "ENRICHED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/PRODUCTIVITY_2026_HU/PRODUCTIVITY_2026_HU_DAY_10__2026-01-27T11-04-20-394Z.json",
+        "insertedCount": 4,
+        "deletedInvalidCount": 0,
+        "warnings": [
+          "Question 5: Question may not be specific to lesson content. Verify it tests actual lesson material.",
+          "Question 6: Question may not be specific to lesson content. Verify it tests actual lesson material.",
+          "Question 7: Question may not be specific to lesson content. Verify it tests actual lesson material."
+        ],
+        "existingCounts": {
+          "total": 3,
+          "valid": 3,
+          "invalid": 0,
+          "application": 3,
+          "critical": 0,
+          "recall": 0
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_HU",
+      "courseName": "Termelékenység 2026: Hogyan kezelj csapatokat és időt",
+      "language": "hu",
+      "dayNumber": 11,
+      "lessonId": "PRODUCTIVITY_2026_HU_DAY_11",
+      "title": "Célkitűzés és OKR-ek: Mit szeretnél elérni?",
+      "lessonCreatedAt": "2026-01-24T08:41:49.120Z",
+      "lessonQuality": {
+        "score": 35,
+        "issues": [
+          "TOO_SHORT",
+          "NO_CLEAR_DEFINITIONS",
+          "NO_EXAMPLES",
+          "NO_CONTRASTS_GOOD_BAD"
+        ],
+        "signals": {
+          "charCount": 438,
+          "wordCount": 62,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": false,
+          "hasGoodBadContrast": false,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": true,
+          "addPitfallsSection": true,
+          "addMetricsSection": false
+        }
+      },
+      "action": "REFINE_LESSON_FIRST",
+      "rewrite": null
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_HU",
+      "courseName": "Termelékenység 2026: Hogyan kezelj csapatokat és időt",
+      "language": "hu",
+      "dayNumber": 12,
+      "lessonId": "PRODUCTIVITY_2026_HU_DAY_12",
+      "title": "Elszámoltathatósági Struktúrák: Rendszerek, amelyek pályán tartanak",
+      "lessonCreatedAt": "2026-01-24T09:15:52.005Z",
+      "lessonQuality": {
+        "score": 70,
+        "issues": [
+          "NO_CLEAR_DEFINITIONS",
+          "NO_EXAMPLES"
+        ],
+        "signals": {
+          "charCount": 3221,
+          "wordCount": 420,
+          "hasBullets": true,
+          "hasNumberedSteps": true,
+          "hasExamples": false,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": true,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "action": "ENRICHED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/PRODUCTIVITY_2026_HU/PRODUCTIVITY_2026_HU_DAY_12__2026-01-27T11-04-20-394Z.json",
+        "insertedCount": 4,
+        "deletedInvalidCount": 0,
+        "warnings": [
+          "Question 7: Question may not be specific to lesson content. Verify it tests actual lesson material."
+        ],
+        "existingCounts": {
+          "total": 3,
+          "valid": 3,
+          "invalid": 0,
+          "application": 3,
+          "critical": 0,
+          "recall": 0
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_HU",
+      "courseName": "Termelékenység 2026: Hogyan kezelj csapatokat és időt",
+      "language": "hu",
+      "dayNumber": 13,
+      "lessonId": "PRODUCTIVITY_2026_HU_DAY_13",
+      "title": "Döntéshozatali Keretek: Gyors döntés, döntési mátrix, az elemzési bénultság elkerülése",
+      "lessonCreatedAt": "2026-01-24T09:23:06.326Z",
+      "lessonQuality": {
+        "score": 85,
+        "issues": [
+          "NO_EXAMPLES"
+        ],
+        "signals": {
+          "charCount": 3634,
+          "wordCount": 526,
+          "hasBullets": true,
+          "hasNumberedSteps": true,
+          "hasExamples": false,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": true,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "action": "ENRICHED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/PRODUCTIVITY_2026_HU/PRODUCTIVITY_2026_HU_DAY_13__2026-01-27T11-04-20-394Z.json",
+        "insertedCount": 4,
+        "deletedInvalidCount": 0,
+        "warnings": [
+          "Question 4: Question may not be specific to lesson content. Verify it tests actual lesson material.",
+          "Question 6: Question may not be specific to lesson content. Verify it tests actual lesson material.",
+          "Question 7: Question may not be specific to lesson content. Verify it tests actual lesson material."
+        ],
+        "existingCounts": {
+          "total": 3,
+          "valid": 3,
+          "invalid": 0,
+          "application": 3,
+          "critical": 0,
+          "recall": 0
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_HU",
+      "courseName": "Termelékenység 2026: Hogyan kezelj csapatokat és időt",
+      "language": "hu",
+      "dayNumber": 14,
+      "lessonId": "PRODUCTIVITY_2026_HU_DAY_14",
+      "title": "Értekezlet-hatékonyság: Napirend, időkorlát, döntési jegyzőkönyv",
+      "lessonCreatedAt": "2026-01-24T09:29:46.704Z",
+      "lessonQuality": {
+        "score": 20,
+        "issues": [
+          "TOO_SHORT",
+          "NO_CLEAR_DEFINITIONS",
+          "NO_EXAMPLES",
+          "NO_CONTRASTS_GOOD_BAD",
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 179,
+          "wordCount": 17,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": false,
+          "hasGoodBadContrast": false,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": true,
+          "addPitfallsSection": true,
+          "addMetricsSection": true
+        }
+      },
+      "action": "REFINE_LESSON_FIRST",
+      "rewrite": null
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_HU",
+      "courseName": "Termelékenység 2026: Hogyan kezelj csapatokat és időt",
+      "language": "hu",
+      "dayNumber": 15,
+      "lessonId": "PRODUCTIVITY_2026_HU_DAY_15",
+      "title": "Csapatmunka és szinergia: Szerepek, felelősség, koordináció",
+      "lessonCreatedAt": "2026-01-24T09:29:51.171Z",
+      "lessonQuality": {
+        "score": 20,
+        "issues": [
+          "TOO_SHORT",
+          "NO_CLEAR_DEFINITIONS",
+          "NO_EXAMPLES",
+          "NO_CONTRASTS_GOOD_BAD",
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 174,
+          "wordCount": 20,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": false,
+          "hasGoodBadContrast": false,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": true,
+          "addPitfallsSection": true,
+          "addMetricsSection": true
+        }
+      },
+      "action": "REFINE_LESSON_FIRST",
+      "rewrite": null
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_HU",
+      "courseName": "Termelékenység 2026: Hogyan kezelj csapatokat és időt",
+      "language": "hu",
+      "dayNumber": 16,
+      "lessonId": "PRODUCTIVITY_2026_HU_DAY_16",
+      "title": "Stressz-kezelés és fáradtság: Regeneráció, munka-élet egyensúly",
+      "lessonCreatedAt": "2026-01-24T09:29:54.738Z",
+      "lessonQuality": {
+        "score": 20,
+        "issues": [
+          "TOO_SHORT",
+          "NO_CLEAR_DEFINITIONS",
+          "NO_EXAMPLES",
+          "NO_CONTRASTS_GOOD_BAD",
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 180,
+          "wordCount": 20,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": false,
+          "hasGoodBadContrast": false,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": true,
+          "addPitfallsSection": true,
+          "addMetricsSection": true
+        }
+      },
+      "action": "REFINE_LESSON_FIRST",
+      "rewrite": null
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_HU",
+      "courseName": "Termelékenység 2026: Hogyan kezelj csapatokat és időt",
+      "language": "hu",
+      "dayNumber": 17,
+      "lessonId": "PRODUCTIVITY_2026_HU_DAY_17",
+      "title": "Motiváció fenntartása: Célok nyilvántartása, sikerek ünneplése",
+      "lessonCreatedAt": "2026-01-24T09:29:57.838Z",
+      "lessonQuality": {
+        "score": 20,
+        "issues": [
+          "TOO_SHORT",
+          "NO_CLEAR_DEFINITIONS",
+          "NO_EXAMPLES",
+          "NO_CONTRASTS_GOOD_BAD",
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 191,
+          "wordCount": 28,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": false,
+          "hasGoodBadContrast": false,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": true,
+          "addPitfallsSection": true,
+          "addMetricsSection": true
+        }
+      },
+      "action": "REFINE_LESSON_FIRST",
+      "rewrite": null
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_HU",
+      "courseName": "Termelékenység 2026: Hogyan kezelj csapatokat és időt",
+      "language": "hu",
+      "dayNumber": 18,
+      "lessonId": "PRODUCTIVITY_2026_HU_DAY_18",
+      "title": "Krízis-kezelés és rugalmasság: Adaptáció, gyors tanulás",
+      "lessonCreatedAt": "2026-01-24T09:30:00.777Z",
+      "lessonQuality": {
+        "score": 20,
+        "issues": [
+          "TOO_SHORT",
+          "NO_CLEAR_DEFINITIONS",
+          "NO_EXAMPLES",
+          "NO_CONTRASTS_GOOD_BAD",
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 174,
+          "wordCount": 20,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": false,
+          "hasGoodBadContrast": false,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": true,
+          "addPitfallsSection": true,
+          "addMetricsSection": true
+        }
+      },
+      "action": "REFINE_LESSON_FIRST",
+      "rewrite": null
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_HU",
+      "courseName": "Termelékenység 2026: Hogyan kezelj csapatokat és időt",
+      "language": "hu",
+      "dayNumber": 19,
+      "lessonId": "PRODUCTIVITY_2026_HU_DAY_19",
+      "title": "Hosszú távú tervezés: Évek, stratégia, evolúció",
+      "lessonCreatedAt": "2026-01-24T09:30:04.091Z",
+      "lessonQuality": {
+        "score": 20,
+        "issues": [
+          "TOO_SHORT",
+          "NO_CLEAR_DEFINITIONS",
+          "NO_EXAMPLES",
+          "NO_CONTRASTS_GOOD_BAD",
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 140,
+          "wordCount": 22,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": false,
+          "hasGoodBadContrast": false,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": true,
+          "addPitfallsSection": true,
+          "addMetricsSection": true
+        }
+      },
+      "action": "REFINE_LESSON_FIRST",
+      "rewrite": null
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_HU",
+      "courseName": "Termelékenység 2026: Hogyan kezelj csapatokat és időt",
+      "language": "hu",
+      "dayNumber": 20,
+      "lessonId": "PRODUCTIVITY_2026_HU_DAY_20",
+      "title": "Magánéleti termelékenység: Otthoni szervezés, személyes projektek",
+      "lessonCreatedAt": "2026-01-24T09:30:06.992Z",
+      "lessonQuality": {
+        "score": 20,
+        "issues": [
+          "TOO_SHORT",
+          "NO_CLEAR_DEFINITIONS",
+          "NO_EXAMPLES",
+          "NO_CONTRASTS_GOOD_BAD",
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 190,
+          "wordCount": 20,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": false,
+          "hasGoodBadContrast": false,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": true,
+          "addPitfallsSection": true,
+          "addMetricsSection": true
+        }
+      },
+      "action": "REFINE_LESSON_FIRST",
+      "rewrite": null
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_HU",
+      "courseName": "Termelékenység 2026: Hogyan kezelj csapatokat és időt",
+      "language": "hu",
+      "dayNumber": 21,
+      "lessonId": "PRODUCTIVITY_2026_HU_DAY_21",
+      "title": "Közösség és hálózat: Kapcsolatok, tanulás mások mellett",
+      "lessonCreatedAt": "2026-01-24T09:30:09.840Z",
+      "lessonQuality": {
+        "score": 20,
+        "issues": [
+          "TOO_SHORT",
+          "NO_CLEAR_DEFINITIONS",
+          "NO_EXAMPLES",
+          "NO_CONTRASTS_GOOD_BAD",
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 174,
+          "wordCount": 19,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": false,
+          "hasGoodBadContrast": false,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": true,
+          "addPitfallsSection": true,
+          "addMetricsSection": true
+        }
+      },
+      "action": "REFINE_LESSON_FIRST",
+      "rewrite": null
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_HU",
+      "courseName": "Termelékenység 2026: Hogyan kezelj csapatokat és időt",
+      "language": "hu",
+      "dayNumber": 22,
+      "lessonId": "PRODUCTIVITY_2026_HU_DAY_22",
+      "title": "Technológia és eszközök: Automatizáció, a megfelelő technológia kiválasztása",
+      "lessonCreatedAt": "2026-01-24T09:30:12.710Z",
+      "lessonQuality": {
+        "score": 20,
+        "issues": [
+          "TOO_SHORT",
+          "NO_CLEAR_DEFINITIONS",
+          "NO_EXAMPLES",
+          "NO_CONTRASTS_GOOD_BAD",
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 197,
+          "wordCount": 20,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": false,
+          "hasGoodBadContrast": false,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": true,
+          "addPitfallsSection": true,
+          "addMetricsSection": true
+        }
+      },
+      "action": "REFINE_LESSON_FIRST",
+      "rewrite": null
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_HU",
+      "courseName": "Termelékenység 2026: Hogyan kezelj csapatokat és időt",
+      "language": "hu",
+      "dayNumber": 23,
+      "lessonId": "PRODUCTIVITY_2026_HU_DAY_23",
+      "title": "Kreativitás és innováció: Újgondolkodás, kísérletezés",
+      "lessonCreatedAt": "2026-01-24T09:30:15.491Z",
+      "lessonQuality": {
+        "score": 20,
+        "issues": [
+          "TOO_SHORT",
+          "NO_CLEAR_DEFINITIONS",
+          "NO_EXAMPLES",
+          "NO_CONTRASTS_GOOD_BAD",
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 164,
+          "wordCount": 19,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": false,
+          "hasGoodBadContrast": false,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": true,
+          "addPitfallsSection": true,
+          "addMetricsSection": true
+        }
+      },
+      "action": "REFINE_LESSON_FIRST",
+      "rewrite": null
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_HU",
+      "courseName": "Termelékenység 2026: Hogyan kezelj csapatokat és időt",
+      "language": "hu",
+      "dayNumber": 24,
+      "lessonId": "PRODUCTIVITY_2026_HU_DAY_24",
+      "title": "Szűrés és prioritás: Mit kell ignorálni, mit fontosnak tartani",
+      "lessonCreatedAt": "2026-01-24T09:30:18.168Z",
+      "lessonQuality": {
+        "score": 20,
+        "issues": [
+          "TOO_SHORT",
+          "NO_CLEAR_DEFINITIONS",
+          "NO_EXAMPLES",
+          "NO_CONTRASTS_GOOD_BAD",
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 187,
+          "wordCount": 27,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": false,
+          "hasGoodBadContrast": false,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": true,
+          "addPitfallsSection": true,
+          "addMetricsSection": true
+        }
+      },
+      "action": "REFINE_LESSON_FIRST",
+      "rewrite": null
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_HU",
+      "courseName": "Termelékenység 2026: Hogyan kezelj csapatokat és időt",
+      "language": "hu",
+      "dayNumber": 25,
+      "lessonId": "PRODUCTIVITY_2026_HU_DAY_25",
+      "title": "Szakértelmi fejlesztés: Magasabb szint, új készségek",
+      "lessonCreatedAt": "2026-01-24T09:30:20.653Z",
+      "lessonQuality": {
+        "score": 20,
+        "issues": [
+          "TOO_SHORT",
+          "NO_CLEAR_DEFINITIONS",
+          "NO_EXAMPLES",
+          "NO_CONTRASTS_GOOD_BAD",
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 161,
+          "wordCount": 20,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": false,
+          "hasGoodBadContrast": false,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": true,
+          "addPitfallsSection": true,
+          "addMetricsSection": true
+        }
+      },
+      "action": "REFINE_LESSON_FIRST",
+      "rewrite": null
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_HU",
+      "courseName": "Termelékenység 2026: Hogyan kezelj csapatokat és időt",
+      "language": "hu",
+      "dayNumber": 26,
+      "lessonId": "PRODUCTIVITY_2026_HU_DAY_26",
+      "title": "Mentorálás és tanítás: Tudás megosztása, másoknak segítés",
+      "lessonCreatedAt": "2026-01-24T09:30:23.668Z",
+      "lessonQuality": {
+        "score": 20,
+        "issues": [
+          "TOO_SHORT",
+          "NO_CLEAR_DEFINITIONS",
+          "NO_EXAMPLES",
+          "NO_CONTRASTS_GOOD_BAD",
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 144,
+          "wordCount": 19,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": false,
+          "hasGoodBadContrast": false,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": true,
+          "addPitfallsSection": true,
+          "addMetricsSection": true
+        }
+      },
+      "action": "REFINE_LESSON_FIRST",
+      "rewrite": null
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_HU",
+      "courseName": "Termelékenység 2026: Hogyan kezelj csapatokat és időt",
+      "language": "hu",
+      "dayNumber": 27,
+      "lessonId": "PRODUCTIVITY_2026_HU_DAY_27",
+      "title": "Szokások és rituálok: Napi rutin, hosszú távú cselekvés",
+      "lessonCreatedAt": "2026-01-24T09:30:26.210Z",
+      "lessonQuality": {
+        "score": 20,
+        "issues": [
+          "TOO_SHORT",
+          "NO_CLEAR_DEFINITIONS",
+          "NO_EXAMPLES",
+          "NO_CONTRASTS_GOOD_BAD",
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 190,
+          "wordCount": 24,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": false,
+          "hasGoodBadContrast": false,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": true,
+          "addPitfallsSection": true,
+          "addMetricsSection": true
+        }
+      },
+      "action": "REFINE_LESSON_FIRST",
+      "rewrite": null
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_HU",
+      "courseName": "Termelékenység 2026: Hogyan kezelj csapatokat és időt",
+      "language": "hu",
+      "dayNumber": 28,
+      "lessonId": "PRODUCTIVITY_2026_HU_DAY_28",
+      "title": "Értékek és célok: Élet célja, hosszú távú jövőkép",
+      "lessonCreatedAt": "2026-01-24T09:30:29.889Z",
+      "lessonQuality": {
+        "score": 20,
+        "issues": [
+          "TOO_SHORT",
+          "NO_CLEAR_DEFINITIONS",
+          "NO_EXAMPLES",
+          "NO_CONTRASTS_GOOD_BAD",
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 146,
+          "wordCount": 18,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": false,
+          "hasGoodBadContrast": false,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": true,
+          "addPitfallsSection": true,
+          "addMetricsSection": true
+        }
+      },
+      "action": "REFINE_LESSON_FIRST",
+      "rewrite": null
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_HU",
+      "courseName": "Termelékenység 2026: Hogyan kezelj csapatokat és időt",
+      "language": "hu",
+      "dayNumber": 29,
+      "lessonId": "PRODUCTIVITY_2026_HU_DAY_29",
+      "title": "Folyamatos fejlesztés: Tanulás, visszajelzés, iteráció",
+      "lessonCreatedAt": "2026-01-24T09:30:33.449Z",
+      "lessonQuality": {
+        "score": 20,
+        "issues": [
+          "TOO_SHORT",
+          "NO_CLEAR_DEFINITIONS",
+          "NO_EXAMPLES",
+          "NO_CONTRASTS_GOOD_BAD",
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 161,
+          "wordCount": 19,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": false,
+          "hasGoodBadContrast": false,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": true,
+          "addPitfallsSection": true,
+          "addMetricsSection": true
+        }
+      },
+      "action": "REFINE_LESSON_FIRST",
+      "rewrite": null
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_HU",
+      "courseName": "Termelékenység 2026: Hogyan kezelj csapatokat és időt",
+      "language": "hu",
+      "dayNumber": 30,
+      "lessonId": "PRODUCTIVITY_2026_HU_DAY_30",
+      "title": "A termelékenység mestere: Komprehenzív integráció, elkötelezettség",
+      "lessonCreatedAt": "2026-01-24T09:30:37.065Z",
+      "lessonQuality": {
+        "score": 20,
+        "issues": [
+          "TOO_SHORT",
+          "NO_CLEAR_DEFINITIONS",
+          "NO_EXAMPLES",
+          "NO_CONTRASTS_GOOD_BAD",
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 181,
+          "wordCount": 20,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": false,
+          "hasGoodBadContrast": false,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": true,
+          "addPitfallsSection": true,
+          "addMetricsSection": true
+        }
+      },
+      "action": "REFINE_LESSON_FIRST",
+      "rewrite": null
+    }
+  ]
+}

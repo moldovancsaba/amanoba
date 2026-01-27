@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-27T08:40:58.931Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_EN",
+    "name": "Productivity 2026: How to Manage Teams and Time",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 7,
+    "title": "Daily/Weekly System: morning ritual, daily huddle, weekly review",
+    "lessonId": "PRODUCTIVITY_2026_EN_DAY_07"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a230494239f69e45ae7",
+      "uuid": "6b621bbd-475e-4e9b-8158-fc94249acb65",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"exercise (20 min) — Establishing daily/w...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day7",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a230494239f69e45ae8",
+      "uuid": "8bd15ffb-0b65-4505-a9dc-271026b44e28",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"exercise (20 min) — Establishing daily/w...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day7",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a230494239f69e45ae9",
+      "uuid": "34647076-190e-452a-b1b2-2f64d8a6621e",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"exercise (20 min) — Establishing daily/w...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day7",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a230494239f69e45aea",
+      "uuid": "e389a7e9-c92d-47ab-993a-d2f60ca5ed0a",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "How does the concept \"Daily/Weekly System: morning ritual, daily huddle,...\" mentioned in the lesson impact achieving your goals?",
+      "options": [
+        "As described in detail in the lesson, Daily/Weekly System: morning r... increases effectiveness and reduces risk",
+        "No significant impact",
+        "Only matters theoretically",
+        "Only an optional element"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day7",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a230494239f69e45aeb",
+      "uuid": "c1a60028-8d9c-4e0f-81c1-be13efa3d64a",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is Morning ritual in the context of Daily/Weekly System: morning ritual, daily huddle, weekly review as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, Morning ritual plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day7",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a230494239f69e45aec",
+      "uuid": "23e7ef1c-f82e-40fa-9566-0123af88b134",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is Weekly review in the context of Daily/Weekly System: morning ritual, daily huddle, weekly review as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, Weekly review plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day7",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a230494239f69e45aed",
+      "uuid": "d5e7ddd3-f915-43b8-8085-a84d5f208974",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "In the \"Daily/Weekly System: morning ritual, daily huddle, weekly review\" lesson, what role does 2. Planning (8 min) play?",
+      "options": [
+        "As described in detail in the lesson, 2. Planning (8 min) plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day7",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

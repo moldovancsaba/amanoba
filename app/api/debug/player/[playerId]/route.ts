@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { auth } from '@/auth';
 import connectToDatabase from '@/lib/mongodb';
 import {
   Player,
@@ -6,17 +7,29 @@ import {
   PointsWallet,
   PlayerSession,
 } from '@/lib/models';
+import { requireAdmin } from '@/lib/rbac';
 
 /**
  * GET /api/debug/player/[playerId]
- * 
- * Why: Debug endpoint to see raw database values
+ *
+ * Why: Debug endpoint to see raw database values (dev/staging only)
  * What: Returns unprocessed database documents for troubleshooting
+ * Security: Admin-only; disabled in production (NODE_ENV=production)
  */
 export async function GET(
   request: NextRequest,
   props: { params: Promise<{ playerId: string }> }
 ) {
+  if (process.env.NODE_ENV === 'production') {
+    return NextResponse.json({ error: 'Not found' }, { status: 404 });
+  }
+
+  const session = await auth();
+  const adminCheck = requireAdmin(request, session);
+  if (adminCheck) {
+    return adminCheck;
+  }
+
   try {
     const params = await props.params;
     const { playerId } = params;

@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-27T08:53:03.526Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_EN",
+    "name": "Productivity 2026: How to Manage Teams and Time",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 19,
+    "title": "Long-term planning (years ahead, strategy, evolution)",
+    "lessonId": "PRODUCTIVITY_2026_EN_DAY_19"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a240494239f69e45b74",
+      "uuid": "b3ff6342-30c5-4d50-b5a6-8cfbaa50c3a6",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Progress toward yearly and multi-year goals.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day19",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a240494239f69e45b75",
+      "uuid": "a6e576a1-37e6-4536-afe8-5d14bcc830ef",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Progress toward yearly and multi-year goals.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day19",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a240494239f69e45b76",
+      "uuid": "65e751a3-8d97-479a-b578-cbff350584a8",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Progress toward yearly and multi-year goals.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day19",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a240494239f69e45b77",
+      "uuid": "8468aaaa-8970-4249-8f67-8806e5b54754",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "How does the concept \"Long-Term Planning: Years Ahead, Strategy, Evoluti...\" mentioned in the lesson impact achieving your goals?",
+      "options": [
+        "As described in detail in the lesson, Long-Term Planning: Years Ahea... increases effectiveness and reduces risk",
+        "No significant impact",
+        "Only matters theoretically",
+        "Only an optional element"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day19",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a240494239f69e45b78",
+      "uuid": "cf2cc5f5-fba2-411f-bf23-0ea4265f4980",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is Long in the context of Long-Term Planning: Years Ahead, Strategy, Evolution as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, Long plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day19",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a240494239f69e45b79",
+      "uuid": "8fae004d-cd16-454d-9227-3503c64130b9",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is Planning in the context of Long-Term Planning: Years Ahead, Strategy, Evolution as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, Planning plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day19",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a240494239f69e45b7a",
+      "uuid": "89677167-7298-4281-bb26-9e63145a0607",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is Ahead in the context of Long-Term Planning: Years Ahead, Strategy, Evolution as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, Ahead plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day19",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

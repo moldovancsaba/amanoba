@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-27T08:53:21.808Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_EN",
+    "name": "Productivity 2026: How to Manage Teams and Time",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 23,
+    "title": "Creativity and innovation (rethinking, experimentation)",
+    "lessonId": "PRODUCTIVITY_2026_EN_DAY_23"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a250494239f69e45b9c",
+      "uuid": "705a6614-4e77-460f-bdb1-2a79ce734db4",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Integrate creativity and innovation into work.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day23",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a250494239f69e45b9d",
+      "uuid": "19fb90bf-c16c-4a35-94f4-10baee9440a6",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Integrate creativity and innovation into work.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day23",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a250494239f69e45b9e",
+      "uuid": "8d13dde5-4ee4-4449-8879-28d661aa7279",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Integrate creativity and innovation into work.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day23",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a250494239f69e45b9f",
+      "uuid": "35094c73-c849-4b06-9ede-53ffb85de22d",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "How does the concept \"Creativity and Innovation: Rethinking, Experimenta...\" mentioned in the lesson impact achieving your goals?",
+      "options": [
+        "As described in detail in the lesson, Creativity and Innovation: Ret... increases effectiveness and reduces risk",
+        "No significant impact",
+        "Only matters theoretically",
+        "Only an optional element"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day23",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a250494239f69e45ba0",
+      "uuid": "30d8ec69-d87d-4a94-8f03-f5efb0f8e57e",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is Creativity in the context of Creativity and Innovation: Rethinking, Experimentation as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, Creativity plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day23",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a250494239f69e45ba1",
+      "uuid": "241dc102-e97f-435d-973a-0f7de7d972ae",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is Rethinking in the context of Creativity and Innovation: Rethinking, Experimentation as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, Rethinking plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day23",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a250494239f69e45ba2",
+      "uuid": "e13fdf40-a9ff-4e85-b923-27af42a521d5",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "In the \"Creativity and Innovation: Rethinking, Experimentation\" lesson, what role does Integrate creativity and innovation into work. play?",
+      "options": [
+        "As described in detail in the lesson, Integrate creativity and innovation into work. plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day23",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

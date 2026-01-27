@@ -6,6 +6,7 @@ This is the repeatable, high-quality workflow to keep quizzes aligned with lesso
 
 - **Standalone questions**: A student must understand and answer without opening the lesson.
 - **No lesson references**: No “as described in the lesson”, “follow the method in the lesson”, or title‑based shortcuts.
+- **No checklist-snippet crutches**: Reject questions that quote truncated checklist snippets (e.g. `✅ ...` or quoted `...`) instead of presenting a clear scenario.
 - **No recall**: `questionType: recall` is disallowed.
 - **Minimum size**: at least **7** questions per lesson (pool may be larger).
 - **Application minimum**: at least **5 APPLICATION** questions per lesson.
@@ -75,3 +76,12 @@ npx tsx --env-file=.env.local scripts/quiz-quality-pipeline.ts --course GEO_SHOP
   - `lesson-quality-audit__<timestamp>.json`
   - `lesson-refine-tasks__<timestamp>.md`
 - Backups: `scripts/quiz-backups/<COURSE_ID>/`
+
+## Lesson refinement backups (when editing lessons)
+
+If you refine lesson content via a script (lesson text updates are DB writes), use a backup-first workflow:
+- Backups: `scripts/lesson-backups/<COURSE_ID>/`
+- Restore:
+```bash
+npx tsx --env-file=.env.local scripts/restore-lesson-from-backup.ts --file scripts/lesson-backups/COURSE_ID/LESSON_ID__TIMESTAMP.json
+```

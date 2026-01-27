@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-27T08:40:59.162Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_EN",
+    "name": "Productivity 2026: How to Manage Teams and Time",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 9,
+    "title": "Delegation vs Elimination: When to Delegate, What to Eliminate",
+    "lessonId": "PRODUCTIVITY_2026_EN_DAY_9"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a230494239f69e45b03",
+      "uuid": "6e4b86e0-bb81-4feb-8265-8621db53fdf6",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"Exercise (30 minutes) — Task Audit: Dele...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day9",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a230494239f69e45b04",
+      "uuid": "6242c702-a1ef-4f31-961a-342c3783c43d",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"Exercise (30 minutes) — Task Audit: Dele...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day9",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a230494239f69e45b05",
+      "uuid": "d6ec18fe-a04a-459a-a7fd-349a72d4ab85",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"Exercise (30 minutes) — Task Audit: Dele...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day9",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a230494239f69e45b06",
+      "uuid": "690b9def-77a3-429d-b4b8-83b721bb233c",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "How does the concept \"Delegation vs Elimination: When to Delegate, What ...\" mentioned in the lesson impact achieving your goals?",
+      "options": [
+        "As described in detail in the lesson, Delegation vs Elimination: Whe... increases effectiveness and reduces risk",
+        "No significant impact",
+        "Only matters theoretically",
+        "Only an optional element"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day9",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a230494239f69e45b07",
+      "uuid": "f3dff60e-9438-413f-abe2-081afab0822c",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is Mental Load in the context of Delegation vs Elimination: When to Delegate, What to Eliminate as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, Mental Load plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day9",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a230494239f69e45b08",
+      "uuid": "933a2810-c7d2-47ab-b183-d81f0085cea0",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is Team Growth in the context of Delegation vs Elimination: When to Delegate, What to Eliminate as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, Team Growth plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day9",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a230494239f69e45b09",
+      "uuid": "f68a194f-b027-4f30-bb6a-9e924c865092",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is Elimination in the context of Delegation vs Elimination: When to Delegate, What to Eliminate as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, Elimination plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day9",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-27T08:55:34.241Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_EN",
+    "name": "Productivity 2026: How to Manage Teams and Time",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 21,
+    "title": "Community and network (relationships, learning with others)",
+    "lessonId": "PRODUCTIVITY_2026_EN_DAY_21"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69787d01e05462bc4887c305",
+      "uuid": "86309c28-8a3f-489f-a1f4-d7129d4e02c5",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "You are applying \"Community and network (relationships, learning with others)\" this week. Which next step most directly turns intent into an outcome instead of extra activity?",
+      "options": [
+        "Pick one real scenario, apply the checklist, define a success metric/criterion, and review results at week’s end.",
+        "Add more meetings and messages so progress is visible, then assume the outcome improved.",
+        "Start multiple unrelated tasks to stay busy and increase the feeling of productivity.",
+        "Delay action until the plan is perfect, because execution without certainty risks mistakes."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day21",
+        "#en",
+        "#course-productivity_2026_en",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "69787d01e05462bc4887c306",
+      "uuid": "df2be1e7-f758-4f2a-8376-528724e68434",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Which option is the best example of a measurable metric/criterion for \"Community and network (relationships, learning with others)\" (so you can prove progress)?",
+      "options": [
+        "A specific number tracked weekly (e.g., decision latency, cycle time, time saved) with a threshold for success.",
+        "A general intention like “be better at this”, without numbers or a deadline.",
+        "A count of messages sent, regardless of whether outcomes improved.",
+        "A feeling-based check (“did it feel productive?”) with no measurable signal."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day21",
+        "#en",
+        "#course-productivity_2026_en",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "69787d01e05462bc4887c307",
+      "uuid": "973110a5-ebc3-4859-90e9-6172778eb83f",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "In a \"Good vs Bad\" comparison for \"Community and network (relationships, learning with others)\", which option is closest to a “Good” implementation?",
+      "options": [
+        "Clear outcomes, explicit owners/criteria, and fewer distractions so execution produces measurable results.",
+        "More activity (more meetings/updates) without decisions, owners, or measurable progress.",
+        "More tools and dashboards without changing the process or defining success criteria.",
+        "More urgency and overtime without adjusting constraints or simplifying the system."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day21",
+        "#en",
+        "#course-productivity_2026_en",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "69787d01e05462bc4887c308",
+      "uuid": "ea6ff46e-fe77-4107-baa1-39930f2e9c51",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Which mistake is most likely to break \"Community and network (relationships, learning with others)\" in practice, according to the course’s systems framing?",
+      "options": [
+        "Optimizing visible activity instead of outcomes, so constraints get consumed without measurable progress.",
+        "Defining one clear metric and reviewing it weekly to adjust one rule at a time.",
+        "Reducing context switching and protecting focus blocks so outcomes can be produced.",
+        "Creating a short checklist and documenting it so the process is repeatable."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day21",
+        "#en",
+        "#course-productivity_2026_en",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "69787d01e05462bc4887c309",
+      "uuid": "a0aaaf1c-7f83-4ad9-ae38-bc529d355dab",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "You want \"Community and network (relationships, learning with others)\" to work for a team, not just one person. Which change best makes it a scalable system?",
+      "options": [
+        "Document the checklist, define owners and success criteria, and run a lightweight cadence (review + adjustment).",
+        "Rely on individual willpower and hope everyone copies the best performer’s habits.",
+        "Make the process optional with no shared metrics so nobody feels pressured by measurement.",
+        "Increase coordination time so everyone stays busy and visible, even if execution time drops."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day21",
+        "#en",
+        "#course-productivity_2026_en",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "69787d01e05462bc4887c30a",
+      "uuid": "da2e3071-29ed-424e-abfa-d28e321b6b30",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "What is the biggest risk if you implement \"Community and network (relationships, learning with others)\" incorrectly by adding more activity without changing outcomes?",
+      "options": [
+        "Constraints get consumed (time/energy/attention) while outcomes stagnate, so productivity drops even if work feels intense.",
+        "Outcomes improve automatically because activity volume guarantees results in complex systems.",
+        "Measurement becomes unnecessary because visible effort is a sufficient success signal.",
+        "Decision quality improves because fatigue forces faster thinking and fewer debates."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day21",
+        "#en",
+        "#course-productivity_2026_en",
+        "#productivity",
+        "#advanced",
+        "#critical-thinking"
+      ]
+    },
+    {
+      "_id": "69787d01e05462bc4887c30b",
+      "uuid": "d947086e-79f8-44ec-8a20-33495767db65",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "When \"Community and network (relationships, learning with others)\" fails, which diagnosis is most aligned with the course’s outcome/constraints definition?",
+      "options": [
+        "The system lacks clear criteria/metrics or protected execution time, so outcomes cannot be reliably produced and proven.",
+        "People are not working long enough hours, so adding overtime is the main fix regardless of constraints.",
+        "The team needs more tools, because tools replace the need for clear definitions and checklists.",
+        "The best fix is to stop reviewing results, because reflection slows execution."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day21",
+        "#en",
+        "#course-productivity_2026_en",
+        "#productivity",
+        "#advanced",
+        "#critical-thinking"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,122 @@
+{
+  "backedUpAt": "2026-01-27T11:04:22.369Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_HU",
+    "name": "Termelékenység 2026: Hogyan kezelj csapatokat és időt",
+    "language": "hu"
+  },
+  "lesson": {
+    "dayNumber": 3,
+    "title": "Célhierarchia: vízió → eredmények → projektek → következő lépések",
+    "lessonId": "PRODUCTIVITY_2026_HU_DAY_03"
+  },
+  "questionCount": 5,
+  "questions": [
+    {
+      "_id": "697766da9b3efa4704455fba",
+      "uuid": "ee179b54-7eb8-404f-a5dc-0a27a44995b6",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Melyik a legmagasabb szint a célhierarchiában?",
+      "options": [
+        "Következő lépések",
+        "Projektek",
+        "Eredmények",
+        "Vízió"
+      ],
+      "correctIndex": 3,
+      "hashtags": [
+        "#day-03",
+        "#foundation",
+        "#recall",
+        "#hu"
+      ]
+    },
+    {
+      "_id": "697766da9b3efa4704455fbb",
+      "uuid": "1996c820-c183-443a-86f4-89004c8eca18",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Mi a gyakori hiba, ha projekteket csinálsz vízió nélkül?",
+      "options": [
+        "Túl lassan haladsz",
+        "Nem tudod, miért csinálod",
+        "Túl gyorsan haladsz",
+        "Nincs hiba"
+      ],
+      "correctIndex": 1,
+      "hashtags": [
+        "#day-03",
+        "#foundation",
+        "#recall",
+        "#hu"
+      ]
+    },
+    {
+      "_id": "697766da9b3efa4704455fbc",
+      "uuid": "f911dc0a-cf48-4702-b3da-2e952225662c",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "A leckében leírt \"✅ Van egy víziód (3-5 év).\n✅ Van 2-3 mér...\" gyakorlatot hogyan implementálnád a saját munkádban?",
+      "options": [
+        "Lépésről lépésre követem a leckében leírt módszert, dokumentálom az eredményeket, és finomhangolom a folyamatot",
+        "Egyszerre próbálom ki mindent",
+        "Csak olvasom, nem alkalmazom",
+        "Várok, amíg mások megcsinálják"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day3",
+        "#hu",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "697766da9b3efa4704455fbd",
+      "uuid": "62c9dd33-5f22-431c-90fc-496df61af135",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "A leckében leírt \"✅ A hierarchia logikusan összekapcsolódi...\" gyakorlatot hogyan implementálnád a saját munkádban?",
+      "options": [
+        "Lépésről lépésre követem a leckében leírt módszert, dokumentálom az eredményeket, és finomhangolom a folyamatot",
+        "Egyszerre próbálom ki mindent",
+        "Csak olvasom, nem alkalmazom",
+        "Várok, amíg mások megcsinálják"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day3",
+        "#hu",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "697766da9b3efa4704455fbe",
+      "uuid": "0ccc44d1-9119-4bca-b8a6-38e5f0f008fa",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "A leckében leírt \"✅ Van egy víziód (3-5 év).\n✅ Van 2-3 mér...\" gyakorlatot hogyan implementálnád a saját munkádban?",
+      "options": [
+        "Lépésről lépésre követem a leckében leírt módszert, dokumentálom az eredményeket, és finomhangolom a folyamatot",
+        "Egyszerre próbálom ki mindent",
+        "Csak olvasom, nem alkalmazom",
+        "Várok, amíg mások megcsinálják"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day3",
+        "#hu",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

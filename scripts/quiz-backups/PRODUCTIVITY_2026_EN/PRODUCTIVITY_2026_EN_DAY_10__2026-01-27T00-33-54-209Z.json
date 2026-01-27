@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-27T00:33:56.684Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_EN",
+    "name": "Productivity 2026: How to Manage Teams and Time",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 10,
+    "title": "Energy Management: When to Work, When to Rest, Recovery Rituals",
+    "lessonId": "PRODUCTIVITY_2026_EN_DAY_10"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a230494239f69e45b0f",
+      "uuid": "a8b5f634-2f35-4f4d-b068-6b3b134982c0",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"Exercise (40 minutes) — Energy Audit & R...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day10",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a230494239f69e45b10",
+      "uuid": "37a8e3e7-9a4e-4ee9-b6e7-4abed456fdb6",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"Exercise (40 minutes) — Energy Audit & R...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day10",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a230494239f69e45b11",
+      "uuid": "b91ec5e8-66a7-49c4-b91b-4cb1bd5d1c0c",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"Exercise (40 minutes) — Energy Audit & R...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day10",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a230494239f69e45b12",
+      "uuid": "88662eb3-9f0c-442c-8c2f-cc85a12f7156",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "How does the concept \"Energy Management: When to Work, When to Rest, Rec...\" mentioned in the lesson impact achieving your goals?",
+      "options": [
+        "As described in detail in the lesson, Energy Management: When to Wor... increases effectiveness and reduces risk",
+        "No significant impact",
+        "Only matters theoretically",
+        "Only an optional element"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day10",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a230494239f69e45b13",
+      "uuid": "b50c12a6-baf8-4b78-a2b6-a48291a8b620",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "In the \"Energy Management: When to Work, When to Rest, Recovery Rituals\" lesson, what role does Burnout Prevention play?",
+      "options": [
+        "As described in detail in the lesson, Burnout Prevention plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day10",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a230494239f69e45b14",
+      "uuid": "928e2521-6327-4177-b20a-d6fbdf8163d8",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "In the \"Energy Management: When to Work, When to Rest, Recovery Rituals\" lesson, what role does Sustainable Output play?",
+      "options": [
+        "As described in detail in the lesson, Sustainable Output plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day10",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a230494239f69e45b15",
+      "uuid": "dd7d9e0d-f137-4b0d-a82c-b703eb921ac4",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is Daily Cycle in the context of Energy Management: When to Work, When to Rest, Recovery Rituals as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, Daily Cycle plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day10",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

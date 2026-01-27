@@ -1,0 +1,558 @@
+[dotenv@17.2.3] injecting env (0) from .env.local -- tip: 📡 add observability to secrets: https://dotenvx.com/ops
+[2026-01-27T08:41:34.872Z] INFO: Connecting to MongoDB... {"dbName":"amanoba","attempt":1}
+[2026-01-27T08:41:35.304Z] INFO: MongoDB connected successfully {"host":"ac-0novrqj-shard-00-00.lbzmcrq.mongodb.net","name":"amanoba","readyState":1,"ms":433}
+{
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_EN",
+    "language": "en"
+  },
+  "totals": {
+    "lessons": 30,
+    "lessonsMin7Ok": 30,
+    "lessonsNoRecallOk": 12,
+    "lessonsMinAppOk": 12,
+    "lessonsOptionLenOk": 12
+  },
+  "rows": [
+    {
+      "day": 1,
+      "lessonId": "PRODUCTIVITY_2026_EN_DAY_01",
+      "title": "Productivity definition: output, outcomes, and constraints",
+      "counts": {
+        "total": 7,
+        "recall": 0,
+        "application": 6,
+        "critical": 1,
+        "shortOptions": 0
+      },
+      "status": {
+        "okMin7": true,
+        "okNoRecall": true,
+        "okMinApp5": true,
+        "okOptionLen": true
+      }
+    },
+    {
+      "day": 2,
+      "lessonId": "PRODUCTIVITY_2026_EN_DAY_02",
+      "title": "Time, energy, attention: what you manage in practice",
+      "counts": {
+        "total": 7,
+        "recall": 0,
+        "application": 5,
+        "critical": 2,
+        "shortOptions": 0
+      },
+      "status": {
+        "okMin7": true,
+        "okNoRecall": true,
+        "okMinApp5": true,
+        "okOptionLen": true
+      }
+    },
+    {
+      "day": 3,
+      "lessonId": "PRODUCTIVITY_2026_EN_DAY_03",
+      "title": "Goal hierarchy: vision → outcomes → projects → next actions",
+      "counts": {
+        "total": 7,
+        "recall": 0,
+        "application": 5,
+        "critical": 2,
+        "shortOptions": 0
+      },
+      "status": {
+        "okMin7": true,
+        "okNoRecall": true,
+        "okMinApp5": true,
+        "okOptionLen": true
+      }
+    },
+    {
+      "day": 4,
+      "lessonId": "PRODUCTIVITY_2026_EN_DAY_04",
+      "title": "Habits vs systems: why systems scale better",
+      "counts": {
+        "total": 7,
+        "recall": 0,
+        "application": 5,
+        "critical": 2,
+        "shortOptions": 0
+      },
+      "status": {
+        "okMin7": true,
+        "okNoRecall": true,
+        "okMinApp5": true,
+        "okOptionLen": true
+      }
+    },
+    {
+      "day": 5,
+      "lessonId": "PRODUCTIVITY_2026_EN_DAY_05",
+      "title": "Measurement: simple weekly review metrics (throughput, focus blocks, carryover)",
+      "counts": {
+        "total": 7,
+        "recall": 0,
+        "application": 5,
+        "critical": 2,
+        "shortOptions": 0
+      },
+      "status": {
+        "okMin7": true,
+        "okNoRecall": true,
+        "okMinApp5": true,
+        "okOptionLen": true
+      }
+    },
+    {
+      "day": 6,
+      "lessonId": "PRODUCTIVITY_2026_EN_DAY_06",
+      "title": "Capture: inboxes, triggers list, capture habits",
+      "counts": {
+        "total": 7,
+        "recall": 0,
+        "application": 5,
+        "critical": 2,
+        "shortOptions": 0
+      },
+      "status": {
+        "okMin7": true,
+        "okNoRecall": true,
+        "okMinApp5": true,
+        "okOptionLen": true
+      }
+    },
+    {
+      "day": 7,
+      "lessonId": "PRODUCTIVITY_2026_EN_DAY_07",
+      "title": "Daily/Weekly System: morning ritual, daily huddle, weekly review",
+      "counts": {
+        "total": 7,
+        "recall": 0,
+        "application": 5,
+        "critical": 2,
+        "shortOptions": 0
+      },
+      "status": {
+        "okMin7": true,
+        "okNoRecall": true,
+        "okMinApp5": true,
+        "okOptionLen": true
+      }
+    },
+    {
+      "day": 8,
+      "lessonId": "PRODUCTIVITY_2026_EN_DAY_8",
+      "title": "Context Switching Cost: Attention Residue, Batching, Deep Work Blocks",
+      "counts": {
+        "total": 7,
+        "recall": 0,
+        "application": 5,
+        "critical": 2,
+        "shortOptions": 0
+      },
+      "status": {
+        "okMin7": true,
+        "okNoRecall": true,
+        "okMinApp5": true,
+        "okOptionLen": true
+      }
+    },
+    {
+      "day": 9,
+      "lessonId": "PRODUCTIVITY_2026_EN_DAY_9",
+      "title": "Delegation vs Elimination: When to Delegate, What to Eliminate",
+      "counts": {
+        "total": 7,
+        "recall": 0,
+        "application": 5,
+        "critical": 2,
+        "shortOptions": 0
+      },
+      "status": {
+        "okMin7": true,
+        "okNoRecall": true,
+        "okMinApp5": true,
+        "okOptionLen": true
+      }
+    },
+    {
+      "day": 10,
+      "lessonId": "PRODUCTIVITY_2026_EN_DAY_10",
+      "title": "Energy Management: When to Work, When to Rest, Recovery Rituals",
+      "counts": {
+        "total": 7,
+        "recall": 0,
+        "application": 5,
+        "critical": 2,
+        "shortOptions": 0
+      },
+      "status": {
+        "okMin7": true,
+        "okNoRecall": true,
+        "okMinApp5": true,
+        "okOptionLen": true
+      }
+    },
+    {
+      "day": 11,
+      "lessonId": "PRODUCTIVITY_2026_EN_DAY_11",
+      "title": "Goal Setting & OKRs: What Do You Want to Achieve?",
+      "counts": {
+        "total": 7,
+        "recall": 3,
+        "application": 3,
+        "critical": 1,
+        "shortOptions": 4
+      },
+      "status": {
+        "okMin7": true,
+        "okNoRecall": false,
+        "okMinApp5": false,
+        "okOptionLen": false
+      }
+    },
+    {
+      "day": 12,
+      "lessonId": "PRODUCTIVITY_2026_EN_DAY_12",
+      "title": "Accountability Structures: Systems That Keep You on Track",
+      "counts": {
+        "total": 7,
+        "recall": 0,
+        "application": 5,
+        "critical": 2,
+        "shortOptions": 0
+      },
+      "status": {
+        "okMin7": true,
+        "okNoRecall": true,
+        "okMinApp5": true,
+        "okOptionLen": true
+      }
+    },
+    {
+      "day": 13,
+      "lessonId": "PRODUCTIVITY_2026_EN_DAY_13",
+      "title": "Decision-Making Frameworks: Rapid Decisions, Decision Matrix, Avoiding Analysis Paralysis",
+      "counts": {
+        "total": 7,
+        "recall": 0,
+        "application": 5,
+        "critical": 2,
+        "shortOptions": 0
+      },
+      "status": {
+        "okMin7": true,
+        "okNoRecall": true,
+        "okMinApp5": true,
+        "okOptionLen": true
+      }
+    },
+    {
+      "day": 14,
+      "lessonId": "PRODUCTIVITY_2026_EN_DAY_14",
+      "title": "Meeting Efficiency: Agenda, Time Limits, Decision Log",
+      "counts": {
+        "total": 7,
+        "recall": 3,
+        "application": 3,
+        "critical": 1,
+        "shortOptions": 4
+      },
+      "status": {
+        "okMin7": true,
+        "okNoRecall": false,
+        "okMinApp5": false,
+        "okOptionLen": false
+      }
+    },
+    {
+      "day": 15,
+      "lessonId": "PRODUCTIVITY_2026_EN_DAY_15",
+      "title": "Teamwork and Synergy: Roles, Responsibility, Coordination",
+      "counts": {
+        "total": 7,
+        "recall": 3,
+        "application": 3,
+        "critical": 1,
+        "shortOptions": 4
+      },
+      "status": {
+        "okMin7": true,
+        "okNoRecall": false,
+        "okMinApp5": false,
+        "okOptionLen": false
+      }
+    },
+    {
+      "day": 16,
+      "lessonId": "PRODUCTIVITY_2026_EN_DAY_16",
+      "title": "Stress Management and Fatigue: Recovery, Work-Life Balance",
+      "counts": {
+        "total": 7,
+        "recall": 3,
+        "application": 3,
+        "critical": 1,
+        "shortOptions": 4
+      },
+      "status": {
+        "okMin7": true,
+        "okNoRecall": false,
+        "okMinApp5": false,
+        "okOptionLen": false
+      }
+    },
+    {
+      "day": 17,
+      "lessonId": "PRODUCTIVITY_2026_EN_DAY_17",
+      "title": "Sustaining Motivation: Tracking Progress, Celebrating Wins",
+      "counts": {
+        "total": 7,
+        "recall": 3,
+        "application": 3,
+        "critical": 1,
+        "shortOptions": 4
+      },
+      "status": {
+        "okMin7": true,
+        "okNoRecall": false,
+        "okMinApp5": false,
+        "okOptionLen": false
+      }
+    },
+    {
+      "day": 18,
+      "lessonId": "PRODUCTIVITY_2026_EN_DAY_18",
+      "title": "Crisis Management and Adaptability: Adaptation, Quick Learning",
+      "counts": {
+        "total": 7,
+        "recall": 3,
+        "application": 3,
+        "critical": 1,
+        "shortOptions": 4
+      },
+      "status": {
+        "okMin7": true,
+        "okNoRecall": false,
+        "okMinApp5": false,
+        "okOptionLen": false
+      }
+    },
+    {
+      "day": 19,
+      "lessonId": "PRODUCTIVITY_2026_EN_DAY_19",
+      "title": "Long-Term Planning: Years Ahead, Strategy, Evolution",
+      "counts": {
+        "total": 7,
+        "recall": 3,
+        "application": 3,
+        "critical": 1,
+        "shortOptions": 4
+      },
+      "status": {
+        "okMin7": true,
+        "okNoRecall": false,
+        "okMinApp5": false,
+        "okOptionLen": false
+      }
+    },
+    {
+      "day": 20,
+      "lessonId": "PRODUCTIVITY_2026_EN_DAY_20",
+      "title": "Personal Life Productivity: Home Organization, Personal Projects",
+      "counts": {
+        "total": 7,
+        "recall": 3,
+        "application": 3,
+        "critical": 1,
+        "shortOptions": 4
+      },
+      "status": {
+        "okMin7": true,
+        "okNoRecall": false,
+        "okMinApp5": false,
+        "okOptionLen": false
+      }
+    },
+    {
+      "day": 21,
+      "lessonId": "PRODUCTIVITY_2026_EN_DAY_21",
+      "title": "Community and Network: Relationships, Learning With Others",
+      "counts": {
+        "total": 7,
+        "recall": 3,
+        "application": 3,
+        "critical": 1,
+        "shortOptions": 4
+      },
+      "status": {
+        "okMin7": true,
+        "okNoRecall": false,
+        "okMinApp5": false,
+        "okOptionLen": false
+      }
+    },
+    {
+      "day": 22,
+      "lessonId": "PRODUCTIVITY_2026_EN_DAY_22",
+      "title": "Technology and Tools: Automation, Choosing the Right Tech",
+      "counts": {
+        "total": 7,
+        "recall": 3,
+        "application": 3,
+        "critical": 1,
+        "shortOptions": 4
+      },
+      "status": {
+        "okMin7": true,
+        "okNoRecall": false,
+        "okMinApp5": false,
+        "okOptionLen": false
+      }
+    },
+    {
+      "day": 23,
+      "lessonId": "PRODUCTIVITY_2026_EN_DAY_23",
+      "title": "Creativity and Innovation: Rethinking, Experimentation",
+      "counts": {
+        "total": 7,
+        "recall": 3,
+        "application": 3,
+        "critical": 1,
+        "shortOptions": 4
+      },
+      "status": {
+        "okMin7": true,
+        "okNoRecall": false,
+        "okMinApp5": false,
+        "okOptionLen": false
+      }
+    },
+    {
+      "day": 24,
+      "lessonId": "PRODUCTIVITY_2026_EN_DAY_24",
+      "title": "Filtering and Priorities: What to Ignore, What Matters",
+      "counts": {
+        "total": 7,
+        "recall": 3,
+        "application": 3,
+        "critical": 1,
+        "shortOptions": 4
+      },
+      "status": {
+        "okMin7": true,
+        "okNoRecall": false,
+        "okMinApp5": false,
+        "okOptionLen": false
+      }
+    },
+    {
+      "day": 25,
+      "lessonId": "PRODUCTIVITY_2026_EN_DAY_25",
+      "title": "Skill Development: Higher Levels, New Competencies",
+      "counts": {
+        "total": 7,
+        "recall": 3,
+        "application": 3,
+        "critical": 1,
+        "shortOptions": 4
+      },
+      "status": {
+        "okMin7": true,
+        "okNoRecall": false,
+        "okMinApp5": false,
+        "okOptionLen": false
+      }
+    },
+    {
+      "day": 26,
+      "lessonId": "PRODUCTIVITY_2026_EN_DAY_26",
+      "title": "Mentoring and Teaching: Sharing Knowledge, Helping Others",
+      "counts": {
+        "total": 7,
+        "recall": 3,
+        "application": 3,
+        "critical": 1,
+        "shortOptions": 4
+      },
+      "status": {
+        "okMin7": true,
+        "okNoRecall": false,
+        "okMinApp5": false,
+        "okOptionLen": false
+      }
+    },
+    {
+      "day": 27,
+      "lessonId": "PRODUCTIVITY_2026_EN_DAY_27",
+      "title": "Habits and Rituals: Daily Routines, Long-Term Action",
+      "counts": {
+        "total": 7,
+        "recall": 3,
+        "application": 3,
+        "critical": 1,
+        "shortOptions": 4
+      },
+      "status": {
+        "okMin7": true,
+        "okNoRecall": false,
+        "okMinApp5": false,
+        "okOptionLen": false
+      }
+    },
+    {
+      "day": 28,
+      "lessonId": "PRODUCTIVITY_2026_EN_DAY_28",
+      "title": "Values and Goals: Life Purpose, Long-Term Vision",
+      "counts": {
+        "total": 7,
+        "recall": 3,
+        "application": 3,
+        "critical": 1,
+        "shortOptions": 4
+      },
+      "status": {
+        "okMin7": true,
+        "okNoRecall": false,
+        "okMinApp5": false,
+        "okOptionLen": false
+      }
+    },
+    {
+      "day": 29,
+      "lessonId": "PRODUCTIVITY_2026_EN_DAY_29",
+      "title": "Continuous Improvement: Learning, Feedback, Iteration",
+      "counts": {
+        "total": 7,
+        "recall": 3,
+        "application": 3,
+        "critical": 1,
+        "shortOptions": 4
+      },
+      "status": {
+        "okMin7": true,
+        "okNoRecall": false,
+        "okMinApp5": false,
+        "okOptionLen": false
+      }
+    },
+    {
+      "day": 30,
+      "lessonId": "PRODUCTIVITY_2026_EN_DAY_30",
+      "title": "The Productivity Master: Comprehensive Integration, Commitment",
+      "counts": {
+        "total": 7,
+        "recall": 3,
+        "application": 3,
+        "critical": 1,
+        "shortOptions": 4
+      },
+      "status": {
+        "okMin7": true,
+        "okNoRecall": false,
+        "okMinApp5": false,
+        "okOptionLen": false
+      }
+    }
+  ]
+}

@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-27T08:55:34.539Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_EN",
+    "name": "Productivity 2026: How to Manage Teams and Time",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 27,
+    "title": "Habits and rituals (daily routines, long-term action)",
+    "lessonId": "PRODUCTIVITY_2026_EN_DAY_27"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69787d02e05462bc4887c344",
+      "uuid": "05ebc8d8-c358-4b73-92d5-e8e02df6ade7",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "You are applying \"Habits and rituals (daily routines, long-term action)\" this week. Which next step most directly turns intent into an outcome instead of extra activity?",
+      "options": [
+        "Pick one real scenario, apply the checklist, define a success metric/criterion, and review results at week’s end.",
+        "Add more meetings and messages so progress is visible, then assume the outcome improved.",
+        "Start multiple unrelated tasks to stay busy and increase the feeling of productivity.",
+        "Delay action until the plan is perfect, because execution without certainty risks mistakes."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day27",
+        "#en",
+        "#course-productivity_2026_en",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "69787d02e05462bc4887c345",
+      "uuid": "32ff72f6-475e-4c38-9c58-e7d229455739",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Which option is the best example of a measurable metric/criterion for \"Habits and rituals (daily routines, long-term action)\" (so you can prove progress)?",
+      "options": [
+        "A specific number tracked weekly (e.g., decision latency, cycle time, time saved) with a threshold for success.",
+        "A general intention like “be better at this”, without numbers or a deadline.",
+        "A count of messages sent, regardless of whether outcomes improved.",
+        "A feeling-based check (“did it feel productive?”) with no measurable signal."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day27",
+        "#en",
+        "#course-productivity_2026_en",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "69787d02e05462bc4887c346",
+      "uuid": "05acbe2f-fd6b-4c79-9f90-2a6c2e59ea43",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "In a \"Good vs Bad\" comparison for \"Habits and rituals (daily routines, long-term action)\", which option is closest to a “Good” implementation?",
+      "options": [
+        "Clear outcomes, explicit owners/criteria, and fewer distractions so execution produces measurable results.",
+        "More activity (more meetings/updates) without decisions, owners, or measurable progress.",
+        "More tools and dashboards without changing the process or defining success criteria.",
+        "More urgency and overtime without adjusting constraints or simplifying the system."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day27",
+        "#en",
+        "#course-productivity_2026_en",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "69787d02e05462bc4887c347",
+      "uuid": "6501020d-9262-45b3-aee5-304787c7bb55",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Which mistake is most likely to break \"Habits and rituals (daily routines, long-term action)\" in practice, according to the course’s systems framing?",
+      "options": [
+        "Optimizing visible activity instead of outcomes, so constraints get consumed without measurable progress.",
+        "Defining one clear metric and reviewing it weekly to adjust one rule at a time.",
+        "Reducing context switching and protecting focus blocks so outcomes can be produced.",
+        "Creating a short checklist and documenting it so the process is repeatable."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day27",
+        "#en",
+        "#course-productivity_2026_en",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "69787d02e05462bc4887c348",
+      "uuid": "d8445f43-16a6-4a0f-a016-634e9a020663",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "You want \"Habits and rituals (daily routines, long-term action)\" to work for a team, not just one person. Which change best makes it a scalable system?",
+      "options": [
+        "Document the checklist, define owners and success criteria, and run a lightweight cadence (review + adjustment).",
+        "Rely on individual willpower and hope everyone copies the best performer’s habits.",
+        "Make the process optional with no shared metrics so nobody feels pressured by measurement.",
+        "Increase coordination time so everyone stays busy and visible, even if execution time drops."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day27",
+        "#en",
+        "#course-productivity_2026_en",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "69787d02e05462bc4887c349",
+      "uuid": "cdb8e8bb-bd5d-4ab1-b11d-94bee76b4e7e",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "What is the biggest risk if you implement \"Habits and rituals (daily routines, long-term action)\" incorrectly by adding more activity without changing outcomes?",
+      "options": [
+        "Constraints get consumed (time/energy/attention) while outcomes stagnate, so productivity drops even if work feels intense.",
+        "Outcomes improve automatically because activity volume guarantees results in complex systems.",
+        "Measurement becomes unnecessary because visible effort is a sufficient success signal.",
+        "Decision quality improves because fatigue forces faster thinking and fewer debates."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day27",
+        "#en",
+        "#course-productivity_2026_en",
+        "#productivity",
+        "#advanced",
+        "#critical-thinking"
+      ]
+    },
+    {
+      "_id": "69787d02e05462bc4887c34a",
+      "uuid": "e73c31fe-fd74-49c6-bbff-de7d1d7ce516",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "When \"Habits and rituals (daily routines, long-term action)\" fails, which diagnosis is most aligned with the course’s outcome/constraints definition?",
+      "options": [
+        "The system lacks clear criteria/metrics or protected execution time, so outcomes cannot be reliably produced and proven.",
+        "People are not working long enough hours, so adding overtime is the main fix regardless of constraints.",
+        "The team needs more tools, because tools replace the need for clear definitions and checklists.",
+        "The best fix is to stop reviewing results, because reflection slows execution."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day27",
+        "#en",
+        "#course-productivity_2026_en",
+        "#productivity",
+        "#advanced",
+        "#critical-thinking"
+      ]
+    }
+  ]
+}

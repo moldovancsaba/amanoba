@@ -1,0 +1,140 @@
+{
+  "backedUpAt": "2026-01-27T11:00:14.991Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_HU",
+    "name": "Termelékenység 2026: Hogyan kezelj csapatokat és időt",
+    "language": "hu"
+  },
+  "lesson": {
+    "dayNumber": 1,
+    "title": "A termelékenység definíciója: output, eredmények és korlátok",
+    "lessonId": "PRODUCTIVITY_2026_HU_DAY_01"
+  },
+  "questionCount": 6,
+  "questions": [
+    {
+      "_id": "697766d99b3efa4704455f4f",
+      "uuid": "6cb71edd-87e6-4920-b869-780d87469f46",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Mi a különbség az output és az outcome között?",
+      "options": [
+        "Az output a tevékenységek száma, az outcome a tényleges eredmény vagy változás",
+        "Az output és az outcome ugyanaz",
+        "Az outcome a tevékenységek száma, az output a tényleges eredmény",
+        "Nincs különbség közöttük"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day-01",
+        "#foundation",
+        "#recall",
+        "#hu"
+      ]
+    },
+    {
+      "_id": "697766d99b3efa4704455f50",
+      "uuid": "518a4f0b-fa84-493f-a2db-35c1116bdc6e",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Melyik példa mutatja az outcome fókuszt?",
+      "options": [
+        "\"Ma 100 emailt küldök el!\"",
+        "\"Ma 3 kritikus ügyfélproblémát oldok meg, ami 15% növeli az elégedettséget\"",
+        "\"Ma 8 órát meetingezek\"",
+        "\"Ma 20 dokumentumot írok\""
+      ],
+      "correctIndex": 1,
+      "hashtags": [
+        "#day-01",
+        "#foundation",
+        "#recall",
+        "#hu"
+      ]
+    },
+    {
+      "_id": "697766d99b3efa4704455f51",
+      "uuid": "e1cb5640-60a4-46c0-b420-1155a0e3b560",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Melyik NEM számít korlátnak a termelékenység szempontjából?",
+      "options": [
+        "Idő",
+        "Energia",
+        "Figyelem",
+        "A tevékenységek száma"
+      ],
+      "correctIndex": 3,
+      "hashtags": [
+        "#day-01",
+        "#foundation",
+        "#recall",
+        "#hu"
+      ]
+    },
+    {
+      "_id": "697766d99b3efa4704455f52",
+      "uuid": "d87c9f09-b3a5-4752-aa31-940a849dc4bb",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Miért fontos az outcome fókusz az output fókusz helyett?",
+      "options": [
+        "Mert a sok output automatikusan jó eredményt garantál",
+        "Mert az outcome a tényleges értéket hozza, nem a tevékenység mennyisége",
+        "Mert az output könnyebben mérhető",
+        "Mert nincs különbség"
+      ],
+      "correctIndex": 1,
+      "hashtags": [
+        "#day-01",
+        "#scenario",
+        "#application",
+        "#hu"
+      ]
+    },
+    {
+      "_id": "697766d99b3efa4704455f54",
+      "uuid": "5f83be88-2d4f-4d59-bffe-af3ddb099cca",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "A leckében leírt \"✅ Különbséget teszel az output és outcom...\" gyakorlatot hogyan implementálnád a saját munkádban?",
+      "options": [
+        "Lépésről lépésre követem a leckében leírt módszert, dokumentálom az eredményeket, és finomhangolom a folyamatot",
+        "Egyszerre próbálom ki mindent",
+        "Csak olvasom, nem alkalmazom",
+        "Várok, amíg mások megcsinálják"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day1",
+        "#hu",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "697766d99b3efa4704455f55",
+      "uuid": "befb8830-5201-499a-97a7-e6fdf9d7114e",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "A leckében leírt \"✅ Tudod, hogy a cél az outcome maximaliz...\" gyakorlatot hogyan implementálnád a saját munkádban?",
+      "options": [
+        "Lépésről lépésre követem a leckében leírt módszert, dokumentálom az eredményeket, és finomhangolom a folyamatot",
+        "Egyszerre próbálom ki mindent",
+        "Csak olvasom, nem alkalmazom",
+        "Várok, amíg mások megcsinálják"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day1",
+        "#hu",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-27T08:55:55.037Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_EN",
+    "name": "Productivity 2026: How to Manage Teams and Time",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 12,
+    "title": "Accountability Structures: Systems That Keep You on Track",
+    "lessonId": "PRODUCTIVITY_2026_EN_DAY_12"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69787a1b406e073a0d5f55a8",
+      "uuid": "223e13d9-adba-4e90-a3eb-675a7491f2ce",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "In accountability structures, which setup creates the clearest feedback loop without adding heavy overhead?",
+      "options": [
+        "A simple weekly check-in with a visible metric (throughput or carryover) and a specific next-week commitment.",
+        "A vague promise to “try harder” with no metric and no scheduled review point.",
+        "Random updates whenever someone remembers, without a consistent cadence or measurement.",
+        "A complex dashboard with many metrics that nobody reviews or acts on consistently."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day12",
+        "#en",
+        "#course-productivity_2026_en",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "69787a1b406e073a0d5f55a9",
+      "uuid": "4170d284-0b14-4514-ae8c-3d78c9631f1a",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "You want accountability without micromanagement. Which rule best matches the course approach?",
+      "options": [
+        "Track outcomes with agreed metrics and cadence; focus on results and system adjustments, not constant surveillance.",
+        "Require hourly status reports so activity is visible, even if it breaks deep work blocks.",
+        "Measure only time online; outcomes are too hard to define and should be avoided.",
+        "Use public shame as the main mechanism; fear is the most reliable productivity system."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day12",
+        "#en",
+        "#course-productivity_2026_en",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "69787a1b406e073a0d5f55aa",
+      "uuid": "c7426622-45e1-4242-850f-9232662f2bd5",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Which check-in question best enforces outcome thinking (not output) in an accountability partner call?",
+      "options": [
+        "What measurable outcome did you complete, and what rule will you change next week based on the metric?",
+        "How many messages did you send, and how busy did you feel during the week?",
+        "Did you work long hours, and did you respond quickly to every request?",
+        "How many tasks did you start, even if none were finished by the end of the week?"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day12",
+        "#en",
+        "#course-productivity_2026_en",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "69787a1b406e073a0d5f55ab",
+      "uuid": "65317fb5-4955-4553-a4ee-4b950f7657c1",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Why can accountability improve productivity even when it does not add new tools or extra hours?",
+      "options": [
+        "Because it creates a feedback loop and commitment pressure that increases follow-through on high-outcome tasks.",
+        "Because it increases activity volume automatically; accountability is the same as doing more tasks.",
+        "Because it eliminates the need for weekly review; once accountable, reflection is unnecessary.",
+        "Because accountability replaces planning; you can improvise every day as long as you report later."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day12",
+        "#en",
+        "#course-productivity_2026_en",
+        "#productivity",
+        "#advanced",
+        "#critical-thinking"
+      ]
+    },
+    {
+      "_id": "69787a1b406e073a0d5f55ac",
+      "uuid": "430c879d-e871-426d-be91-27fd908600d8",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "What is a common failure mode when accountability is designed around activity instead of outcomes?",
+      "options": [
+        "People game visibility (messages, meetings) while outcomes stagnate, so productivity metrics stop reflecting real progress.",
+        "People stop working completely, because activity-based tracking removes all motivation instantly.",
+        "Deep work blocks become longer automatically because more activity means more focus time by default.",
+        "Carryover always decreases because activity creates completion even without prioritization."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day12",
+        "#en",
+        "#course-productivity_2026_en",
+        "#productivity",
+        "#advanced",
+        "#critical-thinking"
+      ]
+    },
+    {
+      "_id": "69787a1b406e073a0d5f55ad",
+      "uuid": "ad37a0fc-09d3-4cea-9751-6aaf3b58908d",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "You miss goals repeatedly. Which accountability change is most likely to help, according to the course’s systems framing?",
+      "options": [
+        "Add a consistent cadence (weekly review + check-in) and make commitments smaller and measurable to match constraints.",
+        "Increase goal size dramatically to create pressure; bigger promises always create better follow-through.",
+        "Remove measurement so failure is less visible; less visibility reduces stress and improves results.",
+        "Switch accountability partners weekly so you never get used to the routine or feel bored."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day12",
+        "#en",
+        "#course-productivity_2026_en",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "69787a1b406e073a0d5f55ae",
+      "uuid": "567b538c-f8d7-4e9b-87c4-7b8bb4ebe22d",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Your team wants accountability but hates meetings. Which option best keeps accountability while protecting focus blocks?",
+      "options": [
+        "Use an async weekly scorecard (throughput/focus blocks/carryover) plus a short scheduled check-in only when metrics signal issues.",
+        "Add daily long status meetings so activity is visible, even if deep work is constantly interrupted.",
+        "Stop tracking outcomes and rely on trust alone; accountability systems are unnecessary if people are good.",
+        "Track only how many messages people send, because messaging volume correlates directly with outcomes."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day12",
+        "#en",
+        "#course-productivity_2026_en",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    }
+  ]
+}

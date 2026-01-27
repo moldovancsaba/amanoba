@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-27T08:53:20.872Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_EN",
+    "name": "Productivity 2026: How to Manage Teams and Time",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 16,
+    "title": "Stress management and fatigue (recovery, work-life balance)",
+    "lessonId": "PRODUCTIVITY_2026_EN_DAY_16"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a240494239f69e45b55",
+      "uuid": "42398214-f563-4246-9d6d-8a1239c1086c",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Manage fatigue and maintain health boundaries.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day16",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a240494239f69e45b56",
+      "uuid": "531891fc-dc92-402e-b43a-37a4e0c10301",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Manage fatigue and maintain health boundaries.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day16",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a240494239f69e45b57",
+      "uuid": "cf633da6-814e-498f-8eac-72e4aa500781",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Manage fatigue and maintain health boundaries.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day16",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a240494239f69e45b58",
+      "uuid": "ddf771c6-460b-4c35-bba0-33eb596e8be0",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "How does the concept \"Stress Management and Fatigue: Recovery, Work-Life...\" mentioned in the lesson impact achieving your goals?",
+      "options": [
+        "As described in detail in the lesson, Stress Management and Fatigue:... increases effectiveness and reduces risk",
+        "No significant impact",
+        "Only matters theoretically",
+        "Only an optional element"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day16",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a240494239f69e45b59",
+      "uuid": "e0803b7a-1ade-444a-8820-676d5d959f9a",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is Stress in the context of Stress Management and Fatigue: Recovery, Work-Life Balance as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, Stress plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day16",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a240494239f69e45b5a",
+      "uuid": "95b08deb-26bc-4330-b0c3-1de2e910a599",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is Fatigue in the context of Stress Management and Fatigue: Recovery, Work-Life Balance as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, Fatigue plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day16",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a240494239f69e45b5b",
+      "uuid": "51594e1b-d49a-4326-870d-82f31491ca6b",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is Work in the context of Stress Management and Fatigue: Recovery, Work-Life Balance as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, Work plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day16",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

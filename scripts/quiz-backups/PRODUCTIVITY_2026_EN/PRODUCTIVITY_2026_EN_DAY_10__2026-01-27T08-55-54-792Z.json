@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-27T08:55:54.792Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_EN",
+    "name": "Productivity 2026: How to Manage Teams and Time",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 10,
+    "title": "Energy Management: When to Work, When to Rest, Recovery Rituals",
+    "lessonId": "PRODUCTIVITY_2026_EN_DAY_10"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69787a1b406e073a0d5f559c",
+      "uuid": "20f1523c-216a-41d7-b558-785088a68b45",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "In energy management, which plan best matches “peak hours for deep work, low-energy for routine work, and scheduled recovery”?",
+      "options": [
+        "Schedule creative work in peak energy windows, routine tasks in low energy, and include micro/macro breaks as planned recovery.",
+        "Schedule the hardest tasks after long meetings, because fatigue forces you to work faster and be more decisive.",
+        "Work continuously without breaks to build stamina; recovery reduces productivity and should be avoided.",
+        "Shift deep work to late night every day even if sleep quality drops and decision quality declines."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day10",
+        "#en",
+        "#course-productivity_2026_en",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "69787a1b406e073a0d5f559d",
+      "uuid": "abddafe0-2fee-4e7c-8c1c-a66ef12702e6",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Which boundary is most aligned with sustainable output (not burnout sprint) in the course?",
+      "options": [
+        "Protect sleep and set a stop time; do not trade recovery for more hours when quality is dropping.",
+        "Extend the workday whenever possible; more hours always produce proportionally more outcomes.",
+        "Remove lunch breaks so you can stay in “work mode” and avoid losing momentum.",
+        "Use caffeine to replace breaks; recovery rituals are unnecessary if you push hard enough."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day10",
+        "#en",
+        "#course-productivity_2026_en",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "69787a1b406e073a0d5f559e",
+      "uuid": "fd47fab7-37e4-45dd-a69e-deb1add0da15",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "You notice mood swings and irritability after days of nonstop work. What is the most course-aligned first response?",
+      "options": [
+        "Adjust pace and add intentional recovery (breaks, boundaries, sleep) to restore energy and protect decision quality.",
+        "Increase workload to build resilience; fatigue is a sign you should push harder.",
+        "Ignore signals; energy is irrelevant as long as you are still doing many tasks.",
+        "Add more meetings for accountability; meetings automatically restore energy and motivation."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day10",
+        "#en",
+        "#course-productivity_2026_en",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "69787a1b406e073a0d5f559f",
+      "uuid": "1c1418f9-0e78-4286-9a61-020e15bf4e59",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Why does energy management improve productivity under the outcome/constraints definition, even if total hours stay the same?",
+      "options": [
+        "Because higher energy increases the quality and speed of outcomes per hour, so the same time yields more meaningful results.",
+        "Because energy is unrelated to attention and decision quality, so it cannot change outcomes.",
+        "Because energy management is mainly about comfort, which reduces ambition and therefore reduces outcomes.",
+        "Because energy management increases activity volume automatically, so it improves productivity by definition."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day10",
+        "#en",
+        "#course-productivity_2026_en",
+        "#productivity",
+        "#advanced",
+        "#critical-thinking"
+      ]
+    },
+    {
+      "_id": "69787a1b406e073a0d5f55a0",
+      "uuid": "bdad8c7c-90da-4ec1-a5e6-bc152489ce5c",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "If a team rewards only long hours (not outcomes), what is the likely impact on sustainable productivity?",
+      "options": [
+        "Burnout risk rises, decision quality drops, and outcomes per constraint decline because recovery is punished instead of designed.",
+        "Outcomes improve automatically because long hours guarantee high-quality work regardless of fatigue.",
+        "Focus blocks increase because tired brains always concentrate better to compensate.",
+        "Carryover disappears because long hours eliminate planning errors without changing systems."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day10",
+        "#en",
+        "#course-productivity_2026_en",
+        "#productivity",
+        "#advanced",
+        "#critical-thinking"
+      ]
+    },
+    {
+      "_id": "69787a1b406e073a0d5f55a1",
+      "uuid": "db48cef0-6c6f-45bc-8e06-d3d0d6cb3676",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Which practice best turns energy insights into an actionable weekly plan?",
+      "options": [
+        "Track energy for a week, identify peak windows, and deliberately schedule deep work and recovery around those windows.",
+        "Ignore patterns and schedule tasks randomly so you can “stay flexible” and avoid planning overhead.",
+        "Schedule only meetings in the morning; execution can happen later whenever there is time left.",
+        "Work until exhausted each day to discover limits; planning energy is less effective than testing failure."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day10",
+        "#en",
+        "#course-productivity_2026_en",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "69787a1b406e073a0d5f55a2",
+      "uuid": "5fff8cb4-970f-4abd-a808-22ccc5c68659",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "You consistently crash mid-afternoon. Which adjustment best matches the course’s recovery rituals idea?",
+      "options": [
+        "Schedule a 20–30 minute macro break (walk, lunch, reset) and move demanding work to a peak window instead of pushing through fatigue.",
+        "Add more high-stakes decisions into the crash window to train willpower and resilience.",
+        "Remove breaks entirely so the body adapts; recovery is a sign of weakness in productivity.",
+        "Replace deep work with constant messaging during the crash so you never notice low energy."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day10",
+        "#en",
+        "#course-productivity_2026_en",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    }
+  ]
+}

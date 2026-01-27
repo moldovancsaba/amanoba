@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-27T08:53:22.598Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_EN",
+    "name": "Productivity 2026: How to Manage Teams and Time",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 29,
+    "title": "Continuous improvement (learning, feedback, iteration)",
+    "lessonId": "PRODUCTIVITY_2026_EN_DAY_29"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a250494239f69e45bd8",
+      "uuid": "dc28a5da-c1f7-4134-a831-2fce33009f37",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Productivity is never finished—it evolves.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day29",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a250494239f69e45bd9",
+      "uuid": "5d83f089-ccbe-4822-820a-2d7d78ca4e93",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Productivity is never finished—it evolves.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day29",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a250494239f69e45bda",
+      "uuid": "b46cb85a-982a-4a3b-8dbf-cd6c74c42afe",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Productivity is never finished—it evolves.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day29",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a250494239f69e45bdb",
+      "uuid": "5af6083f-f9f5-4e1d-b30a-cc513f730a5a",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "How does the concept \"Continuous Improvement: Learning, Feedback, Iterat...\" mentioned in the lesson impact achieving your goals?",
+      "options": [
+        "As described in detail in the lesson, Continuous Improvement: Learni... increases effectiveness and reduces risk",
+        "No significant impact",
+        "Only matters theoretically",
+        "Only an optional element"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day29",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a250494239f69e45bdc",
+      "uuid": "dbc72f31-f5e4-4618-bfea-c946f90ae39c",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is Continuous in the context of Continuous Improvement: Learning, Feedback, Iteration as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, Continuous plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day29",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a250494239f69e45bdd",
+      "uuid": "c2400384-389f-4765-8cdb-089f7c96fa5d",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is Learning in the context of Continuous Improvement: Learning, Feedback, Iteration as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, Learning plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day29",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a250494239f69e45bde",
+      "uuid": "2e1ea28f-85b5-43ac-b46e-a60113d92fad",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is Iteration in the context of Continuous Improvement: Learning, Feedback, Iteration as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, Iteration plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day29",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-27T08:53:03.832Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_EN",
+    "name": "Productivity 2026: How to Manage Teams and Time",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 24,
+    "title": "Filtering and priorities (what to ignore, what matters)",
+    "lessonId": "PRODUCTIVITY_2026_EN_DAY_24"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a250494239f69e45ba6",
+      "uuid": "c29d702b-f50e-4b13-9671-3f5c7bac490c",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Learn to say \"no\" and focus on what matters.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day24",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a250494239f69e45ba7",
+      "uuid": "10d7e510-ecf6-4d66-b11f-8abe8a87c8de",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Learn to say \"no\" and focus on what matters.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day24",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a250494239f69e45ba8",
+      "uuid": "5a4ac9a5-5da3-48f4-89a5-569caa612a2c",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Learn to say \"no\" and focus on what matters.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day24",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a250494239f69e45ba9",
+      "uuid": "4c739270-455a-491a-9f51-a6a978b809d1",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "How does the concept \"Filtering and Priorities: What to Ignore, What Mat...\" mentioned in the lesson impact achieving your goals?",
+      "options": [
+        "As described in detail in the lesson, Filtering and Priorities: What... increases effectiveness and reduces risk",
+        "No significant impact",
+        "Only matters theoretically",
+        "Only an optional element"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day24",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a250494239f69e45baa",
+      "uuid": "34793281-2213-4074-b26b-790f147adba0",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is Filtering in the context of Filtering and Priorities: What to Ignore, What Matters as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, Filtering plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day24",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a250494239f69e45bab",
+      "uuid": "29799626-9380-4a47-aad4-7bf951d223e3",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is What in the context of Filtering and Priorities: What to Ignore, What Matters as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, What plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day24",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a250494239f69e45bac",
+      "uuid": "3622c728-5179-40f8-a2b9-c1cec98fc163",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is Matters in the context of Filtering and Priorities: What to Ignore, What Matters as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, Matters plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day24",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

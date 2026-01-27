@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-27T00:33:17.772Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_EN",
+    "name": "Productivity 2026: How to Manage Teams and Time",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 8,
+    "title": "Context Switching Cost: Attention Residue, Batching, Deep Work Blocks",
+    "lessonId": "PRODUCTIVITY_2026_EN_DAY_8"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a230494239f69e45af7",
+      "uuid": "9bde0fb4-1f14-43ff-a7ce-61e1ea1e34ed",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"Exercise (30 minutes) — Building Your De...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day8",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a230494239f69e45af8",
+      "uuid": "053d4b80-83c3-49f6-936f-3c5b8e3eb05a",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"Exercise (30 minutes) — Building Your De...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day8",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a230494239f69e45af9",
+      "uuid": "a3d58e03-80e0-43a1-a052-bee13b102e67",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"Exercise (30 minutes) — Building Your De...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day8",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a230494239f69e45afa",
+      "uuid": "835f46eb-9aa7-4710-8ce1-dae80cf1bb41",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "How does the concept \"Context Switching Cost: Attention Residue, Batchin...\" mentioned in the lesson impact achieving your goals?",
+      "options": [
+        "As described in detail in the lesson, Context Switching Cost: Attent... increases effectiveness and reduces risk",
+        "No significant impact",
+        "Only matters theoretically",
+        "Only an optional element"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day8",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a230494239f69e45afb",
+      "uuid": "2f1161fa-f9b8-4a70-93f9-8d3607ef42ac",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "In the \"Context Switching Cost: Attention Residue, Batching, Deep Work Blocks\" lesson, what role does Attention Residue play?",
+      "options": [
+        "As described in detail in the lesson, Attention Residue plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day8",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a230494239f69e45afc",
+      "uuid": "0a706433-3647-4357-b724-8668afd9682a",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is Quality Suffers in the context of Context Switching Cost: Attention Residue, Batching, Deep Work Blocks as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, Quality Suffers plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day8",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a230494239f69e45afd",
+      "uuid": "d6fdf3cd-0436-4fd8-a2d4-f4473f87fb8b",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is The Fix in the context of Context Switching Cost: Attention Residue, Batching, Deep Work Blocks as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, The Fix plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day8",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

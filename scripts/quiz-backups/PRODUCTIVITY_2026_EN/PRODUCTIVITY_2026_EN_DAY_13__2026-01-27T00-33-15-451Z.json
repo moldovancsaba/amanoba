@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-27T00:33:18.032Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_EN",
+    "name": "Productivity 2026: How to Manage Teams and Time",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 13,
+    "title": "Decision-Making Frameworks: Rapid Decisions, Decision Matrix, Avoiding Analysis Paralysis",
+    "lessonId": "PRODUCTIVITY_2026_EN_DAY_13"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a240494239f69e45b32",
+      "uuid": "528f2adc-cd2c-4cba-bb5b-292fbf694f45",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"Exercise (60 minutes)\n\nIdentify a Postpo...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day13",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a240494239f69e45b33",
+      "uuid": "5dcfd21e-537f-42db-b876-14329c039214",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"Exercise (60 minutes)\n\nIdentify a Postpo...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day13",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a240494239f69e45b34",
+      "uuid": "829d73ea-1c2d-46b1-9139-847074fab687",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"Exercise (60 minutes)\n\nIdentify a Postpo...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day13",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a240494239f69e45b35",
+      "uuid": "7c09c26d-9924-4eba-a69c-8c71054c8926",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "How does the concept \"Decision-Making Frameworks: Rapid Decisions, Decis...\" mentioned in the lesson impact achieving your goals?",
+      "options": [
+        "As described in detail in the lesson, Decision-Making Frameworks: Ra... increases effectiveness and reduces risk",
+        "No significant impact",
+        "Only matters theoretically",
+        "Only an optional element"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day13",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a240494239f69e45b36",
+      "uuid": "c454f56d-c1a8-4cad-88e6-7c7d2e0b2a6a",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "In the \"Decision-Making Frameworks: Rapid Decisions, Decision Matrix, Avoiding Analysis Paralysis\" lesson, what role does Time is More Expensive Than Perfection play?",
+      "options": [
+        "As described in detail in the lesson, Time is More Expensive Than Perfection plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day13",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a240494239f69e45b37",
+      "uuid": "0c4ab2ca-6d22-455c-b6f9-53a4108a5c43",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "In the \"Decision-Making Frameworks: Rapid Decisions, Decision Matrix, Avoiding Analysis Paralysis\" lesson, what role does Decision Fatigue play?",
+      "options": [
+        "As described in detail in the lesson, Decision Fatigue plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day13",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a240494239f69e45b38",
+      "uuid": "facb2ca2-70ca-4709-964d-1a80889075cd",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is Step 1 in the context of Decision-Making Frameworks: Rapid Decisions, Decision Matrix, Avoiding Analysis Paralysis as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, Step 1 plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day13",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

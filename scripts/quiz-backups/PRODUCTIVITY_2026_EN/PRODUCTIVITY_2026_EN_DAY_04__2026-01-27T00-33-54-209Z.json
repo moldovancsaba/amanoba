@@ -1,0 +1,164 @@
+{
+  "backedUpAt": "2026-01-27T00:33:55.855Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_EN",
+    "name": "Productivity 2026: How to Manage Teams and Time",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 4,
+    "title": "Habits vs systems: why systems scale better",
+    "lessonId": "PRODUCTIVITY_2026_EN_DAY_04"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a230494239f69e45ab1",
+      "uuid": "614d4688-cf81-4234-852d-1937bdb792b6",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "What is the main difference between habits and systems?",
+      "options": [
+        "No difference",
+        "Habits scale, systems don't",
+        "Systems scale, habits don't",
+        "Both are the same"
+      ],
+      "correctIndex": 2,
+      "hashtags": [
+        "#day-04",
+        "#foundation",
+        "#recall",
+        "#en"
+      ]
+    },
+    {
+      "_id": "69776a230494239f69e45ab2",
+      "uuid": "6ee277fa-fd87-4dd7-ae5c-a879ced7b753",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "When should you use a system instead of a habit?",
+      "options": [
+        "Always",
+        "When it needs to work with others",
+        "Never",
+        "Only on weekends"
+      ],
+      "correctIndex": 1,
+      "hashtags": [
+        "#day-04",
+        "#foundation",
+        "#recall",
+        "#en"
+      ]
+    },
+    {
+      "_id": "69776a230494239f69e45ab3",
+      "uuid": "523745af-9704-44aa-9598-5cae16b86bbb",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Which is NOT a characteristic of a system?",
+      "options": [
+        "Can be documented",
+        "Scalable",
+        "Works only with one person",
+        "Structured process"
+      ],
+      "correctIndex": 2,
+      "hashtags": [
+        "#day-04",
+        "#purpose",
+        "#application",
+        "#en"
+      ]
+    },
+    {
+      "_id": "69776a230494239f69e45ab4",
+      "uuid": "fe240c1d-e98f-4ce9-bade-ae8894ea251d",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"exercise (20-25 min) — Habit or system?\n...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day4",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a230494239f69e45ab5",
+      "uuid": "aaa7fa0e-bf24-4501-8a5d-444c05ab8733",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"exercise (20-25 min) — Habit or system?\n...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day4",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a230494239f69e45ab6",
+      "uuid": "a4b3f2cc-03f9-4e2f-8ab1-8238e0f24c8a",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "How does the concept \"Habits vs systems: why systems scale better The ke...\" mentioned in the lesson impact achieving your goals?",
+      "options": [
+        "As described in detail in the lesson, Habits vs systems: why systems... increases effectiveness and reduces risk",
+        "No significant impact",
+        "Only matters theoretically",
+        "Only an optional element"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day4",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a230494239f69e45ab7",
+      "uuid": "f7d4c176-4aa0-44d5-8b83-5031b2248fd2",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is Habits in the context of Habits vs systems: why systems scale better as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, Habits plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day4",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

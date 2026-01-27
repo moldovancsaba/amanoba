@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-27T08:53:03.648Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_EN",
+    "name": "Productivity 2026: How to Manage Teams and Time",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 21,
+    "title": "Community and network (relationships, learning with others)",
+    "lessonId": "PRODUCTIVITY_2026_EN_DAY_21"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a240494239f69e45b88",
+      "uuid": "65aba535-fc84-4ea9-bcef-5d503edf7924",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Build and maintain communities for productivity.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day21",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a240494239f69e45b89",
+      "uuid": "f0734232-376e-461f-8fec-f00c1e938d52",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Build and maintain communities for productivity.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day21",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a240494239f69e45b8a",
+      "uuid": "94db99ca-4d2a-440c-a30c-9503cfd5c32b",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Build and maintain communities for productivity.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day21",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a240494239f69e45b8b",
+      "uuid": "62776f4b-7f1e-4537-be0b-aa4b5709992c",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "How does the concept \"Community and Network: Relationships, Learning Wit...\" mentioned in the lesson impact achieving your goals?",
+      "options": [
+        "As described in detail in the lesson, Community and Network: Relatio... increases effectiveness and reduces risk",
+        "No significant impact",
+        "Only matters theoretically",
+        "Only an optional element"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day21",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a240494239f69e45b8c",
+      "uuid": "74663069-5382-4dba-a6f1-4578a5c48acb",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is Community in the context of Community and Network: Relationships, Learning With Others as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, Community plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day21",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a240494239f69e45b8d",
+      "uuid": "0632d872-5c63-4d44-aac3-5b125803e3aa",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is Relationships in the context of Community and Network: Relationships, Learning With Others as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, Relationships plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day21",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a240494239f69e45b8e",
+      "uuid": "e9985ea9-67db-42c8-ad9f-492b2b2ded7c",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is With in the context of Community and Network: Relationships, Learning With Others as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, With plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day21",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

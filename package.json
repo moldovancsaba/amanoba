@@ -40,7 +40,8 @@
     "admin:restore-role": "tsx --env-file=.env.local scripts/restore-admin-role.ts",
     "admin:check-role": "tsx --env-file=.env.local scripts/check-user-role.ts",
     "migrate:fix-facebookid-index": "tsx --env-file=.env.local scripts/fix-facebookid-index.ts",
-    "migrate:remove-facebookid": "tsx --env-file=.env.local scripts/migrate-remove-facebookid.ts"
+    "migrate:remove-facebookid": "tsx --env-file=.env.local scripts/migrate-remove-facebookid.ts",
+    "test:payment-contract": "tsx scripts/payment-e2e-contract-test.ts"
   },
   "dependencies": {
     "@auth/mongodb-adapter": "^3.11.0",

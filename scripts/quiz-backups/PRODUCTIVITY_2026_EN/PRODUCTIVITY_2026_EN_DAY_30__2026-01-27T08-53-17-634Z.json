@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-27T08:53:22.741Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_EN",
+    "name": "Productivity 2026: How to Manage Teams and Time",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 30,
+    "title": "The productivity master (comprehensive integration, commitment)",
+    "lessonId": "PRODUCTIVITY_2026_EN_DAY_30"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a250494239f69e45be2",
+      "uuid": "e4b874b2-8e4c-46fb-aa5b-baa20ec99a88",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Synthesis, reflection, and looking forward.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day30",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a250494239f69e45be3",
+      "uuid": "6c68e5e4-3030-4294-a0e2-a10858fd0450",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Synthesis, reflection, and looking forward.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day30",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a250494239f69e45be4",
+      "uuid": "4eebf97e-560f-44af-bf46-5cad4912f954",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Synthesis, reflection, and looking forward.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day30",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a250494239f69e45be5",
+      "uuid": "59f2044c-ed9c-4de3-9b89-0f1567cd0f7e",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "How does the concept \"The Productivity Master: Comprehensive Integration...\" mentioned in the lesson impact achieving your goals?",
+      "options": [
+        "As described in detail in the lesson, The Productivity Master: Compr... increases effectiveness and reduces risk",
+        "No significant impact",
+        "Only matters theoretically",
+        "Only an optional element"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day30",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a250494239f69e45be6",
+      "uuid": "cdf6062a-6c01-4141-87d5-f3afbb602b0d",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is Productivity in the context of The Productivity Master: Comprehensive Integration, Commitment as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, Productivity plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day30",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a250494239f69e45be7",
+      "uuid": "454bda44-8ef7-4032-bec0-bfcb077f3615",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is Comprehensive in the context of The Productivity Master: Comprehensive Integration, Commitment as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, Comprehensive plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day30",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a250494239f69e45be8",
+      "uuid": "a6786413-ce26-41b8-9a3d-d909eee05ac4",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is Commitment in the context of The Productivity Master: Comprehensive Integration, Commitment as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, Commitment plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day30",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

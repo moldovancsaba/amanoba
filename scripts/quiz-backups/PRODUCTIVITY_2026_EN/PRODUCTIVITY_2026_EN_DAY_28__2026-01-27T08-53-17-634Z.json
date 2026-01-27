@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-27T08:53:22.460Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_EN",
+    "name": "Productivity 2026: How to Manage Teams and Time",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 28,
+    "title": "Values and goals (life purpose, long-term vision)",
+    "lessonId": "PRODUCTIVITY_2026_EN_DAY_28"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a250494239f69e45bce",
+      "uuid": "e71eecf0-cf01-4f5a-a205-d9f30d4c06ed",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Align productivity with your life values.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day28",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a250494239f69e45bcf",
+      "uuid": "c47671b1-5679-45b8-aaf0-e86ac538538a",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Align productivity with your life values.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day28",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a250494239f69e45bd0",
+      "uuid": "e62a767b-d48b-408c-9636-ee674e55723a",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Align productivity with your life values.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day28",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a250494239f69e45bd1",
+      "uuid": "6a71728c-eb16-49f7-a9f2-f1f3c45b6345",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "How does the concept \"Values and Goals: Life Purpose, Long-Term Vision A...\" mentioned in the lesson impact achieving your goals?",
+      "options": [
+        "As described in detail in the lesson, Values and Goals: Life Purpose... increases effectiveness and reduces risk",
+        "No significant impact",
+        "Only matters theoretically",
+        "Only an optional element"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day28",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a250494239f69e45bd2",
+      "uuid": "1dd9dd26-773f-45c6-882b-89f5d79381b6",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is Values in the context of Values and Goals: Life Purpose, Long-Term Vision as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, Values plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day28",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a250494239f69e45bd3",
+      "uuid": "84187cab-adc7-450b-8798-a1df801a2fc0",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is Life in the context of Values and Goals: Life Purpose, Long-Term Vision as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, Life plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day28",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a250494239f69e45bd4",
+      "uuid": "2b9b9fbf-0ea5-46af-92e2-6613512c772e",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is Long in the context of Values and Goals: Life Purpose, Long-Term Vision as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, Long plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day28",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

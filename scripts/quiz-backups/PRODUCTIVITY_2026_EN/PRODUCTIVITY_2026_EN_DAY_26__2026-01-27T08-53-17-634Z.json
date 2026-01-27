@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-27T08:53:22.192Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_EN",
+    "name": "Productivity 2026: How to Manage Teams and Time",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 26,
+    "title": "Mentoring and teaching (sharing knowledge, helping others)",
+    "lessonId": "PRODUCTIVITY_2026_EN_DAY_26"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a250494239f69e45bba",
+      "uuid": "ce5bc115-c6b9-4be8-8c55-a4762882a9d5",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Teaching others accelerates your own learning.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day26",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a250494239f69e45bbb",
+      "uuid": "8242b6e1-2d23-492b-a673-9c249fad19bf",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Teaching others accelerates your own learning.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day26",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a250494239f69e45bbc",
+      "uuid": "d205a3d4-a9b9-414a-86c5-a940af1ea4a3",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Teaching others accelerates your own learning.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day26",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a250494239f69e45bbd",
+      "uuid": "b6641b5e-f557-43e6-b5c2-38fb13ae5d6d",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "How does the concept \"Mentoring and Teaching: Sharing Knowledge, Helping...\" mentioned in the lesson impact achieving your goals?",
+      "options": [
+        "As described in detail in the lesson, Mentoring and Teaching: Sharin... increases effectiveness and reduces risk",
+        "No significant impact",
+        "Only matters theoretically",
+        "Only an optional element"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day26",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a250494239f69e45bbe",
+      "uuid": "ddbe7417-1689-4b18-be93-4d0175684a4f",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is Mentoring in the context of Mentoring and Teaching: Sharing Knowledge, Helping Others as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, Mentoring plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day26",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a250494239f69e45bbf",
+      "uuid": "b827497d-fd5e-4791-b89d-af3d6cded030",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is Sharing in the context of Mentoring and Teaching: Sharing Knowledge, Helping Others as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, Sharing plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day26",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a250494239f69e45bc0",
+      "uuid": "28a8b6a0-2ba4-455e-b570-e04f708f4277",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is Helping in the context of Mentoring and Teaching: Sharing Knowledge, Helping Others as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, Helping plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day26",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

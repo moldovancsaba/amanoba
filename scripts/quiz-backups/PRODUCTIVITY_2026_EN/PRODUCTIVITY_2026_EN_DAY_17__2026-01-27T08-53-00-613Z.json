@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-27T08:53:03.411Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_EN",
+    "name": "Productivity 2026: How to Manage Teams and Time",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 17,
+    "title": "Sustaining motivation (tracking progress, celebrating wins)",
+    "lessonId": "PRODUCTIVITY_2026_EN_DAY_17"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a240494239f69e45b60",
+      "uuid": "4fcd99aa-5b57-44f3-962b-3c3fcc7cded7",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Maintain effort and energy over the long term.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day17",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a240494239f69e45b61",
+      "uuid": "1226215e-dd6c-4cb2-a7a9-ebdd7a942b8b",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Maintain effort and energy over the long term.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day17",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a240494239f69e45b62",
+      "uuid": "631c34af-cc50-497f-b7cc-fb3550c140dc",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Maintain effort and energy over the long term.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day17",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a240494239f69e45b63",
+      "uuid": "5240cd51-e595-459e-aaeb-895798c12ef4",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "How does the concept \"Sustaining Motivation: Tracking Progress, Celebrat...\" mentioned in the lesson impact achieving your goals?",
+      "options": [
+        "As described in detail in the lesson, Sustaining Motivation: Trackin... increases effectiveness and reduces risk",
+        "No significant impact",
+        "Only matters theoretically",
+        "Only an optional element"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day17",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a240494239f69e45b64",
+      "uuid": "feb18ff1-bebf-4fee-99df-269bd54b6fb0",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is Sustaining in the context of Sustaining Motivation: Tracking Progress, Celebrating Wins as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, Sustaining plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day17",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a240494239f69e45b65",
+      "uuid": "ee916db3-ba4e-42da-b9ae-ef59e7cf76c9",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is Tracking in the context of Sustaining Motivation: Tracking Progress, Celebrating Wins as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, Tracking plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day17",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a240494239f69e45b66",
+      "uuid": "38bbfc84-086e-47c8-9c99-a8233825db70",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is Celebrating in the context of Sustaining Motivation: Tracking Progress, Celebrating Wins as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, Celebrating plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day17",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

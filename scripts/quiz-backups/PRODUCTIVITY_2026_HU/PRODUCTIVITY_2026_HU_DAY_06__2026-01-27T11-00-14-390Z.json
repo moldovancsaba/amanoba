@@ -1,0 +1,80 @@
+{
+  "backedUpAt": "2026-01-27T11:00:16.317Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_HU",
+    "name": "Termelékenység 2026: Hogyan kezelj csapatokat és időt",
+    "language": "hu"
+  },
+  "lesson": {
+    "dayNumber": 6,
+    "title": "Rögzítés: inboxok, trigger lista, rögzítési szokások",
+    "lessonId": "PRODUCTIVITY_2026_HU_DAY_06"
+  },
+  "questionCount": 3,
+  "questions": [
+    {
+      "_id": "697766da9b3efa4704455ffb",
+      "uuid": "8a49755a-4ff5-4911-9d0a-c70c1898a809",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Milyen gyakran kell üríteni az inboxokat?",
+      "options": [
+        "Hetente egyszer",
+        "Havonta egyszer",
+        "Naponta legalább egyszer",
+        "Soha"
+      ],
+      "correctIndex": 2,
+      "hashtags": [
+        "#day-06",
+        "#scenario",
+        "#application",
+        "#hu"
+      ]
+    },
+    {
+      "_id": "697766da9b3efa4704455ffd",
+      "uuid": "c65fb8a7-dfb8-44b4-bfcc-8251c48da59d",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "A leckében leírt \"✅ Van egy megbízható inbox rendszered.\n✅...\" gyakorlatot hogyan implementálnád a saját munkádban?",
+      "options": [
+        "Lépésről lépésre követem a leckében leírt módszert, dokumentálom az eredményeket, és finomhangolom a folyamatot",
+        "Egyszerre próbálom ki mindent",
+        "Csak olvasom, nem alkalmazom",
+        "Várok, amíg mások megcsinálják"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day6",
+        "#hu",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "697766da9b3efa4704455ffe",
+      "uuid": "75d17590-551e-4749-8a37-4632368eb2ad",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "A leckében leírt \"✅ Van egy megbízható inbox rendszered.\n✅...\" gyakorlatot hogyan implementálnád a saját munkádban?",
+      "options": [
+        "Lépésről lépésre követem a leckében leírt módszert, dokumentálom az eredményeket, és finomhangolom a folyamatot",
+        "Egyszerre próbálom ki mindent",
+        "Csak olvasom, nem alkalmazom",
+        "Várok, amíg mások megcsinálják"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day6",
+        "#hu",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

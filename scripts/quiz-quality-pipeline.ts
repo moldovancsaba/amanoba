@@ -202,7 +202,49 @@ async function main() {
         if (v.isValid) validatedNew.push(q);
       }
 
-      const toAdd = validatedNew.slice(0, Math.max(neededTotal, neededApp));
+      const normalizeQuestionText = (text: string) =>
+        String(text || '').trim().toLowerCase().replace(/\s+/g, ' ');
+
+      const existingTextKeys = new Set<string>(validExisting.map(q => normalizeQuestionText(q.question)));
+
+      // Select additions to satisfy both constraints:
+      // - total valid >= 7
+      // - application >= 5
+      // Prefer adding APPLICATION first when needed, then fill total.
+      const additions: any[] = [];
+      let remainingNeededTotal = neededTotal;
+      let remainingNeededApp = neededApp;
+
+      const tryAdd = (q: any) => {
+        const key = normalizeQuestionText(q.question);
+        if (!key) return false;
+        if (existingTextKeys.has(key)) return false;
+        existingTextKeys.add(key);
+        additions.push(q);
+        return true;
+      };
+
+      if (remainingNeededApp > 0) {
+        for (const q of validatedNew) {
+          if (remainingNeededApp <= 0) break;
+          if (q.questionType !== 'application') continue;
+          if (tryAdd(q)) {
+            remainingNeededApp--;
+            if (remainingNeededTotal > 0) remainingNeededTotal--;
+          }
+        }
+      }
+
+      if (remainingNeededTotal > 0) {
+        for (const q of validatedNew) {
+          if (remainingNeededTotal <= 0) break;
+          if (tryAdd(q)) {
+            remainingNeededTotal--;
+          }
+        }
+      }
+
+      const toAdd = additions;
       const combinedForValidation = [
         ...validExisting.map(q => ({
           question: q.question,
@@ -210,7 +252,7 @@ async function main() {
           questionType: q.questionType,
           difficulty: q.difficulty,
         })),
-        ...toAdd.map(q => ({
+        ...additions.map(q => ({
           question: q.question,
           options: q.options,
           questionType: q.questionType,

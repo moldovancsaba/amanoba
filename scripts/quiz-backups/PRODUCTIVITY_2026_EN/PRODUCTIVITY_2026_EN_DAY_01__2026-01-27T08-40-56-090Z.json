@@ -1,0 +1,162 @@
+{
+  "backedUpAt": "2026-01-27T08:40:56.790Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_EN",
+    "name": "Productivity 2026: How to Manage Teams and Time",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 1,
+    "title": "Productivity definition: output, outcomes, and constraints",
+    "lessonId": "PRODUCTIVITY_2026_EN_DAY_01"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a210494239f69e45a23",
+      "uuid": "039c6fff-746c-4b65-9448-3b8df92331d9",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "What is the difference between output and outcome?",
+      "options": [
+        "Output is the quantity of activities, outcome is the actual result or change",
+        "Output and outcome are the same",
+        "Outcome is the quantity of activities, output is the actual result",
+        "There is no difference between them"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day-01",
+        "#foundation",
+        "#recall",
+        "#en"
+      ]
+    },
+    {
+      "_id": "69776a210494239f69e45a24",
+      "uuid": "fd09849f-08dd-45b8-9093-face7c7cb7e5",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Which is NOT considered a constraint for productivity?",
+      "options": [
+        "Time",
+        "Energy",
+        "Attention",
+        "The number of activities"
+      ],
+      "correctIndex": 3,
+      "hashtags": [
+        "#day-01",
+        "#purpose",
+        "#application",
+        "#en"
+      ]
+    },
+    {
+      "_id": "69776a210494239f69e45a25",
+      "uuid": "a457d121-58a9-4d0f-9bd4-de7503b00d06",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "What is the correct definition of productivity?",
+      "options": [
+        "Maximum number of activities",
+        "Outcome / constraints (results relative to limits)",
+        "More output is always better",
+        "No need to manage constraints"
+      ],
+      "correctIndex": 1,
+      "hashtags": [
+        "#day-01",
+        "#foundation",
+        "#recall",
+        "#en"
+      ]
+    },
+    {
+      "_id": "69776a210494239f69e45a26",
+      "uuid": "15a63494-ba27-4028-8056-0772377d747f",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Why is outcome focus important instead of output focus?",
+      "options": [
+        "Because high output automatically guarantees good results",
+        "Because outcome brings actual value, not the quantity of activity",
+        "Because output is easier to measure",
+        "Because there is no difference"
+      ],
+      "correctIndex": 1,
+      "hashtags": [
+        "#day-01",
+        "#scenario",
+        "#application",
+        "#en"
+      ]
+    },
+    {
+      "_id": "69776a210494239f69e45a27",
+      "uuid": "9edf4917-268f-445f-a50a-18d639f11d02",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "How does the concept \"critical client problems, which increases satisfac...\" mentioned in the lesson impact achieving your goals?",
+      "options": [
+        "As described in detail in the lesson, critical client problems, whic... increases effectiveness and reduces risk",
+        "No significant impact",
+        "Only matters theoretically",
+        "Only an optional element"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day1",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a210494239f69e45a28",
+      "uuid": "66239002-5a90-41bc-8e2d-ea6713b9c8bc",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"exercise (15-20 min) — Personal producti...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day1",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a210494239f69e45a29",
+      "uuid": "595939ab-aed0-4b68-9fa2-796dc5e58f01",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is Output in the context of Productivity definition: output, outcomes, and constraints as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, Output plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day1",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

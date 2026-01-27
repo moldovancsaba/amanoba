@@ -1,0 +1,140 @@
+{
+  "backedUpAt": "2026-01-27T10:55:58.491Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_HU",
+    "name": "Termelékenység 2026: Hogyan kezelj csapatokat és időt",
+    "language": "hu"
+  },
+  "lesson": {
+    "dayNumber": 2,
+    "title": "Idő, energia, figyelem: amit a gyakorlatban kezelsz",
+    "lessonId": "PRODUCTIVITY_2026_HU_DAY_02"
+  },
+  "questionCount": 6,
+  "questions": [
+    {
+      "_id": "697766d99b3efa4704455f97",
+      "uuid": "eac2fae8-8eeb-480f-a05f-8a332d9c0cad",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Melyik NEM egy termelékenységi erőforrás?",
+      "options": [
+        "Idő",
+        "Energia",
+        "Figyelem",
+        "Pénz"
+      ],
+      "correctIndex": 3,
+      "hashtags": [
+        "#day-02",
+        "#foundation",
+        "#recall",
+        "#hu"
+      ]
+    },
+    {
+      "_id": "697766d99b3efa4704455f98",
+      "uuid": "05d8ac62-bf8a-40d4-b2c8-3041b0ccbb56",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Mikor érdemes a legnehezebb feladatokat elvégezni?",
+      "options": [
+        "Alacsony energia szinten",
+        "Csúcs energia szinten",
+        "Mindegy, mikor",
+        "Este, amikor mindenki alszik"
+      ],
+      "correctIndex": 1,
+      "hashtags": [
+        "#day-02",
+        "#scenario",
+        "#application",
+        "#hu"
+      ]
+    },
+    {
+      "_id": "697766d99b3efa4704455f99",
+      "uuid": "c5929c38-a715-4e41-b1a4-f9d8d473acc3",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Mennyi idő kell a figyelem visszaállításához egy megszakítás után?",
+      "options": [
+        "5 perc",
+        "15-20 perc",
+        "1 óra",
+        "Nincs szükség visszaállításra"
+      ],
+      "correctIndex": 1,
+      "hashtags": [
+        "#day-02",
+        "#foundation",
+        "#recall",
+        "#hu"
+      ]
+    },
+    {
+      "_id": "697766d99b3efa4704455f9a",
+      "uuid": "c6000f96-0e59-47b7-bca9-61bd81b38bbf",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Mennyi buffer időt érdemes hagyni a napi ütemtervben?",
+      "options": [
+        "0%",
+        "10%",
+        "20-30%",
+        "50%"
+      ],
+      "correctIndex": 2,
+      "hashtags": [
+        "#day-02",
+        "#foundation",
+        "#recall",
+        "#hu"
+      ]
+    },
+    {
+      "_id": "697766d99b3efa4704455f9b",
+      "uuid": "d2714a6d-087a-4b0a-88f2-cb76da979724",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "A leckében leírt \"✅ Megérted, hogyan működik együtt az idő...\" gyakorlatot hogyan implementálnád a saját munkádban?",
+      "options": [
+        "Lépésről lépésre követem a leckében leírt módszert, dokumentálom az eredményeket, és finomhangolom a folyamatot",
+        "Egyszerre próbálom ki mindent",
+        "Csak olvasom, nem alkalmazom",
+        "Várok, amíg mások megcsinálják"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day2",
+        "#hu",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "697766d99b3efa4704455f9c",
+      "uuid": "2a35991e-2292-4fff-aa67-c9db22813e57",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "A leckében leírt \"✅ Tudod, hogy a cél a három erőforrás op...\" gyakorlatot hogyan implementálnád a saját munkádban?",
+      "options": [
+        "Lépésről lépésre követem a leckében leírt módszert, dokumentálom az eredményeket, és finomhangolom a folyamatot",
+        "Egyszerre próbálom ki mindent",
+        "Csak olvasom, nem alkalmazom",
+        "Várok, amíg mások megcsinálják"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day2",
+        "#hu",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

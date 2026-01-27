@@ -656,6 +656,8 @@ Course pages must always use the course’s own language as the URL locale and U
 
 ## 🚛 Upcoming: Multi-Format Course Forking (30d → 7d / Weekend / 1d / 1h)
 
+**Action plan & handover**: `docs/2026-01-27_RAPID_CHILDREN_COURSES_ACTION_PLAN_AND_HANDOVER.md` — Admin reorg (CCS → Language variants → Course); Course Idea & 30-Day Outline storage; Shorts by lesson count (1–3 Essentials, 4–7 Beginner, 8–12 Foundations, 13–20 Core Skills, 21+ Full Program); checkbox lesson selection; read-only child editor; cert with limited questions; timeline (goLiveAt). **Section 10** lists clarification questions to resolve before or during implementation.
+
 | ID | Task | Owner | Expected Delivery | Status |
 |----|------|-------|-------------------|--------|
 | MF1 | Forking core: parent→child link, auto-sync default, selective detach toggle scaffold | AI | TBD | ⏳ PENDING |
