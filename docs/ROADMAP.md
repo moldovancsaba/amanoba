@@ -1,7 +1,7 @@
 # Amanoba Roadmap — Future Plans & Strategic Directions
 
-**Version**: 2.9.4  
-**Last Updated**: 2026-01-25T19:30:00.000Z  
+**Version**: 2.9.12  
+**Last Updated**: 2026-01-27T09:00:00.000Z  
 **Vision**: Transform Amanoba into a unified 30-day learning platform with gamified education, assessment tools, email-based lesson delivery, and monetization
 
 ---
@@ -36,6 +36,7 @@
 - ~~Fix Stripe payment checkout - customer_email conflict~~ ✅ FIXED (v2.9.7 - Removed conflicting customer_email parameter)
 - ~~Wire rate limiting (`app/lib/security.ts`) into auth/profile/admin/progress endpoints~~ ✅ FIXED (v2.9.8 - Rate limiting wired to critical endpoints)
 - ~~Restrict `app/api/profile/[playerId]` data exposure (wallet balances, `lastSeenAt`) to self/admin~~ ✅ FIXED (v2.9.9 - Profile data exposure restricted to self/admin)
+- ~~Restrict `app/api/debug/player/[playerId]` (raw player data) to admins; disable in production~~ ✅ FIXED (v2.9.11 - Debug player endpoint admin-only and disabled in prod)
 
 ### P1 / Medium Priority
 - Localize and brand policy/legal pages; switch plain `Link`/`href=\"/\"` to `LocaleLink`, add missing HU/EN messages, and apply `globals.css` shell
@@ -45,6 +46,19 @@
 ### P2 / Low Priority
 - Add minimal test harness (`npm test`), smoke tests for `[locale]/dashboard`, `[locale]/courses`, and critical APIs
 - Document/decide public profile surface and unsubscribe token contract to avoid regressions later
+
+### Profile Visibility & Privacy (P1)
+
+**Status**: 🟡 **PLANNED**  
+**Priority**: P1  
+**Owner**: Tribeca (development). Content/copy: Katja.
+
+**Goals** (see `docs/TASKLIST.md` for deliverable breakdown):
+
+1. **User can see their private profile** — Logged-in user can open and view their own profile with all private data (email, wallet, lastLoginAt, etc.) when visiting `/profile/<own-playerId>` or via “My profile” from dashboard/header.
+2. **User could set their profile to public/private** — User can choose whether their profile is reachable and viewable by others (public) or only by self/admin (private). Setting persisted and enforced in API and UI.
+3. **User can see their public profile** — When a profile is public, other users (and unauthenticated visitors, if desired) can open `/profile/<playerId>` and see a read-only “public” view with only non-sensitive, allowed fields (e.g. displayName, bio, public achievements/courses).
+4. **User could set their profile sections to public/private on the profile** — On the profile (or settings) page, user can set visibility per section (e.g. About, Courses & progress, Achievements, Certificates, Stats) to public or private, and the public profile view respects these per-section settings.
 
 ---
 
@@ -93,7 +107,7 @@
 - ✅ Fixed admin payments page: Missing requireAdmin import and courseId normalization (v2.9.6)
 
 **Remaining Enhancements**:
-- ⏳ End-to-end payment flow testing (recommended before production)
+- ~~End-to-end payment flow testing (recommended before production)~~ ✅ v2.9.10 – Test plan + contract script in place; full E2E via Stripe CLI + manual (see docs/PAYMENT_E2E_TEST_PLAN.md)
 - ⏳ Enhanced error handling and edge cases
 - ⏳ Recurring subscriptions (monthly/yearly premium access)
 - ⏳ Payment method management

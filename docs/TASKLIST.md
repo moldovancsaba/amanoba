@@ -1,13 +1,81 @@
 # Amanoba Task List
 
-**Version**: 2.9.7  
-**Last Updated**: 2026-01-26T20:30:00.000Z
+**Version**: 2.9.12  
+**Last Updated**: 2026-01-27T09:00:00.000Z
 
 ---
 
 ## Active Tasks
 
 Tasks are listed in priority order. Upon completion, tasks are moved to RELEASE_NOTES.md.
+
+---
+
+## ✅ P0 - COMPLETE: Debug Player Endpoint Security
+
+**Status**: ✅ **COMPLETE**  
+**Priority**: P0 (Security – raw data exposure)  
+**Reported**: 2026-01-25  
+**Documentation**: `docs/DEBUG_PLAYER_ENDPOINT_SECURITY_PLAN.md`, `docs/DEBUG_PLAYER_ENDPOINT_ROLLBACK_PLAN.md`  
+**Completed**: 2026-01-25
+
+### Goal
+Restrict `/api/debug/player/[playerId]` so it does not expose raw player data to anyone. Require admin in dev/staging and disable in production.
+
+### Tasks Completed
+
+| ID | Task | Owner | Expected Delivery | Status |
+|----|------|-------|-------------------|--------|
+| DBG1 | Disable route in production (404) | AI | 2026-01-25 | ✅ DONE |
+| DBG2 | Require admin in dev/staging via requireAdmin | AI | 2026-01-25 | ✅ DONE |
+| DBG3 | Document security model and rollback | AI | 2026-01-25 | ✅ DONE |
+| DBG4 | Update ROADMAP/TASKLIST/RELEASE_NOTES | AI | 2026-01-25 | ✅ DONE |
+
+**Results**:
+- ✅ In production: endpoint returns 404 (disabled)
+- ✅ In dev/staging: only admins can call; others get 401/403
+- ✅ Security plan and rollback plan documented
+
+**Files Modified**:
+- `app/api/debug/player/[playerId]/route.ts` – auth, requireAdmin, NODE_ENV guard
+
+**Build Status**: Verified by type-check  
+**Status**: ✅ COMPLETE
+
+---
+
+## ✅ P0 - COMPLETE: Payment E2E Test Plan
+
+**Status**: ✅ **COMPLETE**  
+**Priority**: P0 (Payment flow test coverage)  
+**Reported**: 2026-01-25  
+**Documentation**: `docs/PAYMENT_E2E_TEST_PLAN.md`  
+**Completed**: 2026-01-25
+
+### Goal
+Define and execute end-to-end payment flow testing: checkout → payment → webhook → premium activation, edge cases, and admin payments.
+
+### Tasks Completed
+
+| ID | Task | Owner | Expected Delivery | Status |
+|----|------|-------|-------------------|--------|
+| E2E1 | Map checkout → webhook → premium flow in codebase | AI | 2026-01-25 | ✅ DONE |
+| E2E2 | Define E2E test scenarios and document in plan | AI | 2026-01-25 | ✅ DONE |
+| E2E3 | Add executable contract test script | AI | 2026-01-25 | ✅ DONE |
+| E2E4 | Document results and update ROADMAP/TASKLIST | AI | 2026-01-25 | ✅ DONE |
+
+**Results**:
+- ✅ Flow documented: create-checkout → Stripe → success redirect → webhook → premium
+- ✅ Test plan with happy path, edge cases (cancel, invalid session, webhook idempotency), admin filters
+- ✅ Contract script: `npm run test:payment-contract` (requires app running; checks 401 on unauthed create-checkout, redirect on success)
+- ✅ ROADMAP updated; “End-to-end payment flow testing” marked complete (v2.9.10)
+
+**Files Added**:
+- `docs/PAYMENT_E2E_TEST_PLAN.md` – Scenarios, Stripe test data, run instructions
+- `scripts/payment-e2e-contract-test.ts` – Executable API contract checks
+
+**Build Status**: N/A (docs + script)  
+**Status**: ✅ COMPLETE – Test plan and contract test in place; full E2E via Stripe CLI + manual
 
 ---
 
@@ -374,8 +442,67 @@ Course pages must always use the course’s own language as the URL locale and U
 | BUG4 | `/admin/courses` thumbnails not visible on card view | P1 | **Fixed**: Added thumbnail image display to course cards. Uses same pattern as other pages. Shows thumbnail if `course.thumbnail` exists. Styled with rounded corners and proper aspect ratio. | ✅ DONE |
 | BUG5 | `/admin/players` shows "Premium" type incorrectly | P0 | **Fixed**: Replaced `isPremium` badge with GUEST/USER/ADMIN types. Updated API to support `userType` filter. Updated UI and stats. Removed premium filter. | ✅ DONE |
 | BUG6 | `/admin/quests` returns 404 | P1 | **Fixed**: Created admin quests page and API endpoint. Displays quest list with filtering (status, search). Shows quest details and statistics. Handles empty state with helpful message. | ✅ DONE |
-| BUG7 | `/profile/[playerId]` user profiles do not load | P0 | **Investigate**: Profile page shows welcome/sign-in page instead of profile content. Check route handler at `app/[locale]/profile/[playerId]/page.tsx`. Verify authentication/authorization logic. Check if middleware is blocking access. Verify playerId parameter handling. Check if profile data fetch is working. | ⏳ PENDING |
+| BUG7 | `/profile/[playerId]` user profiles do not load | P0 | **Done**: Admin can open user profile from user list (e.g. [hu/profile/6970a39a4d9263663b412d96](https://www.amanoba.com/hu/profile/6970a39a4d9263663b412d96)). Self-view and public/private behaviour tracked in Profile Visibility & Privacy tasks below. | ✅ DONE |
 
+
+---
+
+## 📋 P1: Profile Visibility & Privacy
+
+*Breakdown of the four goals in `docs/ROADMAP.md` → Profile Visibility & Privacy. Development: Tribeca; content/copy: Katja.*
+
+---
+
+### 1. User can see their private profile
+
+**Goal**: Logged-in user can view their own profile with all private data when visiting `/profile/<own-playerId>` or via “My profile”.
+
+| ID | Task | Owner | Expected Delivery | Status |
+|----|------|-------|-------------------|--------|
+| PV1.1 | Ensure `GET /api/profile/[playerId]` and/or `GET /api/players/[playerId]` return full private data when `playerId` matches session user | Dev | TBD | ⏳ PENDING |
+| PV1.2 | Ensure `app/[locale]/profile/[playerId]/page.tsx` renders private view when viewer is the profile owner (no redirect to sign-in when session exists and ids match) | Dev | TBD | ⏳ PENDING |
+| PV1.3 | Add or fix entry point so user can open “My profile” (e.g. from dashboard, header, menu) and land on `/profile/<own-playerId>` | Dev | TBD | ⏳ PENDING |
+| PV1.4 | Document acceptance: logged-in user visiting `/profile/<own-id>` sees full private profile (email, wallet, lastLoginAt, etc. as applicable) | Dev | TBD | ⏳ PENDING |
+
+---
+
+### 2. User could set their profile to public/private
+
+**Goal**: User can choose whether their profile is viewable by others (public) or only by self/admin (private). Setting persisted and enforced.
+
+| ID | Task | Owner | Expected Delivery | Status |
+|----|------|-------|-------------------|--------|
+| PV2.1 | Add `profileVisibility` (or `isProfilePublic`) field to Player model; default e.g. `private`; migration if needed | Dev | TBD | ⏳ PENDING |
+| PV2.2 | Add PATCH (or extend existing) profile API so owner can update `profileVisibility`; enforce “only owner can change” | Dev | TBD | ⏳ PENDING |
+| PV2.3 | Add UI on profile or settings: control “Profile visibility: Public / Private” (toggle or dropdown) and persist via API | Dev | TBD | ⏳ PENDING |
+| PV2.4 | Enforce in API and page: when profile is private, non-owner requests to `/profile/[playerId]` get 404 or “not available”; when public, allow public view (see §3) | Dev | TBD | ⏳ PENDING |
+
+---
+
+### 3. User can see their public profile
+
+**Goal**: When a profile is public, others can open `/profile/<playerId>` and see a read-only public view with only allowed fields.
+
+| ID | Task | Owner | Expected Delivery | Status |
+|----|------|-------|-------------------|--------|
+| PV3.1 | Define public profile schema: which fields are shown (e.g. displayName, avatar, bio, public achievements/courses; no email, wallet, lastLoginAt) | Dev | TBD | ⏳ PENDING |
+| PV3.2 | Ensure `GET /api/players/[playerId]` or profile API returns only public fields when requester is not owner and profile is public; otherwise 404 or restricted | Dev | TBD | ⏳ PENDING |
+| PV3.3 | Ensure `app/[locale]/profile/[playerId]/page.tsx` renders public view for other users when profile is public (read-only, no private sections) | Dev | TBD | ⏳ PENDING |
+| PV3.4 | Add “View as others see it” / public preview for profile owner on their profile or settings page | Dev | TBD | ⏳ PENDING |
+
+---
+
+### 4. User could set their profile sections to public/private on the profile
+
+**Goal**: User can set per-section visibility (About, Courses & progress, Achievements, Certificates, Stats, etc.) to public or private; public view respects these.
+
+| ID | Task | Owner | Expected Delivery | Status |
+|----|------|-------|-------------------|--------|
+| PV4.1 | Define profile sections and add model/schema for per-section visibility (e.g. `profileSectionVisibility: { about, courses, achievements, certificates, stats }` each `'public' \| 'private'`) | Dev | TBD | ⏳ PENDING |
+| PV4.2 | Add API to get/update per-section visibility (PATCH profile); only owner can update; validate section keys | Dev | TBD | ⏳ PENDING |
+| PV4.3 | Add UI on profile/settings: per-section toggles “Visible to everyone / Only me” (or Public/Private per section) and persist via API | Dev | TBD | ⏳ PENDING |
+| PV4.4 | When rendering another user’s public profile, show only sections marked public; for self, show all sections with clear visibility indicator | Dev | TBD | ⏳ PENDING |
+| PV4.5 | Enforce section visibility in `GET /api/players/[playerId]` (and any profile aggregate API) and in profile page rendering | Dev | TBD | ⏳ PENDING |
 
 ---
 

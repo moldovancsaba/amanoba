@@ -1,11 +1,76 @@
 # Amanoba Release Notes
 
-**Current Version**: 2.9.5  
-**Last Updated**: 2026-01-25T20:00:00.000Z
+**Current Version**: 2.9.12  
+**Last Updated**: 2026-01-27T09:15:00.000Z
 
 ---
 
 All completed tasks are documented here in reverse chronological order. This file follows the Changelog format and is updated with every version bump.
+
+---
+
+## [v2.9.12] — 2026-01-27 📋
+
+**Status**: Documentation – Profile visibility roadmap & BUG7 closed  
+**Type**: Roadmap and tasklist update
+
+### Documentation updates
+
+- **BUG7 closed**: `/profile/[playerId]` marked DONE in TASKLIST. Admin can open user profile from user list (e.g. `https://www.amanoba.com/hu/profile/6970a39a4d9263663b412d96`). Self-view and public/private behaviour are tracked in Profile Visibility & Privacy tasks.
+- **ROADMAP**: Added **Profile Visibility & Privacy (P1)** with four goals: (1) user can see their private profile, (2) user can set profile to public/private, (3) user can see their public profile, (4) user can set profile sections to public/private. Owner: Tribeca (dev); content: Katja.
+- **TASKLIST**: Added four task sections with deliverable breakdown (PV1.1–PV4.5). See `docs/TASKLIST.md` § P1: Profile Visibility & Privacy.
+- **Related docs**: ROADMAP and TASKLIST versions set to 2.9.12.
+
+**Files Modified**: `docs/ROADMAP.md`, `docs/TASKLIST.md`, `docs/RELEASE_NOTES.md`, `docs/STATUS.md`, `docs/2026-01-24_NEXT_3_ACTIONS.md`
+
+**Build Status**: N/A  
+**Status**: ✅ DOCUMENTATION UPDATED
+
+---
+
+## [v2.9.11] — 2026-01-25 🔒✅
+
+**Status**: SECURITY FIX – Debug player endpoint  
+**Type**: Critical security fix
+
+### Debug player endpoint restricted
+
+**Problem**: `GET /api/debug/player/[playerId]` returned raw database documents (Player, PlayerProgression, PointsWallet, PlayerSession) to **any caller** with no authentication or authorization.
+
+**Solution**:
+- **Production**: Endpoint returns 404 when `NODE_ENV === 'production'` (route disabled in prod)
+- **Dev/staging**: Only admins can call; `requireAdmin(request, session)` enforced; others get 401/403
+
+#### Files Modified
+- `app/api/debug/player/[playerId]/route.ts` – added auth, requireAdmin, NODE_ENV guard
+
+#### Documentation
+- `docs/DEBUG_PLAYER_ENDPOINT_SECURITY_PLAN.md` – root cause and fix
+- `docs/DEBUG_PLAYER_ENDPOINT_ROLLBACK_PLAN.md` – rollback steps
+
+**Build Status**: Verified  
+**Status**: ✅ FIX APPLIED
+
+---
+
+## [v2.9.10] — 2026-01-25 ✅
+
+**Status**: Payment E2E Test Plan  
+**Type**: Test coverage and documentation
+
+### Payment E2E Test Plan
+
+**Goal**: End-to-end payment flow testing (checkout → payment → webhook → premium), edge cases, and admin payments.
+
+**Delivered**:
+- ✅ **Test plan** (`docs/PAYMENT_E2E_TEST_PLAN.md`): Flow diagram, scenarios (happy path, cancel, invalid session, webhook idempotency, admin list/filters), Stripe test cards, Stripe CLI instructions
+- ✅ **Contract test** (`scripts/payment-e2e-contract-test.ts`): Unauthed create-checkout → 401, success redirect behaviour; run with `npm run test:payment-contract` (app must be running, `BASE_URL` optional)
+- ✅ ROADMAP updated: “End-to-end payment flow testing” marked complete
+
+**Full E2E** (real payment + webhook): run manually or with Stripe CLI per the test plan.
+
+**Build Status**: N/A  
+**Status**: ✅ COMPLETE
 
 ---
 

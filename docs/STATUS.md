@@ -1,8 +1,8 @@
 # Amanoba Current Status
 
-**Last Updated**: 2026-01-25T18:00:00.000Z  
-**Version**: 2.9.2  
-**Status**: ✅ Production Stable - Google Analytics Active - Course Progress Fixed
+**Last Updated**: 2026-01-27T09:15:00.000Z  
+**Version**: 2.9.12  
+**Status**: ✅ Production Stable - Profile visibility roadmap in ROADMAP/TASKLIST - BUG7 closed
 
 ---
 

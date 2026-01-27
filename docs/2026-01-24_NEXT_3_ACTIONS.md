@@ -2,13 +2,15 @@
 
 **Date**: 2026-01-24  
 **Status**: 📋 RECOMMENDATIONS  
-**Based on**: Current bug list, certification system progress, and business impact
+**Based on**: Current bug list, certification system progress, and business impact  
+**Update (2026-01-27)**: BUG7 marked **DONE** in TASKLIST. Admin can open user profile from user list (e.g. https://www.amanoba.com/hu/profile/6970a39a4d9263663b412d96). Further work (self-view, public/private, section visibility) is captured in **Profile Visibility & Privacy** — see `docs/ROADMAP.md` and `docs/TASKLIST.md` § P1: Profile Visibility & Privacy.
 
 ---
 
-## 🎯 Action 1: Fix Profile Pages (BUG7) - P0 CRITICAL
+## 🎯 Action 1: Fix Profile Pages (BUG7) - P0 CRITICAL ✅ DONE
 
 **Priority**: P0 (Critical Bug)  
+**Status**: ✅ **DONE** (2026-01-27) — Admin can open profile from user list. Remaining behaviour (self-view, public/private, section-level visibility) is in Profile Visibility & Privacy tasks (TASKLIST PV1–PV4).  
 **Estimated**: 2-4 hours  
 **Impact**: HIGH - Blocks all user profile access
 
