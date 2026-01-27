@@ -35,7 +35,7 @@
 - ~~Fix admin payments page showing "No transactions found"~~ ✅ FIXED (v2.9.6 - Missing requireAdmin import and courseId normalization)
 - ~~Fix Stripe payment checkout - customer_email conflict~~ ✅ FIXED (v2.9.7 - Removed conflicting customer_email parameter)
 - ~~Wire rate limiting (`app/lib/security.ts`) into auth/profile/admin/progress endpoints~~ ✅ FIXED (v2.9.8 - Rate limiting wired to critical endpoints)
-- Restrict `app/api/profile/[playerId]` data exposure (wallet balances, `lastSeenAt`) to self/admin; clarify intended visibility
+- ~~Restrict `app/api/profile/[playerId]` data exposure (wallet balances, `lastSeenAt`) to self/admin~~ ✅ FIXED (v2.9.9 - Profile data exposure restricted to self/admin)
 
 ### P1 / Medium Priority
 - Localize and brand policy/legal pages; switch plain `Link`/`href=\"/\"` to `LocaleLink`, add missing HU/EN messages, and apply `globals.css` shell

@@ -56,6 +56,54 @@ Wire rate limiting to all critical API endpoints to prevent abuse, DDoS attacks,
 
 ---
 
+## ✅ P0 - COMPLETE: Restrict Profile Data Exposure
+
+**Status**: ✅ **COMPLETE**  
+**Priority**: P0 (Security & Privacy)  
+**Reported**: 2026-01-26  
+**Documentation**: `docs/PROFILE_DATA_EXPOSURE_SECURITY_PLAN.md`, `docs/PROFILE_DATA_EXPOSURE_ROLLBACK_PLAN.md`  
+**Completed**: 2026-01-26
+
+### Goal
+Restrict sensitive profile data (wallet balances, email, lastLoginAt) to self/admin only in `/api/players/[playerId]` endpoint.
+
+### Root Cause
+- `/api/players/[playerId]` endpoint was exposing sensitive data to **anyone** without authorization checks
+- No distinction between public and private data
+- Security and privacy risk
+
+### Tasks Completed
+
+| ID | Task | Owner | Expected Delivery | Status |
+|----|------|-------|-------------------|--------|
+| PROFILE1 | Add authorization checks to /api/players/[playerId] | AI | 2026-01-26 | ✅ DONE |
+| PROFILE2 | Restrict email to self/admin only | AI | 2026-01-26 | ✅ DONE |
+| PROFILE3 | Restrict lastLoginAt to self/admin only | AI | 2026-01-26 | ✅ DONE |
+| PROFILE4 | Restrict wallet to self/admin only | AI | 2026-01-26 | ✅ DONE |
+| PROFILE5 | Add rate limiting | AI | 2026-01-26 | ✅ DONE |
+| PROFILE6 | Verify /api/profile/[playerId] security | AI | 2026-01-26 | ✅ DONE |
+| PROFILE7 | Document security model | AI | 2026-01-26 | ✅ DONE |
+| PROFILE8 | Create rollback plan | AI | 2026-01-26 | ✅ DONE |
+| PROFILE9 | Update release notes | AI | 2026-01-26 | ✅ DONE |
+| PROFILE10 | Commit and push to main | AI | 2026-01-26 | ✅ DONE |
+
+**Results**:
+- ✅ Authorization checks added (isViewingOwnProfile, isAdminUser, canViewPrivateData)
+- ✅ Email restricted to self/admin only
+- ✅ lastLoginAt restricted to self/admin only
+- ✅ Wallet (currentBalance, lifetimeEarned, lifetimeSpent) restricted to self/admin only
+- ✅ Rate limiting added
+- ✅ Security model documented
+- ✅ Both `/api/profile/[playerId]` and `/api/players/[playerId]` now follow same security model
+
+**Files Modified**:
+- `app/api/players/[playerId]/route.ts` - Added authorization checks, restricted sensitive data
+
+**Build Status**: ✅ SUCCESS  
+**Status**: ✅ COMPLETE - Profile data exposure properly restricted
+
+---
+
 ## ✅ P0 - COMPLETE: Stripe Payment Checkout Fix
 
 **Status**: ✅ **COMPLETE**  
