@@ -86,10 +86,10 @@ async function main() {
 
       if (q.score < MIN_SCORE) {
         tasks.push(
-          `- [ ] **${course.courseId}** Day ${lesson.dayNumber} — ${lesson.title} (lessonId: \`${lesson.lessonId}\`)\\n` +
-            `  - Score: **${q.score}/100**\\n` +
-            `  - Issues: ${q.issues.join(', ') || 'none'}\\n` +
-            `  - Add: definition=${q.refineTemplate.addDefinitionSection}, checklist=${q.refineTemplate.addChecklistSection}, examples=${q.refineTemplate.addExamplesSection}, pitfalls=${q.refineTemplate.addPitfallsSection}, metrics=${q.refineTemplate.addMetricsSection}\\n`
+          `- [ ] **${course.courseId}** Day ${lesson.dayNumber} — ${lesson.title} (lessonId: \`${lesson.lessonId}\`)\n` +
+            `  - Score: **${q.score}/100**\n` +
+            `  - Issues: ${q.issues.join(', ') || 'none'}\n` +
+            `  - Add: definition=${q.refineTemplate.addDefinitionSection}, checklist=${q.refineTemplate.addChecklistSection}, examples=${q.refineTemplate.addExamplesSection}, pitfalls=${q.refineTemplate.addPitfallsSection}, metrics=${q.refineTemplate.addMetricsSection}\n`
         );
       }
     }
@@ -118,16 +118,18 @@ async function main() {
 
   writeFileSync(
     mdPath,
-    `# Lesson Refinement Task List\\n\\n` +
-      `Generated: ${new Date().toISOString()}\\n` +
-      `Min score: ${MIN_SCORE}\\n` +
-      `Course filter: ${COURSE_ID || 'ALL'}\\n\\n` +
-      (tasks.length ? tasks.join('\\n') : '✅ No lessons below threshold.\\n')
+    `# Lesson Refinement Task List\n\n` +
+      `Generated: ${new Date().toISOString()}\n` +
+      `Min score: ${MIN_SCORE}\n` +
+      `Course filter: ${COURSE_ID || 'ALL'}\n\n` +
+      (tasks.length ? tasks.join('\n') : '✅ No lessons below threshold.\n')
   );
 
   console.log('✅ Lesson quality audit complete');
   console.log(`- JSON: ${jsonPath}`);
   console.log(`- Tasks: ${mdPath}`);
+
+  process.exit(0);
 }
 
 main().catch(err => {

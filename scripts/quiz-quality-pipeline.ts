@@ -116,9 +116,9 @@ async function main() {
         pipelineReport.totals.lessonsNeedingRefine++;
         lessonRow.action = 'REFINE_LESSON_FIRST';
         refineTasks.push(
-          `- [ ] **${course.courseId}** Day ${lesson.dayNumber} — ${lesson.title} (lessonId: \`${lesson.lessonId}\`)\\n` +
-            `  - Score: **${lessonQuality.score}/100**\\n` +
-            `  - Issues: ${lessonQuality.issues.join(', ') || 'none'}\\n`
+          `- [ ] **${course.courseId}** Day ${lesson.dayNumber} — ${lesson.title} (lessonId: \`${lesson.lessonId}\`)\n` +
+            `  - Score: **${lessonQuality.score}/100**\n` +
+            `  - Issues: ${lessonQuality.issues.join(', ') || 'none'}\n`
         );
         pipelineReport.lessons.push(lessonRow);
         continue;
@@ -225,9 +225,9 @@ async function main() {
         lessonRow.action = 'REWRITE_FAILED';
         lessonRow.rewrite = { errors: batchValidation.errors, warnings: batchValidation.warnings, existingCounts, generateTarget };
         rewriteFailureTasks.push(
-          `- [ ] **${course.courseId}** Day ${lesson.dayNumber} — ${lesson.title} (lessonId: \`${lesson.lessonId}\`)\\n` +
-            `  - Failed quiz rewrite under strict QC\\n` +
-            `  - First error: ${batchValidation.errors[0] || 'Unknown'}\\n`
+          `- [ ] **${course.courseId}** Day ${lesson.dayNumber} — ${lesson.title} (lessonId: \`${lesson.lessonId}\`)\n` +
+            `  - Failed quiz rewrite under strict QC\n` +
+            `  - First error: ${batchValidation.errors[0] || 'Unknown'}\n`
         );
         pipelineReport.lessons.push(lessonRow);
         continue;
@@ -316,21 +316,21 @@ async function main() {
   const tasksPath = join(OUT_DIR, `quiz-quality-pipeline__${stamp}__lesson-refine-tasks.md`);
   writeFileSync(
     tasksPath,
-    `# Lesson Refinement Tasks\\n\\n` +
-      `Generated: ${new Date().toISOString()}\\n` +
-      `Min lesson score: ${MIN_LESSON_SCORE}\\n` +
-      `Course filter: ${COURSE_ID || 'ALL'}\\n\\n` +
-      (refineTasks.length ? refineTasks.join('\\n') : '✅ No lessons flagged for refinement.\\n')
+    `# Lesson Refinement Tasks\n\n` +
+      `Generated: ${new Date().toISOString()}\n` +
+      `Min lesson score: ${MIN_LESSON_SCORE}\n` +
+      `Course filter: ${COURSE_ID || 'ALL'}\n\n` +
+      (refineTasks.length ? refineTasks.join('\n') : '✅ No lessons flagged for refinement.\n')
   );
 
   const rewriteTasksPath = join(OUT_DIR, `quiz-quality-pipeline__${stamp}__rewrite-failures.md`);
   writeFileSync(
     rewriteTasksPath,
-    `# Quiz Rewrite Failures (Generator Improvements Needed)\\n\\n` +
-      `Generated: ${new Date().toISOString()}\\n` +
-      `Strict QC: ON\\n` +
-      `Course filter: ${COURSE_ID || 'ALL'}\\n\\n` +
-      (rewriteFailureTasks.length ? rewriteFailureTasks.join('\\n') : '✅ No rewrite failures.\\n')
+    `# Quiz Rewrite Failures (Generator Improvements Needed)\n\n` +
+      `Generated: ${new Date().toISOString()}\n` +
+      `Strict QC: ON\n` +
+      `Course filter: ${COURSE_ID || 'ALL'}\n\n` +
+      (rewriteFailureTasks.length ? rewriteFailureTasks.join('\n') : '✅ No rewrite failures.\n')
   );
 
   console.log('✅ Quiz quality pipeline complete');
@@ -339,6 +339,8 @@ async function main() {
   console.log(`- Rewrite failure tasks: ${rewriteTasksPath}`);
   console.log(`- Backups: ${BACKUP_DIR}`);
   console.log(JSON.stringify(pipelineReport.totals, null, 2));
+
+  process.exit(0);
 }
 
 main().catch(err => {

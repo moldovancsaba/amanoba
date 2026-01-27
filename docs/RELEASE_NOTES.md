@@ -9,6 +9,42 @@ All completed tasks are documented here in reverse chronological order. This fil
 
 ---
 
+## [v2.9.9] — 2026-01-26 🔒✅
+
+**Status**: SECURITY FIX - Profile Data Exposure  
+**Type**: Critical Security Fix
+
+### 🔒 Profile Data Exposure Security Fix
+
+**Problem**: `/api/players/[playerId]` endpoint was exposing sensitive data (wallet balances, email, lastLoginAt) to **anyone** without authorization checks.
+
+**Root Cause**:
+- Endpoint was created without proper authorization checks
+- No distinction between public and private data
+- Wallet, email, and lastLoginAt were exposed to all users
+
+**Solution**: 
+- Added authorization checks (isViewingOwnProfile, isAdminUser, canViewPrivateData)
+- Restricted email, lastLoginAt, and wallet to self/admin only
+- Added rate limiting for additional security
+- Updated JSDoc comments to document security model
+
+#### Files Modified
+- `app/api/players/[playerId]/route.ts` - Added authorization checks, restricted sensitive data
+
+#### Documentation
+- `docs/PROFILE_DATA_EXPOSURE_SECURITY_PLAN.md` - Root cause analysis and fix details
+- `docs/PROFILE_DATA_EXPOSURE_ROLLBACK_PLAN.md` - Complete rollback instructions
+
+**Security Model**:
+- **Public Data**: Basic info, progression stats, game statistics, achievements, streaks
+- **Private Data** (self/admin only): Email, lastLoginAt, wallet balances
+
+**Build Status**: ✅ SUCCESS  
+**Status**: ✅ FIX APPLIED - Profile data exposure properly restricted
+
+---
+
 ## [v2.9.8] — 2026-01-26 🔒✅
 
 **Status**: SECURITY ENHANCEMENT - Rate Limiting Implementation  

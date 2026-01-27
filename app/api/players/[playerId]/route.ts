@@ -1,6 +1,10 @@
 import { NextRequest, NextResponse } from 'next/server';
 import connectToDatabase from '@/lib/mongodb';
 import logger from '@/lib/logger';
+import { auth } from '@/auth';
+import { isAdmin } from '@/lib/rbac';
+import { checkRateLimit, apiRateLimiter } from '@/lib/security';
+
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
 
@@ -21,10 +25,14 @@ import {
  * Why: Fetch comprehensive player profile data including progression, points, and achievements
  * What: Returns player details with nested progression, wallet, streaks, and achievement count
  * 
+ * Security: Sensitive data (wallet balances, email, lastLoginAt) is only exposed to:
+ * - The profile owner (self)
+ * - Admins
+ * 
  * Response:
- * - player: Core player information
+ * - player: Core player information (email, lastLoginAt only for self/admin)
  * - progression: Level, XP, titles, and progression stats
- * - wallet: Current points balance
+ * - wallet: Current points balance (only for self/admin)
  * - streaks: Active win and login streaks
  * - achievementStats: Count of unlocked vs total achievements
  */
@@ -32,6 +40,12 @@ export async function GET(
   request: NextRequest,
   props: { params: Promise<{ playerId: string }> }
 ) {
+  // Rate limiting: 100 requests per 15 minutes per IP
+  const rateLimitResponse = await checkRateLimit(request, apiRateLimiter);
+  if (rateLimitResponse) {
+    return rateLimitResponse;
+  }
+
   try {
     const params = await props.params;
     const { playerId } = params;
@@ -42,6 +56,21 @@ export async function GET(
         { status: 400 }
       );
     }
+
+    // Check authentication and authorization
+    const session = await auth();
+    const currentUserId = session?.user?.id;
+    const isViewingOwnProfile = currentUserId === playerId;
+    const isAdminUser = session ? isAdmin(session) : false;
+    const canViewPrivateData = isViewingOwnProfile || isAdminUser;
+
+    logger.info({ 
+      playerId, 
+      currentUserId, 
+      isViewingOwnProfile, 
+      isAdminUser, 
+      canViewPrivateData 
+    }, 'Fetching player profile via /api/players/[playerId]');
 
     // Why: Connect to database before any operations
     await connectToDatabase();
@@ -164,18 +193,21 @@ export async function GET(
     };
 
     // Why: Structure response for easy frontend consumption
-    const response = {
+    // Security: Only include sensitive data (email, lastLoginAt, wallet) for self/admin
+    const response: any = {
       player: {
         id: player._id,
         displayName: player.displayName,
-        email: player.email,
+        // email is private - only include if viewing own profile or admin
+        ...(canViewPrivateData && { email: player.email }),
         isPremium: player.isPremium,
         premiumExpiresAt: player.premiumExpiresAt,
         surveyCompleted: player.surveyCompleted || false,
         skillLevel: player.skillLevel || null,
         interests: player.interests || [],
         createdAt: player.createdAt,
-        lastLoginAt: player.lastLoginAt,
+        // lastLoginAt is private - only include if viewing own profile or admin
+        ...(canViewPrivateData && { lastLoginAt: player.lastLoginAt }),
       },
       progression: progression
         ? {
@@ -195,13 +227,16 @@ export async function GET(
             currentStreak: progression.statistics.currentStreak,
           }
         : null,
-      wallet: wallet
-        ? {
-            currentBalance: wallet.currentBalance,
-            lifetimeEarned: wallet.lifetimeEarned,
-            lifetimeSpent: wallet.lifetimeSpent,
-          }
-        : null,
+      // Wallet data is private - only include if viewing own profile or admin
+      ...(canViewPrivateData && {
+        wallet: wallet
+          ? {
+              currentBalance: wallet.currentBalance,
+              lifetimeEarned: wallet.lifetimeEarned,
+              lifetimeSpent: wallet.lifetimeSpent,
+            }
+          : null,
+      }),
       streaks: streaks.map((streak) => ({
         type: streak.type,
         count: streak.currentStreak,
