@@ -60,12 +60,17 @@ export async function GET(request: NextRequest) {
 
     // Get all course progress for this player
     const progressList = await CourseProgress.find({ playerId: player._id })
-      .populate('courseId', 'courseId name description thumbnail language durationDays')
+      .populate('courseId', 'courseId name description thumbnail language durationDays isDraft')
       .sort({ startedAt: -1 })
       .lean();
 
+    // My courses: only show published shorts (exclude isDraft === true)
+    const filteredProgress = progressList.filter(
+      (p: { courseId?: { isDraft?: boolean } }) => p.courseId && (p.courseId as { isDraft?: boolean }).isDraft !== true
+    );
+
     // Calculate progress for each course
-    const courses = progressList.map((progress: any) => {
+    const courses = filteredProgress.map((progress: any) => {
       const course = progress.courseId;
       const completedDaysArray = progress.completedDays || [];
       const completedDays = completedDaysArray.length;

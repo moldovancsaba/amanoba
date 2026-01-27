@@ -38,10 +38,23 @@ export async function GET(
       return NextResponse.json({ error: 'Course not found' }, { status: 404 });
     }
 
-    // Get all lessons for this course, sorted by dayNumber
-    const lessons = await Lesson.find({ courseId: course._id })
-      .sort({ dayNumber: 1 })
-      .lean();
+    let lessons: Array<Record<string, unknown>>;
+    if (course.parentCourseId && course.selectedLessonIds?.length) {
+      // Child course: return parent lessons in selectedLessonIds order, with dayNumber 1..N
+      const ids = course.selectedLessonIds
+        .filter((id): id is string => typeof id === 'string' && !!id)
+        .map((id) => new mongoose.Types.ObjectId(id));
+      const byId = await Lesson.find({ _id: { $in: ids } }).lean();
+      const orderMap = new Map(ids.map((id, i) => [id.toString(), i]));
+      const sorted = [...byId].sort(
+        (a, b) => ((orderMap.get(String((a as { _id: unknown })._id)) ?? 0) - (orderMap.get(String((b as { _id: unknown })._id)) ?? 0))
+      );
+      lessons = sorted.map((l, i) => ({ ...l, dayNumber: i + 1 }));
+    } else {
+      lessons = await Lesson.find({ courseId: course._id })
+        .sort({ dayNumber: 1 })
+        .lean();
+    }
 
     return NextResponse.json({
       success: true,

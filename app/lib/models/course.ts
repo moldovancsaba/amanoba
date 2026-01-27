@@ -48,9 +48,21 @@ export interface ICourse extends Document {
     instructor?: string;
     [key: string]: unknown;
   };
+  /** For short/child courses: parent 30-day courseId. Unset for language-variant or CCS. */
+  parentCourseId?: string;
+  /** For short/child courses: ordered list of parent lesson _ids. Index 0 = child Day 1. */
+  selectedLessonIds?: string[];
+  /** 'standard' | 'essentials' | 'beginner' | 'foundations' | 'core_skills' | 'full_program' (or legacy 7day/weekend/1day/1hour). */
+  courseVariant?: string;
+  /** CCS (course family) id. Set for language-variant and short courses; shorts inherit from parent. */
+  ccsId?: string;
+  /** For shorts: draft until editor publishes. Catalog shows only non-draft. */
+  isDraft?: boolean;
   certification?: {
     enabled: boolean;
     poolCourseId?: string;
+    /** Max questions in child final exam. If unset, use default (e.g. 50). */
+    certQuestionCount?: number;
     priceMoney?: { amount: number; currency: string };
     pricePoints?: number;
     premiumIncludesCertification?: boolean;
@@ -212,6 +224,13 @@ const CourseSchema = new Schema<ICourse>(
       },
     },
 
+    // Short/child course fields (optional)
+    parentCourseId: { type: String, uppercase: true, trim: true },
+    selectedLessonIds: [{ type: String, trim: true }],
+    courseVariant: { type: String, trim: true },
+    ccsId: { type: String, trim: true },
+    isDraft: { type: Boolean, default: false },
+
     // Certification configuration
     // Why: Controls premium gating, pricing, and pool mapping for final exam
     certification: {
@@ -223,6 +242,10 @@ const CourseSchema = new Schema<ICourse>(
         type: String,
         uppercase: true,
         trim: true,
+      },
+      certQuestionCount: {
+        type: Number,
+        min: [1, 'certQuestionCount must be at least 1'],
       },
       priceMoney: {
         amount: {

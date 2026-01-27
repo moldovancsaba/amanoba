@@ -35,6 +35,9 @@ export async function GET(request: NextRequest) {
       query.isActive = true;
     }
 
+    // Catalog: only show published shorts (exclude isDraft === true)
+    query.isDraft = { $ne: true };
+
     if (language) {
       query.language = language;
     }

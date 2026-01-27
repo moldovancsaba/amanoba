@@ -9,6 +9,7 @@ import { logger } from '../logger';
 import connectDB from '../mongodb';
 import { CourseProgress, Player, Course, Lesson } from '../models';
 import { sendLessonEmail, sendReminderEmail } from '../email/email-service';
+import { resolveLessonForChildDay } from '../course-helpers';
 import type { ILesson } from '../models/lesson';
 
 /**
@@ -113,12 +114,15 @@ export async function sendDailyLessons(targetDate?: Date): Promise<{
           continue;
         }
 
-        // Check if lesson exists for this day
-        const lesson = await Lesson.findOne({
-          courseId: course._id,
-          dayNumber: targetDay,
-          isActive: true,
-        });
+        // Resolve lesson: for child courses use parent lesson via selectedLessonIds; for parent use Lesson by day
+        const isChild = !!(course as { parentCourseId?: string }).parentCourseId && (course as { selectedLessonIds?: unknown[] }).selectedLessonIds?.length;
+        const lesson = isChild
+          ? await resolveLessonForChildDay(course as { parentCourseId: string; selectedLessonIds: unknown[] }, targetDay)
+          : await Lesson.findOne({
+              courseId: course._id,
+              dayNumber: targetDay,
+              isActive: true,
+            });
 
         if (!lesson) {
           logger.warn(
@@ -142,11 +146,13 @@ export async function sendDailyLessons(targetDate?: Date): Promise<{
         // For MVP: Send immediately (timezone-aware scheduling can be added later)
         // In production, this would check if current time matches preferred time in user's timezone
 
-        // Send lesson email
+        // Send lesson email; for child courses pass linkDay so subject/body and lesson links use child courseId and day 1..K
         const emailResult = await sendLessonEmail(
           player._id.toString(),
           course._id.toString(),
-          lesson as ILesson
+          lesson as ILesson,
+          undefined,
+          isChild ? { linkDay: targetDay } : undefined
         );
 
         if (emailResult.success) {

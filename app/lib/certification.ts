@@ -32,9 +32,17 @@ export async function getCertificationPoolCount(courseId: string): Promise<numbe
 }
 
 /**
+ * Effective question count for final exam: certQuestionCount if set (child courses), else 50.
+ */
+export function getCertQuestionLimit(course: { certification?: { certQuestionCount?: number } } | null): number {
+  const n = course?.certification?.certQuestionCount;
+  return n != null && n >= 1 ? n : 50;
+}
+
+/**
  * Determine if certification is available for a given course:
  * - certification.enabled === true
- * - poolCount >= 50
+ * - poolCount >= getCertQuestionLimit(course)
  */
 export async function isCertificationAvailable(courseId: string): Promise<{ available: boolean; poolCount: number }> {
   await connectDB();
@@ -43,5 +51,6 @@ export async function isCertificationAvailable(courseId: string): Promise<{ avai
     return { available: false, poolCount: 0 };
   }
   const poolCount = await getCertificationPoolCount(courseId);
-  return { available: poolCount >= 50, poolCount };
+  const limit = getCertQuestionLimit(course);
+  return { available: poolCount >= limit, poolCount };
 }

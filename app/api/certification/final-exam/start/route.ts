@@ -8,7 +8,7 @@ import {
   FinalExamAttempt,
   QuizQuestion,
 } from '@/lib/models';
-import { getCertificationPoolCount, resolvePoolCourse } from '@/lib/certification';
+import { getCertificationPoolCount, getCertQuestionLimit, resolvePoolCourse } from '@/lib/certification';
 import mongoose from 'mongoose';
 
 export const runtime = 'nodejs';
@@ -43,7 +43,8 @@ export async function POST(request: NextRequest) {
   }
 
   const poolCount = await getCertificationPoolCount(courseIdParam);
-  if (poolCount < 50) {
+  const questionLimit = getCertQuestionLimit(course);
+  if (poolCount < questionLimit) {
     return NextResponse.json(
       { success: false, error: 'Certification unavailable. Contact the course creator.' },
       { status: 400 }
@@ -87,7 +88,7 @@ export async function POST(request: NextRequest) {
     );
   }
 
-  // Select 50 unique questions via $sample
+  // Select up to questionLimit questions via $sample (50 for standard, certQuestionCount for child)
   const questions = await QuizQuestion.aggregate([
     {
       $match: {
@@ -96,10 +97,10 @@ export async function POST(request: NextRequest) {
         isActive: true,
       },
     },
-    { $sample: { size: 50 } },
+    { $sample: { size: questionLimit } },
   ]);
 
-  if (questions.length < 50) {
+  if (questions.length < questionLimit) {
     return NextResponse.json(
       { success: false, error: 'Certification unavailable. Contact the course creator.' },
       { status: 400 }

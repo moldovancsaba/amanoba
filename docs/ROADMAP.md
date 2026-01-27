@@ -239,7 +239,8 @@
 
 ### Multi-Format Course Forking (30d → 7d / Weekend / 1d / 1h)
 
-**Implementation plan and handover**: `docs/2026-01-27_RAPID_CHILDREN_COURSES_ACTION_PLAN_AND_HANDOVER.md` — Admin grouping (Course Idea → 30-Day Outline → CCS → Language variants → Course); Shorts by lesson count (1–3 Essentials, 4–7 Beginner, 8–12 Foundations, 13–20 Core Skills, 21+ Full Program); checkbox lesson selection; read-only child editor; certificate with limited questions; timeline (goLiveAt) so any length can go live before 30-day is published; rollback plan; **Section 10** lists clarification questions (Course Idea/Outline storage, CCS entity vs files, naming, timeline model).
+**Implementation plan and handover**: `docs/2026-01-27_RAPID_CHILDREN_COURSES_ACTION_PLAN_AND_HANDOVER.md` — Admin grouping (Course Idea → 30-Day Outline → CCS → Language variants → Course); Shorts by lesson count (1–3 Essentials, 4–7 Beginner, 8–12 Foundations, 13–20 Core Skills, 21+ Full Program); checkbox lesson selection; read-only child editor; certificate with limited questions; timeline (goLiveAt) so any length can go live before 30-day is published; rollback plan; **Section 10** lists clarification questions (Course Idea/Outline storage, CCS entity vs files, naming, timeline model).  
+**Delivery plan (action items)**: `docs/2026-01-27_RAPID_CHILDREN_COURSES_DELIVERY_PLAN.md` — checkable P1.1–P6.3; Rapid/Short Children slice ✅ COMPLETE.
 
 **User Stories**:
 - Shared infra: As an admin, I fork any 30-day course into a child variant with auto-sync on by default (lessons/quizzes mirror parent); I can detach specific lessons/quizzes and add unique ones (future toggle)

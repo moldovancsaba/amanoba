@@ -94,9 +94,10 @@ async function getCourseRecommendations(
 
   const enrolledCourseIds = enrolledCourses.map((cp) => cp.courseId.toString());
 
-  // Build recommendation query
+  // Build recommendation query (exclude draft shorts from recommendations)
   const query: Record<string, unknown> = {
     isActive: true,
+    isDraft: { $ne: true },
     _id: { $nin: enrolledCourseIds }, // Exclude already enrolled courses
   };
 

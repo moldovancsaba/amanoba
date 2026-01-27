@@ -99,6 +99,34 @@ export function assessLessonQuality(params: {
     'mér',
     'показател',
     'критер',
+    // TR
+    'metrik',
+    'kriter',
+    'ölçüt',
+    'eşik',
+    'ölçüm',
+    // PL
+    'kryter',
+    'próg',
+    'metryk',
+    // BG
+    'критерий',
+    'праг',
+    // VI
+    'tiêu chí',
+    'ngưỡng',
+    // ID
+    'kriteria',
+    'ambang',
+    // PT
+    'critério',
+    'limiar',
+    // AR
+    'معيار',
+    'عتبة',
+    // HI
+    'मानदंड',
+    'सीमा',
   ]);
   const hasDefinitionsOrComparisons = hasAny(lower, [
     'definition',
@@ -113,6 +141,43 @@ export function assessLessonQuality(params: {
     'что такое',
     'что не',
     'разница',
+    // TR
+    'tanım',
+    'ne demek',
+    'nedir',
+    'ne değildir',
+    'fark',
+    'karşılaştır',
+    // PL
+    'definic',
+    'co to jest',
+    'różnic',
+    // BG
+    'дефиниц',
+    'какво е',
+    'какво не',
+    'разлик',
+    // VI
+    'định nghĩa',
+    'nghĩa là',
+    'khác biệt',
+    // ID
+    'definisi',
+    'artinya',
+    'perbedaan',
+    // PT
+    'defini',
+    'o que é',
+    'o que não é',
+    'diferenç',
+    // AR
+    'تعريف',
+    'ما هو',
+    'ما ليس',
+    // HI
+    'परिभाषा',
+    'का मतलब',
+    'अंतर',
   ]);
 
   // Very rough language mismatch heuristic: if lesson language is non-en but content is mostly ASCII
@@ -168,4 +233,3 @@ export function assessLessonQuality(params: {
     refineTemplate,
   };
 }
-

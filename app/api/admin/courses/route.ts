@@ -41,10 +41,14 @@ export async function GET(request: NextRequest) {
     const status = searchParams.get('status'); // 'all' | 'active' | 'inactive'
     const language = searchParams.get('language');
     const search = searchParams.get('search');
+    const parentCourseId = searchParams.get('parentCourseId'); // list children of this parent
 
     // Build query
     const query: Record<string, unknown> = {};
     
+    if (parentCourseId) {
+      query.parentCourseId = parentCourseId.toUpperCase();
+    }
     if (status === 'active') {
       query.isActive = true;
     } else if (status === 'inactive') {

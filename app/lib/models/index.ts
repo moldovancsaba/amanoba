@@ -82,7 +82,8 @@ export {
 } from './quiz-question';
 export { default as WhackPopEmoji, type IWhackPopEmoji } from './whackpop-emoji';
 
-// Learning Platform Models (4)
+// Learning Platform Models (5)
+export { default as CCS, type ICCS, type IRelatedDocument } from './ccs';
 export { default as Course, type ICourse } from './course';
 export { default as Lesson, type ILesson } from './lesson';
 export { default as CourseProgress, type ICourseProgress, CourseProgressStatus } from './course-progress';

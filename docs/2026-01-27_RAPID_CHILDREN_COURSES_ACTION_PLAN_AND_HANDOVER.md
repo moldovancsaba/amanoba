@@ -5,7 +5,7 @@
 **Status**: READY FOR IMPLEMENTATION  
 **Priority**: P1  
 **Owner**: Tribeca (development). Content: Katja.  
-**Related**: `docs/2026-01-23_SHORT_COURSES_FEATURE.md`, `docs/ROADMAP.md` (Multi-Format Course Forking), `docs/TASKLIST.md` (MF1–MF8), `docs/canonical/` (CCS), `agent_working_loop_canonical_operating_document.md`
+**Related**: `docs/2026-01-23_SHORT_COURSES_FEATURE.md`, `docs/ROADMAP.md` (Multi-Format Course Forking), `docs/TASKLIST.md` (MF1–MF8), **`docs/2026-01-27_RAPID_CHILDREN_COURSES_DELIVERY_PLAN.md`** (action-item breakdown for delivery), `docs/canonical/` (CCS), `agent_working_loop_canonical_operating_document.md`
 
 ---
 
@@ -303,8 +303,9 @@ Per `agent_working_loop_canonical_operating_document.md`, every delivery must in
 
 ### 8.1 Update When Implementing
 
-- **TASKLIST**: Add or refine tasks under “Multi-Format / Short Children Courses” (e.g. MF1–MF8) to reference this plan and point to phases P1–P6.
-- **ROADMAP**: Under “Multi-Format Course Forking”, add a line that the implementation plan and handover are in `docs/2026-01-27_RAPID_CHILDREN_COURSES_ACTION_PLAN_AND_HANDOVER.md`.
+- **Delivery plan**: Track progress in **`docs/2026-01-27_RAPID_CHILDREN_COURSES_DELIVERY_PLAN.md`** — action items P1.1–P6.3 with checkboxes; tick as delivered.
+- **TASKLIST**: Add or refine tasks under “Multi-Format / Short Children Courses” (e.g. MF1–MF8) to reference this plan and the delivery plan; point to phases P1–P6.
+- **ROADMAP**: Under “Multi-Format Course Forking”, add a line that the implementation plan and handover are in this doc and the **delivery plan** (action-item breakdown) is in `docs/2026-01-27_RAPID_CHILDREN_COURSES_DELIVERY_PLAN.md`.
 - **RELEASE_NOTES**: When the feature is delivered, add an entry describing rapid/children courses and the new/updated APIs and UI.
 
 ### 8.2 Existing Docs

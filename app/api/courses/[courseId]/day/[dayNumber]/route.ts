@@ -12,6 +12,7 @@ import { Course, Lesson, CourseProgress, Player, CourseProgressStatus } from '@/
 import { logger } from '@/lib/logger';
 import { checkAndUnlockCourseCompletionAchievements } from '@/lib/gamification';
 import { checkRateLimit, apiRateLimiter } from '@/lib/security';
+import { resolveLessonForChildDay } from '@/lib/course-helpers';
 
 /**
  * Calculate the current day (first uncompleted lesson) based on completed days
@@ -64,14 +65,15 @@ export async function GET(
     const { courseId, dayNumber } = await params;
     const day = parseInt(dayNumber);
 
-    if (isNaN(day) || day < 1 || day > 30) {
-      return NextResponse.json({ error: 'Invalid day number' }, { status: 400 });
-    }
-
     // Find course
     const course = await Course.findOne({ courseId });
     if (!course) {
       return NextResponse.json({ error: 'Course not found' }, { status: 404 });
+    }
+
+    const totalDays = course.durationDays ?? 30;
+    if (isNaN(day) || day < 1 || day > totalDays) {
+      return NextResponse.json({ error: 'Invalid day number' }, { status: 400 });
     }
 
     // Get player
@@ -107,7 +109,7 @@ export async function GET(
     // This fixes cases where currentDay might be out of sync
     const correctCurrentDay = calculateCurrentDay(
       progress.completedDays || [],
-      course.durationDays
+      totalDays
     );
     if (progress.currentDay !== correctCurrentDay) {
       const oldCurrentDay = progress.currentDay;
@@ -120,12 +122,17 @@ export async function GET(
       );
     }
 
-    // Find lesson
-    const lesson = await Lesson.findOne({
-      courseId: course._id,
-      dayNumber: day,
-      isActive: true,
-    }).lean();
+    // Find lesson: for child courses use resolveLessonForChildDay, else by courseId + dayNumber
+    let lesson: { _id: unknown; lessonId: string; title: string; content?: string; quizConfig?: unknown; [k: string]: unknown } | null;
+    if (course.parentCourseId && course.selectedLessonIds?.length) {
+      lesson = await resolveLessonForChildDay(course, day);
+    } else {
+      lesson = await Lesson.findOne({
+        courseId: course._id,
+        dayNumber: day,
+        isActive: true,
+      }).lean();
+    }
 
     if (!lesson) {
       return NextResponse.json({ error: 'Lesson not found' }, { status: 404 });
@@ -138,13 +145,16 @@ export async function GET(
       progress.completedDays?.includes(day - 1) ||
       progress.currentDay >= day;
 
-    // Get previous/next lessons
-    const previousLesson = day > 1
-      ? await Lesson.findOne({ courseId: course._id, dayNumber: day - 1 }).lean()
-      : null;
-    const nextLesson = day < 30
-      ? await Lesson.findOne({ courseId: course._id, dayNumber: day + 1 }).lean()
-      : null;
+    // Get previous/next lessons (for child, resolve by day; for standard, by courseId + dayNumber)
+    let previousLesson: { title: string } | null = null;
+    let nextLesson: { title: string } | null = null;
+    if (course.parentCourseId && course.selectedLessonIds?.length) {
+      if (day > 1) previousLesson = await resolveLessonForChildDay(course, day - 1);
+      if (day < totalDays) nextLesson = await resolveLessonForChildDay(course, day + 1);
+    } else {
+      if (day > 1) previousLesson = await Lesson.findOne({ courseId: course._id, dayNumber: day - 1 }).lean();
+      if (day < totalDays) nextLesson = await Lesson.findOne({ courseId: course._id, dayNumber: day + 1 }).lean();
+    }
 
     return NextResponse.json({
       success: true,
@@ -161,7 +171,7 @@ export async function GET(
       progress: {
         currentDay: progress.currentDay,
         completedDays: progress.completedDays?.length || 0,
-        totalDays: course.durationDays,
+        totalDays,
       },
       courseLanguage: course.language, // Include course language for locale matching
     });
@@ -204,6 +214,11 @@ export async function POST(
       return NextResponse.json({ error: 'Course not found' }, { status: 404 });
     }
 
+    const totalDays = course.durationDays ?? 30;
+    if (isNaN(day) || day < 1 || day > totalDays) {
+      return NextResponse.json({ error: 'Invalid day number' }, { status: 400 });
+    }
+
     // Get progress or auto-enroll for testing
     let progress = await CourseProgress.findOne({
       playerId: player._id,
@@ -225,11 +240,16 @@ export async function POST(
       logger.info({ courseId, playerId: player._id.toString() }, 'Auto-enrolled in course for testing');
     }
 
-    // Find lesson
-    const lesson = await Lesson.findOne({
-      courseId: course._id,
-      dayNumber: day,
-    });
+    // Find lesson: for child courses use resolveLessonForChildDay, else by courseId + dayNumber
+    let lesson: { pointsReward: number; xpReward: number } | null;
+    if (course.parentCourseId && course.selectedLessonIds?.length) {
+      lesson = await resolveLessonForChildDay(course, day);
+    } else {
+      lesson = await Lesson.findOne({
+        courseId: course._id,
+        dayNumber: day,
+      });
+    }
 
     if (!lesson) {
       return NextResponse.json({ error: 'Lesson not found' }, { status: 404 });
@@ -240,20 +260,18 @@ export async function POST(
       progress.completedDays.push(day);
       
       // Recalculate currentDay based on all completed days
-      // This ensures currentDay always points to the first uncompleted lesson
       progress.currentDay = calculateCurrentDay(
         progress.completedDays,
-        course.durationDays
+        totalDays
       );
       
       progress.lastAccessedAt = new Date();
 
       // Check if course is completed
-      if (progress.completedDays.length >= course.durationDays) {
+      if (progress.completedDays.length >= totalDays) {
         progress.status = CourseProgressStatus.COMPLETED;
         progress.completedAt = new Date();
-        // If all days completed, currentDay should be totalDays + 1
-        progress.currentDay = course.durationDays + 1;
+        progress.currentDay = totalDays + 1;
         
         // Check and unlock course completion achievements
         try {

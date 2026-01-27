@@ -66,6 +66,16 @@ Rules:
 4. If certification pool is missing or invalid, certification is unavailable and the UI shows:
    - “Certification unavailable. Contact the course creator.”
 
+### 2.3.1 Child courses (short/rapid variants)
+For child courses (courses with `parentCourseId` and `certification.certQuestionCount`):
+
+1. **Question count**: The final exam uses at most `certQuestionCount` questions drawn at random from the parent course's certification pool (the same pool as the 30-day parent).
+2. **Pool**: The pool is the parent's pool; the child does not define its own question set.
+3. **Pass rule**: The same as for full exams: pass if `scorePercentInteger` is strictly greater than 50 (§2.7). The score is computed as (correctCount / number_of_questions_in_this_exam) × 100, rounded to the nearest integer. So for a 10-question child exam, passing means more than 5 correct (e.g. 6+).
+4. **Certificate**: When the pass rule is met, a certificate is issued for the **child** course (child's `courseId`). Revocation and "most recent wins" (§2.8) apply to that child certificate.
+
+This keeps child certification consistent with the main plan while allowing shorter exams (e.g. Essentials with fewer questions).
+
 ### 2.4 What happens if the pool has fewer than 50 questions
 This is explicitly defined for V1 to remove ambiguity:
 

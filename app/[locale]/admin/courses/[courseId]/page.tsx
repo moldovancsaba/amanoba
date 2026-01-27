@@ -43,6 +43,8 @@ interface Course {
     currency: string;
   };
   durationDays: number;
+  parentCourseId?: string;
+  selectedLessonIds?: string[];
   pointsConfig: {
     completionPoints: number;
     lessonPoints: number;
@@ -101,6 +103,11 @@ export default function CourseEditorPage({
   const [editingLesson, setEditingLesson] = useState<number | null>(null);
   const [showLessonForm, setShowLessonForm] = useState(false);
   const [courseId, setCourseId] = useState<string>('');
+  const [shorts, setShorts] = useState<Array<{ courseId: string; name: string; courseVariant?: string; isDraft?: boolean }>>([]);
+  const [shortSelectedIds, setShortSelectedIds] = useState<string[]>([]);
+  const [shortCertCount, setShortCertCount] = useState(25);
+  const [shortCreating, setShortCreating] = useState(false);
+  const [showShortsCreate, setShowShortsCreate] = useState(false);
   const resolvedLanguageOptions = course
     ? [
         ...(!COURSE_LANGUAGE_OPTIONS.some((option) => option.code === course.language)
@@ -123,6 +130,17 @@ export default function CourseEditorPage({
     };
     loadData();
   }, [params]);
+
+  useEffect(() => {
+    if (course?.courseId && !course.parentCourseId) {
+      fetch(`/api/admin/courses?parentCourseId=${encodeURIComponent(course.courseId)}`)
+        .then((r) => r.json())
+        .then((d) => setShorts(d.success ? d.courses || [] : []))
+        .catch(() => setShorts([]));
+    } else {
+      setShorts([]);
+    }
+  }, [course?.courseId, course?.parentCourseId]);
 
   const fetchCourse = async (courseId: string) => {
     try {
@@ -688,22 +706,183 @@ export default function CourseEditorPage({
         </div>
       </div>
 
-      {/* 30-Day Lesson Builder */}
+      {/* Shorts — create/manage short variants from this parent (only when not a child) */}
+      {course && !course.parentCourseId && (
+        <div className="bg-brand-white rounded-xl p-6 border-2 border-brand-accent">
+          <h2 className="text-xl font-bold text-brand-black mb-4">Shorts</h2>
+          <p className="text-sm text-brand-darkGrey mb-4">
+            Create short-course variants from this 30-day course. Select lessons; type is chosen by count (1–3 Essentials, 4–7 Beginner, 8–12 Foundations, 13–20 Core Skills, 21+ Full Program). New shorts start as draft; publish when ready.
+          </p>
+          {/* Existing shorts */}
+          {shorts.length > 0 && (
+            <div className="mb-6">
+              <p className="text-sm font-medium text-brand-black mb-2">Existing shorts</p>
+              <ul className="space-y-2">
+                {shorts.map((s) => (
+                  <li
+                    key={s.courseId}
+                    className="flex items-center justify-between py-2 px-3 bg-brand-darkGrey/10 rounded-lg"
+                  >
+                    <div>
+                      <span className="font-medium text-brand-black">{s.name || s.courseId}</span>
+                      <span className="text-sm text-brand-darkGrey ml-2">
+                        {s.isDraft ? '(Draft)' : '(Published)'}
+                      </span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Link
+                        href={`/${locale}/admin/courses/${s.courseId}`}
+                        className="text-sm bg-brand-accent text-brand-black px-2 py-1 rounded font-bold hover:bg-brand-primary-400"
+                      >
+                        Edit
+                      </Link>
+                      {s.isDraft && (
+                        <button
+                          type="button"
+                          onClick={async () => {
+                            try {
+                              const r = await fetch(`/api/admin/courses/${s.courseId}`, {
+                                method: 'PATCH',
+                                headers: { 'Content-Type': 'application/json' },
+                                body: JSON.stringify({ isDraft: false }),
+                              });
+                              if (r.ok) {
+                                const list = await fetch(
+                                  `/api/admin/courses?parentCourseId=${encodeURIComponent(course.courseId)}`
+                                ).then((x) => x.json());
+                                if (list.success) setShorts(list.courses || []);
+                              }
+                            } catch (e) {
+                              console.error('Publish failed', e);
+                            }
+                          }}
+                          className="text-sm bg-green-600 text-white px-2 py-1 rounded font-bold hover:bg-green-700"
+                        >
+                          Publish
+                        </button>
+                      )}
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+          {/* Create short */}
+          <div>
+            <button
+              type="button"
+              onClick={() => setShowShortsCreate(!showShortsCreate)}
+              className="flex items-center gap-2 bg-brand-accent text-brand-black px-4 py-2 rounded-lg font-bold hover:bg-brand-primary-400"
+            >
+              <Plus className="w-5 h-5" />
+              {showShortsCreate ? 'Cancel' : 'Create short'}
+            </button>
+            {showShortsCreate && lessons.length > 0 && (
+              <div className="mt-4 p-4 bg-brand-darkGrey/10 rounded-lg space-y-4">
+                <p className="text-sm text-brand-black font-medium">Select lessons (order = Day 1..N)</p>
+                <div className="flex flex-wrap gap-2 max-h-48 overflow-y-auto">
+                  {lessons.map((l) => (
+                    <label
+                      key={l._id}
+                      className="flex items-center gap-2 cursor-pointer bg-brand-white px-3 py-2 rounded border-2 border-brand-accent/50"
+                    >
+                      <input
+                        type="checkbox"
+                        checked={shortSelectedIds.includes(l._id)}
+                        onChange={(e) => {
+                          if (e.target.checked) {
+                            setShortSelectedIds((prev) => [...prev, l._id]);
+                          } else {
+                            setShortSelectedIds((prev) => prev.filter((id) => id !== l._id));
+                          }
+                        }}
+                        className="w-4 h-4 text-brand-accent"
+                      />
+                      <span className="text-sm">
+                        Day {l.dayNumber}: {l.title.slice(0, 40)}
+                        {l.title.length > 40 ? '…' : ''}
+                      </span>
+                    </label>
+                  ))}
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-brand-black mb-1">
+                    Cert question count
+                  </label>
+                  <input
+                    type="number"
+                    min={1}
+                    max={50}
+                    value={shortCertCount}
+                    onChange={(e) => setShortCertCount(parseInt(e.target.value, 10) || 25)}
+                    className="w-24 px-2 py-1 border-2 border-brand-darkGrey rounded"
+                  />
+                </div>
+                <button
+                  type="button"
+                  disabled={shortSelectedIds.length === 0 || shortCreating}
+                  onClick={async () => {
+                    if (!course?.courseId || shortSelectedIds.length === 0) return;
+                    setShortCreating(true);
+                    try {
+                      const r = await fetch('/api/admin/courses/fork', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                          parentCourseId: course.courseId,
+                          selectedLessonIds: shortSelectedIds,
+                          certQuestionCount: shortCertCount,
+                        }),
+                      });
+                      const d = await r.json();
+                      if (d.success) {
+                        setShorts((prev) => [...prev, { courseId: d.course.courseId, name: d.course.name, courseVariant: d.course.courseVariant, isDraft: d.course.isDraft ?? true }]);
+                        setShowShortsCreate(false);
+                        setShortSelectedIds([]);
+                      } else {
+                        alert(d.error || 'Failed to create short');
+                      }
+                    } catch (e) {
+                      console.error(e);
+                      alert('Failed to create short');
+                    } finally {
+                      setShortCreating(false);
+                    }
+                  }}
+                  className="bg-brand-accent text-brand-black px-4 py-2 rounded-lg font-bold hover:bg-brand-primary-400 disabled:opacity-50"
+                >
+                  {shortCreating ? 'Creating…' : 'Save short'}
+                </button>
+              </div>
+            )}
+          </div>
+        </div>
+      )}
+
+      {/* Lesson Builder (read-only for short/child courses) */}
       <div className="bg-brand-white rounded-xl p-6 border-2 border-brand-accent">
         <div className="flex items-center justify-between mb-6">
-          <h2 className="text-xl font-bold text-brand-black">30-Day Lesson Builder</h2>
-          <button
-            onClick={() => setShowLessonForm(true)}
-            className="flex items-center gap-2 bg-brand-accent text-brand-black px-4 py-2 rounded-lg font-bold hover:bg-brand-primary-400 transition-colors"
-          >
-            <Plus className="w-5 h-5" />
-            Add Lesson
-          </button>
+          <h2 className="text-xl font-bold text-brand-black">
+            {course.parentCourseId ? 'Short course — lessons from parent (read-only)' : '30-Day Lesson Builder'}
+          </h2>
+          {!course.parentCourseId && (
+            <button
+              onClick={() => setShowLessonForm(true)}
+              className="flex items-center gap-2 bg-brand-accent text-brand-black px-4 py-2 rounded-lg font-bold hover:bg-brand-primary-400 transition-colors"
+            >
+              <Plus className="w-5 h-5" />
+              Add Lesson
+            </button>
+          )}
         </div>
-
+        {course.parentCourseId && (
+          <p className="text-sm text-brand-darkGrey mb-4">
+            This is a short course. Lesson and quiz content are managed in the parent course. Only preview is available here.
+          </p>
+        )}
         {/* Lessons Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {Array.from({ length: 30 }, (_, i) => i + 1).map((day) => {
+          {Array.from({ length: course.parentCourseId ? lessons.length : 30 }, (_, i) => i + 1).map((day) => {
             const lesson = lessons.find((l) => l.dayNumber === day);
             return (
               <div
@@ -742,28 +921,32 @@ export default function CourseEditorPage({
                       >
                         <Eye className="w-3 h-3" />
                       </button>
-                      <button
-                        onClick={() => {
-                          setEditingLesson(day);
-                          setShowLessonForm(true);
-                        }}
-                        className="flex-1 flex items-center justify-center gap-1 bg-brand-accent text-brand-black px-2 py-1 rounded text-sm font-bold hover:bg-brand-primary-400"
-                      >
-                        <Edit className="w-3 h-3" />
-                        Edit
-                      </button>
+                      {!course.parentCourseId && (
+                        <button
+                          onClick={() => {
+                            setEditingLesson(day);
+                            setShowLessonForm(true);
+                          }}
+                          className="flex-1 flex items-center justify-center gap-1 bg-brand-accent text-brand-black px-2 py-1 rounded text-sm font-bold hover:bg-brand-primary-400"
+                        >
+                          <Edit className="w-3 h-3" />
+                          Edit
+                        </button>
+                      )}
                     </div>
                   </>
                 ) : (
-                  <button
-                    onClick={() => {
-                      setEditingLesson(day);
-                      setShowLessonForm(true);
-                    }}
-                    className="w-full text-brand-darkGrey hover:text-brand-accent text-sm font-medium"
-                  >
-                    + Add Lesson
-                  </button>
+                  !course.parentCourseId && (
+                    <button
+                      onClick={() => {
+                        setEditingLesson(day);
+                        setShowLessonForm(true);
+                      }}
+                      className="w-full text-brand-darkGrey hover:text-brand-accent text-sm font-medium"
+                    >
+                      + Add Lesson
+                    </button>
+                  )
                 )}
               </div>
             );
@@ -771,8 +954,8 @@ export default function CourseEditorPage({
         </div>
       </div>
 
-      {/* Lesson Form Modal */}
-      {showLessonForm && courseId && (
+      {/* Lesson Form Modal (not used for child courses) */}
+      {showLessonForm && courseId && !course.parentCourseId && (
         <LessonFormModal
           courseId={courseId}
           dayNumber={editingLesson || 1}

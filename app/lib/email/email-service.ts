@@ -59,16 +59,18 @@ async function getOrGenerateUnsubscribeToken(player: IPlayer & { save: () => Pro
  * Why: Primary method of lesson delivery for 30-day courses
  * 
  * @param playerId - Student's player ID
- * @param courseId - Course ID
+ * @param courseId - Course ID (Mongo _id of enrolled course)
  * @param lesson - Lesson document to send
  * @param locale - Language code for email content (defaults to player's locale)
+ * @param options - When enrolled in a child course, pass { linkDay } so subject/body and lesson links use child's day and courseId
  * @returns Email send result
  */
 export async function sendLessonEmail(
   playerId: string,
   courseId: string,
   lesson: ILesson,
-  locale?: Locale
+  locale?: Locale,
+  options?: { linkDay?: number }
 ): Promise<{ success: boolean; messageId?: string; error?: string }> {
   try {
     await connectDB();
@@ -130,19 +132,30 @@ export async function sendLessonEmail(
     const unsubscribeToken = await getOrGenerateUnsubscribeToken(player);
     const unsubscribeUrl = `${APP_URL}/api/email/unsubscribe?token=${unsubscribeToken}`;
 
+    // For child courses, use linkDay so subject/body and lesson links use enrolled course day (1..K), not parent lesson day
+    const displayDay = options?.linkDay ?? lesson.dayNumber;
+
     // Personalize email subject and body
     const subject = emailSubject
       .replace('{{playerName}}', player.displayName)
       .replace('{{courseName}}', courseName)
-      .replace('{{dayNumber}}', lesson.dayNumber.toString());
+      .replace('{{dayNumber}}', displayDay.toString());
 
     // Add unsubscribe link to email body if not already present
     let body = emailBody
       .replace('{{playerName}}', player.displayName)
       .replace('{{courseName}}', courseName)
-      .replace('{{dayNumber}}', lesson.dayNumber.toString())
+      .replace('{{dayNumber}}', displayDay.toString())
       .replace('{{lessonTitle}}', lessonTitle)
       .replace('{{lessonContent}}', lessonContent);
+
+    // When enrolled in a child course, lesson links in the template may point to parent; rewrite path to child courseId and day
+    if (options?.linkDay != null && typeof course.courseId === 'string') {
+      body = body.replace(
+        /\/courses\/[^/"'\s]+\/day\/\d+/g,
+        `/courses/${course.courseId}/day/${displayDay}`
+      );
+    }
 
     // Append unsubscribe footer if not already in body
     if (!body.includes('unsubscribe') && !body.includes('{{unsubscribeUrl}}')) {
