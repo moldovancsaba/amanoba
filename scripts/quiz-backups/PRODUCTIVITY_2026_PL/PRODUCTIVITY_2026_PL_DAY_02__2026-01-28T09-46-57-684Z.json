@@ -1,0 +1,160 @@
+{
+  "backedUpAt": "2026-01-28T09:47:05.726Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_PL",
+    "name": "Produktywność 2026: Jak zarządzać zespołami i czasem",
+    "language": "pl"
+  },
+  "lesson": {
+    "dayNumber": 2,
+    "title": "Czas, energia, uwaga: co zarządzasz w praktyce",
+    "lessonId": "PRODUCTIVITY_2026_PL_DAY_02"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a318260c12d7a7ac5a9",
+      "uuid": "5bc21e9d-2243-4eee-b61d-19a709428a72",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Które z poniższych NIE jest zasobem produktywności?",
+      "options": [
+        "Czas",
+        "Energia",
+        "Uwaga",
+        "Pieniądze"
+      ],
+      "correctIndex": 3,
+      "hashtags": [
+        "#day-02",
+        "#scenario",
+        "#application",
+        "#pl"
+      ]
+    },
+    {
+      "_id": "69776a318260c12d7a7ac5aa",
+      "uuid": "56eb226a-10b7-4770-a969-5c099194632d",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Kiedy powinieneś wykonywać najtrudniejsze zadania?",
+      "options": [
+        "Przy niskim poziomie energii",
+        "Przy szczytowym poziomie energii",
+        "Nie ma znaczenia kiedy",
+        "W nocy, gdy wszyscy śpią"
+      ],
+      "correctIndex": 1,
+      "hashtags": [
+        "#day-02",
+        "#purpose",
+        "#application",
+        "#pl"
+      ]
+    },
+    {
+      "_id": "69776a318260c12d7a7ac5ab",
+      "uuid": "ffade10a-b381-4d85-a546-8a11e83ccdfa",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Ile czasu zajmuje przywrócenie uwagi po przerwaniu?",
+      "options": [
+        "5 minut",
+        "15-20 minut",
+        "1 godzina",
+        "Nie jest potrzebne przywrócenie"
+      ],
+      "correctIndex": 1,
+      "hashtags": [
+        "#day-02",
+        "#foundation",
+        "#recall",
+        "#pl"
+      ]
+    },
+    {
+      "_id": "69776a318260c12d7a7ac5ac",
+      "uuid": "a04ec38b-db2f-40fb-a7a3-b3d0c0f8e923",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Ile czasu buforowego powinieneś zostawić w codziennym harmonogramie?",
+      "options": [
+        "0%",
+        "10%",
+        "20-30%",
+        "50%"
+      ],
+      "correctIndex": 2,
+      "hashtags": [
+        "#day-02",
+        "#foundation",
+        "#recall",
+        "#pl"
+      ]
+    },
+    {
+      "_id": "69776a318260c12d7a7ac5ad",
+      "uuid": "80a29f8f-be69-4168-8757-9b8b4c65a198",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Jaka jest idealna długość bloku głębokiej pracy?",
+      "options": [
+        "30 minut",
+        "60 minut",
+        "90-120 minut",
+        "4 godziny"
+      ],
+      "correctIndex": 2,
+      "hashtags": [
+        "#day-02",
+        "#foundation",
+        "#recall",
+        "#pl"
+      ]
+    },
+    {
+      "_id": "69776a318260c12d7a7ac5ae",
+      "uuid": "1c7cf67a-666a-4b3c-a133-d420161b6bd2",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ Rozumiesz, jak czas, energia i uwaga d...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day2",
+        "#pl",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a318260c12d7a7ac5af",
+      "uuid": "6b361076-7a21-48c9-802e-0a321c1a70e0",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Jak koncepcja \"Czas, energia, uwaga: co zarządzasz w praktyce Trz...\", wspomniana w lekcji, wpływa na osiągnięcie twoich goals?",
+      "options": [
+        "Jak szczegółowo opisano w lekcji, Czas, energia, uwaga: co zarzą... zwiększa skuteczność i zmniejsza ryzyko",
+        "Brak znaczącego wpływu",
+        "Ma znaczenie tylko teoretycznie",
+        "Tylko opcjonalny element"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day2",
+        "#pl",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    }
+  ]
+}

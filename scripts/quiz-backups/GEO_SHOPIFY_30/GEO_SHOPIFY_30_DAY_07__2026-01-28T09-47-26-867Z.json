@@ -1,0 +1,107 @@
+{
+  "backedUpAt": "2026-01-28T09:47:48.846Z",
+  "course": {
+    "courseId": "GEO_SHOPIFY_30",
+    "name": "GEO Shopify – 30 napos kurzus",
+    "language": "hu"
+  },
+  "lesson": {
+    "dayNumber": 7,
+    "title": "Shopify termékadat audit: cím, leírás, variánsok",
+    "lessonId": "GEO_SHOPIFY_30_DAY_07"
+  },
+  "questionCount": 4,
+  "questions": [
+    {
+      "_id": "697766a7bfa810d766366e5c",
+      "uuid": "202a89f4-bab9-45b5-86d6-5d855389c485",
+      "questionType": "recall",
+      "difficulty": "EASY",
+      "question": "Mi fontos a termékadatokban a GEO szempontjából a(z) \"Shopify termékadat audit: cím, leírás, variánsok\" leckében?",
+      "options": [
+        "Pontos, egyértelmű információk",
+        "Minimális információ",
+        "Véletlenszerű adatok",
+        "Nincs követelmény"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day7",
+        "#product",
+        "#beginner",
+        "#recall",
+        "#hu",
+        "#all-languages"
+      ]
+    },
+    {
+      "_id": "697766a7bfa810d766366e5e",
+      "uuid": "31ebbc51-6488-4546-b5c8-31c931fe8ab3",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "A leckében leírt \"Gyakorlat: készítsd el az audit sablonod...\" gyakorlatot hogyan implementálnád a saját munkádban?",
+      "options": [
+        "Lépésről lépésre követem a leckében leírt módszert, dokumentálom az eredményeket, és finomhangolom a folyamatot",
+        "Egyszerre próbálom ki mindent",
+        "Csak olvasom, nem alkalmazom",
+        "Várok, amíg mások megcsinálják"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day7",
+        "#hu",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "697766a7bfa810d766366e5f",
+      "uuid": "b957d96e-107a-485c-8d30-bd361884ef78",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "A leckében leírt \"gyakorlat: bővítsd az auditot (5-10 perc...\" gyakorlatot hogyan implementálnád a saját munkádban?",
+      "options": [
+        "Lépésről lépésre követem a leckében leírt módszert, dokumentálom az eredményeket, és finomhangolom a folyamatot",
+        "Egyszerre próbálom ki mindent",
+        "Csak olvasom, nem alkalmazom",
+        "Várok, amíg mások megcsinálják"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day7",
+        "#hu",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "697766a7bfa810d766366e60",
+      "uuid": "7a47b639-c1bc-4b1d-8670-4c93291823c5",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "A leckében leírt \"Gyakorlat: készítsd el az audit sablonod...\" gyakorlatot hogyan implementálnád a saját munkádban?",
+      "options": [
+        "Lépésről lépésre követem a leckében leírt módszert, dokumentálom az eredményeket, és finomhangolom a folyamatot",
+        "Egyszerre próbálom ki mindent",
+        "Csak olvasom, nem alkalmazom",
+        "Várok, amíg mások megcsinálják"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day7",
+        "#hu",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

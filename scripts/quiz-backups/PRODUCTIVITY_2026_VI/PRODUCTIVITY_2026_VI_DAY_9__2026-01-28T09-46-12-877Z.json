@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-28T09:46:21.461Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_VI",
+    "name": "Năng suất 2026: Cách quản lý nhóm và thời gian",
+    "language": "vi"
+  },
+  "lesson": {
+    "dayNumber": 9,
+    "title": "Phân công vs Loại bỏ: Khi nào phân công, Cái gì loại bỏ",
+    "lessonId": "PRODUCTIVITY_2026_VI_DAY_9"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a1cbfaf8764265275bf",
+      "uuid": "300b3f73-0a06-4cf1-8722-ca6d1c745a23",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ Tôi biết những nhiệm vụ nào có thể đượ...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day9",
+        "#vi",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a1cbfaf8764265275c0",
+      "uuid": "c040eae1-7ac8-42b3-a368-c9cc36fa48fb",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ Tôi đã xác định ít nhất 5 nhiệm vụ có ...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day9",
+        "#vi",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a1cbfaf8764265275c1",
+      "uuid": "10620c37-1e11-479d-9f8c-bd568d033122",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ Tôi biết những nhiệm vụ nào có thể đượ...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day9",
+        "#vi",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a1cbfaf8764265275c2",
+      "uuid": "5a15c512-9542-4f78-aa66-b22fb488369f",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Khái niệm \"Phân công vs Loại bỏ: Khi nào phân công, Cái gì lo...\" được đề cập trong bài học ảnh hưởng như thế nào đến việc đạt được goals của bạn?",
+      "options": [
+        "Như đã mô tả chi tiết trong bài học, Phân công vs Loại bỏ: Khi nào ... tăng hiệu quả và giảm rủi ro",
+        "Không có tác động đáng kể",
+        "Chỉ quan trọng về mặt lý thuyết",
+        "Chỉ là yếu tố tùy chọn"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day9",
+        "#vi",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a1cbfaf8764265275c3",
+      "uuid": "34cf60fe-d8ed-472c-b847-86f278e66807",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Tải về tâm thần quan trọng như thế nào trong ngữ cảnh của Phân công vs Loại bỏ: Khi nào phân công, Cái gì loại bỏ như được thảo luận trong bài học?",
+      "options": [
+        "Như đã mô tả chi tiết trong bài học, Tải về tâm thần đóng vai trò quan trọng trong việc tối ưu hóa quy trình và đạt được mục tiêu",
+        "Chỉ là thông tin ngoại vi không có vai trò quan trọng",
+        "Chỉ là một khái niệm lý thuyết không có ứng dụng thực tế",
+        "Không được đề cập trong bài học"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day9",
+        "#vi",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a1cbfaf8764265275c4",
+      "uuid": "62043d2b-4e63-4098-abca-10742196a1b7",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Tăng trưởng đội quan trọng như thế nào trong ngữ cảnh của Phân công vs Loại bỏ: Khi nào phân công, Cái gì loại bỏ như được thảo luận trong bài học?",
+      "options": [
+        "Như đã mô tả chi tiết trong bài học, Tăng trưởng đội đóng vai trò quan trọng trong việc tối ưu hóa quy trình và đạt được mục tiêu",
+        "Chỉ là thông tin ngoại vi không có vai trò quan trọng",
+        "Chỉ là một khái niệm lý thuyết không có ứng dụng thực tế",
+        "Không được đề cập trong bài học"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day9",
+        "#vi",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a1cbfaf8764265275c5",
+      "uuid": "50b5dfb8-622e-4c48-890a-273ec4fee3eb",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Loại bỏ quan trọng như thế nào trong ngữ cảnh của Phân công vs Loại bỏ: Khi nào phân công, Cái gì loại bỏ như được thảo luận trong bài học?",
+      "options": [
+        "Như đã mô tả chi tiết trong bài học, Loại bỏ đóng vai trò quan trọng trong việc tối ưu hóa quy trình và đạt được mục tiêu",
+        "Chỉ là thông tin ngoại vi không có vai trò quan trọng",
+        "Chỉ là một khái niệm lý thuyết không có ứng dụng thực tế",
+        "Không được đề cập trong bài học"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day9",
+        "#vi",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

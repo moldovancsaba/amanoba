@@ -1,0 +1,107 @@
+{
+  "backedUpAt": "2026-01-28T09:47:08.204Z",
+  "course": {
+    "courseId": "GEO_SHOPIFY_30",
+    "name": "GEO Shopify – 30 napos kurzus",
+    "language": "hu"
+  },
+  "lesson": {
+    "dayNumber": 16,
+    "title": "Kollekció-oldal mint guide, nem csak grid",
+    "lessonId": "GEO_SHOPIFY_30_DAY_16"
+  },
+  "questionCount": 4,
+  "questions": [
+    {
+      "_id": "697766a8bfa810d766366eca",
+      "uuid": "0f2808e4-15de-4f94-a053-ae6828244717",
+      "questionType": "recall",
+      "difficulty": "EASY",
+      "question": "Mi fontos a termékadatokban a GEO szempontjából a(z) \"Kollekció-oldal mint guide, nem csak grid\" leckében?",
+      "options": [
+        "Pontos, egyértelmű információk",
+        "Minimális információ",
+        "Véletlenszerű adatok",
+        "Nincs követelmény"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day16",
+        "#product",
+        "#beginner",
+        "#recall",
+        "#hu",
+        "#all-languages"
+      ]
+    },
+    {
+      "_id": "697766a8bfa810d766366ecc",
+      "uuid": "58338a31-4bd5-47c0-8ed8-515aa511cd15",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "A leckében leírt \"Gyakorlat: átstrukturáld a kollekciót (1...\" gyakorlatot hogyan implementálnád a saját munkádban?",
+      "options": [
+        "Lépésről lépésre követem a leckében leírt módszert, dokumentálom az eredményeket, és finomhangolom a folyamatot",
+        "Egyszerre próbálom ki mindent",
+        "Csak olvasom, nem alkalmazom",
+        "Várok, amíg mások megcsinálják"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day16",
+        "#hu",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "697766a8bfa810d766366ecd",
+      "uuid": "286cf47e-4b77-4551-b71a-524ef9f4fa28",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "A leckében leírt \"gyakorlat: alkalmazd más kollekciókra (5...\" gyakorlatot hogyan implementálnád a saját munkádban?",
+      "options": [
+        "Lépésről lépésre követem a leckében leírt módszert, dokumentálom az eredményeket, és finomhangolom a folyamatot",
+        "Egyszerre próbálom ki mindent",
+        "Csak olvasom, nem alkalmazom",
+        "Várok, amíg mások megcsinálják"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day16",
+        "#hu",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "697766a8bfa810d766366ece",
+      "uuid": "8a3bf441-0ff4-4fb7-bd12-7b100a8ecd45",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "A leckében leírt \"Gyakorlat: átstrukturáld a kollekciót (1...\" gyakorlatot hogyan implementálnád a saját munkádban?",
+      "options": [
+        "Lépésről lépésre követem a leckében leírt módszert, dokumentálom az eredményeket, és finomhangolom a folyamatot",
+        "Egyszerre próbálom ki mindent",
+        "Csak olvasom, nem alkalmazom",
+        "Várok, amíg mások megcsinálják"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day16",
+        "#hu",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

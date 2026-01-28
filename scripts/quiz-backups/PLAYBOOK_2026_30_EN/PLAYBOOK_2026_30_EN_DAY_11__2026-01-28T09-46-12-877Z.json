@@ -1,0 +1,163 @@
+{
+  "backedUpAt": "2026-01-28T09:46:16.743Z",
+  "course": {
+    "courseId": "PLAYBOOK_2026_30_EN",
+    "name": "The Playbook 2026 – Masterclass for Designers",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 11,
+    "title": "Grids That Survive Scale",
+    "lessonId": "PLAYBOOK_2026_30_EN_DAY_11"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a44bbb88a1cf4b2dee8",
+      "uuid": "53fb746e-6b92-4d83-b57d-af6d335c7882",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"Exercise (10–15 minutes)\n\n  Set containe...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day11",
+        "#en",
+        "#all-languages",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a44bbb88a1cf4b2dee9",
+      "uuid": "3da709c8-e9cd-48e1-b934-28a6d064a3df",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"Exercise (5–10 minutes)\nDocument the gri...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day11",
+        "#en",
+        "#all-languages",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a44bbb88a1cf4b2deea",
+      "uuid": "053b1851-9e49-4ba6-8c5c-1feab5868547",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"Exercise (10–15 minutes)\n\n  Set containe...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day11",
+        "#en",
+        "#all-languages",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a44bbb88a1cf4b2deeb",
+      "uuid": "acf3ed32-33a2-4bc2-b831-1454b7464e44",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "How does the concept \"Grids That Survive Scale Build a fixed + fluid gri...\" mentioned in the lesson impact achieving your goals?",
+      "options": [
+        "As described in detail in the lesson, Grids That Survive Scale Build... increases effectiveness and reduces risk",
+        "No significant impact",
+        "Only matters theoretically",
+        "Only an optional element"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day11",
+        "#en",
+        "#all-languages",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a44bbb88a1cf4b2deec",
+      "uuid": "9e1b66e8-453a-4669-b6e7-6868988e13ca",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is Good: in the context of Grids That Survive Scale as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, Good: plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day11",
+        "#en",
+        "#all-languages",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a44bbb88a1cf4b2deed",
+      "uuid": "132ffe45-d1d5-48b1-bcc7-c47b3a1ed7b6",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is That in the context of Grids That Survive Scale as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, That plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day11",
+        "#en",
+        "#all-languages",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a44bbb88a1cf4b2deee",
+      "uuid": "71d542bf-22f8-4cd3-8fd0-2b41a5c8a0c2",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is Scale in the context of Grids That Survive Scale as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, Scale plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day11",
+        "#en",
+        "#all-languages",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

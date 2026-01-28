@@ -1,0 +1,128 @@
+{
+  "backedUpAt": "2026-01-28T09:47:08.277Z",
+  "course": {
+    "courseId": "GEO_SHOPIFY_30",
+    "name": "GEO Shopify – 30 napos kurzus",
+    "language": "hu"
+  },
+  "lesson": {
+    "dayNumber": 19,
+    "title": "Képek és videó GEO: alt, fájlnév, variáns vizuál",
+    "lessonId": "GEO_SHOPIFY_30_DAY_19"
+  },
+  "questionCount": 5,
+  "questions": [
+    {
+      "_id": "697766a9bfa810d766366ee8",
+      "uuid": "55466722-c650-4e4d-aae5-24e452485c82",
+      "questionType": "recall",
+      "difficulty": "EASY",
+      "question": "Mi a GEO egyik alapelve a(z) \"Képek és videó GEO: alt, fájlnév, variáns vizuál\" leckében?",
+      "options": [
+        "Egyértelmű, idézhető tartalom",
+        "Véletlenszerű információ",
+        "Minimális adat",
+        "Nincs elv"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day19",
+        "#geo",
+        "#beginner",
+        "#recall",
+        "#hu",
+        "#all-languages"
+      ]
+    },
+    {
+      "_id": "697766a9bfa810d766366ee9",
+      "uuid": "a1526845-c64d-416b-b6ac-aa64d2fc7ff1",
+      "questionType": "recall",
+      "difficulty": "EASY",
+      "question": "Mit tanulsz meg a(z) \"Képek és videó GEO: alt, fájlnév, variáns vizuál\" leckében?",
+      "options": [
+        "Gyakorlati GEO készségeket Shopify-hoz",
+        "Általános e-commerce ismereteket",
+        "Csak elméleti információkat",
+        "Nem tanulsz semmit"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day19",
+        "#beginner",
+        "#recall",
+        "#hu",
+        "#all-languages"
+      ]
+    },
+    {
+      "_id": "697766a9bfa810d766366eeb",
+      "uuid": "44487f1d-4b87-42c6-89bb-4d064a5713c1",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "A leckében leírt \"Gyakorlat: javítsd a képeket és videókat...\" gyakorlatot hogyan implementálnád a saját munkádban?",
+      "options": [
+        "Lépésről lépésre követem a leckében leírt módszert, dokumentálom az eredményeket, és finomhangolom a folyamatot",
+        "Egyszerre próbálom ki mindent",
+        "Csak olvasom, nem alkalmazom",
+        "Várok, amíg mások megcsinálják"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day19",
+        "#hu",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "697766a9bfa810d766366eec",
+      "uuid": "56aa0e88-a611-4338-913d-f2fdc5b26f4d",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "A leckében leírt \"gyakorlat: bővítsd további termékekre (5...\" gyakorlatot hogyan implementálnád a saját munkádban?",
+      "options": [
+        "Lépésről lépésre követem a leckében leírt módszert, dokumentálom az eredményeket, és finomhangolom a folyamatot",
+        "Egyszerre próbálom ki mindent",
+        "Csak olvasom, nem alkalmazom",
+        "Várok, amíg mások megcsinálják"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day19",
+        "#hu",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "697766a9bfa810d766366eed",
+      "uuid": "cd9ca053-98aa-4062-af88-2766c355b446",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "A leckében leírt \"Gyakorlat: javítsd a képeket és videókat...\" gyakorlatot hogyan implementálnád a saját munkádban?",
+      "options": [
+        "Lépésről lépésre követem a leckében leírt módszert, dokumentálom az eredményeket, és finomhangolom a folyamatot",
+        "Egyszerre próbálom ki mindent",
+        "Csak olvasom, nem alkalmazom",
+        "Várok, amíg mások megcsinálják"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day19",
+        "#hu",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

@@ -90,8 +90,7 @@ const FeatureFlagsSchema = new Schema<IFeatureFlags>(
   }
 );
 
-// Index for faster lookups
-FeatureFlagsSchema.index({ brandId: 1 });
+// brandId already has a unique index via `unique: true` above.
 
 export default mongoose.models.FeatureFlags ||
   mongoose.model<IFeatureFlags>('FeatureFlags', FeatureFlagsSchema);

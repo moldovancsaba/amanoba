@@ -1,0 +1,107 @@
+{
+  "backedUpAt": "2026-01-28T09:47:08.102Z",
+  "course": {
+    "courseId": "GEO_SHOPIFY_30",
+    "name": "GEO Shopify – 30 napos kurzus",
+    "language": "hu"
+  },
+  "lesson": {
+    "dayNumber": 13,
+    "title": "Idézhető termékoldal blueprint",
+    "lessonId": "GEO_SHOPIFY_30_DAY_13"
+  },
+  "questionCount": 4,
+  "questions": [
+    {
+      "_id": "697766a8bfa810d766366ea6",
+      "uuid": "d58e9623-8941-405b-9e62-c4abd5629876",
+      "questionType": "recall",
+      "difficulty": "EASY",
+      "question": "Mi a GEO egyik alapelve a(z) \"Idézhető termékoldal blueprint\" leckében?",
+      "options": [
+        "Egyértelmű, idézhető tartalom",
+        "Véletlenszerű információ",
+        "Minimális adat",
+        "Nincs elv"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day13",
+        "#geo",
+        "#beginner",
+        "#recall",
+        "#hu",
+        "#all-languages"
+      ]
+    },
+    {
+      "_id": "697766a8bfa810d766366ea8",
+      "uuid": "9a5e91e8-8523-4631-ba7b-9cbdb33f6c18",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "A leckében leírt \"Gyakorlat: készítsd el a blueprintet (10...\" gyakorlatot hogyan implementálnád a saját munkádban?",
+      "options": [
+        "Lépésről lépésre követem a leckében leírt módszert, dokumentálom az eredményeket, és finomhangolom a folyamatot",
+        "Egyszerre próbálom ki mindent",
+        "Csak olvasom, nem alkalmazom",
+        "Várok, amíg mások megcsinálják"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day13",
+        "#hu",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "697766a8bfa810d766366ea9",
+      "uuid": "da23e7dd-e7b9-4402-9662-3be27c1de4a4",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "A leckében leírt \"gyakorlat: alkalmazd más termékekre (5-1...\" gyakorlatot hogyan implementálnád a saját munkádban?",
+      "options": [
+        "Lépésről lépésre követem a leckében leírt módszert, dokumentálom az eredményeket, és finomhangolom a folyamatot",
+        "Egyszerre próbálom ki mindent",
+        "Csak olvasom, nem alkalmazom",
+        "Várok, amíg mások megcsinálják"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day13",
+        "#hu",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "697766a8bfa810d766366eaa",
+      "uuid": "bc975688-c179-4be3-99f2-1eefbee41c10",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "A leckében leírt \"Gyakorlat: készítsd el a blueprintet (10...\" gyakorlatot hogyan implementálnád a saját munkádban?",
+      "options": [
+        "Lépésről lépésre követem a leckében leírt módszert, dokumentálom az eredményeket, és finomhangolom a folyamatot",
+        "Egyszerre próbálom ki mindent",
+        "Csak olvasom, nem alkalmazom",
+        "Várok, amíg mások megcsinálják"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day13",
+        "#hu",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

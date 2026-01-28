@@ -37,9 +37,47 @@ const MIN_LESSON_SCORE = Number(getArgValue('--min-lesson-score') || '70');
 const DRY_RUN = process.argv.includes('--dry-run');
 const OUT_DIR = getArgValue('--out-dir') || join(process.cwd(), 'scripts', 'reports');
 const BACKUP_DIR = getArgValue('--backup-dir') || join(process.cwd(), 'scripts', 'quiz-backups');
+const GENERATE_TARGET_MIN = Number(getArgValue('--generate-target-min') || '40');
 
 function isoStamp() {
   return new Date().toISOString().replace(/[:.]/g, '-');
+}
+
+function writeQuizBackup(params: {
+  backupDir: string;
+  stamp: string;
+  course: any;
+  lesson: any;
+  existingQuestions: any[];
+}) {
+  const { backupDir, stamp, course, lesson, existingQuestions } = params;
+  const courseFolder = join(backupDir, course.courseId);
+  mkdirSync(courseFolder, { recursive: true });
+  const backupPath = join(courseFolder, `${lesson.lessonId}__${stamp}.json`);
+  writeFileSync(
+    backupPath,
+    JSON.stringify(
+      {
+        backedUpAt: new Date().toISOString(),
+        course: { courseId: course.courseId, name: course.name, language: course.language },
+        lesson: { dayNumber: lesson.dayNumber, title: lesson.title, lessonId: lesson.lessonId },
+        questionCount: existingQuestions.length,
+        questions: existingQuestions.map(q => ({
+          _id: String(q._id),
+          uuid: q.uuid,
+          questionType: q.questionType,
+          difficulty: q.difficulty,
+          question: q.question,
+          options: q.options,
+          correctIndex: q.correctIndex,
+          hashtags: q.hashtags,
+        })),
+      },
+      null,
+      2
+    )
+  );
+  return backupPath;
 }
 
 async function main() {
@@ -181,24 +219,79 @@ async function main() {
         recall: validExisting.filter(q => q.questionType === 'recall').length,
       };
 
+      const normalizeQuestionText = (text: string) =>
+        String(text || '').trim().toLowerCase().replace(/\s+/g, ' ');
+
+      // Duplicate detection among valid questions (normalized question text).
+      // Keep the first by _id, delete the rest (never delete just to cap >7).
+      const duplicatesToDelete: any[] = [];
+      const dedupedValidExisting: any[] = [];
+      {
+        const byText = new Map<string, any[]>();
+        for (const q of validExisting) {
+          const key = normalizeQuestionText(q.question);
+          if (!key) continue;
+          const bucket = byText.get(key);
+          if (bucket) bucket.push(q);
+          else byText.set(key, [q]);
+        }
+        for (const [, qs] of byText) {
+          qs.sort((a, b) => String(a._id).localeCompare(String(b._id)));
+          if (qs.length > 0) dedupedValidExisting.push(qs[0]);
+          if (qs.length > 1) duplicatesToDelete.push(...qs.slice(1));
+        }
+      }
+
+      const dedupedCounts = {
+        total: existing.length,
+        valid: dedupedValidExisting.length,
+        invalid: invalidExisting.length,
+        application: dedupedValidExisting.filter(q => q.questionType === 'application').length,
+        critical: dedupedValidExisting.filter(q => q.questionType === 'critical-thinking').length,
+        recall: dedupedValidExisting.filter(q => q.questionType === 'recall').length,
+        duplicates: duplicatesToDelete.length,
+      };
+
       // If we already have enough valid questions (>=7) and enough application (>=5), don't rewrite.
-      if (existingCounts.valid >= 7 && existingCounts.application >= 5 && existingCounts.recall === 0) {
-        // Optionally clean up invalid questions (do not delete just because there are >7).
-        if (!DRY_RUN && existingCounts.invalid > 0) {
-          const ids = invalidExisting.map(q => q._id);
-          await QuizQuestion.deleteMany({ _id: { $in: ids } });
+      if (dedupedCounts.valid >= 7 && dedupedCounts.application >= 5 && dedupedCounts.recall === 0) {
+        // Optionally clean up invalid questions and duplicates (do not delete just because there are >7).
+        let backupPath: string | null = null;
+        if (!DRY_RUN && (dedupedCounts.invalid > 0 || dedupedCounts.duplicates > 0)) {
+          backupPath = writeQuizBackup({
+            backupDir: BACKUP_DIR,
+            stamp,
+            course,
+            lesson,
+            existingQuestions: existing,
+          });
+          if (invalidExisting.length > 0) {
+            const delInvalid = await QuizQuestion.deleteMany({ _id: { $in: invalidExisting.map(q => q._id) } });
+            pipelineReport.totals.questionsDeleted += delInvalid.deletedCount || 0;
+          }
+          if (duplicatesToDelete.length > 0) {
+            const delDup = await QuizQuestion.deleteMany({ _id: { $in: duplicatesToDelete.map(q => q._id) } });
+            pipelineReport.totals.questionsDeleted += delDup.deletedCount || 0;
+          }
         }
 
-        lessonRow.action = DRY_RUN ? 'VALIDATED_EXISTING' : (existingCounts.invalid > 0 ? 'CLEANED_INVALID' : 'PASS');
-        lessonRow.rewrite = { existingCounts, cleanedInvalid: existingCounts.invalid > 0 };
+        lessonRow.action = DRY_RUN
+          ? 'VALIDATED_EXISTING'
+          : (dedupedCounts.invalid > 0 || dedupedCounts.duplicates > 0 ? 'CLEANED_INVALID' : 'PASS');
+        lessonRow.rewrite = {
+          existingCounts: dedupedCounts,
+          cleanedInvalid: dedupedCounts.invalid > 0,
+          cleanedDuplicates: dedupedCounts.duplicates > 0,
+          backupPath,
+        };
         pipelineReport.lessons.push(lessonRow);
         continue;
       }
 
       // Generate additional questions (do not delete valid ones; only remove invalid ones).
-      const neededTotal = Math.max(0, 7 - existingCounts.valid);
-      const neededApp = Math.max(0, 5 - existingCounts.application);
-      const generateTarget = Math.max(neededTotal, neededApp, 7);
+      const neededTotal = Math.max(0, 7 - dedupedCounts.valid);
+      const neededApp = Math.max(0, 5 - dedupedCounts.application);
+      // Generate more than the bare minimum: strict QC can reject a large fraction of candidates.
+      const generateTarget = Math.max(neededTotal, neededApp, GENERATE_TARGET_MIN);
 
       const generated = generateContentBasedQuestions(
         lesson.dayNumber,
@@ -206,7 +299,7 @@ async function main() {
         lesson.content || '',
         course.language,
         course.courseId,
-        validExisting,
+        dedupedValidExisting,
         generateTarget
       );
 
@@ -224,10 +317,7 @@ async function main() {
         if (v.isValid) validatedNew.push(q);
       }
 
-      const normalizeQuestionText = (text: string) =>
-        String(text || '').trim().toLowerCase().replace(/\s+/g, ' ');
-
-      const existingTextKeys = new Set<string>(validExisting.map(q => normalizeQuestionText(q.question)));
+      const existingTextKeys = new Set<string>(dedupedValidExisting.map(q => normalizeQuestionText(q.question)));
 
       // Select additions to satisfy both constraints:
       // - total valid >= 7
@@ -268,7 +358,7 @@ async function main() {
 
       const toAdd = additions;
       const combinedForValidation = [
-        ...validExisting.map(q => ({
+        ...dedupedValidExisting.map(q => ({
           question: q.question,
           options: q.options,
           questionType: q.questionType,
@@ -298,38 +388,24 @@ async function main() {
       }
 
       // Backup existing questions (before deleting invalid ones or inserting new ones)
-      const courseFolder = join(BACKUP_DIR, course.courseId);
-      mkdirSync(courseFolder, { recursive: true });
-      const backupPath = join(courseFolder, `${lesson.lessonId}__${stamp}.json`);
-      writeFileSync(
-        backupPath,
-        JSON.stringify(
-          {
-            backedUpAt: new Date().toISOString(),
-            course: { courseId: course.courseId, name: course.name, language: course.language },
-            lesson: { dayNumber: lesson.dayNumber, title: lesson.title, lessonId: lesson.lessonId },
-            questionCount: existing.length,
-            questions: existing.map(q => ({
-              _id: String(q._id),
-              uuid: q.uuid,
-              questionType: q.questionType,
-              difficulty: q.difficulty,
-              question: q.question,
-              options: q.options,
-              correctIndex: q.correctIndex,
-              hashtags: q.hashtags,
-            })),
-          },
-          null,
-          2
-        )
-      );
+      const backupPath = writeQuizBackup({
+        backupDir: BACKUP_DIR,
+        stamp,
+        course,
+        lesson,
+        existingQuestions: existing,
+      });
 
       if (!DRY_RUN) {
         // Delete only invalid questions (never delete just for being >7)
         if (invalidExisting.length > 0) {
           const delInvalid = await QuizQuestion.deleteMany({ _id: { $in: invalidExisting.map(q => q._id) } });
           pipelineReport.totals.questionsDeleted += delInvalid.deletedCount || 0;
+        }
+        // Delete duplicates among valid questions.
+        if (duplicatesToDelete.length > 0) {
+          const delDup = await QuizQuestion.deleteMany({ _id: { $in: duplicatesToDelete.map(q => q._id) } });
+          pipelineReport.totals.questionsDeleted += delDup.deletedCount || 0;
         }
 
         const toInsert = toAdd.map(q => ({
@@ -367,8 +443,9 @@ async function main() {
         backupPath,
         insertedCount: toAdd.length,
         deletedInvalidCount: invalidExisting.length,
+        deletedDuplicateCount: duplicatesToDelete.length,
         warnings: batchValidation.warnings,
-        existingCounts,
+        existingCounts: dedupedCounts,
       };
       pipelineReport.lessons.push(lessonRow);
     }

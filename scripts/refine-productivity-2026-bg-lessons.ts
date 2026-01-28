@@ -88,10 +88,23 @@ function escapeHtml(s: string) {
     .replace(/>/g, '&gt;');
 }
 
+function sanitizeTitleBg(title: string) {
+  let t = String(title || '').trim();
+  if (!t) return t;
+  t = t.replace(/\bthroughput\b/gi, 'важни резултати');
+  t = t.replace(/\bcarryover\b/gi, 'прехвърлени задачи');
+  t = t.replace(/\bthreshold\b/gi, 'праг');
+  // Remove long Latin “leaks” that break BG language integrity (Cyrillic-only requirement).
+  t = t.replace(/[A-Za-z]{10,}/g, '');
+  t = t.replace(/\(\s*,\s*/g, '(').replace(/\s*,\s*\)/g, ')');
+  t = t.replace(/\(\s*\)/g, '').replace(/\s{2,}/g, ' ').trim();
+  return t;
+}
+
 function procedureNameBg(id: string, fallback: string) {
   const map: Record<string, string> = {
     P1_PERSONAL_PRODUCTIVITY_DEFINITION: 'Лична дефиниция за продуктивност (output → outcome → ограничения)',
-    P2_WEEKLY_REVIEW_THROUGHPUT_FOCUS_CARRYOVER: 'Седмичен преглед (throughput / фокус блокове / carryover)',
+    P2_WEEKLY_REVIEW_THROUGHPUT_FOCUS_CARRYOVER: 'Седмичен преглед (резултати / фокус блокове / прехвърлени задачи)',
     P3_DEEP_WORK_DAY_DESIGN: 'Дизайн на ден за дълбока работа (блокове + защита + буфер)',
     P4_TASK_AUDIT_DELEGATE_ELIMINATE: 'Одит на задачи (делегирай vs елиминирай)',
     P5_DECISION_MATRIX_AND_CATEGORIES: 'Матрица за решения + категории решения',
@@ -101,10 +114,58 @@ function procedureNameBg(id: string, fallback: string) {
 
 function translateProcedureStepBg(step: string) {
   const s = String(step || '').trim();
+  const exact: Record<string, string> = {
+    // P1_PERSONAL_PRODUCTIVITY_DEFINITION
+    'List your recurring outputs (activities).': 'Изброй повтарящите се изходи (дейности).',
+    'Convert each output into a desired outcome (result).': 'Превърни всеки изход в желан резултат (outcome).',
+    'List your constraints (time, energy, attention, resources).': 'Изброй ограниченията си (време, енергия, внимание, ресурси).',
+    'Write a 2–3 sentence definition of productivity for yourself using outcome/constraints.':
+      'Напиши в 2–3 изречения своя дефиниция за продуктивност, използвайки резултат/ограничения.',
+    'Pick one improvement lever for the week (reduce constraint waste or increase outcome quality).':
+      'Избери 1 лост за подобрение за седмицата (намали загубите в ограниченията или повиши качеството на резултата).',
+
+    // P2_WEEKLY_REVIEW_THROUGHPUT_FOCUS_CARRYOVER
+    'Count throughput: completed important outcomes.': 'Преброй завършените важни резултати.',
+    'Count focus blocks: uninterrupted deep work blocks completed.':
+      'Преброй фокус блоковете: завършени непрекъснати блокове за дълбока работа.',
+    'Count carryover: tasks rolled from last week.': 'Преброй прехвърлените задачи от миналата седмица.',
+    'Write 2 insights: what worked / what broke.': 'Запиши 2 извода: какво работи / какво се счупи.',
+    'Make 1 rule change for next week and schedule it.': 'Направи 1 промяна на правило за следващата седмица и я планирай.',
+
+    // P3_DEEP_WORK_DAY_DESIGN
+    'Audit your context switches for one day.': 'Направи одит на смяната на контекста за един ден.',
+    'Batch similar tasks into fixed windows (e.g., email twice daily).':
+      'Групирай сходните задачи във фиксирани прозорци (напр. имейл два пъти дневно).',
+    'Schedule 1–3 deep work blocks (90–120 min) with explicit rules.':
+      'Планирай 1–3 блока за дълбока работа (90–120 мин) с ясни правила.',
+    'Add buffer time and defend it from meetings/messages.': 'Добави буфер време и го защити от срещи/съобщения.',
+    'Track adherence for one week and adjust.': 'Следи изпълнението една седмица и коригирай.',
+
+    // P4_TASK_AUDIT_DELEGATE_ELIMINATE
+    'List all tasks performed in a week.': 'Изброй всички задачи, които изпълняваш за една седмица.',
+    'Mark low-value tasks (time cost, low outcome).': 'Маркирай задачите с ниска стойност (времева цена, слаб резултат).',
+    'For each low-value task: decide delegate vs eliminate vs keep.':
+      'За всяка задача с ниска стойност: реши дали да делегираш, елиминираш или запазиш.',
+    'Write delegation briefs (expected output, due date, success criteria, check-ins).':
+      'Напиши бриф за делегиране (очакван резултат, срок, критерии за успех, контролни точки).',
+    'Execute: eliminate 1 and delegate 1 this week; review impact.':
+      'Изпълнение: тази седмица елиминирай 1 нещо и делегирай 1 задача; после прегледай ефекта.',
+
+    // P5_DECISION_MATRIX_AND_CATEGORIES
+    'Define decision category (small/medium/large) based on reversibility and impact.':
+      'Определи категория на решението (малко/средно/голямо) според обратимостта и ефекта.',
+    'For medium/large: list options and criteria; weight criteria; score options.':
+      'За средни/големи: изброи опции и критерии; задай тежести; оцени опции.',
+    'Set an information boundary (time limit / minimum data).': 'Постави граница за информация (времеви лимит / минимум данни).',
+    'Make the 80% decision and implement.': 'Вземи решението на 80% и го приложи.',
+    'Review outcomes and update your decision rules.': 'Прегледай резултатите и обнови правилата си за решения.',
+  };
+  if (exact[s]) return exact[s];
+
   const map: Array<[RegExp, string]> = [
-    [/^Count throughput:/i, 'Преброй throughput:'],
+    [/^Count throughput:/i, 'Преброй завършените важни резултати:'],
     [/^Count focus blocks:/i, 'Преброй фокус блоковете:'],
-    [/^Count carryover:/i, 'Преброй carryover:'],
+    [/^Count carryover:/i, 'Преброй прехвърлените задачи:'],
     [/^Write 2 insights:/i, 'Запиши 2 извода:'],
     [/^Make 1 rule change/i, 'Избери 1 промяна на правило за следващата седмица:'],
   ];
@@ -119,7 +180,7 @@ function buildIntentBg(requiredProcedureIds: string[]) {
     return 'Днес проектираш деня си така, че да защити 2+ фокус блока и да превърне времето в измерим outcome (а не само активност).';
   }
   if (requiredProcedureIds.includes('P2_WEEKLY_REVIEW_THROUGHPUT_FOCUS_CARRYOVER')) {
-    return 'Днес изграждаш обратна връзка (feedback loop): измерваш throughput, фокус блокове и carryover, за да коригираш 1 правило за следващата седмица.';
+    return 'Днес изграждаш обратна връзка: измерваш резултатите, фокус блоковете и прехвърлените задачи, за да коригираш 1 правило за следващата седмица.';
   }
   if (requiredProcedureIds.includes('P4_TASK_AUDIT_DELEGATE_ELIMINATE')) {
     return 'Днес намаляваш натоварването чрез ясен одит: какво да делегираш, какво да елиминираш и какво да оставиш, така че ограниченията да не се изчерпват без резултат.';
@@ -133,7 +194,7 @@ function buildIntentBg(requiredProcedureIds: string[]) {
 function buildGoalsBg(requiredProcedureIds: string[]) {
   const goals: string[] = [];
   if (requiredProcedureIds.includes('P2_WEEKLY_REVIEW_THROUGHPUT_FOCUS_CARRYOVER')) {
-    goals.push('Измери throughput (завършени важни резултати), фокус блокове и carryover и запиши 2 извода.');
+    goals.push('Измери завършените важни резултати, фокус блоковете и прехвърлените задачи и запиши 2 извода.');
     goals.push('Избери 1 промяна на правило за следващата седмица и дефинирай как ще провериш ефекта.');
   }
   if (requiredProcedureIds.includes('P3_DEEP_WORK_DAY_DESIGN')) {
@@ -154,11 +215,11 @@ function buildGoalsBg(requiredProcedureIds: string[]) {
 
 function buildMetricsBg() {
   return [
-    'Метрика: throughput (брой завършени важни резултати).',
+    'Метрика: завършени важни резултати (брой).',
     'Метрика: фокус блокове (брой непрекъснати блокове за дълбока работа).',
-    'Метрика: carryover (брой/дял на прехвърлените задачи).',
+    'Метрика: прехвърлени задачи (брой/дял).',
     'Критерий: ясна дефиниция за “готово” (проверима).',
-    'Праг (threshold): предварително дефиниран минимум за успех.',
+    'Праг: предварително дефиниран минимум за успех.',
   ];
 }
 
@@ -186,7 +247,7 @@ function buildBGLessonHtml(params: {
 
   const exampleText =
     canonicalExample ||
-    '✅ Добър пример: 2 фокус блока + 1 важен output + нисък carryover. ❌ Лош пример: много активност, но 0 завършен резултат и нарушени ограничения.';
+    '✅ Добър пример: 2 фокус блока + 1 важен output + малко прехвърлени задачи. ❌ Лош пример: много активност, но 0 завършен резултат и нарушени ограничения.';
 
   const mistakes = commonMistakes.length
     ? commonMistakes.map((m) => `❌ Грешка: ${m}. ✅ Корекция: напиши критерий/метрика, тествай малко, промени 1 правило.`)
@@ -269,10 +330,11 @@ async function main() {
 
     const oldContent = String(lesson.content || '');
     const oldTitle = String(lesson.title || '');
+    const nextTitle = sanitizeTitleBg(oldTitle) || oldTitle;
     const oldScore = assessLessonQuality({ title: oldTitle, content: oldContent, language: 'bg' });
     const oldText = stripHtml(oldContent);
     const forceRefineForLanguage =
-      /[A-Za-z]{15,}/.test(oldText) ||
+      /[A-Za-z]{10,}/.test(oldText) ||
       /\b(Replace|Distinguish|Identify|Write|Establish)\b/.test(oldText);
 
     if (oldScore.score >= 70 && !forceRefineForLanguage) {
@@ -296,7 +358,7 @@ async function main() {
 
     const nextContent = buildBGLessonHtml({
       day,
-      title: oldTitle || `Продуктивност 2026 — Ден ${day}`,
+      title: nextTitle || `Продуктивност 2026 — Ден ${day}`,
       intent: buildIntentBg(requiredProcedureIds),
       goals: buildGoalsBg(requiredProcedureIds),
       requiredProcedures,
@@ -307,10 +369,10 @@ async function main() {
     const integrity = validateLessonRecordLanguageIntegrity({
       language: 'bg',
       content: nextContent,
-      emailSubject: `Продуктивност 2026 – Ден ${day}: ${oldTitle}`,
+      emailSubject: `Продуктивност 2026 – Ден ${day}: ${nextTitle}`,
       emailBody:
         `<h1>Продуктивност 2026 – Ден ${day}</h1>\n` +
-        `<h2>${escapeHtml(oldTitle)}</h2>\n` +
+        `<h2>${escapeHtml(nextTitle)}</h2>\n` +
         `<p>${escapeHtml(buildIntentBg(requiredProcedureIds))}</p>\n` +
         `<p><a href=\"${appUrl}/bg/courses/${COURSE_ID}/day/${day}\">Отвори урока →</a></p>`,
     });
@@ -318,7 +380,7 @@ async function main() {
     planRows.push({
       day,
       lessonId: lesson.lessonId,
-      title: oldTitle,
+      title: nextTitle,
       action: 'REFINE',
       quality: { old: oldScore, next: nextScore },
       lengths: { oldChars: stripHtml(oldContent).length, nextChars: stripHtml(nextContent).length },
@@ -354,10 +416,10 @@ async function main() {
       )
     );
 
-    const emailSubject = `Продуктивност 2026 – Ден ${day}: ${oldTitle}`;
+    const emailSubject = `Продуктивност 2026 – Ден ${day}: ${nextTitle}`;
     const emailBody =
       `<h1>Продуктивност 2026 – Ден ${day}</h1>\n` +
-      `<h2>${escapeHtml(oldTitle)}</h2>\n` +
+      `<h2>${escapeHtml(nextTitle)}</h2>\n` +
       `<p>${escapeHtml(buildIntentBg(requiredProcedureIds))}</p>\n` +
       `<p><a href=\"${appUrl}/bg/courses/${COURSE_ID}/day/${day}\">Отвори урока →</a></p>`;
 
@@ -365,6 +427,7 @@ async function main() {
       { _id: lesson._id },
       {
         $set: {
+          title: nextTitle,
           content: nextContent,
           emailSubject,
           emailBody,

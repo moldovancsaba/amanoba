@@ -1,0 +1,107 @@
+{
+  "backedUpAt": "2026-01-28T09:47:08.372Z",
+  "course": {
+    "courseId": "GEO_SHOPIFY_30",
+    "name": "GEO Shopify – 30 napos kurzus",
+    "language": "hu"
+  },
+  "lesson": {
+    "dayNumber": 22,
+    "title": "Buying guide: AI-barát szerkezet",
+    "lessonId": "GEO_SHOPIFY_30_DAY_22"
+  },
+  "questionCount": 4,
+  "questions": [
+    {
+      "_id": "697766a9bfa810d766366f06",
+      "uuid": "0c1df971-a3d6-4a15-b62a-de9b92012e27",
+      "questionType": "recall",
+      "difficulty": "EASY",
+      "question": "Mi fontos a termékadatokban a GEO szempontjából a(z) \"Buying guide: AI-barát szerkezet\" leckében?",
+      "options": [
+        "Pontos, egyértelmű információk",
+        "Minimális információ",
+        "Véletlenszerű adatok",
+        "Nincs követelmény"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day22",
+        "#product",
+        "#beginner",
+        "#recall",
+        "#hu",
+        "#all-languages"
+      ]
+    },
+    {
+      "_id": "697766a9bfa810d766366f08",
+      "uuid": "8690b707-33a7-4a81-b4c3-f7b077b5ddbd",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "A leckében leírt \"Gyakorlat: írd meg a buying guide-ot (10...\" gyakorlatot hogyan implementálnád a saját munkádban?",
+      "options": [
+        "Lépésről lépésre követem a leckében leírt módszert, dokumentálom az eredményeket, és finomhangolom a folyamatot",
+        "Egyszerre próbálom ki mindent",
+        "Csak olvasom, nem alkalmazom",
+        "Várok, amíg mások megcsinálják"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day22",
+        "#hu",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "697766a9bfa810d766366f09",
+      "uuid": "2e8e731b-8a09-4f60-b2f7-62b7450083a4",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "A leckében leírt \"gyakorlat: bővítsd további kategóriákra ...\" gyakorlatot hogyan implementálnád a saját munkádban?",
+      "options": [
+        "Lépésről lépésre követem a leckében leírt módszert, dokumentálom az eredményeket, és finomhangolom a folyamatot",
+        "Egyszerre próbálom ki mindent",
+        "Csak olvasom, nem alkalmazom",
+        "Várok, amíg mások megcsinálják"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day22",
+        "#hu",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "697766a9bfa810d766366f0a",
+      "uuid": "57c25e61-2c88-42e0-b1e3-c1be2d736622",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "A leckében leírt \"Gyakorlat: írd meg a buying guide-ot (10...\" gyakorlatot hogyan implementálnád a saját munkádban?",
+      "options": [
+        "Lépésről lépésre követem a leckében leírt módszert, dokumentálom az eredményeket, és finomhangolom a folyamatot",
+        "Egyszerre próbálom ki mindent",
+        "Csak olvasom, nem alkalmazom",
+        "Várok, amíg mások megcsinálják"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day22",
+        "#hu",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

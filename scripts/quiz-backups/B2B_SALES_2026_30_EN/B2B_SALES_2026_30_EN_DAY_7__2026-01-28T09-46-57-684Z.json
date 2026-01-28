@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-28T09:47:01.123Z",
+  "course": {
+    "courseId": "B2B_SALES_2026_30_EN",
+    "name": "B2B Sales 2026 Masterclass",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 7,
+    "title": "Lead Source Map for 2026",
+    "lessonId": "B2B_SALES_2026_30_EN_DAY_7"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a00167c31fb26f4f585",
+      "uuid": "b0bc9fa6-072a-4340-9a34-3c8240b3b4a5",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"Exercise (10–15 minutes)\n\n  Write channe...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day7",
+        "#en",
+        "#all-languages",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a00167c31fb26f4f586",
+      "uuid": "5029f686-9233-460c-a828-13fcf13f22a9",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"Exercise (5–10 minutes)\nPick one channel...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day7",
+        "#en",
+        "#all-languages",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a00167c31fb26f4f587",
+      "uuid": "29603cb8-fa02-4511-a3a4-2498984e8174",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"Exercise (10–15 minutes)\n\n  Write channe...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day7",
+        "#en",
+        "#all-languages",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a00167c31fb26f4f588",
+      "uuid": "651b8f37-e205-46ff-b6b3-9f6036f9981b",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "How does the concept \"Lead Source Map for 2026 Pick 3 focus channels (ou...\" mentioned in the lesson impact achieving your goals?",
+      "options": [
+        "As described in detail in the lesson, Lead Source Map for 2026 Pick ... increases effectiveness and reduces risk",
+        "No significant impact",
+        "Only matters theoretically",
+        "Only an optional element"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day7",
+        "#en",
+        "#all-languages",
+        "#sales",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a00167c31fb26f4f589",
+      "uuid": "2b585e1c-38f7-4f3e-911d-466a6be9ba8f",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is Inbound in the context of Lead Source Map for 2026 as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, Inbound plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day7",
+        "#en",
+        "#all-languages",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a00167c31fb26f4f58a",
+      "uuid": "28c9efa6-5e1c-466e-ae15-f382464fa219",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is Bad: in the context of Lead Source Map for 2026 as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, Bad: plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day7",
+        "#en",
+        "#all-languages",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a00167c31fb26f4f58b",
+      "uuid": "bcbd5540-5bbc-4db1-8d65-50975514dbc2",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is Outbound in the context of Lead Source Map for 2026 as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, Outbound plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day7",
+        "#en",
+        "#all-languages",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

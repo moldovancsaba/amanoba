@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-28T09:46:22.225Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_PT",
+    "name": "Produtividade 2026: Como Gerenciar Equipes e Tempo",
+    "language": "pt"
+  },
+  "lesson": {
+    "dayNumber": 9,
+    "title": "Delegação vs Eliminação: Quando Delegar, O Que Eliminar",
+    "lessonId": "PRODUCTIVITY_2026_PT_DAY_9"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a396360118c57912ab5",
+      "uuid": "d95ed00b-9e20-4106-9d5c-db9eb95c8de1",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ Sei quais tarefas podem ser delegadas ...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day9",
+        "#pt",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a396360118c57912ab6",
+      "uuid": "39668ccf-5976-4c08-b3ad-6975ae2e5209",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ Tenho um plano de ação para minha prim...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day9",
+        "#pt",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a396360118c57912ab7",
+      "uuid": "705e8e5f-c1e5-4a0e-844a-e821392ec64b",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ Sei quais tarefas podem ser delegadas ...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day9",
+        "#pt",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a396360118c57912ab8",
+      "uuid": "847b1b28-c533-4296-a625-1f76b8bfc8ac",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Como o conceito \"Delegação vs Eliminação: Quando Delegar, O Que Eli...\", mencionado na lição, impacta o alcance de seus goals?",
+      "options": [
+        "Como descrito em detalhes na lição, Delegação vs Eliminação: Quand... aumenta a eficácia e reduz os riscos",
+        "Sem impacto significativo",
+        "Importa apenas teoricamente",
+        "Apenas um elemento opcional"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day9",
+        "#pt",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a396360118c57912ab9",
+      "uuid": "eab78cb8-fcee-4510-9428-d7029a3a93b9",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Quão importante é Carga Mental no contexto de Delegação vs Eliminação: Quando Delegar, O Que Eliminar, conforme discutido na lição?",
+      "options": [
+        "Conforme descrito em detalhes na lição, Carga Mental desempenha um papel crucial na otimização de processos e no alcance de objetivos",
+        "Apenas informações periféricas sem papel significativo",
+        "Apenas um conceito teórico sem aplicação prática",
+        "Não mencionado na lição"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day9",
+        "#pt",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a396360118c57912aba",
+      "uuid": "dfc21ce0-046c-49c6-84cf-056f5a5d77f0",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Qual papel Crescimento da Equipe desempenha na lição \"Delegação vs Eliminação: Quando Delegar, O Que Eliminar\"?",
+      "options": [
+        "Conforme descrito em detalhes na lição, Crescimento da Equipe desempenha um papel crucial na otimização de processos e no alcance de objetivos",
+        "Apenas informações periféricas sem papel significativo",
+        "Apenas um conceito teórico sem aplicação prática",
+        "Não mencionado na lição"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day9",
+        "#pt",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a396360118c57912abb",
+      "uuid": "c6186d11-95e7-4a30-8694-b236580941d0",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Quão importante é Eliminação no contexto de Delegação vs Eliminação: Quando Delegar, O Que Eliminar, conforme discutido na lição?",
+      "options": [
+        "Conforme descrito em detalhes na lição, Eliminação desempenha um papel crucial na otimização de processos e no alcance de objetivos",
+        "Apenas informações periféricas sem papel significativo",
+        "Apenas um conceito teórico sem aplicação prática",
+        "Não mencionado na lição"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day9",
+        "#pt",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

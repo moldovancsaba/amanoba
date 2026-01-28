@@ -1,0 +1,163 @@
+{
+  "backedUpAt": "2026-01-28T09:47:33.428Z",
+  "course": {
+    "courseId": "PLAYBOOK_2026_30_EN",
+    "name": "The Playbook 2026 – Masterclass for Designers",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 2,
+    "title": "From Taste to System: Scaling Decisions",
+    "lessonId": "PLAYBOOK_2026_30_EN_DAY_2"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a43bbb88a1cf4b2de3b",
+      "uuid": "14fa147f-360d-49b2-a324-51a9306e1f32",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"Exercise (10–15 minutes)\n\n  Write 3 Rule...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day2",
+        "#en",
+        "#all-languages",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a43bbb88a1cf4b2de3c",
+      "uuid": "dbec9aa2-2313-4dec-b895-d050eb25244e",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"Exercise (5–10 minutes)\nDocument one Rul...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day2",
+        "#en",
+        "#all-languages",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a43bbb88a1cf4b2de3d",
+      "uuid": "5b9f3333-ea35-49a2-9d2b-04f29fa2fead",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"Exercise (10–15 minutes)\n\n  Write 3 Rule...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day2",
+        "#en",
+        "#all-languages",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a43bbb88a1cf4b2de3e",
+      "uuid": "46e4b8f2-955c-469a-8347-240d9ed9fe63",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "How does the concept \"From Taste to System: Scaling Decisions Turn subje...\" mentioned in the lesson impact achieving your goals?",
+      "options": [
+        "As described in detail in the lesson, From Taste to System: Scaling ... increases effectiveness and reduces risk",
+        "No significant impact",
+        "Only matters theoretically",
+        "Only an optional element"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day2",
+        "#en",
+        "#all-languages",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a43bbb88a1cf4b2de3f",
+      "uuid": "7af3e0d2-2bc3-4cc7-86bd-28c944b1e488",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is Good: in the context of From Taste to System: Scaling Decisions as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, Good: plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day2",
+        "#en",
+        "#all-languages",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a43bbb88a1cf4b2de40",
+      "uuid": "53b3a280-e409-4f79-b32b-0aacec427361",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is Taste in the context of From Taste to System: Scaling Decisions as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, Taste plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day2",
+        "#en",
+        "#all-languages",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a43bbb88a1cf4b2de41",
+      "uuid": "ee255800-cb26-4586-802e-f120e797bdd5",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is Scaling in the context of From Taste to System: Scaling Decisions as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, Scaling plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day2",
+        "#en",
+        "#all-languages",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

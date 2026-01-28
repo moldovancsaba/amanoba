@@ -1,0 +1,107 @@
+{
+  "backedUpAt": "2026-01-28T09:47:50.232Z",
+  "course": {
+    "courseId": "GEO_SHOPIFY_30",
+    "name": "GEO Shopify – 30 napos kurzus",
+    "language": "hu"
+  },
+  "lesson": {
+    "dayNumber": 20,
+    "title": "Minimum tartalom: nincs „thin\" PDP",
+    "lessonId": "GEO_SHOPIFY_30_DAY_20"
+  },
+  "questionCount": 4,
+  "questions": [
+    {
+      "_id": "697766a9bfa810d766366ef2",
+      "uuid": "141f69b5-656d-4c26-ad0a-d3c615c2ece4",
+      "questionType": "recall",
+      "difficulty": "EASY",
+      "question": "Mi fontos a termékadatokban a GEO szempontjából a(z) \"Minimum tartalom: nincs „thin\" PDP\" leckében?",
+      "options": [
+        "Pontos, egyértelmű információk",
+        "Minimális információ",
+        "Véletlenszerű adatok",
+        "Nincs követelmény"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day20",
+        "#product",
+        "#beginner",
+        "#recall",
+        "#hu",
+        "#all-languages"
+      ]
+    },
+    {
+      "_id": "697766a9bfa810d766366ef4",
+      "uuid": "b32eaf87-38de-4b8c-8001-7d200c2f1363",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "A leckében leírt \"Gyakorlat: javítsd a „thin\" oldalakat (1...\" gyakorlatot hogyan implementálnád a saját munkádban?",
+      "options": [
+        "Lépésről lépésre követem a leckében leírt módszert, dokumentálom az eredményeket, és finomhangolom a folyamatot",
+        "Egyszerre próbálom ki mindent",
+        "Csak olvasom, nem alkalmazom",
+        "Várok, amíg mások megcsinálják"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day20",
+        "#hu",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "697766a9bfa810d766366ef5",
+      "uuid": "a5f7330e-45f5-4b6d-bb2c-07fe30453962",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "A leckében leírt \"gyakorlat: bővítsd további oldalakra (5-...\" gyakorlatot hogyan implementálnád a saját munkádban?",
+      "options": [
+        "Lépésről lépésre követem a leckében leírt módszert, dokumentálom az eredményeket, és finomhangolom a folyamatot",
+        "Egyszerre próbálom ki mindent",
+        "Csak olvasom, nem alkalmazom",
+        "Várok, amíg mások megcsinálják"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day20",
+        "#hu",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "697766a9bfa810d766366ef6",
+      "uuid": "215a0b6f-52aa-4e14-822a-43fe01f0211e",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "A leckében leírt \"Gyakorlat: javítsd a „thin\" oldalakat (1...\" gyakorlatot hogyan implementálnád a saját munkádban?",
+      "options": [
+        "Lépésről lépésre követem a leckében leírt módszert, dokumentálom az eredményeket, és finomhangolom a folyamatot",
+        "Egyszerre próbálom ki mindent",
+        "Csak olvasom, nem alkalmazom",
+        "Várok, amíg mások megcsinálják"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day20",
+        "#hu",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

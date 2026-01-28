@@ -1,0 +1,177 @@
+{
+  "backedUpAt": "2026-01-28T09:47:00.115Z",
+  "course": {
+    "courseId": "GEO_SHOPIFY_30_EN",
+    "name": "GEO Shopify – 30-day course",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 14,
+    "title": "Answer capsule: 5-line top summary",
+    "lessonId": "GEO_SHOPIFY_30_EN_DAY_14"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a15b7889cedb02a2ab0",
+      "uuid": "f4c68ae0-8141-43fe-a423-f899797183ea",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"Practice: write your answer capsules (10...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day14",
+        "#en",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a15b7889cedb02a2ab1",
+      "uuid": "4eaaa13a-af80-426d-be80-950cc3ea407c",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"practice: create a template (5-10 min)\nN...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day14",
+        "#en",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a15b7889cedb02a2ab2",
+      "uuid": "3030ba77-a127-44a2-a3eb-2193c11bc30f",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"Practice: write your answer capsules (10...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day14",
+        "#en",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a15b7889cedb02a2ab3",
+      "uuid": "7e892dd1-b535-4d5f-8e6d-be0b7066065f",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "How does the concept \"Answer capsule: 5-line top summary Today you'll wr...\" mentioned in the lesson impact achieving your goals?",
+      "options": [
+        "As described in detail in the lesson, Answer capsule: 5-line top sum... increases effectiveness and reduces risk",
+        "No significant impact",
+        "Only matters theoretically",
+        "Only an optional element"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day14",
+        "#en",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a15b7889cedb02a2ab4",
+      "uuid": "cd085ce4-0f36-4bf6-83c7-cd8327a7063f",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is Who not for? in the context of Answer capsule: 5-line top summary as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, Who not for? plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day14",
+        "#en",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a15b7889cedb02a2ab5",
+      "uuid": "004762a5-8cd4-4b5e-8a61-c3d5b1291cc3",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "In the \"Answer capsule: 5-line top summary\" lesson, what role does Price + stock status play?",
+      "options": [
+        "As described in detail in the lesson, Price + stock status plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day14",
+        "#en",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a15b7889cedb02a2ab6",
+      "uuid": "62139195-8f52-468d-b71c-23644ad65c87",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "In the \"Answer capsule: 5-line top summary\" lesson, what role does Who and what for? play?",
+      "options": [
+        "As described in detail in the lesson, Who and what for? plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day14",
+        "#en",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

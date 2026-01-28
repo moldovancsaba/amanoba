@@ -1,0 +1,167 @@
+{
+  "backedUpAt": "2026-01-28T09:45:20.976Z",
+  "course": {
+    "courseId": "GEO_SHOPIFY_30",
+    "name": "GEO Shopify – 30 napos kurzus",
+    "language": "hu"
+  },
+  "lesson": {
+    "dayNumber": 3,
+    "title": "Hogyan változtatja meg az AI a vásárlói utat?",
+    "lessonId": "GEO_SHOPIFY_30_DAY_03"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a0ecb1383c0e276510e",
+      "uuid": "6e2d2542-0572-4ba9-86e7-2bb5adae55d9",
+      "questionType": "recall",
+      "difficulty": "EASY",
+      "question": "Mi a fő különbség a régi és az új vásárlói út között?",
+      "options": [
+        "Nincs különbség, ugyanaz maradt",
+        "Régi: keresés → listanézet → kattintás. Új: kérdés → AI összegzés + ajánlás → kattintás vagy chat-folytatás",
+        "Régi: chat → vásárlás. Új: keresés → lista",
+        "Mindkettő ugyanazt jelenti"
+      ],
+      "correctIndex": 1,
+      "hashtags": [
+        "#ai",
+        "#customer-journey",
+        "#beginner",
+        "#recall",
+        "#hu",
+        "#all-languages"
+      ]
+    },
+    {
+      "_id": "69776a0ecb1383c0e276510f",
+      "uuid": "44dfc117-26f4-4b20-91bd-148edd983ed4",
+      "questionType": "recall",
+      "difficulty": "EASY",
+      "question": "Mit jelent, hogy az AI válasz gyakran előzi a hagyományos listát?",
+      "options": [
+        "Az AI válasz soha nem jelenik meg",
+        "Ha nem vagy benne az AI válaszban, lemaradsz, még akkor is, ha a listán vagy",
+        "A lista mindig előbb jelenik meg",
+        "Nincs különbség"
+      ],
+      "correctIndex": 1,
+      "hashtags": [
+        "#ai",
+        "#beginner",
+        "#recall",
+        "#hu",
+        "#all-languages"
+      ]
+    },
+    {
+      "_id": "69776a0ecb1383c0e2765110",
+      "uuid": "758492a0-2637-43d6-9873-4d7061571f0b",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Mit igényel a vásárlói út változása a Shopify boltoktól?",
+      "options": [
+        "Hosszú, strukturálatlan leírásokat",
+        "Rövid, biztonságosan idézhető blokk a PDP tetején (answer capsule)",
+        "Minimális információt",
+        "Csak képeket, szöveget nem"
+      ],
+      "correctIndex": 1,
+      "hashtags": [
+        "#answer-capsule",
+        "#intermediate",
+        "#recall",
+        "#hu",
+        "#all-languages"
+      ]
+    },
+    {
+      "_id": "69776a0ecb1383c0e2765111",
+      "uuid": "0f2909a7-b6e7-4ced-9c4e-620a7d546258",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Miért károsak a félreértett adatok (ár/stock/policy) az AI válaszokban?",
+      "options": [
+        "Nem számítanak, az AI mindig helyesen értelmezi",
+        "A válasz tömör: félreértett adatok károsak, mert a felhasználó rossz információt kap",
+        "Az AI automatikusan javítja a hibákat",
+        "Csak az árak számítanak, a többi nem"
+      ],
+      "correctIndex": 1,
+      "hashtags": [
+        "#data-accuracy",
+        "#intermediate",
+        "#recall",
+        "#hu",
+        "#all-languages"
+      ]
+    },
+    {
+      "_id": "69776a0ecb1383c0e2765112",
+      "uuid": "57dcbee2-ffb3-4b6f-a226-b8d7171e482b",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Egy termékoldalon készítesz egy 3-5 soros answer capsule-t. Mit tartalmaz?",
+      "options": [
+        "Csak a termék nevét",
+        "Rövid összegzés: \"Kinek, mire jó, mire nem, ár/stock\" tisztán",
+        "Hosszú, részletes leírást",
+        "Csak képeket"
+      ],
+      "correctIndex": 1,
+      "hashtags": [
+        "#answer-capsule",
+        "#intermediate",
+        "#application",
+        "#hu",
+        "#all-languages"
+      ]
+    },
+    {
+      "_id": "69776a0ecb1383c0e2765113",
+      "uuid": "041e054c-9fcf-424c-b0e7-22a3aba8e641",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Hogyan változtatja meg az AI-válaszok dominanciája a Shopify boltok marketing stratégiáját?",
+      "options": [
+        "Nem változtat semmit, ugyanaz a stratégia működik",
+        "A boltoknak most már nem csak a keresési listán való megjelenésre, hanem az AI-válaszokban való szereplésre is optimalizálniuk kell - ez új kihívásokat és lehetőségeket teremt",
+        "Csak az SEO számít, az AI nem fontos",
+        "Az AI csak divat, nem kell foglalkozni vele"
+      ],
+      "correctIndex": 1,
+      "hashtags": [
+        "#ai",
+        "#strategy",
+        "#advanced",
+        "#critical-thinking",
+        "#hu",
+        "#all-languages"
+      ]
+    },
+    {
+      "_id": "69776a0ecb1383c0e2765114",
+      "uuid": "34a96b2a-e700-406c-b247-8d7c8ea6e7c4",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "A leckében leírt \"Gyakorlat: térképezd fel a vásárlói utad...\" gyakorlatot hogyan implementálnád a saját munkádban?",
+      "options": [
+        "Lépésről lépésre követem a leckében leírt módszert, dokumentálom az eredményeket, és finomhangolom a folyamatot",
+        "Egyszerre próbálom ki mindent",
+        "Csak olvasom, nem alkalmazom",
+        "Várok, amíg mások megcsinálják"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day3",
+        "#hu",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

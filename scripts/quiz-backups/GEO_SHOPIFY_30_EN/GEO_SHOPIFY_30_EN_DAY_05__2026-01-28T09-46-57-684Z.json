@@ -1,0 +1,177 @@
+{
+  "backedUpAt": "2026-01-28T09:46:59.484Z",
+  "course": {
+    "courseId": "GEO_SHOPIFY_30_EN",
+    "name": "GEO Shopify – 30-day course",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 5,
+    "title": "Platform map: ChatGPT, Copilot, Google AI",
+    "lessonId": "GEO_SHOPIFY_30_EN_DAY_05"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a14b7889cedb02a2a3a",
+      "uuid": "a28b4674-8050-479c-aaaf-76527f52fd68",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"exercise (10–15 min)\n\nCreate a 1-pager: ...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day5",
+        "#en",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a14b7889cedb02a2a3b",
+      "uuid": "1814cbd4-c4f0-43fc-a782-3a00a9380f0f",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"exercise (5–10 min)\nFor one platform, wr...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day5",
+        "#en",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a14b7889cedb02a2a3c",
+      "uuid": "d09b2e9c-c0db-4e67-bb07-c820fcc2acf2",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"exercise (10–15 min)\n\nCreate a 1-pager: ...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day5",
+        "#en",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a14b7889cedb02a2a3d",
+      "uuid": "0cc8eaba-ad70-4895-b642-e90433094f3f",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "How does the concept \"Platform map: ChatGPT, Copilot, Google AI Review t...\" mentioned in the lesson impact achieving your goals?",
+      "options": [
+        "As described in detail in the lesson, Platform map: ChatGPT, Copilot... increases effectiveness and reduces risk",
+        "No significant impact",
+        "Only matters theoretically",
+        "Only an optional element"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day5",
+        "#en",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a14b7889cedb02a2a3e",
+      "uuid": "edc140b9-07b5-4f90-9019-7bd7f1f86931",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is Poor in the context of Platform map: ChatGPT, Copilot, Google AI as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, Poor plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day5",
+        "#en",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a14b7889cedb02a2a3f",
+      "uuid": "222dff83-8760-45fd-86f4-c69750a28a3e",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is ChatGPT in the context of Platform map: ChatGPT, Copilot, Google AI as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, ChatGPT plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day5",
+        "#en",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a14b7889cedb02a2a40",
+      "uuid": "0c02829e-ac54-4655-b2ff-61762d4faa27",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is Google in the context of Platform map: ChatGPT, Copilot, Google AI as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, Google plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day5",
+        "#en",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

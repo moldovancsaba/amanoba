@@ -1,0 +1,177 @@
+{
+  "backedUpAt": "2026-01-28T09:46:14.726Z",
+  "course": {
+    "courseId": "GEO_SHOPIFY_30_EN",
+    "name": "GEO Shopify – 30-day course",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 6,
+    "title": "Define success: GEO prompt set + KPIs",
+    "lessonId": "GEO_SHOPIFY_30_EN_DAY_06"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a14b7889cedb02a2a46",
+      "uuid": "c246660b-bd70-4840-94f9-8786fcd6f84c",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"exercise (10–15 min)\n\nCreate a table: Pr...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day6",
+        "#en",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a14b7889cedb02a2a47",
+      "uuid": "1dacc5ee-66fb-4d6c-ad50-9608bf81d461",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"exercise (5–10 min)\nExpand to 30–50 and ...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day6",
+        "#en",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a14b7889cedb02a2a48",
+      "uuid": "96662b56-6cd1-49ba-8349-a014cf375b8d",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"exercise (10–15 min)\n\nCreate a table: Pr...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day6",
+        "#en",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a14b7889cedb02a2a49",
+      "uuid": "5f789b7e-e5d4-450f-a551-fdef5842bbb7",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "How does the concept \"Define success: GEO prompt set + KPIs Assemble you...\" mentioned in the lesson impact achieving your GEO?",
+      "options": [
+        "As described in detail in the lesson, Define success: GEO prompt set... increases effectiveness and reduces risk",
+        "No significant impact",
+        "Only matters theoretically",
+        "Only an optional element"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day6",
+        "#en",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a14b7889cedb02a2a4a",
+      "uuid": "efc112c9-45fe-4152-aa71-b60d54a588f2",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is Poor in the context of Define success: GEO prompt set + KPIs as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, Poor plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day6",
+        "#en",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a14b7889cedb02a2a4b",
+      "uuid": "cfaac519-ebb1-4d8a-baf2-e94bcd5e3b51",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is success in the context of Define success: GEO prompt set + KPIs as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, success plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day6",
+        "#en",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a14b7889cedb02a2a4c",
+      "uuid": "b13bb452-8bb0-4891-831c-901aebc5bdc7",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is KPIs in the context of Define success: GEO prompt set + KPIs as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, KPIs plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day6",
+        "#en",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

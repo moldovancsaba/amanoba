@@ -1,0 +1,166 @@
+{
+  "backedUpAt": "2026-01-28T09:46:20.784Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_PL",
+    "name": "Produktywność 2026: Jak zarządzać zespołami i czasem",
+    "language": "pl"
+  },
+  "lesson": {
+    "dayNumber": 3,
+    "title": "Hierarchia celów: wizja → rezultaty → projekty → następne kroki",
+    "lessonId": "PRODUCTIVITY_2026_PL_DAY_03"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a318260c12d7a7ac5ca",
+      "uuid": "b785a39a-5dd8-477c-86c7-ba600db92b3d",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Który jest najwyższym poziomem w hierarchii celów?",
+      "options": [
+        "Następne kroki",
+        "Projekty",
+        "Rezultaty",
+        "Wizja"
+      ],
+      "correctIndex": 3,
+      "hashtags": [
+        "#day-03",
+        "#scenario",
+        "#application",
+        "#pl"
+      ]
+    },
+    {
+      "_id": "69776a318260c12d7a7ac5cb",
+      "uuid": "b304fedd-2db9-434b-84e5-bf89bb86e15e",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Jaki jest typowy błąd przy robieniu projektów bez wizji?",
+      "options": [
+        "Postępujesz zbyt wolno",
+        "Nie wiesz dlaczego to robisz",
+        "Postępujesz zbyt szybko",
+        "Nie ma błędu"
+      ],
+      "correctIndex": 1,
+      "hashtags": [
+        "#day-03",
+        "#foundation",
+        "#recall",
+        "#pl"
+      ]
+    },
+    {
+      "_id": "69776a318260c12d7a7ac5cc",
+      "uuid": "f1a2b57b-376e-4d58-9a0a-57689a4d38ba",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ Masz wizję (3-5 lat).\n✅ Masz 2-3 mierz...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day3",
+        "#pl",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a318260c12d7a7ac5cd",
+      "uuid": "14e35c9d-c807-46f8-8e6a-864f7f89acf1",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ Hierarchia logicznie się łączy: wizja ...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day3",
+        "#pl",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a318260c12d7a7ac5ce",
+      "uuid": "13825e01-e10c-49db-9426-530b09f2384f",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Jak koncepcja \"Stworzyć osobistą hierarchię celów...\", wspomniana w lekcji, wpływa na osiągnięcie twoich goals?",
+      "options": [
+        "Jak szczegółowo opisano w lekcji, Stworzyć osobistą hierarchię c... zwiększa skuteczność i zmniejsza ryzyko",
+        "Brak znaczącego wpływu",
+        "Ma znaczenie tylko teoretycznie",
+        "Tylko opcjonalny element"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day3",
+        "#pl",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a318260c12d7a7ac5cf",
+      "uuid": "d909f42e-5b97-422c-8771-57610498e53b",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Jak ważny jest Wizja w kontekście Hierarchia celów: wizja → rezultaty → projekty → następne kroki, jak omówiono w lekcji?",
+      "options": [
+        "Jak szczegółowo opisano w lekcji, Wizja odgrywa kluczową rolę w optymalizacji procesów i osiąganiu celów",
+        "Tylko peryferyjne informacje bez znaczącej roli",
+        "Tylko teoretyczna koncepcja bez praktycznego zastosowania",
+        "Nie wspomniano w lekcji"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day3",
+        "#pl",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a318260c12d7a7ac5d0",
+      "uuid": "d4ae3b12-74b5-4751-915a-d283464a7972",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Jak ważny jest Projekty w kontekście Hierarchia celów: wizja → rezultaty → projekty → następne kroki, jak omówiono w lekcji?",
+      "options": [
+        "Jak szczegółowo opisano w lekcji, Projekty odgrywa kluczową rolę w optymalizacji procesów i osiąganiu celów",
+        "Tylko peryferyjne informacje bez znaczącej roli",
+        "Tylko teoretyczna koncepcja bez praktycznego zastosowania",
+        "Nie wspomniano w lekcji"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day3",
+        "#pl",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

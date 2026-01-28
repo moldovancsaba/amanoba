@@ -1,0 +1,23 @@
+{
+  "generatedAt": "2026-01-28T09:39:27.313Z",
+  "env": "production (via .env.local)",
+  "action": "backfill-ccs-from-courses",
+  "createdCcsIds": [],
+  "updates": [
+    {
+      "courseId": "GEO_SHOPIFY_30",
+      "prevCcsId": null,
+      "nextCcsId": "GEO_SHOPIFY_30"
+    },
+    {
+      "courseId": "B2B_SALES_2026_30_RU",
+      "prevCcsId": null,
+      "nextCcsId": "B2B_SALES_2026_30"
+    },
+    {
+      "courseId": "SALES_PRODUCTIVITY_30_RU",
+      "prevCcsId": null,
+      "nextCcsId": "SALES_PRODUCTIVITY_30"
+    }
+  ]
+}

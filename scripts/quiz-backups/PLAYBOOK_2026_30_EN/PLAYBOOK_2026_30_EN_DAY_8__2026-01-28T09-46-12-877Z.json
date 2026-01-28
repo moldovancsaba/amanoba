@@ -1,0 +1,163 @@
+{
+  "backedUpAt": "2026-01-28T09:46:16.643Z",
+  "course": {
+    "courseId": "PLAYBOOK_2026_30_EN",
+    "name": "The Playbook 2026 – Masterclass for Designers",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 8,
+    "title": "Shape, Rhythm, Emotional Cues",
+    "lessonId": "PLAYBOOK_2026_30_EN_DAY_8"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a44bbb88a1cf4b2dec1",
+      "uuid": "c5a8c4f0-5321-4f3a-8f24-aa564b9775f5",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"Exercise (10–15 minutes)\n\n  Define the r...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day8",
+        "#en",
+        "#all-languages",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a44bbb88a1cf4b2dec2",
+      "uuid": "4d2d15bd-7cca-4936-a5dc-07e4ac5a091a",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"Exercise (5–10 minutes)\nApply to a card ...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day8",
+        "#en",
+        "#all-languages",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a44bbb88a1cf4b2dec3",
+      "uuid": "d2fa301f-d50e-4df7-ab3f-16b23ad18f58",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"Exercise (10–15 minutes)\n\n  Define the r...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day8",
+        "#en",
+        "#all-languages",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a44bbb88a1cf4b2dec4",
+      "uuid": "2a3c43dd-8872-4243-9fbe-25f1242371b7",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "How does the concept \"Shape, Rhythm, Emotional Cues Map how shape (round...\" mentioned in the lesson impact achieving your goals?",
+      "options": [
+        "As described in detail in the lesson, Shape, Rhythm, Emotional Cues ... increases effectiveness and reduces risk",
+        "No significant impact",
+        "Only matters theoretically",
+        "Only an optional element"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day8",
+        "#en",
+        "#all-languages",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a44bbb88a1cf4b2dec5",
+      "uuid": "2e725725-81d5-4c35-82a9-af77d67c9e61",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is Good: in the context of Shape, Rhythm, Emotional Cues as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, Good: plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day8",
+        "#en",
+        "#all-languages",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a44bbb88a1cf4b2dec6",
+      "uuid": "eba66708-adc5-47f8-9959-3f751a96b4d5",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is Rhythm in the context of Shape, Rhythm, Emotional Cues as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, Rhythm plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day8",
+        "#en",
+        "#all-languages",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a44bbb88a1cf4b2dec7",
+      "uuid": "1567b6d7-5b83-4690-bc05-232b0588831b",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is Cues in the context of Shape, Rhythm, Emotional Cues as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, Cues plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day8",
+        "#en",
+        "#all-languages",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

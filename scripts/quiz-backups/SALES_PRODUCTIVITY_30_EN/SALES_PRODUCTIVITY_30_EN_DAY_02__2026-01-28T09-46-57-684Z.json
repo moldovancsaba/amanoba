@@ -1,0 +1,177 @@
+{
+  "backedUpAt": "2026-01-28T09:47:02.352Z",
+  "course": {
+    "courseId": "SALES_PRODUCTIVITY_30_EN",
+    "name": "Build Your Sales – 30 Days to More Deals",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 2,
+    "title": "Setting KPIs and Targets – How to Work Backwards",
+    "lessonId": "SALES_PRODUCTIVITY_30_EN_DAY_02"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a08934727fc0613f401",
+      "uuid": "e05ac59e-92d7-40c3-ad40-3583a1c16924",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"Practice 1 – Work backwards (20 min)\n\n  ...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day2",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a08934727fc0613f402",
+      "uuid": "468c1017-7987-487d-a419-335c2b021e28",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"Practice 2 – KPI tracking table (15 min)...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day2",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a08934727fc0613f403",
+      "uuid": "9786374c-b7ec-4650-8376-60196689e3b8",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"Practice 1 – Work backwards (20 min)\n\n  ...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day2",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a08934727fc0613f404",
+      "uuid": "670f938d-9f36-40b6-b8ac-2c2751053158",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "How does the concept \"Setting KPIs and Targets – How to Work Backwards T...\" mentioned in the lesson impact achieving your goals?",
+      "options": [
+        "As described in detail in the lesson, Setting KPIs and Targets – How... increases effectiveness and reduces risk",
+        "No significant impact",
+        "Only matters theoretically",
+        "Only an optional element"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day2",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#sales",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a08934727fc0613f405",
+      "uuid": "0118a5f1-1e7c-416b-97ec-e76204341463",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is Work backwards: in the context of Setting KPIs and Targets – How to Work Backwards as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, Work backwards: plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day2",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a08934727fc0613f406",
+      "uuid": "16845620-d859-4eff-87fd-a9b8eb2aca5a",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is Motivation: in the context of Setting KPIs and Targets – How to Work Backwards as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, Motivation: plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day2",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a08934727fc0613f407",
+      "uuid": "8a8ec7ad-6dea-473e-b79f-20c8e9007cc0",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is Examples: in the context of Setting KPIs and Targets – How to Work Backwards as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, Examples: plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day2",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

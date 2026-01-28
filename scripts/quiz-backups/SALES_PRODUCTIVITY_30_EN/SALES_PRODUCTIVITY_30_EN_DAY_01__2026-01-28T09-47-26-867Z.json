@@ -1,0 +1,177 @@
+{
+  "backedUpAt": "2026-01-28T09:47:35.778Z",
+  "course": {
+    "courseId": "SALES_PRODUCTIVITY_30_EN",
+    "name": "Build Your Sales – 30 Days to More Deals",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 1,
+    "title": "Sales Funnel Fundamentals – Why Numbers Matter",
+    "lessonId": "SALES_PRODUCTIVITY_30_EN_DAY_01"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a08934727fc0613f3bd",
+      "uuid": "1cf018b3-04eb-478f-b3b6-6168da6945c3",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"Practice 1 – Create funnel template (15 ...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day1",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a08934727fc0613f3be",
+      "uuid": "c92cc8eb-03cd-47b3-ba70-a89f58687dc3",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"Practice 2 – Set up daily tracking (10 m...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day1",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a08934727fc0613f3bf",
+      "uuid": "f6f676b8-83dd-45c2-bf29-2cbee15bffba",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"Practice 1 – Create funnel template (15 ...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day1",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a08934727fc0613f3c0",
+      "uuid": "6da25eb4-a639-4524-a724-f113256b4391",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "How does the concept \"Sales Funnel Fundamentals – Why Numbers Matter Tod...\" mentioned in the lesson impact achieving your goals?",
+      "options": [
+        "As described in detail in the lesson, Sales Funnel Fundamentals – Wh... increases effectiveness and reduces risk",
+        "No significant impact",
+        "Only matters theoretically",
+        "Only an optional element"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day1",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#sales",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a08934727fc0613f3c1",
+      "uuid": "542862a7-d4a0-490a-8f5a-82946dc577e1",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is Forecasting: in the context of Sales Funnel Fundamentals – Why Numbers Matter as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, Forecasting: plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day1",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a08934727fc0613f3c2",
+      "uuid": "4e2936e6-cf1c-4c0b-b6f4-e84ae353f603",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is Motivation: in the context of Sales Funnel Fundamentals – Why Numbers Matter as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, Motivation: plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day1",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a08934727fc0613f3c3",
+      "uuid": "65aa127b-7141-4fb4-8bb7-e77016d35ec6",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is 2% conversion in the context of Sales Funnel Fundamentals – Why Numbers Matter as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, 2% conversion plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day1",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

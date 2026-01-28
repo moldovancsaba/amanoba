@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-28T09:47:05.940Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_PL",
+    "name": "Produktywność 2026: Jak zarządzać zespołami i czasem",
+    "language": "pl"
+  },
+  "lesson": {
+    "dayNumber": 8,
+    "title": "Koszt przełączania kontekstu: Reszta uwagi, Przetwarzanie wsadowe, Bloki głębokiej pracy",
+    "lessonId": "PRODUCTIVITY_2026_PL_DAY_8"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a328260c12d7a7ac62b",
+      "uuid": "f9978843-3534-4dee-8311-90413553cea8",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ Rozumiem, czym jest reszta uwagi.\n✅ Ma...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day8",
+        "#pl",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a328260c12d7a7ac62c",
+      "uuid": "2245f61a-6966-4ad2-9d0b-fbf68d16c99d",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ Mam zasady dla bloków głębokiej pracy ...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day8",
+        "#pl",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a328260c12d7a7ac62d",
+      "uuid": "ee39f2e4-ff27-4c27-8408-b6b7b2fe9f34",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ Rozumiem, czym jest reszta uwagi.\n✅ Ma...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day8",
+        "#pl",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a328260c12d7a7ac62e",
+      "uuid": "04b2af88-4aa5-4e7d-8608-fea6e0f86486",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Jak koncepcja \"Koszt przełączania kontekstu: Reszta uwagi, Przetw...\", wspomniana w lekcji, wpływa na osiągnięcie twoich goals?",
+      "options": [
+        "Jak szczegółowo opisano w lekcji, Koszt przełączania kontekstu: ... zwiększa skuteczność i zmniejsza ryzyko",
+        "Brak znaczącego wpływu",
+        "Ma znaczenie tylko teoretycznie",
+        "Tylko opcjonalny element"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day8",
+        "#pl",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a328260c12d7a7ac62f",
+      "uuid": "470366f7-6070-4478-95e8-decf3b84c01f",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Jaką rolę odgrywa Utrata produktywności w lekcji \"Koszt przełączania kontekstu: Reszta uwagi, Przetwarzanie wsadowe, Bloki głębokiej pracy\"?",
+      "options": [
+        "Jak szczegółowo opisano w lekcji, Utrata produktywności odgrywa kluczową rolę w optymalizacji procesów i osiąganiu celów",
+        "Tylko peryferyjne informacje bez znaczącej roli",
+        "Tylko teoretyczna koncepcja bez praktycznego zastosowania",
+        "Nie wspomniano w lekcji"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day8",
+        "#pl",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a328260c12d7a7ac630",
+      "uuid": "9c9a08e8-3cd6-4539-84a2-bba69236418b",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Jak ważny jest Stres rośnie w kontekście Koszt przełączania kontekstu: Reszta uwagi, Przetwarzanie wsadowe, Bloki głębokiej pracy, jak omówiono w lekcji?",
+      "options": [
+        "Jak szczegółowo opisano w lekcji, Stres rośnie odgrywa kluczową rolę w optymalizacji procesów i osiąganiu celów",
+        "Tylko peryferyjne informacje bez znaczącej roli",
+        "Tylko teoretyczna koncepcja bez praktycznego zastosowania",
+        "Nie wspomniano w lekcji"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day8",
+        "#pl",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a328260c12d7a7ac631",
+      "uuid": "201f50d3-5945-4d61-b1e2-88e5a01eb3e3",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Jak ważny jest Korzyści w kontekście Koszt przełączania kontekstu: Reszta uwagi, Przetwarzanie wsadowe, Bloki głębokiej pracy, jak omówiono w lekcji?",
+      "options": [
+        "Jak szczegółowo opisano w lekcji, Korzyści odgrywa kluczową rolę w optymalizacji procesów i osiąganiu celów",
+        "Tylko peryferyjne informacje bez znaczącej roli",
+        "Tylko teoretyczna koncepcja bez praktycznego zastosowania",
+        "Nie wspomniano w lekcji"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day8",
+        "#pl",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-28T09:45:20.512Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_PT",
+    "name": "Produtividade 2026: Como Gerenciar Equipes e Tempo",
+    "language": "pt"
+  },
+  "lesson": {
+    "dayNumber": 13,
+    "title": "Estruturas de Tomada de Decisão: Decisões Rápidas, Matriz de Decisão, Evitando Paralisia de Análise",
+    "lessonId": "PRODUCTIVITY_2026_PT_DAY_13"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a396360118c57912ae3",
+      "uuid": "20dc9752-1940-4742-870c-4c681e970650",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ Entendo a paralisia de análise e como ...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day13",
+        "#pt",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a396360118c57912ae4",
+      "uuid": "74e5a653-59a7-4512-ad6d-64470c9e9dc5",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ Sei como integrar fatores emocionais c...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day13",
+        "#pt",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a396360118c57912ae5",
+      "uuid": "e06ab40d-2a97-43e9-95c2-9f7183fd82c9",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ Entendo a paralisia de análise e como ...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day13",
+        "#pt",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a396360118c57912ae6",
+      "uuid": "c7d3d5fe-37f9-4cd1-9e8d-6aa0da43c33a",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Como o conceito \"Estruturas de Tomada de Decisão: Decisões Rápidas,...\", mencionado na lição, impacta o alcance de seus goals?",
+      "options": [
+        "Como descrito em detalhes na lição, Estruturas de Tomada de Decisã... aumenta a eficácia e reduz os riscos",
+        "Sem impacto significativo",
+        "Importa apenas teoricamente",
+        "Apenas um elemento opcional"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day13",
+        "#pt",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a396360118c57912ae7",
+      "uuid": "b5ce0e3a-3688-4152-9285-0f6de117cc86",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Qual papel Tempo é Mais Caro que a Perfeição desempenha na lição \"Estruturas de Tomada de Decisão: Decisões Rápidas, Matriz de Decisão, Evitando Paralisia de Análise\"?",
+      "options": [
+        "Conforme descrito em detalhes na lição, Tempo é Mais Caro que a Perfeição desempenha um papel crucial na otimização de processos e no alcance de objetivos",
+        "Apenas informações periféricas sem papel significativo",
+        "Apenas um conceito teórico sem aplicação prática",
+        "Não mencionado na lição"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day13",
+        "#pt",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a396360118c57912ae8",
+      "uuid": "ce304380-0ff6-4fd5-a04d-168548e33ec3",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Qual papel Fadiga de Decisão desempenha na lição \"Estruturas de Tomada de Decisão: Decisões Rápidas, Matriz de Decisão, Evitando Paralisia de Análise\"?",
+      "options": [
+        "Conforme descrito em detalhes na lição, Fadiga de Decisão desempenha um papel crucial na otimização de processos e no alcance de objetivos",
+        "Apenas informações periféricas sem papel significativo",
+        "Apenas um conceito teórico sem aplicação prática",
+        "Não mencionado na lição"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day13",
+        "#pt",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a396360118c57912ae9",
+      "uuid": "5cd1c90b-d4e2-4875-97dd-c4f234fdda69",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Quão importante é Passo 1 no contexto de Estruturas de Tomada de Decisão: Decisões Rápidas, Matriz de Decisão, Evitando Paralisia de Análise, conforme discutido na lição?",
+      "options": [
+        "Conforme descrito em detalhes na lição, Passo 1 desempenha um papel crucial na otimização de processos e no alcance de objetivos",
+        "Apenas informações periféricas sem papel significativo",
+        "Apenas um conceito teórico sem aplicação prática",
+        "Não mencionado na lição"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day13",
+        "#pt",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-28T09:47:47.430Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_PT",
+    "name": "Produtividade 2026: Como Gerenciar Equipes e Tempo",
+    "language": "pt"
+  },
+  "lesson": {
+    "dayNumber": 12,
+    "title": "Estruturas de Responsabilidade: Sistemas que o Mantêm na Pista",
+    "lessonId": "PRODUCTIVITY_2026_PT_DAY_12"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a396360118c57912ad7",
+      "uuid": "c83748b0-6423-4193-b805-8dc4fe4c97dd",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ Tenho um objetivo claro de 4-8 semanas...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day12",
+        "#pt",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a396360118c57912ad8",
+      "uuid": "c851a9ca-78b1-4994-891c-93d6b0a68b85",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ Tenho um sistema de rastreamento (tabe...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day12",
+        "#pt",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a396360118c57912ad9",
+      "uuid": "028282f1-c850-4e9e-8fc7-2d4b905ae3ec",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ Tenho um objetivo claro de 4-8 semanas...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day12",
+        "#pt",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a396360118c57912ada",
+      "uuid": "0b87c1de-5d9e-4b7e-b802-c31bae785e28",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Como o conceito \"Estruturas de Responsabilidade: Sistemas que o Man...\", mencionado na lição, impacta o alcance de seus goals?",
+      "options": [
+        "Como descrito em detalhes na lição, Estruturas de Responsabilidade... aumenta a eficácia e reduz os riscos",
+        "Sem impacto significativo",
+        "Importa apenas teoricamente",
+        "Apenas um elemento opcional"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day12",
+        "#pt",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a396360118c57912adb",
+      "uuid": "76140ac7-4eb9-4b89-a2f9-7a9ebe7fc6b2",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Qual papel Compromisso Consciente desempenha na lição \"Estruturas de Responsabilidade: Sistemas que o Mantêm na Pista\"?",
+      "options": [
+        "Conforme descrito em detalhes na lição, Compromisso Consciente desempenha um papel crucial na otimização de processos e no alcance de objetivos",
+        "Apenas informações periféricas sem papel significativo",
+        "Apenas um conceito teórico sem aplicação prática",
+        "Não mencionado na lição"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day12",
+        "#pt",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a396360118c57912adc",
+      "uuid": "c31e2731-18ce-4483-a978-2879cd5be0c0",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Qual papel Aumento da Perseverança desempenha na lição \"Estruturas de Responsabilidade: Sistemas que o Mantêm na Pista\"?",
+      "options": [
+        "Conforme descrito em detalhes na lição, Aumento da Perseverança desempenha um papel crucial na otimização de processos e no alcance de objetivos",
+        "Apenas informações periféricas sem papel significativo",
+        "Apenas um conceito teórico sem aplicação prática",
+        "Não mencionado na lição"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day12",
+        "#pt",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a396360118c57912add",
+      "uuid": "dff53fe9-eb2e-417b-9188-7d00011d3e74",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Quão importante é Sua Pergunta no contexto de Estruturas de Responsabilidade: Sistemas que o Mantêm na Pista, conforme discutido na lição?",
+      "options": [
+        "Conforme descrito em detalhes na lição, Sua Pergunta desempenha um papel crucial na otimização de processos e no alcance de objetivos",
+        "Apenas informações periféricas sem papel significativo",
+        "Apenas um conceito teórico sem aplicação prática",
+        "Não mencionado na lição"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day12",
+        "#pt",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

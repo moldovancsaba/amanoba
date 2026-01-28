@@ -1,0 +1,164 @@
+{
+  "backedUpAt": "2026-01-28T09:46:22.084Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_PT",
+    "name": "Produtividade 2026: Como Gerenciar Equipes e Tempo",
+    "language": "pt"
+  },
+  "lesson": {
+    "dayNumber": 4,
+    "title": "Hábitos vs sistemas: por que sistemas escalam melhor",
+    "lessonId": "PRODUCTIVITY_2026_PT_DAY_04"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a386360118c57912a5d",
+      "uuid": "3dea48fb-f7fb-466f-b2c0-5f2cefa10ef2",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Qual é a principal diferença entre hábitos e sistemas?",
+      "options": [
+        "Nenhuma diferença",
+        "Hábitos escalam, sistemas não",
+        "Sistemas escalam, hábitos não",
+        "Ambos são iguais"
+      ],
+      "correctIndex": 2,
+      "hashtags": [
+        "#day-04",
+        "#purpose",
+        "#application",
+        "#pt"
+      ]
+    },
+    {
+      "_id": "69776a386360118c57912a5e",
+      "uuid": "b1fb1220-bbd0-46c6-a47f-d446dc2996db",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Quando você deve usar um sistema em vez de um hábito?",
+      "options": [
+        "Sempre",
+        "Quando precisa funcionar com outros",
+        "Nunca",
+        "Apenas nos fins de semana"
+      ],
+      "correctIndex": 1,
+      "hashtags": [
+        "#day-04",
+        "#scenario",
+        "#application",
+        "#pt"
+      ]
+    },
+    {
+      "_id": "69776a386360118c57912a5f",
+      "uuid": "029c112c-0014-4ba7-bbcf-8aa2754f0810",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Qual NÃO é uma característica de um sistema?",
+      "options": [
+        "Pode ser documentado",
+        "Escalável",
+        "Funciona apenas com uma pessoa",
+        "Processo estruturado"
+      ],
+      "correctIndex": 2,
+      "hashtags": [
+        "#day-04",
+        "#foundation",
+        "#recall",
+        "#pt"
+      ]
+    },
+    {
+      "_id": "69776a386360118c57912a60",
+      "uuid": "56c61ca5-4851-48bb-a529-5a9a0bdd8ff9",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ Você entende a diferença entre hábitos...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day4",
+        "#pt",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a386360118c57912a61",
+      "uuid": "c2be81fd-dd5a-49b4-8bf7-5bf7ed9a2aed",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Como o conceito \"Hábitos vs sistemas: por que sistemas escalam melh...\", mencionado na lição, impacta o alcance de seus goals?",
+      "options": [
+        "Como descrito em detalhes na lição, Hábitos vs sistemas: por que s... aumenta a eficácia e reduz os riscos",
+        "Sem impacto significativo",
+        "Importa apenas teoricamente",
+        "Apenas um elemento opcional"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day4",
+        "#pt",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a386360118c57912a62",
+      "uuid": "b55a090f-48de-41ea-bccb-781a73c2e151",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Quão importante é Sistemas no contexto de Hábitos vs sistemas: por que sistemas escalam melhor, conforme discutido na lição?",
+      "options": [
+        "Conforme descrito em detalhes na lição, Sistemas desempenha um papel crucial na otimização de processos e no alcance de objetivos",
+        "Apenas informações periféricas sem papel significativo",
+        "Apenas um conceito teórico sem aplicação prática",
+        "Não mencionado na lição"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day4",
+        "#pt",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a386360118c57912a63",
+      "uuid": "3087b251-9e19-4f1b-99dd-55a5a0dde847",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Quão importante é Vantagens no contexto de Hábitos vs sistemas: por que sistemas escalam melhor, conforme discutido na lição?",
+      "options": [
+        "Conforme descrito em detalhes na lição, Vantagens desempenha um papel crucial na otimização de processos e no alcance de objetivos",
+        "Apenas informações periféricas sem papel significativo",
+        "Apenas um conceito teórico sem aplicação prática",
+        "Não mencionado na lição"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day4",
+        "#pt",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

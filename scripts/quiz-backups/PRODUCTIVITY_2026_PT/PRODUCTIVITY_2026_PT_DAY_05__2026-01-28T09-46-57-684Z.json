@@ -1,0 +1,166 @@
+{
+  "backedUpAt": "2026-01-28T09:47:07.106Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_PT",
+    "name": "Produtividade 2026: Como Gerenciar Equipes e Tempo",
+    "language": "pt"
+  },
+  "lesson": {
+    "dayNumber": 5,
+    "title": "Medição: métricas simples de revisão semanal (throughput, blocos de foco, carryover)",
+    "lessonId": "PRODUCTIVITY_2026_PT_DAY_05"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a386360118c57912a72",
+      "uuid": "3935bdbf-9b5d-46bf-b0d3-f2821f9ee8b1",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Quantas métricas usamos na revisão semanal?",
+      "options": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "correctIndex": 2,
+      "hashtags": [
+        "#day-05",
+        "#scenario",
+        "#application",
+        "#pt"
+      ]
+    },
+    {
+      "_id": "69776a386360118c57912a73",
+      "uuid": "cf1a2584-a41d-4605-b813-d358915c8911",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Qual é o comprimento ideal de um bloco de foco?",
+      "options": [
+        "30 minutos",
+        "60 minutos",
+        "90-120 minutos",
+        "4 horas"
+      ],
+      "correctIndex": 2,
+      "hashtags": [
+        "#day-05",
+        "#purpose",
+        "#application",
+        "#pt"
+      ]
+    },
+    {
+      "_id": "69776a386360118c57912a74",
+      "uuid": "9a0ec135-12b3-4d7c-ba14-39278c3615af",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ Você conhece as três métricas-chave: t...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day5",
+        "#pt",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a386360118c57912a75",
+      "uuid": "9d2b6a33-635e-4074-8a23-eb672ea7c5f5",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Como o conceito \"Importante = resultado, não apenas atividade...\", mencionado na lição, impacta o alcance de seus goals?",
+      "options": [
+        "Como descrito em detalhes na lição, Importante = resultado, não ap... aumenta a eficácia e reduz os riscos",
+        "Sem impacto significativo",
+        "Importa apenas teoricamente",
+        "Apenas um elemento opcional"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day5",
+        "#pt",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a386360118c57912a76",
+      "uuid": "efcdb3e8-f2ea-4f57-a3b4-ac083375550a",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Quão importante é Throughput no contexto de Medição: métricas simples de revisão semanal (throughput, blocos de foco, carryover), conforme discutido na lição?",
+      "options": [
+        "Conforme descrito em detalhes na lição, Throughput desempenha um papel crucial na otimização de processos e no alcance de objetivos",
+        "Apenas informações periféricas sem papel significativo",
+        "Apenas um conceito teórico sem aplicação prática",
+        "Não mencionado na lição"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day5",
+        "#pt",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a386360118c57912a77",
+      "uuid": "702147b1-ce5f-4119-96ea-9a1f5212b355",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Quão importante é Carryover no contexto de Medição: métricas simples de revisão semanal (throughput, blocos de foco, carryover), conforme discutido na lição?",
+      "options": [
+        "Conforme descrito em detalhes na lição, Carryover desempenha um papel crucial na otimização de processos e no alcance de objetivos",
+        "Apenas informações periféricas sem papel significativo",
+        "Apenas um conceito teórico sem aplicação prática",
+        "Não mencionado na lição"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day5",
+        "#pt",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a386360118c57912a78",
+      "uuid": "da58b338-e851-4019-ba30-e0ea5437e1b0",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Qual papel 2. Blocos de foco desempenha na lição \"Medição: métricas simples de revisão semanal (throughput, blocos de foco, carryover)\"?",
+      "options": [
+        "Conforme descrito em detalhes na lição, 2. Blocos de foco desempenha um papel crucial na otimização de processos e no alcance de objetivos",
+        "Apenas informações periféricas sem papel significativo",
+        "Apenas um conceito teórico sem aplicação prática",
+        "Não mencionado na lição"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day5",
+        "#pt",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

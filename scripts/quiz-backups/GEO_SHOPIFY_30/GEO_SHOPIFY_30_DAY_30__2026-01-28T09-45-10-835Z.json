@@ -1,0 +1,107 @@
+{
+  "backedUpAt": "2026-01-28T09:45:21.846Z",
+  "course": {
+    "courseId": "GEO_SHOPIFY_30",
+    "name": "GEO Shopify – 30 napos kurzus",
+    "language": "hu"
+  },
+  "lesson": {
+    "dayNumber": 30,
+    "title": "Capstone sprint: 1 kollekció teljes GEO ciklus",
+    "lessonId": "GEO_SHOPIFY_30_DAY_30"
+  },
+  "questionCount": 4,
+  "questions": [
+    {
+      "_id": "697766aabfa810d766366f56",
+      "uuid": "1fa00572-8864-4da8-a2c1-6ea8078126c9",
+      "questionType": "recall",
+      "difficulty": "EASY",
+      "question": "Mi a GEO egyik alapelve a(z) \"Capstone sprint: 1 kollekció teljes GEO ciklus\" leckében?",
+      "options": [
+        "Egyértelmű, idézhető tartalom",
+        "Véletlenszerű információ",
+        "Minimális adat",
+        "Nincs elv"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day30",
+        "#geo",
+        "#beginner",
+        "#recall",
+        "#hu",
+        "#all-languages"
+      ]
+    },
+    {
+      "_id": "697766aabfa810d766366f58",
+      "uuid": "93a5255a-edc6-47e8-a6f4-619562473345",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "A leckében leírt \"Gyakorlat: végigviszed a teljes ciklust ...\" gyakorlatot hogyan implementálnád a saját munkádban?",
+      "options": [
+        "Lépésről lépésre követem a leckében leírt módszert, dokumentálom az eredményeket, és finomhangolom a folyamatot",
+        "Egyszerre próbálom ki mindent",
+        "Csak olvasom, nem alkalmazom",
+        "Várok, amíg mások megcsinálják"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day30",
+        "#hu",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "697766aabfa810d766366f59",
+      "uuid": "1e414814-b9ec-4bc4-9f52-df5932c399d9",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "A leckében leírt \"gyakorlat: dokumentáld az eredményeket (...\" gyakorlatot hogyan implementálnád a saját munkádban?",
+      "options": [
+        "Lépésről lépésre követem a leckében leírt módszert, dokumentálom az eredményeket, és finomhangolom a folyamatot",
+        "Egyszerre próbálom ki mindent",
+        "Csak olvasom, nem alkalmazom",
+        "Várok, amíg mások megcsinálják"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day30",
+        "#hu",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "697766aabfa810d766366f5a",
+      "uuid": "e272f20f-94a9-4e63-a9e7-5903b4d2b57f",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "A leckében leírt \"Gyakorlat: végigviszed a teljes ciklust ...\" gyakorlatot hogyan implementálnád a saját munkádban?",
+      "options": [
+        "Lépésről lépésre követem a leckében leírt módszert, dokumentálom az eredményeket, és finomhangolom a folyamatot",
+        "Egyszerre próbálom ki mindent",
+        "Csak olvasom, nem alkalmazom",
+        "Várok, amíg mások megcsinálják"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day30",
+        "#hu",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

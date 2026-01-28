@@ -1,0 +1,177 @@
+{
+  "backedUpAt": "2026-01-28T09:47:00.483Z",
+  "course": {
+    "courseId": "GEO_SHOPIFY_30_EN",
+    "name": "GEO Shopify – 30-day course",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 24,
+    "title": "Use-case landing: gift, season, sport, budget",
+    "lessonId": "GEO_SHOPIFY_30_EN_DAY_24"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a16b7889cedb02a2b14",
+      "uuid": "f5c216d9-98e4-40fe-9b02-f37213cd25b2",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"Practice: create your use-case landing (...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day24",
+        "#en",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a16b7889cedb02a2b15",
+      "uuid": "fcc971b1-40dc-4d72-8d04-c6259e580795",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"practice: draft another use-case (5-10 m...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day24",
+        "#en",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a16b7889cedb02a2b16",
+      "uuid": "56b5f4e9-3618-47af-8fd8-e54e7334670d",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"Practice: create your use-case landing (...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day24",
+        "#en",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a16b7889cedb02a2b17",
+      "uuid": "e40eac2a-1d31-4a35-b6bc-53cd5b1a3c83",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "How does the concept \"Use-case landing: gift, season, sport, budget Toda...\" mentioned in the lesson impact achieving your goals?",
+      "options": [
+        "As described in detail in the lesson, Use-case landing: gift, season... increases effectiveness and reduces risk",
+        "No significant impact",
+        "Only matters theoretically",
+        "Only an optional element"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day24",
+        "#en",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a16b7889cedb02a2b18",
+      "uuid": "47bd1873-24df-4694-9143-33fe02f0f5f1",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "In the \"Use-case landing: gift, season, sport, budget\" lesson, what role does Decision criteria play?",
+      "options": [
+        "As described in detail in the lesson, Decision criteria plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day24",
+        "#en",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a17b7889cedb02a2b19",
+      "uuid": "2d99576f-c819-459b-bdff-8b3285fff99a",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "In the \"Use-case landing: gift, season, sport, budget\" lesson, what role does Policy/fit short play?",
+      "options": [
+        "As described in detail in the lesson, Policy/fit short plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day24",
+        "#en",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a17b7889cedb02a2b1a",
+      "uuid": "1dfb91f4-910f-4f5a-a70f-556dab1314b3",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is landing in the context of Use-case landing: gift, season, sport, budget as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, landing plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day24",
+        "#en",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

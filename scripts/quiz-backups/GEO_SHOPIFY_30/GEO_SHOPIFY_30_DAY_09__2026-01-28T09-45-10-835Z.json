@@ -1,0 +1,107 @@
+{
+  "backedUpAt": "2026-01-28T09:45:21.172Z",
+  "course": {
+    "courseId": "GEO_SHOPIFY_30",
+    "name": "GEO Shopify – 30 napos kurzus",
+    "language": "hu"
+  },
+  "lesson": {
+    "dayNumber": 9,
+    "title": "Azonosítók rendben: SKU, GTIN, brand, variáns",
+    "lessonId": "GEO_SHOPIFY_30_DAY_09"
+  },
+  "questionCount": 4,
+  "questions": [
+    {
+      "_id": "697766a7bfa810d766366e77",
+      "uuid": "549dcc55-4bbc-400d-a7ca-1db4854329fd",
+      "questionType": "recall",
+      "difficulty": "EASY",
+      "question": "Mi fontos a termékadatokban a GEO szempontjából a(z) \"Azonosítók rendben: SKU, GTIN, brand, variáns\" leckében?",
+      "options": [
+        "Pontos, egyértelmű információk",
+        "Minimális információ",
+        "Véletlenszerű adatok",
+        "Nincs követelmény"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day9",
+        "#product",
+        "#beginner",
+        "#recall",
+        "#hu",
+        "#all-languages"
+      ]
+    },
+    {
+      "_id": "697766a7bfa810d766366e79",
+      "uuid": "bbadc198-13c7-4df4-85e5-ced894066f9b",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "A leckében leírt \"Gyakorlat: auditáld az azonosítókat (10-...\" gyakorlatot hogyan implementálnád a saját munkádban?",
+      "options": [
+        "Lépésről lépésre követem a leckében leírt módszert, dokumentálom az eredményeket, és finomhangolom a folyamatot",
+        "Egyszerre próbálom ki mindent",
+        "Csak olvasom, nem alkalmazom",
+        "Várok, amíg mások megcsinálják"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day9",
+        "#hu",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "697766a7bfa810d766366e7a",
+      "uuid": "f128dd88-ab7f-45b7-be6d-720d156b0823",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "A leckében leírt \"gyakorlat: javítsd a hiányosságokat (5-1...\" gyakorlatot hogyan implementálnád a saját munkádban?",
+      "options": [
+        "Lépésről lépésre követem a leckében leírt módszert, dokumentálom az eredményeket, és finomhangolom a folyamatot",
+        "Egyszerre próbálom ki mindent",
+        "Csak olvasom, nem alkalmazom",
+        "Várok, amíg mások megcsinálják"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day9",
+        "#hu",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "697766a7bfa810d766366e7b",
+      "uuid": "adabc1fa-b179-4514-92b7-abe9ef54fcfa",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "A leckében leírt \"Gyakorlat: auditáld az azonosítókat (10-...\" gyakorlatot hogyan implementálnád a saját munkádban?",
+      "options": [
+        "Lépésről lépésre követem a leckében leírt módszert, dokumentálom az eredményeket, és finomhangolom a folyamatot",
+        "Egyszerre próbálom ki mindent",
+        "Csak olvasom, nem alkalmazom",
+        "Várok, amíg mások megcsinálják"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day9",
+        "#hu",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

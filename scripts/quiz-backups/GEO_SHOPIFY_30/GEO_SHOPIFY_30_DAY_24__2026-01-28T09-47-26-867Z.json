@@ -1,0 +1,107 @@
+{
+  "backedUpAt": "2026-01-28T09:47:50.676Z",
+  "course": {
+    "courseId": "GEO_SHOPIFY_30",
+    "name": "GEO Shopify – 30 napos kurzus",
+    "language": "hu"
+  },
+  "lesson": {
+    "dayNumber": 24,
+    "title": "Use-case landing: ajándék, szezon, sport, budget",
+    "lessonId": "GEO_SHOPIFY_30_DAY_24"
+  },
+  "questionCount": 4,
+  "questions": [
+    {
+      "_id": "697766a9bfa810d766366f1a",
+      "uuid": "d353df39-2218-4162-bb10-9d0dc9a8cfaf",
+      "questionType": "recall",
+      "difficulty": "EASY",
+      "question": "Mi a GEO egyik alapelve a(z) \"Use-case landing: ajándék, szezon, sport, budget\" leckében?",
+      "options": [
+        "Egyértelmű, idézhető tartalom",
+        "Véletlenszerű információ",
+        "Minimális adat",
+        "Nincs elv"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day24",
+        "#geo",
+        "#beginner",
+        "#recall",
+        "#hu",
+        "#all-languages"
+      ]
+    },
+    {
+      "_id": "697766a9bfa810d766366f1c",
+      "uuid": "b6d07dc2-908c-427c-ba56-5c18a39a231f",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "A leckében leírt \"Gyakorlat: készítsd el a use-case landin...\" gyakorlatot hogyan implementálnád a saját munkádban?",
+      "options": [
+        "Lépésről lépésre követem a leckében leírt módszert, dokumentálom az eredményeket, és finomhangolom a folyamatot",
+        "Egyszerre próbálom ki mindent",
+        "Csak olvasom, nem alkalmazom",
+        "Várok, amíg mások megcsinálják"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day24",
+        "#hu",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "697766a9bfa810d766366f1d",
+      "uuid": "59bcffb1-d8e1-48e7-9a4d-15840e454fe0",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "A leckében leírt \"gyakorlat: bővítsd további use-case-ekre...\" gyakorlatot hogyan implementálnád a saját munkádban?",
+      "options": [
+        "Lépésről lépésre követem a leckében leírt módszert, dokumentálom az eredményeket, és finomhangolom a folyamatot",
+        "Egyszerre próbálom ki mindent",
+        "Csak olvasom, nem alkalmazom",
+        "Várok, amíg mások megcsinálják"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day24",
+        "#hu",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "697766a9bfa810d766366f1e",
+      "uuid": "579bab1f-7073-4ae8-9288-cc1c3ce1bdfe",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "A leckében leírt \"Gyakorlat: készítsd el a use-case landin...\" gyakorlatot hogyan implementálnád a saját munkádban?",
+      "options": [
+        "Lépésről lépésre követem a leckében leírt módszert, dokumentálom az eredményeket, és finomhangolom a folyamatot",
+        "Egyszerre próbálom ki mindent",
+        "Csak olvasom, nem alkalmazom",
+        "Várok, amíg mások megcsinálják"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day24",
+        "#hu",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

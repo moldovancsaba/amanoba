@@ -1,0 +1,177 @@
+{
+  "backedUpAt": "2026-01-28T09:47:02.502Z",
+  "course": {
+    "courseId": "SALES_PRODUCTIVITY_30_EN",
+    "name": "Build Your Sales – 30 Days to More Deals",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 6,
+    "title": "Qualification Framework (BANT, MEDDIC) – How to Qualify Leads?",
+    "lessonId": "SALES_PRODUCTIVITY_30_EN_DAY_06"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a09934727fc0613f46b",
+      "uuid": "1691789a-bf2d-4f0b-835e-10d29d9b6014",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"Practice 1 – BANT checklist (15 min)\nCre...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day6",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a09934727fc0613f46c",
+      "uuid": "6d085c9f-421b-438b-893b-3657f7636495",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"Practice 2 – Choose your framework (10 m...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day6",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a09934727fc0613f46d",
+      "uuid": "33c842cd-96e4-4b10-9dd2-8f4cedc40231",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"Practice 1 – BANT checklist (15 min)\nCre...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day6",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a09934727fc0613f46e",
+      "uuid": "25584a40-f4e9-4036-9cd2-36fc9dfc36db",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "How does the concept \"Qualification Framework (BANT, MEDDIC) – How to Qu...\" mentioned in the lesson impact achieving your goals?",
+      "options": [
+        "As described in detail in the lesson, Qualification Framework (BANT,... increases effectiveness and reduces risk",
+        "No significant impact",
+        "Only matters theoretically",
+        "Only an optional element"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day6",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#sales",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a09934727fc0613f46f",
+      "uuid": "fcdf28ae-1602-41c9-a0df-3542a6a8e205",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "In the \"Qualification Framework (BANT, MEDDIC) – How to Qualify Leads?\" lesson, what role does Better conversion: play?",
+      "options": [
+        "As described in detail in the lesson, Better conversion: plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day6",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a09934727fc0613f470",
+      "uuid": "9953a50f-781c-47cf-a19f-5c57833b5452",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "In the \"Qualification Framework (BANT, MEDDIC) – How to Qualify Leads?\" lesson, what role does Resource optimization: play?",
+      "options": [
+        "As described in detail in the lesson, Resource optimization: plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day6",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a09934727fc0613f471",
+      "uuid": "ee75d2c2-def9-4de3-892d-e073b84c82a3",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is B - Budget in the context of Qualification Framework (BANT, MEDDIC) – How to Qualify Leads? as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, B - Budget plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day6",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

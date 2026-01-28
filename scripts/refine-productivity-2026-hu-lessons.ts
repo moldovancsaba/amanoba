@@ -217,6 +217,16 @@ function procedureNameHu(id: string, fallback: string) {
 function translateProcedureStepHu(step: string) {
   const s = String(step || '').trim();
   const map: Array<[RegExp, string]> = [
+    [/^Track adherence for one week and adjust\.$/i, 'Kövesd a betartást egy hétig, majd finomhangolj.'],
+    [
+      /^Write delegation briefs \(expected output, due date, success criteria, check-ins\)\.$/i,
+      'Írj delegálási briefet (várt output, határidő, siker-kritériumok, check-in pontok).',
+    ],
+    [
+      /^Execute: eliminate 1 and delegate 1 this week; review impact\.$/i,
+      'Végrehajtás: ezen a héten vágj ki 1 dolgot és delegálj 1 feladatot; majd nézd meg a hatását.',
+    ],
+    [/^Review outcomes and update your decision rules\.$/i, 'Nézd át az eredményeket, és frissítsd a döntési szabályaidat.'],
     [/^Count throughput:/i, 'Számold meg a throughputot:'],
     [/^Count focus blocks:/i, 'Számold meg a fókuszblokkokat:'],
     [/^Count carryover:/i, 'Számold meg a carryovert:'],

@@ -1,0 +1,163 @@
+{
+  "backedUpAt": "2026-01-28T09:47:33.759Z",
+  "course": {
+    "courseId": "PLAYBOOK_2026_30_EN",
+    "name": "The Playbook 2026 – Masterclass for Designers",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 5,
+    "title": "Define Your Visual Intent",
+    "lessonId": "PLAYBOOK_2026_30_EN_DAY_5"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a44bbb88a1cf4b2de8f",
+      "uuid": "e6ebeee6-c2f8-423e-a4c5-c8c7889621e9",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"Exercise (10–15 minutes)\n\n  Write your V...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day5",
+        "#en",
+        "#all-languages",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a44bbb88a1cf4b2de90",
+      "uuid": "93f23c37-471e-47ad-87b2-48c8e3e4b4e5",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"Exercise (5–10 minutes)\nShare the VIS wi...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day5",
+        "#en",
+        "#all-languages",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a44bbb88a1cf4b2de91",
+      "uuid": "ba6630c3-7637-47b7-ab66-b7baf858a845",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"Exercise (10–15 minutes)\n\n  Write your V...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day5",
+        "#en",
+        "#all-languages",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a44bbb88a1cf4b2de92",
+      "uuid": "7550676f-7a79-492f-9ee3-84e9e4d5d51b",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "How does the concept \"Define Your Visual Intent Create a one-line, measu...\" mentioned in the lesson impact achieving your goals?",
+      "options": [
+        "As described in detail in the lesson, Define Your Visual Intent Crea... increases effectiveness and reduces risk",
+        "No significant impact",
+        "Only matters theoretically",
+        "Only an optional element"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day5",
+        "#en",
+        "#all-languages",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a44bbb88a1cf4b2de93",
+      "uuid": "a18ce485-5756-46b7-a497-f4a93dea8134",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is [business goal] in the context of Define Your Visual Intent as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, [business goal] plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day5",
+        "#en",
+        "#all-languages",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a44bbb88a1cf4b2de94",
+      "uuid": "11d5c2ea-2a75-4850-af84-634c599bfb19",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is [boldness] in the context of Define Your Visual Intent as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, [boldness] plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day5",
+        "#en",
+        "#all-languages",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a44bbb88a1cf4b2de95",
+      "uuid": "2df5d961-cf33-4f8c-be9a-734e217329fe",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is Good: in the context of Define Your Visual Intent as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, Good: plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day5",
+        "#en",
+        "#all-languages",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

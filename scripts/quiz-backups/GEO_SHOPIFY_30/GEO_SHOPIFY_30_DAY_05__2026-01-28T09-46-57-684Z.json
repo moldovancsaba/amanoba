@@ -1,0 +1,151 @@
+{
+  "backedUpAt": "2026-01-28T09:47:07.848Z",
+  "course": {
+    "courseId": "GEO_SHOPIFY_30",
+    "name": "GEO Shopify – 30 napos kurzus",
+    "language": "hu"
+  },
+  "lesson": {
+    "dayNumber": 5,
+    "title": "Platform térkép: ChatGPT, Copilot, Google AI",
+    "lessonId": "GEO_SHOPIFY_30_DAY_05"
+  },
+  "questionCount": 6,
+  "questions": [
+    {
+      "_id": "697766a7bfa810d766366e36",
+      "uuid": "9998604c-1379-4d6d-9233-82c2b3d1be9d",
+      "questionType": "recall",
+      "difficulty": "EASY",
+      "question": "Mi fontos a termékadatokban a GEO szempontjából a(z) \"Platform térkép: ChatGPT, Copilot, Google AI\" leckében?",
+      "options": [
+        "Pontos, egyértelmű információk",
+        "Minimális információ",
+        "Véletlenszerű adatok",
+        "Nincs követelmény"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day5",
+        "#product",
+        "#beginner",
+        "#recall",
+        "#hu",
+        "#all-languages"
+      ]
+    },
+    {
+      "_id": "697766a7bfa810d766366e37",
+      "uuid": "92979f90-2795-4383-b1e3-b256d4b4b9af",
+      "questionType": "recall",
+      "difficulty": "EASY",
+      "question": "Miért fontos, hogy a SKU minden variánsnál egyedi legyen?",
+      "options": [
+        "Az AI és a feed azonosítóval különbözteti meg a termékeket - hibás ID rossz ajánláshoz vezet",
+        "A SKU csak díszítés, nem fontos",
+        "A SKU csak a belső rendszerekhez kell",
+        "A SKU csak a készlet számoláshoz fontos"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#sku",
+        "#identifiers",
+        "#beginner",
+        "#recall",
+        "#hu",
+        "#all-languages"
+      ]
+    },
+    {
+      "_id": "697766a7bfa810d766366e38",
+      "uuid": "ae455fc3-1520-45f7-aba7-c6e74217757b",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Mely mezők kötelezőek egy product/offer schema-ban?",
+      "options": [
+        "price, priceCurrency, availability, sku/gtin, brand",
+        "Csak title",
+        "Csak description",
+        "Csak image"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#schema",
+        "#structured-data",
+        "#intermediate",
+        "#recall",
+        "#hu",
+        "#all-languages"
+      ]
+    },
+    {
+      "_id": "697766a7bfa810d766366e3a",
+      "uuid": "87f8a8e4-dd22-45ad-b8b9-1acb14fd4bca",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "A leckében leírt \"Gyakorlat: készítsd el a platform térkép...\" gyakorlatot hogyan implementálnád a saját munkádban?",
+      "options": [
+        "Lépésről lépésre követem a leckében leírt módszert, dokumentálom az eredményeket, és finomhangolom a folyamatot",
+        "Egyszerre próbálom ki mindent",
+        "Csak olvasom, nem alkalmazom",
+        "Várok, amíg mások megcsinálják"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day5",
+        "#hu",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "697766a7bfa810d766366e3b",
+      "uuid": "ac459a45-c08d-4cd5-8f77-c09efde53e82",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "A leckében leírt \"gyakorlat: válassz egy platformot (5-10 ...\" gyakorlatot hogyan implementálnád a saját munkádban?",
+      "options": [
+        "Lépésről lépésre követem a leckében leírt módszert, dokumentálom az eredményeket, és finomhangolom a folyamatot",
+        "Egyszerre próbálom ki mindent",
+        "Csak olvasom, nem alkalmazom",
+        "Várok, amíg mások megcsinálják"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day5",
+        "#hu",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "697766a7bfa810d766366e3c",
+      "uuid": "0a6d9818-dba6-4191-86e2-f29f5b95dde7",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "A leckében leírt \"Gyakorlat: készítsd el a platform térkép...\" gyakorlatot hogyan implementálnád a saját munkádban?",
+      "options": [
+        "Lépésről lépésre követem a leckében leírt módszert, dokumentálom az eredményeket, és finomhangolom a folyamatot",
+        "Egyszerre próbálom ki mindent",
+        "Csak olvasom, nem alkalmazom",
+        "Várok, amíg mások megcsinálják"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day5",
+        "#hu",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

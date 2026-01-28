@@ -1,0 +1,162 @@
+{
+  "backedUpAt": "2026-01-28T09:47:46.472Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_PT",
+    "name": "Produtividade 2026: Como Gerenciar Equipes e Tempo",
+    "language": "pt"
+  },
+  "lesson": {
+    "dayNumber": 2,
+    "title": "Tempo, energia, atenção: o que você gerencia na prática",
+    "lessonId": "PRODUCTIVITY_2026_PT_DAY_02"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a376360118c57912a21",
+      "uuid": "224bc129-996c-42c2-a51a-38594b47e4ad",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Quando você deve fazer as tarefas mais difíceis?",
+      "options": [
+        "Em nível de energia baixo",
+        "Em nível de energia de pico",
+        "Não importa quando",
+        "À noite quando todos dormem"
+      ],
+      "correctIndex": 1,
+      "hashtags": [
+        "#day-02",
+        "#foundation",
+        "#recall",
+        "#pt"
+      ]
+    },
+    {
+      "_id": "69776a376360118c57912a22",
+      "uuid": "dabb1dd1-f18b-4550-bfdf-f4fc08d212a4",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Quanto tempo leva para restaurar a atenção após uma interrupção?",
+      "options": [
+        "5 minutos",
+        "15-20 minutos",
+        "1 hora",
+        "Não é necessária restauração"
+      ],
+      "correctIndex": 1,
+      "hashtags": [
+        "#day-02",
+        "#scenario",
+        "#application",
+        "#pt"
+      ]
+    },
+    {
+      "_id": "69776a376360118c57912a23",
+      "uuid": "ee357257-1a8f-43cc-b71c-a824230cdda6",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Quanto tempo de buffer você deve deixar em sua agenda diária?",
+      "options": [
+        "0%",
+        "10%",
+        "20-30%",
+        "50%"
+      ],
+      "correctIndex": 2,
+      "hashtags": [
+        "#day-02",
+        "#purpose",
+        "#application",
+        "#pt"
+      ]
+    },
+    {
+      "_id": "69776a376360118c57912a24",
+      "uuid": "0c1a6e74-823a-4f1a-afd6-c1a4ae4b85a6",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Qual é o comprimento ideal de um bloco de trabalho profundo?",
+      "options": [
+        "30 minutos",
+        "60 minutos",
+        "90-120 minutos",
+        "4 horas"
+      ],
+      "correctIndex": 2,
+      "hashtags": [
+        "#day-02",
+        "#foundation",
+        "#recall",
+        "#pt"
+      ]
+    },
+    {
+      "_id": "69776a376360118c57912a25",
+      "uuid": "361ea091-eb41-4161-a26e-0168a00ced46",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ Você entende como tempo, energia e ate...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day2",
+        "#pt",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a376360118c57912a26",
+      "uuid": "fab4eb9f-ebc1-4d31-9ab7-c11b6cac440f",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Como o conceito \"Tempo, energia, atenção: o que você gerencia na pr...\", mencionado na lição, impacta o alcance de seus goals?",
+      "options": [
+        "Como descrito em detalhes na lição, Tempo, energia, atenção: o que... aumenta a eficácia e reduz os riscos",
+        "Sem impacto significativo",
+        "Importa apenas teoricamente",
+        "Apenas um elemento opcional"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day2",
+        "#pt",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a376360118c57912a27",
+      "uuid": "de80a85a-163f-4de1-9175-a4a3f9b42a74",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Quão importante é Energia no contexto de Tempo, energia, atenção: o que você gerencia na prática, conforme discutido na lição?",
+      "options": [
+        "Conforme descrito em detalhes na lição, Energia desempenha um papel crucial na otimização de processos e no alcance de objetivos",
+        "Apenas informações periféricas sem papel significativo",
+        "Apenas um conceito teórico sem aplicação prática",
+        "Não mencionado na lição"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day2",
+        "#pt",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

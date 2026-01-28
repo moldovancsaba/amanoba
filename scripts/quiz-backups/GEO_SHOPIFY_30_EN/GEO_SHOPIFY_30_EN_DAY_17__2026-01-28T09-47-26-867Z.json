@@ -1,0 +1,177 @@
+{
+  "backedUpAt": "2026-01-28T09:47:30.312Z",
+  "course": {
+    "courseId": "GEO_SHOPIFY_30_EN",
+    "name": "GEO Shopify – 30-day course",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 17,
+    "title": "Structured data check (schema)",
+    "lessonId": "GEO_SHOPIFY_30_EN_DAY_17"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a16b7889cedb02a2ace",
+      "uuid": "28000444-7695-4dbb-8cf4-c1fde7f479df",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "How does the concept \"Important fields:\n\nsku – Stock Keeping Unit\ngtin –...\" mentioned in the lesson impact achieving your goals?",
+      "options": [
+        "As described in detail in the lesson, Important fields:\n\nsku – Stock... increases effectiveness and reduces risk",
+        "No significant impact",
+        "Only matters theoretically",
+        "Only an optional element"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day17",
+        "#en",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a16b7889cedb02a2acf",
+      "uuid": "c4dbf508-0618-4395-81ca-0493d319a694",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"Practice: validate your schema (10-15 mi...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day17",
+        "#en",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a16b7889cedb02a2ad0",
+      "uuid": "c5726d0d-585c-409d-9014-0c28b4bab1ec",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"practice: fix one error (5-10 min)\nNow f...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day17",
+        "#en",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a16b7889cedb02a2ad1",
+      "uuid": "d3e3b4e8-dc4a-41c9-9cc3-f5215b391345",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"Practice: validate your schema (10-15 mi...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day17",
+        "#en",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a16b7889cedb02a2ad2",
+      "uuid": "eef5b9c8-4a2a-4ae3-bb56-0e599c0538f0",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is Structured in the context of Structured data check (schema) as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, Structured plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day17",
+        "#en",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a16b7889cedb02a2ad3",
+      "uuid": "998c32f6-a1bb-4f0d-92c1-96171000e96d",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is check in the context of Structured data check (schema) as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, check plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day17",
+        "#en",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a16b7889cedb02a2ad4",
+      "uuid": "40a2725a-d939-40a2-a329-c9d0a5835bc7",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is Important in the context of Structured data check (schema) as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, Important plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day17",
+        "#en",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

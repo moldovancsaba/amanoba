@@ -1,0 +1,164 @@
+{
+  "backedUpAt": "2026-01-28T09:45:19.577Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_VI",
+    "name": "Năng suất 2026: Cách quản lý nhóm và thời gian",
+    "language": "vi"
+  },
+  "lesson": {
+    "dayNumber": 3,
+    "title": "Phân cấp mục tiêu: tầm nhìn → kết quả → dự án → hành động tiếp theo",
+    "lessonId": "PRODUCTIVITY_2026_VI_DAY_03"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a1bbfaf87642652754b",
+      "uuid": "77f8abed-b64a-48ec-b8d7-2f5d4f4c16db",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Cấp độ cao nhất trong phân cấp mục tiêu là gì?",
+      "options": [
+        "Hành động tiếp theo",
+        "Dự án",
+        "Kết quả",
+        "Tầm nhìn"
+      ],
+      "correctIndex": 3,
+      "hashtags": [
+        "#day-03",
+        "#foundation",
+        "#recall",
+        "#vi"
+      ]
+    },
+    {
+      "_id": "69776a1bbfaf87642652754c",
+      "uuid": "9f26350d-d094-46a4-9b9a-21ba95c6184b",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Định nghĩa của hành động tiếp theo là gì?",
+      "options": [
+        "Một dự án lớn",
+        "Một kết quả có thể đo lường",
+        "Một bước cụ thể, có thể thực hiện (hôm nay, ngày mai)",
+        "Một mục tiêu dài hạn"
+      ],
+      "correctIndex": 2,
+      "hashtags": [
+        "#day-03",
+        "#scenario",
+        "#application",
+        "#vi"
+      ]
+    },
+    {
+      "_id": "69776a1bbfaf87642652754d",
+      "uuid": "72153b65-4df7-4d15-8474-469920549ad0",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Lỗi thường gặp khi làm dự án không có tầm nhìn là gì?",
+      "options": [
+        "Bạn tiến bộ quá chậm",
+        "Bạn không biết tại sao bạn làm điều đó",
+        "Bạn tiến bộ quá nhanh",
+        "Không có lỗi"
+      ],
+      "correctIndex": 1,
+      "hashtags": [
+        "#day-03",
+        "#foundation",
+        "#recall",
+        "#vi"
+      ]
+    },
+    {
+      "_id": "69776a1bbfaf87642652754e",
+      "uuid": "4d1d5b98-a736-4846-bd37-0d7e7fac3560",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ Bạn có tầm nhìn (3-5 năm).\n✅ Bạn có 2-...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day3",
+        "#vi",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a1bbfaf87642652754f",
+      "uuid": "47f18b2d-6d43-439d-b3da-97dc2c15cea9",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ Phân cấp kết nối logic: tầm nhìn → kết...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day3",
+        "#vi",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a1bbfaf876426527550",
+      "uuid": "0e336fa1-90f4-4c8d-ad3c-80ab864dfd13",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Khái niệm \"quan trọng của hành động tiếp theo\nJim Collins: \"G...\" được đề cập trong bài học ảnh hưởng như thế nào đến việc đạt được goals của bạn?",
+      "options": [
+        "Như đã mô tả chi tiết trong bài học, quan trọng của hành động tiếp ... tăng hiệu quả và giảm rủi ro",
+        "Không có tác động đáng kể",
+        "Chỉ quan trọng về mặt lý thuyết",
+        "Chỉ là yếu tố tùy chọn"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day3",
+        "#vi",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a1bbfaf876426527551",
+      "uuid": "80f5baf4-0ed8-4fb8-9392-1d43874ad5eb",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Tầm nhìn quan trọng như thế nào trong ngữ cảnh của Phân cấp mục tiêu: tầm nhìn → kết quả → dự án → hành động tiếp theo như được thảo luận trong bài học?",
+      "options": [
+        "Như đã mô tả chi tiết trong bài học, Tầm nhìn đóng vai trò quan trọng trong việc tối ưu hóa quy trình và đạt được mục tiêu",
+        "Chỉ là thông tin ngoại vi không có vai trò quan trọng",
+        "Chỉ là một khái niệm lý thuyết không có ứng dụng thực tế",
+        "Không được đề cập trong bài học"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day3",
+        "#vi",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

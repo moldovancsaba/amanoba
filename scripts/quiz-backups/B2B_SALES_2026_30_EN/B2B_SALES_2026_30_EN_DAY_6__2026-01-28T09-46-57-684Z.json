@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-28T09:47:01.079Z",
+  "course": {
+    "courseId": "B2B_SALES_2026_30_EN",
+    "name": "B2B Sales 2026 Masterclass",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 6,
+    "title": "Ideal Sales Process and Weekly Metrics",
+    "lessonId": "B2B_SALES_2026_30_EN_DAY_6"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a00167c31fb26f4f576",
+      "uuid": "9383e569-7cb4-452f-9ae8-270a7cf9e8a1",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"Exercise (10–15 minutes)\n\n  Write the 3 ...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day6",
+        "#en",
+        "#all-languages",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a00167c31fb26f4f577",
+      "uuid": "3d1492be-cd42-4698-b7c4-8ef1feefe223",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"Exercise (5–10 minutes)\nPick one metric ...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day6",
+        "#en",
+        "#all-languages",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a00167c31fb26f4f578",
+      "uuid": "d631825a-78e5-4699-b721-4234ca437eee",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"Exercise (10–15 minutes)\n\n  Write the 3 ...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day6",
+        "#en",
+        "#all-languages",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a00167c31fb26f4f579",
+      "uuid": "ca8a3b64-791a-4df4-8b17-aa982cad1ffd",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "How does the concept \"Ideal Sales Process and Weekly Metrics Define lead...\" mentioned in the lesson impact achieving your goals?",
+      "options": [
+        "As described in detail in the lesson, Ideal Sales Process and Weekly... increases effectiveness and reduces risk",
+        "No significant impact",
+        "Only matters theoretically",
+        "Only an optional element"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day6",
+        "#en",
+        "#all-languages",
+        "#sales",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a00167c31fb26f4f57a",
+      "uuid": "3e0770be-57be-4929-ab9e-6555fa91852c",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "In the \"Ideal Sales Process and Weekly Metrics\" lesson, what role does Qualified discovery play?",
+      "options": [
+        "As described in detail in the lesson, Qualified discovery plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day6",
+        "#en",
+        "#all-languages",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a00167c31fb26f4f57b",
+      "uuid": "d0995533-dbf1-4d8d-b241-76a9f96382cd",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is Good: in the context of Ideal Sales Process and Weekly Metrics as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, Good: plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day6",
+        "#en",
+        "#all-languages",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a00167c31fb26f4f57c",
+      "uuid": "ac950a56-a8bc-474f-8586-3770c98e5e75",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is Sales in the context of Ideal Sales Process and Weekly Metrics as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, Sales plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day6",
+        "#en",
+        "#all-languages",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

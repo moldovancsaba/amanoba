@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-28T09:47:01.204Z",
+  "course": {
+    "courseId": "B2B_SALES_2026_30_EN",
+    "name": "B2B Sales 2026 Masterclass",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 9,
+    "title": "Enrichment and Data QA",
+    "lessonId": "B2B_SALES_2026_30_EN_DAY_9"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a00167c31fb26f4f5a4",
+      "uuid": "cd1bfdda-57ed-4991-bbd7-38216495b40c",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"Exercise (10–15 minutes)\n\n  Write the mi...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day9",
+        "#en",
+        "#all-languages",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a00167c31fb26f4f5a5",
+      "uuid": "c0c46336-5855-4dce-8395-06420bfbc3ce",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"Exercise (5–10 minutes)\nWrite 3 rules fo...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day9",
+        "#en",
+        "#all-languages",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a00167c31fb26f4f5a6",
+      "uuid": "906ed10c-eda5-465a-a023-331a6cff2304",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"Exercise (10–15 minutes)\n\n  Write the mi...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day9",
+        "#en",
+        "#all-languages",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a00167c31fb26f4f5a7",
+      "uuid": "de422bcc-2a22-4035-a30f-13eca9bbacca",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "How does the concept \"Enrichment and Data QA Define minimum data, cut no...\" mentioned in the lesson impact achieving your goals?",
+      "options": [
+        "As described in detail in the lesson, Enrichment and Data QA Define ... increases effectiveness and reduces risk",
+        "No significant impact",
+        "Only matters theoretically",
+        "Only an optional element"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day9",
+        "#en",
+        "#all-languages",
+        "#sales",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a00167c31fb26f4f5a8",
+      "uuid": "94a5c006-9b45-4f2d-a7bb-abcd6fde39e0",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is Bad: in the context of Enrichment and Data QA as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, Bad: plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day9",
+        "#en",
+        "#all-languages",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a00167c31fb26f4f5a9",
+      "uuid": "4da2ad82-b453-4195-9d32-a729fc0ff712",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is Data in the context of Enrichment and Data QA as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, Data plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day9",
+        "#en",
+        "#all-languages",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a00167c31fb26f4f5aa",
+      "uuid": "63914257-dff1-441e-96ec-2639c007968c",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "What does the \"Learning Goal\" section contain in the lesson?",
+      "options": [
+        "Specific information, methods, and examples related to learning goal as described in detail in the lesson",
+        "Only general information",
+        "Only theoretical knowledge",
+        "No specific content"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day9",
+        "#en",
+        "#all-languages",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

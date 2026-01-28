@@ -1,0 +1,177 @@
+{
+  "backedUpAt": "2026-01-28T09:47:36.101Z",
+  "course": {
+    "courseId": "SALES_PRODUCTIVITY_30_EN",
+    "name": "Build Your Sales – 30 Days to More Deals",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 4,
+    "title": "Conversion Rate Optimization – How to Improve Your Numbers",
+    "lessonId": "SALES_PRODUCTIVITY_30_EN_DAY_04"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a09934727fc0613f441",
+      "uuid": "470c9bd0-96c7-4375-be2e-c79ea5bd69ac",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"Practice 1 – Identify weakest link (15 m...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day4",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a09934727fc0613f442",
+      "uuid": "b413775b-c521-4f3e-932b-3ff29c9a1e0d",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"Practice 2 – CRO action plan (20 min)\nCr...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day4",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a09934727fc0613f443",
+      "uuid": "bedc3228-54b1-4012-8b9c-e572f868f4a4",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"Practice 1 – Identify weakest link (15 m...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day4",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a09934727fc0613f444",
+      "uuid": "17e21d23-63b7-4f89-af1b-2136a9102d85",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "How does the concept \"Conversion Rate Optimization – How to Improve Your...\" mentioned in the lesson impact achieving your goals?",
+      "options": [
+        "As described in detail in the lesson, Conversion Rate Optimization –... increases effectiveness and reduces risk",
+        "No significant impact",
+        "Only matters theoretically",
+        "Only an optional element"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day4",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#sales",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a09934727fc0613f445",
+      "uuid": "d6981046-f099-46c6-87a0-d2aebf62a351",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is Quick results: in the context of Conversion Rate Optimization – How to Improve Your Numbers as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, Quick results: plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day4",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a09934727fc0613f446",
+      "uuid": "162d8464-96e7-44de-9236-a1d77a937ed1",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "In the \"Conversion Rate Optimization – How to Improve Your Numbers\" lesson, what role does Competitive advantage: play?",
+      "options": [
+        "As described in detail in the lesson, Competitive advantage: plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day4",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a09934727fc0613f447",
+      "uuid": "2c1d553e-a0fe-49fd-a271-97df8946cfbc",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is Example: in the context of Conversion Rate Optimization – How to Improve Your Numbers as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, Example: plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day4",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

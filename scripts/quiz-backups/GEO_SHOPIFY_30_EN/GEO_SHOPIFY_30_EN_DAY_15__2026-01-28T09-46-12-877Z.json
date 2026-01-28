@@ -1,0 +1,177 @@
+{
+  "backedUpAt": "2026-01-28T09:46:15.310Z",
+  "course": {
+    "courseId": "GEO_SHOPIFY_30_EN",
+    "name": "GEO Shopify – 30-day course",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 15,
+    "title": "Variant clarity: no mix-ups",
+    "lessonId": "GEO_SHOPIFY_30_EN_DAY_15"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a15b7889cedb02a2aba",
+      "uuid": "7df37dc4-ee56-4506-882d-3719fbae26ca",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"Practice: standardize your variants (10-...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day15",
+        "#en",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a15b7889cedb02a2abb",
+      "uuid": "6852a7da-94c0-42bb-a4a5-1fc130cb8cfb",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"practice: expand to more products (5-10 ...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day15",
+        "#en",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a15b7889cedb02a2abc",
+      "uuid": "7e71a923-bb59-4630-ad0f-b598f0a3d329",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"Practice: standardize your variants (10-...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day15",
+        "#en",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a15b7889cedb02a2abd",
+      "uuid": "e5df6a67-6e8d-4ced-b1bc-3d8055f24d81",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "What does the \"What you'll learn today\" section contain in the lesson?",
+      "options": [
+        "Specific information, methods, and examples related to what you'll learn today as described in detail in the lesson",
+        "Only general information",
+        "Only theoretical knowledge",
+        "No specific content"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day15",
+        "#en",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a15b7889cedb02a2abe",
+      "uuid": "0e20bf83-6b4e-44ba-abb3-038ee0f85905",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "What does the \"Why this matters to you\" section contain in the lesson?",
+      "options": [
+        "Specific information, methods, and examples related to why this matters to you as described in detail in the lesson",
+        "Only general information",
+        "Only theoretical knowledge",
+        "No specific content"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day15",
+        "#en",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a15b7889cedb02a2abf",
+      "uuid": "8ec8fe63-a0d7-45d2-8ece-fbdd1903fced",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "What does the \"Variant labeling: what to check\" section contain in the lesson?",
+      "options": [
+        "Specific information, methods, and examples related to variant labeling: what to check as described in detail in the lesson",
+        "Only general information",
+        "Only theoretical knowledge",
+        "No specific content"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day15",
+        "#en",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a15b7889cedb02a2ac0",
+      "uuid": "ba296caa-b3d8-4119-b27f-523556f867fc",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "What does the \"Examples: what works, what doesn't?\" section contain in the lesson?",
+      "options": [
+        "Specific information, methods, and examples related to examples: what works, what doesn't? as described in detail in the lesson",
+        "Only general information",
+        "Only theoretical knowledge",
+        "No specific content"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day15",
+        "#en",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

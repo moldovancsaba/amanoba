@@ -71,6 +71,9 @@ export function assessLessonQuality(params: {
     'ví dụ',
     'contoh',
     'exemplo',
+    // AR
+    'مثال',
+    'على سبيل المثال',
     'उदाहरण',
   ]);
   const hasGoodBadContrast = hasAny(lower, [

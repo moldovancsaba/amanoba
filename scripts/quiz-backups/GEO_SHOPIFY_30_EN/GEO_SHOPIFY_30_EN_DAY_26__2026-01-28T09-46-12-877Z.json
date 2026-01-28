@@ -1,0 +1,177 @@
+{
+  "backedUpAt": "2026-01-28T09:46:15.684Z",
+  "course": {
+    "courseId": "GEO_SHOPIFY_30_EN",
+    "name": "GEO Shopify – 30-day course",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 26,
+    "title": "Anti-spam and quality for AI-assisted content",
+    "lessonId": "GEO_SHOPIFY_30_EN_DAY_26"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a17b7889cedb02a2b28",
+      "uuid": "ef61963a-4287-4cb4-bc51-4a737c8b0ada",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"Practice: create your checklist (10-15 m...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day26",
+        "#en",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a17b7889cedb02a2b29",
+      "uuid": "56623188-743c-445d-b794-b610a92bb8c9",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"practice: update one section (5-10 min)\n...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day26",
+        "#en",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a17b7889cedb02a2b2a",
+      "uuid": "eaaef0ca-52c4-473d-98c9-1514a71720ec",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"Practice: create your checklist (10-15 m...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day26",
+        "#en",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a17b7889cedb02a2b2b",
+      "uuid": "a5a73993-a7b1-442f-8d56-4ddcf46f0728",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "What does the \"What you'll learn today\" section contain in the lesson?",
+      "options": [
+        "Specific information, methods, and examples related to what you'll learn today as described in detail in the lesson",
+        "Only general information",
+        "Only theoretical knowledge",
+        "No specific content"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day26",
+        "#en",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a17b7889cedb02a2b2c",
+      "uuid": "0cd272f9-2832-45c9-a83d-eccc812a1531",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "What does the \"Why this matters to you\" section contain in the lesson?",
+      "options": [
+        "Specific information, methods, and examples related to why this matters to you as described in detail in the lesson",
+        "Only general information",
+        "Only theoretical knowledge",
+        "No specific content"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day26",
+        "#en",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a17b7889cedb02a2b2d",
+      "uuid": "3089db5d-0dc2-479d-bd3f-da1c6ee701cd",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "What does the \"Anti-spam and quality: what to include\" section contain in the lesson?",
+      "options": [
+        "Specific information, methods, and examples related to anti-spam and quality: what to include as described in detail in the lesson",
+        "Only general information",
+        "Only theoretical knowledge",
+        "No specific content"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day26",
+        "#en",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a17b7889cedb02a2b2e",
+      "uuid": "88c481d9-60e7-4f8b-bf1b-0fba59554743",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "What does the \"Examples: what works, what doesn't?\" section contain in the lesson?",
+      "options": [
+        "Specific information, methods, and examples related to examples: what works, what doesn't? as described in detail in the lesson",
+        "Only general information",
+        "Only theoretical knowledge",
+        "No specific content"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day26",
+        "#en",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

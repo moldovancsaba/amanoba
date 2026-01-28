@@ -1,0 +1,177 @@
+{
+  "backedUpAt": "2026-01-28T09:47:00.294Z",
+  "course": {
+    "courseId": "GEO_SHOPIFY_30_EN",
+    "name": "GEO Shopify – 30-day course",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 19,
+    "title": "Image and video GEO: alt, filename, variant visuals",
+    "lessonId": "GEO_SHOPIFY_30_EN_DAY_19"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a16b7889cedb02a2ae2",
+      "uuid": "8f59a6a5-c0c1-4117-95c9-9a1e89506554",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"Practice: fix your images and videos (10...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day19",
+        "#en",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a16b7889cedb02a2ae3",
+      "uuid": "eb494551-92d0-4fdc-bcc6-d023d98ca7cb",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"practice: create a template (5-10 min)\nN...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day19",
+        "#en",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a16b7889cedb02a2ae4",
+      "uuid": "2b683263-c5ab-4011-a205-842a8b369609",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"Practice: fix your images and videos (10...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day19",
+        "#en",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a16b7889cedb02a2ae5",
+      "uuid": "87860e99-a752-4aec-b1a8-21b6393a5943",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "What does the \"What you'll learn today\" section contain in the lesson?",
+      "options": [
+        "Specific information, methods, and examples related to what you'll learn today as described in detail in the lesson",
+        "Only general information",
+        "Only theoretical knowledge",
+        "No specific content"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day19",
+        "#en",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a16b7889cedb02a2ae6",
+      "uuid": "f5c23045-4ac1-40ea-8e8e-f587ab8987ac",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "What does the \"Why this matters to you\" section contain in the lesson?",
+      "options": [
+        "Specific information, methods, and examples related to why this matters to you as described in detail in the lesson",
+        "Only general information",
+        "Only theoretical knowledge",
+        "No specific content"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day19",
+        "#en",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a16b7889cedb02a2ae7",
+      "uuid": "cb08dbf5-fd74-4bb7-ab33-4c6c882e48d5",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "What does the \"Image optimization: what to include\" section contain in the lesson?",
+      "options": [
+        "Specific information, methods, and examples related to image optimization: what to include as described in detail in the lesson",
+        "Only general information",
+        "Only theoretical knowledge",
+        "No specific content"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day19",
+        "#en",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a16b7889cedb02a2ae8",
+      "uuid": "d66de7f9-2d11-4180-8003-56fbbe693ff7",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "What does the \"Examples: what works, what doesn't?\" section contain in the lesson?",
+      "options": [
+        "Specific information, methods, and examples related to examples: what works, what doesn't? as described in detail in the lesson",
+        "Only general information",
+        "Only theoretical knowledge",
+        "No specific content"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day19",
+        "#en",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,164 @@
+{
+  "backedUpAt": "2026-01-28T09:46:21.391Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_VI",
+    "name": "Năng suất 2026: Cách quản lý nhóm và thời gian",
+    "language": "vi"
+  },
+  "lesson": {
+    "dayNumber": 6,
+    "title": "Thu thập: hộp thư đến, danh sách kích hoạt, thói quen thu thập",
+    "lessonId": "PRODUCTIVITY_2026_VI_DAY_06"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a1cbfaf876426527593",
+      "uuid": "ef292088-fe76-42cf-a4b7-af6202c5c2f1",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Bạn nên làm trống hộp thư đến bao lâu một lần?",
+      "options": [
+        "Một lần một tuần",
+        "Một lần một tháng",
+        "Ít nhất một lần mỗi ngày",
+        "Không bao giờ"
+      ],
+      "correctIndex": 2,
+      "hashtags": [
+        "#day-06",
+        "#foundation",
+        "#recall",
+        "#vi"
+      ]
+    },
+    {
+      "_id": "69776a1cbfaf876426527594",
+      "uuid": "06b6e291-778a-4108-b2b0-399fb219a6a9",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Điều gì xảy ra nếu một cái gì đó không được thu thập?",
+      "options": [
+        "Nó được quản lý tự động",
+        "Nó bị mất",
+        "Nó bị xóa tự động",
+        "Không có gì"
+      ],
+      "correctIndex": 1,
+      "hashtags": [
+        "#day-06",
+        "#scenario",
+        "#application",
+        "#vi"
+      ]
+    },
+    {
+      "_id": "69776a1cbfaf876426527595",
+      "uuid": "0350e593-ccb5-48b9-9fcc-3c7b56a8786c",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Làm thế nào để phát triển thói quen thu thập?",
+      "options": [
+        "Sử dụng nó một lần",
+        "Lặp lại cho đến khi trở nên tự động",
+        "Không bao giờ sử dụng",
+        "Chỉ sử dụng vào cuối tuần"
+      ],
+      "correctIndex": 1,
+      "hashtags": [
+        "#day-06",
+        "#purpose",
+        "#application",
+        "#vi"
+      ]
+    },
+    {
+      "_id": "69776a1cbfaf876426527596",
+      "uuid": "3a9bbda2-911d-4ec3-8988-b9db8d9189b1",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ Bạn có hệ thống hộp thư đến đáng tin c...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day6",
+        "#vi",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a1cbfaf876426527597",
+      "uuid": "634d85f1-cca2-4a1e-a50a-37523363dc3c",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Khái niệm \"quan trọng của việc thu thập: nếu không được thu t...\" được đề cập trong bài học ảnh hưởng như thế nào đến việc đạt được goals của bạn?",
+      "options": [
+        "Như đã mô tả chi tiết trong bài học, quan trọng của việc thu thập: ... tăng hiệu quả và giảm rủi ro",
+        "Không có tác động đáng kể",
+        "Chỉ quan trọng về mặt lý thuyết",
+        "Chỉ là yếu tố tùy chọn"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day6",
+        "#vi",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a1cbfaf876426527598",
+      "uuid": "e8022b0d-7de2-4fc3-8205-d514dc149e4d",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Danh sách kích hoạt đóng vai trò gì trong bài học \"Thu thập: hộp thư đến, danh sách kích hoạt, thói quen thu thập\"?",
+      "options": [
+        "Như đã mô tả chi tiết trong bài học, Danh sách kích hoạt đóng vai trò quan trọng trong việc tối ưu hóa quy trình và đạt được mục tiêu",
+        "Chỉ là thông tin ngoại vi không có vai trò quan trọng",
+        "Chỉ là một khái niệm lý thuyết không có ứng dụng thực tế",
+        "Không được đề cập trong bài học"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day6",
+        "#vi",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a1cbfaf876426527599",
+      "uuid": "cce834b8-27ab-46a9-9e1c-6397395e48b5",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Định nghĩa quan trọng như thế nào trong ngữ cảnh của Thu thập: hộp thư đến, danh sách kích hoạt, thói quen thu thập như được thảo luận trong bài học?",
+      "options": [
+        "Như đã mô tả chi tiết trong bài học, Định nghĩa đóng vai trò quan trọng trong việc tối ưu hóa quy trình và đạt được mục tiêu",
+        "Chỉ là thông tin ngoại vi không có vai trò quan trọng",
+        "Chỉ là một khái niệm lý thuyết không có ứng dụng thực tế",
+        "Không được đề cập trong bài học"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day6",
+        "#vi",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

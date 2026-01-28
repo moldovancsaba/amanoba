@@ -1,0 +1,177 @@
+{
+  "backedUpAt": "2026-01-28T09:47:36.730Z",
+  "course": {
+    "courseId": "SALES_PRODUCTIVITY_30_EN",
+    "name": "Build Your Sales – 30 Days to More Deals",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 11,
+    "title": "Pricing Psychology – How Does Price Affect Buying Decisions?",
+    "lessonId": "SALES_PRODUCTIVITY_30_EN_DAY_11"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a0a934727fc0613f4b1",
+      "uuid": "bfaa2e9a-7e43-4644-9ba0-fedb0fc9b423",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"Practice 1 – Pricing strategy (20 min)\n\n...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day11",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a0a934727fc0613f4b2",
+      "uuid": "24f3cc39-d04c-4515-a600-906c781436ef",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"Practice 2 – Price communication templat...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day11",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a0a934727fc0613f4b3",
+      "uuid": "3fad7d35-0b7c-4131-8151-e87325b4c3fb",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"Practice 1 – Pricing strategy (20 min)\n\n...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day11",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a0a934727fc0613f4b4",
+      "uuid": "b8107d3f-3964-4e56-80f8-bc13ba9b5436",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "How does the concept \"Pricing Psychology – How Does Price Affect Buying ...\" mentioned in the lesson impact achieving your goals?",
+      "options": [
+        "As described in detail in the lesson, Pricing Psychology – How Does ... increases effectiveness and reduces risk",
+        "No significant impact",
+        "Only matters theoretically",
+        "Only an optional element"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day11",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#sales",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a0a934727fc0613f4b5",
+      "uuid": "5fb0abc4-8e41-4aa7-abbe-1b1f808a23ba",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "In the \"Pricing Psychology – How Does Price Affect Buying Decisions?\" lesson, what role does Better conversion: play?",
+      "options": [
+        "As described in detail in the lesson, Better conversion: plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day11",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a0a934727fc0613f4b6",
+      "uuid": "7a32cf64-ef19-480b-9df9-0f31ed444845",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "In the \"Pricing Psychology – How Does Price Affect Buying Decisions?\" lesson, what role does Competitive advantage: play?",
+      "options": [
+        "As described in detail in the lesson, Competitive advantage: plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day11",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a0a934727fc0613f4b7",
+      "uuid": "44f34ebd-220e-4c55-bfeb-bfbdc6f3add3",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is 2. Anchoring in the context of Pricing Psychology – How Does Price Affect Buying Decisions? as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, 2. Anchoring plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day11",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

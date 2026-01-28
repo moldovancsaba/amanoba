@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-28T09:47:06.465Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_VI",
+    "name": "Năng suất 2026: Cách quản lý nhóm và thời gian",
+    "language": "vi"
+  },
+  "lesson": {
+    "dayNumber": 8,
+    "title": "Chi phí chuyển đổi ngữ cảnh: Phần dư chú ý, Xử lý theo lô, Khối công việc sâu",
+    "lessonId": "PRODUCTIVITY_2026_VI_DAY_8"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a1cbfaf8764265275b2",
+      "uuid": "146da576-c9de-4696-ab65-886b939ab9eb",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ Tôi hiểu phần dư chú ý là gì.\n✅ Tôi có...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day8",
+        "#vi",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a1cbfaf8764265275b3",
+      "uuid": "fb4dcae0-9e61-4f9d-81c7-7ea34736f081",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ Tôi có các quy tắc cho khối công việc ...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day8",
+        "#vi",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a1cbfaf8764265275b4",
+      "uuid": "9875dd6c-f308-4166-ba34-22cf61440dfd",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ Tôi hiểu phần dư chú ý là gì.\n✅ Tôi có...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day8",
+        "#vi",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a1cbfaf8764265275b5",
+      "uuid": "7253d2dd-b9a0-4680-a987-6692ca5c3f59",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Khái niệm \"Chi phí chuyển đổi ngữ cảnh: Phần dư chú ý, Xử lý ...\" được đề cập trong bài học ảnh hưởng như thế nào đến việc đạt được goals của bạn?",
+      "options": [
+        "Như đã mô tả chi tiết trong bài học, Chi phí chuyển đổi ngữ cảnh: P... tăng hiệu quả và giảm rủi ro",
+        "Không có tác động đáng kể",
+        "Chỉ quan trọng về mặt lý thuyết",
+        "Chỉ là yếu tố tùy chọn"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day8",
+        "#vi",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a1cbfaf8764265275b6",
+      "uuid": "46be148a-4eea-409e-9170-62bd5c37e5cc",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Mất năng suất quan trọng như thế nào trong ngữ cảnh của Chi phí chuyển đổi ngữ cảnh: Phần dư chú ý, Xử lý theo lô, Khối công việc sâu như được thảo luận trong bài học?",
+      "options": [
+        "Như đã mô tả chi tiết trong bài học, Mất năng suất đóng vai trò quan trọng trong việc tối ưu hóa quy trình và đạt được mục tiêu",
+        "Chỉ là thông tin ngoại vi không có vai trò quan trọng",
+        "Chỉ là một khái niệm lý thuyết không có ứng dụng thực tế",
+        "Không được đề cập trong bài học"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day8",
+        "#vi",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a1cbfaf8764265275b7",
+      "uuid": "3e7d1973-e58c-441e-8a89-d9e32e43170a",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Stress tăng quan trọng như thế nào trong ngữ cảnh của Chi phí chuyển đổi ngữ cảnh: Phần dư chú ý, Xử lý theo lô, Khối công việc sâu như được thảo luận trong bài học?",
+      "options": [
+        "Như đã mô tả chi tiết trong bài học, Stress tăng đóng vai trò quan trọng trong việc tối ưu hóa quy trình và đạt được mục tiêu",
+        "Chỉ là thông tin ngoại vi không có vai trò quan trọng",
+        "Chỉ là một khái niệm lý thuyết không có ứng dụng thực tế",
+        "Không được đề cập trong bài học"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day8",
+        "#vi",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a1cbfaf8764265275b8",
+      "uuid": "9d04decc-089e-4f8b-a6e1-e44a494f2ec4",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Lợi ích quan trọng như thế nào trong ngữ cảnh của Chi phí chuyển đổi ngữ cảnh: Phần dư chú ý, Xử lý theo lô, Khối công việc sâu như được thảo luận trong bài học?",
+      "options": [
+        "Như đã mô tả chi tiết trong bài học, Lợi ích đóng vai trò quan trọng trong việc tối ưu hóa quy trình và đạt được mục tiêu",
+        "Chỉ là thông tin ngoại vi không có vai trò quan trọng",
+        "Chỉ là một khái niệm lý thuyết không có ứng dụng thực tế",
+        "Không được đề cập trong bài học"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day8",
+        "#vi",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

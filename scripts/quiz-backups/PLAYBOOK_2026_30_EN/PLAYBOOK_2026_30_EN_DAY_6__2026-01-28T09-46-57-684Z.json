@@ -1,0 +1,163 @@
+{
+  "backedUpAt": "2026-01-28T09:47:01.528Z",
+  "course": {
+    "courseId": "PLAYBOOK_2026_30_EN",
+    "name": "The Playbook 2026 – Masterclass for Designers",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 6,
+    "title": "Color as Meaning, Not Decoration",
+    "lessonId": "PLAYBOOK_2026_30_EN_DAY_6"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a44bbb88a1cf4b2dea0",
+      "uuid": "1caff906-9738-4440-a930-a1b9493ff7d7",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"Exercise (10–15 minutes)\n\n  Map the sema...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day6",
+        "#en",
+        "#all-languages",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a44bbb88a1cf4b2dea1",
+      "uuid": "9e6e2a50-5ed9-46f7-bbae-ad8d58d0e42a",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"Exercise (5–10 minutes)\nApply the color ...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day6",
+        "#en",
+        "#all-languages",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a44bbb88a1cf4b2dea2",
+      "uuid": "881c18c0-c4d3-4a5d-adcc-f7413a326959",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"Exercise (10–15 minutes)\n\n  Map the sema...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day6",
+        "#en",
+        "#all-languages",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a44bbb88a1cf4b2dea3",
+      "uuid": "a2a0f709-0cee-4f51-84cd-d69aa8545756",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "How does the concept \"Color as Meaning, Not Decoration Build a semantic ...\" mentioned in the lesson impact achieving your goals?",
+      "options": [
+        "As described in detail in the lesson, Color as Meaning, Not Decorati... increases effectiveness and reduces risk",
+        "No significant impact",
+        "Only matters theoretically",
+        "Only an optional element"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day6",
+        "#en",
+        "#all-languages",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a44bbb88a1cf4b2dea4",
+      "uuid": "d5fa6798-6dc1-49f3-914d-6e6c10006412",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is Good: in the context of Color as Meaning, Not Decoration as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, Good: plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day6",
+        "#en",
+        "#all-languages",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a44bbb88a1cf4b2dea5",
+      "uuid": "6b4cccc4-38dc-4736-be70-d75849f9d138",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is Meaning in the context of Color as Meaning, Not Decoration as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, Meaning plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day6",
+        "#en",
+        "#all-languages",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a44bbb88a1cf4b2dea6",
+      "uuid": "1004c002-b9ac-436c-9274-5bfa1cbbae08",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is Bad: in the context of Color as Meaning, Not Decoration as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, Bad: plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day6",
+        "#en",
+        "#all-languages",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,162 @@
+{
+  "backedUpAt": "2026-01-28T09:47:46.336Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_PT",
+    "name": "Produtividade 2026: Como Gerenciar Equipes e Tempo",
+    "language": "pt"
+  },
+  "lesson": {
+    "dayNumber": 1,
+    "title": "Definição de produtividade: output, outcome e restrições",
+    "lessonId": "PRODUCTIVITY_2026_PT_DAY_01"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a366360118c579129db",
+      "uuid": "6897a09c-70e0-4805-a919-c0fb5e594025",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Qual é a diferença entre output e outcome?",
+      "options": [
+        "Output é a quantidade de atividades, outcome é a mudança ou impacto real",
+        "Output e outcome são a mesma coisa",
+        "Outcome é a quantidade de atividades, output é o impacto real",
+        "Não há diferença entre eles"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day-01",
+        "#scenario",
+        "#application",
+        "#pt"
+      ]
+    },
+    {
+      "_id": "69776a366360118c579129dc",
+      "uuid": "4c8166cf-5671-4049-a982-ed50202afda3",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Qual NÃO é considerado uma restrição para produtividade?",
+      "options": [
+        "Tempo",
+        "Energia",
+        "Atenção",
+        "O número de atividades"
+      ],
+      "correctIndex": 3,
+      "hashtags": [
+        "#day-01",
+        "#foundation",
+        "#recall",
+        "#pt"
+      ]
+    },
+    {
+      "_id": "69776a366360118c579129dd",
+      "uuid": "7bb009e3-0752-4293-821a-625708e100ae",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Qual é a definição correta de produtividade?",
+      "options": [
+        "Número máximo de atividades",
+        "Outcome / restrições (resultados relativos aos limites)",
+        "Mais output é sempre melhor",
+        "Não há necessidade de gerenciar restrições"
+      ],
+      "correctIndex": 1,
+      "hashtags": [
+        "#day-01",
+        "#purpose",
+        "#application",
+        "#pt"
+      ]
+    },
+    {
+      "_id": "69776a366360118c579129de",
+      "uuid": "fcf995da-9e96-4264-9d5d-78ec09498f23",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Por que o foco em outcome é importante em vez de foco em output?",
+      "options": [
+        "Porque output alto garante automaticamente bons resultados",
+        "Porque outcome traz valor real, não a quantidade de atividades",
+        "Porque output é mais fácil de medir",
+        "Porque não há diferença"
+      ],
+      "correctIndex": 1,
+      "hashtags": [
+        "#day-01",
+        "#foundation",
+        "#recall",
+        "#pt"
+      ]
+    },
+    {
+      "_id": "69776a366360118c579129df",
+      "uuid": "740c7e69-8e57-4747-b2d0-ac3a0f8d863f",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ Você distingue entre output e outcome....\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day1",
+        "#pt",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a366360118c579129e0",
+      "uuid": "ac93b817-4dd2-4a79-b578-4917533f3bb6",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Como o conceito \"Identificar suas restrições pessoais (tempo, energ...\", mencionado na lição, impacta o alcance de seus goals?",
+      "options": [
+        "Como descrito em detalhes na lição, Identificar suas restrições pe... aumenta a eficácia e reduz os riscos",
+        "Sem impacto significativo",
+        "Importa apenas teoricamente",
+        "Apenas um elemento opcional"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day1",
+        "#pt",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a366360118c579129e1",
+      "uuid": "f12f8c0b-cdc2-48a3-859b-b882206adfc4",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Quão importante é Outcome no contexto de Definição de produtividade: output, outcome e restrições, conforme discutido na lição?",
+      "options": [
+        "Conforme descrito em detalhes na lição, Outcome desempenha um papel crucial na otimização de processos e no alcance de objetivos",
+        "Apenas informações periféricas sem papel significativo",
+        "Apenas um conceito teórico sem aplicação prática",
+        "Não mencionado na lição"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day1",
+        "#pt",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

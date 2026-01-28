@@ -1,0 +1,166 @@
+{
+  "backedUpAt": "2026-01-28T09:45:19.144Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_PL",
+    "name": "Produktywność 2026: Jak zarządzać zespołami i czasem",
+    "language": "pl"
+  },
+  "lesson": {
+    "dayNumber": 4,
+    "title": "Nawyki vs systemy: dlaczego systemy lepiej się skalują",
+    "lessonId": "PRODUCTIVITY_2026_PL_DAY_04"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a318260c12d7a7ac5e4",
+      "uuid": "916188d8-00dd-4c8f-9976-fb5545d3f0c2",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Jaka jest główna różnica między nawykami a systemami?",
+      "options": [
+        "Brak różnicy",
+        "Nawyki się skalują, systemy nie",
+        "Systemy się skalują, nawyki nie",
+        "Oba są takie same"
+      ],
+      "correctIndex": 2,
+      "hashtags": [
+        "#day-04",
+        "#foundation",
+        "#recall",
+        "#pl"
+      ]
+    },
+    {
+      "_id": "69776a318260c12d7a7ac5e5",
+      "uuid": "afd5bc96-b7be-4646-bb5e-2a14e146cc33",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Kiedy powinieneś używać systemu zamiast nawyku?",
+      "options": [
+        "Zawsze",
+        "Gdy musi działać z innymi",
+        "Nigdy",
+        "Tylko w weekendy"
+      ],
+      "correctIndex": 1,
+      "hashtags": [
+        "#day-04",
+        "#purpose",
+        "#application",
+        "#pl"
+      ]
+    },
+    {
+      "_id": "69776a318260c12d7a7ac5e6",
+      "uuid": "286930cc-107e-4285-b87c-a021401b8802",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ Rozumiesz różnicę między nawykami a sy...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day4",
+        "#pl",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a318260c12d7a7ac5e7",
+      "uuid": "2a55c91b-7700-4cd3-bdf5-562a50a92011",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ Rozumiesz różnicę między nawykami a sy...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day4",
+        "#pl",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a318260c12d7a7ac5e8",
+      "uuid": "8ea27dfb-d163-4813-99bf-6c6eb4d19cdd",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Jak koncepcja \"Nawyki vs systemy: dlaczego systemy lepiej się ska...\", wspomniana w lekcji, wpływa na osiągnięcie twoich goals?",
+      "options": [
+        "Jak szczegółowo opisano w lekcji, Nawyki vs systemy: dlaczego sy... zwiększa skuteczność i zmniejsza ryzyko",
+        "Brak znaczącego wpływu",
+        "Ma znaczenie tylko teoretycznie",
+        "Tylko opcjonalny element"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day4",
+        "#pl",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a318260c12d7a7ac5e9",
+      "uuid": "380d7ff6-1b98-4895-9211-944cec3bf896",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Jak ważny jest Systemy w kontekście Nawyki vs systemy: dlaczego systemy lepiej się skalują, jak omówiono w lekcji?",
+      "options": [
+        "Jak szczegółowo opisano w lekcji, Systemy odgrywa kluczową rolę w optymalizacji procesów i osiąganiu celów",
+        "Tylko peryferyjne informacje bez znaczącej roli",
+        "Tylko teoretyczna koncepcja bez praktycznego zastosowania",
+        "Nie wspomniano w lekcji"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day4",
+        "#pl",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a318260c12d7a7ac5ea",
+      "uuid": "fb6455ad-7b31-4c51-8ea7-cbf5e7605770",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Jak ważny jest Zalety w kontekście Nawyki vs systemy: dlaczego systemy lepiej się skalują, jak omówiono w lekcji?",
+      "options": [
+        "Jak szczegółowo opisano w lekcji, Zalety odgrywa kluczową rolę w optymalizacji procesów i osiąganiu celów",
+        "Tylko peryferyjne informacje bez znaczącej roli",
+        "Tylko teoretyczna koncepcja bez praktycznego zastosowania",
+        "Nie wspomniano w lekcji"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day4",
+        "#pl",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

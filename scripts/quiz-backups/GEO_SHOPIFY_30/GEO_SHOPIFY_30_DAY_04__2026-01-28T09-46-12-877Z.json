@@ -1,0 +1,128 @@
+{
+  "backedUpAt": "2026-01-28T09:46:22.889Z",
+  "course": {
+    "courseId": "GEO_SHOPIFY_30",
+    "name": "GEO Shopify – 30 napos kurzus",
+    "language": "hu"
+  },
+  "lesson": {
+    "dayNumber": 4,
+    "title": "„Sell in chat\": befolyás vs tranzakció",
+    "lessonId": "GEO_SHOPIFY_30_DAY_04"
+  },
+  "questionCount": 5,
+  "questions": [
+    {
+      "_id": "697766a7bfa810d766366e1e",
+      "uuid": "cc3435ba-8ab2-4fc2-8c2a-e06c73d61340",
+      "questionType": "recall",
+      "difficulty": "EASY",
+      "question": "Mi a GEO egyik alapelve a(z) \"„Sell in chat\": befolyás vs tranzakció\" leckében?",
+      "options": [
+        "Egyértelmű, idézhető tartalom",
+        "Véletlenszerű információ",
+        "Minimális adat",
+        "Nincs elv"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day4",
+        "#geo",
+        "#beginner",
+        "#recall",
+        "#hu",
+        "#all-languages"
+      ]
+    },
+    {
+      "_id": "697766a7bfa810d766366e1f",
+      "uuid": "e46fa71f-6f5f-4bc0-b554-6fae71ef53e6",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Miért fontos a policy információk egyértelműsége?",
+      "options": [
+        "Az AI ne adjon téves ígéretet, ami rossz élményt és support terhelést okoz",
+        "Nem fontos",
+        "Csak design miatt",
+        "Csak SEO miatt"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#policy",
+        "#intermediate",
+        "#recall",
+        "#hu",
+        "#all-languages"
+      ]
+    },
+    {
+      "_id": "697766a7bfa810d766366e21",
+      "uuid": "8b0629a1-a3f9-4a20-ba19-74da030facdf",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "A leckében leírt \"Gyakorlat: készítsd el a kritikus állítá...\" gyakorlatot hogyan implementálnád a saját munkádban?",
+      "options": [
+        "Lépésről lépésre követem a leckében leírt módszert, dokumentálom az eredményeket, és finomhangolom a folyamatot",
+        "Egyszerre próbálom ki mindent",
+        "Csak olvasom, nem alkalmazom",
+        "Várok, amíg mások megcsinálják"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day4",
+        "#hu",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "697766a7bfa810d766366e22",
+      "uuid": "901ce1d3-4d40-40ed-b5ee-33e491bd58ab",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "A leckében leírt \"gyakorlat: helyezd el a blokkot (5-10 pe...\" gyakorlatot hogyan implementálnád a saját munkádban?",
+      "options": [
+        "Lépésről lépésre követem a leckében leírt módszert, dokumentálom az eredményeket, és finomhangolom a folyamatot",
+        "Egyszerre próbálom ki mindent",
+        "Csak olvasom, nem alkalmazom",
+        "Várok, amíg mások megcsinálják"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day4",
+        "#hu",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "697766a7bfa810d766366e23",
+      "uuid": "55b29f51-ebda-4782-8530-c4deaee52f0a",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "A leckében leírt \"Gyakorlat: készítsd el a kritikus állítá...\" gyakorlatot hogyan implementálnád a saját munkádban?",
+      "options": [
+        "Lépésről lépésre követem a leckében leírt módszert, dokumentálom az eredményeket, és finomhangolom a folyamatot",
+        "Egyszerre próbálom ki mindent",
+        "Csak olvasom, nem alkalmazom",
+        "Várok, amíg mások megcsinálják"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day4",
+        "#hu",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

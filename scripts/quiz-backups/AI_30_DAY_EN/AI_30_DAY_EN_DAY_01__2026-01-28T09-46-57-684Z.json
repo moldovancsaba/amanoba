@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-28T09:47:00.796Z",
+  "course": {
+    "courseId": "AI_30_DAY_EN",
+    "name": "AI Catch-Up Program (EN)",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 1,
+    "title": "What AI is (and what it is not)",
+    "lessonId": "AI_30_DAY_EN_DAY_01"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "697769f927e27f61ac4142f7",
+      "uuid": "892f12ba-e72c-4b6f-a630-aec5642aa867",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "How does the concept \"critical decisions without human review...\" mentioned in the lesson impact achieving your goals?",
+      "options": [
+        "As described in detail in the lesson, critical decisions without hum... increases effectiveness and reduces risk",
+        "No significant impact",
+        "Only matters theoretically",
+        "Only an optional element"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day1",
+        "#en",
+        "#all-languages",
+        "#ai",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "697769f927e27f61ac4142f8",
+      "uuid": "6c9b3156-d303-4436-8c3b-9a66e9164394",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"exercise (10–15 min) — AI use map\n\nList ...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day1",
+        "#en",
+        "#all-languages",
+        "#ai",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "697769f927e27f61ac4142f9",
+      "uuid": "0b63bafc-fea5-4db6-82f8-559bdaa1e6b0",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"exercise (5–10 min) — Do-not-use list\nLi...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day1",
+        "#en",
+        "#all-languages",
+        "#ai",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "697769f927e27f61ac4142fa",
+      "uuid": "e446c51b-1609-4295-acf3-1b740ad8cbc9",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"exercise (10–15 min) — AI use map\n\nList ...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day1",
+        "#en",
+        "#all-languages",
+        "#ai",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "697769f927e27f61ac4142fb",
+      "uuid": "19cfb7cb-1285-4ad8-bad4-30507621e9bf",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is Helps in the context of What AI is (and what it is not) as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, Helps plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day1",
+        "#en",
+        "#all-languages",
+        "#ai",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "697769f927e27f61ac4142fc",
+      "uuid": "17ccba9f-04c1-4cc5-97e9-2f5ed4113bed",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is What in the context of What AI is (and what it is not) as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, What plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day1",
+        "#en",
+        "#all-languages",
+        "#ai",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "697769f927e27f61ac4142fd",
+      "uuid": "8882ef02-43ed-487b-b76f-196f0b71a287",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is what in the context of What AI is (and what it is not) as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, what plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day1",
+        "#en",
+        "#all-languages",
+        "#ai",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,177 @@
+{
+  "backedUpAt": "2026-01-28T09:47:29.574Z",
+  "course": {
+    "courseId": "GEO_SHOPIFY_30_EN",
+    "name": "GEO Shopify – 30-day course",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 10,
+    "title": "Shipping and returns: clarity",
+    "lessonId": "GEO_SHOPIFY_30_EN_DAY_10"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a15b7889cedb02a2a88",
+      "uuid": "8ce6772b-03e6-4b3e-9809-aae141b0721e",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"Practice: update your shipping/returns b...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day10",
+        "#en",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a15b7889cedb02a2a89",
+      "uuid": "52a119b2-df90-45bb-851c-cdaae291f6b6",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"practice: create a template (5-10 min)\nN...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day10",
+        "#en",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a15b7889cedb02a2a8a",
+      "uuid": "69bc5aba-e56e-4645-9463-381e22130d31",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"Practice: update your shipping/returns b...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day10",
+        "#en",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a15b7889cedb02a2a8b",
+      "uuid": "70804230-37d1-46c9-8a04-2ec3ec21f79c",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "What does the \"What you'll learn today\" section contain in the lesson?",
+      "options": [
+        "Specific information, methods, and examples related to what you'll learn today as described in detail in the lesson",
+        "Only general information",
+        "Only theoretical knowledge",
+        "No specific content"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day10",
+        "#en",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a15b7889cedb02a2a8c",
+      "uuid": "7ee6c701-348f-4bff-843e-a8dd5e9ec220",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "What does the \"Why this matters to you\" section contain in the lesson?",
+      "options": [
+        "Specific information, methods, and examples related to why this matters to you as described in detail in the lesson",
+        "Only general information",
+        "Only theoretical knowledge",
+        "No specific content"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day10",
+        "#en",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a15b7889cedb02a2a8d",
+      "uuid": "6e91e87a-19c9-4f40-9d95-7cabc93ef346",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "What does the \"Shipping and returns: what to include\" section contain in the lesson?",
+      "options": [
+        "Specific information, methods, and examples related to shipping and returns: what to include as described in detail in the lesson",
+        "Only general information",
+        "Only theoretical knowledge",
+        "No specific content"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day10",
+        "#en",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a15b7889cedb02a2a8e",
+      "uuid": "845d3843-983d-43b1-bb76-7176f503b7fb",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "What does the \"Examples: what works, what doesn't?\" section contain in the lesson?",
+      "options": [
+        "Specific information, methods, and examples related to examples: what works, what doesn't? as described in detail in the lesson",
+        "Only general information",
+        "Only theoretical knowledge",
+        "No specific content"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day10",
+        "#en",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

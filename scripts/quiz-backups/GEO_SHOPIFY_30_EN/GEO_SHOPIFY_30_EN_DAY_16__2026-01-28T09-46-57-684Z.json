@@ -1,0 +1,177 @@
+{
+  "backedUpAt": "2026-01-28T09:47:00.190Z",
+  "course": {
+    "courseId": "GEO_SHOPIFY_30_EN",
+    "name": "GEO Shopify – 30-day course",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 16,
+    "title": "Collection page as guide, not just grid",
+    "lessonId": "GEO_SHOPIFY_30_EN_DAY_16"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a16b7889cedb02a2ac4",
+      "uuid": "e1e1eb79-728e-446d-bf09-b178dd574ed4",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"Practice: restructure your collection (1...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day16",
+        "#en",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a16b7889cedb02a2ac5",
+      "uuid": "eda58a45-fd79-445f-9280-ea7fb9d65d78",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"practice: create a template (5-10 min)\nN...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day16",
+        "#en",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a16b7889cedb02a2ac6",
+      "uuid": "8dfedf03-39d5-44a9-9430-f3260ea1047c",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"Practice: restructure your collection (1...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day16",
+        "#en",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a16b7889cedb02a2ac7",
+      "uuid": "3d696a71-48a3-4c53-a32d-056592119197",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "How does the concept \"Collection page as guide, not just grid Today you'...\" mentioned in the lesson impact achieving your goals?",
+      "options": [
+        "As described in detail in the lesson, Collection page as guide, not ... increases effectiveness and reduces risk",
+        "No significant impact",
+        "Only matters theoretically",
+        "Only an optional element"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day16",
+        "#en",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a16b7889cedb02a2ac8",
+      "uuid": "ab6b6b9b-1667-47e6-bdcf-86a9b0151e23",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "In the \"Collection page as guide, not just grid\" lesson, what role does Decision criteria play?",
+      "options": [
+        "As described in detail in the lesson, Decision criteria plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day16",
+        "#en",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a16b7889cedb02a2ac9",
+      "uuid": "60ccc32e-e8d3-4a41-b546-6684a70b62e5",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "In the \"Collection page as guide, not just grid\" lesson, what role does Policy short + link play?",
+      "options": [
+        "As described in detail in the lesson, Policy short + link plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day16",
+        "#en",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a16b7889cedb02a2aca",
+      "uuid": "4c90020c-62fc-42ef-86c9-ee443fe905a2",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is Hero in the context of Collection page as guide, not just grid as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, Hero plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day16",
+        "#en",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

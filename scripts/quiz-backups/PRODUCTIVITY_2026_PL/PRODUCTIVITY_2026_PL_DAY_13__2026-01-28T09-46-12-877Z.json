@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-28T09:46:21.097Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_PL",
+    "name": "Produktywność 2026: Jak zarządzać zespołami i czasem",
+    "language": "pl"
+  },
+  "lesson": {
+    "dayNumber": 13,
+    "title": "Ramy Podejmowania Decyzji: Szybkie decyzje, macierz decyzji, unikanie paraliżu analizy",
+    "lessonId": "PRODUCTIVITY_2026_PL_DAY_13"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a328260c12d7a7ac669",
+      "uuid": "a252808d-f3ba-413f-9389-f990191afa30",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ Rozumiem paraliż analizy i jak to dzia...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day13",
+        "#pl",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a328260c12d7a7ac66a",
+      "uuid": "e04aa630-1a2d-4477-bc17-c8fb35b9d083",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ Rozumiem różnicę między \"wystarczająco...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day13",
+        "#pl",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a328260c12d7a7ac66b",
+      "uuid": "f62408a8-1723-4fea-b5d2-c0cef3270dba",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ Rozumiem paraliż analizy i jak to dzia...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day13",
+        "#pl",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a328260c12d7a7ac66c",
+      "uuid": "5326d725-f3c7-4f86-a7ad-7302376012af",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Jak koncepcja \"Ramy Podejmowania Decyzji: Szybkie decyzje, macier...\", wspomniana w lekcji, wpływa na osiągnięcie twoich goals?",
+      "options": [
+        "Jak szczegółowo opisano w lekcji, Ramy Podejmowania Decyzji: Szy... zwiększa skuteczność i zmniejsza ryzyko",
+        "Brak znaczącego wpływu",
+        "Ma znaczenie tylko teoretycznie",
+        "Tylko opcjonalny element"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day13",
+        "#pl",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a328260c12d7a7ac66d",
+      "uuid": "77ceefe6-f126-4b6c-94d0-61a2504eb686",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Jaką rolę odgrywa Czas jest droższy niż doskonałość w lekcji \"Ramy Podejmowania Decyzji: Szybkie decyzje, macierz decyzji, unikanie paraliżu analizy\"?",
+      "options": [
+        "Jak szczegółowo opisano w lekcji, Czas jest droższy niż doskonałość odgrywa kluczową rolę w optymalizacji procesów i osiąganiu celów",
+        "Tylko peryferyjne informacje bez znaczącej roli",
+        "Tylko teoretyczna koncepcja bez praktycznego zastosowania",
+        "Nie wspomniano w lekcji"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day13",
+        "#pl",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a328260c12d7a7ac66e",
+      "uuid": "ba2e455f-303e-40c3-9353-9fedfc1cd349",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Jaką rolę odgrywa Zmęczenie decyzją w lekcji \"Ramy Podejmowania Decyzji: Szybkie decyzje, macierz decyzji, unikanie paraliżu analizy\"?",
+      "options": [
+        "Jak szczegółowo opisano w lekcji, Zmęczenie decyzją odgrywa kluczową rolę w optymalizacji procesów i osiąganiu celów",
+        "Tylko peryferyjne informacje bez znaczącej roli",
+        "Tylko teoretyczna koncepcja bez praktycznego zastosowania",
+        "Nie wspomniano w lekcji"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day13",
+        "#pl",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a328260c12d7a7ac66f",
+      "uuid": "ba80ec65-9071-40a3-a576-d356754ed856",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Jak ważny jest Krok 1 w kontekście Ramy Podejmowania Decyzji: Szybkie decyzje, macierz decyzji, unikanie paraliżu analizy, jak omówiono w lekcji?",
+      "options": [
+        "Jak szczegółowo opisano w lekcji, Krok 1 odgrywa kluczową rolę w optymalizacji procesów i osiąganiu celów",
+        "Tylko peryferyjne informacje bez znaczącej roli",
+        "Tylko teoretyczna koncepcja bez praktycznego zastosowania",
+        "Nie wspomniano w lekcji"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day13",
+        "#pl",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

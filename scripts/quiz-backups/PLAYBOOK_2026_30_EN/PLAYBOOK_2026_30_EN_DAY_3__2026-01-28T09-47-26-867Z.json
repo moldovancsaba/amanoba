@@ -1,0 +1,163 @@
+{
+  "backedUpAt": "2026-01-28T09:47:33.544Z",
+  "course": {
+    "courseId": "PLAYBOOK_2026_30_EN",
+    "name": "The Playbook 2026 – Masterclass for Designers",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 3,
+    "title": "Anatomy of the Design Playbook",
+    "lessonId": "PLAYBOOK_2026_30_EN_DAY_3"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a43bbb88a1cf4b2de5c",
+      "uuid": "a5df8cd7-3d11-49d0-a771-04d849c8deae",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"Exercise (10–15 minutes)\n\n  Build a Play...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day3",
+        "#en",
+        "#all-languages",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a43bbb88a1cf4b2de5d",
+      "uuid": "5a034401-b87d-4096-8705-805496d5a250",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"Exercise (5–10 minutes)\nCreate a Release...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day3",
+        "#en",
+        "#all-languages",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a43bbb88a1cf4b2de5e",
+      "uuid": "b48083dd-a19d-41dc-9f31-0ed3c4724d0c",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"Exercise (10–15 minutes)\n\n  Build a Play...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day3",
+        "#en",
+        "#all-languages",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a43bbb88a1cf4b2de5f",
+      "uuid": "9138f3fd-8591-4891-99fc-740ca1971435",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "How does the concept \"Anatomy of the Design Playbook Map the required se...\" mentioned in the lesson impact achieving your goals?",
+      "options": [
+        "As described in detail in the lesson, Anatomy of the Design Playbook... increases effectiveness and reduces risk",
+        "No significant impact",
+        "Only matters theoretically",
+        "Only an optional element"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day3",
+        "#en",
+        "#all-languages",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a43bbb88a1cf4b2de60",
+      "uuid": "0095f394-63d1-4927-913b-744b63d117b6",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is Good: in the context of Anatomy of the Design Playbook as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, Good: plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day3",
+        "#en",
+        "#all-languages",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a43bbb88a1cf4b2de61",
+      "uuid": "55734f1b-f883-492f-9f8f-74ef063c8a61",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is Design in the context of Anatomy of the Design Playbook as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, Design plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day3",
+        "#en",
+        "#all-languages",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a43bbb88a1cf4b2de62",
+      "uuid": "a100d466-ae3a-4f36-8397-2bf95aa39dec",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is Bad: in the context of Anatomy of the Design Playbook as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, Bad: plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day3",
+        "#en",
+        "#all-languages",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

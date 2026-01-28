@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-28T09:47:00.938Z",
+  "course": {
+    "courseId": "B2B_SALES_2026_30_EN",
+    "name": "B2B Sales 2026 Masterclass",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 2,
+    "title": "The B2B Sales System Map",
+    "lessonId": "B2B_SALES_2026_30_EN_DAY_2"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "697769ff167c31fb26f4f507",
+      "uuid": "c7ceba12-0617-4526-af47-ffc8c7cdc50a",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"Exercise (10–15 minutes)\n\n  Draw the 7 b...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day2",
+        "#en",
+        "#all-languages",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "697769ff167c31fb26f4f508",
+      "uuid": "23edea1b-a46f-4555-ae2f-f62fcd9586ae",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"Exercise (5–10 minutes)\nPick an active o...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day2",
+        "#en",
+        "#all-languages",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "697769ff167c31fb26f4f509",
+      "uuid": "bdaab7c4-8245-4e5f-9db5-8b6b8bd3ae41",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"Exercise (10–15 minutes)\n\n  Draw the 7 b...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day2",
+        "#en",
+        "#all-languages",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "697769ff167c31fb26f4f50a",
+      "uuid": "3a795e90-2aea-4165-9e06-0048cd1f8064",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "How does the concept \"The B2B Sales System Map Draw the end-to-end flow ...\" mentioned in the lesson impact achieving your goals?",
+      "options": [
+        "As described in detail in the lesson, The B2B Sales System Map Draw ... increases effectiveness and reduces risk",
+        "No significant impact",
+        "Only matters theoretically",
+        "Only an optional element"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day2",
+        "#en",
+        "#all-languages",
+        "#sales",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "697769ff167c31fb26f4f50b",
+      "uuid": "6a4cd6a3-2468-45e9-adee-ddded4c5b6c8",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is Qualification in the context of The B2B Sales System Map as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, Qualification plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day2",
+        "#en",
+        "#all-languages",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "697769ff167c31fb26f4f50c",
+      "uuid": "788ce4bd-455c-43cd-91b2-ac0cee551238",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "In the \"The B2B Sales System Map\" lesson, what role does Proposal/Negotiation play?",
+      "options": [
+        "As described in detail in the lesson, Proposal/Negotiation plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day2",
+        "#en",
+        "#all-languages",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "697769ff167c31fb26f4f50d",
+      "uuid": "c1c23e83-0c14-4609-a0d3-e7c5f72ad62b",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is Lead in the context of The B2B Sales System Map as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, Lead plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day2",
+        "#en",
+        "#all-languages",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

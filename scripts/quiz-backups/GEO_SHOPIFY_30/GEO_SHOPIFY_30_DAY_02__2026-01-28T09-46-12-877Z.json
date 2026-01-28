@@ -1,0 +1,167 @@
+{
+  "backedUpAt": "2026-01-28T09:46:22.812Z",
+  "course": {
+    "courseId": "GEO_SHOPIFY_30",
+    "name": "GEO Shopify – 30 napos kurzus",
+    "language": "hu"
+  },
+  "lesson": {
+    "dayNumber": 2,
+    "title": "GEO vs SEO Shopify-n: mire figyelj?",
+    "lessonId": "GEO_SHOPIFY_30_DAY_02"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a0dcb1383c0e27650d9",
+      "uuid": "d91e7e89-8c15-45c6-938c-9b8ff0db922e",
+      "questionType": "recall",
+      "difficulty": "EASY",
+      "question": "Melyik elem az SEO-first (hagyományos kereséshez)?",
+      "options": [
+        "Pontos termékadatok (ár, készlet, azonosítók)",
+        "Meta title és description",
+        "Visszaigazolható policy-k",
+        "Answer capsule a termékoldal tetején"
+      ],
+      "correctIndex": 1,
+      "hashtags": [
+        "#seo",
+        "#beginner",
+        "#recall",
+        "#hu",
+        "#all-languages"
+      ]
+    },
+    {
+      "_id": "69776a0dcb1383c0e27650da",
+      "uuid": "2a5a39aa-beee-4fa4-b25c-cb275446b4e0",
+      "questionType": "recall",
+      "difficulty": "EASY",
+      "question": "Melyik elem a GEO-first (az AI-válaszokhoz)?",
+      "options": [
+        "Backlinkek és canonical URL-ek",
+        "Pontos termékadatok egyértelműen olvasható formában",
+        "Page speed optimalizálás",
+        "Belső linkek"
+      ],
+      "correctIndex": 1,
+      "hashtags": [
+        "#geo",
+        "#beginner",
+        "#recall",
+        "#hu",
+        "#all-languages"
+      ]
+    },
+    {
+      "_id": "69776a0dcb1383c0e27650db",
+      "uuid": "0b72f177-ddd8-4f67-9c2a-42cdaae1455e",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Mi a különbség az SEO-first és a GEO-first elemek között?",
+      "options": [
+        "Az SEO-first a keresőmotor rangsorolásához, a GEO-first az AI-válaszokban való szerepléshez segít",
+        "Nincs különbség, ugyanazok az elemek",
+        "Az SEO-first csak Shopify-ra, a GEO-first minden platformra vonatkozik",
+        "Az SEO-first az AI-válaszokhoz, a GEO-first a keresési listához segít"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#geo",
+        "#seo",
+        "#intermediate",
+        "#recall",
+        "#hu",
+        "#all-languages"
+      ]
+    },
+    {
+      "_id": "69776a0dcb1383c0e27650dc",
+      "uuid": "ee543b95-cdee-4cd1-a507-0886846e534b",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Mit tartalmaz egy 10 pontos GEO checklist Shopify-hoz?",
+      "options": [
+        "Csak árakat és készletet",
+        "Ár, készlet, GTIN/SKU, policy, answer capsule, stabil URL, alt text, structured data, belső link, reviews szabály",
+        "Csak termékleírásokat és képeket",
+        "Csak meta címeket és leírásokat"
+      ],
+      "correctIndex": 1,
+      "hashtags": [
+        "#geo",
+        "#checklist",
+        "#intermediate",
+        "#recall",
+        "#hu",
+        "#all-languages"
+      ]
+    },
+    {
+      "_id": "69776a0dcb1383c0e27650dd",
+      "uuid": "654f8d11-7ea7-4b32-968d-2b741f7f78aa",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Mi jellemzi a jó GEO-alapot a checklist alapján?",
+      "options": [
+        "Hosszú, rendezetlen leírás",
+        "Termékoldal tetején tömör összegzés, jól strukturált ár és készlet információ, GTIN és SKU minden terméknél feltüntetve",
+        "Hiányzó azonosítók (GTIN, SKU)",
+        "Nehezen megtalálható policy információk"
+      ],
+      "correctIndex": 1,
+      "hashtags": [
+        "#geo",
+        "#intermediate",
+        "#recall",
+        "#hu",
+        "#all-languages"
+      ]
+    },
+    {
+      "_id": "69776a0dcb1383c0e27650de",
+      "uuid": "d74b7669-b4c6-4e06-b169-4e3c7d2502dd",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Egy termékoldal (PDP) auditálásakor mit kell ellenőrizned a GEO checklist alapján?",
+      "options": [
+        "Csak a termékleírás hosszát",
+        "Mi van rendben és mi hiányzik: ár, készlet, GTIN, policy linkek, answer capsule, stb.",
+        "Csak a képek minőségét",
+        "Csak a meta címeket"
+      ],
+      "correctIndex": 1,
+      "hashtags": [
+        "#geo",
+        "#audit",
+        "#intermediate",
+        "#application",
+        "#hu",
+        "#all-languages"
+      ]
+    },
+    {
+      "_id": "69776a0dcb1383c0e27650df",
+      "uuid": "94f28347-d16b-472d-bba8-14b62b479a60",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Hogyan egészítik ki egymást az SEO-first és a GEO-first elemek egy Shopify boltban?",
+      "options": [
+        "Egyik sem fontos, csak az egyik kell",
+        "Az SEO-first a keresési listán való megjelenéshez, a GEO-first az AI-válaszokban való szerepléshez segít - együtt teljes lefedettséget biztosítanak",
+        "Csak az SEO-first számít, a GEO-first felesleges",
+        "Csak a GEO-first számít, az SEO-first elavult"
+      ],
+      "correctIndex": 1,
+      "hashtags": [
+        "#geo",
+        "#seo",
+        "#advanced",
+        "#critical-thinking",
+        "#hu",
+        "#all-languages"
+      ]
+    }
+  ]
+}

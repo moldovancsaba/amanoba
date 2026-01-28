@@ -1,0 +1,166 @@
+{
+  "backedUpAt": "2026-01-28T09:47:43.753Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_PL",
+    "name": "Produktywność 2026: Jak zarządzać zespołami i czasem",
+    "language": "pl"
+  },
+  "lesson": {
+    "dayNumber": 5,
+    "title": "Pomiar: proste metryki cotygodniowego przeglądu (throughput, bloki skupienia, carryover)",
+    "lessonId": "PRODUCTIVITY_2026_PL_DAY_05"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a318260c12d7a7ac5f5",
+      "uuid": "c1469842-d072-483d-b561-2c2212f0a8e7",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Ile metryk używamy w cotygodniowym przeglądzie?",
+      "options": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "correctIndex": 2,
+      "hashtags": [
+        "#day-05",
+        "#purpose",
+        "#application",
+        "#pl"
+      ]
+    },
+    {
+      "_id": "69776a318260c12d7a7ac5f6",
+      "uuid": "ae466240-a44a-4dc5-894f-af944f7520e8",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Jaka jest idealna długość bloku skupienia?",
+      "options": [
+        "30 minut",
+        "60 minut",
+        "90-120 minut",
+        "4 godziny"
+      ],
+      "correctIndex": 2,
+      "hashtags": [
+        "#day-05",
+        "#scenario",
+        "#application",
+        "#pl"
+      ]
+    },
+    {
+      "_id": "69776a318260c12d7a7ac5f7",
+      "uuid": "78d30771-d49f-46e0-8a69-6571d64fd604",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ Znasz trzy kluczowe metryki: throughpu...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day5",
+        "#pl",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a318260c12d7a7ac5f8",
+      "uuid": "a0e7d4be-c055-40a7-8678-1a3ce4b4913c",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Jak koncepcja \"Ważne = rezultat, nie tylko aktywność...\", wspomniana w lekcji, wpływa na osiągnięcie twoich goals?",
+      "options": [
+        "Jak szczegółowo opisano w lekcji, Ważne = rezultat, nie tylko ak... zwiększa skuteczność i zmniejsza ryzyko",
+        "Brak znaczącego wpływu",
+        "Ma znaczenie tylko teoretycznie",
+        "Tylko opcjonalny element"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day5",
+        "#pl",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a318260c12d7a7ac5f9",
+      "uuid": "332a3d93-5713-411c-b779-7aaaf6cd0914",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Jak ważny jest Throughput w kontekście Pomiar: proste metryki cotygodniowego przeglądu (throughput, bloki skupienia, carryover), jak omówiono w lekcji?",
+      "options": [
+        "Jak szczegółowo opisano w lekcji, Throughput odgrywa kluczową rolę w optymalizacji procesów i osiąganiu celów",
+        "Tylko peryferyjne informacje bez znaczącej roli",
+        "Tylko teoretyczna koncepcja bez praktycznego zastosowania",
+        "Nie wspomniano w lekcji"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day5",
+        "#pl",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a318260c12d7a7ac5fa",
+      "uuid": "1f613176-0424-414d-9083-499e821b3cf5",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Jak ważny jest Carryover w kontekście Pomiar: proste metryki cotygodniowego przeglądu (throughput, bloki skupienia, carryover), jak omówiono w lekcji?",
+      "options": [
+        "Jak szczegółowo opisano w lekcji, Carryover odgrywa kluczową rolę w optymalizacji procesów i osiąganiu celów",
+        "Tylko peryferyjne informacje bez znaczącej roli",
+        "Tylko teoretyczna koncepcja bez praktycznego zastosowania",
+        "Nie wspomniano w lekcji"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day5",
+        "#pl",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a318260c12d7a7ac5fb",
+      "uuid": "2aff788f-66f3-4af6-b429-10ff38b273f1",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Jaką rolę odgrywa 2. Bloki skupienia w lekcji \"Pomiar: proste metryki cotygodniowego przeglądu (throughput, bloki skupienia, carryover)\"?",
+      "options": [
+        "Jak szczegółowo opisano w lekcji, 2. Bloki skupienia odgrywa kluczową rolę w optymalizacji procesów i osiąganiu celów",
+        "Tylko peryferyjne informacje bez znaczącej roli",
+        "Tylko teoretyczna koncepcja bez praktycznego zastosowania",
+        "Nie wspomniano w lekcji"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day5",
+        "#pl",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-28T09:47:00.970Z",
+  "course": {
+    "courseId": "B2B_SALES_2026_30_EN",
+    "name": "B2B Sales 2026 Masterclass",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 3,
+    "title": "ICP 2026: Problem-First, Not Industry-First",
+    "lessonId": "B2B_SALES_2026_30_EN_DAY_3"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "697769ff167c31fb26f4f52c",
+      "uuid": "88280b5f-45af-4b2c-aec4-a1ca66cbfe76",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"Exercise (10–15 minutes)\n\n  Draft ICP v1...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day3",
+        "#en",
+        "#all-languages",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "697769ff167c31fb26f4f52d",
+      "uuid": "be0153b2-6c4d-4a88-a200-bb09bbd239fd",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"Exercise (5–10 minutes)\nTake one active ...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day3",
+        "#en",
+        "#all-languages",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "697769ff167c31fb26f4f52e",
+      "uuid": "a0324135-7440-470b-b208-a05bb02510fc",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"Exercise (10–15 minutes)\n\n  Draft ICP v1...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day3",
+        "#en",
+        "#all-languages",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "697769ff167c31fb26f4f52f",
+      "uuid": "09cbc3e2-1ec8-4b06-b000-0aa3d756c276",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "How does the concept \"ICP 2026: Problem-First, Not Industry-First Define...\" mentioned in the lesson impact achieving your goals?",
+      "options": [
+        "As described in detail in the lesson, ICP 2026: Problem-First, Not I... increases effectiveness and reduces risk",
+        "No significant impact",
+        "Only matters theoretically",
+        "Only an optional element"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day3",
+        "#en",
+        "#all-languages",
+        "#sales",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "697769ff167c31fb26f4f530",
+      "uuid": "338592ab-90d0-49e3-9f30-3adf5a913e8c",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "In the \"ICP 2026: Problem-First, Not Industry-First\" lesson, what role does Good ICP (problem-first): play?",
+      "options": [
+        "As described in detail in the lesson, Good ICP (problem-first): plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day3",
+        "#en",
+        "#all-languages",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "697769ff167c31fb26f4f531",
+      "uuid": "8dc1fef8-5db3-40d4-8a36-b6f79789fe8b",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is Problem in the context of ICP 2026: Problem-First, Not Industry-First as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, Problem plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day3",
+        "#en",
+        "#all-languages",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "697769ff167c31fb26f4f532",
+      "uuid": "39acc5ec-6bf7-4841-a3e2-525eed10eed9",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is Industry in the context of ICP 2026: Problem-First, Not Industry-First as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, Industry plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day3",
+        "#en",
+        "#all-languages",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

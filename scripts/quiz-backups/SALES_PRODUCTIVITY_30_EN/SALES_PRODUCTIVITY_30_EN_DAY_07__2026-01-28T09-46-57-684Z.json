@@ -1,0 +1,177 @@
+{
+  "backedUpAt": "2026-01-28T09:47:02.534Z",
+  "course": {
+    "courseId": "SALES_PRODUCTIVITY_30_EN",
+    "name": "Build Your Sales – 30 Days to More Deals",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 7,
+    "title": "Ideal Customer Profile (ICP) – Who Do You Work With?",
+    "lessonId": "SALES_PRODUCTIVITY_30_EN_DAY_07"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a0a934727fc0613f47c",
+      "uuid": "f885b890-407e-400f-a6d0-77bce654c918",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"Practice 1 – ICP definition (25 min)\n\n  ...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day7",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a0a934727fc0613f47d",
+      "uuid": "00325a17-5994-4de1-b043-63f4de3cace5",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"Practice 2 – ICP tracking table (10 min)...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day7",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a0a934727fc0613f47e",
+      "uuid": "b9aac885-99e0-4994-bdf9-93d7743a65d6",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"Practice 1 – ICP definition (25 min)\n\n  ...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day7",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a0a934727fc0613f47f",
+      "uuid": "68b97de3-3e91-41dc-ad57-323d440d3fe7",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "How does the concept \"Ideal Customer Profile (ICP) – Who Do You Work Wit...\" mentioned in the lesson impact achieving your goals?",
+      "options": [
+        "As described in detail in the lesson, Ideal Customer Profile (ICP) –... increases effectiveness and reduces risk",
+        "No significant impact",
+        "Only matters theoretically",
+        "Only an optional element"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day7",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#sales",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a0a934727fc0613f480",
+      "uuid": "eab51b30-ccc8-4528-9353-26cba2809d31",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "In the \"Ideal Customer Profile (ICP) – Who Do You Work With?\" lesson, what role does Higher conversion: play?",
+      "options": [
+        "As described in detail in the lesson, Higher conversion: plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day7",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a0a934727fc0613f481",
+      "uuid": "a4af236a-2345-4698-a16c-4bc75f898276",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "In the \"Ideal Customer Profile (ICP) – Who Do You Work With?\" lesson, what role does Better customer experience: play?",
+      "options": [
+        "As described in detail in the lesson, Better customer experience: plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day7",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a0a934727fc0613f482",
+      "uuid": "d31b6e27-c486-4735-ac6f-d9581596da45",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is 1. Company Size in the context of Ideal Customer Profile (ICP) – Who Do You Work With? as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, 1. Company Size plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day7",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

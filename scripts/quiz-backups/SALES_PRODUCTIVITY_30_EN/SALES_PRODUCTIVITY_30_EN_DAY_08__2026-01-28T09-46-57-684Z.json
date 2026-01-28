@@ -1,0 +1,177 @@
+{
+  "backedUpAt": "2026-01-28T09:47:02.566Z",
+  "course": {
+    "courseId": "SALES_PRODUCTIVITY_30_EN",
+    "name": "Build Your Sales – 30 Days to More Deals",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 8,
+    "title": "Qualification Questions & Scripts – What to Ask to Qualify?",
+    "lessonId": "SALES_PRODUCTIVITY_30_EN_DAY_08"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a0a934727fc0613f48c",
+      "uuid": "56c9f389-0f1b-45d5-b1b2-cb9d07051480",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "How does the concept \"important now?\" (deepening)\n  Closing questions: \"...\" mentioned in the lesson impact achieving your goals?",
+      "options": [
+        "As described in detail in the lesson, important now?\" (deepening)\n  ... increases effectiveness and reduces risk",
+        "No significant impact",
+        "Only matters theoretically",
+        "Only an optional element"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day8",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#sales",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a0a934727fc0613f48d",
+      "uuid": "10055356-bf2d-4d51-980e-81c602cc1d80",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"Practice the qualification conversation\n...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day8",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a0a934727fc0613f48e",
+      "uuid": "80da6fea-b81a-498d-aa98-52c2556f4fee",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"Practice 1 – Qualification question list...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day8",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a0a934727fc0613f48f",
+      "uuid": "365a7046-403b-4596-98ac-0e1b6b2ee60a",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"Practice out loud – how do they sound na...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day8",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a0a934727fc0613f490",
+      "uuid": "0ca98368-4fe9-448a-af63-469f92af3fb9",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is Time savings: in the context of Qualification Questions & Scripts – What to Ask to Qualify? as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, Time savings: plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day8",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a0a934727fc0613f491",
+      "uuid": "89f553b5-bcb8-41e3-9579-8a6d52880473",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "In the \"Qualification Questions & Scripts – What to Ask to Qualify?\" lesson, what role does Professional appearance: play?",
+      "options": [
+        "As described in detail in the lesson, Professional appearance: plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day8",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a0a934727fc0613f492",
+      "uuid": "ef8b76dc-5dfb-4d5d-9db0-31f512e34def",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "In the \"Qualification Questions & Scripts – What to Ask to Qualify?\" lesson, what role does Follow-up questions: play?",
+      "options": [
+        "As described in detail in the lesson, Follow-up questions: plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day8",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,166 @@
+{
+  "backedUpAt": "2026-01-28T09:47:05.875Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_PL",
+    "name": "Produktywność 2026: Jak zarządzać zespołami i czasem",
+    "language": "pl"
+  },
+  "lesson": {
+    "dayNumber": 6,
+    "title": "Przechwytywanie: skrzynki odbiorcze, lista wyzwalaczy, nawyki przechwytywania",
+    "lessonId": "PRODUCTIVITY_2026_PL_DAY_06"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a318260c12d7a7ac60c",
+      "uuid": "dd1b5d56-cc83-4339-a16e-3f00d365823a",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Jak często powinieneś opróżniać skrzynki odbiorcze?",
+      "options": [
+        "Raz w tygodniu",
+        "Raz w miesiącu",
+        "Przynajmniej raz dziennie",
+        "Nigdy"
+      ],
+      "correctIndex": 2,
+      "hashtags": [
+        "#day-06",
+        "#purpose",
+        "#application",
+        "#pl"
+      ]
+    },
+    {
+      "_id": "69776a318260c12d7a7ac60d",
+      "uuid": "af8ea500-1bcb-4263-b2af-11c3f3d43fb8",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Co się dzieje, jeśli coś nie jest przechwycone?",
+      "options": [
+        "Jest automatycznie zarządzane",
+        "Jest utracone",
+        "Jest automatycznie usunięte",
+        "Nic"
+      ],
+      "correctIndex": 1,
+      "hashtags": [
+        "#day-06",
+        "#foundation",
+        "#recall",
+        "#pl"
+      ]
+    },
+    {
+      "_id": "69776a318260c12d7a7ac60e",
+      "uuid": "abd28460-0683-4509-9fb9-e40adf4ea571",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ Masz niezawodny system skrzynek odbior...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day6",
+        "#pl",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a318260c12d7a7ac60f",
+      "uuid": "c79f10a9-78a0-45d4-ba94-95f0800b5dc5",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ Wszystkie ważne informacje są przechwy...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day6",
+        "#pl",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a318260c12d7a7ac610",
+      "uuid": "73373b00-3163-4edf-a26f-e8747bd0b7d1",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Jak koncepcja \"ważne informacje są przechwycone, nic nie jest utr...\", wspomniana w lekcji, wpływa na osiągnięcie twoich goals?",
+      "options": [
+        "Jak szczegółowo opisano w lekcji, ważne informacje są przechwyco... zwiększa skuteczność i zmniejsza ryzyko",
+        "Brak znaczącego wpływu",
+        "Ma znaczenie tylko teoretycznie",
+        "Tylko opcjonalny element"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day6",
+        "#pl",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a318260c12d7a7ac611",
+      "uuid": "1f28ad12-1992-455f-9eff-4fb18938ffdc",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Jaką rolę odgrywa Lista wyzwalaczy w lekcji \"Przechwytywanie: skrzynki odbiorcze, lista wyzwalaczy, nawyki przechwytywania\"?",
+      "options": [
+        "Jak szczegółowo opisano w lekcji, Lista wyzwalaczy odgrywa kluczową rolę w optymalizacji procesów i osiąganiu celów",
+        "Tylko peryferyjne informacje bez znaczącej roli",
+        "Tylko teoretyczna koncepcja bez praktycznego zastosowania",
+        "Nie wspomniano w lekcji"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day6",
+        "#pl",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a318260c12d7a7ac612",
+      "uuid": "3003fd63-3ce3-4b40-878a-ea28c273f907",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Jak ważny jest Definicja w kontekście Przechwytywanie: skrzynki odbiorcze, lista wyzwalaczy, nawyki przechwytywania, jak omówiono w lekcji?",
+      "options": [
+        "Jak szczegółowo opisano w lekcji, Definicja odgrywa kluczową rolę w optymalizacji procesów i osiąganiu celów",
+        "Tylko peryferyjne informacje bez znaczącej roli",
+        "Tylko teoretyczna koncepcja bez praktycznego zastosowania",
+        "Nie wspomniano w lekcji"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day6",
+        "#pl",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

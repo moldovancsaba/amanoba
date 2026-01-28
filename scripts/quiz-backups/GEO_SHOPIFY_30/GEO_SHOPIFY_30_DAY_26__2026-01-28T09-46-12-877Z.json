@@ -1,0 +1,106 @@
+{
+  "backedUpAt": "2026-01-28T09:46:23.688Z",
+  "course": {
+    "courseId": "GEO_SHOPIFY_30",
+    "name": "GEO Shopify – 30 napos kurzus",
+    "language": "hu"
+  },
+  "lesson": {
+    "dayNumber": 26,
+    "title": "Anti-spam és minőség: AI-asszisztált tartalom",
+    "lessonId": "GEO_SHOPIFY_30_DAY_26"
+  },
+  "questionCount": 4,
+  "questions": [
+    {
+      "_id": "697766a9bfa810d766366f2e",
+      "uuid": "d205ff5a-ae4a-4ad8-9d85-ea6e522ff2d0",
+      "questionType": "recall",
+      "difficulty": "EASY",
+      "question": "Mit tanulsz meg a(z) \"Anti-spam és minőség: AI-asszisztált tartalom\" leckében?",
+      "options": [
+        "Gyakorlati GEO készségeket Shopify-hoz",
+        "Általános e-commerce ismereteket",
+        "Csak elméleti információkat",
+        "Nem tanulsz semmit"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day26",
+        "#beginner",
+        "#recall",
+        "#hu",
+        "#all-languages"
+      ]
+    },
+    {
+      "_id": "697766a9bfa810d766366f30",
+      "uuid": "fcbf1a1c-5842-46bd-bd38-5ac1c3b1d770",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "A leckében leírt \"Gyakorlat: készítsd el a checklistet (10...\" gyakorlatot hogyan implementálnád a saját munkádban?",
+      "options": [
+        "Lépésről lépésre követem a leckében leírt módszert, dokumentálom az eredményeket, és finomhangolom a folyamatot",
+        "Egyszerre próbálom ki mindent",
+        "Csak olvasom, nem alkalmazom",
+        "Várok, amíg mások megcsinálják"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day26",
+        "#hu",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "697766a9bfa810d766366f31",
+      "uuid": "e4b9449f-aac5-4bb4-bf29-5f7cbd6a4fee",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "A leckében leírt \"gyakorlat: javítsd a tartalmat (5-10 per...\" gyakorlatot hogyan implementálnád a saját munkádban?",
+      "options": [
+        "Lépésről lépésre követem a leckében leírt módszert, dokumentálom az eredményeket, és finomhangolom a folyamatot",
+        "Egyszerre próbálom ki mindent",
+        "Csak olvasom, nem alkalmazom",
+        "Várok, amíg mások megcsinálják"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day26",
+        "#hu",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "697766a9bfa810d766366f32",
+      "uuid": "4bc05efc-20f6-4b4b-84f1-9f5fd6592a77",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "A leckében leírt \"Gyakorlat: készítsd el a checklistet (10...\" gyakorlatot hogyan implementálnád a saját munkádban?",
+      "options": [
+        "Lépésről lépésre követem a leckében leírt módszert, dokumentálom az eredményeket, és finomhangolom a folyamatot",
+        "Egyszerre próbálom ki mindent",
+        "Csak olvasom, nem alkalmazom",
+        "Várok, amíg mások megcsinálják"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day26",
+        "#hu",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

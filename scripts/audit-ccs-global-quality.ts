@@ -33,6 +33,7 @@ import { assessLessonQuality } from './lesson-quality';
 import { validateLessonRecordLanguageIntegrity } from './language-integrity';
 import { validateQuestionQuality } from './question-quality-validator';
 import { generateContentBasedQuestions } from './content-based-question-generator';
+import { locales } from '../app/lib/i18n/locales';
 
 function getArgValue(flag: string): string | undefined {
   const idx = process.argv.indexOf(flag);
@@ -46,6 +47,7 @@ const MIN_LESSON_SCORE = Number(getArgValue('--min-lesson-score') || '70');
 const OUT_DIR = getArgValue('--out-dir') || join(process.cwd(), 'scripts', 'reports');
 const TASKLIST_DIR = getArgValue('--tasklist-dir') || join(process.cwd(), 'docs', 'tasklists');
 const INCLUDE_INACTIVE = process.argv.includes('--include-inactive');
+const GENERATE_TARGET_MIN = Number(getArgValue('--generate-target-min') || '40');
 
 function isoStamp() {
   return new Date().toISOString().replace(/[:.]/g, '-');
@@ -123,7 +125,7 @@ async function main() {
   const missingCcsIdCoursesAll = await Course.find({
     $or: [{ ccsId: { $exists: false } }, { ccsId: null }, { ccsId: '' }],
   })
-    .select('courseId name language durationDays isActive isDraft requiresPremium parentCourseId courseVariant ccsId createdAt updatedAt')
+    .select('courseId name language durationDays isActive isDraft requiresPremium parentCourseId selectedLessonIds courseVariant ccsId createdAt updatedAt')
     .sort({ createdAt: 1, _id: 1 })
     .lean();
 
@@ -156,6 +158,8 @@ async function main() {
       coursesMissingCcsId: missingCcsIdCoursesAll.length,
       coursesMissingCcsIdMappedToKnownCcs: Array.from(missingCcsByInferred.values()).reduce((n, xs) => n + xs.length, 0),
       coursesMissingCcsIdUnmapped: missingCcsUnmapped.length,
+      coursesWithStructuralErrors: 0,
+      coursesWithStructuralWarnings: 0,
       lessons: 0,
       duplicateDayLessonGroups: 0,
       missingLessonDayEntries: 0,
@@ -223,8 +227,8 @@ async function main() {
     if (COURSE_ID) courseFilter.courseId = String(COURSE_ID).toUpperCase();
 
     // Include both parent courses and shorts; they are part of the CCS family.
-    const courses = await Course.find(courseFilter)
-      .select('courseId name language durationDays isActive isDraft requiresPremium parentCourseId courseVariant ccsId createdAt updatedAt')
+      const courses = await Course.find(courseFilter)
+      .select('courseId name language durationDays isActive isDraft requiresPremium parentCourseId selectedLessonIds courseVariant ccsId createdAt updatedAt')
       .sort({ parentCourseId: 1, language: 1, courseId: 1 })
       .lean();
 
@@ -238,6 +242,8 @@ async function main() {
     );
 
     report.totals.courses += allCoursesForCcs.length;
+    const courseByCourseId = new Map<string, any>();
+    for (const c of allCoursesForCcs) courseByCourseId.set(String(c.courseId || '').toUpperCase(), c);
 
     const ccsRow: any = {
       ccsId,
@@ -256,6 +262,64 @@ async function main() {
       const courseId = String(course.courseId || '');
       const language = String(course.language || '').toLowerCase();
       const isInferred = !String((course as any).ccsId || '').trim();
+
+      const courseErrors: string[] = [];
+      const courseWarnings: string[] = [];
+
+      // Basic language sanity: if courseId ends with _<LOCALE>, it must match course.language.
+      {
+        const parts = courseId.split('_').filter(Boolean);
+        const maybeSuffix = parts.length > 1 ? String(parts[parts.length - 1] || '').toLowerCase() : '';
+        if (maybeSuffix && (locales as readonly string[]).includes(maybeSuffix)) {
+          if (maybeSuffix !== language) {
+            courseWarnings.push(
+              `COURSE_LANGUAGE_SUFFIX_MISMATCH: courseId ends with _${maybeSuffix.toUpperCase()} but course.language=${language || '—'}`
+            );
+          }
+        }
+      }
+
+      // Short-course integrity: parentCourseId + selectedLessonIds must be coherent.
+      const parentCourseId = String(course.parentCourseId || '').toUpperCase();
+      if (parentCourseId) {
+        const parent = courseByCourseId.get(parentCourseId);
+        if (!parent) {
+          courseErrors.push(`SHORT_PARENT_COURSE_NOT_FOUND: parentCourseId=${parentCourseId}`);
+        } else {
+          const parentCcsId = String(parent.ccsId || '').toUpperCase();
+          const childCcsId = String((course as any).ccsId || '').toUpperCase();
+          if (parentCcsId && childCcsId && parentCcsId !== childCcsId) {
+            courseWarnings.push(`SHORT_CCS_MISMATCH: parent.ccsId=${parentCcsId} child.ccsId=${childCcsId}`);
+          }
+          const parentLang = String(parent.language || '').toLowerCase();
+          if (parentLang && language && parentLang !== language) {
+            courseWarnings.push(`SHORT_LANGUAGE_MISMATCH: parent.language=${parentLang} child.language=${language}`);
+          }
+        }
+
+        const selectedLessonIds = Array.isArray((course as any).selectedLessonIds)
+          ? ((course as any).selectedLessonIds as any[]).map(x => String(x))
+          : [];
+        if (selectedLessonIds.length === 0) {
+          courseErrors.push('SHORT_SELECTED_LESSON_IDS_MISSING');
+        } else {
+          const expected = Number((course as any).durationDays || 0);
+          if (Number.isFinite(expected) && expected > 0 && selectedLessonIds.length !== expected) {
+            courseWarnings.push(
+              `SHORT_SELECTED_LESSON_IDS_LENGTH_MISMATCH: durationDays=${expected} selectedLessonIds=${selectedLessonIds.length}`
+            );
+          }
+        }
+      } else {
+        // Non-short courses should not set selectedLessonIds (avoid accidental partial-catalog behavior).
+        const selectedLessonIds = Array.isArray((course as any).selectedLessonIds) ? (course as any).selectedLessonIds : [];
+        if (selectedLessonIds && Array.isArray(selectedLessonIds) && selectedLessonIds.length > 0) {
+          courseWarnings.push('NON_SHORT_HAS_SELECTED_LESSON_IDS');
+        }
+      }
+
+      if (courseErrors.length > 0) report.totals.coursesWithStructuralErrors++;
+      if (courseWarnings.length > 0) report.totals.coursesWithStructuralWarnings++;
 
       const lessonFilter: any = { courseId: course._id };
       if (!INCLUDE_INACTIVE) lessonFilter.isActive = true;
@@ -399,7 +463,8 @@ async function main() {
         if (eligibleForQuizWork && (existingCounts.validExisting < 7 || existingCounts.application < 5 || invalidExisting.length > 0)) {
           const neededTotal = Math.max(0, 7 - existingCounts.validExisting);
           const neededApp = Math.max(0, 5 - existingCounts.application);
-          const generateTarget = Math.max(neededTotal, neededApp, 12);
+          // Generate more than the bare minimum: strict QC can reject a large fraction of candidates.
+          const generateTarget = Math.max(neededTotal, neededApp, GENERATE_TARGET_MIN);
 
           const generated = generateContentBasedQuestions(
             lesson.dayNumber,
@@ -525,6 +590,8 @@ async function main() {
         durationDays: course.durationDays,
         parentCourseId: course.parentCourseId || null,
         courseVariant: course.courseVariant || null,
+        structuralErrors: courseErrors,
+        structuralWarnings: courseWarnings,
         inferredCcsId: isInferred ? ccsId : null,
         duplicateDayGroups,
         missingDays,
@@ -539,6 +606,22 @@ async function main() {
         `- active=${courseSummary.isActive} draft=${courseSummary.isDraft} premium=${courseSummary.requiresPremium} parentCourseId=${courseSummary.parentCourseId || '—'}` +
           (courseSummary.inferredCcsId ? ` (⚠️ course.ccsId missing; inferred \`${courseSummary.inferredCcsId}\`)` : ``)
       );
+
+      if (courseErrors.length > 0) {
+        taskLines.push(``);
+        taskLines.push(`**Course structural errors (must fix before relying on parent/child navigation)**`);
+        for (const e of courseErrors) {
+          taskLines.push(`- [ ] **${courseId}** — ${mdEscape(e)}`);
+        }
+      }
+
+      if (courseWarnings.length > 0) {
+        taskLines.push(``);
+        taskLines.push(`**Course structural warnings**`);
+        for (const w of courseWarnings) {
+          taskLines.push(`- [ ] **${courseId}** — ${mdEscape(w)}`);
+        }
+      }
 
       if (missingDays.length > 0) {
         taskLines.push(``);

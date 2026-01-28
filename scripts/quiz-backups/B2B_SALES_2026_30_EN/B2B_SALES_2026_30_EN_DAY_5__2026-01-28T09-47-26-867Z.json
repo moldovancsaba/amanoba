@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-28T09:47:32.535Z",
+  "course": {
+    "courseId": "B2B_SALES_2026_30_EN",
+    "name": "B2B Sales 2026 Masterclass",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 5,
+    "title": "Value Proposition: Measurable, Verifiable Claims",
+    "lessonId": "B2B_SALES_2026_30_EN_DAY_5"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "697769ff167c31fb26f4f55f",
+      "uuid": "102fd71a-6bdd-433b-9fd1-ec25d2bfe5b3",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"Exercise (10–15 minutes)\n\n  Write your 3...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day5",
+        "#en",
+        "#all-languages",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "697769ff167c31fb26f4f560",
+      "uuid": "c8f5fe58-c397-4b73-9284-3c85a621699a",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"Exercise (5–10 minutes)\nRevise your last...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day5",
+        "#en",
+        "#all-languages",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "697769ff167c31fb26f4f561",
+      "uuid": "cc1d8832-e897-45c2-95d9-56e5f4e61d82",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"Exercise (10–15 minutes)\n\n  Write your 3...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day5",
+        "#en",
+        "#all-languages",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "697769ff167c31fb26f4f562",
+      "uuid": "6124cf35-c757-4fd7-84ee-a62c721e4ce2",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "How does the concept \"Value Proposition: Measurable, Verifiable Claims R...\" mentioned in the lesson impact achieving your goals?",
+      "options": [
+        "As described in detail in the lesson, Value Proposition: Measurable,... increases effectiveness and reduces risk",
+        "No significant impact",
+        "Only matters theoretically",
+        "Only an optional element"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day5",
+        "#en",
+        "#all-languages",
+        "#sales",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "697769ff167c31fb26f4f563",
+      "uuid": "56f1786e-2295-4cb2-adc1-5a9eace7061c",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is Good: in the context of Value Proposition: Measurable, Verifiable Claims as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, Good: plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day5",
+        "#en",
+        "#all-languages",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "697769ff167c31fb26f4f564",
+      "uuid": "4107c00f-2f0d-4956-b490-c367f2a6f91e",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is Proposition in the context of Value Proposition: Measurable, Verifiable Claims as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, Proposition plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day5",
+        "#en",
+        "#all-languages",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "697769ff167c31fb26f4f565",
+      "uuid": "7d9aa06a-80dc-4aa7-aabd-bb8f7a721ea5",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is Verifiable in the context of Value Proposition: Measurable, Verifiable Claims as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, Verifiable plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day5",
+        "#en",
+        "#all-languages",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

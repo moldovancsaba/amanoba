@@ -1,0 +1,177 @@
+{
+  "backedUpAt": "2026-01-28T09:46:17.459Z",
+  "course": {
+    "courseId": "SALES_PRODUCTIVITY_30_EN",
+    "name": "Build Your Sales – 30 Days to More Deals",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 5,
+    "title": "Weekly/Monthly Forecasting – How to Predict the Future",
+    "lessonId": "SALES_PRODUCTIVITY_30_EN_DAY_05"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a09934727fc0613f455",
+      "uuid": "65a46302-c6ec-4b93-b930-71507a4738f7",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"Practice 1 – Weekly forecast (20 min)\n\n ...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day5",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a09934727fc0613f456",
+      "uuid": "deb7f43f-be08-4829-88b6-b50a2760c14c",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"Practice 2 – Monthly forecast (15 min)\n\n...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day5",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a09934727fc0613f457",
+      "uuid": "2c36cabd-15b7-4611-b147-0ede6e778573",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"Practice 1 – Weekly forecast (20 min)\n\n ...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day5",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a09934727fc0613f458",
+      "uuid": "8e94d757-4b41-49b9-9582-606c9d761dde",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "How does the concept \"Weekly/Monthly Forecasting – How to Predict the Fu...\" mentioned in the lesson impact achieving your goals?",
+      "options": [
+        "As described in detail in the lesson, Weekly/Monthly Forecasting – H... increases effectiveness and reduces risk",
+        "No significant impact",
+        "Only matters theoretically",
+        "Only an optional element"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day5",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#sales",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a09934727fc0613f459",
+      "uuid": "f65ce336-3fd9-4141-87ed-6753d36bd297",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "In the \"Weekly/Monthly Forecasting – How to Predict the Future\" lesson, what role does Management communication: play?",
+      "options": [
+        "As described in detail in the lesson, Management communication: plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day5",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a09934727fc0613f45a",
+      "uuid": "de980e17-087e-4644-8799-82095153d3a1",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is Early warning: in the context of Weekly/Monthly Forecasting – How to Predict the Future as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, Early warning: plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day5",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a09934727fc0613f45b",
+      "uuid": "9789009f-db43-488f-9f6e-a06d6e917d71",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "In the \"Weekly/Monthly Forecasting – How to Predict the Future\" lesson, what role does Use conversion rates: play?",
+      "options": [
+        "As described in detail in the lesson, Use conversion rates: plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day5",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

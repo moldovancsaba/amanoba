@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-28T09:45:20.450Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_PT",
+    "name": "Produtividade 2026: Como Gerenciar Equipes e Tempo",
+    "language": "pt"
+  },
+  "lesson": {
+    "dayNumber": 10,
+    "title": "Gestão de Energia: Quando Trabalhar, Quando Descansar, Rituais de Recuperação",
+    "lessonId": "PRODUCTIVITY_2026_PT_DAY_10"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a396360118c57912ac0",
+      "uuid": "df6283c0-71d2-4ab2-868e-4d3c1b5e3650",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ Conheço meus horários de pico de energ...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day10",
+        "#pt",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a396360118c57912ac1",
+      "uuid": "d7783254-4a3c-4670-b438-df5a77062e82",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ Tenho um limite de trabalho no fim de ...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day10",
+        "#pt",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a396360118c57912ac2",
+      "uuid": "85d10f5a-5429-4842-aa85-88563079f368",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ Conheço meus horários de pico de energ...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day10",
+        "#pt",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a396360118c57912ac3",
+      "uuid": "d9f9e7b3-a5a4-40ac-9fc3-1b63cae076e1",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Como o conceito \"importante e criativo nesses blocos...\", mencionado na lição, impacta o alcance de seus goals?",
+      "options": [
+        "Como descrito em detalhes na lição, importante e criativo nesses b... aumenta a eficácia e reduz os riscos",
+        "Sem impacto significativo",
+        "Importa apenas teoricamente",
+        "Apenas um elemento opcional"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day10",
+        "#pt",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a396360118c57912ac4",
+      "uuid": "20761ba2-72cc-4671-aa0c-c2507e54ed00",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Qual papel Prevenção de esgotamento desempenha na lição \"Gestão de Energia: Quando Trabalhar, Quando Descansar, Rituais de Recuperação\"?",
+      "options": [
+        "Conforme descrito em detalhes na lição, Prevenção de esgotamento desempenha um papel crucial na otimização de processos e no alcance de objetivos",
+        "Apenas informações periféricas sem papel significativo",
+        "Apenas um conceito teórico sem aplicação prática",
+        "Não mencionado na lição"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day10",
+        "#pt",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a396360118c57912ac5",
+      "uuid": "152eb15f-b0e2-4e88-ba83-31819625161d",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Qual papel Produção sustentável desempenha na lição \"Gestão de Energia: Quando Trabalhar, Quando Descansar, Rituais de Recuperação\"?",
+      "options": [
+        "Conforme descrito em detalhes na lição, Produção sustentável desempenha um papel crucial na otimização de processos e no alcance de objetivos",
+        "Apenas informações periféricas sem papel significativo",
+        "Apenas um conceito teórico sem aplicação prática",
+        "Não mencionado na lição"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day10",
+        "#pt",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a396360118c57912ac6",
+      "uuid": "f82e51af-e70b-47d6-9b76-6ee874c8fabf",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Quão importante é Ciclo Diário no contexto de Gestão de Energia: Quando Trabalhar, Quando Descansar, Rituais de Recuperação, conforme discutido na lição?",
+      "options": [
+        "Conforme descrito em detalhes na lição, Ciclo Diário desempenha um papel crucial na otimização de processos e no alcance de objetivos",
+        "Apenas informações periféricas sem papel significativo",
+        "Apenas um conceito teórico sem aplicação prática",
+        "Não mencionado na lição"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day10",
+        "#pt",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

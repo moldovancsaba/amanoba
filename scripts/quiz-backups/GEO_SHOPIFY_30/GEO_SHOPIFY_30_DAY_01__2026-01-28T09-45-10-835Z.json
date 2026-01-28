@@ -1,0 +1,148 @@
+{
+  "backedUpAt": "2026-01-28T09:45:20.913Z",
+  "course": {
+    "courseId": "GEO_SHOPIFY_30",
+    "name": "GEO Shopify – 30 napos kurzus",
+    "language": "hu"
+  },
+  "lesson": {
+    "dayNumber": 1,
+    "title": "Mi a GEO, és mi nem az (Shopify kontextusban)",
+    "lessonId": "GEO_SHOPIFY_30_DAY_01"
+  },
+  "questionCount": 6,
+  "questions": [
+    {
+      "_id": "697766a6bfa810d766366d99",
+      "uuid": "b8cb917f-3110-4012-b797-403a9e24adfe",
+      "questionType": "recall",
+      "difficulty": "EASY",
+      "question": "Mi a GEO (Generative Engine Optimization) fő célja?",
+      "options": [
+        "Az AI-válaszokban való szereplés és idézhetőség biztosítása",
+        "A keresőmotor rangsorolásának javítása",
+        "A weboldal sebességének növelése",
+        "A backlinkek számának növelése"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#geo",
+        "#beginner",
+        "#recall",
+        "#hu",
+        "#all-languages"
+      ]
+    },
+    {
+      "_id": "697766a6bfa810d766366d9a",
+      "uuid": "0a098f79-f91e-4131-b188-936965944690",
+      "questionType": "recall",
+      "difficulty": "EASY",
+      "question": "Mi a fő különbség a GEO és az SEO között?",
+      "options": [
+        "A GEO a keresési listán való megjelenésre, az SEO az AI-válaszokban való szereplésre fókuszál",
+        "A GEO az AI-válaszokban való szereplésre, az SEO a keresési listán való megjelenésre fókuszál",
+        "Nincs különbség, ugyanazt jelenti",
+        "A GEO csak Shopify-ra, az SEO minden platformra vonatkozik"
+      ],
+      "correctIndex": 1,
+      "hashtags": [
+        "#geo",
+        "#seo",
+        "#beginner",
+        "#recall",
+        "#hu",
+        "#all-languages"
+      ]
+    },
+    {
+      "_id": "697766a6bfa810d766366d9b",
+      "uuid": "1b2e7594-48ea-42b9-a858-2ba8ff38d625",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Egy Shopify boltod van. Hogyan készítesz GEO promptokat a boltodra?",
+      "options": [
+        "Véletlenszerűen generálsz promptokat bármilyen témában",
+        "Írsz 5 specifikus GEO promptot a termékkategóriádra, például: \"Legjobb [termékkategória] 2026-ban [ország]\"",
+        "Csak általános promptokat használsz, mint \"legjobb termékek\"",
+        "Nem kell promptokat készíteni, a GEO automatikusan működik"
+      ],
+      "correctIndex": 1,
+      "hashtags": [
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#application",
+        "#hu",
+        "#all-languages"
+      ]
+    },
+    {
+      "_id": "697766a6bfa810d766366d9c",
+      "uuid": "861a87dd-5610-409c-a137-215fad63bf26",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Hogyan befolyásolja a GEO-alap minősége az AI válaszok pontosságát és a boltod megjelenését?",
+      "options": [
+        "Nincs kapcsolat - az AI válaszok véletlenszerűek",
+        "A jó GEO-alap csökkenti a kockázatot, hogy félreértett ajánlásokban szerepelj (téves ár, készlet vagy szállítási információk)",
+        "A GEO-alap csak a megjelenés gyakoriságát befolyásolja, nem a pontosságot",
+        "A minőség nem számít, csak a mennyiség"
+      ],
+      "correctIndex": 1,
+      "hashtags": [
+        "#geo",
+        "#advanced",
+        "#critical-thinking",
+        "#hu",
+        "#all-languages"
+      ]
+    },
+    {
+      "_id": "697766a6bfa810d766366d9d",
+      "uuid": "3e8b9748-f6e0-46d7-8f20-1dc023c6e241",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "A leckében leírt \"Gyakorlat: írd meg az első GEO promptjai...\" gyakorlatot hogyan implementálnád a saját munkádban?",
+      "options": [
+        "Lépésről lépésre követem a leckében leírt módszert, dokumentálom az eredményeket, és finomhangolom a folyamatot",
+        "Egyszerre próbálom ki mindent",
+        "Csak olvasom, nem alkalmazom",
+        "Várok, amíg mások megcsinálják"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day1",
+        "#hu",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "697766a6bfa810d766366d9e",
+      "uuid": "1d166b8a-6e29-4100-a209-72e91c814bc7",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "A leckében leírt \"gyakorlat: teszteld a promptjaidat (5-10...\" gyakorlatot hogyan implementálnád a saját munkádban?",
+      "options": [
+        "Lépésről lépésre követem a leckében leírt módszert, dokumentálom az eredményeket, és finomhangolom a folyamatot",
+        "Egyszerre próbálom ki mindent",
+        "Csak olvasom, nem alkalmazom",
+        "Várok, amíg mások megcsinálják"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day1",
+        "#hu",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

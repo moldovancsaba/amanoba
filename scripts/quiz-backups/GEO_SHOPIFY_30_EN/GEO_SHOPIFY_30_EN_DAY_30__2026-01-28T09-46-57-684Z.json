@@ -1,0 +1,177 @@
+{
+  "backedUpAt": "2026-01-28T09:47:00.690Z",
+  "course": {
+    "courseId": "GEO_SHOPIFY_30_EN",
+    "name": "GEO Shopify – 30-day course",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 30,
+    "title": "Capstone sprint: one collection end-to-end",
+    "lessonId": "GEO_SHOPIFY_30_EN_DAY_30"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a17b7889cedb02a2b50",
+      "uuid": "0d401b96-d382-4dd4-adc8-2b3cb7b513d3",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"Practice: run your full sprint (10-15 mi...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day30",
+        "#en",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a17b7889cedb02a2b51",
+      "uuid": "75564301-ceb1-48df-ad89-381e06ad30cf",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"practice: document results (5-10 min)\nNo...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day30",
+        "#en",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a17b7889cedb02a2b52",
+      "uuid": "4293b19f-ccef-464d-af22-841bf965cf9d",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"Practice: run your full sprint (10-15 mi...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day30",
+        "#en",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a17b7889cedb02a2b53",
+      "uuid": "f0484160-7a0d-48a4-afa6-6d56cd1605d9",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "How does the concept \"Capstone sprint: one collection end-to-end Today y...\" mentioned in the lesson impact achieving your goals?",
+      "options": [
+        "As described in detail in the lesson, Capstone sprint: one collectio... increases effectiveness and reduces risk",
+        "No significant impact",
+        "Only matters theoretically",
+        "Only an optional element"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day30",
+        "#en",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a17b7889cedb02a2b54",
+      "uuid": "2f8673de-cd77-45a3-b391-95130376aa59",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "In the \"Capstone sprint: one collection end-to-end\" lesson, what role does PDP blueprint + capsule + images play?",
+      "options": [
+        "As described in detail in the lesson, PDP blueprint + capsule + images plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day30",
+        "#en",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a17b7889cedb02a2b55",
+      "uuid": "baa4f2ce-8cd1-48d3-bc8f-111da5f98d69",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "In the \"Capstone sprint: one collection end-to-end\" lesson, what role does Feed check + measurement play?",
+      "options": [
+        "As described in detail in the lesson, Feed check + measurement plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day30",
+        "#en",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a17b7889cedb02a2b56",
+      "uuid": "ec0a4569-8936-4da8-bfdc-8a58da8cbd3c",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is sprint in the context of Capstone sprint: one collection end-to-end as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, sprint plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day30",
+        "#en",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-28T09:47:01.002Z",
+  "course": {
+    "courseId": "B2B_SALES_2026_30_EN",
+    "name": "B2B Sales 2026 Masterclass",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 4,
+    "title": "Buyer Persona and the Decision Unit",
+    "lessonId": "B2B_SALES_2026_30_EN_DAY_4"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "697769ff167c31fb26f4f54b",
+      "uuid": "22cb1d5c-7888-4f4a-9167-0f0cae4f2242",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"Exercise (10–15 minutes)\n\n  Pick an ICP ...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day4",
+        "#en",
+        "#all-languages",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "697769ff167c31fb26f4f54c",
+      "uuid": "62bfc78f-b9f2-4826-a09e-29e892b1e7ec",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"Exercise (5–10 minutes)\nOn a live deal, ...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day4",
+        "#en",
+        "#all-languages",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "697769ff167c31fb26f4f54d",
+      "uuid": "8ce7f073-5b9d-41a1-83d7-cd2988bf4778",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"Exercise (10–15 minutes)\n\n  Pick an ICP ...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day4",
+        "#en",
+        "#all-languages",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "697769ff167c31fb26f4f54e",
+      "uuid": "31ac7ab2-5382-421a-8761-33a926eb2b29",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "How does the concept \"Buyer Persona and the Decision Unit Map who uses, ...\" mentioned in the lesson impact achieving your goals?",
+      "options": [
+        "As described in detail in the lesson, Buyer Persona and the Decision... increases effectiveness and reduces risk",
+        "No significant impact",
+        "Only matters theoretically",
+        "Only an optional element"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day4",
+        "#en",
+        "#all-languages",
+        "#sales",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "697769ff167c31fb26f4f54f",
+      "uuid": "52d352c6-3994-40b3-ac2c-ce3fc8b6bf77",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is Champion in the context of Buyer Persona and the Decision Unit as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, Champion plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day4",
+        "#en",
+        "#all-languages",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "697769ff167c31fb26f4f550",
+      "uuid": "7ebe4b28-fef7-415f-86f8-a8103c1f9438",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "In the \"Buyer Persona and the Decision Unit\" lesson, what role does Legal/IT/Security play?",
+      "options": [
+        "As described in detail in the lesson, Legal/IT/Security plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day4",
+        "#en",
+        "#all-languages",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "697769ff167c31fb26f4f551",
+      "uuid": "fdd8611f-1dd3-45cb-92ac-a3e2c601fe36",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is Good: in the context of Buyer Persona and the Decision Unit as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, Good: plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day4",
+        "#en",
+        "#all-languages",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

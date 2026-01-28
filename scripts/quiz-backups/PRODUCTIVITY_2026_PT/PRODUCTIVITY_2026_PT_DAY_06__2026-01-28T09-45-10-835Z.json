@@ -1,0 +1,164 @@
+{
+  "backedUpAt": "2026-01-28T09:45:20.353Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_PT",
+    "name": "Produtividade 2026: Como Gerenciar Equipes e Tempo",
+    "language": "pt"
+  },
+  "lesson": {
+    "dayNumber": 6,
+    "title": "Captura: caixas de entrada, lista de gatilhos, hábitos de captura",
+    "lessonId": "PRODUCTIVITY_2026_PT_DAY_06"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a386360118c57912a86",
+      "uuid": "5533871d-d948-4b0d-a513-25f5647eb94a",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Com que frequência você deve esvaziar as caixas de entrada?",
+      "options": [
+        "Uma vez por semana",
+        "Uma vez por mês",
+        "Pelo menos uma vez por dia",
+        "Nunca"
+      ],
+      "correctIndex": 2,
+      "hashtags": [
+        "#day-06",
+        "#foundation",
+        "#recall",
+        "#pt"
+      ]
+    },
+    {
+      "_id": "69776a386360118c57912a87",
+      "uuid": "0bd609c6-32e1-447a-acc4-9677de141f03",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "O que acontece se algo não for capturado?",
+      "options": [
+        "É gerenciado automaticamente",
+        "Está perdido",
+        "É excluído automaticamente",
+        "Nada"
+      ],
+      "correctIndex": 1,
+      "hashtags": [
+        "#day-06",
+        "#foundation",
+        "#recall",
+        "#pt"
+      ]
+    },
+    {
+      "_id": "69776a386360118c57912a88",
+      "uuid": "833b52b0-8cbe-4eeb-9b1d-3dd35d00ba59",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Como você desenvolve um hábito de captura?",
+      "options": [
+        "Use uma vez",
+        "Repita até se tornar automático",
+        "Nunca use",
+        "Use apenas nos fins de semana"
+      ],
+      "correctIndex": 1,
+      "hashtags": [
+        "#day-06",
+        "#foundation",
+        "#recall",
+        "#pt"
+      ]
+    },
+    {
+      "_id": "69776a386360118c57912a89",
+      "uuid": "9d66c28c-0f57-409e-ac3a-6db552e0b608",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ Você tem um sistema confiável de caixa...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day6",
+        "#pt",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a386360118c57912a8a",
+      "uuid": "68733efa-9311-4037-9817-2b8145797edd",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ Todas as informações importantes são c...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day6",
+        "#pt",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a386360118c57912a8b",
+      "uuid": "ba7eedab-ecf1-451e-8b44-ba7b0c3e25e1",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ Você tem um sistema confiável de caixa...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day6",
+        "#pt",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a386360118c57912a8c",
+      "uuid": "577ce4e4-5752-4f72-b5ef-0ceff3d8b671",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Como o conceito \"Criar um sistema confiável de caixas de entrada...\", mencionado na lição, impacta o alcance de seus goals?",
+      "options": [
+        "Como descrito em detalhes na lição, Criar um sistema confiável de ... aumenta a eficácia e reduz os riscos",
+        "Sem impacto significativo",
+        "Importa apenas teoricamente",
+        "Apenas um elemento opcional"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day6",
+        "#pt",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    }
+  ]
+}

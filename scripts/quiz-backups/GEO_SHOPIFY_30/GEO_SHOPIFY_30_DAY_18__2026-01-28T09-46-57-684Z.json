@@ -1,0 +1,128 @@
+{
+  "backedUpAt": "2026-01-28T09:47:08.241Z",
+  "course": {
+    "courseId": "GEO_SHOPIFY_30",
+    "name": "GEO Shopify – 30 napos kurzus",
+    "language": "hu"
+  },
+  "lesson": {
+    "dayNumber": 18,
+    "title": "Árak, ajánlatok, review-k biztonságosan",
+    "lessonId": "GEO_SHOPIFY_30_DAY_18"
+  },
+  "questionCount": 5,
+  "questions": [
+    {
+      "_id": "697766a8bfa810d766366ede",
+      "uuid": "5ccb37f7-cf48-4c39-8b86-a23d5dc9b0df",
+      "questionType": "recall",
+      "difficulty": "EASY",
+      "question": "Mi fontos a termékadatokban a GEO szempontjából a(z) \"Árak, ajánlatok, review-k biztonságosan\" leckében?",
+      "options": [
+        "Pontos, egyértelmű információk",
+        "Minimális információ",
+        "Véletlenszerű adatok",
+        "Nincs követelmény"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day18",
+        "#product",
+        "#beginner",
+        "#recall",
+        "#hu",
+        "#all-languages"
+      ]
+    },
+    {
+      "_id": "697766a8bfa810d766366edf",
+      "uuid": "3d1ffe3c-c513-4254-b84e-a7f0a04b692e",
+      "questionType": "recall",
+      "difficulty": "EASY",
+      "question": "Mit tanulsz meg a(z) \"Árak, ajánlatok, review-k biztonságosan\" leckében?",
+      "options": [
+        "Gyakorlati GEO készségeket Shopify-hoz",
+        "Általános e-commerce ismereteket",
+        "Csak elméleti információkat",
+        "Nem tanulsz semmit"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day18",
+        "#beginner",
+        "#recall",
+        "#hu",
+        "#all-languages"
+      ]
+    },
+    {
+      "_id": "697766a8bfa810d766366ee1",
+      "uuid": "852d1711-8e14-4375-93ae-15043f23572e",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "A leckében leírt \"Gyakorlat: egységesítsd az árakat és rev...\" gyakorlatot hogyan implementálnád a saját munkádban?",
+      "options": [
+        "Lépésről lépésre követem a leckében leírt módszert, dokumentálom az eredményeket, és finomhangolom a folyamatot",
+        "Egyszerre próbálom ki mindent",
+        "Csak olvasom, nem alkalmazom",
+        "Várok, amíg mások megcsinálják"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day18",
+        "#hu",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "697766a8bfa810d766366ee2",
+      "uuid": "cbb9a178-7e6f-4b26-a8fd-687275f00f85",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "A leckében leírt \"gyakorlat: bővítsd további termékekre (5...\" gyakorlatot hogyan implementálnád a saját munkádban?",
+      "options": [
+        "Lépésről lépésre követem a leckében leírt módszert, dokumentálom az eredményeket, és finomhangolom a folyamatot",
+        "Egyszerre próbálom ki mindent",
+        "Csak olvasom, nem alkalmazom",
+        "Várok, amíg mások megcsinálják"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day18",
+        "#hu",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "697766a8bfa810d766366ee3",
+      "uuid": "c60eaad3-9829-4ec4-8e1e-eda3a8739106",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "A leckében leírt \"Gyakorlat: egységesítsd az árakat és rev...\" gyakorlatot hogyan implementálnád a saját munkádban?",
+      "options": [
+        "Lépésről lépésre követem a leckében leírt módszert, dokumentálom az eredményeket, és finomhangolom a folyamatot",
+        "Egyszerre próbálom ki mindent",
+        "Csak olvasom, nem alkalmazom",
+        "Várok, amíg mások megcsinálják"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day18",
+        "#hu",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-28T09:47:01.157Z",
+  "course": {
+    "courseId": "B2B_SALES_2026_30_EN",
+    "name": "B2B Sales 2026 Masterclass",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 8,
+    "title": "LinkedIn and Sales Navigator Core Flow",
+    "lessonId": "B2B_SALES_2026_30_EN_DAY_8"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a00167c31fb26f4f595",
+      "uuid": "a500c309-8045-44f4-9942-8d227825a05c",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"Exercise (10–15 minutes)\n\n  Set 1–2 save...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day8",
+        "#en",
+        "#all-languages",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a00167c31fb26f4f596",
+      "uuid": "9b0a2399-3b5a-45c5-93ca-d8bcb65f22c3",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"Exercise (5–10 minutes)\nPick 5 companies...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day8",
+        "#en",
+        "#all-languages",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a00167c31fb26f4f597",
+      "uuid": "26ca5618-e1da-45d4-9ea0-4c851aa9392b",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"Exercise (10–15 minutes)\n\n  Set 1–2 save...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day8",
+        "#en",
+        "#all-languages",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a00167c31fb26f4f598",
+      "uuid": "5e5852b9-e45d-454f-922f-ecbb9b7ae0cb",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "How does the concept \"LinkedIn and Sales Navigator Core Flow Build saved...\" mentioned in the lesson impact achieving your goals?",
+      "options": [
+        "As described in detail in the lesson, LinkedIn and Sales Navigator C... increases effectiveness and reduces risk",
+        "No significant impact",
+        "Only matters theoretically",
+        "Only an optional element"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day8",
+        "#en",
+        "#all-languages",
+        "#sales",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a00167c31fb26f4f599",
+      "uuid": "63f8c833-54bd-4895-b541-c94335ca9b51",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is Bad: in the context of LinkedIn and Sales Navigator Core Flow as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, Bad: plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day8",
+        "#en",
+        "#all-languages",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a00167c31fb26f4f59a",
+      "uuid": "5ffe50e6-4cbb-420a-9b5f-ca636ab2f985",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is Sales in the context of LinkedIn and Sales Navigator Core Flow as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, Sales plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day8",
+        "#en",
+        "#all-languages",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a00167c31fb26f4f59b",
+      "uuid": "442af3b3-faa8-4fef-9a06-3c401f12bd3c",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is Core in the context of LinkedIn and Sales Navigator Core Flow as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, Core plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day8",
+        "#en",
+        "#all-languages",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

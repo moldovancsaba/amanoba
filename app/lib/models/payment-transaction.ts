@@ -100,7 +100,6 @@ const PaymentTransactionSchema = new Schema<IPaymentTransaction>(
       type: Schema.Types.ObjectId,
       ref: 'Brand',
       required: [true, 'Brand ID is required'],
-      index: true,
       immutable: true,
       // Why: Links to brand for multi-tenant support
     },
@@ -118,14 +117,12 @@ const PaymentTransactionSchema = new Schema<IPaymentTransaction>(
     stripeCheckoutSessionId: {
       type: String,
       trim: true,
-      index: true,
       immutable: true,
       // Why: Links to Stripe Checkout session
     },
     stripeCustomerId: {
       type: String,
       trim: true,
-      index: true,
       immutable: true,
       // Why: Links to Stripe Customer for recurring payments
     },

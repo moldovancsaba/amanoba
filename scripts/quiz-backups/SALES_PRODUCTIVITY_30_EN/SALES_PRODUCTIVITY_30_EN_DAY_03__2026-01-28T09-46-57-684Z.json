@@ -1,0 +1,177 @@
+{
+  "backedUpAt": "2026-01-28T09:47:02.387Z",
+  "course": {
+    "courseId": "SALES_PRODUCTIVITY_30_EN",
+    "name": "Build Your Sales – 30 Days to More Deals",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 3,
+    "title": "Multi-Channel Lead Generation – Where Do You Find Customers?",
+    "lessonId": "SALES_PRODUCTIVITY_30_EN_DAY_03"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a09934727fc0613f429",
+      "uuid": "711fdcc9-e18d-48af-8865-9502c373c649",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "How does the concept \"important channels for your business\n  Set daily t...\" mentioned in the lesson impact achieving your goals?",
+      "options": [
+        "As described in detail in the lesson, important channels for your bu... increases effectiveness and reduces risk",
+        "No significant impact",
+        "Only matters theoretically",
+        "Only an optional element"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day3",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#sales",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a09934727fc0613f42a",
+      "uuid": "8b076bac-78e0-4dd9-a05c-8a81762aebbe",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"Practice 1 – Lead source tracking table ...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day3",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a09934727fc0613f42b",
+      "uuid": "45af0560-c5c9-4057-9411-c8104c376868",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"Practice 2 – Select priority channels (1...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day3",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a09934727fc0613f42c",
+      "uuid": "2375cd53-09cd-4aef-bac5-2c1cafc7309d",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"Practice 1 – Lead source tracking table ...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day3",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a09934727fc0613f42d",
+      "uuid": "36ce8564-6107-4123-93e6-3a8aab8b6096",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "In the \"Multi-Channel Lead Generation – Where Do You Find Customers?\" lesson, what role does Diversification: play?",
+      "options": [
+        "As described in detail in the lesson, Diversification: plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day3",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a09934727fc0613f42e",
+      "uuid": "a166429a-4f34-4338-b457-b0774de37e65",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is Scalability: in the context of Multi-Channel Lead Generation – Where Do You Find Customers? as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, Scalability: plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day3",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a09934727fc0613f42f",
+      "uuid": "45e771dc-8733-4a58-8e72-0397b70b2ed5",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is 2. CRM/Referral in the context of Multi-Channel Lead Generation – Where Do You Find Customers? as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, 2. CRM/Referral plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day3",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

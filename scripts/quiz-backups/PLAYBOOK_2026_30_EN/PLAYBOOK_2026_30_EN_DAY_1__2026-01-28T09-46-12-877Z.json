@@ -1,0 +1,163 @@
+{
+  "backedUpAt": "2026-01-28T09:46:16.399Z",
+  "course": {
+    "courseId": "PLAYBOOK_2026_30_EN",
+    "name": "The Playbook 2026 – Masterclass for Designers",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 1,
+    "title": "Why Visual Language Beats Style",
+    "lessonId": "PLAYBOOK_2026_30_EN_DAY_1"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a42bbb88a1cf4b2ddef",
+      "uuid": "3be326b2-8893-4561-b9d9-8cb5287b1f9a",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"Exercise (10–15 minutes)\n\n  Write: “Our ...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day1",
+        "#en",
+        "#all-languages",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a42bbb88a1cf4b2ddf0",
+      "uuid": "ce7846fe-56e1-4561-9872-cd681e685588",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"Exercise (5–10 minutes)\nPick one screen,...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day1",
+        "#en",
+        "#all-languages",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a42bbb88a1cf4b2ddf1",
+      "uuid": "c96f1873-e689-4935-838d-75b795279ae8",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"Exercise (10–15 minutes)\n\n  Write: “Our ...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day1",
+        "#en",
+        "#all-languages",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a42bbb88a1cf4b2ddf2",
+      "uuid": "18d11c5d-abc8-4d62-9b58-2b0a7df3cbed",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "How does the concept \"Why Visual Language Beats Style See why “style” do...\" mentioned in the lesson impact achieving your goals?",
+      "options": [
+        "As described in detail in the lesson, Why Visual Language Beats Styl... increases effectiveness and reduces risk",
+        "No significant impact",
+        "Only matters theoretically",
+        "Only an optional element"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day1",
+        "#en",
+        "#all-languages",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a42bbb88a1cf4b2ddf3",
+      "uuid": "59aff010-477a-4435-9a22-c4614e707809",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is Good: in the context of Why Visual Language Beats Style as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, Good: plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day1",
+        "#en",
+        "#all-languages",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a42bbb88a1cf4b2ddf4",
+      "uuid": "6aaf895a-faa6-4585-98e9-ea6132939a0f",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is Language in the context of Why Visual Language Beats Style as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, Language plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day1",
+        "#en",
+        "#all-languages",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a42bbb88a1cf4b2ddf5",
+      "uuid": "e9e3aa0a-769c-43ce-89d6-03e15099791a",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is Style in the context of Why Visual Language Beats Style as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, Style plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day1",
+        "#en",
+        "#all-languages",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

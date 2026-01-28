@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-28T09:47:47.057Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_PT",
+    "name": "Produtividade 2026: Como Gerenciar Equipes e Tempo",
+    "language": "pt"
+  },
+  "lesson": {
+    "dayNumber": 8,
+    "title": "Custo de Mudança de Contexto: Resíduo de Atenção, Processamento em Lote, Blocos de Trabalho Profundo",
+    "lessonId": "PRODUCTIVITY_2026_PT_DAY_8"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a386360118c57912aa6",
+      "uuid": "e4953e8a-dc32-4c0e-bc2e-95d21843e765",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ Entendo o que é resíduo de atenção.\n✅ ...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day8",
+        "#pt",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a386360118c57912aa7",
+      "uuid": "126242ae-f7c5-4ddf-852d-87d3baf759d1",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ Tenho regras para blocos de trabalho p...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day8",
+        "#pt",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a386360118c57912aa8",
+      "uuid": "7580d295-3d57-47a8-a340-0bc11c455a53",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ Entendo o que é resíduo de atenção.\n✅ ...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day8",
+        "#pt",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a386360118c57912aa9",
+      "uuid": "3c5d928b-ef3b-4457-ac66-7d56310646bd",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Como o conceito \"Custo de Mudança de Contexto: Resíduo de Atenção, ...\", mencionado na lição, impacta o alcance de seus goals?",
+      "options": [
+        "Como descrito em detalhes na lição, Custo de Mudança de Contexto: ... aumenta a eficácia e reduz os riscos",
+        "Sem impacto significativo",
+        "Importa apenas teoricamente",
+        "Apenas um elemento opcional"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day8",
+        "#pt",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a386360118c57912aaa",
+      "uuid": "be66a60f-c6bb-4404-9b2f-f8371b35dfaf",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Qual papel Perda de Produtividade desempenha na lição \"Custo de Mudança de Contexto: Resíduo de Atenção, Processamento em Lote, Blocos de Trabalho Profundo\"?",
+      "options": [
+        "Conforme descrito em detalhes na lição, Perda de Produtividade desempenha um papel crucial na otimização de processos e no alcance de objetivos",
+        "Apenas informações periféricas sem papel significativo",
+        "Apenas um conceito teórico sem aplicação prática",
+        "Não mencionado na lição"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day8",
+        "#pt",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a386360118c57912aab",
+      "uuid": "9380b8b4-c65e-4aa7-8f28-5721c08fddff",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Qual papel O Estresse Aumenta desempenha na lição \"Custo de Mudança de Contexto: Resíduo de Atenção, Processamento em Lote, Blocos de Trabalho Profundo\"?",
+      "options": [
+        "Conforme descrito em detalhes na lição, O Estresse Aumenta desempenha um papel crucial na otimização de processos e no alcance de objetivos",
+        "Apenas informações periféricas sem papel significativo",
+        "Apenas um conceito teórico sem aplicação prática",
+        "Não mencionado na lição"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day8",
+        "#pt",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a386360118c57912aac",
+      "uuid": "ada2771f-049a-49b5-afa7-1ac1ba5b9e49",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Quão importante é Benefícios no contexto de Custo de Mudança de Contexto: Resíduo de Atenção, Processamento em Lote, Blocos de Trabalho Profundo, conforme discutido na lição?",
+      "options": [
+        "Conforme descrito em detalhes na lição, Benefícios desempenha um papel crucial na otimização de processos e no alcance de objetivos",
+        "Apenas informações periféricas sem papel significativo",
+        "Apenas um conceito teórico sem aplicação prática",
+        "Não mencionado na lição"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day8",
+        "#pt",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

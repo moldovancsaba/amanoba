@@ -240,6 +240,9 @@ export function validateQuestionQuality(
   const errors: string[] = [];
   const warnings: string[] = [];
 
+  // Defensive normalization: historical DB records may have malformed option shapes.
+  const safeOptions: string[] = Array.isArray(options) ? options.map(o => String(o ?? '')) : [];
+
   // 0. RECALL is disallowed (hard rule)
   if (questionType === QuizQuestionType.RECALL || String(questionType) === 'recall') {
     errors.push('RECALL questions are disallowed. Regenerate this question as APPLICATION or CRITICAL_THINKING.');
@@ -247,7 +250,7 @@ export function validateQuestionQuality(
 
   // 0.1 Strong disallow: lesson-referential wording anywhere
   {
-    const textBlob = `${question}\n${options.join('\n')}`;
+    const textBlob = `${question}\n${safeOptions.join('\n')}`;
     for (const token of LESSON_REFERENCE_TOKENS) {
       if (token.re.test(textBlob)) {
         errors.push(
@@ -266,16 +269,16 @@ export function validateQuestionQuality(
   }
 
   // 0.3 Disallow checklist symbols / ellipsis anywhere in Q or options (not standalone, usually a snippet)
-  if (/[✅✔️☑️]/.test(question) || options.some(o => /[✅✔️☑️]/.test(o))) {
+  if (/[✅✔️☑️]/.test(question) || safeOptions.some(o => /[✅✔️☑️]/.test(o))) {
     errors.push('Contains checklist symbol (✅/✔️/☑️). Replace with a concrete standalone scenario.');
   }
-  if (/\.\.\./.test(question) || options.some(o => /\.\.\./.test(o))) {
+  if (/\.\.\./.test(question) || safeOptions.some(o => /\.\.\./.test(o))) {
     errors.push('Contains ellipsis (...) which typically indicates a truncated snippet. Replace with complete, clear text.');
   }
 
   // 0.4 Disallow the literal English word "goals" in non-EN courses (common leakage)
   if (String(language || '').toLowerCase() !== 'en') {
-    const blob = `${question}\n${options.join('\n')}`;
+    const blob = `${question}\n${safeOptions.join('\n')}`;
     if (/\bgoals\b/i.test(blob)) {
       errors.push('Language leak: contains the English word "goals". Use the correct language term or rewrite the sentence.');
     }
@@ -325,7 +328,7 @@ export function validateQuestionQuality(
   }
 
   // 3. Check for placeholder answers
-  for (const option of options) {
+  for (const option of safeOptions) {
     const optionLower = option.toLowerCase();
     for (const pattern of UNACCEPTABLE_PATTERNS.answers) {
       const patternLower = pattern.toLowerCase();
@@ -350,32 +353,32 @@ export function validateQuestionQuality(
   }
 
   // 4. Check options quality
-  if (options.length !== 4) {
-    errors.push(`Must have exactly 4 options, found ${options.length}`);
+  if (safeOptions.length !== 4) {
+    errors.push(`Must have exactly 4 options, found ${safeOptions.length}`);
   }
 
   // 4.1 Language script check (hard) for non-Latin-script courses
   {
-    const blob = `${question}\n${options.join('\n')}`;
+    const blob = `${question}\n${safeOptions.join('\n')}`;
     const scriptErr = languageScriptCheck(language, blob);
     if (scriptErr) errors.push(scriptErr);
   }
 
   // Enforce non-trivial educational options
-  options.forEach((opt, index) => {
+  safeOptions.forEach((opt, index) => {
     if (opt.trim().length < 25) {
       errors.push(`Option ${index + 1} is too short (${opt.trim().length} chars). Options must be detailed and educational.`);
     }
   });
 
   // Check for duplicate options
-  const uniqueOptions = new Set(options.map(opt => opt.trim().toLowerCase()));
-  if (uniqueOptions.size < options.length) {
+  const uniqueOptions = new Set(safeOptions.map(opt => opt.trim().toLowerCase()));
+  if (uniqueOptions.size < safeOptions.length) {
     errors.push('Duplicate options found. All options must be unique.');
   }
 
   // Check option lengths (too short = not educational)
-  options.forEach((opt, index) => {
+  safeOptions.forEach((opt, index) => {
     if (opt.trim().length < 10) {
       warnings.push(`Option ${index + 1} is very short (${opt.length} chars). Consider making it more educational.`);
     }

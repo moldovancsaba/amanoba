@@ -36,10 +36,12 @@
 
 ### 2.1 Backfill grouping rule
 
-- Consider only courses with `parentCourseId` null/empty (language variants, not shorts).
-- **Derive `ccsId` from `courseId`**: if `courseId` matches `^(.+)_(HU|EN|TR|BG|PL|VI|ID|AR|PT|HI)$` (case-insensitive), then `ccsId = $1`.  
-  Example: `PRODUCTIVITY_2026_HU` → `PRODUCTIVITY_2026`; `GEO_SHOPIFY_30_EN` → `GEO_SHOPIFY_30`.
-- For each such `ccsId`: ensure one CCS document exists (create with `name: ccsId` if missing), then set `course.ccsId = ccsId` for every course in that family.
+- **Language variants**: if `courseId` ends with `_<LOCALE>` where `<LOCALE>` is one of the supported locales (see `app/lib/i18n/locales.ts`, e.g. `HU`, `EN`, `RU`, `AR`, ...), then `ccsId = courseId` without that suffix.  
+  Example: `PRODUCTIVITY_2026_HU` → `PRODUCTIVITY_2026`; `B2B_SALES_2026_30_RU` → `B2B_SALES_2026_30`.
+- **Base courses without a language suffix**: if `courseId` is itself a CCS id (i.e. a row exists in `ccs` with the same `ccsId`), then `ccsId = courseId`.  
+  Example: `GEO_SHOPIFY_30` → `GEO_SHOPIFY_30`.
+- **Shorts / child courses**: if `parentCourseId` is set, inherit `ccsId` from the parent course when possible.
+- For each inferred `ccsId`: ensure one CCS document exists (create with `name: ccsId` if missing), then set `course.ccsId = ccsId` for every course in that family that is missing or mismatched.
 
 ### 2.2 Script usage
 
@@ -47,8 +49,11 @@
 # Dry-run (default): report what would be created/updated
 npx tsx --env-file=.env.local scripts/backfill-ccs-from-courses.ts
 
-# Apply changes to DB
+# Apply changes to DB (writes a rollback backup file under scripts/course-backups/)
 npx tsx --env-file=.env.local scripts/backfill-ccs-from-courses.ts --apply
+
+# Optional: choose a custom backup dir
+npx tsx --env-file=.env.local scripts/backfill-ccs-from-courses.ts --apply --backup-dir scripts/course-backups
 ```
 
 ---
@@ -63,5 +68,22 @@ npx tsx --env-file=.env.local scripts/backfill-ccs-from-courses.ts --apply
 
 ## 4. Rollback
 
-- To undo backfill: clear `course.ccsId` for affected courses and delete the created CCS documents, or restore from DB backup.
+- Backfill writes a JSON backup file before DB writes (default under `scripts/course-backups/`).
+- To undo the backfill, restore `Course.ccsId` from that backup:
+
+```bash
+# Dry-run restore
+npx tsx --env-file=.env.local scripts/restore-courses-from-backup.ts --file scripts/course-backups/<BACKUP_FILE>.json
+
+# Apply restore
+npx tsx --env-file=.env.local scripts/restore-courses-from-backup.ts --file scripts/course-backups/<BACKUP_FILE>.json --apply
+```
+
+- If the backfill created new CCS docs and you also want to remove them (only when unreferenced after restore):
+
+```bash
+npx tsx --env-file=.env.local scripts/restore-courses-from-backup.ts --file scripts/course-backups/<BACKUP_FILE>.json --apply --delete-created-ccs
+```
+
+- As a last resort, restore from a full DB backup/snapshot.
 - DELETE is only allowed when no courses reference the CCS, so it does not leave orphaned courses.

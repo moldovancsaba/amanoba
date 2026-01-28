@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-28T09:46:15.928Z",
+  "course": {
+    "courseId": "AI_30_DAY_EN",
+    "name": "AI Catch-Up Program (EN)",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 4,
+    "title": "Break down tasks: workflow thinking",
+    "lessonId": "AI_30_DAY_EN_DAY_04"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "697769fa27e27f61ac414382",
+      "uuid": "7e3e1d4b-e9de-42f0-9f4e-0f075329d4e1",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"exercise (10–15 min)\n\nChoose a complex t...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day4",
+        "#en",
+        "#all-languages",
+        "#ai",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "697769fa27e27f61ac414383",
+      "uuid": "71c40b1e-c4e6-41bb-9562-4fc552eea093",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"exercise (5–10 min)\nApply the pattern to...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day4",
+        "#en",
+        "#all-languages",
+        "#ai",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "697769fa27e27f61ac414384",
+      "uuid": "7f8c8ced-8b28-4be3-904c-5ce374c9fe1c",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"exercise (10–15 min)\n\nChoose a complex t...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day4",
+        "#en",
+        "#all-languages",
+        "#ai",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "697769fa27e27f61ac414385",
+      "uuid": "da5e3637-e738-46bd-add9-863cd82b74a5",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "How does the concept \"Break down tasks: workflow thinking Guide the mode...\" mentioned in the lesson impact achieving your goals?",
+      "options": [
+        "As described in detail in the lesson, Break down tasks: workflow thi... increases effectiveness and reduces risk",
+        "No significant impact",
+        "Only matters theoretically",
+        "Only an optional element"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day4",
+        "#en",
+        "#all-languages",
+        "#ai",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "697769fa27e27f61ac414386",
+      "uuid": "145cafc3-b697-4e1a-ad78-59845da32685",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is One-shot (weak) in the context of Break down tasks: workflow thinking as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, One-shot (weak) plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day4",
+        "#en",
+        "#all-languages",
+        "#ai",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "697769fa27e27f61ac414387",
+      "uuid": "c6cc9a66-97ec-42af-ab02-c47a022ecccd",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is Break in the context of Break down tasks: workflow thinking as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, Break plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day4",
+        "#en",
+        "#all-languages",
+        "#ai",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "697769fa27e27f61ac414388",
+      "uuid": "7ad032ec-a2cb-4d6d-85c6-694b5c11f38c",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is tasks in the context of Break down tasks: workflow thinking as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, tasks plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day4",
+        "#en",
+        "#all-languages",
+        "#ai",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

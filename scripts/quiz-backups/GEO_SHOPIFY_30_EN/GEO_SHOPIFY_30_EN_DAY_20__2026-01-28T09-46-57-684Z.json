@@ -1,0 +1,177 @@
+{
+  "backedUpAt": "2026-01-28T09:47:00.338Z",
+  "course": {
+    "courseId": "GEO_SHOPIFY_30_EN",
+    "name": "GEO Shopify – 30-day course",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 20,
+    "title": "Minimum content: no \"thin\" PDP",
+    "lessonId": "GEO_SHOPIFY_30_EN_DAY_20"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a16b7889cedb02a2aec",
+      "uuid": "76bfad7b-a238-4331-88b1-54755ed9c23f",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"Practice: fix your thin pages (10-15 min...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day20",
+        "#en",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a16b7889cedb02a2aed",
+      "uuid": "38148d6e-5f32-4a91-a919-d74c71d0a7a2",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"practice: document the standard (5-10 mi...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day20",
+        "#en",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a16b7889cedb02a2aee",
+      "uuid": "0840f0c7-9b68-4afe-9fb3-bd3cf1bf72e7",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"Practice: fix your thin pages (10-15 min...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day20",
+        "#en",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a16b7889cedb02a2aef",
+      "uuid": "6233055f-ca24-4b79-9ec9-5caefd36b25c",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "How does the concept \"Minimum content: no \"thin\" PDP Today you'll elimin...\" mentioned in the lesson impact achieving your goals?",
+      "options": [
+        "As described in detail in the lesson, Minimum content: no \"thin\" PDP... increases effectiveness and reduces risk",
+        "No significant impact",
+        "Only matters theoretically",
+        "Only an optional element"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day20",
+        "#en",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a16b7889cedb02a2af0",
+      "uuid": "d4e31fae-963c-4948-9457-fbaeb85b109c",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is Answer capsule in the context of Minimum content: no \"thin\" PDP as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, Answer capsule plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day20",
+        "#en",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a16b7889cedb02a2af1",
+      "uuid": "e47d14aa-40fd-46fb-9b56-1bedaf0f53a1",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is Policy in the context of Minimum content: no \"thin\" PDP as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, Policy plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day20",
+        "#en",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a16b7889cedb02a2af2",
+      "uuid": "678b38c1-fa73-44de-89ec-ef179ac6bc80",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is Specs in the context of Minimum content: no \"thin\" PDP as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, Specs plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day20",
+        "#en",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

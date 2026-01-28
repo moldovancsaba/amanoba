@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-28T09:46:15.993Z",
+  "course": {
+    "courseId": "B2B_SALES_2026_30_EN",
+    "name": "B2B Sales 2026 Masterclass",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 1,
+    "title": "What Modern B2B Sales Means in 2026",
+    "lessonId": "B2B_SALES_2026_30_EN_DAY_1"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "697769fe167c31fb26f4f4c0",
+      "uuid": "4ce2d417-e5ab-40a5-ba51-53d433251c3a",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"Exercise (10–15 minutes)\n\n  Create your ...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day1",
+        "#en",
+        "#all-languages",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "697769fe167c31fb26f4f4c1",
+      "uuid": "3c6cb98e-d882-4d59-b0ea-9182729cd63d",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"Exercise (5–10 minutes)\nPick one closed ...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day1",
+        "#en",
+        "#all-languages",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "697769fe167c31fb26f4f4c2",
+      "uuid": "769c2916-19fc-4206-b760-bd12bcc159a6",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"Exercise (10–15 minutes)\n\n  Create your ...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day1",
+        "#en",
+        "#all-languages",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "697769fe167c31fb26f4f4c3",
+      "uuid": "f3123981-4b68-456a-88a3-b3181fea323e",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "How does the concept \"What Modern B2B Sales Means in 2026 Sales is decis...\" mentioned in the lesson impact achieving your goals?",
+      "options": [
+        "As described in detail in the lesson, What Modern B2B Sales Means in... increases effectiveness and reduces risk",
+        "No significant impact",
+        "Only matters theoretically",
+        "Only an optional element"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day1",
+        "#en",
+        "#all-languages",
+        "#sales",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "697769fe167c31fb26f4f4c4",
+      "uuid": "cfa0ac30-9155-45dd-9896-3835490a7534",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is Tactic in the context of What Modern B2B Sales Means in 2026 as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, Tactic plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day1",
+        "#en",
+        "#all-languages",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "697769fe167c31fb26f4f4c5",
+      "uuid": "b719c87d-c4f0-46b4-8941-216bac10df56",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "In the \"What Modern B2B Sales Means in 2026\" lesson, what role does “We must pitch.” play?",
+      "options": [
+        "As described in detail in the lesson, “We must pitch.” plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day1",
+        "#en",
+        "#all-languages",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "697769fe167c31fb26f4f4c6",
+      "uuid": "f204404e-2bed-4d9a-b6c2-104d6a462eab",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is Bad (tactic): in the context of What Modern B2B Sales Means in 2026 as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, Bad (tactic): plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day1",
+        "#en",
+        "#all-languages",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,164 @@
+{
+  "backedUpAt": "2026-01-28T09:47:07.038Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_PT",
+    "name": "Produtividade 2026: Como Gerenciar Equipes e Tempo",
+    "language": "pt"
+  },
+  "lesson": {
+    "dayNumber": 3,
+    "title": "Hierarquia de objetivos: visão → resultados → projetos → próximas ações",
+    "lessonId": "PRODUCTIVITY_2026_PT_DAY_03"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a386360118c57912a44",
+      "uuid": "97e0d8ef-b86f-483e-b655-0b2b1753938f",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Quantos níveis tem a hierarquia de objetivos?",
+      "options": [
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "correctIndex": 2,
+      "hashtags": [
+        "#day-03",
+        "#purpose",
+        "#application",
+        "#pt"
+      ]
+    },
+    {
+      "_id": "69776a386360118c57912a45",
+      "uuid": "3329edee-ecfb-4c1d-8b56-488bf7ddaa73",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Qual é o nível mais alto na hierarquia de objetivos?",
+      "options": [
+        "Próximas ações",
+        "Projetos",
+        "Resultados",
+        "Visão"
+      ],
+      "correctIndex": 3,
+      "hashtags": [
+        "#day-03",
+        "#foundation",
+        "#recall",
+        "#pt"
+      ]
+    },
+    {
+      "_id": "69776a386360118c57912a46",
+      "uuid": "b5282ad5-ab16-427f-991e-5a114104666b",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Qual é o erro comum ao fazer projetos sem visão?",
+      "options": [
+        "Você progride muito devagar",
+        "Você não sabe por que está fazendo isso",
+        "Você progride muito rápido",
+        "Não há erro"
+      ],
+      "correctIndex": 1,
+      "hashtags": [
+        "#day-03",
+        "#foundation",
+        "#recall",
+        "#pt"
+      ]
+    },
+    {
+      "_id": "69776a386360118c57912a47",
+      "uuid": "82ed0a90-af57-4d3e-a0f4-c254748980d7",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ Você tem uma visão (3-5 anos).\n✅ Você ...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day3",
+        "#pt",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a386360118c57912a48",
+      "uuid": "be688305-7659-45f4-a38d-92bac8690fc2",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ A hierarquia se conecta logicamente: v...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day3",
+        "#pt",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a386360118c57912a49",
+      "uuid": "501b6532-10f2-4fa8-ba25-61767c91da8e",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Como o conceito \"Criar uma hierarquia de objetivos pessoal...\", mencionado na lição, impacta o alcance de seus goals?",
+      "options": [
+        "Como descrito em detalhes na lição, Criar uma hierarquia de objeti... aumenta a eficácia e reduz os riscos",
+        "Sem impacto significativo",
+        "Importa apenas teoricamente",
+        "Apenas um elemento opcional"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day3",
+        "#pt",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a386360118c57912a4a",
+      "uuid": "b38aa513-1e37-4e03-8523-d34ed1075de1",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Quão importante é Resultados no contexto de Hierarquia de objetivos: visão → resultados → projetos → próximas ações, conforme discutido na lição?",
+      "options": [
+        "Conforme descrito em detalhes na lição, Resultados desempenha um papel crucial na otimização de processos e no alcance de objetivos",
+        "Apenas informações periféricas sem papel significativo",
+        "Apenas um conceito teórico sem aplicação prática",
+        "Não mencionado na lição"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day3",
+        "#pt",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

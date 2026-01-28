@@ -1,0 +1,177 @@
+{
+  "backedUpAt": "2026-01-28T09:46:17.606Z",
+  "course": {
+    "courseId": "SALES_PRODUCTIVITY_30_EN",
+    "name": "Build Your Sales – 30 Days to More Deals",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 10,
+    "title": "Qualification in Practice – How to Qualify in a Real Conversation?",
+    "lessonId": "SALES_PRODUCTIVITY_30_EN_DAY_10"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a0a934727fc0613f4a5",
+      "uuid": "b14cbb23-7995-4a94-a411-92ff02d7f5d1",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "How does the concept \"important information\n    \n  \n  Summary (1 min):\n ...\" mentioned in the lesson impact achieving your goals?",
+      "options": [
+        "As described in detail in the lesson, important information\n    \n  \n... increases effectiveness and reduces risk",
+        "No significant impact",
+        "Only matters theoretically",
+        "Only an optional element"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day10",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#sales",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a0a934727fc0613f4a6",
+      "uuid": "786b8e86-bff6-4cd4-a583-935c48e0c664",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"Practice – How to Qualify in a Real Conv...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day10",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a0a934727fc0613f4a7",
+      "uuid": "9d0e4b80-f316-4c35-8832-01b9e1d1cdb3",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"Practice the qualification conversation ...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day10",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a0a934727fc0613f4a8",
+      "uuid": "f1aa6206-4bfe-4494-bdaf-8b2809277b1b",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"Practice 1 – Practice qualification conv...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day10",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a0a934727fc0613f4a9",
+      "uuid": "3018bf29-b1aa-46c8-978a-1b227b7315a5",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is Better results: in the context of Qualification in Practice – How to Qualify in a Real Conversation? as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, Better results: plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day10",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a0a934727fc0613f4aa",
+      "uuid": "2596f8dd-852b-4a50-bcce-d3ba8c5c7a86",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "In the \"Qualification in Practice – How to Qualify in a Real Conversation?\" lesson, what role does Professional appearance: play?",
+      "options": [
+        "As described in detail in the lesson, Professional appearance: plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day10",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a0a934727fc0613f4ab",
+      "uuid": "2e65e189-5207-4358-b042-b1124f23f14f",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "In the \"Qualification in Practice – How to Qualify in a Real Conversation?\" lesson, what role does Discovery (5-10 min): play?",
+      "options": [
+        "As described in detail in the lesson, Discovery (5-10 min): plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day10",
+        "#en",
+        "#all-languages",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}
