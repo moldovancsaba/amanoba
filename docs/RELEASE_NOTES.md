@@ -1,11 +1,33 @@
 # Amanoba Release Notes
 
-**Current Version**: 2.9.13  
+**Current Version**: 2.9.14  
 **Last Updated**: 2026-01-28
 
 ---
 
 All completed tasks are documented here in reverse chronological order. This file follows the Changelog format and is updated with every version bump.
+
+---
+
+## [v2.9.14] — 2026-01-28 🛠️
+
+**Status**: Admin analytics page fix + nav label consistency  
+**Type**: Bug fix, UI consistency
+
+### Admin analytics page not loading
+
+- **Cause**: Page referenced `realtimeError` in JSX but the realtime `useQuery` did not destructure `error`, causing a runtime ReferenceError.
+- **Fix**: Added `error: realtimeError` to the realtime `useQuery` in `app/[locale]/admin/analytics/page.tsx`. Error state now renders correctly and the page loads.
+
+### Admin nav label consistency
+
+- **Sidebar**: Removed "Manage" prefix from all nav items (admin UI is management context). Labels: Admin Dashboard, Analytics, Payments, Surveys, Courses, Quiz Questions, Certificates, **Users** (was "users"), Games, Achievements, Rewards, Challenges, Quests, Feature Flags, Settings.
+- **Messages**: Updated `admin.*` nav keys in all 11 locale files (`messages/*.json`): courses, users, lessons, games, achievements, rewards, challenges, quests — no "Manage"; `users` → "Users" (or localized equivalent).
+
+**Files modified**: `app/[locale]/admin/analytics/page.tsx`, `messages/en.json`, `messages/hu.json`, `messages/ar.json`, `messages/bg.json`, `messages/hi.json`, `messages/id.json`, `messages/pl.json`, `messages/pt.json`, `messages/tr.json`, `messages/vi.json`
+
+**Build Status**: Verified  
+**Status**: ✅ DONE
 
 ---
 

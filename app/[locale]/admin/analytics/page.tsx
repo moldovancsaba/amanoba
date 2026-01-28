@@ -139,7 +139,7 @@ export default function AdminAnalyticsPage() {
   }, []);
 
   // Fetch real-time stats (only if brandId is available)
-  const { data: realtimeData } = useQuery<RealTimeStats>({
+  const { data: realtimeData, error: realtimeError } = useQuery<RealTimeStats>({
     queryKey: ['analytics', 'realtime', brandId],
     queryFn: async () => {
       if (!brandId) return null;
