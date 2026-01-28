@@ -1,8 +1,8 @@
 # Amanoba Current Status
 
-**Last Updated**: 2026-01-27T09:15:00.000Z  
-**Version**: 2.9.12  
-**Status**: ✅ Production Stable - Profile visibility roadmap in ROADMAP/TASKLIST - BUG7 closed
+**Last Updated**: 2026-01-28  
+**Version**: 2.9.15  
+**Status**: ✅ Production Stable — Profile Visibility & Privacy (PV1–PV4) and Policy/LocaleLink (POL1,POL3–POL6) delivered; open tasks in handover doc
 
 ---
 
@@ -21,6 +21,10 @@ Amanoba has successfully completed **Phases 1, 2, and 3** of the transformation 
 - First production course seeded: "AI 30 Nap" (30-day AI learning course)
 - Internationalization (Hungarian default, English support)
 - New design system with brand colors and logo
+- **Profile Visibility & Privacy (v2.9.15)**: Private/public profile, per-section visibility (about, courses, achievements, certificates, stats), "View as others see it", API 404 for private non-owner; public profile schema in `docs/PUBLIC_PROFILE_SCHEMA.md`
+- **Policy/LocaleLink (v2.9.15)**: Policy pages use shared layout and brand tokens; LocaleLink sweep done; POL2 (policy message keys) deferred
+
+**Open work**: See `docs/2026-01-28_HANDOVER_OPEN_TASKS.md` for CCS email localization (CCS-AUDIT-EMAIL-3), POL2 (policy message keys), and Mobile (MOB1–MOB8).
 
 ---
 

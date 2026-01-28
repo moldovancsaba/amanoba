@@ -1,6 +1,6 @@
 # Amanoba Roadmap — Future Plans & Strategic Directions
 
-**Version**: 2.9.13  
+**Version**: 2.9.15  
 **Last Updated**: 2026-01-28  
 **Vision**: Transform Amanoba into a unified 30-day learning platform with gamified education, assessment tools, email-based lesson delivery, and monetization
 
@@ -37,9 +37,13 @@
 - ~~Wire rate limiting (`app/lib/security.ts`) into auth/profile/admin/progress endpoints~~ ✅ FIXED (v2.9.8 - Rate limiting wired to critical endpoints)
 - ~~Restrict `app/api/profile/[playerId]` data exposure (wallet balances, `lastSeenAt`) to self/admin~~ ✅ FIXED (v2.9.9 - Profile data exposure restricted to self/admin)
 - ~~Restrict `app/api/debug/player/[playerId]` (raw player data) to admins; disable in production~~ ✅ FIXED (v2.9.11 - Debug player endpoint admin-only and disabled in prod)
+- **Global audit: communication + catalog language integrity** (P0)
+  - Add course catalog language integrity checks for `course.name` + `course.description` + `course.translations.*` (catalog display)
+  - Add code-level email audit to catch send-time language leakage (e.g., unsubscribe footer)
+  - Localize all transactional emails (welcome/completion/reminder/payment) for all supported locales and **gate sending** on language integrity
 
 ### P1 / Medium Priority
-- Localize and brand policy/legal pages; switch plain `Link`/`href=\"/\"` to `LocaleLink`, add missing HU/EN messages, and apply `globals.css` shell
+- ~~Localize and brand policy/legal pages; switch plain `Link`/`href=\"/\"` to `LocaleLink`, add missing HU/EN messages, and apply `globals.css` shell~~ ✅ MOSTLY DONE (v2.9.15): POL1, POL3, POL4, POL5, POL6 done; POL2 (policy message keys) deferred — policy pages use inline content. See `docs/2026-01-28_PV_POLICY_MOBILE_DELIVERY_PLAN.md` and handover `docs/2026-01-28_HANDOVER_OPEN_TASKS.md`.
 - Reconcile `design-system.css` palette (indigo/pink) with `globals.css` gold/black; remove straggler per-page styles
 - Remove client debug logs (dashboard, games/quizzz, achievements, challenges, madoku, sudoku, whackpop, MemoryGame) before production builds
 - **Design system**: Use CTA token (#FAB908) for all primary CTAs (e.g. email lesson button currently #6366f1); replace inline `style={{}}` and hardcoded hex with Tailwind/design tokens where possible
@@ -47,7 +51,7 @@
 
 ### P2 / Low Priority
 - Add minimal test harness (`npm test`), smoke tests for `[locale]/dashboard`, `[locale]/courses`, and critical APIs
-- Document/decide public profile surface and unsubscribe token contract to avoid regressions later
+- ~~Document/decide public profile surface and unsubscribe token contract to avoid regressions later~~ ✅ Public profile surface documented in `docs/PUBLIC_PROFILE_SCHEMA.md` (v2.9.15). Unsubscribe token contract remains in email/unsubscribe docs.
 - Single APP_URL constant for all env fallbacks (avoid mixing www.amanoba.com vs amanoba.com)
 - Certificate image route: source colors from CertificationSettings/Brand instead of hardcoded hex
 - CSP: Remove Facebook domains when Facebook is fully removed from codebase
@@ -59,11 +63,12 @@ The audit captures inconsistencies, deprecated references, hardcoded values, des
 
 ### Profile Visibility & Privacy (P1)
 
-**Status**: 🟡 **PLANNED**  
+**Status**: ✅ **DELIVERED** (v2.9.15 — 2026-01-28)  
 **Priority**: P1  
-**Owner**: Tribeca (development). Content/copy: Katja.
+**Owner**: Tribeca (development). Content/copy: Katja.  
+**Docs**: `docs/PUBLIC_PROFILE_SCHEMA.md`, `docs/2026-01-28_PV_POLICY_MOBILE_DELIVERY_PLAN.md`.
 
-**Goals** (see `docs/TASKLIST.md` for deliverable breakdown):
+**Goals delivered** (see `docs/TASKLIST.md` for task list):
 
 1. **User can see their private profile** — Logged-in user can open and view their own profile with all private data (email, wallet, lastLoginAt, etc.) when visiting `/profile/<own-playerId>` or via “My profile” from dashboard/header.
 2. **User could set their profile to public/private** — User can choose whether their profile is reachable and viewable by others (public) or only by self/admin (private). Setting persisted and enforced in API and UI.

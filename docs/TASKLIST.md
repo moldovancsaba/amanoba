@@ -1,6 +1,6 @@
 # Amanoba Task List
 
-**Version**: 2.9.13  
+**Version**: 2.9.15  
 **Last Updated**: 2026-01-28
 
 ---
@@ -8,6 +8,34 @@
 ## Active Tasks
 
 Tasks are listed in priority order. Upon completion, tasks are moved to RELEASE_NOTES.md.
+
+---
+
+## 🟡 P0 - IN PROGRESS: Global Audit — Communication + Catalog Language Integrity
+
+**Status**: 🟡 **IN PROGRESS**  
+**Priority**: P0 (User-facing correctness — prevents cross-language content leaks)  
+**Started**: 2026-01-28  
+**Docs**: `docs/QUIZ_QUALITY_PIPELINE_HANDOVER.md`, `docs/QUIZ_QUALITY_PIPELINE_PLAYBOOK.md`  
+
+### Goals
+- Ensure course catalog display (`course.name`, `course.description`) is always in the course language (no mixed-language leaks).
+- Ensure **end-to-end** email content integrity across all locales, including send-time appended HTML (unsubscribe footer).
+- Inventory and plan localization for all transactional email flows (welcome/completion/reminder/payment).
+
+### Tasks
+
+| ID | Task | Owner | Expected Delivery | Status |
+|----|------|-------|-------------------|--------|
+| CCS-AUDIT-EMAIL-1 | Add code-level email communications language audit script | AI | 2026-01-28 | ✅ DONE |
+| CCS-AUDIT-EMAIL-2 | Localize daily-lesson unsubscribe footer for all supported locales | AI | 2026-01-28 | ✅ DONE |
+| CCS-AUDIT-CATALOG-1 | Add course name/description language integrity checks to CCS global audit | AI | 2026-01-28 | ✅ DONE |
+| CCS-AUDIT-EMAIL-3 | Localize transactional emails (welcome/completion/reminder/payment) for all supported locales + gate sending on language integrity | AI | 2026-01-28 | ✅ DONE |
+| CCS-AUDIT-EMAIL-4 | Fix remaining cross-language lesson email fields flagged by master audit (to prevent send-time blocks) | AI | 2026-01-29 | ⏳ TODO |
+
+**Verification**
+- Run CCS master audit: `npx tsx --env-file=.env.local scripts/audit-ccs-global-quality.ts --min-lesson-score 70`
+- Run email communications audit: `npx tsx scripts/audit-email-communications-language-integrity.ts`
 
 ---
 
@@ -477,7 +505,27 @@ Tasks derived from the deep code audit. AUDIT1–AUDIT11 completed 2026-01-28.
 
 ---
 
-## 📋 P1: Profile Visibility & Privacy
+## ✅ P1 - MOSTLY COMPLETE: Policy/legal localization + LocaleLink (POL1–POL6)
+
+**Status**: POL1, POL3, POL4, POL5, POL6 ✅ DONE (v2.9.15); POL2 Deferred  
+**Plan**: `docs/2026-01-28_PV_POLICY_MOBILE_DELIVERY_PLAN.md` § Pack B
+
+| ID | Task | Owner | Status |
+|----|------|-------|--------|
+| POL1 | Audit privacy, terms, data-deletion for plain Link/href; replace with LocaleLink or `/${locale}/...` | Dev | ✅ DONE |
+| POL2 | Add missing HU/EN (and other locale) message keys for policy/legal copy | Dev | Deferred (policy pages use inline content) |
+| POL3 | Apply globals.css shell to policy/legal pages (layout, typography, design tokens) | Dev | ✅ DONE |
+| POL4 | Brand policy pages: use design-system/CTA tokens for primary links and buttons | Dev | ✅ DONE |
+| POL5 | Audit remaining app pages for root-relative href (rewards, quests, leaderboards, onboarding, home, games, settings) | Dev | ✅ DONE |
+| POL6 | Replace root-relative links with LocaleLink or locale-prefixed href on all pages from POL5 | Dev | ✅ DONE |
+
+---
+
+## ✅ P1 - COMPLETE: Profile Visibility & Privacy (PV1–PV4)
+
+**Status**: ✅ **COMPLETE** (v2.9.15 — 2026-01-28)  
+**Actionable plan**: `docs/2026-01-28_PV_POLICY_MOBILE_DELIVERY_PLAN.md`  
+**Public profile schema**: `docs/PUBLIC_PROFILE_SCHEMA.md`
 
 *Breakdown of the four goals in `docs/ROADMAP.md` → Profile Visibility & Privacy. Development: Tribeca; content/copy: Katja.*
 
@@ -489,10 +537,10 @@ Tasks derived from the deep code audit. AUDIT1–AUDIT11 completed 2026-01-28.
 
 | ID | Task | Owner | Expected Delivery | Status |
 |----|------|-------|-------------------|--------|
-| PV1.1 | Ensure `GET /api/profile/[playerId]` and/or `GET /api/players/[playerId]` return full private data when `playerId` matches session user | Dev | TBD | ⏳ PENDING |
-| PV1.2 | Ensure `app/[locale]/profile/[playerId]/page.tsx` renders private view when viewer is the profile owner (no redirect to sign-in when session exists and ids match) | Dev | TBD | ⏳ PENDING |
-| PV1.3 | Add or fix entry point so user can open “My profile” (e.g. from dashboard, header, menu) and land on `/profile/<own-playerId>` | Dev | TBD | ⏳ PENDING |
-| PV1.4 | Document acceptance: logged-in user visiting `/profile/<own-id>` sees full private profile (email, wallet, lastLoginAt, etc. as applicable) | Dev | TBD | ⏳ PENDING |
+| PV1.1 | Ensure `GET /api/profile/[playerId]` and/or `GET /api/players/[playerId]` return full private data when `playerId` matches session user | Dev | 2026-01-28 | ✅ DONE |
+| PV1.2 | Ensure `app/[locale]/profile/[playerId]/page.tsx` renders private view when viewer is the profile owner (no redirect to sign-in when session exists and ids match) | Dev | 2026-01-28 | ✅ DONE |
+| PV1.3 | Add or fix entry point so user can open “My profile” (e.g. from dashboard, header, menu) and land on `/profile/<own-playerId>` | Dev | 2026-01-28 | ✅ DONE |
+| PV1.4 | Document acceptance: logged-in user visiting `/profile/<own-id>` sees full private profile (email, wallet, lastLoginAt, etc. as applicable) | Dev | 2026-01-28 | ✅ DONE |
 
 ---
 
@@ -502,10 +550,10 @@ Tasks derived from the deep code audit. AUDIT1–AUDIT11 completed 2026-01-28.
 
 | ID | Task | Owner | Expected Delivery | Status |
 |----|------|-------|-------------------|--------|
-| PV2.1 | Add `profileVisibility` (or `isProfilePublic`) field to Player model; default e.g. `private`; migration if needed | Dev | TBD | ⏳ PENDING |
-| PV2.2 | Add PATCH (or extend existing) profile API so owner can update `profileVisibility`; enforce “only owner can change” | Dev | TBD | ⏳ PENDING |
-| PV2.3 | Add UI on profile or settings: control “Profile visibility: Public / Private” (toggle or dropdown) and persist via API | Dev | TBD | ⏳ PENDING |
-| PV2.4 | Enforce in API and page: when profile is private, non-owner requests to `/profile/[playerId]` get 404 or “not available”; when public, allow public view (see §3) | Dev | TBD | ⏳ PENDING |
+| PV2.1 | Add `profileVisibility` (or `isProfilePublic`) field to Player model; default e.g. `private`; migration if needed | Dev | 2026-01-28 | ✅ DONE |
+| PV2.2 | Add PATCH (or extend existing) profile API so owner can update `profileVisibility`; enforce “only owner can change” | Dev | 2026-01-28 | ✅ DONE |
+| PV2.3 | Add UI on profile or settings: control “Profile visibility: Public / Private” (toggle or dropdown) and persist via API | Dev | 2026-01-28 | ✅ DONE |
+| PV2.4 | Enforce in API and page: when profile is private, non-owner requests to `/profile/[playerId]` get 404 or “not available”; when public, allow public view (see §3) | Dev | 2026-01-28 | ✅ DONE |
 
 ---
 
@@ -515,10 +563,10 @@ Tasks derived from the deep code audit. AUDIT1–AUDIT11 completed 2026-01-28.
 
 | ID | Task | Owner | Expected Delivery | Status |
 |----|------|-------|-------------------|--------|
-| PV3.1 | Define public profile schema: which fields are shown (e.g. displayName, avatar, bio, public achievements/courses; no email, wallet, lastLoginAt) | Dev | TBD | ⏳ PENDING |
-| PV3.2 | Ensure `GET /api/players/[playerId]` or profile API returns only public fields when requester is not owner and profile is public; otherwise 404 or restricted | Dev | TBD | ⏳ PENDING |
-| PV3.3 | Ensure `app/[locale]/profile/[playerId]/page.tsx` renders public view for other users when profile is public (read-only, no private sections) | Dev | TBD | ⏳ PENDING |
-| PV3.4 | Add “View as others see it” / public preview for profile owner on their profile or settings page | Dev | TBD | ⏳ PENDING |
+| PV3.1 | Define public profile schema: which fields are shown (e.g. displayName, avatar, bio, public achievements/courses; no email, wallet, lastLoginAt) | Dev | 2026-01-28 | ✅ DONE |
+| PV3.2 | Ensure `GET /api/players/[playerId]` or profile API returns only public fields when requester is not owner and profile is public; otherwise 404 or restricted | Dev | 2026-01-28 | ✅ DONE |
+| PV3.3 | Ensure `app/[locale]/profile/[playerId]/page.tsx` renders public view for other users when profile is public (read-only, no private sections) | Dev | 2026-01-28 | ✅ DONE |
+| PV3.4 | Add “View as others see it” / public preview for profile owner on their profile or settings page | Dev | 2026-01-28 | ✅ DONE |
 
 ---
 
@@ -528,11 +576,11 @@ Tasks derived from the deep code audit. AUDIT1–AUDIT11 completed 2026-01-28.
 
 | ID | Task | Owner | Expected Delivery | Status |
 |----|------|-------|-------------------|--------|
-| PV4.1 | Define profile sections and add model/schema for per-section visibility (e.g. `profileSectionVisibility: { about, courses, achievements, certificates, stats }` each `'public' \| 'private'`) | Dev | TBD | ⏳ PENDING |
-| PV4.2 | Add API to get/update per-section visibility (PATCH profile); only owner can update; validate section keys | Dev | TBD | ⏳ PENDING |
-| PV4.3 | Add UI on profile/settings: per-section toggles “Visible to everyone / Only me” (or Public/Private per section) and persist via API | Dev | TBD | ⏳ PENDING |
-| PV4.4 | When rendering another user’s public profile, show only sections marked public; for self, show all sections with clear visibility indicator | Dev | TBD | ⏳ PENDING |
-| PV4.5 | Enforce section visibility in `GET /api/players/[playerId]` (and any profile aggregate API) and in profile page rendering | Dev | TBD | ⏳ PENDING |
+| PV4.1 | Define profile sections and add model/schema for per-section visibility (e.g. `profileSectionVisibility: { about, courses, achievements, certificates, stats }` each `'public' \| 'private'`) | Dev | 2026-01-28 | ✅ DONE |
+| PV4.2 | Add API to get/update per-section visibility (PATCH profile); only owner can update; validate section keys | Dev | 2026-01-28 | ✅ DONE |
+| PV4.3 | Add UI on profile/settings: per-section toggles “Visible to everyone / Only me” (or Public/Private per section) and persist via API | Dev | 2026-01-28 | ✅ DONE |
+| PV4.4 | When rendering another user’s public profile, show only sections marked public; for self, show all sections with clear visibility indicator | Dev | 2026-01-28 | ✅ DONE |
+| PV4.5 | Enforce section visibility in `GET /api/players/[playerId]` (and any profile aggregate API) and in profile page rendering | Dev | 2026-01-28 | ✅ DONE |
 
 ---
 
@@ -722,6 +770,8 @@ Tasks derived from the deep code audit. AUDIT1–AUDIT11 completed 2026-01-28.
 
 **Goal**: Rock-solid, unified mobile experience across course discovery, detail, lesson, quiz, and dashboards.  
 **Scope**: Improve typography, spacing, navigation, CTAs, and data cards for small screens; ensure HU strings fit.
+
+**Actionable plan (PV + Policy/LocaleLink + Mobile)**: `docs/2026-01-28_PV_POLICY_MOBILE_DELIVERY_PLAN.md` — MOB1–MOB8 in execution order with POL and PV packs.
 
 | ID | Task | Owner | Expected Delivery | Status |
 |----|------|-------|-------------------|--------|

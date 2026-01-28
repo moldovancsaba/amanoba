@@ -1,11 +1,36 @@
 # Amanoba Release Notes
 
-**Current Version**: 2.9.14  
+**Current Version**: 2.9.15  
 **Last Updated**: 2026-01-28
 
 ---
 
 All completed tasks are documented here in reverse chronological order. This file follows the Changelog format and is updated with every version bump.
+
+---
+
+## [v2.9.15] — 2026-01-28 📋
+
+**Status**: Profile Visibility & Privacy (PV1–PV4) + Policy/LocaleLink delivery  
+**Type**: Feature (profile visibility), UX (policy shell, LocaleLink)
+
+### Profile Visibility & Privacy (PV1–PV4)
+
+- **Player model** (`app/lib/models/player.ts`): Added `profileVisibility` (`'public' | 'private'`, default `'private'`) and `profileSectionVisibility` (about, courses, achievements, certificates, stats — each `'public' | 'private'`, default `'private'`).
+- **GET /api/players/[playerId]** and **GET /api/profile/[playerId]**: When profile is private, non-owner requests return 404 "Profile not available". When public, non-owner receives only public fields and sections marked public.
+- **PATCH /api/profile**: Accepts `profileVisibility` and `profileSectionVisibility`; only current user's profile is updated. GET /api/profile response includes these fields.
+- **Profile page** (`app/[locale]/profile/[playerId]/page.tsx`): "Profile not available" message for 404; owner sees "Profile visibility" dropdown (Public/Private) and "View as others see it" preview; per-section toggles when profile is public; sections (streaks, wallet, achievements, certificates) respect visibility; certificate links use LocaleLink; locale from useParams.
+- **Public profile schema**: `docs/PUBLIC_PROFILE_SCHEMA.md` — list of public fields and section keys.
+
+### Policy/LocaleLink (POL)
+
+- Policy pages (privacy, terms, data-deletion) use shared layout and brand tokens (POL1, POL3, POL4). POL5/POL6 LocaleLink sweep done. POL2 (policy/legal message keys) deferred — policy pages use inline content.
+
+**Files modified**: `app/lib/models/player.ts`, `app/api/players/[playerId]/route.ts`, `app/api/profile/[playerId]/route.ts`, `app/api/profile/route.ts`, `app/[locale]/profile/[playerId]/page.tsx`, `docs/2026-01-28_PV_POLICY_MOBILE_DELIVERY_PLAN.md`  
+**Files added**: `docs/PUBLIC_PROFILE_SCHEMA.md`
+
+**Build Status**: Verified  
+**Status**: ✅ PV1–PV4 delivered; POL1, POL3, POL4, POL5, POL6 done; POL2 deferred
 
 ---
 
