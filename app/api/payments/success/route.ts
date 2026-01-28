@@ -10,6 +10,7 @@ import { auth } from '@/auth';
 import connectDB from '@/lib/mongodb';
 import { PaymentTransaction } from '@/lib/models';
 import { logger } from '@/lib/logger';
+import { APP_URL } from '@/app/lib/constants/app-url';
 import Stripe from 'stripe';
 import { redirect } from 'next/navigation';
 
@@ -19,8 +20,6 @@ const stripe = process.env.STRIPE_SECRET_KEY
       apiVersion: '2024-12-18.acacia',
     })
   : null;
-
-const APP_URL = process.env.NEXT_PUBLIC_APP_URL || 'https://www.amanoba.com';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';

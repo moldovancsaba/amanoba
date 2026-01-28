@@ -29,7 +29,7 @@ async function migratePlayerRoles() {
       {
         $set: {
           role: 'user', // Default all existing players to 'user' role
-          authProvider: 'facebook', // Default existing players to Facebook auth
+          authProvider: 'sso', // Default existing players to SSO
         },
       }
     );

@@ -1,10 +1,8 @@
 # Amanoba
 
-**Current Version**: Restored to working baseline f20c34a — Unified 30-Day Learning Platform
-
-**Current Version**: 2.9.2  
-**Last Updated**: 2026-01-25T18:00:00.000Z  
-**Status**: Production Stable — Google Analytics with Consent Mode v2 — Course Progress Tracking Fixed
+**Current Version**: 2.9.13  
+**Last Updated**: 2026-01-28  
+**Status**: Production Stable — Deep Code Audit (P1+P2) delivered; SSO-only auth; CSP updated (no Facebook)
 
 ## 🎓 Overview
 

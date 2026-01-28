@@ -947,7 +947,7 @@ export default function CourseDetailPage({
           {/* Main Content */}
           <div className="lg:col-span-2 space-y-8">
             {course.thumbnail ? (
-              <div className="w-full rounded-2xl overflow-hidden" style={{ aspectRatio: '16/9' }}>
+              <div className="w-full rounded-2xl overflow-hidden aspect-video">
                 <img
                   src={course.thumbnail}
                   alt={course.name}

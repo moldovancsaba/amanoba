@@ -10,10 +10,11 @@ import { notFound, redirect } from 'next/navigation';
 import connectDB from '@/app/lib/mongodb';
 import { Course } from '@/app/lib/models';
 import { Brand } from '@/app/lib/models';
+import { APP_URL } from '@/app/lib/constants/app-url';
 
 const courseLocales = ['hu', 'en', 'ar', 'hi', 'id', 'pt', 'vi', 'tr', 'bg', 'pl', 'ru'] as const;
 
-const baseUrl = process.env.NEXT_PUBLIC_APP_URL || 'https://www.amanoba.com';
+const baseUrl = APP_URL;
 
 /**
  * Generate metadata for course detail page

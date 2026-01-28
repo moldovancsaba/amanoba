@@ -16,6 +16,7 @@ import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { locales } from '@/app/lib/i18n/locales';
+import { APP_URL } from '@/app/lib/constants/app-url';
 import "../globals.css";
 import "../mobile-styles.css";
 
@@ -68,7 +69,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "hu_HU",
-    url: process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000",
+    url: APP_URL,
     siteName: "Amanoba",
     title: "Amanoba - Unified Learning Platform",
     description: "30-day learning platform with gamified education.",

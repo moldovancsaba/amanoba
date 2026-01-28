@@ -134,7 +134,7 @@ export default function Dashboard() {
       if (response.ok) {
         const data = await response.json();
         setPlayerData(data);
-        console.log('Dashboard data refreshed:', data);
+        if (process.env.NODE_ENV === 'development') console.log('Dashboard data refreshed:', data);
         
         // ONBOARDING REDIRECT DISABLED - Will be re-enabled after fixing issues
         // Check if player needs to complete survey

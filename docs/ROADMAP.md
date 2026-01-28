@@ -1,7 +1,7 @@
 # Amanoba Roadmap — Future Plans & Strategic Directions
 
-**Version**: 2.9.12  
-**Last Updated**: 2026-01-27T09:00:00.000Z  
+**Version**: 2.9.13  
+**Last Updated**: 2026-01-28  
 **Vision**: Transform Amanoba into a unified 30-day learning platform with gamified education, assessment tools, email-based lesson delivery, and monetization
 
 ---
@@ -41,11 +41,21 @@
 ### P1 / Medium Priority
 - Localize and brand policy/legal pages; switch plain `Link`/`href=\"/\"` to `LocaleLink`, add missing HU/EN messages, and apply `globals.css` shell
 - Reconcile `design-system.css` palette (indigo/pink) with `globals.css` gold/black; remove straggler per-page styles
-- Remove client debug logs (dashboard, games/quizzz) before production builds
+- Remove client debug logs (dashboard, games/quizzz, achievements, challenges, madoku, sudoku, whackpop, MemoryGame) before production builds
+- **Design system**: Use CTA token (#FAB908) for all primary CTAs (e.g. email lesson button currently #6366f1); replace inline `style={{}}` and hardcoded hex with Tailwind/design tokens where possible
+- **Facebook cleanup** (post-migration): Remove `facebookId`/`authProvider: 'facebook'` from Player model, CSP, docs, privacy/terms, and messages once migration is complete (see `docs/SSO_MIGRATION_COMPLETE.md`)
 
 ### P2 / Low Priority
 - Add minimal test harness (`npm test`), smoke tests for `[locale]/dashboard`, `[locale]/courses`, and critical APIs
 - Document/decide public profile surface and unsubscribe token contract to avoid regressions later
+- Single APP_URL constant for all env fallbacks (avoid mixing www.amanoba.com vs amanoba.com)
+- Certificate image route: source colors from CertificationSettings/Brand instead of hardcoded hex
+- CSP: Remove Facebook domains when Facebook is fully removed from codebase
+
+### Deep Code Audit (2026-01-28)
+**Document**: `docs/2026-01-28_DEEP_CODE_AUDIT.md`
+
+The audit captures inconsistencies, deprecated references, hardcoded values, design deviations, inline styles, and hardening gaps. **AUDIT1–AUDIT11 delivered 2026-01-28** (see `docs/RELEASE_NOTES.md` v2.9.13). ROADMAP P1/P2 bullets above that were part of the audit are done; remaining items (e.g. minimal test harness, public profile surface) stay in P1/P2. Tasklist "Code Audit Follow-Up" section marks all audit tasks ✅ DONE.
 
 ### Profile Visibility & Privacy (P1)
 

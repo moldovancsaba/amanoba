@@ -219,7 +219,7 @@ export default function MemoryGame({
               setCompletedChallenges(completed);
             }
           } catch (e) {
-            console.warn('Challenges refresh failed', e);
+            if (process.env.NODE_ENV === 'development') console.warn('Challenges refresh failed', e);
           }
         }
       } catch (error) {

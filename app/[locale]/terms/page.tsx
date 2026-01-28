@@ -62,7 +62,7 @@ const termsContent: Record<Locale, TermsContent> = {
         id: "account",
         title: "3. Account Registration",
         paragraphs: ["To access certain features, you must create an account. You may register using:"],
-        bullets: ["Facebook OAuth authentication", "Other authentication methods we may provide in the future"],
+        bullets: ["SSO (single sign-on) or anonymous sign-up", "Other authentication methods we may provide in the future"],
         subSections: [
           {
             title: "You agree to:",
@@ -370,7 +370,7 @@ const termsContent: Record<Locale, TermsContent> = {
         id: "account",
         title: "3. Fiókregisztráció",
         paragraphs: ["Egyes funkciók eléréséhez fiókot kell létrehoznod. Regisztrálhatsz:"],
-        bullets: ["Facebook OAuth-hitelesítéssel", "Más hitelesítési módokkal, amelyeket később kínálunk"],
+        bullets: ["SSO (egyszeri bejelentkezés) vagy vendég regisztrációval", "Más hitelesítési módokkal, amelyeket később kínálunk"],
         subSections: [
           {
             title: "Vállalod, hogy:",

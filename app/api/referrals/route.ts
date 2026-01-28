@@ -16,6 +16,7 @@ import {
   PointsTransaction,
 } from '@/lib/models';
 import { logger } from '@/lib/logger';
+import { getAuthBaseUrl } from '@/app/lib/constants/app-url';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -94,7 +95,7 @@ export async function GET(request: NextRequest) {
       success: true,
       data: {
         referralCode,
-        shareUrl: `${process.env.NEXTAUTH_URL || 'http://localhost:3000'}?ref=${referralCode}`,
+        shareUrl: `${getAuthBaseUrl()}?ref=${referralCode}`,
         stats: {
           totalReferrals,
           pendingRewards,

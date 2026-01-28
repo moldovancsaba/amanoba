@@ -88,7 +88,7 @@ export default function ChallengesPage() {
         }
         
         const data = await response.json();
-        console.log('Challenges loaded:', data);
+        if (process.env.NODE_ENV === 'development') console.log('Challenges loaded:', data);
         setChallenges(data.challenges || []);
       } catch (err) {
         console.error('Challenge fetch error:', err);
@@ -107,7 +107,7 @@ export default function ChallengesPage() {
     // Why: Refresh challenges when user returns to page (after playing a game)
     const handleVisibilityChange = () => {
       if (document.visibilityState === 'visible') {
-        console.log('Page became visible, refreshing challenges...');
+        if (process.env.NODE_ENV === 'development') console.log('Page became visible, refreshing challenges...');
         fetchChallenges();
       }
     };
@@ -116,7 +116,7 @@ export default function ChallengesPage() {
     
     // Why: Also refresh on window focus (user returns from another tab/window)
     const handleFocus = () => {
-      console.log('Window focused, refreshing challenges...');
+      if (process.env.NODE_ENV === 'development') console.log('Window focused, refreshing challenges...');
       fetchChallenges();
     };
     

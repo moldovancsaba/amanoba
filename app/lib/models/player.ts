@@ -13,7 +13,6 @@ import mongoose, { Schema, Document, Model } from 'mongoose';
  * Why: TypeScript type safety for Player documents
  */
 export interface IPlayer extends Document {
-  facebookId?: string; // Optional for SSO users
   ssoSub?: string; // SSO subject identifier (unique identifier from SSO provider)
   displayName: string;
   email?: string;
@@ -21,7 +20,7 @@ export interface IPlayer extends Document {
   isPremium: boolean;
   premiumExpiresAt?: Date;
   isAnonymous: boolean; // Guest account flag
-  authProvider: 'facebook' | 'sso' | 'anonymous'; // Authentication provider
+  authProvider: 'sso' | 'anonymous'; // Authentication provider
   role: 'user' | 'admin'; // User role for access control
   brandId: mongoose.Types.ObjectId;
   locale: string;
@@ -56,34 +55,23 @@ export interface IPlayer extends Document {
  */
 const PlayerSchema = new Schema<IPlayer>(
   {
-    // Facebook ID for authentication
-    // Why: Legacy authentication method, now optional for SSO migration
-    facebookId: {
-      type: String,
-      required: false, // Made optional to support SSO users
-      unique: true,
-      sparse: true, // Allows null for SSO users
-      trim: true,
-      index: true,
-    },
-
     // SSO subject identifier
     // Why: Unique identifier from SSO provider (OIDC 'sub' claim)
     ssoSub: {
       type: String,
       required: false,
       unique: true,
-      sparse: true, // Allows null for Facebook/anonymous users
+      sparse: true, // Allows null for anonymous users
       trim: true,
       index: true,
     },
 
     // Authentication provider
-    // Why: Track which authentication method was used (for migration and analytics)
+    // Why: Track which authentication method was used (SSO or anonymous)
     authProvider: {
       type: String,
-      enum: ['facebook', 'sso', 'anonymous'],
-      default: 'facebook',
+      enum: ['sso', 'anonymous'],
+      default: 'sso',
       index: true,
     },
 
@@ -244,7 +232,6 @@ const PlayerSchema = new Schema<IPlayer>(
       type: String,
       trim: true,
       sparse: true, // Allows multiple null values
-      index: true,
     },
 
     // Stripe Customer ID
@@ -253,7 +240,6 @@ const PlayerSchema = new Schema<IPlayer>(
       type: String,
       trim: true,
       sparse: true, // Allows multiple null values (not all players have Stripe accounts)
-      index: true,
       match: [/^cus_[a-zA-Z0-9]+$/, 'Stripe Customer ID must be valid format (cus_xxxxx)'],
     },
 
@@ -314,9 +300,8 @@ const PlayerSchema = new Schema<IPlayer>(
 );
 
 // Indexes for efficient querying
-// Why: Players are queried frequently by facebookId, ssoSub, brand, premium status, role
+// Why: Players are queried frequently by ssoSub, brand, premium status, role
 
-PlayerSchema.index({ facebookId: 1 }, { name: 'player_facebook_id_unique', unique: true, sparse: true });
 PlayerSchema.index({ ssoSub: 1 }, { name: 'player_sso_sub_unique', unique: true, sparse: true });
 PlayerSchema.index({ brandId: 1 }, { name: 'player_brand' });
 PlayerSchema.index({ isPremium: 1 }, { name: 'player_premium' });
@@ -333,12 +318,12 @@ PlayerSchema.index({ role: 1 }, { name: 'player_role' });
 /**
  * Pre-save hook to validate authentication identifiers and check premium expiration
  * 
- * Why: Ensure at least one auth identifier exists (facebookId or ssoSub) and auto-expire premium
+ * Why: Ensure at least one auth identifier exists (ssoSub) unless anonymous; auto-expire premium
  */
 PlayerSchema.pre('save', function (next) {
-  // Validate: At least one auth identifier must exist (unless anonymous)
-  if (!this.isAnonymous && !this.facebookId && !this.ssoSub) {
-    return next(new Error('Player must have either facebookId or ssoSub (unless anonymous)'));
+  // Validate: Non-anonymous players must have ssoSub
+  if (!this.isAnonymous && !this.ssoSub) {
+    return next(new Error('Player must have ssoSub (unless anonymous)'));
   }
 
   // Auto-expire premium if expired
@@ -347,14 +332,10 @@ PlayerSchema.pre('save', function (next) {
   }
 
   // Ensure authProvider matches the available identifier
-  if (!this.isAnonymous) {
-    if (this.ssoSub && this.authProvider !== 'sso') {
-      this.authProvider = 'sso';
-    } else if (this.facebookId && !this.ssoSub && this.authProvider !== 'facebook') {
-      this.authProvider = 'facebook';
-    }
-  } else {
+  if (this.isAnonymous) {
     this.authProvider = 'anonymous';
+  } else if (this.ssoSub && this.authProvider !== 'sso') {
+    this.authProvider = 'sso';
   }
 
   next();

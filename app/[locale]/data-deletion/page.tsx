@@ -1,12 +1,16 @@
 /**
  * Data Deletion Policy Page
  * Public page - no authentication required
- * Required for Facebook OAuth compliance
  */
 
 import Link from 'next/link';
 
-export default function DataDeletionPage() {
+export default async function DataDeletionPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
   return (
     <div className="min-h-screen bg-gray-50 py-12 px-4">
       <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-lg p-8">
@@ -202,17 +206,17 @@ export default function DataDeletionPage() {
               information about how we handle your data, please review our:
             </p>
             <ul className="list-disc pl-6 mt-2 space-y-1">
-              <li><a href="/privacy" className="text-indigo-600 hover:underline">Privacy Policy</a></li>
-              <li><a href="/terms" className="text-indigo-600 hover:underline">Terms of Service</a></li>
+              <li><Link href={`/${locale}/privacy`} className="text-indigo-600 hover:underline">Privacy Policy</Link></li>
+              <li><Link href={`/${locale}/terms`} className="text-indigo-600 hover:underline">Terms of Service</Link></li>
             </ul>
           </section>
         </div>
 
         <div className="mt-12 pt-8 border-t border-gray-200">
           <p className="text-center text-gray-600">
-            <Link href="/" className="text-indigo-600 hover:underline mr-4">Back to Home</Link>
-            <Link href="/privacy" className="text-indigo-600 hover:underline mr-4">Privacy Policy</Link>
-            <Link href="/terms" className="text-indigo-600 hover:underline">Terms of Service</Link>
+            <Link href={`/${locale}`} className="text-indigo-600 hover:underline mr-4">Back to Home</Link>
+            <Link href={`/${locale}/privacy`} className="text-indigo-600 hover:underline mr-4">Privacy Policy</Link>
+            <Link href={`/${locale}/terms`} className="text-indigo-600 hover:underline">Terms of Service</Link>
           </p>
         </div>
       </div>

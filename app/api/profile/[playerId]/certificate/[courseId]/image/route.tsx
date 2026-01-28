@@ -21,8 +21,22 @@ import {
   Course,
   CourseProgress,
   FinalExamAttempt,
+  Brand,
 } from '@/lib/models';
 import { logger } from '@/lib/logger';
+
+/** Default certificate image colors (used when Brand themeColors not available) */
+const CERT_COLORS_DEFAULT = {
+  bgStart: '#1a1a1a',
+  bgMid: '#2d2d2d',
+  border: '#FFD700',
+  borderMuted: 'rgba(255, 215, 0, 0.3)',
+  titleGradientEnd: '#FFA500',
+  textPrimary: '#FFFFFF',
+  textSecondary: '#CCCCCC',
+  accent: '#FFD700',
+  footer: '#999999',
+} as const;
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -69,6 +83,27 @@ export async function GET(
       return new Response('Player or course not found', { status: 404 });
     }
 
+    // Resolve colors: use Brand themeColors when available, else defaults
+    let certColors = { ...CERT_COLORS_DEFAULT };
+    if (course.brandId) {
+      const brand = await Brand.findById(course.brandId).lean();
+      if (brand?.themeColors?.accent) {
+        certColors = {
+          ...certColors,
+          border: brand.themeColors.accent,
+          accent: brand.themeColors.accent,
+          titleGradientEnd: brand.themeColors.accent,
+          borderMuted: `${brand.themeColors.accent}4D`,
+        };
+      }
+      if (brand?.themeColors?.primary && /^#[0-9a-fA-F]{6}$/.test(brand.themeColors.primary)) {
+        certColors = { ...certColors, bgStart: brand.themeColors.primary };
+      }
+      if (brand?.themeColors?.secondary && /^#[0-9a-fA-F]{6}$/.test(brand.themeColors.secondary)) {
+        certColors = { ...certColors, bgMid: brand.themeColors.secondary };
+      }
+    }
+
     // Get final exam score
     const finalExamAttempt = await FinalExamAttempt.findOne({
       playerId: new mongoose.Types.ObjectId(playerId),
@@ -100,7 +135,7 @@ export async function GET(
             flexDirection: 'column',
             alignItems: 'center',
             justifyContent: 'center',
-            background: 'linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%)',
+            background: `linear-gradient(135deg, ${certColors.bgStart} 0%, ${certColors.bgMid} 50%, ${certColors.bgStart} 100%)`,
             position: 'relative',
             padding: '80px',
           }}
@@ -113,7 +148,7 @@ export async function GET(
               left: 0,
               right: 0,
               bottom: 0,
-              border: '8px solid #FFD700',
+              border: `8px solid ${certColors.border}`,
               borderRadius: '16px',
             }}
           />
@@ -124,7 +159,7 @@ export async function GET(
               left: '8px',
               right: '8px',
               bottom: '8px',
-              border: '4px solid rgba(255, 215, 0, 0.3)',
+              border: `4px solid ${certColors.borderMuted}`,
               borderRadius: '12px',
             }}
           />
@@ -146,7 +181,7 @@ export async function GET(
               style={{
                 fontSize: variant === 'print_a4' ? 72 : 56,
                 fontWeight: 'bold',
-                background: 'linear-gradient(90deg, #FFD700 0%, #FFA500 100%)',
+                background: `linear-gradient(90deg, ${certColors.accent} 0%, ${certColors.titleGradientEnd} 100%)`,
                 backgroundClip: 'text',
                 color: 'transparent',
                 marginBottom: '40px',
@@ -161,7 +196,7 @@ export async function GET(
               style={{
                 width: '200px',
                 height: '4px',
-                background: 'linear-gradient(90deg, transparent 0%, #FFD700 50%, transparent 100%)',
+                background: `linear-gradient(90deg, transparent 0%, ${certColors.accent} 50%, transparent 100%)`,
                 marginBottom: '60px',
               }}
             />
@@ -171,7 +206,7 @@ export async function GET(
               style={{
                 fontSize: variant === 'print_a4' ? 48 : 36,
                 fontWeight: 'bold',
-                color: '#FFFFFF',
+                color: certColors.textPrimary,
                 marginBottom: '40px',
                 lineHeight: 1.3,
                 maxWidth: '90%',
@@ -184,7 +219,7 @@ export async function GET(
             <div
               style={{
                 fontSize: variant === 'print_a4' ? 32 : 24,
-                color: '#CCCCCC',
+                color: certColors.textSecondary,
                 marginBottom: '20px',
               }}
             >
@@ -196,7 +231,7 @@ export async function GET(
               style={{
                 fontSize: variant === 'print_a4' ? 56 : 42,
                 fontWeight: 'bold',
-                color: '#FFD700',
+                color: certColors.accent,
                 marginBottom: '20px',
                 lineHeight: 1.2,
               }}
@@ -208,7 +243,7 @@ export async function GET(
             <div
               style={{
                 fontSize: variant === 'print_a4' ? 32 : 24,
-                color: '#CCCCCC',
+                color: certColors.textSecondary,
                 marginBottom: '60px',
               }}
             >
@@ -220,7 +255,7 @@ export async function GET(
               <div
                 style={{
                   fontSize: variant === 'print_a4' ? 40 : 32,
-                  color: '#FFD700',
+                  color: certColors.accent,
                   marginBottom: '40px',
                   fontWeight: 'bold',
                 }}
@@ -241,7 +276,7 @@ export async function GET(
                 alignItems: 'center',
                 padding: '0 80px',
                 fontSize: variant === 'print_a4' ? 20 : 16,
-                color: '#999999',
+                color: certColors.footer,
               }}
             >
               <div>ID: {certificateId}</div>

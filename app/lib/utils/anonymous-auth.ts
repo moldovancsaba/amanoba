@@ -84,9 +84,9 @@ export async function createAnonymousPlayer(username: string) {
         description: 'Unified gamification platform',
         logo: '🎮',
         themeColors: {
-          primary: '#6366f1',
-          secondary: '#ec4899',
-          accent: '#a855f7',
+          primary: '#000000',
+          secondary: '#2D2D2D',
+          accent: '#FAB908',
         },
         allowedDomains: ['amanoba.com', 'localhost'],
         supportedLanguages: ['en'],
@@ -212,7 +212,7 @@ export async function createAnonymousPlayer(username: string) {
 
 /**
  * Convert anonymous account to registered account
- * Called when anonymous user signs in with Facebook
+ * Called when anonymous user upgrades to SSO or full account
  */
 export async function convertAnonymousToRegistered(
   anonymousPlayerId: string,

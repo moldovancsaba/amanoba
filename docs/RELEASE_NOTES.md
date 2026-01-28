@@ -1,11 +1,48 @@
 # Amanoba Release Notes
 
-**Current Version**: 2.9.12  
-**Last Updated**: 2026-01-27T09:15:00.000Z
+**Current Version**: 2.9.13  
+**Last Updated**: 2026-01-28
 
 ---
 
 All completed tasks are documented here in reverse chronological order. This file follows the Changelog format and is updated with every version bump.
+
+---
+
+## [v2.9.13] — 2026-01-28 📋🔒
+
+**Status**: Deep Code Audit (P1 + P2) delivered — design system, links, email tokens, logs, inline styles, APP_URL, certificate colors, theme objects, ARCHITECTURE auth, Facebook cleanup, CSP  
+**Type**: Code audit follow-up (consistency, design, hardening)
+
+### P1 – Design & Consistency (AUDIT1–AUDIT5)
+
+- **AUDIT1 – Design system**: Reconciled `design-system.css` with gold/black; primary/secondary/accent aligned to brand (#FAB908, #2D2D2D); CTA and utility classes use `--cta-bg` / design tokens.
+- **AUDIT2 – LocaleLink**: Replaced root-relative `href="/..."` with LocaleLink or `/${locale}/...` in dashboard, quizzz, sudoku, data-deletion, and other pages where identified.
+- **AUDIT3 – Email CTA/tokens**: `app/lib/email/email-service.ts` — added `EMAIL_TOKENS` (ctaBg, ctaText, bodyText, muted, border); lesson reminder CTA uses #FAB908; footers use tokens.
+- **AUDIT4 – Client logs**: All client `console.log`/`console.warn` in dashboard, quizzz, achievements, challenges, madoku, sudoku, whackpop, MemoryGame, Icon guarded with `NODE_ENV === 'development'`.
+- **AUDIT5 – Inline styles**: Certificate image route uses design tokens / `CERT_COLORS_DEFAULT` with Brand override; course detail thumbnail uses Tailwind `aspect-video`.
+
+### P2 – Config & Cleanup (AUDIT6–AUDIT11)
+
+- **AUDIT6 – APP_URL**: Added `app/lib/constants/app-url.ts` (`CANONICAL_APP_URL`, `APP_URL`, `getAuthBaseUrl()`). Email, payments, auth (SSO logout/callback/login, anonymous), layout, courses, referrals use these; no mixed www.amanoba.com/amanoba.com in app.
+- **AUDIT7 – Certificate colors**: Certificate image route loads course Brand; uses `themeColors.accent` (and primary/secondary when valid hex); fallback to `CERT_COLORS_DEFAULT`.
+- **AUDIT8 – Theme objects**: Anonymous default brand uses primary #000000, secondary #2D2D2D, accent #FAB908. Admin courses already use brand colors.
+- **AUDIT9 – ARCHITECTURE auth**: `docs/ARCHITECTURE.md` — auth directory updated: removed `api/auth/facebook/`; added `[...nextauth]`, `anonymous`, `sso/`; Security/Authentication describe SSO and anonymous only.
+- **AUDIT10 – Facebook cleanup**: Player model — removed `facebookId`; `authProvider` only `'sso' | 'anonymous'`. Privacy/Terms and all 11 `messages/*.json` updated to SSO/sign-in wording. Comment in `anonymous-auth.ts` updated. Script default `authProvider` → `'sso'`.
+- **AUDIT11 – CSP**: `app/lib/security.ts` — removed Facebook from `script-src` and `frame-src`; `frame-src` set to `'none'`.
+
+### Documentation
+
+- **Audit doc**: `docs/2026-01-28_DEEP_CODE_AUDIT.md` — full findings and delivery notes.
+- **ROADMAP**: Deep Code Audit subsection; P1/P2 tech debt updated; version 2.9.13.
+- **TASKLIST**: Code Audit Follow-Up (AUDIT1–AUDIT11) all ✅ DONE; version 2.9.13.
+- **Agent doc**: `agent_working_loop_canonical_operating_document.md` — current feature set to audit; status AUDIT DELIVERED (P1+P2).
+
+**Files added**: `app/lib/constants/app-url.ts`, `docs/2026-01-28_DEEP_CODE_AUDIT.md`  
+**Files modified**: design-system.css, email-service, security.ts, player model, anonymous-auth, certificate image route, layout/courses/auth/payments/referrals, dashboard/quizzz/sudoku/madoku/whackpop/MemoryGame/Icon, achievements/challenges, data-deletion, privacy/terms, 11 messages, ARCHITECTURE.md, ROADMAP.md, TASKLIST.md, agent doc, and scripts (migrate-player-roles).
+
+**Build Status**: Verified  
+**Status**: ✅ AUDIT P1+P2 DELIVERED
 
 ---
 

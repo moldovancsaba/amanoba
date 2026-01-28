@@ -43,7 +43,7 @@ const privacyContent: Record<Locale, PrivacyContent> = {
           {
             title: "2.1 Information You Provide",
             bullets: [
-              "Account information (name, email address) through Facebook OAuth",
+              "Account information (name, email address) when you sign in with SSO or create an account",
               "Profile information (display name, avatar)",
               "Game and learning preferences and settings",
               "Communications with our support team",
@@ -88,10 +88,10 @@ const privacyContent: Record<Locale, PrivacyContent> = {
         ],
       },
       {
-        id: "facebook",
-        title: "5. Facebook Login",
+        id: "auth",
+        title: "5. Sign-In and Authentication",
         paragraphs: [
-          "When you sign in using Facebook, we receive basic profile information (name, email, profile picture) as permitted by Facebook's OAuth system. We do not post to your Facebook account without your explicit permission. You can manage Facebook app permissions in your Facebook settings at any time.",
+          "When you sign in with SSO (single sign-on) or as a guest, we receive only the information needed to create and maintain your account (e.g. name, email from your identity provider). We do not post to any external account. You can sign out or request account deletion at any time.",
         ],
       },
       {
@@ -209,7 +209,7 @@ const privacyContent: Record<Locale, PrivacyContent> = {
           {
             title: "2.1 Általad megadott adatok",
             bullets: [
-              "Fiókadatok (név, email cím) Facebook OAuth-on keresztül",
+              "Fiókadatok (név, email cím) SSO bejelentkezéskor vagy fióklétrehozáskor",
               "Profiladatok (megjelenített név, avatar)",
               "Játék- és tanulási preferenciák, beállítások",
               "Ügyfélszolgálattal folytatott kommunikáció",
@@ -254,10 +254,10 @@ const privacyContent: Record<Locale, PrivacyContent> = {
         ],
       },
       {
-        id: "facebook",
-        title: "5. Facebook bejelentkezés",
+        id: "auth",
+        title: "5. Bejelentkezés és hitelesítés",
         paragraphs: [
-          "Facebook-bejelentkezéskor a Facebook OAuth engedélyei alapján a nevedet, email címedet és profilképedet kapjuk meg. Kifejezett engedélyed nélkül nem posztolunk a fiókodba. A Facebook beállításokban bármikor módosíthatod az engedélyeket.",
+          "SSO (egyszeri bejelentkezés) vagy vendégként való bejelentkezéskor csak a fiók létrehozásához és karbantartásához szükséges adatokat kapjuk (pl. név, email az identitásszolgáltatótól). Nem posztolunk külső fiókba. Bármikor kijelentkezhetsz vagy törölheted a fiókodat.",
         ],
       },
       {

@@ -9,6 +9,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { signOut } from '@/auth';
 import { logger } from '@/lib/logger';
 import { checkRateLimit, apiRateLimiter } from '@/lib/security';
+import { getAuthBaseUrl } from '@/app/lib/constants/app-url';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -38,7 +39,7 @@ export async function POST(request: NextRequest) {
     if (logoutUrl) {
       const clientId = process.env.SSO_CLIENT_ID;
       const postLogoutRedirectUri = process.env.SSO_POST_LOGOUT_REDIRECT_URI || 
-        `${process.env.NEXTAUTH_URL || process.env.NEXT_PUBLIC_APP_URL}${returnTo}`;
+        `${getAuthBaseUrl()}${returnTo}`;
 
       // If provider supports front-channel logout, redirect to logout URL
       // Otherwise, just clear local session (which we already did)
@@ -88,7 +89,7 @@ export async function GET(request: NextRequest) {
     if (logoutUrl) {
       const clientId = process.env.SSO_CLIENT_ID;
       const postLogoutRedirectUri = process.env.SSO_POST_LOGOUT_REDIRECT_URI || 
-        `${process.env.NEXTAUTH_URL || process.env.NEXT_PUBLIC_APP_URL}${returnTo}`;
+        `${getAuthBaseUrl()}${returnTo}`;
 
       if (clientId) {
         const providerLogoutUrl = `${logoutUrl}?` +

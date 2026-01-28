@@ -9,7 +9,7 @@
 import { useState, useEffect } from 'react';
 import { useSession } from 'next-auth/react';
 import { Play, RotateCcw, Lightbulb, X, Clock, Trophy, Zap } from 'lucide-react';
-import Link from 'next/link';
+import { LocaleLink } from '@/components/LocaleLink';
 import { useRouter } from 'next/navigation';
 import {
   type SudokuGrid,
@@ -32,7 +32,7 @@ export default function SudokuGame() {
     status = sessionData.status;
   } catch (error) {
     // Handle SSR/build time when session provider might not be available
-    console.log('Session not available during build');
+    if (process.env.NODE_ENV === 'development') console.log('Session not available during build');
   }
   
   const router = useRouter();
@@ -202,7 +202,7 @@ export default function SudokuGame() {
             setCompletedChallenges(completed);
           }
         } catch (e) {
-          console.warn('Challenges refresh failed', e);
+          if (process.env.NODE_ENV === 'development') console.warn('Challenges refresh failed', e);
         }
       }
     } catch (error) {
@@ -295,9 +295,9 @@ export default function SudokuGame() {
             Start Game
           </button>
           
-          <Link href="/games" className="block text-center text-white/80 hover:text-white mt-4 transition-colors">
+          <LocaleLink href="/games" className="block text-center text-white/80 hover:text-white mt-4 transition-colors">
             Back to Games
-          </Link>
+          </LocaleLink>
         </div>
       </div>
     );
@@ -381,9 +381,9 @@ export default function SudokuGame() {
             <RotateCcw className="w-5 h-5" /> New Game
           </button>
           
-          <Link href="/games" className="bg-white/20 text-white px-6 py-3 rounded-xl font-semibold hover:bg-white/30 transition-colors backdrop-blur-lg flex items-center justify-center gap-2">
+          <LocaleLink href="/games" className="bg-white/20 text-white px-6 py-3 rounded-xl font-semibold hover:bg-white/30 transition-colors backdrop-blur-lg flex items-center justify-center gap-2">
             Back
-          </Link>
+          </LocaleLink>
         </div>
         
         {isComplete && (

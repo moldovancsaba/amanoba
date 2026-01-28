@@ -9,6 +9,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { logger } from '@/lib/logger';
 import { randomBytes } from 'crypto';
 import { checkRateLimit, authRateLimiter } from '@/lib/security';
+import { getAuthBaseUrl } from '@/app/lib/constants/app-url';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -29,7 +30,7 @@ export async function GET(request: NextRequest) {
   try {
     const authUrl = process.env.SSO_AUTH_URL;
     const clientId = process.env.SSO_CLIENT_ID;
-    const redirectUri = process.env.SSO_REDIRECT_URI || `${process.env.NEXTAUTH_URL || process.env.NEXT_PUBLIC_APP_URL}/api/auth/sso/callback`;
+    const redirectUri = process.env.SSO_REDIRECT_URI || `${getAuthBaseUrl()}/api/auth/sso/callback`;
     // Default to standard OIDC scopes if not configured
     // Note: 'roles' is not a standard OIDC scope - provider may not support it
     // If SSO_SCOPES is set, use it; otherwise use standard scopes

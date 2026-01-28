@@ -130,7 +130,9 @@ amanoba/
 │   │   │   ├── premium/         # Grant/revoke premium access
 │   │   │   └── migrations/      # Database migration runner
 │   │   ├── auth/                # Authentication endpoints
-│   │   │   └── facebook/        # Facebook OAuth
+│   │   │   ├── [...nextauth]/   # NextAuth session (GET/POST)
+│   │   │   ├── anonymous/      # Guest sign-up
+│   │   │   └── sso/            # SSO login, callback, logout
 │   │   ├── games/               # Game session management
 │   │   │   └── [gameKey]/       # Dynamic game routes
 │   │   │       └── session/     # Start/complete sessions
@@ -447,8 +449,8 @@ amanoba/
 ### 4. Security
 
 **Authentication**
-- Facebook OAuth for players
-- Session-based admin authentication
+- SSO (OIDC) and anonymous authentication for users
+- Session-based admin authentication (role from SSO or DB)
 - HttpOnly cookies with secure flags
 - 7-day expiration
 
@@ -725,14 +727,12 @@ interface ApiResponse<T = any> {
 ### Authentication
 
 **Player Authentication**
-- Facebook OAuth token passed in header or cookie
-- Session cookie set on successful auth
+- SSO (OIDC) or anonymous sign-up; session cookie set on successful auth
 - Cookie: `user-session`, HttpOnly, 7-day expiration
 
 **Admin Authentication**
-- Password-based authentication
-- Session cookie set on successful login
-- Cookie: `admin-session`, HttpOnly, 7-day expiration
+- Admin role from SSO token or stored in Player; same session as user
+- Protected admin routes use requireAdmin() middleware
 
 ### Rate Limiting
 

@@ -1,7 +1,7 @@
 # Amanoba Task List
 
-**Version**: 2.9.12  
-**Last Updated**: 2026-01-27T09:00:00.000Z
+**Version**: 2.9.13  
+**Last Updated**: 2026-01-28
 
 ---
 
@@ -444,6 +444,36 @@ Course pages must always use the course’s own language as the URL locale and U
 | BUG6 | `/admin/quests` returns 404 | P1 | **Fixed**: Created admin quests page and API endpoint. Displays quest list with filtering (status, search). Shows quest details and statistics. Handles empty state with helpful message. | ✅ DONE |
 | BUG7 | `/profile/[playerId]` user profiles do not load | P0 | **Done**: Admin can open user profile from user list (e.g. [hu/profile/6970a39a4d9263663b412d96](https://www.amanoba.com/hu/profile/6970a39a4d9263663b412d96)). Self-view and public/private behaviour tracked in Profile Visibility & Privacy tasks below. | ✅ DONE |
 
+---
+
+## 📋 Code Audit Follow-Up (2026-01-28)
+
+**Source**: `docs/2026-01-28_DEEP_CODE_AUDIT.md`  
+**Priority**: P1 (consistency, design, hardening)  
+**Release**: v2.9.13 — see `docs/RELEASE_NOTES.md`
+
+Tasks derived from the deep code audit. AUDIT1–AUDIT11 completed 2026-01-28.
+
+### P1 – Design & Locale Consistency
+
+| ID | Task | Owner | Status |
+|----|------|-------|--------|
+| AUDIT1 | Reconcile `design-system.css` palette with `globals.css`/Tailwind (gold/black); remove or alias indigo/pink/purple | Dev | ✅ DONE (2026-01-28) |
+| AUDIT2 | Replace root-relative `href="/..."` with LocaleLink or `/${locale}/...` across dashboard, courses, my-courses, rewards, quests, onboarding, leaderboards, achievements, games, home | Dev | ✅ DONE (2026-01-28) |
+| AUDIT3 | Email templates: use design tokens for colors; use CTA #FAB908 for primary buttons (replace #6366f1) | Dev | ✅ DONE (2026-01-28) |
+| AUDIT4 | Remove or guard client console.log/console.warn (dashboard, quizzz, achievements, challenges, madoku, sudoku, whackpop, MemoryGame) with NODE_ENV or shared logger | Dev | ✅ DONE (2026-01-28) |
+| AUDIT5 | Replace inline `style={{}}` and hardcoded hex in app code with Tailwind/design tokens where feasible (see audit for file list) | Dev | ✅ DONE (2026-01-28) |
+
+### P2 – Config & Cleanup
+
+| ID | Task | Owner | Status |
+|----|------|-------|--------|
+| AUDIT6 | Introduce single APP_URL constant (or env helper) for all fallbacks; document canonical production URL | Dev | ✅ DONE (2026-01-28) |
+| AUDIT7 | Certificate image route: source colors from CertificationSettings/Brand; fallback to current hex if no config | Dev | ✅ DONE (2026-01-28) |
+| AUDIT8 | Admin/anonymous theme objects: use single brand theme (black, dark grey, #FAB908); remove indigo/pink/purple from anonymous-auth | Dev | ✅ DONE (2026-01-28) |
+| AUDIT9 | Update ARCHITECTURE.md directory structure: remove `api/auth/facebook/`, reflect current auth routes | Dev | ✅ DONE (2026-01-28) |
+| AUDIT10 | Facebook cleanup (after migration): Remove facebookId/authProvider 'facebook' from Player model, CSP, docs, privacy/terms, messages (see SSO_MIGRATION_COMPLETE.md) | Dev | ✅ DONE (2026-01-28) |
+| AUDIT11 | CSP: Remove Facebook domains from security.ts when Facebook is fully removed | Dev | ✅ DONE (2026-01-28) |
 
 ---
 

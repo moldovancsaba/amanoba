@@ -96,15 +96,15 @@ export const securityHeaders = {
   // Permissions Policy (formerly Feature Policy)
   'Permissions-Policy': 'camera=(), microphone=(), geolocation=()',
   
-  // Content Security Policy
+  // Content Security Policy (SSO-only; no Facebook)
   'Content-Security-Policy': [
     "default-src 'self'",
-    "script-src 'self' 'unsafe-eval' 'unsafe-inline' https://connect.facebook.net",
+    "script-src 'self' 'unsafe-eval' 'unsafe-inline'",
     "style-src 'self' 'unsafe-inline'",
     "img-src 'self' data: https: blob:",
     "font-src 'self' data:",
     "connect-src 'self' https://madoku-cluster.kqamwf8.mongodb.net",
-    "frame-src https://www.facebook.com",
+    "frame-src 'none'",
     "object-src 'none'",
     "base-uri 'self'",
     "form-action 'self'",

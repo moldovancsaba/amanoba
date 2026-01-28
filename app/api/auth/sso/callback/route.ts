@@ -13,6 +13,7 @@ import { validateSSOToken, extractSSOUserInfo } from '@/lib/auth/sso';
 import { signIn } from '@/auth';
 import { logAuthEvent, logPlayerRegistration } from '@/lib/analytics/event-logger';
 import { checkRateLimit, authRateLimiter } from '@/lib/security';
+import { getAuthBaseUrl } from '@/app/lib/constants/app-url';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -111,7 +112,7 @@ export async function GET(request: NextRequest) {
     const tokenUrl = process.env.SSO_TOKEN_URL;
     const clientId = process.env.SSO_CLIENT_ID;
     const clientSecret = process.env.SSO_CLIENT_SECRET;
-    const redirectUri = process.env.SSO_REDIRECT_URI || `${process.env.NEXTAUTH_URL || process.env.NEXT_PUBLIC_APP_URL}/api/auth/sso/callback`;
+    const redirectUri = process.env.SSO_REDIRECT_URI || `${getAuthBaseUrl()}/api/auth/sso/callback`;
 
     if (!tokenUrl || !clientId || !clientSecret) {
       logger.error({}, 'SSO token exchange configuration missing');

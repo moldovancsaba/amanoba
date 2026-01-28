@@ -11,6 +11,7 @@ import connectDB from '@/lib/mongodb';
 import { Course, Player, Brand } from '@/lib/models';
 import { logger } from '@/lib/logger';
 import { meetsStripeMinimum, getFormattedMinimum } from '@/lib/utils/stripe-minimums';
+import { APP_URL } from '@/app/lib/constants/app-url';
 import Stripe from 'stripe';
 
 // Initialize Stripe
@@ -20,8 +21,6 @@ const stripe = process.env.STRIPE_SECRET_KEY
       apiVersion: '2024-12-18.acacia',
     })
   : null;
-
-const APP_URL = process.env.NEXT_PUBLIC_APP_URL || 'https://www.amanoba.com';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';

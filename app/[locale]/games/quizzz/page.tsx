@@ -10,6 +10,7 @@
 import { useEffect, useState } from 'react';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
+import { LocaleLink } from '@/components/LocaleLink';
 
 type Difficulty = 'EASY' | 'MEDIUM' | 'HARD' | 'EXPERT';
 
@@ -171,16 +172,16 @@ export default function QuizzzGame() {
         // Why: If API returned fewer questions than requested, we've exhausted the pool
         // Reset seen list so questions can repeat on next game
         if (apiQuestions.length < count) {
-          console.log(`⚠️ Pool exhausted for ${diff} - got ${apiQuestions.length}/${count} questions. Resetting seen list.`);
+          if (process.env.NODE_ENV === 'development') console.log(`⚠️ Pool exhausted for ${diff} - got ${apiQuestions.length}/${count} questions. Resetting seen list.`);
           sessionStorage.setItem(seenKey, JSON.stringify(newIds));
         } else {
           // Why: Add new questions to accumulated seen list
           const updated = [...new Set([...seenIds, ...newIds])];
           sessionStorage.setItem(seenKey, JSON.stringify(updated));
-          console.log(`✅ Tracking ${updated.length} total seen questions for ${diff}`);
+          if (process.env.NODE_ENV === 'development') console.log(`✅ Tracking ${updated.length} total seen questions for ${diff}`);
         }
       } catch (err) {
-        console.warn('Failed to update seen questions:', err);
+        if (process.env.NODE_ENV === 'development') console.warn('Failed to update seen questions:', err);
       }
 
       // Why: Fetch correct answers separately (security: not in main response)
@@ -201,7 +202,7 @@ export default function QuizzzGame() {
         }));
       } else {
         // Why: Fallback - generate random correct answers (for development)
-        console.warn('Could not fetch answers, using random fallback');
+        if (process.env.NODE_ENV === 'development') console.warn('Could not fetch answers, using random fallback');
         questionsWithAnswers = apiQuestions.map(q => ({
           ...q,
           correctIndex: Math.floor(Math.random() * 4),
@@ -381,7 +382,7 @@ export default function QuizzzGame() {
     // Why: Start backend session to track progress and award rewards
     try {
       const playerId = (session.user as { id: string }).id;
-      console.log('Starting game session...', { playerId, gameId: 'quizzz', difficulty });
+      if (process.env.NODE_ENV === 'development') console.log('Starting game session...', { playerId, gameId: 'quizzz', difficulty });
 
       const response = await fetch('/api/game-sessions/start', {
         method: 'POST',
@@ -396,7 +397,7 @@ export default function QuizzzGame() {
       if (response.ok) {
         const data = await response.json();
         setSessionId(data.sessionId);
-        console.log('✅ Game session started:', data.sessionId);
+        if (process.env.NODE_ENV === 'development') console.log('✅ Game session started:', data.sessionId);
       } else {
         const errorText = await response.text();
         console.error('❌ Failed to start game session:', response.status, errorText);
@@ -454,7 +455,7 @@ export default function QuizzzGame() {
           correctAnswers: correctQuestionIds,
         }),
       });
-      console.log(`Tracked ${correctQuestionIds.length}/${questions.length} correct answers`);
+      if (process.env.NODE_ENV === 'development') console.log(`Tracked ${correctQuestionIds.length}/${questions.length} correct answers`);
     } catch (error) {
       console.error('Failed to track question stats:', error);
     }
@@ -471,7 +472,7 @@ export default function QuizzzGame() {
       try {
         setIsCompleting(true);
         const finalScore = Math.round(score * 100 * config.pointsMultiplier);
-        console.log('Completing session...', { sessionId, score, finalScore, isWin, duration, accuracy });
+        if (process.env.NODE_ENV === 'development') console.log('Completing session...', { sessionId, score, finalScore, isWin, duration, accuracy });
         
         const response = await fetch('/api/game-sessions/complete', {
           method: 'POST',
@@ -485,11 +486,11 @@ export default function QuizzzGame() {
           }),
         });
 
-        console.log('📡 Complete API response status:', response.status, response.statusText);
+        if (process.env.NODE_ENV === 'development') console.log('📡 Complete API response status:', response.status, response.statusText);
 
         if (response.ok) {
           const data = await response.json();
-          console.log('✅ Game session completed with rewards:', data);
+          if (process.env.NODE_ENV === 'development') console.log('✅ Game session completed with rewards:', data);
           setRewards(data.rewards);
           setProgression(data.progression);
           setAchievements(data.achievements?.achievements || []);
@@ -509,7 +510,7 @@ export default function QuizzzGame() {
               }
             }
           } catch (e) {
-            console.warn('Failed to refresh challenges after completion', e);
+            if (process.env.NODE_ENV === 'development') console.warn('Failed to refresh challenges after completion', e);
           }
         } else {
           const errorText = await response.text();
@@ -878,7 +879,7 @@ export default function QuizzzGame() {
             {/* Daily Challenges CTA */}
             <div className="bg-gradient-to-r from-green-50 to-teal-50 rounded-xl p-4 text-center">
               <div className="text-sm text-gray-700">
-                🎯 View <a href="/challenges" className="font-bold text-teal-600 hover:underline">Daily Challenges</a> to track progress.
+                🎯 View <LocaleLink href="/challenges" className="font-bold text-teal-600 hover:underline">Daily Challenges</LocaleLink> to track progress.
               </div>
             </div>
           </div>

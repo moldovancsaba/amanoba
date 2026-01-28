@@ -5,44 +5,44 @@
  */
 
 /* ============================================
-   COLOR TOKENS
+   COLOR TOKENS (Brand-aligned: gold / dark grey)
    ============================================ */
 :root {
-  /* Primary Colors - Indigo */
-  --color-primary-50: #eef2ff;
-  --color-primary-100: #e0e7ff;
-  --color-primary-200: #c7d2fe;
-  --color-primary-300: #a5b4fc;
-  --color-primary-400: #818cf8;
-  --color-primary-500: #6366f1;
-  --color-primary-600: #4f46e5;
-  --color-primary-700: #4338ca;
-  --color-primary-800: #3730a3;
-  --color-primary-900: #312e81;
+  /* Primary Colors - Brand gold (#FAB908) - CTAs and primary actions */
+  --color-primary-50: #fef9e7;
+  --color-primary-100: #fef3c7;
+  --color-primary-200: #fde68a;
+  --color-primary-300: #fcd34d;
+  --color-primary-400: #fbbf24;
+  --color-primary-500: #fab908;
+  --color-primary-600: #d97706;
+  --color-primary-700: #b45309;
+  --color-primary-800: #92400e;
+  --color-primary-900: #78350f;
 
-  /* Secondary Colors - Pink */
-  --color-secondary-50: #fdf2f8;
-  --color-secondary-100: #fce7f3;
-  --color-secondary-200: #fbcfe8;
-  --color-secondary-300: #f9a8d4;
-  --color-secondary-400: #f472b6;
-  --color-secondary-500: #ec4899;
-  --color-secondary-600: #db2777;
-  --color-secondary-700: #be185d;
-  --color-secondary-800: #9d174d;
-  --color-secondary-900: #831843;
+  /* Secondary Colors - Dark grey (#2D2D2D) - headers, secondary elements */
+  --color-secondary-50: #f9fafb;
+  --color-secondary-100: #f3f4f6;
+  --color-secondary-200: #e5e7eb;
+  --color-secondary-300: #d1d5db;
+  --color-secondary-400: #9ca3af;
+  --color-secondary-500: #6b7280;
+  --color-secondary-600: #4b5563;
+  --color-secondary-700: #374151;
+  --color-secondary-800: #2d2d2d;
+  --color-secondary-900: #1f2937;
 
-  /* Accent Colors - Purple */
-  --color-accent-50: #faf5ff;
-  --color-accent-100: #f3e8ff;
-  --color-accent-200: #e9d5ff;
-  --color-accent-300: #d8b4fe;
-  --color-accent-400: #c084fc;
-  --color-accent-500: #a855f7;
-  --color-accent-600: #9333ea;
-  --color-accent-700: #7e22ce;
-  --color-accent-800: #6b21a8;
-  --color-accent-900: #581c87;
+  /* Accent - Alias to primary (brand gold) for compatibility */
+  --color-accent-50: var(--color-primary-50);
+  --color-accent-100: var(--color-primary-100);
+  --color-accent-200: var(--color-primary-200);
+  --color-accent-300: var(--color-primary-300);
+  --color-accent-400: var(--color-primary-400);
+  --color-accent-500: var(--color-primary-500);
+  --color-accent-600: var(--color-primary-600);
+  --color-accent-700: var(--color-primary-700);
+  --color-accent-800: var(--color-primary-800);
+  --color-accent-900: var(--color-primary-900);
 
   /* Neutral Colors */
   --color-neutral-50: #fafafa;
@@ -146,10 +146,10 @@
   --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
   --shadow-inner: inset 0 2px 4px 0 rgba(0, 0, 0, 0.05);
   
-  /* Colored Shadows */
-  --shadow-primary: 0 10px 15px -3px rgba(99, 102, 241, 0.3), 0 4px 6px -4px rgba(99, 102, 241, 0.3);
-  --shadow-secondary: 0 10px 15px -3px rgba(236, 72, 153, 0.3), 0 4px 6px -4px rgba(236, 72, 153, 0.3);
-  --shadow-accent: 0 10px 15px -3px rgba(168, 85, 247, 0.3), 0 4px 6px -4px rgba(168, 85, 247, 0.3);
+  /* Colored Shadows (brand gold) */
+  --shadow-primary: 0 10px 15px -3px rgba(250, 185, 8, 0.3), 0 4px 6px -4px rgba(250, 185, 8, 0.3);
+  --shadow-secondary: 0 10px 15px -3px rgba(45, 45, 45, 0.2), 0 4px 6px -4px rgba(45, 45, 45, 0.2);
+  --shadow-accent: var(--shadow-primary);
 }
 
 /* ============================================
@@ -439,7 +439,7 @@
 }
 
 .focus-ring:focus-visible {
-  outline-color: var(--color-primary-500);
+  outline-color: var(--cta-bg);
   outline-offset: 2px;
 }
 
@@ -483,7 +483,7 @@
   width: 2rem;
   height: 2rem;
   border: 3px solid var(--color-neutral-300);
-  border-top-color: var(--color-primary-500);
+  border-top-color: var(--cta-bg);
   border-radius: var(--radius-full);
   animation: spin 0.8s linear infinite;
 }
@@ -573,7 +573,7 @@
 }
 
 .btn:focus-visible {
-  outline: 2px solid var(--color-primary-500);
+  outline: 2px solid var(--cta-bg);
   outline-offset: 2px;
 }
 
@@ -583,22 +583,22 @@
 }
 
 .btn-primary {
-  background-color: var(--color-primary-600);
-  color: white;
+  background-color: var(--cta-bg);
+  color: var(--cta-text);
 }
 
 .btn-primary:hover:not(:disabled) {
-  background-color: var(--color-primary-700);
-  box-shadow: var(--shadow-primary);
+  background-color: var(--cta-bg-hover);
+  box-shadow: var(--cta-shadow);
 }
 
 .btn-secondary {
-  background-color: var(--color-secondary-600);
+  background-color: var(--color-secondary-700);
   color: white;
 }
 
 .btn-secondary:hover:not(:disabled) {
-  background-color: var(--color-secondary-700);
+  background-color: var(--color-secondary-800);
   box-shadow: var(--shadow-secondary);
 }
 
@@ -613,7 +613,7 @@
 
 .progress-bar-fill {
   height: 100%;
-  background: linear-gradient(90deg, var(--color-primary-500), var(--color-accent-500));
+  background: linear-gradient(90deg, var(--cta-bg), var(--cta-bg-hover));
   transition: width var(--transition-base);
   border-radius: var(--radius-full);
 }

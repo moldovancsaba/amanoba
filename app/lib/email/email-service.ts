@@ -13,6 +13,7 @@ import type { ILesson } from '@/app/lib/models/lesson';
 import type { IPlayer } from '@/app/lib/models/player';
 import type { Locale } from '@/app/lib/i18n/locales';
 import { generateSecureToken } from '../security';
+import { APP_URL } from '@/app/lib/constants/app-url';
 
 // Initialize Resend client
 // Why: Resend is modern, developer-friendly email service
@@ -32,7 +33,14 @@ const EMAIL_CONFIG = {
   replyTo: process.env.EMAIL_REPLY_TO || 'support@amanoba.com',
 };
 
-const APP_URL = process.env.NEXT_PUBLIC_APP_URL || 'https://www.amanoba.com';
+/** Brand CTA and email design tokens (align with design-system.css) */
+const EMAIL_TOKENS = {
+  ctaBg: '#FAB908',
+  ctaText: '#111827',
+  bodyText: '#333333',
+  muted: '#666666',
+  border: '#dddddd',
+} as const;
 
 /**
  * Get or generate unsubscribe token for a player
@@ -160,10 +168,10 @@ export async function sendLessonEmail(
     // Append unsubscribe footer if not already in body
     if (!body.includes('unsubscribe') && !body.includes('{{unsubscribeUrl}}')) {
       const unsubscribeFooter = `
-        <hr style="margin: 20px 0; border: none; border-top: 1px solid #ddd;">
-        <p style="font-size: 12px; color: #666; text-align: center;">
+        <hr style="margin: 20px 0; border: none; border-top: 1px solid ${EMAIL_TOKENS.border};">
+        <p style="font-size: 12px; color: ${EMAIL_TOKENS.muted}; text-align: center;">
           You're receiving this email because you're enrolled in ${courseName}. 
-          <a href="${unsubscribeUrl}" style="color: #666;">Unsubscribe from lesson emails</a>
+          <a href="${unsubscribeUrl}" style="color: ${EMAIL_TOKENS.muted};">Unsubscribe from lesson emails</a>
         </p>
       `;
       body = body + unsubscribeFooter;
@@ -248,7 +256,7 @@ export async function sendWelcomeEmail(
             <li>🏆 Points and XP rewards</li>
             <li>📊 Progress tracking</li>
           </ul>
-          <p>You can also access all lessons in your <a href="${process.env.NEXT_PUBLIC_APP_URL || 'https://amanoba.com'}/my-courses">course dashboard</a>.</p>
+          <p>You can also access all lessons in your <a href="${APP_URL}/my-courses">course dashboard</a>.</p>
           <p>Happy learning!</p>
           <p>— The Amanoba Team</p>
         </body>
@@ -313,13 +321,13 @@ export async function sendCompletionEmail(
     const subject = `🎉 Congratulations! You've completed ${course.name}!`;
     const body = `
       <html>
-        <body style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
+        <body style="font-family: Arial, sans-serif; line-height: 1.6; color: ${EMAIL_TOKENS.bodyText};">
           <h1>🎉 Congratulations, ${player.displayName}!</h1>
           <p>You've successfully completed <strong>${course.name}</strong>!</p>
           <p>You've completed all 30 days of learning. That's an incredible achievement!</p>
           <p><strong>What's next?</strong></p>
           <ul>
-            <li>📚 Explore more courses in your <a href="${process.env.NEXT_PUBLIC_APP_URL || 'https://amanoba.com'}/courses">course library</a></li>
+            <li>📚 Explore more courses in your <a href="${APP_URL}/courses">course library</a></li>
             <li>🏆 Check out your achievements and progress</li>
             <li>💬 Share your success with friends</li>
           </ul>
@@ -389,11 +397,11 @@ export async function sendReminderEmail(
     const subject = `📚 Don't miss Day ${dayNumber} of ${course.name}`;
     const body = `
       <html>
-        <body style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
+        <body style="font-family: Arial, sans-serif; line-height: 1.6; color: ${EMAIL_TOKENS.bodyText};">
           <h1>Hi ${player.displayName}!</h1>
           <p>You haven't completed Day ${dayNumber} of <strong>${course.name}</strong> yet.</p>
           <p>Keep your learning streak going! Complete today's lesson to earn points and XP.</p>
-          <p><a href="${process.env.NEXT_PUBLIC_APP_URL || 'https://amanoba.com'}/courses/${courseId}/day/${dayNumber}" style="background-color: #6366f1; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; display: inline-block;">Complete Day ${dayNumber}</a></p>
+          <p><a href="${APP_URL}/courses/${courseId}/day/${dayNumber}" style="background-color: ${EMAIL_TOKENS.ctaBg}; color: ${EMAIL_TOKENS.ctaText}; padding: 10px 20px; text-decoration: none; border-radius: 5px; display: inline-block; font-weight: bold;">Complete Day ${dayNumber}</a></p>
           <p>Happy learning!</p>
           <p>— The Amanoba Team</p>
         </body>
@@ -621,11 +629,11 @@ export async function sendPaymentConfirmationEmail(
 
     // Append unsubscribe footer
     const unsubscribeFooter = `
-      <hr style="margin: 20px 0; border: none; border-top: 1px solid #ddd;">
-      <p style="font-size: 12px; color: #666; text-align: center;">
+      <hr style="margin: 20px 0; border: none; border-top: 1px solid ${EMAIL_TOKENS.border};">
+      <p style="font-size: 12px; color: ${EMAIL_TOKENS.muted}; text-align: center;">
         ${isHungarian 
-          ? `Ezt az emailt azért kaptad, mert fizetést végeztél az Amanobán. <a href="${unsubscribeUrl}" style="color: #666;">Leiratkozás az email értesítésekről</a>`
-          : `You're receiving this email because you made a payment on Amanoba. <a href="${unsubscribeUrl}" style="color: #666;">Unsubscribe from email notifications</a>`
+          ? `Ezt az emailt azért kaptad, mert fizetést végeztél az Amanobán. <a href="${unsubscribeUrl}" style="color: ${EMAIL_TOKENS.muted};">Leiratkozás az email értesítésekről</a>`
+          : `You're receiving this email because you made a payment on Amanoba. <a href="${unsubscribeUrl}" style="color: ${EMAIL_TOKENS.muted};">Unsubscribe from email notifications</a>`
         }
       </p>
     `;

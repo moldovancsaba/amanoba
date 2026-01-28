@@ -88,7 +88,7 @@ export default function AchievementsPage() {
         }
         
         const data = await response.json();
-        console.log('Achievements loaded:', data);
+        if (process.env.NODE_ENV === 'development') console.log('Achievements loaded:', data);
         setAchievementsData(data);
       } catch (err) {
         console.error('Achievement fetch error:', err);

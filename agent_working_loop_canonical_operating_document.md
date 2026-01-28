@@ -142,40 +142,23 @@ TEAM:
 
 ## 📋 Current Feature/Bug Document
 
-**Active Work**: ✅ **COMPLETE** - `docs/2026-01-24_COURSE_LANGUAGE_SEPARATION_COMPLETE.md`
+**Active Work**: 📋 **DEEP CODE AUDIT** - `docs/2026-01-28_DEEP_CODE_AUDIT.md`
 
-**Status**: ✅ **100% COURSE LANGUAGE SEPARATION DELIVERED - COMPLETE**
-**Priority**: P0 (Critical for localization requirement)  
-**Completed**: 2026-01-25  
+**Status**: ✅ **AUDIT DELIVERED (P1 + P2)** — All follow-up tasks completed  
+**Priority**: P1 (consistency, design, hardening)  
+**Completed**: 2026-01-28 (audit doc + AUDIT1–AUDIT11 + ROADMAP/TASKLIST/RELEASE_NOTES)  
 **Current Progress**:
-- ✅ **19 COMMITS DELIVERED**: Complete course language separation + navigation fixes
-- ✅ **770+ TRANSLATIONS ADDED**: 70 keys × 11 languages
-- ✅ **6 CORE PAGES FIXED**: Course detail, day, quiz, final exam, discovery, layout
-- ✅ **ALL NAVIGATION LINKS FIXED**: Quiz, day navigation, back links all use course language
-- ✅ **LANGUAGE EXTRACTION OPTIMIZED**: Extract from courseId immediately, no timing issues
-- ✅ **ARCHITECTURE: OPTION 2 ACTIVE**: Any URL locale works, UI always uses course language
-- ✅ **BUILD VERIFIED**: Zero errors, no TypeScript issues, production-ready
-- ✅ **DOCUMENTATION COMPLETE**: Feature document, release notes, task list all updated
-- ✅ **ALL BUGS FIXED**: No more mixed languages, hardcoded English, wrong translations, or URL locale changes
-- **Status**: ✅ COMPLETE - Ready to resume Quiz Quality Enhancement work
+- ✅ **AUDIT DOCUMENT CREATED**: `docs/2026-01-28_DEEP_CODE_AUDIT.md` — inconsistencies, deprecated/obsolete, hardcoded values, design deviations, inline styles, hardening
+- ✅ **ROADMAP UPDATED**: Tech debt P1/P2 and "Deep Code Audit" subsection; version 2.9.13
+- ✅ **TASKLIST UPDATED**: "Code Audit Follow-Up" with AUDIT1–AUDIT11; all ✅ DONE; version 2.9.13
+- ✅ **P1 DELIVERED**: Design system reconciliation, LocaleLink migration, email CTA tokens, client log removal, inline-style cleanup (AUDIT1–AUDIT5)
+- ✅ **P2 DELIVERED**: APP_URL constant, certificate colors from config, theme objects, ARCHITECTURE auth map, Facebook cleanup, CSP (AUDIT6–AUDIT11)
+- **Release**: v2.9.13 — see `docs/RELEASE_NOTES.md`. Next work = Quiz Quality / Profile Visibility or optional audit follow-ups (env docs, scripts APP_URL).
 
-**Lessons Seeded**:
-1. Day 1: Introduction to Productivity
-2. Day 2: Time Audit & Accountability
-3. Day 3: Priority Alignment
-4. Day 4: Capacity Planning
-5. Day 5: Measurement & Metrics
-6. Day 6: Daily Rituals
-7. Day 7: Daily/Weekly Systems
-8. Day 8: Context Switching Cost
-9. Day 9: Delegation vs Elimination
-10. Day 10: Energy Management
-11. Day 11: Goal Setting & OKRs
-
-**Related Files**:
-- `scripts/seed-productivity-lesson-*.ts` - Individual lesson seed scripts
-- `scripts/check-productivity-course.ts` - Course verification tool
-- `i18n.ts` - Updated with all 11 target languages
+**Related Docs**:
+- `docs/2026-01-28_DEEP_CODE_AUDIT.md` — Full audit findings
+- `docs/ROADMAP.md` — Tech debt and Deep Code Audit subsection
+- `docs/TASKLIST.md` — Code Audit Follow-Up (AUDIT1–AUDIT11)
 
 ---
 
@@ -207,7 +190,8 @@ TEAM:
 
 | Location | Document Name | Summary |
 |----------|---------------|---------|
-| `/docs/2026-01-23_ADMIN_UI_IMPROVEMENTS.md` | Admin UI Improvements | Current active feature: Remove deprecated docs menu, add logout button, rename Players to Users, show actual user name. Includes implementation details and testing checklist. |
+| `/docs/2026-01-28_DEEP_CODE_AUDIT.md` | Deep Code Audit | Full codebase audit: inconsistencies, deprecated/obsolete items, hardcoded values, design deviations, inline styles, hardening. Actionable findings linked to ROADMAP and TASKLIST (Code Audit Follow-Up). |
+| `/docs/2026-01-23_ADMIN_UI_IMPROVEMENTS.md` | Admin UI Improvements | Remove deprecated docs menu, add logout button, rename Players to Users, show actual user name. Includes implementation details and testing checklist. |
 | `/docs/FEATURES_SINCE_F20C34A_COMPLETE_DOCUMENTATION.md` | Features Since f20c34a | Complete documentation of all features added since working commit f20c34a. Includes certification system, short courses, SSO problems, and comparison to working version. Reference for redevelopment. |
 
 ### SSO & Authentication
@@ -326,5 +310,5 @@ TEAM:
 
 ---
 
-**Last Updated**: 2026-01-25  
-**Current Work**: Google Analytics Consent Mode v2 & Course Progress Fix (✅ COMPLETE)
+**Last Updated**: 2026-01-28  
+**Current Work**: Deep Code Audit delivered; follow-up tasks in `docs/TASKLIST.md` (Code Audit Follow-Up) and `docs/ROADMAP.md`

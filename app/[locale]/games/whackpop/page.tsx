@@ -120,7 +120,7 @@ export default function WhackPopGame() {
           const { emojis: cachedEmojis, timestamp } = JSON.parse(cached);
           // Why: Cache valid for 1 hour (emojis rarely change)
           if (Date.now() - timestamp < 60 * 60 * 1000) {
-            console.log('Using cached emojis');
+            if (process.env.NODE_ENV === 'development') console.log('Using cached emojis');
             setEmojis(cachedEmojis);
             setIsLoadingEmojis(false);
             return;
@@ -153,7 +153,7 @@ export default function WhackPopGame() {
         );
 
         setIsLoadingEmojis(false);
-        console.log(`Loaded ${fetchedEmojis.length} emojis from database`);
+        if (process.env.NODE_ENV === 'development') console.log(`Loaded ${fetchedEmojis.length} emojis from database`);
 
       } catch (error) {
         console.error('Error fetching emojis:', error);
@@ -167,7 +167,7 @@ export default function WhackPopGame() {
             '⚽', '🏀', '🏈', '⚾', '🎾', '🏐', '🏉', '🎱'
           ];
           
-          console.log('Using fallback emoji set');
+          if (process.env.NODE_ENV === 'development') console.log('Using fallback emoji set');
           setEmojis(fallbackEmojis);
           
           // Why: Cache fallback emojis
@@ -351,7 +351,7 @@ export default function WhackPopGame() {
               }
             }
           } catch (e) {
-            console.warn('Challenges refresh failed', e);
+            if (process.env.NODE_ENV === 'development') console.warn('Challenges refresh failed', e);
           }
         }
       } catch (error) {

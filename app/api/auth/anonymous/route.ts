@@ -14,6 +14,7 @@ import { getRandomGuestUsername, createAnonymousPlayer } from '@/lib/utils/anony
 import { logAuthEvent } from '@/lib/analytics';
 import logger from '@/lib/logger';
 import { checkRateLimit, authRateLimiter } from '@/lib/security';
+import { getAuthBaseUrl } from '@/app/lib/constants/app-url';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -50,7 +51,7 @@ export async function POST(req: NextRequest) {
     // Process referral code if present and player is new
     if (isNew && referralCode && player._id) {
       try {
-        const baseUrl = process.env.NEXTAUTH_URL || process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000';
+        const baseUrl = getAuthBaseUrl();
         const referralResponse = await fetch(`${baseUrl}/api/referrals`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
