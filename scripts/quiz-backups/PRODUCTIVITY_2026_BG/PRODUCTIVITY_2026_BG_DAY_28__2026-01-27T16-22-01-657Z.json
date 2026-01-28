@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-27T16:22:06.144Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_BG",
+    "name": "Продуктивност 2026: Как да управляваме екипи и време",
+    "language": "bg"
+  },
+  "lesson": {
+    "dayNumber": 28,
+    "title": "Ценности и цели: Цел на живота, дългосрочна визия",
+    "lessonId": "PRODUCTIVITY_2026_BG_DAY_28"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a5ce5e2257dcf1106ab",
+      "uuid": "cf17891f-dabf-4f8b-9fcf-81b46134e35d",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Подравни производителност със своите ценности.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day28",
+        "#bg",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5ce5e2257dcf1106ac",
+      "uuid": "84b54777-d0f9-499d-ab78-8a93961f712f",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Подравни производителност със своите ценности.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day28",
+        "#bg",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5ce5e2257dcf1106ad",
+      "uuid": "127d9038-e255-4751-ab40-d21dba936161",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Подравни производителност със своите ценности.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day28",
+        "#bg",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5ce5e2257dcf1106ae",
+      "uuid": "6a9b2a2d-d0c7-477a-b462-e70b2248fcd8",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Как концепцията \"Ценности и цели: Цел на живота, дългосрочна визия ...\", спомената в урока, влияе върху постигането на вашите goals?",
+      "options": [
+        "Както е описано подробно в урока, Ценности и цели: Цел на живота... увеличава ефективността и намалява риска",
+        "Няма значително въздействие",
+        "Има значение само теоретично",
+        "Само опционален елемент"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day28",
+        "#bg",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5ce5e2257dcf1106af",
+      "uuid": "80b6b8b9-100d-4bc3-8c3b-5e88261e139e",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Колко важен е Ценности в контекста на Ценности и цели: Цел на живота, дългосрочна визия, както се обсъжда в урока?",
+      "options": [
+        "Както е подробно описано в урока, Ценности играе ключова роля в оптимизирането на процесите и постигането на целите",
+        "Само периферна информация без значителна роля",
+        "Само теоретична концепция без практическо приложение",
+        "Не се споменава в урока"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day28",
+        "#bg",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5ce5e2257dcf1106b0",
+      "uuid": "46bf1ad8-96ec-494c-b871-14c0dd8c63be",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Колко важен е живота в контекста на Ценности и цели: Цел на живота, дългосрочна визия, както се обсъжда в урока?",
+      "options": [
+        "Както е подробно описано в урока, живота играе ключова роля в оптимизирането на процесите и постигането на целите",
+        "Само периферна информация без значителна роля",
+        "Само теоретична концепция без практическо приложение",
+        "Не се споменава в урока"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day28",
+        "#bg",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5ce5e2257dcf1106b1",
+      "uuid": "e2f6eb1b-f6f2-4a86-b6f9-b1e67f70a90d",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Колко важен е визия в контекста на Ценности и цели: Цел на живота, дългосрочна визия, както се обсъжда в урока?",
+      "options": [
+        "Както е подробно описано в урока, визия играе ключова роля в оптимизирането на процесите и постигането на целите",
+        "Само периферна информация без значителна роля",
+        "Само теоретична концепция без практическо приложение",
+        "Не се споменава в урока"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day28",
+        "#bg",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

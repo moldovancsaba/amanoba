@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-27T16:22:04.924Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_BG",
+    "name": "Продуктивност 2026: Как да управляваме екипи и време",
+    "language": "bg"
+  },
+  "lesson": {
+    "dayNumber": 15,
+    "title": "Работа в екип и синергия: Роли, отговорност, координация",
+    "lessonId": "PRODUCTIVITY_2026_BG_DAY_15"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a5be5e2257dcf110626",
+      "uuid": "1040e571-fd67-4b99-96c5-8d437c730ec4",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Организирай екипи за подобрена производителност.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day15",
+        "#bg",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5be5e2257dcf110627",
+      "uuid": "8af56205-c884-42f6-9ed1-18b8c421d012",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Организирай екипи за подобрена производителност.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day15",
+        "#bg",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5be5e2257dcf110628",
+      "uuid": "e1d5f44b-4725-4d63-809f-34f130d76fa8",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Организирай екипи за подобрена производителност.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day15",
+        "#bg",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5be5e2257dcf110629",
+      "uuid": "59a5f646-f2fb-4caf-a772-5f4d0598f5a2",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Как концепцията \"Работа в екип и синергия: Роли, отговорност, коорд...\", спомената в урока, влияе върху постигането на вашите goals?",
+      "options": [
+        "Както е описано подробно в урока, Работа в екип и синергия: Роли... увеличава ефективността и намалява риска",
+        "Няма значително въздействие",
+        "Има значение само теоретично",
+        "Само опционален елемент"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day15",
+        "#bg",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5be5e2257dcf11062a",
+      "uuid": "b1dd7322-22f0-4bdb-b999-9f8767d53faf",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Колко важен е Работа в контекста на Работа в екип и синергия: Роли, отговорност, координация, както се обсъжда в урока?",
+      "options": [
+        "Както е подробно описано в урока, Работа играе ключова роля в оптимизирането на процесите и постигането на целите",
+        "Само периферна информация без значителна роля",
+        "Само теоретична концепция без практическо приложение",
+        "Не се споменава в урока"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day15",
+        "#bg",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5be5e2257dcf11062b",
+      "uuid": "d55a9616-6572-4330-a562-63f24d04f3a0",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Колко важен е синергия в контекста на Работа в екип и синергия: Роли, отговорност, координация, както се обсъжда в урока?",
+      "options": [
+        "Както е подробно описано в урока, синергия играе ключова роля в оптимизирането на процесите и постигането на целите",
+        "Само периферна информация без значителна роля",
+        "Само теоретична концепция без практическо приложение",
+        "Не се споменава в урока"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day15",
+        "#bg",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5be5e2257dcf11062c",
+      "uuid": "3da44ef4-4dfe-4437-a2eb-466cfa84d4da",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Колко важен е отговорност в контекста на Работа в екип и синергия: Роли, отговорност, координация, както се обсъжда в урока?",
+      "options": [
+        "Както е подробно описано в урока, отговорност играе ключова роля в оптимизирането на процесите и постигането на целите",
+        "Само периферна информация без значителна роля",
+        "Само теоретична концепция без практическо приложение",
+        "Не се споменава в урока"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day15",
+        "#bg",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

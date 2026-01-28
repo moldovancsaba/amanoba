@@ -1,0 +1,910 @@
+{
+  "generatedAt": "2026-01-27T19:34:34.371Z",
+  "courseFilter": "PRODUCTIVITY_2026_BG",
+  "total": 30,
+  "failed": 23,
+  "results": [
+    {
+      "courseId": "PRODUCTIVITY_2026_BG",
+      "courseName": "Продуктивност 2026: Как да управляваме екипи и време",
+      "language": "bg",
+      "dayNumber": 1,
+      "lessonId": "PRODUCTIVITY_2026_BG_DAY_01",
+      "title": "Дефиниция на продуктивността: изход, резултати и ограничения",
+      "createdAt": "2026-01-23T19:27:03.327Z",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "findings": []
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_BG",
+      "courseName": "Продуктивност 2026: Как да управляваме екипи и време",
+      "language": "bg",
+      "dayNumber": 2,
+      "lessonId": "PRODUCTIVITY_2026_BG_DAY_02",
+      "title": "Време, енергия, внимание: какво управлявате на практика",
+      "createdAt": "2026-01-23T21:18:33.565Z",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "findings": []
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_BG",
+      "courseName": "Продуктивност 2026: Как да управляваме екипи и време",
+      "language": "bg",
+      "dayNumber": 3,
+      "lessonId": "PRODUCTIVITY_2026_BG_DAY_03",
+      "title": "Йерархия на целите: визия → резултати → проекти → следващи стъпки",
+      "createdAt": "2026-01-23T21:24:48.941Z",
+      "ok": false,
+      "errors": [
+        "Language integrity failed for lesson.content: contains long Latin segments for bg."
+      ],
+      "warnings": [],
+      "findings": [
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "Джон Дор: \"Measure What Matters\" — за OKR (Objectives and Key Results)"
+        }
+      ]
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_BG",
+      "courseName": "Продуктивност 2026: Как да управляваме екипи и време",
+      "language": "bg",
+      "dayNumber": 4,
+      "lessonId": "PRODUCTIVITY_2026_BG_DAY_04",
+      "title": "Навици срещу системи: защо системите се мащабират по-добре",
+      "createdAt": "2026-01-23T21:30:00.217Z",
+      "ok": false,
+      "errors": [
+        "Language integrity failed for lesson.content: contains long Latin segments for bg."
+      ],
+      "warnings": [],
+      "findings": [
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "Система : Процеси, които работят с други или трябва да бъдат документирани (управление на имейли, управление на проекти, onboarding)."
+        },
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "Scott Adams: \"How to Fail at Almost Everything\" — за системите"
+        }
+      ]
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_BG",
+      "courseName": "Продуктивност 2026: Как да управляваме екипи и време",
+      "language": "bg",
+      "dayNumber": 5,
+      "lessonId": "PRODUCTIVITY_2026_BG_DAY_05",
+      "title": "Измерване: прости метрики за седмичен преглед (throughput, блокове за фокус, carryover)",
+      "createdAt": "2026-01-23T21:40:14.084Z",
+      "ok": false,
+      "errors": [
+        "Language integrity failed for lesson.content: contains long Latin segments for bg."
+      ],
+      "warnings": [],
+      "findings": [
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "Да разберете трите ключови метрики: throughput, блокове за фокус, carryover."
+        },
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "Throughput : Колко важни задачи завършихте за една седмица? Това е реалната ви продуктивност."
+        },
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "1. Throughput : Броят на завършените важни задачи на седмица. Не броят на дейностите, а завършените резултати."
+        },
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "Преглед: Какво завършихте? (throughput)"
+        },
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "Throughput: 8 важни задачи завършени"
+        },
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "Броене на throughput : Напишете колко важни задачи завършихте тази седмица. (Важно = резултат, не само дейност.)"
+        }
+      ]
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_BG",
+      "courseName": "Продуктивност 2026: Как да управляваме екипи и време",
+      "language": "bg",
+      "dayNumber": 6,
+      "lessonId": "PRODUCTIVITY_2026_BG_DAY_06",
+      "title": "Улавяне: входящи кутии, списък с тригери, навици за улавяне",
+      "createdAt": "2026-01-23T21:43:43.564Z",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "findings": []
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_BG",
+      "courseName": "Продуктивност 2026: Как да управляваме екипи и време",
+      "language": "bg",
+      "dayNumber": 7,
+      "lessonId": "PRODUCTIVITY_2026_BG_DAY_07",
+      "title": "Дневна/седмична система: сутрешен ритуал, дневен huddle, седмичен преглед",
+      "createdAt": "2026-01-24T08:15:47.086Z",
+      "ok": false,
+      "errors": [
+        "Language integrity failed for lesson.content: contains long Latin segments for bg.",
+        "Language integrity failed for lesson.emailBody: contains long Latin segments for bg."
+      ],
+      "warnings": [],
+      "findings": [
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "Защо е важно? Turn the course concepts into a repeatable operating system for daily execution."
+        },
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "Define a morning ritual that sets priorities."
+        },
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "Institutionalize weekly review."
+        },
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "Седмичен преглед (throughput / фокус блокове / carryover)"
+        },
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "Преброй throughput: completed important outcomes."
+        },
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "Преброй фокус блоковете: uninterrupted deep work blocks completed."
+        },
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "Turn the course concepts into a repeatable operating system for daily execution."
+        }
+      ]
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_BG",
+      "courseName": "Продуктивност 2026: Как да управляваме екипи и време",
+      "language": "bg",
+      "dayNumber": 8,
+      "lessonId": "PRODUCTIVITY_2026_BG_DAY_8",
+      "title": "Цена на сменяне на контекст: Остатък от внимание, Пакетна обработка, Блокове за дълбока работа",
+      "createdAt": "2026-01-24T08:31:19.374Z",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "findings": []
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_BG",
+      "courseName": "Продуктивност 2026: Как да управляваме екипи и време",
+      "language": "bg",
+      "dayNumber": 9,
+      "lessonId": "PRODUCTIVITY_2026_BG_DAY_9",
+      "title": "Делегиране срещу Премахване: Кога да делегирате, Какво да премахнете",
+      "createdAt": "2026-01-24T08:36:24.742Z",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "findings": []
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_BG",
+      "courseName": "Продуктивност 2026: Как да управляваме екипи и време",
+      "language": "bg",
+      "dayNumber": 10,
+      "lessonId": "PRODUCTIVITY_2026_BG_DAY_10",
+      "title": "Управление на енергия: Кога да работите, Кога да почивате, Ритуали на възстановяване",
+      "createdAt": "2026-01-24T08:40:14.896Z",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "findings": []
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_BG",
+      "courseName": "Продуктивност 2026: Как да управляваме екипи и време",
+      "language": "bg",
+      "dayNumber": 11,
+      "lessonId": "PRODUCTIVITY_2026_BG_DAY_11",
+      "title": "Определяне на цели и OKR: Какво искате да постигнете?",
+      "createdAt": "2026-01-24T08:41:51.696Z",
+      "ok": false,
+      "errors": [
+        "Language integrity failed for lesson.content: contains long Latin segments for bg.",
+        "Language integrity failed for lesson.emailBody: contains long Latin segments for bg."
+      ],
+      "warnings": [],
+      "findings": [
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "Защо е важно? Turn productivity into measurable progress with clear goals and key results."
+        },
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "Define 2–4 key results (measurable)."
+        },
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "Метрика: throughput (брой завършени важни резултати)."
+        },
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "Turn productivity into measurable progress with clear goals and key results."
+        }
+      ]
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_BG",
+      "courseName": "Продуктивност 2026: Как да управляваме екипи и време",
+      "language": "bg",
+      "dayNumber": 12,
+      "lessonId": "PRODUCTIVITY_2026_BG_DAY_12",
+      "title": "Структури на отчетност: Системи, които ви държат на пътя",
+      "createdAt": "2026-01-24T09:15:54.179Z",
+      "ok": false,
+      "errors": [
+        "Language integrity failed for lesson.content: contains long Latin segments for bg.",
+        "Language integrity failed for lesson.emailBody: contains long Latin segments for bg."
+      ],
+      "warnings": [],
+      "findings": [
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "Защо е важно? Create external and internal accountability that sustains execution."
+        },
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "Choose an accountability mechanism (partner, public commitment, dashboard)."
+        },
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "Метрика: throughput (брой завършени важни резултати)."
+        },
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "Create external and internal accountability that sustains execution."
+        }
+      ]
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_BG",
+      "courseName": "Продуктивност 2026: Как да управляваме екипи и време",
+      "language": "bg",
+      "dayNumber": 13,
+      "lessonId": "PRODUCTIVITY_2026_BG_DAY_13",
+      "title": "Рамки за вземане на решения: Бързи решения, матрица на решения, избягване на анализната парализа",
+      "createdAt": "2026-01-24T09:23:08.963Z",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "findings": []
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_BG",
+      "courseName": "Продуктивност 2026: Как да управляваме екипи и време",
+      "language": "bg",
+      "dayNumber": 14,
+      "lessonId": "PRODUCTIVITY_2026_BG_DAY_14",
+      "title": "Ефективност на срещите: Дневен ред, времеви лимити, дневник на решенията",
+      "createdAt": "2026-01-24T09:29:49.364Z",
+      "ok": false,
+      "errors": [
+        "Language integrity failed for lesson.content: contains long Latin segments for bg.",
+        "Language integrity failed for lesson.emailBody: contains long Latin segments for bg."
+      ],
+      "warnings": [],
+      "findings": [
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "Защо е важно? Turn meetings from time sinks into decision engines with accountable outputs."
+        },
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "Метрика: throughput (брой завършени важни резултати)."
+        },
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "Turn meetings from time sinks into decision engines with accountable outputs."
+        }
+      ]
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_BG",
+      "courseName": "Продуктивност 2026: Как да управляваме екипи и време",
+      "language": "bg",
+      "dayNumber": 15,
+      "lessonId": "PRODUCTIVITY_2026_BG_DAY_15",
+      "title": "Работа в екип и синергия: Роли, отговорност, координация",
+      "createdAt": "2026-01-24T09:29:52.403Z",
+      "ok": false,
+      "errors": [
+        "Language integrity failed for lesson.content: contains long Latin segments for bg.",
+        "Language integrity failed for lesson.emailBody: contains long Latin segments for bg."
+      ],
+      "warnings": [],
+      "findings": [
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "Защо е важно? Scale productivity through clear roles, ownership, and coordination mechanisms."
+        },
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "Define roles and responsibilities for a project."
+        },
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "Reduce duplication and handoff friction."
+        },
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "Write delegation briefs (expected output, due date, success criteria, check-ins)."
+        },
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "Метрика: throughput (брой завършени важни резултати)."
+        },
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "Scale productivity through clear roles, ownership, and coordination mechanisms."
+        }
+      ]
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_BG",
+      "courseName": "Продуктивност 2026: Как да управляваме екипи и време",
+      "language": "bg",
+      "dayNumber": 16,
+      "lessonId": "PRODUCTIVITY_2026_BG_DAY_16",
+      "title": "Управление на стреса и умора: Възстановяване, баланс работа-живот",
+      "createdAt": "2026-01-24T09:29:55.818Z",
+      "ok": false,
+      "errors": [
+        "Language integrity failed for lesson.content: contains long Latin segments for bg.",
+        "Language integrity failed for lesson.emailBody: contains long Latin segments for bg."
+      ],
+      "warnings": [],
+      "findings": [
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "Защо е важно? Protect sustainability and decision quality by managing stress and fatigue proactively."
+        },
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "Set boundaries that protect recovery."
+        },
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "Метрика: throughput (брой завършени важни резултати)."
+        },
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "Protect sustainability and decision quality by managing stress and fatigue proactively."
+        }
+      ]
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_BG",
+      "courseName": "Продуктивност 2026: Как да управляваме екипи и време",
+      "language": "bg",
+      "dayNumber": 17,
+      "lessonId": "PRODUCTIVITY_2026_BG_DAY_17",
+      "title": "Поддържане на мотивация: Проследяване на напредък, Отпразнуване на победи",
+      "createdAt": "2026-01-24T09:29:58.746Z",
+      "ok": false,
+      "errors": [
+        "Language integrity failed for lesson.content: contains long Latin segments for bg.",
+        "Language integrity failed for lesson.emailBody: contains long Latin segments for bg."
+      ],
+      "warnings": [],
+      "findings": [
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "Защо е важно? Use feedback loops and small wins to keep execution consistent over months."
+        },
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "Build a reward/celebration routine that reinforces the system."
+        },
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "Метрика: throughput (брой завършени важни резултати)."
+        },
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "Use feedback loops and small wins to keep execution consistent over months."
+        }
+      ]
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_BG",
+      "courseName": "Продуктивност 2026: Как да управляваме екипи и време",
+      "language": "bg",
+      "dayNumber": 18,
+      "lessonId": "PRODUCTIVITY_2026_BG_DAY_18",
+      "title": "Управление на криза и адаптивност: Адаптация, бързо учене",
+      "createdAt": "2026-01-24T09:30:01.710Z",
+      "ok": false,
+      "errors": [
+        "Language integrity failed for lesson.content: contains long Latin segments for bg.",
+        "Language integrity failed for lesson.emailBody: contains long Latin segments for bg."
+      ],
+      "warnings": [],
+      "findings": [
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "Защо е важно? Maintain productivity under change by making fast decisions and learning quickly."
+        },
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "Use decision categories to respond quickly."
+        },
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "Protect critical priorities during disruption."
+        },
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "Define decision category (small/medium/large) based on reversibility and impact."
+        },
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "Set an information boundary (time limit / minimum data)."
+        },
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "Метрика: throughput (брой завършени важни резултати)."
+        },
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "Maintain productivity under change by making fast decisions and learning quickly."
+        }
+      ]
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_BG",
+      "courseName": "Продуктивност 2026: Как да управляваме екипи и време",
+      "language": "bg",
+      "dayNumber": 19,
+      "lessonId": "PRODUCTIVITY_2026_BG_DAY_19",
+      "title": "Дългосрочно планиране: Години напред, стратегия, еволюция",
+      "createdAt": "2026-01-24T09:30:04.895Z",
+      "ok": false,
+      "errors": [
+        "Language integrity failed for lesson.content: contains long Latin segments for bg.",
+        "Language integrity failed for lesson.emailBody: contains long Latin segments for bg."
+      ],
+      "warnings": [],
+      "findings": [
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "Защо е важно? Align weekly execution with long-term direction without overplanning."
+        },
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "Define leading indicators to track progress."
+        },
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "Define decision category (small/medium/large) based on reversibility and impact."
+        },
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "Set an information boundary (time limit / minimum data)."
+        },
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "Метрика: throughput (брой завършени важни резултати)."
+        },
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "Align weekly execution with long-term direction without overplanning."
+        }
+      ]
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_BG",
+      "courseName": "Продуктивност 2026: Как да управляваме екипи и време",
+      "language": "bg",
+      "dayNumber": 20,
+      "lessonId": "PRODUCTIVITY_2026_BG_DAY_20",
+      "title": "Производителност на личния живот: Организиране на дома, лични проекти",
+      "createdAt": "2026-01-24T09:30:07.954Z",
+      "ok": false,
+      "errors": [
+        "Language integrity failed for lesson.content: contains long Latin segments for bg."
+      ],
+      "warnings": [],
+      "findings": [
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "Design one home system (inbox, maintenance, chores)."
+        },
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "Reduce carryover by simplifying commitments."
+        },
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "Метрика: throughput (брой завършени важни резултати)."
+        }
+      ]
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_BG",
+      "courseName": "Продуктивност 2026: Как да управляваме екипи и време",
+      "language": "bg",
+      "dayNumber": 21,
+      "lessonId": "PRODUCTIVITY_2026_BG_DAY_21",
+      "title": "Общност и мрежа: Отношения, учене с други",
+      "createdAt": "2026-01-24T09:30:10.730Z",
+      "ok": false,
+      "errors": [
+        "Language integrity failed for lesson.content: contains long Latin segments for bg.",
+        "Language integrity failed for lesson.emailBody: contains long Latin segments for bg."
+      ],
+      "warnings": [],
+      "findings": [
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "Защо е важно? Use relationships as a leverage multiplier for learning and outcomes."
+        },
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "Build a lightweight network maintenance system."
+        },
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "Create a learning circle/accountability pod."
+        },
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "Метрика: throughput (брой завършени важни резултати)."
+        },
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "Use relationships as a leverage multiplier for learning and outcomes."
+        }
+      ]
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_BG",
+      "courseName": "Продуктивност 2026: Как да управляваме екипи и време",
+      "language": "bg",
+      "dayNumber": 22,
+      "lessonId": "PRODUCTIVITY_2026_BG_DAY_22",
+      "title": "Технология и инструменти: Автоматизация, избор на подходящата технология",
+      "createdAt": "2026-01-24T09:30:13.370Z",
+      "ok": false,
+      "errors": [
+        "Language integrity failed for lesson.content: contains long Latin segments for bg.",
+        "Language integrity failed for lesson.emailBody: contains long Latin segments for bg."
+      ],
+      "warnings": [],
+      "findings": [
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "Защо е важно? Select tools based on outcomes and constraints; automate repetitive work safely."
+        },
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "Define selection criteria (time saved, error reduction, maintainability)."
+        },
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "Avoid tool-driven complexity."
+        },
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "Метрика: throughput (брой завършени важни резултати)."
+        },
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "Select tools based on outcomes and constraints; automate repetitive work safely."
+        }
+      ]
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_BG",
+      "courseName": "Продуктивност 2026: Как да управляваме екипи и време",
+      "language": "bg",
+      "dayNumber": 23,
+      "lessonId": "PRODUCTIVITY_2026_BG_DAY_23",
+      "title": "Креативност и иновация: Преосмисляне, експерименти",
+      "createdAt": "2026-01-24T09:30:16.210Z",
+      "ok": false,
+      "errors": [
+        "Language integrity failed for lesson.content: contains long Latin segments for bg.",
+        "Language integrity failed for lesson.emailBody: contains long Latin segments for bg."
+      ],
+      "warnings": [],
+      "findings": [
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "Защо е важно? Use experimentation and iteration to improve systems rather than searching for perfect plans."
+        },
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "Design one small experiment to improve productivity."
+        },
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "Define decision category (small/medium/large) based on reversibility and impact."
+        },
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "Set an information boundary (time limit / minimum data)."
+        },
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "Метрика: throughput (брой завършени важни резултати)."
+        },
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "Use experimentation and iteration to improve systems rather than searching for perfect plans."
+        }
+      ]
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_BG",
+      "courseName": "Продуктивност 2026: Как да управляваме екипи и време",
+      "language": "bg",
+      "dayNumber": 24,
+      "lessonId": "PRODUCTIVITY_2026_BG_DAY_24",
+      "title": "Филтриране и приоритети: Какво да игнорираш, какво е важно",
+      "createdAt": "2026-01-24T09:30:18.958Z",
+      "ok": false,
+      "errors": [
+        "Language integrity failed for lesson.content: contains long Latin segments for bg.",
+        "Language integrity failed for lesson.emailBody: contains long Latin segments for bg."
+      ],
+      "warnings": [],
+      "findings": [
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "Защо е важно? Increase impact by filtering noise and defending priorities."
+        },
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "Метрика: throughput (брой завършени важни резултати)."
+        },
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "Increase impact by filtering noise and defending priorities."
+        }
+      ]
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_BG",
+      "courseName": "Продуктивност 2026: Как да управляваме екипи и време",
+      "language": "bg",
+      "dayNumber": 25,
+      "lessonId": "PRODUCTIVITY_2026_BG_DAY_25",
+      "title": "Развитие на умения: По-високи нива, нови компетентности",
+      "createdAt": "2026-01-24T09:30:21.530Z",
+      "ok": false,
+      "errors": [
+        "Language integrity failed for lesson.content: contains long Latin segments for bg.",
+        "Language integrity failed for lesson.emailBody: contains long Latin segments for bg."
+      ],
+      "warnings": [],
+      "findings": [
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "Защо е важно? Make skill acquisition systematic and measurable."
+        },
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "Метрика: throughput (брой завършени важни резултати)."
+        },
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "Make skill acquisition systematic and measurable."
+        }
+      ]
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_BG",
+      "courseName": "Продуктивност 2026: Как да управляваме екипи и време",
+      "language": "bg",
+      "dayNumber": 26,
+      "lessonId": "PRODUCTIVITY_2026_BG_DAY_26",
+      "title": "Менториство и преподаване: споделяне на знания, помощ на други",
+      "createdAt": "2026-01-24T09:30:24.309Z",
+      "ok": false,
+      "errors": [
+        "Language integrity failed for lesson.content: contains long Latin segments for bg.",
+        "Language integrity failed for lesson.emailBody: contains long Latin segments for bg."
+      ],
+      "warnings": [],
+      "findings": [
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "Защо е важно? Scale capability by turning knowledge into repeatable teaching artifacts."
+        },
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "Avoid becoming a bottleneck."
+        },
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "Write delegation briefs (expected output, due date, success criteria, check-ins)."
+        },
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "Метрика: throughput (брой завършени важни резултати)."
+        },
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "Scale capability by turning knowledge into repeatable teaching artifacts."
+        }
+      ]
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_BG",
+      "courseName": "Продуктивност 2026: Как да управляваме екипи и време",
+      "language": "bg",
+      "dayNumber": 27,
+      "lessonId": "PRODUCTIVITY_2026_BG_DAY_27",
+      "title": "Навици и ритуали: Дневни рутини, дългосрочно действие",
+      "createdAt": "2026-01-24T09:30:27.081Z",
+      "ok": false,
+      "errors": [
+        "Language integrity failed for lesson.content: contains long Latin segments for bg.",
+        "Language integrity failed for lesson.emailBody: contains long Latin segments for bg."
+      ],
+      "warnings": [],
+      "findings": [
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "Защо е важно? Lock in sustainability by converting systems into stable rituals."
+        },
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "Метрика: throughput (брой завършени важни резултати)."
+        },
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "Lock in sustainability by converting systems into stable rituals."
+        }
+      ]
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_BG",
+      "courseName": "Продуктивност 2026: Как да управляваме екипи и време",
+      "language": "bg",
+      "dayNumber": 28,
+      "lessonId": "PRODUCTIVITY_2026_BG_DAY_28",
+      "title": "Ценности и цели: Цел на живота, дългосрочна визия",
+      "createdAt": "2026-01-24T09:30:30.993Z",
+      "ok": false,
+      "errors": [
+        "Language integrity failed for lesson.content: contains long Latin segments for bg.",
+        "Language integrity failed for lesson.emailBody: contains long Latin segments for bg."
+      ],
+      "warnings": [],
+      "findings": [
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "Защо е важно? Ensure productivity serves meaning, not just efficiency."
+        },
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "Define personal values and non-negotiables."
+        },
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "Detect misalignment and correct goals."
+        },
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "Метрика: throughput (брой завършени важни резултати)."
+        },
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "Ensure productivity serves meaning, not just efficiency."
+        }
+      ]
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_BG",
+      "courseName": "Продуктивност 2026: Как да управляваме екипи и време",
+      "language": "bg",
+      "dayNumber": 29,
+      "lessonId": "PRODUCTIVITY_2026_BG_DAY_29",
+      "title": "Постоянно подобрение: учене, обратна връзка, итерация",
+      "createdAt": "2026-01-24T09:30:34.728Z",
+      "ok": false,
+      "errors": [
+        "Language integrity failed for lesson.content: contains long Latin segments for bg.",
+        "Language integrity failed for lesson.emailBody: contains long Latin segments for bg."
+      ],
+      "warnings": [],
+      "findings": [
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "Защо е важно? Create a continuous improvement loop using metrics and rule changes."
+        },
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "Collect feedback from outcomes and constraints."
+        },
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "Седмичен преглед (throughput / фокус блокове / carryover)"
+        },
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "Преброй throughput: completed important outcomes."
+        },
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "Преброй фокус блоковете: uninterrupted deep work blocks completed."
+        },
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "Метрика: throughput (брой завършени важни резултати)."
+        },
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "Create a continuous improvement loop using metrics and rule changes."
+        }
+      ]
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_BG",
+      "courseName": "Продуктивност 2026: Как да управляваме екипи и време",
+      "language": "bg",
+      "dayNumber": 30,
+      "lessonId": "PRODUCTIVITY_2026_BG_DAY_30",
+      "title": "Мистерията на производителност: Цялостна интеграция, ангажимент",
+      "createdAt": "2026-01-24T09:30:37.886Z",
+      "ok": false,
+      "errors": [
+        "Language integrity failed for lesson.content: contains long Latin segments for bg.",
+        "Language integrity failed for lesson.emailBody: contains long Latin segments for bg."
+      ],
+      "warnings": [],
+      "findings": [
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "Защо е важно? Integrate the full system into a sustainable commitment plan for the next 90 days."
+        },
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "Summarize your personal productivity system (rules + rituals)."
+        },
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "Commit to a weekly review cadence and accountability."
+        },
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "Седмичен преглед (throughput / фокус блокове / carryover)"
+        },
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "Преброй throughput: completed important outcomes."
+        },
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "Преброй фокус блоковете: uninterrupted deep work blocks completed."
+        },
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "Integrate the full system into a sustainable commitment plan for the next 90 days."
+        }
+      ]
+    }
+  ]
+}

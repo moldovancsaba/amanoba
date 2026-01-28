@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-27T14:42:05.422Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_BG",
+    "name": "Продуктивност 2026: Как да управляваме екипи и време",
+    "language": "bg"
+  },
+  "lesson": {
+    "dayNumber": 13,
+    "title": "Рамки за вземане на решения: Бързи решения, матрица на решения, избягване на анализната парализа",
+    "lessonId": "PRODUCTIVITY_2026_BG_DAY_13"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a5ae5e2257dcf11060f",
+      "uuid": "deaea4a3-820c-42ae-934a-fcde07d48163",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ Разбирам анализната парализа и как раб...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day13",
+        "#bg",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5ae5e2257dcf110610",
+      "uuid": "28f804c9-b89b-4aac-9c4b-395cb2fe4af4",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ Разбирам разликата между \"достатъчно д...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day13",
+        "#bg",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5ae5e2257dcf110611",
+      "uuid": "e8f9402d-ede9-4ed3-ba11-acc59bbc502e",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ Разбирам анализната парализа и как раб...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day13",
+        "#bg",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5ae5e2257dcf110612",
+      "uuid": "072164eb-748c-4e94-bdb5-3b976ca93bdb",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Как концепцията \"Рамки за вземане на решения: Бързи решения, матриц...\", спомената в урока, влияе върху постигането на вашите goals?",
+      "options": [
+        "Както е описано подробно в урока, Рамки за вземане на решения: Б... увеличава ефективността и намалява риска",
+        "Няма значително въздействие",
+        "Има значение само теоретично",
+        "Само опционален елемент"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day13",
+        "#bg",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5ae5e2257dcf110613",
+      "uuid": "8dd76b0d-19f3-475c-8b88-fb471b1bef47",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Каква роля играе Времето е по-скъпо от съвършенството в урока \"Рамки за вземане на решения: Бързи решения, матрица на решения, избягване на анализната парализа\"?",
+      "options": [
+        "Както е подробно описано в урока, Времето е по-скъпо от съвършенството играе ключова роля в оптимизирането на процесите и постигането на целите",
+        "Само периферна информация без значителна роля",
+        "Само теоретична концепция без практическо приложение",
+        "Не се споменава в урока"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day13",
+        "#bg",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5ae5e2257dcf110614",
+      "uuid": "a6aab00e-a173-4ec2-bfcd-7d843fa68bdf",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Каква роля играе Умора при вземане на решения в урока \"Рамки за вземане на решения: Бързи решения, матрица на решения, избягване на анализната парализа\"?",
+      "options": [
+        "Както е подробно описано в урока, Умора при вземане на решения играе ключова роля в оптимизирането на процесите и постигането на целите",
+        "Само периферна информация без значителна роля",
+        "Само теоретична концепция без практическо приложение",
+        "Не се споменава в урока"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day13",
+        "#bg",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5ae5e2257dcf110615",
+      "uuid": "b62e6882-9a92-4191-b2ba-6b694d26cbf3",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Колко важен е Стъпка 1 в контекста на Рамки за вземане на решения: Бързи решения, матрица на решения, избягване на анализната парализа, както се обсъжда в урока?",
+      "options": [
+        "Както е подробно описано в урока, Стъпка 1 играе ключова роля в оптимизирането на процесите и постигането на целите",
+        "Само периферна информация без значителна роля",
+        "Само теоретична концепция без практическо приложение",
+        "Не се споменава в урока"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day13",
+        "#bg",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

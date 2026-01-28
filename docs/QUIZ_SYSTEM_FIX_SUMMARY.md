@@ -142,11 +142,11 @@
 
 ### Must Achieve
 - ✅ All 388 lessons have quizzes
-- ✅ All quizzes have exactly 7 questions
+- ✅ All quizzes meet minimum standard (>=7 total; pool may be larger; never delete valid questions just to cap)
 - ✅ All questions in same language as course
 - ✅ All questions 100% related to lesson content
 - ✅ All questions have proper metadata (UUID, hashtags, questionType)
-- ✅ All questions follow cognitive mix (60% recall, 30% application, 10% critical)
+- ✅ All questions follow current SSOT cognitive mix (0 recall, >=5 application, remainder critical-thinking)
 - ✅ All questions native quality
 - ✅ All questions use proper industry jargon
 - ✅ All questions have educational answers (not stupid)

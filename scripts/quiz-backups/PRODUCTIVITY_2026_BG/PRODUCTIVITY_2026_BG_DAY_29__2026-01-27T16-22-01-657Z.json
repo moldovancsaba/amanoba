@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-27T16:22:06.223Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_BG",
+    "name": "Продуктивност 2026: Как да управляваме екипи и време",
+    "language": "bg"
+  },
+  "lesson": {
+    "dayNumber": 29,
+    "title": "Постоянно подобрение: учене, обратна връзка, итерация",
+    "lessonId": "PRODUCTIVITY_2026_BG_DAY_29"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a5ce5e2257dcf1106b5",
+      "uuid": "5933e881-93a4-4fb0-81cc-6de773289871",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Производителност никога не е готова—развива се.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day29",
+        "#bg",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5ce5e2257dcf1106b6",
+      "uuid": "a46548c7-6ac0-41d6-8c71-deb861fb0987",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Производителност никога не е готова—развива се.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day29",
+        "#bg",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5ce5e2257dcf1106b7",
+      "uuid": "949662a9-0244-4300-9235-552309329b21",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Производителност никога не е готова—развива се.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day29",
+        "#bg",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5ce5e2257dcf1106b8",
+      "uuid": "aaa73958-e694-463a-a9cd-16096368a480",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Как концепцията \"Постоянно подобрение: учене, обратна връзка, итера...\", спомената в урока, влияе върху постигането на вашите goals?",
+      "options": [
+        "Както е описано подробно в урока, Постоянно подобрение: учене, о... увеличава ефективността и намалява риска",
+        "Няма значително въздействие",
+        "Има значение само теоретично",
+        "Само опционален елемент"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day29",
+        "#bg",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5ce5e2257dcf1106b9",
+      "uuid": "d9c84e6f-bdfd-4225-8996-964ebce896f4",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Колко важен е Постоянно в контекста на Постоянно подобрение: учене, обратна връзка, итерация, както се обсъжда в урока?",
+      "options": [
+        "Както е подробно описано в урока, Постоянно играе ключова роля в оптимизирането на процесите и постигането на целите",
+        "Само периферна информация без значителна роля",
+        "Само теоретична концепция без практическо приложение",
+        "Не се споменава в урока"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day29",
+        "#bg",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5ce5e2257dcf1106ba",
+      "uuid": "9ac4838d-5683-42aa-84f2-e868104e3f49",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Колко важен е учене в контекста на Постоянно подобрение: учене, обратна връзка, итерация, както се обсъжда в урока?",
+      "options": [
+        "Както е подробно описано в урока, учене играе ключова роля в оптимизирането на процесите и постигането на целите",
+        "Само периферна информация без значителна роля",
+        "Само теоретична концепция без практическо приложение",
+        "Не се споменава в урока"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day29",
+        "#bg",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5ce5e2257dcf1106bb",
+      "uuid": "b7843ba9-0498-46d3-af93-9e80b53c7775",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Колко важен е връзка в контекста на Постоянно подобрение: учене, обратна връзка, итерация, както се обсъжда в урока?",
+      "options": [
+        "Както е подробно описано в урока, връзка играе ключова роля в оптимизирането на процесите и постигането на целите",
+        "Само периферна информация без значителна роля",
+        "Само теоретична концепция без практическо приложение",
+        "Не се споменава в урока"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day29",
+        "#bg",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

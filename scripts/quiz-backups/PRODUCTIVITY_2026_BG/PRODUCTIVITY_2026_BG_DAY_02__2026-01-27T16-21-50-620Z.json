@@ -1,0 +1,160 @@
+{
+  "backedUpAt": "2026-01-27T16:21:51.543Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_BG",
+    "name": "Продуктивност 2026: Как да управляваме екипи и време",
+    "language": "bg"
+  },
+  "lesson": {
+    "dayNumber": 2,
+    "title": "Време, енергия, внимание: какво управлявате на практика",
+    "lessonId": "PRODUCTIVITY_2026_BG_DAY_02"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a59e5e2257dcf11054a",
+      "uuid": "f6a3dc31-8004-4924-9476-98c43d933879",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Кое от следните НЕ е ресурс за продуктивност?",
+      "options": [
+        "Време",
+        "Енергия",
+        "Внимание",
+        "Пари"
+      ],
+      "correctIndex": 3,
+      "hashtags": [
+        "#day-02",
+        "#foundation",
+        "#recall",
+        "#bg"
+      ]
+    },
+    {
+      "_id": "69776a59e5e2257dcf11054b",
+      "uuid": "2a261948-7c62-498a-8d17-b718933efed9",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Кога трябва да правите най-трудните задачи?",
+      "options": [
+        "При ниско ниво на енергия",
+        "При пиково ниво на енергия",
+        "Няма значение кога",
+        "През нощта, когато всички спят"
+      ],
+      "correctIndex": 1,
+      "hashtags": [
+        "#day-02",
+        "#foundation",
+        "#recall",
+        "#bg"
+      ]
+    },
+    {
+      "_id": "69776a59e5e2257dcf11054c",
+      "uuid": "201fc94e-9511-49af-9276-c71a943379aa",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Колко време отнема възстановяването на вниманието след прекъсване?",
+      "options": [
+        "5 минути",
+        "15-20 минути",
+        "1 час",
+        "Не е необходимо възстановяване"
+      ],
+      "correctIndex": 1,
+      "hashtags": [
+        "#day-02",
+        "#scenario",
+        "#application",
+        "#bg"
+      ]
+    },
+    {
+      "_id": "69776a59e5e2257dcf11054d",
+      "uuid": "6a7c46b2-f53f-456d-abbb-55b1c73078ed",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Колко буферно време трябва да оставите в дневния си график?",
+      "options": [
+        "0%",
+        "10%",
+        "20-30%",
+        "50%"
+      ],
+      "correctIndex": 2,
+      "hashtags": [
+        "#day-02",
+        "#purpose",
+        "#application",
+        "#bg"
+      ]
+    },
+    {
+      "_id": "69776a59e5e2257dcf11054e",
+      "uuid": "91c94307-47ec-4b92-a03b-77a4ab1b0b4a",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Каква е идеалната дължина на блок за дълбока работа?",
+      "options": [
+        "30 минути",
+        "60 минути",
+        "90-120 минути",
+        "4 часа"
+      ],
+      "correctIndex": 2,
+      "hashtags": [
+        "#day-02",
+        "#foundation",
+        "#recall",
+        "#bg"
+      ]
+    },
+    {
+      "_id": "69776a59e5e2257dcf11054f",
+      "uuid": "60300d3c-d7c2-44ba-aace-385c814b0c7f",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ Разбирате как времето, енергията и вни...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day2",
+        "#bg",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a59e5e2257dcf110550",
+      "uuid": "e24eae95-89d7-43b7-8172-f76c54d6e6f2",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Как концепцията \"Време, енергия, внимание: какво управлявате на пра...\", спомената в урока, влияе върху постигането на вашите goals?",
+      "options": [
+        "Както е описано подробно в урока, Време, енергия, внимание: какв... увеличава ефективността и намалява риска",
+        "Няма значително въздействие",
+        "Има значение само теоретично",
+        "Само опционален елемент"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day2",
+        "#bg",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    }
+  ]
+}

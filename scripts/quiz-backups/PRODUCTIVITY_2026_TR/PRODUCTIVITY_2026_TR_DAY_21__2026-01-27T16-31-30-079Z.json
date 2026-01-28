@@ -1,0 +1,177 @@
+{
+  "backedUpAt": "2026-01-27T16:31:32.792Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_TR",
+    "name": "Verimlilik 2026: Ekipler ve Zaman Nasıl Yönetilir",
+    "language": "tr"
+  },
+  "lesson": {
+    "dayNumber": 21,
+    "title": "Topluluk ve Ağ: İlişkiler, Diğerleriyle Öğrenme",
+    "lessonId": "PRODUCTIVITY_2026_TR_DAY_21"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "6978ce3b2762132c7496d4f6",
+      "uuid": "d6abc2bd-d172-4d37-9fc8-83fa06e3da85",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Yeni bir uygulamayı devreye alıyorsunuz: “İyi örnek: 2 odak bloğu + 1 önemli çıktı teslim + düşük carr”. Hangi plan ölçülebilir çıktı ve hızlı geri bildirim sağlar?",
+      "options": [
+        "Adım adım uygularım: kriter/metrik belirlerim, küçük kapsamda pilot yaparım, sonucu kaydederim ve tek tek kural değiştiririm.",
+        "Her şeyi aynı anda değiştiririm; ölçüm ve kontrol noktası olmadan “neyin işe yaradığını” bilemem.",
+        "Uygulamayı başlatırım ama “önce/sonra” ölçümü yapmam; böylece etkisi belirsiz kalır.",
+        "Sadece okuyup geçerim; çalışma sistemine entegre etmediğim için davranış ve sonuç değişmez."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day21",
+        "#tr",
+        "#all-languages",
+        "#course-productivity_2026_tr",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "6978ce3b2762132c7496d4f7",
+      "uuid": "e2a34229-c0ea-42b9-84fc-f5376acd75ba",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Yeni bir uygulamayı devreye alıyorsunuz: “Düzeltme: 1 kural, 1 metrik, 1 haftalık test.”. Hangi plan ölçülebilir çıktı ve hızlı geri bildirim sağlar?",
+      "options": [
+        "Adım adım uygularım: kriter/metrik belirlerim, küçük kapsamda pilot yaparım, sonucu kaydederim ve tek tek kural değiştiririm.",
+        "Her şeyi aynı anda değiştiririm; ölçüm ve kontrol noktası olmadan “neyin işe yaradığını” bilemem.",
+        "Uygulamayı başlatırım ama “önce/sonra” ölçümü yapmam; böylece etkisi belirsiz kalır.",
+        "Sadece okuyup geçerim; çalışma sistemine entegre etmediğim için davranış ve sonuç değişmez."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day21",
+        "#tr",
+        "#all-languages",
+        "#course-productivity_2026_tr",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "6978ce3b2762132c7496d4f8",
+      "uuid": "0db86b9a-34fc-466a-8a99-f871ebe837ca",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Yeni bir uygulamayı devreye alıyorsunuz: “Düzeltme: kontrol edilebilir “done” tanımı yaz ve ölç. Metri”. Hangi plan ölçülebilir çıktı ve hızlı geri bildirim sağlar?",
+      "options": [
+        "Adım adım uygularım: kriter/metrik belirlerim, küçük kapsamda pilot yaparım, sonucu kaydederim ve tek tek kural değiştiririm.",
+        "Her şeyi aynı anda değiştiririm; ölçüm ve kontrol noktası olmadan “neyin işe yaradığını” bilemem.",
+        "Uygulamayı başlatırım ama “önce/sonra” ölçümü yapmam; böylece etkisi belirsiz kalır.",
+        "Sadece okuyup geçerim; çalışma sistemine entegre etmediğim için davranış ve sonuç değişmez."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day21",
+        "#tr",
+        "#all-languages",
+        "#course-productivity_2026_tr",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "6978ce3b2762132c7496d4f9",
+      "uuid": "d8b0e858-bae0-41e9-a540-d4502cec14ab",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Yeni bir uygulamayı devreye alıyorsunuz: “Örnek (iyi vs kötü) İyi örnek: 2 odak bloğu + 1 önemli çıktı”. Hangi plan ölçülebilir çıktı ve hızlı geri bildirim sağlar?",
+      "options": [
+        "Adım adım uygularım: kriter/metrik belirlerim, küçük kapsamda pilot yaparım, sonucu kaydederim ve tek tek kural değiştiririm.",
+        "Her şeyi aynı anda değiştiririm; ölçüm ve kontrol noktası olmadan “neyin işe yaradığını” bilemem.",
+        "Uygulamayı başlatırım ama “önce/sonra” ölçümü yapmam; böylece etkisi belirsiz kalır.",
+        "Sadece okuyup geçerim; çalışma sistemine entegre etmediğim için davranış ve sonuç değişmez."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day21",
+        "#tr",
+        "#all-languages",
+        "#course-productivity_2026_tr",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "6978ce3b2762132c7496d4fa",
+      "uuid": "87c374f6-4646-4380-8ad4-27428ca62500",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Yeni bir uygulamayı devreye alıyorsunuz: “örnek: 12 “başlandı” ama 0 sonuç; kısıtlar bozuluyor”. Hangi plan ölçülebilir çıktı ve hızlı geri bildirim sağlar?",
+      "options": [
+        "Adım adım uygularım: kriter/metrik belirlerim, küçük kapsamda pilot yaparım, sonucu kaydederim ve tek tek kural değiştiririm.",
+        "Her şeyi aynı anda değiştiririm; ölçüm ve kontrol noktası olmadan “neyin işe yaradığını” bilemem.",
+        "Uygulamayı başlatırım ama “önce/sonra” ölçümü yapmam; böylece etkisi belirsiz kalır.",
+        "Sadece okuyup geçerim; çalışma sistemine entegre etmediğim için davranış ve sonuç değişmez."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day21",
+        "#tr",
+        "#all-languages",
+        "#course-productivity_2026_tr",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "6978ce3b2762132c7496d4fb",
+      "uuid": "9bed8a65-7b55-4cb9-afa2-c2911b008076",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Bir lider şu ilkeye göre karar veriyor: “önemli çıktı teslim + düşük carryover”. goals hedefine ulaşmada en olası etki nedir ve yanlış yorumlanır/yanlış ölçülürse tipik risk hangisidir?",
+      "options": [
+        "Doğru odak, kısıtlar altında en yüksek etkili çıktıyı artırır; risk: yanlış metriğe optimize olup “görünür output” üretmek.",
+        "Daha çok iş yapmak otomatik olarak daha çok sonuç getirir; risk: aktivite artar ama kalite ve müşteri değeri düşer.",
+        "Kısıtlar (zaman/enerji/dikkat) önemli değildir; risk: aşırı yüklenme, hata ve tükenmişlik sonucu bozar.",
+        "Önce hız, kalite sonra; risk: yeniden iş (rework) artar, throughput düşer ve güven kaybı olur."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day21",
+        "#tr",
+        "#all-languages",
+        "#course-productivity_2026_tr",
+        "#productivity",
+        "#advanced",
+        "#critical-thinking"
+      ]
+    },
+    {
+      "_id": "6978ce3b2762132c7496d4fc",
+      "uuid": "782ed5d6-5129-41c5-b1cc-1bcbd6e03ce1",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Bir lider şu ilkeye göre karar veriyor: “Verimlilik 2026 — Gün 21 Topluluk ve Ağ: İlişkiler, Diğerleriyle Öğrenme Neden ö”. goals hedefine ulaşmada en olası etki nedir ve yanlış yorumlanır/yanlış ölçülürse tipik risk hangisidir?",
+      "options": [
+        "Doğru odak, kısıtlar altında en yüksek etkili çıktıyı artırır; risk: yanlış metriğe optimize olup “görünür output” üretmek.",
+        "Daha çok iş yapmak otomatik olarak daha çok sonuç getirir; risk: aktivite artar ama kalite ve müşteri değeri düşer.",
+        "Kısıtlar (zaman/enerji/dikkat) önemli değildir; risk: aşırı yüklenme, hata ve tükenmişlik sonucu bozar.",
+        "Önce hız, kalite sonra; risk: yeniden iş (rework) artar, throughput düşer ve güven kaybı olur."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day21",
+        "#tr",
+        "#all-languages",
+        "#course-productivity_2026_tr",
+        "#productivity",
+        "#advanced",
+        "#critical-thinking"
+      ]
+    }
+  ]
+}

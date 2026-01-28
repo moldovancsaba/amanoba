@@ -2180,10 +2180,10 @@ function getLanguageTemplates(language: string, title: string): LanguageTemplate
         question: (concept, goal) =>
           `Лидер взема решения по принцип: „${concept}“. Какъв е най-вероятният ефект за постигане на ${goal} и кой е типичният риск при грешно тълкуване или грешно измерване?`,
         options: (concept) => [
-          'Фокусът увеличава резултата, защото оптимизира изхода (output) спрямо ограниченията; риск: оптимизираш грешна метрика и получаваш „видим output“ без outcome.',
+          'Фокусът увеличава резултата, защото оптимизира изпълнението спрямо ограниченията; риск: оптимизираш грешна метрика и получаваш „видима активност“ без реален резултат.',
           'Повече дейности автоматично означава по-добър резултат; риск: расте шумът и спадат качеството и стойността за клиента.',
-          'Ограниченията (време/енергия/внимание) не са важни; риск: претоварване, грешки и бърнаут влошават outcome.',
-          'Скоростта е най-важна, качеството „после“; риск: повече преработка и по-нисък throughput.',
+          'Ограниченията (време/енергия/внимание) не са важни; риск: претоварване, грешки и бърнаут влошават резултатите.',
+          'Скоростта е най-важна, качеството „после“; риск: повече преработка и по-малко завършени важни резултати.',
         ]
       },
       application: {
@@ -2196,13 +2196,13 @@ function getLanguageTemplates(language: string, title: string): LanguageTemplate
             'Въвеждам стъпка по стъпка: дефинирам критерии/метрики, правя пилот с малък обхват, измервам преди/след и коригирам по една промяна.',
             'Променям всичко наведнъж без метрики и контролни точки и после гадая какво е сработило.',
             'Започвам, но не измервам ефекта (няма преди/след), така че качеството на резултата е неизвестно.',
-            'Прехвърлям отговорността без ясни критерии и проверка, което води до хаос и лоши handoff-и.',
+            'Прехвърлям отговорността без ясни критерии и проверка, което води до хаос и лошо предаване между хора/екипи.',
           ],
           keyTerm: [
             'Описвам „готово“ (критерий), избирам една метрика, прилагам в един кейс и разширявам само след потвърден ефект.',
             'Използвам термина като лозунг без чеклист и измерване — резултатът не е проверим и не е повторяем.',
-            'Отлагам, докато стане „перфектно“; това намалява throughput и увеличава carryover.',
-            'Действам без собственик/срок/праг и затова резултатът не влияе на outcome.',
+            'Отлагам, докато стане „перфектно“; това забавя завършването и увеличава прехвърлените задачи.',
+            'Действам без собственик/срок/праг и затова резултатът не води до проверима промяна.',
           ]
         }
       },
@@ -2738,9 +2738,36 @@ export function generateContentBasedQuestions(
       .replace(/^[\s•\-\u2022\d]+[.)-]?\s*/g, '')
       .replace(/\s+/g, ' ')
       .trim();
+
+  const scriptProfile = (() => {
+    const lang = String(language || '').toLowerCase();
+    if (lang === 'bg' || lang === 'ru') return { name: 'cyrillic', re: /[\u0400-\u04FF]/g, minRatio: 0.25 };
+    if (lang === 'ar') return { name: 'arabic', re: /[\u0600-\u06FF]/g, minRatio: 0.25 };
+    if (lang === 'hi') return { name: 'devanagari', re: /[\u0900-\u097F]/g, minRatio: 0.25 };
+    return null;
+  })();
+
+  const scriptRatio = (s: string, scriptRe: RegExp) => {
+    const text = String(s || '');
+    const letters = text.match(/\p{L}/gu) || [];
+    if (letters.length === 0) return 0;
+    const scriptLetters = text.match(scriptRe) || [];
+    return scriptLetters.length / letters.length;
+  };
+
+  const preferLanguageMatchedSnippets = (values: string[]) => {
+    if (!scriptProfile) return values;
+    const filtered = values.filter(v => scriptRatio(v, scriptProfile.re) >= scriptProfile.minRatio);
+    return filtered.length ? filtered : values;
+  };
   
   // Extract key concepts
-  const { mainTopics, keyTerms, examples, practices, concepts } = extractKeyConcepts(content, title);
+  const extracted = extractKeyConcepts(content, title);
+  const mainTopics = preferLanguageMatchedSnippets(extracted.mainTopics || []);
+  const keyTerms = preferLanguageMatchedSnippets(extracted.keyTerms || []);
+  const examples = preferLanguageMatchedSnippets(extracted.examples || []);
+  const practices = preferLanguageMatchedSnippets(extracted.practices || []);
+  const concepts = preferLanguageMatchedSnippets(extracted.concepts || []);
   
   // Clean content for analysis
   const cleanContent = content.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
@@ -2825,7 +2852,24 @@ export function generateContentBasedQuestions(
     return true;
   };
 
-  const goal = titleLower.includes('geo') ? 'GEO' : (language === 'hu' ? 'célok' : 'goals');
+  const goalLabel = (() => {
+    const lang = String(language || '').toLowerCase();
+    if (titleLower.includes('geo')) return 'GEO';
+    const map: Record<string, string> = {
+      en: 'goals',
+      hu: 'célok',
+      tr: 'hedefler',
+      bg: 'цели',
+      pl: 'cele',
+      vi: 'mục tiêu',
+      id: 'tujuan',
+      pt: 'metas',
+      ar: 'الأهداف',
+      hi: 'लक्ष्य',
+      ru: 'цели',
+    };
+    return map[lang] || 'goals';
+  })();
   const criticalSources = [
     ...concepts,
     ...mainTopics,
@@ -2837,7 +2881,7 @@ export function generateContentBasedQuestions(
   for (let i = 0; i < targetCritical; i++) {
     const source = criticalSources[i] || title;
     const concept = sanitizeSnippet(String(source)).substring(0, 80);
-    const questionText = templates.criticalThinking.question(concept, goal);
+    const questionText = templates.criticalThinking.question(concept, goalLabel);
     addQuestion({
       question: questionText,
       options: templates.criticalThinking.options(concept.substring(0, 40)),

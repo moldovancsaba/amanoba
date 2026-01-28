@@ -1,0 +1,160 @@
+{
+  "backedUpAt": "2026-01-27T16:21:51.356Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_BG",
+    "name": "Продуктивност 2026: Как да управляваме екипи и време",
+    "language": "bg"
+  },
+  "lesson": {
+    "dayNumber": 1,
+    "title": "Дефиниция на продуктивността: изход, резултати и ограничения",
+    "lessonId": "PRODUCTIVITY_2026_BG_DAY_01"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a58e5e2257dcf110509",
+      "uuid": "b9cc4677-8c1b-4120-af05-044e81a1c86c",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Каква е разликата между изход и резултат?",
+      "options": [
+        "Изходът е количеството дейности, резултатът е действителната промяна или ефект",
+        "Изходът и резултатът са едно и също",
+        "Резултатът е количеството дейности, изходът е действителният ефект",
+        "Няма разлика между тях"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day-01",
+        "#foundation",
+        "#recall",
+        "#bg"
+      ]
+    },
+    {
+      "_id": "69776a58e5e2257dcf11050a",
+      "uuid": "37149e40-3acd-4345-9204-0eb252a29db6",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Кой пример показва фокус върху резултата?",
+      "options": [
+        "\"Днес ще изпратя 100 имейла!\"",
+        "\"Днес ще реша 3 критични клиентски проблема, което увеличава удовлетвореността с 15%\"",
+        "\"Днес ще имам 8 часа срещи\"",
+        "\"Днес ще напиша 20 документа\""
+      ],
+      "correctIndex": 1,
+      "hashtags": [
+        "#day-01",
+        "#scenario",
+        "#application",
+        "#bg"
+      ]
+    },
+    {
+      "_id": "69776a58e5e2257dcf11050b",
+      "uuid": "ff79b113-36d4-44de-80fe-b0f373859ba7",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Кое НЕ се счита за ограничение за продуктивността?",
+      "options": [
+        "Време",
+        "Енергия",
+        "Внимание",
+        "Броят на дейностите"
+      ],
+      "correctIndex": 3,
+      "hashtags": [
+        "#day-01",
+        "#purpose",
+        "#application",
+        "#bg"
+      ]
+    },
+    {
+      "_id": "69776a58e5e2257dcf11050c",
+      "uuid": "c47c6e8a-2e90-4d38-bf77-592b6451de2a",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Какво е правилното определение на продуктивността?",
+      "options": [
+        "Максимален брой дейности",
+        "Резултат / ограничения (резултати спрямо границите)",
+        "Повече изход винаги е по-добре",
+        "Няма нужда да управляваме ограниченията"
+      ],
+      "correctIndex": 1,
+      "hashtags": [
+        "#day-01",
+        "#foundation",
+        "#recall",
+        "#bg"
+      ]
+    },
+    {
+      "_id": "69776a58e5e2257dcf11050d",
+      "uuid": "d86cecc4-3c2f-410d-85ad-6322decf6f49",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Защо е важен фокусът върху резултата вместо върху изхода?",
+      "options": [
+        "Защото високият изход автоматично гарантира добри резултати",
+        "Защото резултатът носи действителна стойност, а не количеството дейности",
+        "Защото изходът е по-лесен за измерване",
+        "Защото няма разлика"
+      ],
+      "correctIndex": 1,
+      "hashtags": [
+        "#day-01",
+        "#foundation",
+        "#recall",
+        "#bg"
+      ]
+    },
+    {
+      "_id": "69776a58e5e2257dcf11050e",
+      "uuid": "6271a99b-fe4a-44b4-902d-52625e975a13",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ Правите разлика между изход и резултат...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day1",
+        "#bg",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a58e5e2257dcf11050f",
+      "uuid": "27665549-a85b-4cb7-88c4-b46bf2922382",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Как концепцията \"Дефиниция на продуктивността: изход, резултати и о...\", спомената в урока, влияе върху постигането на вашите goals?",
+      "options": [
+        "Както е описано подробно в урока, Дефиниция на продуктивността: ... увеличава ефективността и намалява риска",
+        "Няма значително въздействие",
+        "Има значение само теоретично",
+        "Само опционален елемент"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day1",
+        "#bg",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    }
+  ]
+}

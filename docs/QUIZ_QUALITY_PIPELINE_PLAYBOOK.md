@@ -13,6 +13,9 @@ This is the repeatable, high-quality workflow to keep quizzes aligned with lesso
 - **Educational answers**: Options must be full, concrete, and plausible; wrong answers teach common pitfalls.
 - **Groundedness**: Questions must be based on what the lesson actually says; no invented facts.
 - **No throwaway options**: Options like “no impact / only theoretical / not mentioned” are disallowed. Each option must be detailed (min length enforced).
+- **Language integrity (hard)**:
+  - Quizzes must match course language (no English leakage tokens like `goals` in non‑EN).
+  - Lessons must also match course language (no English sentences/bullets inside non‑EN lessons), otherwise quiz work is blocked for that lesson.
 
 ## The pipeline (repeatable)
 
@@ -23,6 +26,7 @@ This is the repeatable, high-quality workflow to keep quizzes aligned with lesso
 2) **Quality Gate**
    - If the lesson quality score is below the threshold, **skip quiz rewrite** and create a lesson refinement task.
    - This prevents generating fuzzy questions or “inventing” content to fill 7 slots.
+   - If the lesson fails **Language Integrity**, **skip quiz rewrite** and create a lesson language-fix task.
 
 3) **Refine Lesson**
    - Improve the lesson (do not invent new claims):
@@ -31,6 +35,7 @@ This is the repeatable, high-quality workflow to keep quizzes aligned with lesso
      - Add examples (good vs poor)
      - Add pitfalls & failure modes
      - Add metrics/criteria (how to judge outcomes)
+   - Never inject CCS English text into non‑EN lessons unless localized fields exist.
 
 4) **Rewrite Quiz**
    - Regenerate 7 questions with strict validation:
@@ -46,9 +51,25 @@ This is the repeatable, high-quality workflow to keep quizzes aligned with lesso
 
 ## Commands
 
+### CCS-wide master audit (all CCS families + all courses)
+Use this when you need the **full system audit** and a single tasklist.
+```bash
+npx tsx --env-file=.env.local scripts/audit-ccs-global-quality.ts --min-lesson-score 70
+```
+
+Include inactive content too:
+```bash
+npx tsx --env-file=.env.local scripts/audit-ccs-global-quality.ts --min-lesson-score 70 --include-inactive
+```
+
 ### Lesson quality audit
 ```bash
 npx tsx --env-file=.env.local scripts/audit-lesson-quality.ts --min-score 70
+```
+
+### Lesson language integrity audit (hard gate)
+```bash
+npx tsx --env-file=.env.local scripts/audit-lesson-language-integrity.ts
 ```
 
 ### Full pipeline (audit + refine task list + rewrite where possible)

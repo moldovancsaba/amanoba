@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-27T16:22:05.814Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_BG",
+    "name": "Продуктивност 2026: Как да управляваме екипи и време",
+    "language": "bg"
+  },
+  "lesson": {
+    "dayNumber": 24,
+    "title": "Филтриране и приоритети: Какво да игнорираш, какво е важно",
+    "lessonId": "PRODUCTIVITY_2026_BG_DAY_24"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a5ce5e2257dcf110683",
+      "uuid": "e4ba16dd-1e57-41dc-b7c4-7c27eab85f7c",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Научи да кажеш \"не\" и да се фокусираш на важното.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day24",
+        "#bg",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5ce5e2257dcf110684",
+      "uuid": "544139d6-0859-46b1-b28f-f6e8afd708b9",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Научи да кажеш \"не\" и да се фокусираш на важното.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day24",
+        "#bg",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5ce5e2257dcf110685",
+      "uuid": "2882c6b9-1f53-445d-875d-c30532a9c067",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Научи да кажеш \"не\" и да се фокусираш на важното.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day24",
+        "#bg",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5ce5e2257dcf110686",
+      "uuid": "bed410f8-30c3-4968-809f-c98b41e4d99c",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Как концепцията \"Филтриране и приоритети: Какво да игнорираш, какво...\", спомената в урока, влияе върху постигането на вашите goals?",
+      "options": [
+        "Както е описано подробно в урока, Филтриране и приоритети: Какво... увеличава ефективността и намалява риска",
+        "Няма значително въздействие",
+        "Има значение само теоретично",
+        "Само опционален елемент"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day24",
+        "#bg",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5ce5e2257dcf110687",
+      "uuid": "e541ecd2-5319-4d47-bb6f-88e109fe8ac8",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Колко важен е Филтриране в контекста на Филтриране и приоритети: Какво да игнорираш, какво е важно, както се обсъжда в урока?",
+      "options": [
+        "Както е подробно описано в урока, Филтриране играе ключова роля в оптимизирането на процесите и постигането на целите",
+        "Само периферна информация без значителна роля",
+        "Само теоретична концепция без практическо приложение",
+        "Не се споменава в урока"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day24",
+        "#bg",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5ce5e2257dcf110688",
+      "uuid": "bcefb89f-417b-4b19-a187-f6c9f9738875",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Колко важен е Какво в контекста на Филтриране и приоритети: Какво да игнорираш, какво е важно, както се обсъжда в урока?",
+      "options": [
+        "Както е подробно описано в урока, Какво играе ключова роля в оптимизирането на процесите и постигането на целите",
+        "Само периферна информация без значителна роля",
+        "Само теоретична концепция без практическо приложение",
+        "Не се споменава в урока"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day24",
+        "#bg",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5ce5e2257dcf110689",
+      "uuid": "0ac06da2-c489-4b64-9edc-ac8000ff117e",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Колко важен е какво в контекста на Филтриране и приоритети: Какво да игнорираш, какво е важно, както се обсъжда в урока?",
+      "options": [
+        "Както е подробно описано в урока, какво играе ключова роля в оптимизирането на процесите и постигането на целите",
+        "Само периферна информация без значителна роля",
+        "Само теоретична концепция без практическо приложение",
+        "Не се споменава в урока"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day24",
+        "#bg",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

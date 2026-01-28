@@ -1,0 +1,166 @@
+{
+  "backedUpAt": "2026-01-27T16:22:04.177Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_BG",
+    "name": "Продуктивност 2026: Как да управляваме екипи и време",
+    "language": "bg"
+  },
+  "lesson": {
+    "dayNumber": 5,
+    "title": "Измерване: прости метрики за седмичен преглед (throughput, блокове за фокус, carryover)",
+    "lessonId": "PRODUCTIVITY_2026_BG_DAY_05"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a59e5e2257dcf11059f",
+      "uuid": "18a2a9f5-6768-42f1-91e5-a525310225ce",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Колко метрики използваме в седмичен преглед?",
+      "options": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "correctIndex": 2,
+      "hashtags": [
+        "#day-05",
+        "#scenario",
+        "#application",
+        "#bg"
+      ]
+    },
+    {
+      "_id": "69776a59e5e2257dcf1105a0",
+      "uuid": "2d464e5f-69dc-403d-89a1-26f95c115b85",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Каква е идеалната дължина на блок за фокус?",
+      "options": [
+        "30 минути",
+        "60 минути",
+        "90-120 минути",
+        "4 часа"
+      ],
+      "correctIndex": 2,
+      "hashtags": [
+        "#day-05",
+        "#foundation",
+        "#recall",
+        "#bg"
+      ]
+    },
+    {
+      "_id": "69776a59e5e2257dcf1105a1",
+      "uuid": "010cc48c-8354-470f-9d89-3fd5818f53dd",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ Знаете трите ключови метрики: throughp...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day5",
+        "#bg",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a59e5e2257dcf1105a2",
+      "uuid": "18ca62e8-124a-4e9f-b04b-4918ef00c88e",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ Измерването е обективно, не само базир...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day5",
+        "#bg",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a59e5e2257dcf1105a3",
+      "uuid": "5a445f2e-467b-44f1-8a93-15430bc3fa22",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Как концепцията \"Важно = резултат, не само дейност...\", спомената в урока, влияе върху постигането на вашите goals?",
+      "options": [
+        "Както е описано подробно в урока, Важно = резултат, не само дейн... увеличава ефективността и намалява риска",
+        "Няма значително въздействие",
+        "Има значение само теоретично",
+        "Само опционален елемент"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day5",
+        "#bg",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a59e5e2257dcf1105a4",
+      "uuid": "48b24955-ffa3-4ab1-9768-37676779959b",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Колко важен е Throughput в контекста на Измерване: прости метрики за седмичен преглед (throughput, блокове за фокус, carryover), както се обсъжда в урока?",
+      "options": [
+        "Както е подробно описано в урока, Throughput играе ключова роля в оптимизирането на процесите и постигането на целите",
+        "Само периферна информация без значителна роля",
+        "Само теоретична концепция без практическо приложение",
+        "Не се споменава в урока"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day5",
+        "#bg",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a59e5e2257dcf1105a5",
+      "uuid": "e99a798f-29da-4ecc-a875-c65e9af40c04",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Колко важен е Carryover в контекста на Измерване: прости метрики за седмичен преглед (throughput, блокове за фокус, carryover), както се обсъжда в урока?",
+      "options": [
+        "Както е подробно описано в урока, Carryover играе ключова роля в оптимизирането на процесите и постигането на целите",
+        "Само периферна информация без значителна роля",
+        "Само теоретична концепция без практическо приложение",
+        "Не се споменава в урока"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day5",
+        "#bg",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

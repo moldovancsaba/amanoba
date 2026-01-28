@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-27T16:21:53.143Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_BG",
+    "name": "Продуктивност 2026: Как да управляваме екипи и време",
+    "language": "bg"
+  },
+  "lesson": {
+    "dayNumber": 12,
+    "title": "Структури на отчетност: Системи, които ви държат на пътя",
+    "lessonId": "PRODUCTIVITY_2026_BG_DAY_12"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a5ae5e2257dcf110604",
+      "uuid": "89cbc132-8f13-4915-ab7c-4b7586422aec",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ Имам ясна 4-8 седмична цел за отчетнос...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day12",
+        "#bg",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5ae5e2257dcf110605",
+      "uuid": "a8c411be-7286-4d62-98c3-51006c83ebaf",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ Моят партньор на отчетност знае за пла...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day12",
+        "#bg",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5ae5e2257dcf110606",
+      "uuid": "041048c1-ef18-4ca5-a0df-7354bb2898a8",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ Имам ясна 4-8 седмична цел за отчетнос...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day12",
+        "#bg",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5ae5e2257dcf110607",
+      "uuid": "3469e168-8f81-4c9f-b8c6-7a749ce9c922",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Как концепцията \"Структури на отчетност: Системи, които ви държат н...\", спомената в урока, влияе върху постигането на вашите goals?",
+      "options": [
+        "Както е описано подробно в урока, Структури на отчетност: Систем... увеличава ефективността и намалява риска",
+        "Няма значително въздействие",
+        "Има значение само теоретично",
+        "Само опционален елемент"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day12",
+        "#bg",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5ae5e2257dcf110608",
+      "uuid": "d98f4049-8b6a-4193-94d7-4b13749985c5",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Каква роля играе Сила на прозрачност в урока \"Структури на отчетност: Системи, които ви държат на пътя\"?",
+      "options": [
+        "Както е подробно описано в урока, Сила на прозрачност играе ключова роля в оптимизирането на процесите и постигането на целите",
+        "Само периферна информация без значителна роля",
+        "Само теоретична концепция без практическо приложение",
+        "Не се споменава в урока"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day12",
+        "#bg",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5ae5e2257dcf110609",
+      "uuid": "a36e784a-53d7-4a35-abf3-4505af9cb9e1",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Каква роля играе Систематична корекция в урока \"Структури на отчетност: Системи, които ви държат на пътя\"?",
+      "options": [
+        "Както е подробно описано в урока, Систематична корекция играе ключова роля в оптимизирането на процесите и постигането на целите",
+        "Само периферна информация без значителна роля",
+        "Само теоретична концепция без практическо приложение",
+        "Не се споменава в урока"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day12",
+        "#bg",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5ae5e2257dcf11060a",
+      "uuid": "bf257489-18c6-41cc-805d-daed62db4127",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Колко важен е Техника в контекста на Структури на отчетност: Системи, които ви държат на пътя, както се обсъжда в урока?",
+      "options": [
+        "Както е подробно описано в урока, Техника играе ключова роля в оптимизирането на процесите и постигането на целите",
+        "Само периферна информация без значителна роля",
+        "Само теоретична концепция без практическо приложение",
+        "Не се споменава в урока"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day12",
+        "#bg",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

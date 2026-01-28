@@ -1,0 +1,676 @@
+{
+  "generatedAt": "2026-01-27T19:34:32.181Z",
+  "courseFilter": "PRODUCTIVITY_2026_HU",
+  "total": 30,
+  "failed": 19,
+  "results": [
+    {
+      "courseId": "PRODUCTIVITY_2026_HU",
+      "courseName": "Termelékenység 2026: Hogyan kezelj csapatokat és időt",
+      "language": "hu",
+      "dayNumber": 1,
+      "lessonId": "PRODUCTIVITY_2026_HU_DAY_01",
+      "title": "A termelékenység definíciója: output, eredmények és korlátok",
+      "createdAt": "2026-01-23T19:27:00.922Z",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "findings": []
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_HU",
+      "courseName": "Termelékenység 2026: Hogyan kezelj csapatokat és időt",
+      "language": "hu",
+      "dayNumber": 2,
+      "lessonId": "PRODUCTIVITY_2026_HU_DAY_02",
+      "title": "Idő, energia, figyelem: amit a gyakorlatban kezelsz",
+      "createdAt": "2026-01-23T21:16:53.389Z",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "findings": []
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_HU",
+      "courseName": "Termelékenység 2026: Hogyan kezelj csapatokat és időt",
+      "language": "hu",
+      "dayNumber": 3,
+      "lessonId": "PRODUCTIVITY_2026_HU_DAY_03",
+      "title": "Célhierarchia: vízió → eredmények → projektek → következő lépések",
+      "createdAt": "2026-01-23T21:23:41.637Z",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "findings": []
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_HU",
+      "courseName": "Termelékenység 2026: Hogyan kezelj csapatokat és időt",
+      "language": "hu",
+      "dayNumber": 4,
+      "lessonId": "PRODUCTIVITY_2026_HU_DAY_04",
+      "title": "Szokások vs rendszerek: miért skálázódnak jobban a rendszerek",
+      "createdAt": "2026-01-23T21:29:06.119Z",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "findings": []
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_HU",
+      "courseName": "Termelékenység 2026: Hogyan kezelj csapatokat és időt",
+      "language": "hu",
+      "dayNumber": 5,
+      "lessonId": "PRODUCTIVITY_2026_HU_DAY_05",
+      "title": "Mérés: egyszerű heti áttekintési metrikák (throughput, fókusz blokkok, carryover)",
+      "createdAt": "2026-01-23T21:35:50.259Z",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "findings": []
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_HU",
+      "courseName": "Termelékenység 2026: Hogyan kezelj csapatokat és időt",
+      "language": "hu",
+      "dayNumber": 6,
+      "lessonId": "PRODUCTIVITY_2026_HU_DAY_06",
+      "title": "Rögzítés: inboxok, trigger lista, rögzítési szokások",
+      "createdAt": "2026-01-23T21:43:41.143Z",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "findings": []
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_HU",
+      "courseName": "Termelékenység 2026: Hogyan kezelj csapatokat és időt",
+      "language": "hu",
+      "dayNumber": 7,
+      "lessonId": "PRODUCTIVITY_2026_HU_DAY_07",
+      "title": "Napi/heti rendszer: reggeli ritual, napi huddle, heti áttekintés",
+      "createdAt": "2026-01-24T08:15:44.827Z",
+      "ok": false,
+      "errors": [
+        "Language integrity failed for lesson.content: detected injected English sentence(s) in HU.",
+        "Language integrity failed for lesson.emailBody: detected injected English sentence(s) in HU."
+      ],
+      "warnings": [],
+      "findings": [
+        {
+          "label": "HU: English sentence/bullet detected",
+          "snippet": "Define a morning ritual that sets priorities."
+        },
+        {
+          "label": "HU: English sentence/bullet detected",
+          "snippet": "Track adherence for one week and adjust."
+        },
+        {
+          "label": "HU: English sentence/bullet detected",
+          "snippet": "Turn the course concepts into a repeatable operating system for daily execution."
+        }
+      ]
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_HU",
+      "courseName": "Termelékenység 2026: Hogyan kezelj csapatokat és időt",
+      "language": "hu",
+      "dayNumber": 8,
+      "lessonId": "PRODUCTIVITY_2026_HU_DAY_8",
+      "title": "Kontextusváltás költsége: figyelmi maradványa, kötegelt feldolgozás, mély munkablokkok",
+      "createdAt": "2026-01-24T08:31:17.806Z",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "findings": []
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_HU",
+      "courseName": "Termelékenység 2026: Hogyan kezelj csapatokat és időt",
+      "language": "hu",
+      "dayNumber": 9,
+      "lessonId": "PRODUCTIVITY_2026_HU_DAY_9",
+      "title": "Delegálás vs Kiiktatás: mikor delegálj, mit iktatj ki",
+      "createdAt": "2026-01-24T08:36:22.276Z",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "findings": []
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_HU",
+      "courseName": "Termelékenység 2026: Hogyan kezelj csapatokat és időt",
+      "language": "hu",
+      "dayNumber": 10,
+      "lessonId": "PRODUCTIVITY_2026_HU_DAY_10",
+      "title": "Energia menedzselés: mikor dolgozz, mikor pihenj, helyreállítási ritualok",
+      "createdAt": "2026-01-24T08:40:13.061Z",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "findings": []
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_HU",
+      "courseName": "Termelékenység 2026: Hogyan kezelj csapatokat és időt",
+      "language": "hu",
+      "dayNumber": 11,
+      "lessonId": "PRODUCTIVITY_2026_HU_DAY_11",
+      "title": "Célkitűzés és OKR-ek: Mit szeretnél elérni?",
+      "createdAt": "2026-01-24T08:41:49.120Z",
+      "ok": false,
+      "errors": [
+        "Language integrity failed for lesson.content: detected injected English sentence(s) in HU.",
+        "Language integrity failed for lesson.emailBody: detected injected English sentence(s) in HU."
+      ],
+      "warnings": [],
+      "findings": [
+        {
+          "label": "HU: English sentence/bullet detected",
+          "snippet": "Write one SMART goal that matters."
+        },
+        {
+          "label": "HU: English sentence/bullet detected",
+          "snippet": "Turn productivity into measurable progress with clear goals and key results."
+        }
+      ]
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_HU",
+      "courseName": "Termelékenység 2026: Hogyan kezelj csapatokat és időt",
+      "language": "hu",
+      "dayNumber": 12,
+      "lessonId": "PRODUCTIVITY_2026_HU_DAY_12",
+      "title": "Elszámoltathatósági Struktúrák: Rendszerek, amelyek pályán tartanak",
+      "createdAt": "2026-01-24T09:15:52.005Z",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "findings": []
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_HU",
+      "courseName": "Termelékenység 2026: Hogyan kezelj csapatokat és időt",
+      "language": "hu",
+      "dayNumber": 13,
+      "lessonId": "PRODUCTIVITY_2026_HU_DAY_13",
+      "title": "Döntéshozatali Keretek: Gyors döntés, döntési mátrix, az elemzési bénultság elkerülése",
+      "createdAt": "2026-01-24T09:23:06.326Z",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "findings": []
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_HU",
+      "courseName": "Termelékenység 2026: Hogyan kezelj csapatokat és időt",
+      "language": "hu",
+      "dayNumber": 14,
+      "lessonId": "PRODUCTIVITY_2026_HU_DAY_14",
+      "title": "Értekezlet-hatékonyság: Napirend, időkorlát, döntési jegyzőkönyv",
+      "createdAt": "2026-01-24T09:29:46.704Z",
+      "ok": false,
+      "errors": [
+        "Language integrity failed for lesson.emailBody: detected injected English sentence(s) in HU."
+      ],
+      "warnings": [],
+      "findings": [
+        {
+          "label": "HU: English sentence/bullet detected",
+          "snippet": "Turn meetings from time sinks into decision engines with accountable outputs."
+        }
+      ]
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_HU",
+      "courseName": "Termelékenység 2026: Hogyan kezelj csapatokat és időt",
+      "language": "hu",
+      "dayNumber": 15,
+      "lessonId": "PRODUCTIVITY_2026_HU_DAY_15",
+      "title": "Csapatmunka és szinergia: Szerepek, felelősség, koordináció",
+      "createdAt": "2026-01-24T09:29:51.171Z",
+      "ok": false,
+      "errors": [
+        "Language integrity failed for lesson.content: detected injected English sentence(s) in HU.",
+        "Language integrity failed for lesson.emailBody: detected injected English sentence(s) in HU."
+      ],
+      "warnings": [],
+      "findings": [
+        {
+          "label": "HU: English sentence/bullet detected",
+          "snippet": "Define roles and responsibilities for a project."
+        },
+        {
+          "label": "HU: English sentence/bullet detected",
+          "snippet": "Design a coordination cadence (syncs, async updates)."
+        },
+        {
+          "label": "HU: English sentence/bullet detected",
+          "snippet": "Write delegation briefs (expected output, due date, success criteria, check-ins)."
+        },
+        {
+          "label": "HU: English sentence/bullet detected",
+          "snippet": "Execute: eliminate 1 and delegate 1 this week; review impact."
+        },
+        {
+          "label": "HU: English sentence/bullet detected",
+          "snippet": "Scale productivity through clear roles, ownership, and coordination mechanisms."
+        }
+      ]
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_HU",
+      "courseName": "Termelékenység 2026: Hogyan kezelj csapatokat és időt",
+      "language": "hu",
+      "dayNumber": 16,
+      "lessonId": "PRODUCTIVITY_2026_HU_DAY_16",
+      "title": "Stressz-kezelés és fáradtság: Regeneráció, munka-élet egyensúly",
+      "createdAt": "2026-01-24T09:29:54.738Z",
+      "ok": false,
+      "errors": [
+        "Language integrity failed for lesson.emailBody: detected injected English sentence(s) in HU."
+      ],
+      "warnings": [],
+      "findings": [
+        {
+          "label": "HU: English sentence/bullet detected",
+          "snippet": "Protect sustainability and decision quality by managing stress and fatigue proactively."
+        }
+      ]
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_HU",
+      "courseName": "Termelékenység 2026: Hogyan kezelj csapatokat és időt",
+      "language": "hu",
+      "dayNumber": 17,
+      "lessonId": "PRODUCTIVITY_2026_HU_DAY_17",
+      "title": "Motiváció fenntartása: Célok nyilvántartása, sikerek ünneplése",
+      "createdAt": "2026-01-24T09:29:57.838Z",
+      "ok": false,
+      "errors": [
+        "Language integrity failed for lesson.content: detected injected English sentence(s) in HU.",
+        "Language integrity failed for lesson.emailBody: detected injected English sentence(s) in HU."
+      ],
+      "warnings": [],
+      "findings": [
+        {
+          "label": "HU: English sentence/bullet detected",
+          "snippet": "Define a progress metric that motivates without gaming."
+        },
+        {
+          "label": "HU: English sentence/bullet detected",
+          "snippet": "Build a reward/celebration routine that reinforces the system."
+        },
+        {
+          "label": "HU: English sentence/bullet detected",
+          "snippet": "Avoid motivation dependency by relying on systems."
+        },
+        {
+          "label": "HU: English sentence/bullet detected",
+          "snippet": "Use feedback loops and small wins to keep execution consistent over months."
+        }
+      ]
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_HU",
+      "courseName": "Termelékenység 2026: Hogyan kezelj csapatokat és időt",
+      "language": "hu",
+      "dayNumber": 18,
+      "lessonId": "PRODUCTIVITY_2026_HU_DAY_18",
+      "title": "Krízis-kezelés és rugalmasság: Adaptáció, gyors tanulás",
+      "createdAt": "2026-01-24T09:30:00.777Z",
+      "ok": false,
+      "errors": [
+        "Language integrity failed for lesson.content: detected injected English sentence(s) in HU.",
+        "Language integrity failed for lesson.emailBody: detected injected English sentence(s) in HU."
+      ],
+      "warnings": [],
+      "findings": [
+        {
+          "label": "HU: English sentence/bullet detected",
+          "snippet": "Define a short post-mortem template (what happened, what we change)."
+        },
+        {
+          "label": "HU: English sentence/bullet detected",
+          "snippet": "Review outcomes and update your decision rules."
+        },
+        {
+          "label": "HU: English sentence/bullet detected",
+          "snippet": "Maintain productivity under change by making fast decisions and learning quickly."
+        }
+      ]
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_HU",
+      "courseName": "Termelékenység 2026: Hogyan kezelj csapatokat és időt",
+      "language": "hu",
+      "dayNumber": 19,
+      "lessonId": "PRODUCTIVITY_2026_HU_DAY_19",
+      "title": "Hosszú távú tervezés: Évek, stratégia, evolúció",
+      "createdAt": "2026-01-24T09:30:04.091Z",
+      "ok": false,
+      "errors": [
+        "Language integrity failed for lesson.content: detected injected English sentence(s) in HU.",
+        "Language integrity failed for lesson.emailBody: detected injected English sentence(s) in HU."
+      ],
+      "warnings": [],
+      "findings": [
+        {
+          "label": "HU: English sentence/bullet detected",
+          "snippet": "Define leading indicators to track progress."
+        },
+        {
+          "label": "HU: English sentence/bullet detected",
+          "snippet": "Review outcomes and update your decision rules."
+        },
+        {
+          "label": "HU: English sentence/bullet detected",
+          "snippet": "Align weekly execution with long-term direction without overplanning."
+        }
+      ]
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_HU",
+      "courseName": "Termelékenység 2026: Hogyan kezelj csapatokat és időt",
+      "language": "hu",
+      "dayNumber": 20,
+      "lessonId": "PRODUCTIVITY_2026_HU_DAY_20",
+      "title": "Magánéleti termelékenység: Otthoni szervezés, személyes projektek",
+      "createdAt": "2026-01-24T09:30:06.992Z",
+      "ok": false,
+      "errors": [
+        "Language integrity failed for lesson.content: detected injected English sentence(s) in HU.",
+        "Language integrity failed for lesson.emailBody: detected injected English sentence(s) in HU."
+      ],
+      "warnings": [],
+      "findings": [
+        {
+          "label": "HU: English sentence/bullet detected",
+          "snippet": "Design one home system (inbox, maintenance, chores)."
+        },
+        {
+          "label": "HU: English sentence/bullet detected",
+          "snippet": "Define outcomes for a personal project."
+        },
+        {
+          "label": "HU: English sentence/bullet detected",
+          "snippet": "Apply the same systems thinking to personal life to reduce friction and free time."
+        }
+      ]
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_HU",
+      "courseName": "Termelékenység 2026: Hogyan kezelj csapatokat és időt",
+      "language": "hu",
+      "dayNumber": 21,
+      "lessonId": "PRODUCTIVITY_2026_HU_DAY_21",
+      "title": "Közösség és hálózat: Kapcsolatok, tanulás mások mellett",
+      "createdAt": "2026-01-24T09:30:09.840Z",
+      "ok": false,
+      "errors": [
+        "Language integrity failed for lesson.content: detected injected English sentence(s) in HU.",
+        "Language integrity failed for lesson.emailBody: detected injected English sentence(s) in HU."
+      ],
+      "warnings": [],
+      "findings": [
+        {
+          "label": "HU: English sentence/bullet detected",
+          "snippet": "Build a lightweight network maintenance system."
+        },
+        {
+          "label": "HU: English sentence/bullet detected",
+          "snippet": "Create a learning circle/accountability pod."
+        },
+        {
+          "label": "HU: English sentence/bullet detected",
+          "snippet": "Use relationships as a leverage multiplier for learning and outcomes."
+        }
+      ]
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_HU",
+      "courseName": "Termelékenység 2026: Hogyan kezelj csapatokat és időt",
+      "language": "hu",
+      "dayNumber": 22,
+      "lessonId": "PRODUCTIVITY_2026_HU_DAY_22",
+      "title": "Technológia és eszközök: Automatizáció, a megfelelő technológia kiválasztása",
+      "createdAt": "2026-01-24T09:30:12.710Z",
+      "ok": false,
+      "errors": [
+        "Language integrity failed for lesson.content: detected injected English sentence(s) in HU."
+      ],
+      "warnings": [],
+      "findings": [
+        {
+          "label": "HU: English sentence/bullet detected",
+          "snippet": "Define selection criteria (time saved, error reduction, maintainability)."
+        },
+        {
+          "label": "HU: English sentence/bullet detected",
+          "snippet": "Avoid tool-driven complexity."
+        }
+      ]
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_HU",
+      "courseName": "Termelékenység 2026: Hogyan kezelj csapatokat és időt",
+      "language": "hu",
+      "dayNumber": 23,
+      "lessonId": "PRODUCTIVITY_2026_HU_DAY_23",
+      "title": "Kreativitás és innováció: Újgondolkodás, kísérletezés",
+      "createdAt": "2026-01-24T09:30:15.491Z",
+      "ok": false,
+      "errors": [
+        "Language integrity failed for lesson.content: detected injected English sentence(s) in HU.",
+        "Language integrity failed for lesson.emailBody: detected injected English sentence(s) in HU."
+      ],
+      "warnings": [],
+      "findings": [
+        {
+          "label": "HU: English sentence/bullet detected",
+          "snippet": "Design one small experiment to improve productivity."
+        },
+        {
+          "label": "HU: English sentence/bullet detected",
+          "snippet": "Define success metrics and a stop rule."
+        },
+        {
+          "label": "HU: English sentence/bullet detected",
+          "snippet": "Review outcomes and update your decision rules."
+        },
+        {
+          "label": "HU: English sentence/bullet detected",
+          "snippet": "Use experimentation and iteration to improve systems rather than searching for perfect plans."
+        }
+      ]
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_HU",
+      "courseName": "Termelékenység 2026: Hogyan kezelj csapatokat és időt",
+      "language": "hu",
+      "dayNumber": 24,
+      "lessonId": "PRODUCTIVITY_2026_HU_DAY_24",
+      "title": "Szűrés és prioritás: Mit kell ignorálni, mit fontosnak tartani",
+      "createdAt": "2026-01-24T09:30:18.168Z",
+      "ok": false,
+      "errors": [
+        "Language integrity failed for lesson.content: detected injected English sentence(s) in HU."
+      ],
+      "warnings": [],
+      "findings": [
+        {
+          "label": "HU: English sentence/bullet detected",
+          "snippet": "Define a priority filter (impact, urgency, alignment)."
+        }
+      ]
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_HU",
+      "courseName": "Termelékenység 2026: Hogyan kezelj csapatokat és időt",
+      "language": "hu",
+      "dayNumber": 25,
+      "lessonId": "PRODUCTIVITY_2026_HU_DAY_25",
+      "title": "Szakértelmi fejlesztés: Magasabb szint, új készségek",
+      "createdAt": "2026-01-24T09:30:20.653Z",
+      "ok": false,
+      "errors": [
+        "Language integrity failed for lesson.content: detected injected English sentence(s) in HU."
+      ],
+      "warnings": [],
+      "findings": [
+        {
+          "label": "HU: English sentence/bullet detected",
+          "snippet": "Choose one skill with leverage impact."
+        },
+        {
+          "label": "HU: English sentence/bullet detected",
+          "snippet": "Define practice routines and feedback loops."
+        },
+        {
+          "label": "HU: English sentence/bullet detected",
+          "snippet": "Measure progress with objective signals."
+        }
+      ]
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_HU",
+      "courseName": "Termelékenység 2026: Hogyan kezelj csapatokat és időt",
+      "language": "hu",
+      "dayNumber": 26,
+      "lessonId": "PRODUCTIVITY_2026_HU_DAY_26",
+      "title": "Mentorálás és tanítás: Tudás megosztása, másoknak segítés",
+      "createdAt": "2026-01-24T09:30:23.668Z",
+      "ok": false,
+      "errors": [
+        "Language integrity failed for lesson.content: detected injected English sentence(s) in HU.",
+        "Language integrity failed for lesson.emailBody: detected injected English sentence(s) in HU."
+      ],
+      "warnings": [],
+      "findings": [
+        {
+          "label": "HU: English sentence/bullet detected",
+          "snippet": "Create a small teaching artifact (checklist, template, guide)."
+        },
+        {
+          "label": "HU: English sentence/bullet detected",
+          "snippet": "Delegate with teaching built in (feedback loops)."
+        },
+        {
+          "label": "HU: English sentence/bullet detected",
+          "snippet": "Avoid becoming a bottleneck."
+        },
+        {
+          "label": "HU: English sentence/bullet detected",
+          "snippet": "Write delegation briefs (expected output, due date, success criteria, check-ins)."
+        },
+        {
+          "label": "HU: English sentence/bullet detected",
+          "snippet": "Execute: eliminate 1 and delegate 1 this week; review impact."
+        },
+        {
+          "label": "HU: English sentence/bullet detected",
+          "snippet": "Scale capability by turning knowledge into repeatable teaching artifacts."
+        }
+      ]
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_HU",
+      "courseName": "Termelékenység 2026: Hogyan kezelj csapatokat és időt",
+      "language": "hu",
+      "dayNumber": 27,
+      "lessonId": "PRODUCTIVITY_2026_HU_DAY_27",
+      "title": "Szokások és rituálok: Napi rutin, hosszú távú cselekvés",
+      "createdAt": "2026-01-24T09:30:26.210Z",
+      "ok": false,
+      "errors": [
+        "Language integrity failed for lesson.content: detected injected English sentence(s) in HU.",
+        "Language integrity failed for lesson.emailBody: detected injected English sentence(s) in HU."
+      ],
+      "warnings": [],
+      "findings": [
+        {
+          "label": "HU: English sentence/bullet detected",
+          "snippet": "Track ritual adherence for a week."
+        },
+        {
+          "label": "HU: English sentence/bullet detected",
+          "snippet": "Lock in sustainability by converting systems into stable rituals."
+        }
+      ]
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_HU",
+      "courseName": "Termelékenység 2026: Hogyan kezelj csapatokat és időt",
+      "language": "hu",
+      "dayNumber": 28,
+      "lessonId": "PRODUCTIVITY_2026_HU_DAY_28",
+      "title": "Értékek és célok: Élet célja, hosszú távú jövőkép",
+      "createdAt": "2026-01-24T09:30:29.889Z",
+      "ok": false,
+      "errors": [
+        "Language integrity failed for lesson.content: detected injected English sentence(s) in HU."
+      ],
+      "warnings": [],
+      "findings": [
+        {
+          "label": "HU: English sentence/bullet detected",
+          "snippet": "Define personal values and non-negotiables."
+        }
+      ]
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_HU",
+      "courseName": "Termelékenység 2026: Hogyan kezelj csapatokat és időt",
+      "language": "hu",
+      "dayNumber": 29,
+      "lessonId": "PRODUCTIVITY_2026_HU_DAY_29",
+      "title": "Folyamatos fejlesztés: Tanulás, visszajelzés, iteráció",
+      "createdAt": "2026-01-24T09:30:33.449Z",
+      "ok": false,
+      "errors": [
+        "Language integrity failed for lesson.content: detected injected English sentence(s) in HU.",
+        "Language integrity failed for lesson.emailBody: detected injected English sentence(s) in HU."
+      ],
+      "warnings": [],
+      "findings": [
+        {
+          "label": "HU: English sentence/bullet detected",
+          "snippet": "Avoid over-optimizing and keep changes measurable."
+        },
+        {
+          "label": "HU: English sentence/bullet detected",
+          "snippet": "Create a continuous improvement loop using metrics and rule changes."
+        }
+      ]
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_HU",
+      "courseName": "Termelékenység 2026: Hogyan kezelj csapatokat és időt",
+      "language": "hu",
+      "dayNumber": 30,
+      "lessonId": "PRODUCTIVITY_2026_HU_DAY_30",
+      "title": "A termelékenység mestere: Komprehenzív integráció, elkötelezettség",
+      "createdAt": "2026-01-24T09:30:37.065Z",
+      "ok": false,
+      "errors": [
+        "Language integrity failed for lesson.content: detected injected English sentence(s) in HU.",
+        "Language integrity failed for lesson.emailBody: detected injected English sentence(s) in HU."
+      ],
+      "warnings": [],
+      "findings": [
+        {
+          "label": "HU: English sentence/bullet detected",
+          "snippet": "Define 90-day outcomes and constraints."
+        },
+        {
+          "label": "HU: English sentence/bullet detected",
+          "snippet": "Commit to a weekly review cadence and accountability."
+        },
+        {
+          "label": "HU: English sentence/bullet detected",
+          "snippet": "Integrate the full system into a sustainable commitment plan for the next 90 days."
+        }
+      ]
+    }
+  ]
+}

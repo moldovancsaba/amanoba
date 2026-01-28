@@ -26,6 +26,7 @@ config({ path: resolve(process.cwd(), '.env.local') });
 import connectDB from '../app/lib/mongodb';
 import { Course, Lesson } from '../app/lib/models';
 import { assessLessonQuality } from './lesson-quality';
+import { validateLessonRecordLanguageIntegrity } from './language-integrity';
 
 function getArgValue(flag: string): string | undefined {
   const idx = process.argv.indexOf(flag);
@@ -124,6 +125,48 @@ function conceptLabelHu(id: string) {
     OKR: 'OKR (Objective & Key Results)',
   };
   return map[id] || id;
+}
+
+function buildIntentHu(requiredConcepts: string[], requiredProcedureIds: string[]) {
+  if (requiredProcedureIds.includes('P3_DEEP_WORK_DAY_DESIGN') || requiredConcepts.includes('DeepWork')) {
+    return 'Ma úgy tervezed meg a napodat, hogy védett fókuszblokkokban haladj, és a munkát mérhető eredményhez kösd a valós korlátok között.';
+  }
+  if (requiredProcedureIds.includes('P2_WEEKLY_REVIEW_THROUGHPUT_FOCUS_CARRYOVER') || requiredConcepts.includes('Throughput')) {
+    return 'Ma visszacsatolási hurkot építesz: throughput, fókuszblokkok és carryover mérése alapján 1 szabályt finomhangolsz a következő hétre.';
+  }
+  if (requiredProcedureIds.includes('P4_TASK_AUDIT_DELEGATE_ELIMINATE') || requiredConcepts.includes('Delegation')) {
+    return 'Ma csökkented a terhelést: feladat auditot csinálsz, delegálsz vagy kivágsz, és egyértelmű “kész” kritériumot állítasz be.';
+  }
+  if (requiredProcedureIds.includes('P5_DECISION_MATRIX_AND_CATEGORIES') || requiredConcepts.includes('DecisionMatrix')) {
+    return 'Ma a döntési késlekedést csökkented: kategorizálod a döntéseket, küszöböt és határidőt adsz, így nem ragadnak be a feladatok.';
+  }
+  if (requiredConcepts.includes('Output') && requiredConcepts.includes('Outcome')) {
+    return 'Ma a kimenetet (output) mérhető eredményhez (outcome) kötöd: “kész” kritérium + mérőszám + küszöb alapján kicsiben tesztelsz.';
+  }
+  return 'Ma a valós korlátok között mérhető kimenetet hozol létre és ellenőrizhető eredményhez kötöd.';
+}
+
+function buildGoalsHu(requiredConcepts: string[], requiredProcedureIds: string[]) {
+  const goals: string[] = [];
+  if (requiredProcedureIds.includes('P2_WEEKLY_REVIEW_THROUGHPUT_FOCUS_CARRYOVER')) {
+    goals.push('Mérd meg a throughputot, a fókuszblokkokat és a carryovert; írj le 2 tanulságot.');
+    goals.push('Válassz 1 szabályváltoztatást a következő hétre, és írd le, hogyan ellenőrzöd a hatását.');
+  }
+  if (requiredProcedureIds.includes('P3_DEEP_WORK_DAY_DESIGN')) {
+    goals.push('Tervezz be 2 védett fókuszblokkot + 20–30% puffert, hogy a megszakítások ne borítsák fel a napot.');
+    goals.push('Definiáld 1 kritikus output “kész” kritériumát és a várt eredményt.');
+  }
+  if (requiredProcedureIds.includes('P4_TASK_AUDIT_DELEGATE_ELIMINATE')) {
+    goals.push('Osztályozd a feladatokat: delegálás / kivágás / megtartás; írj 1 szabályt a bejövő kérésekre.');
+  }
+  if (requiredProcedureIds.includes('P5_DECISION_MATRIX_AND_CATEGORIES')) {
+    goals.push('Adj 1 döntéshez kritériumot + küszöböt + határidőt; jelölj ki felelőst.');
+  }
+  if (goals.length < 3) {
+    goals.push('Válassz 1 mérőszámot és 1 küszöböt a sikerhez, és futtass egy kicsi pilotot (ne mindent egyszerre).');
+    if (requiredConcepts.includes('Constraints')) goals.push('Írj 1 szabályt, ami védi a idő/energia/figyelem korlátokat.');
+  }
+  return goals.slice(0, 6);
 }
 
 function conceptDefinitionHu(id: string) {
@@ -353,18 +396,29 @@ async function main() {
     const requiredProcedures = (ccsLesson.requiredProcedures || [])
       .map((id) => procById.get(id))
       .filter(Boolean) as CCSProcedure[];
+    const requiredProcedureIds = (ccsLesson.requiredProcedures || []).filter(Boolean);
 
     const nextContent = buildHULessonHtml({
       day,
       title: oldTitle || `Termelékenység 2026 — ${day}. nap`,
-      intent: ccsLesson.intent || 'Javítsd a kimeneteket és eredményeket egy működő rendszerrel.',
-      goals: (ccsLesson.goals || []).slice(0, 6),
+      intent: buildIntentHu(requiredConcepts, requiredProcedureIds),
+      goals: buildGoalsHu(requiredConcepts, requiredProcedureIds),
       requiredConcepts,
       requiredProcedures,
-      canonicalExample: ccsLesson.canonicalExample,
-      commonMistakes: (ccsLesson.commonMistakes || []).slice(0, 8),
+      canonicalExample: undefined,
+      commonMistakes: [],
     });
     const nextScore = assessLessonQuality({ title: oldTitle, content: nextContent, language: 'hu' });
+    const integrity = validateLessonRecordLanguageIntegrity({
+      language: 'hu',
+      content: nextContent,
+      emailSubject: `Termelékenység 2026 – ${day}. nap: ${oldTitle}`,
+      emailBody:
+        `<h1>Termelékenység 2026 – ${day}. nap</h1>\n` +
+        `<h2>${escapeHtml(oldTitle)}</h2>\n` +
+        `<p>${escapeHtml(buildIntentHu(requiredConcepts, requiredProcedureIds))}</p>\n` +
+        `<p><a href=\"${appUrl}/hu/courses/${COURSE_ID}/day/${day}\">Lecke megnyitása →</a></p>`,
+    });
 
     const row = {
       day,
@@ -372,11 +426,17 @@ async function main() {
       title: oldTitle,
       quality: { old: oldScore, next: nextScore },
       lengths: { oldChars: stripHtml(oldContent).length, nextChars: stripHtml(nextContent).length },
-      applyEligible: nextScore.score >= 70,
+      applyEligible: nextScore.score >= 70 && integrity.ok,
+      languageIntegrity: integrity,
     };
     planRows.push(row);
 
     if (!APPLY) continue;
+    if (!integrity.ok) {
+      throw new Error(
+        `Language integrity failed for ${COURSE_ID} day ${day} (${lesson.lessonId}): ${integrity.errors[0] || 'unknown'}`
+      );
+    }
 
     // Backup before update
     const courseFolder = join(BACKUP_DIR, COURSE_ID);
@@ -404,7 +464,7 @@ async function main() {
     const emailBody =
       `<h1>Termelékenység 2026 – ${day}. nap</h1>\n` +
       `<h2>${escapeHtml(oldTitle)}</h2>\n` +
-      `<p>${escapeHtml(ccsLesson.intent || '')}</p>\n` +
+      `<p>${escapeHtml(buildIntentHu(requiredConcepts, requiredProcedureIds))}</p>\n` +
       `<p><a href=\"${appUrl}/hu/courses/${COURSE_ID}/day/${day}\">Lecke megnyitása →</a></p>`;
 
     const update = await Lesson.updateOne(
@@ -466,4 +526,3 @@ main().catch(err => {
   console.error(err);
   process.exit(1);
 });
-

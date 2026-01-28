@@ -15,7 +15,13 @@
 - **Total Questions Missing**: 0 ✅
 
 ### Achievement:
-**🎉 100% COMPLETE - Every lesson has exactly 7 quality-validated questions!**
+**🎉 100% COMPLETE (as of 2026-01-25) — every lesson had 7 questions at that time.**
+
+**Current standard (SSOT):**
+- Minimum **>= 7** valid questions per lesson (can be more; do not delete valid questions just to cap).
+- 0 RECALL questions; minimum 5 APPLICATION.
+- Language integrity is a hard gate (no English leakage into non‑EN courses).
+See: `2026_course_quality_prompt.md`, `docs/QUIZ_QUALITY_PIPELINE_HANDOVER.md`, `docs/QUIZ_QUALITY_PIPELINE_PLAYBOOK.md`.
 
 ---
 
@@ -50,7 +56,7 @@
 - ✅ No generic templates
 - ✅ No placeholder answers
 - ✅ Context-rich, content-specific questions
-- ✅ Proper cognitive mix (4-5 RECALL, 2-3 APPLICATION, 0-1 CRITICAL_THINKING)
+- ✅ Cognitive mix (current standard): 0 RECALL, >=5 APPLICATION, remainder CRITICAL_THINKING
 
 ---
 

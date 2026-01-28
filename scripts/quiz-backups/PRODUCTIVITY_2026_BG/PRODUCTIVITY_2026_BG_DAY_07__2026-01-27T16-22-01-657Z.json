@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-27T16:22:04.325Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_BG",
+    "name": "Продуктивност 2026: Как да управляваме екипи и време",
+    "language": "bg"
+  },
+  "lesson": {
+    "dayNumber": 7,
+    "title": "Дневна/седмична система: сутрешен ритуал, дневен huddle, седмичен преглед",
+    "lessonId": "PRODUCTIVITY_2026_BG_DAY_07"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a5ae5e2257dcf1105c5",
+      "uuid": "4f514dce-362c-48c6-a8ff-59e3959f01f9",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ Имате 15-минутен сутрешен ритуал.\n✅ Им...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day7",
+        "#bg",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5ae5e2257dcf1105c6",
+      "uuid": "94e70c54-54b7-4e10-aa50-8b3101ef62af",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ Имате 15-минутен сутрешен ритуал.\n✅ Им...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day7",
+        "#bg",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5ae5e2257dcf1105c7",
+      "uuid": "9af6322e-4754-4ff4-baa7-d1ce7c844cca",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ Имате 15-минутен сутрешен ритуал.\n✅ Им...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day7",
+        "#bg",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5ae5e2257dcf1105c8",
+      "uuid": "c24b67c7-d155-4003-be5f-b932b06f938e",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Как концепцията \"Дневна/седмична система: сутрешен ритуал, дневен h...\", спомената в урока, влияе върху постигането на вашите goals?",
+      "options": [
+        "Както е описано подробно в урока, Дневна/седмична система: сутре... увеличава ефективността и намалява риска",
+        "Няма значително въздействие",
+        "Има значение само теоретично",
+        "Само опционален елемент"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day7",
+        "#bg",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5ae5e2257dcf1105c9",
+      "uuid": "3fe85387-b828-43a1-9a38-331a61763c04",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Колко важен е Сутрешен ритуал в контекста на Дневна/седмична система: сутрешен ритуал, дневен huddle, седмичен преглед, както се обсъжда в урока?",
+      "options": [
+        "Както е подробно описано в урока, Сутрешен ритуал играе ключова роля в оптимизирането на процесите и постигането на целите",
+        "Само периферна информация без значителна роля",
+        "Само теоретична концепция без практическо приложение",
+        "Не се споменава в урока"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day7",
+        "#bg",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5ae5e2257dcf1105ca",
+      "uuid": "10b5aa48-094a-48e1-826c-375c013ee09a",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Каква роля играе Седмичен преглед в урока \"Дневна/седмична система: сутрешен ритуал, дневен huddle, седмичен преглед\"?",
+      "options": [
+        "Както е подробно описано в урока, Седмичен преглед играе ключова роля в оптимизирането на процесите и постигането на целите",
+        "Само периферна информация без значителна роля",
+        "Само теоретична концепция без практическо приложение",
+        "Не се споменава в урока"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day7",
+        "#bg",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5ae5e2257dcf1105cb",
+      "uuid": "d289d316-0526-4c7d-9f22-d815e9a8eb34",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Каква роля играе 2. Планиране (8 минути) в урока \"Дневна/седмична система: сутрешен ритуал, дневен huddle, седмичен преглед\"?",
+      "options": [
+        "Както е подробно описано в урока, 2. Планиране (8 минути) играе ключова роля в оптимизирането на процесите и постигането на целите",
+        "Само периферна информация без значителна роля",
+        "Само теоретична концепция без практическо приложение",
+        "Не се споменава в урока"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day7",
+        "#bg",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

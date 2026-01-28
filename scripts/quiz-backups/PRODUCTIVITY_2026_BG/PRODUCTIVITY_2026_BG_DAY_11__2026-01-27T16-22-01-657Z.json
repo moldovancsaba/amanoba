@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-27T16:22:04.613Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_BG",
+    "name": "Продуктивност 2026: Как да управляваме екипи и време",
+    "language": "bg"
+  },
+  "lesson": {
+    "dayNumber": 11,
+    "title": "Определяне на цели и OKR: Какво искате да постигнете?",
+    "lessonId": "PRODUCTIVITY_2026_BG_DAY_11"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a5ae5e2257dcf1105f8",
+      "uuid": "95846a18-2ddf-4ed1-8948-62e13ff2034c",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Производителност без цел = просто занетост.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day11",
+        "#bg",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5ae5e2257dcf1105f9",
+      "uuid": "5680b9ba-5f79-4524-a7e1-219d2e024fca",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Направление\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day11",
+        "#bg",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5ae5e2257dcf1105fa",
+      "uuid": "2558298a-767c-4ac0-bf7c-c5f791db802d",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Мотивация\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day11",
+        "#bg",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5ae5e2257dcf1105fb",
+      "uuid": "42e4bfae-9ad8-4528-9d50-ca265aa30fcf",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Как концепцията \"Определяне на цели и OKR: Какво искате да постигне...\", спомената в урока, влияе върху постигането на вашите goals?",
+      "options": [
+        "Както е описано подробно в урока, Определяне на цели и OKR: Какв... увеличава ефективността и намалява риска",
+        "Няма значително въздействие",
+        "Има значение само теоретично",
+        "Само опционален елемент"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day11",
+        "#bg",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5ae5e2257dcf1105fc",
+      "uuid": "59c9cb5b-45fb-464a-a893-0381c46ceee7",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Колко важен е Направление в контекста на Определяне на цели и OKR: Какво искате да постигнете?, както се обсъжда в урока?",
+      "options": [
+        "Както е подробно описано в урока, Направление играе ключова роля в оптимизирането на процесите и постигането на целите",
+        "Само периферна информация без значителна роля",
+        "Само теоретична концепция без практическо приложение",
+        "Не се споменава в урока"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day11",
+        "#bg",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5ae5e2257dcf1105fd",
+      "uuid": "2aca3812-29ba-4fd1-9733-54e4b33536f2",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Колко важен е Измерване в контекста на Определяне на цели и OKR: Какво искате да постигнете?, както се обсъжда в урока?",
+      "options": [
+        "Както е подробно описано в урока, Измерване играе ключова роля в оптимизирането на процесите и постигането на целите",
+        "Само периферна информация без значителна роля",
+        "Само теоретична концепция без практическо приложение",
+        "Не се споменава в урока"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day11",
+        "#bg",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5ae5e2257dcf1105fe",
+      "uuid": "7f336068-2ca8-4d95-b188-81cb96684fe4",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Колко важен е цели в контекста на Определяне на цели и OKR: Какво искате да постигнете?, както се обсъжда в урока?",
+      "options": [
+        "Както е подробно описано в урока, цели играе ключова роля в оптимизирането на процесите и постигането на целите",
+        "Само периферна информация без значителна роля",
+        "Само теоретична концепция без практическо приложение",
+        "Не се споменава в урока"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day11",
+        "#bg",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

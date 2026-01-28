@@ -26,6 +26,7 @@ config({ path: resolve(process.cwd(), '.env.local') });
 import connectDB from '../app/lib/mongodb';
 import { Course, Lesson } from '../app/lib/models';
 import { assessLessonQuality } from './lesson-quality';
+import { validateLessonRecordLanguageIntegrity } from './language-integrity';
 
 function getArgValue(flag: string): string | undefined {
   const idx = process.argv.indexOf(flag);
@@ -181,6 +182,51 @@ function translateProcedureStepTr(step: string) {
   return s;
 }
 
+function buildIntentTr(requiredConcepts: string[], requiredProcedureIds: string[]) {
+  if (requiredProcedureIds.includes('P3_DEEP_WORK_DAY_DESIGN') || requiredConcepts.includes('DeepWork')) {
+    return 'Bugün odağını koruyan bir gün tasarlıyorsun: kesintileri azaltıp 2+ deep work bloğunu ölçülebilir bir sonuca bağlayacaksın.';
+  }
+  if (requiredProcedureIds.includes('P2_WEEKLY_REVIEW_THROUGHPUT_FOCUS_CARRYOVER') || requiredConcepts.includes('Throughput')) {
+    return 'Bugün bir geri bildirim döngüsü kuruyorsun: throughput, odak blokları ve carryover’ı ölçerek sistemi 1 kural değişikliğiyle iyileştireceksin.';
+  }
+  if (requiredProcedureIds.includes('P4_TASK_AUDIT_DELEGATE_ELIMINATE') || requiredConcepts.includes('Delegation')) {
+    return 'Bugün yükü azaltıp hız kazanmak için görevleri denetleyecek, delege/ele kararlarını net kriterlerle vereceksin.';
+  }
+  if (requiredProcedureIds.includes('P5_DECISION_MATRIX_AND_CATEGORIES') || requiredConcepts.includes('DecisionMatrix')) {
+    return 'Bugün karar gecikmesini azaltacaksın: kararları kategoriye ayırıp kriter + eşik tanımlayarak “takılan” işleri çözeceksin.';
+  }
+  if (requiredConcepts.includes('Output') && requiredConcepts.includes('Outcome')) {
+    return 'Bugün output’u ölçülebilir outcome’a bağlayacaksın: “bitti” kriteri, metrik ve eşik tanımıyla küçük bir pilot uygulayacaksın.';
+  }
+  return 'Bugün kısıtlar altında ölçülebilir output üretip bunu sonuca bağlayan bir uygulama tasarlayacaksın.';
+}
+
+function buildGoalsTr(requiredConcepts: string[], requiredProcedureIds: string[]) {
+  const goals: string[] = [];
+
+  if (requiredProcedureIds.includes('P2_WEEKLY_REVIEW_THROUGHPUT_FOCUS_CARRYOVER')) {
+    goals.push('Throughput’u, odak bloklarını ve carryover’ı ölç; 2 içgörü yaz.');
+    goals.push('Gelecek hafta için 1 kural değişikliği seç ve nasıl doğrulayacağını tanımla.');
+  }
+  if (requiredProcedureIds.includes('P3_DEEP_WORK_DAY_DESIGN')) {
+    goals.push('2 korumalı deep work bloğu + %20–30 buffer planla; kesinti riskini azalt.');
+    goals.push('1 kritik output için “bitti” kriteri yaz ve beklenen outcome’u belirt.');
+  }
+  if (requiredProcedureIds.includes('P4_TASK_AUDIT_DELEGATE_ELIMINATE')) {
+    goals.push('Görevleri “delege et / ele / kendin yap” olarak sınıflandır ve 1 giriş kuralı belirle.');
+  }
+  if (requiredProcedureIds.includes('P5_DECISION_MATRIX_AND_CATEGORIES')) {
+    goals.push('1 karar için kriter + eşik + süre belirle; sahipliği netleştir.');
+  }
+
+  if (goals.length < 3) {
+    goals.push('1 metrik + 1 eşik seç ve küçük bir pilotta test et; her şeyi aynı anda değiştirme.');
+    if (requiredConcepts.includes('Constraints')) goals.push('Zaman/enerji/dikkat kısıtlarını koruyan 1 kural yaz.');
+  }
+
+  return goals.slice(0, 6);
+}
+
 function buildMetricsTr(requiredConcepts: string[], requiredProcedures: string[]) {
   const metrics: string[] = [];
 
@@ -324,9 +370,14 @@ async function main() {
     const oldContent = String(lesson.content || '');
     const oldTitle = String(lesson.title || '');
     const oldScore = assessLessonQuality({ title: oldTitle, content: oldContent, language: 'tr' });
+    const oldText = stripHtml(oldContent);
+    const forceRefineForLanguage =
+      // CCS English leakage indicators (we previously inserted CCS intent/goals verbatim).
+      /\b(Replace|Distinguish|Identify|Write|Establish)\b/.test(oldText) ||
+      /“busy work”/i.test(oldText);
 
     // Safety: never overwrite already-strong lessons. Only refine when score is below the threshold.
-    if (oldScore.score >= 70) {
+    if (oldScore.score >= 70 && !forceRefineForLanguage) {
       planRows.push({
         day,
         lessonId: lesson.lessonId,
@@ -343,18 +394,29 @@ async function main() {
     const requiredProcedures = (ccsLesson.requiredProcedures || [])
       .map((id) => procById.get(id))
       .filter(Boolean) as CCSProcedure[];
+    const requiredProcedureIds = (ccsLesson.requiredProcedures || []).filter(Boolean);
 
     const nextContent = buildTRLessonHtml({
       day,
       title: oldTitle || `Verimlilik 2026 — Gün ${day}`,
-      intent: ccsLesson.intent || 'Kısıtlar altında ölçülebilir output üret ve outcome’a bağla.',
-      goals: (ccsLesson.goals || []).slice(0, 6),
+      intent: buildIntentTr(requiredConcepts, requiredProcedureIds),
+      goals: buildGoalsTr(requiredConcepts, requiredProcedureIds),
       requiredConcepts,
       requiredProcedures,
-      canonicalExample: ccsLesson.canonicalExample,
-      commonMistakes: (ccsLesson.commonMistakes || []).slice(0, 8),
+      canonicalExample: undefined,
+      commonMistakes: [],
     });
     const nextScore = assessLessonQuality({ title: oldTitle, content: nextContent, language: 'tr' });
+    const integrity = validateLessonRecordLanguageIntegrity({
+      language: 'tr',
+      content: nextContent,
+      emailSubject: `Verimlilik 2026 – Gün ${day}: ${oldTitle}`,
+      emailBody:
+        `<h1>Verimlilik 2026 – Gün ${day}</h1>\n` +
+        `<h2>${escapeHtml(oldTitle)}</h2>\n` +
+        `<p>${escapeHtml(buildIntentTr(requiredConcepts, requiredProcedureIds))}</p>\n` +
+        `<p><a href=\"${appUrl}/tr/courses/${COURSE_ID}/day/${day}\">Dersi aç →</a></p>`,
+    });
 
     planRows.push({
       day,
@@ -363,10 +425,16 @@ async function main() {
       action: 'REFINE',
       quality: { old: oldScore, next: nextScore },
       lengths: { oldChars: stripHtml(oldContent).length, nextChars: stripHtml(nextContent).length },
-      applyEligible: nextScore.score >= 70,
+      applyEligible: nextScore.score >= 70 && integrity.ok,
+      languageIntegrity: integrity,
     });
 
     if (!APPLY) continue;
+    if (!integrity.ok) {
+      throw new Error(
+        `Language integrity failed for ${COURSE_ID} day ${day} (${lesson.lessonId}): ${integrity.errors[0] || 'unknown'}`
+      );
+    }
 
     // Backup before update
     const courseFolder = join(BACKUP_DIR, COURSE_ID);
@@ -394,7 +462,7 @@ async function main() {
     const emailBody =
       `<h1>Verimlilik 2026 – Gün ${day}</h1>\n` +
       `<h2>${escapeHtml(oldTitle)}</h2>\n` +
-      `<p>${escapeHtml(ccsLesson.intent || '')}</p>\n` +
+      `<p>${escapeHtml(buildIntentTr(requiredConcepts, requiredProcedureIds))}</p>\n` +
       `<p><a href=\"${appUrl}/tr/courses/${COURSE_ID}/day/${day}\">Dersi aç →</a></p>`;
 
     const update = await Lesson.updateOne(

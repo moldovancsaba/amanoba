@@ -1,0 +1,1728 @@
+{
+  "generatedAt": "2026-01-27T16:31:04.893Z",
+  "courseId": "PRODUCTIVITY_2026_BG",
+  "fromDay": 1,
+  "toDay": 30,
+  "apply": false,
+  "totals": {
+    "considered": 30,
+    "eligible70": 30,
+    "below70": 0,
+    "applied": 0
+  },
+  "planRows": [
+    {
+      "day": 1,
+      "lessonId": "PRODUCTIVITY_2026_BG_DAY_01",
+      "title": "Дефиниция на продуктивността: изход, резултати и ограничения",
+      "action": "SKIP_ALREADY_OK",
+      "quality": {
+        "old": {
+          "score": 85,
+          "issues": [
+            "NO_METRICS_OR_CRITERIA"
+          ],
+          "signals": {
+            "charCount": 2715,
+            "wordCount": 382,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": false,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": true
+          }
+        },
+        "next": {
+          "score": 85,
+          "issues": [
+            "NO_METRICS_OR_CRITERIA"
+          ],
+          "signals": {
+            "charCount": 2715,
+            "wordCount": 382,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": false,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": true
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 2715,
+        "nextChars": 2715
+      },
+      "applyEligible": true
+    },
+    {
+      "day": 2,
+      "lessonId": "PRODUCTIVITY_2026_BG_DAY_02",
+      "title": "Време, енергия, внимание: какво управлявате на практика",
+      "action": "SKIP_ALREADY_OK",
+      "quality": {
+        "old": {
+          "score": 70,
+          "issues": [
+            "NO_CLEAR_DEFINITIONS",
+            "NO_METRICS_OR_CRITERIA"
+          ],
+          "signals": {
+            "charCount": 3357,
+            "wordCount": 491,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": false,
+            "hasDefinitionsOrComparisons": false
+          },
+          "refineTemplate": {
+            "addDefinitionSection": true,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": true
+          }
+        },
+        "next": {
+          "score": 70,
+          "issues": [
+            "NO_CLEAR_DEFINITIONS",
+            "NO_METRICS_OR_CRITERIA"
+          ],
+          "signals": {
+            "charCount": 3357,
+            "wordCount": 491,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": false,
+            "hasDefinitionsOrComparisons": false
+          },
+          "refineTemplate": {
+            "addDefinitionSection": true,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": true
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 3357,
+        "nextChars": 3357
+      },
+      "applyEligible": true
+    },
+    {
+      "day": 3,
+      "lessonId": "PRODUCTIVITY_2026_BG_DAY_03",
+      "title": "Йерархия на целите: визия → резултати → проекти → следващи стъпки",
+      "action": "SKIP_ALREADY_OK",
+      "quality": {
+        "old": {
+          "score": 70,
+          "issues": [
+            "NO_CLEAR_DEFINITIONS",
+            "NO_METRICS_OR_CRITERIA"
+          ],
+          "signals": {
+            "charCount": 2767,
+            "wordCount": 421,
+            "hasBullets": true,
+            "hasNumberedSteps": true,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": false,
+            "hasDefinitionsOrComparisons": false
+          },
+          "refineTemplate": {
+            "addDefinitionSection": true,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": true
+          }
+        },
+        "next": {
+          "score": 70,
+          "issues": [
+            "NO_CLEAR_DEFINITIONS",
+            "NO_METRICS_OR_CRITERIA"
+          ],
+          "signals": {
+            "charCount": 2767,
+            "wordCount": 421,
+            "hasBullets": true,
+            "hasNumberedSteps": true,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": false,
+            "hasDefinitionsOrComparisons": false
+          },
+          "refineTemplate": {
+            "addDefinitionSection": true,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": true
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 2767,
+        "nextChars": 2767
+      },
+      "applyEligible": true
+    },
+    {
+      "day": 4,
+      "lessonId": "PRODUCTIVITY_2026_BG_DAY_04",
+      "title": "Навици срещу системи: защо системите се мащабират по-добре",
+      "action": "SKIP_ALREADY_OK",
+      "quality": {
+        "old": {
+          "score": 85,
+          "issues": [
+            "NO_METRICS_OR_CRITERIA"
+          ],
+          "signals": {
+            "charCount": 2856,
+            "wordCount": 419,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": false,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": true
+          }
+        },
+        "next": {
+          "score": 85,
+          "issues": [
+            "NO_METRICS_OR_CRITERIA"
+          ],
+          "signals": {
+            "charCount": 2856,
+            "wordCount": 419,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": false,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": true
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 2856,
+        "nextChars": 2856
+      },
+      "applyEligible": true
+    },
+    {
+      "day": 5,
+      "lessonId": "PRODUCTIVITY_2026_BG_DAY_05",
+      "title": "Измерване: прости метрики за седмичен преглед (throughput, блокове за фокус, carryover)",
+      "action": "SKIP_ALREADY_OK",
+      "quality": {
+        "old": {
+          "score": 85,
+          "issues": [
+            "NO_METRICS_OR_CRITERIA"
+          ],
+          "signals": {
+            "charCount": 2518,
+            "wordCount": 372,
+            "hasBullets": true,
+            "hasNumberedSteps": true,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": false,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": true
+          }
+        },
+        "next": {
+          "score": 85,
+          "issues": [
+            "NO_METRICS_OR_CRITERIA"
+          ],
+          "signals": {
+            "charCount": 2518,
+            "wordCount": 372,
+            "hasBullets": true,
+            "hasNumberedSteps": true,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": false,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": true
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 2518,
+        "nextChars": 2518
+      },
+      "applyEligible": true
+    },
+    {
+      "day": 6,
+      "lessonId": "PRODUCTIVITY_2026_BG_DAY_06",
+      "title": "Улавяне: входящи кутии, списък с тригери, навици за улавяне",
+      "action": "SKIP_ALREADY_OK",
+      "quality": {
+        "old": {
+          "score": 85,
+          "issues": [
+            "NO_METRICS_OR_CRITERIA"
+          ],
+          "signals": {
+            "charCount": 2698,
+            "wordCount": 416,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": false,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": true
+          }
+        },
+        "next": {
+          "score": 85,
+          "issues": [
+            "NO_METRICS_OR_CRITERIA"
+          ],
+          "signals": {
+            "charCount": 2698,
+            "wordCount": 416,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": false,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": true
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 2698,
+        "nextChars": 2698
+      },
+      "applyEligible": true
+    },
+    {
+      "day": 7,
+      "lessonId": "PRODUCTIVITY_2026_BG_DAY_07",
+      "title": "Дневна/седмична система: сутрешен ритуал, дневен huddle, седмичен преглед",
+      "action": "REFINE",
+      "quality": {
+        "old": {
+          "score": 100,
+          "issues": [],
+          "signals": {
+            "charCount": 1900,
+            "wordCount": 283,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        },
+        "next": {
+          "score": 100,
+          "issues": [],
+          "signals": {
+            "charCount": 2148,
+            "wordCount": 327,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 1900,
+        "nextChars": 2148
+      },
+      "applyEligible": true
+    },
+    {
+      "day": 8,
+      "lessonId": "PRODUCTIVITY_2026_BG_DAY_8",
+      "title": "Цена на сменяне на контекст: Остатък от внимание, Пакетна обработка, Блокове за дълбока работа",
+      "action": "SKIP_ALREADY_OK",
+      "quality": {
+        "old": {
+          "score": 85,
+          "issues": [
+            "NO_METRICS_OR_CRITERIA"
+          ],
+          "signals": {
+            "charCount": 2538,
+            "wordCount": 383,
+            "hasBullets": true,
+            "hasNumberedSteps": true,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": false,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": true
+          }
+        },
+        "next": {
+          "score": 85,
+          "issues": [
+            "NO_METRICS_OR_CRITERIA"
+          ],
+          "signals": {
+            "charCount": 2538,
+            "wordCount": 383,
+            "hasBullets": true,
+            "hasNumberedSteps": true,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": false,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": true
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 2538,
+        "nextChars": 2538
+      },
+      "applyEligible": true
+    },
+    {
+      "day": 9,
+      "lessonId": "PRODUCTIVITY_2026_BG_DAY_9",
+      "title": "Делегиране срещу Премахване: Кога да делегирате, Какво да премахнете",
+      "action": "SKIP_ALREADY_OK",
+      "quality": {
+        "old": {
+          "score": 100,
+          "issues": [],
+          "signals": {
+            "charCount": 2781,
+            "wordCount": 401,
+            "hasBullets": true,
+            "hasNumberedSteps": true,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        },
+        "next": {
+          "score": 100,
+          "issues": [],
+          "signals": {
+            "charCount": 2781,
+            "wordCount": 401,
+            "hasBullets": true,
+            "hasNumberedSteps": true,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 2781,
+        "nextChars": 2781
+      },
+      "applyEligible": true
+    },
+    {
+      "day": 10,
+      "lessonId": "PRODUCTIVITY_2026_BG_DAY_10",
+      "title": "Управление на енергия: Кога да работите, Кога да почивате, Ритуали на възстановяване",
+      "action": "SKIP_ALREADY_OK",
+      "quality": {
+        "old": {
+          "score": 70,
+          "issues": [
+            "NO_EXAMPLES",
+            "NO_METRICS_OR_CRITERIA"
+          ],
+          "signals": {
+            "charCount": 3064,
+            "wordCount": 451,
+            "hasBullets": true,
+            "hasNumberedSteps": true,
+            "hasExamples": false,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": false,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": true,
+            "addPitfallsSection": false,
+            "addMetricsSection": true
+          }
+        },
+        "next": {
+          "score": 70,
+          "issues": [
+            "NO_EXAMPLES",
+            "NO_METRICS_OR_CRITERIA"
+          ],
+          "signals": {
+            "charCount": 3064,
+            "wordCount": 451,
+            "hasBullets": true,
+            "hasNumberedSteps": true,
+            "hasExamples": false,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": false,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": true,
+            "addPitfallsSection": false,
+            "addMetricsSection": true
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 3064,
+        "nextChars": 3064
+      },
+      "applyEligible": true
+    },
+    {
+      "day": 11,
+      "lessonId": "PRODUCTIVITY_2026_BG_DAY_11",
+      "title": "Определяне на цели и OKR: Какво искате да постигнете?",
+      "action": "REFINE",
+      "quality": {
+        "old": {
+          "score": 100,
+          "issues": [],
+          "signals": {
+            "charCount": 1083,
+            "wordCount": 161,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        },
+        "next": {
+          "score": 100,
+          "issues": [],
+          "signals": {
+            "charCount": 1117,
+            "wordCount": 168,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 1083,
+        "nextChars": 1117
+      },
+      "applyEligible": true
+    },
+    {
+      "day": 12,
+      "lessonId": "PRODUCTIVITY_2026_BG_DAY_12",
+      "title": "Структури на отчетност: Системи, които ви държат на пътя",
+      "action": "SKIP_ALREADY_OK",
+      "quality": {
+        "old": {
+          "score": 75,
+          "issues": [
+            "TOO_SHORT"
+          ],
+          "signals": {
+            "charCount": 1115,
+            "wordCount": 159,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        },
+        "next": {
+          "score": 75,
+          "issues": [
+            "TOO_SHORT"
+          ],
+          "signals": {
+            "charCount": 1115,
+            "wordCount": 159,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 1115,
+        "nextChars": 1115
+      },
+      "applyEligible": true
+    },
+    {
+      "day": 13,
+      "lessonId": "PRODUCTIVITY_2026_BG_DAY_13",
+      "title": "Рамки за вземане на решения: Бързи решения, матрица на решения, избягване на анализната парализа",
+      "action": "SKIP_ALREADY_OK",
+      "quality": {
+        "old": {
+          "score": 85,
+          "issues": [
+            "NO_EXAMPLES"
+          ],
+          "signals": {
+            "charCount": 3566,
+            "wordCount": 510,
+            "hasBullets": true,
+            "hasNumberedSteps": true,
+            "hasExamples": false,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": true,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        },
+        "next": {
+          "score": 85,
+          "issues": [
+            "NO_EXAMPLES"
+          ],
+          "signals": {
+            "charCount": 3566,
+            "wordCount": 510,
+            "hasBullets": true,
+            "hasNumberedSteps": true,
+            "hasExamples": false,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": true,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 3566,
+        "nextChars": 3566
+      },
+      "applyEligible": true
+    },
+    {
+      "day": 14,
+      "lessonId": "PRODUCTIVITY_2026_BG_DAY_14",
+      "title": "Ефективност на срещите: Дневен ред, времеви лимити, дневник на решенията",
+      "action": "SKIP_ALREADY_OK",
+      "quality": {
+        "old": {
+          "score": 100,
+          "issues": [],
+          "signals": {
+            "charCount": 1153,
+            "wordCount": 169,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        },
+        "next": {
+          "score": 100,
+          "issues": [],
+          "signals": {
+            "charCount": 1153,
+            "wordCount": 169,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 1153,
+        "nextChars": 1153
+      },
+      "applyEligible": true
+    },
+    {
+      "day": 15,
+      "lessonId": "PRODUCTIVITY_2026_BG_DAY_15",
+      "title": "Работа в екип и синергия: Роли, отговорност, координация",
+      "action": "REFINE",
+      "quality": {
+        "old": {
+          "score": 100,
+          "issues": [],
+          "signals": {
+            "charCount": 1472,
+            "wordCount": 213,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        },
+        "next": {
+          "score": 100,
+          "issues": [],
+          "signals": {
+            "charCount": 1599,
+            "wordCount": 241,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 1472,
+        "nextChars": 1599
+      },
+      "applyEligible": true
+    },
+    {
+      "day": 16,
+      "lessonId": "PRODUCTIVITY_2026_BG_DAY_16",
+      "title": "Управление на стреса и умора: Възстановяване, баланс работа-живот",
+      "action": "REFINE",
+      "quality": {
+        "old": {
+          "score": 75,
+          "issues": [
+            "TOO_SHORT"
+          ],
+          "signals": {
+            "charCount": 1115,
+            "wordCount": 158,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        },
+        "next": {
+          "score": 100,
+          "issues": [],
+          "signals": {
+            "charCount": 1129,
+            "wordCount": 167,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 1115,
+        "nextChars": 1129
+      },
+      "applyEligible": true
+    },
+    {
+      "day": 17,
+      "lessonId": "PRODUCTIVITY_2026_BG_DAY_17",
+      "title": "Поддържане на мотивация: Проследяване на напредък, Отпразнуване на победи",
+      "action": "SKIP_ALREADY_OK",
+      "quality": {
+        "old": {
+          "score": 100,
+          "issues": [],
+          "signals": {
+            "charCount": 1166,
+            "wordCount": 168,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        },
+        "next": {
+          "score": 100,
+          "issues": [],
+          "signals": {
+            "charCount": 1166,
+            "wordCount": 168,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 1166,
+        "nextChars": 1166
+      },
+      "applyEligible": true
+    },
+    {
+      "day": 18,
+      "lessonId": "PRODUCTIVITY_2026_BG_DAY_18",
+      "title": "Управление на криза и адаптивност: Адаптация, бързо учене",
+      "action": "SKIP_ALREADY_OK",
+      "quality": {
+        "old": {
+          "score": 100,
+          "issues": [],
+          "signals": {
+            "charCount": 1499,
+            "wordCount": 214,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        },
+        "next": {
+          "score": 100,
+          "issues": [],
+          "signals": {
+            "charCount": 1499,
+            "wordCount": 214,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 1499,
+        "nextChars": 1499
+      },
+      "applyEligible": true
+    },
+    {
+      "day": 19,
+      "lessonId": "PRODUCTIVITY_2026_BG_DAY_19",
+      "title": "Дългосрочно планиране: Години напред, стратегия, еволюция",
+      "action": "SKIP_ALREADY_OK",
+      "quality": {
+        "old": {
+          "score": 100,
+          "issues": [],
+          "signals": {
+            "charCount": 1452,
+            "wordCount": 205,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        },
+        "next": {
+          "score": 100,
+          "issues": [],
+          "signals": {
+            "charCount": 1452,
+            "wordCount": 205,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 1452,
+        "nextChars": 1452
+      },
+      "applyEligible": true
+    },
+    {
+      "day": 20,
+      "lessonId": "PRODUCTIVITY_2026_BG_DAY_20",
+      "title": "Производителност на личния живот: Организиране на дома, лични проекти",
+      "action": "SKIP_ALREADY_OK",
+      "quality": {
+        "old": {
+          "score": 100,
+          "issues": [],
+          "signals": {
+            "charCount": 1137,
+            "wordCount": 165,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        },
+        "next": {
+          "score": 100,
+          "issues": [],
+          "signals": {
+            "charCount": 1137,
+            "wordCount": 165,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 1137,
+        "nextChars": 1137
+      },
+      "applyEligible": true
+    },
+    {
+      "day": 21,
+      "lessonId": "PRODUCTIVITY_2026_BG_DAY_21",
+      "title": "Общност и мрежа: Отношения, учене с други",
+      "action": "SKIP_ALREADY_OK",
+      "quality": {
+        "old": {
+          "score": 75,
+          "issues": [
+            "TOO_SHORT"
+          ],
+          "signals": {
+            "charCount": 1102,
+            "wordCount": 158,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        },
+        "next": {
+          "score": 75,
+          "issues": [
+            "TOO_SHORT"
+          ],
+          "signals": {
+            "charCount": 1102,
+            "wordCount": 158,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 1102,
+        "nextChars": 1102
+      },
+      "applyEligible": true
+    },
+    {
+      "day": 22,
+      "lessonId": "PRODUCTIVITY_2026_BG_DAY_22",
+      "title": "Технология и инструменти: Автоматизация, избор на подходящата технология",
+      "action": "REFINE",
+      "quality": {
+        "old": {
+          "score": 75,
+          "issues": [
+            "TOO_SHORT"
+          ],
+          "signals": {
+            "charCount": 1138,
+            "wordCount": 158,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        },
+        "next": {
+          "score": 100,
+          "issues": [],
+          "signals": {
+            "charCount": 1136,
+            "wordCount": 167,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 1138,
+        "nextChars": 1136
+      },
+      "applyEligible": true
+    },
+    {
+      "day": 23,
+      "lessonId": "PRODUCTIVITY_2026_BG_DAY_23",
+      "title": "Креативност и иновация: Преосмисляне, експерименти",
+      "action": "REFINE",
+      "quality": {
+        "old": {
+          "score": 100,
+          "issues": [],
+          "signals": {
+            "charCount": 1479,
+            "wordCount": 212,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        },
+        "next": {
+          "score": 100,
+          "issues": [],
+          "signals": {
+            "charCount": 1569,
+            "wordCount": 226,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 1479,
+        "nextChars": 1569
+      },
+      "applyEligible": true
+    },
+    {
+      "day": 24,
+      "lessonId": "PRODUCTIVITY_2026_BG_DAY_24",
+      "title": "Филтриране и приоритети: Какво да игнорираш, какво е важно",
+      "action": "SKIP_ALREADY_OK",
+      "quality": {
+        "old": {
+          "score": 100,
+          "issues": [],
+          "signals": {
+            "charCount": 1134,
+            "wordCount": 161,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        },
+        "next": {
+          "score": 100,
+          "issues": [],
+          "signals": {
+            "charCount": 1134,
+            "wordCount": 161,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 1134,
+        "nextChars": 1134
+      },
+      "applyEligible": true
+    },
+    {
+      "day": 25,
+      "lessonId": "PRODUCTIVITY_2026_BG_DAY_25",
+      "title": "Развитие на умения: По-високи нива, нови компетентности",
+      "action": "SKIP_ALREADY_OK",
+      "quality": {
+        "old": {
+          "score": 75,
+          "issues": [
+            "TOO_SHORT"
+          ],
+          "signals": {
+            "charCount": 1077,
+            "wordCount": 154,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        },
+        "next": {
+          "score": 75,
+          "issues": [
+            "TOO_SHORT"
+          ],
+          "signals": {
+            "charCount": 1077,
+            "wordCount": 154,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 1077,
+        "nextChars": 1077
+      },
+      "applyEligible": true
+    },
+    {
+      "day": 26,
+      "lessonId": "PRODUCTIVITY_2026_BG_DAY_26",
+      "title": "Менториство и преподаване: споделяне на знания, помощ на други",
+      "action": "REFINE",
+      "quality": {
+        "old": {
+          "score": 100,
+          "issues": [],
+          "signals": {
+            "charCount": 1470,
+            "wordCount": 214,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        },
+        "next": {
+          "score": 100,
+          "issues": [],
+          "signals": {
+            "charCount": 1605,
+            "wordCount": 242,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 1470,
+        "nextChars": 1605
+      },
+      "applyEligible": true
+    },
+    {
+      "day": 27,
+      "lessonId": "PRODUCTIVITY_2026_BG_DAY_27",
+      "title": "Навици и ритуали: Дневни рутини, дългосрочно действие",
+      "action": "REFINE",
+      "quality": {
+        "old": {
+          "score": 100,
+          "issues": [],
+          "signals": {
+            "charCount": 1110,
+            "wordCount": 160,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        },
+        "next": {
+          "score": 100,
+          "issues": [],
+          "signals": {
+            "charCount": 1117,
+            "wordCount": 166,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 1110,
+        "nextChars": 1117
+      },
+      "applyEligible": true
+    },
+    {
+      "day": 28,
+      "lessonId": "PRODUCTIVITY_2026_BG_DAY_28",
+      "title": "Ценности и цели: Цел на живота, дългосрочна визия",
+      "action": "SKIP_ALREADY_OK",
+      "quality": {
+        "old": {
+          "score": 75,
+          "issues": [
+            "TOO_SHORT"
+          ],
+          "signals": {
+            "charCount": 1073,
+            "wordCount": 154,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        },
+        "next": {
+          "score": 75,
+          "issues": [
+            "TOO_SHORT"
+          ],
+          "signals": {
+            "charCount": 1073,
+            "wordCount": 154,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 1073,
+        "nextChars": 1073
+      },
+      "applyEligible": true
+    },
+    {
+      "day": 29,
+      "lessonId": "PRODUCTIVITY_2026_BG_DAY_29",
+      "title": "Постоянно подобрение: учене, обратна връзка, итерация",
+      "action": "SKIP_ALREADY_OK",
+      "quality": {
+        "old": {
+          "score": 100,
+          "issues": [],
+          "signals": {
+            "charCount": 1480,
+            "wordCount": 214,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        },
+        "next": {
+          "score": 100,
+          "issues": [],
+          "signals": {
+            "charCount": 1480,
+            "wordCount": 214,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 1480,
+        "nextChars": 1480
+      },
+      "applyEligible": true
+    },
+    {
+      "day": 30,
+      "lessonId": "PRODUCTIVITY_2026_BG_DAY_30",
+      "title": "Мистерията на производителност: Цялостна интеграция, ангажимент",
+      "action": "SKIP_ALREADY_OK",
+      "quality": {
+        "old": {
+          "score": 100,
+          "issues": [],
+          "signals": {
+            "charCount": 1512,
+            "wordCount": 218,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        },
+        "next": {
+          "score": 100,
+          "issues": [],
+          "signals": {
+            "charCount": 1512,
+            "wordCount": 218,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 1512,
+        "nextChars": 1512
+      },
+      "applyEligible": true
+    }
+  ],
+  "applyResults": []
+}

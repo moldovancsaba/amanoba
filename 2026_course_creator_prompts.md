@@ -5,8 +5,10 @@ This file is a **copy/paste prompt library** for creating, auditing, and fixing 
 ## Prerequisites (for any prompt that changes code/DB)
 - You (the agent) must **read and follow**:
   - `agent_working_loop_canonical_operating_document.md`
+  - `docs/COURSE_BUILDING_RULES.md` (course creation + language prerequisites)
   - `docs/QUIZ_QUALITY_PIPELINE_HANDOVER.md` (for any quiz-related work)
   - `docs/QUIZ_QUALITY_PIPELINE_PLAYBOOK.md` (for commands + reports)
+  - `2026_course_quality_prompt.md` (single-source-of-truth for course QC)
 - No autonomous assumptions: ask clarifying questions before writing to DB or changing course content.
 - Always provide a **Safety Rollback Plan** before any destructive action (delete/overwrite/seed).
 
@@ -140,6 +142,9 @@ CCS output format:
    - `assessmentBlueprint` per day: min questions (>=7), min application (>=5), min critical-thinking (>=2), banned patterns
    - `glossary` with term-locking guidance per language (EN/PL/RU/etc.)
    - `bibliography[]` with source ids (urls/books/papers/internal docs)
+   - **Localization layer (mandatory)**:
+     - For each lesson: `intent/goals/examples/commonMistakes` must exist **per language** (or as translation keys resolvable per language).
+     - For each procedure: steps must be resolvable **per language** (no English injection into non‑EN lessons).
 2) A **human-readable narrative** explaining:
    - why each lesson exists
    - how quizzes should be generated from concepts/claims/procedures (not from titles)
@@ -149,6 +154,7 @@ Hard quiz rules (must be encoded in CCS):
 - 0 RECALL questions (hard disallow)
 - Questions and options must be standalone and educational; no “as described in the lesson”
 - No throwaway options; options must be detailed
+ - **Language integrity (hard)**: non‑EN courses must not contain injected English sentences/bullets in lessons or quizzes.
 
 End with:
 - A list of any unresolved decisions (e.g. missing sources)

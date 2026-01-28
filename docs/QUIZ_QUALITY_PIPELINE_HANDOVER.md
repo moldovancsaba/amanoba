@@ -33,6 +33,23 @@ It is designed to be used as a **handover prompt + operating manual**, similar i
 - Must be grounded in lesson content (no invented facts).
 - Correct metadata: uuid, hashtags, questionType, difficulty.
 
+### Lesson language integrity (Hard Requirement)
+
+Lessons (and emails) must match the course language:
+- `lesson.content`, `lesson.emailSubject`, `lesson.emailBody` must be in-language.
+- No English sentence/bullet injection into non‑EN lessons (e.g., “Scale capability…”, “Create a …”).
+
+If language integrity fails:
+- Block apply-mode lesson changes for that lesson.
+- Block quiz rewrite for that lesson.
+- Create a clear action item describing the offending snippet(s) and how to fix.
+
+### CCS alignment (Hard Requirement)
+
+CCS is canonical for meaning, but is currently **English-first** unless localized fields exist.
+- Never inject CCS English `intent/goals/examples/commonMistakes` verbatim into non‑EN lessons.
+- For non‑EN refinement, render only in-language content (either from localized CCS fields or from language-local templates derived from CCS procedure IDs/concept IDs).
+
 ### Lesson requirements (to support great quizzes)
 If a lesson is too weak (missing definitions/steps/examples/criteria), we do **not** invent quiz content to fill requirements.
 Instead: the pipeline creates **lesson refinement tasks** and skips quiz rewrite for that lesson.
@@ -59,6 +76,7 @@ Instead: the pipeline creates **lesson refinement tasks** and skips quiz rewrite
 ### Core scripts (pipeline)
 - `scripts/quiz-quality-pipeline.ts` — end-to-end pipeline runner.
 - `scripts/audit-lesson-quality.ts` — lesson quality audit and refinement task generator.
+- `scripts/audit-lesson-language-integrity.ts` — lesson language integrity audit (hard gate; blocks quiz work if lesson text is mixed-language).
 - `scripts/lesson-quality.ts` — scoring heuristics (definitions, steps, examples, criteria, etc.).
 
 ### Generators + validators (quality control)
@@ -68,6 +86,9 @@ Instead: the pipeline creates **lesson refinement tasks** and skips quiz rewrite
 ### Outputs
 - `scripts/reports/` — JSON reports and Markdown task lists produced by audits/pipeline.
 - `scripts/quiz-backups/<COURSE_ID>/` — backups of pre-change quizzes per lesson.
+
+### Global inventory + CCS-wide audit (system-level)
+- `scripts/audit-ccs-global-quality.ts` — CCS-family audit across all linked courses (and will also *infer* CCS for courses missing `ccsId` and emit action items to link them).
 
 ### Rollback tooling
 - `scripts/restore-lesson-quiz-from-backup.ts` — restores a lesson quiz from a backup file.
@@ -94,9 +115,33 @@ Verify after restore:
 
 ## Repeatable Operating Procedure
 
+### Step 0 — CCS-wide audit tasklist (recommended for “audit everything”)
+Generates a single master tasklist covering **all CCS families and all courses**, including:
+- Lessons below quality threshold
+- Lessons failing language integrity (including email fields)
+- Per-question quiz validation failures
+- Duplicate quiz question text (normalized; keep first by `_id`)
+- Minimum quiz pool not met (>=7 valid, >=5 application, 0 recall)
+- Duplicate day lessons (multiple lessons for the same dayNumber in a course)
+- Courses missing `Course.ccsId` (emits “link CCS” action items)
+
+```bash
+npx tsx --env-file=.env.local scripts/audit-ccs-global-quality.ts --min-lesson-score 70
+```
+
+Include inactive content (for a true “everything in DB” audit):
+```bash
+npx tsx --env-file=.env.local scripts/audit-ccs-global-quality.ts --min-lesson-score 70 --include-inactive
+```
+
 ### Step 1 — Lesson quality audit (creates refinement tasks)
 ```bash
 npx tsx --env-file=.env.local scripts/audit-lesson-quality.ts --min-score 70
+```
+
+### Step 1b — Lesson language integrity audit (hard gate)
+```bash
+npx tsx --env-file=.env.local scripts/audit-lesson-language-integrity.ts
 ```
 
 ### Step 2 — Pipeline dry run (no DB writes)

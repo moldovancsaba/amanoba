@@ -159,7 +159,7 @@ This document defines the standardized process for creating and delivering cours
 - ✅ **Clear structure** - Introduction, main content, summary, action items
 
 #### Quiz Questions (MANDATORY QUALITY STANDARDS):
-- ✅ **Exactly 7 questions per quiz** - NO exceptions, NO more, NO less
+- ✅ **Minimum 7 questions per quiz** - can be **more** than 7 (never delete valid questions just to cap)
 - ✅ **100% related to lesson content** - Every question must test actual lesson material
 - ✅ **Same language as course** - 100% language consistency, no mixing, no fallbacks
 - ✅ **Native quality** - Professional, native-level writing, not machine translation
@@ -178,7 +178,7 @@ This document defines the standardized process for creating and delivering cours
   - category: Valid English enum value (not translated)
 
 **Quiz Structure (MANDATORY):**
-- **Exactly 7 questions** - NO exceptions
+- **Minimum 7 questions** - can be **more** than 7 (do not delete valid questions just to cap at 7)
 - **Cognitive mix** (MANDATORY - STRICT RULES):
   - **0 questions: RECALL** - NO recall questions allowed (hard rule)
   - **At least 5 questions: APPLICATION** - Minimum 5 application questions (hard rule)
@@ -193,6 +193,18 @@ This document defines the standardized process for creating and delivering cours
 - **Pass threshold**: 70% (configurable per course)
 - **Question types**: Multiple choice only (for now)
 - **Language**: 100% same as course language, no fallbacks
+
+#### Language Integrity (LESSONS + QUIZZES) — HARD GATE
+
+We must prevent mixed-language lessons/quizzes.
+
+- **Lesson content + emailSubject/emailBody** must match the course language.
+- **Quiz question + all options** must match the course language.
+- No English leakage into non-EN content (e.g., English “why it matters” sentences, bullet steps, or the literal token `goals`).
+
+If Language Integrity fails:
+- Block apply-mode changes for that lesson.
+- Create an action item to localize/repair (do not “ship anyway”).
 
 ---
 
@@ -246,15 +258,15 @@ This document defines the standardized process for creating and delivering cours
 ### Phase 3: Content Creation
 
 1. ✅ Write Lesson 1 content (high quality, valuable)
-2. ✅ Create Quiz 1 (exactly 7 questions, following quality standards)
-   - Q1-Q4: Recall questions (foundational concepts)
-   - Q5-Q6: Application questions (practical scenarios)
-   - Q7: Critical Thinking question (systems integration)
+2. ✅ Create Quiz 1 (minimum 7 questions, following quality standards)
+   - 0 RECALL questions (hard disallow)
+   - Minimum 5 APPLICATION questions (practical scenarios)
+   - Add CRITICAL_THINKING questions to reach strong coverage (recommended minimum 2)
    - All questions: UUID, hashtags, questionType, proper metadata
 3. ✅ Translate Lesson 1 to all target languages
 4. ✅ Translate Quiz 1 to all target languages (native quality)
 5. ✅ Review translations for quality
-6. ✅ Verify all 7 questions have proper metadata
+6. ✅ Verify all questions have proper metadata
 7. ✅ Test content in each language
 
 ### Phase 4: Database Injection

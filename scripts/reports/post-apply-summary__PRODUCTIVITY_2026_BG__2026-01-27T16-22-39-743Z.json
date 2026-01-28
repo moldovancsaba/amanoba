@@ -1,0 +1,376 @@
+{
+  "generatedAt": "2026-01-27T16:22:39.743Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_BG",
+    "language": "bg",
+    "name": "Продуктивност 2026: Как да управляваме екипи и време"
+  },
+  "totals": {
+    "lessons": 30,
+    "ok": 30,
+    "notOk": 0
+  },
+  "notOkDays": [],
+  "perLesson": [
+    {
+      "dayNumber": 1,
+      "lessonId": "PRODUCTIVITY_2026_BG_DAY_01",
+      "title": "Дефиниция на продуктивността: изход, резултати и ограничения",
+      "counts": {
+        "total": 7,
+        "application": 5,
+        "criticalThinking": 2,
+        "recall": 0
+      },
+      "ok": true
+    },
+    {
+      "dayNumber": 2,
+      "lessonId": "PRODUCTIVITY_2026_BG_DAY_02",
+      "title": "Време, енергия, внимание: какво управлявате на практика",
+      "counts": {
+        "total": 7,
+        "application": 5,
+        "criticalThinking": 2,
+        "recall": 0
+      },
+      "ok": true
+    },
+    {
+      "dayNumber": 3,
+      "lessonId": "PRODUCTIVITY_2026_BG_DAY_03",
+      "title": "Йерархия на целите: визия → резултати → проекти → следващи стъпки",
+      "counts": {
+        "total": 7,
+        "application": 5,
+        "criticalThinking": 2,
+        "recall": 0
+      },
+      "ok": true
+    },
+    {
+      "dayNumber": 4,
+      "lessonId": "PRODUCTIVITY_2026_BG_DAY_04",
+      "title": "Навици срещу системи: защо системите се мащабират по-добре",
+      "counts": {
+        "total": 7,
+        "application": 5,
+        "criticalThinking": 2,
+        "recall": 0
+      },
+      "ok": true
+    },
+    {
+      "dayNumber": 5,
+      "lessonId": "PRODUCTIVITY_2026_BG_DAY_05",
+      "title": "Измерване: прости метрики за седмичен преглед (throughput, блокове за фокус, carryover)",
+      "counts": {
+        "total": 7,
+        "application": 6,
+        "criticalThinking": 1,
+        "recall": 0
+      },
+      "ok": true
+    },
+    {
+      "dayNumber": 6,
+      "lessonId": "PRODUCTIVITY_2026_BG_DAY_06",
+      "title": "Улавяне: входящи кутии, списък с тригери, навици за улавяне",
+      "counts": {
+        "total": 7,
+        "application": 5,
+        "criticalThinking": 2,
+        "recall": 0
+      },
+      "ok": true
+    },
+    {
+      "dayNumber": 7,
+      "lessonId": "PRODUCTIVITY_2026_BG_DAY_07",
+      "title": "Дневна/седмична система: сутрешен ритуал, дневен huddle, седмичен преглед",
+      "counts": {
+        "total": 7,
+        "application": 5,
+        "criticalThinking": 2,
+        "recall": 0
+      },
+      "ok": true
+    },
+    {
+      "dayNumber": 8,
+      "lessonId": "PRODUCTIVITY_2026_BG_DAY_8",
+      "title": "Цена на сменяне на контекст: Остатък от внимание, Пакетна обработка, Блокове за дълбока работа",
+      "counts": {
+        "total": 7,
+        "application": 5,
+        "criticalThinking": 2,
+        "recall": 0
+      },
+      "ok": true
+    },
+    {
+      "dayNumber": 9,
+      "lessonId": "PRODUCTIVITY_2026_BG_DAY_9",
+      "title": "Делегиране срещу Премахване: Кога да делегирате, Какво да премахнете",
+      "counts": {
+        "total": 7,
+        "application": 5,
+        "criticalThinking": 2,
+        "recall": 0
+      },
+      "ok": true
+    },
+    {
+      "dayNumber": 10,
+      "lessonId": "PRODUCTIVITY_2026_BG_DAY_10",
+      "title": "Управление на енергия: Кога да работите, Кога да почивате, Ритуали на възстановяване",
+      "counts": {
+        "total": 7,
+        "application": 5,
+        "criticalThinking": 2,
+        "recall": 0
+      },
+      "ok": true
+    },
+    {
+      "dayNumber": 11,
+      "lessonId": "PRODUCTIVITY_2026_BG_DAY_11",
+      "title": "Определяне на цели и OKR: Какво искате да постигнете?",
+      "counts": {
+        "total": 7,
+        "application": 5,
+        "criticalThinking": 2,
+        "recall": 0
+      },
+      "ok": true
+    },
+    {
+      "dayNumber": 12,
+      "lessonId": "PRODUCTIVITY_2026_BG_DAY_12",
+      "title": "Структури на отчетност: Системи, които ви държат на пътя",
+      "counts": {
+        "total": 7,
+        "application": 5,
+        "criticalThinking": 2,
+        "recall": 0
+      },
+      "ok": true
+    },
+    {
+      "dayNumber": 13,
+      "lessonId": "PRODUCTIVITY_2026_BG_DAY_13",
+      "title": "Рамки за вземане на решения: Бързи решения, матрица на решения, избягване на анализната парализа",
+      "counts": {
+        "total": 7,
+        "application": 5,
+        "criticalThinking": 2,
+        "recall": 0
+      },
+      "ok": true
+    },
+    {
+      "dayNumber": 14,
+      "lessonId": "PRODUCTIVITY_2026_BG_DAY_14",
+      "title": "Ефективност на срещите: Дневен ред, времеви лимити, дневник на решенията",
+      "counts": {
+        "total": 7,
+        "application": 5,
+        "criticalThinking": 2,
+        "recall": 0
+      },
+      "ok": true
+    },
+    {
+      "dayNumber": 15,
+      "lessonId": "PRODUCTIVITY_2026_BG_DAY_15",
+      "title": "Работа в екип и синергия: Роли, отговорност, координация",
+      "counts": {
+        "total": 7,
+        "application": 5,
+        "criticalThinking": 2,
+        "recall": 0
+      },
+      "ok": true
+    },
+    {
+      "dayNumber": 16,
+      "lessonId": "PRODUCTIVITY_2026_BG_DAY_16",
+      "title": "Управление на стреса и умора: Възстановяване, баланс работа-живот",
+      "counts": {
+        "total": 7,
+        "application": 5,
+        "criticalThinking": 2,
+        "recall": 0
+      },
+      "ok": true
+    },
+    {
+      "dayNumber": 17,
+      "lessonId": "PRODUCTIVITY_2026_BG_DAY_17",
+      "title": "Поддържане на мотивация: Проследяване на напредък, Отпразнуване на победи",
+      "counts": {
+        "total": 7,
+        "application": 5,
+        "criticalThinking": 2,
+        "recall": 0
+      },
+      "ok": true
+    },
+    {
+      "dayNumber": 18,
+      "lessonId": "PRODUCTIVITY_2026_BG_DAY_18",
+      "title": "Управление на криза и адаптивност: Адаптация, бързо учене",
+      "counts": {
+        "total": 7,
+        "application": 5,
+        "criticalThinking": 2,
+        "recall": 0
+      },
+      "ok": true
+    },
+    {
+      "dayNumber": 19,
+      "lessonId": "PRODUCTIVITY_2026_BG_DAY_19",
+      "title": "Дългосрочно планиране: Години напред, стратегия, еволюция",
+      "counts": {
+        "total": 7,
+        "application": 5,
+        "criticalThinking": 2,
+        "recall": 0
+      },
+      "ok": true
+    },
+    {
+      "dayNumber": 20,
+      "lessonId": "PRODUCTIVITY_2026_BG_DAY_20",
+      "title": "Производителност на личния живот: Организиране на дома, лични проекти",
+      "counts": {
+        "total": 7,
+        "application": 5,
+        "criticalThinking": 2,
+        "recall": 0
+      },
+      "ok": true
+    },
+    {
+      "dayNumber": 21,
+      "lessonId": "PRODUCTIVITY_2026_BG_DAY_21",
+      "title": "Общност и мрежа: Отношения, учене с други",
+      "counts": {
+        "total": 7,
+        "application": 5,
+        "criticalThinking": 2,
+        "recall": 0
+      },
+      "ok": true
+    },
+    {
+      "dayNumber": 22,
+      "lessonId": "PRODUCTIVITY_2026_BG_DAY_22",
+      "title": "Технология и инструменти: Автоматизация, избор на подходящата технология",
+      "counts": {
+        "total": 7,
+        "application": 5,
+        "criticalThinking": 2,
+        "recall": 0
+      },
+      "ok": true
+    },
+    {
+      "dayNumber": 23,
+      "lessonId": "PRODUCTIVITY_2026_BG_DAY_23",
+      "title": "Креативност и иновация: Преосмисляне, експерименти",
+      "counts": {
+        "total": 7,
+        "application": 5,
+        "criticalThinking": 2,
+        "recall": 0
+      },
+      "ok": true
+    },
+    {
+      "dayNumber": 24,
+      "lessonId": "PRODUCTIVITY_2026_BG_DAY_24",
+      "title": "Филтриране и приоритети: Какво да игнорираш, какво е важно",
+      "counts": {
+        "total": 7,
+        "application": 5,
+        "criticalThinking": 2,
+        "recall": 0
+      },
+      "ok": true
+    },
+    {
+      "dayNumber": 25,
+      "lessonId": "PRODUCTIVITY_2026_BG_DAY_25",
+      "title": "Развитие на умения: По-високи нива, нови компетентности",
+      "counts": {
+        "total": 7,
+        "application": 5,
+        "criticalThinking": 2,
+        "recall": 0
+      },
+      "ok": true
+    },
+    {
+      "dayNumber": 26,
+      "lessonId": "PRODUCTIVITY_2026_BG_DAY_26",
+      "title": "Менториство и преподаване: споделяне на знания, помощ на други",
+      "counts": {
+        "total": 7,
+        "application": 5,
+        "criticalThinking": 2,
+        "recall": 0
+      },
+      "ok": true
+    },
+    {
+      "dayNumber": 27,
+      "lessonId": "PRODUCTIVITY_2026_BG_DAY_27",
+      "title": "Навици и ритуали: Дневни рутини, дългосрочно действие",
+      "counts": {
+        "total": 7,
+        "application": 5,
+        "criticalThinking": 2,
+        "recall": 0
+      },
+      "ok": true
+    },
+    {
+      "dayNumber": 28,
+      "lessonId": "PRODUCTIVITY_2026_BG_DAY_28",
+      "title": "Ценности и цели: Цел на живота, дългосрочна визия",
+      "counts": {
+        "total": 7,
+        "application": 5,
+        "criticalThinking": 2,
+        "recall": 0
+      },
+      "ok": true
+    },
+    {
+      "dayNumber": 29,
+      "lessonId": "PRODUCTIVITY_2026_BG_DAY_29",
+      "title": "Постоянно подобрение: учене, обратна връзка, итерация",
+      "counts": {
+        "total": 7,
+        "application": 5,
+        "criticalThinking": 2,
+        "recall": 0
+      },
+      "ok": true
+    },
+    {
+      "dayNumber": 30,
+      "lessonId": "PRODUCTIVITY_2026_BG_DAY_30",
+      "title": "Мистерията на производителност: Цялостна интеграция, ангажимент",
+      "counts": {
+        "total": 7,
+        "application": 5,
+        "criticalThinking": 2,
+        "recall": 0
+      },
+      "ok": true
+    }
+  ]
+}

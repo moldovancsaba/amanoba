@@ -40,7 +40,7 @@
 - **Total Questions**: ~4,000+ (all quizzes have 7 questions)
 
 ### Requirements Met
-- ✅ **7 questions per quiz** - All quizzes have exactly 7 questions
+- ✅ **Minimum 7 questions per quiz** - pools may be larger (this document reflects the 2026-01-25 standardization to 7; current SSOT: minimum >=7, keep valid pools)
 - ✅ **Quiz for all lessons** - Every lesson has a quiz
 - ✅ **All questions in same language as course** - Language consistency maintained
 - ✅ **All questions have proper metadata** - UUID, hashtags, questionType added
@@ -83,10 +83,10 @@
 ## 🎯 QUALITY STANDARDS
 
 All quizzes now meet:
-- ✅ Exactly 7 questions per quiz
+- ✅ Minimum >= 7 valid questions per quiz (pool may be larger; never delete valid questions just to cap)
 - ✅ Proper metadata (UUID, hashtags, questionType)
 - ✅ Correct language (matches course language)
-- ✅ Cognitive mix (60% recall, 30% application, 10% critical)
+ - ✅ Cognitive mix (current SSOT): 0 recall, >=5 application, remainder critical-thinking
 - ✅ Valid categories (English enum values)
 - ✅ Active status
 

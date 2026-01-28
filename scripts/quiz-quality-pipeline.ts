@@ -24,6 +24,7 @@ import { Course, Lesson, QuizQuestion } from '../app/lib/models';
 import { assessLessonQuality } from './lesson-quality';
 import { generateContentBasedQuestions } from './content-based-question-generator';
 import { validateLessonQuestions, validateQuestionQuality } from './question-quality-validator';
+import { validateLessonRecordLanguageIntegrity } from './language-integrity';
 
 function getArgValue(flag: string): string | undefined {
   const idx = process.argv.indexOf(flag);
@@ -74,7 +75,7 @@ async function main() {
   for (const course of courses) {
     const lessons = await Lesson.find({ courseId: course._id, isActive: true })
       .sort({ dayNumber: 1, displayOrder: 1, createdAt: 1, _id: 1 })
-      .select({ lessonId: 1, dayNumber: 1, title: 1, content: 1, language: 1, createdAt: 1 })
+      .select({ lessonId: 1, dayNumber: 1, title: 1, content: 1, emailSubject: 1, emailBody: 1, language: 1, createdAt: 1 })
       .lean();
 
     // Deduplicate by dayNumber (keep oldest record per day)
@@ -98,6 +99,12 @@ async function main() {
         content: lesson.content || '',
         language: course.language || lesson.language || 'en',
       });
+      const languageIntegrity = validateLessonRecordLanguageIntegrity({
+        language: String(course.language || lesson.language || 'en'),
+        content: lesson.content || '',
+        emailSubject: (lesson as any).emailSubject || null,
+        emailBody: (lesson as any).emailBody || null,
+      });
 
       const lessonRow: any = {
         courseId: course.courseId,
@@ -108,9 +115,24 @@ async function main() {
         title: lesson.title,
         lessonCreatedAt: lesson.createdAt,
         lessonQuality,
+        languageIntegrity,
         action: 'SKIP',
         rewrite: null as any,
       };
+
+      if (!languageIntegrity.ok) {
+        pipelineReport.totals.lessonsNeedingRefine++;
+        lessonRow.action = 'REFINE_LESSON_FIRST';
+        lessonRow.reason = `Language integrity failed: ${languageIntegrity.errors[0] || 'unknown'}`;
+        refineTasks.push(
+          `- [ ] **${course.courseId}** Day ${lesson.dayNumber} — ${lesson.title} (lessonId: \`${lesson.lessonId}\`)\n` +
+            `  - Reason: **LANGUAGE INTEGRITY FAIL**\n` +
+            `  - Error: ${languageIntegrity.errors[0] || 'unknown'}\n` +
+            (languageIntegrity.findings?.[0]?.snippet ? `  - Example: ${languageIntegrity.findings[0].snippet}\n` : '')
+        );
+        pipelineReport.lessons.push(lessonRow);
+        continue;
+      }
 
       if (lessonQuality.score < MIN_LESSON_SCORE) {
         pipelineReport.totals.lessonsNeedingRefine++;

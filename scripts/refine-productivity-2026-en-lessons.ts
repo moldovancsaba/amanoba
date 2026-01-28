@@ -26,6 +26,7 @@ config({ path: resolve(process.cwd(), '.env.local') });
 import connectDB from '../app/lib/mongodb';
 import { Course, Lesson } from '../app/lib/models';
 import { assessLessonQuality } from './lesson-quality';
+import { validateLessonRecordLanguageIntegrity } from './language-integrity';
 
 function getArgValue(flag: string): string | undefined {
   const idx = process.argv.indexOf(flag);
@@ -500,17 +501,34 @@ async function main() {
     });
     const newScore = assessLessonQuality({ title: newTitle, content: newContent, language: 'en' });
 
+    const integrity = validateLessonRecordLanguageIntegrity({
+      language: 'en',
+      content: newContent,
+      emailSubject: `Productivity 2026 – ${titleCaseDay(day)}: ${newTitle}`,
+      emailBody:
+        `<h1>Productivity 2026 – ${titleCaseDay(day)}</h1>\n` +
+        `<h2>${newTitle}</h2>\n` +
+        `<p>${ccsLesson.intent || ''}</p>\n` +
+        `<p><a href=\"${appUrl}/en/courses/${COURSE_ID}/day/${day}\">Open the lesson →</a></p>`,
+    });
+
     const row = {
       day,
       lessonId: lesson.lessonId,
       title: { old: oldTitle, next: newTitle },
       quality: { old: oldScore, next: newScore },
       lengths: { oldChars: stripHtml(oldContent).length, nextChars: stripHtml(newContent).length },
-      applyEligible: newScore.score >= 70,
+      applyEligible: newScore.score >= 70 && integrity.ok,
+      languageIntegrity: integrity,
     };
     planRows.push(row);
 
     if (!APPLY) continue;
+    if (!integrity.ok) {
+      throw new Error(
+        `Language integrity failed for ${COURSE_ID} day ${day} (${lesson.lessonId}): ${integrity.errors[0] || 'unknown'}`
+      );
+    }
 
     // Backup before update
     const courseFolder = join(BACKUP_DIR, COURSE_ID);
@@ -601,4 +619,3 @@ main().catch(err => {
   console.error(err);
   process.exit(1);
 });
-

@@ -8,7 +8,9 @@
 
 ## 📋 EXECUTIVE SUMMARY
 
-Complete system-wide fix of quiz quality across all 18 courses. All quizzes now meet strict quality standards with exactly 7 questions per quiz, proper metadata, and 100% language consistency.
+Complete system-wide fix of quiz quality across all 18 courses. All quizzes now meet strict quality standards (standardised to 7 per lesson at the time), proper metadata, and 100% language consistency.
+
+Note (current SSOT): the platform standard is now **minimum >=7 valid questions per lesson** (pool may be larger; never delete valid questions just to cap). See `2026_course_quality_prompt.md`.
 
 ---
 
@@ -36,7 +38,7 @@ The quiz system had critical quality issues discovered during comprehensive audi
 - ✅ All category issues resolved
 
 ### Other 8 Courses
-- ✅ Fixed all courses to have exactly 7 questions per quiz
+- ✅ Fixed all courses to reach 7 questions per quiz at the time (current SSOT: minimum >=7; keep valid pools)
 - ✅ Created 197 new questions
 - ✅ Fixed metadata for 459 existing questions
 - ✅ Ensured proper cognitive mix
@@ -57,14 +59,15 @@ The quiz system had critical quality issues discovered during comprehensive audi
 - **Lessons with Quizzes**: 388 (100%)
 - **Lessons without Quizzes**: 0 (0%)
 - **Total Questions**: 2,716 (exactly 388 × 7)
+- **Current SSOT**: minimum >=7 per lesson; language integrity gates for lessons + quizzes
 - **Total Issues**: 0 ✅
 
 ### Quality Metrics
-- ✅ **7 questions per quiz** - 100% compliance
+- ✅ **Minimum 7 questions per quiz** - 100% compliance (at time of release; current SSOT: minimum >=7 and keep valid pools)
 - ✅ **Quiz coverage** - 100% (all lessons have quizzes)
 - ✅ **Metadata compliance** - 100% (all questions have UUID, hashtags, questionType)
 - ✅ **Language consistency** - 100% (all questions in correct course language)
-- ✅ **Cognitive mix** - All quizzes follow 60/30/10 distribution
+- ✅ **Cognitive mix** - Historical: 60/30/10. Current SSOT: 0 recall, >=5 application, remainder critical-thinking.
 
 ---
 
@@ -75,11 +78,11 @@ The quiz system had critical quality issues discovered during comprehensive audi
    - Generic course quiz fixer
    - Adds missing questions
    - Fixes metadata (UUID, hashtags, questionType)
-   - Ensures 7 questions per quiz
+   - Ensures minimum question standard is met (>=7 total; keep valid pools)
 
 2. **`scripts/cleanup-duplicate-questions.ts`**
    - Removes duplicate/extra questions
-   - Ensures exactly 7 questions per quiz
+   - Ensures minimum question standard is met (historically used to cap at 7; current SSOT: keep valid pools, delete invalid, add until minimums met)
    - Keeps questions with best metadata
 
 3. **`scripts/fix-all-categories-comprehensive.ts`**
@@ -124,10 +127,10 @@ The quiz system had critical quality issues discovered during comprehensive audi
 ## ✅ QUALITY STANDARDS ENFORCED
 
 All quizzes now meet:
-- ✅ Exactly 7 questions per quiz
+- ✅ Minimum >= 7 valid questions per quiz (pool may be larger; never delete valid questions just to cap)
 - ✅ Proper metadata (UUID, hashtags, questionType)
 - ✅ Correct language (matches course language)
-- ✅ Cognitive mix (60% recall, 30% application, 10% critical)
+- ✅ Cognitive mix (current SSOT): 0 recall, >=5 application, remainder critical-thinking
 - ✅ Valid categories (English enum values)
 - ✅ Active status
 - ✅ Educational value

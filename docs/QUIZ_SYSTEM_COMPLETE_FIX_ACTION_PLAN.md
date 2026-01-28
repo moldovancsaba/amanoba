@@ -20,7 +20,7 @@
 
 1. **Wrong Question Count**: Most quizzes have 4-5 questions instead of 7
 2. **Missing Metadata**: Questions missing UUID, hashtags, questionType
-3. **Wrong Cognitive Mix**: No critical thinking questions (should be 60% recall, 30% application, 10% critical)
+3. **Wrong Cognitive Mix**: Questions were not meeting the current SSOT (0 recall, >=5 application, remainder critical-thinking)
 4. **Language Mismatches**: Some questions may not match course language
 5. **Missing Quizzes**: 10 lessons completely missing quizzes
 6. **Category Issues**: Some categories use translated names instead of English enum values
@@ -29,7 +29,9 @@
 
 ## 🎯 REQUIREMENTS (User Specifications)
 
-✅ **7 questions per quiz** - EXACTLY 7, no more, no less  
+✅ **Minimum questions per quiz** - **>= 7** valid questions per lesson (can be more; never delete valid questions just to cap)  
+✅ **0 RECALL** questions (hard disallow)  
+✅ **>= 5 APPLICATION** questions per lesson (hard)  
 ✅ **Quiz for all lessons** - Every lesson must have a quiz  
 ✅ **All questions in same language as course** - 100% language consistency  
 ✅ **All questions 100% related to actual lesson** - Must test lesson content  
@@ -79,7 +81,7 @@
 - 300 quizzes (30 days × 10 languages)
 - 2,100 questions (300 × 7)
 - All with proper metadata (UUID, hashtags, questionType)
-- Correct cognitive mix (60/30/10)
+- Correct cognitive mix (current SSOT): 0 recall, >=5 application, remainder critical-thinking
 
 ---
 
@@ -95,10 +97,11 @@ For each of the 8 other courses:
 #### Step 2.2: Question Creation
 For each lesson:
 - [ ] Audit existing questions (keep good ones, fix/remove bad ones)
-- [ ] Create 7 questions total:
-  - Q1-Q4: Recall questions (foundational concepts)
-  - Q5-Q6: Application questions (practical scenarios)
-  - Q7: Critical Thinking question (systems integration)
+- [ ] Ensure the quiz meets minimums:
+  - >= 7 valid questions total (pool may be larger; never delete valid questions just to cap)
+  - 0 recall questions
+  - >= 5 application questions
+  - add critical-thinking questions for coverage
 - [ ] Ensure all questions:
   - Are 100% related to lesson content
   - Have proper, educational answers (not stupid)
@@ -122,7 +125,7 @@ For each lesson:
 - [ ] Run seed script
 - [ ] Verify database state
 - [ ] Test quiz retrieval
-- [ ] Confirm all 7 questions present
+- [ ] Confirm minimum question standard met (>=7 total, >=5 application, 0 recall)
 - [ ] Confirm correct language
 - [ ] Confirm proper metadata
 
@@ -135,10 +138,10 @@ For each lesson:
 - [ ] Verify all issues resolved
 - [ ] Confirm:
   - All lessons have quizzes
-  - All quizzes have exactly 7 questions
+  - All quizzes have minimum question standard met (>=7 total; pool may be larger; never delete valid questions just to cap)
   - All questions have proper metadata
   - All questions in correct language
-  - All questions follow cognitive mix (60/30/10)
+  - All questions follow current SSOT cognitive mix (0 recall, >=5 application, remainder critical-thinking)
 
 #### Step 3.2: Manual Quality Checks
 - [ ] Sample questions from each course
@@ -149,7 +152,7 @@ For each lesson:
 
 #### Step 3.3: Final Verification
 - [ ] All 388 lessons have quizzes ✅
-- [ ] All quizzes have 7 questions ✅
+- [ ] All quizzes meet minimum standard (>=7; pool may be larger) ✅
 - [ ] All questions have UUID, hashtags, questionType ✅
 - [ ] All questions in correct language ✅
 - [ ] All questions related to lesson ✅
@@ -239,15 +242,15 @@ For each lesson:
 - [ ] Question has category: English enum value (not translated)
 
 ### Per Quiz
-- [ ] Quiz has exactly 7 questions
-- [ ] Cognitive mix: 4-5 recall (60%), 2-3 application (30%), 0-1 critical (10%)
+- [ ] Quiz has minimum 7 valid questions (pool may be larger; never delete valid questions just to cap)
+- [ ] Cognitive mix (current SSOT): 0 recall, >=5 application, remainder critical-thinking
 - [ ] All questions in same language as course
 - [ ] All questions test lesson content
 - [ ] All questions have proper metadata
 
 ### Per Course
 - [ ] All lessons have quizzes
-- [ ] All quizzes have 7 questions
+- [ ] All quizzes meet minimum standard (>=7; pool may be larger)
 - [ ] All questions in correct language
 - [ ] All questions native quality
 - [ ] All questions properly seeded in database
@@ -261,7 +264,7 @@ For each lesson:
 3. **NO STUPID ANSWERS** - Educational value in every option
 4. **NO LANGUAGE MIXING** - 100% course language consistency
 5. **NO TRANSLATED CATEGORIES** - English enum values only
-6. **NO INCOMPLETE QUIZZES** - Exactly 7 questions, no exceptions
+6. **NO INCOMPLETE QUIZZES** - Minimum >=7 valid questions, 0 recall, >=5 application (pool may be larger; never delete valid questions just to cap)
 
 ---
 

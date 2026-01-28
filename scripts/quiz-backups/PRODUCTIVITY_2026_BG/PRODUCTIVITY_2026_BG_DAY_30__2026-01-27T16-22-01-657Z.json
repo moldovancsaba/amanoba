@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-27T16:22:06.312Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_BG",
+    "name": "Продуктивност 2026: Как да управляваме екипи и време",
+    "language": "bg"
+  },
+  "lesson": {
+    "dayNumber": 30,
+    "title": "Мистерията на производителност: Цялостна интеграция, ангажимент",
+    "lessonId": "PRODUCTIVITY_2026_BG_DAY_30"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a5ce5e2257dcf1106bf",
+      "uuid": "1b187044-324e-452b-97da-003edf682f04",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Синтез, размисълереклама и поглед към бъдещето.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day30",
+        "#bg",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5ce5e2257dcf1106c0",
+      "uuid": "e2a3c334-3951-4e17-a8c8-41b4c35fe6c9",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Синтез, размисълереклама и поглед към бъдещето.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day30",
+        "#bg",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5ce5e2257dcf1106c1",
+      "uuid": "86ea80b4-4749-4a9c-8d2b-8ef19d760410",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Синтез, размисълереклама и поглед към бъдещето.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day30",
+        "#bg",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5ce5e2257dcf1106c2",
+      "uuid": "a3610d0c-87fb-4a68-9797-871816c2365b",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Как концепцията \"Мистерията на производителност: Цялостна интеграци...\", спомената в урока, влияе върху постигането на вашите goals?",
+      "options": [
+        "Както е описано подробно в урока, Мистерията на производителност... увеличава ефективността и намалява риска",
+        "Няма значително въздействие",
+        "Има значение само теоретично",
+        "Само опционален елемент"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day30",
+        "#bg",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5ce5e2257dcf1106c3",
+      "uuid": "aa594514-a91b-4528-871c-2d98eba60e80",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Колко важен е Мистерията в контекста на Мистерията на производителност: Цялостна интеграция, ангажимент, както се обсъжда в урока?",
+      "options": [
+        "Както е подробно описано в урока, Мистерията играе ключова роля в оптимизирането на процесите и постигането на целите",
+        "Само периферна информация без значителна роля",
+        "Само теоретична концепция без практическо приложение",
+        "Не се споменава в урока"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day30",
+        "#bg",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5ce5e2257dcf1106c4",
+      "uuid": "a29ef062-3730-475f-9c65-ed8220c526cd",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Колко важен е Цялостна в контекста на Мистерията на производителност: Цялостна интеграция, ангажимент, както се обсъжда в урока?",
+      "options": [
+        "Както е подробно описано в урока, Цялостна играе ключова роля в оптимизирането на процесите и постигането на целите",
+        "Само периферна информация без значителна роля",
+        "Само теоретична концепция без практическо приложение",
+        "Не се споменава в урока"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day30",
+        "#bg",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5ce5e2257dcf1106c5",
+      "uuid": "3266fa07-0eb4-4c76-8c72-4cbbe18f53c3",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Колко важен е ангажимент в контекста на Мистерията на производителност: Цялостна интеграция, ангажимент, както се обсъжда в урока?",
+      "options": [
+        "Както е подробно описано в урока, ангажимент играе ключова роля в оптимизирането на процесите и постигането на целите",
+        "Само периферна информация без значителна роля",
+        "Само теоретична концепция без практическо приложение",
+        "Не се споменава в урока"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day30",
+        "#bg",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

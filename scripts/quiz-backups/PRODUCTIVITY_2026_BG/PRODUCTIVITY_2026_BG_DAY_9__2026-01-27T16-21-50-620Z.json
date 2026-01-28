@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-27T16:21:52.651Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_BG",
+    "name": "Продуктивност 2026: Как да управляваме екипи и време",
+    "language": "bg"
+  },
+  "lesson": {
+    "dayNumber": 9,
+    "title": "Делегиране срещу Премахване: Кога да делегирате, Какво да премахнете",
+    "lessonId": "PRODUCTIVITY_2026_BG_DAY_9"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a5ae5e2257dcf1105e1",
+      "uuid": "b931a21d-6b46-43b1-b81e-230c5234fdb4",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ Знам кои задачи могат да бъдат делегир...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day9",
+        "#bg",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5ae5e2257dcf1105e2",
+      "uuid": "a755feca-8cbe-4f8f-a89d-c775c7f913d6",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ Имам план за действие за мое първо дел...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day9",
+        "#bg",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5ae5e2257dcf1105e3",
+      "uuid": "6f6efc3a-ad6b-46cc-9d1e-1c7d012e8660",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ Знам кои задачи могат да бъдат делегир...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day9",
+        "#bg",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5ae5e2257dcf1105e4",
+      "uuid": "ed53ae9c-fa5f-4dfb-bf5c-146d5538f8c8",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Как концепцията \"Делегиране срещу Премахване: Кога да делегирате, К...\", спомената в урока, влияе върху постигането на вашите goals?",
+      "options": [
+        "Както е описано подробно в урока, Делегиране срещу Премахване: К... увеличава ефективността и намалява риска",
+        "Няма значително въздействие",
+        "Има значение само теоретично",
+        "Само опционален елемент"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day9",
+        "#bg",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5ae5e2257dcf1105e5",
+      "uuid": "a3835c8c-0e27-467d-ab8d-776f19269028",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Каква роля играе Психическа натовареност в урока \"Делегиране срещу Премахване: Кога да делегирате, Какво да премахнете\"?",
+      "options": [
+        "Както е подробно описано в урока, Психическа натовареност играе ключова роля в оптимизирането на процесите и постигането на целите",
+        "Само периферна информация без значителна роля",
+        "Само теоретична концепция без практическо приложение",
+        "Не се споменава в урока"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day9",
+        "#bg",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5ae5e2257dcf1105e6",
+      "uuid": "016e011f-631b-4d94-9255-701c3993efdb",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Колко важен е Растеж на екипа в контекста на Делегиране срещу Премахване: Кога да делегирате, Какво да премахнете, както се обсъжда в урока?",
+      "options": [
+        "Както е подробно описано в урока, Растеж на екипа играе ключова роля в оптимизирането на процесите и постигането на целите",
+        "Само периферна информация без значителна роля",
+        "Само теоретична концепция без практическо приложение",
+        "Не се споменава в урока"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day9",
+        "#bg",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5ae5e2257dcf1105e7",
+      "uuid": "ec694fac-80b3-4df7-9d86-1b7e8b69cfa1",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Колко важен е Премахване в контекста на Делегиране срещу Премахване: Кога да делегирате, Какво да премахнете, както се обсъжда в урока?",
+      "options": [
+        "Както е подробно описано в урока, Премахване играе ключова роля в оптимизирането на процесите и постигането на целите",
+        "Само периферна информация без значителна роля",
+        "Само теоретична концепция без практическо приложение",
+        "Не се споменава в урока"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day9",
+        "#bg",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

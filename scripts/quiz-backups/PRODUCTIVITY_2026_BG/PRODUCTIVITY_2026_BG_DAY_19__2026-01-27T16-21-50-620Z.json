@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-27T16:21:53.298Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_BG",
+    "name": "Продуктивност 2026: Как да управляваме екипи и време",
+    "language": "bg"
+  },
+  "lesson": {
+    "dayNumber": 19,
+    "title": "Дългосрочно планиране: Години напред, стратегия, еволюция",
+    "lessonId": "PRODUCTIVITY_2026_BG_DAY_19"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a5be5e2257dcf110651",
+      "uuid": "934290c7-8475-482c-bb4c-56e89c277c36",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Напредък към годишни и многугодишни цели.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day19",
+        "#bg",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5be5e2257dcf110652",
+      "uuid": "d007fd37-9050-4d12-86fd-75bfee98f8fc",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Напредък към годишни и многугодишни цели.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day19",
+        "#bg",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5be5e2257dcf110653",
+      "uuid": "a3bc3d80-b3e6-488a-a942-4411b209b477",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Напредък към годишни и многугодишни цели.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day19",
+        "#bg",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5be5e2257dcf110654",
+      "uuid": "5ce17670-8fc4-4c8a-b5d8-eea4fda85953",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Как концепцията \"Дългосрочно планиране: Години напред, стратегия, е...\", спомената в урока, влияе върху постигането на вашите goals?",
+      "options": [
+        "Както е описано подробно в урока, Дългосрочно планиране: Години ... увеличава ефективността и намалява риска",
+        "Няма значително въздействие",
+        "Има значение само теоретично",
+        "Само опционален елемент"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day19",
+        "#bg",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5be5e2257dcf110655",
+      "uuid": "f8a2c038-bb4d-40c4-81f1-0129fd125e16",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Колко важен е Дългосрочно в контекста на Дългосрочно планиране: Години напред, стратегия, еволюция, както се обсъжда в урока?",
+      "options": [
+        "Както е подробно описано в урока, Дългосрочно играе ключова роля в оптимизирането на процесите и постигането на целите",
+        "Само периферна информация без значителна роля",
+        "Само теоретична концепция без практическо приложение",
+        "Не се споменава в урока"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day19",
+        "#bg",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5be5e2257dcf110656",
+      "uuid": "4f0f5a71-93ca-4ca2-bc5e-fb2078e117e4",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Колко важен е Години в контекста на Дългосрочно планиране: Години напред, стратегия, еволюция, както се обсъжда в урока?",
+      "options": [
+        "Както е подробно описано в урока, Години играе ключова роля в оптимизирането на процесите и постигането на целите",
+        "Само периферна информация без значителна роля",
+        "Само теоретична концепция без практическо приложение",
+        "Не се споменава в урока"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day19",
+        "#bg",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5be5e2257dcf110657",
+      "uuid": "c52aa199-2a64-4567-bdc5-fce43043f790",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Колко важен е стратегия в контекста на Дългосрочно планиране: Години напред, стратегия, еволюция, както се обсъжда в урока?",
+      "options": [
+        "Както е подробно описано в урока, стратегия играе ключова роля в оптимизирането на процесите и постигането на целите",
+        "Само периферна информация без значителна роля",
+        "Само теоретична концепция без практическо приложение",
+        "Не се споменава в урока"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day19",
+        "#bg",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

@@ -304,11 +304,11 @@ All completed tasks are documented here in reverse chronological order. This fil
 **Solution**: Comprehensive system-wide fix ensuring all quizzes meet strict quality standards.
 
 #### Features Delivered
-- ✅ **7 questions per quiz** - All 388 lessons now have exactly 7 questions
+- ✅ **Minimum questions per quiz** - All 388 lessons reached 7 questions at the time (current SSOT: minimum >=7; keep valid pools, delete invalid, add until minimums met)
 - ✅ **100% quiz coverage** - Every lesson has a complete quiz
 - ✅ **Proper metadata** - All questions have UUID, hashtags, questionType
 - ✅ **Language consistency** - All questions in correct course language
-- ✅ **Cognitive mix** - 60% recall, 30% application, 10% critical thinking
+- ✅ **Cognitive mix** - Historical: 60/30/10. Current SSOT: 0 recall, >=5 application, remainder critical-thinking.
 - ✅ **Category fixes** - All categories use valid English enum values
 - ✅ **Quality standards** - All questions related to lesson content, educational value
 
@@ -320,7 +320,7 @@ All completed tasks are documented here in reverse chronological order. This fil
 - ✅ Fixed Days 8-9 missing questions
 
 #### Other 8 Courses
-- ✅ Fixed all 8 courses to have 7 questions per quiz
+- ✅ Fixed all 8 courses to reach 7 questions per quiz at the time (current SSOT: minimum >=7; keep valid pools)
 - ✅ Created 197 new questions
 - ✅ Fixed metadata for 459 existing questions
 - ✅ Ensured proper cognitive mix
@@ -340,7 +340,7 @@ All completed tasks are documented here in reverse chronological order. This fil
 - **Total Courses**: 18
 - **Total Lessons**: 388
 - **Lessons with Quizzes**: 388 (100%)
-- **Total Questions**: 2,716 (exactly 388 × 7)
+- **Total Questions**: 2,716 (388 × 7 at time of release; current SSOT: minimum >=7 per lesson)
 - **Total Issues**: 0 ✅
 
 **Documentation**: 

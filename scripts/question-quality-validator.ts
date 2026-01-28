@@ -193,6 +193,38 @@ function hasChecklistSnippet(question: string) {
   return /✅/.test(inside) || /\.\.\./.test(inside);
 }
 
+function languageScriptCheck(language: string, text: string): string | null {
+  const lang = String(language || '').toLowerCase();
+  const t = String(text || '');
+
+  const letters = t.match(/\p{L}/gu) || [];
+  if (letters.length === 0) return null;
+
+  const ratio = (re: RegExp) => {
+    const matches = t.match(re) || [];
+    return matches.length / letters.length;
+  };
+
+  // For non-Latin script languages, require sufficient script presence and disallow long Latin segments.
+  if (lang === 'bg' || lang === 'ru') {
+    const cyrRatio = ratio(/[\u0400-\u04FF]/g);
+    if (cyrRatio < 0.25) return `Language mismatch: expected Cyrillic text for ${lang} (too much Latin).`;
+    if (/[A-Za-z]{10,}/.test(t)) return `Language mismatch: contains long Latin segment for ${lang}.`;
+  }
+  if (lang === 'ar') {
+    const arRatio = ratio(/[\u0600-\u06FF]/g);
+    if (arRatio < 0.25) return 'Language mismatch: expected Arabic script (too much Latin).';
+    if (/[A-Za-z]{10,}/.test(t)) return 'Language mismatch: contains long Latin segment for Arabic course.';
+  }
+  if (lang === 'hi') {
+    const hiRatio = ratio(/[\u0900-\u097F]/g);
+    if (hiRatio < 0.25) return 'Language mismatch: expected Devanagari script (too much Latin).';
+    if (/[A-Za-z]{10,}/.test(t)) return 'Language mismatch: contains long Latin segment for Hindi course.';
+  }
+
+  return null;
+}
+
 /**
  * Validate a single question for quality
  */
@@ -231,6 +263,22 @@ export function validateQuestionQuality(
     errors.push(
       'Question quotes a checklist/snippet (e.g., ✅ or …). This is fuzzy and not standalone. Rewrite as a concrete scenario question.'
     );
+  }
+
+  // 0.3 Disallow checklist symbols / ellipsis anywhere in Q or options (not standalone, usually a snippet)
+  if (/[✅✔️☑️]/.test(question) || options.some(o => /[✅✔️☑️]/.test(o))) {
+    errors.push('Contains checklist symbol (✅/✔️/☑️). Replace with a concrete standalone scenario.');
+  }
+  if (/\.\.\./.test(question) || options.some(o => /\.\.\./.test(o))) {
+    errors.push('Contains ellipsis (...) which typically indicates a truncated snippet. Replace with complete, clear text.');
+  }
+
+  // 0.4 Disallow the literal English word "goals" in non-EN courses (common leakage)
+  if (String(language || '').toLowerCase() !== 'en') {
+    const blob = `${question}\n${options.join('\n')}`;
+    if (/\bgoals\b/i.test(blob)) {
+      errors.push('Language leak: contains the English word "goals". Use the correct language term or rewrite the sentence.');
+    }
   }
 
   // 1. Check minimum length (context-rich requirement)
@@ -306,6 +354,13 @@ export function validateQuestionQuality(
     errors.push(`Must have exactly 4 options, found ${options.length}`);
   }
 
+  // 4.1 Language script check (hard) for non-Latin-script courses
+  {
+    const blob = `${question}\n${options.join('\n')}`;
+    const scriptErr = languageScriptCheck(language, blob);
+    if (scriptErr) errors.push(scriptErr);
+  }
+
   // Enforce non-trivial educational options
   options.forEach((opt, index) => {
     if (opt.trim().length < 25) {
@@ -326,13 +381,7 @@ export function validateQuestionQuality(
     }
   });
 
-  // 5. Check if question is too generic (doesn't reference lesson content)
-  if (lessonTitle && !questionLower.includes(lessonTitle.toLowerCase().substring(0, 10))) {
-    // Allow some flexibility, but warn if completely unrelated
-    if (!questionLower.includes('lesson') && !questionLower.includes('leck') && !questionLower.includes('course')) {
-      warnings.push('Question may not be specific to lesson content. Verify it tests actual lesson material.');
-    }
-  }
+  // 5. No title-based crutches: do not require lesson title overlap (standalone wording is required).
 
   // 6. Validate question type is set
   // QuestionType enum values are: 'recall', 'application', 'critical-thinking'

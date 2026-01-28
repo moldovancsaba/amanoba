@@ -302,7 +302,7 @@ Build centralized quiz question management system with admin UI and API endpoint
 
 ### Goal
 Fix all quiz systems across all 18 courses to meet strict quality standards:
-- Exactly 7 questions per quiz
+- Minimum 7 questions per quiz (pool may be larger; never delete valid questions just to cap)
 - Quiz for all lessons
 - All questions in same language as course
 - All questions 100% related to lesson content

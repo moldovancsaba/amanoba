@@ -439,7 +439,7 @@ EMAIL_FROM_NAME=Amanoba Learning
 ## ✅ Recent Major Updates (v2.9.4)
 
 ### Complete Quiz System Fix ✅ COMPLETE
-- **All 18 courses fixed** - Every lesson has exactly 7 questions
+- **All 18 courses fixed** - Every lesson reached 7 questions at the time (current SSOT: minimum >=7; keep valid pools)
 - **2,716 questions** - All with proper metadata (UUID, hashtags, questionType)
 - **100% quiz coverage** - All 388 lessons have complete quizzes
 - **Quality standards enforced** - All questions meet strict quality requirements
@@ -531,7 +531,7 @@ Based on current system state and priorities, here are the recommended next 3 it
 - Read lesson content for each course
 - Create lesson-specific questions
 - Replace placeholder questions
-- Maintain 7 questions per quiz, proper metadata, cognitive mix
+- Maintain minimum >=7 valid questions per lesson (pool may be larger), proper metadata, and current SSOT cognitive mix (0 recall, >=5 application)
 
 **Deliverable**: All questions are lesson-specific and educational
 

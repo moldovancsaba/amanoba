@@ -79,6 +79,18 @@ Due to lack of persistent memory, you must regularly realign your working contex
 	5.	❗ If anything is not 100% clear, ask me.
 Never assume. Never proceed on uncertainty.
 
+### Mandatory Documentation for Course/Quiz Quality Work (SSOT Set)
+
+When the task involves **creating courses**, **refining lessons**, **generating quizzes**, **localization**, or **quality control**, treat these documents as mandatory to read and keep consistent:
+
+- `2026_course_creator_prompts.md` — recursive prompts + state management for course creation.
+- `2026_course_quality_prompt.md` — **single source of truth** for course quality control (lessons + quizzes + language integrity gates).
+- `docs/QUIZ_QUALITY_PIPELINE_HANDOVER.md` — operational handover (rollback + commands + strict rules).
+- `docs/QUIZ_QUALITY_PIPELINE_PLAYBOOK.md` — playbook (workflow + outputs).
+- `docs/COURSE_BUILDING_RULES.md` — course creation rules (language prerequisites + standards).
+
+Rule: If any other document conflicts with the SSOT set above, **update the other document** or clearly mark it as historical, so the system stays contradiction-free.
+
 🛡️ STACK & DEPENDENCY DISCIPLINE
 
 We maintain a strict, minimal tech stack with no deviations allowed.

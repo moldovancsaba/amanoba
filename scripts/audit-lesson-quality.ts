@@ -19,6 +19,7 @@ config({ path: resolve(process.cwd(), '.env.local') });
 import connectDB from '../app/lib/mongodb';
 import { Course, Lesson } from '../app/lib/models';
 import { assessLessonQuality } from './lesson-quality';
+import { validateLessonRecordLanguageIntegrity } from './language-integrity';
 
 function getArgValue(flag: string): string | undefined {
   const idx = process.argv.indexOf(flag);
@@ -47,7 +48,7 @@ async function main() {
   for (const course of courses) {
     const lessons = await Lesson.find({ courseId: course._id, isActive: true })
       .sort({ dayNumber: 1, displayOrder: 1, createdAt: 1, _id: 1 })
-      .select({ lessonId: 1, dayNumber: 1, title: 1, content: 1, language: 1, createdAt: 1 })
+      .select({ lessonId: 1, dayNumber: 1, title: 1, content: 1, emailSubject: 1, emailBody: 1, language: 1, createdAt: 1 })
       .lean();
 
     // Deduplicate by dayNumber (keep oldest lesson per day)
@@ -70,6 +71,14 @@ async function main() {
         language: course.language || lesson.language || 'en',
       });
 
+      const lessonLanguage = String(course.language || lesson.language || 'en').toLowerCase();
+      const languageIntegrity = validateLessonRecordLanguageIntegrity({
+        language: lessonLanguage,
+        content: lesson.content || '',
+        emailSubject: lesson.emailSubject || null,
+        emailBody: lesson.emailBody || null,
+      });
+
       results.push({
         courseId: course.courseId,
         courseName: course.name,
@@ -82,13 +91,22 @@ async function main() {
         issues: q.issues,
         signals: q.signals,
         refineTemplate: q.refineTemplate,
+        languageIntegrity: {
+          ok: languageIntegrity.ok,
+          errors: languageIntegrity.errors,
+          warnings: languageIntegrity.warnings,
+          findings: languageIntegrity.findings,
+        },
       });
 
-      if (q.score < MIN_SCORE) {
+      if (q.score < MIN_SCORE || !languageIntegrity.ok) {
         tasks.push(
           `- [ ] **${course.courseId}** Day ${lesson.dayNumber} — ${lesson.title} (lessonId: \`${lesson.lessonId}\`)\n` +
             `  - Score: **${q.score}/100**\n` +
             `  - Issues: ${q.issues.join(', ') || 'none'}\n` +
+            (!languageIntegrity.ok
+              ? `  - Language integrity: ❌ ${languageIntegrity.errors[0] || 'failed'}\n`
+              : '') +
             `  - Add: definition=${q.refineTemplate.addDefinitionSection}, checklist=${q.refineTemplate.addChecklistSection}, examples=${q.refineTemplate.addExamplesSection}, pitfalls=${q.refineTemplate.addPitfallsSection}, metrics=${q.refineTemplate.addMetricsSection}\n`
         );
       }

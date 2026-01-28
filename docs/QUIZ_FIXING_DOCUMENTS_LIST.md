@@ -53,7 +53,7 @@
 ## Quality Requirements (From Documents)
 
 ### Mandatory Requirements
-1. **7 questions per quiz** - EXACTLY 7, no more, no less
+1. **Minimum questions per quiz** - **>= 7** valid questions per lesson (can be more; never delete valid questions just to cap)
 2. **Quiz for all lessons** - Every lesson must have a quiz
 3. **All questions in same language as course** - 100% language consistency
 4. **All questions 100% related to actual lesson** - Must test lesson content
@@ -76,5 +76,7 @@
 - ✅ Content-specific (100% related to lesson content)
 - ✅ Educational (wrong answers are plausible and educational)
 - ✅ Proper language match
-- ✅ Proper cognitive mix (4-5 RECALL, 2-3 APPLICATION, 0-1 CRITICAL_THINKING)
+- ✅ Proper cognitive mix (current SSOT): **0 RECALL**, **>=5 APPLICATION**, remainder **CRITICAL_THINKING**
 - ✅ Proper metadata (questionType, hashtags, difficulty, UUID)
+
+**SSOT**: For the current, authoritative QC rules use `2026_course_quality_prompt.md` + `docs/QUIZ_QUALITY_PIPELINE_HANDOVER.md`.

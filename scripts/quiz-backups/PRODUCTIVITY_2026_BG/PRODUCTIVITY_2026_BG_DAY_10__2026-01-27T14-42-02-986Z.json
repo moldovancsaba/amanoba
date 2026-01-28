@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-27T14:42:05.367Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_BG",
+    "name": "Продуктивност 2026: Как да управляваме екипи и време",
+    "language": "bg"
+  },
+  "lesson": {
+    "dayNumber": 10,
+    "title": "Управление на енергия: Кога да работите, Кога да почивате, Ритуали на възстановяване",
+    "lessonId": "PRODUCTIVITY_2026_BG_DAY_10"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a5ae5e2257dcf1105ec",
+      "uuid": "dc7738a1-9489-4eab-ac03-830ad8eea3b0",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ Знам моите пикови енергийни часове.\n✅ ...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day10",
+        "#bg",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5ae5e2257dcf1105ed",
+      "uuid": "6375b1f4-9f0e-482e-af5d-e7a08f14a7d7",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ Сънът никога не се жертвва за производ...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day10",
+        "#bg",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5ae5e2257dcf1105ee",
+      "uuid": "dd09c57e-92c0-4236-b34b-0c0a7057c4e8",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ Знам моите пикови енергийни часове.\n✅ ...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day10",
+        "#bg",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5ae5e2257dcf1105ef",
+      "uuid": "da5a70dd-526f-4510-b722-7f0ba995a359",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Как концепцията \"Управление на енергия: Кога да работите, Кога да п...\", спомената в урока, влияе върху постигането на вашите goals?",
+      "options": [
+        "Както е описано подробно в урока, Управление на енергия: Кога да... увеличава ефективността и намалява риска",
+        "Няма значително въздействие",
+        "Има значение само теоретично",
+        "Само опционален елемент"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day10",
+        "#bg",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5ae5e2257dcf1105f0",
+      "uuid": "4e241af6-31d1-480c-80d0-793915783be5",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Каква роля играе Предотвратяване на прегаряне в урока \"Управление на енергия: Кога да работите, Кога да почивате, Ритуали на възстановяване\"?",
+      "options": [
+        "Както е подробно описано в урока, Предотвратяване на прегаряне играе ключова роля в оптимизирането на процесите и постигането на целите",
+        "Само периферна информация без значителна роля",
+        "Само теоретична концепция без практическо приложение",
+        "Не се споменава в урока"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day10",
+        "#bg",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5ae5e2257dcf1105f1",
+      "uuid": "5c872314-e7dd-48c1-9f67-ebfc3c75c59f",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Каква роля играе Устойчива продукция в урока \"Управление на енергия: Кога да работите, Кога да почивате, Ритуали на възстановяване\"?",
+      "options": [
+        "Както е подробно описано в урока, Устойчива продукция играе ключова роля в оптимизирането на процесите и постигането на целите",
+        "Само периферна информация без значителна роля",
+        "Само теоретична концепция без практическо приложение",
+        "Не се споменава в урока"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day10",
+        "#bg",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5ae5e2257dcf1105f2",
+      "uuid": "4cc949c5-43a9-4ab3-a910-8905b318500b",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Колко важен е Дневен цикъл в контекста на Управление на енергия: Кога да работите, Кога да почивате, Ритуали на възстановяване, както се обсъжда в урока?",
+      "options": [
+        "Както е подробно описано в урока, Дневен цикъл играе ключова роля в оптимизирането на процесите и постигането на целите",
+        "Само периферна информация без значителна роля",
+        "Само теоретична концепция без практическо приложение",
+        "Не се споменава в урока"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day10",
+        "#bg",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,166 @@
+{
+  "backedUpAt": "2026-01-27T14:42:04.580Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_BG",
+    "name": "Продуктивност 2026: Как да управляваме екипи и време",
+    "language": "bg"
+  },
+  "lesson": {
+    "dayNumber": 4,
+    "title": "Навици срещу системи: защо системите се мащабират по-добре",
+    "lessonId": "PRODUCTIVITY_2026_BG_DAY_04"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a59e5e2257dcf11058b",
+      "uuid": "26152060-8fcb-4a66-a7ec-4e8d50a1d9b6",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Каква е основната разлика между навици и системи?",
+      "options": [
+        "Няма разлика",
+        "Навиците се мащабират, системите не",
+        "Системите се мащабират, навиците не",
+        "И двете са еднакви"
+      ],
+      "correctIndex": 2,
+      "hashtags": [
+        "#day-04",
+        "#foundation",
+        "#recall",
+        "#bg"
+      ]
+    },
+    {
+      "_id": "69776a59e5e2257dcf11058c",
+      "uuid": "257b9a69-b232-42d5-a78a-e5ef611e1db7",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Кога трябва да използвате система вместо навик?",
+      "options": [
+        "Винаги",
+        "Когато трябва да работи с други",
+        "Никога",
+        "Само през уикенда"
+      ],
+      "correctIndex": 1,
+      "hashtags": [
+        "#day-04",
+        "#purpose",
+        "#application",
+        "#bg"
+      ]
+    },
+    {
+      "_id": "69776a59e5e2257dcf11058d",
+      "uuid": "9257482e-4178-437b-ba53-1d11b2d4f2a7",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ Разбирате разликата между навици и сис...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day4",
+        "#bg",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a59e5e2257dcf11058e",
+      "uuid": "f5bd3267-42f6-4264-8628-8602a4cb016e",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ Разбирате разликата между навици и сис...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day4",
+        "#bg",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a59e5e2257dcf11058f",
+      "uuid": "4ba5315e-17da-47f6-87ad-9de737407bdf",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Как концепцията \"Навици срещу системи: защо системите се мащабират ...\", спомената в урока, влияе върху постигането на вашите goals?",
+      "options": [
+        "Както е описано подробно в урока, Навици срещу системи: защо сис... увеличава ефективността и намалява риска",
+        "Няма значително въздействие",
+        "Има значение само теоретично",
+        "Само опционален елемент"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day4",
+        "#bg",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a59e5e2257dcf110590",
+      "uuid": "5caec7c2-eef6-4652-bb07-def633fc1781",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Колко важен е Системи в контекста на Навици срещу системи: защо системите се мащабират по-добре, както се обсъжда в урока?",
+      "options": [
+        "Както е подробно описано в урока, Системи играе ключова роля в оптимизирането на процесите и постигането на целите",
+        "Само периферна информация без значителна роля",
+        "Само теоретична концепция без практическо приложение",
+        "Не се споменава в урока"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day4",
+        "#bg",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a59e5e2257dcf110591",
+      "uuid": "f7b3b441-3787-42dd-9613-27d598ff36bf",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Колко важен е Предимства в контекста на Навици срещу системи: защо системите се мащабират по-добре, както се обсъжда в урока?",
+      "options": [
+        "Както е подробно описано в урока, Предимства играе ключова роля в оптимизирането на процесите и постигането на целите",
+        "Само периферна информация без значителна роля",
+        "Само теоретична концепция без практическо приложение",
+        "Не се споменава в урока"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day4",
+        "#bg",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

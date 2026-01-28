@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-27T16:22:05.906Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_BG",
+    "name": "Продуктивност 2026: Как да управляваме екипи и време",
+    "language": "bg"
+  },
+  "lesson": {
+    "dayNumber": 25,
+    "title": "Развитие на умения: По-високи нива, нови компетентности",
+    "lessonId": "PRODUCTIVITY_2026_BG_DAY_25"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a5ce5e2257dcf11068d",
+      "uuid": "ab96bff6-dac6-4c07-ae37-f3fdb9654c5e",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Развивай основни компетентности и експертиза.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day25",
+        "#bg",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5ce5e2257dcf11068e",
+      "uuid": "e4e66814-fa1a-45e0-b01f-14863d2dca6d",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Развивай основни компетентности и експертиза.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day25",
+        "#bg",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5ce5e2257dcf11068f",
+      "uuid": "71c9ef63-aa14-4442-8f90-a1342ade2b90",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Развивай основни компетентности и експертиза.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day25",
+        "#bg",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5ce5e2257dcf110690",
+      "uuid": "8edebeab-d8be-44fd-a4e3-733e4cafcbee",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Как концепцията \"Развитие на умения: По-високи нива, нови компетент...\", спомената в урока, влияе върху постигането на вашите goals?",
+      "options": [
+        "Както е описано подробно в урока, Развитие на умения: По-високи ... увеличава ефективността и намалява риска",
+        "Няма значително въздействие",
+        "Има значение само теоретично",
+        "Само опционален елемент"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day25",
+        "#bg",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5ce5e2257dcf110691",
+      "uuid": "6c58e1ae-8c19-489c-b69d-1e89429c8909",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Колко важен е Развитие в контекста на Развитие на умения: По-високи нива, нови компетентности, както се обсъжда в урока?",
+      "options": [
+        "Както е подробно описано в урока, Развитие играе ключова роля в оптимизирането на процесите и постигането на целите",
+        "Само периферна информация без значителна роля",
+        "Само теоретична концепция без практическо приложение",
+        "Не се споменава в урока"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day25",
+        "#bg",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5ce5e2257dcf110692",
+      "uuid": "05686fb3-72b5-4555-852b-0f67d87ded48",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Колко важен е високи в контекста на Развитие на умения: По-високи нива, нови компетентности, както се обсъжда в урока?",
+      "options": [
+        "Както е подробно описано в урока, високи играе ключова роля в оптимизирането на процесите и постигането на целите",
+        "Само периферна информация без значителна роля",
+        "Само теоретична концепция без практическо приложение",
+        "Не се споменава в урока"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day25",
+        "#bg",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5ce5e2257dcf110693",
+      "uuid": "76b2a716-006f-48e9-a217-edcb9c38830b",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Колко важен е нови в контекста на Развитие на умения: По-високи нива, нови компетентности, както се обсъжда в урока?",
+      "options": [
+        "Както е подробно описано в урока, нови играе ключова роля в оптимизирането на процесите и постигането на целите",
+        "Само периферна информация без значителна роля",
+        "Само теоретична концепция без практическо приложение",
+        "Не се споменава в урока"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day25",
+        "#bg",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-27T16:22:05.093Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_BG",
+    "name": "Продуктивност 2026: Как да управляваме екипи и време",
+    "language": "bg"
+  },
+  "lesson": {
+    "dayNumber": 17,
+    "title": "Поддържане на мотивация: Проследяване на напредък, Отпразнуване на победи",
+    "lessonId": "PRODUCTIVITY_2026_BG_DAY_17"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a5be5e2257dcf11063d",
+      "uuid": "0fd7e947-0efe-470a-a4a5-f572835fd8d9",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Поддържай усилието и енергията на дълъг период.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day17",
+        "#bg",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5be5e2257dcf11063e",
+      "uuid": "9769d356-98dc-4ff0-9d05-5e781c199194",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Поддържай усилието и енергията на дълъг период.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day17",
+        "#bg",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5be5e2257dcf11063f",
+      "uuid": "c48c304f-cfc7-4f15-8223-cc299efaa5c0",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Поддържай усилието и енергията на дълъг период.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day17",
+        "#bg",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5be5e2257dcf110640",
+      "uuid": "133b8e17-246b-4781-83a6-7f0b18b749f6",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Как концепцията \"Поддържане на мотивация: Проследяване на напредък,...\", спомената в урока, влияе върху постигането на вашите goals?",
+      "options": [
+        "Както е описано подробно в урока, Поддържане на мотивация: Просл... увеличава ефективността и намалява риска",
+        "Няма значително въздействие",
+        "Има значение само теоретично",
+        "Само опционален елемент"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day17",
+        "#bg",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5be5e2257dcf110641",
+      "uuid": "b5e9ca61-dadf-4d79-9074-c38156429746",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Колко важен е Поддържане в контекста на Поддържане на мотивация: Проследяване на напредък, Отпразнуване на победи, както се обсъжда в урока?",
+      "options": [
+        "Както е подробно описано в урока, Поддържане играе ключова роля в оптимизирането на процесите и постигането на целите",
+        "Само периферна информация без значителна роля",
+        "Само теоретична концепция без практическо приложение",
+        "Не се споменава в урока"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day17",
+        "#bg",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5be5e2257dcf110642",
+      "uuid": "bc084a31-333e-4eb7-a639-a1443dde877d",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Колко важен е Проследяване в контекста на Поддържане на мотивация: Проследяване на напредък, Отпразнуване на победи, както се обсъжда в урока?",
+      "options": [
+        "Както е подробно описано в урока, Проследяване играе ключова роля в оптимизирането на процесите и постигането на целите",
+        "Само периферна информация без значителна роля",
+        "Само теоретична концепция без практическо приложение",
+        "Не се споменава в урока"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day17",
+        "#bg",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5be5e2257dcf110643",
+      "uuid": "c0d6bd42-59c3-4857-87d7-99b199468f95",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Колко важен е Отпразнуване в контекста на Поддържане на мотивация: Проследяване на напредък, Отпразнуване на победи, както се обсъжда в урока?",
+      "options": [
+        "Както е подробно описано в урока, Отпразнуване играе ключова роля в оптимизирането на процесите и постигането на целите",
+        "Само периферна информация без значителна роля",
+        "Само теоретична концепция без практическо приложение",
+        "Не се споменава в урока"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day17",
+        "#bg",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

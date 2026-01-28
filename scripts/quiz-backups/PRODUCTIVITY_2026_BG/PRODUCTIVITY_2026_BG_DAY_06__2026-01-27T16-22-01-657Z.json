@@ -1,0 +1,168 @@
+{
+  "backedUpAt": "2026-01-27T16:22:04.251Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_BG",
+    "name": "Продуктивност 2026: Как да управляваме екипи и време",
+    "language": "bg"
+  },
+  "lesson": {
+    "dayNumber": 6,
+    "title": "Улавяне: входящи кутии, списък с тригери, навици за улавяне",
+    "lessonId": "PRODUCTIVITY_2026_BG_DAY_06"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a5ae5e2257dcf1105b5",
+      "uuid": "579a440e-23c0-4416-b615-e2fe7dbc1b36",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Колко често трябва да изпразвате входящите кутии?",
+      "options": [
+        "Веднъж седмично",
+        "Веднъж месечно",
+        "Поне веднъж дневно",
+        "Никога"
+      ],
+      "correctIndex": 2,
+      "hashtags": [
+        "#day-06",
+        "#scenario",
+        "#application",
+        "#bg"
+      ]
+    },
+    {
+      "_id": "69776a5ae5e2257dcf1105b6",
+      "uuid": "a2df408e-ac9b-46e7-9f81-a251c93b4bdf",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ Имате надеждна система за входящи кути...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day6",
+        "#bg",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5ae5e2257dcf1105b7",
+      "uuid": "23a565f1-b236-4bf1-844e-a26496507d69",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ Имате надеждна система за входящи кути...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day6",
+        "#bg",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5ae5e2257dcf1105b8",
+      "uuid": "087c2def-5f38-41fd-b46f-06f2324aeeca",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Как концепцията \"Улавяне: входящи кутии, списък с тригери, навици з...\", спомената в урока, влияе върху постигането на вашите goals?",
+      "options": [
+        "Както е описано подробно в урока, Улавяне: входящи кутии, списък... увеличава ефективността и намалява риска",
+        "Няма значително въздействие",
+        "Има значение само теоретично",
+        "Само опционален елемент"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day6",
+        "#bg",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5ae5e2257dcf1105b9",
+      "uuid": "526bb3ba-dc1b-4236-ae99-3b7994063a6b",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Колко важен е Входящи кутии в контекста на Улавяне: входящи кутии, списък с тригери, навици за улавяне, както се обсъжда в урока?",
+      "options": [
+        "Както е подробно описано в урока, Входящи кутии играе ключова роля в оптимизирането на процесите и постигането на целите",
+        "Само периферна информация без значителна роля",
+        "Само теоретична концепция без практическо приложение",
+        "Не се споменава в урока"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day6",
+        "#bg",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5ae5e2257dcf1105ba",
+      "uuid": "ab3957c6-257e-4b6e-8cf9-b527e46ea39c",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Каква роля играе Навици за улавяне в урока \"Улавяне: входящи кутии, списък с тригери, навици за улавяне\"?",
+      "options": [
+        "Както е подробно описано в урока, Навици за улавяне играе ключова роля в оптимизирането на процесите и постигането на целите",
+        "Само периферна информация без значителна роля",
+        "Само теоретична концепция без практическо приложение",
+        "Не се споменава в урока"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day6",
+        "#bg",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5ae5e2257dcf1105bb",
+      "uuid": "3f46423b-10d1-44b2-9348-059061bbca6d",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Колко важен е Правило в контекста на Улавяне: входящи кутии, списък с тригери, навици за улавяне, както се обсъжда в урока?",
+      "options": [
+        "Както е подробно описано в урока, Правило играе ключова роля в оптимизирането на процесите и постигането на целите",
+        "Само периферна информация без значителна роля",
+        "Само теоретична концепция без практическо приложение",
+        "Не се споменава в урока"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day6",
+        "#bg",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

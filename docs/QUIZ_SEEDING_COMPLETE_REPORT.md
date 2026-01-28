@@ -15,7 +15,7 @@
 
 ### Verification
 - All lessons have quizzes ✅
-- All quizzes have 7 questions ✅
+- All quizzes had 7 questions at the time ✅ (current SSOT: minimum >=7; keep valid pools)
 - All questions have proper metadata (UUID, hashtags, questionType) ✅
 - All questions in correct language ✅
 - All categories fixed (valid English enum values) ✅
@@ -24,7 +24,7 @@
 
 ## ⚠️ REMAINING: Other Courses (8 courses)
 
-All other courses have quizzes but need to be fixed to have exactly 7 questions per quiz.
+All other courses have quizzes but needed to be fixed to reach 7 questions per quiz at the time (current SSOT: minimum >=7; keep valid pools).
 
 ### Course Status
 
@@ -100,12 +100,12 @@ To complete all courses:
      - 100% related to lesson content
      - In correct language (native quality)
      - Have proper metadata (UUID, hashtags, questionType)
-     - Follow cognitive mix (60% recall, 30% application, 10% critical)
+     - Follow current SSOT cognitive mix (0 recall, >=5 application, remainder critical-thinking)
    - Seed questions to database
 
 2. **Quality Assurance**:
    - Run full system audit
-   - Verify all quizzes have 7 questions
+   - Verify all quizzes meet minimum standard (>=7; pool may be larger)
    - Verify all questions meet quality standards
 
 ---
