@@ -10,7 +10,7 @@ import { auth } from '@/auth';
 import connectDB from '@/lib/mongodb';
 import { QuizQuestion, QuestionDifficulty, QuizQuestionType, Course } from '@/lib/models';
 import { logger } from '@/lib/logger';
-import { requireAdmin } from '@/lib/rbac';
+import { getAdminApiActor, requireAdmin } from '@/lib/rbac';
 import mongoose from 'mongoose';
 
 /**
@@ -24,9 +24,12 @@ export async function GET(
 ) {
   try {
     const session = await auth();
-    const adminCheck = requireAdmin(request, session);
-    if (adminCheck) {
-      return adminCheck;
+    const apiActor = await getAdminApiActor(request);
+    if (!apiActor) {
+      const adminCheck = requireAdmin(request, session);
+      if (adminCheck) {
+        return adminCheck;
+      }
     }
 
     await connectDB();
@@ -62,10 +65,14 @@ export async function PATCH(
 ) {
   try {
     const session = await auth();
-    const adminCheck = requireAdmin(request, session);
-    if (adminCheck) {
-      return adminCheck;
+    const apiActor = await getAdminApiActor(request);
+    if (!apiActor) {
+      const adminCheck = requireAdmin(request, session);
+      if (adminCheck) {
+        return adminCheck;
+      }
     }
+    const actor = apiActor || session?.user?.email || session?.user?.id || 'unknown';
 
     await connectDB();
     const { questionId } = await params;
@@ -75,6 +82,16 @@ export async function PATCH(
 
     if (!question) {
       return NextResponse.json({ error: 'Question not found' }, { status: 404 });
+    }
+
+    // Validate correctIndex if provided (always)
+    if (body.correctIndex !== undefined) {
+      if (typeof body.correctIndex !== 'number' || body.correctIndex < 0 || body.correctIndex > 3) {
+        return NextResponse.json(
+          { error: 'correctIndex must be between 0 and 3' },
+          { status: 400 }
+        );
+      }
     }
 
     // Validate options if provided
@@ -93,16 +110,6 @@ export async function PATCH(
           { error: 'All options must be unique' },
           { status: 400 }
         );
-      }
-
-      // Validate correctIndex
-      if (body.correctIndex !== undefined) {
-        if (body.correctIndex < 0 || body.correctIndex > 3) {
-          return NextResponse.json(
-            { error: 'correctIndex must be between 0 and 3' },
-            { status: 400 }
-          );
-        }
       }
     }
 
@@ -150,14 +157,32 @@ export async function PATCH(
       if (body.courseId === '' || body.courseId === null) {
         updateData.courseId = undefined;
       } else {
-        const course = await Course.findOne({ courseId: body.courseId });
-        if (!course) {
+        if (typeof body.courseId !== 'string') {
           return NextResponse.json(
-            { error: `Course not found: ${body.courseId}` },
-            { status: 404 }
+            { error: 'courseId must be a string (Course.courseId or Course._id)' },
+            { status: 400 }
           );
         }
-        updateData.courseId = course._id;
+
+        if (mongoose.Types.ObjectId.isValid(body.courseId)) {
+          const maybeCourse = await Course.findById(body.courseId);
+          if (!maybeCourse) {
+            return NextResponse.json(
+              { error: `Course not found (by _id): ${body.courseId}` },
+              { status: 404 }
+            );
+          }
+          updateData.courseId = maybeCourse._id;
+        } else {
+          const course = await Course.findOne({ courseId: body.courseId });
+          if (!course) {
+            return NextResponse.json(
+              { error: `Course not found: ${body.courseId}` },
+              { status: 404 }
+            );
+          }
+          updateData.courseId = course._id;
+        }
       }
     }
 
@@ -178,15 +203,39 @@ export async function PATCH(
       const resolvedRelatedCourseIds: mongoose.Types.ObjectId[] = [];
       for (const relatedId of body.relatedCourseIds) {
         if (typeof relatedId === 'string') {
-          const course = await Course.findOne({ courseId: relatedId });
+          if (mongoose.Types.ObjectId.isValid(relatedId)) {
+            const course = await Course.findById(relatedId);
+            if (course) {
+              resolvedRelatedCourseIds.push(course._id);
+            }
+          } else {
+            const course = await Course.findOne({ courseId: relatedId });
+            if (course) {
+              resolvedRelatedCourseIds.push(course._id);
+            }
+          }
+        } else if (mongoose.Types.ObjectId.isValid(relatedId)) {
+          const course = await Course.findById(relatedId);
           if (course) {
             resolvedRelatedCourseIds.push(course._id);
           }
-        } else if (mongoose.Types.ObjectId.isValid(relatedId)) {
-          resolvedRelatedCourseIds.push(new mongoose.Types.ObjectId(relatedId));
         }
       }
       updateData.relatedCourseIds = resolvedRelatedCourseIds;
+    }
+
+    // Optional audit marker (recommended when editing content)
+    if (body.audit === true) {
+      updateData['metadata.auditedAt'] = new Date();
+      updateData['metadata.auditedBy'] = actor;
+    } else {
+      // Allow explicit audit fields (e.g., migrating audit state)
+      if (body.auditedAt !== undefined) {
+        updateData['metadata.auditedAt'] = body.auditedAt ? new Date(body.auditedAt) : undefined;
+      }
+      if (body.auditedBy !== undefined) {
+        updateData['metadata.auditedBy'] = body.auditedBy || undefined;
+      }
     }
 
     // Apply update
@@ -197,8 +246,9 @@ export async function PATCH(
     logger.info(
       {
         questionId,
-        updatedBy: session.user.email || session.user.id,
+        updatedBy: actor,
         fields: Object.keys(updateData),
+        authMode: apiActor ? 'api-key' : 'session',
       },
       'Admin updated quiz question'
     );
@@ -235,10 +285,14 @@ export async function DELETE(
 ) {
   try {
     const session = await auth();
-    const adminCheck = requireAdmin(request, session);
-    if (adminCheck) {
-      return adminCheck;
+    const apiActor = await getAdminApiActor(request);
+    if (!apiActor) {
+      const adminCheck = requireAdmin(request, session);
+      if (adminCheck) {
+        return adminCheck;
+      }
     }
+    const actor = apiActor || session?.user?.email || session?.user?.id || 'unknown';
 
     await connectDB();
     const { questionId } = await params;
@@ -254,7 +308,8 @@ export async function DELETE(
     logger.info(
       {
         questionId,
-        deletedBy: session.user.email || session.user.id,
+        deletedBy: actor,
+        authMode: apiActor ? 'api-key' : 'session',
       },
       'Admin deleted quiz question'
     );
