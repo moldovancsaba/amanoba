@@ -8,6 +8,7 @@
 import { Session } from 'next-auth';
 import { NextRequest, NextResponse } from 'next/server';
 import { logger } from './logger';
+import { timingSafeEqual } from 'crypto';
 
 /**
  * User Role Types
@@ -115,6 +116,235 @@ export function requireAdmin(
   }
 
   return null;
+}
+
+function getBearerToken(request: NextRequest): string | null {
+  const authHeader = request.headers.get('authorization');
+  if (!authHeader) return null;
+
+  const [scheme, ...rest] = authHeader.split(' ');
+  if (scheme?.toLowerCase() !== 'bearer') return null;
+
+  const token = rest.join(' ').trim();
+  return token.length > 0 ? token : null;
+}
+
+function safeTokenEquals(a: string, b: string): boolean {
+  const aBuf = Buffer.from(a);
+  const bBuf = Buffer.from(b);
+  if (aBuf.length !== bBuf.length) return false;
+  return timingSafeEqual(aBuf, bBuf);
+}
+
+function getConfiguredAdminApiTokens(): string[] {
+  const raw = process.env.ADMIN_API_TOKENS || process.env.ADMIN_API_TOKEN;
+  if (!raw) return [];
+  return raw
+    .split(',')
+    .map((t) => t.trim())
+    .filter(Boolean);
+}
+
+/**
+ * Optional admin API token (script/bot access)
+ *
+ * Why: Enables controlled, non-browser CRUD (e.g., pipeline scripts) without a NextAuth session.
+ * How: Provide either `Authorization: Bearer <token>` or `X-Admin-Api-Key: <token>`.
+ *
+ * Security:
+ * - Supports both static tokens (ADMIN_API_TOKENS) and SSO Bearer tokens
+ * - Static tokens use constant-time comparison to reduce timing leakage
+ * - SSO tokens are validated against the SSO userinfo endpoint
+ */
+export async function getAdminApiActor(request: NextRequest): Promise<string | null> {
+  const provided =
+    getBearerToken(request) || request.headers.get('x-admin-api-key')?.trim() || null;
+  if (!provided) return null;
+
+  // First, try static admin API tokens
+  const configured = getConfiguredAdminApiTokens();
+  if (configured.length > 0) {
+    const isStaticTokenValid = configured.some((t) => safeTokenEquals(provided, t));
+    if (isStaticTokenValid) {
+      const rawActor = request.headers.get('x-admin-actor')?.trim();
+      if (!rawActor) return 'admin-api';
+      const actor = rawActor.replace(/[\r\n\t]/g, ' ').slice(0, 120).trim();
+      return actor.length > 0 ? actor : 'admin-api';
+    }
+  }
+
+  // If static token validation failed, try SSO token validation
+  try {
+    const ssoUserInfo = await validateSSOBearerToken(provided);
+    if (ssoUserInfo && ssoUserInfo.role === 'admin') {
+      logger.info(
+        {
+          ssoSub: ssoUserInfo.sub,
+          ssoEmail: ssoUserInfo.email,
+          ssoRole: ssoUserInfo.role,
+        },
+        'SSO Bearer token validated for admin API access'
+      );
+      return `sso-admin:${ssoUserInfo.email || ssoUserInfo.sub}`;
+    }
+  } catch (error) {
+    logger.warn(
+      {
+        error: error instanceof Error ? error.message : String(error),
+        tokenLength: provided.length,
+      },
+      'SSO Bearer token validation failed for admin API access'
+    );
+  }
+
+  return null;
+}
+
+/**
+ * Validate SSO Bearer token by calling the SSO userinfo endpoint
+ * and checking the user's role in Amanoba's database
+ * 
+ * @param token - Bearer token to validate
+ * @returns User info if token is valid and user has admin role, null otherwise
+ */
+async function validateSSOBearerToken(token: string): Promise<{ sub: string; email?: string; role: string } | null> {
+  const ssoUserinfoUrl = process.env.SSO_USERINFO_URL || 'https://sso.doneisbetter.com/api/oauth/userinfo';
+  
+  try {
+    // Step 1: Try to validate token against SSO userinfo endpoint
+    const response = await fetch(ssoUserinfoUrl, {
+      method: 'GET',
+      headers: {
+        'Authorization': `Bearer ${token}`,
+        'Content-Type': 'application/json',
+      },
+    });
+
+    let sub: string;
+    let email: string | undefined;
+
+    if (response.ok) {
+      // SSO userinfo endpoint is working
+      const ssoUserInfo = await response.json();
+      sub = ssoUserInfo.sub;
+      email = ssoUserInfo.email;
+
+      if (!sub) {
+        logger.warn({ ssoUserInfo: Object.keys(ssoUserInfo) }, 'SSO userinfo missing required sub claim');
+        return null;
+      }
+    } else {
+      // SSO userinfo endpoint failed, try to extract from JWT token directly
+      logger.debug(
+        {
+          status: response.status,
+          statusText: response.statusText,
+          ssoUserinfoUrl,
+        },
+        'SSO userinfo endpoint failed, attempting JWT token extraction'
+      );
+
+      try {
+        const tokenParts = token.split('.');
+        if (tokenParts.length !== 3) {
+          logger.warn({}, 'Invalid JWT token format');
+          return null;
+        }
+
+        const payload = JSON.parse(Buffer.from(tokenParts[1], 'base64').toString());
+        sub = payload.sub;
+        email = payload.email; // May not be present in access token
+
+        if (!sub) {
+          logger.warn({ payload: Object.keys(payload) }, 'JWT token missing required sub claim');
+          return null;
+        }
+
+        logger.debug(
+          {
+            sub,
+            clientId: payload.client_id,
+            scope: payload.scope,
+          },
+          'Successfully extracted user info from JWT token'
+        );
+      } catch (jwtError) {
+        logger.warn(
+          {
+            error: jwtError instanceof Error ? jwtError.message : String(jwtError),
+          },
+          'Failed to extract user info from JWT token'
+        );
+        return null;
+      }
+    }
+
+    // Step 2: Check user's role in Amanoba's database
+    try {
+      const connectDB = (await import('@/lib/mongodb')).default;
+      await connectDB();
+      
+      const { Player } = await import('@/lib/models');
+      
+      logger.debug(
+        {
+          sub,
+          searchQuery: { ssoSub: sub },
+        },
+        'Searching for player in database'
+      );
+      
+      const player = await Player.findOne({ ssoSub: sub }).lean().maxTimeMS(5000);
+
+      if (!player) {
+        // Try to find any players with similar ssoSub for debugging
+        const allPlayers = await Player.find({}).select('ssoSub displayName email role').limit(5).lean();
+        logger.debug(
+          {
+            sub,
+            email,
+            samplePlayers: allPlayers.map(p => ({ ssoSub: p.ssoSub, email: p.email, role: p.role })),
+          },
+          'SSO user not found in Amanoba database - showing sample players'
+        );
+        return null;
+      }
+
+      const role = player.role || 'user';
+
+      logger.info(
+        {
+          sub,
+          email,
+          role,
+          hasAdminRole: role === 'admin',
+          playerId: player._id,
+          validationMethod: response.ok ? 'sso-userinfo' : 'jwt-extraction',
+        },
+        'SSO token validated and user role determined from Amanoba database'
+      );
+
+      return { sub, email, role };
+    } catch (dbError) {
+      logger.warn(
+        {
+          error: dbError instanceof Error ? dbError.message : String(dbError),
+          sub,
+        },
+        'Database error while checking user role'
+      );
+      return null;
+    }
+  } catch (error) {
+    logger.warn(
+      {
+        error: error instanceof Error ? error.message : String(error),
+        ssoUserinfoUrl,
+      },
+      'Failed to validate SSO Bearer token'
+    );
+    return null;
+  }
 }
 
 /**

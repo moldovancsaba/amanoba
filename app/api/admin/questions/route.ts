@@ -17,7 +17,7 @@ import connectDB from '@/lib/mongodb';
 import { QuizQuestion, QuestionDifficulty, QuizQuestionType, Course } from '@/lib/models';
 import mongoose from 'mongoose';
 import { logger } from '@/lib/logger';
-import { requireAdmin } from '@/lib/rbac';
+import { getAdminApiActor, requireAdmin } from '@/lib/rbac';
 import { randomUUID } from 'crypto';
 
 /**
@@ -41,9 +41,12 @@ import { randomUUID } from 'crypto';
 export async function GET(request: NextRequest) {
   try {
     const session = await auth();
-    const adminCheck = requireAdmin(request, session);
-    if (adminCheck) {
-      return adminCheck;
+    const apiActor = await getAdminApiActor(request);
+    if (!apiActor) {
+      const adminCheck = requireAdmin(request, session);
+      if (adminCheck) {
+        return adminCheck;
+      }
     }
 
     await connectDB();
@@ -172,10 +175,14 @@ export async function GET(request: NextRequest) {
 export async function POST(request: NextRequest) {
   try {
     const session = await auth();
-    const adminCheck = requireAdmin(request, session);
-    if (adminCheck) {
-      return adminCheck;
+    const apiActor = await getAdminApiActor(request);
+    if (!apiActor) {
+      const adminCheck = requireAdmin(request, session);
+      if (adminCheck) {
+        return adminCheck;
+      }
     }
+    const actor = apiActor || session?.user?.email || session?.user?.id || 'unknown';
 
     await connectDB();
     const body = await request.json();
@@ -239,14 +246,25 @@ export async function POST(request: NextRequest) {
     let resolvedCourseId: mongoose.Types.ObjectId | undefined;
     if (courseId) {
       if (typeof courseId === 'string') {
-        const course = await Course.findOne({ courseId });
-        if (!course) {
-          return NextResponse.json(
-            { error: `Course not found: ${courseId}` },
-            { status: 404 }
-          );
+        if (mongoose.Types.ObjectId.isValid(courseId)) {
+          const maybeCourse = await Course.findById(courseId);
+          if (!maybeCourse) {
+            return NextResponse.json(
+              { error: `Course not found (by _id): ${courseId}` },
+              { status: 404 }
+            );
+          }
+          resolvedCourseId = maybeCourse._id;
+        } else {
+          const course = await Course.findOne({ courseId });
+          if (!course) {
+            return NextResponse.json(
+              { error: `Course not found: ${courseId}` },
+              { status: 404 }
+            );
+          }
+          resolvedCourseId = course._id;
         }
-        resolvedCourseId = course._id;
       } else {
         resolvedCourseId = courseId;
       }
@@ -257,12 +275,22 @@ export async function POST(request: NextRequest) {
     if (relatedCourseIds && Array.isArray(relatedCourseIds) && relatedCourseIds.length > 0) {
       for (const relatedId of relatedCourseIds) {
         if (typeof relatedId === 'string') {
-          const course = await Course.findOne({ courseId: relatedId });
+          if (mongoose.Types.ObjectId.isValid(relatedId)) {
+            const course = await Course.findById(relatedId);
+            if (course) {
+              resolvedRelatedCourseIds.push(course._id);
+            }
+          } else {
+            const course = await Course.findOne({ courseId: relatedId });
+            if (course) {
+              resolvedRelatedCourseIds.push(course._id);
+            }
+          }
+        } else if (mongoose.Types.ObjectId.isValid(relatedId)) {
+          const course = await Course.findById(relatedId);
           if (course) {
             resolvedRelatedCourseIds.push(course._id);
           }
-        } else if (mongoose.Types.ObjectId.isValid(relatedId)) {
-          resolvedRelatedCourseIds.push(new mongoose.Types.ObjectId(relatedId));
         }
       }
     }
@@ -287,7 +315,7 @@ export async function POST(request: NextRequest) {
       metadata: {
         createdAt: new Date(),
         updatedAt: new Date(),
-        createdBy: session.user.email || session.user.id,
+        createdBy: actor,
       },
     });
 
@@ -297,7 +325,8 @@ export async function POST(request: NextRequest) {
       {
         questionId: quizQuestion._id,
         uuid: quizQuestion.uuid,
-        createdBy: session.user.email || session.user.id,
+        createdBy: actor,
+        authMode: apiActor ? 'api-key' : 'session',
       },
       'Admin created quiz question'
     );
