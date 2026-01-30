@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-30T13:33:16.515Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_PL",
+    "name": "Produktywność 2026: Jak zarządzać zespołami i czasem",
+    "language": "pl"
+  },
+  "lesson": {
+    "dayNumber": 15,
+    "title": "Praca w Zespole i Synergia: Role, Odpowiedzialność, Koordynacja",
+    "lessonId": "PRODUCTIVITY_2026_PL_DAY_15"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a328260c12d7a7ac680",
+      "uuid": "80975171-2ec4-4b0b-80d6-bc48c643ce3e",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "You are working on a task and must pick an approach. How would you use the \"Organizuj zespoły dla lepszej wydajności.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail , test the results, and document my experiences",
+        "I only understand it theoretically",
+        "Wybierasz: I don't apply it.",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day15",
+        "#pl",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a328260c12d7a7ac681",
+      "uuid": "58a24803-5345-48c0-89b5-5a4858bec2ce",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "You're in a real situation and need to choose next steps. How would you use the \"Organizuj zespoły dla lepszej wydajności.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail , test the results, and document my experiences",
+        "I only understand it theoretically",
+        "Konkretna opcja: I don't apply it.",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day15",
+        "#pl",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a328260c12d7a7ac682",
+      "uuid": "69748415-c6a2-4627-bf1f-eff470f847e3",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Organizuj zespoły dla lepszej wydajności.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day15",
+        "#pl",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a328260c12d7a7ac683",
+      "uuid": "5aa62a0a-599e-405d-b8df-de224060ba5b",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Jak koncepcja \"Praca w Zespole i Synergia: Role, Odpowiedzialność...\", wspomniana w lekcji, wpływa na osiągnięcie twoich goals?",
+      "options": [
+        "Jak szczegółowo opisano w lekcji, Praca w Zespole i Synergia: Ro... zwiększa skuteczność i zmniejsza ryzyko",
+        "Brak znaczącego wpływu",
+        "Ma znaczenie tylko teoretycznie",
+        "Tylko opcjonalny element"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day15",
+        "#pl",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a328260c12d7a7ac684",
+      "uuid": "6564a219-000d-43ad-8879-b08cd9c3b9b1",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Jak ważny jest Praca w kontekście Praca w Zespole i Synergia: Role, Odpowiedzialność, Koordynacja, jak omówiono w lekcji?",
+      "options": [
+        "Jak szczegółowo opisano w lekcji, Praca odgrywa kluczową rolę w optymalizacji procesów i osiąganiu celów",
+        "Tylko peryferyjne informacje bez znaczącej roli",
+        "Tylko teoretyczna koncepcja bez praktycznego zastosowania",
+        "Konkretna opcja: Nie wspomniano w lekcji."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day15",
+        "#pl",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "69776a328260c12d7a7ac685",
+      "uuid": "dc9fe1b0-9ffd-49a5-abdb-7411ce59e15e",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Jak ważny jest Synergia w kontekście Praca w Zespole i Synergia: Role, Odpowiedzialność, Koordynacja, jak omówiono w lekcji?",
+      "options": [
+        "Jak szczegółowo opisano w lekcji, Synergia odgrywa kluczową rolę w optymalizacji procesów i osiąganiu celów",
+        "Tylko peryferyjne informacje bez znaczącej roli",
+        "Tylko teoretyczna koncepcja bez praktycznego zastosowania",
+        "Nie wspomniano w lekcji"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day15",
+        "#pl",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a328260c12d7a7ac686",
+      "uuid": "b94aef8d-af26-48f3-b6ac-108a0b838f88",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Jaką rolę odgrywa Odpowiedzialność w lekcji \"Praca w Zespole i Synergia: Role, Odpowiedzialność, Koordynacja\"?",
+      "options": [
+        "Jak szczegółowo opisano w lekcji, Odpowiedzialność odgrywa kluczową rolę w optymalizacji procesów i osiąganiu celów",
+        "Tylko peryferyjne informacje bez znaczącej roli",
+        "Tylko teoretyczna koncepcja bez praktycznego zastosowania",
+        "Nie wspomniano w lekcji"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day15",
+        "#pl",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

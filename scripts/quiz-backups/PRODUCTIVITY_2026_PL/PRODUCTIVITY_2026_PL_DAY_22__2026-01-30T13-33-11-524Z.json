@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-30T13:33:21.836Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_PL",
+    "name": "Produktywność 2026: Jak zarządzać zespołami i czasem",
+    "language": "pl"
+  },
+  "lesson": {
+    "dayNumber": 22,
+    "title": "Technologia i Narzędzia: Automatyzacja, Wybór Właściwej Technologii",
+    "lessonId": "PRODUCTIVITY_2026_PL_DAY_22"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a338260c12d7a7ac6ca",
+      "uuid": "10eb455a-368b-4c03-b5ee-2699532b894b",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Jak koncepcja \"Technologia i Narzędzia: Automatyzacja, Wybór Właś...\", wspomniana w lekcji, wpływa na osiągnięcie twoich goals?",
+      "options": [
+        "Jak szczegółowo opisano w lekcji, Technologia i Narzędzia: Autom... zwiększa skuteczność i zmniejsza ryzyko",
+        "Konkretna opcja: Brak znaczącego wpływu.",
+        "Ma znaczenie tylko teoretycznie",
+        "Konkretna opcja: Tylko opcjonalny element."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day22",
+        "#pl",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a338260c12d7a7ac6cb",
+      "uuid": "8a731b23-0dee-4c31-a4ff-08cc8096a13c",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Jak wykorzystałbyś koncepcję \"Technologia\" zgodnie z opisem w lekcji w praktyce?",
+      "options": [
+        "Podążam za krokami szczegółowo opisanymi w lekcji, testuję wyniki i dokumentuję swoje doświadczenia",
+        "Rozumiem to tylko teoretycznie",
+        "Konkretna opcja: Nie stosuję tego.",
+        "Czekam na dalsze instrukcje"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day22",
+        "#pl",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a338260c12d7a7ac6cc",
+      "uuid": "581db19f-1c7e-4f20-8cf4-df5eafda7524",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Jak wykorzystałbyś koncepcję \"Narzędzia\" zgodnie z opisem w lekcji w praktyce?",
+      "options": [
+        "Podążam za krokami szczegółowo opisanymi w lekcji, testuję wyniki i dokumentuję swoje doświadczenia",
+        "Rozumiem to tylko teoretycznie",
+        "Nie stosuję tego",
+        "Czekam na dalsze instrukcje"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day22",
+        "#pl",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a338260c12d7a7ac6cd",
+      "uuid": "e7ca900a-0b3c-4f6a-a310-e83b318b3efe",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Jak wykorzystałbyś koncepcję \"Automatyzacja\" zgodnie z opisem w lekcji w praktyce?",
+      "options": [
+        "Podążam za krokami szczegółowo opisanymi w lekcji, testuję wyniki i dokumentuję swoje doświadczenia",
+        "Rozumiem to tylko teoretycznie",
+        "Wybierasz: Nie stosuję tego.",
+        "Czekam na dalsze instrukcje"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day22",
+        "#pl",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a338260c12d7a7ac6ce",
+      "uuid": "1a601d1b-94fe-4841-8950-0a136639a3a3",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Jak ważny jest Narzędzia w kontekście Technologia i Narzędzia: Automatyzacja, Wybór Właściwej Technologii, jak omówiono w lekcji?",
+      "options": [
+        "Jak szczegółowo opisano w lekcji, Narzędzia odgrywa kluczową rolę w optymalizacji procesów i osiąganiu celów",
+        "Tylko peryferyjne informacje bez znaczącej roli",
+        "Tylko teoretyczna koncepcja bez praktycznego zastosowania",
+        "Nie wspomniano w lekcji"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day22",
+        "#pl",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a338260c12d7a7ac6cf",
+      "uuid": "5c6eeb55-6134-4fdc-9f63-84653cec70e0",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Jak ważny jest Wybór w kontekście Technologia i Narzędzia: Automatyzacja, Wybór Właściwej Technologii, jak omówiono w lekcji?",
+      "options": [
+        "Jak szczegółowo opisano w lekcji, Wybór odgrywa kluczową rolę w optymalizacji procesów i osiąganiu celów",
+        "Tylko peryferyjne informacje bez znaczącej roli",
+        "Tylko teoretyczna koncepcja bez praktycznego zastosowania",
+        "Nie wspomniano w lekcji"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day22",
+        "#pl",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a338260c12d7a7ac6d0",
+      "uuid": "7b4a43b9-4408-47cb-bae2-7a255b0167af",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Jak ważny jest Technologii w kontekście Technologia i Narzędzia: Automatyzacja, Wybór Właściwej Technologii, jak omówiono w lekcji?",
+      "options": [
+        "Jak szczegółowo opisano w lekcji, Technologii odgrywa kluczową rolę w optymalizacji procesów i osiąganiu celów",
+        "Tylko peryferyjne informacje bez znaczącej roli",
+        "Tylko teoretyczna koncepcja bez praktycznego zastosowania",
+        "Nie wspomniano w lekcji"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day22",
+        "#pl",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

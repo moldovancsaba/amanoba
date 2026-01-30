@@ -1,0 +1,177 @@
+{
+  "backedUpAt": "2026-01-30T14:02:20.431Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_TR",
+    "name": "Verimlilik 2026: Ekipler ve Zaman Nasıl Yönetilir",
+    "language": "tr"
+  },
+  "lesson": {
+    "dayNumber": 20,
+    "title": "Kişisel Yaşam Verimliliği: Ev Düzeni, Kişisel Projeler",
+    "lessonId": "PRODUCTIVITY_2026_TR_DAY_20"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "6978ce3b2762132c7496d4ec",
+      "uuid": "a8293266-c5d2-4907-a4a8-cc00fa22a7ae",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Ekip planlamasinda sonraki adimlari secmen gerekiyor. Yeni bir uygulamayı devreye alıyorsunuz: “İyi örnek: 2 odak bloğu + 1 önemli çıktı teslim + düşük carr”. Hangi plan ölçülebilir çıktı ve hızlı geri bildirim sağlar?",
+      "options": [
+        "Adım adım uygularım: kriter/metrik belirlerim, küçük kapsamda pilot yaparım, sonucu kaydederim ve tek tek kural değiştiririm.",
+        "Her şeyi aynı anda değiştiririm; ölçüm ve kontrol noktası olmadan “neyin işe yaradığını” bilemem.",
+        "Uygulamayı başlatırım ama “önce/sonra” ölçümü yapmam; böylece etkisi belirsiz kalır.",
+        "Sadece okuyup geçerim; çalışma sistemine entegre etmediğim için davranış ve sonuç değişmez."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day20",
+        "#tr",
+        "#all-languages",
+        "#course-productivity_2026_tr",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "6978ce3b2762132c7496d4ed",
+      "uuid": "701cf664-f949-40c0-83da-d1ea8c12651c",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Son teslim tarihi baskisi altinda pratik bir karar vermen gerekiyor. Yeni bir uygulamayı devreye alıyorsunuz: “Düzeltme: 1 kural, 1 metrik, 1 haftalık test.”. Hangi plan ölçülebilir çıktı ve hızlı geri bildirim sağlar?",
+      "options": [
+        "Adım adım uygularım: kriter/metrik belirlerim, küçük kapsamda pilot yaparım, sonucu kaydederim ve tek tek kural değiştiririm.",
+        "Her şeyi aynı anda değiştiririm; ölçüm ve kontrol noktası olmadan “neyin işe yaradığını” bilemem.",
+        "Uygulamayı başlatırım ama “önce/sonra” ölçümü yapmam; böylece etkisi belirsiz kalır.",
+        "Sadece okuyup geçerim; çalışma sistemine entegre etmediğim için davranış ve sonuç değişmez."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day20",
+        "#tr",
+        "#all-languages",
+        "#course-productivity_2026_tr",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "6978ce3b2762132c7496d4ee",
+      "uuid": "bbe2d3ca-6a87-490f-a987-635ad25baa2c",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Yeni bir uygulamayı devreye alıyorsunuz: “Düzeltme: kontrol edilebilir “done” tanımı yaz ve ölç. Metri”. Hangi plan ölçülebilir çıktı ve hızlı geri bildirim sağlar?",
+      "options": [
+        "Adım adım uygularım: kriter/metrik belirlerim, küçük kapsamda pilot yaparım, sonucu kaydederim ve tek tek kural değiştiririm.",
+        "Her şeyi aynı anda değiştiririm; ölçüm ve kontrol noktası olmadan “neyin işe yaradığını” bilemem.",
+        "Uygulamayı başlatırım ama “önce/sonra” ölçümü yapmam; böylece etkisi belirsiz kalır.",
+        "Sadece okuyup geçerim; çalışma sistemine entegre etmediğim için davranış ve sonuç değişmez."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day20",
+        "#tr",
+        "#all-languages",
+        "#course-productivity_2026_tr",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "6978ce3b2762132c7496d4ef",
+      "uuid": "a023c93b-3645-44b7-9582-4f18775bd50d",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Yeni bir uygulamayı devreye alıyorsunuz: “Örnek (iyi vs kötü) İyi örnek: 2 odak bloğu + 1 önemli çıktı”. Hangi plan ölçülebilir çıktı ve hızlı geri bildirim sağlar?",
+      "options": [
+        "Adım adım uygularım: kriter/metrik belirlerim, küçük kapsamda pilot yaparım, sonucu kaydederim ve tek tek kural değiştiririm.",
+        "Her şeyi aynı anda değiştiririm; ölçüm ve kontrol noktası olmadan “neyin işe yaradığını” bilemem.",
+        "Uygulamayı başlatırım ama “önce/sonra” ölçümü yapmam; böylece etkisi belirsiz kalır.",
+        "Sadece okuyup geçerim; çalışma sistemine entegre etmediğim için davranış ve sonuç değişmez."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day20",
+        "#tr",
+        "#all-languages",
+        "#course-productivity_2026_tr",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "6978ce3b2762132c7496d4f0",
+      "uuid": "d4bff0fd-09d9-4208-a213-b77f57dabbe6",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "You need to make a decision under constraints. Yeni bir uygulamayı devreye alıyorsunuz: “örnek: 12 “başlandı” ama 0 sonuç; kısıtlar bozuluyor”. Hangi plan ölçülebilir çıktı ve hızlı geri bildirim sağlar?",
+      "options": [
+        "Adım adım uygularım: kriter/metrik belirlerim, küçük kapsamda pilot yaparım, sonucu kaydederim ve tek tek kural değiştiririm.",
+        "Her şeyi aynı anda değiştiririm; ölçüm ve kontrol noktası olmadan “neyin işe yaradığını” bilemem.",
+        "Uygulamayı başlatırım ama “önce/sonra” ölçümü yapmam; böylece etkisi belirsiz kalır.",
+        "Sadece okuyup geçerim; çalışma sistemine entegre etmediğim için davranış ve sonuç değişmez."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day20",
+        "#tr",
+        "#all-languages",
+        "#course-productivity_2026_tr",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "6979db3d9316e77110ed0689",
+      "uuid": "c3ed459a-8155-4da3-8951-788cda8448c1",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Bir lider şu ilkeye göre karar veriyor: “önemli çıktı teslim + düşük carryover”. hedefler hedefine ulaşmada en olası etki nedir ve yanlış yorumlanır/yanlış ölçülürse tipik risk hangisidir?",
+      "options": [
+        "Doğru odak, kısıtlar altında en yüksek etkili çıktıyı artırır; risk: yanlış metriğe optimize olup “görünür output” üretmek.",
+        "Daha çok iş yapmak otomatik olarak daha çok sonuç getirir; risk: aktivite artar ama kalite ve müşteri değeri düşer.",
+        "Kısıtlar (zaman/enerji/dikkat) önemli değildir; risk: aşırı yüklenme, hata ve tükenmişlik sonucu bozar.",
+        "Önce hız, kalite sonra; risk: yeniden iş (rework) artar, throughput düşer ve güven kaybı olur."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day20",
+        "#tr",
+        "#all-languages",
+        "#course-productivity_2026_tr",
+        "#productivity",
+        "#advanced",
+        "#critical-thinking"
+      ]
+    },
+    {
+      "_id": "6979db3d9316e77110ed068a",
+      "uuid": "b329dc3e-8bcc-4223-a4b8-71e396410d33",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Bir lider şu ilkeye göre karar veriyor: “Verimlilik 2026 — Gün 20 Kişisel Yaşam Verimliliği: Ev Düzeni, Kişisel Projeler ”. hedefler hedefine ulaşmada en olası etki nedir ve yanlış yorumlanır/yanlış ölçülürse tipik risk hangisidir?",
+      "options": [
+        "Doğru odak, kısıtlar altında en yüksek etkili çıktıyı artırır; risk: yanlış metriğe optimize olup “görünür output” üretmek.",
+        "Daha çok iş yapmak otomatik olarak daha çok sonuç getirir; risk: aktivite artar ama kalite ve müşteri değeri düşer.",
+        "Kısıtlar (zaman/enerji/dikkat) önemli değildir; risk: aşırı yüklenme, hata ve tükenmişlik sonucu bozar.",
+        "Önce hız, kalite sonra; risk: yeniden iş (rework) artar, throughput düşer ve güven kaybı olur."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day20",
+        "#tr",
+        "#all-languages",
+        "#course-productivity_2026_tr",
+        "#productivity",
+        "#advanced",
+        "#critical-thinking"
+      ]
+    }
+  ]
+}

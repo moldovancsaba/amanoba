@@ -1,6 +1,10 @@
-# AMANOBA
+# Amanoba — Agent Operating Document
 
-## AGENT RULES BY SULTAN
+**Project**: Amanoba (unified 30-day learning platform)  
+**Roles**: Sultan = Product Owner; Agent = AI Developer  
+**Scope**: This document is the **project-specific** rulebook for the Amanoba codebase. All paths, docs, and rules refer to this repository.
+
+---
 
 # Ground Zero Prerequisite (Non-Negotiable)
 
@@ -40,7 +44,7 @@ You are one of the developers of this project and you have full and explicit per
 
 You are expected to deliver with complete ownership, accuracy, and accountability, producing work that is:
 
-	•	✅ Error-free, Warning-free, Depricated-free
+	•	✅ Error-free, warning-free, deprecated-free
 	•	✅ 	Production-grade
 	•	✅ Fully documented, traceable, and maintainable
 	•	✅ Secure, future-proof, and dependency-safe
@@ -64,7 +68,9 @@ Documentation system:
 - All feature documents go in /docs folder
 - Format: YYYY-MM-DD_FEATURE.md
 - Feature documents are referenced in tasklist, roadmap, release notes, learnings, architecture, etc.
-- Feature documents will be updated as work progresses
+- Feature documents are updated as work progresses
+
+**Layout grammar (mandatory for structure and layout):** When the task involves content structure, course/lesson/quiz layout, UI/page layout, or documentation structure, read and follow **`docs/layout_grammar.md`** — the single source of truth for project layout grammar (project and doc layout, CCS structure, lesson and quiz structure, UI/design layout, API and locale layout, language rules). Derived from the designer courses (`docs/canonical/`), COURSE_BUILDING_RULES, and the design system. For layout/structure conflicts, `docs/layout_grammar.md` wins; for course/quiz quality and pipelines, the SSOT set below still applies.
 
 “If it’s not documented, it’s not done.”
 
@@ -83,11 +89,12 @@ Never assume. Never proceed on uncertainty.
 
 When the task involves **creating courses**, **refining lessons**, **generating quizzes**, **localization**, or **quality control**, treat these documents as mandatory to read and keep consistent:
 
-- `2026_course_creator_prompts.md` — recursive prompts + state management for course creation.
-- `2026_course_quality_prompt.md` — **single source of truth** for course quality control (lessons + quizzes + language integrity gates).
-- `docs/QUIZ_QUALITY_PIPELINE_HANDOVER.md` — operational handover (rollback + commands + strict rules).
-- `docs/QUIZ_QUALITY_PIPELINE_PLAYBOOK.md` — playbook (workflow + outputs).
-- `docs/COURSE_BUILDING_RULES.md` — course creation rules (language prerequisites + standards).
+- **`docs/layout_grammar.md`** — Layout and structure grammar (course/lesson/quiz/UI/doc layout). Read first when touching content or course structure.
+- **`2026_course_creator_prompts.md`** — Recursive prompts + state management for course creation.
+- **`2026_course_quality_prompt.md`** — Single source of truth for course quality control (lessons + quizzes + language integrity gates).
+- **`docs/QUIZ_QUALITY_PIPELINE_HANDOVER.md`** — Operational handover (rollback + commands + strict rules).
+- **`docs/QUIZ_QUALITY_PIPELINE_PLAYBOOK.md`** — Playbook (workflow + outputs).
+- **`docs/COURSE_BUILDING_RULES.md`** — Course creation rules (language prerequisites + standards).
 
 Rule: If any other document conflicts with the SSOT set above, **update the other document** or clearly mark it as historical, so the system stays contradiction-free.
 
@@ -136,9 +143,9 @@ TEAM:
 - Tribeca, Auto Agent via Cursor, Developer
 - Sultan, Product Owner, Decision maker
 
-## LOOPBACK BY AGENT
+## Loopback by Agent
 
-#### You work here:
+**You work here**: Amanoba repository. Current priorities and active work live in **`docs/TASKLIST.md`** and **`docs/ROADMAP.md`**. Before starting any task, check TASKLIST and ROADMAP for the recommended next items and for references to feature docs. For layout and structure, follow **`docs/layout_grammar.md`**.
 
 ---
 
@@ -153,23 +160,14 @@ TEAM:
 
 ## 📋 Current Feature/Bug Document
 
-**Active Work**: 📋 **DEEP CODE AUDIT** - `docs/2026-01-28_DEEP_CODE_AUDIT.md`
+**Source of truth**: **`docs/TASKLIST.md`** and **`docs/ROADMAP.md`** define active work and recommended next items. This section is a pointer; always read TASKLIST and ROADMAP for the current state.
 
-**Status**: ✅ **AUDIT DELIVERED (P1 + P2)** — All follow-up tasks completed  
-**Priority**: P1 (consistency, design, hardening)  
-**Completed**: 2026-01-28 (audit doc + AUDIT1–AUDIT11 + ROADMAP/TASKLIST/RELEASE_NOTES)  
-**Current Progress**:
-- ✅ **AUDIT DOCUMENT CREATED**: `docs/2026-01-28_DEEP_CODE_AUDIT.md` — inconsistencies, deprecated/obsolete, hardcoded values, design deviations, inline styles, hardening
-- ✅ **ROADMAP UPDATED**: Tech debt P1/P2 and "Deep Code Audit" subsection; version 2.9.13
-- ✅ **TASKLIST UPDATED**: "Code Audit Follow-Up" with AUDIT1–AUDIT11; all ✅ DONE; version 2.9.13
-- ✅ **P1 DELIVERED**: Design system reconciliation, LocaleLink migration, email CTA tokens, client log removal, inline-style cleanup (AUDIT1–AUDIT5)
-- ✅ **P2 DELIVERED**: APP_URL constant, certificate colors from config, theme objects, ARCHITECTURE auth map, Facebook cleanup, CSP (AUDIT6–AUDIT11)
-- **Release**: v2.9.13 — see `docs/RELEASE_NOTES.md`. Next work = Quiz Quality / Profile Visibility or optional audit follow-ups (env docs, scripts APP_URL).
+**As of last update**: Certificate System v0.1, Editor User, and User profile customization are delivered (see `docs/RELEASE_NOTES.md`). Recommended next: Global audit (P0), Onboarding Survey / Email Automation / Multi-Format Forking (P2), P1 tech debt (design system, debug logs, Facebook cleanup).
 
-**Related Docs**:
-- `docs/2026-01-28_DEEP_CODE_AUDIT.md` — Full audit findings
-- `docs/ROADMAP.md` — Tech debt and Deep Code Audit subsection
-- `docs/TASKLIST.md` — Code Audit Follow-Up (AUDIT1–AUDIT11)
+**When starting work**:
+1. Read **`docs/TASKLIST.md`** for active tasks and recommended next 3 items.
+2. Read **`docs/ROADMAP.md`** for strategy and tech debt.
+3. For any content, course, UI, or doc structure: read **`docs/layout_grammar.md`** and follow the layout grammar.
 
 ---
 
@@ -228,6 +226,7 @@ TEAM:
 
 | Location | Document Name | Summary |
 |----------|---------------|---------|
+| **`/docs/layout_grammar.md`** | **Layout Grammar** | **Single source of truth for structural and layout rules**: project layout, doc layout, CCS/lesson/quiz structure, UI/design layout, API and locale layout, language rules. Mandatory when touching content, courses, UI structure, or docs structure. |
 | `/docs/CONTRIBUTING.md` | Contributing Guide | Development workflow, coding standards, git conventions, and documentation requirements. Essential for maintaining code quality. |
 | `/docs/NAMING_GUIDE.md` | Naming Guide | Comprehensive naming conventions for files, components, functions, and variables. Ensures consistency across codebase. |
 | `/docs/DESIGN_UPDATE.md` | Design Update | Design system updates and UI guidelines. CTA yellow exclusivity rule, color tokens, and component styling standards. |
@@ -263,9 +262,9 @@ TEAM:
 
 ### Critical System State
 
-**Current Version**: Restored to working baseline `f20c34a`  
-**Last Known Working Commit**: `f20c34a` - "feat: surface certification state in catalog and course detail pages"  
-**Status**: ✅ WORKING - System restored to stable baseline
+**Current version and status**: See **`docs/RELEASE_NOTES.md`** (current version) and **`docs/TASKLIST.md`** (active work). Build and deployment status are verified on release.
+
+**Layout and structure**: For any work that affects **content layout**, **course/lesson/quiz layout**, **UI layout**, or **documentation layout**, follow **`docs/layout_grammar.md`** so all outputs stay consistent with the designer courses and project conventions.
 
 ### Authentication System (CRITICAL - DO NOT MODIFY)
 
@@ -321,5 +320,5 @@ TEAM:
 
 ---
 
-**Last Updated**: 2026-01-28  
-**Current Work**: Deep Code Audit delivered; follow-up tasks in `docs/TASKLIST.md` (Code Audit Follow-Up) and `docs/ROADMAP.md`
+**Last Updated**: 2026-01-30  
+**Current Work**: See `docs/TASKLIST.md` and `docs/ROADMAP.md`. For layout and structure, follow `docs/layout_grammar.md`.

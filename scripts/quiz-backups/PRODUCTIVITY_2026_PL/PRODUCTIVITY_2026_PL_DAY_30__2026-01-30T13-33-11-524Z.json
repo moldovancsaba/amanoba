@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-30T13:33:27.767Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_PL",
+    "name": "Produktywność 2026: Jak zarządzać zespołami i czasem",
+    "language": "pl"
+  },
+  "lesson": {
+    "dayNumber": 30,
+    "title": "Mistrz Produktywności: Całościowa Integracja, Zaangażowanie",
+    "lessonId": "PRODUCTIVITY_2026_PL_DAY_30"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a348260c12d7a7ac71a",
+      "uuid": "5177af12-dc73-4a98-9c6b-40a6c489ee23",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Synteza, refleksja i spojrzenie w przyszłość.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day30",
+        "#pl",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a348260c12d7a7ac71b",
+      "uuid": "295cf73b-aa39-489b-9774-3644995fb56b",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Synteza, refleksja i spojrzenie w przyszłość.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day30",
+        "#pl",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a348260c12d7a7ac71c",
+      "uuid": "9ac0a701-c811-46cc-a61d-066171a46e54",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "You're in a real situation and need to choose next steps. How would you use the \"Synteza, refleksja i spojrzenie w przyszłość.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail , test the results, and document my experiences",
+        "I only understand it theoretically",
+        "Konkretna opcja: I don't apply it.",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day30",
+        "#pl",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a348260c12d7a7ac71d",
+      "uuid": "d05a2c9e-a31a-452e-bb15-7e2e2df57260",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Jak koncepcja \"Mistrz Produktywności: Całościowa Integracja, Zaan...\", wspomniana w lekcji, wpływa na osiągnięcie twoich goals?",
+      "options": [
+        "Jak szczegółowo opisano w lekcji, Mistrz Produktywności: Całości... zwiększa skuteczność i zmniejsza ryzyko",
+        "Brak znaczącego wpływu",
+        "Ma znaczenie tylko teoretycznie",
+        "Tylko opcjonalny element"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day30",
+        "#pl",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a348260c12d7a7ac71e",
+      "uuid": "fec1c915-aa2b-4696-8a49-0ed24184c731",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Jak ważny jest Mistrz w kontekście Mistrz Produktywności: Całościowa Integracja, Zaangażowanie, jak omówiono w lekcji?",
+      "options": [
+        "Jak szczegółowo opisano w lekcji, Mistrz odgrywa kluczową rolę w optymalizacji procesów i osiąganiu celów",
+        "Tylko peryferyjne informacje bez znaczącej roli",
+        "Tylko teoretyczna koncepcja bez praktycznego zastosowania",
+        "Nie wspomniano w lekcji"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day30",
+        "#pl",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a348260c12d7a7ac71f",
+      "uuid": "b1d29b8a-97a4-469e-ac07-b1d71feb6483",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Jak ważny jest Całościowa w kontekście Mistrz Produktywności: Całościowa Integracja, Zaangażowanie, jak omówiono w lekcji?",
+      "options": [
+        "Jak szczegółowo opisano w lekcji, Całościowa odgrywa kluczową rolę w optymalizacji procesów i osiąganiu celów",
+        "Tylko peryferyjne informacje bez znaczącej roli",
+        "Tylko teoretyczna koncepcja bez praktycznego zastosowania",
+        "Konkretna opcja: Nie wspomniano w lekcji."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day30",
+        "#pl",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "69776a348260c12d7a7ac720",
+      "uuid": "0bdbe33f-5af3-4e43-95f2-771e6bca404b",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Jak ważny jest Zaangażowanie w kontekście Mistrz Produktywności: Całościowa Integracja, Zaangażowanie, jak omówiono w lekcji?",
+      "options": [
+        "Jak szczegółowo opisano w lekcji, Zaangażowanie odgrywa kluczową rolę w optymalizacji procesów i osiąganiu celów",
+        "Tylko peryferyjne informacje bez znaczącej roli",
+        "Tylko teoretyczna koncepcja bez praktycznego zastosowania",
+        "Wybierasz: Nie wspomniano w lekcji."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day30",
+        "#pl",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    }
+  ]
+}

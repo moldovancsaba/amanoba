@@ -1,0 +1,126 @@
+{
+  "backedUpAt": "2026-01-30T14:14:22.119Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_EN",
+    "name": "Productivity 2026: How to Manage Teams and Time",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 14,
+    "title": "Meeting efficiency (agenda, time limits, decision log)",
+    "lessonId": "PRODUCTIVITY_2026_EN_DAY_14"
+  },
+  "questionCount": 5,
+  "questions": [
+    {
+      "_id": "69787d9ba326286129da900f",
+      "uuid": "577adcab-2ca4-4cb6-88e3-f539c610c7d9",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "You are applying \"Meeting efficiency (agenda, time limits, decision log)\" this week. Which next step most directly turns intent into an outcome instead of extra activity?",
+      "options": [
+        "Pick one real scenario, apply the checklist, define a success metric/criterion, and review results at week’s end.",
+        "Add more meetings and messages so progress is visible, then assume the outcome improved.",
+        "Start multiple unrelated tasks to stay busy and increase the feeling of productivity.",
+        "Delay action until the plan is perfect, because execution without certainty risks mistakes."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day14",
+        "#en",
+        "#course-productivity_2026_en",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "69787d9ba326286129da9010",
+      "uuid": "11d51ea7-ddf2-4977-81f7-b7461d6cd16c",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Which option is the best example of a measurable metric/criterion for \"Meeting efficiency (agenda, time limits, decision log)\" (so you can prove progress)?",
+      "options": [
+        "A specific number tracked weekly (e.g., decision latency, cycle time, time saved) with a threshold for success.",
+        "A general intention like “be better at this”, without numbers or a deadline.",
+        "A count of messages sent, regardless of whether outcomes improved.",
+        "A feeling-based check (“did it feel productive?”) with no measurable signal."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day14",
+        "#en",
+        "#course-productivity_2026_en",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "69787d9ba326286129da9011",
+      "uuid": "d57736fc-74dd-4a5d-9a24-a26315e4f8cf",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "In a \"Good vs Bad\" comparison for \"Meeting efficiency (agenda, time limits, decision log)\", which option is closest to a “Good” implementation?",
+      "options": [
+        "Clear outcomes, explicit owners/criteria, and fewer distractions so execution produces measurable results.",
+        "More activity (more meetings/updates) without decisions, owners, or measurable progress.",
+        "More tools and dashboards without changing the process or defining success criteria.",
+        "More urgency and overtime without adjusting constraints or simplifying the system."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day14",
+        "#en",
+        "#course-productivity_2026_en",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "69787d9ba326286129da9013",
+      "uuid": "8c58f8ee-e1dc-4487-b5e5-33af311bd94c",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "You want \"Meeting efficiency (agenda, time limits, decision log)\" to work for a team, not just one person. Which change best makes it a scalable system?",
+      "options": [
+        "Document the checklist, define owners and success criteria, and run a lightweight cadence (review + adjustment).",
+        "Rely on individual willpower and hope everyone copies the best performer’s habits.",
+        "Make the process optional with no shared metrics so nobody feels pressured by measurement.",
+        "Increase coordination time so everyone stays busy and visible, even if execution time drops."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day14",
+        "#en",
+        "#course-productivity_2026_en",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "69787d9ba326286129da9014",
+      "uuid": "ec0fd75b-950b-4f9d-a0a3-eb38f909748d",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "What is the biggest risk if you implement \"Meeting efficiency (agenda, time limits, decision log)\" incorrectly by adding more activity without changing outcomes?",
+      "options": [
+        "Constraints get consumed (time/energy/attention) while outcomes stagnate, so productivity drops even if work feels intense.",
+        "Outcomes improve automatically because activity volume guarantees results in complex systems.",
+        "Measurement becomes unnecessary because visible effort is a sufficient success signal.",
+        "Decision quality improves because fatigue forces faster thinking and fewer debates."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day14",
+        "#en",
+        "#course-productivity_2026_en",
+        "#productivity",
+        "#advanced",
+        "#critical-thinking"
+      ]
+    }
+  ]
+}

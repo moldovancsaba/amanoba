@@ -1,8 +1,8 @@
 # Amanoba
 
-**Current Version**: 2.9.13  
-**Last Updated**: 2026-01-28  
-**Status**: Production Stable — Deep Code Audit (P1+P2) delivered; SSO-only auth; CSP updated (no Facebook)
+**Current Version**: 2.9.16  
+**Last Updated**: 2026-01-29  
+**Status**: Production Stable — Quiz pipeline tiny-loop; ROADMAP & TASKLIST cleaned; SSO-only auth
 
 ## 🎓 Overview
 
@@ -91,7 +91,7 @@ Open http://localhost:3000 in your browser.
 See `.env.local.example` for required configuration including:
 - MongoDB connection string
 - Admin password
-- Facebook App credentials
+- SSO / auth provider configuration
 - VAPID keys for push notifications
 - Optional analytics ID
 

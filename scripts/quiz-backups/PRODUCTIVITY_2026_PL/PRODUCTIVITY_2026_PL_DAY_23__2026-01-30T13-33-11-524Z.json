@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-30T13:33:22.570Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_PL",
+    "name": "Produktywność 2026: Jak zarządzać zespołami i czasem",
+    "language": "pl"
+  },
+  "lesson": {
+    "dayNumber": 23,
+    "title": "Kreatywność i Innowacja: Przeszukiwanie na Nowo, Eksperymenty",
+    "lessonId": "PRODUCTIVITY_2026_PL_DAY_23"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a338260c12d7a7ac6d4",
+      "uuid": "f087d99e-9bb4-4f17-8250-529d7e540607",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Zintegruj kreatywność i innowację z pracą.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day23",
+        "#pl",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a338260c12d7a7ac6d5",
+      "uuid": "df383ef3-c40d-456a-a0e1-92cfec7171be",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Zintegruj kreatywność i innowację z pracą.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day23",
+        "#pl",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a338260c12d7a7ac6d6",
+      "uuid": "d4bb883f-0624-482c-a4a5-6cd906df97b4",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Zintegruj kreatywność i innowację z pracą.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day23",
+        "#pl",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a338260c12d7a7ac6d7",
+      "uuid": "86112bdc-dc7d-4c8d-b707-e94aafb43bf8",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Jak koncepcja \"Kreatywność i Innowacja: Przeszukiwanie na Nowo, E...\", wspomniana w lekcji, wpływa na osiągnięcie twoich goals?",
+      "options": [
+        "Jak szczegółowo opisano w lekcji, Kreatywność i Innowacja: Przes... zwiększa skuteczność i zmniejsza ryzyko",
+        "Konkretna opcja: Brak znaczącego wpływu.",
+        "Ma znaczenie tylko teoretycznie",
+        "Konkretna opcja: Tylko opcjonalny element."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day23",
+        "#pl",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a338260c12d7a7ac6d8",
+      "uuid": "d2620436-5366-4547-9eed-e087d34a6b28",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Jak ważny jest Kreatywność w kontekście Kreatywność i Innowacja: Przeszukiwanie na Nowo, Eksperymenty, jak omówiono w lekcji?",
+      "options": [
+        "Jak szczegółowo opisano w lekcji, Kreatywność odgrywa kluczową rolę w optymalizacji procesów i osiąganiu celów",
+        "Tylko peryferyjne informacje bez znaczącej roli",
+        "Tylko teoretyczna koncepcja bez praktycznego zastosowania",
+        "Konkretna opcja: Nie wspomniano w lekcji."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day23",
+        "#pl",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "69776a338260c12d7a7ac6d9",
+      "uuid": "2fb2c46f-e2bf-4612-88f0-307b8aa885cf",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Jak ważny jest Przeszukiwanie w kontekście Kreatywność i Innowacja: Przeszukiwanie na Nowo, Eksperymenty, jak omówiono w lekcji?",
+      "options": [
+        "Jak szczegółowo opisano w lekcji, Przeszukiwanie odgrywa kluczową rolę w optymalizacji procesów i osiąganiu celów",
+        "Tylko peryferyjne informacje bez znaczącej roli",
+        "Tylko teoretyczna koncepcja bez praktycznego zastosowania",
+        "Nie wspomniano w lekcji"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day23",
+        "#pl",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a338260c12d7a7ac6da",
+      "uuid": "2ab19cff-4529-4e2b-8dc1-3af4f99dcd79",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Jak ważny jest Eksperymenty w kontekście Kreatywność i Innowacja: Przeszukiwanie na Nowo, Eksperymenty, jak omówiono w lekcji?",
+      "options": [
+        "Jak szczegółowo opisano w lekcji, Eksperymenty odgrywa kluczową rolę w optymalizacji procesów i osiąganiu celów",
+        "Tylko peryferyjne informacje bez znaczącej roli",
+        "Tylko teoretyczna koncepcja bez praktycznego zastosowania",
+        "Wybierasz: Nie wspomniano w lekcji."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day23",
+        "#pl",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    }
+  ]
+}

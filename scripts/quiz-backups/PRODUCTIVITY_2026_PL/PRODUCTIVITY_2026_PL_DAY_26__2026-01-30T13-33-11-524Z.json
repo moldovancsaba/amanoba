@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-30T13:33:24.673Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_PL",
+    "name": "Produktywność 2026: Jak zarządzać zespołami i czasem",
+    "language": "pl"
+  },
+  "lesson": {
+    "dayNumber": 26,
+    "title": "Mentorstwo i Nauczanie: Dzielenie Wiedzą, Pomaganie Innym",
+    "lessonId": "PRODUCTIVITY_2026_PL_DAY_26"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a338260c12d7a7ac6f2",
+      "uuid": "3167484a-c344-4140-9d3a-74bac4c8ff3d",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Nauczanie innych przyspiesza twoją własną naukę.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day26",
+        "#pl",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a338260c12d7a7ac6f3",
+      "uuid": "be83cda2-7347-4430-888d-084983566077",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Nauczanie innych przyspiesza twoją własną naukę.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day26",
+        "#pl",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a338260c12d7a7ac6f4",
+      "uuid": "e8b7c1ef-8ba6-4ce0-8137-001a4a6b70b4",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "You are working on a task and must pick an approach. How would you use the \"Nauczanie innych przyspiesza twoją własną naukę.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail , test the results, and document my experiences",
+        "I only understand it theoretically",
+        "Wybierasz: I don't apply it.",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day26",
+        "#pl",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a338260c12d7a7ac6f5",
+      "uuid": "d2159f06-2178-46ce-a0c3-a59cc23619ba",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Jak koncepcja \"Mentorstwo i Nauczanie: Dzielenie Wiedzą, Pomagani...\", wspomniana w lekcji, wpływa na osiągnięcie twoich goals?",
+      "options": [
+        "Jak szczegółowo opisano w lekcji, Mentorstwo i Nauczanie: Dziele... zwiększa skuteczność i zmniejsza ryzyko",
+        "Brak znaczącego wpływu",
+        "Ma znaczenie tylko teoretycznie",
+        "Tylko opcjonalny element"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day26",
+        "#pl",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a338260c12d7a7ac6f6",
+      "uuid": "e74ee16b-d78c-4cfb-8285-2416967e1265",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Jak ważny jest Mentorstwo w kontekście Mentorstwo i Nauczanie: Dzielenie Wiedzą, Pomaganie Innym, jak omówiono w lekcji?",
+      "options": [
+        "Jak szczegółowo opisano w lekcji, Mentorstwo odgrywa kluczową rolę w optymalizacji procesów i osiąganiu celów",
+        "Tylko peryferyjne informacje bez znaczącej roli",
+        "Tylko teoretyczna koncepcja bez praktycznego zastosowania",
+        "Konkretna opcja: Nie wspomniano w lekcji."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day26",
+        "#pl",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "69776a338260c12d7a7ac6f7",
+      "uuid": "9e9def51-ce39-4743-8f79-f06c3941ca77",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Jak ważny jest Dzielenie w kontekście Mentorstwo i Nauczanie: Dzielenie Wiedzą, Pomaganie Innym, jak omówiono w lekcji?",
+      "options": [
+        "Jak szczegółowo opisano w lekcji, Dzielenie odgrywa kluczową rolę w optymalizacji procesów i osiąganiu celów",
+        "Tylko peryferyjne informacje bez znaczącej roli",
+        "Tylko teoretyczna koncepcja bez praktycznego zastosowania",
+        "Konkretna opcja: Nie wspomniano w lekcji."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day26",
+        "#pl",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "69776a338260c12d7a7ac6f8",
+      "uuid": "46b8872f-542b-4250-99b7-8a46faa18e14",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Jak ważny jest Pomaganie w kontekście Mentorstwo i Nauczanie: Dzielenie Wiedzą, Pomaganie Innym, jak omówiono w lekcji?",
+      "options": [
+        "Jak szczegółowo opisano w lekcji, Pomaganie odgrywa kluczową rolę w optymalizacji procesów i osiąganiu celów",
+        "Tylko peryferyjne informacje bez znaczącej roli",
+        "Tylko teoretyczna koncepcja bez praktycznego zastosowania",
+        "Nie wspomniano w lekcji"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day26",
+        "#pl",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

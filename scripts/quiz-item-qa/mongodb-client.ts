@@ -2,6 +2,7 @@ import { config } from 'dotenv';
 import connectDB from '../../app/lib/mongodb';
 import QuizQuestion, { IQuizQuestion } from '../../app/lib/models/quiz-question';
 import { loadConfig, QuizItemQAConfig } from './config';
+import mongoose from 'mongoose';
 
 // Load environment variables before importing MongoDB
 config({ path: '.env.local' });
@@ -64,8 +65,20 @@ function documentToQuizItem(doc: IQuizQuestion): QuizItem {
 
 export async function fetchAllQuestions(overrides?: Partial<QuizItemQAConfig>): Promise<QuizItem[]> {
   await connectDB();
+  const config = loadConfig(overrides);
   
-  const docs = await QuizQuestion.find({}).lean();
+  const filter: Record<string, unknown> = {};
+  if (config.courseSpecificOnly) {
+    filter.isCourseSpecific = true;
+  }
+  if (config.courseObjectId) {
+    if (!mongoose.Types.ObjectId.isValid(config.courseObjectId)) {
+      throw new Error(`Invalid courseObjectId (expected 24-hex ObjectId): ${config.courseObjectId}`);
+    }
+    filter.courseId = new mongoose.Types.ObjectId(config.courseObjectId);
+  }
+
+  const docs = await QuizQuestion.find(filter).lean();
   return docs.map(documentToQuizItem);
 }
 
@@ -111,8 +124,20 @@ export async function patchQuestion(
 
 export async function getOldestByUpdatedAt(overrides?: Partial<QuizItemQAConfig>): Promise<QuizItem[]> {
   await connectDB();
+  const config = loadConfig(overrides);
   
-  const docs = await QuizQuestion.find({})
+  const filter: Record<string, unknown> = {};
+  if (config.courseSpecificOnly) {
+    filter.isCourseSpecific = true;
+  }
+  if (config.courseObjectId) {
+    if (!mongoose.Types.ObjectId.isValid(config.courseObjectId)) {
+      throw new Error(`Invalid courseObjectId (expected 24-hex ObjectId): ${config.courseObjectId}`);
+    }
+    filter.courseId = new mongoose.Types.ObjectId(config.courseObjectId);
+  }
+
+  const docs = await QuizQuestion.find(filter)
     .sort({ 'metadata.updatedAt': 1 }) // Ascending order (oldest first)
     .lean();
   
@@ -121,8 +146,20 @@ export async function getOldestByUpdatedAt(overrides?: Partial<QuizItemQAConfig>
 
 export async function auditLastModified(overrides?: Partial<QuizItemQAConfig>): Promise<QuizItem | null> {
   await connectDB();
+  const config = loadConfig(overrides);
   
-  const doc = await QuizQuestion.findOne({})
+  const filter: Record<string, unknown> = {};
+  if (config.courseSpecificOnly) {
+    filter.isCourseSpecific = true;
+  }
+  if (config.courseObjectId) {
+    if (!mongoose.Types.ObjectId.isValid(config.courseObjectId)) {
+      throw new Error(`Invalid courseObjectId (expected 24-hex ObjectId): ${config.courseObjectId}`);
+    }
+    filter.courseId = new mongoose.Types.ObjectId(config.courseObjectId);
+  }
+
+  const doc = await QuizQuestion.findOne(filter)
     .sort({ 'metadata.updatedAt': -1 }) // Descending order (newest first)
     .lean();
   
@@ -131,4 +168,24 @@ export async function auditLastModified(overrides?: Partial<QuizItemQAConfig>): 
   }
   
   return documentToQuizItem(doc);
+}
+
+export async function findExactDuplicateQuestionIdsInCourse(params: {
+  courseId: string;
+  question: string;
+  excludeId: string;
+}): Promise<string[]> {
+  await connectDB();
+
+  const docs = await QuizQuestion.find({
+    isActive: true,
+    isCourseSpecific: true,
+    courseId: params.courseId,
+    question: params.question,
+    _id: { $ne: params.excludeId },
+  })
+    .select({ _id: 1 })
+    .lean();
+
+  return docs.map((d: any) => d._id.toString());
 }

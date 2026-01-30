@@ -1,0 +1,126 @@
+{
+  "backedUpAt": "2026-01-30T14:20:42.392Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_EN",
+    "name": "Productivity 2026: How to Manage Teams and Time",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 10,
+    "title": "Energy Management: When to Work, When to Rest, Recovery Rituals",
+    "lessonId": "PRODUCTIVITY_2026_EN_DAY_10"
+  },
+  "questionCount": 5,
+  "questions": [
+    {
+      "_id": "69787d9aa326286129da8fe0",
+      "uuid": "9991e1dd-8c71-4f6c-afd4-7ba278edcfe1",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "In energy management, which plan best matches “peak hours for deep work, low-energy for routine work, and scheduled recovery”?",
+      "options": [
+        "Schedule creative work in peak energy windows, routine tasks in low energy, and include micro/macro breaks as planned recovery.",
+        "Schedule the hardest tasks after long meetings, because fatigue forces you to work faster and be more decisive.",
+        "Work continuously without breaks to build stamina; recovery reduces productivity and should be avoided.",
+        "Shift deep work to late night every day even if sleep quality drops and decision quality declines."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day10",
+        "#en",
+        "#course-productivity_2026_en",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "69787d9aa326286129da8fe2",
+      "uuid": "d585293a-fe91-4f70-b39a-3adf6fe9d05c",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "You notice mood swings and irritability after days of nonstop work. What is the most course-aligned first response?",
+      "options": [
+        "Adjust pace and add intentional recovery (breaks, boundaries, sleep) to restore energy and protect decision quality.",
+        "Increase workload to build resilience; fatigue is a sign you should push harder.",
+        "Ignore signals; energy is irrelevant as long as you are still doing many tasks.",
+        "Add more meetings for accountability; meetings automatically restore energy and motivation."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day10",
+        "#en",
+        "#course-productivity_2026_en",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "69787d9aa326286129da8fe3",
+      "uuid": "87b26441-b08f-4a91-8b0d-3a8db1c43252",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Why does energy management improve productivity under the outcome/constraints definition, even if total hours stay the same?",
+      "options": [
+        "Because higher energy increases the quality and speed of outcomes per hour, so the same time yields more meaningful results.",
+        "Because energy is unrelated to attention and decision quality, so it cannot change outcomes.",
+        "Because energy management is mainly about comfort, which reduces ambition and therefore reduces outcomes.",
+        "Because energy management increases activity volume automatically, so it improves productivity by definition."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day10",
+        "#en",
+        "#course-productivity_2026_en",
+        "#productivity",
+        "#advanced",
+        "#critical-thinking"
+      ]
+    },
+    {
+      "_id": "69787d9aa326286129da8fe4",
+      "uuid": "38cb68d8-0a21-40a4-9b5c-6ed87c9d378f",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "If a team rewards only long hours (not outcomes), what is the likely impact on sustainable productivity?",
+      "options": [
+        "Burnout risk rises, decision quality drops, and outcomes per constraint decline because recovery is punished instead of designed.",
+        "Outcomes improve automatically because long hours guarantee high-quality work regardless of fatigue.",
+        "Focus blocks increase because tired brains always concentrate better to compensate.",
+        "Carryover disappears because long hours eliminate planning errors without changing systems."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day10",
+        "#en",
+        "#course-productivity_2026_en",
+        "#productivity",
+        "#advanced",
+        "#critical-thinking"
+      ]
+    },
+    {
+      "_id": "69787d9aa326286129da8fe5",
+      "uuid": "c205af85-aecc-4923-a687-e5408bf07cf3",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Which practice best turns energy insights into an actionable weekly plan?",
+      "options": [
+        "Track energy for a week, identify peak windows, and deliberately schedule deep work and recovery around those windows.",
+        "Ignore patterns and schedule tasks randomly so you can “stay flexible” and avoid planning overhead.",
+        "Schedule only meetings in the morning; execution can happen later whenever there is time left.",
+        "Work until exhausted each day to discover limits; planning energy is less effective than testing failure."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day10",
+        "#en",
+        "#course-productivity_2026_en",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "backedUpAt": "2026-01-30T09:47:25.352Z",
+  "courseId": "PLAYBOOK_2026_30",
+  "lessonId": "PLAYBOOK_2026_30_DAY_25",
+  "dayNumber": 25,
+  "title": "Vizuális minőség mérése",
+  "content": "<h1>Vizuális minőség mérése</h1>\n<p><em>Metrikákat és pontozási rendszert állítasz fel a vizuális minőségre.</em></p>\n<hr />\n<h2>Tanulási cél</h2>\n<ul>\n  <li>Scorecard: kontraszt, hierarchia, állapotok, token compliance, a11y.</li>\n  <li>Mintavétel: képernyők véletlen auditja.</li>\n  <li>Trendkövetés: havi score átlag.</li>\n  <li>Publicálás: csapat lássa az eredményeket.</li>\n</ul>\n<hr />\n<h2>Miért fontos</h2>\n<ul>\n  <li>Ami mérve van, az javul.</li>\n  <li>Transzparens minőség → jobb fegyelem.</li>\n  <li>Mutatható a menedzsmentnek.</li>\n</ul>\n<hr />\n<h2>Magyarázat</h2>\n<ul>\n  <li>Score 1–5 skálán, kritériumonként.</li>\n  <li>Mintavétel: heti 5 véletlenszerű képernyő.</li>\n  <li>Publikálás: dashboard vagy havi jelentés.</li>\n</ul>\n<hr />\n<h2>Példák</h2>\n<p><strong>Rossz:</strong> „Szerintem szép”.</p>\n<p><strong>Jó:</strong> Scorecard, trendgrafikon, action items.</p>\n<hr />\n<h2>Gyakorlat (vezetett)</h2>\n<ol>\n  <li>Készíts scorecard táblát 5 kritériummal.</li>\n  <li>Auditálj 5 képernyőt, számold az átlagot.</li>\n  <li>Publikáld egy rövid jelentésben.</li>\n</ol>\n<h2>Gyakorlat (önálló)</h2>\n<p>Állíts be havi ismétlődő auditot, készíts automatikus emlékeztetőt.</p>\n<hr />\n<h2>Önellenőrzés</h2>\n<ul>\n  <li>Scorecard létezik.</li>\n  <li>Audit minta lefutott.</li>\n  <li>Eredmények publikálva.</li>\n</ul>\n<hr />\n<h2>Opcionális mélyítés</h2>\n<ul>\n  <li>Design QA: <a href=\"https://www.nngroup.com/articles/design-quality-assurance/\" target=\"_blank\" rel=\"noreferrer\">https://www.nngroup.com/articles/design-quality-assurance/</a></li>\n</ul>",
+  "emailSubject": "Playbook 2026 – 25. nap: Vizuális minőség mérése",
+  "emailBody": "<h1>Playbook 2026 – 25. nap</h1>\n<p>Scorecarddal méred a vizuális minőséget, rendszeresen auditálsz.</p>\n<p><a href=\"{{APP_URL}}/courses/PLAYBOOK_2026_30/day/{{dayNumber}}\">Olvasd el a leckét →</a></p>"
+}

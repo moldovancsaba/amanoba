@@ -1,0 +1,148 @@
+{
+  "backedUpAt": "2026-01-30T14:20:42.505Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_EN",
+    "name": "Productivity 2026: How to Manage Teams and Time",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 11,
+    "title": "Goal setting & OKRs (SMART goals, OKR framework)",
+    "lessonId": "PRODUCTIVITY_2026_EN_DAY_11"
+  },
+  "questionCount": 6,
+  "questions": [
+    {
+      "_id": "69787d9aa326286129da8fec",
+      "uuid": "5c65a0d2-0870-4bcf-a728-2d6174305a82",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "You set an “Objective” but your week stays chaotic. Which choice best matches a strong OKR structure that guides daily decisions?",
+      "options": [
+        "One Objective plus 2–4 measurable Key Results with a deadline, then weekly check-ins tied to those metrics.",
+        "A motivational Objective with no numbers, so you can interpret progress however you feel that week.",
+        "A long list of projects with no Key Results, because finishing projects is the same as outcomes.",
+        "A promise to “work harder” and respond faster, because activity volume proves progress."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day11",
+        "#en",
+        "#course-productivity_2026_en",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "69787d9aa326286129da8fed",
+      "uuid": "aa950b9f-13b0-4884-8ed4-86c6e3d47d94",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Which Key Result is the best example of a measurable criterion (not a vague intention) for an OKR?",
+      "options": [
+        "Increase onboarding completion rate from 60% to 80% by June 30, measured weekly.",
+        "Improve onboarding so users feel happier and the product seems nicer.",
+        "Be more productive and get more done without specifying what changes.",
+        "Try to focus more and hope it leads to better results later."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day11",
+        "#en",
+        "#course-productivity_2026_en",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "69787d9aa326286129da8fee",
+      "uuid": "93e91a10-69e2-4789-86b3-f30041fcb2d1",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "You have an OKR, but execution stalls. What is the most course-aligned next action step for the next 7 days?",
+      "options": [
+        "Break the Objective into weekly next actions, schedule them, and remove activities that do not move Key Results.",
+        "Add more meetings to discuss the OKR so alignment improves, then execute later.",
+        "Rewrite the Objective until it sounds inspiring enough; execution will follow naturally.",
+        "Start multiple unrelated projects to increase the chance that something improves a Key Result accidentally."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day11",
+        "#en",
+        "#course-productivity_2026_en",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "69787d9aa326286129da8fef",
+      "uuid": "4aabaac6-3e2d-430e-bddd-c9ad9e31ea2f",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "You can measure only one thing weekly to keep the OKR honest. Which metric choice best matches the lesson’s “criteria/threshold” idea?",
+      "options": [
+        "A Key Result number (e.g., completion %, revenue, satisfaction) that directly represents the intended outcome.",
+        "Number of emails sent, because communication volume correlates with success.",
+        "Hours worked, because time spent is the fairest performance signal.",
+        "Number of meetings attended, because attendance shows commitment."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day11",
+        "#en",
+        "#course-productivity_2026_en",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "69787d9aa326286129da8ff1",
+      "uuid": "7609dc70-a78e-4cd5-b655-888e023538ee",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "What is the most likely failure mode if you implement OKRs without clear Key Results and thresholds?",
+      "options": [
+        "Progress becomes unprovable, so activity gets mistaken for outcomes and the system can be gamed.",
+        "Outcomes become guaranteed because goals exist, even without measurement.",
+        "Constraints stop mattering because goal-setting increases energy and attention automatically.",
+        "Decision fatigue disappears entirely because OKRs eliminate uncertainty by definition."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day11",
+        "#en",
+        "#course-productivity_2026_en",
+        "#productivity",
+        "#advanced",
+        "#critical-thinking"
+      ]
+    },
+    {
+      "_id": "69787d9aa326286129da8ff2",
+      "uuid": "96874591-db06-45dc-b7eb-3d511a11e1eb",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Your Key Results are not moving. Which action best matches the lesson’s “mini-review: keep/change/drop” step?",
+      "options": [
+        "Audit last week’s activities, drop what didn’t move KRs, and replace with one specific next action tied to the metric.",
+        "Increase workload and add more tasks so progress becomes inevitable by volume.",
+        "Stop measuring for a while so you can reduce stress and hope progress returns.",
+        "Change the Objective name to something more ambitious so the team feels motivated again."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day11",
+        "#en",
+        "#course-productivity_2026_en",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    }
+  ]
+}

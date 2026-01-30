@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-30T13:33:21.107Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_PL",
+    "name": "Produktywność 2026: Jak zarządzać zespołami i czasem",
+    "language": "pl"
+  },
+  "lesson": {
+    "dayNumber": 21,
+    "title": "Społeczność i Sieć: Relacje, Nauka z Innymi",
+    "lessonId": "PRODUCTIVITY_2026_PL_DAY_21"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a338260c12d7a7ac6c0",
+      "uuid": "1e6b415e-f4a7-470a-bdac-e2118454b24e",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Buduj i utrzymuj społeczności dla produktywności.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day21",
+        "#pl",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a338260c12d7a7ac6c1",
+      "uuid": "ca0e00f3-9d8a-4718-8552-2b53514d3786",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Buduj i utrzymuj społeczności dla produktywności.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day21",
+        "#pl",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a338260c12d7a7ac6c2",
+      "uuid": "a98cbb47-7b28-4cfd-886f-1c500111fcae",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "You are working on a task and must pick an approach. How would you use the \"Buduj i utrzymuj społeczności dla produktywności.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail , test the results, and document my experiences",
+        "I only understand it theoretically",
+        "Wybierasz: I don't apply it.",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day21",
+        "#pl",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a338260c12d7a7ac6c3",
+      "uuid": "23652712-c9af-499f-81b1-52df1f165eb7",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Jak koncepcja \"Społeczność i Sieć: Relacje, Nauka z Innymi Buduj ...\", wspomniana w lekcji, wpływa na osiągnięcie twoich goals?",
+      "options": [
+        "Jak szczegółowo opisano w lekcji, Społeczność i Sieć: Relacje, N... zwiększa skuteczność i zmniejsza ryzyko",
+        "Brak znaczącego wpływu",
+        "Ma znaczenie tylko teoretycznie",
+        "Tylko opcjonalny element"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day21",
+        "#pl",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a338260c12d7a7ac6c4",
+      "uuid": "b0e80427-f85c-48b2-b212-2c2ea3d35626",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Jak ważny jest Społeczność w kontekście Społeczność i Sieć: Relacje, Nauka z Innymi, jak omówiono w lekcji?",
+      "options": [
+        "Jak szczegółowo opisano w lekcji, Społeczność odgrywa kluczową rolę w optymalizacji procesów i osiąganiu celów",
+        "Tylko peryferyjne informacje bez znaczącej roli",
+        "Tylko teoretyczna koncepcja bez praktycznego zastosowania",
+        "Konkretna opcja: Nie wspomniano w lekcji."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day21",
+        "#pl",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "69776a338260c12d7a7ac6c5",
+      "uuid": "08dd1022-883f-47b5-9345-57fe6a65f074",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Jak ważny jest Relacje w kontekście Społeczność i Sieć: Relacje, Nauka z Innymi, jak omówiono w lekcji?",
+      "options": [
+        "Jak szczegółowo opisano w lekcji, Relacje odgrywa kluczową rolę w optymalizacji procesów i osiąganiu celów",
+        "Tylko peryferyjne informacje bez znaczącej roli",
+        "Tylko teoretyczna koncepcja bez praktycznego zastosowania",
+        "Nie wspomniano w lekcji"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day21",
+        "#pl",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a338260c12d7a7ac6c6",
+      "uuid": "d4b1915c-d29e-49a5-9f4b-0cdde3829b65",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Jak ważny jest Innymi w kontekście Społeczność i Sieć: Relacje, Nauka z Innymi, jak omówiono w lekcji?",
+      "options": [
+        "Jak szczegółowo opisano w lekcji, Innymi odgrywa kluczową rolę w optymalizacji procesów i osiąganiu celów",
+        "Tylko peryferyjne informacje bez znaczącej roli",
+        "Tylko teoretyczna koncepcja bez praktycznego zastosowania",
+        "Konkretna opcja: Nie wspomniano w lekcji."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day21",
+        "#pl",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    }
+  ]
+}

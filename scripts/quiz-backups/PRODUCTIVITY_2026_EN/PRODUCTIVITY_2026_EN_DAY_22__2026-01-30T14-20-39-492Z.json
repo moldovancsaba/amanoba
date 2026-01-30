@@ -1,0 +1,126 @@
+{
+  "backedUpAt": "2026-01-30T14:20:43.610Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_EN",
+    "name": "Productivity 2026: How to Manage Teams and Time",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 22,
+    "title": "Technology and tools (automation, choosing the right technology)",
+    "lessonId": "PRODUCTIVITY_2026_EN_DAY_22"
+  },
+  "questionCount": 5,
+  "questions": [
+    {
+      "_id": "69787d9ca326286129da9062",
+      "uuid": "4c6cbff5-0443-486f-a241-97b411eec0d3",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "You are applying \"Technology and tools (automation, choosing the right technology)\" this week. Which next step most directly turns intent into an outcome instead of extra activity?",
+      "options": [
+        "Pick one real scenario, apply the checklist, define a success metric/criterion, and review results at week’s end.",
+        "Add more meetings and messages so progress is visible, then assume the outcome improved.",
+        "Start multiple unrelated tasks to stay busy and increase the feeling of productivity.",
+        "Delay action until the plan is perfect, because execution without certainty risks mistakes."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day22",
+        "#en",
+        "#course-productivity_2026_en",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "69787d9ca326286129da9063",
+      "uuid": "d5894363-ea01-4b8d-bb90-626f7193e246",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Which option is the best example of a measurable metric/criterion for \"Technology and tools (automation, choosing the right technology)\" (so you can prove progress)?",
+      "options": [
+        "A specific number tracked weekly (e.g., decision latency, cycle time, time saved) with a threshold for success.",
+        "A general intention like “be better at this”, without numbers or a deadline.",
+        "A count of messages sent, regardless of whether outcomes improved.",
+        "A feeling-based check (“did it feel productive?”) with no measurable signal."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day22",
+        "#en",
+        "#course-productivity_2026_en",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "69787d9ca326286129da9064",
+      "uuid": "2fc73b37-5d00-452c-abb2-634ffa110326",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "In a \"Good vs Bad\" comparison for \"Technology and tools (automation, choosing the right technology)\", which option is closest to a “Good” implementation?",
+      "options": [
+        "Clear outcomes, explicit owners/criteria, and fewer distractions so execution produces measurable results.",
+        "More activity (more meetings/updates) without decisions, owners, or measurable progress.",
+        "More tools and dashboards without changing the process or defining success criteria.",
+        "More urgency and overtime without adjusting constraints or simplifying the system."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day22",
+        "#en",
+        "#course-productivity_2026_en",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "69787d9ca326286129da9066",
+      "uuid": "9c9d76b4-f9d9-4f74-bb34-6fb8a356c37b",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "You want \"Technology and tools (automation, choosing the right technology)\" to work for a team, not just one person. Which change best makes it a scalable system?",
+      "options": [
+        "Document the checklist, define owners and success criteria, and run a lightweight cadence (review + adjustment).",
+        "Rely on individual willpower and hope everyone copies the best performer’s habits.",
+        "Make the process optional with no shared metrics so nobody feels pressured by measurement.",
+        "Increase coordination time so everyone stays busy and visible, even if execution time drops."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day22",
+        "#en",
+        "#course-productivity_2026_en",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "69787d9ca326286129da9067",
+      "uuid": "3d121c5f-97d2-49b1-acd3-72e3f996198f",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "What is the biggest risk if you implement \"Technology and tools (automation, choosing the right technology)\" incorrectly by adding more activity without changing outcomes?",
+      "options": [
+        "Constraints get consumed (time/energy/attention) while outcomes stagnate, so productivity drops even if work feels intense.",
+        "Outcomes improve automatically because activity volume guarantees results in complex systems.",
+        "Measurement becomes unnecessary because visible effort is a sufficient success signal.",
+        "Decision quality improves because fatigue forces faster thinking and fewer debates."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day22",
+        "#en",
+        "#course-productivity_2026_en",
+        "#productivity",
+        "#advanced",
+        "#critical-thinking"
+      ]
+    }
+  ]
+}

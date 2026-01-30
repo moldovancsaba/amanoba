@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-30T13:33:20.355Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_PL",
+    "name": "Produktywność 2026: Jak zarządzać zespołami i czasem",
+    "language": "pl"
+  },
+  "lesson": {
+    "dayNumber": 20,
+    "title": "Produktywność Życia Osobistego: Organizacja Domu, Projekty Osobiste",
+    "lessonId": "PRODUCTIVITY_2026_PL_DAY_20"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a338260c12d7a7ac6b6",
+      "uuid": "8f9b055c-17a9-470a-885d-fcf607d645d1",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Jak koncepcja \"Produktywność Życia Osobistego: Organizacja Domu, ...\", wspomniana w lekcji, wpływa na osiągnięcie twoich goals?",
+      "options": [
+        "Jak szczegółowo opisano w lekcji, Produktywność Życia Osobistego... zwiększa skuteczność i zmniejsza ryzyko",
+        "Brak znaczącego wpływu",
+        "Ma znaczenie tylko teoretycznie",
+        "Tylko opcjonalny element"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day20",
+        "#pl",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a338260c12d7a7ac6b7",
+      "uuid": "321eb303-aa1e-458c-b07a-e4d25f11e19a",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Jak wykorzystałbyś koncepcję \"Produktywność\" zgodnie z opisem w lekcji w praktyce?",
+      "options": [
+        "Podążam za krokami szczegółowo opisanymi w lekcji, testuję wyniki i dokumentuję swoje doświadczenia",
+        "Rozumiem to tylko teoretycznie",
+        "Konkretna opcja: Nie stosuję tego.",
+        "Czekam na dalsze instrukcje"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day20",
+        "#pl",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a338260c12d7a7ac6b8",
+      "uuid": "18797b8b-6955-49ea-a95c-8ff443cf9f48",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Jak wykorzystałbyś koncepcję \"Życia\" zgodnie z opisem w lekcji w praktyce?",
+      "options": [
+        "Podążam za krokami szczegółowo opisanymi w lekcji, testuję wyniki i dokumentuję swoje doświadczenia",
+        "Rozumiem to tylko teoretycznie",
+        "Nie stosuję tego",
+        "Czekam na dalsze instrukcje"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day20",
+        "#pl",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a338260c12d7a7ac6b9",
+      "uuid": "6e3ceaff-f32f-4ae3-aca3-7093b9ea3f27",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Jak wykorzystałbyś koncepcję \"Osobistego\" zgodnie z opisem w lekcji w praktyce?",
+      "options": [
+        "Podążam za krokami szczegółowo opisanymi w lekcji, testuję wyniki i dokumentuję swoje doświadczenia",
+        "Rozumiem to tylko teoretycznie",
+        "Nie stosuję tego",
+        "Czekam na dalsze instrukcje"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day20",
+        "#pl",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a338260c12d7a7ac6ba",
+      "uuid": "7ac0ef6a-56ee-49d6-a24c-d1360579c7ea",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Jak ważny jest Życia w kontekście Produktywność Życia Osobistego: Organizacja Domu, Projekty Osobiste, jak omówiono w lekcji?",
+      "options": [
+        "Jak szczegółowo opisano w lekcji, Życia odgrywa kluczową rolę w optymalizacji procesów i osiąganiu celów",
+        "Tylko peryferyjne informacje bez znaczącej roli",
+        "Tylko teoretyczna koncepcja bez praktycznego zastosowania",
+        "Nie wspomniano w lekcji"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day20",
+        "#pl",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a338260c12d7a7ac6bb",
+      "uuid": "ec6a4686-c4a8-4cef-b515-db198c08a10f",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Jak ważny jest Organizacja w kontekście Produktywność Życia Osobistego: Organizacja Domu, Projekty Osobiste, jak omówiono w lekcji?",
+      "options": [
+        "Jak szczegółowo opisano w lekcji, Organizacja odgrywa kluczową rolę w optymalizacji procesów i osiąganiu celów",
+        "Tylko peryferyjne informacje bez znaczącej roli",
+        "Tylko teoretyczna koncepcja bez praktycznego zastosowania",
+        "Konkretna opcja: Nie wspomniano w lekcji."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day20",
+        "#pl",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "69776a338260c12d7a7ac6bc",
+      "uuid": "13312e6f-d11b-4f21-b2bb-de41ee953465",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Jak ważny jest Projekty w kontekście Produktywność Życia Osobistego: Organizacja Domu, Projekty Osobiste, jak omówiono w lekcji?",
+      "options": [
+        "Jak szczegółowo opisano w lekcji, Projekty odgrywa kluczową rolę w optymalizacji procesów i osiąganiu celów",
+        "Tylko peryferyjne informacje bez znaczącej roli",
+        "Tylko teoretyczna koncepcja bez praktycznego zastosowania",
+        "Wybierasz: Nie wspomniano w lekcji."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day20",
+        "#pl",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    }
+  ]
+}

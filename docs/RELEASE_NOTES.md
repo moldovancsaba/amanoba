@@ -1,11 +1,31 @@
 # Amanoba Release Notes
 
-**Current Version**: 2.9.19  
+**Current Version**: 2.9.20  
 **Last Updated**: 2026-01-30
 
 ---
 
 All completed tasks are documented here in reverse chronological order. This file follows the Changelog format and is updated with every version bump.
+
+---
+
+## [v2.9.20] — 2026-01-30 📋
+
+**Status**: Certificate System v0.1 — shareable certificates, OG meta, admin revoke, profile share link  
+**Type**: Feature (certificates)
+
+### Certificate System v0.1
+
+- **Layout** (`app/[locale]/certificate/[slug]/layout.tsx`): `generateMetadata` for Open Graph and Twitter — `og:image` points to `/api/certificates/[slug]/image`; title/description from certificate (public) or generic (private/not found).
+- **Shareable image**: `GET /api/certificates/[slug]/image` serves certificate image by verification slug (1200×627 or print A4); revoked certs show "Certificate revoked" placeholder.
+- **Admin revoke/unrevoke**: `PATCH /api/admin/certificates/[slug]` — body `{ isRevoked: boolean, revokedReason?: string }`; admin-only.
+- **Profile**: Certificate list includes `verificationSlug`; each card has "Copy link" (copies `/{locale}/certificate/{slug}`). Profile courses API uses `course.name` (was `course.title`).
+- **Certificate detail page** already had "Copy Verification Link" using `verificationSlug`; certificate-status API returns `verificationSlug` when certificate exists.
+
+**TASKLIST**: Certificate v0.1 removed from backlog; Recommended Next 3 → Global audit P0, Onboarding/Email/Forking P2, P1 tech debt.
+
+**Build Status**: Verified  
+**Status**: ✅ Certificate System v0.1 delivered
 
 ---
 

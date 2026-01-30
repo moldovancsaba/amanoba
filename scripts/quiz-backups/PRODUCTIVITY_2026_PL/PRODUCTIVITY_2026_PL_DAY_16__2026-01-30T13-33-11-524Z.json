@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-30T13:33:17.367Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_PL",
+    "name": "Produktywność 2026: Jak zarządzać zespołami i czasem",
+    "language": "pl"
+  },
+  "lesson": {
+    "dayNumber": 16,
+    "title": "Zarządzanie Stresem i Zmęczeniem: Odzyskiwanie, Równowaga Praca-Życie",
+    "lessonId": "PRODUCTIVITY_2026_PL_DAY_16"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a328260c12d7a7ac68b",
+      "uuid": "52a2eb84-a49f-4d95-b575-59fb5ec869bc",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Jak koncepcja \"Zarządzanie Stresem i Zmęczeniem: Odzyskiwanie, Ró...\", wspomniana w lekcji, wpływa na osiągnięcie twoich goals?",
+      "options": [
+        "Jak szczegółowo opisano w lekcji, Zarządzanie Stresem i Zmęczeni... zwiększa skuteczność i zmniejsza ryzyko",
+        "Konkretna opcja: Brak znaczącego wpływu.",
+        "Ma znaczenie tylko teoretycznie",
+        "Konkretna opcja: Tylko opcjonalny element."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day16",
+        "#pl",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a328260c12d7a7ac68c",
+      "uuid": "74b9bd0a-56d5-4232-9397-1886ce835201",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Jak wykorzystałbyś koncepcję \"Zarządzanie\" zgodnie z opisem w lekcji w praktyce?",
+      "options": [
+        "Podążam za krokami szczegółowo opisanymi w lekcji, testuję wyniki i dokumentuję swoje doświadczenia",
+        "Rozumiem to tylko teoretycznie",
+        "Nie stosuję tego",
+        "Czekam na dalsze instrukcje"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day16",
+        "#pl",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a328260c12d7a7ac68d",
+      "uuid": "28d430d8-c3b2-49ab-a1ea-578c64887741",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Jak wykorzystałbyś koncepcję \"Stresem\" zgodnie z opisem w lekcji w praktyce?",
+      "options": [
+        "Podążam za krokami szczegółowo opisanymi w lekcji, testuję wyniki i dokumentuję swoje doświadczenia",
+        "Rozumiem to tylko teoretycznie",
+        "Nie stosuję tego",
+        "Czekam na dalsze instrukcje"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day16",
+        "#pl",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a328260c12d7a7ac68e",
+      "uuid": "d5b0b383-3962-431f-ac7b-0a324514e7c9",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Jak wykorzystałbyś koncepcję \"Zmęczeniem\" zgodnie z opisem w lekcji w praktyce?",
+      "options": [
+        "Podążam za krokami szczegółowo opisanymi w lekcji, testuję wyniki i dokumentuję swoje doświadczenia",
+        "Rozumiem to tylko teoretycznie",
+        "Wybierasz: Nie stosuję tego.",
+        "Czekam na dalsze instrukcje"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day16",
+        "#pl",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a328260c12d7a7ac68f",
+      "uuid": "d32902c0-2cac-4120-a8ea-84c93c21e397",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Jak ważny jest Stresem w kontekście Zarządzanie Stresem i Zmęczeniem: Odzyskiwanie, Równowaga Praca-Życie, jak omówiono w lekcji?",
+      "options": [
+        "Jak szczegółowo opisano w lekcji, Stresem odgrywa kluczową rolę w optymalizacji procesów i osiąganiu celów",
+        "Tylko peryferyjne informacje bez znaczącej roli",
+        "Tylko teoretyczna koncepcja bez praktycznego zastosowania",
+        "Nie wspomniano w lekcji"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day16",
+        "#pl",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a328260c12d7a7ac690",
+      "uuid": "3461739c-8c61-4b05-b9fe-6a4ad8b45145",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Jak ważny jest Odzyskiwanie w kontekście Zarządzanie Stresem i Zmęczeniem: Odzyskiwanie, Równowaga Praca-Życie, jak omówiono w lekcji?",
+      "options": [
+        "Jak szczegółowo opisano w lekcji, Odzyskiwanie odgrywa kluczową rolę w optymalizacji procesów i osiąganiu celów",
+        "Tylko peryferyjne informacje bez znaczącej roli",
+        "Tylko teoretyczna koncepcja bez praktycznego zastosowania",
+        "Konkretna opcja: Nie wspomniano w lekcji."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day16",
+        "#pl",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "69776a328260c12d7a7ac691",
+      "uuid": "f803599f-5f69-4e64-a6c7-c8b22cad5e68",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Jak ważny jest Praca w kontekście Zarządzanie Stresem i Zmęczeniem: Odzyskiwanie, Równowaga Praca-Życie, jak omówiono w lekcji?",
+      "options": [
+        "Jak szczegółowo opisano w lekcji, Praca odgrywa kluczową rolę w optymalizacji procesów i osiąganiu celów",
+        "Tylko peryferyjne informacje bez znaczącej roli",
+        "Tylko teoretyczna koncepcja bez praktycznego zastosowania",
+        "Nie wspomniano w lekcji"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day16",
+        "#pl",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

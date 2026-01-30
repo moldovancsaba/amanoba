@@ -40,6 +40,7 @@ function replaceReviewTerms(html: string) {
   next = next.replace(/\breview-k\b/g, 'értékelések');
   next = next.replace(/\bReview-k\b/g, 'Értékelések');
   next = next.replace(/\bReview blokk átnézése\b/g, 'Értékelés blokk áttekintése');
+  next = next.replace(/\bReview blokk valós, forrás megjelölve\./g, 'Értékelés blokk valós, forrás megjelölve.');
   next = next.replace(/\bReview\b/g, 'Értékelés');
   return next;
 }

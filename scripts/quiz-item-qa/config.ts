@@ -8,6 +8,9 @@ export interface QuizItemQAConfig {
   maxRetries: number;
   itemsPerRun: number;
   dryRun: boolean;
+  courseSpecificOnly: boolean;
+  // Optional MongoDB ObjectId (24-hex) to restrict processing to a single course.
+  courseObjectId?: string;
 }
 
 const DEFAULT_BASE = 'https://amanoba.com/api/admin/questions';
@@ -27,6 +30,8 @@ export function loadConfig(overrides?: Partial<QuizItemQAConfig>): QuizItemQACon
     maxRetries: Math.max(1, parseNumber(env.QUIZ_ITEM_MAX_RETRIES, 3)),
     itemsPerRun: Math.max(1, parseNumber(env.QUIZ_ITEM_ITEMS_PER_RUN, 1)),
     dryRun: env.QUIZ_ITEM_DRY_RUN === 'true',
+    courseSpecificOnly: env.QUIZ_ITEM_QA_COURSE_ONLY !== 'false',
+    courseObjectId: env.QUIZ_ITEM_QA_COURSE_ID?.trim() || undefined,
   };
 
   return { ...config, ...overrides };

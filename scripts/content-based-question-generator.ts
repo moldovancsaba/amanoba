@@ -74,6 +74,14 @@ function shuffleWithSeed<T>(items: T[], seed: string): T[] {
   return arr;
 }
 
+function normalizeOptionText(text: string) {
+  return String(text || '').trim().toLowerCase().replace(/\s+/g, ' ');
+}
+
+function optionSignature(options: Array<string>) {
+  return options.map(normalizeOptionText).sort().join('||');
+}
+
 function buildVariedOptions(params: {
   correct: string;
   distractorPool: string[];
@@ -1485,10 +1493,17 @@ function generateProductivity2026QuestionsEN(day: number, title: string, cleanCo
   ];
 
   const push = (q: Omit<ContentBasedQuestion, 'category' | 'hashtags'> & { category?: string; hashtags?: string[] }) => {
+    // Shuffle options deterministically so the correctIndex isn't always 0.
+    const opts = Array.isArray((q as any).options) ? ((q as any).options as [string, string, string, string]) : undefined;
+    const correct = opts ? String(opts[q.correctIndex] || '').trim() : '';
+    const seed = `${courseId}::en::day${day}::${q.question}`;
+    const shuffled = opts && correct ? shuffleOptionsWithCorrectIndex({ correct, options: opts, seed }) : null;
+
     questions.push({
       category: q.category || 'Course Specific',
       hashtags: q.hashtags || tags(q.questionType, q.difficulty),
       ...q,
+      ...(shuffled ? { options: shuffled.options, correctIndex: shuffled.correctIndex } : null),
     });
   };
 
@@ -1528,7 +1543,7 @@ function generateProductivity2026QuestionsEN(day: number, title: string, cleanCo
 
       push({
         question:
-          'You have the same goal but different days feel harder. Which option is the most accurate “constraints” diagnosis in this course’s definition?',
+          'You have the same goal but different days feel harder. Which option is the most accurate “constraints” diagnosis in this definition?',
         options: [
           'Constraints include time, energy, attention, and resources; when one drops, the same work produces less outcome.',
           'Constraints are only the number of hours on your calendar; energy and attention do not affect results.',
@@ -1556,7 +1571,7 @@ function generateProductivity2026QuestionsEN(day: number, title: string, cleanCo
 
       push({
         question:
-          'Which personal definition best matches the course’s productivity framing (outcome relative to constraints)?',
+          'Which personal definition best matches the productivity framing (outcome relative to constraints)?',
         options: [
           'Productivity is creating measurable outcomes while managing time, energy, attention, and resources sustainably.',
           'Productivity is staying busy and completing many small tasks to feel progress every day.',
@@ -1616,7 +1631,7 @@ function generateProductivity2026QuestionsEN(day: number, title: string, cleanCo
 
       push({
         question:
-          'You plan an 8-hour day with 8 hours of scheduled tasks. According to the course, what is the most practical fix?',
+          'You plan an 8-hour day with 8 hours of scheduled tasks. What is the most practical fix?',
         options: [
           'Add 20–30% buffer time, because a calendar with zero slack converts small surprises into stress and missed outcomes.',
           'Keep it fully packed; a zero-buffer schedule forces discipline and always produces better results.',
@@ -1630,7 +1645,7 @@ function generateProductivity2026QuestionsEN(day: number, title: string, cleanCo
 
       push({
         question:
-          'Which deep work rule best matches the attention constraint logic in the course?',
+          'Which deep work rule best matches attention-as-a-constraint planning (protecting focus to improve outcomes)?',
         options: [
           'During deep work: no email, no phone, no chats; interruptions are prevented by design, not willpower.',
           'During deep work: keep chat open so you can respond quickly without losing focus.',
@@ -1658,7 +1673,7 @@ function generateProductivity2026QuestionsEN(day: number, title: string, cleanCo
 
       push({
         question:
-          'Why does the course treat attention as a primary constraint (not a minor detail) when planning a day?',
+          'Why is attention treated as a primary constraint (not a minor detail) when planning a day?',
         options: [
           'Because frequent interruptions impose refocus costs and reduce the quality and speed of outcomes, even if hours worked stay constant.',
           'Because attention is unlimited if you have enough motivation, so planning for it is unnecessary.',
@@ -1746,7 +1761,7 @@ function generateProductivity2026QuestionsEN(day: number, title: string, cleanCo
 
       push({
         question:
-          'You keep starting new projects whenever you feel stuck. Which hierarchy-based correction is most aligned with the course?',
+          'You keep starting new projects whenever you feel stuck. Which hierarchy-based correction is most aligned with the hierarchy model?',
         options: [
           'Reconnect projects to outcomes, then define next actions for the current project instead of switching to a new one.',
           'Add more projects to increase options, because more parallel work guarantees faster outcomes.',
@@ -1760,7 +1775,7 @@ function generateProductivity2026QuestionsEN(day: number, title: string, cleanCo
 
       push({
         question:
-          'Why does the course insist that each level feeds the next (vision → outcomes → projects → next actions)?',
+          'Why should each level feed the next (vision → outcomes → projects → next actions) instead of skipping levels?',
         options: [
           'Because without next actions, progress stalls; without outcomes, progress is unmeasurable; without vision, effort loses direction.',
           'Because hierarchy makes work slower by adding bureaucracy, which is the main goal of productivity systems.',
@@ -1788,7 +1803,7 @@ function generateProductivity2026QuestionsEN(day: number, title: string, cleanCo
 
       push({
         question:
-          'You wrote an inspiring vision but your week is still chaotic. What is the most course-aligned “next action” step to fix execution?',
+          'You wrote an inspiring vision but your week is still chaotic. What is the most model-aligned “next action” step to fix execution?',
         options: [
           'Pick one outcome for the next 6–12 months, then define a project and write the first concrete next action for today.',
           'Rewrite the vision again until it feels perfect, then wait for motivation to appear before acting.',
@@ -1820,7 +1835,7 @@ function generateProductivity2026QuestionsEN(day: number, title: string, cleanCo
 
       push({
         question:
-          'A process needs to work for 10 people, not just 1. According to the course, what should you build?',
+          'A process needs to work for 10 people, not just 1. what should you build?',
         options: [
           'A system with clear inputs/outputs, steps, and documentation so execution is consistent across people.',
           'A personal habit and hope everyone copies your style informally over time.',
@@ -1834,7 +1849,7 @@ function generateProductivity2026QuestionsEN(day: number, title: string, cleanCo
 
       push({
         question:
-          'Which option best describes why systems “scale” better than habits in this course?',
+          'Which option best describes why systems “scale” better than habits when you need consistent execution across people?',
         options: [
           'Systems reduce dependence on daily motivation and allow repeatable execution through structure and documentation.',
           'Systems guarantee success without maintenance, so you never need to review or improve them.',
@@ -1862,7 +1877,7 @@ function generateProductivity2026QuestionsEN(day: number, title: string, cleanCo
 
       push({
         question:
-          'What is the main risk of relying only on habits for team productivity, according to the course’s systems framing?',
+          'What is the main risk of relying only on habits for team productivity, according to the systems framing?',
         options: [
           'Execution becomes person-dependent; when the “habit owner” is absent, quality and consistency collapse.',
           'Habits automatically transfer to others, so the team becomes more consistent without any documentation.',
@@ -1908,7 +1923,7 @@ function generateProductivity2026QuestionsEN(day: number, title: string, cleanCo
       // Measurement: throughput, focus blocks, carryover; weekly review
       push({
         question:
-          'In the weekly review metrics, what does throughput measure in this course (as opposed to “being busy”)?',
+          'In weekly review metrics, what does throughput measure (as opposed to “being busy”)?',
         options: [
           'Completed important outcomes/tasks finished, not just activity volume or time spent.',
           'Total number of emails sent and meetings attended, regardless of whether outcomes changed.',
@@ -1922,7 +1937,7 @@ function generateProductivity2026QuestionsEN(day: number, title: string, cleanCo
 
       push({
         question:
-          'You had high focus blocks but low throughput. Which interpretation is most consistent with the course metrics?',
+          'You had high focus blocks but low throughput. Which interpretation is most consistent with the metrics?',
         options: [
           'You may be focusing on the wrong tasks or not defining outcomes clearly; deep work is happening, but not on high-impact deliverables.',
           'Deep work always guarantees throughput, so the metrics must be wrong and should be ignored.',
@@ -1936,7 +1951,7 @@ function generateProductivity2026QuestionsEN(day: number, title: string, cleanCo
 
       push({
         question:
-          'Carryover is high for three weeks in a row. Which change best matches the course’s interpretation of carryover?',
+          'Carryover is high for three weeks in a row. Which change best matches the interpretation of carryover?',
         options: [
           'Reduce weekly scope and improve prioritization so planned tasks match real capacity and constraints.',
           'Add more tasks to “push harder”, because carryover means you are not planning enough work.',
@@ -1950,7 +1965,7 @@ function generateProductivity2026QuestionsEN(day: number, title: string, cleanCo
 
       push({
         question:
-          'Which weekly review sequence best reflects the course’s 30-minute review method?',
+          'Which weekly review sequence best reflects the 30-minute review method?',
         options: [
           'Review completed outcomes (throughput), count deep work blocks, count carryover, reflect briefly, then adjust next week’s plan.',
           'Skim your calendar quickly, then create a longer to-do list to ensure nothing is forgotten.',
@@ -1992,7 +2007,7 @@ function generateProductivity2026QuestionsEN(day: number, title: string, cleanCo
 
       push({
         question:
-          'You can improve only one metric next week. Which choice best matches the course’s “change one rule, then measure” approach?',
+          'You can improve only one metric next week. Which choice best matches the “change one rule, then measure” approach?',
         options: [
           'Increase focus blocks by scheduling one protected 90–120 minute deep work block daily, then compare throughput and carryover.',
           'Change five tools and routines at once so improvements happen faster even if you cannot attribute the cause.',
@@ -2038,7 +2053,7 @@ function generateProductivity2026QuestionsEN(day: number, title: string, cleanCo
 
       push({
         question:
-          'You have three inboxes (email, notes, chat) and none is ever empty. Which change aligns with the course’s capture rule?',
+          'You have three inboxes (email, notes, chat) and none is ever empty. Which change aligns with the capture rule?',
         options: [
           'Set a daily processing time to empty inboxes and apply a decision rule for every item (delete, archive, reply, delegate, schedule).',
           'Add a fourth inbox to distribute load so each app looks less crowded day to day.',
@@ -2126,7 +2141,7 @@ function generateProductivity2026QuestionsEN(day: number, title: string, cleanCo
 
       push({
         question:
-          'Which morning ritual best supports the course’s system approach to execution?',
+          'Which morning ritual best supports the system approach to execution?',
         options: [
           'Review priorities, schedule at least one deep work block, and decide what will be ignored today to protect outcomes.',
           'Start by checking notifications and email so you can react quickly to anything new.',
@@ -2140,7 +2155,7 @@ function generateProductivity2026QuestionsEN(day: number, title: string, cleanCo
 
       push({
         question:
-          'You finish the week with high carryover again. Which weekly system adjustment is most aligned with the course?',
+          'You finish the week with high carryover again. Which weekly system adjustment is most aligned with the system approach?',
         options: [
           'Reduce scope, improve prioritization, and schedule focus blocks earlier while protecting buffer time.',
           'Add more tasks to the plan to force higher throughput by sheer volume.',
@@ -2168,10 +2183,10 @@ function generateProductivity2026QuestionsEN(day: number, title: string, cleanCo
 
       push({
         question:
-          'Why does the course treat a weekly review as essential rather than optional in a productivity system?',
+          'Why is a weekly review essential rather than optional in a productivity system?',
         options: [
           'Because without a feedback loop you cannot see what worked, correct the system, or improve outcomes over time.',
-          'Because weekly review increases activity volume, which is the main definition of productivity in this course.',
+          'Because weekly review increases activity volume, which is the main definition of productivity.',
           'Because weekly review eliminates the need for daily planning and execution once done once.',
           'Because weekly review replaces the need for prioritization; every task becomes equally important.',
         ],
@@ -2196,7 +2211,7 @@ function generateProductivity2026QuestionsEN(day: number, title: string, cleanCo
 
       push({
         question:
-          'A daily plan looks good on paper but fails by noon due to surprises. Which adjustment best matches the course’s system design?',
+          'A daily plan looks good on paper but fails by noon due to surprises. Which adjustment best matches the system design?',
         options: [
           'Add buffer time and define an explicit re-planning moment (e.g., midday), so the system adapts without destroying deep work blocks.',
           'Remove buffer time to force discipline; surprises should be handled by working faster, not by planning slack.',
@@ -2228,7 +2243,7 @@ function generateProductivity2026QuestionsEN(day: number, title: string, cleanCo
 
       push({
         question:
-          'You switch between tasks 20+ times per day and feel exhausted. Which measurement would best validate the problem using the course approach?',
+          'You switch between tasks 20+ times per day and feel exhausted. Which measurement would best validate the problem using a measurement-first approach?',
         options: [
           'Log the number of context switches and compare focus blocks completed before and after batching changes.',
           'Count how many messages you answered; more messages answered means less switching cost.',
@@ -2270,7 +2285,7 @@ function generateProductivity2026QuestionsEN(day: number, title: string, cleanCo
 
       push({
         question:
-          'Why is batching considered a high-leverage tactic in the course’s focus economics?',
+          'Why is batching considered a high-leverage tactic in the focus economics?',
         options: [
           'Because it reduces refocus costs, decision fatigue, and fragmentation, allowing more deep work and higher-quality outcomes.',
           'Because batching increases the number of tasks started, which is the best measure of productivity.',
@@ -2331,7 +2346,7 @@ function generateProductivity2026QuestionsEN(day: number, title: string, cleanCo
 
       push({
         question:
-          'Which delegation brief best protects outcome quality while giving autonomy (as recommended in the course)?',
+          'Which delegation brief best protects outcome quality while giving autonomy?',
         options: [
           'Define expected output, deadline, success criteria, check-in points, and constraints; allow the delegate to choose the method.',
           'Tell them “just handle it” with no criteria, then judge the result harshly at the end.',
@@ -2345,7 +2360,7 @@ function generateProductivity2026QuestionsEN(day: number, title: string, cleanCo
 
       push({
         question:
-          'The elimination test in the course is: “What value is lost if this is not done?” Which conclusion fits the method?',
+          'The elimination test is: “What value is lost if this is not done?” Which conclusion fits the method?',
         options: [
           'If the honest answer is “very little”, eliminate it and reinvest time into higher-outcome work.',
           'If the answer is unclear, keep it forever because uncertainty means it must be important.',
@@ -2359,7 +2374,7 @@ function generateProductivity2026QuestionsEN(day: number, title: string, cleanCo
 
       push({
         question:
-          'A leader delegates strategic decisions to save time. According to the course framing, why is this risky?',
+          'A leader delegates strategic decisions to save time. framing, why is this risky?',
         options: [
           'Some decisions are non-delegable; delegating them can reduce outcome quality and create rework that costs more time than it saves.',
           'Strategic decisions are always easy to delegate because they do not affect real outcomes.',
@@ -2388,7 +2403,7 @@ function generateProductivity2026QuestionsEN(day: number, title: string, cleanCo
       // Extra application to ensure >=5
       push({
         question:
-          'You keep doing “quick fixes” yourself because delegating feels slower. What is the best course-aligned adjustment?',
+          'You keep doing “quick fixes” yourself because delegating feels slower. What is the best system-aligned adjustment?',
         options: [
           'Invest once in a clear delegation process and documentation so future repeats cost less than repeated solo fixes.',
           'Keep doing everything yourself; delegation is always slower and never pays back.',
@@ -2402,7 +2417,7 @@ function generateProductivity2026QuestionsEN(day: number, title: string, cleanCo
 
       push({
         question:
-          'You delegated a task but got a poor result. Which fix is most aligned with the course’s delegation guidance?',
+          'You delegated a task but got a poor result. Which fix is most aligned with the delegation guidance?',
         options: [
           'Clarify expected output, success criteria, and check-in points, then give autonomy on method while providing feedback early.',
           'Take back all delegation permanently; one failure proves delegation never works.',
@@ -2434,7 +2449,7 @@ function generateProductivity2026QuestionsEN(day: number, title: string, cleanCo
 
       push({
         question:
-          'Which boundary is most aligned with sustainable output (not burnout sprint) in the course?',
+          'Which boundary is most aligned with sustainable output (not a burnout sprint)?',
         options: [
           'Protect sleep and set a stop time; do not trade recovery for more hours when quality is dropping.',
           'Extend the workday whenever possible; more hours always produce proportionally more outcomes.',
@@ -2448,7 +2463,7 @@ function generateProductivity2026QuestionsEN(day: number, title: string, cleanCo
 
       push({
         question:
-          'You notice mood swings and irritability after days of nonstop work. What is the most course-aligned first response?',
+          'You notice mood swings and irritability after days of nonstop work. What is the most system-aligned first response?',
         options: [
           'Adjust pace and add intentional recovery (breaks, boundaries, sleep) to restore energy and protect decision quality.',
           'Increase workload to build resilience; fatigue is a sign you should push harder.',
@@ -2505,7 +2520,7 @@ function generateProductivity2026QuestionsEN(day: number, title: string, cleanCo
 
       push({
         question:
-          'You consistently crash mid-afternoon. Which adjustment best matches the course’s recovery rituals idea?',
+          'You consistently crash mid-afternoon. Which adjustment best matches the recovery rituals idea?',
         options: [
           'Schedule a 20–30 minute macro break (walk, lunch, reset) and move demanding work to a peak window instead of pushing through fatigue.',
           'Add more high-stakes decisions into the crash window to train willpower and resilience.',
@@ -2551,7 +2566,7 @@ function generateProductivity2026QuestionsEN(day: number, title: string, cleanCo
 
       push({
         question:
-          'You have an OKR, but execution stalls. What is the most course-aligned next action step for the next 7 days?',
+          'You have an OKR, but execution stalls. What is the most system-aligned next action step for the next 7 days?',
         options: [
           'Break the Objective into weekly next actions, schedule them, and remove activities that do not move Key Results.',
           'Add more meetings to discuss the OKR so alignment improves, then execute later.',
@@ -2579,7 +2594,7 @@ function generateProductivity2026QuestionsEN(day: number, title: string, cleanCo
 
       push({
         question:
-          'Why does an OKR framework reduce “busy work” under the course’s outcome/constraints definition?',
+          'Why does an OKR framework reduce “busy work” under the outcome/constraints definition?',
         options: [
           'Because it ties work to measurable outcomes, making it easier to drop activities that consume constraints without moving results.',
           'Because it increases the number of tasks tracked, which automatically improves productivity.',
@@ -2640,7 +2655,7 @@ function generateProductivity2026QuestionsEN(day: number, title: string, cleanCo
 
       push({
         question:
-          'You want accountability without micromanagement. Which rule best matches the course approach?',
+          'You want accountability without micromanagement. Which rule best matches the approach?',
         options: [
           'Track outcomes with agreed metrics and cadence; focus on results and system adjustments, not constant surveillance.',
           'Require hourly status reports so activity is visible, even if it breaks deep work blocks.',
@@ -2697,7 +2712,7 @@ function generateProductivity2026QuestionsEN(day: number, title: string, cleanCo
       // Extra application
       push({
         question:
-          'You miss goals repeatedly. Which accountability change is most likely to help, according to the course’s systems framing?',
+          'You miss goals repeatedly. Which accountability change is most likely to help, according to the systems framing?',
         options: [
           'Add a consistent cadence (weekly review + check-in) and make commitments smaller and measurable to match constraints.',
           'Increase goal size dramatically to create pressure; bigger promises always create better follow-through.',
@@ -2743,7 +2758,7 @@ function generateProductivity2026QuestionsEN(day: number, title: string, cleanCo
 
       push({
         question:
-          'You delay a decision for weeks because you want perfect information. What course-aligned rule breaks analysis paralysis?',
+          'You delay a decision for weeks because you want perfect information. What system-aligned rule breaks analysis paralysis?',
         options: [
           'Set an information boundary (time limit or minimum data), make the 80% decision, then iterate after implementation.',
           'Keep researching until uncertainty is zero, because reversing decisions later is always more expensive.',
@@ -2757,7 +2772,7 @@ function generateProductivity2026QuestionsEN(day: number, title: string, cleanCo
 
       push({
         question:
-          'Which decision category rule best reduces decision fatigue in the course’s approach?',
+          'Which decision category rule best reduces decision fatigue in the approach?',
         options: [
           'Small reversible decisions get minimal analysis; medium decisions use a simple matrix; large decisions add counsel and time.',
           'All decisions require deep analysis, because small errors accumulate into major failures over time.',
@@ -2771,7 +2786,7 @@ function generateProductivity2026QuestionsEN(day: number, title: string, cleanCo
 
       push({
         question:
-          'Why is “time is more expensive than perfection” a productivity statement in the course’s framing?',
+          'Why is “time is more expensive than perfection” a productivity statement in the framing?',
         options: [
           'Because long analysis consumes constraints and delays outcomes; a fast decision plus iteration often yields better results sooner.',
           'Because perfection is always easy, so you should delay decisions until you can be perfect with no cost.',
@@ -2800,7 +2815,7 @@ function generateProductivity2026QuestionsEN(day: number, title: string, cleanCo
       // Extra application
       push({
         question:
-          'You have 3 tool options. Which decision matrix setup is most aligned with the course example method?',
+          'You have 3 tool options. Which decision matrix setup is most aligned with the example method?',
         options: [
           'Define criteria (cost, time saved, quality), weight them, score each option 1–5, multiply, sum, and pick the highest total.',
           'Pick the option with the best marketing; the matrix is unnecessary when branding is strong.',
@@ -2814,7 +2829,7 @@ function generateProductivity2026QuestionsEN(day: number, title: string, cleanCo
 
       push({
         question:
-          'You’re stuck choosing between two “good” options. What course-aligned question best forces clarity before you decide?',
+          'You’re stuck choosing between two “good” options. What system-aligned question best forces clarity before you decide?',
         options: [
           'Which outcome matters most, what constraint is binding, and what criterion will we use to judge the decision in one week?',
           'Which option feels safest emotionally right now, even if it delays the outcome for another month?',
@@ -2877,7 +2892,7 @@ function generateProductivity2026QuestionsEN(day: number, title: string, cleanCo
 
       push({
         question:
-          `Which mistake is most likely to break "${topic}" in practice, according to the course’s systems framing?`,
+          `Which mistake is most likely to break "${topic}" in practice, according to the systems framing?`,
         options: [
           'Optimizing visible activity instead of outcomes, so constraints get consumed without measurable progress.',
           'Defining one clear metric and reviewing it weekly to adjust one rule at a time.',
@@ -2919,7 +2934,7 @@ function generateProductivity2026QuestionsEN(day: number, title: string, cleanCo
 
       push({
         question:
-          `When "${topic}" fails, which diagnosis is most aligned with the course’s outcome/constraints definition?`,
+          `When "${topic}" fails, which diagnosis is most aligned with the outcome/constraints definition?`,
         options: [
           'The system lacks clear criteria/metrics or protected execution time, so outcomes cannot be reliably produced and proven.',
           'People are not working long enough hours, so adding overtime is the main fix regardless of constraints.',
@@ -3274,17 +3289,22 @@ function generateProductivityLesson1QuestionsPL(
 /**
  * Language-specific question templates
  */
+// Some languages use variant pools; keep the type flexible while still enforcing 4 options.
+// For generator logic, the first option is treated as the "correct" before shuffling.
+type Options4 = [string, string, string, string];
+type Options4OrFn = Options4 | ((input: string) => Options4);
+
 interface LanguageTemplates {
   criticalThinking: {
     question: (concept: string, goal: string) => string;
-    options: (concept: string) => [string, string, string, string];
+    options: (concept: string) => Options4;
   };
   application: {
     practice: (practice: string) => string;
     keyTerm: (keyTerm: string) => string;
     options: {
-      practice: [string, string, string, string];
-      keyTerm: [string, string, string, string];
+      practice: Options4OrFn;
+      keyTerm: Options4OrFn;
     };
   };
   recall: {
@@ -3371,35 +3391,92 @@ function getLanguageTemplates(language: string, title: string): LanguageTemplate
   
   // Turkish templates
   if (lang === 'tr') {
+    const pickOne = <T,>(seed: string, pool: T[]): T => pool[stableHash32(seed) % pool.length];
+    const pickThree = (seed: string, pool: string[]) => pickUniqueFromPool(seed, pool, 3);
+    const safeTitle = String(title || '').trim().replace(/\"/g, "'");
+    const titleHint = safeTitle ? ` (ders: "${safeTitle}")` : '';
+
     return {
       criticalThinking: {
-        question: (concept, goal) =>
-          `Bir lider şu ilkeye göre karar veriyor: “${concept}”. ${goal} hedefine ulaşmada en olası etki nedir ve yanlış yorumlanır/yanlış ölçülürse tipik risk hangisidir?`,
-        options: (concept) => [
-          'Doğru odak, kısıtlar altında en yüksek etkili çıktıyı artırır; risk: yanlış metriğe optimize olup “görünür output” üretmek.',
-          'Daha çok iş yapmak otomatik olarak daha çok sonuç getirir; risk: aktivite artar ama kalite ve müşteri değeri düşer.',
-          'Kısıtlar (zaman/enerji/dikkat) önemli değildir; risk: aşırı yüklenme, hata ve tükenmişlik sonucu bozar.',
-          'Önce hız, kalite sonra; risk: yeniden iş (rework) artar, throughput düşer ve güven kaybı olur.',
-        ]
+        question: (concept, goal) => {
+          const variants = [
+            `Bir lider su ilkeye gore karar veriyor: “${concept}”${titleHint}. ${goal} hedefine ulasmada en olasi etki nedir ve yanlis yorumlanir/yanlis olculurse tipik risk hangisidir?`,
+            `Bir ekip “${concept}” ilkesine gore oncelik veriyor${titleHint}. ${goal} hedefine ulasmada en olasi etki nedir ve kotu olcum/yanlis yorum riski hangisidir?`,
+            `Bir yonetici “${concept}” ilkesini uyguluyor${titleHint}. ${goal} icin en olasi etki nedir ve tipik risk hangi durumda ortaya cikar?`,
+            `Bu derste${titleHint} “${concept}” prensibiyle karar aliniyor. ${goal} icin en olasi etki nedir ve hangi risk yanlis olcumde ortaya cikar?`,
+          ];
+          return pickOne(`${concept}::${goal}::ctq`, variants);
+        },
+        options: (concept) => {
+          const correctVariants = [
+            'Dogru odak, kisitlar altinda en yuksek etkili ciktiyi artirir; risk: yanlis metrige optimize olup busy output uretmek.',
+            'Dogru odak, sinirli kaynaklari en etkili ciktiya yonlendirir; risk: yanlis metrikle sahte ilerleme gormek.',
+          ];
+          const distractorPool = [
+            'Daha cok is yapmak otomatik olarak daha cok sonuc getirir; risk: aktivite artar ama kalite ve musteri degeri duser.',
+            'Kisitlar (zaman/enerji/dikkat) onemsizdir; risk: asiri yuklenme, hata ve tukenmislik sonucu bozar.',
+            'Once hiz, kalite sonra; risk: rework artar, throughput duser ve guven kaybi olur.',
+            'Her seyi ayni anda optimize etmek en iyisidir; risk: tek bir degisken olmadigi icin ogrenme cikmaz.',
+            'Sadece cikti sayisini artirmak yeterlidir; risk: outcome yerine isaretler optimize edilir.',
+          ];
+          const correct = pickOne(`${concept}::ctc`, correctVariants);
+          const distractors = pickThree(`${concept}::ctd`, distractorPool);
+          return [correct, distractors[0], distractors[1], distractors[2]] as Options4;
+        },
       },
       application: {
-        practice: (practice) =>
-          `Yeni bir uygulamayı devreye alıyorsunuz: “${practice}”. Hangi plan ölçülebilir çıktı ve hızlı geri bildirim sağlar?`,
-        keyTerm: (keyTerm) =>
-          `Bir projede “${keyTerm}” kavramını aksiyona dönüştürmeniz gerekiyor. Hangi yaklaşım çıktıyı ölçülebilir ve doğrulanabilir yapar?`,
+        practice: (practice) => {
+          const variants = [
+            `Yeni bir uygulamayi devreye aliyorsunuz: “${practice}”${titleHint}. Hangi plan olculebilir cikti ve hizli geri bildirim saglar?`,
+            `Ekibinle yeni bir pratigi deniyorsun: “${practice}”${titleHint}. Hangi plan olculebilir sonuc ve hizli geri bildirim uretir?`,
+            `Bir haftalik pilot baslatiyorsun: “${practice}”${titleHint}. Hangi plan olculebilir ciktiyi ve geri bildirim dongusunu saglar?`,
+            `Bu derste${titleHint} “${practice}” pratigi icin pilot yapiyorsun. Hangi plan once/sonra olcumu ve hizli iterasyonu saglar?`,
+          ];
+          return pickOne(`${practice}::apq`, variants);
+        },
+        keyTerm: (keyTerm) => {
+          const variants = [
+            `Bir projede “${keyTerm}” kavramini aksiyona donusturmeniz gerekiyor${titleHint}. Hangi yaklasim ciktıyı olculebilir ve dogrulanabilir yapar?`,
+            `Bu derste${titleHint} “${keyTerm}” kavramini uygulamaya ceviriyorsun. Hangi yaklasim basariyi test edilebilir hale getirir?`,
+            `Takimin “${keyTerm}” icin somut deliverable cikarmasi gerekiyor${titleHint}. Hangi yaklasim outputu olculebilir yapar?`,
+          ];
+          return pickOne(`${keyTerm}::akq`, variants);
+        },
         options: {
-          practice: [
-            'Adım adım uygularım: kriter/metrik belirlerim, küçük kapsamda pilot yaparım, sonucu kaydederim ve tek tek kural değiştiririm.',
-            'Her şeyi aynı anda değiştiririm; ölçüm ve kontrol noktası olmadan “neyin işe yaradığını” bilemem.',
-            'Uygulamayı başlatırım ama “önce/sonra” ölçümü yapmam; böylece etkisi belirsiz kalır.',
-            'Sadece okuyup geçerim; çalışma sistemine entegre etmediğim için davranış ve sonuç değişmez.',
-          ],
-          keyTerm: [
-            '“Bitti” kriteri yazarım, bir metrik seçerim, tek bir örnekte uygular ve etkiyi doğruladıktan sonra genişletirim.',
-            'Kavramı slogan gibi kullanırım; checklist ve ölçüm olmadığı için doğrulanabilir çıktı üretmem.',
-            'Mükemmel olsun diye sürekli ertelerim; sonuç: throughput düşer ve carryover artar.',
-            'Yaparım ama sahip/süre/küçük eşikler tanımlamam; bu yüzden sonuç dağılır ve outcome’a bağlanmaz.',
-          ]
+          practice: (practice: string) => {
+            const correctVariants = [
+              'Adim adim uygularim: kriter/metrik belirlerim, kucuk kapsamda pilot yaparim, once/sonra olcer ve tek bir degiskeni degistiririm.',
+              'Kucuk scope ile pilot baslatirim, baslangic metrigi koyarim, haftalik review ile ayarlar ve etkisi kanitlaninca genisletirim.',
+              'Bir owner atarim, basari esigi tanimlarim, ayni orneklemde once/sonra olcer ve sadece dogrulanan degisiklikleri yayarim.',
+            ];
+            const distractorPool = [
+              'Her seyi ayni anda degistiririm; olcum ve kontrol noktasi olmadan neyin ise yaradigini bilemem.',
+              'Uygulamayi baslatirim ama once/sonra olcumu yapmam; etkisi belirsiz kalir.',
+              'Sadece okuyup gecerim; sisteme entegre etmedigim icin davranis ve sonuc degismez.',
+              'Cok fazla hedef/metrik eklerim; tek bir degisken olmadigi icin ogrenme cikmaz.',
+              'Bir kere denerim ama dokumante etmem; tekrar edilemez ve olculemez kalir.',
+              'Owner ve esik tanimlamadan yayarim; sorumluluk dagilir ve sonuc outcome ile baglanmaz.',
+            ];
+            const correct = pickOne(`${practice}::apc`, correctVariants);
+            const distractors = pickThree(`${practice}::apd`, distractorPool);
+            return [correct, distractors[0], distractors[1], distractors[2]] as Options4;
+          },
+          keyTerm: (keyTerm: string) => {
+            const correctVariants = [
+              '“Bitti” kriteri yazarim, bir metrik secerim, tek bir ornekte uygular ve etkiyi dogruladiktan sonra genisletirim.',
+              'Net kriter/olcum tanimlarim, kucuk bir deneme yaparim, once/sonra karsilastirir ve sonra yayarim.',
+            ];
+            const distractorPool = [
+              'Kavrami slogan gibi kullanirim; checklist ve olcum olmadigi icin dogrulanabilir cikti uretmem.',
+              'Mukemmel olsun diye surekli ertelerim; throughput duser ve carryover artar.',
+              'Yaparim ama sahip/sure/basari esigi tanimlamam; sonuc dagilir ve outcomea baglanmaz.',
+              'Sadece toplantida konusur, is akisina indirmem; bu yuzden sonuc uretmez.',
+              'Cok fazla seyi ayni anda degistiririm; hangi adimin etki yaptigi anlasilmaz.',
+            ];
+            const correct = pickOne(`${keyTerm}::akc`, correctVariants);
+            const distractors = pickThree(`${keyTerm}::akd`, distractorPool);
+            return [correct, distractors[0], distractors[1], distractors[2]] as Options4;
+          },
         }
       },
       recall: {
@@ -3438,35 +3515,91 @@ function getLanguageTemplates(language: string, title: string): LanguageTemplate
   
   // Bulgarian templates
   if (lang === 'bg') {
+    const pickOne = <T,>(seed: string, pool: T[]): T => pool[stableHash32(seed) % pool.length];
+    const pickThree = (seed: string, pool: string[]) => pickUniqueFromPool(seed, pool, 3);
+    const safeTitle = String(title || '').trim().replace(/\"/g, "'");
+    const titleHint = safeTitle ? ` (урок: "${safeTitle}")` : '';
+
     return {
       criticalThinking: {
-        question: (concept, goal) =>
-          `Лидер взема решения по принцип: „${concept}“. Какъв е най-вероятният ефект за постигане на ${goal} и кой е типичният риск при грешно тълкуване или грешно измерване?`,
-        options: (concept) => [
-          'Фокусът увеличава резултата, защото оптимизира изпълнението спрямо ограниченията; риск: оптимизираш грешна метрика и получаваш „видима активност“ без реален резултат.',
-          'Повече дейности автоматично означава по-добър резултат; риск: расте шумът и спадат качеството и стойността за клиента.',
-          'Ограниченията (време/енергия/внимание) не са важни; риск: претоварване, грешки и бърнаут влошават резултатите.',
-          'Скоростта е най-важна, качеството „после“; риск: повече преработка и по-малко завършени важни резултати.',
-        ]
+        question: (concept, goal) => {
+          const variants = [
+            `Лидер взема решения по принцип: „${concept}“${titleHint}. Какъв е най-вероятният ефект за постигане на ${goal} и кой е типичният риск при грешно тълкуване/измерване?`,
+            `Екип приоритизира по принцип: „${concept}“${titleHint}. Как това най-вероятно влияе на ${goal} и какъв риск се появява при лошо измерване?`,
+            `Мениджър прилага „${concept}“ в ежедневната работа${titleHint}. Кой е най-вероятният ефект за ${goal} и в какво се крие типичният капан?`,
+            `В урока${titleHint} прилагате „${concept}“. Какъв е най-вероятният ефект за ${goal} и какъв риск идва от грешна метрика?`,
+          ];
+          return pickOne(`${concept}::${goal}::bg-ctq`, variants);
+        },
+        options: (concept) => {
+          const correctVariants = [
+            'Добрият фокус насочва ограничените ресурси към най-важния резултат; риск: оптимизираш грешна метрика и получаваш „видима активност“ без реален ефект.',
+            'Добрият фокус увеличава outcome, защото режеш шума и пазиш ограниченията; риск: избираш грешен показател и се самозалъгваш с „busy output“.',
+          ];
+          const distractorPool = [
+            'Достатъчно е просто да правиш повече задачи; риск: активността расте, но качеството и стойността за клиента падат.',
+            'Ограниченията (време/енергия/внимание) не са важни; риск: претоварване, грешки и бърнаут влошават резултатите.',
+            'Скоростта е по-важна от качеството; риск: преработката изяжда throughput и доверието пада.',
+            'Най-доброто е да оптимизираш всичко едновременно; риск: няма ясен сигнал кое работи и не учиш нищо.',
+            'Ако всички са заети, значи имаме прогрес; риск: мериш шум вместо резултат.',
+          ];
+          const correct = pickOne(`${concept}::bg-ctc`, correctVariants);
+          const distractors = pickThree(`${concept}::bg-ctd`, distractorPool);
+          return [correct, distractors[0], distractors[1], distractors[2]] as Options4;
+        },
       },
       application: {
-        practice: (practice) =>
-          `Въвеждате нова практика: „${practice}“. Кой план дава измерим изход и бърза обратна връзка?`,
-        keyTerm: (keyTerm) =>
-          `В проект трябва да превърнете „${keyTerm}“ в действия. Кой подход прави изхода измерим и проверим?`,
+        practice: (practice) => {
+          const variants = [
+            `Въвеждате нова практика: „${practice}“${titleHint}. Кой план дава измерим изход и бърза обратна връзка?`,
+            `Пускате пилот за „${practice}“${titleHint}. Кой план прави резултата измерим и позволява бърза корекция?`,
+            `Екипът тества „${practice}“ за 1 седмица${titleHint}. Кой подход дава проверим ефект (преди/след)?`,
+            `В урока${titleHint} внедрявате „${practice}“. Кой план осигурява бърз feedback loop и измерим резултат?`,
+          ];
+          return pickOne(`${practice}::bg-apq`, variants);
+        },
+        keyTerm: (keyTerm) => {
+          const variants = [
+            `В проект трябва да превърнете „${keyTerm}“ в действия${titleHint}. Кой подход прави изхода измерим и проверим?`,
+            `Трябва да приложите „${keyTerm}“ в реален кейс${titleHint}. Кой подход прави успеха проверим, а не „усещане“?`,
+            `В урока${titleHint} „${keyTerm}“ трябва да стане deliverable. Кой подход гарантира проверимост?`,
+          ];
+          return pickOne(`${keyTerm}::bg-akq`, variants);
+        },
         options: {
-          practice: [
-            'Въвеждам стъпка по стъпка: дефинирам критерии/метрики, правя пилот с малък обхват, измервам преди/след и коригирам по една промяна.',
-            'Променям всичко наведнъж без метрики и контролни точки и после гадая какво е сработило.',
-            'Започвам, но не измервам ефекта (няма преди/след), така че качеството на резултата е неизвестно.',
-            'Прехвърлям отговорността без ясни критерии и проверка, което води до хаос и лошо предаване между хора/екипи.',
-          ],
-          keyTerm: [
-            'Описвам „готово“ (критерий), избирам една метрика, прилагам в един кейс и разширявам само след потвърден ефект.',
-            'Използвам термина като лозунг без чеклист и измерване — резултатът не е проверим и не е повторяем.',
-            'Отлагам, докато стане „перфектно“; това забавя завършването и увеличава прехвърлените задачи.',
-            'Действам без собственик/срок/праг и затова резултатът не води до проверима промяна.',
-          ]
+          practice: (practice: string) => {
+            const correctVariants = [
+              'Въвеждам стъпка по стъпка: дефинирам критерии/метрики, правя пилот с малък обхват, измервам преди/след и коригирам по една промяна.',
+              'Започвам с малък пилот, слагам базова метрика, правя кратък review всяка седмица и разширявам само след доказан ефект.',
+              'Назначавам owner, дефинирам праг за успех и измервам преди/след върху съпоставим пример, преди да скалирам.',
+            ];
+            const distractorPool = [
+              'Променям всичко наведнъж без метрики и контролни точки и после гадая какво е сработило.',
+              'Започвам, но не измервам ефекта (няма преди/след), така че качеството на резултата е неизвестно.',
+              'Добавям твърде много метрики/цели наведнъж; без „една променлива“ не знам кое работи.',
+              'Пускам без owner и без праг за успех; после спорим „дали е добре“ без доказателство.',
+              'Правя го веднъж, но не документирам; не е повторяемо и не може да се подобрява.',
+            ];
+            const correct = pickOne(`${practice}::bg-apc`, correctVariants);
+            const distractors = pickThree(`${practice}::bg-apd`, distractorPool);
+            return [correct, distractors[0], distractors[1], distractors[2]] as Options4;
+          },
+          keyTerm: (keyTerm: string) => {
+            const correctVariants = [
+              'Описвам „готово“ (критерий), избирам една метрика, прилагам в един кейс и разширявам само след потвърден ефект.',
+              'Дефинирам критерий и праг, тествам в един сценарий, измервам преди/след и разширявам при доказан резултат.',
+            ];
+            const distractorPool = [
+              'Използвам термина като лозунг без чеклист и измерване — резултатът не е проверим и не е повторяем.',
+              'Отлагам, докато стане „перфектно“; това забавя завършването и увеличава прехвърлените задачи.',
+              'Действам без собственик/срок/праг и затова резултатът не води до проверима промяна.',
+              'Говоря за него на срещи, но не го вкарвам в процеса; няма промяна в поведението и резултата.',
+              'Пробвам много неща наведнъж; не мога да изолирам кое е дало ефект.',
+            ];
+            const correct = pickOne(`${keyTerm}::bg-akc`, correctVariants);
+            const distractors = pickThree(`${keyTerm}::bg-akd`, distractorPool);
+            return [correct, distractors[0], distractors[1], distractors[2]] as Options4;
+          },
         }
       },
       recall: {
@@ -3505,35 +3638,91 @@ function getLanguageTemplates(language: string, title: string): LanguageTemplate
   
   // Polish templates
   if (lang === 'pl') {
+    const pickOne = <T,>(seed: string, pool: T[]): T => pool[stableHash32(seed) % pool.length];
+    const pickThree = (seed: string, pool: string[]) => pickUniqueFromPool(seed, pool, 3);
+    const safeTitle = String(title || '').trim().replace(/\"/g, "'");
+    const titleHint = safeTitle ? ` (lekcja: "${safeTitle}")` : '';
+
     return {
       criticalThinking: {
-        question: (concept, goal) =>
-          `Lider podejmuje decyzje według zasady: „${concept}”. Jaki efekt jest najbardziej prawdopodobny dla osiągnięcia ${goal} i jakie typowe ryzyko pojawia się przy błędnej interpretacji lub pomiarze?`,
-        options: (concept) => [
-          'Dobry fokus zwiększa wynik, bo optymalizuje output pod ograniczenia; ryzyko: optymalizacja złej metryki daje „busy output” bez realnego outcome.',
-          'Wystarczy robić więcej zadań, bo aktywność = rezultat; ryzyko: rośnie hałas, spada jakość i wartość dla klienta.',
-          'Ograniczenia (czas/energia/uwaga) są nieważne; ryzyko: przeciążenie, błędy i wypalenie obniżają outcome.',
-          'Najważniejsza jest szybkość, jakość poprawimy później; ryzyko: rework i zwroty zjadają throughput.',
-        ]
+        question: (concept, goal) => {
+          const variants = [
+            `Lider podejmuje decyzje według zasady: „${concept}”${titleHint}. Jaki efekt jest najbardziej prawdopodobny dla osiągnięcia ${goal} i jakie typowe ryzyko pojawia się przy błędnej interpretacji lub pomiarze?`,
+            `Zespół priorytetyzuje zgodnie z „${concept}”${titleHint}. Co najbardziej pomaga w ${goal}, a gdzie pojawia się typowa pułapka, gdy źle mierzysz postęp?`,
+            `Menedżer wdraża „${concept}” w praktyce${titleHint}. Jaki jest najbardziej prawdopodobny wpływ na ${goal} i jaki błąd pomiaru robi się najczęściej?`,
+            `W lekcji${titleHint} stosujesz „${concept}”. Jaki efekt jest najbardziej prawdopodobny dla ${goal} i gdzie jest typowy błąd w metrykach?`,
+          ];
+          return pickOne(`${concept}::${goal}::pl-ctq`, variants);
+        },
+        options: (concept) => {
+          const correctVariants = [
+            'Dobry fokus zwiększa wynik, bo optymalizuje output pod ograniczenia; ryzyko: optymalizacja złej metryki daje „busy output” bez realnego outcome.',
+            'Dobry fokus kieruje zasoby w stronę najważniejszego outcome; ryzyko: wybierasz zły wskaźnik i widzisz „postęp” tylko na papierze.',
+          ];
+          const distractorPool = [
+            'Wystarczy robić więcej zadań, bo aktywność = rezultat; ryzyko: rośnie hałas, spada jakość i wartość dla klienta.',
+            'Ograniczenia (czas/energia/uwaga) są nieważne; ryzyko: przeciążenie, błędy i wypalenie obniżają outcome.',
+            'Najważniejsza jest szybkość, jakość poprawimy później; ryzyko: rework i zwroty zjadają throughput.',
+            'Najlepiej optymalizować wszystko naraz; ryzyko: nie da się wyciągnąć wniosków, co działa.',
+            'Jeśli wszyscy są zajęci, to znaczy że jest progres; ryzyko: mierzysz szum zamiast efektu.',
+          ];
+          const correct = pickOne(`${concept}::pl-ctc`, correctVariants);
+          const distractors = pickThree(`${concept}::pl-ctd`, distractorPool);
+          return [correct, distractors[0], distractors[1], distractors[2]] as Options4;
+        },
       },
       application: {
-        practice: (practice) =>
-          `Wdrażasz nową praktykę: „${practice}”. Który plan wdrożenia daje mierzalny output i szybką informację zwrotną?`,
-        keyTerm: (keyTerm) =>
-          `W projekcie musisz przełożyć „${keyTerm}” na działania. Które podejście czyni output mierzalnym i weryfikowalnym?`,
+        practice: (practice) => {
+          const variants = [
+            `Wdrażasz nową praktykę: „${practice}”${titleHint}. Który plan wdrożenia daje mierzalny output i szybką informację zwrotną?`,
+            `Uruchamiasz pilotaż „${practice}” na tydzień${titleHint}. Który plan pozwala mierzyć efekt i szybko korygować?`,
+            `Zespół testuje „${practice}” w małym zakresie${titleHint}. Który plan daje weryfikowalny wynik (przed/po)?`,
+            `W lekcji${titleHint} testujesz „${practice}”. Który plan buduje szybki feedback loop i dowód efektu?`,
+          ];
+          return pickOne(`${practice}::pl-apq`, variants);
+        },
+        keyTerm: (keyTerm) => {
+          const variants = [
+            `W projekcie musisz przełożyć „${keyTerm}” na działania${titleHint}. Które podejście czyni output mierzalnym i weryfikowalnym?`,
+            `Chcesz zastosować „${keyTerm}” w realnym case${titleHint}. Które podejście sprawia, że sukces jest sprawdzalny, a nie „na oko”?`,
+            `W lekcji${titleHint} „${keyTerm}” ma stać się deliverable. Które podejście daje weryfikację?`,
+          ];
+          return pickOne(`${keyTerm}::pl-akq`, variants);
+        },
         options: {
-          practice: [
-            'Wdrażam krok po kroku: definiuję kryteria/metryki, robię pilota na małym zakresie, mierzę przed/po i zmieniam po jednej regule.',
-            'Zmieniam wszystko naraz bez metryk i punktów kontrolnych, a potem zgaduję, co zadziałało.',
-            'Startuję, ale bez pomiaru efektu (brak przed/po), więc nie wiem, czy wynik jest lepszy.',
-            'Przerzucam odpowiedzialność bez definicji „done”, co zwiększa chaos i słabe handoff-y.',
-          ],
-          keyTerm: [
-            'Piszę kryterium „done”, wybieram jedną metrykę, stosuję na jednym case i rozszerzam dopiero po potwierdzonym efekcie.',
-            'Używam pojęcia jak hasła bez checklisty i pomiaru — output nie jest weryfikowalny ani powtarzalny.',
-            'Odkładam wdrożenie, aż będzie „idealnie”; throughput spada i rośnie carryover.',
-            'Działam bez właściciela/terminu/progu, więc rezultat nie przekłada się na outcome.',
-          ]
+          practice: (practice: string) => {
+            const correctVariants = [
+              'Wdrażam krok po kroku: definiuję kryteria/metryki, robię pilota na małym zakresie, mierzę przed/po i zmieniam po jednej regule.',
+              'Zaczynam od małego pilota, ustawiam metrykę bazową, robię krótki przegląd co tydzień i rozszerzam dopiero po potwierdzonym efekcie.',
+              'Wyznaczam ownera, próg sukcesu i mierzę przed/po na porównywalnym przykładzie zanim zeskaluję.',
+            ];
+            const distractorPool = [
+              'Zmieniam wszystko naraz bez metryk i punktów kontrolnych, a potem zgaduję, co zadziałało.',
+              'Startuję, ale bez pomiaru efektu (brak przed/po), więc nie wiem, czy wynik jest lepszy.',
+              'Dodaję zbyt wiele metryk/celów naraz; bez jednej zmiennej nie wiem, co działa.',
+              'Wdrażam bez ownera i bez progu sukcesu; potem dyskusja jest „na wrażenia”.',
+              'Robię to raz, ale nie dokumentuję; nie da się powtórzyć ani ulepszać.',
+            ];
+            const correct = pickOne(`${practice}::pl-apc`, correctVariants);
+            const distractors = pickThree(`${practice}::pl-apd`, distractorPool);
+            return [correct, distractors[0], distractors[1], distractors[2]] as Options4;
+          },
+          keyTerm: (keyTerm: string) => {
+            const correctVariants = [
+              'Piszę kryterium „done”, wybieram jedną metrykę, stosuję na jednym case i rozszerzam dopiero po potwierdzonym efekcie.',
+              'Definiuję kryterium i próg, testuję na jednym scenariuszu, mierzę przed/po i dopiero potem rozszerzam.',
+            ];
+            const distractorPool = [
+              'Używam pojęcia jak hasła bez checklisty i pomiaru — output nie jest weryfikowalny ani powtarzalny.',
+              'Odkładam wdrożenie, aż będzie „idealnie”; throughput spada i rośnie carryover.',
+              'Działam bez właściciela/terminu/progu, więc rezultat nie przekłada się na outcome.',
+              'Mówię o tym na spotkaniach, ale nie wpinam w proces; nie ma zmiany zachowania ani efektu.',
+              'Zmieniam dużo rzeczy naraz; nie umiem wskazać, co dało efekt.',
+            ];
+            const correct = pickOne(`${keyTerm}::pl-akc`, correctVariants);
+            const distractors = pickThree(`${keyTerm}::pl-akd`, distractorPool);
+            return [correct, distractors[0], distractors[1], distractors[2]] as Options4;
+          },
         }
       },
       recall: {
@@ -3572,35 +3761,88 @@ function getLanguageTemplates(language: string, title: string): LanguageTemplate
   
   // Vietnamese templates
   if (lang === 'vi') {
+    const pickOne = <T,>(seed: string, pool: T[]): T => pool[stableHash32(seed) % pool.length];
+    const pickThree = (seed: string, pool: string[]) => pickUniqueFromPool(seed, pool, 3);
+    const safeTitle = String(title || '').trim().replace(/\"/g, "'");
+    const titleHint = safeTitle ? ` (bai hoc: "${safeTitle}")` : '';
+
     return {
       criticalThinking: {
-        question: (concept, goal) =>
-          `Một lãnh đạo ra quyết định theo nguyên tắc: “${concept}”. Tác động nào có khả năng nhất để đạt ${goal}, và rủi ro điển hình nào xảy ra nếu hiểu sai hoặc đo sai?`,
-        options: (concept) => [
-          'Tập trung đúng giúp tăng kết quả vì tối ưu output dưới các giới hạn; rủi ro: tối ưu sai metric tạo “output bận rộn” nhưng không cải thiện outcome.',
-          'Chỉ cần làm nhiều việc hơn vì hoạt động = kết quả; rủi ro: tăng nhiễu, giảm chất lượng và giá trị cho khách hàng.',
-          'Bỏ qua giới hạn (thời gian/năng lượng/chú ý) vì “cố gắng là đủ”; rủi ro: quá tải, sai sót và kiệt sức làm outcome xấu đi.',
-          'Ưu tiên tốc độ, chất lượng sửa sau; rủi ro: rework tăng và throughput giảm.',
-        ]
+        question: (concept, goal) => {
+          const variants = [
+            `Một lãnh đạo ra quyết định theo nguyên tắc: “${concept}”${titleHint}. Tác động nào có khả năng nhất để đạt ${goal}, và rủi ro điển hình nào xảy ra nếu hiểu sai hoặc đo sai?`,
+            `Một nhóm ưu tiên theo “${concept}”${titleHint}. Điều gì có khả năng giúp nhất cho ${goal}, và bẫy thường gặp khi đo lường sai là gì?`,
+            `Một quản lý áp dụng “${concept}” trong thực tế${titleHint}. Tác động có khả năng nhất lên ${goal} là gì, và rủi ro thường gặp khi diễn giải/đo sai?`,
+          ];
+          return pickOne(`${concept}::${goal}::vi-ctq`, variants);
+        },
+        options: (concept) => {
+          const correctVariants = [
+            'Tập trung đúng giúp tăng kết quả vì tối ưu output dưới các giới hạn; rủi ro: tối ưu sai metric tạo “output bận rộn” nhưng không cải thiện outcome.',
+            'Tập trung đúng điều hướng nguồn lực vào outcome quan trọng; rủi ro: chọn sai chỉ số khiến “tiến bộ” chỉ là bề mặt.',
+          ];
+          const distractorPool = [
+            'Chỉ cần làm nhiều việc hơn vì hoạt động = kết quả; rủi ro: tăng nhiễu, giảm chất lượng và giá trị cho khách hàng.',
+            'Bỏ qua giới hạn (thời gian/năng lượng/chú ý) vì “cố gắng là đủ”; rủi ro: quá tải, sai sót và kiệt sức làm outcome xấu đi.',
+            'Ưu tiên tốc độ, chất lượng sửa sau; rủi ro: rework tăng và throughput giảm.',
+            'Tối ưu mọi thứ cùng lúc; rủi ro: không có tín hiệu rõ cái gì tạo ra cải thiện.',
+            'Miễn ai cũng bận là ổn; rủi ro: đo sự bận rộn thay vì kết quả.',
+          ];
+          const correct = pickOne(`${concept}::vi-ctc`, correctVariants);
+          const distractors = pickThree(`${concept}::vi-ctd`, distractorPool);
+          return [correct, distractors[0], distractors[1], distractors[2]] as Options4;
+        },
       },
       application: {
-        practice: (practice) =>
-          `Bạn triển khai một thực hành mới: “${practice}”. Kế hoạch nào tạo output đo được và phản hồi nhanh?`,
-        keyTerm: (keyTerm) =>
-          `Trong một dự án, bạn cần biến “${keyTerm}” thành hành động. Cách tiếp cận nào làm output đo được và kiểm chứng được?`,
+        practice: (practice) => {
+          const variants = [
+            `Bạn triển khai một thực hành mới: “${practice}”${titleHint}. Kế hoạch nào tạo output đo được và phản hồi nhanh?`,
+            `Bạn chạy pilot “${practice}” trong 1 tuần${titleHint}. Kế hoạch nào cho phép đo trước/sau và điều chỉnh nhanh?`,
+            `Nhóm thử “${practice}” ở scope nhỏ${titleHint}. Kế hoạch nào tạo feedback loop nhanh và chứng minh tác động?`,
+          ];
+          return pickOne(`${practice}::vi-apq`, variants);
+        },
+        keyTerm: (keyTerm) => {
+          const variants = [
+            `Trong một dự án, bạn cần biến “${keyTerm}” thành hành động${titleHint}. Cách tiếp cận nào làm output đo được và kiểm chứng được?`,
+            `Bạn muốn áp dụng “${keyTerm}” vào case thật${titleHint}. Cách nào làm thành công “kiem chung duoc” thay vì cảm tính?`,
+          ];
+          return pickOne(`${keyTerm}::vi-akq`, variants);
+        },
         options: {
-          practice: [
-            'Triển khai từng bước: đặt tiêu chí/metric, chạy pilot nhỏ, đo trước/sau, ghi lại kết quả và chỉnh một rule mỗi lần.',
-            'Đổi tất cả cùng lúc, không có metric hay điểm kiểm tra, rồi đoán thứ gì đã hiệu quả.',
-            'Bắt đầu nhưng không đo tác động (không có trước/sau), nên không biết chất lượng kết quả.',
-            'Làm cho có nhưng không có owner/thời hạn/ngưỡng, nên không gắn được với outcome.',
-          ],
-          keyTerm: [
-            'Viết tiêu chí “done”, chọn một metric, áp dụng cho một case và mở rộng chỉ sau khi xác nhận tác động.',
-            'Dùng khái niệm như khẩu hiệu nhưng không có checklist/đo lường — output không kiểm chứng và không lặp lại được.',
-            'Trì hoãn cho đến khi “hoàn hảo”; throughput giảm và carryover tăng.',
-            'Hành động nhưng không đo và không ghi lại, nên không biết có cải thiện hay không.',
-          ]
+          practice: (practice: string) => {
+            const correctVariants = [
+              'Triển khai từng bước: đặt tiêu chí/metric, chạy pilot nhỏ, đo trước/sau, ghi lại kết quả và chỉnh một rule mỗi lần.',
+              'Bắt đầu scope nhỏ, đặt baseline metric, review hàng tuần và mở rộng chỉ khi tác động được chứng minh.',
+              'Chỉ định owner, định nghĩa ngưỡng thành công, đo trước/sau trên mẫu tương đương rồi mới scale.',
+            ];
+            const distractorPool = [
+              'Đổi tất cả cùng lúc, không có metric hay điểm kiểm tra, rồi đoán thứ gì đã hiệu quả.',
+              'Bắt đầu nhưng không đo tác động (không có trước/sau), nên không biết chất lượng kết quả.',
+              'Thêm quá nhiều mục tiêu/metric cùng lúc; không biết yếu tố nào tạo ra tác động.',
+              'Triển khai không có owner và không có ngưỡng thành công; kết luận dựa vào cảm giác.',
+              'Thử một lần nhưng không tài liệu hoá; khó lặp lại và cải tiến.',
+            ];
+            const correct = pickOne(`${practice}::vi-apc`, correctVariants);
+            const distractors = pickThree(`${practice}::vi-apd`, distractorPool);
+            return [correct, distractors[0], distractors[1], distractors[2]] as Options4;
+          },
+          keyTerm: (keyTerm: string) => {
+            const correctVariants = [
+              'Viết tiêu chí “done”, chọn một metric, áp dụng cho một case và mở rộng chỉ sau khi xác nhận tác động.',
+              'Định nghĩa tiêu chí + ngưỡng, thử trên một kịch bản, đo trước/sau rồi mới mở rộng.',
+            ];
+            const distractorPool = [
+              'Dùng khái niệm như khẩu hiệu nhưng không có checklist/đo lường — output không kiểm chứng và không lặp lại được.',
+              'Trì hoãn cho đến khi “hoàn hảo”; throughput giảm và carryover tăng.',
+              'Hành động nhưng không đo và không ghi lại, nên không biết có cải thiện hay không.',
+              'Chỉ nói trong họp nhưng không đưa vào quy trình; không đổi hành vi nên không đổi kết quả.',
+              'Đổi nhiều thứ cùng lúc; không thể biết bước nào tạo ra outcome.',
+            ];
+            const correct = pickOne(`${keyTerm}::vi-akc`, correctVariants);
+            const distractors = pickThree(`${keyTerm}::vi-akd`, distractorPool);
+            return [correct, distractors[0], distractors[1], distractors[2]] as Options4;
+          },
         }
       },
       recall: {
@@ -3639,35 +3881,91 @@ function getLanguageTemplates(language: string, title: string): LanguageTemplate
   
   // Indonesian templates
   if (lang === 'id') {
+    const pickOne = <T,>(seed: string, pool: T[]): T => pool[stableHash32(seed) % pool.length];
+    const pickThree = (seed: string, pool: string[]) => pickUniqueFromPool(seed, pool, 3);
+    const safeTitle = String(title || '').trim().replace(/\"/g, "'");
+    const titleHint = safeTitle ? ` (pelajaran: "${safeTitle}")` : '';
+
     return {
       criticalThinking: {
-        question: (concept, goal) =>
-          `Seorang pemimpin mengambil keputusan dengan prinsip: “${concept}”. Dampak apa yang paling mungkin untuk mencapai ${goal}, dan risiko tipikal apa yang muncul jika salah menafsirkan atau salah mengukur?`,
-        options: (concept) => [
-          'Fokus yang benar meningkatkan hasil karena mengoptimalkan output di bawah batasan; risiko: mengoptimalkan metrik yang salah menghasilkan “output sibuk” tanpa outcome.',
-          'Cukup menambah aktivitas karena aktivitas = hasil; risiko: noise naik, kualitas dan nilai untuk pelanggan turun.',
-          'Mengabaikan batasan (waktu/energi/perhatian) karena “usaha saja cukup”; risiko: overload, error, dan burnout merusak outcome.',
-          'Kecepatan nomor satu, kualitas belakangan; risiko: rework meningkat dan throughput turun.',
-        ]
+        question: (concept, goal) => {
+          const variants = [
+            `Seorang pemimpin mengambil keputusan dengan prinsip: “${concept}”${titleHint}. Dampak apa yang paling mungkin untuk mencapai ${goal}, dan risiko tipikal apa yang muncul jika salah menafsirkan atau salah mengukur?`,
+            `Tim memprioritaskan berdasarkan “${concept}”${titleHint}. Apa dampak paling mungkin pada ${goal}, dan jebakan umum apa muncul saat metriknya keliru?`,
+            `Manajer menerapkan “${concept}” dalam pekerjaan harian${titleHint}. Apa efek paling mungkin untuk ${goal} dan risiko khas jika pengukuran salah?`,
+            `Dalam pelajaran${titleHint}, Anda menerapkan “${concept}”. Apa efek paling mungkin pada ${goal} dan risiko tipikal dari metrik yang salah?`,
+          ];
+          return pickOne(`${concept}::${goal}::id-ctq`, variants);
+        },
+        options: (concept) => {
+          const correctVariants = [
+            'Fokus yang benar meningkatkan hasil karena mengoptimalkan output di bawah batasan; risiko: mengoptimalkan metrik yang salah menghasilkan “output sibuk” tanpa outcome.',
+            'Fokus yang benar mengarahkan sumber daya ke outcome paling penting; risiko: memilih metrik yang salah membuat progres terlihat tapi tidak nyata.',
+          ];
+          const distractorPool = [
+            'Cukup menambah aktivitas karena aktivitas = hasil; risiko: noise naik, kualitas dan nilai untuk pelanggan turun.',
+            'Mengabaikan batasan (waktu/energi/perhatian) karena “usaha saja cukup”; risiko: overload, error, dan burnout merusak outcome.',
+            'Kecepatan nomor satu, kualitas belakangan; risiko: rework meningkat dan throughput turun.',
+            'Optimalkan semuanya sekaligus; risiko: tidak ada sinyal jelas mana yang bekerja dan tidak ada pembelajaran.',
+            'Yang penting semua orang sibuk; risiko: yang diukur adalah kesibukan, bukan hasil.',
+          ];
+          const correct = pickOne(`${concept}::id-ctc`, correctVariants);
+          const distractors = pickThree(`${concept}::id-ctd`, distractorPool);
+          return [correct, distractors[0], distractors[1], distractors[2]] as Options4;
+        },
       },
       application: {
-        practice: (practice) =>
-          `Anda menerapkan praktik baru: “${practice}”. Rencana mana yang menghasilkan output terukur dan umpan balik cepat?`,
-        keyTerm: (keyTerm) =>
-          `Dalam proyek, Anda harus mengubah “${keyTerm}” menjadi tindakan. Pendekatan mana yang membuat output terukur dan dapat diverifikasi?`,
+        practice: (practice) => {
+          const variants = [
+            `Anda menerapkan praktik baru: “${practice}”${titleHint}. Rencana mana yang menghasilkan output terukur dan umpan balik cepat?`,
+            `Anda menjalankan pilot “${practice}” selama 1 minggu${titleHint}. Rencana mana yang membuat hasilnya terukur (sebelum/sesudah) dan mudah disesuaikan?`,
+            `Tim mencoba “${practice}” dalam skala kecil${titleHint}. Pendekatan mana yang memberi feedback loop cepat dan bukti dampak?`,
+            `Dalam pelajaran${titleHint}, Anda menjalankan “${practice}”. Pendekatan mana yang membuat efeknya bisa dibuktikan?`,
+          ];
+          return pickOne(`${practice}::id-apq`, variants);
+        },
+        keyTerm: (keyTerm) => {
+          const variants = [
+            `Dalam proyek, Anda harus mengubah “${keyTerm}” menjadi tindakan${titleHint}. Pendekatan mana yang membuat output terukur dan dapat diverifikasi?`,
+            `Anda ingin menerapkan “${keyTerm}” pada kasus nyata${titleHint}. Pendekatan mana yang membuat suksesnya bisa diuji, bukan sekadar “rasa”?`,
+            `Dalam pelajaran${titleHint}, “${keyTerm}” harus jadi deliverable. Pendekatan mana yang membuatnya verifiable?`,
+          ];
+          return pickOne(`${keyTerm}::id-akq`, variants);
+        },
         options: {
-          practice: [
-            'Saya menerapkan bertahap: tetapkan kriteria/metrik, pilot kecil, ukur sebelum/sesudah, dokumentasikan hasil, dan ubah satu rule per iterasi.',
-            'Saya mengubah semuanya sekaligus tanpa metrik dan checkpoint, lalu menebak apa yang berhasil.',
-            'Saya mulai tetapi tidak mengukur dampak (tanpa sebelum/sesudah), jadi kualitas hasil tidak jelas.',
-            'Saya menjalankan tanpa owner/target/ambang, sehingga output tidak terhubung ke outcome.',
-          ],
-          keyTerm: [
-            'Saya menulis kriteria “done”, memilih satu metrik, menerapkan pada satu kasus, lalu memperluas setelah efek terkonfirmasi.',
-            'Saya memakai istilah sebagai slogan tanpa checklist/ukur — output tidak bisa diverifikasi dan tidak repeatable.',
-            'Saya menunda sampai “sempurna”; throughput turun dan carryover naik.',
-            'Saya bertindak tetapi tidak mengukur dan tidak mendokumentasikan, jadi tidak tahu apakah ada perbaikan.',
-          ]
+          practice: (practice: string) => {
+            const correctVariants = [
+              'Saya menerapkan bertahap: tetapkan kriteria/metrik, pilot kecil, ukur sebelum/sesudah, dokumentasikan hasil, dan ubah satu rule per iterasi.',
+              'Saya mulai dari scope kecil, pasang baseline metrik, review mingguan, dan perluas hanya setelah efek terbukti.',
+              'Saya tetapkan owner dan ambang sukses, ukur sebelum/sesudah pada contoh yang sebanding, lalu skalakan yang terbukti.',
+            ];
+            const distractorPool = [
+              'Saya mengubah semuanya sekaligus tanpa metrik dan checkpoint, lalu menebak apa yang berhasil.',
+              'Saya mulai tetapi tidak mengukur dampak (tanpa sebelum/sesudah), jadi kualitas hasil tidak jelas.',
+              'Saya menambahkan terlalu banyak metrik/tujuan sekaligus; tidak jelas apa yang memberi efek.',
+              'Saya jalankan tanpa owner dan tanpa ambang sukses; akhirnya debatnya subjektif.',
+              'Saya coba sekali tapi tidak dokumentasi; tidak repeatable dan sulit diperbaiki.',
+            ];
+            const correct = pickOne(`${practice}::id-apc`, correctVariants);
+            const distractors = pickThree(`${practice}::id-apd`, distractorPool);
+            return [correct, distractors[0], distractors[1], distractors[2]] as Options4;
+          },
+          keyTerm: (keyTerm: string) => {
+            const correctVariants = [
+              'Saya menulis kriteria “done”, memilih satu metrik, menerapkan pada satu kasus, lalu memperluas setelah efek terkonfirmasi.',
+              'Saya definisikan kriteria dan ambang, uji pada satu skenario, ukur sebelum/sesudah, lalu baru perluas.',
+            ];
+            const distractorPool = [
+              'Saya memakai istilah sebagai slogan tanpa checklist/ukur — output tidak bisa diverifikasi dan tidak repeatable.',
+              'Saya menunda sampai “sempurna”; throughput turun dan carryover naik.',
+              'Saya bertindak tanpa owner/target/ambang, sehingga hasilnya tidak bisa diuji.',
+              'Saya hanya membahas di rapat tapi tidak memasukkan ke proses; tidak ada perubahan perilaku dan hasil.',
+              'Saya mengubah banyak hal sekaligus; sulit tahu apa yang memperbaiki outcome.',
+            ];
+            const correct = pickOne(`${keyTerm}::id-akc`, correctVariants);
+            const distractors = pickThree(`${keyTerm}::id-akd`, distractorPool);
+            return [correct, distractors[0], distractors[1], distractors[2]] as Options4;
+          },
         }
       },
       recall: {
@@ -3706,35 +4004,91 @@ function getLanguageTemplates(language: string, title: string): LanguageTemplate
   
   // Portuguese templates
   if (lang === 'pt') {
+    const pickOne = <T,>(seed: string, pool: T[]): T => pool[stableHash32(seed) % pool.length];
+    const pickThree = (seed: string, pool: string[]) => pickUniqueFromPool(seed, pool, 3);
+    const safeTitle = String(title || '').trim().replace(/\"/g, "'");
+    const titleHint = safeTitle ? ` (licao: "${safeTitle}")` : '';
+
     return {
       criticalThinking: {
-        question: (concept, goal) =>
-          `Um líder decide com base no princípio: “${concept}”. Qual é o efeito mais provável para atingir ${goal}, e qual risco típico surge se isso for mal interpretado ou mal medido?`,
-        options: (concept) => [
-          'O foco correto aumenta o resultado porque otimiza o output sob restrições; risco: otimizar a métrica errada gera “output ocupado” sem melhorar o outcome.',
-          'Basta fazer mais tarefas porque atividade = resultado; risco: aumenta o ruído e cai a qualidade/valor para o cliente.',
-          'Ignorar restrições (tempo/energia/atenção) porque “força de vontade resolve”; risco: sobrecarga, erros e burnout pioram o outcome.',
-          'Velocidade acima de tudo e qualidade depois; risco: rework cresce e o throughput cai.',
-        ]
+        question: (concept, goal) => {
+          const variants = [
+            `Um líder decide com base no princípio: “${concept}”${titleHint}. Qual é o efeito mais provável para atingir ${goal}, e qual risco típico surge se isso for mal interpretado ou mal medido?`,
+            `A equipe prioriza usando “${concept}”${titleHint}. O que mais ajuda em ${goal} e qual armadilha aparece quando a métrica está errada?`,
+            `Um gestor aplica “${concept}” no dia a dia${titleHint}. Qual é o efeito mais provável em ${goal} e qual risco típico surge com medição fraca?`,
+            `Na licao${titleHint}, voce aplica “${concept}”. Qual efeito e mais provavel em ${goal} e qual risco vem de medir mal?`,
+          ];
+          return pickOne(`${concept}::${goal}::pt-ctq`, variants);
+        },
+        options: (concept) => {
+          const correctVariants = [
+            'O foco correto aumenta o resultado porque otimiza o output sob restrições; risco: otimizar a métrica errada gera “output ocupado” sem melhorar o outcome.',
+            'O foco correto direciona recursos para o outcome mais importante; risco: escolher a métrica errada cria progresso “visível” sem efeito real.',
+          ];
+          const distractorPool = [
+            'Basta fazer mais tarefas porque atividade = resultado; risco: aumenta o ruído e cai a qualidade/valor para o cliente.',
+            'Ignorar restrições (tempo/energia/atenção) porque “força de vontade resolve”; risco: sobrecarga, erros e burnout pioram o outcome.',
+            'Velocidade acima de tudo e qualidade depois; risco: rework cresce e o throughput cai.',
+            'O melhor é otimizar tudo ao mesmo tempo; risco: não há sinal claro do que funciona e não há aprendizagem.',
+            'Se todos estão ocupados, então há progresso; risco: mede-se “correria” em vez de resultado.',
+          ];
+          const correct = pickOne(`${concept}::pt-ctc`, correctVariants);
+          const distractors = pickThree(`${concept}::pt-ctd`, distractorPool);
+          return [correct, distractors[0], distractors[1], distractors[2]] as Options4;
+        },
       },
       application: {
-        practice: (practice) =>
-          `Você vai implementar uma nova prática: “${practice}”. Qual plano produz output mensurável e feedback rápido?`,
-        keyTerm: (keyTerm) =>
-          `Em um projeto, você precisa transformar “${keyTerm}” em ações. Qual abordagem torna o output mensurável e verificável?`,
+        practice: (practice) => {
+          const variants = [
+            `Você vai implementar uma nova prática: “${practice}”${titleHint}. Qual plano produz output mensurável e feedback rápido?`,
+            `Você inicia um piloto de “${practice}” por 1 semana${titleHint}. Qual plano mede o efeito (antes/depois) e permite ajustes rápidos?`,
+            `A equipe testa “${practice}” em escopo pequeno${titleHint}. Qual abordagem cria um loop de feedback rápido e verificável?`,
+            `Na licao${titleHint}, voce testa “${practice}”. Qual plano cria prova de efeito e ajuste rapido?`,
+          ];
+          return pickOne(`${practice}::pt-apq`, variants);
+        },
+        keyTerm: (keyTerm) => {
+          const variants = [
+            `Em um projeto, você precisa transformar “${keyTerm}” em ações${titleHint}. Qual abordagem torna o output mensurável e verificável?`,
+            `Você quer aplicar “${keyTerm}” em um caso real${titleHint}. Qual abordagem torna o sucesso testável, e não “no feeling”?`,
+            `Na licao${titleHint}, “${keyTerm}” precisa virar um deliverable. Qual abordagem deixa verificavel?`,
+          ];
+          return pickOne(`${keyTerm}::pt-akq`, variants);
+        },
         options: {
-          practice: [
-            'Implemento por etapas: defino critérios/métricas, faço um piloto pequeno, meço antes/depois, documento o resultado e ajusto uma regra por vez.',
-            'Mudo tudo de uma vez sem métricas nem checkpoints e depois tento adivinhar o que funcionou.',
-            'Começo, mas sem medir o impacto (sem antes/depois), então a qualidade do resultado fica desconhecida.',
-            'Executo sem dono/prazo/limiares, e o output não se conecta ao outcome.',
-          ],
-          keyTerm: [
-            'Escrevo o critério de “done”, escolho uma métrica, aplico em um caso e amplio só depois de confirmar o efeito.',
-            'Uso o termo como slogan sem checklist/medição — o output não é verificável nem repetível.',
-            'Adio até ficar “perfeito”; o throughput cai e o carryover aumenta.',
-            'Faço ações, mas não meço nem registro, então não sei se houve melhoria.',
-          ]
+          practice: (practice: string) => {
+            const correctVariants = [
+              'Implemento por etapas: defino critérios/métricas, faço um piloto pequeno, meço antes/depois, documento o resultado e ajusto uma regra por vez.',
+              'Começo com escopo pequeno, defino metrica baseline, faço review semanal e amplio só com efeito comprovado.',
+              'Defino owner e limiar de sucesso, meço antes/depois em um exemplo comparável e escalo apenas o que foi validado.',
+            ];
+            const distractorPool = [
+              'Mudo tudo de uma vez sem métricas nem checkpoints e depois tento adivinhar o que funcionou.',
+              'Começo, mas sem medir o impacto (sem antes/depois), então a qualidade do resultado fica desconhecida.',
+              'Crio muitas metas/métricas ao mesmo tempo; não dá para saber o que causou o efeito.',
+              'Executo sem owner e sem limiar de sucesso; vira discussão subjetiva.',
+              'Testo uma vez, mas não documento; não é repetível nem dá para melhorar.',
+            ];
+            const correct = pickOne(`${practice}::pt-apc`, correctVariants);
+            const distractors = pickThree(`${practice}::pt-apd`, distractorPool);
+            return [correct, distractors[0], distractors[1], distractors[2]] as Options4;
+          },
+          keyTerm: (keyTerm: string) => {
+            const correctVariants = [
+              'Escrevo o critério de “done”, escolho uma métrica, aplico em um caso e amplio só depois de confirmar o efeito.',
+              'Defino critério e limiar, testo em um cenário, meço antes/depois e só então amplio.',
+            ];
+            const distractorPool = [
+              'Uso o termo como slogan sem checklist/medição — o output não é verificável nem repetível.',
+              'Adio até ficar “perfeito”; o throughput cai e o carryover aumenta.',
+              'Executo sem dono/prazo/limiar, então o resultado não é testável.',
+              'Falo sobre isso em reuniões, mas não coloco no processo; não há mudança de comportamento nem de resultado.',
+              'Mudo muitas coisas ao mesmo tempo; não consigo isolar o que melhorou o outcome.',
+            ];
+            const correct = pickOne(`${keyTerm}::pt-akc`, correctVariants);
+            const distractors = pickThree(`${keyTerm}::pt-akd`, distractorPool);
+            return [correct, distractors[0], distractors[1], distractors[2]] as Options4;
+          },
         }
       },
       recall: {
@@ -3843,35 +4197,89 @@ function getLanguageTemplates(language: string, title: string): LanguageTemplate
   // - Must avoid long Latin segments (Arabic script integrity check).
   // - Must NOT reference the lesson explicitly (e.g., "في الدرس" is disallowed by the validator).
   if (lang === 'ar') {
+    const pickOne = <T,>(seed: string, pool: T[]): T => pool[stableHash32(seed) % pool.length];
+    const pickThree = (seed: string, pool: string[]) => pickUniqueFromPool(seed, pool, 3);
+    // Use title only as a deterministic seed to avoid repeating the exact same question across lessons.
+    const titleSeed = String(title || '').trim();
+
     return {
       criticalThinking: {
-        question: (concept, goal) =>
-          `يتخذ قائد قرارًا وفق مبدأ: «${concept}». ما الأثر الأكثر احتمالًا لتحقيق ${goal}، وما الخطر المعتاد إذا طُبّق بشكل خاطئ أو تم قياسه بطريقة خاطئة؟`,
-        options: () => [
-          'يزداد الأثر لأن التركيز يوجّه الجهد نحو نتيجة قابلة للقياس؛ الخطر: اختيار معيار خاطئ يعطي شعورًا بالتقدم دون تحسن حقيقي.',
-          'يكفي زيادة عدد المهام لأن النشاط يساوي النتيجة دائمًا؛ الخطر: ترتفع الضوضاء وتقل الجودة والقيمة الفعلية.',
-          'القيود (الوقت/الطاقة/الانتباه) غير مهمة إذا بذلت جهدًا أكبر؛ الخطر: الإرهاق والأخطاء تقلل النتيجة النهائية.',
-          'الأهم هو السرعة فقط ثم نصحح الجودة لاحقًا؛ الخطر: تزداد إعادة العمل ويضيع الوقت وتضعف الثقة.',
-        ],
+        question: (concept, goal) => {
+          const variants = [
+            `يتخذ قائد قرارًا وفق مبدأ: «${concept}». ما الأثر الأكثر احتمالًا لتحقيق ${goal}، وما الخطر المعتاد إذا طُبّق أو قيس بطريقة خاطئة؟`,
+            `يعتمد فريق مبدأ «${concept}» في الأولويات. ما الأثر الأرجح على ${goal}، وما الخطأ الشائع عند القياس؟`,
+            `يطبّق مدير مبدأ «${concept}» عمليًا. ما التأثير الأرجح على ${goal}، وما المخاطرة المعتادة عند سوء الفهم أو سوء القياس؟`,
+          ];
+          return pickOne(`${concept}::${goal}::${titleSeed}::ar-ctq`, variants);
+        },
+        options: (concept) => {
+          const correctVariants = [
+            'يزداد الأثر لأن التركيز يوجّه الجهد نحو نتيجة قابلة للقياس؛ الخطر: اختيار معيار خاطئ يعطي شعورًا بالتقدم دون تحسن حقيقي.',
+            'يرتفع الأثر عندما نركّز على نتيجة قابلة للقياس؛ الخطر: تحسين مؤشر خاطئ ينتج نشاطًا دون أثر.',
+          ];
+          const distractorPool = [
+            'يكفي زيادة عدد المهام لأن النشاط يساوي النتيجة دائمًا؛ الخطر: ترتفع الضوضاء وتقل الجودة والقيمة الفعلية.',
+            'القيود (الوقت/الطاقة/الانتباه) غير مهمة إذا بذلت جهدًا أكبر؛ الخطر: الإرهاق والأخطاء تقلل النتيجة النهائية.',
+            'الأهم هو السرعة فقط ثم نصحح الجودة لاحقًا؛ الخطر: تزداد إعادة العمل ويضيع الوقت وتضعف الثقة.',
+            'من الأفضل تحسين كل شيء في الوقت نفسه؛ الخطر: لا نعرف ما الذي سبّب التحسن ولا نتعلم.',
+            'إذا كان الجميع مشغولًا فذلك يعني تقدمًا؛ الخطر: نقيس الانشغال بدل النتيجة.',
+          ];
+          const correct = pickOne(`${concept}::${titleSeed}::ar-ctc`, correctVariants);
+          const distractors = pickThree(`${concept}::${titleSeed}::ar-ctd`, distractorPool);
+          return [correct, distractors[0], distractors[1], distractors[2]] as Options4;
+        },
       },
       application: {
-        practice: (practice) =>
-          `ستطبق ممارسة جديدة: «${practice}». أي خطة تمنح نتيجة قابلة للقياس وتغذية راجعة سريعة؟`,
-        keyTerm: (keyTerm) =>
-          `تريد تحويل «${keyTerm}» إلى خطوات عملية. أي نهج يجعل النتيجة قابلة للتحقق والقياس؟`,
+        practice: (practice) => {
+          const variants = [
+            `ستطبق ممارسة جديدة: «${practice}». أي خطة تمنح نتيجة قابلة للقياس وتغذية راجعة سريعة؟`,
+            `ستجرب «${practice}» لمدة أسبوع. أي خطة تجعل الأثر قابلاً للإثبات (قبل/بعد)؟`,
+            `تريد إدخال «${practice}» ضمن العمل. أي خطة تصنع حلقة تغذية راجعة سريعة وقياسًا واضحًا؟`,
+          ];
+          return pickOne(`${practice}::${titleSeed}::ar-apq`, variants);
+        },
+        keyTerm: (keyTerm) => {
+          const variants = [
+            `تريد تحويل «${keyTerm}» إلى خطوات عملية. أي نهج يجعل النتيجة قابلة للتحقق والقياس؟`,
+            `تريد تطبيق «${keyTerm}» في حالة واقعية. أي نهج يجعل النجاح قابلًا للاختبار لا مجرد انطباع؟`,
+            `لديك مفهوم «${keyTerm}» وتحتاج إلى مخرجات واضحة. أي نهج يجعل المخرجات قابلة للقياس؟`,
+          ];
+          return pickOne(`${keyTerm}::${titleSeed}::ar-akq`, variants);
+        },
         options: {
-          practice: [
-            'أطبقها تدريجيًا: أعرّف معيار النجاح، أجرب على نطاق صغير، أقيس قبل/بعد، ثم أعدل خطوة واحدة في كل مرة.',
-            'أغير كل شيء دفعة واحدة دون قياس أو نقاط مراجعة، ثم أحاول تخمين ما الذي نجح لاحقًا.',
-            'أقوم بها بشكل غير منتظم ودون مسؤول واضح، وأتوقع تحسنًا دون قياس أو متابعة.',
-            'أطبقها شكليًا لكن دون مقارنة قبل/بعد، لذلك لا أستطيع إثبات أي تحسن.',
-          ],
-          keyTerm: [
-            'أحدد معيار "تم" وأختار مؤشرًا واحدًا، أطبقه على حالة واحدة ثم أوسع بعد تأكيد الأثر.',
-            'أستخدم المصطلح كشعار دون قائمة تحقق أو قياس، فتظل النتيجة غير قابلة للتحقق أو التكرار.',
-            'أؤجل التنفيذ حتى يصبح مثاليًا؛ الخطر: يتباطأ التقدم وتتراكم مهام غير منجزة.',
-            'أنفذ خطوات بلا مالك أو موعد أو عتبة نجاح، فتتشتت النتيجة ولا ترتبط بالهدف.',
-          ],
+          practice: (practice: string) => {
+            const correctVariants = [
+              'أطبقها تدريجيًا: أعرّف معيار النجاح، أجرب على نطاق صغير، أقيس قبل/بعد، ثم أعدل خطوة واحدة في كل مرة.',
+              'أبدأ بنطاق صغير مع مؤشر خط أساس، أراجع أسبوعيًا، وأوسع فقط بعد دليل واضح على الأثر.',
+              'أحدد مسؤولًا وعتبة نجاح، أقيس قبل/بعد على مثال قابل للمقارنة، ثم أوسع ما ثبت نجاحه.',
+            ];
+            const distractorPool = [
+              'أغير كل شيء دفعة واحدة دون قياس أو نقاط مراجعة، ثم أحاول تخمين ما الذي نجح لاحقًا.',
+              'أطبقها شكليًا لكن دون مقارنة قبل/بعد، لذلك لا أستطيع إثبات أي تحسن.',
+              'أضع أهدافًا ومؤشرات كثيرة دفعة واحدة؛ لا أعرف ما الذي صنع الفرق.',
+              'أطبقها بلا مسؤول واضح ولا عتبة نجاح، فتتحول إلى آراء لا نتائج.',
+              'أجرب مرة واحدة دون توثيق؛ لا يمكن تكرارها أو تحسينها.',
+            ];
+            const correct = pickOne(`${practice}::${titleSeed}::ar-apc`, correctVariants);
+            const distractors = pickThree(`${practice}::${titleSeed}::ar-apd`, distractorPool);
+            return [correct, distractors[0], distractors[1], distractors[2]] as Options4;
+          },
+          keyTerm: (keyTerm: string) => {
+            const correctVariants = [
+              'أحدد معيار "تم" وأختار مؤشرًا واحدًا، أطبقه على حالة واحدة ثم أوسع بعد تأكيد الأثر.',
+              'أعرّف معيار النجاح وعتبة واضحة، أختبر على سيناريو واحد، أقيس قبل/بعد، ثم أوسع بعد تحقق النتيجة.',
+            ];
+            const distractorPool = [
+              'أستخدم المصطلح كشعار دون قائمة تحقق أو قياس، فتظل النتيجة غير قابلة للتحقق أو التكرار.',
+              'أؤجل التنفيذ حتى يصبح مثاليًا؛ يتباطأ التقدم وتتراكم مهام غير منجزة.',
+              'أنفذ خطوات بلا مالك أو موعد أو عتبة نجاح، فتتشتت النتيجة ولا ترتبط بالهدف.',
+              'أناقشه في الاجتماعات دون إدخاله في العملية؛ لا يتغير السلوك ولا النتيجة.',
+              'أغير أشياء كثيرة في الوقت نفسه؛ لا أعرف أي خطوة حسّنت الأثر.',
+            ];
+            const correct = pickOne(`${keyTerm}::${titleSeed}::ar-akc`, correctVariants);
+            const distractors = pickThree(`${keyTerm}::${titleSeed}::ar-akd`, distractorPool);
+            return [correct, distractors[0], distractors[1], distractors[2]] as Options4;
+          },
         },
       },
       recall: {
@@ -4273,6 +4681,7 @@ export function generateContentBasedQuestions(
   const targetApplication = Math.max(0, needed - targetCritical);
 
   const seen = new Set<string>();
+  const seenOptionSigs = new Set<string>();
   const normalizeQuestionText = (text: string) =>
     String(text || '')
       .trim()
@@ -4283,11 +4692,22 @@ export function generateContentBasedQuestions(
       ? existingQuestions.map(q => normalizeQuestionText(q?.question)).filter(Boolean)
       : []
   );
+  const existingOptionSigs = new Set<string>(
+    Array.isArray(existingQuestions)
+      ? existingQuestions
+          .map(q => optionSignature(Array.isArray((q as any)?.options) ? (q as any).options : []))
+          .filter(Boolean)
+      : []
+  );
   const addQuestion = (q: ContentBasedQuestion) => {
     const normalized = q.question.trim().toLowerCase();
     if (seen.has(normalized)) return false;
     if (existingSeen.has(normalized)) return false;
+    const sig = optionSignature(Array.isArray(q.options) ? q.options : []);
+    if (seenOptionSigs.has(sig)) return false;
+    if (existingOptionSigs.has(sig)) return false;
     seen.add(normalized);
+    seenOptionSigs.add(sig);
     questions.push(q);
     return true;
   };

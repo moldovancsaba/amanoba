@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-30T13:33:18.136Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_PL",
+    "name": "Produktywność 2026: Jak zarządzać zespołami i czasem",
+    "language": "pl"
+  },
+  "lesson": {
+    "dayNumber": 17,
+    "title": "Utrzymywanie Motywacji: Śledzenie Postępu, Świętowanie Zwycięstw",
+    "lessonId": "PRODUCTIVITY_2026_PL_DAY_17"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a338260c12d7a7ac697",
+      "uuid": "32b7a223-02ef-4a9a-aab8-02aa3556d7bd",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Podczas planowania zespolu musisz wybrac kolejne kroki. How would you use the \"Utrzymuj wysiłek i energię na dłuższą metę.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail , test the results, and document my experiences",
+        "I only understand it theoretically",
+        "Konkretna opcja: I don't apply it.",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day17",
+        "#pl",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a338260c12d7a7ac698",
+      "uuid": "dd7b6a74-642a-4b14-9184-02696c64aa69",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Utrzymuj wysiłek i energię na dłuższą metę.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day17",
+        "#pl",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a338260c12d7a7ac699",
+      "uuid": "c58ff3f7-e850-4560-8ce7-c8f9244edca9",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Utrzymuj wysiłek i energię na dłuższą metę.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day17",
+        "#pl",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a338260c12d7a7ac69a",
+      "uuid": "04e07e4a-a1d7-458c-883a-1cfb6a36f832",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Jak koncepcja \"Utrzymywanie Motywacji: Śledzenie Postępu, Świętow...\", wspomniana w lekcji, wpływa na osiągnięcie twoich goals?",
+      "options": [
+        "Jak szczegółowo opisano w lekcji, Utrzymywanie Motywacji: Śledze... zwiększa skuteczność i zmniejsza ryzyko",
+        "Brak znaczącego wpływu",
+        "Ma znaczenie tylko teoretycznie",
+        "Tylko opcjonalny element"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day17",
+        "#pl",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a338260c12d7a7ac69b",
+      "uuid": "79f8a63b-0bfb-4ddd-be76-a7fc1e05889e",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Jak ważny jest Utrzymywanie w kontekście Utrzymywanie Motywacji: Śledzenie Postępu, Świętowanie Zwycięstw, jak omówiono w lekcji?",
+      "options": [
+        "Jak szczegółowo opisano w lekcji, Utrzymywanie odgrywa kluczową rolę w optymalizacji procesów i osiąganiu celów",
+        "Tylko peryferyjne informacje bez znaczącej roli",
+        "Tylko teoretyczna koncepcja bez praktycznego zastosowania",
+        "Wybierasz: Nie wspomniano w lekcji."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day17",
+        "#pl",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "69776a338260c12d7a7ac69c",
+      "uuid": "8841dee7-6c90-4697-869c-4652d5c857d0",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Jak ważny jest Śledzenie w kontekście Utrzymywanie Motywacji: Śledzenie Postępu, Świętowanie Zwycięstw, jak omówiono w lekcji?",
+      "options": [
+        "Jak szczegółowo opisano w lekcji, Śledzenie odgrywa kluczową rolę w optymalizacji procesów i osiąganiu celów",
+        "Tylko peryferyjne informacje bez znaczącej roli",
+        "Tylko teoretyczna koncepcja bez praktycznego zastosowania",
+        "Konkretna opcja: Nie wspomniano w lekcji."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day17",
+        "#pl",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "69776a338260c12d7a7ac69d",
+      "uuid": "12cb1f17-a004-470e-bcee-10973c7263be",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Jak ważny jest Świętowanie w kontekście Utrzymywanie Motywacji: Śledzenie Postępu, Świętowanie Zwycięstw, jak omówiono w lekcji?",
+      "options": [
+        "Jak szczegółowo opisano w lekcji, Świętowanie odgrywa kluczową rolę w optymalizacji procesów i osiąganiu celów",
+        "Tylko peryferyjne informacje bez znaczącej roli",
+        "Tylko teoretyczna koncepcja bez praktycznego zastosowania",
+        "Nie wspomniano w lekcji"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day17",
+        "#pl",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

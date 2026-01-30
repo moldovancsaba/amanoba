@@ -28,9 +28,11 @@ function parseArgs(argv: string[]) {
 async function run() {
   const [,, command, ...rest] = process.argv;
   const args = parseArgs(rest);
+  const courseObjectId = args['course-id'] || args['course-object-id'];
+  const overrides = courseObjectId ? { courseObjectId } : undefined;
   switch (command) {
     case 'audit:last-modified': {
-      const last = await auditLastModified();
+      const last = await auditLastModified(overrides);
       if (!last) {
         console.log('No quiz items available.');
         return;
@@ -41,7 +43,7 @@ async function run() {
       return;
     }
     case 'pick:next': {
-      const result = await pickNext();
+      const result = await pickNext(overrides);
       if (!result.next) {
         console.log(`No next item: ${result.reason}`);
         return;
@@ -56,7 +58,7 @@ async function run() {
       if (!id) {
         throw new Error('Missing --id');
       }
-      const { question, evaluation } = await evaluateItem(id);
+      const { question, evaluation } = await evaluateItem(id, overrides);
       const payload = { question, evaluation };
       if (args.json === 'true') {
         console.log(JSON.stringify(payload, null, 2));
@@ -90,8 +92,9 @@ async function run() {
         return;
       }
       const dryRun = args['dry-run'] === 'true';
-      const overrides = args['config-file'] ? JSON.parse(readFileSync(args['config-file'], 'utf-8')) : undefined;
-      const result = await applyUpdate(id, patch, { dryRun, overrides });
+      const fileOverrides = args['config-file'] ? JSON.parse(readFileSync(args['config-file'], 'utf-8')) : undefined;
+      const mergedOverrides = { ...(overrides || {}), ...(fileOverrides || {}) };
+      const result = await applyUpdate(id, patch, { dryRun, overrides: mergedOverrides });
       console.log(JSON.stringify(result, null, 2));
       return;
     }
@@ -99,11 +102,28 @@ async function run() {
       const id = args.id || args['question-id'];
       const agent = args.agent;
       const notes = args.notes ? args.notes.split(';') : [];
+      const cursorUpdatedAt = args['cursor-updated-at'];
+      const cursorItemId = args['cursor-item-id'];
+      const useLastEvalCursor = args['use-last-eval-updated-at'] === 'true';
       if (!id) {
         throw new Error('Missing --id');
       }
-      const { question, evaluation } = await evaluateItem(id);
-      const state = recordHandover(question, evaluation, notes, { agent });
+      const { question, evaluation } = await evaluateItem(id, overrides);
+      let resolvedCursorUpdatedAt: string | undefined = cursorUpdatedAt;
+      let resolvedCursorItemId: string | undefined = cursorItemId;
+      if (!resolvedCursorUpdatedAt && useLastEvalCursor) {
+        if (!existsSync(LAST_EVAL_PATH)) {
+          throw new Error('No last evaluation (cannot use --use-last-eval-updated-at)');
+        }
+        const last = JSON.parse(readFileSync(LAST_EVAL_PATH, 'utf-8'));
+        resolvedCursorUpdatedAt = last?.question?.metadata?.updatedAt;
+        resolvedCursorItemId = last?.question?._id;
+      }
+      const state = recordHandover(question, evaluation, notes, {
+        agent,
+        cursorUpdatedAt: resolvedCursorUpdatedAt,
+        cursorItemId: resolvedCursorItemId,
+      });
       console.log(`State updated: ${JSON.stringify(state, null, 2)}`);
       return;
     }
@@ -115,7 +135,36 @@ async function run() {
       if (dry) {
         process.env.QUIZ_ITEM_DRY_RUN = 'true';
       }
-      await loopRun(items);
+      await loopRun(items, overrides);
+      return;
+    }
+    case 'chunk:run': {
+      // Convenience wrapper: run N items, then show the most recently updated quiz item.
+      const itemsParam = Number(args.items || args.count || '25');
+      const items = Number.isFinite(itemsParam) && itemsParam > 0 ? itemsParam : 25;
+      const dry = args['dry-run'] === 'true';
+      if (dry) {
+        process.env.QUIZ_ITEM_DRY_RUN = 'true';
+      }
+      await loopRun(items, overrides);
+      const last = await auditLastModified(overrides);
+      if (!last) {
+        console.log('No quiz items available.');
+        return;
+      }
+      console.log('---');
+      console.log('Most recently updated item (post-chunk):');
+      console.log(JSON.stringify({
+        _id: last._id,
+        updatedAt: last.metadata.updatedAt,
+        question: last.question,
+        options: last.options,
+        correctIndex: last.correctIndex,
+        lessonId: last.lessonId,
+        courseId: last.courseId,
+        hashtags: last.hashtags,
+        questionType: last.questionType,
+      }, null, 2));
       return;
     }
     default:

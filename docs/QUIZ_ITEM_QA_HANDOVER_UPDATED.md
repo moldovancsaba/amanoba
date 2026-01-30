@@ -1,15 +1,18 @@
 # Quiz Item QA Handover - MongoDB Direct Access
 
 ## Purpose & workflow summary
-This handover captures the repeatable agent workflow for maintaining **quiz items (question + answers) via MongoDB Atlas** using direct database access. The goal is a deterministic audit-ready loop: inspect the most recently modified item, pick the next oldest item, compare both question and answers against the golden standards, apply any safe fixes, verify persistence, and record progress before moving on.
+This handover captures the repeatable agent workflow for maintaining **course-specific quiz items (question + answers) via MongoDB Atlas** using direct database access. The goal is a deterministic audit-ready loop: inspect the most recently modified item, pick the next oldest item, compare both question and answers against the golden standards, apply any safe fixes, verify persistence, and record progress before moving on.
+
+**CRITICAL: Only process course-specific quiz items with `isCourseSpecific: true`. Do NOT process general game questions.**
 
 **Workflow**
 1. Connect directly to MongoDB Atlas database to fetch questions sorted by `metadata.updatedAt`.
-2. Determine the next item by sorting all questions via `metadata.updatedAt` ascending and choosing the first item whose timestamp is strictly newer than the last processed item stored in `.state/quiz_item_qa_state.json`.
-3. Evaluate the question and the four options against the golden standard rules.
-4. Apply autopatches (trim/normalize whitespace, fix option lengths) if evaluation provides them.
-5. Re-fetch the item from MongoDB to verify the update matches the intended patch.
-6. Append a handover entry, update the state file, and repeat for the next item (loop is controlled by `loop:run`).
+2. **FILTER**: Only process questions where `isCourseSpecific: true` (skip general game questions).
+3. Determine the next item by sorting all course-specific questions via `metadata.updatedAt` ascending and choosing the first item whose timestamp is strictly newer than the last processed item stored in `.state/quiz_item_qa_state.json`.
+4. Evaluate the question and the four options against the golden standard rules.
+5. Apply autopatches (trim/normalize whitespace, fix option lengths) if evaluation provides them.
+6. Re-fetch the item from MongoDB to verify the update matches the intended patch.
+7. Append a handover entry, update the state file, and repeat for the next item (loop is controlled by `loop:run`).
 
 ## CLI Commands (MongoDB Direct Access)
 All commands use the MongoDB CLI with environment file loading:
@@ -47,6 +50,10 @@ All evaluations must cite one or both sources when flagging violations.
 - **Database Name**: Set as `DB_NAME=amanoba` in `.env.local`
 - **Environment Loading**: All CLI commands require `--env-file=.env.local` flag
 - **Connection Management**: CLI automatically connects and disconnects properly
+- **FILTER REQUIREMENT**: Only process questions with `isCourseSpecific: true`
+  - Skip general game questions (Science, History, Geography, etc.)
+  - Only process course-specific questions with `courseId` and `lessonId`
+  - Look for course hashtags like `#day-11`, `#productivity`, `#sales`, etc.
 
 ## Current Progress Status
 - **Last Processed Item**: `68f4c5c5ea642066cb285013`

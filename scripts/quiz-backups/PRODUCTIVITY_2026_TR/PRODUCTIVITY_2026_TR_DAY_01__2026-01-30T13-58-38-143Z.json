@@ -1,0 +1,177 @@
+{
+  "backedUpAt": "2026-01-30T13:58:39.864Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_TR",
+    "name": "Verimlilik 2026: Ekipler ve Zaman Nasıl Yönetilir",
+    "language": "tr"
+  },
+  "lesson": {
+    "dayNumber": 1,
+    "title": "Verimlilik tanımı: çıktı, sonuçlar ve kısıtlamalar",
+    "lessonId": "PRODUCTIVITY_2026_TR_DAY_01"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "6978ce382762132c7496d394",
+      "uuid": "54644556-1390-4f50-9492-e033eec8931b",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Yeni bir uygulamayı devreye alıyorsunuz: “Çıktı ve sonuç arasında ayrım yapıyorsunuz. Kişisel kısıtlam”. Hangi plan ölçülebilir çıktı ve hızlı geri bildirim sağlar?",
+      "options": [
+        "Adım adım uygularım: kriter/metrik belirlerim, küçük kapsamda pilot yaparım, sonucu kaydederim ve tek tek kural değiştiririm.",
+        "Her şeyi aynı anda değiştiririm; ölçüm ve kontrol noktası olmadan “neyin işe yaradığını” bilemem.",
+        "Uygulamayı başlatırım ama “önce/sonra” ölçümü yapmam; böylece etkisi belirsiz kalır.",
+        "Sadece okuyup geçerim; çalışma sistemine entegre etmediğim için davranış ve sonuç değişmez."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day1",
+        "#tr",
+        "#all-languages",
+        "#course-productivity_2026_tr",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "6978ce382762132c7496d395",
+      "uuid": "d45fc5fd-eedd-40a1-92f1-7a315296c2d9",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Bir projede “İlk adım: gerçekte neyi ölçtüğümüzü netleştirmek” kavramını aksiyona dönüştürmeniz gerekiyor. Hangi yaklaşım çıktıyı ölçülebilir ve doğrulanabilir yapar?",
+      "options": [
+        "“Bitti” kriteri yazarım, bir metrik seçerim, tek bir örnekte uygular ve etkiyi doğruladıktan sonra genişletirim.",
+        "Kavramı slogan gibi kullanırım; checklist ve ölçüm olmadığı için doğrulanabilir çıktı üretmem.",
+        "Mükemmel olsun diye sürekli ertelerim; sonuç: throughput düşer ve carryover artar.",
+        "Yaparım ama sahip/süre/küçük eşikler tanımlamam; bu yüzden sonuç dağılır ve outcome’a bağlanmaz."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day1",
+        "#tr",
+        "#all-languages",
+        "#course-productivity_2026_tr",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "6978ce382762132c7496d396",
+      "uuid": "97c5d768-9aba-4ed1-90fb-cbdcaff2b9ec",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Bir projede “Sonuç” kavramını aksiyona dönüştürmeniz gerekiyor. Hangi yaklaşım çıktıyı ölçülebilir ve doğrulanabilir yapar?",
+      "options": [
+        "“Bitti” kriteri yazarım, bir metrik seçerim, tek bir örnekte uygular ve etkiyi doğruladıktan sonra genişletirim.",
+        "Kavramı slogan gibi kullanırım; checklist ve ölçüm olmadığı için doğrulanabilir çıktı üretmem.",
+        "Mükemmel olsun diye sürekli ertelerim; sonuç: throughput düşer ve carryover artar.",
+        "Yaparım ama sahip/süre/küçük eşikler tanımlamam; bu yüzden sonuç dağılır ve outcome’a bağlanmaz."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day1",
+        "#tr",
+        "#all-languages",
+        "#course-productivity_2026_tr",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "6978ce382762132c7496d397",
+      "uuid": "b5e92542-0f10-4828-9597-0f7808a68539",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Bir projede “Anahtar” kavramını aksiyona dönüştürmeniz gerekiyor. Hangi yaklaşım çıktıyı ölçülebilir ve doğrulanabilir yapar?",
+      "options": [
+        "“Bitti” kriteri yazarım, bir metrik seçerim, tek bir örnekte uygular ve etkiyi doğruladıktan sonra genişletirim.",
+        "Kavramı slogan gibi kullanırım; checklist ve ölçüm olmadığı için doğrulanabilir çıktı üretmem.",
+        "Mükemmel olsun diye sürekli ertelerim; sonuç: throughput düşer ve carryover artar.",
+        "Yaparım ama sahip/süre/küçük eşikler tanımlamam; bu yüzden sonuç dağılır ve outcome’a bağlanmaz."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day1",
+        "#tr",
+        "#all-languages",
+        "#course-productivity_2026_tr",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "6978ce382762132c7496d398",
+      "uuid": "4b6239dd-1b14-4a76-aa37-080e7b9c5946",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Bir projede “Zaman” kavramını aksiyona dönüştürmeniz gerekiyor. Hangi yaklaşım çıktıyı ölçülebilir ve doğrulanabilir yapar?",
+      "options": [
+        "“Bitti” kriteri yazarım, bir metrik seçerim, tek bir örnekte uygular ve etkiyi doğruladıktan sonra genişletirim.",
+        "Kavramı slogan gibi kullanırım; checklist ve ölçüm olmadığı için doğrulanabilir çıktı üretmem.",
+        "Mükemmel olsun diye sürekli ertelerim; sonuç: throughput düşer ve carryover artar.",
+        "Yaparım ama sahip/süre/küçük eşikler tanımlamam; bu yüzden sonuç dağılır ve outcome’a bağlanmaz."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day1",
+        "#tr",
+        "#all-languages",
+        "#course-productivity_2026_tr",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "6979db3b9316e77110ed062b",
+      "uuid": "b6b6c854-bb3f-4259-99f4-8cdaff272007",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Bir lider şu ilkeye göre karar veriyor: “Verimlilik tanımı: çıktı, sonuçlar ve kısıtlamalar İlk adım: gerçekte neyi ölçtü”. hedefler hedefine ulaşmada en olası etki nedir ve yanlış yorumlanır/yanlış ölçülürse tipik risk hangisidir?",
+      "options": [
+        "Doğru odak, kısıtlar altında en yüksek etkili çıktıyı artırır; risk: yanlış metriğe optimize olup “görünür output” üretmek.",
+        "Daha çok iş yapmak otomatik olarak daha çok sonuç getirir; risk: aktivite artar ama kalite ve müşteri değeri düşer.",
+        "Kısıtlar (zaman/enerji/dikkat) önemli değildir; risk: aşırı yüklenme, hata ve tükenmişlik sonucu bozar.",
+        "Önce hız, kalite sonra; risk: yeniden iş (rework) artar, throughput düşer ve güven kaybı olur."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day1",
+        "#tr",
+        "#all-languages",
+        "#course-productivity_2026_tr",
+        "#productivity",
+        "#advanced",
+        "#critical-thinking"
+      ]
+    },
+    {
+      "_id": "6979db3b9316e77110ed062c",
+      "uuid": "70e8bcf3-fc67-4891-af9f-d14ecc727e83",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Bir lider şu ilkeye göre karar veriyor: “Kişisel kısıtlamalarınızı belirlemek (zaman, enerji, dikkat, kaynaklar)”. hedefler hedefine ulaşmada en olası etki nedir ve yanlış yorumlanır/yanlış ölçülürse tipik risk hangisidir?",
+      "options": [
+        "Doğru odak, kısıtlar altında en yüksek etkili çıktıyı artırır; risk: yanlış metriğe optimize olup “görünür output” üretmek.",
+        "Daha çok iş yapmak otomatik olarak daha çok sonuç getirir; risk: aktivite artar ama kalite ve müşteri değeri düşer.",
+        "Kısıtlar (zaman/enerji/dikkat) önemli değildir; risk: aşırı yüklenme, hata ve tükenmişlik sonucu bozar.",
+        "Önce hız, kalite sonra; risk: yeniden iş (rework) artar, throughput düşer ve güven kaybı olur."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day1",
+        "#tr",
+        "#all-languages",
+        "#course-productivity_2026_tr",
+        "#productivity",
+        "#advanced",
+        "#critical-thinking"
+      ]
+    }
+  ]
+}

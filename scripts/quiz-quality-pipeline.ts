@@ -95,6 +95,39 @@ function writeQuizBackup(params: {
   return backupPath;
 }
 
+async function updateQuestionInPlace(params: {
+  id: any;
+  course: any;
+  lesson: any;
+  displayOrder: number;
+  generated: any;
+  auditedBy: string;
+}) {
+  const { id, course, lesson, displayOrder, generated, auditedBy } = params;
+  await QuizQuestion.updateOne(
+    { _id: id },
+    {
+      $set: {
+        lessonId: lesson.lessonId,
+        courseId: course._id,
+        question: generated.question,
+        options: generated.options,
+        correctIndex: generated.correctIndex,
+        difficulty: generated.difficulty,
+        category: generated.category ?? 'Course Specific',
+        isCourseSpecific: true,
+        questionType: generated.questionType,
+        hashtags: generated.hashtags,
+        isActive: true,
+        displayOrder,
+        'metadata.updatedAt': new Date(),
+        'metadata.auditedAt': new Date(),
+        'metadata.auditedBy': auditedBy,
+      },
+    }
+  );
+}
+
 async function main() {
   await connectDB();
 
@@ -145,6 +178,12 @@ async function main() {
       if (b < a) byDay.set(lesson.dayNumber, lesson);
     }
 
+    // Enforce course-wide uniqueness (mandatory): no identical question text inside a course.
+    // We dedupe option-sets within a lesson (to reduce repetition), but don't enforce course-wide
+    // option-set uniqueness because the generator template space isn't large enough yet.
+    const courseSeenTextKeys = new Set<string>();
+    const courseSeenOptionSigs = new Set<string>();
+
     for (const lesson of byDay.values()) {
       if (LESSON_ID && lesson.lessonId !== LESSON_ID) continue;
       pipelineReport.totals.lessonsEvaluated++;
@@ -185,8 +224,7 @@ async function main() {
             `  - Error: ${languageIntegrity.errors[0] || 'unknown'}\n` +
             (languageIntegrity.findings?.[0]?.snippet ? `  - Example: ${languageIntegrity.findings[0].snippet}\n` : '')
         );
-        pipelineReport.lessons.push(lessonRow);
-        continue;
+        // Still proceed to ensure the lesson has at least 7 valid questions (no trimming if extra).
       }
 
       if (lessonQuality.score < MIN_LESSON_SCORE) {
@@ -197,8 +235,7 @@ async function main() {
             `  - Score: **${lessonQuality.score}/100**\n` +
             `  - Issues: ${lessonQuality.issues.join(', ') || 'none'}\n`
         );
-        pipelineReport.lessons.push(lessonRow);
-        continue;
+        // Still proceed to ensure the lesson has at least 7 valid questions (no trimming if extra).
       }
 
       // Load and validate existing questions first.
@@ -259,34 +296,14 @@ async function main() {
           );
           if (!v.isValid) continue;
           if (!DRY_RUN) {
-            await QuizQuestion.deleteOne({ _id: atIndex._id });
-            await QuizQuestion.insertMany([
-              {
-                uuid: randomUUID(),
-                lessonId: lesson.lessonId,
-                courseId: course._id,
-                question: q.question,
-                options: q.options,
-                correctIndex: q.correctIndex,
-                difficulty: q.difficulty,
-                category: q.category ?? 'Course Specific',
-                isCourseSpecific: true,
-                questionType: q.questionType as string,
-                hashtags: q.hashtags,
-                isActive: true,
-                displayOrder: QUESTION_INDEX + 1,
-                showCount: 0,
-                correctCount: 0,
-                metadata: {
-                  createdAt: new Date(),
-                  updatedAt: new Date(),
-                  auditedAt: new Date(),
-                  auditedBy: 'quiz-quality-pipeline-single',
-                },
-              },
-            ]);
-            pipelineReport.totals.questionsDeleted += 1;
-            pipelineReport.totals.questionsInserted += 1;
+            await updateQuestionInPlace({
+              id: atIndex._id,
+              course,
+              lesson,
+              displayOrder: QUESTION_INDEX + 1,
+              generated: q,
+              auditedBy: 'quiz-quality-pipeline-single',
+            });
           }
           replaced = true;
           lessonRow.action = DRY_RUN ? 'WOULD_REPLACE_ONE' : 'REPLACED_ONE';
@@ -329,12 +346,20 @@ async function main() {
 
       const normalizeQuestionText = (text: string) =>
         String(text || '').trim().toLowerCase().replace(/\s+/g, ' ');
+      const normalizeOptionText = (text: string) =>
+        String(text || '').trim().toLowerCase().replace(/\s+/g, ' ');
+      const optionSig = (options: any) => {
+        const opts = Array.isArray(options) ? options : [];
+        return opts.map(normalizeOptionText).sort().join('||');
+      };
 
       // Duplicate detection among valid questions (normalized question text).
-      // Keep the first by _id, delete the rest (never delete just to cap >7).
-      const duplicatesToDelete: any[] = [];
+      // Keep the first by _id, and replace the duplicates in-place with newly generated unique questions.
+      // Never trim just because there are >7.
+      const duplicatesToReplace: any[] = [];
       const dedupedValidExisting: any[] = [];
       {
+        const dupIds = new Set<string>();
         const byText = new Map<string, any[]>();
         for (const q of validExisting) {
           const key = normalizeQuestionText(q.question);
@@ -346,7 +371,49 @@ async function main() {
         for (const [, qs] of byText) {
           qs.sort((a, b) => String(a._id).localeCompare(String(b._id)));
           if (qs.length > 0) dedupedValidExisting.push(qs[0]);
-          if (qs.length > 1) duplicatesToDelete.push(...qs.slice(1));
+          if (qs.length > 1) {
+            for (const d of qs.slice(1)) {
+              const id = String(d._id);
+              if (dupIds.has(id)) continue;
+              dupIds.add(id);
+              duplicatesToReplace.push(d);
+            }
+          }
+        }
+
+        // Also treat repeated option-sets as duplicates (even if question text differs).
+        // This prevents "same answers, rephrased question" within a quiz experience.
+        const byOpt = new Map<string, any[]>();
+        for (const q of dedupedValidExisting) {
+          const sig = optionSig(q.options);
+          if (!sig) continue;
+          const bucket = byOpt.get(sig);
+          if (bucket) bucket.push(q);
+          else byOpt.set(sig, [q]);
+        }
+        for (const [, qs] of byOpt) {
+          if (qs.length <= 1) continue;
+          qs.sort((a, b) => String(a._id).localeCompare(String(b._id)));
+          for (const d of qs.slice(1)) {
+            const id = String(d._id);
+            if (dupIds.has(id)) continue;
+            dupIds.add(id);
+            duplicatesToReplace.push(d);
+          }
+        }
+
+        // Course-level uniqueness (mandatory): replace later duplicates by question text, never trim/delete.
+        for (const q of dedupedValidExisting) {
+          const id = String(q._id);
+          if (dupIds.has(id)) continue;
+          const key = normalizeQuestionText(q.question);
+          const isDupByText = Boolean(key) && courseSeenTextKeys.has(key);
+          if (isDupByText) {
+            dupIds.add(id);
+            duplicatesToReplace.push(q);
+            continue;
+          }
+          if (key) courseSeenTextKeys.add(key);
         }
       }
 
@@ -357,49 +424,31 @@ async function main() {
         application: dedupedValidExisting.filter(q => q.questionType === 'application').length,
         critical: dedupedValidExisting.filter(q => q.questionType === 'critical-thinking').length,
         recall: dedupedValidExisting.filter(q => q.questionType === 'recall').length,
-        duplicates: duplicatesToDelete.length,
+        duplicates: duplicatesToReplace.length,
       };
 
       // If we already have enough valid questions (>=7), enough application (>=5),
       // and enough critical thinking (>=2), don't rewrite.
-      if (dedupedCounts.valid >= 7 && dedupedCounts.application >= 5 && dedupedCounts.critical >= 2 && dedupedCounts.recall === 0) {
-        // Optionally clean up invalid questions and duplicates (do not delete just because there are >7).
-        let backupPath: string | null = null;
-        if (!DRY_RUN && (dedupedCounts.invalid > 0 || dedupedCounts.duplicates > 0)) {
-          backupPath = writeQuizBackup({
-            backupDir: BACKUP_DIR,
-            stamp,
-            course,
-            lesson,
-            existingQuestions: existing,
-          });
-          if (invalidExisting.length > 0) {
-            const delInvalid = await QuizQuestion.deleteMany({ _id: { $in: invalidExisting.map(q => q._id) } });
-            pipelineReport.totals.questionsDeleted += delInvalid.deletedCount || 0;
-          }
-          if (duplicatesToDelete.length > 0) {
-            const delDup = await QuizQuestion.deleteMany({ _id: { $in: duplicatesToDelete.map(q => q._id) } });
-            pipelineReport.totals.questionsDeleted += delDup.deletedCount || 0;
-          }
-        }
-
-        lessonRow.action = DRY_RUN
-          ? 'VALIDATED_EXISTING'
-          : (dedupedCounts.invalid > 0 || dedupedCounts.duplicates > 0 ? 'CLEANED_INVALID' : 'PASS');
-        lessonRow.rewrite = {
-          existingCounts: dedupedCounts,
-          cleanedInvalid: dedupedCounts.invalid > 0,
-          cleanedDuplicates: dedupedCounts.duplicates > 0,
-          backupPath,
-        };
+      if (
+        dedupedCounts.valid >= 7 &&
+        dedupedCounts.application >= 5 &&
+        dedupedCounts.critical >= 2 &&
+        dedupedCounts.recall === 0 &&
+        dedupedCounts.invalid === 0 &&
+        dedupedCounts.duplicates === 0
+      ) {
+        lessonRow.action = 'PASS';
+        lessonRow.rewrite = { existingCounts: dedupedCounts };
         pipelineReport.lessons.push(lessonRow);
         continue;
       }
 
       // ——— TINY LOOP: one question at a time. Replace each invalid individually, then fill missing slots one by one. ———
-      const MAX_REPLACE_ATTEMPTS = 5;
-      const MAX_FILL_ATTEMPTS_PER_SLOT = 25;
-      const CANDIDATES_PER_ATTEMPT = 12;
+      // Higher candidate volume improves variety and reduces rewrite failures when we enforce
+      // course-wide uniqueness (question text + option sets).
+      const MAX_REPLACE_ATTEMPTS = 7;
+      const MAX_FILL_ATTEMPTS_PER_SLOT = 40;
+      const CANDIDATES_PER_ATTEMPT = 24;
 
       const backupPath = writeQuizBackup({
         backupDir: BACKUP_DIR,
@@ -409,22 +458,17 @@ async function main() {
         existingQuestions: existing,
       });
 
-      if (!DRY_RUN) {
-        if (duplicatesToDelete.length > 0) {
-          const delDup = await QuizQuestion.deleteMany({ _id: { $in: duplicatesToDelete.map(q => q._id) } });
-          pipelineReport.totals.questionsDeleted += delDup.deletedCount || 0;
-        }
-      }
-
       let insertedCount = 0;
       let replacedCount = 0;
       let currentValid = [...dedupedValidExisting];
       const existingTextKeys = new Set<string>(currentValid.map(q => normalizeQuestionText(q.question)));
+      const existingOptionSigs = new Set<string>(currentValid.map(q => optionSig(q.options)).filter(Boolean));
 
-      // Phase 1: Replace each invalid question one at a time (generate → validate → replace).
-      for (let i = 0; i < invalidExisting.length; i++) {
-        const invalidQ = invalidExisting[i];
-        const displayOrder = (invalidQ as any).displayOrder ?? currentValid.length + i + 1;
+      // Phase 1: Replace each invalid question AND each duplicate-in-lesson one at a time (generate → validate → update-in-place).
+      const replaceQueue = [...invalidExisting, ...duplicatesToReplace];
+      for (let i = 0; i < replaceQueue.length; i++) {
+        const targetQ = replaceQueue[i];
+        const displayOrder = (targetQ as any).displayOrder ?? currentValid.length + i + 1;
         let replaced = false;
         for (let attempt = 0; attempt < MAX_REPLACE_ATTEMPTS && !replaced; attempt++) {
           const candidates = generateContentBasedQuestions(
@@ -449,47 +493,36 @@ async function main() {
             );
             if (!v.isValid) continue;
             const key = normalizeQuestionText(q.question);
-            if (!key || existingTextKeys.has(key)) continue;
+            if (!key || existingTextKeys.has(key) || courseSeenTextKeys.has(key)) continue;
+            const sig = optionSig(q.options);
+            if (!sig || existingOptionSigs.has(sig)) continue;
             if (!DRY_RUN) {
-              await QuizQuestion.deleteOne({ _id: invalidQ._id });
-              await QuizQuestion.insertMany([
-                {
-                  uuid: randomUUID(),
-                  lessonId: lesson.lessonId,
-                  courseId: course._id,
-                  question: q.question,
-                  options: q.options,
-                  correctIndex: q.correctIndex,
-                  difficulty: q.difficulty,
-                  category: q.category ?? 'Course Specific',
-                  isCourseSpecific: true,
-                  questionType: q.questionType as string,
-                  hashtags: q.hashtags,
-                  isActive: true,
-                  displayOrder,
-                  showCount: 0,
-                  correctCount: 0,
-                  metadata: {
-                    createdAt: new Date(),
-                    updatedAt: new Date(),
-                    auditedAt: new Date(),
-                    auditedBy: 'quiz-quality-pipeline-tiny-loop',
-                  },
-                },
-              ]);
-              pipelineReport.totals.questionsDeleted += 1;
-              pipelineReport.totals.questionsInserted += 1;
+              await updateQuestionInPlace({
+                id: targetQ._id,
+                course,
+                lesson,
+                displayOrder,
+                generated: q,
+                auditedBy: 'quiz-quality-pipeline-tiny-loop',
+              });
+            }
+            const targetIdx = currentValid.findIndex(x => String((x as any)?._id) === String(targetQ._id));
+            if (targetIdx >= 0) {
+              const oldKey = normalizeQuestionText(currentValid[targetIdx]?.question);
+              const oldSig = optionSig(currentValid[targetIdx]?.options);
+              if (oldKey) existingTextKeys.delete(oldKey);
+              if (oldSig) existingOptionSigs.delete(oldSig);
+              currentValid[targetIdx] = { ...q, displayOrder, _id: targetQ._id };
+            } else {
+              currentValid.push({ ...q, displayOrder, _id: targetQ._id });
             }
             existingTextKeys.add(key);
-            currentValid.push({ ...q, displayOrder, _id: null });
+            existingOptionSigs.add(sig);
+            courseSeenTextKeys.add(key);
             replaced = true;
             replacedCount++;
             break;
           }
-        }
-        if (!replaced && !DRY_RUN) {
-          await QuizQuestion.deleteOne({ _id: invalidQ._id });
-          pipelineReport.totals.questionsDeleted += 1;
         }
       }
 
@@ -528,7 +561,9 @@ async function main() {
           );
           if (!v.isValid) continue;
           const key = normalizeQuestionText(q.question);
-          if (!key || existingTextKeys.has(key)) continue;
+          if (!key || existingTextKeys.has(key) || courseSeenTextKeys.has(key)) continue;
+          const sig = optionSig(q.options);
+          if (!sig || existingOptionSigs.has(sig)) continue;
           if (preferApp && q.questionType !== 'application') continue;
           if (preferCritical && q.questionType !== 'critical-thinking') continue;
           if (!DRY_RUN) {
@@ -560,6 +595,8 @@ async function main() {
             pipelineReport.totals.questionsInserted += 1;
           }
           existingTextKeys.add(key);
+          existingOptionSigs.add(sig);
+          courseSeenTextKeys.add(key);
           currentValid.push({ ...q, displayOrder: nextDisplayOrder - 1, _id: null });
           insertedCount++;
           if (q.questionType === 'application' && remainingNeededApp > 0) remainingNeededApp--;
@@ -599,8 +636,10 @@ async function main() {
         backupPath,
         insertedCount,
         replacedCount,
-        deletedInvalidCount: invalidExisting.length,
-        deletedDuplicateCount: duplicatesToDelete.length,
+        invalidFound: invalidExisting.length,
+        duplicatesFound: dedupedCounts.duplicates,
+        // We never trim extras; invalid/duplicate items are replaced in-place when possible.
+        questionsDeleted: 0,
         warnings: batchValidation.warnings,
         existingCounts: dedupedCounts,
       };

@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-30T13:33:27.048Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_PL",
+    "name": "Produktywność 2026: Jak zarządzać zespołami i czasem",
+    "language": "pl"
+  },
+  "lesson": {
+    "dayNumber": 29,
+    "title": "Ciągłe Ulepszanie: Nauka, Opinia, Iteracja",
+    "lessonId": "PRODUCTIVITY_2026_PL_DAY_29"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a348260c12d7a7ac710",
+      "uuid": "019e3edf-753c-4d09-a6c6-e2c15215acb0",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Jak koncepcja \"Ciągłe Ulepszanie: Nauka, Opinia, Iteracja Produkt...\", wspomniana w lekcji, wpływa na osiągnięcie twoich goals?",
+      "options": [
+        "Jak szczegółowo opisano w lekcji, Ciągłe Ulepszanie: Nauka, Opin... zwiększa skuteczność i zmniejsza ryzyko",
+        "Konkretna opcja: Brak znaczącego wpływu.",
+        "Ma znaczenie tylko teoretycznie",
+        "Konkretna opcja: Tylko opcjonalny element."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day29",
+        "#pl",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a348260c12d7a7ac711",
+      "uuid": "6d51a16b-0820-4b1b-9027-fcfb7b371c83",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Jak wykorzystałbyś koncepcję \"Ciągłe\" zgodnie z opisem w lekcji w praktyce?",
+      "options": [
+        "Podążam za krokami szczegółowo opisanymi w lekcji, testuję wyniki i dokumentuję swoje doświadczenia",
+        "Rozumiem to tylko teoretycznie",
+        "Nie stosuję tego",
+        "Czekam na dalsze instrukcje"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day29",
+        "#pl",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a348260c12d7a7ac712",
+      "uuid": "8e6bc22c-ac6e-4336-8222-df036dce7041",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Jak wykorzystałbyś koncepcję \"Ulepszanie\" zgodnie z opisem w lekcji w praktyce?",
+      "options": [
+        "Podążam za krokami szczegółowo opisanymi w lekcji, testuję wyniki i dokumentuję swoje doświadczenia",
+        "Rozumiem to tylko teoretycznie",
+        "Wybierasz: Nie stosuję tego.",
+        "Czekam na dalsze instrukcje"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day29",
+        "#pl",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a348260c12d7a7ac713",
+      "uuid": "77d78e1d-38d6-404d-8d48-c9f68e904512",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Jak wykorzystałbyś koncepcję \"Nauka\" zgodnie z opisem w lekcji w praktyce?",
+      "options": [
+        "Podążam za krokami szczegółowo opisanymi w lekcji, testuję wyniki i dokumentuję swoje doświadczenia",
+        "Rozumiem to tylko teoretycznie",
+        "Nie stosuję tego",
+        "Czekam na dalsze instrukcje"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day29",
+        "#pl",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a348260c12d7a7ac714",
+      "uuid": "dd184e6f-4d24-4bb4-ba0c-936e1342bfb1",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Jak ważny jest Ulepszanie w kontekście Ciągłe Ulepszanie: Nauka, Opinia, Iteracja, jak omówiono w lekcji?",
+      "options": [
+        "Jak szczegółowo opisano w lekcji, Ulepszanie odgrywa kluczową rolę w optymalizacji procesów i osiąganiu celów",
+        "Tylko peryferyjne informacje bez znaczącej roli",
+        "Tylko teoretyczna koncepcja bez praktycznego zastosowania",
+        "Konkretna opcja: Nie wspomniano w lekcji."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day29",
+        "#pl",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "69776a348260c12d7a7ac715",
+      "uuid": "da185c2d-efa3-45e2-8c96-747a24d553de",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Jak ważny jest Opinia w kontekście Ciągłe Ulepszanie: Nauka, Opinia, Iteracja, jak omówiono w lekcji?",
+      "options": [
+        "Jak szczegółowo opisano w lekcji, Opinia odgrywa kluczową rolę w optymalizacji procesów i osiąganiu celów",
+        "Tylko peryferyjne informacje bez znaczącej roli",
+        "Tylko teoretyczna koncepcja bez praktycznego zastosowania",
+        "Nie wspomniano w lekcji"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day29",
+        "#pl",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a348260c12d7a7ac716",
+      "uuid": "b193ddc6-798d-4ab6-a66f-adc1ba5d8636",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Jak ważny jest Ciągłe w kontekście Ciągłe Ulepszanie: Nauka, Opinia, Iteracja, jak omówiono w lekcji?",
+      "options": [
+        "Jak szczegółowo opisano w lekcji, Ciągłe odgrywa kluczową rolę w optymalizacji procesów i osiąganiu celów",
+        "Tylko peryferyjne informacje bez znaczącej roli",
+        "Tylko teoretyczna koncepcja bez praktycznego zastosowania",
+        "Nie wspomniano w lekcji"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day29",
+        "#pl",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

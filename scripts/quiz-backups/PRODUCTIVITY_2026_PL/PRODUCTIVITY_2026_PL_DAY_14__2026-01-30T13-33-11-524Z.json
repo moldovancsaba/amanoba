@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-30T13:33:15.805Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_PL",
+    "name": "Produktywność 2026: Jak zarządzać zespołami i czasem",
+    "language": "pl"
+  },
+  "lesson": {
+    "dayNumber": 14,
+    "title": "Wydajność Spotkań: Porządek obrad, Limity czasu, Dziennik Decyzji",
+    "lessonId": "PRODUCTIVITY_2026_PL_DAY_14"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a328260c12d7a7ac675",
+      "uuid": "55979933-bcdd-41e3-89f2-a54d2eca120e",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Jak koncepcja \"Wydajność Spotkań: Porządek obrad, Limity czasu, D...\", wspomniana w lekcji, wpływa na osiągnięcie twoich goals?",
+      "options": [
+        "Jak szczegółowo opisano w lekcji, Wydajność Spotkań: Porządek ob... zwiększa skuteczność i zmniejsza ryzyko",
+        "Brak znaczącego wpływu",
+        "Ma znaczenie tylko teoretycznie",
+        "Tylko opcjonalny element"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day14",
+        "#pl",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a328260c12d7a7ac676",
+      "uuid": "794bb2f3-1ef8-4b74-a9f9-31d53f6bba90",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Jak wykorzystałbyś koncepcję \"Wydajność\" zgodnie z opisem w lekcji w praktyce?",
+      "options": [
+        "Podążam za krokami szczegółowo opisanymi w lekcji, testuję wyniki i dokumentuję swoje doświadczenia",
+        "Rozumiem to tylko teoretycznie",
+        "Konkretna opcja: Nie stosuję tego.",
+        "Czekam na dalsze instrukcje"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day14",
+        "#pl",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a328260c12d7a7ac677",
+      "uuid": "c07603a1-7067-43a9-bcc4-9f744f99fa2b",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Jak wykorzystałbyś koncepcję \"Spotkań\" zgodnie z opisem w lekcji w praktyce?",
+      "options": [
+        "Podążam za krokami szczegółowo opisanymi w lekcji, testuję wyniki i dokumentuję swoje doświadczenia",
+        "Rozumiem to tylko teoretycznie",
+        "Nie stosuję tego",
+        "Czekam na dalsze instrukcje"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day14",
+        "#pl",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a328260c12d7a7ac678",
+      "uuid": "de187260-2726-449d-aa72-4b9b5c13a4a9",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Jak wykorzystałbyś koncepcję \"Porządek\" zgodnie z opisem w lekcji w praktyce?",
+      "options": [
+        "Podążam za krokami szczegółowo opisanymi w lekcji, testuję wyniki i dokumentuję swoje doświadczenia",
+        "Rozumiem to tylko teoretycznie",
+        "Nie stosuję tego",
+        "Czekam na dalsze instrukcje"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day14",
+        "#pl",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a328260c12d7a7ac679",
+      "uuid": "43af5be5-98cd-4a8c-a8fe-f110a1cd0bda",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Jak ważny jest Spotkań w kontekście Wydajność Spotkań: Porządek obrad, Limity czasu, Dziennik Decyzji, jak omówiono w lekcji?",
+      "options": [
+        "Jak szczegółowo opisano w lekcji, Spotkań odgrywa kluczową rolę w optymalizacji procesów i osiąganiu celów",
+        "Tylko peryferyjne informacje bez znaczącej roli",
+        "Tylko teoretyczna koncepcja bez praktycznego zastosowania",
+        "Konkretna opcja: Nie wspomniano w lekcji."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day14",
+        "#pl",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "69776a328260c12d7a7ac67a",
+      "uuid": "4b85b86c-1e75-4894-a79e-95fdad43d396",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Jak ważny jest obrad w kontekście Wydajność Spotkań: Porządek obrad, Limity czasu, Dziennik Decyzji, jak omówiono w lekcji?",
+      "options": [
+        "Jak szczegółowo opisano w lekcji, obrad odgrywa kluczową rolę w optymalizacji procesów i osiąganiu celów",
+        "Tylko peryferyjne informacje bez znaczącej roli",
+        "Tylko teoretyczna koncepcja bez praktycznego zastosowania",
+        "Wybierasz: Nie wspomniano w lekcji."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day14",
+        "#pl",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "69776a328260c12d7a7ac67b",
+      "uuid": "e39a1003-7961-455e-926f-6e382dda9ef0",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Jak ważny jest czasu w kontekście Wydajność Spotkań: Porządek obrad, Limity czasu, Dziennik Decyzji, jak omówiono w lekcji?",
+      "options": [
+        "Jak szczegółowo opisano w lekcji, czasu odgrywa kluczową rolę w optymalizacji procesów i osiąganiu celów",
+        "Tylko peryferyjne informacje bez znaczącej roli",
+        "Tylko teoretyczna koncepcja bez praktycznego zastosowania",
+        "Nie wspomniano w lekcji"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day14",
+        "#pl",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

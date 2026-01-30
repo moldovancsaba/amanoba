@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-30T13:33:14.762Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_PL",
+    "name": "Produktywność 2026: Jak zarządzać zespołami i czasem",
+    "language": "pl"
+  },
+  "lesson": {
+    "dayNumber": 11,
+    "title": "Ustalanie Celów i OKR: Co Chcesz Osiągnąć?",
+    "lessonId": "PRODUCTIVITY_2026_PL_DAY_11"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a328260c12d7a7ac652",
+      "uuid": "1843595b-9e26-45de-b581-ff729e509fbf",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Produktywność bez celu = tylko bycie zajętym.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day11",
+        "#pl",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a328260c12d7a7ac653",
+      "uuid": "271e2ae7-b81b-4c60-98f7-0992b50ef0b6",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Kierunek\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day11",
+        "#pl",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a328260c12d7a7ac654",
+      "uuid": "4fe210c4-37f2-41c3-8203-d8552a6441b5",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Motywacja\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail , test the results, and document my experiences",
+        "I only understand it theoretically",
+        "Wybierasz: I don't apply it.",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day11",
+        "#pl",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a328260c12d7a7ac655",
+      "uuid": "c25bdb83-eb13-4113-8f51-998ed577fb9c",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Jak koncepcja \"Ustalanie Celów i OKR: Co Chcesz Osiągnąć...\", wspomniana w lekcji, wpływa na osiągnięcie twoich goals?",
+      "options": [
+        "Jak szczegółowo opisano w lekcji, Ustalanie Celów i OKR: Co Chce... zwiększa skuteczność i zmniejsza ryzyko",
+        "Konkretna opcja: Brak znaczącego wpływu.",
+        "Ma znaczenie tylko teoretycznie",
+        "Konkretna opcja: Tylko opcjonalny element."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day11",
+        "#pl",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a328260c12d7a7ac656",
+      "uuid": "06d505de-4dad-40a4-b61f-2a9be8f928de",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Jak ważny jest Kierunek w kontekście Ustalanie Celów i OKR: Co Chcesz Osiągnąć?, jak omówiono w lekcji?",
+      "options": [
+        "Jak szczegółowo opisano w lekcji, Kierunek odgrywa kluczową rolę w optymalizacji procesów i osiąganiu celów",
+        "Tylko peryferyjne informacje bez znaczącej roli",
+        "Tylko teoretyczna koncepcja bez praktycznego zastosowania",
+        "Nie wspomniano w lekcji"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day11",
+        "#pl",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a328260c12d7a7ac657",
+      "uuid": "b9b47b7d-4f1c-4a17-bc2a-0fe651106c46",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Jak ważny jest Pomiary w kontekście Ustalanie Celów i OKR: Co Chcesz Osiągnąć?, jak omówiono w lekcji?",
+      "options": [
+        "Jak szczegółowo opisano w lekcji, Pomiary odgrywa kluczową rolę w optymalizacji procesów i osiąganiu celów",
+        "Tylko peryferyjne informacje bez znaczącej roli",
+        "Tylko teoretyczna koncepcja bez praktycznego zastosowania",
+        "Nie wspomniano w lekcji"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day11",
+        "#pl",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a328260c12d7a7ac658",
+      "uuid": "895a55dc-7d4c-4f2c-952f-21ee2adc43f8",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Jak ważny jest Celów w kontekście Ustalanie Celów i OKR: Co Chcesz Osiągnąć?, jak omówiono w lekcji?",
+      "options": [
+        "Jak szczegółowo opisano w lekcji, Celów odgrywa kluczową rolę w optymalizacji procesów i osiąganiu celów",
+        "Tylko peryferyjne informacje bez znaczącej roli",
+        "Tylko teoretyczna koncepcja bez praktycznego zastosowania",
+        "Konkretna opcja: Nie wspomniano w lekcji."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day11",
+        "#pl",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    }
+  ]
+}

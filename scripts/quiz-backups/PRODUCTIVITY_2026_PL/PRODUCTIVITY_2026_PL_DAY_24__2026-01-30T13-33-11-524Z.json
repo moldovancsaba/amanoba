@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-30T13:33:23.342Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_PL",
+    "name": "Produktywność 2026: Jak zarządzać zespołami i czasem",
+    "language": "pl"
+  },
+  "lesson": {
+    "dayNumber": 24,
+    "title": "Filtrowanie i Priorytety: Co Ignorować, Co Jest Ważne",
+    "lessonId": "PRODUCTIVITY_2026_PL_DAY_24"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a338260c12d7a7ac6de",
+      "uuid": "6402159b-ec8c-4846-b868-808bf010cfe0",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Naucz się mówić \"nie\" i skupić na tym, co ważne.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day24",
+        "#pl",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a338260c12d7a7ac6df",
+      "uuid": "51236bc3-e7ce-4270-a348-50f4e43a360f",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Naucz się mówić \"nie\" i skupić na tym, co ważne.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day24",
+        "#pl",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a338260c12d7a7ac6e0",
+      "uuid": "b7f6f2f7-e96b-421b-8525-da9be734ba62",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "You are working on a task and must pick an approach. How would you use the \"Naucz się mówić \"nie\" i skupić na tym, co ważne.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail , test the results, and document my experiences",
+        "I only understand it theoretically",
+        "Konkretna opcja: I don't apply it.",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day24",
+        "#pl",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a338260c12d7a7ac6e1",
+      "uuid": "e6dc9860-652e-4e5f-8d7e-75b3aee0ca3a",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Jak koncepcja \"Filtrowanie i Priorytety: Co Ignorować, Co Jest Wa...\", wspomniana w lekcji, wpływa na osiągnięcie twoich goals?",
+      "options": [
+        "Jak szczegółowo opisano w lekcji, Filtrowanie i Priorytety: Co I... zwiększa skuteczność i zmniejsza ryzyko",
+        "Brak znaczącego wpływu",
+        "Ma znaczenie tylko teoretycznie",
+        "Tylko opcjonalny element"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day24",
+        "#pl",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a338260c12d7a7ac6e2",
+      "uuid": "f4b1e715-f4df-4346-b828-efc5b97d9047",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Jak ważny jest Filtrowanie w kontekście Filtrowanie i Priorytety: Co Ignorować, Co Jest Ważne, jak omówiono w lekcji?",
+      "options": [
+        "Jak szczegółowo opisano w lekcji, Filtrowanie odgrywa kluczową rolę w optymalizacji procesów i osiąganiu celów",
+        "Tylko peryferyjne informacje bez znaczącej roli",
+        "Tylko teoretyczna koncepcja bez praktycznego zastosowania",
+        "Konkretna opcja: Nie wspomniano w lekcji."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day24",
+        "#pl",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "69776a338260c12d7a7ac6e3",
+      "uuid": "74f2862f-77f1-4bb0-b7f1-c483ef2fdee7",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Jak ważny jest Ignorować w kontekście Filtrowanie i Priorytety: Co Ignorować, Co Jest Ważne, jak omówiono w lekcji?",
+      "options": [
+        "Jak szczegółowo opisano w lekcji, Ignorować odgrywa kluczową rolę w optymalizacji procesów i osiąganiu celów",
+        "Tylko peryferyjne informacje bez znaczącej roli",
+        "Tylko teoretyczna koncepcja bez praktycznego zastosowania",
+        "Wybierasz: Nie wspomniano w lekcji."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day24",
+        "#pl",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "69776a338260c12d7a7ac6e4",
+      "uuid": "1fed03ec-d45d-4ce4-894a-2daee0378281",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Jak ważny jest Ważne w kontekście Filtrowanie i Priorytety: Co Ignorować, Co Jest Ważne, jak omówiono w lekcji?",
+      "options": [
+        "Jak szczegółowo opisano w lekcji, Ważne odgrywa kluczową rolę w optymalizacji procesów i osiąganiu celów",
+        "Tylko peryferyjne informacje bez znaczącej roli",
+        "Tylko teoretyczna koncepcja bez praktycznego zastosowania",
+        "Nie wspomniano w lekcji"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day24",
+        "#pl",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

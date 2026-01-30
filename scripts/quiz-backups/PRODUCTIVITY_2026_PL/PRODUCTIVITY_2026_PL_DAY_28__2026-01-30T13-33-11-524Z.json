@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-30T13:33:26.294Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_PL",
+    "name": "Produktywność 2026: Jak zarządzać zespołami i czasem",
+    "language": "pl"
+  },
+  "lesson": {
+    "dayNumber": 28,
+    "title": "Wartości i Cele: Cel Życia, Długoterminowa Wizja",
+    "lessonId": "PRODUCTIVITY_2026_PL_DAY_28"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a348260c12d7a7ac706",
+      "uuid": "10395247-bb0d-42e0-9d5e-3a324c3153fe",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Wyrównaj produktywność z wartościami życia.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day28",
+        "#pl",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a348260c12d7a7ac707",
+      "uuid": "78213f84-5c00-441d-8687-3f4ad3bc5450",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Wyobraz sobie, ze pracujesz nad zadaniem i musisz podjac decyzje. How would you use the \"Wyrównaj produktywność z wartościami życia.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail , test the results, and document my experiences",
+        "I only understand it theoretically",
+        "Konkretna opcja: I don't apply it.",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day28",
+        "#pl",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a348260c12d7a7ac708",
+      "uuid": "ae4ab835-8458-4a2d-b94b-601b27a435cf",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "You're in a real situation and need to choose next steps. How would you use the \"Wyrównaj produktywność z wartościami życia.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail , test the results, and document my experiences",
+        "I only understand it theoretically",
+        "Konkretna opcja: I don't apply it.",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day28",
+        "#pl",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a348260c12d7a7ac709",
+      "uuid": "8ba0d426-062c-4c68-9807-f28d7f117089",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Jak koncepcja \"Wartości i Cele: Cel Życia, Długoterminowa Wizja W...\", wspomniana w lekcji, wpływa na osiągnięcie twoich goals?",
+      "options": [
+        "Jak szczegółowo opisano w lekcji, Wartości i Cele: Cel Życia, Dł... zwiększa skuteczność i zmniejsza ryzyko",
+        "Brak znaczącego wpływu",
+        "Ma znaczenie tylko teoretycznie",
+        "Tylko opcjonalny element"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day28",
+        "#pl",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a348260c12d7a7ac70a",
+      "uuid": "2e91ea6c-e219-41e2-936c-d9c61e49d2d1",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Jak ważny jest Wartości w kontekście Wartości i Cele: Cel Życia, Długoterminowa Wizja, jak omówiono w lekcji?",
+      "options": [
+        "Jak szczegółowo opisano w lekcji, Wartości odgrywa kluczową rolę w optymalizacji procesów i osiąganiu celów",
+        "Tylko peryferyjne informacje bez znaczącej roli",
+        "Tylko teoretyczna koncepcja bez praktycznego zastosowania",
+        "Nie wspomniano w lekcji"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day28",
+        "#pl",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a348260c12d7a7ac70b",
+      "uuid": "da3bd611-874c-4d57-9525-b044d3b890b5",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Jak ważny jest Życia w kontekście Wartości i Cele: Cel Życia, Długoterminowa Wizja, jak omówiono w lekcji?",
+      "options": [
+        "Jak szczegółowo opisano w lekcji, Życia odgrywa kluczową rolę w optymalizacji procesów i osiąganiu celów",
+        "Tylko peryferyjne informacje bez znaczącej roli",
+        "Tylko teoretyczna koncepcja bez praktycznego zastosowania",
+        "Nie wspomniano w lekcji"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day28",
+        "#pl",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a348260c12d7a7ac70c",
+      "uuid": "bdc4f53b-7f78-489b-aaf5-2e398df88315",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Jak ważny jest Wizja w kontekście Wartości i Cele: Cel Życia, Długoterminowa Wizja, jak omówiono w lekcji?",
+      "options": [
+        "Jak szczegółowo opisano w lekcji, Wizja odgrywa kluczową rolę w optymalizacji procesów i osiąganiu celów",
+        "Tylko peryferyjne informacje bez znaczącej roli",
+        "Tylko teoretyczna koncepcja bez praktycznego zastosowania",
+        "Wybierasz: Nie wspomniano w lekcji."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day28",
+        "#pl",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    }
+  ]
+}

@@ -1,7 +1,7 @@
 # Amanoba Roadmap — Future Plans & Strategic Directions
 
-**Version**: 2.9.16  
-**Last Updated**: 2026-01-29  
+**Version**: 2.9.20  
+**Last Updated**: 2026-01-30  
 **Vision**: Transform Amanoba into a unified 30-day learning platform with gamified education, assessment tools, email-based lesson delivery, and monetization
 
 ---
@@ -73,7 +73,7 @@ Completed items are in **RELEASE_NOTES.md** — roadmap and tasklist contain onl
 
 ## 🚀 Upcoming Milestones (by priority)
 
-**Priority order**: P0 = Global audit (language integrity) in Tech Debt above. P1 = Editor User, User profile customization, design/CTA cleanup. P2 = Certificate System v0.1, Onboarding Survey, Email Automation, Multi-Format Forking. Completed work → **RELEASE_NOTES.md**.
+**Priority order**: P0 = Global audit (language integrity) in Tech Debt above. P1 = design/CTA cleanup, debug logs, Facebook cleanup. P2 = Onboarding Survey, Email Automation, Multi-Format Forking. Certificate v0.1, Editor User, User profile customization → **RELEASE_NOTES.md** (v2.9.18–v2.9.20).
 
 ---
 
@@ -451,12 +451,12 @@ EMAIL_FROM_NAME=Amanoba Learning
 
 ## 🎯 RECOMMENDED NEXT 3 ITEMS
 
-Based on current priorities (see Tech Debt P0/P1 and TASKLIST.md):
+Based on current priorities (see Tech Debt P0/P1 and TASKLIST.md). Certificate v0.1, Editor User, and User profile customization → **RELEASE_NOTES.md** (v2.9.18–v2.9.20).
 
 ### 1. Global audit — communication + catalog language integrity (P0)
 
-**Status**: 🟡 IN PROGRESS (see TASKLIST.md)  
-**Docs**: `docs/QUIZ_QUALITY_PIPELINE_PLAYBOOK.md`, `docs/audit-ccs-global-quality.ts`
+**Status**: 🟡 OPEN  
+**Docs**: `docs/QUIZ_QUALITY_PIPELINE_PLAYBOOK.md`, audit scripts
 
 - Course catalog language integrity (`course.name`, `course.description`, `course.translations.*`)
 - Code-level email audit (send-time language leakage)
@@ -464,24 +464,25 @@ Based on current priorities (see Tech Debt P0/P1 and TASKLIST.md):
 
 ---
 
-### 2. Editor User — limited admin access (P1)
+### 2. Onboarding Survey / Email Automation / Multi-Format Forking (P2)
 
 **Status**: 🟡 PLANNED  
-**Docs**: ROADMAP § Editor User
+**Docs**: ROADMAP § Onboarding Survey, Email Automation, Multi-Format Forking
 
-- Editor = user with at least one course assigned; admin button visibility when assigned
-- Course management: “Assign course to editor”; API and UI for `assignedEditors`
+- Onboarding survey (multi-step, recommendations, segmentation)
+- Email automation and personalization
+- Multi-format course forking
 
 ---
 
-### 3. User profile customization — photo, nickname, public/private (P1)
+### 3. P1 Tech debt — design system, debug logs, Facebook cleanup
 
-**Status**: 🟡 PLANNED  
-**Docs**: ROADMAP § User profile customization
+**Status**: 🟡 OPEN  
+**Docs**: ROADMAP § Tech Debt
 
-- Profile photo (upload → imgbb API → store URL on Player)
-- Nickname (visible name) editable on profile/settings
-- Public/private already delivered (v2.9.15); ensure toggle discoverable
+- Design system: CTA token (#FAB908), replace inline styles
+- Remove client debug logs before production
+- Facebook cleanup post-migration
 
 ---
 

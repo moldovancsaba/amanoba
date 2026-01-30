@@ -1,0 +1,60 @@
+{
+  "backedUpAt": "2026-01-30T14:20:41.933Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_EN",
+    "name": "Productivity 2026: How to Manage Teams and Time",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 5,
+    "title": "Measurement: simple weekly review metrics (throughput, focus blocks, carryover)",
+    "lessonId": "PRODUCTIVITY_2026_EN_DAY_05"
+  },
+  "questionCount": 2,
+  "questions": [
+    {
+      "_id": "69787d9aa326286129da8f9a",
+      "uuid": "4ad079d7-c6cf-4284-9336-d8adcd93701d",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Why are these metrics (throughput, focus blocks, carryover) a stronger feedback loop than “I feel productive”?",
+      "options": [
+        "They create objective signals of outcomes and constraints, so you can change one rule at a time and verify improvement.",
+        "They remove the need for planning because once you have metrics, the system runs itself automatically.",
+        "They guarantee high performance even if you never review or reflect on the numbers.",
+        "They measure motivation directly, which is the only reliable driver of productivity."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day5",
+        "#en",
+        "#course-productivity_2026_en",
+        "#productivity",
+        "#advanced",
+        "#critical-thinking"
+      ]
+    },
+    {
+      "_id": "69787d9aa326286129da8f9b",
+      "uuid": "be0e9911-7941-42a3-9116-5f4e693c850b",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "A team increases throughput by closing easy tasks while ignoring hard outcomes. What is the most likely downside of that strategy?",
+      "options": [
+        "The metric gets gamed: activity rises but meaningful outcomes lag, so real productivity and customer impact do not improve.",
+        "The strategy cannot work because easy tasks are impossible to complete in practice.",
+        "Focus blocks will automatically increase because easy tasks require deep work by definition.",
+        "Carryover will always go to zero because closing any tasks eliminates overplanning."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day5",
+        "#en",
+        "#course-productivity_2026_en",
+        "#productivity",
+        "#advanced",
+        "#critical-thinking"
+      ]
+    }
+  ]
+}

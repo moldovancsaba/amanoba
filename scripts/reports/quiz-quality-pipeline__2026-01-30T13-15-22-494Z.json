@@ -1,0 +1,1518 @@
+{
+  "generatedAt": "2026-01-30T13:15:22.494Z",
+  "dryRun": true,
+  "minLessonScore": 70,
+  "courseFilter": "PRODUCTIVITY_2026_ID",
+  "lessonFilter": null,
+  "totals": {
+    "courses": 1,
+    "lessonsEvaluated": 30,
+    "lessonsNeedingRefine": 0,
+    "lessonsRewritten": 0,
+    "lessonsFailedRewrite": 0,
+    "questionsDeleted": 0,
+    "questionsInserted": 0
+  },
+  "lessons": [
+    {
+      "courseId": "PRODUCTIVITY_2026_ID",
+      "courseName": "Produktivitas 2026: Cara Mengelola Tim dan Waktu",
+      "language": "id",
+      "dayNumber": 1,
+      "lessonId": "PRODUCTIVITY_2026_ID_DAY_01",
+      "title": "Definisi produktivitas: output, outcome, dan kendala",
+      "lessonCreatedAt": "2026-01-23T19:27:03.919Z",
+      "lessonQuality": {
+        "score": 80,
+        "issues": [
+          "LANGUAGE_MISMATCH_SUSPECTED"
+        ],
+        "signals": {
+          "charCount": 1977,
+          "wordCount": 270,
+          "hasBullets": true,
+          "hasNumberedSteps": true,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "PASS",
+      "rewrite": {
+        "existingCounts": {
+          "total": 7,
+          "valid": 7,
+          "invalid": 0,
+          "application": 5,
+          "critical": 2,
+          "recall": 0,
+          "duplicates": 0
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_ID",
+      "courseName": "Produktivitas 2026: Cara Mengelola Tim dan Waktu",
+      "language": "id",
+      "dayNumber": 2,
+      "lessonId": "PRODUCTIVITY_2026_ID_DAY_02",
+      "title": "Waktu, energi, perhatian: apa yang Anda kelola dalam praktik",
+      "lessonCreatedAt": "2026-01-23T21:22:29.107Z",
+      "lessonQuality": {
+        "score": 80,
+        "issues": [
+          "LANGUAGE_MISMATCH_SUSPECTED"
+        ],
+        "signals": {
+          "charCount": 2368,
+          "wordCount": 333,
+          "hasBullets": true,
+          "hasNumberedSteps": true,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "PASS",
+      "rewrite": {
+        "existingCounts": {
+          "total": 7,
+          "valid": 7,
+          "invalid": 0,
+          "application": 5,
+          "critical": 2,
+          "recall": 0,
+          "duplicates": 0
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_ID",
+      "courseName": "Produktivitas 2026: Cara Mengelola Tim dan Waktu",
+      "language": "id",
+      "dayNumber": 3,
+      "lessonId": "PRODUCTIVITY_2026_ID_DAY_03",
+      "title": "Hierarki tujuan: visi → hasil → proyek → tindakan selanjutnya",
+      "lessonCreatedAt": "2026-01-23T21:28:05.973Z",
+      "lessonQuality": {
+        "score": 80,
+        "issues": [
+          "LANGUAGE_MISMATCH_SUSPECTED"
+        ],
+        "signals": {
+          "charCount": 1604,
+          "wordCount": 225,
+          "hasBullets": true,
+          "hasNumberedSteps": true,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "PASS",
+      "rewrite": {
+        "existingCounts": {
+          "total": 7,
+          "valid": 7,
+          "invalid": 0,
+          "application": 5,
+          "critical": 2,
+          "recall": 0,
+          "duplicates": 0
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_ID",
+      "courseName": "Produktivitas 2026: Cara Mengelola Tim dan Waktu",
+      "language": "id",
+      "dayNumber": 4,
+      "lessonId": "PRODUCTIVITY_2026_ID_DAY_04",
+      "title": "Kebiasaan vs sistem: mengapa sistem lebih baik dalam skala",
+      "lessonCreatedAt": "2026-01-23T21:34:24.051Z",
+      "lessonQuality": {
+        "score": 80,
+        "issues": [
+          "LANGUAGE_MISMATCH_SUSPECTED"
+        ],
+        "signals": {
+          "charCount": 1601,
+          "wordCount": 224,
+          "hasBullets": true,
+          "hasNumberedSteps": true,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "PASS",
+      "rewrite": {
+        "existingCounts": {
+          "total": 7,
+          "valid": 7,
+          "invalid": 0,
+          "application": 5,
+          "critical": 2,
+          "recall": 0,
+          "duplicates": 0
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_ID",
+      "courseName": "Produktivitas 2026: Cara Mengelola Tim dan Waktu",
+      "language": "id",
+      "dayNumber": 5,
+      "lessonId": "PRODUCTIVITY_2026_ID_DAY_05",
+      "title": "Pengukuran: metrik tinjauan mingguan sederhana (throughput, blok fokus, carryover)",
+      "lessonCreatedAt": "2026-01-23T21:40:15.147Z",
+      "lessonQuality": {
+        "score": 80,
+        "issues": [
+          "LANGUAGE_MISMATCH_SUSPECTED"
+        ],
+        "signals": {
+          "charCount": 2456,
+          "wordCount": 348,
+          "hasBullets": true,
+          "hasNumberedSteps": true,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "PASS",
+      "rewrite": {
+        "existingCounts": {
+          "total": 7,
+          "valid": 7,
+          "invalid": 0,
+          "application": 5,
+          "critical": 2,
+          "recall": 0,
+          "duplicates": 0
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_ID",
+      "courseName": "Produktivitas 2026: Cara Mengelola Tim dan Waktu",
+      "language": "id",
+      "dayNumber": 6,
+      "lessonId": "PRODUCTIVITY_2026_ID_DAY_06",
+      "title": "Penangkapan: kotak masuk, daftar pemicu, kebiasaan penangkapan",
+      "lessonCreatedAt": "2026-01-23T21:43:44.196Z",
+      "lessonQuality": {
+        "score": 80,
+        "issues": [
+          "LANGUAGE_MISMATCH_SUSPECTED"
+        ],
+        "signals": {
+          "charCount": 1605,
+          "wordCount": 222,
+          "hasBullets": true,
+          "hasNumberedSteps": true,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "PASS",
+      "rewrite": {
+        "existingCounts": {
+          "total": 7,
+          "valid": 7,
+          "invalid": 0,
+          "application": 5,
+          "critical": 2,
+          "recall": 0,
+          "duplicates": 0
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_ID",
+      "courseName": "Produktivitas 2026: Cara Mengelola Tim dan Waktu",
+      "language": "id",
+      "dayNumber": 7,
+      "lessonId": "PRODUCTIVITY_2026_ID_DAY_07",
+      "title": "Sistem harian/mingguan: ritual pagi, huddle harian, tinjauan mingguan",
+      "lessonCreatedAt": "2026-01-24T08:15:47.586Z",
+      "lessonQuality": {
+        "score": 80,
+        "issues": [
+          "LANGUAGE_MISMATCH_SUSPECTED"
+        ],
+        "signals": {
+          "charCount": 2685,
+          "wordCount": 377,
+          "hasBullets": true,
+          "hasNumberedSteps": true,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "PASS",
+      "rewrite": {
+        "existingCounts": {
+          "total": 7,
+          "valid": 7,
+          "invalid": 0,
+          "application": 5,
+          "critical": 2,
+          "recall": 0,
+          "duplicates": 0
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_ID",
+      "courseName": "Produktivitas 2026: Cara Mengelola Tim dan Waktu",
+      "language": "id",
+      "dayNumber": 8,
+      "lessonId": "PRODUCTIVITY_2026_ID_DAY_8",
+      "title": "Biaya Pergantian Konteks: Sisa Perhatian, Pemrosesan Batch, Blok Kerja Mendalam",
+      "lessonCreatedAt": "2026-01-24T08:31:20.145Z",
+      "lessonQuality": {
+        "score": 80,
+        "issues": [
+          "LANGUAGE_MISMATCH_SUSPECTED"
+        ],
+        "signals": {
+          "charCount": 2387,
+          "wordCount": 334,
+          "hasBullets": true,
+          "hasNumberedSteps": true,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "PASS",
+      "rewrite": {
+        "existingCounts": {
+          "total": 7,
+          "valid": 7,
+          "invalid": 0,
+          "application": 5,
+          "critical": 2,
+          "recall": 0,
+          "duplicates": 0
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_ID",
+      "courseName": "Produktivitas 2026: Cara Mengelola Tim dan Waktu",
+      "language": "id",
+      "dayNumber": 9,
+      "lessonId": "PRODUCTIVITY_2026_ID_DAY_9",
+      "title": "Delegasi vs Eliminasi: Kapan Mendelegasikan, Apa yang Dieliminasi",
+      "lessonCreatedAt": "2026-01-24T08:36:25.532Z",
+      "lessonQuality": {
+        "score": 80,
+        "issues": [
+          "LANGUAGE_MISMATCH_SUSPECTED"
+        ],
+        "signals": {
+          "charCount": 2882,
+          "wordCount": 397,
+          "hasBullets": true,
+          "hasNumberedSteps": true,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "PASS",
+      "rewrite": {
+        "existingCounts": {
+          "total": 7,
+          "valid": 7,
+          "invalid": 0,
+          "application": 5,
+          "critical": 2,
+          "recall": 0,
+          "duplicates": 0
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_ID",
+      "courseName": "Produktivitas 2026: Cara Mengelola Tim dan Waktu",
+      "language": "id",
+      "dayNumber": 10,
+      "lessonId": "PRODUCTIVITY_2026_ID_DAY_10",
+      "title": "Manajemen Energi: Kapan Bekerja, Kapan Istirahat, Ritual Pemulihan",
+      "lessonCreatedAt": "2026-01-24T08:40:15.489Z",
+      "lessonQuality": {
+        "score": 80,
+        "issues": [
+          "LANGUAGE_MISMATCH_SUSPECTED"
+        ],
+        "signals": {
+          "charCount": 2375,
+          "wordCount": 332,
+          "hasBullets": true,
+          "hasNumberedSteps": true,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "PASS",
+      "rewrite": {
+        "existingCounts": {
+          "total": 7,
+          "valid": 7,
+          "invalid": 0,
+          "application": 5,
+          "critical": 2,
+          "recall": 0,
+          "duplicates": 0
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_ID",
+      "courseName": "Produktivitas 2026: Cara Mengelola Tim dan Waktu",
+      "language": "id",
+      "dayNumber": 11,
+      "lessonId": "PRODUCTIVITY_2026_ID_DAY_11",
+      "title": "Penetapan Tujuan dan OKR: Apa yang Ingin Anda Capai?",
+      "lessonCreatedAt": "2026-01-24T08:41:52.658Z",
+      "lessonQuality": {
+        "score": 80,
+        "issues": [
+          "LANGUAGE_MISMATCH_SUSPECTED"
+        ],
+        "signals": {
+          "charCount": 1596,
+          "wordCount": 224,
+          "hasBullets": true,
+          "hasNumberedSteps": true,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "PASS",
+      "rewrite": {
+        "existingCounts": {
+          "total": 7,
+          "valid": 7,
+          "invalid": 0,
+          "application": 5,
+          "critical": 2,
+          "recall": 0,
+          "duplicates": 0
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_ID",
+      "courseName": "Produktivitas 2026: Cara Mengelola Tim dan Waktu",
+      "language": "id",
+      "dayNumber": 12,
+      "lessonId": "PRODUCTIVITY_2026_ID_DAY_12",
+      "title": "Struktur Akuntabilitas: Sistem yang Membuat Anda Tetap di Jalur",
+      "lessonCreatedAt": "2026-01-24T09:15:54.887Z",
+      "lessonQuality": {
+        "score": 80,
+        "issues": [
+          "LANGUAGE_MISMATCH_SUSPECTED"
+        ],
+        "signals": {
+          "charCount": 1607,
+          "wordCount": 224,
+          "hasBullets": true,
+          "hasNumberedSteps": true,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "PASS",
+      "rewrite": {
+        "existingCounts": {
+          "total": 7,
+          "valid": 7,
+          "invalid": 0,
+          "application": 5,
+          "critical": 2,
+          "recall": 0,
+          "duplicates": 0
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_ID",
+      "courseName": "Produktivitas 2026: Cara Mengelola Tim dan Waktu",
+      "language": "id",
+      "dayNumber": 13,
+      "lessonId": "PRODUCTIVITY_2026_ID_DAY_13",
+      "title": "Kerangka Pengambilan Keputusan: Keputusan Cepat, Matriks Keputusan, Menghindari Kelumpuhan Analisis",
+      "lessonCreatedAt": "2026-01-24T09:23:09.533Z",
+      "lessonQuality": {
+        "score": 80,
+        "issues": [
+          "LANGUAGE_MISMATCH_SUSPECTED"
+        ],
+        "signals": {
+          "charCount": 2361,
+          "wordCount": 320,
+          "hasBullets": true,
+          "hasNumberedSteps": true,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "PASS",
+      "rewrite": {
+        "existingCounts": {
+          "total": 7,
+          "valid": 7,
+          "invalid": 0,
+          "application": 5,
+          "critical": 2,
+          "recall": 0,
+          "duplicates": 0
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_ID",
+      "courseName": "Produktivitas 2026: Cara Mengelola Tim dan Waktu",
+      "language": "id",
+      "dayNumber": 14,
+      "lessonId": "PRODUCTIVITY_2026_ID_DAY_14",
+      "title": "Efisiensi Pertemuan: Agenda, Batas Waktu, Catatan Keputusan",
+      "lessonCreatedAt": "2026-01-24T09:29:50.070Z",
+      "lessonQuality": {
+        "score": 80,
+        "issues": [
+          "LANGUAGE_MISMATCH_SUSPECTED"
+        ],
+        "signals": {
+          "charCount": 1603,
+          "wordCount": 222,
+          "hasBullets": true,
+          "hasNumberedSteps": true,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "PASS",
+      "rewrite": {
+        "existingCounts": {
+          "total": 7,
+          "valid": 7,
+          "invalid": 0,
+          "application": 5,
+          "critical": 2,
+          "recall": 0,
+          "duplicates": 0
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_ID",
+      "courseName": "Produktivitas 2026: Cara Mengelola Tim dan Waktu",
+      "language": "id",
+      "dayNumber": 15,
+      "lessonId": "PRODUCTIVITY_2026_ID_DAY_15",
+      "title": "Kerjasama Tim dan Sinergi: Peran, Tanggung Jawab, Koordinasi",
+      "lessonCreatedAt": "2026-01-24T09:29:53.326Z",
+      "lessonQuality": {
+        "score": 80,
+        "issues": [
+          "LANGUAGE_MISMATCH_SUSPECTED"
+        ],
+        "signals": {
+          "charCount": 2464,
+          "wordCount": 339,
+          "hasBullets": true,
+          "hasNumberedSteps": true,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "PASS",
+      "rewrite": {
+        "existingCounts": {
+          "total": 7,
+          "valid": 7,
+          "invalid": 0,
+          "application": 5,
+          "critical": 2,
+          "recall": 0,
+          "duplicates": 0
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_ID",
+      "courseName": "Produktivitas 2026: Cara Mengelola Tim dan Waktu",
+      "language": "id",
+      "dayNumber": 16,
+      "lessonId": "PRODUCTIVITY_2026_ID_DAY_16",
+      "title": "Manajemen Stres dan Kelelahan: Pemulihan, Keseimbangan Kerja-Hidup",
+      "lessonCreatedAt": "2026-01-24T09:29:56.520Z",
+      "lessonQuality": {
+        "score": 80,
+        "issues": [
+          "LANGUAGE_MISMATCH_SUSPECTED"
+        ],
+        "signals": {
+          "charCount": 1610,
+          "wordCount": 222,
+          "hasBullets": true,
+          "hasNumberedSteps": true,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "PASS",
+      "rewrite": {
+        "existingCounts": {
+          "total": 7,
+          "valid": 7,
+          "invalid": 0,
+          "application": 5,
+          "critical": 2,
+          "recall": 0,
+          "duplicates": 0
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_ID",
+      "courseName": "Produktivitas 2026: Cara Mengelola Tim dan Waktu",
+      "language": "id",
+      "dayNumber": 17,
+      "lessonId": "PRODUCTIVITY_2026_ID_DAY_17",
+      "title": "Mempertahankan Motivasi: Melacak Kemajuan, Merayakan Kemenangan",
+      "lessonCreatedAt": "2026-01-24T09:29:59.571Z",
+      "lessonQuality": {
+        "score": 80,
+        "issues": [
+          "LANGUAGE_MISMATCH_SUSPECTED"
+        ],
+        "signals": {
+          "charCount": 1607,
+          "wordCount": 221,
+          "hasBullets": true,
+          "hasNumberedSteps": true,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "PASS",
+      "rewrite": {
+        "existingCounts": {
+          "total": 7,
+          "valid": 7,
+          "invalid": 0,
+          "application": 5,
+          "critical": 2,
+          "recall": 0,
+          "duplicates": 0
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_ID",
+      "courseName": "Produktivitas 2026: Cara Mengelola Tim dan Waktu",
+      "language": "id",
+      "dayNumber": 18,
+      "lessonId": "PRODUCTIVITY_2026_ID_DAY_18",
+      "title": "Manajemen Krisis dan Kemampuan Beradaptasi: Adaptasi, Pembelajaran Cepat",
+      "lessonCreatedAt": "2026-01-24T09:30:02.933Z",
+      "lessonQuality": {
+        "score": 80,
+        "issues": [
+          "LANGUAGE_MISMATCH_SUSPECTED"
+        ],
+        "signals": {
+          "charCount": 2334,
+          "wordCount": 318,
+          "hasBullets": true,
+          "hasNumberedSteps": true,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "PASS",
+      "rewrite": {
+        "existingCounts": {
+          "total": 7,
+          "valid": 7,
+          "invalid": 0,
+          "application": 5,
+          "critical": 2,
+          "recall": 0,
+          "duplicates": 0
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_ID",
+      "courseName": "Produktivitas 2026: Cara Mengelola Tim dan Waktu",
+      "language": "id",
+      "dayNumber": 19,
+      "lessonId": "PRODUCTIVITY_2026_ID_DAY_19",
+      "title": "Perencanaan Jangka Panjang: Tahun Ke Depan, Strategi, Evolusi",
+      "lessonCreatedAt": "2026-01-24T09:30:05.613Z",
+      "lessonQuality": {
+        "score": 80,
+        "issues": [
+          "LANGUAGE_MISMATCH_SUSPECTED"
+        ],
+        "signals": {
+          "charCount": 2323,
+          "wordCount": 318,
+          "hasBullets": true,
+          "hasNumberedSteps": true,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "PASS",
+      "rewrite": {
+        "existingCounts": {
+          "total": 7,
+          "valid": 7,
+          "invalid": 0,
+          "application": 5,
+          "critical": 2,
+          "recall": 0,
+          "duplicates": 0
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_ID",
+      "courseName": "Produktivitas 2026: Cara Mengelola Tim dan Waktu",
+      "language": "id",
+      "dayNumber": 20,
+      "lessonId": "PRODUCTIVITY_2026_ID_DAY_20",
+      "title": "Produktivitas Kehidupan Pribadi: Organisasi Rumah, Proyek Pribadi",
+      "lessonCreatedAt": "2026-01-24T09:30:08.934Z",
+      "lessonQuality": {
+        "score": 80,
+        "issues": [
+          "LANGUAGE_MISMATCH_SUSPECTED"
+        ],
+        "signals": {
+          "charCount": 1609,
+          "wordCount": 222,
+          "hasBullets": true,
+          "hasNumberedSteps": true,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "PASS",
+      "rewrite": {
+        "existingCounts": {
+          "total": 7,
+          "valid": 7,
+          "invalid": 0,
+          "application": 5,
+          "critical": 2,
+          "recall": 0,
+          "duplicates": 0
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_ID",
+      "courseName": "Produktivitas 2026: Cara Mengelola Tim dan Waktu",
+      "language": "id",
+      "dayNumber": 21,
+      "lessonId": "PRODUCTIVITY_2026_ID_DAY_21",
+      "title": "Komunitas dan Jaringan: Hubungan, Belajar Bersama Orang Lain",
+      "lessonCreatedAt": "2026-01-24T09:30:11.613Z",
+      "lessonQuality": {
+        "score": 80,
+        "issues": [
+          "LANGUAGE_MISMATCH_SUSPECTED"
+        ],
+        "signals": {
+          "charCount": 1604,
+          "wordCount": 223,
+          "hasBullets": true,
+          "hasNumberedSteps": true,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "PASS",
+      "rewrite": {
+        "existingCounts": {
+          "total": 7,
+          "valid": 7,
+          "invalid": 0,
+          "application": 5,
+          "critical": 2,
+          "recall": 0,
+          "duplicates": 0
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_ID",
+      "courseName": "Produktivitas 2026: Cara Mengelola Tim dan Waktu",
+      "language": "id",
+      "dayNumber": 22,
+      "lessonId": "PRODUCTIVITY_2026_ID_DAY_22",
+      "title": "Teknologi dan Alat: Otomasi, Memilih Teknologi yang Tepat",
+      "lessonCreatedAt": "2026-01-24T09:30:14.204Z",
+      "lessonQuality": {
+        "score": 80,
+        "issues": [
+          "LANGUAGE_MISMATCH_SUSPECTED"
+        ],
+        "signals": {
+          "charCount": 1601,
+          "wordCount": 223,
+          "hasBullets": true,
+          "hasNumberedSteps": true,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "PASS",
+      "rewrite": {
+        "existingCounts": {
+          "total": 7,
+          "valid": 7,
+          "invalid": 0,
+          "application": 5,
+          "critical": 2,
+          "recall": 0,
+          "duplicates": 0
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_ID",
+      "courseName": "Produktivitas 2026: Cara Mengelola Tim dan Waktu",
+      "language": "id",
+      "dayNumber": 23,
+      "lessonId": "PRODUCTIVITY_2026_ID_DAY_23",
+      "title": "Kreativitas dan Inovasi: Pemikiran Ulang, Eksperimen",
+      "lessonCreatedAt": "2026-01-24T09:30:16.971Z",
+      "lessonQuality": {
+        "score": 80,
+        "issues": [
+          "LANGUAGE_MISMATCH_SUSPECTED"
+        ],
+        "signals": {
+          "charCount": 2314,
+          "wordCount": 316,
+          "hasBullets": true,
+          "hasNumberedSteps": true,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "PASS",
+      "rewrite": {
+        "existingCounts": {
+          "total": 7,
+          "valid": 7,
+          "invalid": 0,
+          "application": 5,
+          "critical": 2,
+          "recall": 0,
+          "duplicates": 0
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_ID",
+      "courseName": "Produktivitas 2026: Cara Mengelola Tim dan Waktu",
+      "language": "id",
+      "dayNumber": 24,
+      "lessonId": "PRODUCTIVITY_2026_ID_DAY_24",
+      "title": "Penyaringan dan Prioritas: Apa yang Diabaikan, Apa yang Penting",
+      "lessonCreatedAt": "2026-01-24T09:30:19.772Z",
+      "lessonQuality": {
+        "score": 80,
+        "issues": [
+          "LANGUAGE_MISMATCH_SUSPECTED"
+        ],
+        "signals": {
+          "charCount": 1607,
+          "wordCount": 224,
+          "hasBullets": true,
+          "hasNumberedSteps": true,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "PASS",
+      "rewrite": {
+        "existingCounts": {
+          "total": 7,
+          "valid": 7,
+          "invalid": 0,
+          "application": 5,
+          "critical": 2,
+          "recall": 0,
+          "duplicates": 0
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_ID",
+      "courseName": "Produktivitas 2026: Cara Mengelola Tim dan Waktu",
+      "language": "id",
+      "dayNumber": 25,
+      "lessonId": "PRODUCTIVITY_2026_ID_DAY_25",
+      "title": "Pengembangan Keterampilan: Level Lebih Tinggi, Kompetensi Baru",
+      "lessonCreatedAt": "2026-01-24T09:30:22.438Z",
+      "lessonQuality": {
+        "score": 80,
+        "issues": [
+          "LANGUAGE_MISMATCH_SUSPECTED"
+        ],
+        "signals": {
+          "charCount": 1606,
+          "wordCount": 222,
+          "hasBullets": true,
+          "hasNumberedSteps": true,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "PASS",
+      "rewrite": {
+        "existingCounts": {
+          "total": 7,
+          "valid": 7,
+          "invalid": 0,
+          "application": 5,
+          "critical": 2,
+          "recall": 0,
+          "duplicates": 0
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_ID",
+      "courseName": "Produktivitas 2026: Cara Mengelola Tim dan Waktu",
+      "language": "id",
+      "dayNumber": 26,
+      "lessonId": "PRODUCTIVITY_2026_ID_DAY_26",
+      "title": "Mentoring dan Pengajaran: Berbagi Pengetahuan, Membantu Orang Lain",
+      "lessonCreatedAt": "2026-01-24T09:30:25.147Z",
+      "lessonQuality": {
+        "score": 80,
+        "issues": [
+          "LANGUAGE_MISMATCH_SUSPECTED"
+        ],
+        "signals": {
+          "charCount": 2470,
+          "wordCount": 339,
+          "hasBullets": true,
+          "hasNumberedSteps": true,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "PASS",
+      "rewrite": {
+        "existingCounts": {
+          "total": 7,
+          "valid": 7,
+          "invalid": 0,
+          "application": 5,
+          "critical": 2,
+          "recall": 0,
+          "duplicates": 0
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_ID",
+      "courseName": "Produktivitas 2026: Cara Mengelola Tim dan Waktu",
+      "language": "id",
+      "dayNumber": 27,
+      "lessonId": "PRODUCTIVITY_2026_ID_DAY_27",
+      "title": "Kebiasaan dan Ritual: Rutinitas Harian, Tindakan Jangka Panjang",
+      "lessonCreatedAt": "2026-01-24T09:30:28.384Z",
+      "lessonQuality": {
+        "score": 80,
+        "issues": [
+          "LANGUAGE_MISMATCH_SUSPECTED"
+        ],
+        "signals": {
+          "charCount": 1607,
+          "wordCount": 223,
+          "hasBullets": true,
+          "hasNumberedSteps": true,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "PASS",
+      "rewrite": {
+        "existingCounts": {
+          "total": 7,
+          "valid": 7,
+          "invalid": 0,
+          "application": 5,
+          "critical": 2,
+          "recall": 0,
+          "duplicates": 0
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_ID",
+      "courseName": "Produktivitas 2026: Cara Mengelola Tim dan Waktu",
+      "language": "id",
+      "dayNumber": 28,
+      "lessonId": "PRODUCTIVITY_2026_ID_DAY_28",
+      "title": "Nilai dan Tujuan: Tujuan Hidup, Visi Jangka Panjang",
+      "lessonCreatedAt": "2026-01-24T09:30:31.778Z",
+      "lessonQuality": {
+        "score": 80,
+        "issues": [
+          "LANGUAGE_MISMATCH_SUSPECTED"
+        ],
+        "signals": {
+          "charCount": 1595,
+          "wordCount": 223,
+          "hasBullets": true,
+          "hasNumberedSteps": true,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "PASS",
+      "rewrite": {
+        "existingCounts": {
+          "total": 7,
+          "valid": 7,
+          "invalid": 0,
+          "application": 5,
+          "critical": 2,
+          "recall": 0,
+          "duplicates": 0
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_ID",
+      "courseName": "Produktivitas 2026: Cara Mengelola Tim dan Waktu",
+      "language": "id",
+      "dayNumber": 29,
+      "lessonId": "PRODUCTIVITY_2026_ID_DAY_29",
+      "title": "Perbaikan Berkelanjutan: Pembelajaran, Umpan Balik, Iterasi",
+      "lessonCreatedAt": "2026-01-24T09:30:35.845Z",
+      "lessonQuality": {
+        "score": 80,
+        "issues": [
+          "LANGUAGE_MISMATCH_SUSPECTED"
+        ],
+        "signals": {
+          "charCount": 2434,
+          "wordCount": 345,
+          "hasBullets": true,
+          "hasNumberedSteps": true,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "PASS",
+      "rewrite": {
+        "existingCounts": {
+          "total": 7,
+          "valid": 7,
+          "invalid": 0,
+          "application": 5,
+          "critical": 2,
+          "recall": 0,
+          "duplicates": 0
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_ID",
+      "courseName": "Produktivitas 2026: Cara Mengelola Tim dan Waktu",
+      "language": "id",
+      "dayNumber": 30,
+      "lessonId": "PRODUCTIVITY_2026_ID_DAY_30",
+      "title": "Master Produktivitas: Integrasi Komprehensif, Komitmen",
+      "lessonCreatedAt": "2026-01-24T09:30:38.857Z",
+      "lessonQuality": {
+        "score": 80,
+        "issues": [
+          "LANGUAGE_MISMATCH_SUSPECTED"
+        ],
+        "signals": {
+          "charCount": 2429,
+          "wordCount": 344,
+          "hasBullets": true,
+          "hasNumberedSteps": true,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "PASS",
+      "rewrite": {
+        "existingCounts": {
+          "total": 7,
+          "valid": 7,
+          "invalid": 0,
+          "application": 5,
+          "critical": 2,
+          "recall": 0,
+          "duplicates": 0
+        }
+      }
+    }
+  ]
+}

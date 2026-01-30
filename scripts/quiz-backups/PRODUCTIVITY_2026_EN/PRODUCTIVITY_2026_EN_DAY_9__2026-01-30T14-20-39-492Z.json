@@ -1,0 +1,82 @@
+{
+  "backedUpAt": "2026-01-30T14:20:42.289Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_EN",
+    "name": "Productivity 2026: How to Manage Teams and Time",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 9,
+    "title": "Delegation vs Elimination: When to Delegate, What to Eliminate",
+    "lessonId": "PRODUCTIVITY_2026_EN_DAY_9"
+  },
+  "questionCount": 3,
+  "questions": [
+    {
+      "_id": "69787d9aa326286129da8fd4",
+      "uuid": "59def245-698a-43e8-8d65-77f1d55297e3",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "In “delegation vs elimination”, which task is the best candidate to eliminate (drop) rather than delegate?",
+      "options": [
+        "A weekly report nobody uses and that does not change any decisions or outcomes.",
+        "Customer support triage that must happen daily to prevent churn and revenue loss.",
+        "A repeatable data entry task that can be done reliably by someone else with instructions.",
+        "Formatting a document that still must be produced, but could be handled by another team member."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day9",
+        "#en",
+        "#course-productivity_2026_en",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "69787d9aa326286129da8fd8",
+      "uuid": "a5ce0097-ee4c-4e5c-a107-ccd9bc869838",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "If you delegate low-value tasks without eliminating any, what is the likely second-order effect?",
+      "options": [
+        "You may still carry too much coordination overhead; eliminating truly unnecessary tasks often yields higher leverage than delegating everything.",
+        "Coordination overhead always drops to zero because delegation removes communication needs completely.",
+        "Delegation guarantees that all tasks become high value, so elimination is never necessary.",
+        "Delegation replaces prioritization, because once delegated, tasks no longer matter to outcomes."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day9",
+        "#en",
+        "#course-productivity_2026_en",
+        "#productivity",
+        "#advanced",
+        "#critical-thinking"
+      ]
+    },
+    {
+      "_id": "69787d9aa326286129da8fd9",
+      "uuid": "b87995bd-3b8a-4578-b062-7f892db54b18",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "You keep doing “quick fixes” yourself because delegating feels slower. What is the best course-aligned adjustment?",
+      "options": [
+        "Invest once in a clear delegation process and documentation so future repeats cost less than repeated solo fixes.",
+        "Keep doing everything yourself; delegation is always slower and never pays back.",
+        "Delegate without context to save time; unclear expectations are fine because speed is the priority.",
+        "Eliminate all tasks, including critical customer work, because any work is a productivity problem."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day9",
+        "#en",
+        "#course-productivity_2026_en",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    }
+  ]
+}

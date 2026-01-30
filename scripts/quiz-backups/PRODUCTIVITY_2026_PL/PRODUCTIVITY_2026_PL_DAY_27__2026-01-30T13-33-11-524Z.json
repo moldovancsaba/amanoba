@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-30T13:33:25.477Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_PL",
+    "name": "Produktywność 2026: Jak zarządzać zespołami i czasem",
+    "language": "pl"
+  },
+  "lesson": {
+    "dayNumber": 27,
+    "title": "Nawyki i Rytuały: Codzienne Rutyny, Długoterminowe Działania",
+    "lessonId": "PRODUCTIVITY_2026_PL_DAY_27"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a348260c12d7a7ac6fc",
+      "uuid": "19fbc80a-838f-4d5f-81dc-27e2d80ac3e9",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "You need to make a decision under constraints. How would you use the \"Buduj nawyki, które natychmiast się nagromadzają.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail , test the results, and document my experiences",
+        "I only understand it theoretically",
+        "Konkretna opcja: I don't apply it.",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day27",
+        "#pl",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a348260c12d7a7ac6fd",
+      "uuid": "bba038d5-f161-4071-91d2-230c346904dc",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Buduj nawyki, które natychmiast się nagromadzają.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day27",
+        "#pl",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a348260c12d7a7ac6fe",
+      "uuid": "b60cba18-aa37-44a3-b659-acc009e62fa0",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Buduj nawyki, które natychmiast się nagromadzają.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day27",
+        "#pl",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a348260c12d7a7ac6ff",
+      "uuid": "c3a4f25b-c4f2-468f-842a-c0f92da6b07b",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Jak koncepcja \"Nawyki i Rytuały: Codzienne Rutyny, Długoterminowe...\", wspomniana w lekcji, wpływa na osiągnięcie twoich goals?",
+      "options": [
+        "Jak szczegółowo opisano w lekcji, Nawyki i Rytuały: Codzienne Ru... zwiększa skuteczność i zmniejsza ryzyko",
+        "Brak znaczącego wpływu",
+        "Ma znaczenie tylko teoretycznie",
+        "Tylko opcjonalny element"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day27",
+        "#pl",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a348260c12d7a7ac700",
+      "uuid": "255886dd-1454-4fe6-9bd8-31af1d8ea673",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Jak ważny jest Nawyki w kontekście Nawyki i Rytuały: Codzienne Rutyny, Długoterminowe Działania, jak omówiono w lekcji?",
+      "options": [
+        "Jak szczegółowo opisano w lekcji, Nawyki odgrywa kluczową rolę w optymalizacji procesów i osiąganiu celów",
+        "Tylko peryferyjne informacje bez znaczącej roli",
+        "Tylko teoretyczna koncepcja bez praktycznego zastosowania",
+        "Wybierasz: Nie wspomniano w lekcji."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day27",
+        "#pl",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "69776a348260c12d7a7ac701",
+      "uuid": "4fe9b518-abed-43e5-ad5e-2f0bec246291",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Jak ważny jest Codzienne w kontekście Nawyki i Rytuały: Codzienne Rutyny, Długoterminowe Działania, jak omówiono w lekcji?",
+      "options": [
+        "Jak szczegółowo opisano w lekcji, Codzienne odgrywa kluczową rolę w optymalizacji procesów i osiąganiu celów",
+        "Tylko peryferyjne informacje bez znaczącej roli",
+        "Tylko teoretyczna koncepcja bez praktycznego zastosowania",
+        "Konkretna opcja: Nie wspomniano w lekcji."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day27",
+        "#pl",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "69776a348260c12d7a7ac702",
+      "uuid": "7a948405-3d03-4243-b59e-1d963938fc4a",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Jak ważny jest Długoterminowe w kontekście Nawyki i Rytuały: Codzienne Rutyny, Długoterminowe Działania, jak omówiono w lekcji?",
+      "options": [
+        "Jak szczegółowo opisano w lekcji, Długoterminowe odgrywa kluczową rolę w optymalizacji procesów i osiąganiu celów",
+        "Tylko peryferyjne informacje bez znaczącej roli",
+        "Tylko teoretyczna koncepcja bez praktycznego zastosowania",
+        "Nie wspomniano w lekcji"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day27",
+        "#pl",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

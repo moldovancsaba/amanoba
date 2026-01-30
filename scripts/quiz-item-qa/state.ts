@@ -4,6 +4,13 @@ import { dirname } from 'path';
 export interface QuizItemQAState {
   lastCompletedItemId?: string;
   lastCompletedItemUpdatedAt?: string;
+  /**
+   * Cursor used by pick:next / loop:run.
+   * Why: metadata.updatedAt changes when we patch an item; we still want to keep
+   * scanning the historical "oldest->newest" stream deterministically.
+   */
+  cursorUpdatedAt?: string;
+  cursorItemId?: string;
   runTimestamp?: string;
   agent?: string;
   notes?: string[];

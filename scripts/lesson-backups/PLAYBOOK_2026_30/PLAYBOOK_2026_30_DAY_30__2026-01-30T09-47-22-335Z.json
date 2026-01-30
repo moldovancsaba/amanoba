@@ -1,0 +1,10 @@
+{
+  "backedUpAt": "2026-01-30T09:47:25.569Z",
+  "courseId": "PLAYBOOK_2026_30",
+  "lessonId": "PLAYBOOK_2026_30_DAY_30",
+  "dayNumber": 30,
+  "title": "Záróprezentáció és bevezetés",
+  "content": "<h1>Záróprezentáció és bevezetés</h1>\n<p><em>Bemutatod a Playbookot, bevezetési ütemtervvel és mérőszámokkal.</em></p>\n<hr />\n<h2>Tanulási cél</h2>\n<ul>\n  <li>Prezentáció: probléma → megoldás → előnyök.</li>\n  <li>Rollout terv: időzítés, mérföldkövek, felelősök.</li>\n  <li>Success metrikák: adoption, hibacsökkenés, reuse arány.</li>\n  <li>Feedback csatornák.</li>\n</ul>\n<hr />\n<h2>Miért fontos</h2>\n<ul>\n  <li>Buy-in és használat nélkül nincs értelme.</li>\n  <li>Rollout nélkül a rendszer a fiókban marad.</li>\n  <li>Metrikák mutatják a hatást.</li>\n</ul>\n<hr />\n<h2>Példák</h2>\n<p><strong>Rossz:</strong> Emailben elküldött PDF, nincs további lépés.</p>\n<p><strong>Jó:</strong> 20 perces demo, rollout ütemterv, metrikák, feedback loop.</p>\n<hr />\n<h2>Gyakorlat (vezetett)</h2>\n<ol>\n  <li>Készíts 10-15 slide-os prezentációt.</li>\n  <li>Írj rollout ütemtervet (hetekre bontva).</li>\n  <li>Definiálj metrikákat és dashboardot.</li>\n</ol>\n<h2>Gyakorlat (önálló)</h2>\n<p>Tarts egy demo sessiont, gyűjts feedbacket, tervezd be a v1.1 javításokat.</p>\n<hr />\n<h2>Önellenőrzés</h2>\n<ul>\n  <li>Prezentáció kész.</li>\n  <li>Rollout terv megvan.</li>\n  <li>Metrikák és feedback csatorna beállítva.</li>\n</ul>",
+  "emailSubject": "Playbook 2026 – 30. nap: Rollout",
+  "emailBody": "<h1>Playbook 2026 – 30. nap</h1>\n<p>Bemutatod a Playbookot, rollout tervvel és metrikákkal.</p>\n<p><a href=\"{{APP_URL}}/courses/PLAYBOOK_2026_30/day/{{dayNumber}}\">Olvasd el a leckét →</a></p>"
+}

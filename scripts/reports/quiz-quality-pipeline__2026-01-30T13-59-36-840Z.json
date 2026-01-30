@@ -1,0 +1,1678 @@
+{
+  "generatedAt": "2026-01-30T13:59:36.840Z",
+  "dryRun": true,
+  "minLessonScore": 70,
+  "courseFilter": "PRODUCTIVITY_2026_TR",
+  "lessonFilter": null,
+  "totals": {
+    "courses": 1,
+    "lessonsEvaluated": 30,
+    "lessonsNeedingRefine": 0,
+    "lessonsRewritten": 27,
+    "lessonsFailedRewrite": 3,
+    "questionsDeleted": 0,
+    "questionsInserted": 0
+  },
+  "lessons": [
+    {
+      "courseId": "PRODUCTIVITY_2026_TR",
+      "courseName": "Verimlilik 2026: Ekipler ve Zaman Nasıl Yönetilir",
+      "language": "tr",
+      "dayNumber": 1,
+      "lessonId": "PRODUCTIVITY_2026_TR_DAY_01",
+      "title": "Verimlilik tanımı: çıktı, sonuçlar ve kısıtlamalar",
+      "lessonCreatedAt": "2026-01-23T19:27:03.117Z",
+      "lessonQuality": {
+        "score": 85,
+        "issues": [
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 2565,
+          "wordCount": 340,
+          "hasBullets": true,
+          "hasNumberedSteps": true,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": true
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "VALIDATED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/PRODUCTIVITY_2026_TR/PRODUCTIVITY_2026_TR_DAY_01__2026-01-30T13-59-36-840Z.json",
+        "insertedCount": 2,
+        "replacedCount": 4,
+        "invalidFound": 0,
+        "duplicatesFound": 4,
+        "questionsDeleted": 0,
+        "warnings": [],
+        "existingCounts": {
+          "total": 7,
+          "valid": 7,
+          "invalid": 0,
+          "application": 5,
+          "critical": 2,
+          "recall": 0,
+          "duplicates": 4
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_TR",
+      "courseName": "Verimlilik 2026: Ekipler ve Zaman Nasıl Yönetilir",
+      "language": "tr",
+      "dayNumber": 2,
+      "lessonId": "PRODUCTIVITY_2026_TR_DAY_02",
+      "title": "Zaman, enerji, dikkat: pratikte yönettiğiniz şeyler",
+      "lessonCreatedAt": "2026-01-23T21:18:33.197Z",
+      "lessonQuality": {
+        "score": 85,
+        "issues": [
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 3261,
+          "wordCount": 452,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": true
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "VALIDATED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/PRODUCTIVITY_2026_TR/PRODUCTIVITY_2026_TR_DAY_02__2026-01-30T13-59-36-840Z.json",
+        "insertedCount": 3,
+        "replacedCount": 4,
+        "invalidFound": 0,
+        "duplicatesFound": 4,
+        "questionsDeleted": 0,
+        "warnings": [],
+        "existingCounts": {
+          "total": 7,
+          "valid": 7,
+          "invalid": 0,
+          "application": 5,
+          "critical": 2,
+          "recall": 0,
+          "duplicates": 4
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_TR",
+      "courseName": "Verimlilik 2026: Ekipler ve Zaman Nasıl Yönetilir",
+      "language": "tr",
+      "dayNumber": 3,
+      "lessonId": "PRODUCTIVITY_2026_TR_DAY_03",
+      "title": "Hedef hiyerarşisi: vizyon → sonuçlar → projeler → sonraki adımlar",
+      "lessonCreatedAt": "2026-01-23T21:24:48.585Z",
+      "lessonQuality": {
+        "score": 85,
+        "issues": [
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 2652,
+          "wordCount": 376,
+          "hasBullets": true,
+          "hasNumberedSteps": true,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": true
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "VALIDATED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/PRODUCTIVITY_2026_TR/PRODUCTIVITY_2026_TR_DAY_03__2026-01-30T13-59-36-840Z.json",
+        "insertedCount": 3,
+        "replacedCount": 4,
+        "invalidFound": 0,
+        "duplicatesFound": 4,
+        "questionsDeleted": 0,
+        "warnings": [],
+        "existingCounts": {
+          "total": 7,
+          "valid": 7,
+          "invalid": 0,
+          "application": 5,
+          "critical": 2,
+          "recall": 0,
+          "duplicates": 4
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_TR",
+      "courseName": "Verimlilik 2026: Ekipler ve Zaman Nasıl Yönetilir",
+      "language": "tr",
+      "dayNumber": 4,
+      "lessonId": "PRODUCTIVITY_2026_TR_DAY_04",
+      "title": "Alışkanlıklar vs sistemler: sistemler neden daha iyi ölçeklenir",
+      "lessonCreatedAt": "2026-01-23T21:30:00.041Z",
+      "lessonQuality": {
+        "score": 100,
+        "issues": [],
+        "signals": {
+          "charCount": 1070,
+          "wordCount": 167,
+          "hasBullets": true,
+          "hasNumberedSteps": true,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "VALIDATED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/PRODUCTIVITY_2026_TR/PRODUCTIVITY_2026_TR_DAY_04__2026-01-30T13-59-36-840Z.json",
+        "insertedCount": 3,
+        "replacedCount": 4,
+        "invalidFound": 0,
+        "duplicatesFound": 4,
+        "questionsDeleted": 0,
+        "warnings": [],
+        "existingCounts": {
+          "total": 7,
+          "valid": 7,
+          "invalid": 0,
+          "application": 5,
+          "critical": 2,
+          "recall": 0,
+          "duplicates": 4
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_TR",
+      "courseName": "Verimlilik 2026: Ekipler ve Zaman Nasıl Yönetilir",
+      "language": "tr",
+      "dayNumber": 5,
+      "lessonId": "PRODUCTIVITY_2026_TR_DAY_05",
+      "title": "Ölçüm: basit haftalık inceleme metrikleri (throughput, odak blokları, carryover)",
+      "lessonCreatedAt": "2026-01-23T21:40:13.911Z",
+      "lessonQuality": {
+        "score": 100,
+        "issues": [],
+        "signals": {
+          "charCount": 1960,
+          "wordCount": 277,
+          "hasBullets": true,
+          "hasNumberedSteps": true,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "VALIDATED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/PRODUCTIVITY_2026_TR/PRODUCTIVITY_2026_TR_DAY_05__2026-01-30T13-59-36-840Z.json",
+        "insertedCount": 2,
+        "replacedCount": 4,
+        "invalidFound": 0,
+        "duplicatesFound": 4,
+        "questionsDeleted": 0,
+        "warnings": [],
+        "existingCounts": {
+          "total": 7,
+          "valid": 7,
+          "invalid": 0,
+          "application": 5,
+          "critical": 2,
+          "recall": 0,
+          "duplicates": 4
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_TR",
+      "courseName": "Verimlilik 2026: Ekipler ve Zaman Nasıl Yönetilir",
+      "language": "tr",
+      "dayNumber": 6,
+      "lessonId": "PRODUCTIVITY_2026_TR_DAY_06",
+      "title": "Yakalama: gelen kutuları, tetikleyici listesi, yakalama alışkanlıkları",
+      "lessonCreatedAt": "2026-01-23T21:43:43.398Z",
+      "lessonQuality": {
+        "score": 85,
+        "issues": [
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 2659,
+          "wordCount": 350,
+          "hasBullets": true,
+          "hasNumberedSteps": true,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": true
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "VALIDATED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/PRODUCTIVITY_2026_TR/PRODUCTIVITY_2026_TR_DAY_06__2026-01-30T13-59-36-840Z.json",
+        "insertedCount": 3,
+        "replacedCount": 5,
+        "invalidFound": 0,
+        "duplicatesFound": 5,
+        "questionsDeleted": 0,
+        "warnings": [],
+        "existingCounts": {
+          "total": 8,
+          "valid": 8,
+          "invalid": 0,
+          "application": 6,
+          "critical": 2,
+          "recall": 0,
+          "duplicates": 5
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_TR",
+      "courseName": "Verimlilik 2026: Ekipler ve Zaman Nasıl Yönetilir",
+      "language": "tr",
+      "dayNumber": 7,
+      "lessonId": "PRODUCTIVITY_2026_TR_DAY_07",
+      "title": "Günlük/Haftalık Sistem: sabah ritüeli, günlük huddle, haftalık inceleme",
+      "lessonCreatedAt": "2026-01-24T08:15:46.926Z",
+      "lessonQuality": {
+        "score": 85,
+        "issues": [
+          "NO_EXAMPLES"
+        ],
+        "signals": {
+          "charCount": 1992,
+          "wordCount": 292,
+          "hasBullets": true,
+          "hasNumberedSteps": true,
+          "hasExamples": false,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": true,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "VALIDATED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/PRODUCTIVITY_2026_TR/PRODUCTIVITY_2026_TR_DAY_07__2026-01-30T13-59-36-840Z.json",
+        "insertedCount": 3,
+        "replacedCount": 4,
+        "invalidFound": 0,
+        "duplicatesFound": 4,
+        "questionsDeleted": 0,
+        "warnings": [],
+        "existingCounts": {
+          "total": 7,
+          "valid": 7,
+          "invalid": 0,
+          "application": 5,
+          "critical": 2,
+          "recall": 0,
+          "duplicates": 4
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_TR",
+      "courseName": "Verimlilik 2026: Ekipler ve Zaman Nasıl Yönetilir",
+      "language": "tr",
+      "dayNumber": 8,
+      "lessonId": "PRODUCTIVITY_2026_TR_DAY_8",
+      "title": "Bağlam Değiştirme Maliyeti: Dikkat Artığı, Toplu İşleme, Derin Çalışma Blokları",
+      "lessonCreatedAt": "2026-01-24T08:31:19.049Z",
+      "lessonQuality": {
+        "score": 85,
+        "issues": [
+          "NO_CLEAR_DEFINITIONS"
+        ],
+        "signals": {
+          "charCount": 2462,
+          "wordCount": 351,
+          "hasBullets": true,
+          "hasNumberedSteps": true,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "VALIDATED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/PRODUCTIVITY_2026_TR/PRODUCTIVITY_2026_TR_DAY_8__2026-01-30T13-59-36-840Z.json",
+        "insertedCount": 3,
+        "replacedCount": 4,
+        "invalidFound": 0,
+        "duplicatesFound": 4,
+        "questionsDeleted": 0,
+        "warnings": [],
+        "existingCounts": {
+          "total": 7,
+          "valid": 7,
+          "invalid": 0,
+          "application": 5,
+          "critical": 2,
+          "recall": 0,
+          "duplicates": 4
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_TR",
+      "courseName": "Verimlilik 2026: Ekipler ve Zaman Nasıl Yönetilir",
+      "language": "tr",
+      "dayNumber": 9,
+      "lessonId": "PRODUCTIVITY_2026_TR_DAY_9",
+      "title": "Delegasyon vs İlim: Ne Zaman Delege Et, Ne Silin",
+      "lessonCreatedAt": "2026-01-24T08:36:24.499Z",
+      "lessonQuality": {
+        "score": 100,
+        "issues": [],
+        "signals": {
+          "charCount": 1672,
+          "wordCount": 259,
+          "hasBullets": true,
+          "hasNumberedSteps": true,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "VALIDATED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/PRODUCTIVITY_2026_TR/PRODUCTIVITY_2026_TR_DAY_9__2026-01-30T13-59-36-840Z.json",
+        "insertedCount": 2,
+        "replacedCount": 4,
+        "invalidFound": 0,
+        "duplicatesFound": 4,
+        "questionsDeleted": 0,
+        "warnings": [],
+        "existingCounts": {
+          "total": 7,
+          "valid": 7,
+          "invalid": 0,
+          "application": 5,
+          "critical": 2,
+          "recall": 0,
+          "duplicates": 4
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_TR",
+      "courseName": "Verimlilik 2026: Ekipler ve Zaman Nasıl Yönetilir",
+      "language": "tr",
+      "dayNumber": 10,
+      "lessonId": "PRODUCTIVITY_2026_TR_DAY_10",
+      "title": "Enerji Yönetimi: Ne Zaman Çalış, Ne Zaman Dinlen, İyileştirme Ritüelleri",
+      "lessonCreatedAt": "2026-01-24T08:40:14.424Z",
+      "lessonQuality": {
+        "score": 70,
+        "issues": [
+          "NO_EXAMPLES",
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 2972,
+          "wordCount": 424,
+          "hasBullets": true,
+          "hasNumberedSteps": true,
+          "hasExamples": false,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": true,
+          "addPitfallsSection": false,
+          "addMetricsSection": true
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "VALIDATED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/PRODUCTIVITY_2026_TR/PRODUCTIVITY_2026_TR_DAY_10__2026-01-30T13-59-36-840Z.json",
+        "insertedCount": 3,
+        "replacedCount": 4,
+        "invalidFound": 0,
+        "duplicatesFound": 4,
+        "questionsDeleted": 0,
+        "warnings": [],
+        "existingCounts": {
+          "total": 7,
+          "valid": 7,
+          "invalid": 0,
+          "application": 5,
+          "critical": 2,
+          "recall": 0,
+          "duplicates": 4
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_TR",
+      "courseName": "Verimlilik 2026: Ekipler ve Zaman Nasıl Yönetilir",
+      "language": "tr",
+      "dayNumber": 11,
+      "lessonId": "PRODUCTIVITY_2026_TR_DAY_11",
+      "title": "Hedef Belirleme ve OKR'ler: Ne Başarmak İstiyorsunuz?",
+      "lessonCreatedAt": "2026-01-24T08:41:51.517Z",
+      "lessonQuality": {
+        "score": 100,
+        "issues": [],
+        "signals": {
+          "charCount": 1267,
+          "wordCount": 194,
+          "hasBullets": true,
+          "hasNumberedSteps": true,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "VALIDATED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/PRODUCTIVITY_2026_TR/PRODUCTIVITY_2026_TR_DAY_11__2026-01-30T13-59-36-840Z.json",
+        "insertedCount": 4,
+        "replacedCount": 5,
+        "invalidFound": 0,
+        "duplicatesFound": 5,
+        "questionsDeleted": 0,
+        "warnings": [],
+        "existingCounts": {
+          "total": 7,
+          "valid": 7,
+          "invalid": 0,
+          "application": 5,
+          "critical": 2,
+          "recall": 0,
+          "duplicates": 5
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_TR",
+      "courseName": "Verimlilik 2026: Ekipler ve Zaman Nasıl Yönetilir",
+      "language": "tr",
+      "dayNumber": 12,
+      "lessonId": "PRODUCTIVITY_2026_TR_DAY_12",
+      "title": "Muhasebeleştirme Yapıları: Sizi Piste Tutacak Sistemler",
+      "lessonCreatedAt": "2026-01-24T09:15:53.925Z",
+      "lessonQuality": {
+        "score": 85,
+        "issues": [
+          "NO_EXAMPLES"
+        ],
+        "signals": {
+          "charCount": 2980,
+          "wordCount": 396,
+          "hasBullets": true,
+          "hasNumberedSteps": true,
+          "hasExamples": false,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": true,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "VALIDATED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/PRODUCTIVITY_2026_TR/PRODUCTIVITY_2026_TR_DAY_12__2026-01-30T13-59-36-840Z.json",
+        "insertedCount": 3,
+        "replacedCount": 4,
+        "invalidFound": 0,
+        "duplicatesFound": 4,
+        "questionsDeleted": 0,
+        "warnings": [],
+        "existingCounts": {
+          "total": 7,
+          "valid": 7,
+          "invalid": 0,
+          "application": 5,
+          "critical": 2,
+          "recall": 0,
+          "duplicates": 4
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_TR",
+      "courseName": "Verimlilik 2026: Ekipler ve Zaman Nasıl Yönetilir",
+      "language": "tr",
+      "dayNumber": 13,
+      "lessonId": "PRODUCTIVITY_2026_TR_DAY_13",
+      "title": "Karar Verme Çerçeveleri: Hızlı Kararlar, Karar Matrisi, Analiz Felçini Önlemek",
+      "lessonCreatedAt": "2026-01-24T09:23:08.777Z",
+      "lessonQuality": {
+        "score": 85,
+        "issues": [
+          "NO_EXAMPLES"
+        ],
+        "signals": {
+          "charCount": 3304,
+          "wordCount": 457,
+          "hasBullets": true,
+          "hasNumberedSteps": true,
+          "hasExamples": false,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": true,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "VALIDATED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/PRODUCTIVITY_2026_TR/PRODUCTIVITY_2026_TR_DAY_13__2026-01-30T13-59-36-840Z.json",
+        "insertedCount": 3,
+        "replacedCount": 4,
+        "invalidFound": 0,
+        "duplicatesFound": 4,
+        "questionsDeleted": 0,
+        "warnings": [],
+        "existingCounts": {
+          "total": 7,
+          "valid": 7,
+          "invalid": 0,
+          "application": 5,
+          "critical": 2,
+          "recall": 0,
+          "duplicates": 4
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_TR",
+      "courseName": "Verimlilik 2026: Ekipler ve Zaman Nasıl Yönetilir",
+      "language": "tr",
+      "dayNumber": 14,
+      "lessonId": "PRODUCTIVITY_2026_TR_DAY_14",
+      "title": "Toplantı Verimliliği: Gündem, Zaman Sınırı, Karar Günlüğü",
+      "lessonCreatedAt": "2026-01-24T09:29:49.166Z",
+      "lessonQuality": {
+        "score": 100,
+        "issues": [],
+        "signals": {
+          "charCount": 1174,
+          "wordCount": 179,
+          "hasBullets": true,
+          "hasNumberedSteps": true,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "VALIDATED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/PRODUCTIVITY_2026_TR/PRODUCTIVITY_2026_TR_DAY_14__2026-01-30T13-59-36-840Z.json",
+        "insertedCount": 2,
+        "replacedCount": 6,
+        "invalidFound": 0,
+        "duplicatesFound": 6,
+        "questionsDeleted": 0,
+        "warnings": [],
+        "existingCounts": {
+          "total": 7,
+          "valid": 7,
+          "invalid": 0,
+          "application": 5,
+          "critical": 2,
+          "recall": 0,
+          "duplicates": 6
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_TR",
+      "courseName": "Verimlilik 2026: Ekipler ve Zaman Nasıl Yönetilir",
+      "language": "tr",
+      "dayNumber": 15,
+      "lessonId": "PRODUCTIVITY_2026_TR_DAY_15",
+      "title": "Takım Çalışması ve Sinerji: Roller, Sorumluluk, Koordinasyon",
+      "lessonCreatedAt": "2026-01-24T09:29:51.957Z",
+      "lessonQuality": {
+        "score": 100,
+        "issues": [],
+        "signals": {
+          "charCount": 1677,
+          "wordCount": 254,
+          "hasBullets": true,
+          "hasNumberedSteps": true,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "VALIDATED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/PRODUCTIVITY_2026_TR/PRODUCTIVITY_2026_TR_DAY_15__2026-01-30T13-59-36-840Z.json",
+        "insertedCount": 1,
+        "replacedCount": 6,
+        "invalidFound": 0,
+        "duplicatesFound": 6,
+        "questionsDeleted": 0,
+        "warnings": [],
+        "existingCounts": {
+          "total": 7,
+          "valid": 7,
+          "invalid": 0,
+          "application": 5,
+          "critical": 2,
+          "recall": 0,
+          "duplicates": 6
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_TR",
+      "courseName": "Verimlilik 2026: Ekipler ve Zaman Nasıl Yönetilir",
+      "language": "tr",
+      "dayNumber": 16,
+      "lessonId": "PRODUCTIVITY_2026_TR_DAY_16",
+      "title": "Stres Yönetimi ve Yorgunluk: Kurtarma, İş-Yaşam Dengesi",
+      "lessonCreatedAt": "2026-01-24T09:29:55.569Z",
+      "lessonQuality": {
+        "score": 100,
+        "issues": [],
+        "signals": {
+          "charCount": 1049,
+          "wordCount": 163,
+          "hasBullets": true,
+          "hasNumberedSteps": true,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "VALIDATED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/PRODUCTIVITY_2026_TR/PRODUCTIVITY_2026_TR_DAY_16__2026-01-30T13-59-36-840Z.json",
+        "insertedCount": 3,
+        "replacedCount": 7,
+        "invalidFound": 0,
+        "duplicatesFound": 7,
+        "questionsDeleted": 0,
+        "warnings": [],
+        "existingCounts": {
+          "total": 7,
+          "valid": 7,
+          "invalid": 0,
+          "application": 5,
+          "critical": 2,
+          "recall": 0,
+          "duplicates": 7
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_TR",
+      "courseName": "Verimlilik 2026: Ekipler ve Zaman Nasıl Yönetilir",
+      "language": "tr",
+      "dayNumber": 17,
+      "lessonId": "PRODUCTIVITY_2026_TR_DAY_17",
+      "title": "Motivasyonu Sürdürme: İlerlemeyi Takip, Kazançları Kutla",
+      "lessonCreatedAt": "2026-01-24T09:29:58.459Z",
+      "lessonQuality": {
+        "score": 100,
+        "issues": [],
+        "signals": {
+          "charCount": 1261,
+          "wordCount": 188,
+          "hasBullets": true,
+          "hasNumberedSteps": true,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "VALIDATED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/PRODUCTIVITY_2026_TR/PRODUCTIVITY_2026_TR_DAY_17__2026-01-30T13-59-36-840Z.json",
+        "insertedCount": 2,
+        "replacedCount": 6,
+        "invalidFound": 0,
+        "duplicatesFound": 6,
+        "questionsDeleted": 0,
+        "warnings": [],
+        "existingCounts": {
+          "total": 7,
+          "valid": 7,
+          "invalid": 0,
+          "application": 5,
+          "critical": 2,
+          "recall": 0,
+          "duplicates": 6
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_TR",
+      "courseName": "Verimlilik 2026: Ekipler ve Zaman Nasıl Yönetilir",
+      "language": "tr",
+      "dayNumber": 18,
+      "lessonId": "PRODUCTIVITY_2026_TR_DAY_18",
+      "title": "Kriz Yönetimi ve Uyarlanabilirlik: Uyum, Hızlı Öğrenme",
+      "lessonCreatedAt": "2026-01-24T09:30:01.435Z",
+      "lessonQuality": {
+        "score": 100,
+        "issues": [],
+        "signals": {
+          "charCount": 1623,
+          "wordCount": 233,
+          "hasBullets": true,
+          "hasNumberedSteps": true,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "VALIDATED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/PRODUCTIVITY_2026_TR/PRODUCTIVITY_2026_TR_DAY_18__2026-01-30T13-59-36-840Z.json",
+        "insertedCount": 2,
+        "replacedCount": 5,
+        "invalidFound": 0,
+        "duplicatesFound": 5,
+        "questionsDeleted": 0,
+        "warnings": [],
+        "existingCounts": {
+          "total": 7,
+          "valid": 7,
+          "invalid": 0,
+          "application": 5,
+          "critical": 2,
+          "recall": 0,
+          "duplicates": 5
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_TR",
+      "courseName": "Verimlilik 2026: Ekipler ve Zaman Nasıl Yönetilir",
+      "language": "tr",
+      "dayNumber": 19,
+      "lessonId": "PRODUCTIVITY_2026_TR_DAY_19",
+      "title": "Uzun Vadeli Planlama: Yıllar İleri, Strateji, Evrim",
+      "lessonCreatedAt": "2026-01-24T09:30:04.684Z",
+      "lessonQuality": {
+        "score": 100,
+        "issues": [],
+        "signals": {
+          "charCount": 1528,
+          "wordCount": 222,
+          "hasBullets": true,
+          "hasNumberedSteps": true,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "VALIDATED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/PRODUCTIVITY_2026_TR/PRODUCTIVITY_2026_TR_DAY_19__2026-01-30T13-59-36-840Z.json",
+        "insertedCount": 4,
+        "replacedCount": 6,
+        "invalidFound": 0,
+        "duplicatesFound": 6,
+        "questionsDeleted": 0,
+        "warnings": [],
+        "existingCounts": {
+          "total": 7,
+          "valid": 7,
+          "invalid": 0,
+          "application": 5,
+          "critical": 2,
+          "recall": 0,
+          "duplicates": 6
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_TR",
+      "courseName": "Verimlilik 2026: Ekipler ve Zaman Nasıl Yönetilir",
+      "language": "tr",
+      "dayNumber": 20,
+      "lessonId": "PRODUCTIVITY_2026_TR_DAY_20",
+      "title": "Kişisel Yaşam Verimliliği: Ev Düzeni, Kişisel Projeler",
+      "lessonCreatedAt": "2026-01-24T09:30:07.594Z",
+      "lessonQuality": {
+        "score": 100,
+        "issues": [],
+        "signals": {
+          "charCount": 1216,
+          "wordCount": 183,
+          "hasBullets": true,
+          "hasNumberedSteps": true,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "VALIDATED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/PRODUCTIVITY_2026_TR/PRODUCTIVITY_2026_TR_DAY_20__2026-01-30T13-59-36-840Z.json",
+        "insertedCount": 2,
+        "replacedCount": 7,
+        "invalidFound": 0,
+        "duplicatesFound": 7,
+        "questionsDeleted": 0,
+        "warnings": [],
+        "existingCounts": {
+          "total": 7,
+          "valid": 7,
+          "invalid": 0,
+          "application": 5,
+          "critical": 2,
+          "recall": 0,
+          "duplicates": 7
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_TR",
+      "courseName": "Verimlilik 2026: Ekipler ve Zaman Nasıl Yönetilir",
+      "language": "tr",
+      "dayNumber": 21,
+      "lessonId": "PRODUCTIVITY_2026_TR_DAY_21",
+      "title": "Topluluk ve Ağ: İlişkiler, Diğerleriyle Öğrenme",
+      "lessonCreatedAt": "2026-01-24T09:30:10.372Z",
+      "lessonQuality": {
+        "score": 100,
+        "issues": [],
+        "signals": {
+          "charCount": 1158,
+          "wordCount": 178,
+          "hasBullets": true,
+          "hasNumberedSteps": true,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "VALIDATED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/PRODUCTIVITY_2026_TR/PRODUCTIVITY_2026_TR_DAY_21__2026-01-30T13-59-36-840Z.json",
+        "insertedCount": 0,
+        "replacedCount": 7,
+        "invalidFound": 0,
+        "duplicatesFound": 7,
+        "questionsDeleted": 0,
+        "warnings": [],
+        "existingCounts": {
+          "total": 7,
+          "valid": 7,
+          "invalid": 0,
+          "application": 5,
+          "critical": 2,
+          "recall": 0,
+          "duplicates": 7
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_TR",
+      "courseName": "Verimlilik 2026: Ekipler ve Zaman Nasıl Yönetilir",
+      "language": "tr",
+      "dayNumber": 22,
+      "lessonId": "PRODUCTIVITY_2026_TR_DAY_22",
+      "title": "Teknoloji ve Araçlar: Otomasyon, Doğru Teknolojiyi Seçme",
+      "lessonCreatedAt": "2026-01-24T09:30:13.143Z",
+      "lessonQuality": {
+        "score": 100,
+        "issues": [],
+        "signals": {
+          "charCount": 1238,
+          "wordCount": 185,
+          "hasBullets": true,
+          "hasNumberedSteps": true,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "VALIDATED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/PRODUCTIVITY_2026_TR/PRODUCTIVITY_2026_TR_DAY_22__2026-01-30T13-59-36-840Z.json",
+        "insertedCount": 2,
+        "replacedCount": 5,
+        "invalidFound": 0,
+        "duplicatesFound": 5,
+        "questionsDeleted": 0,
+        "warnings": [],
+        "existingCounts": {
+          "total": 7,
+          "valid": 7,
+          "invalid": 0,
+          "application": 5,
+          "critical": 2,
+          "recall": 0,
+          "duplicates": 5
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_TR",
+      "courseName": "Verimlilik 2026: Ekipler ve Zaman Nasıl Yönetilir",
+      "language": "tr",
+      "dayNumber": 23,
+      "lessonId": "PRODUCTIVITY_2026_TR_DAY_23",
+      "title": "Yaratıcılık ve Yenilik: Yeniden Düşünme, Deneyler",
+      "lessonCreatedAt": "2026-01-24T09:30:15.923Z",
+      "lessonQuality": {
+        "score": 100,
+        "issues": [],
+        "signals": {
+          "charCount": 1628,
+          "wordCount": 235,
+          "hasBullets": true,
+          "hasNumberedSteps": true,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "VALIDATED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/PRODUCTIVITY_2026_TR/PRODUCTIVITY_2026_TR_DAY_23__2026-01-30T13-59-36-840Z.json",
+        "insertedCount": 2,
+        "replacedCount": 6,
+        "invalidFound": 0,
+        "duplicatesFound": 6,
+        "questionsDeleted": 0,
+        "warnings": [],
+        "existingCounts": {
+          "total": 7,
+          "valid": 7,
+          "invalid": 0,
+          "application": 5,
+          "critical": 2,
+          "recall": 0,
+          "duplicates": 6
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_TR",
+      "courseName": "Verimlilik 2026: Ekipler ve Zaman Nasıl Yönetilir",
+      "language": "tr",
+      "dayNumber": 24,
+      "lessonId": "PRODUCTIVITY_2026_TR_DAY_24",
+      "title": "Filtreleme ve Öncelikler: Neyi Görmezden Gelir, Önemli Olan",
+      "lessonCreatedAt": "2026-01-24T09:30:18.760Z",
+      "lessonQuality": {
+        "score": 100,
+        "issues": [],
+        "signals": {
+          "charCount": 1140,
+          "wordCount": 175,
+          "hasBullets": true,
+          "hasNumberedSteps": true,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "VALIDATED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/PRODUCTIVITY_2026_TR/PRODUCTIVITY_2026_TR_DAY_24__2026-01-30T13-59-36-840Z.json",
+        "insertedCount": 4,
+        "replacedCount": 6,
+        "invalidFound": 0,
+        "duplicatesFound": 6,
+        "questionsDeleted": 0,
+        "warnings": [],
+        "existingCounts": {
+          "total": 7,
+          "valid": 7,
+          "invalid": 0,
+          "application": 5,
+          "critical": 2,
+          "recall": 0,
+          "duplicates": 6
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_TR",
+      "courseName": "Verimlilik 2026: Ekipler ve Zaman Nasıl Yönetilir",
+      "language": "tr",
+      "dayNumber": 25,
+      "lessonId": "PRODUCTIVITY_2026_TR_DAY_25",
+      "title": "Beceri Geliştirme: Daha Yüksek Seviyeler, Yeni Yetkinlikler",
+      "lessonCreatedAt": "2026-01-24T09:30:21.308Z",
+      "lessonQuality": {
+        "score": 100,
+        "issues": [],
+        "signals": {
+          "charCount": 1260,
+          "wordCount": 188,
+          "hasBullets": true,
+          "hasNumberedSteps": true,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "VALIDATED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/PRODUCTIVITY_2026_TR/PRODUCTIVITY_2026_TR_DAY_25__2026-01-30T13-59-36-840Z.json",
+        "insertedCount": 3,
+        "replacedCount": 5,
+        "invalidFound": 0,
+        "duplicatesFound": 5,
+        "questionsDeleted": 0,
+        "warnings": [],
+        "existingCounts": {
+          "total": 7,
+          "valid": 7,
+          "invalid": 0,
+          "application": 5,
+          "critical": 2,
+          "recall": 0,
+          "duplicates": 5
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_TR",
+      "courseName": "Verimlilik 2026: Ekipler ve Zaman Nasıl Yönetilir",
+      "language": "tr",
+      "dayNumber": 26,
+      "lessonId": "PRODUCTIVITY_2026_TR_DAY_26",
+      "title": "Mentorlaştırma ve Öğretim: Bilgi Paylaşma, Başkalarına Yardım",
+      "lessonCreatedAt": "2026-01-24T09:30:24.052Z",
+      "lessonQuality": {
+        "score": 100,
+        "issues": [],
+        "signals": {
+          "charCount": 1716,
+          "wordCount": 262,
+          "hasBullets": true,
+          "hasNumberedSteps": true,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "VALIDATED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/PRODUCTIVITY_2026_TR/PRODUCTIVITY_2026_TR_DAY_26__2026-01-30T13-59-36-840Z.json",
+        "insertedCount": 3,
+        "replacedCount": 7,
+        "invalidFound": 0,
+        "duplicatesFound": 7,
+        "questionsDeleted": 0,
+        "warnings": [],
+        "existingCounts": {
+          "total": 7,
+          "valid": 7,
+          "invalid": 0,
+          "application": 5,
+          "critical": 2,
+          "recall": 0,
+          "duplicates": 7
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_TR",
+      "courseName": "Verimlilik 2026: Ekipler ve Zaman Nasıl Yönetilir",
+      "language": "tr",
+      "dayNumber": 27,
+      "lessonId": "PRODUCTIVITY_2026_TR_DAY_27",
+      "title": "Alışkanlıklar ve Ritueller: Günlük Rutinler, Uzun Vadeli Eylem",
+      "lessonCreatedAt": "2026-01-24T09:30:26.830Z",
+      "lessonQuality": {
+        "score": 100,
+        "issues": [],
+        "signals": {
+          "charCount": 1070,
+          "wordCount": 167,
+          "hasBullets": true,
+          "hasNumberedSteps": true,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "REWRITE_FAILED",
+      "rewrite": {
+        "errors": [
+          "APPLICATION questions: 4 (must be at least 5). Regenerate/add questions."
+        ],
+        "warnings": [],
+        "existingCounts": {
+          "total": 7,
+          "valid": 7,
+          "invalid": 0,
+          "application": 5,
+          "critical": 2,
+          "recall": 0,
+          "duplicates": 7
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_TR",
+      "courseName": "Verimlilik 2026: Ekipler ve Zaman Nasıl Yönetilir",
+      "language": "tr",
+      "dayNumber": 28,
+      "lessonId": "PRODUCTIVITY_2026_TR_DAY_28",
+      "title": "Değerler ve Hedefler: Yaşam Amacı, Uzun Vadeli Vizyon",
+      "lessonCreatedAt": "2026-01-24T09:30:30.554Z",
+      "lessonQuality": {
+        "score": 100,
+        "issues": [],
+        "signals": {
+          "charCount": 1057,
+          "wordCount": 166,
+          "hasBullets": true,
+          "hasNumberedSteps": true,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "REWRITE_FAILED",
+      "rewrite": {
+        "errors": [
+          "APPLICATION questions: 3 (must be at least 5). Regenerate/add questions."
+        ],
+        "warnings": [],
+        "existingCounts": {
+          "total": 7,
+          "valid": 7,
+          "invalid": 0,
+          "application": 5,
+          "critical": 2,
+          "recall": 0,
+          "duplicates": 7
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_TR",
+      "courseName": "Verimlilik 2026: Ekipler ve Zaman Nasıl Yönetilir",
+      "language": "tr",
+      "dayNumber": 29,
+      "lessonId": "PRODUCTIVITY_2026_TR_DAY_29",
+      "title": "Sürekli İyileştirme: Öğrenme, Geri Bildirim, İterasyon",
+      "lessonCreatedAt": "2026-01-24T09:30:34.287Z",
+      "lessonQuality": {
+        "score": 100,
+        "issues": [],
+        "signals": {
+          "charCount": 1791,
+          "wordCount": 256,
+          "hasBullets": true,
+          "hasNumberedSteps": true,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "VALIDATED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/PRODUCTIVITY_2026_TR/PRODUCTIVITY_2026_TR_DAY_29__2026-01-30T13-59-36-840Z.json",
+        "insertedCount": 0,
+        "replacedCount": 7,
+        "invalidFound": 0,
+        "duplicatesFound": 7,
+        "questionsDeleted": 0,
+        "warnings": [],
+        "existingCounts": {
+          "total": 7,
+          "valid": 7,
+          "invalid": 0,
+          "application": 5,
+          "critical": 2,
+          "recall": 0,
+          "duplicates": 7
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_TR",
+      "courseName": "Verimlilik 2026: Ekipler ve Zaman Nasıl Yönetilir",
+      "language": "tr",
+      "dayNumber": 30,
+      "lessonId": "PRODUCTIVITY_2026_TR_DAY_30",
+      "title": "Verimlilik Ustası: Kapsamlı Entegrasyon, Taahhüt",
+      "lessonCreatedAt": "2026-01-24T09:30:37.635Z",
+      "lessonQuality": {
+        "score": 100,
+        "issues": [],
+        "signals": {
+          "charCount": 1868,
+          "wordCount": 267,
+          "hasBullets": true,
+          "hasNumberedSteps": true,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "REWRITE_FAILED",
+      "rewrite": {
+        "errors": [
+          "APPLICATION questions: 4 (must be at least 5). Regenerate/add questions."
+        ],
+        "warnings": [],
+        "existingCounts": {
+          "total": 7,
+          "valid": 7,
+          "invalid": 0,
+          "application": 5,
+          "critical": 2,
+          "recall": 0,
+          "duplicates": 7
+        }
+      }
+    }
+  ]
+}

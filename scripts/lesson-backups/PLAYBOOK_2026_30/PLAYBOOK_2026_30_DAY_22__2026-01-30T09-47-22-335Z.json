@@ -1,0 +1,10 @@
+{
+  "backedUpAt": "2026-01-30T09:47:24.903Z",
+  "courseId": "PLAYBOOK_2026_30",
+  "lessonId": "PLAYBOOK_2026_30_DAY_22",
+  "dayNumber": 22,
+  "title": "Változáskezelés a design rendszerben",
+  "content": "<h1>Változáskezelés a design rendszerben</h1>\n<p><em>Release, review, jóváhagyás és kommunikáció folyamata a design rendszerben.</em></p>\n<hr />\n<h2>Tanulási cél</h2>\n<ul>\n  <li>Change request flow: RFC → review → QA → release.</li>\n  <li>Owner szerepek: design, fejlesztés, QA.</li>\n  <li>Changelog és verziózás kötelező.</li>\n  <li>Kommunikáció: release note + enablement.</li>\n</ul>\n<hr />\n<h2>Miért fontos</h2>\n<ul>\n  <li>Kontroll nélkül a rendszer törik.</li>\n  <li>Átlátható folyamat = bizalom.</li>\n  <li>Segíti a csapatot az adoptálásban.</li>\n</ul>\n<hr />\n<h2>Magyarázat</h2>\n<ul>\n  <li>RFC: probléma, javaslat, hatás.</li>\n  <li>Review: design + dev + a11y.</li>\n  <li>QA: vizuális + funkcionális + a11y teszt.</li>\n  <li>Release: verzió, changelog, rollout terv.</li>\n</ul>\n<hr />\n<h2>Példák</h2>\n<p><strong>Rossz:</strong> Slack üzenet alapján módosított gomb.</p>\n<p><strong>Jó:</strong> RFC → review → QA → changelog → kommunikáció.</p>\n<hr />\n<h2>Gyakorlat (vezetett)</h2>\n<ol>\n  <li>Készíts RFC sablont.</li>\n  <li>Írj release note mintát.</li>\n  <li>Definiáld az owner szerepeket.</li>\n</ol>\n<h2>Gyakorlat (önálló)</h2>\n<p>Végy egy közelgő változtatást, vezesd át az RFC folyamaton.</p>\n<hr />\n<h2>Önellenőrzés</h2>\n<ul>\n  <li>RFC sablon kész.</li>\n  <li>Release note minta kész.</li>\n  <li>Owner szerepek tiszták.</li>\n</ul>\n<hr />\n<h2>Opcionális mélyítés</h2>\n<ul>\n  <li>Design system governance: <a href=\"https://www.designsystems.com/governance\" target=\"_blank\" rel=\"noreferrer\">https://www.designsystems.com/governance</a></li>\n</ul>",
+  "emailSubject": "Playbook 2026 – 22. nap: Változáskezelés",
+  "emailBody": "<h1>Playbook 2026 – 22. nap</h1>\n<p>Bevezetsz RFC → review → QA → release folyamatot.</p>\n<p><a href=\"{{APP_URL}}/courses/PLAYBOOK_2026_30/day/{{dayNumber}}\">Olvasd el a leckét →</a></p>"
+}
