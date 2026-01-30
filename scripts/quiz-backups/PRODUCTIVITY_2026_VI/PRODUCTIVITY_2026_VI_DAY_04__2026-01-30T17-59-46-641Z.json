@@ -1,0 +1,177 @@
+{
+  "backedUpAt": "2026-01-30T17:59:50.211Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_VI",
+    "name": "Năng suất 2026: Cách quản lý nhóm và thời gian",
+    "language": "vi"
+  },
+  "lesson": {
+    "dayNumber": 4,
+    "title": "Thói quen vs hệ thống: tại sao hệ thống mở rộng tốt hơn",
+    "lessonId": "PRODUCTIVITY_2026_VI_DAY_04"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "6979db419316e77110ed0788",
+      "uuid": "b7919ec6-2ed7-4197-ae81-6eacecc5fd24",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Bạn triển khai một thực hành mới: “thực hành (20-25 phút) — Thói quen hay hệ thống? Danh sách q”. Kế hoạch nào tạo output đo được và phản hồi nhanh?",
+      "options": [
+        "Triển khai từng bước: đặt tiêu chí/metric, chạy pilot nhỏ, đo trước/sau, ghi lại kết quả và chỉnh một rule mỗi lần.",
+        "Đổi tất cả cùng lúc, không có metric hay điểm kiểm tra, rồi đoán thứ gì đã hiệu quả.",
+        "Bắt đầu nhưng không đo tác động (không có trước/sau), nên không biết chất lượng kết quả.",
+        "Làm cho có nhưng không có owner/thời hạn/ngưỡng, nên không gắn được với outcome."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day4",
+        "#vi",
+        "#all-languages",
+        "#course-productivity_2026_vi",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "6979db419316e77110ed0789",
+      "uuid": "145fe876-24e2-4f4b-9c57-d1eb166c6668",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Bạn triển khai một thực hành mới: “Bạn hiểu sự khác biệt giữa thói quen và hệ thống. Bạn biết k”. Kế hoạch nào tạo output đo được và phản hồi nhanh?",
+      "options": [
+        "Triển khai từng bước: đặt tiêu chí/metric, chạy pilot nhỏ, đo trước/sau, ghi lại kết quả và chỉnh một rule mỗi lần.",
+        "Đổi tất cả cùng lúc, không có metric hay điểm kiểm tra, rồi đoán thứ gì đã hiệu quả.",
+        "Bắt đầu nhưng không đo tác động (không có trước/sau), nên không biết chất lượng kết quả.",
+        "Làm cho có nhưng không có owner/thời hạn/ngưỡng, nên không gắn được với outcome."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day4",
+        "#vi",
+        "#all-languages",
+        "#course-productivity_2026_vi",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "6979db419316e77110ed078a",
+      "uuid": "b7abe914-10cd-486d-8b1b-951911ff92aa",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Bạn triển khai một thực hành mới: “Ví dụ: \"Tôi chạy mỗi sáng lúc 6 giờ”. Kế hoạch nào tạo output đo được và phản hồi nhanh?",
+      "options": [
+        "Triển khai từng bước: đặt tiêu chí/metric, chạy pilot nhỏ, đo trước/sau, ghi lại kết quả và chỉnh một rule mỗi lần.",
+        "Đổi tất cả cùng lúc, không có metric hay điểm kiểm tra, rồi đoán thứ gì đã hiệu quả.",
+        "Bắt đầu nhưng không đo tác động (không có trước/sau), nên không biết chất lượng kết quả.",
+        "Làm cho có nhưng không có owner/thời hạn/ngưỡng, nên không gắn được với outcome."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day4",
+        "#vi",
+        "#all-languages",
+        "#course-productivity_2026_vi",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "6979db419316e77110ed078b",
+      "uuid": "1d77ac9c-8b65-4d8e-b4d0-df4986b2f813",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Bạn triển khai một thực hành mới: “Ví dụ: \"Hệ thống xử lý email: hộp thư đến → xử lý → lưu trữ”. Kế hoạch nào tạo output đo được và phản hồi nhanh?",
+      "options": [
+        "Triển khai từng bước: đặt tiêu chí/metric, chạy pilot nhỏ, đo trước/sau, ghi lại kết quả và chỉnh một rule mỗi lần.",
+        "Đổi tất cả cùng lúc, không có metric hay điểm kiểm tra, rồi đoán thứ gì đã hiệu quả.",
+        "Bắt đầu nhưng không đo tác động (không có trước/sau), nên không biết chất lượng kết quả.",
+        "Làm cho có nhưng không có owner/thời hạn/ngưỡng, nên không gắn được với outcome."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day4",
+        "#vi",
+        "#all-languages",
+        "#course-productivity_2026_vi",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "6979db419316e77110ed078c",
+      "uuid": "45319817-8d3b-4af6-9587-a77215ce7067",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Bạn triển khai một thực hành mới: “Ví dụ thực tế Cách tiếp cận dựa trên thói quen: \"Nhớ kiểm tr”. Kế hoạch nào tạo output đo được và phản hồi nhanh?",
+      "options": [
+        "Triển khai từng bước: đặt tiêu chí/metric, chạy pilot nhỏ, đo trước/sau, ghi lại kết quả và chỉnh một rule mỗi lần.",
+        "Đổi tất cả cùng lúc, không có metric hay điểm kiểm tra, rồi đoán thứ gì đã hiệu quả.",
+        "Bắt đầu nhưng không đo tác động (không có trước/sau), nên không biết chất lượng kết quả.",
+        "Làm cho có nhưng không có owner/thời hạn/ngưỡng, nên không gắn được với outcome."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day4",
+        "#vi",
+        "#all-languages",
+        "#course-productivity_2026_vi",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "6979db419316e77110ed078d",
+      "uuid": "90127b15-8e94-401d-bd8e-6474502a261f",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Một lãnh đạo ra quyết định theo nguyên tắc: “Thói quen vs hệ thống: tại sao hệ thống mở rộng tốt hơn Chìa khóa của năng suất:”. Tác động nào có khả năng nhất để đạt mục tiêu, và rủi ro điển hình nào xảy ra nếu hiểu sai hoặc đo sai?",
+      "options": [
+        "Tập trung đúng giúp tăng kết quả vì tối ưu output dưới các giới hạn; rủi ro: tối ưu sai metric tạo “output bận rộn” nhưng không cải thiện outcome.",
+        "Chỉ cần làm nhiều việc hơn vì hoạt động = kết quả; rủi ro: tăng nhiễu, giảm chất lượng và giá trị cho khách hàng.",
+        "Bỏ qua giới hạn (thời gian/năng lượng/chú ý) vì “cố gắng là đủ”; rủi ro: quá tải, sai sót và kiệt sức làm outcome xấu đi.",
+        "Ưu tiên tốc độ, chất lượng sửa sau; rủi ro: rework tăng và throughput giảm."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day4",
+        "#vi",
+        "#all-languages",
+        "#course-productivity_2026_vi",
+        "#productivity",
+        "#advanced",
+        "#critical-thinking"
+      ]
+    },
+    {
+      "_id": "6979db419316e77110ed078e",
+      "uuid": "3888bbf9-8908-488a-82e7-128ed50db23c",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Một lãnh đạo ra quyết định theo nguyên tắc: “Xác định khi nào sử dụng thói quen vs hệ thống”. Tác động nào có khả năng nhất để đạt mục tiêu, và rủi ro điển hình nào xảy ra nếu hiểu sai hoặc đo sai?",
+      "options": [
+        "Tập trung đúng giúp tăng kết quả vì tối ưu output dưới các giới hạn; rủi ro: tối ưu sai metric tạo “output bận rộn” nhưng không cải thiện outcome.",
+        "Chỉ cần làm nhiều việc hơn vì hoạt động = kết quả; rủi ro: tăng nhiễu, giảm chất lượng và giá trị cho khách hàng.",
+        "Bỏ qua giới hạn (thời gian/năng lượng/chú ý) vì “cố gắng là đủ”; rủi ro: quá tải, sai sót và kiệt sức làm outcome xấu đi.",
+        "Ưu tiên tốc độ, chất lượng sửa sau; rủi ro: rework tăng và throughput giảm."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day4",
+        "#vi",
+        "#all-languages",
+        "#course-productivity_2026_vi",
+        "#productivity",
+        "#advanced",
+        "#critical-thinking"
+      ]
+    }
+  ]
+}

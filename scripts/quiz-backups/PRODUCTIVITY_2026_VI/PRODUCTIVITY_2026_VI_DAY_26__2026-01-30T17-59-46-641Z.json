@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-30T18:00:01.884Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_VI",
+    "name": "Năng suất 2026: Cách quản lý nhóm và thời gian",
+    "language": "vi"
+  },
+  "lesson": {
+    "dayNumber": 26,
+    "title": "Cố Vấn và Giảng Dạy: Chia Sẻ Kiến Thức, Giúp Người Khác",
+    "lessonId": "PRODUCTIVITY_2026_VI_DAY_26"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a1ebfaf876426527675",
+      "uuid": "6ec5e069-e824-4e30-9823-39ceb953c2e4",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "You are working on a task and must pick an approach. How would you use the \"Dạy cho người khác tăng tốc độ học tập của bạn.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail , test the results, and document my experiences",
+        "I only understand it theoretically",
+        "Ban chon: I don't apply it.",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day26",
+        "#vi",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a1ebfaf876426527676",
+      "uuid": "141bb1a4-27e7-488b-9311-13ae9011fb7b",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Dạy cho người khác tăng tốc độ học tập của bạn.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail , test the results, and document my experiences",
+        "I only understand it theoretically",
+        "Lua chon cu the: I don't apply it.",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day26",
+        "#vi",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a1ebfaf876426527677",
+      "uuid": "bc79e45a-b8d8-4088-9b50-29e26ccc303a",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "You need to make a decision under constraints. How would you use the \"Dạy cho người khác tăng tốc độ học tập của bạn.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail , test the results, and document my experiences",
+        "I only understand it theoretically",
+        "Lua chon cu the: I don't apply it.",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day26",
+        "#vi",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a1ebfaf876426527678",
+      "uuid": "469ea835-305b-427d-86c0-d63531be65ab",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Khái niệm \"Cố Vấn và Giảng Dạy: Chia Sẻ Kiến Thức, Giúp Người...\" được đề cập trong bài học ảnh hưởng như thế nào đến việc đạt được goals của bạn?",
+      "options": [
+        "Như đã mô tả chi tiết trong bài học, Cố Vấn và Giảng Dạy: Chia Sẻ K... tăng hiệu quả và giảm rủi ro",
+        "Không có tác động đáng kể",
+        "Chỉ quan trọng về mặt lý thuyết",
+        "Chỉ là yếu tố tùy chọn"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day26",
+        "#vi",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a1ebfaf876426527679",
+      "uuid": "43e4aead-0066-48dc-8c9f-862b6974d73b",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Giảng quan trọng như thế nào trong ngữ cảnh của Cố Vấn và Giảng Dạy: Chia Sẻ Kiến Thức, Giúp Người Khác như được thảo luận trong bài học?",
+      "options": [
+        "Như đã mô tả chi tiết trong bài học, Giảng đóng vai trò quan trọng trong việc tối ưu hóa quy trình và đạt được mục tiêu",
+        "Chỉ là thông tin ngoại vi không có vai trò quan trọng",
+        "Chỉ là một khái niệm lý thuyết không có ứng dụng thực tế",
+        "Không được đề cập trong bài học"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day26",
+        "#vi",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a1ebfaf87642652767a",
+      "uuid": "1b680a6c-2343-4038-81cb-7e8bed18aeaf",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Kiến quan trọng như thế nào trong ngữ cảnh của Cố Vấn và Giảng Dạy: Chia Sẻ Kiến Thức, Giúp Người Khác như được thảo luận trong bài học?",
+      "options": [
+        "Như đã mô tả chi tiết trong bài học, Kiến đóng vai trò quan trọng trong việc tối ưu hóa quy trình và đạt được mục tiêu",
+        "Chỉ là thông tin ngoại vi không có vai trò quan trọng",
+        "Chỉ là một khái niệm lý thuyết không có ứng dụng thực tế",
+        "Không được đề cập trong bài học"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day26",
+        "#vi",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a1ebfaf87642652767b",
+      "uuid": "ce493c61-5476-449e-8676-c3693e1dd91d",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Giúp quan trọng như thế nào trong ngữ cảnh của Cố Vấn và Giảng Dạy: Chia Sẻ Kiến Thức, Giúp Người Khác như được thảo luận trong bài học?",
+      "options": [
+        "Như đã mô tả chi tiết trong bài học, Giúp đóng vai trò quan trọng trong việc tối ưu hóa quy trình và đạt được mục tiêu",
+        "Chỉ là thông tin ngoại vi không có vai trò quan trọng",
+        "Chỉ là một khái niệm lý thuyết không có ứng dụng thực tế",
+        "Không được đề cập trong bài học"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day26",
+        "#vi",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

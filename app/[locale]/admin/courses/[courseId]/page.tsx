@@ -7,7 +7,7 @@
 
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { useRouter } from 'next/navigation';
 import { useLocale } from 'next-intl';
 import Link from 'next/link';
@@ -76,10 +76,27 @@ interface Lesson {
   emailSubject: string;
   emailBody: string;
   assessmentGameId?: string;
+  quizConfig?: {
+    enabled: boolean;
+    successThreshold: number;
+    questionCount: number;
+    poolSize: number;
+    required: boolean;
+  };
   pointsReward: number;
   xpReward: number;
   isActive: boolean;
 }
+
+type LessonWithQuizConfig = Lesson & {
+  quizConfig?: {
+    enabled: boolean;
+    successThreshold: number;
+    questionCount: number;
+    poolSize: number;
+    required: boolean;
+  };
+};
 
 interface Game {
   _id: string;
@@ -1138,14 +1155,14 @@ function LessonFormModal({
   games,
   onClose,
   onSave,
-}: {
-  courseId: string;
-  dayNumber: number;
-  lesson: Lesson | null;
-  games: Game[];
-  onClose: () => void;
-  onSave: () => void;
-}) {
+	}: {
+	  courseId: string;
+	  dayNumber: number;
+	  lesson: LessonWithQuizConfig | null;
+	  games: Game[];
+	  onClose: () => void;
+	  onSave: () => void;
+	}) {
   const [formData, setFormData] = useState({
     lessonId: lesson?.lessonId || `DAY_${dayNumber.toString().padStart(2, '0')}`,
     title: lesson?.title || '',
@@ -1172,7 +1189,7 @@ function LessonFormModal({
     const looksLikeHtml = /<\/?[a-z][\s\S]*>/i.test(trimmed);
     if (looksLikeHtml) return trimmed;
     // Otherwise treat as Markdown and convert to HTML
-    return marked.parse(trimmed, { mangle: false, headerIds: false });
+    return marked.parse(trimmed);
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -1521,11 +1538,7 @@ function QuizManagerModal({
     isActive: true,
   });
 
-  useEffect(() => {
-    fetchQuestions();
-  }, [courseId, lessonId]);
-
-  const fetchQuestions = async () => {
+  const fetchQuestions = useCallback(async () => {
     try {
       setLoading(true);
       const response = await fetch(`/api/admin/courses/${courseId}/lessons/${lessonId}/quiz`);
@@ -1539,7 +1552,11 @@ function QuizManagerModal({
     } finally {
       setLoading(false);
     }
-  };
+  }, [courseId, lessonId]);
+
+  useEffect(() => {
+    void fetchQuestions();
+  }, [fetchQuestions]);
 
   const handleSaveQuestion = async () => {
     try {

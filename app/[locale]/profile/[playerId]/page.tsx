@@ -10,6 +10,7 @@
 
 import { useState, useEffect } from 'react';
 import { useSession } from 'next-auth/react';
+import { useLocale } from 'next-intl';
 import PlayerAvatar from '@/components/PlayerAvatar';
 import { 
   Trophy, 
@@ -27,17 +28,95 @@ import {
 // Force dynamic rendering
 export const dynamic = 'force-dynamic';
 
+// Types for profile API response
+interface ProfilePlayer {
+  id?: string;
+  displayName?: string;
+  profilePicture?: string | null;
+  level?: number;
+  isPremium?: boolean;
+  profileVisibility?: string;
+}
+interface ProfileProgression {
+  level?: number;
+  title?: string;
+  currentXP?: number;
+  xpToNextLevel?: number;
+  nextTitle?: string;
+}
+interface ProfileStatistics {
+  totalGamesPlayed?: number;
+  winRate?: number;
+  highestScore?: number;
+  perfectGames?: number;
+  averageSessionTime?: number;
+}
+interface ProfileAchievements {
+  unlocked?: number;
+  total?: number;
+  progress?: number;
+  featured?: Array<{ id?: string; name?: string; tier?: string; description?: string; icon?: unknown; unlockedAt?: string }>;
+}
+interface ProfileStreaks {
+  win?: { current?: number; longest?: number };
+  daily?: { current?: number; longest?: number };
+}
+interface ProfileWallet {
+  currentBalance: number;
+  lifetimeEarned: number;
+  lifetimeSpent: number;
+}
+interface ProfileActivity {
+  gameIcon?: unknown;
+  gameName?: string;
+  outcome?: string;
+  score?: number;
+  pointsEarned?: number;
+  createdAt?: string;
+  playedAt?: string;
+  duration?: number;
+}
+interface ProfileData {
+  player?: ProfilePlayer;
+  progression?: ProfileProgression;
+  statistics?: ProfileStatistics;
+  achievements?: ProfileAchievements;
+  streaks?: ProfileStreaks;
+  wallet?: ProfileWallet;
+  recentActivity?: ProfileActivity[];
+}
+interface CertificateItem {
+  courseId: string;
+  courseTitle?: string;
+  verificationSlug?: string | null;
+  score?: number | null;
+}
+interface PaymentTx {
+  id?: string;
+  currency?: string;
+  amount?: number;
+  status?: string;
+  createdAt?: string;
+  courseName?: string;
+  premiumGranted?: boolean;
+  premiumExpiresAt?: string;
+  paymentMethod?: { brand?: string; last4?: string };
+  stripeCheckoutSessionId?: string;
+  stripePaymentIntentId?: string;
+}
+
 export default function ProfilePage({ params }: { params: Promise<{ playerId: string }> }) {
   const { data: session } = useSession();
+  const locale = useLocale();
   const [playerId, setPlayerId] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
-  const [profileData, setProfileData] = useState<Record<string, unknown> | null>(null);
+  const [profileData, setProfileData] = useState<ProfileData | null>(null);
   const [apiError, setApiError] = useState<string | null>(null);
   const [apiLoading, setApiLoading] = useState(false);
   const [activeTab, setActiveTab] = useState<'overview' | 'achievements' | 'activity' | 'payments' | 'settings'>('overview');
-  const [paymentData, setPaymentData] = useState<Record<string, unknown>[] | null>(null);
+  const [paymentData, setPaymentData] = useState<PaymentTx[] | null>(null);
   const [paymentLoading, setPaymentLoading] = useState(false);
-  const [certificatesData, setCertificatesData] = useState<Record<string, unknown>[]>([]);
+  const [certificatesData, setCertificatesData] = useState<CertificateItem[]>([]);
   const [certificatesLoading, setCertificatesLoading] = useState(false);
   const [editDisplayName, setEditDisplayName] = useState('');
   const [profileSaveLoading, setProfileSaveLoading] = useState(false);
@@ -78,8 +157,8 @@ export default function ProfilePage({ params }: { params: Promise<{ playerId: st
         const res = await fetch(`/api/profile/${playerId}`);
         const data = await res.json();
         if (data.success) {
-          setProfileData(data.profile);
-          setEditDisplayName(data.profile?.player?.displayName ?? '');
+          setProfileData((data.profile ?? null) as ProfileData | null);
+          setEditDisplayName((data.profile as ProfileData | undefined)?.player?.displayName ?? '');
         } else {
           setApiError(data.error || 'Failed to load profile');
         }
@@ -109,7 +188,7 @@ export default function ProfilePage({ params }: { params: Promise<{ playerId: st
         const res = await fetch('/api/payments/history');
         const data = await res.json();
         if (data.success) {
-          setPaymentData(data.transactions || []);
+          setPaymentData((data.transactions || []) as PaymentTx[]);
         }
       } catch (error) {
         console.error('Failed to fetch payment history:', error);
@@ -153,7 +232,7 @@ export default function ProfilePage({ params }: { params: Promise<{ playerId: st
             }
           });
 
-          const certificates = (await Promise.all(certificatePromises)).filter((c) => c !== null);
+          const certificates = (await Promise.all(certificatePromises)).filter((c): c is CertificateItem => c !== null);
           setCertificatesData(certificates);
         }
       } catch (error) {
@@ -204,11 +283,11 @@ export default function ProfilePage({ params }: { params: Promise<{ playerId: st
               <div className="flex flex-col md:flex-row items-center md:items-start gap-6 mb-6">
                 {/* Avatar */}
                 <PlayerAvatar
-                  playerId={profileData.player?.id}
-                  displayName={profileData.player?.displayName || 'Unknown'}
-                  profilePicture={profileData.player?.profilePicture}
-                  level={profileData.progression?.level || 1}
-                  isPremium={profileData.player?.isPremium || false}
+                  playerId={profileData.player?.id ?? ''}
+                  displayName={profileData.player?.displayName ?? 'Unknown'}
+                  profilePicture={profileData.player?.profilePicture ?? undefined}
+                  level={profileData.progression?.level ?? 1}
+                  isPremium={profileData.player?.isPremium ?? false}
                   size="xl"
                   clickable={false}
                 />
@@ -281,7 +360,7 @@ export default function ProfilePage({ params }: { params: Promise<{ playerId: st
                         <div
                           className="h-full bg-brand-darkGrey transition-all duration-500"
                           style={{
-                            width: `${(profileData.progression.currentXP / profileData.progression.xpToNextLevel) * 100}%`,
+                            width: `${((profileData.progression.currentXP ?? 0) / (profileData.progression.xpToNextLevel || 1)) * 100}%`,
                           }}
                         />
                       </div>
@@ -477,11 +556,11 @@ export default function ProfilePage({ params }: { params: Promise<{ playerId: st
                       <label className="block text-sm font-medium text-gray-300 mb-2">Profile photo</label>
                       <div className="flex items-center gap-4">
                         <PlayerAvatar
-                          playerId={profileData.player?.id}
-                          displayName={profileData.player?.displayName || 'Unknown'}
-                          profilePicture={profileData.player?.profilePicture}
-                          level={profileData.progression?.level || 1}
-                          isPremium={profileData.player?.isPremium || false}
+                          playerId={profileData.player?.id ?? ''}
+                          displayName={profileData.player?.displayName ?? 'Unknown'}
+                          profilePicture={profileData.player?.profilePicture ?? undefined}
+                          level={profileData.progression?.level ?? 1}
+                          isPremium={profileData.player?.isPremium ?? false}
                           size="xl"
                           clickable={false}
                         />
@@ -505,7 +584,7 @@ export default function ProfilePage({ params }: { params: Promise<{ playerId: st
                                 if (data.success && playerId) {
                                   const profileRes = await fetch(`/api/profile/${playerId}`);
                                   const profileJson = await profileRes.json();
-                                  if (profileJson.success) setProfileData(profileJson.profile);
+                                  if (profileJson.success) setProfileData((profileJson.profile ?? null) as ProfileData | null);
                                 } else {
                                   alert(data.error || 'Failed to upload photo');
                                 }
@@ -549,8 +628,8 @@ export default function ProfilePage({ params }: { params: Promise<{ playerId: st
                                 const profileRes = await fetch(`/api/profile/${playerId}`);
                                 const profileJson = await profileRes.json();
                                 if (profileJson.success) {
-                                  setProfileData(profileJson.profile);
-                                  setEditDisplayName(profileJson.profile?.player?.displayName ?? '');
+                                  setProfileData((profileJson.profile ?? null) as ProfileData | null);
+                                  setEditDisplayName((profileJson.profile as ProfileData)?.player?.displayName ?? '');
                                 }
                               } else {
                                 alert(data.error || 'Failed to save');
@@ -587,7 +666,7 @@ export default function ProfilePage({ params }: { params: Promise<{ playerId: st
                             if (data.success && playerId) {
                               const profileRes = await fetch(`/api/profile/${playerId}`);
                               const profileJson = await profileRes.json();
-                              if (profileJson.success) setProfileData(profileJson.profile);
+                              if (profileJson.success) setProfileData((profileJson.profile ?? null) as ProfileData | null);
                             } else {
                               alert(data.error || 'Failed to save');
                             }
@@ -874,11 +953,11 @@ export default function ProfilePage({ params }: { params: Promise<{ playerId: st
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                       {profileData.achievements?.featured && profileData.achievements.featured.length > 0 ? (
-                        profileData.achievements.featured.map((achievement: Record<string, unknown>) => (
-                          <div key={achievement.id} className="bg-brand-black/20 rounded-lg p-4">
+                        profileData.achievements.featured.map((achievement) => (
+                          <div key={achievement.id ?? ''} className="bg-brand-black/20 rounded-lg p-4">
                             <div className="flex items-start gap-3">
                               <div className="w-12 h-12 bg-brand-darkGrey/40 rounded-lg flex items-center justify-center text-2xl text-white">
-                                {achievement.icon || '🏆'}
+                                {achievement.icon != null ? String(achievement.icon) : '🏆'}
                               </div>
                               <div className="flex-1">
                                 <div className="flex items-center gap-2 mb-1">
@@ -889,12 +968,12 @@ export default function ProfilePage({ params }: { params: Promise<{ playerId: st
                                     achievement.tier === 'rare' ? 'bg-blue-500 text-white' :
                                     'bg-gray-500 text-white'
                                   }`}>
-                                    {achievement.tier?.toUpperCase() || 'COMMON'}
+                                    {(achievement.tier ?? 'common').toUpperCase()}
                                   </span>
                                 </div>
                                 <p className="text-gray-400 text-sm mb-2">{achievement.description}</p>
                                 <p className="text-gray-500 text-xs">
-                                  Unlocked {new Date(achievement.unlockedAt).toLocaleDateString()}
+                                  Unlocked {achievement.unlockedAt ? new Date(achievement.unlockedAt).toLocaleDateString() : '—'}
                                 </p>
                               </div>
                             </div>
@@ -914,26 +993,26 @@ export default function ProfilePage({ params }: { params: Promise<{ playerId: st
                     <h3 className="text-2xl font-bold text-white mb-6">Recent Activity</h3>
                     <div className="space-y-3">
                       {profileData.recentActivity && profileData.recentActivity.length > 0 ? (
-                        profileData.recentActivity.map((activity: Record<string, unknown>, index: number) => (
+                        profileData.recentActivity.map((activity, index) => (
                           <div key={index} className="bg-brand-black/20 rounded-lg p-4 flex items-center justify-between">
                             <div className="flex items-center gap-4">
-                              <div className="text-3xl">{activity.gameIcon || '🎮'}</div>
+                              <div className="text-3xl">{activity.gameIcon != null ? String(activity.gameIcon) : '🎮'}</div>
                               <div>
                                 <h4 className="text-white font-semibold">{activity.gameName}</h4>
                                 <p className="text-gray-400 text-sm">
                                   {activity.outcome === 'win' ? '🏆 Victory' :
                                    activity.outcome === 'loss' ? '❌ Defeat' : '🤝 Draw'}
-                                  {' · '}Score: {activity.score}
-                                  {' · '}+{activity.pointsEarned} points
+                                  {' · '}Score: {activity.score ?? 0}
+                                  {' · '}+{activity.pointsEarned ?? 0} points
                                 </p>
                               </div>
                             </div>
                             <div className="text-right">
                               <p className="text-gray-400 text-sm">
-                                {new Date(activity.playedAt).toLocaleDateString()}
+                                {new Date(activity.playedAt ?? activity.createdAt ?? 0).toLocaleDateString()}
                               </p>
                               <p className="text-gray-500 text-xs">
-                                {Math.round(activity.duration / 60)}m {activity.duration % 60}s
+                                {Math.round((activity.duration ?? 0) / 60)}m {(activity.duration ?? 0) % 60}s
                               </p>
                             </div>
                           </div>
@@ -954,11 +1033,13 @@ export default function ProfilePage({ params }: { params: Promise<{ playerId: st
                       <div className="text-center py-8 text-gray-400">Loading payment history...</div>
                     ) : paymentData && paymentData.length > 0 ? (
                       <div className="space-y-3">
-                        {paymentData.map((tx: Record<string, unknown>) => {
+                        {paymentData.map((tx, txIndex) => {
+                          const currency = (tx.currency ?? 'USD').toUpperCase();
+                          const amount = (tx.amount ?? 0) / 100;
                           const formattedAmount = new Intl.NumberFormat('en-US', {
                             style: 'currency',
-                            currency: tx.currency.toUpperCase(),
-                          }).format(tx.amount / 100);
+                            currency,
+                          }).format(amount);
 
                           const statusColors: Record<string, string> = {
                             succeeded: 'text-green-400',
@@ -966,28 +1047,29 @@ export default function ProfilePage({ params }: { params: Promise<{ playerId: st
                             failed: 'text-red-400',
                             refunded: 'text-gray-400',
                           };
+                          const status = tx.status ?? '';
 
                           return (
-                            <div key={tx.id} className="bg-brand-black/20 rounded-lg p-4">
+                            <div key={tx.id ?? txIndex} className="bg-brand-black/20 rounded-lg p-4">
                               <div className="flex items-start justify-between mb-3">
                                 <div>
                                   <h4 className="text-white font-semibold mb-1">
                                     {tx.courseName || 'Premium Access'}
                                   </h4>
                                   <p className="text-gray-400 text-sm">
-                                    {new Date(tx.createdAt).toLocaleDateString('en-US', {
+                                    {tx.createdAt ? new Date(tx.createdAt).toLocaleDateString('en-US', {
                                       year: 'numeric',
                                       month: 'long',
                                       day: 'numeric',
                                       hour: '2-digit',
                                       minute: '2-digit',
-                                    })}
+                                    }) : '—'}
                                   </p>
                                 </div>
                                 <div className="text-right">
                                   <div className="text-white font-bold text-lg">{formattedAmount}</div>
-                                  <div className={`text-sm ${statusColors[tx.status] || 'text-gray-400'}`}>
-                                    {tx.status.charAt(0).toUpperCase() + tx.status.slice(1)}
+                                  <div className={`text-sm ${statusColors[status] || 'text-gray-400'}`}>
+                                    {status ? status.charAt(0).toUpperCase() + status.slice(1) : '—'}
                                   </div>
                                 </div>
                               </div>

@@ -10,6 +10,9 @@ import {
 } from './mongodb-client';
 import { EvaluationResult, evaluateQuestion } from './evaluator';
 import { loadState, saveState, QuizItemQAState } from './state';
+import { Course, Lesson, QuizQuestion } from '../../app/lib/models';
+import { generateContentBasedQuestions } from '../content-based-question-generator';
+import { validateQuestionQuality } from '../question-quality-validator';
 
 const HANDOVER_DOC = 'docs/QUIZ_ITEM_QA_HANDOVER.md';
 const HANDOVER_NEW2OLD_DOC = 'docs/QUIZ_ITEM_QA_HANDOVER_NEW2OLD.md';
@@ -171,9 +174,15 @@ export function recordHandover(
   options?: { agent?: string; cursorUpdatedAt?: string; cursorItemId?: string }
 ) {
   const timestamp = new Date().toISOString();
+  const cursorUpdatedAt = options?.cursorUpdatedAt;
+  const cursorItemId = options?.cursorItemId;
   const entry = [
     `## ${timestamp} — ${question._id}`,
-    `- Updated at: ${question.metadata.updatedAt}`,
+    `- Updated at (current): ${question.metadata.updatedAt}`,
+    ...(cursorUpdatedAt && cursorUpdatedAt !== question.metadata.updatedAt
+      ? [`- Cursor updatedAt (pre-fix): ${cursorUpdatedAt}`]
+      : []),
+    ...(cursorItemId && cursorItemId !== question._id ? [`- Cursor itemId: ${cursorItemId}`] : []),
     `- Question: ${question.question}`,
     `- Violations: ${evaluation.violations.length}`,
     `- State stored in \`.state/quiz_item_qa_state.json\``,
@@ -194,13 +203,13 @@ export function recordHandover(
   recordNew2OldEntry(entry, question._id);
 
   // Keep a stable scan cursor for pick:next even when updatedAt changes due to patching.
-  const cursorUpdatedAt = options?.cursorUpdatedAt || question.metadata.updatedAt;
-  const cursorItemId = options?.cursorItemId || question._id;
+  const resolvedCursorUpdatedAt = options?.cursorUpdatedAt || question.metadata.updatedAt;
+  const resolvedCursorItemId = options?.cursorItemId || question._id;
   const state: QuizItemQAState = {
     lastCompletedItemId: question._id,
-    lastCompletedItemUpdatedAt: cursorUpdatedAt,
-    cursorUpdatedAt,
-    cursorItemId,
+    lastCompletedItemUpdatedAt: resolvedCursorUpdatedAt,
+    cursorUpdatedAt: resolvedCursorUpdatedAt,
+    cursorItemId: resolvedCursorItemId,
     runTimestamp: timestamp,
     agent: options?.agent,
     notes,
@@ -215,11 +224,25 @@ export async function loopRun(
   const config = loadConfig(overrides);
   const allSorted = await getOldestByUpdatedAt(overrides);
   const courseQuestionCount = new Map<string, Map<string, number>>();
+  const courseQuestionIds = new Map<string, Map<string, string[]>>();
   for (const item of allSorted) {
     if (!item.isCourseSpecific || !item.courseId) continue;
     const perCourse = courseQuestionCount.get(item.courseId) || new Map<string, number>();
     perCourse.set(item.question, (perCourse.get(item.question) || 0) + 1);
     courseQuestionCount.set(item.courseId, perCourse);
+
+    const perCourseIds = courseQuestionIds.get(item.courseId) || new Map<string, string[]>();
+    const ids = perCourseIds.get(item.question) || [];
+    ids.push(item._id);
+    perCourseIds.set(item.question, ids);
+    courseQuestionIds.set(item.courseId, perCourseIds);
+  }
+  // Deterministic keeper selection: the earliest ObjectId string is the keeper.
+  for (const [, qmap] of courseQuestionIds) {
+    for (const [q, ids] of qmap) {
+      ids.sort((a, b) => a.localeCompare(b));
+      qmap.set(q, ids);
+    }
   }
 
   const detectLangFromTags = (tags: string[] | undefined) => {
@@ -335,25 +358,81 @@ export async function loopRun(
           });
           evaluation.needsUpdate = true;
 
-          const lang = detectLangFromTags(question.hashtags);
-          const prefixes = prefixesByLang[lang] || prefixesByLang.unknown;
+          const ids = courseQuestionIds.get(question.courseId)?.get(question.question) || [];
+          const keeperId = ids[0];
+          const isKeeper = keeperId && keeperId === question._id;
 
-          const seed = `${question.lessonId || ''}:${question._id}`;
-          let hash = 0;
-          for (let i = 0; i < seed.length; i += 1) hash = (hash * 31 + seed.charCodeAt(i)) >>> 0;
+          // Keep exactly one copy (the "keeper") and replace all other exact duplicates in-place.
+          if (!isKeeper) {
+            const course = await Course.findById(question.courseId).select({ courseId: 1, language: 1 }).lean();
+            const lesson = question.lessonId
+              ? await Lesson.findOne({ lessonId: question.lessonId }).select({ dayNumber: 1, title: 1, content: 1 }).lean()
+              : null;
+            if (course && lesson) {
+              const lessonExisting = await QuizQuestion.find({
+                isActive: true,
+                isCourseSpecific: true,
+                courseId: question.courseId,
+                lessonId: question.lessonId,
+                _id: { $ne: question._id },
+              })
+                .select({ question: 1, options: 1 })
+                .lean();
 
-          const baseQuestion = typeof evaluation.autoPatch.question === 'string'
-            ? (evaluation.autoPatch.question as string)
-            : question.question;
-          const normalize = (s: string) => String(s || '').replace(/\s+/g, ' ').trim();
-          const baseNorm = normalize(baseQuestion);
+              const courseTextSet = new Set<string>(
+                (courseQuestionIds.get(question.courseId)?.keys() ? Array.from(courseQuestionIds.get(question.courseId)!.keys()) : [])
+              );
 
-          // Avoid stacking prefixes (e.g. prefix already present from earlier dedupe runs).
-          const hasAnyPrefix = prefixes.some((p) => baseNorm.startsWith(normalize(p)));
-          const idx = hash % prefixes.length;
-          const prefix = hasAnyPrefix ? prefixes[(idx + 1) % prefixes.length] : prefixes[idx];
-          const candidate = `${prefix} ${baseNorm}`.replace(/\s+/g, ' ').trim();
-          if (candidate !== baseNorm) evaluation.autoPatch.question = candidate;
+              const candidates = generateContentBasedQuestions(
+                (lesson as any).dayNumber,
+                (lesson as any).title || '',
+                (lesson as any).content || '',
+                String((course as any).language || 'en'),
+                String((course as any).courseId || ''),
+                lessonExisting as any,
+                24,
+                { seed: `${question.courseId}::${question.lessonId}::dedupe::${question._id}` }
+              );
+
+              const pick = candidates.find((c: any) => {
+                if (!c || typeof c.question !== 'string') return false;
+                if (courseTextSet.has(c.question)) return false;
+                const v = validateQuestionQuality(
+                  c.question,
+                  c.options,
+                  c.questionType as any,
+                  c.difficulty as any,
+                  String((course as any).language || 'en'),
+                  (lesson as any).title || '',
+                  (lesson as any).content || ''
+                );
+                return v.isValid;
+              });
+
+              if (pick) {
+                evaluation.autoPatch.question = pick.question;
+                evaluation.autoPatch.options = pick.options;
+                evaluation.autoPatch.correctIndex = pick.correctIndex;
+                evaluation.autoPatch.difficulty = pick.difficulty;
+                evaluation.autoPatch.questionType = pick.questionType;
+                evaluation.autoPatch.hashtags = pick.hashtags;
+              } else {
+                // Fallback: prefixing still fixes the hard rule (but is less ideal than replacement).
+                const lang = detectLangFromTags(question.hashtags);
+                const prefixes = prefixesByLang[lang] || prefixesByLang.unknown;
+                const seed = `${question.lessonId || ''}:${question._id}`;
+                let hash = 0;
+                for (let i = 0; i < seed.length; i += 1) hash = (hash * 31 + seed.charCodeAt(i)) >>> 0;
+                const normalize = (s: string) => String(s || '').replace(/\s+/g, ' ').trim();
+                const baseNorm = normalize(question.question);
+                const hasAnyPrefix = prefixes.some((p) => baseNorm.startsWith(normalize(p)));
+                const idx = hash % prefixes.length;
+                const prefix = hasAnyPrefix ? prefixes[(idx + 1) % prefixes.length] : prefixes[idx];
+                const candidate = `${prefix} ${baseNorm}`.replace(/\s+/g, ' ').trim();
+                if (candidate !== baseNorm) evaluation.autoPatch.question = candidate;
+              }
+            }
+          }
         }
       }
       if (!evaluation.needsUpdate) {
@@ -373,9 +452,30 @@ export async function loopRun(
       if (!applyResult.verified) {
         throw new Error('Verification failed after apply');
       }
-      const refreshed = applyResult.updated || (await fetchQuestionById(next._id, overrides));
-      const postEval = evaluateQuestion(refreshed);
-      recordHandover(refreshed, postEval, undefined, { cursorUpdatedAt, cursorItemId });
+      let refreshed = applyResult.updated || (await fetchQuestionById(next._id, overrides));
+      let postEval = evaluateQuestion(refreshed);
+
+      // Post-fix stabilization: some patches unlock follow-up auto-fixes (e.g. prefixes/length cleanups).
+      // Apply at most a few times to avoid loops.
+      for (let attempt = 0; attempt < 3; attempt += 1) {
+        if (!postEval.needsUpdate) break;
+        if (!postEval.autoPatch || Object.keys(postEval.autoPatch).length === 0) break;
+        const followUp = await applyUpdate(next._id, postEval.autoPatch, {
+          dryRun: config.dryRun,
+          overrides,
+        });
+        if (!followUp.verified) {
+          throw new Error('Verification failed after follow-up apply');
+        }
+        refreshed = followUp.updated || (await fetchQuestionById(next._id, overrides));
+        postEval = evaluateQuestion(refreshed);
+      }
+
+      if (postEval.needsUpdate && (!postEval.autoPatch || Object.keys(postEval.autoPatch).length === 0)) {
+        recordHandover(refreshed, postEval, ['Manual review required'], { cursorUpdatedAt, cursorItemId });
+      } else {
+        recordHandover(refreshed, postEval, undefined, { cursorUpdatedAt, cursorItemId });
+      }
     } catch (error) {
       console.error('Loop stopped:', error);
       return;

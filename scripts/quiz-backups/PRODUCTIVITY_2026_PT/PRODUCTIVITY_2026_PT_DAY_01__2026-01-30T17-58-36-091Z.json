@@ -1,0 +1,171 @@
+{
+  "backedUpAt": "2026-01-30T17:58:37.696Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_PT",
+    "name": "Produtividade 2026: Como Gerenciar Equipes e Tempo",
+    "language": "pt"
+  },
+  "lesson": {
+    "dayNumber": 1,
+    "title": "Definição de produtividade: output, outcome e restrições",
+    "lessonId": "PRODUCTIVITY_2026_PT_DAY_01"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a366360118c579129db",
+      "uuid": "6897a09c-70e0-4805-a919-c0fb5e594025",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Qual é a diferença entre output e outcome?",
+      "options": [
+        "Output é a quantidade de atividades, outcome é a mudança ou impacto real",
+        "Output e outcome são a mesma coisa",
+        "Outcome é a quantidade de atividades, output é o impacto real",
+        "Não há diferença entre eles"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day-01",
+        "#scenario",
+        "#application",
+        "#pt"
+      ]
+    },
+    {
+      "_id": "69776a366360118c579129dd",
+      "uuid": "7bb009e3-0752-4293-821a-625708e100ae",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Qual é a definição correta de produtividade?",
+      "options": [
+        "Número máximo de atividades",
+        "Outcome / restrições (resultados relativos aos limites)",
+        "Mais output é sempre melhor",
+        "Não há necessidade de gerenciar restrições"
+      ],
+      "correctIndex": 1,
+      "hashtags": [
+        "#day-01",
+        "#purpose",
+        "#application",
+        "#pt"
+      ]
+    },
+    {
+      "_id": "6979db429316e77110ed07ea",
+      "uuid": "a5960148-8c08-4616-9154-3310e5877dff",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Você vai implementar uma nova prática: “Você distingue entre output e outcome. Você identificou suas”. Qual plano produz output mensurável e feedback rápido?",
+      "options": [
+        "Implemento por etapas: defino critérios/métricas, faço um piloto pequeno, meço antes/depois, documento o resultado e ajusto uma regra por vez.",
+        "Mudo tudo de uma vez sem métricas nem checkpoints e depois tento adivinhar o que funcionou.",
+        "Começo, mas sem medir o impacto (sem antes/depois), então a qualidade do resultado fica desconhecida.",
+        "Executo sem dono/prazo/limiares, e o output não se conecta ao outcome."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day1",
+        "#pt",
+        "#all-languages",
+        "#course-productivity_2026_pt",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "6979db429316e77110ed07eb",
+      "uuid": "1dd016b1-af7f-4067-9645-5c4a3c758b47",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Você vai implementar uma nova prática: “exemplo: enviar 50 e-mails, 8 horas de reuniões, escrever 20”. Qual plano produz output mensurável e feedback rápido?",
+      "options": [
+        "Implemento por etapas: defino critérios/métricas, faço um piloto pequeno, meço antes/depois, documento o resultado e ajusto uma regra por vez.",
+        "Mudo tudo de uma vez sem métricas nem checkpoints e depois tento adivinhar o que funcionou.",
+        "Começo, mas sem medir o impacto (sem antes/depois), então a qualidade do resultado fica desconhecida.",
+        "Executo sem dono/prazo/limiares, e o output não se conecta ao outcome."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day1",
+        "#pt",
+        "#all-languages",
+        "#course-productivity_2026_pt",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "6979db429316e77110ed07ec",
+      "uuid": "aaa91c62-1580-412c-a11c-7ef3994ec712",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Você vai implementar uma nova prática: “exemplo: 3 novos clientes, aumento de 20% na satisfação, pro”. Qual plano produz output mensurável e feedback rápido?",
+      "options": [
+        "Implemento por etapas: defino critérios/métricas, faço um piloto pequeno, meço antes/depois, documento o resultado e ajusto uma regra por vez.",
+        "Mudo tudo de uma vez sem métricas nem checkpoints e depois tento adivinhar o que funcionou.",
+        "Começo, mas sem medir o impacto (sem antes/depois), então a qualidade do resultado fica desconhecida.",
+        "Executo sem dono/prazo/limiares, e o output não se conecta ao outcome."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day1",
+        "#pt",
+        "#all-languages",
+        "#course-productivity_2026_pt",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "6979db429316e77110ed07ed",
+      "uuid": "38080f6e-9450-4ab1-ab8e-fd790ee95ccb",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Um líder decide com base no princípio: “Identificar suas restrições pessoais (tempo, energia, atenção, recursos)”. Qual é o efeito mais provável para atingir metas, e qual risco típico surge se isso for mal interpretado ou mal medido?",
+      "options": [
+        "O foco correto aumenta o resultado porque otimiza o output sob restrições; risco: otimizar a métrica errada gera “output ocupado” sem melhorar o outcome.",
+        "Basta fazer mais tarefas porque atividade = resultado; risco: aumenta o ruído e cai a qualidade/valor para o cliente.",
+        "Ignorar restrições (tempo/energia/atenção) porque “força de vontade resolve”; risco: sobrecarga, erros e burnout pioram o outcome.",
+        "Velocidade acima de tudo e qualidade depois; risco: rework cresce e o throughput cai."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day1",
+        "#pt",
+        "#all-languages",
+        "#course-productivity_2026_pt",
+        "#productivity",
+        "#advanced",
+        "#critical-thinking"
+      ]
+    },
+    {
+      "_id": "6979db429316e77110ed07ee",
+      "uuid": "c0c3ab07-4f70-41a8-8cd7-0158535fa28d",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Um líder decide com base no princípio: “Criar uma definição pessoal de produtividade”. Qual é o efeito mais provável para atingir metas, e qual risco típico surge se isso for mal interpretado ou mal medido?",
+      "options": [
+        "O foco correto aumenta o resultado porque otimiza o output sob restrições; risco: otimizar a métrica errada gera “output ocupado” sem melhorar o outcome.",
+        "Basta fazer mais tarefas porque atividade = resultado; risco: aumenta o ruído e cai a qualidade/valor para o cliente.",
+        "Ignorar restrições (tempo/energia/atenção) porque “força de vontade resolve”; risco: sobrecarga, erros e burnout pioram o outcome.",
+        "Velocidade acima de tudo e qualidade depois; risco: rework cresce e o throughput cai."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day1",
+        "#pt",
+        "#all-languages",
+        "#course-productivity_2026_pt",
+        "#productivity",
+        "#advanced",
+        "#critical-thinking"
+      ]
+    }
+  ]
+}

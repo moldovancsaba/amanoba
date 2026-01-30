@@ -15,8 +15,8 @@ import CookieConsentBanner from "@/components/CookieConsentBanner";
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import { notFound } from 'next/navigation';
-import { locales } from '@/app/lib/i18n/locales';
-import { APP_URL } from '@/app/lib/constants/app-url';
+import { locales, type Locale } from '@/app/lib/i18n/locales';
+import { APP_URL, THEME_COLOR } from '@/app/lib/constants/app-url';
 import "../globals.css";
 import "../mobile-styles.css";
 
@@ -89,7 +89,7 @@ export const viewport: Viewport = {
   initialScale: 1,
   maximumScale: 5,
   userScalable: true,
-  themeColor: "#FAB908",
+  themeColor: THEME_COLOR,
 };
 
 /**
@@ -107,19 +107,20 @@ export default async function LocaleLayout({
   const { locale } = await params;
 
   // Validate locale
-  if (!locales.includes(locale as string)) {
+  if (!locales.includes(locale as Locale)) {
     notFound();
   }
+  const validLocale = locale as Locale;
 
   // Fetch messages for the locale
   // Why: Explicitly pass locale to getMessages to ensure it's available
   // The locale comes from params, and we pass it explicitly to avoid context issues
-  const messages = await getMessages({ locale });
+  const messages = await getMessages({ locale: validLocale });
 
   // Determine HTML lang attribute and text direction
-  const htmlLang = locale === 'hu' ? 'hu' : locale;
+  const htmlLang = validLocale === 'hu' ? 'hu' : validLocale;
   const rtlLocales = new Set(['ar']);
-  const direction = rtlLocales.has(locale) ? 'rtl' : 'ltr';
+  const direction = rtlLocales.has(validLocale) ? 'rtl' : 'ltr';
 
   return (
     <html

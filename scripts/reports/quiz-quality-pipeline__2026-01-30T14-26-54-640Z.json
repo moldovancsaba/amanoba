@@ -1,0 +1,1683 @@
+{
+  "generatedAt": "2026-01-30T14:26:54.640Z",
+  "dryRun": true,
+  "minLessonScore": 70,
+  "courseFilter": "PRODUCTIVITY_2026_HI",
+  "lessonFilter": null,
+  "totals": {
+    "courses": 1,
+    "lessonsEvaluated": 30,
+    "lessonsNeedingRefine": 0,
+    "lessonsRewritten": 30,
+    "lessonsFailedRewrite": 0,
+    "questionsDeleted": 0,
+    "questionsInserted": 0
+  },
+  "lessons": [
+    {
+      "courseId": "PRODUCTIVITY_2026_HI",
+      "courseName": "उत्पादकता 2026: टीमों और समय का प्रबंधन कैसे करें",
+      "language": "hi",
+      "dayNumber": 1,
+      "lessonId": "PRODUCTIVITY_2026_HI_DAY_01",
+      "title": "उत्पादकता की परिभाषा: आउटपुट, आउटकम और बाधाएं",
+      "lessonCreatedAt": "2026-01-23T19:27:04.509Z",
+      "lessonQuality": {
+        "score": 100,
+        "issues": [],
+        "signals": {
+          "charCount": 2502,
+          "wordCount": 458,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "VALIDATED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/PRODUCTIVITY_2026_HI/PRODUCTIVITY_2026_HI_DAY_01__2026-01-30T14-26-54-640Z.json",
+        "insertedCount": 3,
+        "replacedCount": 4,
+        "invalidFound": 0,
+        "duplicatesFound": 4,
+        "questionsDeleted": 0,
+        "warnings": [],
+        "existingCounts": {
+          "total": 7,
+          "valid": 7,
+          "invalid": 0,
+          "application": 5,
+          "critical": 2,
+          "recall": 0,
+          "duplicates": 4
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_HI",
+      "courseName": "उत्पादकता 2026: टीमों और समय का प्रबंधन कैसे करें",
+      "language": "hi",
+      "dayNumber": 2,
+      "lessonId": "PRODUCTIVITY_2026_HI_DAY_02",
+      "title": "समय, ऊर्जा, ध्यान: आप व्यवहार में क्या प्रबंधित करते हैं",
+      "lessonCreatedAt": "2026-01-23T21:22:29.817Z",
+      "lessonQuality": {
+        "score": 70,
+        "issues": [
+          "NO_CLEAR_DEFINITIONS",
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 3038,
+          "wordCount": 568,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": true
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "VALIDATED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/PRODUCTIVITY_2026_HI/PRODUCTIVITY_2026_HI_DAY_02__2026-01-30T14-26-54-640Z.json",
+        "insertedCount": 3,
+        "replacedCount": 4,
+        "invalidFound": 0,
+        "duplicatesFound": 4,
+        "questionsDeleted": 0,
+        "warnings": [],
+        "existingCounts": {
+          "total": 7,
+          "valid": 7,
+          "invalid": 0,
+          "application": 5,
+          "critical": 2,
+          "recall": 0,
+          "duplicates": 4
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_HI",
+      "courseName": "उत्पादकता 2026: टीमों और समय का प्रबंधन कैसे करें",
+      "language": "hi",
+      "dayNumber": 3,
+      "lessonId": "PRODUCTIVITY_2026_HI_DAY_03",
+      "title": "लक्ष्य पदानुक्रम: दृष्टि → परिणाम → परियोजनाएं → अगले कार्य",
+      "lessonCreatedAt": "2026-01-23T21:28:06.448Z",
+      "lessonQuality": {
+        "score": 100,
+        "issues": [],
+        "signals": {
+          "charCount": 1122,
+          "wordCount": 201,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "VALIDATED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/PRODUCTIVITY_2026_HI/PRODUCTIVITY_2026_HI_DAY_03__2026-01-30T14-26-54-640Z.json",
+        "insertedCount": 4,
+        "replacedCount": 5,
+        "invalidFound": 0,
+        "duplicatesFound": 5,
+        "questionsDeleted": 0,
+        "warnings": [],
+        "existingCounts": {
+          "total": 7,
+          "valid": 7,
+          "invalid": 0,
+          "application": 5,
+          "critical": 2,
+          "recall": 0,
+          "duplicates": 5
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_HI",
+      "courseName": "उत्पादकता 2026: टीमों और समय का प्रबंधन कैसे करें",
+      "language": "hi",
+      "dayNumber": 4,
+      "lessonId": "PRODUCTIVITY_2026_HI_DAY_04",
+      "title": "आदतें बनाम सिस्टम: सिस्टम बेहतर क्यों स्केल करते हैं",
+      "lessonCreatedAt": "2026-01-23T21:34:24.548Z",
+      "lessonQuality": {
+        "score": 100,
+        "issues": [],
+        "signals": {
+          "charCount": 1115,
+          "wordCount": 200,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "VALIDATED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/PRODUCTIVITY_2026_HI/PRODUCTIVITY_2026_HI_DAY_04__2026-01-30T14-26-54-640Z.json",
+        "insertedCount": 3,
+        "replacedCount": 7,
+        "invalidFound": 0,
+        "duplicatesFound": 7,
+        "questionsDeleted": 0,
+        "warnings": [],
+        "existingCounts": {
+          "total": 7,
+          "valid": 7,
+          "invalid": 0,
+          "application": 5,
+          "critical": 2,
+          "recall": 0,
+          "duplicates": 7
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_HI",
+      "courseName": "उत्पादकता 2026: टीमों और समय का प्रबंधन कैसे करें",
+      "language": "hi",
+      "dayNumber": 5,
+      "lessonId": "PRODUCTIVITY_2026_HI_DAY_05",
+      "title": "माप: सरल साप्ताहिक समीक्षा मेट्रिक्स (थ्रूपुट, फोकस ब्लॉक, कैरीओवर)",
+      "lessonCreatedAt": "2026-01-23T21:40:15.705Z",
+      "lessonQuality": {
+        "score": 100,
+        "issues": [],
+        "signals": {
+          "charCount": 1604,
+          "wordCount": 283,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "VALIDATED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/PRODUCTIVITY_2026_HI/PRODUCTIVITY_2026_HI_DAY_05__2026-01-30T14-26-54-640Z.json",
+        "insertedCount": 3,
+        "replacedCount": 6,
+        "invalidFound": 0,
+        "duplicatesFound": 6,
+        "questionsDeleted": 0,
+        "warnings": [],
+        "existingCounts": {
+          "total": 7,
+          "valid": 7,
+          "invalid": 0,
+          "application": 5,
+          "critical": 2,
+          "recall": 0,
+          "duplicates": 6
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_HI",
+      "courseName": "उत्पादकता 2026: टीमों और समय का प्रबंधन कैसे करें",
+      "language": "hi",
+      "dayNumber": 6,
+      "lessonId": "PRODUCTIVITY_2026_HI_DAY_06",
+      "title": "कैप्चर: इनबॉक्स, ट्रिगर सूची, कैप्चर आदतें",
+      "lessonCreatedAt": "2026-01-23T21:43:45.027Z",
+      "lessonQuality": {
+        "score": 85,
+        "issues": [
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 2445,
+          "wordCount": 465,
+          "hasBullets": true,
+          "hasNumberedSteps": true,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": true
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "VALIDATED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/PRODUCTIVITY_2026_HI/PRODUCTIVITY_2026_HI_DAY_06__2026-01-30T14-26-54-640Z.json",
+        "insertedCount": 3,
+        "replacedCount": 5,
+        "invalidFound": 0,
+        "duplicatesFound": 5,
+        "questionsDeleted": 0,
+        "warnings": [],
+        "existingCounts": {
+          "total": 7,
+          "valid": 7,
+          "invalid": 0,
+          "application": 5,
+          "critical": 2,
+          "recall": 0,
+          "duplicates": 5
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_HI",
+      "courseName": "उत्पादकता 2026: टीमों और समय का प्रबंधन कैसे करें",
+      "language": "hi",
+      "dayNumber": 7,
+      "lessonId": "PRODUCTIVITY_2026_HI_DAY_07",
+      "title": "दैनिक/साप्ताहिक प्रणाली: सुबह की रीति, दैनिक huddle, साप्ताहिक समीक्षा",
+      "lessonCreatedAt": "2026-01-24T08:15:48.226Z",
+      "lessonQuality": {
+        "score": 100,
+        "issues": [],
+        "signals": {
+          "charCount": 2069,
+          "wordCount": 369,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "VALIDATED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/PRODUCTIVITY_2026_HI/PRODUCTIVITY_2026_HI_DAY_07__2026-01-30T14-26-54-640Z.json",
+        "insertedCount": 3,
+        "replacedCount": 7,
+        "invalidFound": 0,
+        "duplicatesFound": 7,
+        "questionsDeleted": 0,
+        "warnings": [],
+        "existingCounts": {
+          "total": 7,
+          "valid": 7,
+          "invalid": 0,
+          "application": 5,
+          "critical": 2,
+          "recall": 0,
+          "duplicates": 7
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_HI",
+      "courseName": "उत्पादकता 2026: टीमों और समय का प्रबंधन कैसे करें",
+      "language": "hi",
+      "dayNumber": 8,
+      "lessonId": "PRODUCTIVITY_2026_HI_DAY_8",
+      "title": "संदर्भ स्विचिंग की लागत: ध्यान अवशेष, बैच प्रोसेसिंग, गहरे कार्य ब्लॉक",
+      "lessonCreatedAt": "2026-01-24T08:31:20.288Z",
+      "lessonQuality": {
+        "score": 70,
+        "issues": [
+          "NO_CLEAR_DEFINITIONS",
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 2355,
+          "wordCount": 458,
+          "hasBullets": true,
+          "hasNumberedSteps": true,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": true
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "VALIDATED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/PRODUCTIVITY_2026_HI/PRODUCTIVITY_2026_HI_DAY_8__2026-01-30T14-26-54-640Z.json",
+        "insertedCount": 3,
+        "replacedCount": 4,
+        "invalidFound": 0,
+        "duplicatesFound": 4,
+        "questionsDeleted": 0,
+        "warnings": [],
+        "existingCounts": {
+          "total": 7,
+          "valid": 7,
+          "invalid": 0,
+          "application": 5,
+          "critical": 2,
+          "recall": 0,
+          "duplicates": 4
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_HI",
+      "courseName": "उत्पादकता 2026: टीमों और समय का प्रबंधन कैसे करें",
+      "language": "hi",
+      "dayNumber": 9,
+      "lessonId": "PRODUCTIVITY_2026_HI_DAY_9",
+      "title": "प्रतिनिधिमंडन बनाम उन्मूलन: कब प्रतिनिधि करना है, क्या समाप्त करना है",
+      "lessonCreatedAt": "2026-01-24T08:36:26.287Z",
+      "lessonQuality": {
+        "score": 100,
+        "issues": [],
+        "signals": {
+          "charCount": 2582,
+          "wordCount": 490,
+          "hasBullets": true,
+          "hasNumberedSteps": true,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "VALIDATED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/PRODUCTIVITY_2026_HI/PRODUCTIVITY_2026_HI_DAY_9__2026-01-30T14-26-54-640Z.json",
+        "insertedCount": 3,
+        "replacedCount": 4,
+        "invalidFound": 0,
+        "duplicatesFound": 4,
+        "questionsDeleted": 0,
+        "warnings": [],
+        "existingCounts": {
+          "total": 7,
+          "valid": 7,
+          "invalid": 0,
+          "application": 5,
+          "critical": 2,
+          "recall": 0,
+          "duplicates": 4
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_HI",
+      "courseName": "उत्पादकता 2026: टीमों और समय का प्रबंधन कैसे करें",
+      "language": "hi",
+      "dayNumber": 10,
+      "lessonId": "PRODUCTIVITY_2026_HI_DAY_10",
+      "title": "ऊर्जा प्रबंधन: कब काम करना है, कब आराम करना है, पुनर्प्राप्ति अनुष्ठान",
+      "lessonCreatedAt": "2026-01-24T08:40:15.620Z",
+      "lessonQuality": {
+        "score": 85,
+        "issues": [
+          "NO_EXAMPLES"
+        ],
+        "signals": {
+          "charCount": 2937,
+          "wordCount": 545,
+          "hasBullets": true,
+          "hasNumberedSteps": true,
+          "hasExamples": false,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": true,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "VALIDATED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/PRODUCTIVITY_2026_HI/PRODUCTIVITY_2026_HI_DAY_10__2026-01-30T14-26-54-640Z.json",
+        "insertedCount": 3,
+        "replacedCount": 4,
+        "invalidFound": 0,
+        "duplicatesFound": 4,
+        "questionsDeleted": 0,
+        "warnings": [],
+        "existingCounts": {
+          "total": 7,
+          "valid": 7,
+          "invalid": 0,
+          "application": 5,
+          "critical": 2,
+          "recall": 0,
+          "duplicates": 4
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_HI",
+      "courseName": "उत्पादकता 2026: टीमों और समय का प्रबंधन कैसे करें",
+      "language": "hi",
+      "dayNumber": 11,
+      "lessonId": "PRODUCTIVITY_2026_HI_DAY_11",
+      "title": "लक्ष्य निर्धारण और OKR: आप क्या हासिल करना चाहते हैं?",
+      "lessonCreatedAt": "2026-01-24T08:41:53.285Z",
+      "lessonQuality": {
+        "score": 100,
+        "issues": [],
+        "signals": {
+          "charCount": 1117,
+          "wordCount": 201,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "VALIDATED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/PRODUCTIVITY_2026_HI/PRODUCTIVITY_2026_HI_DAY_11__2026-01-30T14-26-54-640Z.json",
+        "insertedCount": 3,
+        "replacedCount": 7,
+        "invalidFound": 0,
+        "duplicatesFound": 7,
+        "questionsDeleted": 0,
+        "warnings": [],
+        "existingCounts": {
+          "total": 7,
+          "valid": 7,
+          "invalid": 0,
+          "application": 5,
+          "critical": 2,
+          "recall": 0,
+          "duplicates": 7
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_HI",
+      "courseName": "उत्पादकता 2026: टीमों और समय का प्रबंधन कैसे करें",
+      "language": "hi",
+      "dayNumber": 12,
+      "lessonId": "PRODUCTIVITY_2026_HI_DAY_12",
+      "title": "जवाबदेही संरचनाएं: सिस्टम जो आपको ट्रैक पर रखते हैं",
+      "lessonCreatedAt": "2026-01-24T09:15:55.631Z",
+      "lessonQuality": {
+        "score": 70,
+        "issues": [
+          "NO_CLEAR_DEFINITIONS",
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 2845,
+          "wordCount": 530,
+          "hasBullets": true,
+          "hasNumberedSteps": true,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": true
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "VALIDATED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/PRODUCTIVITY_2026_HI/PRODUCTIVITY_2026_HI_DAY_12__2026-01-30T14-26-54-640Z.json",
+        "insertedCount": 3,
+        "replacedCount": 4,
+        "invalidFound": 0,
+        "duplicatesFound": 4,
+        "questionsDeleted": 0,
+        "warnings": [],
+        "existingCounts": {
+          "total": 7,
+          "valid": 7,
+          "invalid": 0,
+          "application": 5,
+          "critical": 2,
+          "recall": 0,
+          "duplicates": 4
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_HI",
+      "courseName": "उत्पादकता 2026: टीमों और समय का प्रबंधन कैसे करें",
+      "language": "hi",
+      "dayNumber": 13,
+      "lessonId": "PRODUCTIVITY_2026_HI_DAY_13",
+      "title": "निर्णय लेने की रूपरेखा: तेजी से निर्णय, निर्णय मैट्रिक्स, विश्लेषण पक्षाघात से बचें",
+      "lessonCreatedAt": "2026-01-24T09:23:10.490Z",
+      "lessonQuality": {
+        "score": 85,
+        "issues": [
+          "NO_EXAMPLES"
+        ],
+        "signals": {
+          "charCount": 3453,
+          "wordCount": 640,
+          "hasBullets": true,
+          "hasNumberedSteps": true,
+          "hasExamples": false,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": true,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "VALIDATED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/PRODUCTIVITY_2026_HI/PRODUCTIVITY_2026_HI_DAY_13__2026-01-30T14-26-54-640Z.json",
+        "insertedCount": 3,
+        "replacedCount": 4,
+        "invalidFound": 0,
+        "duplicatesFound": 4,
+        "questionsDeleted": 0,
+        "warnings": [],
+        "existingCounts": {
+          "total": 7,
+          "valid": 7,
+          "invalid": 0,
+          "application": 5,
+          "critical": 2,
+          "recall": 0,
+          "duplicates": 4
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_HI",
+      "courseName": "उत्पादकता 2026: टीमों और समय का प्रबंधन कैसे करें",
+      "language": "hi",
+      "dayNumber": 14,
+      "lessonId": "PRODUCTIVITY_2026_HI_DAY_14",
+      "title": "बैठक दक्षता: एजेंडा, समय सीमा, निर्णय लॉग",
+      "lessonCreatedAt": "2026-01-24T09:29:50.874Z",
+      "lessonQuality": {
+        "score": 100,
+        "issues": [],
+        "signals": {
+          "charCount": 1105,
+          "wordCount": 198,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "VALIDATED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/PRODUCTIVITY_2026_HI/PRODUCTIVITY_2026_HI_DAY_14__2026-01-30T14-26-54-640Z.json",
+        "insertedCount": 5,
+        "replacedCount": 7,
+        "invalidFound": 0,
+        "duplicatesFound": 7,
+        "questionsDeleted": 0,
+        "warnings": [],
+        "existingCounts": {
+          "total": 7,
+          "valid": 7,
+          "invalid": 0,
+          "application": 5,
+          "critical": 2,
+          "recall": 0,
+          "duplicates": 7
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_HI",
+      "courseName": "उत्पादकता 2026: टीमों और समय का प्रबंधन कैसे करें",
+      "language": "hi",
+      "dayNumber": 15,
+      "lessonId": "PRODUCTIVITY_2026_HI_DAY_15",
+      "title": "टीमवर्क और तालमेल: भूमिकाएं, जिम्मेदारी, समन्वय",
+      "lessonCreatedAt": "2026-01-24T09:29:54.340Z",
+      "lessonQuality": {
+        "score": 100,
+        "issues": [],
+        "signals": {
+          "charCount": 1652,
+          "wordCount": 287,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "VALIDATED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/PRODUCTIVITY_2026_HI/PRODUCTIVITY_2026_HI_DAY_15__2026-01-30T14-26-54-640Z.json",
+        "insertedCount": 4,
+        "replacedCount": 7,
+        "invalidFound": 0,
+        "duplicatesFound": 7,
+        "questionsDeleted": 0,
+        "warnings": [],
+        "existingCounts": {
+          "total": 7,
+          "valid": 7,
+          "invalid": 0,
+          "application": 5,
+          "critical": 2,
+          "recall": 0,
+          "duplicates": 7
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_HI",
+      "courseName": "उत्पादकता 2026: टीमों और समय का प्रबंधन कैसे करें",
+      "language": "hi",
+      "dayNumber": 16,
+      "lessonId": "PRODUCTIVITY_2026_HI_DAY_16",
+      "title": "तनाव प्रबंधन और थकान: पुनर्प्राप्ति, कार्य-जीवन संतुलन",
+      "lessonCreatedAt": "2026-01-24T09:29:57.536Z",
+      "lessonQuality": {
+        "score": 100,
+        "issues": [],
+        "signals": {
+          "charCount": 1118,
+          "wordCount": 198,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "VALIDATED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/PRODUCTIVITY_2026_HI/PRODUCTIVITY_2026_HI_DAY_16__2026-01-30T14-26-54-640Z.json",
+        "insertedCount": 3,
+        "replacedCount": 7,
+        "invalidFound": 0,
+        "duplicatesFound": 7,
+        "questionsDeleted": 0,
+        "warnings": [],
+        "existingCounts": {
+          "total": 7,
+          "valid": 7,
+          "invalid": 0,
+          "application": 5,
+          "critical": 2,
+          "recall": 0,
+          "duplicates": 7
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_HI",
+      "courseName": "उत्पादकता 2026: टीमों और समय का प्रबंधन कैसे करें",
+      "language": "hi",
+      "dayNumber": 17,
+      "lessonId": "PRODUCTIVITY_2026_HI_DAY_17",
+      "title": "प्रेरणा बनाए रखना: प्रगति को ट्रैक करना, जीत का जश्न मनाना",
+      "lessonCreatedAt": "2026-01-24T09:30:00.482Z",
+      "lessonQuality": {
+        "score": 100,
+        "issues": [],
+        "signals": {
+          "charCount": 1122,
+          "wordCount": 202,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "VALIDATED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/PRODUCTIVITY_2026_HI/PRODUCTIVITY_2026_HI_DAY_17__2026-01-30T14-26-54-640Z.json",
+        "insertedCount": 3,
+        "replacedCount": 7,
+        "invalidFound": 0,
+        "duplicatesFound": 7,
+        "questionsDeleted": 0,
+        "warnings": [],
+        "existingCounts": {
+          "total": 7,
+          "valid": 7,
+          "invalid": 0,
+          "application": 5,
+          "critical": 2,
+          "recall": 0,
+          "duplicates": 7
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_HI",
+      "courseName": "उत्पादकता 2026: टीमों और समय का प्रबंधन कैसे करें",
+      "language": "hi",
+      "dayNumber": 18,
+      "lessonId": "PRODUCTIVITY_2026_HI_DAY_18",
+      "title": "संकट प्रबंधन और अनुकूलन: अनुकूलन, तेजी से सीखना",
+      "lessonCreatedAt": "2026-01-24T09:30:03.818Z",
+      "lessonQuality": {
+        "score": 100,
+        "issues": [],
+        "signals": {
+          "charCount": 1636,
+          "wordCount": 287,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "VALIDATED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/PRODUCTIVITY_2026_HI/PRODUCTIVITY_2026_HI_DAY_18__2026-01-30T14-26-54-640Z.json",
+        "insertedCount": 4,
+        "replacedCount": 7,
+        "invalidFound": 0,
+        "duplicatesFound": 7,
+        "questionsDeleted": 0,
+        "warnings": [],
+        "existingCounts": {
+          "total": 7,
+          "valid": 7,
+          "invalid": 0,
+          "application": 5,
+          "critical": 2,
+          "recall": 0,
+          "duplicates": 7
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_HI",
+      "courseName": "उत्पादकता 2026: टीमों और समय का प्रबंधन कैसे करें",
+      "language": "hi",
+      "dayNumber": 19,
+      "lessonId": "PRODUCTIVITY_2026_HI_DAY_19",
+      "title": "दीर्घकालीन योजना: वर्षों आगे, रणनीति, विकास",
+      "lessonCreatedAt": "2026-01-24T09:30:06.749Z",
+      "lessonQuality": {
+        "score": 100,
+        "issues": [],
+        "signals": {
+          "charCount": 1632,
+          "wordCount": 285,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "VALIDATED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/PRODUCTIVITY_2026_HI/PRODUCTIVITY_2026_HI_DAY_19__2026-01-30T14-26-54-640Z.json",
+        "insertedCount": 3,
+        "replacedCount": 7,
+        "invalidFound": 0,
+        "duplicatesFound": 7,
+        "questionsDeleted": 0,
+        "warnings": [],
+        "existingCounts": {
+          "total": 7,
+          "valid": 7,
+          "invalid": 0,
+          "application": 5,
+          "critical": 2,
+          "recall": 0,
+          "duplicates": 7
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_HI",
+      "courseName": "उत्पादकता 2026: टीमों और समय का प्रबंधन कैसे करें",
+      "language": "hi",
+      "dayNumber": 20,
+      "lessonId": "PRODUCTIVITY_2026_HI_DAY_20",
+      "title": "व्यक्तिगत जीवन उत्पादकता: घर संगठन, व्यक्तिगत परियोजनाएं",
+      "lessonCreatedAt": "2026-01-24T09:30:09.651Z",
+      "lessonQuality": {
+        "score": 100,
+        "issues": [],
+        "signals": {
+          "charCount": 1120,
+          "wordCount": 198,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "VALIDATED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/PRODUCTIVITY_2026_HI/PRODUCTIVITY_2026_HI_DAY_20__2026-01-30T14-26-54-640Z.json",
+        "insertedCount": 2,
+        "replacedCount": 7,
+        "invalidFound": 0,
+        "duplicatesFound": 7,
+        "questionsDeleted": 0,
+        "warnings": [],
+        "existingCounts": {
+          "total": 7,
+          "valid": 7,
+          "invalid": 0,
+          "application": 5,
+          "critical": 2,
+          "recall": 0,
+          "duplicates": 7
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_HI",
+      "courseName": "उत्पादकता 2026: टीमों और समय का प्रबंधन कैसे करें",
+      "language": "hi",
+      "dayNumber": 21,
+      "lessonId": "PRODUCTIVITY_2026_HI_DAY_21",
+      "title": "समुदाय और नेटवर्क: रिश्ते, दूसरों के साथ सीखना",
+      "lessonCreatedAt": "2026-01-24T09:30:12.449Z",
+      "lessonQuality": {
+        "score": 100,
+        "issues": [],
+        "signals": {
+          "charCount": 1110,
+          "wordCount": 199,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "VALIDATED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/PRODUCTIVITY_2026_HI/PRODUCTIVITY_2026_HI_DAY_21__2026-01-30T14-26-54-640Z.json",
+        "insertedCount": 5,
+        "replacedCount": 7,
+        "invalidFound": 0,
+        "duplicatesFound": 7,
+        "questionsDeleted": 0,
+        "warnings": [],
+        "existingCounts": {
+          "total": 7,
+          "valid": 7,
+          "invalid": 0,
+          "application": 5,
+          "critical": 2,
+          "recall": 0,
+          "duplicates": 7
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_HI",
+      "courseName": "उत्पादकता 2026: टीमों और समय का प्रबंधन कैसे करें",
+      "language": "hi",
+      "dayNumber": 22,
+      "lessonId": "PRODUCTIVITY_2026_HI_DAY_22",
+      "title": "प्रौद्योगिकी और उपकरण: स्वचालन, सही तकनीक चुनना",
+      "lessonCreatedAt": "2026-01-24T09:30:15.244Z",
+      "lessonQuality": {
+        "score": 100,
+        "issues": [],
+        "signals": {
+          "charCount": 1111,
+          "wordCount": 198,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "VALIDATED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/PRODUCTIVITY_2026_HI/PRODUCTIVITY_2026_HI_DAY_22__2026-01-30T14-26-54-640Z.json",
+        "insertedCount": 3,
+        "replacedCount": 7,
+        "invalidFound": 0,
+        "duplicatesFound": 7,
+        "questionsDeleted": 0,
+        "warnings": [],
+        "existingCounts": {
+          "total": 7,
+          "valid": 7,
+          "invalid": 0,
+          "application": 5,
+          "critical": 2,
+          "recall": 0,
+          "duplicates": 7
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_HI",
+      "courseName": "उत्पादकता 2026: टीमों और समय का प्रबंधन कैसे करें",
+      "language": "hi",
+      "dayNumber": 23,
+      "lessonId": "PRODUCTIVITY_2026_HI_DAY_23",
+      "title": "रचनात्मकता और नवाचार: पुनर्विचार, प्रयोग",
+      "lessonCreatedAt": "2026-01-24T09:30:17.939Z",
+      "lessonQuality": {
+        "score": 100,
+        "issues": [],
+        "signals": {
+          "charCount": 1629,
+          "wordCount": 284,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "VALIDATED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/PRODUCTIVITY_2026_HI/PRODUCTIVITY_2026_HI_DAY_23__2026-01-30T14-26-54-640Z.json",
+        "insertedCount": 3,
+        "replacedCount": 7,
+        "invalidFound": 0,
+        "duplicatesFound": 7,
+        "questionsDeleted": 0,
+        "warnings": [],
+        "existingCounts": {
+          "total": 7,
+          "valid": 7,
+          "invalid": 0,
+          "application": 5,
+          "critical": 2,
+          "recall": 0,
+          "duplicates": 7
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_HI",
+      "courseName": "उत्पादकता 2026: टीमों और समय का प्रबंधन कैसे करें",
+      "language": "hi",
+      "dayNumber": 24,
+      "lessonId": "PRODUCTIVITY_2026_HI_DAY_24",
+      "title": "फ़िल्टरिंग और प्राथमिकताएं: क्या अनदेखा करें, क्या महत्वपूर्ण है",
+      "lessonCreatedAt": "2026-01-24T09:30:20.444Z",
+      "lessonQuality": {
+        "score": 100,
+        "issues": [],
+        "signals": {
+          "charCount": 1128,
+          "wordCount": 200,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "VALIDATED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/PRODUCTIVITY_2026_HI/PRODUCTIVITY_2026_HI_DAY_24__2026-01-30T14-26-54-640Z.json",
+        "insertedCount": 5,
+        "replacedCount": 6,
+        "invalidFound": 0,
+        "duplicatesFound": 6,
+        "questionsDeleted": 0,
+        "warnings": [],
+        "existingCounts": {
+          "total": 7,
+          "valid": 7,
+          "invalid": 0,
+          "application": 5,
+          "critical": 2,
+          "recall": 0,
+          "duplicates": 6
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_HI",
+      "courseName": "उत्पादकता 2026: टीमों और समय का प्रबंधन कैसे करें",
+      "language": "hi",
+      "dayNumber": 25,
+      "lessonId": "PRODUCTIVITY_2026_HI_DAY_25",
+      "title": "कौशल विकास: उच्च स्तर, नई क्षमताएं",
+      "lessonCreatedAt": "2026-01-24T09:30:23.439Z",
+      "lessonQuality": {
+        "score": 100,
+        "issues": [],
+        "signals": {
+          "charCount": 1098,
+          "wordCount": 197,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "VALIDATED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/PRODUCTIVITY_2026_HI/PRODUCTIVITY_2026_HI_DAY_25__2026-01-30T14-26-54-640Z.json",
+        "insertedCount": 5,
+        "replacedCount": 7,
+        "invalidFound": 0,
+        "duplicatesFound": 7,
+        "questionsDeleted": 0,
+        "warnings": [],
+        "existingCounts": {
+          "total": 7,
+          "valid": 7,
+          "invalid": 0,
+          "application": 5,
+          "critical": 2,
+          "recall": 0,
+          "duplicates": 7
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_HI",
+      "courseName": "उत्पादकता 2026: टीमों और समय का प्रबंधन कैसे करें",
+      "language": "hi",
+      "dayNumber": 26,
+      "lessonId": "PRODUCTIVITY_2026_HI_DAY_26",
+      "title": "मेंटोरिंग और शिक्षण: ज्ञान साझा करना, दूसरों की मदद करना",
+      "lessonCreatedAt": "2026-01-24T09:30:25.896Z",
+      "lessonQuality": {
+        "score": 100,
+        "issues": [],
+        "signals": {
+          "charCount": 1661,
+          "wordCount": 291,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "VALIDATED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/PRODUCTIVITY_2026_HI/PRODUCTIVITY_2026_HI_DAY_26__2026-01-30T14-26-54-640Z.json",
+        "insertedCount": 4,
+        "replacedCount": 7,
+        "invalidFound": 0,
+        "duplicatesFound": 7,
+        "questionsDeleted": 0,
+        "warnings": [],
+        "existingCounts": {
+          "total": 7,
+          "valid": 7,
+          "invalid": 0,
+          "application": 5,
+          "critical": 2,
+          "recall": 0,
+          "duplicates": 7
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_HI",
+      "courseName": "उत्पादकता 2026: टीमों और समय का प्रबंधन कैसे करें",
+      "language": "hi",
+      "dayNumber": 27,
+      "lessonId": "PRODUCTIVITY_2026_HI_DAY_27",
+      "title": "आदतें और अनुष्ठान: दैनिक दिनचर्या, दीर्घकालीन कार्य",
+      "lessonCreatedAt": "2026-01-24T09:30:29.596Z",
+      "lessonQuality": {
+        "score": 100,
+        "issues": [],
+        "signals": {
+          "charCount": 1115,
+          "wordCount": 198,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "VALIDATED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/PRODUCTIVITY_2026_HI/PRODUCTIVITY_2026_HI_DAY_27__2026-01-30T14-26-54-640Z.json",
+        "insertedCount": 4,
+        "replacedCount": 7,
+        "invalidFound": 0,
+        "duplicatesFound": 7,
+        "questionsDeleted": 0,
+        "warnings": [],
+        "existingCounts": {
+          "total": 7,
+          "valid": 7,
+          "invalid": 0,
+          "application": 5,
+          "critical": 2,
+          "recall": 0,
+          "duplicates": 7
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_HI",
+      "courseName": "उत्पादकता 2026: टीमों और समय का प्रबंधन कैसे करें",
+      "language": "hi",
+      "dayNumber": 28,
+      "lessonId": "PRODUCTIVITY_2026_HI_DAY_28",
+      "title": "मूल्य और लक्ष्य: जीवन का उद्देश्य, दीर्घकालीन दृष्टि",
+      "lessonCreatedAt": "2026-01-24T09:30:33.012Z",
+      "lessonQuality": {
+        "score": 100,
+        "issues": [],
+        "signals": {
+          "charCount": 1116,
+          "wordCount": 199,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "VALIDATED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/PRODUCTIVITY_2026_HI/PRODUCTIVITY_2026_HI_DAY_28__2026-01-30T14-26-54-640Z.json",
+        "insertedCount": 3,
+        "replacedCount": 7,
+        "invalidFound": 0,
+        "duplicatesFound": 7,
+        "questionsDeleted": 0,
+        "warnings": [],
+        "existingCounts": {
+          "total": 7,
+          "valid": 7,
+          "invalid": 0,
+          "application": 5,
+          "critical": 2,
+          "recall": 0,
+          "duplicates": 7
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_HI",
+      "courseName": "उत्पादकता 2026: टीमों और समय का प्रबंधन कैसे करें",
+      "language": "hi",
+      "dayNumber": 29,
+      "lessonId": "PRODUCTIVITY_2026_HI_DAY_29",
+      "title": "निरंतर सुधार: सीखना, प्रतिक्रिया, पुनरावृत्ति",
+      "lessonCreatedAt": "2026-01-24T09:30:36.755Z",
+      "lessonQuality": {
+        "score": 100,
+        "issues": [],
+        "signals": {
+          "charCount": 1583,
+          "wordCount": 279,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "VALIDATED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/PRODUCTIVITY_2026_HI/PRODUCTIVITY_2026_HI_DAY_29__2026-01-30T14-26-54-640Z.json",
+        "insertedCount": 5,
+        "replacedCount": 7,
+        "invalidFound": 0,
+        "duplicatesFound": 7,
+        "questionsDeleted": 0,
+        "warnings": [],
+        "existingCounts": {
+          "total": 7,
+          "valid": 7,
+          "invalid": 0,
+          "application": 5,
+          "critical": 2,
+          "recall": 0,
+          "duplicates": 7
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_HI",
+      "courseName": "उत्पादकता 2026: टीमों और समय का प्रबंधन कैसे करें",
+      "language": "hi",
+      "dayNumber": 30,
+      "lessonId": "PRODUCTIVITY_2026_HI_DAY_30",
+      "title": "उत्पादकता का मास्टर: व्यापक एकीकरण, प्रतिबद्धता",
+      "lessonCreatedAt": "2026-01-24T09:30:39.716Z",
+      "lessonQuality": {
+        "score": 100,
+        "issues": [],
+        "signals": {
+          "charCount": 1585,
+          "wordCount": 280,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "VALIDATED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/PRODUCTIVITY_2026_HI/PRODUCTIVITY_2026_HI_DAY_30__2026-01-30T14-26-54-640Z.json",
+        "insertedCount": 2,
+        "replacedCount": 7,
+        "invalidFound": 0,
+        "duplicatesFound": 7,
+        "questionsDeleted": 0,
+        "warnings": [],
+        "existingCounts": {
+          "total": 7,
+          "valid": 7,
+          "invalid": 0,
+          "application": 5,
+          "critical": 2,
+          "recall": 0,
+          "duplicates": 7
+        }
+      }
+    }
+  ]
+}

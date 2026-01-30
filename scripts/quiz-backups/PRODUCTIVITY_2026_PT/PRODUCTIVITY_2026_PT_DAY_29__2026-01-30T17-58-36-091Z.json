@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-30T17:58:41.292Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_PT",
+    "name": "Produtividade 2026: Como Gerenciar Equipes e Tempo",
+    "language": "pt"
+  },
+  "lesson": {
+    "dayNumber": 29,
+    "title": "Melhoria Contínua: Aprendizado, Feedback, Iteração",
+    "lessonId": "PRODUCTIVITY_2026_PT_DAY_29"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a3b6360118c57912b8a",
+      "uuid": "4acd03b0-34e4-4a5b-b911-fcfae63aaec0",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Produtividade nunca termina—evolui continuamente.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day29",
+        "#pt",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a3b6360118c57912b8b",
+      "uuid": "1749f35f-3976-4992-b93d-937d9881f72f",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Em uma reuniao de planejamento, voce precisa escolher os proximos passos. How would you use the \"Produtividade nunca termina—evolui continuamente.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail , test the results, and document my experiences",
+        "I only understand it theoretically",
+        "Opcao concreta: I don't apply it.",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day29",
+        "#pt",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a3b6360118c57912b8c",
+      "uuid": "6d591efd-b3b9-484d-99b1-2bae952ba91f",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Produtividade nunca termina—evolui continuamente.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it (como opcao pratica na situacao)",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day29",
+        "#pt",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a3b6360118c57912b8d",
+      "uuid": "bfaa722d-c5d8-462a-93f8-619198c46ba6",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Como o conceito \"Melhoria Contínua: Aprendizado, Feedback, Iteração...\", mencionado na lição, impacta o alcance de seus goals?",
+      "options": [
+        "Como descrito em detalhes na lição, Melhoria Contínua: Aprendizado... aumenta a eficácia e reduz os riscos",
+        "Sem impacto significativo",
+        "Importa apenas teoricamente",
+        "Apenas um elemento opcional"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day29",
+        "#pt",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a3b6360118c57912b8e",
+      "uuid": "bc94f570-2b09-4834-93db-a04ff527be5f",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Quão importante é Melhoria no contexto de Melhoria Contínua: Aprendizado, Feedback, Iteração, conforme discutido na lição?",
+      "options": [
+        "Conforme descrito em detalhes na lição, Melhoria desempenha um papel crucial na otimização de processos e no alcance de objetivos",
+        "Apenas informações periféricas sem papel significativo",
+        "Apenas um conceito teórico sem aplicação prática",
+        "Opcao concreta: Não mencionado na lição."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day29",
+        "#pt",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "69776a3b6360118c57912b8f",
+      "uuid": "fa93eb38-f972-48dc-b725-f2beed302a5d",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Quão importante é Aprendizado no contexto de Melhoria Contínua: Aprendizado, Feedback, Iteração, conforme discutido na lição?",
+      "options": [
+        "Conforme descrito em detalhes na lição, Aprendizado desempenha um papel crucial na otimização de processos e no alcance de objetivos",
+        "Apenas informações periféricas sem papel significativo",
+        "Apenas um conceito teórico sem aplicação prática",
+        "Não mencionado na lição"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day29",
+        "#pt",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a3b6360118c57912b90",
+      "uuid": "88e6c446-d5b1-49b7-8fac-70a4bc942556",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Quão importante é Iteração no contexto de Melhoria Contínua: Aprendizado, Feedback, Iteração, conforme discutido na lição?",
+      "options": [
+        "Conforme descrito em detalhes na lição, Iteração desempenha um papel crucial na otimização de processos e no alcance de objetivos",
+        "Apenas informações periféricas sem papel significativo",
+        "Apenas um conceito teórico sem aplicação prática",
+        "Não mencionado na lição"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day29",
+        "#pt",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

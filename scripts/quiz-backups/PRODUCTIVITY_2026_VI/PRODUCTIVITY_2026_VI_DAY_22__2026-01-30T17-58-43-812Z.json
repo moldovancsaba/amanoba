@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-30T17:58:49.294Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_VI",
+    "name": "Năng suất 2026: Cách quản lý nhóm và thời gian",
+    "language": "vi"
+  },
+  "lesson": {
+    "dayNumber": 22,
+    "title": "Công Nghệ và Công Cụ: Tự Động Hóa, Chọn Công Nghệ Phù Hợp",
+    "lessonId": "PRODUCTIVITY_2026_VI_DAY_22"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a1dbfaf87642652764d",
+      "uuid": "9800f66c-c994-40f1-ba1c-d0b0b4c7e32f",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Tận dụng công nghệ để tăng cường năng suất.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day22",
+        "#vi",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a1dbfaf87642652764e",
+      "uuid": "8cac14b2-3cf3-40fd-b1c2-5304764da034",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "You're in a real situation and need to choose next steps. How would you use the \"Tận dụng công nghệ để tăng cường năng suất.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail , test the results, and document my experiences",
+        "I only understand it theoretically",
+        "Ban chon: I don't apply it.",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day22",
+        "#vi",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a1dbfaf87642652764f",
+      "uuid": "dcf0e327-0977-40b7-9c22-b7d998f1597f",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Tận dụng công nghệ để tăng cường năng suất.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day22",
+        "#vi",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a1dbfaf876426527650",
+      "uuid": "2b499fff-e5a2-482b-b451-0fab5b437346",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Khái niệm \"Công Nghệ và Công Cụ: Tự Động Hóa, Chọn Công Nghệ ...\" được đề cập trong bài học ảnh hưởng như thế nào đến việc đạt được goals của bạn?",
+      "options": [
+        "Như đã mô tả chi tiết trong bài học, Công Nghệ và Công Cụ: Tự Động ... tăng hiệu quả và giảm rủi ro",
+        "Không có tác động đáng kể",
+        "Chỉ quan trọng về mặt lý thuyết",
+        "Lua chon cu the: Chỉ là yếu tố tùy chọn."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day22",
+        "#vi",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a1dbfaf876426527651",
+      "uuid": "e267e50f-78e4-4430-984b-e4622a428f14",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Công quan trọng như thế nào trong ngữ cảnh của Công Nghệ và Công Cụ: Tự Động Hóa, Chọn Công Nghệ Phù Hợp như được thảo luận trong bài học?",
+      "options": [
+        "Như đã mô tả chi tiết trong bài học, Công đóng vai trò quan trọng trong việc tối ưu hóa quy trình và đạt được mục tiêu",
+        "Chỉ là thông tin ngoại vi không có vai trò quan trọng",
+        "Chỉ là một khái niệm lý thuyết không có ứng dụng thực tế",
+        "Không được đề cập trong bài học"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day22",
+        "#vi",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "69776a1dbfaf876426527652",
+      "uuid": "1b40897d-c13a-4a4c-8f65-ff5f17c50613",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Động quan trọng như thế nào trong ngữ cảnh của Công Nghệ và Công Cụ: Tự Động Hóa, Chọn Công Nghệ Phù Hợp như được thảo luận trong bài học?",
+      "options": [
+        "Như đã mô tả chi tiết trong bài học, Động đóng vai trò quan trọng trong việc tối ưu hóa quy trình và đạt được mục tiêu",
+        "Chỉ là thông tin ngoại vi không có vai trò quan trọng",
+        "Chỉ là một khái niệm lý thuyết không có ứng dụng thực tế",
+        "Không được đề cập trong bài học"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day22",
+        "#vi",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a1dbfaf876426527653",
+      "uuid": "93c31838-02a3-4dde-a6b0-8578541edfbc",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Tận dụng công nghệ để tăng cường năng suất. đóng vai trò gì trong bài học \"Công Nghệ và Công Cụ: Tự Động Hóa, Chọn Công Nghệ Phù Hợp\"?",
+      "options": [
+        "Như đã mô tả chi tiết trong bài học, Tận dụng công nghệ để tăng cường năng suất. đóng vai trò quan trọng trong việc tối ưu hóa quy trình và đạt được mục tiêu",
+        "Chỉ là thông tin ngoại vi không có vai trò quan trọng",
+        "Chỉ là một khái niệm lý thuyết không có ứng dụng thực tế",
+        "Không được đề cập trong bài học"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day22",
+        "#vi",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

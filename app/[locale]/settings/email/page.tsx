@@ -209,7 +209,7 @@ export default function EmailSettingsPage() {
                   }
                   className="w-full px-4 py-2 bg-brand-white border-2 border-brand-darkGrey rounded-lg text-brand-black focus:outline-none focus:border-brand-accent"
                 >
-                  {Intl.supportedValuesOf('timeZone').map((tz) => (
+                  {((Intl as unknown as { supportedValuesOf(key: string): string[] }).supportedValuesOf('timeZone')).map((tz: string) => (
                     <option key={tz} value={tz}>
                       {tz.replace(/_/g, ' ')}
                     </option>

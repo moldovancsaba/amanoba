@@ -7,7 +7,7 @@
 
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import { LocaleLink } from '@/components/LocaleLink';
@@ -371,30 +371,8 @@ export default function DailyLessonPage({
   const searchParams = useSearchParams();
   const locale = useLocale();
 
-  useEffect(() => {
-    const loadData = async () => {
-      const resolvedParams = await params;
-      const cid = resolvedParams.courseId;
-      const day = parseInt(resolvedParams.dayNumber);
-      
-      setCourseId(cid);
-      setDayNumber(day);
-      
-      // Extract language from courseId suffix (e.g., PRODUCTIVITY_2026_AR → ar)
-      // This ensures links use correct language immediately, before API call
-      const parts = cid.split('_');
-      const suffix = parts[parts.length - 1].toLowerCase();
-      const validLanguages = ['hu', 'en', 'ar', 'ru', 'pt', 'vi', 'id', 'hi', 'tr', 'bg', 'pl'];
-      if (validLanguages.includes(suffix)) {
-        setCourseLanguage(suffix);
-      }
-      
-      await fetchLesson(cid, day);
-    };
-    loadData();
-  }, [params]);
-
-  const fetchLesson = async (cid: string, day: number, opts: { silent?: boolean } = {}) => {
+  const fetchLesson = useCallback(async (cid: string, day: number, opts: { silent?: boolean; fallbackLanguage?: string } = {}) => {
+    const errorLanguage = opts.fallbackLanguage || 'en';
     try {
       if (!opts.silent) {
         setLoading(true);
@@ -420,24 +398,48 @@ export default function DailyLessonPage({
         const stored = localStorage.getItem(storageKey);
         setQuizPassed(stored === 'true');
       } else {
-        alert(data.error || getDayPageText('failedToLoadLesson', courseLanguage));
+        alert(data.error || getDayPageText('failedToLoadLesson', errorLanguage));
       }
     } catch (error) {
       console.error('Failed to fetch lesson:', error);
-      alert(getDayPageText('failedToLoadLesson', courseLanguage));
+      alert(getDayPageText('failedToLoadLesson', errorLanguage));
     } finally {
       if (!opts.silent) {
         setLoading(false);
       }
     }
-  };
+  }, [session]);
+
+  useEffect(() => {
+    const loadData = async () => {
+      const resolvedParams = await params;
+      const cid = resolvedParams.courseId;
+      const day = parseInt(resolvedParams.dayNumber);
+      
+      setCourseId(cid);
+      setDayNumber(day);
+      
+      // Extract language from courseId suffix (e.g., PRODUCTIVITY_2026_AR → ar)
+      // This ensures links use correct language immediately, before API call
+      const parts = cid.split('_');
+      const suffix = parts[parts.length - 1].toLowerCase();
+      const validLanguages = ['hu', 'en', 'ar', 'ru', 'pt', 'vi', 'id', 'hi', 'tr', 'bg', 'pl'];
+      const fallbackLanguage = validLanguages.includes(suffix) ? suffix : 'en';
+      if (validLanguages.includes(suffix)) {
+        setCourseLanguage(suffix);
+      }
+      
+      await fetchLesson(cid, day, { fallbackLanguage });
+    };
+    void loadData();
+  }, [fetchLesson, params]);
 
   const handleComplete = async () => {
     if (!lesson || completing) return;
 
     // Check if quiz is required and not passed
     if (lesson.quizConfig?.enabled && lesson.quizConfig.required && !quizPassed) {
-      alert(t('mustPassQuiz'));
+      alert(getDayPageText('mustPassQuiz', courseLanguage));
       return;
     }
 
@@ -460,7 +462,7 @@ export default function DailyLessonPage({
             : prev
         );
         // Refresh lesson state silently to pick up progress/unlocks
-        await fetchLesson(courseId, dayNumber, { silent: true });
+        await fetchLesson(courseId, dayNumber, { silent: true, fallbackLanguage: courseLanguage });
         // Alert removed - lesson completion is already visible in the UI
       } else {
         alert(data.error || getDayPageText('failedToComplete', courseLanguage));

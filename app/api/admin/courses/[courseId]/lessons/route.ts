@@ -6,6 +6,7 @@
  */
 
 import { NextRequest, NextResponse } from 'next/server';
+import type { Session } from 'next-auth';
 import { auth } from '@/auth';
 import connectDB from '@/lib/mongodb';
 import { Course, Lesson } from '@/lib/models';
@@ -15,8 +16,8 @@ import mongoose from 'mongoose';
 
 async function assertCourseAccess(
   request: NextRequest,
-  session: Awaited<ReturnType<typeof auth>>,
-  course: { createdBy?: unknown; assignedEditors?: unknown[] } | null
+  session: Session | null,
+  course: { createdBy?: { toString?: () => string } | string; assignedEditors?: Array<{ toString?: () => string } | string> } | null
 ): Promise<NextResponse | null> {
   if (!course) return NextResponse.json({ error: 'Course not found' }, { status: 404 });
   if (isAdmin(session)) return null;
@@ -34,7 +35,7 @@ export async function GET(
   { params }: { params: Promise<{ courseId: string }> }
 ) {
   try {
-    const session = await auth();
+    const session = (await auth()) as Session | null;
     const accessCheck = await requireAdminOrEditor(request, session);
     if (accessCheck) {
       return accessCheck;
@@ -44,7 +45,7 @@ export async function GET(
     const { courseId } = await params;
 
     const course = await Course.findOne({ courseId }).lean();
-    const forbid = await assertCourseAccess(request, session, course);
+    const forbid = await assertCourseAccess(request, session, course as Parameters<typeof assertCourseAccess>[2]);
     if (forbid) return forbid;
 
     // Load course again for parent/child logic (need document for selectedLessonIds)
@@ -92,7 +93,7 @@ export async function POST(
   { params }: { params: Promise<{ courseId: string }> }
 ) {
   try {
-    const session = await auth();
+    const session = (await auth()) as Session | null;
     const accessCheck = await requireAdminOrEditor(request, session);
     if (accessCheck) {
       return accessCheck;
@@ -105,7 +106,7 @@ export async function POST(
     if (!course) {
       return NextResponse.json({ error: 'Course not found' }, { status: 404 });
     }
-    const forbid = await assertCourseAccess(request, session, course);
+    const forbid = await assertCourseAccess(request, session, course as Parameters<typeof assertCourseAccess>[2]);
     if (forbid) return forbid;
 
     const body = await request.json();

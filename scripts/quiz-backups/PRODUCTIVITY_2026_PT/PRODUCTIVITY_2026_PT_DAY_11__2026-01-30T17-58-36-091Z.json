@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-30T17:58:39.356Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_PT",
+    "name": "Produtividade 2026: Como Gerenciar Equipes e Tempo",
+    "language": "pt"
+  },
+  "lesson": {
+    "dayNumber": 11,
+    "title": "Definição de Metas e OKR: O Que Você Quer Alcançar?",
+    "lessonId": "PRODUCTIVITY_2026_PT_DAY_11"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a396360118c57912acc",
+      "uuid": "2ffaea18-b80b-46a2-a7a6-c7698576fcc4",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Direção\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day11",
+        "#pt",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a396360118c57912acd",
+      "uuid": "1c7a9f58-d0ac-4133-918f-dede44aaca3e",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Motivação\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day11",
+        "#pt",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a396360118c57912ace",
+      "uuid": "a77ad894-ed2c-4b49-8a3a-fbce6ca0937a",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Medição\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day11",
+        "#pt",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a396360118c57912acf",
+      "uuid": "95203c08-132b-44d3-be5f-c9a8f152b516",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Como o conceito \"Definição de Metas e OKR: O Que Você Quer Alcançar...\", mencionado na lição, impacta o alcance de seus goals?",
+      "options": [
+        "Como descrito em detalhes na lição, Definição de Metas e OKR: O Qu... aumenta a eficácia e reduz os riscos",
+        "Sem impacto significativo",
+        "Importa apenas teoricamente",
+        "Apenas um elemento opcional"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day11",
+        "#pt",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a396360118c57912ad0",
+      "uuid": "d64b775f-4617-4844-94ae-23d3300f6f76",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Quão importante é Motivação no contexto de Definição de Metas e OKR: O Que Você Quer Alcançar?, conforme discutido na lição?",
+      "options": [
+        "Conforme descrito em detalhes na lição, Motivação desempenha um papel crucial na otimização de processos e no alcance de objetivos",
+        "Apenas informações periféricas sem papel significativo",
+        "Apenas um conceito teórico sem aplicação prática",
+        "Não mencionado na lição"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day11",
+        "#pt",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a396360118c57912ad1",
+      "uuid": "6290ac5f-1ddb-4100-b4de-0a5bbe117b7f",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Quão importante é Definição no contexto de Definição de Metas e OKR: O Que Você Quer Alcançar?, conforme discutido na lição?",
+      "options": [
+        "Conforme descrito em detalhes na lição, Definição desempenha um papel crucial na otimização de processos e no alcance de objetivos",
+        "Apenas informações periféricas sem papel significativo",
+        "Apenas um conceito teórico sem aplicação prática",
+        "Não mencionado na lição"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day11",
+        "#pt",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a396360118c57912ad2",
+      "uuid": "dea0e540-c9af-496a-84e7-20e7e945d313",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Quão importante é Você no contexto de Definição de Metas e OKR: O Que Você Quer Alcançar?, conforme discutido na lição?",
+      "options": [
+        "Conforme descrito em detalhes na lição, Você desempenha um papel crucial na otimização de processos e no alcance de objetivos",
+        "Apenas informações periféricas sem papel significativo",
+        "Apenas um conceito teórico sem aplicação prática",
+        "Opcao concreta: Não mencionado na lição."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day11",
+        "#pt",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    }
+  ]
+}

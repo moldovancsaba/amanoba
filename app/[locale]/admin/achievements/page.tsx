@@ -7,7 +7,7 @@
 
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
 import { useLocale, useTranslations } from 'next-intl';
 import {
@@ -50,11 +50,7 @@ export default function AdminAchievementsPage() {
   const [deletingId, setDeletingId] = useState<string | null>(null);
   const [showDeleteConfirm, setShowDeleteConfirm] = useState<{ id: string; name: string } | null>(null);
 
-  useEffect(() => {
-    fetchAchievements();
-  }, [search, categoryFilter]);
-
-  const fetchAchievements = async () => {
+  const fetchAchievements = useCallback(async () => {
     try {
       setLoading(true);
       const params = new URLSearchParams();
@@ -76,7 +72,11 @@ export default function AdminAchievementsPage() {
     } finally {
       setLoading(false);
     }
-  };
+  }, [categoryFilter, search]);
+
+  useEffect(() => {
+    void fetchAchievements();
+  }, [fetchAchievements]);
 
   const handleDelete = async (achievementId: string) => {
     setDeletingId(achievementId);

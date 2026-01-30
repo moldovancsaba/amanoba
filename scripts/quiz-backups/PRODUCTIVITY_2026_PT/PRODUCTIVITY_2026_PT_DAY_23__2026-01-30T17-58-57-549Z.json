@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-30T17:59:11.192Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_PT",
+    "name": "Produtividade 2026: Como Gerenciar Equipes e Tempo",
+    "language": "pt"
+  },
+  "lesson": {
+    "dayNumber": 23,
+    "title": "Criatividade e Inovação: Repensar, Experimentação",
+    "lessonId": "PRODUCTIVITY_2026_PT_DAY_23"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a3a6360118c57912b4e",
+      "uuid": "a0e09a27-7788-4cd0-a5e2-2097b5ecab43",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Em uma reuniao de planejamento, voce precisa escolher os proximos passos. How would you use the \"Integre criatividade e inovação ao trabalho.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail , test the results, and document my experiences",
+        "I only understand it theoretically",
+        "Opcao concreta: I don't apply it.",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day23",
+        "#pt",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a3a6360118c57912b4f",
+      "uuid": "7fe5cb2f-60b2-451b-abff-fe3a65d1ec89",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Integre criatividade e inovação ao trabalho.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day23",
+        "#pt",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a3a6360118c57912b50",
+      "uuid": "4a1e8e8b-002d-4e08-bdfa-a32560842f7d",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Integre criatividade e inovação ao trabalho.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day23",
+        "#pt",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a3a6360118c57912b51",
+      "uuid": "c3fc5e1a-6e9d-42d9-8bce-4b7e22790972",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Como o conceito \"Criatividade e Inovação: Repensar, Experimentação ...\", mencionado na lição, impacta o alcance de seus goals?",
+      "options": [
+        "Como descrito em detalhes na lição, Criatividade e Inovação: Repen... aumenta a eficácia e reduz os riscos",
+        "Sem impacto significativo",
+        "Importa apenas teoricamente",
+        "Apenas um elemento opcional"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day23",
+        "#pt",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a3a6360118c57912b52",
+      "uuid": "c5dfad77-62f7-4157-9884-7715d097b0d3",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Quão importante é Criatividade no contexto de Criatividade e Inovação: Repensar, Experimentação, conforme discutido na lição?",
+      "options": [
+        "Conforme descrito em detalhes na lição, Criatividade desempenha um papel crucial na otimização de processos e no alcance de objetivos",
+        "Apenas informações periféricas sem papel significativo",
+        "Apenas um conceito teórico sem aplicação prática",
+        "Não mencionado na lição"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day23",
+        "#pt",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a3a6360118c57912b53",
+      "uuid": "4e7f4478-e454-4f32-a7dc-d549d5155a50",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Quão importante é Repensar no contexto de Criatividade e Inovação: Repensar, Experimentação, conforme discutido na lição?",
+      "options": [
+        "Conforme descrito em detalhes na lição, Repensar desempenha um papel crucial na otimização de processos e no alcance de objetivos",
+        "Apenas informações periféricas sem papel significativo",
+        "Apenas um conceito teórico sem aplicação prática",
+        "Não mencionado na lição"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day23",
+        "#pt",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a3a6360118c57912b54",
+      "uuid": "d561c653-5fcf-4aad-9072-da31ffdb6291",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Qual papel Integre criatividade e inovação ao trabalho. desempenha na lição \"Criatividade e Inovação: Repensar, Experimentação\"?",
+      "options": [
+        "Conforme descrito em detalhes na lição, Integre criatividade e inovação ao trabalho. desempenha um papel crucial na otimização de processos e no alcance de objetivos",
+        "Apenas informações periféricas sem papel significativo",
+        "Apenas um conceito teórico sem aplicação prática",
+        "Não mencionado na lição (como opcao pratica na situacao)"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day23",
+        "#pt",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    }
+  ]
+}

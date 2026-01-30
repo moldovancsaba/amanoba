@@ -40,7 +40,33 @@ function containsBannedPhrase(text: string) {
 
 type Lang = 'ar' | 'bg' | 'en' | 'hu' | 'tr' | 'pl' | 'vi' | 'id' | 'pt' | 'hi' | 'ru' | 'unknown';
 
+function detectLangFromLessonId(lessonId: string | undefined): Lang | null {
+  const id = String(lessonId || '').toUpperCase();
+  if (!id) return null;
+  const candidates: Array<{ token: string; lang: Lang }> = [
+    { token: '_AR_', lang: 'ar' },
+    { token: '_BG_', lang: 'bg' },
+    { token: '_EN_', lang: 'en' },
+    { token: '_HU_', lang: 'hu' },
+    { token: '_TR_', lang: 'tr' },
+    { token: '_PL_', lang: 'pl' },
+    { token: '_VI_', lang: 'vi' },
+    { token: '_ID_', lang: 'id' },
+    { token: '_PT_', lang: 'pt' },
+    { token: '_HI_', lang: 'hi' },
+    { token: '_RU_', lang: 'ru' },
+  ];
+  for (const c of candidates) {
+    if (id.includes(c.token)) return c.lang;
+  }
+  return null;
+}
+
 function detectLang(item: QuizItem): Lang {
+  // Prefer explicit course/lesson signal over hashtags/text heuristics.
+  const lessonLang = detectLangFromLessonId((item as any).lessonId);
+  if (lessonLang) return lessonLang;
+
   const tags = item.hashtags || [];
   const known = ['ar', 'bg', 'en', 'hu', 'tr', 'pl', 'vi', 'id', 'pt', 'hi', 'ru'] as const;
   for (const k of known) {
@@ -56,6 +82,76 @@ function detectLang(item: QuizItem): Lang {
   if (/[ąćęłńóśźżĄĆĘŁŃÓŚŹŻ]/.test(sample)) return 'pl';
   if (/[ãõçÃÕÇ]/.test(sample)) return 'pt';
   return 'unknown';
+}
+
+function normalizePrefixText(text: string) {
+  return normalizeText(text).toLowerCase().replace(/[’'"]/g, '').trim();
+}
+
+function stripKnownScenarioPrefix(question: string): { stripped: string; changed: boolean; matchedLang: Lang | null } {
+  const q = normalizeText(question);
+  const qNorm = normalizePrefixText(q);
+
+  const prefixes: Array<{ lang: Lang; variants: string[] }> = [
+    { lang: 'en', variants: ["You're working on a task and need to decide next steps."] },
+    { lang: 'bg', variants: ['Представи си, че работиш по задача и трябва да вземеш решение.'] },
+    { lang: 'ar', variants: ['تخيل أنك تعمل على مهمة وتحتاج لاتخاذ قرار.'] },
+    { lang: 'ru', variants: ['Представьте, что вы работаете над задачей и нужно принять решение.'] },
+    {
+      lang: 'tr',
+      variants: [
+        'Bir görev üzerinde çalıştığını ve bir karar vermen gerektiğini düşün.',
+        'Bir gorev uzerinde calistigini ve bir karar vermen gerektigini dusun.',
+      ],
+    },
+    { lang: 'hu', variants: ['Képzeld el, hogy egy feladaton dolgozol, és döntened kell.'] },
+    { lang: 'pl', variants: ['Wyobraź sobie, że pracujesz nad zadaniem i musisz podjąć decyzję.'] },
+    { lang: 'pt', variants: ['Imagine que você está trabalhando em uma tarefa e precisa tomar uma decisão.'] },
+    { lang: 'vi', variants: ['Hãy tưởng tượng bạn đang làm một nhiệm vụ và cần đưa ra quyết định.'] },
+    { lang: 'id', variants: ['Bayangkan kamu sedang mengerjakan tugas dan perlu mengambil keputusan.'] },
+    { lang: 'hi', variants: ['कल्पना करें कि आप एक कार्य पर काम कर रहे हैं और आपको निर्णय लेना है।'] },
+  ];
+
+  for (const p of prefixes) {
+    for (const variant of p.variants) {
+      const vNorm = normalizePrefixText(variant);
+      if (qNorm.startsWith(vNorm)) {
+        const stripped = q.slice(variant.length).trim();
+        const cleaned = stripped.replace(/^[.،,:;!?()\-\s]+/g, '').trim();
+        return { stripped: cleaned || stripped, changed: true, matchedLang: p.lang };
+      }
+    }
+  }
+  return { stripped: q, changed: false, matchedLang: null };
+}
+
+function stripKnownOptionLanguagePrefix(option: string): { stripped: string; changed: boolean; matchedLang: Lang | null } {
+  const o = normalizeText(option);
+  const oNorm = normalizePrefixText(o);
+  const prefixes: Array<{ lang: Lang; variants: string[] }> = [
+    { lang: 'en', variants: ['A concrete option:'] },
+    { lang: 'tr', variants: ['Somut secenek:', 'Somut seçenek:'] },
+    { lang: 'hu', variants: ['Konret opcio:', 'Konkrét opció:'] },
+    { lang: 'pl', variants: ['Konkretna opcja:'] },
+    { lang: 'pt', variants: ['Opcao concreta:', 'Opção concreta:'] },
+    { lang: 'vi', variants: ['Lua chon cu the:', 'Lựa chọn cụ thể:'] },
+    { lang: 'id', variants: ['Opsi konkret:'] },
+    { lang: 'hi', variants: ['Thos vikalp:'] },
+    { lang: 'bg', variants: ['Konkreten izbor:', 'Конкретен избор:'] },
+    { lang: 'ru', variants: ['Konkretnyy variant:', 'Конкретный вариант:'] },
+    { lang: 'ar', variants: ['خيار ملموس:'] },
+  ];
+  for (const p of prefixes) {
+    for (const variant of p.variants) {
+      const vNorm = normalizePrefixText(variant);
+      if (oNorm.startsWith(vNorm)) {
+        const stripped = o.slice(variant.length).trim();
+        const cleaned = stripped.replace(/^[.،,:;!?()\-\s]+/g, '').trim();
+        return { stripped: cleaned || stripped, changed: true, matchedLang: p.lang };
+      }
+    }
+  }
+  return { stripped: o, changed: false, matchedLang: null };
 }
 
 function expandQuestionToScenario(question: string, lang: Lang): string {
@@ -111,7 +207,9 @@ function sanitizeStandaloneQuestion(question: string): string {
 }
 
 function expandShortOption(option: string, lang: Lang): string {
-  const o = normalizeText(option);
+  // Avoid doubling up on auto-prefixes (these functions are hoisted).
+  const { stripped: withoutLangPrefix } = stripKnownOptionLanguagePrefix(option);
+  const o = normalizeText(withoutLangPrefix);
   const oNoTrail = o.replace(/[.。!?؟]+$/g, '').trim();
 
   // Preserve meaning for very short numeric options by adding minimal context.
@@ -163,32 +261,52 @@ function expandShortOption(option: string, lang: Lang): string {
     }
   }
 
-  switch (lang) {
-    case 'bg':
-      return `Konkreten izbor: ${oNoTrail}.`;
-    case 'ar':
-      return `خيار ملموس: ${oNoTrail}.`;
-    case 'ru':
-      return `Konkretnyy variant: ${oNoTrail}.`;
-    case 'tr':
-      return `Somut secenek: ${oNoTrail}.`;
-    case 'hu':
-      return `Konret opcio: ${oNoTrail}.`;
-    case 'pl':
-      return `Konkretna opcja: ${oNoTrail}.`;
-    case 'pt':
-      return `Opcao concreta: ${oNoTrail}.`;
-    case 'vi':
-      return `Lua chon cu the: ${oNoTrail}.`;
-    case 'id':
-      return `Opsi konkret: ${oNoTrail}.`;
-    case 'hi':
-      return `Thos vikalp: ${oNoTrail}.`;
-    case 'en':
-    case 'unknown':
-    default:
-      return `A concrete option: ${oNoTrail}.`;
-  }
+  const base = (() => {
+    switch (lang) {
+      case 'bg':
+        return `Konkreten izbor: ${oNoTrail}.`;
+      case 'ar':
+        return `خيار ملموس: ${oNoTrail}.`;
+      case 'ru':
+        return `Konkretnyy variant: ${oNoTrail}.`;
+      case 'tr':
+        return `Somut secenek: ${oNoTrail}.`;
+      case 'hu':
+        return `Konret opcio: ${oNoTrail}.`;
+      case 'pl':
+        return `Konkretna opcja: ${oNoTrail}.`;
+      case 'pt':
+        return `Opcao concreta: ${oNoTrail}.`;
+      case 'vi':
+        return `Lua chon cu the: ${oNoTrail}.`;
+      case 'id':
+        return `Opsi konkret: ${oNoTrail}.`;
+      case 'hi':
+        return `Thos vikalp: ${oNoTrail}.`;
+      case 'en':
+      case 'unknown':
+      default:
+        return `A concrete option: ${oNoTrail}.`;
+    }
+  })();
+
+  // Ensure we actually clear the >=25 char rule (some languages remain too short otherwise).
+  if (base.length >= 25) return base;
+  const suffixByLang: Record<Lang, string> = {
+    en: ' (brief answer)',
+    pt: ' (resposta curta)',
+    bg: ' (kratuk otgovor)',
+    ar: ' (إجابة قصيرة)',
+    ru: ' (korotkiy otvet)',
+    tr: ' (kisa cevap)',
+    hu: ' (rovid valasz)',
+    pl: ' (krotka odpowiedz)',
+    vi: ' (cau tra loi ngan)',
+    id: ' (jawaban singkat)',
+    hi: ' (chhota jawab)',
+    unknown: ' (brief answer)',
+  };
+  return `${base.replace(/[.。!?؟]+$/g, '')}${suffixByLang[lang] || suffixByLang.unknown}.`;
 }
 
 function stripKnownAutoPrefix(option: string): { stripped: string; changed: boolean } {
@@ -308,12 +426,31 @@ export function evaluateQuestion(item: QuizItem): EvaluationResult {
   const violations: Violation[] = [];
   const autoPatch: Record<string, unknown> = {};
   const lang = detectLang(item);
-  const trimmedQuestion = normalizeText(item.question);
-  if (trimmedQuestion.length !== item.question.length) {
-    autoPatch.question = trimmedQuestion;
+  const normalizedFullQuestion = normalizeText(item.question);
+  const prefixInfo = stripKnownScenarioPrefix(normalizedFullQuestion);
+
+  // Default: keep existing prefix (if any) so we don't punish already-scenario questions.
+  let questionForChecks = normalizedFullQuestion;
+
+  // If the question starts with a known scenario prefix in the *wrong* language, strip it and re-evaluate.
+  if (prefixInfo.changed && prefixInfo.matchedLang && prefixInfo.matchedLang !== lang) {
+    violations.push({
+      code: 'QUESTION_LANGUAGE_PREFIX_MISMATCH',
+      message: `Question starts with a ${prefixInfo.matchedLang} scenario prefix, but the item language is inferred as ${lang}.`,
+      fields: ['question', 'lessonId', 'hashtags'],
+      severity: 'error',
+      docRef: GOLDEN_DOC,
+    });
+    questionForChecks = normalizeText(prefixInfo.stripped);
+    autoPatch.question = questionForChecks;
   }
 
-  if (trimmedQuestion.length < 40) {
+  // Always normalize whitespace on the full question if needed.
+  if (normalizedFullQuestion.length !== item.question.length && !autoPatch.question) {
+    autoPatch.question = normalizedFullQuestion;
+  }
+
+  if (questionForChecks.length < 40) {
     violations.push({
       code: 'QUESTION_TOO_SHORT',
       message: 'Question is shorter than 40 characters.',
@@ -322,10 +459,10 @@ export function evaluateQuestion(item: QuizItem): EvaluationResult {
       docRef: GOLDEN_DOC,
     });
     // Auto-upgrade: make it scenario-based + longer (still standalone).
-    autoPatch.question = expandQuestionToScenario(trimmedQuestion, lang);
+    autoPatch.question = expandQuestionToScenario(questionForChecks, lang);
   }
 
-  if (containsBannedPhrase(trimmedQuestion)) {
+  if (containsBannedPhrase(questionForChecks)) {
     violations.push({
       code: 'HAS_LESSON_REF',
       message: 'Question references course/lesson language (violates standalone rule).',
@@ -333,8 +470,8 @@ export function evaluateQuestion(item: QuizItem): EvaluationResult {
       severity: 'warning',
       docRef: GOLDEN_DOC,
     });
-    const sanitized = sanitizeStandaloneQuestion(trimmedQuestion);
-    if (sanitized && sanitized !== trimmedQuestion) {
+    const sanitized = sanitizeStandaloneQuestion(questionForChecks);
+    if (sanitized && sanitized !== questionForChecks) {
       autoPatch.question = sanitized;
     }
   }
@@ -378,6 +515,20 @@ export function evaluateQuestion(item: QuizItem): EvaluationResult {
 
   const expandedOptions = [...normalizedOptions];
   normalizedOptions.forEach((option, index) => {
+    const strippedOptPrefix = stripKnownOptionLanguagePrefix(option);
+    if (strippedOptPrefix.changed && strippedOptPrefix.matchedLang && strippedOptPrefix.matchedLang !== lang) {
+      violations.push({
+        code: 'OPTION_LANGUAGE_PREFIX_MISMATCH',
+        message: `Option ${index + 1} starts with a ${strippedOptPrefix.matchedLang} prefix, but the item language is inferred as ${lang}.`,
+        fields: [`options[${index}]`, 'lessonId', 'hashtags'],
+        severity: 'warning',
+        docRef: GOLDEN_DOC,
+      });
+      const cleaned = strippedOptPrefix.stripped;
+      expandedOptions[index] = cleaned.length < 25 ? expandShortOption(cleaned, lang) : cleaned;
+      return;
+    }
+
     const { stripped: dePrefixed, changed: prefixChanged } = stripKnownAutoPrefix(option);
     if (prefixChanged) {
       violations.push({

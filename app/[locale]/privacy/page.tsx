@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { defaultLocale } from "@/i18n";
-import { Locale, locales } from "@/app/lib/i18n/locales";
+import { type Locale, locales } from "@/app/lib/i18n/locales";
 
 type Section = {
   id?: string;
@@ -23,7 +23,7 @@ type PrivacyContent = {
   };
 };
 
-const privacyContent: Record<Locale, PrivacyContent> = {
+const privacyContent: Record<string, PrivacyContent> = {
   en: {
     title: "Privacy Policy",
     lastUpdatedLabel: "Last Updated:",
@@ -405,8 +405,9 @@ function SectionBlock({ section }: { section: Section }) {
   );
 }
 
-export default function PrivacyPage({ params }: { params: { locale: string } }) {
-  const locale = locales.includes(params.locale as Locale) ? (params.locale as Locale) : defaultLocale;
+export default async function PrivacyPage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale: localeParam } = await params;
+  const locale = locales.includes(localeParam as Locale) ? (localeParam as Locale) : defaultLocale;
   const content = privacyContent[locale] ?? privacyContent[defaultLocale];
 
   return (

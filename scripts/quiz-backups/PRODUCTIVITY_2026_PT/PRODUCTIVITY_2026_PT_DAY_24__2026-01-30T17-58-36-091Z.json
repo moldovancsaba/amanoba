@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-30T17:58:40.780Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_PT",
+    "name": "Produtividade 2026: Como Gerenciar Equipes e Tempo",
+    "language": "pt"
+  },
+  "lesson": {
+    "dayNumber": 24,
+    "title": "Filtragem e Prioridades: O Que Ignorar, O Que Importa",
+    "lessonId": "PRODUCTIVITY_2026_PT_DAY_24"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a3a6360118c57912b58",
+      "uuid": "42fb52e0-7fb4-4188-9ef4-ecf73fb8a096",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Depois de uma revisao, voce precisa decidir o que mudar a seguir. How would you use the \"Aprenda a dizer \"não\" e focar no que importa.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail , test the results, and document my experiences",
+        "I only understand it theoretically",
+        "Opcao concreta: I don't apply it.",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day24",
+        "#pt",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a3a6360118c57912b59",
+      "uuid": "a373a0cb-09c4-4bc4-86d3-7fcbef768437",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Aprenda a dizer \"não\" e focar no que importa.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it (como opcao pratica na situacao)",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day24",
+        "#pt",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a3a6360118c57912b5a",
+      "uuid": "e1fbf91b-452b-42df-b263-9c6fd4c9766b",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Aprenda a dizer \"não\" e focar no que importa.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day24",
+        "#pt",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a3a6360118c57912b5b",
+      "uuid": "2cbd7b40-b498-44a8-a710-c84319bc906d",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Como o conceito \"Filtragem e Prioridades: O Que Ignorar, O Que Impo...\", mencionado na lição, impacta o alcance de seus goals?",
+      "options": [
+        "Como descrito em detalhes na lição, Filtragem e Prioridades: O Que... aumenta a eficácia e reduz os riscos",
+        "Sem impacto significativo",
+        "Importa apenas teoricamente",
+        "Apenas um elemento opcional"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day24",
+        "#pt",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a3a6360118c57912b5c",
+      "uuid": "e96c522f-19cf-42ca-94b7-76ac16563ec6",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Quão importante é Filtragem no contexto de Filtragem e Prioridades: O Que Ignorar, O Que Importa, conforme discutido na lição?",
+      "options": [
+        "Conforme descrito em detalhes na lição, Filtragem desempenha um papel crucial na otimização de processos e no alcance de objetivos",
+        "Apenas informações periféricas sem papel significativo",
+        "Apenas um conceito teórico sem aplicação prática",
+        "Não mencionado na lição"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day24",
+        "#pt",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a3a6360118c57912b5d",
+      "uuid": "e5df6877-0805-4677-a1b6-6caf9da56c35",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Quão importante é Ignorar no contexto de Filtragem e Prioridades: O Que Ignorar, O Que Importa, conforme discutido na lição?",
+      "options": [
+        "Conforme descrito em detalhes na lição, Ignorar desempenha um papel crucial na otimização de processos e no alcance de objetivos",
+        "Apenas informações periféricas sem papel significativo",
+        "Apenas um conceito teórico sem aplicação prática",
+        "Opcao concreta: Não mencionado na lição."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day24",
+        "#pt",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "69776a3a6360118c57912b5e",
+      "uuid": "2e02bd67-da74-4957-b9eb-4bdcae8fd548",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Quão importante é Prioridades no contexto de Filtragem e Prioridades: O Que Ignorar, O Que Importa, conforme discutido na lição?",
+      "options": [
+        "Conforme descrito em detalhes na lição, Prioridades desempenha um papel crucial na otimização de processos e no alcance de objetivos",
+        "Apenas informações periféricas sem papel significativo",
+        "Apenas um conceito teórico sem aplicação prática",
+        "Não mencionado na lição"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day24",
+        "#pt",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

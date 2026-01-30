@@ -7,8 +7,7 @@
 
 'use client';
 
-import { useState, useEffect } from 'react';
-import { useLocale, useTranslations } from 'next-intl';
+import { useState, useEffect, useCallback } from 'react';
 import {
   DollarSign,
   TrendingUp,
@@ -75,8 +74,6 @@ interface Analytics {
 }
 
 export default function AdminPaymentsPage() {
-  const _locale = useLocale();
-  const _t = useTranslations('admin');
   const [transactions, setTransactions] = useState<PaymentTransaction[]>([]);
   const [analytics, setAnalytics] = useState<Analytics | null>(null);
   const [loading, setLoading] = useState(true);
@@ -94,11 +91,7 @@ export default function AdminPaymentsPage() {
   const [totalCount, setTotalCount] = useState(0);
   const limit = 50;
 
-  useEffect(() => {
-    fetchPayments();
-  }, [statusFilter, courseFilter, playerFilter, startDate, endDate, currentPage]);
-
-  const fetchPayments = async () => {
+  const fetchPayments = useCallback(async () => {
     try {
       setLoading(true);
       const params = new URLSearchParams();
@@ -136,7 +129,11 @@ export default function AdminPaymentsPage() {
     } finally {
       setLoading(false);
     }
-  };
+  }, [courseFilter, currentPage, endDate, playerFilter, startDate, statusFilter]);
+
+  useEffect(() => {
+    void fetchPayments();
+  }, [fetchPayments]);
 
   const formatCurrency = (amount: number, currency: string): string => {
     const formatter = new Intl.NumberFormat(

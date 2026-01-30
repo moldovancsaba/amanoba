@@ -14,8 +14,7 @@
 
 'use client';
 
-import { useState, useEffect } from 'react';
-import { useLocale, useTranslations } from 'next-intl';
+import { useState, useEffect, useCallback } from 'react';
 import {
   Plus,
   Search,
@@ -35,9 +34,6 @@ interface Course {
 }
 
 export default function AdminQuestionsPage() {
-  const _locale = useLocale();
-  const _t = useTranslations('admin');
-  
   // State
   const [questions, setQuestions] = useState<Question[]>([]);
   const [courses, setCourses] = useState<Course[]>([]);
@@ -88,17 +84,7 @@ export default function AdminQuestionsPage() {
   const [hashtagInput, setHashtagInput] = useState('');
   const [courseSelectInput, setCourseSelectInput] = useState('');
 
-  // Fetch courses for filter dropdown
-  useEffect(() => {
-    fetchCourses();
-  }, []);
-
-  // Fetch questions when filters or pagination change
-  useEffect(() => {
-    fetchQuestions();
-  }, [filters, offset]);
-
-  const fetchCourses = async () => {
+  const fetchCourses = useCallback(async () => {
     try {
       const response = await fetch('/api/admin/courses');
       const data = await response.json();
@@ -108,9 +94,13 @@ export default function AdminQuestionsPage() {
     } catch (error) {
       console.error('Failed to fetch courses:', error);
     }
-  };
+  }, []);
 
-  const fetchQuestions = async () => {
+  useEffect(() => {
+    void fetchCourses();
+  }, [fetchCourses]);
+
+  const fetchQuestions = useCallback(async () => {
     try {
       setLoading(true);
       const params = new URLSearchParams();
@@ -145,7 +135,12 @@ export default function AdminQuestionsPage() {
     } finally {
       setLoading(false);
     }
-  };
+  }, [filters, limit, offset]);
+
+  // Fetch questions when filters or pagination change
+  useEffect(() => {
+    void fetchQuestions();
+  }, [fetchQuestions]);
 
   const handleFilterChange = (key: string, value: string) => {
     setFilters(prev => ({ ...prev, [key]: value }));
@@ -173,10 +168,9 @@ export default function AdminQuestionsPage() {
 
   const handleEditQuestion = (question: Question) => {
     setEditingQuestion(question);
-    // Convert relatedCourseIds to string array
-    const relatedIds = question.relatedCourseIds 
-      ? question.relatedCourseIds.map(id => typeof id === 'string' ? id : id.toString())
-      : [];
+    // Convert relatedCourseIds to string array (API may return ObjectIds)
+    const raw = question.relatedCourseIds as (string | { toString(): string })[] | undefined;
+    const relatedIds = raw ? raw.map(id => typeof id === 'string' ? id : id.toString()) : [];
     
     setQuestionForm({
       question: question.question,

@@ -43,7 +43,14 @@ Completed items are in **RELEASE_NOTES.md** — roadmap and tasklist contain onl
 6. Add minimal test harness (`npm test`), smoke tests for dashboard, courses, critical APIs  
 7. Single APP_URL constant for all env fallbacks  
 8. Certificate image route: source colors from CertificationSettings/Brand  
-9. CSP: Remove Facebook domains when Facebook fully removed
+9. CSP: Remove Facebook domains when Facebook fully removed  
+
+### Tech audit follow-up (Jan 2026) — priority order P0 → P1 → P2 → P3
+10. **P0 — Security**: Run `npm audit fix`; evaluate Next.js upgrade; restrict debug API; env for origin allowlists; gate SSO DEBUG logs.  
+11. **P1 — Lint/TS**: Fix critical ESLint errors (Sparkles, unescaped entities); fix Hook deps and high-impact `any`; re-enable lint (and optionally TS) in build; migrate from deprecated `next lint`.  
+12. **P2 — Deprecated/hardcoded**: Update/remove baseline-browser-mapping and @emnapi/runtime; centralise certificate/email/analytics colors; use env for production allowlists.  
+13. **P3 — Known issues, UI, consistency**: Resolve or ticket profile stats, admin settings, system-info, game status API, challenge retry; replace admin `<img>` with Next Image; audit CTA yellow; standardise imports and logging.  
+*Full list: `docs/2026-01-30_TECH_AUDIT_JANUARY.md` §12; tasklist: `docs/tasklists/TECH_AUDIT_JANUARY__2026-01-30.md`.*
 
 
 ### User profile customization — photo, nickname, public/private (Planned)

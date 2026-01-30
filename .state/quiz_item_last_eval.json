@@ -1,72 +1,37 @@
 {
   "question": {
-    "_id": "6974839ecea6bb713976149f",
-    "uuid": "80f7d0ba-0bb4-456d-b99c-efcbaf7d8730",
-    "question": "Berapa durasi optimal untuk blok kerja mendalam?",
+    "_id": "697b1ffade117f992bb9be94",
+    "question": "Képzeld el, hogy egy feladaton dolgozol, és döntened kell. Miért jobb a guide, mint a sima grid?",
     "options": [
-      "Kamu memilih: 15-30 menit.",
-      "Kamu memilih: 45-60 menit.",
-      "Kamu memilih: 90-120 menit.",
-      "Kamu memilih: 150+ menit."
+      "Gyorsabb döntés, idézhetőbb tartalom",
+      "Konret opcio: Csak szebb.",
+      "Konret opcio: Nem jobb.",
+      "Konret opcio: Csak SEO miatt."
     ],
-    "correctIndex": 2,
+    "correctIndex": 0,
     "difficulty": "MEDIUM",
     "category": "Course Specific",
-    "questionType": "application",
-    "hashtags": [
-      "#biaya",
-      "#intermediate",
-      "#id",
-      "#all-languages",
-      "#application"
-    ],
+    "hashtags": [],
     "isActive": true,
     "isCourseSpecific": true,
-    "lessonId": "PRODUCTIVITY_2026_ID_DAY_8",
+    "courseId": "697675a6c10a5ffb62961a79",
+    "lessonId": "GEO_SHOPIFY_30_DAY_16",
+    "relatedCourseIds": [],
     "metadata": {
-      "createdAt": "2026-01-24T08:32:30.552Z",
-      "updatedAt": "2026-01-30T12:52:04.233Z",
-      "auditedAt": "2026-01-25T19:25:46.258Z",
-      "auditedBy": "AI-Developer"
+      "createdAt": "2026-01-29T08:53:14.552Z",
+      "updatedAt": "2026-01-30T19:03:34.842Z"
     },
     "showCount": 0,
     "correctCount": 0
   },
   "evaluation": {
-    "questionId": "6974839ecea6bb713976149f",
+    "questionId": "697b1ffade117f992bb9be94",
     "violations": [
       {
-        "code": "OPTION_HAS_BAD_PREFIX",
-        "message": "Option 1 contains low-quality auto-expansion text and must be cleaned.",
-        "fields": [
-          "options[0]"
-        ],
-        "severity": "warning",
-        "docRef": "docs/QUIZ_QUALITY_PIPELINE_PLAYBOOK.md#gold-standard-question-type"
-      },
-      {
-        "code": "OPTION_HAS_BAD_PREFIX",
-        "message": "Option 2 contains low-quality auto-expansion text and must be cleaned.",
-        "fields": [
-          "options[1]"
-        ],
-        "severity": "warning",
-        "docRef": "docs/QUIZ_QUALITY_PIPELINE_PLAYBOOK.md#gold-standard-question-type"
-      },
-      {
-        "code": "OPTION_HAS_BAD_PREFIX",
-        "message": "Option 3 contains low-quality auto-expansion text and must be cleaned.",
+        "code": "OPTION_TOO_SHORT",
+        "message": "Option 3 is shorter than 25 characters.",
         "fields": [
           "options[2]"
-        ],
-        "severity": "warning",
-        "docRef": "docs/QUIZ_QUALITY_PIPELINE_PLAYBOOK.md#gold-standard-question-type"
-      },
-      {
-        "code": "OPTION_HAS_BAD_PREFIX",
-        "message": "Option 4 contains low-quality auto-expansion text and must be cleaned.",
-        "fields": [
-          "options[3]"
         ],
         "severity": "warning",
         "docRef": "docs/QUIZ_QUALITY_PIPELINE_PLAYBOOK.md#gold-standard-question-type"
@@ -75,10 +40,10 @@
     "needsUpdate": true,
     "autoPatch": {
       "options": [
-        "Blok fokus: sekitar 15-30 menit.",
-        "Blok fokus: sekitar 45-60 menit.",
-        "Blok fokus: sekitar 90-120 menit.",
-        "Blok fokus: sekitar 150+ menit."
+        "Gyorsabb döntés, idézhetőbb tartalom",
+        "Konret opcio: Csak szebb.",
+        "Konret opcio: Nem jobb (rovid valasz).",
+        "Konret opcio: Csak SEO miatt."
       ]
     }
   }

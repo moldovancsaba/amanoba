@@ -7,7 +7,7 @@
 
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
 import { useLocale, useTranslations } from 'next-intl';
 import { useDebounce } from '@/app/lib/hooks/useDebounce';
@@ -51,11 +51,7 @@ export default function AdminPlayersPage() {
     pages: 0,
   });
 
-  useEffect(() => {
-    fetchPlayers();
-  }, [debouncedSearch, filters, pagination.page]);
-
-  const fetchPlayers = async () => {
+  const fetchPlayers = useCallback(async () => {
     try {
       setLoading(true);
       const params = new URLSearchParams();
@@ -76,7 +72,7 @@ export default function AdminPlayersPage() {
 
       if (data.success) {
         setPlayers(data.players || []);
-        setPagination(data.pagination || pagination);
+        setPagination((prev) => data.pagination || prev);
       }
     } catch (error) {
       console.error('Failed to fetch players:', error);
@@ -84,7 +80,11 @@ export default function AdminPlayersPage() {
       setLoading(false);
       setInitialLoading(false);
     }
-  };
+  }, [debouncedSearch, filters.isActive, filters.userType, pagination.limit, pagination.page]);
+
+  useEffect(() => {
+    void fetchPlayers();
+  }, [fetchPlayers]);
 
   // Only show full-page loader on initial load
   if (initialLoading) {

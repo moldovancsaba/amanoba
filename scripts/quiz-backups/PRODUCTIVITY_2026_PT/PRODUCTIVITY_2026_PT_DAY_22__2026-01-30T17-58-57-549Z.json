@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-30T17:59:10.664Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_PT",
+    "name": "Produtividade 2026: Como Gerenciar Equipes e Tempo",
+    "language": "pt"
+  },
+  "lesson": {
+    "dayNumber": 22,
+    "title": "Tecnologia e Ferramentas: Automação, Escolhendo a Tecnologia Certa",
+    "lessonId": "PRODUCTIVITY_2026_PT_DAY_22"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a3a6360118c57912b44",
+      "uuid": "95432b5f-0b8e-4067-9080-4d7ed92f76de",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Como o conceito \"Tecnologia e Ferramentas: Automação, Escolhendo a ...\", mencionado na lição, impacta o alcance de seus goals?",
+      "options": [
+        "Como descrito em detalhes na lição, Tecnologia e Ferramentas: Auto... aumenta a eficácia e reduz os riscos",
+        "Sem impacto significativo",
+        "Importa apenas teoricamente",
+        "Apenas um elemento opcional"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day22",
+        "#pt",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a3a6360118c57912b45",
+      "uuid": "638c0f86-bc0f-4565-b687-b78628529b90",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Como você usaria o conceito \"Tecnologia\" conforme descrito na lição na prática?",
+      "options": [
+        "Sigo as etapas descritas em detalhes na lição, testo os resultados e documento minhas experiências",
+        "Apenas entendo teoricamente",
+        "Opcao concreta: Não aplico.",
+        "Espero por mais instruções"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day22",
+        "#pt",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a3a6360118c57912b46",
+      "uuid": "6b708f45-a2fb-43f3-9e88-b6dd3e02fd02",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Como você usaria o conceito \"Ferramentas\" conforme descrito na lição na prática?",
+      "options": [
+        "Sigo as etapas descritas em detalhes na lição, testo os resultados e documento minhas experiências",
+        "Apenas entendo teoricamente",
+        "Não aplico",
+        "Espero por mais instruções"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day22",
+        "#pt",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a3a6360118c57912b47",
+      "uuid": "e545116d-a2fc-4108-8861-cccc18f2b534",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Como você usaria o conceito \"Automação\" conforme descrito na lição na prática?",
+      "options": [
+        "Sigo as etapas descritas em detalhes na lição, testo os resultados e documento minhas experiências",
+        "Apenas entendo teoricamente",
+        "Não aplico",
+        "Espero por mais instruções"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day22",
+        "#pt",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a3a6360118c57912b48",
+      "uuid": "72eb858f-443d-474d-b422-7a009975b3c5",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "O que a seção \"Tanulási Cél\" contém na lição?",
+      "options": [
+        "Informações, métodos e exemplos específicos relacionados a tanulási cél conforme descrito em detalhes na lição",
+        "Apenas informações gerais",
+        "Apenas conhecimento teórico",
+        "Nenhum conteúdo específico"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day22",
+        "#pt",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a3a6360118c57912b49",
+      "uuid": "57e7992e-66b4-48de-b770-19e18c13f52d",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Quão importante é Ferramentas no contexto de Tecnologia e Ferramentas: Automação, Escolhendo a Tecnologia Certa, conforme discutido na lição?",
+      "options": [
+        "Conforme descrito em detalhes na lição, Ferramentas desempenha um papel crucial na otimização de processos e no alcance de objetivos",
+        "Apenas informações periféricas sem papel significativo",
+        "Apenas um conceito teórico sem aplicação prática",
+        "Não mencionado na lição (como opcao pratica na situacao)"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day22",
+        "#pt",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "69776a3a6360118c57912b4a",
+      "uuid": "ca2b5633-1f1c-48ad-92ac-39aabb60a373",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Quão importante é Escolhendo no contexto de Tecnologia e Ferramentas: Automação, Escolhendo a Tecnologia Certa, conforme discutido na lição?",
+      "options": [
+        "Conforme descrito em detalhes na lição, Escolhendo desempenha um papel crucial na otimização de processos e no alcance de objetivos",
+        "Apenas informações periféricas sem papel significativo",
+        "Apenas um conceito teórico sem aplicação prática",
+        "Não mencionado na lição"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day22",
+        "#pt",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

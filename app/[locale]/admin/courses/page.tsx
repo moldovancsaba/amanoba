@@ -7,7 +7,7 @@
 
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
 import { useLocale } from 'next-intl';
 import { useDebounce } from '@/app/lib/hooks/useDebounce';
@@ -145,16 +145,7 @@ export default function AdminCoursesPage() {
   const [editForm, setEditForm] = useState<{ name: string; idea: string; outline: string }>({ name: '', idea: '', outline: '' });
   const [deletingCcsId, setDeletingCcsId] = useState<string | null>(null);
 
-  useEffect(() => {
-    setInitialLoading(true);
-    if (viewMode === 'ccs') {
-      fetchCCS();
-    } else {
-      fetchCourses();
-    }
-  }, [viewMode, statusFilter, debouncedSearch]);
-
-  const fetchCCS = async () => {
+  const fetchCCS = useCallback(async () => {
     try {
       setLoading(true);
       setCcsError(null);
@@ -191,9 +182,9 @@ export default function AdminCoursesPage() {
       setLoading(false);
       setInitialLoading(false);
     }
-  };
+  }, []);
 
-  const fetchCourses = async () => {
+  const fetchCourses = useCallback(async () => {
     try {
       setLoading(true);
       const params = new URLSearchParams();
@@ -216,7 +207,16 @@ export default function AdminCoursesPage() {
       setLoading(false);
       setInitialLoading(false);
     }
-  };
+  }, [debouncedSearch, statusFilter]);
+
+  useEffect(() => {
+    setInitialLoading(true);
+    if (viewMode === 'ccs') {
+      void fetchCCS();
+    } else {
+      void fetchCourses();
+    }
+  }, [viewMode, fetchCCS, fetchCourses]);
 
   const toggleCourseStatus = async (courseId: string, currentStatus: boolean) => {
     try {

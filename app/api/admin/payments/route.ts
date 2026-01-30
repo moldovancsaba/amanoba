@@ -89,13 +89,10 @@ export async function GET(request: NextRequest) {
     }
 
     if (startDate || endDate) {
-      query['metadata.createdAt'] = {};
-      if (startDate) {
-        query['metadata.createdAt'].$gte = new Date(startDate);
-      }
-      if (endDate) {
-        query['metadata.createdAt'].$lte = new Date(endDate);
-      }
+      const dateFilter: { $gte?: Date; $lte?: Date } = {};
+      if (startDate) dateFilter.$gte = new Date(startDate);
+      if (endDate) dateFilter.$lte = new Date(endDate);
+      query['metadata.createdAt'] = dateFilter;
     }
 
     // Fetch transactions
@@ -131,7 +128,7 @@ export async function GET(request: NextRequest) {
       stripeCheckoutSessionId: tx.stripeCheckoutSessionId || null,
       stripeCustomerId: tx.stripeCustomerId || null,
       stripeChargeId: tx.stripeChargeId || null,
-      createdAt: tx.metadata?.createdAt || tx.createdAt || new Date(),
+      createdAt: tx.metadata?.createdAt ?? (tx as { createdAt?: Date }).createdAt ?? new Date(),
       processedAt: tx.metadata?.processedAt || null,
       refundedAt: tx.metadata?.refundedAt || null,
       failureReason: tx.metadata?.failureReason || null,

@@ -102,8 +102,10 @@ export default function MemoryGame({
   }, [difficulty, playerId]);
 
   // Timer effect
+  const shouldRunTimer = Boolean(gameState && gameStarted && !gameState.isPaused && !gameState.isComplete);
+
   useEffect(() => {
-    if (!gameState || !gameStarted || gameState.isPaused || gameState.isComplete) {
+    if (!shouldRunTimer) {
       if (timerRef.current) {
         clearInterval(timerRef.current);
         timerRef.current = null;
@@ -131,7 +133,7 @@ export default function MemoryGame({
         clearInterval(timerRef.current);
       }
     };
-  }, [gameState?.isPaused, gameState?.isComplete, gameStarted, config.timeLimit]);
+  }, [shouldRunTimer, config.timeLimit]);
 
   // Handle card click
   const handleCardClick = useCallback((cardId: string) => {
@@ -230,7 +232,7 @@ export default function MemoryGame({
     };
     
     completeSession();
-  }, [gameState?.isComplete, sessionId, gameState, config, onGameComplete]);
+  }, [gameState?.isComplete, sessionId, gameState, config, onGameComplete, playerId]);
 
   // Restart game
   const handleRestart = useCallback(() => {

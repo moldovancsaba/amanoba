@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-30T17:58:39.722Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_PT",
+    "name": "Produtividade 2026: Como Gerenciar Equipes e Tempo",
+    "language": "pt"
+  },
+  "lesson": {
+    "dayNumber": 14,
+    "title": "Eficiência de Reuniões: Agenda, Limites de Tempo, Registro de Decisões",
+    "lessonId": "PRODUCTIVITY_2026_PT_DAY_14"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a396360118c57912aee",
+      "uuid": "2f32ee60-fc62-4c4c-8701-9fea7d9c65ee",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Como o conceito \"Eficiência de Reuniões: Agenda, Limites de Tempo, ...\", mencionado na lição, impacta o alcance de seus goals?",
+      "options": [
+        "Como descrito em detalhes na lição, Eficiência de Reuniões: Agenda... aumenta a eficácia e reduz os riscos",
+        "Sem impacto significativo",
+        "Importa apenas teoricamente",
+        "Apenas um elemento opcional"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day14",
+        "#pt",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a396360118c57912aef",
+      "uuid": "066a6fcd-6033-4e2e-a00e-10cf75946caa",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Como você usaria o conceito \"Eficiência\" conforme descrito na lição na prática?",
+      "options": [
+        "Sigo as etapas descritas em detalhes na lição, testo os resultados e documento minhas experiências",
+        "Apenas entendo teoricamente",
+        "Voce escolhe: Não aplico.",
+        "Espero por mais instruções"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day14",
+        "#pt",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a396360118c57912af0",
+      "uuid": "f216c769-8fb1-4c52-b5dc-9e7796261bab",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Como você usaria o conceito \"Reuniões\" conforme descrito na lição na prática?",
+      "options": [
+        "Sigo as etapas descritas em detalhes na lição, testo os resultados e documento minhas experiências",
+        "Apenas entendo teoricamente",
+        "Não aplico",
+        "Espero por mais instruções"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day14",
+        "#pt",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a396360118c57912af1",
+      "uuid": "ca050397-7075-4bb3-b314-98e00721ad98",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Como você usaria o conceito \"Agenda\" conforme descrito na lição na prática?",
+      "options": [
+        "Sigo as etapas descritas em detalhes na lição, testo os resultados e documento minhas experiências",
+        "Apenas entendo teoricamente",
+        "Não aplico",
+        "Espero por mais instruções"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day14",
+        "#pt",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a396360118c57912af2",
+      "uuid": "e7159cab-8ae0-495a-aa1f-c2df399b6078",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Quão importante é Reuniões no contexto de Eficiência de Reuniões: Agenda, Limites de Tempo, Registro de Decisões, conforme discutido na lição?",
+      "options": [
+        "Conforme descrito em detalhes na lição, Reuniões desempenha um papel crucial na otimização de processos e no alcance de objetivos",
+        "Apenas informações periféricas sem papel significativo",
+        "Apenas um conceito teórico sem aplicação prática",
+        "Opcao concreta: Não mencionado na lição."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day14",
+        "#pt",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "69776a396360118c57912af3",
+      "uuid": "a430ab1f-aa3b-4e25-9658-a14951442876",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Quão importante é Limites no contexto de Eficiência de Reuniões: Agenda, Limites de Tempo, Registro de Decisões, conforme discutido na lição?",
+      "options": [
+        "Conforme descrito em detalhes na lição, Limites desempenha um papel crucial na otimização de processos e no alcance de objetivos",
+        "Apenas informações periféricas sem papel significativo",
+        "Apenas um conceito teórico sem aplicação prática",
+        "Opcao concreta: Não mencionado na lição."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day14",
+        "#pt",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "69776a396360118c57912af4",
+      "uuid": "ef1f19f4-75e1-4f0e-bca9-cc1d86d81d90",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Quão importante é Registro no contexto de Eficiência de Reuniões: Agenda, Limites de Tempo, Registro de Decisões, conforme discutido na lição?",
+      "options": [
+        "Conforme descrito em detalhes na lição, Registro desempenha um papel crucial na otimização de processos e no alcance de objetivos",
+        "Apenas informações periféricas sem papel significativo",
+        "Apenas um conceito teórico sem aplicação prática",
+        "Não mencionado na lição"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day14",
+        "#pt",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

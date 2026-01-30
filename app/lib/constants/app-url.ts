@@ -28,3 +28,6 @@ export function getAuthBaseUrl(): string {
     (process.env.NODE_ENV === 'production' ? CANONICAL_APP_URL : 'http://localhost:3000')
   );
 }
+
+/** Theme color for viewport/manifest (e.g. #FAB908). Override with NEXT_PUBLIC_THEME_COLOR in .env. */
+export const THEME_COLOR = process.env.NEXT_PUBLIC_THEME_COLOR || '#FAB908';

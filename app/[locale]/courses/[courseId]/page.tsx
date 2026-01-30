@@ -7,7 +7,7 @@
 
 'use client';
 
-import { useState, useEffect, useRef, useMemo } from 'react';
+import { useState, useEffect, useMemo, useCallback } from 'react';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import { useLocale } from 'next-intl';
@@ -615,6 +615,105 @@ export default function CourseDetailPage({
     [lessons]
   );
 
+  const fetchCourse = useCallback(async (cid: string) => {
+    try {
+      const response = await fetch(`/api/courses/${cid}`);
+      const data = await response.json();
+      if (data.success) {
+        const courseData = data.course;
+        setCourse(courseData);
+        // Trust architecture: Card links guarantee URL locale = course language
+        // No redirect or courseLanguage extraction needed
+      }
+    } catch (error) {
+      console.error('Failed to fetch course:', error);
+    } finally {
+      setLoading(false);
+    }
+  }, []);
+
+  const fetchEntitlement = useCallback(async (cid: string) => {
+    try {
+      const res = await fetch(`/api/certification/entitlement?courseId=${cid}`);
+      const data = await res.json();
+      if (data.success) {
+        setEntitlement(data.data);
+      } else {
+        setEntitlement(null);
+      }
+    } catch (error) {
+      setEntitlement(null);
+    }
+  }, []);
+
+  const checkEnrollment = useCallback(async (cid: string) => {
+    if (!session) return;
+
+    try {
+      const response = await fetch(`/api/my-courses`);
+      const data = await response.json();
+      if (data.success) {
+        const myCourse = data.courses.find(
+          (c: { course: { courseId: string } }) => c.course.courseId === cid
+        );
+        if (myCourse) {
+          setEnrollment({
+            enrolled: true,
+            progress: myCourse.progress,
+          });
+        } else {
+          setEnrollment({ enrolled: false });
+        }
+      }
+    } catch (error) {
+      console.error('Failed to check enrollment:', error);
+    }
+  }, [session]);
+
+  const checkPremiumStatus = useCallback(async () => {
+    if (!session) {
+      setIsPremium(false);
+      return;
+    }
+
+    try {
+      const user = session.user as { id?: string; playerId?: string };
+      const playerId = user.playerId || user.id;
+      if (!playerId) {
+        setIsPremium(false);
+        return;
+      }
+
+      const response = await fetch(`/api/players/${playerId}`);
+      const data = await response.json();
+      if (data.player) {
+        setIsPremium(data.player.isPremium || false);
+      }
+    } catch (error) {
+      console.error('Failed to check premium status:', error);
+      setIsPremium(false);
+    }
+  }, [session]);
+
+  const fetchLessons = useCallback(async (cid: string, opts: { silent?: boolean } = {}) => {
+    if (!opts.silent) {
+      setLoadingLessons(true);
+    }
+    try {
+      const response = await fetch(`/api/courses/${cid}/lessons`);
+      const data = await response.json();
+      if (data.success) {
+        setLessons(data.lessons || []);
+      }
+    } catch (error) {
+      console.error('Failed to fetch lessons:', error);
+    } finally {
+      if (!opts.silent) {
+        setLoadingLessons(false);
+      }
+    }
+  }, []);
+
   useEffect(() => {
     const loadData = async () => {
       const resolvedParams = await params;
@@ -647,106 +746,8 @@ export default function CourseDetailPage({
       }
     };
     loadData();
-  }, [params, session]);
-
-  const fetchCourse = async (cid: string) => {
-    try {
-      const response = await fetch(`/api/courses/${cid}`);
-      const data = await response.json();
-      if (data.success) {
-        const courseData = data.course;
-        setCourse(courseData);
-        // Trust architecture: Card links guarantee URL locale = course language
-        // No redirect or courseLanguage extraction needed
-      }
-    } catch (error) {
-      console.error('Failed to fetch course:', error);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  const fetchEntitlement = async (cid: string) => {
-    try {
-      const res = await fetch(`/api/certification/entitlement?courseId=${cid}`);
-      const data = await res.json();
-      if (data.success) {
-        setEntitlement(data.data);
-      } else {
-        setEntitlement(null);
-      }
-    } catch (error) {
-      setEntitlement(null);
-    }
-  };
-
-  const checkEnrollment = async (cid: string) => {
-    if (!session) return;
-
-    try {
-      const response = await fetch(`/api/my-courses`);
-      const data = await response.json();
-      if (data.success) {
-        const myCourse = data.courses.find(
-          (c: { course: { courseId: string } }) => c.course.courseId === cid
-        );
-        if (myCourse) {
-          setEnrollment({
-            enrolled: true,
-            progress: myCourse.progress,
-          });
-        } else {
-          setEnrollment({ enrolled: false });
-        }
-      }
-    } catch (error) {
-      console.error('Failed to check enrollment:', error);
-    }
-  };
-
-  const checkPremiumStatus = async () => {
-    if (!session) {
-      setIsPremium(false);
-      return;
-    }
-
-    try {
-      const user = session.user as { id?: string; playerId?: string };
-      const playerId = user.playerId || user.id;
-      if (!playerId) {
-        setIsPremium(false);
-        return;
-      }
-
-      const response = await fetch(`/api/players/${playerId}`);
-      const data = await response.json();
-      if (data.player) {
-        setIsPremium(data.player.isPremium || false);
-      }
-    } catch (error) {
-      console.error('Failed to check premium status:', error);
-      setIsPremium(false);
-    }
-  };
-
-  const fetchLessons = async (cid: string, opts: { silent?: boolean } = {}) => {
-    if (!opts.silent) {
-      setLoadingLessons(true);
-    }
-    try {
-      const response = await fetch(`/api/courses/${cid}/lessons`);
-      const data = await response.json();
-      if (data.success) {
-        setLessons(data.lessons || []);
-      }
-    } catch (error) {
-      console.error('Failed to fetch lessons:', error);
-    } finally {
-      if (!opts.silent) {
-        setLoadingLessons(false);
-      }
-    }
-  };
+    void loadData();
+  }, [checkEnrollment, checkPremiumStatus, fetchCourse, fetchEntitlement, fetchLessons, params, session]);
 
   const formatCurrency = (amount: number, currency: string): string => {
     const formatter = new Intl.NumberFormat(

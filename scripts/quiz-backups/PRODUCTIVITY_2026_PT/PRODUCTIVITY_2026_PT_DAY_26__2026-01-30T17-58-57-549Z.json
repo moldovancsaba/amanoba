@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-30T17:59:12.878Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_PT",
+    "name": "Produtividade 2026: Como Gerenciar Equipes e Tempo",
+    "language": "pt"
+  },
+  "lesson": {
+    "dayNumber": 26,
+    "title": "Mentoria e Ensino: Compartilhando Conhecimento, Ajudando Outros",
+    "lessonId": "PRODUCTIVITY_2026_PT_DAY_26"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a3a6360118c57912b6c",
+      "uuid": "5605ed71-96e7-41bf-8492-5741b3072c3b",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Como o conceito \"Mentoria e Ensino: Compartilhando Conhecimento, Aj...\", mencionado na lição, impacta o alcance de seus goals?",
+      "options": [
+        "Como descrito em detalhes na lição, Mentoria e Ensino: Compartilha... aumenta a eficácia e reduz os riscos",
+        "Sem impacto significativo",
+        "Importa apenas teoricamente",
+        "Apenas um elemento opcional"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day26",
+        "#pt",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a3a6360118c57912b6d",
+      "uuid": "9a5d3039-609d-48b4-a978-189076419d50",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Como você usaria o conceito \"Mentoria\" conforme descrito na lição na prática?",
+      "options": [
+        "Sigo as etapas descritas em detalhes na lição, testo os resultados e documento minhas experiências",
+        "Apenas entendo teoricamente",
+        "Não aplico (como opcao pratica na situacao)",
+        "Espero por mais instruções"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day26",
+        "#pt",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a3a6360118c57912b6e",
+      "uuid": "a7f95eca-e4ff-4125-84bb-a5012e54414e",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Como você usaria o conceito \"Ensino\" conforme descrito na lição na prática?",
+      "options": [
+        "Sigo as etapas descritas em detalhes na lição, testo os resultados e documento minhas experiências",
+        "Apenas entendo teoricamente",
+        "Não aplico (como opcao pratica na situacao)",
+        "Espero por mais instruções"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day26",
+        "#pt",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a3a6360118c57912b6f",
+      "uuid": "4f8e8d2a-6f18-4afa-8a7a-54aa980500dd",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Como você usaria o conceito \"Compartilhando\" conforme descrito na lição na prática?",
+      "options": [
+        "Sigo as etapas descritas em detalhes na lição, testo os resultados e documento minhas experiências",
+        "Apenas entendo teoricamente",
+        "Não aplico",
+        "Espero por mais instruções"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day26",
+        "#pt",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a3a6360118c57912b70",
+      "uuid": "be5090e5-f438-42ae-a278-89bdb52ea523",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Quão importante é Ensino no contexto de Mentoria e Ensino: Compartilhando Conhecimento, Ajudando Outros, conforme discutido na lição?",
+      "options": [
+        "Conforme descrito em detalhes na lição, Ensino desempenha um papel crucial na otimização de processos e no alcance de objetivos",
+        "Apenas informações periféricas sem papel significativo",
+        "Apenas um conceito teórico sem aplicação prática",
+        "Opcao concreta: Não mencionado na lição."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day26",
+        "#pt",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "69776a3a6360118c57912b71",
+      "uuid": "667de13b-db04-42e1-a0d8-ba80964c12e0",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Quão importante é Conhecimento no contexto de Mentoria e Ensino: Compartilhando Conhecimento, Ajudando Outros, conforme discutido na lição?",
+      "options": [
+        "Conforme descrito em detalhes na lição, Conhecimento desempenha um papel crucial na otimização de processos e no alcance de objetivos",
+        "Apenas informações periféricas sem papel significativo",
+        "Apenas um conceito teórico sem aplicação prática",
+        "Não mencionado na lição"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day26",
+        "#pt",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a3a6360118c57912b72",
+      "uuid": "c18688cf-6834-45db-8762-f00e359871e0",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Quão importante é Outros no contexto de Mentoria e Ensino: Compartilhando Conhecimento, Ajudando Outros, conforme discutido na lição?",
+      "options": [
+        "Conforme descrito em detalhes na lição, Outros desempenha um papel crucial na otimização de processos e no alcance de objetivos",
+        "Apenas informações periféricas sem papel significativo",
+        "Apenas um conceito teórico sem aplicação prática",
+        "Opcao concreta: Não mencionado na lição."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day26",
+        "#pt",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    }
+  ]
+}

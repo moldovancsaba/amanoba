@@ -22,6 +22,7 @@ No open P0 tasks. Completed work (Certificate v0.1, Editor User, User profile cu
 - **P0 — Global audit**: Communication + catalog language integrity. See ROADMAP § Tech Debt, RECOMMENDED NEXT.
 - **P2 — Onboarding Survey / Email Automation / Multi-Format Forking**: As per ROADMAP.
 - **P1 — Tech debt**: Design system/CTA cleanup, remove client debug logs, Facebook cleanup. See ROADMAP § Tech Debt.
+- **P1 — Tech audit follow-up (Jan 2026)**: npm audit, fix critical lint errors, hardcoded URLs/colors, debug route, Next Image in admin. Track: `docs/2026-01-30_TECH_AUDIT_JANUARY.md` and `docs/tasklists/TECH_AUDIT_JANUARY__2026-01-30.md`.
 
 ---
 

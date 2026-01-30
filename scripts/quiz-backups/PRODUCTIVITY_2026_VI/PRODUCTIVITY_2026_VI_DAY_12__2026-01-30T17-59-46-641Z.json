@@ -1,0 +1,177 @@
+{
+  "backedUpAt": "2026-01-30T17:59:54.128Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_VI",
+    "name": "Năng suất 2026: Cách quản lý nhóm và thời gian",
+    "language": "vi"
+  },
+  "lesson": {
+    "dayNumber": 12,
+    "title": "Cấu trúc Trách nhiệm: Các Hệ thống Giữ bạn trên Đường",
+    "lessonId": "PRODUCTIVITY_2026_VI_DAY_12"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "6979db419316e77110ed07c4",
+      "uuid": "610e3ffc-d169-4eb6-9e4e-fdfdf49cb611",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Bạn triển khai một thực hành mới: “thực hành (45 phút) Đặt mục tiêu: Chọn mục tiêu 4-8 tuần (th”. Kế hoạch nào tạo output đo được và phản hồi nhanh?",
+      "options": [
+        "Triển khai từng bước: đặt tiêu chí/metric, chạy pilot nhỏ, đo trước/sau, ghi lại kết quả và chỉnh một rule mỗi lần.",
+        "Đổi tất cả cùng lúc, không có metric hay điểm kiểm tra, rồi đoán thứ gì đã hiệu quả.",
+        "Bắt đầu nhưng không đo tác động (không có trước/sau), nên không biết chất lượng kết quả.",
+        "Làm cho có nhưng không có owner/thời hạn/ngưỡng, nên không gắn được với outcome."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day12",
+        "#vi",
+        "#all-languages",
+        "#course-productivity_2026_vi",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "6979db419316e77110ed07c5",
+      "uuid": "66d6ad0e-18d9-449d-b4f8-63912b62a6cd",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Bạn triển khai một thực hành mới: “Tôi có một mục tiêu 4-8 tuần rõ ràng cho trách nhiệm. Tôi đã”. Kế hoạch nào tạo output đo được và phản hồi nhanh?",
+      "options": [
+        "Triển khai từng bước: đặt tiêu chí/metric, chạy pilot nhỏ, đo trước/sau, ghi lại kết quả và chỉnh một rule mỗi lần.",
+        "Đổi tất cả cùng lúc, không có metric hay điểm kiểm tra, rồi đoán thứ gì đã hiệu quả.",
+        "Bắt đầu nhưng không đo tác động (không có trước/sau), nên không biết chất lượng kết quả.",
+        "Làm cho có nhưng không có owner/thời hạn/ngưỡng, nên không gắn được với outcome."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day12",
+        "#vi",
+        "#all-languages",
+        "#course-productivity_2026_vi",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "6979db419316e77110ed07c6",
+      "uuid": "4dae7f88-11d4-4499-a7ab-cae9ebcc92e4",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Bạn triển khai một thực hành mới: “Tôi có một hệ thống theo dõi (bảng hoặc ứng dụng). Đối tác t”. Kế hoạch nào tạo output đo được và phản hồi nhanh?",
+      "options": [
+        "Triển khai từng bước: đặt tiêu chí/metric, chạy pilot nhỏ, đo trước/sau, ghi lại kết quả và chỉnh một rule mỗi lần.",
+        "Đổi tất cả cùng lúc, không có metric hay điểm kiểm tra, rồi đoán thứ gì đã hiệu quả.",
+        "Bắt đầu nhưng không đo tác động (không có trước/sau), nên không biết chất lượng kết quả.",
+        "Làm cho có nhưng không có owner/thời hạn/ngưỡng, nên không gắn được với outcome."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day12",
+        "#vi",
+        "#all-languages",
+        "#course-productivity_2026_vi",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "6979db419316e77110ed07c7",
+      "uuid": "64e3d234-e025-4dc4-8cbb-08e260cb556f",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Bạn triển khai một thực hành mới: “ví dụ: \"3 chương hoàn thành\", không phải \"tiến độ\")”. Kế hoạch nào tạo output đo được và phản hồi nhanh?",
+      "options": [
+        "Triển khai từng bước: đặt tiêu chí/metric, chạy pilot nhỏ, đo trước/sau, ghi lại kết quả và chỉnh một rule mỗi lần.",
+        "Đổi tất cả cùng lúc, không có metric hay điểm kiểm tra, rồi đoán thứ gì đã hiệu quả.",
+        "Bắt đầu nhưng không đo tác động (không có trước/sau), nên không biết chất lượng kết quả.",
+        "Làm cho có nhưng không có owner/thời hạn/ngưỡng, nên không gắn được với outcome."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day12",
+        "#vi",
+        "#all-languages",
+        "#course-productivity_2026_vi",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "6979db419316e77110ed07c8",
+      "uuid": "7bccaf73-ea98-4cf2-a579-0da5c448f8ee",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Trong một dự án, bạn cần biến “Sức mạnh của tính minh bạch” thành hành động. Cách tiếp cận nào làm output đo được và kiểm chứng được?",
+      "options": [
+        "Viết tiêu chí “done”, chọn một metric, áp dụng cho một case và mở rộng chỉ sau khi xác nhận tác động.",
+        "Dùng khái niệm như khẩu hiệu nhưng không có checklist/đo lường — output không kiểm chứng và không lặp lại được.",
+        "Trì hoãn cho đến khi “hoàn hảo”; throughput giảm và carryover tăng.",
+        "Hành động nhưng không đo và không ghi lại, nên không biết có cải thiện hay không."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day12",
+        "#vi",
+        "#all-languages",
+        "#course-productivity_2026_vi",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "6979db419316e77110ed07c9",
+      "uuid": "960aaed8-5c61-42a1-ac46-bb0bb8a22615",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Một lãnh đạo ra quyết định theo nguyên tắc: “Cấu trúc Trách nhiệm: Các Hệ thống Giữ bạn trên Đường Tính minh bạch là sức mạnh”. Tác động nào có khả năng nhất để đạt mục tiêu, và rủi ro điển hình nào xảy ra nếu hiểu sai hoặc đo sai?",
+      "options": [
+        "Tập trung đúng giúp tăng kết quả vì tối ưu output dưới các giới hạn; rủi ro: tối ưu sai metric tạo “output bận rộn” nhưng không cải thiện outcome.",
+        "Chỉ cần làm nhiều việc hơn vì hoạt động = kết quả; rủi ro: tăng nhiễu, giảm chất lượng và giá trị cho khách hàng.",
+        "Bỏ qua giới hạn (thời gian/năng lượng/chú ý) vì “cố gắng là đủ”; rủi ro: quá tải, sai sót và kiệt sức làm outcome xấu đi.",
+        "Ưu tiên tốc độ, chất lượng sửa sau; rủi ro: rework tăng và throughput giảm."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day12",
+        "#vi",
+        "#all-languages",
+        "#course-productivity_2026_vi",
+        "#productivity",
+        "#advanced",
+        "#critical-thinking"
+      ]
+    },
+    {
+      "_id": "6979db419316e77110ed07ca",
+      "uuid": "6347d2a4-554e-44d2-9432-092176a0b3e6",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Một lãnh đạo ra quyết định theo nguyên tắc: “Mục tiêu học tập Hiểu cách trách nhiệm hoạt động trong năng suất”. Tác động nào có khả năng nhất để đạt mục tiêu, và rủi ro điển hình nào xảy ra nếu hiểu sai hoặc đo sai?",
+      "options": [
+        "Tập trung đúng giúp tăng kết quả vì tối ưu output dưới các giới hạn; rủi ro: tối ưu sai metric tạo “output bận rộn” nhưng không cải thiện outcome.",
+        "Chỉ cần làm nhiều việc hơn vì hoạt động = kết quả; rủi ro: tăng nhiễu, giảm chất lượng và giá trị cho khách hàng.",
+        "Bỏ qua giới hạn (thời gian/năng lượng/chú ý) vì “cố gắng là đủ”; rủi ro: quá tải, sai sót và kiệt sức làm outcome xấu đi.",
+        "Ưu tiên tốc độ, chất lượng sửa sau; rủi ro: rework tăng và throughput giảm."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day12",
+        "#vi",
+        "#all-languages",
+        "#course-productivity_2026_vi",
+        "#productivity",
+        "#advanced",
+        "#critical-thinking"
+      ]
+    }
+  ]
+}

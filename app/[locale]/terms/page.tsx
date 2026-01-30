@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { defaultLocale } from "@/i18n";
-import { Locale, locales } from "@/app/lib/i18n/locales";
+import { type Locale, locales } from "@/app/lib/i18n/locales";
 
 type Section = {
   id?: string;
@@ -24,7 +24,7 @@ type TermsContent = {
   };
 };
 
-const termsContent: Record<Locale, TermsContent> = {
+const termsContent: Record<string, TermsContent> = {
   en: {
     title: "Terms of Service",
     lastUpdatedLabel: "Last Updated:",
@@ -710,8 +710,9 @@ function SectionBlock({ section }: { section: Section }) {
   );
 }
 
-export default function TermsPage({ params }: { params: { locale: string } }) {
-  const locale = locales.includes(params.locale as Locale) ? (params.locale as Locale) : defaultLocale;
+export default async function TermsPage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale: localeParam } = await params;
+  const locale = locales.includes(localeParam as Locale) ? (localeParam as Locale) : defaultLocale;
   const content = termsContent[locale] ?? termsContent[defaultLocale];
 
   return (

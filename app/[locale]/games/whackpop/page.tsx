@@ -7,7 +7,7 @@
  * What: Whack-a-mole style game integrated with session API
  */
 
-import { useEffect, useState, useCallback } from 'react';
+import { useEffect, useState, useCallback, useRef } from 'react';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 
@@ -108,6 +108,8 @@ export default function WhackPopGame() {
   const [emojis, setEmojis] = useState<string[]>([]);
   const [isLoadingEmojis, setIsLoadingEmojis] = useState(true);
   const [fetchError, setFetchError] = useState<string | null>(null);
+
+  const finishGameRef = useRef<() => void>(() => {});
 
   // Why: Fetch emojis from database on component mount
   useEffect(() => {
@@ -259,7 +261,7 @@ export default function WhackPopGame() {
     const timer = setInterval(() => {
       setTimeLeft((prev) => {
         if (prev <= 1) {
-          finishGame();
+          finishGameRef.current();
           return 0;
         }
         return prev - 1;
@@ -360,6 +362,10 @@ export default function WhackPopGame() {
         setIsCompleting(false);
       }
     }
+  };
+
+  finishGameRef.current = () => {
+    void finishGame();
   };
 
   // Why: Show loading while fetching emojis

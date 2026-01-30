@@ -67,7 +67,8 @@ export async function POST(request: NextRequest) {
       }
 
       // Validate correctIndex
-      if (q.correctIndex < 0 || q.correctIndex > 3) {
+      const correctIndexNum = typeof q.correctIndex === 'number' ? q.correctIndex : Number(q.correctIndex);
+      if (correctIndexNum < 0 || correctIndexNum > 3 || Number.isNaN(correctIndexNum)) {
         throw new Error(`Question ${index + 1}: correctIndex must be between 0 and 3`);
       }
 
@@ -89,13 +90,13 @@ export async function POST(request: NextRequest) {
           if (!course) {
             throw new Error(`Question ${index + 1}: Course not found (by _id): ${q.courseId}`);
           }
-          resolvedCourseId = course._id;
+          resolvedCourseId = course._id as mongoose.Types.ObjectId;
         } else {
-          const course = await Course.findOne({ courseId: q.courseId });
-          if (!course) {
+          const courseByCourseId = await Course.findOne({ courseId: q.courseId });
+          if (!courseByCourseId) {
             throw new Error(`Question ${index + 1}: Course not found: ${q.courseId}`);
           }
-          resolvedCourseId = course._id;
+          resolvedCourseId = courseByCourseId._id as mongoose.Types.ObjectId;
         }
       }
 
@@ -111,22 +112,22 @@ export async function POST(request: NextRequest) {
               if (typeof relatedId !== 'string') return null;
               if (mongoose.Types.ObjectId.isValid(relatedId)) {
                 const course = await Course.findById(relatedId);
-                return course?._id || null;
+                return course?._id ?? null;
               }
               const course = await Course.findOne({ courseId: relatedId });
-              return course?._id || null;
+              return course?._id ?? null;
             })
           )
-        ).filter(Boolean) as mongoose.Types.ObjectId[];
+        ).filter((id): id is mongoose.Types.ObjectId => id != null);
       }
 
       return {
-        uuid: q.uuid || randomUUID(),
-        lessonId: q.lessonId || undefined,
+        uuid: (q.uuid as string) || randomUUID(),
+        lessonId: (q.lessonId as string) || undefined,
         courseId: resolvedCourseId,
-        question: q.question.trim(),
-        options: q.options.map((opt: string) => opt.trim()),
-        correctIndex: q.correctIndex,
+        question: String(q.question ?? '').trim(),
+        options: (q.options as string[]).map((opt: string) => String(opt).trim()),
+        correctIndex: correctIndexNum,
         difficulty: (q.difficulty || QuestionDifficulty.MEDIUM) as QuestionDifficulty,
         category: q.category || 'Course Specific',
         isCourseSpecific: q.isCourseSpecific !== undefined ? q.isCourseSpecific : (!!resolvedCourseId || !!q.lessonId),
@@ -140,7 +141,7 @@ export async function POST(request: NextRequest) {
           createdAt: new Date(),
           updatedAt: new Date(),
           createdBy: actor,
-          auditedAt: q.auditedAt ? new Date(q.auditedAt) : undefined,
+          auditedAt: q.auditedAt != null && q.auditedAt !== '' ? new Date(q.auditedAt as string | number | Date) : undefined,
           auditedBy: q.auditedBy || undefined,
         },
       };
@@ -167,18 +168,19 @@ export async function POST(request: NextRequest) {
       questions: result,
     }, { status: 201 });
   } catch (error: unknown) {
-    logger.error({ error }, 'Failed to create batch quiz questions');
+    const err = error as Error & { code?: number };
+    logger.error({ error: err }, 'Failed to create batch quiz questions');
     
     // Handle validation errors
-    if (error.message) {
+    if (err?.message) {
       return NextResponse.json(
-        { error: (error as Error).message },
+        { error: err.message },
         { status: 400 }
       );
     }
 
     // Handle MongoDB duplicate key errors
-    if (error.code === 11000) {
+    if (err?.code === 11000) {
       return NextResponse.json(
         { error: 'Duplicate question detected (UUID or question text already exists)' },
         { status: 409 }

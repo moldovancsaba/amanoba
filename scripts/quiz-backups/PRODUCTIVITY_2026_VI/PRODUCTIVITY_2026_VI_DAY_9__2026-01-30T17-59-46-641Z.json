@@ -1,0 +1,177 @@
+{
+  "backedUpAt": "2026-01-30T17:59:52.713Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_VI",
+    "name": "Năng suất 2026: Cách quản lý nhóm và thời gian",
+    "language": "vi"
+  },
+  "lesson": {
+    "dayNumber": 9,
+    "title": "Phân công vs Loại bỏ: Khi nào phân công, Cái gì loại bỏ",
+    "lessonId": "PRODUCTIVITY_2026_VI_DAY_9"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "6979db419316e77110ed07b0",
+      "uuid": "9ce076a6-7423-454c-a5ab-99b2a10217b0",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Bạn triển khai một thực hành mới: “Tôi biết những nhiệm vụ nào có thể được phân công và những n”. Kế hoạch nào tạo output đo được và phản hồi nhanh?",
+      "options": [
+        "Triển khai từng bước: đặt tiêu chí/metric, chạy pilot nhỏ, đo trước/sau, ghi lại kết quả và chỉnh một rule mỗi lần.",
+        "Đổi tất cả cùng lúc, không có metric hay điểm kiểm tra, rồi đoán thứ gì đã hiệu quả.",
+        "Bắt đầu nhưng không đo tác động (không có trước/sau), nên không biết chất lượng kết quả.",
+        "Làm cho có nhưng không có owner/thời hạn/ngưỡng, nên không gắn được với outcome."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day9",
+        "#vi",
+        "#all-languages",
+        "#course-productivity_2026_vi",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "6979db419316e77110ed07b1",
+      "uuid": "c71fd866-d527-439c-b653-10ddae144687",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Bạn triển khai một thực hành mới: “Tôi đã xác định ít nhất 5 nhiệm vụ có thể loại bỏ. Tôi có kế”. Kế hoạch nào tạo output đo được và phản hồi nhanh?",
+      "options": [
+        "Triển khai từng bước: đặt tiêu chí/metric, chạy pilot nhỏ, đo trước/sau, ghi lại kết quả và chỉnh một rule mỗi lần.",
+        "Đổi tất cả cùng lúc, không có metric hay điểm kiểm tra, rồi đoán thứ gì đã hiệu quả.",
+        "Bắt đầu nhưng không đo tác động (không có trước/sau), nên không biết chất lượng kết quả.",
+        "Làm cho có nhưng không có owner/thời hạn/ngưỡng, nên không gắn được với outcome."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day9",
+        "#vi",
+        "#all-languages",
+        "#course-productivity_2026_vi",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "6979db419316e77110ed07b2",
+      "uuid": "42fa8b44-977d-4d1c-865f-f85d310a4f82",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Trong một dự án, bạn cần biến “Chi phí thời gian” thành hành động. Cách tiếp cận nào làm output đo được và kiểm chứng được?",
+      "options": [
+        "Viết tiêu chí “done”, chọn một metric, áp dụng cho một case và mở rộng chỉ sau khi xác nhận tác động.",
+        "Dùng khái niệm như khẩu hiệu nhưng không có checklist/đo lường — output không kiểm chứng và không lặp lại được.",
+        "Trì hoãn cho đến khi “hoàn hảo”; throughput giảm và carryover tăng.",
+        "Hành động nhưng không đo và không ghi lại, nên không biết có cải thiện hay không."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day9",
+        "#vi",
+        "#all-languages",
+        "#course-productivity_2026_vi",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "6979db419316e77110ed07b3",
+      "uuid": "bdbb829a-e7c4-4bef-8a74-8c2e96cca8ec",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Trong một dự án, bạn cần biến “Tải về tâm thần” thành hành động. Cách tiếp cận nào làm output đo được và kiểm chứng được?",
+      "options": [
+        "Viết tiêu chí “done”, chọn một metric, áp dụng cho một case và mở rộng chỉ sau khi xác nhận tác động.",
+        "Dùng khái niệm như khẩu hiệu nhưng không có checklist/đo lường — output không kiểm chứng và không lặp lại được.",
+        "Trì hoãn cho đến khi “hoàn hảo”; throughput giảm và carryover tăng.",
+        "Hành động nhưng không đo và không ghi lại, nên không biết có cải thiện hay không."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day9",
+        "#vi",
+        "#all-languages",
+        "#course-productivity_2026_vi",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "6979db419316e77110ed07b4",
+      "uuid": "6980ec6c-3cf0-4a08-97e0-f98ed4e2c139",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Trong một dự án, bạn cần biến “Chi phí cơ hội” thành hành động. Cách tiếp cận nào làm output đo được và kiểm chứng được?",
+      "options": [
+        "Viết tiêu chí “done”, chọn một metric, áp dụng cho một case và mở rộng chỉ sau khi xác nhận tác động.",
+        "Dùng khái niệm như khẩu hiệu nhưng không có checklist/đo lường — output không kiểm chứng và không lặp lại được.",
+        "Trì hoãn cho đến khi “hoàn hảo”; throughput giảm và carryover tăng.",
+        "Hành động nhưng không đo và không ghi lại, nên không biết có cải thiện hay không."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day9",
+        "#vi",
+        "#all-languages",
+        "#course-productivity_2026_vi",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "6979db419316e77110ed07b5",
+      "uuid": "98530ccb-8e4a-4edc-bbed-d68170c844bd",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Một lãnh đạo ra quyết định theo nguyên tắc: “Phân công vs Loại bỏ: Khi nào phân công, Cái gì loại bỏ Không phải mọi nhiệm vụ ”. Tác động nào có khả năng nhất để đạt mục tiêu, và rủi ro điển hình nào xảy ra nếu hiểu sai hoặc đo sai?",
+      "options": [
+        "Tập trung đúng giúp tăng kết quả vì tối ưu output dưới các giới hạn; rủi ro: tối ưu sai metric tạo “output bận rộn” nhưng không cải thiện outcome.",
+        "Chỉ cần làm nhiều việc hơn vì hoạt động = kết quả; rủi ro: tăng nhiễu, giảm chất lượng và giá trị cho khách hàng.",
+        "Bỏ qua giới hạn (thời gian/năng lượng/chú ý) vì “cố gắng là đủ”; rủi ro: quá tải, sai sót và kiệt sức làm outcome xấu đi.",
+        "Ưu tiên tốc độ, chất lượng sửa sau; rủi ro: rework tăng và throughput giảm."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day9",
+        "#vi",
+        "#all-languages",
+        "#course-productivity_2026_vi",
+        "#productivity",
+        "#advanced",
+        "#critical-thinking"
+      ]
+    },
+    {
+      "_id": "6979db419316e77110ed07b6",
+      "uuid": "c0de442b-7ab8-49ae-b8cb-5c047150f102",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Một lãnh đạo ra quyết định theo nguyên tắc: “Mục tiêu học tập Hiểu sự khác biệt giữa phân công và loại bỏ”. Tác động nào có khả năng nhất để đạt mục tiêu, và rủi ro điển hình nào xảy ra nếu hiểu sai hoặc đo sai?",
+      "options": [
+        "Tập trung đúng giúp tăng kết quả vì tối ưu output dưới các giới hạn; rủi ro: tối ưu sai metric tạo “output bận rộn” nhưng không cải thiện outcome.",
+        "Chỉ cần làm nhiều việc hơn vì hoạt động = kết quả; rủi ro: tăng nhiễu, giảm chất lượng và giá trị cho khách hàng.",
+        "Bỏ qua giới hạn (thời gian/năng lượng/chú ý) vì “cố gắng là đủ”; rủi ro: quá tải, sai sót và kiệt sức làm outcome xấu đi.",
+        "Ưu tiên tốc độ, chất lượng sửa sau; rủi ro: rework tăng và throughput giảm."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day9",
+        "#vi",
+        "#all-languages",
+        "#course-productivity_2026_vi",
+        "#productivity",
+        "#advanced",
+        "#critical-thinking"
+      ]
+    }
+  ]
+}

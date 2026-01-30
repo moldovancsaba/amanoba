@@ -1,0 +1,177 @@
+{
+  "backedUpAt": "2026-01-30T17:58:38.747Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_PT",
+    "name": "Produtividade 2026: Como Gerenciar Equipes e Tempo",
+    "language": "pt"
+  },
+  "lesson": {
+    "dayNumber": 6,
+    "title": "Captura: caixas de entrada, lista de gatilhos, hábitos de captura",
+    "lessonId": "PRODUCTIVITY_2026_PT_DAY_06"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "6979db429316e77110ed081a",
+      "uuid": "fba59461-9df5-4e32-b710-ba793da0163d",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Você vai implementar uma nova prática: “Você tem um sistema confiável de caixas de entrada. Você tem”. Qual plano produz output mensurável e feedback rápido?",
+      "options": [
+        "Implemento por etapas: defino critérios/métricas, faço um piloto pequeno, meço antes/depois, documento o resultado e ajusto uma regra por vez.",
+        "Mudo tudo de uma vez sem métricas nem checkpoints e depois tento adivinhar o que funcionou.",
+        "Começo, mas sem medir o impacto (sem antes/depois), então a qualidade do resultado fica desconhecida.",
+        "Executo sem dono/prazo/limiares, e o output não se conecta ao outcome."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day6",
+        "#pt",
+        "#all-languages",
+        "#course-productivity_2026_pt",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "6979db429316e77110ed081b",
+      "uuid": "b3bad857-bf05-4efc-acf8-8f24a08f178f",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Você vai implementar uma nova prática: “Todas as informações importantes são capturadas, nada é perd”. Qual plano produz output mensurável e feedback rápido?",
+      "options": [
+        "Implemento por etapas: defino critérios/métricas, faço um piloto pequeno, meço antes/depois, documento o resultado e ajusto uma regra por vez.",
+        "Mudo tudo de uma vez sem métricas nem checkpoints e depois tento adivinhar o que funcionou.",
+        "Começo, mas sem medir o impacto (sem antes/depois), então a qualidade do resultado fica desconhecida.",
+        "Executo sem dono/prazo/limiares, e o output não se conecta ao outcome."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day6",
+        "#pt",
+        "#all-languages",
+        "#course-productivity_2026_pt",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "6979db429316e77110ed081c",
+      "uuid": "a720a07f-9349-41c3-bab0-191cc2b97802",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Você vai implementar uma nova prática: “exemplo: caixa de entrada de e-mail, caixa de entrada física”. Qual plano produz output mensurável e feedback rápido?",
+      "options": [
+        "Implemento por etapas: defino critérios/métricas, faço um piloto pequeno, meço antes/depois, documento o resultado e ajusto uma regra por vez.",
+        "Mudo tudo de uma vez sem métricas nem checkpoints e depois tento adivinhar o que funcionou.",
+        "Começo, mas sem medir o impacto (sem antes/depois), então a qualidade do resultado fica desconhecida.",
+        "Executo sem dono/prazo/limiares, e o output não se conecta ao outcome."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day6",
+        "#pt",
+        "#all-languages",
+        "#course-productivity_2026_pt",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "6979db429316e77110ed081d",
+      "uuid": "971f9725-e62d-403c-9b7a-b70abda8d24c",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Você vai implementar uma nova prática: “exemplo: \"Após reunião: capture itens de ação\", \"Após chamad”. Qual plano produz output mensurável e feedback rápido?",
+      "options": [
+        "Implemento por etapas: defino critérios/métricas, faço um piloto pequeno, meço antes/depois, documento o resultado e ajusto uma regra por vez.",
+        "Mudo tudo de uma vez sem métricas nem checkpoints e depois tento adivinhar o que funcionou.",
+        "Começo, mas sem medir o impacto (sem antes/depois), então a qualidade do resultado fica desconhecida.",
+        "Executo sem dono/prazo/limiares, e o output não se conecta ao outcome."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day6",
+        "#pt",
+        "#all-languages",
+        "#course-productivity_2026_pt",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "6979db429316e77110ed081e",
+      "uuid": "97ef81c6-47db-4faf-97dd-d3b90f8ea239",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Você vai implementar uma nova prática: “exemplo: \"Após reunião, capturo imediatamente itens de ação\"”. Qual plano produz output mensurável e feedback rápido?",
+      "options": [
+        "Implemento por etapas: defino critérios/métricas, faço um piloto pequeno, meço antes/depois, documento o resultado e ajusto uma regra por vez.",
+        "Mudo tudo de uma vez sem métricas nem checkpoints e depois tento adivinhar o que funcionou.",
+        "Começo, mas sem medir o impacto (sem antes/depois), então a qualidade do resultado fica desconhecida.",
+        "Executo sem dono/prazo/limiares, e o output não se conecta ao outcome."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day6",
+        "#pt",
+        "#all-languages",
+        "#course-productivity_2026_pt",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "6979db429316e77110ed081f",
+      "uuid": "ae387425-c2c5-4735-95f6-58207dad536c",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Um líder decide com base no princípio: “Criar um sistema confiável de caixas de entrada”. Qual é o efeito mais provável para atingir metas, e qual risco típico surge se isso for mal interpretado ou mal medido?",
+      "options": [
+        "O foco correto aumenta o resultado porque otimiza o output sob restrições; risco: otimizar a métrica errada gera “output ocupado” sem melhorar o outcome.",
+        "Basta fazer mais tarefas porque atividade = resultado; risco: aumenta o ruído e cai a qualidade/valor para o cliente.",
+        "Ignorar restrições (tempo/energia/atenção) porque “força de vontade resolve”; risco: sobrecarga, erros e burnout pioram o outcome.",
+        "Velocidade acima de tudo e qualidade depois; risco: rework cresce e o throughput cai."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day6",
+        "#pt",
+        "#all-languages",
+        "#course-productivity_2026_pt",
+        "#productivity",
+        "#advanced",
+        "#critical-thinking"
+      ]
+    },
+    {
+      "_id": "6979db429316e77110ed0820",
+      "uuid": "8819949f-c198-4551-92e8-b57cd5ae6a0f",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Um líder decide com base no princípio: “Desenvolver hábitos de captura que se tornam automáticos”. Qual é o efeito mais provável para atingir metas, e qual risco típico surge se isso for mal interpretado ou mal medido?",
+      "options": [
+        "O foco correto aumenta o resultado porque otimiza o output sob restrições; risco: otimizar a métrica errada gera “output ocupado” sem melhorar o outcome.",
+        "Basta fazer mais tarefas porque atividade = resultado; risco: aumenta o ruído e cai a qualidade/valor para o cliente.",
+        "Ignorar restrições (tempo/energia/atenção) porque “força de vontade resolve”; risco: sobrecarga, erros e burnout pioram o outcome.",
+        "Velocidade acima de tudo e qualidade depois; risco: rework cresce e o throughput cai."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day6",
+        "#pt",
+        "#all-languages",
+        "#course-productivity_2026_pt",
+        "#productivity",
+        "#advanced",
+        "#critical-thinking"
+      ]
+    }
+  ]
+}

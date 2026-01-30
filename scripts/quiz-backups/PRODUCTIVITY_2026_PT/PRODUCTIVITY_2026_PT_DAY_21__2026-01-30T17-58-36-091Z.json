@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-30T17:58:40.468Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_PT",
+    "name": "Produtividade 2026: Como Gerenciar Equipes e Tempo",
+    "language": "pt"
+  },
+  "lesson": {
+    "dayNumber": 21,
+    "title": "Comunidade e Rede: Relações, Aprendizado Com Outros",
+    "lessonId": "PRODUCTIVITY_2026_PT_DAY_21"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a3a6360118c57912b3a",
+      "uuid": "774fa463-aeda-4ae1-897d-c3b93a97e236",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Como o conceito \"Comunidade e Rede: Relações, Aprendizado Com Outro...\", mencionado na lição, impacta o alcance de seus goals?",
+      "options": [
+        "Como descrito em detalhes na lição, Comunidade e Rede: Relações, A... aumenta a eficácia e reduz os riscos",
+        "Sem impacto significativo",
+        "Importa apenas teoricamente",
+        "Apenas um elemento opcional"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day21",
+        "#pt",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a3a6360118c57912b3b",
+      "uuid": "4ce05e11-f26c-489d-9a46-e9a18441e09f",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Como você usaria o conceito \"Comunidade\" conforme descrito na lição na prática?",
+      "options": [
+        "Sigo as etapas descritas em detalhes na lição, testo os resultados e documento minhas experiências",
+        "Apenas entendo teoricamente",
+        "Opcao concreta: Não aplico.",
+        "Espero por mais instruções"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day21",
+        "#pt",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a3a6360118c57912b3c",
+      "uuid": "5deb94b4-28ec-474f-bbb8-42231156ed92",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Como você usaria o conceito \"Rede\" conforme descrito na lição na prática?",
+      "options": [
+        "Sigo as etapas descritas em detalhes na lição, testo os resultados e documento minhas experiências",
+        "Apenas entendo teoricamente",
+        "Não aplico",
+        "Espero por mais instruções"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day21",
+        "#pt",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a3a6360118c57912b3d",
+      "uuid": "115536b8-bc16-430e-8640-0b16fa336d99",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Como você usaria o conceito \"Relações\" conforme descrito na lição na prática?",
+      "options": [
+        "Sigo as etapas descritas em detalhes na lição, testo os resultados e documento minhas experiências",
+        "Apenas entendo teoricamente",
+        "Opcao concreta: Não aplico.",
+        "Espero por mais instruções"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day21",
+        "#pt",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a3a6360118c57912b3e",
+      "uuid": "07e21923-996a-419b-96de-6f27e301fa52",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Quão importante é Rede no contexto de Comunidade e Rede: Relações, Aprendizado Com Outros, conforme discutido na lição?",
+      "options": [
+        "Conforme descrito em detalhes na lição, Rede desempenha um papel crucial na otimização de processos e no alcance de objetivos",
+        "Apenas informações periféricas sem papel significativo",
+        "Apenas um conceito teórico sem aplicação prática",
+        "Não mencionado na lição (como opcao pratica na situacao)"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day21",
+        "#pt",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "69776a3a6360118c57912b3f",
+      "uuid": "09b117fd-82ed-4bdd-89f0-2d2ebdbbf736",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Quão importante é Aprendizado no contexto de Comunidade e Rede: Relações, Aprendizado Com Outros, conforme discutido na lição?",
+      "options": [
+        "Conforme descrito em detalhes na lição, Aprendizado desempenha um papel crucial na otimização de processos e no alcance de objetivos",
+        "Apenas informações periféricas sem papel significativo",
+        "Apenas um conceito teórico sem aplicação prática",
+        "Não mencionado na lição"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day21",
+        "#pt",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a3a6360118c57912b40",
+      "uuid": "0a9565b6-8744-4d59-8111-517297bc5394",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Quão importante é Comunidade no contexto de Comunidade e Rede: Relações, Aprendizado Com Outros, conforme discutido na lição?",
+      "options": [
+        "Conforme descrito em detalhes na lição, Comunidade desempenha um papel crucial na otimização de processos e no alcance de objetivos",
+        "Apenas informações periféricas sem papel significativo",
+        "Apenas um conceito teórico sem aplicação prática",
+        "Não mencionado na lição"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day21",
+        "#pt",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

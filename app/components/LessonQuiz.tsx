@@ -7,7 +7,7 @@
 
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { useTranslations } from 'next-intl';
 import { CheckCircle, XCircle, RotateCcw } from 'lucide-react';
 
@@ -54,11 +54,7 @@ export default function LessonQuiz({
   const [error, setError] = useState<string | null>(null);
   const [canRetake, setCanRetake] = useState(false);
 
-  useEffect(() => {
-    fetchQuestions();
-  }, [courseId, lessonId]);
-
-  const fetchQuestions = async () => {
+  const fetchQuestions = useCallback(async () => {
     try {
       setLoading(true);
       setError(null);
@@ -82,7 +78,11 @@ export default function LessonQuiz({
     } finally {
       setLoading(false);
     }
-  };
+  }, [courseId, lessonId, quizConfig.questionCount, t]);
+
+  useEffect(() => {
+    void fetchQuestions();
+  }, [fetchQuestions]);
 
   const handleAnswer = (questionId: string, optionIndex: number, optionValue: string) => {
     if (submitted) return;

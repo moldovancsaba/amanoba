@@ -196,7 +196,7 @@ export default function CertificatePage({
   const { enrolled, allLessonsCompleted, allQuizzesPassed, finalExamPassed, finalExamScore, certificateEligible, courseTitle, playerName } = certificateData;
 
   // Generate certificate ID from playerId and courseId
-  const certificateId = `${playerId.slice(-8)}-${courseId.slice(-8)}`.toUpperCase();
+  const certificateId = (playerId && courseId) ? `${playerId.slice(-8)}-${courseId.slice(-8)}`.toUpperCase() : '';
   const issuedDate = new Date().toLocaleDateString('en-US', { 
     year: 'numeric', 
     month: 'long', 

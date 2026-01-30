@@ -9,10 +9,120 @@ import { NextRequest, NextResponse } from 'next/server';
 import connectDB from '@/lib/mongodb';
 import { Player } from '@/lib/models';
 import { logger } from '@/lib/logger';
-import { generateSecureToken } from '@/lib/security';
+import { locales, type Locale } from '@/app/lib/i18n/locales';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
+
+const SUPPORTED_LOCALES = new Set<string>(locales);
+const DEFAULT_LOCALE: Locale = 'en';
+
+/** Resolve locale from Accept-Language header (first match in supported list). */
+function localeFromAcceptLanguage(header: string | null): Locale {
+  if (!header) return DEFAULT_LOCALE;
+  const parts = header.split(',').map((p) => p.split(';')[0].trim().toLowerCase().slice(0, 2));
+  for (const part of parts) {
+    if (SUPPORTED_LOCALES.has(part)) return part as Locale;
+  }
+  return DEFAULT_LOCALE;
+}
+
+type UnsubscribeMessages = {
+  errorTitle: string;
+  errorHeading: string;
+  errorInvalid: string;
+  errorContactSupport: string;
+  successTitle: string;
+  successHeading: string;
+  successMessage: string;
+  successReenable: string;
+};
+
+async function getUnsubscribeMessages(locale: string): Promise<UnsubscribeMessages> {
+  const fallback: UnsubscribeMessages = {
+    errorTitle: 'Invalid Unsubscribe Link',
+    errorHeading: 'Invalid Unsubscribe Link',
+    errorInvalid: 'The unsubscribe link is invalid or has expired.',
+    errorContactSupport: 'Please contact support if you need to unsubscribe from emails.',
+    successTitle: 'Unsubscribed',
+    successHeading: '✓ Successfully Unsubscribed',
+    successMessage: 'You have been unsubscribed from lesson emails.',
+    successReenable: 'You can re-enable emails in your account settings.',
+  };
+  const effectiveLocale = SUPPORTED_LOCALES.has(locale) ? locale : DEFAULT_LOCALE;
+  try {
+    const data = (await import(`@/messages/${effectiveLocale}.json`)).default as {
+      email?: { unsubscribe?: UnsubscribeMessages };
+    };
+    const u = data?.email?.unsubscribe;
+    if (u && typeof u === 'object') {
+      return {
+        errorTitle: String(u.errorTitle ?? fallback.errorTitle),
+        errorHeading: String(u.errorHeading ?? fallback.errorHeading),
+        errorInvalid: String(u.errorInvalid ?? fallback.errorInvalid),
+        errorContactSupport: String(u.errorContactSupport ?? fallback.errorContactSupport),
+        successTitle: String(u.successTitle ?? fallback.successTitle),
+        successHeading: String(u.successHeading ?? fallback.successHeading),
+        successMessage: String(u.successMessage ?? fallback.successMessage),
+        successReenable: String(u.successReenable ?? fallback.successReenable),
+      };
+    }
+  } catch {
+    // ignore; use fallback
+  }
+  return fallback;
+}
+
+function htmlErrorPage(m: UnsubscribeMessages, lang: string): string {
+  return `<!DOCTYPE html>
+<html lang="${escapeHtml(lang)}">
+<head>
+  <title>${escapeHtml(m.errorTitle)}</title>
+  <style>
+    body { font-family: Arial, sans-serif; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; background: #000; color: #fff; }
+    .container { text-align: center; padding: 2rem; background: #2D2D2D; border-radius: 8px; border: 2px solid #FAB908; }
+    h1 { color: #FAB908; } .error { color: #ff4444; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 class="error">${escapeHtml(m.errorHeading)}</h1>
+    <p>${escapeHtml(m.errorInvalid)}</p>
+    <p>${escapeHtml(m.errorContactSupport)}</p>
+  </div>
+</body>
+</html>`;
+}
+
+function htmlSuccessPage(m: UnsubscribeMessages, lang: string): string {
+  return `<!DOCTYPE html>
+<html lang="${escapeHtml(lang)}">
+<head>
+  <title>${escapeHtml(m.successTitle)}</title>
+  <style>
+    body { font-family: Arial, sans-serif; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; background: #000; color: #fff; }
+    .container { text-align: center; padding: 2rem; background: #2D2D2D; border-radius: 8px; border: 2px solid #FAB908; }
+    h1 { color: #FAB908; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>${escapeHtml(m.successHeading)}</h1>
+    <p>${escapeHtml(m.successMessage)}</p>
+    <p>${escapeHtml(m.successReenable)}</p>
+  </div>
+</body>
+</html>`;
+}
+
+function escapeHtml(s: string): string {
+  return s
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
 
 /**
  * POST /api/email/unsubscribe
@@ -118,49 +228,12 @@ export async function GET(request: NextRequest) {
       // Token-based lookup (for email links)
       player = await Player.findOne({ unsubscribeToken: token });
       if (!player) {
-        // Return HTML error page for invalid token
-        return new NextResponse(
-          `
-          <!DOCTYPE html>
-          <html>
-            <head>
-              <title>Invalid Unsubscribe Link</title>
-              <style>
-                body {
-                  font-family: Arial, sans-serif;
-                  display: flex;
-                  justify-content: center;
-                  align-items: center;
-                  min-height: 100vh;
-                  margin: 0;
-                  background: #000;
-                  color: #fff;
-                }
-                .container {
-                  text-align: center;
-                  padding: 2rem;
-                  background: #2D2D2D;
-                  border-radius: 8px;
-                  border: 2px solid #FAB908;
-                }
-                h1 { color: #FAB908; }
-                .error { color: #ff4444; }
-              </style>
-            </head>
-            <body>
-              <div class="container">
-                <h1 class="error">Invalid Unsubscribe Link</h1>
-                <p>The unsubscribe link is invalid or has expired.</p>
-                <p>Please contact support if you need to unsubscribe from emails.</p>
-              </div>
-            </body>
-          </html>
-          `,
-          {
-            headers: { 'Content-Type': 'text/html' },
-            status: 400,
-          }
-        );
+        const locale = localeFromAcceptLanguage(request.headers.get('accept-language'));
+        const m = await getUnsubscribeMessages(locale);
+        return new NextResponse(htmlErrorPage(m, locale), {
+          headers: { 'Content-Type': 'text/html' },
+          status: 400,
+        });
       }
     } else if (email) {
       player = await Player.findOne({ email: email.toLowerCase() });
@@ -188,47 +261,13 @@ export async function GET(request: NextRequest) {
 
     logger.info({ playerId: player._id }, 'Player unsubscribed from lesson emails via link');
 
-    // Return HTML success page
-    return new NextResponse(
-      `
-      <!DOCTYPE html>
-      <html>
-        <head>
-          <title>Unsubscribed</title>
-          <style>
-            body {
-              font-family: Arial, sans-serif;
-              display: flex;
-              justify-content: center;
-              align-items: center;
-              min-height: 100vh;
-              margin: 0;
-              background: #000;
-              color: #fff;
-            }
-            .container {
-              text-align: center;
-              padding: 2rem;
-              background: #2D2D2D;
-              border-radius: 8px;
-              border: 2px solid #FAB908;
-            }
-            h1 { color: #FAB908; }
-          </style>
-        </head>
-        <body>
-          <div class="container">
-            <h1>✓ Successfully Unsubscribed</h1>
-            <p>You have been unsubscribed from lesson emails.</p>
-            <p>You can re-enable emails in your account settings.</p>
-          </div>
-        </body>
-      </html>
-      `,
-      {
-        headers: { 'Content-Type': 'text/html' },
-      }
-    );
+    const locale = (player.locale && SUPPORTED_LOCALES.has(player.locale))
+      ? (player.locale as Locale)
+      : DEFAULT_LOCALE;
+    const m = await getUnsubscribeMessages(locale);
+    return new NextResponse(htmlSuccessPage(m, locale), {
+      headers: { 'Content-Type': 'text/html' },
+    });
   } catch (error) {
     logger.error({ error }, 'Failed to unsubscribe player via link');
 

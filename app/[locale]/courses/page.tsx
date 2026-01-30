@@ -7,7 +7,7 @@
 
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { useSession } from 'next-auth/react';
 import { useTranslations, useLocale } from 'next-intl';
 import { LocaleLink } from '@/components/LocaleLink';
@@ -46,6 +46,9 @@ interface Course {
     completionXP: number;
     lessonXP: number;
   };
+  certification?: {
+    enabled?: boolean;
+  };
 }
 
 export default function CoursesPage() {
@@ -58,11 +61,7 @@ export default function CoursesPage() {
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState('');
 
-  useEffect(() => {
-    fetchCourses();
-  }, []);
-
-  const fetchCourses = async () => {
+  const fetchCourses = useCallback(async () => {
     try {
       setLoading(true);
       const params = new URLSearchParams();
@@ -87,16 +86,14 @@ export default function CoursesPage() {
     } finally {
       setLoading(false);
     }
-  };
+  }, [search]);
 
   useEffect(() => {
     const timeoutId = setTimeout(() => {
-      if (search !== undefined) {
-        fetchCourses();
-      }
+      void fetchCourses();
     }, 300);
     return () => clearTimeout(timeoutId);
-  }, [search]);
+  }, [fetchCourses]);
 
   // Map course language to UI text translations
   // This ensures course cards display in their NATIVE language, not URL locale

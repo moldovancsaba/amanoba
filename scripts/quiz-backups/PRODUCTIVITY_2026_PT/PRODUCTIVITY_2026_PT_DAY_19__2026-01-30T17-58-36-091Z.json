@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-30T17:58:40.248Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_PT",
+    "name": "Produtividade 2026: Como Gerenciar Equipes e Tempo",
+    "language": "pt"
+  },
+  "lesson": {
+    "dayNumber": 19,
+    "title": "Planejamento de Longo Prazo: Anos Adiante, Estratégia, Evolução",
+    "lessonId": "PRODUCTIVITY_2026_PT_DAY_19"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a3a6360118c57912b26",
+      "uuid": "738b76b0-f531-43b0-9606-db9973f14cea",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Como o conceito \"Planejamento de Longo Prazo: Anos Adiante, Estraté...\", mencionado na lição, impacta o alcance de seus goals?",
+      "options": [
+        "Como descrito em detalhes na lição, Planejamento de Longo Prazo: A... aumenta a eficácia e reduz os riscos",
+        "Sem impacto significativo",
+        "Importa apenas teoricamente",
+        "Apenas um elemento opcional"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day19",
+        "#pt",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a3a6360118c57912b27",
+      "uuid": "c4e3ff47-8bbe-4f06-aee6-959129b9ac9c",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Como você usaria o conceito \"Planejamento\" conforme descrito na lição na prática?",
+      "options": [
+        "Sigo as etapas descritas em detalhes na lição, testo os resultados e documento minhas experiências",
+        "Apenas entendo teoricamente",
+        "Não aplico",
+        "Espero por mais instruções"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day19",
+        "#pt",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a3a6360118c57912b28",
+      "uuid": "9af64e9e-0968-4b19-8b5c-af593951b022",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Como você usaria o conceito \"Longo\" conforme descrito na lição na prática?",
+      "options": [
+        "Sigo as etapas descritas em detalhes na lição, testo os resultados e documento minhas experiências",
+        "Apenas entendo teoricamente",
+        "Não aplico (como opcao pratica na situacao)",
+        "Espero por mais instruções"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day19",
+        "#pt",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a3a6360118c57912b29",
+      "uuid": "0c45f7b0-a2c5-43b5-a12f-2e59805218ca",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Como você usaria o conceito \"Prazo\" conforme descrito na lição na prática?",
+      "options": [
+        "Sigo as etapas descritas em detalhes na lição, testo os resultados e documento minhas experiências",
+        "Apenas entendo teoricamente",
+        "Opcao concreta: Não aplico.",
+        "Espero por mais instruções"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day19",
+        "#pt",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a3a6360118c57912b2a",
+      "uuid": "914fcbf6-76a4-4c64-9712-1f7e101362d0",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Quão importante é Longo no contexto de Planejamento de Longo Prazo: Anos Adiante, Estratégia, Evolução, conforme discutido na lição?",
+      "options": [
+        "Conforme descrito em detalhes na lição, Longo desempenha um papel crucial na otimização de processos e no alcance de objetivos",
+        "Apenas informações periféricas sem papel significativo",
+        "Apenas um conceito teórico sem aplicação prática",
+        "Opcao concreta: Não mencionado na lição."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day19",
+        "#pt",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "69776a3a6360118c57912b2b",
+      "uuid": "0ac43d7a-64d3-4058-8ee5-c28bc80913f6",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Quão importante é Anos no contexto de Planejamento de Longo Prazo: Anos Adiante, Estratégia, Evolução, conforme discutido na lição?",
+      "options": [
+        "Conforme descrito em detalhes na lição, Anos desempenha um papel crucial na otimização de processos e no alcance de objetivos",
+        "Apenas informações periféricas sem papel significativo",
+        "Apenas um conceito teórico sem aplicação prática",
+        "Não mencionado na lição"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day19",
+        "#pt",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a3a6360118c57912b2c",
+      "uuid": "2c1f683c-139a-4a95-9325-4d38d629d6ba",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Quão importante é Estratégia no contexto de Planejamento de Longo Prazo: Anos Adiante, Estratégia, Evolução, conforme discutido na lição?",
+      "options": [
+        "Conforme descrito em detalhes na lição, Estratégia desempenha um papel crucial na otimização de processos e no alcance de objetivos",
+        "Apenas informações periféricas sem papel significativo",
+        "Apenas um conceito teórico sem aplicação prática",
+        "Não mencionado na lição"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day19",
+        "#pt",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

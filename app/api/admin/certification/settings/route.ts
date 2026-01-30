@@ -40,11 +40,11 @@ export async function GET(request: NextRequest) {
         priceMoney: { amount: 0, currency: 'USD' },
         pricePoints: 0,
         templateId: 'default_v1',
-        credentialId: 'CERT',
+        credentialTitleId: 'CERT',
         completionPhraseId: 'completion_final_exam',
         deliverableBulletIds: [],
       });
-      settings = defaultSettings.toObject();
+      settings = defaultSettings.toObject() as NonNullable<typeof settings>;
     }
 
     return NextResponse.json({
@@ -77,7 +77,7 @@ export async function PATCH(request: NextRequest) {
     await connectDB();
 
     const body = await request.json();
-    const { priceMoney, pricePoints, templateId, credentialId, completionPhraseId, deliverableBulletIds, backgroundUrl } = body;
+    const { priceMoney, pricePoints, templateId, credentialTitleId, completionPhraseId, deliverableBulletIds, backgroundUrl } = body;
 
     // Get or create global settings
     let settings = await CertificationSettings.findOne({ key: 'global' });
@@ -88,7 +88,7 @@ export async function PATCH(request: NextRequest) {
         priceMoney: priceMoney || { amount: 0, currency: 'USD' },
         pricePoints: pricePoints || 0,
         templateId: templateId || 'default_v1',
-        credentialId: credentialId || 'CERT',
+        credentialTitleId: credentialTitleId || 'CERT',
         completionPhraseId: completionPhraseId || 'completion_final_exam',
         deliverableBulletIds: deliverableBulletIds || [],
         backgroundUrl: backgroundUrl || undefined,
@@ -98,7 +98,7 @@ export async function PATCH(request: NextRequest) {
       if (priceMoney !== undefined) settings.priceMoney = priceMoney;
       if (pricePoints !== undefined) settings.pricePoints = pricePoints;
       if (templateId !== undefined) settings.templateId = templateId;
-      if (credentialId !== undefined) settings.credentialId = credentialId;
+      if (credentialTitleId !== undefined) settings.credentialTitleId = credentialTitleId;
       if (completionPhraseId !== undefined) settings.completionPhraseId = completionPhraseId;
       if (deliverableBulletIds !== undefined) settings.deliverableBulletIds = deliverableBulletIds;
       if (backgroundUrl !== undefined) settings.backgroundUrl = backgroundUrl;

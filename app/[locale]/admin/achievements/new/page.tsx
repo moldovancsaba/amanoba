@@ -7,7 +7,7 @@
 
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { useLocale, useTranslations } from 'next-intl';
 import Link from 'next/link';
@@ -152,6 +152,19 @@ export default function NewAchievementPage() {
       }
 
       // Prepare payload
+      const criteria: Record<string, unknown> = {
+        type: formData.criteria.type,
+        target: formData.criteria.target,
+      };
+      if (formData.criteria.gameId) criteria.gameId = formData.criteria.gameId;
+      if (formData.criteria.condition?.trim()) criteria.condition = formData.criteria.condition.trim();
+
+      const rewards: Record<string, unknown> = {
+        points: formData.rewards.points,
+        xp: formData.rewards.xp,
+      };
+      if (formData.rewards.title?.trim()) rewards.title = formData.rewards.title.trim();
+
       const payload: Record<string, unknown> = {
         name: formData.name.trim(),
         description: formData.description.trim(),
@@ -159,29 +172,12 @@ export default function NewAchievementPage() {
         tier: formData.tier,
         icon: formData.icon,
         isHidden: formData.isHidden,
-        criteria: {
-          type: formData.criteria.type,
-          target: formData.criteria.target,
-        },
-        rewards: {
-          points: formData.rewards.points,
-          xp: formData.rewards.xp,
-        },
+        criteria,
+        rewards,
         metadata: {
           isActive: formData.metadata.isActive,
         },
       };
-
-      // Add optional fields
-      if (formData.criteria.gameId) {
-        payload.criteria.gameId = formData.criteria.gameId;
-      }
-      if (formData.criteria.condition?.trim()) {
-        payload.criteria.condition = formData.criteria.condition.trim();
-      }
-      if (formData.rewards.title?.trim()) {
-        payload.rewards.title = formData.rewards.title.trim();
-      }
 
       const res = await fetch('/api/admin/achievements', {
         method: 'POST',
@@ -205,48 +201,43 @@ export default function NewAchievementPage() {
   };
 
   const updateFormData = (field: string, value: unknown) => {
-    if (field.includes('.')) {
-      const [parent, child] = field.split('.');
-      setFormData(prev => ({
-        ...prev,
-        [parent]: {
-          ...prev[parent as keyof FormData],
-          [child]: value,
-        },
-      }));
-    } else if (field.includes('criteria.')) {
-      const subField = field.replace('criteria.', '');
-      setFormData(prev => ({
+    if (field.startsWith('criteria.')) {
+      const subField = field.replace('criteria.', '') as keyof FormData['criteria'];
+      setFormData((prev) => ({
         ...prev,
         criteria: {
           ...prev.criteria,
-          [subField]: value,
+          [subField]: value as FormData['criteria'][typeof subField],
         },
       }));
-    } else if (field.includes('rewards.')) {
-      const subField = field.replace('rewards.', '');
-      setFormData(prev => ({
+      return;
+    }
+
+    if (field.startsWith('rewards.')) {
+      const subField = field.replace('rewards.', '') as keyof FormData['rewards'];
+      setFormData((prev) => ({
         ...prev,
         rewards: {
           ...prev.rewards,
-          [subField]: value,
+          [subField]: value as FormData['rewards'][typeof subField],
         },
       }));
-    } else if (field.includes('metadata.')) {
-      const subField = field.replace('metadata.', '');
-      setFormData(prev => ({
+      return;
+    }
+
+    if (field.startsWith('metadata.')) {
+      const subField = field.replace('metadata.', '') as keyof FormData['metadata'];
+      setFormData((prev) => ({
         ...prev,
         metadata: {
           ...prev.metadata,
-          [subField]: value,
+          [subField]: value as FormData['metadata'][typeof subField],
         },
       }));
-    } else {
-      setFormData(prev => ({
-        ...prev,
-        [field]: value,
-      }));
+      return;
     }
+
+    setFormData((prev) => ({ ...prev, [field]: value } as FormData));
   };
 
   if (loading) {
@@ -428,7 +419,7 @@ export default function NewAchievementPage() {
               <div>
                 <label className="block text-white text-sm font-medium mb-2">
                   Criteria Type <span className="text-red-400">*</span>
-                  <HelpCircle className="w-4 h-4 inline-block ml-2 text-gray-400" title="What the player needs to accomplish" />
+                  <span title="What the player needs to accomplish"><HelpCircle className="w-4 h-4 inline-block ml-2 text-gray-400" /></span>
                 </label>
                 <select
                   value={formData.criteria.type}

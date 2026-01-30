@@ -7,7 +7,7 @@
  * What: Comprehensive dashboard showing level, XP, points, achievements, and streaks
  */
 
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState, useRef, useCallback } from 'react';
 import { useSession, signOut } from 'next-auth/react';
 import { useRouter, usePathname } from 'next/navigation';
 import { useTranslations, useLocale } from 'next-intl';
@@ -94,7 +94,8 @@ export default function Dashboard() {
   const [playerData, setPlayerData] = useState<PlayerData | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [recommendations, setRecommendations] = useState<Record<string, unknown>[]>([]);
+  type RecommendationCourse = { courseId: string; name?: string; description?: string; thumbnail?: string; durationDays?: number; requiresPremium?: boolean };
+  const [recommendations, setRecommendations] = useState<RecommendationCourse[]>([]);
   const [loadingRecommendations, setLoadingRecommendations] = useState(false);
   const [featureFlags, setFeatureFlags] = useState<{
     courses: boolean;
@@ -109,8 +110,44 @@ export default function Dashboard() {
   } | null>(null);
   const [canAccessAdmin, setCanAccessAdmin] = useState(false);
 
+  const fetchAdminAccess = useCallback(async () => {
+    try {
+      const response = await fetch('/api/admin/access');
+      const data = await response.json();
+      if (data.canAccessAdmin === true) {
+        setCanAccessAdmin(true);
+      }
+    } catch {
+      setCanAccessAdmin(false);
+    }
+  }, []);
+
+  const fetchFeatureFlags = useCallback(async () => {
+    try {
+      const response = await fetch('/api/feature-flags');
+      const data = await response.json();
+      if (data.success && data.featureFlags?.features) {
+        setFeatureFlags(data.featureFlags.features);
+      }
+    } catch (error) {
+      console.error('Failed to fetch feature flags:', error);
+      // Default to course features enabled
+      setFeatureFlags({
+        courses: true,
+        myCourses: true,
+        games: false,
+        stats: false,
+        leaderboards: false,
+        challenges: false,
+        quests: false,
+        achievements: false,
+        rewards: false,
+      });
+    }
+  }, []);
+
   // Why: Fetch player data when session is available or on manual refresh
-  const fetchPlayerData = async () => {
+  const fetchPlayerData = useCallback(async () => {
     if (status === 'loading') {
       return;
     }
@@ -170,9 +207,9 @@ export default function Dashboard() {
     } finally {
       setLoading(false);
     }
-  };
+  }, [session, status]);
 
-  const fetchRecommendations = async () => {
+  const fetchRecommendations = useCallback(async () => {
     if (status === 'loading' || !session) return;
     
     try {
@@ -181,61 +218,25 @@ export default function Dashboard() {
       const data = await response.json();
       
       if (data.success && data.recommendations) {
-        setRecommendations(data.recommendations);
+        setRecommendations((data.recommendations || []) as RecommendationCourse[]);
       }
     } catch (error) {
       console.error('Failed to fetch recommendations:', error);
     } finally {
       setLoadingRecommendations(false);
     }
-  };
+  }, [session, status]);
 
   useEffect(() => {
-    fetchPlayerData();
-    fetchFeatureFlags();
-    fetchRecommendations();
+    void fetchPlayerData();
+    void fetchFeatureFlags();
+    void fetchRecommendations();
     if (session?.user) {
-      fetchAdminAccess();
+      void fetchAdminAccess();
     } else {
       setCanAccessAdmin(false);
     }
-  }, [session, status]);
-
-  const fetchAdminAccess = async () => {
-    try {
-      const response = await fetch('/api/admin/access');
-      const data = await response.json();
-      if (data.canAccessAdmin === true) {
-        setCanAccessAdmin(true);
-      }
-    } catch {
-      setCanAccessAdmin(false);
-    }
-  };
-
-  const fetchFeatureFlags = async () => {
-    try {
-      const response = await fetch('/api/feature-flags');
-      const data = await response.json();
-      if (data.success && data.featureFlags?.features) {
-        setFeatureFlags(data.featureFlags.features);
-      }
-    } catch (error) {
-      console.error('Failed to fetch feature flags:', error);
-      // Default to course features enabled
-      setFeatureFlags({
-        courses: true,
-        myCourses: true,
-        games: false,
-        stats: false,
-        leaderboards: false,
-        challenges: false,
-        quests: false,
-        achievements: false,
-        rewards: false,
-      });
-    }
-  };
+  }, [fetchAdminAccess, fetchFeatureFlags, fetchPlayerData, fetchRecommendations, session]);
 
   if (loading) {
     return (

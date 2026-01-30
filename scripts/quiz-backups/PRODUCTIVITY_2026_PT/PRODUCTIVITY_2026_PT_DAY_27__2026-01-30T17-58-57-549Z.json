@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-30T17:59:13.478Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_PT",
+    "name": "Produtividade 2026: Como Gerenciar Equipes e Tempo",
+    "language": "pt"
+  },
+  "lesson": {
+    "dayNumber": 27,
+    "title": "Hábitos e Rituais: Rotinas Diárias, Ação de Longo Prazo",
+    "lessonId": "PRODUCTIVITY_2026_PT_DAY_27"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a3a6360118c57912b76",
+      "uuid": "cc959bbe-d1e9-4bb4-9f24-11f2807c1353",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Como o conceito \"Hábitos e Rituais: Rotinas Diárias, Ação de Longo ...\", mencionado na lição, impacta o alcance de seus goals?",
+      "options": [
+        "Como descrito em detalhes na lição, Hábitos e Rituais: Rotinas Diá... aumenta a eficácia e reduz os riscos",
+        "Sem impacto significativo",
+        "Importa apenas teoricamente",
+        "Apenas um elemento opcional"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day27",
+        "#pt",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a3a6360118c57912b77",
+      "uuid": "1a9460a7-aaae-41ea-b0f9-43fface6225f",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Como você usaria o conceito \"Hábitos\" conforme descrito na lição na prática?",
+      "options": [
+        "Sigo as etapas descritas em detalhes na lição, testo os resultados e documento minhas experiências",
+        "Apenas entendo teoricamente",
+        "Não aplico",
+        "Espero por mais instruções"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day27",
+        "#pt",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a3a6360118c57912b78",
+      "uuid": "bb2703d5-1afe-4d16-be60-111ca16458ef",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Como você usaria o conceito \"Rituais\" conforme descrito na lição na prática?",
+      "options": [
+        "Sigo as etapas descritas em detalhes na lição, testo os resultados e documento minhas experiências",
+        "Apenas entendo teoricamente",
+        "Opcao concreta: Não aplico.",
+        "Espero por mais instruções"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day27",
+        "#pt",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a3a6360118c57912b79",
+      "uuid": "d304702d-b9b7-4a77-9272-efe9d982307c",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Como você usaria o conceito \"Rotinas\" conforme descrito na lição na prática?",
+      "options": [
+        "Sigo as etapas descritas em detalhes na lição, testo os resultados e documento minhas experiências",
+        "Apenas entendo teoricamente",
+        "Não aplico",
+        "Espero por mais instruções"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day27",
+        "#pt",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a3a6360118c57912b7a",
+      "uuid": "8ffae3d1-13ce-4347-a162-7274df2ee090",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Quão importante é Rituais no contexto de Hábitos e Rituais: Rotinas Diárias, Ação de Longo Prazo, conforme discutido na lição?",
+      "options": [
+        "Conforme descrito em detalhes na lição, Rituais desempenha um papel crucial na otimização de processos e no alcance de objetivos",
+        "Apenas informações periféricas sem papel significativo",
+        "Apenas um conceito teórico sem aplicação prática",
+        "Não mencionado na lição"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day27",
+        "#pt",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a3a6360118c57912b7b",
+      "uuid": "ddece235-7f37-483d-a52a-e0bc8e39569d",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Quão importante é Diárias no contexto de Hábitos e Rituais: Rotinas Diárias, Ação de Longo Prazo, conforme discutido na lição?",
+      "options": [
+        "Conforme descrito em detalhes na lição, Diárias desempenha um papel crucial na otimização de processos e no alcance de objetivos",
+        "Apenas informações periféricas sem papel significativo",
+        "Apenas um conceito teórico sem aplicação prática",
+        "Não mencionado na lição"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day27",
+        "#pt",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a3a6360118c57912b7c",
+      "uuid": "1a47f135-c94c-4299-9c6e-eac8088fac4b",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Quão importante é Longo no contexto de Hábitos e Rituais: Rotinas Diárias, Ação de Longo Prazo, conforme discutido na lição?",
+      "options": [
+        "Conforme descrito em detalhes na lição, Longo desempenha um papel crucial na otimização de processos e no alcance de objetivos",
+        "Apenas informações periféricas sem papel significativo",
+        "Apenas um conceito teórico sem aplicação prática",
+        "Não mencionado na lição (como opcao pratica na situacao)"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day27",
+        "#pt",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    }
+  ]
+}

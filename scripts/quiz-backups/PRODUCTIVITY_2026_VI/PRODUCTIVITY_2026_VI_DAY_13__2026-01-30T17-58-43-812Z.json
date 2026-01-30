@@ -1,0 +1,177 @@
+{
+  "backedUpAt": "2026-01-30T17:58:47.827Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_VI",
+    "name": "Năng suất 2026: Cách quản lý nhóm và thời gian",
+    "language": "vi"
+  },
+  "lesson": {
+    "dayNumber": 13,
+    "title": "Khung Quy Trình Ra Quyết Định: Quyết Định Nhanh, Ma Trận Quyết Định, Tránh Tê Liệt Phân Tích",
+    "lessonId": "PRODUCTIVITY_2026_VI_DAY_13"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "6979db419316e77110ed07ce",
+      "uuid": "6ff9b854-9457-4af6-a3bf-b07387925a47",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Bạn triển khai một thực hành mới: “thực hành (60 phút) Xác định quyết định bị hoãn lại: Chọn mộ”. Kế hoạch nào tạo output đo được và phản hồi nhanh?",
+      "options": [
+        "Triển khai từng bước: đặt tiêu chí/metric, chạy pilot nhỏ, đo trước/sau, ghi lại kết quả và chỉnh một rule mỗi lần.",
+        "Đổi tất cả cùng lúc, không có metric hay điểm kiểm tra, rồi đoán thứ gì đã hiệu quả.",
+        "Bắt đầu nhưng không đo tác động (không có trước/sau), nên không biết chất lượng kết quả.",
+        "Làm cho có nhưng không có owner/thời hạn/ngưỡng, nên không gắn được với outcome."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day13",
+        "#vi",
+        "#all-languages",
+        "#course-productivity_2026_vi",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "6979db419316e77110ed07cf",
+      "uuid": "3f665d9d-7bf5-4ab6-82ec-31ab63daf8d6",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Bạn triển khai một thực hành mới: “Tôi hiểu tê liệt phân tích và nó hoạt động như thế nào. Tôi ”. Kế hoạch nào tạo output đo được và phản hồi nhanh?",
+      "options": [
+        "Triển khai từng bước: đặt tiêu chí/metric, chạy pilot nhỏ, đo trước/sau, ghi lại kết quả và chỉnh một rule mỗi lần.",
+        "Đổi tất cả cùng lúc, không có metric hay điểm kiểm tra, rồi đoán thứ gì đã hiệu quả.",
+        "Bắt đầu nhưng không đo tác động (không có trước/sau), nên không biết chất lượng kết quả.",
+        "Làm cho có nhưng không có owner/thời hạn/ngưỡng, nên không gắn được với outcome."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day13",
+        "#vi",
+        "#all-languages",
+        "#course-productivity_2026_vi",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "6979db419316e77110ed07d0",
+      "uuid": "1f0f2a89-1ee4-4805-9a61-7abfbc2fd8a4",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Bạn triển khai một thực hành mới: “Tôi biết cách tích hợp các yếu tố cảm xúc với quyết định \"th”. Kế hoạch nào tạo output đo được và phản hồi nhanh?",
+      "options": [
+        "Triển khai từng bước: đặt tiêu chí/metric, chạy pilot nhỏ, đo trước/sau, ghi lại kết quả và chỉnh một rule mỗi lần.",
+        "Đổi tất cả cùng lúc, không có metric hay điểm kiểm tra, rồi đoán thứ gì đã hiệu quả.",
+        "Bắt đầu nhưng không đo tác động (không có trước/sau), nên không biết chất lượng kết quả.",
+        "Làm cho có nhưng không có owner/thời hạn/ngưỡng, nên không gắn được với outcome."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day13",
+        "#vi",
+        "#all-languages",
+        "#course-productivity_2026_vi",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "6979db419316e77110ed07d1",
+      "uuid": "44090d78-03d8-4140-9594-47e1ce86bd77",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Trong một dự án, bạn cần biến “Tê Liệt Phân Tích” thành hành động. Cách tiếp cận nào làm output đo được và kiểm chứng được?",
+      "options": [
+        "Viết tiêu chí “done”, chọn một metric, áp dụng cho một case và mở rộng chỉ sau khi xác nhận tác động.",
+        "Dùng khái niệm như khẩu hiệu nhưng không có checklist/đo lường — output không kiểm chứng và không lặp lại được.",
+        "Trì hoãn cho đến khi “hoàn hảo”; throughput giảm và carryover tăng.",
+        "Hành động nhưng không đo và không ghi lại, nên không biết có cải thiện hay không."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day13",
+        "#vi",
+        "#all-languages",
+        "#course-productivity_2026_vi",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "6979db419316e77110ed07d2",
+      "uuid": "837a230a-37bd-48fa-b99a-8fbed135108c",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Trong một dự án, bạn cần biến “Thời Gian Đắt Hơn So Với Hoàn Hảo” thành hành động. Cách tiếp cận nào làm output đo được và kiểm chứng được?",
+      "options": [
+        "Viết tiêu chí “done”, chọn một metric, áp dụng cho một case và mở rộng chỉ sau khi xác nhận tác động.",
+        "Dùng khái niệm như khẩu hiệu nhưng không có checklist/đo lường — output không kiểm chứng và không lặp lại được.",
+        "Trì hoãn cho đến khi “hoàn hảo”; throughput giảm và carryover tăng.",
+        "Hành động nhưng không đo và không ghi lại, nên không biết có cải thiện hay không."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day13",
+        "#vi",
+        "#all-languages",
+        "#course-productivity_2026_vi",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "6979db419316e77110ed07d3",
+      "uuid": "80bcf22e-ea6d-4fef-917a-4e890427cebe",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Một lãnh đạo ra quyết định theo nguyên tắc: “Khung Quy Trình Ra Quyết Định: Quyết Định Nhanh, Ma Trận Quyết Định, Tránh Tê Li”. Tác động nào có khả năng nhất để đạt mục tiêu, và rủi ro điển hình nào xảy ra nếu hiểu sai hoặc đo sai?",
+      "options": [
+        "Tập trung đúng giúp tăng kết quả vì tối ưu output dưới các giới hạn; rủi ro: tối ưu sai metric tạo “output bận rộn” nhưng không cải thiện outcome.",
+        "Chỉ cần làm nhiều việc hơn vì hoạt động = kết quả; rủi ro: tăng nhiễu, giảm chất lượng và giá trị cho khách hàng.",
+        "Bỏ qua giới hạn (thời gian/năng lượng/chú ý) vì “cố gắng là đủ”; rủi ro: quá tải, sai sót và kiệt sức làm outcome xấu đi.",
+        "Ưu tiên tốc độ, chất lượng sửa sau; rủi ro: rework tăng và throughput giảm."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day13",
+        "#vi",
+        "#all-languages",
+        "#course-productivity_2026_vi",
+        "#productivity",
+        "#advanced",
+        "#critical-thinking"
+      ]
+    },
+    {
+      "_id": "6979db419316e77110ed07d4",
+      "uuid": "55fb1902-91c2-4e05-a3c5-998e1b12a1b9",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Một lãnh đạo ra quyết định theo nguyên tắc: “Mục tiêu học tập Hiểu tại sao phân tích quá tải tạo ra những cái bẫy về năng suấ”. Tác động nào có khả năng nhất để đạt mục tiêu, và rủi ro điển hình nào xảy ra nếu hiểu sai hoặc đo sai?",
+      "options": [
+        "Tập trung đúng giúp tăng kết quả vì tối ưu output dưới các giới hạn; rủi ro: tối ưu sai metric tạo “output bận rộn” nhưng không cải thiện outcome.",
+        "Chỉ cần làm nhiều việc hơn vì hoạt động = kết quả; rủi ro: tăng nhiễu, giảm chất lượng và giá trị cho khách hàng.",
+        "Bỏ qua giới hạn (thời gian/năng lượng/chú ý) vì “cố gắng là đủ”; rủi ro: quá tải, sai sót và kiệt sức làm outcome xấu đi.",
+        "Ưu tiên tốc độ, chất lượng sửa sau; rủi ro: rework tăng và throughput giảm."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day13",
+        "#vi",
+        "#all-languages",
+        "#course-productivity_2026_vi",
+        "#productivity",
+        "#advanced",
+        "#critical-thinking"
+      ]
+    }
+  ]
+}

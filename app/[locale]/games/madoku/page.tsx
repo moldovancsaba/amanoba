@@ -6,7 +6,7 @@
  * Version: 1.0.0
  */
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import { RotateCcw, Home } from 'lucide-react';
@@ -100,39 +100,8 @@ export default function MadokuGame() {
     }
   };
   
-  // AI turn
-  useEffect(() => {
-    if (!gameState || !aiLevel || gameState.gameEnded) return;
-    if (gameState.currentPlayer !== 1) return;
-    if (gameState.allowedRowOrCol === null || gameState.picking === null) return;
-    
-    const timer = setTimeout(() => {
-      try {
-        const aiMove = findBestMove(
-          gameState.board,
-          gameState.allowedRowOrCol!,
-          gameState.picking!,
-          gameState.p2Score,
-          gameState.p1Score,
-          aiLevel
-        );
-        
-        const newState = executeMove(gameState, aiMove.row, aiMove.col);
-        setGameState(newState);
-        
-        if (newState.gameEnded) {
-          handleGameEnd(newState);
-        }
-      } catch (error) {
-        console.error('AI move failed:', error);
-      }
-    }, 800);
-    
-    return () => clearTimeout(timer);
-  }, [gameState, aiLevel]);
-  
   // Handle game end
-  const handleGameEnd = async (finalState: MadokuGameState) => {
+  const handleGameEnd = useCallback(async (finalState: MadokuGameState) => {
     setShowGameOver(true);
     
     if (!session || !sessionId || ghostMode) return;
@@ -185,7 +154,38 @@ export default function MadokuGame() {
     } finally {
       setIsCompleting(false);
     }
-  };
+  }, [aiLevel, ghostMode, session, sessionId]);
+
+  // AI turn
+  useEffect(() => {
+    if (!gameState || !aiLevel || gameState.gameEnded) return;
+    if (gameState.currentPlayer !== 1) return;
+    if (gameState.allowedRowOrCol === null || gameState.picking === null) return;
+    
+    const timer = setTimeout(() => {
+      try {
+        const aiMove = findBestMove(
+          gameState.board,
+          gameState.allowedRowOrCol!,
+          gameState.picking!,
+          gameState.p2Score,
+          gameState.p1Score,
+          aiLevel
+        );
+        
+        const newState = executeMove(gameState, aiMove.row, aiMove.col);
+        setGameState(newState);
+        
+        if (newState.gameEnded) {
+          handleGameEnd(newState);
+        }
+      } catch (error) {
+        console.error('AI move failed:', error);
+      }
+    }, 800);
+    
+    return () => clearTimeout(timer);
+  }, [aiLevel, gameState, handleGameEnd]);
   
   // Client-side only
   if (!isClient) {

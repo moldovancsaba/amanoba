@@ -1,0 +1,177 @@
+{
+  "backedUpAt": "2026-01-30T17:59:01.563Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_PT",
+    "name": "Produtividade 2026: Como Gerenciar Equipes e Tempo",
+    "language": "pt"
+  },
+  "lesson": {
+    "dayNumber": 5,
+    "title": "Medição: métricas simples de revisão semanal (throughput, blocos de foco, carryover)",
+    "lessonId": "PRODUCTIVITY_2026_PT_DAY_05"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "6979db429316e77110ed0810",
+      "uuid": "5b501101-ff8e-4a3b-bf51-346fcca5850e",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Você vai implementar uma nova prática: “Você conhece as três métricas-chave: throughput, blocos de f”. Qual plano produz output mensurável e feedback rápido?",
+      "options": [
+        "Implemento por etapas: defino critérios/métricas, faço um piloto pequeno, meço antes/depois, documento o resultado e ajusto uma regra por vez.",
+        "Mudo tudo de uma vez sem métricas nem checkpoints e depois tento adivinhar o que funcionou.",
+        "Começo, mas sem medir o impacto (sem antes/depois), então a qualidade do resultado fica desconhecida.",
+        "Executo sem dono/prazo/limiares, e o output não se conecta ao outcome."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day5",
+        "#pt",
+        "#all-languages",
+        "#course-productivity_2026_pt",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "6979db429316e77110ed0811",
+      "uuid": "08c73430-1340-4a76-8214-76c0cda0cf45",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Você vai implementar uma nova prática: “A medição é objetiva, não apenas baseada em sentimentos. Apr”. Qual plano produz output mensurável e feedback rápido?",
+      "options": [
+        "Implemento por etapas: defino critérios/métricas, faço um piloto pequeno, meço antes/depois, documento o resultado e ajusto uma regra por vez.",
+        "Mudo tudo de uma vez sem métricas nem checkpoints e depois tento adivinhar o que funcionou.",
+        "Começo, mas sem medir o impacto (sem antes/depois), então a qualidade do resultado fica desconhecida.",
+        "Executo sem dono/prazo/limiares, e o output não se conecta ao outcome."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day5",
+        "#pt",
+        "#all-languages",
+        "#course-productivity_2026_pt",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "6979db429316e77110ed0812",
+      "uuid": "6c40e153-0ef2-44ee-a1c3-cc01910a3d8d",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Você vai implementar uma nova prática: “Exemplo Prático Semana 1: Throughput: 8 tarefas importantes ”. Qual plano produz output mensurável e feedback rápido?",
+      "options": [
+        "Implemento por etapas: defino critérios/métricas, faço um piloto pequeno, meço antes/depois, documento o resultado e ajusto uma regra por vez.",
+        "Mudo tudo de uma vez sem métricas nem checkpoints e depois tento adivinhar o que funcionou.",
+        "Começo, mas sem medir o impacto (sem antes/depois), então a qualidade do resultado fica desconhecida.",
+        "Executo sem dono/prazo/limiares, e o output não se conecta ao outcome."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day5",
+        "#pt",
+        "#all-languages",
+        "#course-productivity_2026_pt",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "6979db429316e77110ed0813",
+      "uuid": "55829811-795c-44db-b189-b411f4236cf1",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Em um projeto, você precisa transformar “O que você não mede, não pode melhorar” em ações. Qual abordagem torna o output mensurável e verificável?",
+      "options": [
+        "Escrevo o critério de “done”, escolho uma métrica, aplico em um caso e amplio só depois de confirmar o efeito.",
+        "Uso o termo como slogan sem checklist/medição — o output não é verificável nem repetível.",
+        "Adio até ficar “perfeito”; o throughput cai e o carryover aumenta.",
+        "Faço ações, mas não meço nem registro, então não sei se houve melhoria."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day5",
+        "#pt",
+        "#all-languages",
+        "#course-productivity_2026_pt",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "6979db429316e77110ed0814",
+      "uuid": "f0a9d6c7-bc90-487a-8b5d-08d3c83ecde0",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Em um projeto, você precisa transformar “Throughput” em ações. Qual abordagem torna o output mensurável e verificável?",
+      "options": [
+        "Escrevo o critério de “done”, escolho uma métrica, aplico em um caso e amplio só depois de confirmar o efeito.",
+        "Uso o termo como slogan sem checklist/medição — o output não é verificável nem repetível.",
+        "Adio até ficar “perfeito”; o throughput cai e o carryover aumenta.",
+        "Faço ações, mas não meço nem registro, então não sei se houve melhoria."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day5",
+        "#pt",
+        "#all-languages",
+        "#course-productivity_2026_pt",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "6979db429316e77110ed0815",
+      "uuid": "22d4a419-e338-4307-82af-f613845d8452",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Um líder decide com base no princípio: “Importante = resultado, não apenas atividade”. Qual é o efeito mais provável para atingir metas, e qual risco típico surge se isso for mal interpretado ou mal medido?",
+      "options": [
+        "O foco correto aumenta o resultado porque otimiza o output sob restrições; risco: otimizar a métrica errada gera “output ocupado” sem melhorar o outcome.",
+        "Basta fazer mais tarefas porque atividade = resultado; risco: aumenta o ruído e cai a qualidade/valor para o cliente.",
+        "Ignorar restrições (tempo/energia/atenção) porque “força de vontade resolve”; risco: sobrecarga, erros e burnout pioram o outcome.",
+        "Velocidade acima de tudo e qualidade depois; risco: rework cresce e o throughput cai."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day5",
+        "#pt",
+        "#all-languages",
+        "#course-productivity_2026_pt",
+        "#productivity",
+        "#advanced",
+        "#critical-thinking"
+      ]
+    },
+    {
+      "_id": "6979db429316e77110ed0816",
+      "uuid": "aca0c8d4-36e2-4bfa-b2e5-4114ba481055",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Um líder decide com base no princípio: “Medição: métricas simples de revisão semanal O que você não mede, não pode melho”. Qual é o efeito mais provável para atingir metas, e qual risco típico surge se isso for mal interpretado ou mal medido?",
+      "options": [
+        "O foco correto aumenta o resultado porque otimiza o output sob restrições; risco: otimizar a métrica errada gera “output ocupado” sem melhorar o outcome.",
+        "Basta fazer mais tarefas porque atividade = resultado; risco: aumenta o ruído e cai a qualidade/valor para o cliente.",
+        "Ignorar restrições (tempo/energia/atenção) porque “força de vontade resolve”; risco: sobrecarga, erros e burnout pioram o outcome.",
+        "Velocidade acima de tudo e qualidade depois; risco: rework cresce e o throughput cai."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day5",
+        "#pt",
+        "#all-languages",
+        "#course-productivity_2026_pt",
+        "#productivity",
+        "#advanced",
+        "#critical-thinking"
+      ]
+    }
+  ]
+}

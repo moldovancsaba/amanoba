@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-30T17:58:46.767Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_VI",
+    "name": "Năng suất 2026: Cách quản lý nhóm và thời gian",
+    "language": "vi"
+  },
+  "lesson": {
+    "dayNumber": 7,
+    "title": "Hệ thống hàng ngày/hàng tuần: ritual buổi sáng, cuộc họp hàng ngày, đánh giá hàng tuần",
+    "lessonId": "PRODUCTIVITY_2026_VI_DAY_07"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a1cbfaf8764265275a2",
+      "uuid": "2bf24c36-121f-4f44-ade1-bde988221192",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ Bạn có một ritual buổi sáng 15 phút.\n✅...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day7",
+        "#vi",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a1cbfaf8764265275a3",
+      "uuid": "ab8544c5-e6e7-4558-9357-940f80d72903",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ Bạn có một ritual buổi sáng 15 phút.\n✅...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day7",
+        "#vi",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a1cbfaf8764265275a4",
+      "uuid": "24501835-bf77-474a-8e88-4ea938720cc2",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ Bạn có một ritual buổi sáng 15 phút.\n✅...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day7",
+        "#vi",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a1cbfaf8764265275a5",
+      "uuid": "519e6353-2ec6-4d46-b95c-6bd51092b5e1",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Khái niệm \"Tạo một ritual buổi sáng 15 phút...\" được đề cập trong bài học ảnh hưởng như thế nào đến việc đạt được goals của bạn?",
+      "options": [
+        "Như đã mô tả chi tiết trong bài học, Tạo một ritual buổi sáng 15 ph... tăng hiệu quả và giảm rủi ro",
+        "Không có tác động đáng kể",
+        "Chỉ quan trọng về mặt lý thuyết",
+        "Lua chon cu the: Chỉ là yếu tố tùy chọn."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day7",
+        "#vi",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a1cbfaf8764265275a6",
+      "uuid": "8e13193b-aa4d-4387-abba-f453fedfaa9a",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Ritual buổi sáng đóng vai trò gì trong bài học \"Hệ thống hàng ngày/hàng tuần: ritual buổi sáng, cuộc họp hàng ngày, đánh giá hàng tuần\"?",
+      "options": [
+        "Như đã mô tả chi tiết trong bài học, Ritual buổi sáng đóng vai trò quan trọng trong việc tối ưu hóa quy trình và đạt được mục tiêu",
+        "Chỉ là thông tin ngoại vi không có vai trò quan trọng",
+        "Chỉ là một khái niệm lý thuyết không có ứng dụng thực tế",
+        "Không được đề cập trong bài học"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day7",
+        "#vi",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "69776a1cbfaf8764265275a7",
+      "uuid": "a2806f98-5db6-491d-bec6-cd8b191bacfb",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Đánh giá hàng tuần đóng vai trò gì trong bài học \"Hệ thống hàng ngày/hàng tuần: ritual buổi sáng, cuộc họp hàng ngày, đánh giá hàng tuần\"?",
+      "options": [
+        "Như đã mô tả chi tiết trong bài học, Đánh giá hàng tuần đóng vai trò quan trọng trong việc tối ưu hóa quy trình và đạt được mục tiêu",
+        "Chỉ là thông tin ngoại vi không có vai trò quan trọng",
+        "Chỉ là một khái niệm lý thuyết không có ứng dụng thực tế",
+        "Không được đề cập trong bài học"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day7",
+        "#vi",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "69776a1cbfaf8764265275a8",
+      "uuid": "109d293d-1c69-408a-abd1-896bc4dfddd6",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "2. Lập kế hoạch (8 phút) đóng vai trò gì trong bài học \"Hệ thống hàng ngày/hàng tuần: ritual buổi sáng, cuộc họp hàng ngày, đánh giá hàng tuần\"?",
+      "options": [
+        "Như đã mô tả chi tiết trong bài học, 2. Lập kế hoạch (8 phút) đóng vai trò quan trọng trong việc tối ưu hóa quy trình và đạt được mục tiêu",
+        "Chỉ là thông tin ngoại vi không có vai trò quan trọng",
+        "Chỉ là một khái niệm lý thuyết không có ứng dụng thực tế",
+        "Không được đề cập trong bài học"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day7",
+        "#vi",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

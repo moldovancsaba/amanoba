@@ -25,6 +25,7 @@ const CERT_COLORS_DEFAULT = {
   accent: '#FFD700',
   footer: '#999999',
 } as const;
+type CertColors = { [K in keyof typeof CERT_COLORS_DEFAULT]: string };
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -76,7 +77,7 @@ export async function GET(
     }
 
     const course = await Course.findOne({ courseId: certificate.courseId }).lean();
-    let certColors = { ...CERT_COLORS_DEFAULT };
+    let certColors: CertColors = { ...CERT_COLORS_DEFAULT };
     if (course?.brandId) {
       const brand = await Brand.findById(course.brandId).lean();
       if (brand?.themeColors?.accent) {

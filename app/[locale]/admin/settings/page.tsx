@@ -21,6 +21,21 @@ import {
   Award,
 } from 'lucide-react';
 
+interface CertPriceMoney {
+  amount?: number;
+  currency?: string;
+}
+
+interface CertSettings {
+  priceMoney?: CertPriceMoney;
+  pricePoints?: number;
+  templateId?: string;
+  credentialId?: string;
+  completionPhraseId?: string;
+  deliverableBulletIds?: string[];
+  backgroundUrl?: string;
+}
+
 export default function AdminSettingsPage() {
   const _locale = useLocale();
   const t = useTranslations('admin');
@@ -31,7 +46,7 @@ export default function AdminSettingsPage() {
   const [uploadingThumbnail, setUploadingThumbnail] = useState(false);
   
   // Certification settings state
-  const [certSettings, setCertSettings] = useState<Record<string, unknown> | null>(null);
+  const [certSettings, setCertSettings] = useState<CertSettings | null>(null);
   const [certSettingsLoading, setCertSettingsLoading] = useState(true);
   const [certSaving, setCertSaving] = useState(false);
 
@@ -46,7 +61,7 @@ export default function AdminSettingsPage() {
       const response = await fetch('/api/admin/certification/settings');
       const data = await response.json();
       if (data.success && data.settings) {
-        setCertSettings(data.settings);
+        setCertSettings(data.settings as CertSettings);
       }
     } catch (error) {
       console.error('Failed to fetch certification settings:', error);
@@ -76,7 +91,7 @@ export default function AdminSettingsPage() {
 
       const data = await response.json();
       if (data.success) {
-        setCertSettings(data.settings);
+        setCertSettings(data.settings as CertSettings);
         alert('Certification settings saved successfully!');
       } else {
         alert(data.error || 'Failed to save certification settings');

@@ -10,13 +10,12 @@ const nextConfig: NextConfig = {
   // Enable React strict mode for better development experience
   reactStrictMode: true,
   
-  // Why: Disable ESLint during build to allow deployment while we fix linting issues
-  // This prevents blocking deployments due to pre-existing code quality warnings
+  // Why: Run ESLint during build; errors are fixed, warnings (e.g. exhaustive-deps) do not fail build
   eslint: {
-    ignoreDuringBuilds: true,
+    ignoreDuringBuilds: false,
   },
   
-  // Why: Disable TypeScript errors during build (temporary for MVP speed)
+  // Why: Enforce TypeScript during build (P1.7) — set true until remaining TS errors fixed
   typescript: {
     ignoreBuildErrors: true,
   },

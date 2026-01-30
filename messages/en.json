@@ -652,7 +652,17 @@
     "welcomeSubject": "Welcome to {{courseName}}!",
     "completionSubject": "🎉 Congratulations! You've completed {{courseName}}!",
     "lessonSubject": "Day {{dayNumber}}: {{lessonTitle}}",
-    "reminderSubject": "📚 Don't miss Day {{dayNumber}} of {{courseName}}"
+    "reminderSubject": "📚 Don't miss Day {{dayNumber}} of {{courseName}}",
+    "unsubscribe": {
+      "errorTitle": "Invalid Unsubscribe Link",
+      "errorHeading": "Invalid Unsubscribe Link",
+      "errorInvalid": "The unsubscribe link is invalid or has expired.",
+      "errorContactSupport": "Please contact support if you need to unsubscribe from emails.",
+      "successTitle": "Unsubscribed",
+      "successHeading": "✓ Successfully Unsubscribed",
+      "successMessage": "You have been unsubscribed from lesson emails.",
+      "successReenable": "You can re-enable emails in your account settings."
+    }
   },
   "onboarding": {
     "title": "Onboarding Survey",

@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-30T17:58:40.885Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_PT",
+    "name": "Produtividade 2026: Como Gerenciar Equipes e Tempo",
+    "language": "pt"
+  },
+  "lesson": {
+    "dayNumber": 25,
+    "title": "Desenvolvimento de Habilidades: Níveis Mais Altos, Novas Competências",
+    "lessonId": "PRODUCTIVITY_2026_PT_DAY_25"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a3a6360118c57912b62",
+      "uuid": "a76f665d-e4a3-4641-98cc-a6a621a5dff6",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Como o conceito \"Desenvolvimento de Habilidades: Níveis Mais Altos,...\", mencionado na lição, impacta o alcance de seus goals?",
+      "options": [
+        "Como descrito em detalhes na lição, Desenvolvimento de Habilidades... aumenta a eficácia e reduz os riscos",
+        "Sem impacto significativo",
+        "Importa apenas teoricamente",
+        "Apenas um elemento opcional"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day25",
+        "#pt",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a3a6360118c57912b63",
+      "uuid": "a537f137-9237-48c6-bd3e-3c1727c548e9",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Como você usaria o conceito \"Desenvolvimento\" conforme descrito na lição na prática?",
+      "options": [
+        "Sigo as etapas descritas em detalhes na lição, testo os resultados e documento minhas experiências",
+        "Apenas entendo teoricamente",
+        "Não aplico",
+        "Espero por mais instruções"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day25",
+        "#pt",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a3a6360118c57912b64",
+      "uuid": "cd193241-0f64-49cf-bdbb-5b9d45b3256a",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Como você usaria o conceito \"Habilidades\" conforme descrito na lição na prática?",
+      "options": [
+        "Sigo as etapas descritas em detalhes na lição, testo os resultados e documento minhas experiências",
+        "Apenas entendo teoricamente",
+        "Não aplico",
+        "Espero por mais instruções"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day25",
+        "#pt",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a3a6360118c57912b65",
+      "uuid": "c6780571-4f64-4c00-80b8-17cab511cf34",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Como você usaria o conceito \"Níveis\" conforme descrito na lição na prática?",
+      "options": [
+        "Sigo as etapas descritas em detalhes na lição, testo os resultados e documento minhas experiências",
+        "Apenas entendo teoricamente",
+        "Não aplico",
+        "Espero por mais instruções"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day25",
+        "#pt",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a3a6360118c57912b66",
+      "uuid": "010962a0-ce20-469c-beee-ed6f4889644f",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Quão importante é Habilidades no contexto de Desenvolvimento de Habilidades: Níveis Mais Altos, Novas Competências, conforme discutido na lição?",
+      "options": [
+        "Conforme descrito em detalhes na lição, Habilidades desempenha um papel crucial na otimização de processos e no alcance de objetivos",
+        "Apenas informações periféricas sem papel significativo",
+        "Apenas um conceito teórico sem aplicação prática",
+        "Não mencionado na lição"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day25",
+        "#pt",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a3a6360118c57912b67",
+      "uuid": "cc9028a6-c8b9-4a2f-9695-846296029fa1",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Quão importante é Mais no contexto de Desenvolvimento de Habilidades: Níveis Mais Altos, Novas Competências, conforme discutido na lição?",
+      "options": [
+        "Conforme descrito em detalhes na lição, Mais desempenha um papel crucial na otimização de processos e no alcance de objetivos",
+        "Apenas informações periféricas sem papel significativo",
+        "Apenas um conceito teórico sem aplicação prática",
+        "Opcao concreta: Não mencionado na lição."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day25",
+        "#pt",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "69776a3a6360118c57912b68",
+      "uuid": "d8d02353-7d5c-4a99-86a9-7c561791ed14",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Quão importante é Novas no contexto de Desenvolvimento de Habilidades: Níveis Mais Altos, Novas Competências, conforme discutido na lição?",
+      "options": [
+        "Conforme descrito em detalhes na lição, Novas desempenha um papel crucial na otimização de processos e no alcance de objetivos",
+        "Apenas informações periféricas sem papel significativo",
+        "Apenas um conceito teórico sem aplicação prática",
+        "Não mencionado na lição"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day25",
+        "#pt",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

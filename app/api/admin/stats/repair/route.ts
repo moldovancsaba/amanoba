@@ -64,8 +64,9 @@ export async function POST(request: NextRequest) {
     // Why: Only allow authenticated admin users to trigger repairs
     const session = await auth();
     const adminCheck = requireAdmin(request, session);
-    if (adminCheck) {
-      return adminCheck;
+    if (adminCheck) return adminCheck;
+    if (!session?.user) {
+      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
     await dbConnect();
@@ -127,13 +128,14 @@ export async function POST(request: NextRequest) {
             totalXPEarned: sessions.reduce((sum, s) => sum + (s.rewards?.xpEarned || 0), 0),
           };
 
-          // Why: Calculate high scores per game type
-          const gameTypes = [...new Set(sessions.map(s => s.gameType))];
+          // Why: Calculate high scores per game type (use gameId as type key when gameType not present)
+          const gameTypeKey = (s: (typeof sessions)[0]) => (s as { gameType?: string }).gameType ?? (s.gameId as unknown as string)?.toString?.() ?? 'unknown';
+          const gameTypes = [...new Set(sessions.map(gameTypeKey))];
           const highScores: Record<string, number> = {};
           
           for (const gameType of gameTypes) {
-            const gameSessions = sessions.filter(s => s.gameType === gameType);
-            const maxScore = Math.max(...gameSessions.map(s => s.gameData.finalScore || 0));
+            const gameSessions = sessions.filter(s => gameTypeKey(s) === gameType);
+            const maxScore = Math.max(...gameSessions.map(s => s.gameData?.score ?? 0), 0);
             highScores[gameType] = maxScore;
           }
 
@@ -142,7 +144,7 @@ export async function POST(request: NextRequest) {
 
           const needsUpdate = !currentProgression || 
             currentProgression.statistics.totalGamesPlayed !== actualStats.totalGamesPlayed ||
-            currentProgression.statistics.wins !== actualStats.wins;
+            currentProgression.statistics.totalWins !== actualStats.wins;
 
           if (needsUpdate) {
             if (!dryRun) {
@@ -152,12 +154,10 @@ export async function POST(request: NextRequest) {
                 {
                   $set: {
                     'statistics.totalGamesPlayed': actualStats.totalGamesPlayed,
-                    'statistics.wins': actualStats.wins,
-                    'statistics.losses': actualStats.losses,
-                    'statistics.draws': actualStats.draws,
+                    'statistics.totalWins': actualStats.wins,
+                    'statistics.totalLosses': actualStats.losses,
+                    'statistics.totalDraws': actualStats.draws,
                     'statistics.highScores': highScores,
-                    'lifetimeStats.totalPointsEarned': actualStats.totalPointsEarned,
-                    'lifetimeStats.totalXPEarned': actualStats.totalXPEarned,
                     lastSyncedAt: new Date(),
                   },
                 },
@@ -188,11 +188,11 @@ export async function POST(request: NextRequest) {
         if (repairTypes.includes('points')) {
           const transactions = await PointsTransaction.find({ playerId: player._id }).lean();
           const calculatedBalance = transactions.reduce((sum, tx) => {
-            return sum + (tx.type === 'earned' ? tx.amount : -tx.amount);
+            return sum + (tx.type === 'earn' ? tx.amount : -tx.amount);
           }, 0);
 
           const currentWallet = await PointsWallet.findOne({ playerId: player._id });
-          const currentBalance = currentWallet?.balance || 0;
+          const currentBalance = currentWallet?.currentBalance ?? 0;
 
           if (currentBalance !== calculatedBalance) {
             if (!dryRun) {
@@ -200,7 +200,7 @@ export async function POST(request: NextRequest) {
                 { playerId: player._id },
                 {
                   $set: {
-                    balance: calculatedBalance,
+                    currentBalance: calculatedBalance,
                     lastUpdatedAt: new Date(),
                   },
                 },

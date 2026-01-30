@@ -7,12 +7,12 @@
  * What: Displays game cards with progressive disclosure and launches games
  */
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, type ComponentType } from 'react';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import { useTranslations, useLocale } from 'next-intl';
 import { LocaleLink } from '@/components/LocaleLink';
-import Icon, { MdPsychology, MdGpsFixed, MdCardMembership, MdNumbers } from '@/components/Icon';
+import Icon, { MdPsychology, MdGpsFixed, MdCardMembership, MdNumbers, MdLock, MdAccessTime } from '@/components/Icon';
 import Logo from '@/components/Logo';
 
 // Why: Type-safe game definitions
@@ -21,6 +21,7 @@ interface GameInfo {
   name: string;
   description: string;
   icon: string;
+  iconComponent?: ComponentType<{ className?: string }>;
   route: string;
   isPremium: boolean;
   requiredLevel: number;
@@ -124,7 +125,7 @@ export default function GamesLauncher() {
     };
 
     fetchPlayerData();
-  }, [session, status, router]);
+  }, [session, status, router, locale]);
 
   // Why: Determine if a game is accessible based on player progression
   const isGameAvailable = (game: GameInfo): boolean => {

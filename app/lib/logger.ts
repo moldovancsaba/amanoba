@@ -28,16 +28,22 @@ interface LogData {
 interface Logger {
   trace(msg: string): void;
   trace(data: LogData, msg: string): void;
+  trace(msg: string, data: LogData): void;
   debug(msg: string): void;
   debug(data: LogData, msg: string): void;
+  debug(msg: string, data: LogData): void;
   info(msg: string): void;
   info(data: LogData, msg: string): void;
+  info(msg: string, data: LogData): void;
   warn(msg: string): void;
   warn(data: LogData, msg: string): void;
+  warn(msg: string, data: LogData): void;
   error(msg: string | unknown): void;
   error(data: LogData, msg: string): void;
+  error(msg: string, data: LogData): void;
   fatal(msg: string): void;
   fatal(data: LogData, msg: string): void;
+  fatal(msg: string, data: LogData): void;
   child(context: Record<string, unknown>): Logger;
 }
 

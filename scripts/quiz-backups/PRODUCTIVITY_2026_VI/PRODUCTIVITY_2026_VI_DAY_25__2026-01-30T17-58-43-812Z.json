@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-30T17:58:49.636Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_VI",
+    "name": "Năng suất 2026: Cách quản lý nhóm và thời gian",
+    "language": "vi"
+  },
+  "lesson": {
+    "dayNumber": 25,
+    "title": "Phát Triển Kỹ Năng: Các Cấp Độ Cao Hơn, Năng Lực Mới",
+    "lessonId": "PRODUCTIVITY_2026_VI_DAY_25"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a1ebfaf87642652766b",
+      "uuid": "2d5c3e36-cd64-4497-b368-e074c138f56a",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Khái niệm \"Phát Triển Kỹ Năng: Các Cấp Độ Cao Hơn, Năng Lực M...\" được đề cập trong bài học ảnh hưởng như thế nào đến việc đạt được goals của bạn?",
+      "options": [
+        "Như đã mô tả chi tiết trong bài học, Phát Triển Kỹ Năng: Các Cấp Độ... tăng hiệu quả và giảm rủi ro",
+        "Không có tác động đáng kể",
+        "Chỉ quan trọng về mặt lý thuyết",
+        "Chỉ là yếu tố tùy chọn"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day25",
+        "#vi",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a1ebfaf87642652766c",
+      "uuid": "3fdf0859-87e6-4526-b920-c212b4af6ba3",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Bạn sẽ sử dụng khái niệm \"Phát\" như được mô tả trong bài học như thế nào trong thực tế?",
+      "options": [
+        "Tôi làm theo các bước được mô tả chi tiết trong bài học, kiểm tra kết quả và ghi lại kinh nghiệm của mình",
+        "Tôi chỉ hiểu nó về mặt lý thuyết",
+        "Tôi không áp dụng nó",
+        "Tôi chờ hướng dẫn thêm"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day25",
+        "#vi",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a1ebfaf87642652766d",
+      "uuid": "8c9719c2-0d3f-409f-af17-8c83c8d872b2",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Bạn sẽ sử dụng khái niệm \"Triển\" như được mô tả trong bài học như thế nào trong thực tế?",
+      "options": [
+        "Tôi làm theo các bước được mô tả chi tiết trong bài học, kiểm tra kết quả và ghi lại kinh nghiệm của mình",
+        "Tôi chỉ hiểu nó về mặt lý thuyết",
+        "Lua chon cu the: Tôi không áp dụng nó.",
+        "Lua chon cu the: Tôi chờ hướng dẫn thêm."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day25",
+        "#vi",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a1ebfaf87642652766e",
+      "uuid": "a075ea7a-ce14-47f0-974c-801c019cefbc",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "You are working on a task and must pick an approach. Bạn sẽ sử dụng khái niệm \"Năng\" như được mô tả trong bài học như thế nào trong thực tế?",
+      "options": [
+        "Tôi làm theo các bước được mô tả chi tiết trong bài học, kiểm tra kết quả và ghi lại kinh nghiệm của mình",
+        "Tôi chỉ hiểu nó về mặt lý thuyết",
+        "Ban chon: Tôi không áp dụng nó.",
+        "Ban chon: Tôi chờ hướng dẫn thêm."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day25",
+        "#vi",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a1ebfaf87642652766f",
+      "uuid": "f2cad988-c8ca-4d81-b1b6-e5d478ecae19",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Phần \"Tanulási Cél\" chứa gì trong bài học?",
+      "options": [
+        "Thông tin, phương pháp và ví dụ cụ thể liên quan đến tanulási cél như đã mô tả chi tiết trong bài học",
+        "Chỉ là thông tin chung",
+        "Chỉ là kiến thức lý thuyết",
+        "Không có nội dung cụ thể"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day25",
+        "#vi",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a1ebfaf876426527670",
+      "uuid": "80e5406a-3e39-4354-bedd-340a9de5397c",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Triển quan trọng như thế nào trong ngữ cảnh của Phát Triển Kỹ Năng: Các Cấp Độ Cao Hơn, Năng Lực Mới như được thảo luận trong bài học?",
+      "options": [
+        "Như đã mô tả chi tiết trong bài học, Triển đóng vai trò quan trọng trong việc tối ưu hóa quy trình và đạt được mục tiêu",
+        "Chỉ là thông tin ngoại vi không có vai trò quan trọng",
+        "Chỉ là một khái niệm lý thuyết không có ứng dụng thực tế",
+        "Không được đề cập trong bài học"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day25",
+        "#vi",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "69776a1ebfaf876426527671",
+      "uuid": "6392e60d-0ccc-41eb-b506-1a54fd6cecc9",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Phần \"Tanulási Cél\" chứa gì trong bài học?",
+      "options": [
+        "Thông tin, phương pháp và ví dụ cụ thể liên quan đến tanulási cél như đã mô tả chi tiết trong bài học",
+        "Chỉ là thông tin chung",
+        "Chỉ là kiến thức lý thuyết",
+        "Không có nội dung cụ thể"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day25",
+        "#vi",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

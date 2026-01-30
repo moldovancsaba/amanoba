@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-30T17:58:38.865Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_PT",
+    "name": "Produtividade 2026: Como Gerenciar Equipes e Tempo",
+    "language": "pt"
+  },
+  "lesson": {
+    "dayNumber": 7,
+    "title": "Sistema diário/semanal: ritual matinal, reunião diária, revisão semanal",
+    "lessonId": "PRODUCTIVITY_2026_PT_DAY_07"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a386360118c57912a96",
+      "uuid": "6c865486-0b8d-4bee-978d-5980db5de776",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Sob prazo, voce precisa tomar uma decisao pratica. How would you implement the practice \"✅ Você tem um ritual matinal de 15 minut...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described step by step, document the results, and refine the process",
+        "Opcao concreta: I try everything at once.",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day7",
+        "#pt",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a386360118c57912a97",
+      "uuid": "ab240243-b5f2-4941-bb9f-497dd44fe3fd",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ Você tem um ritual matinal de 15 minut...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day7",
+        "#pt",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a386360118c57912a98",
+      "uuid": "376d9e8e-70ad-4dea-931e-b348c82ad598",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ Você tem um ritual matinal de 15 minut...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day7",
+        "#pt",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a386360118c57912a99",
+      "uuid": "4364a134-14b6-40a9-b0d4-1b84bb9622a8",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Como o conceito \"Sistema diário/semanal: ritual matinal, reunião di...\", mencionado na lição, impacta o alcance de seus goals?",
+      "options": [
+        "Como descrito em detalhes na lição, Sistema diário/semanal: ritual... aumenta a eficácia e reduz os riscos",
+        "Sem impacto significativo",
+        "Importa apenas teoricamente",
+        "Apenas um elemento opcional"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day7",
+        "#pt",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a386360118c57912a9a",
+      "uuid": "4e8a334b-80f2-47e2-af27-0a12b2cf2270",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Quão importante é Ritual matinal no contexto de Sistema diário/semanal: ritual matinal, reunião diária, revisão semanal, conforme discutido na lição?",
+      "options": [
+        "Conforme descrito em detalhes na lição, Ritual matinal desempenha um papel crucial na otimização de processos e no alcance de objetivos",
+        "Apenas informações periféricas sem papel significativo",
+        "Apenas um conceito teórico sem aplicação prática",
+        "Opcao concreta: Não mencionado na lição."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day7",
+        "#pt",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "69776a386360118c57912a9b",
+      "uuid": "bd42e546-16a8-4b86-b755-3e56c4239850",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Quão importante é Revisão semanal no contexto de Sistema diário/semanal: ritual matinal, reunião diária, revisão semanal, conforme discutido na lição?",
+      "options": [
+        "Conforme descrito em detalhes na lição, Revisão semanal desempenha um papel crucial na otimização de processos e no alcance de objetivos",
+        "Apenas informações periféricas sem papel significativo",
+        "Apenas um conceito teórico sem aplicação prática",
+        "Não mencionado na lição"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day7",
+        "#pt",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a386360118c57912a9c",
+      "uuid": "ad105fad-d56b-4c2e-821d-960f2a4c150b",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Qual papel 2. Planejamento (8 min) desempenha na lição \"Sistema diário/semanal: ritual matinal, reunião diária, revisão semanal\"?",
+      "options": [
+        "Conforme descrito em detalhes na lição, 2. Planejamento (8 min) desempenha um papel crucial na otimização de processos e no alcance de objetivos",
+        "Apenas informações periféricas sem papel significativo",
+        "Apenas um conceito teórico sem aplicação prática",
+        "Não mencionado na lição"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day7",
+        "#pt",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

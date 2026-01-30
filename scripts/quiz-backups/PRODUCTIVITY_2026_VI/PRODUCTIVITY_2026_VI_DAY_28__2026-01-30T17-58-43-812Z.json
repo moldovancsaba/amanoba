@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-30T17:58:49.988Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_VI",
+    "name": "Năng suất 2026: Cách quản lý nhóm và thời gian",
+    "language": "vi"
+  },
+  "lesson": {
+    "dayNumber": 28,
+    "title": "Giá Trị và Mục Tiêu: Mục Đích Sống, Tầm Nhìn Dài Hạn",
+    "lessonId": "PRODUCTIVITY_2026_VI_DAY_28"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a1ebfaf876426527689",
+      "uuid": "0b6679c0-be60-41cb-951f-368cea27843a",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Phối hợp năng suất với giá trị của bạn.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day28",
+        "#vi",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a1ebfaf87642652768a",
+      "uuid": "adf8d5b5-6310-44c9-95c9-d316c349ef2b",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Phối hợp năng suất với giá trị của bạn.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day28",
+        "#vi",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a1ebfaf87642652768b",
+      "uuid": "6cec4e36-e3c4-4bf4-b5d3-d8c3addb29b4",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "You need to make a decision under constraints. How would you use the \"Phối hợp năng suất với giá trị của bạn.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail , test the results, and document my experiences",
+        "I only understand it theoretically",
+        "Lua chon cu the: I don't apply it.",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day28",
+        "#vi",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a1ebfaf87642652768c",
+      "uuid": "f4f8f661-01b2-4e25-8530-0ef2bca66b9c",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Khái niệm \"Giá Trị và Mục Tiêu: Mục Đích Sống, Tầm Nhìn Dài H...\" được đề cập trong bài học ảnh hưởng như thế nào đến việc đạt được goals của bạn?",
+      "options": [
+        "Như đã mô tả chi tiết trong bài học, Giá Trị và Mục Tiêu: Mục Đích ... tăng hiệu quả và giảm rủi ro",
+        "Không có tác động đáng kể",
+        "Chỉ quan trọng về mặt lý thuyết",
+        "Chỉ là yếu tố tùy chọn"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day28",
+        "#vi",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a1ebfaf87642652768d",
+      "uuid": "bde30dbb-57bc-43da-a685-118c013efe72",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Tiêu quan trọng như thế nào trong ngữ cảnh của Giá Trị và Mục Tiêu: Mục Đích Sống, Tầm Nhìn Dài Hạn như được thảo luận trong bài học?",
+      "options": [
+        "Như đã mô tả chi tiết trong bài học, Tiêu đóng vai trò quan trọng trong việc tối ưu hóa quy trình và đạt được mục tiêu",
+        "Chỉ là thông tin ngoại vi không có vai trò quan trọng",
+        "Chỉ là một khái niệm lý thuyết không có ứng dụng thực tế",
+        "Không được đề cập trong bài học"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day28",
+        "#vi",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a1ebfaf87642652768e",
+      "uuid": "6a831b49-f5fc-45d9-88b5-46a2ca7fddc6",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Sống quan trọng như thế nào trong ngữ cảnh của Giá Trị và Mục Tiêu: Mục Đích Sống, Tầm Nhìn Dài Hạn như được thảo luận trong bài học?",
+      "options": [
+        "Như đã mô tả chi tiết trong bài học, Sống đóng vai trò quan trọng trong việc tối ưu hóa quy trình và đạt được mục tiêu",
+        "Chỉ là thông tin ngoại vi không có vai trò quan trọng",
+        "Chỉ là một khái niệm lý thuyết không có ứng dụng thực tế",
+        "Không được đề cập trong bài học"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day28",
+        "#vi",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "69776a1ebfaf87642652768f",
+      "uuid": "6748400f-1552-4232-b930-517c3415c5d2",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Phối hợp năng suất với giá trị của bạn. đóng vai trò gì trong bài học \"Giá Trị và Mục Tiêu: Mục Đích Sống, Tầm Nhìn Dài Hạn\"?",
+      "options": [
+        "Như đã mô tả chi tiết trong bài học, Phối hợp năng suất với giá trị của bạn. đóng vai trò quan trọng trong việc tối ưu hóa quy trình và đạt được mục tiêu",
+        "Chỉ là thông tin ngoại vi không có vai trò quan trọng",
+        "Chỉ là một khái niệm lý thuyết không có ứng dụng thực tế",
+        "Không được đề cập trong bài học"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day28",
+        "#vi",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    }
+  ]
+}

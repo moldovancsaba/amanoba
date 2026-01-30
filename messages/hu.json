@@ -662,7 +662,17 @@
     "welcomeSubject": "Üdvözöljük a {{courseName}} kurzusban!",
     "completionSubject": "🎉 Gratulálunk! Befejezted a {{courseName}} kurzust!",
     "lessonSubject": "{{dayNumber}}. nap: {{lessonTitle}}",
-    "reminderSubject": "📚 Ne hagyd ki a {{courseName}} {{dayNumber}}. napját"
+    "reminderSubject": "📚 Ne hagyd ki a {{courseName}} {{dayNumber}}. napját",
+    "unsubscribe": {
+      "errorTitle": "Érvénytelen leiratkozási link",
+      "errorHeading": "Érvénytelen leiratkozási link",
+      "errorInvalid": "A leiratkozási link érvénytelen vagy lejárt.",
+      "errorContactSupport": "Vedd fel a kapcsolatot az ügyfélszolgálattal, ha le szeretnél iratkozni az e-mailekről.",
+      "successTitle": "Leiratkozva",
+      "successHeading": "✓ Sikeresen leiratkoztál",
+      "successMessage": "Sikeresen leiratkoztál a leckéket tartalmazó e-mailekről.",
+      "successReenable": "Az e-mail értesítéseket a fiókbeállításokban újra bekapcsolhatod."
+    }
   },
   "referral": {
     "inviteFriends": "Barátok meghívása",

@@ -7,7 +7,7 @@
 
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
 import { useLocale, useTranslations } from 'next-intl';
 import {
@@ -42,11 +42,7 @@ export default function AdminGamesPage() {
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState('');
 
-  useEffect(() => {
-    fetchGames();
-  }, [search]);
-
-  const fetchGames = async () => {
+  const fetchGames = useCallback(async () => {
     try {
       setLoading(true);
       const response = await fetch('/api/games');
@@ -68,7 +64,11 @@ export default function AdminGamesPage() {
     } finally {
       setLoading(false);
     }
-  };
+  }, [search]);
+
+  useEffect(() => {
+    void fetchGames();
+  }, [fetchGames]);
 
   const toggleGameStatus = async (_gameId: string, _currentStatus: boolean) => {
     try {

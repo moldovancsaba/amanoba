@@ -15,7 +15,7 @@
  * - Achievement progress
  */
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import { useLocale, useTranslations } from 'next-intl';
@@ -63,18 +63,7 @@ export default function StatsPage() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  useEffect(() => {
-    if (status === 'loading') return;
-
-    if (!session?.user) {
-      router.push(`/${locale}/auth/signin`);
-      return;
-    }
-
-    fetchStats();
-  }, [session, status, router, locale]);
-
-  const fetchStats = async () => {
+  const fetchStats = useCallback(async () => {
     try {
       setLoading(true);
       const user = session?.user as { id?: string; playerId?: string };
@@ -136,7 +125,18 @@ export default function StatsPage() {
     } finally {
       setLoading(false);
     }
-  };
+  }, [session, t]);
+
+  useEffect(() => {
+    if (status === 'loading') return;
+
+    if (!session?.user) {
+      router.push(`/${locale}/auth/signin`);
+      return;
+    }
+
+    void fetchStats();
+  }, [fetchStats, locale, router, session, status]);
 
   const formatTime = (ms: number): string => {
     if (!ms) return t('notAvailable');

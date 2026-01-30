@@ -7,7 +7,7 @@
 
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
 import { useLocale, useTranslations } from 'next-intl';
 import { useDebounce } from '@/app/lib/hooks/useDebounce';
@@ -38,8 +38,7 @@ interface Certificate {
 }
 
 export default function AdminCertificatesPage() {
-  const _locale = useLocale();
-  const _t = useTranslations('admin');
+  const locale = useLocale();
   const tCommon = useTranslations('common');
   const [certificates, setCertificates] = useState<Certificate[]>([]);
   const [initialLoading, setInitialLoading] = useState(true); // Only for first load
@@ -56,11 +55,7 @@ export default function AdminCertificatesPage() {
     pages: 0,
   });
 
-  useEffect(() => {
-    fetchCertificates();
-  }, [debouncedSearch, filters, pagination.page]);
-
-  const fetchCertificates = async () => {
+  const fetchCertificates = useCallback(async () => {
     try {
       setLoading(true);
       const params = new URLSearchParams();
@@ -78,7 +73,7 @@ export default function AdminCertificatesPage() {
 
       if (data.success) {
         setCertificates(data.certificates || []);
-        setPagination(data.pagination || pagination);
+        setPagination((prev) => data.pagination || prev);
       }
     } catch (error) {
       console.error('Failed to fetch certificates:', error);
@@ -86,7 +81,11 @@ export default function AdminCertificatesPage() {
       setLoading(false);
       setInitialLoading(false);
     }
-  };
+  }, [debouncedSearch, filters.status, pagination.limit, pagination.page]);
+
+  useEffect(() => {
+    void fetchCertificates();
+  }, [fetchCertificates]);
 
   // Only show full-page loader on initial load
   if (initialLoading) {

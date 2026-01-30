@@ -7,8 +7,8 @@
 
 'use client';
 
-import { useState, useEffect } from 'react';
-import { useLocale, useTranslations } from 'next-intl';
+import { useState, useEffect, useCallback } from 'react';
+import { useTranslations } from 'next-intl';
 import {
   Calendar,
   Target,
@@ -40,7 +40,6 @@ interface Challenge {
 }
 
 export default function AdminChallengesPage() {
-  const _locale = useLocale();
   const t = useTranslations('admin');
   const tCommon = useTranslations('common');
   const [challenges, setChallenges] = useState<Challenge[]>([]);
@@ -50,11 +49,7 @@ export default function AdminChallengesPage() {
   );
   const [difficultyFilter, setDifficultyFilter] = useState<string>('all');
 
-  useEffect(() => {
-    fetchChallenges();
-  }, [dateFilter, difficultyFilter]);
-
-  const fetchChallenges = async () => {
+  const fetchChallenges = useCallback(async () => {
     try {
       setLoading(true);
       const params = new URLSearchParams();
@@ -76,7 +71,11 @@ export default function AdminChallengesPage() {
     } finally {
       setLoading(false);
     }
-  };
+  }, [dateFilter, difficultyFilter]);
+
+  useEffect(() => {
+    void fetchChallenges();
+  }, [fetchChallenges]);
 
   if (loading) {
     return (

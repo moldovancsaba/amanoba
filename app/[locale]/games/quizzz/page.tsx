@@ -7,7 +7,7 @@
  * What: Simplified quiz game that integrates with session API and awards points/XP
  */
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback, useRef } from 'react';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import { LocaleLink } from '@/components/LocaleLink';
@@ -321,6 +321,24 @@ export default function QuizzzGame() {
     }
   };
 
+  const finishGameRef = useRef<() => void>(() => {});
+
+  // Why: Handle time up scenario
+  const handleTimeUp = useCallback(() => {
+    setShowFeedback(true);
+    // Auto-advance after showing time's up feedback
+    setTimeout(() => {
+      if (currentQuestion < questions.length - 1) {
+        setCurrentQuestion(currentQuestion + 1);
+        setSelectedAnswer(null);
+        setShowFeedback(false);
+        setTimeLeft(DIFFICULTY_CONFIGS[difficulty].timePerQuestion);
+      } else {
+        finishGameRef.current();
+      }
+    }, 1500);
+  }, [currentQuestion, difficulty, questions.length]);
+
   // Why: Timer effect for countdown per question
   useEffect(() => {
     if (gameState !== 'playing' || selectedAnswer !== null || timeLeft <= 0) return;
@@ -337,23 +355,7 @@ export default function QuizzzGame() {
     }, 1000);
 
     return () => clearInterval(timer);
-  }, [gameState, selectedAnswer, timeLeft]);
-
-  // Why: Handle time up scenario
-  const handleTimeUp = () => {
-    setShowFeedback(true);
-    // Auto-advance after showing time's up feedback
-    setTimeout(() => {
-      if (currentQuestion < questions.length - 1) {
-        setCurrentQuestion(currentQuestion + 1);
-        setSelectedAnswer(null);
-        setShowFeedback(false);
-        setTimeLeft(DIFFICULTY_CONFIGS[difficulty].timePerQuestion);
-      } else {
-        finishGame();
-      }
-    }, 1500);
-  };
+  }, [gameState, handleTimeUp, selectedAnswer, timeLeft]);
 
   // Why: Start game session when player clicks play
   const startGame = async () => {
@@ -523,6 +525,10 @@ export default function QuizzzGame() {
         setIsCompleting(false);
       }
       }
+  };
+
+  finishGameRef.current = () => {
+    void finishGame();
   };
 
   // Why: Redirect to sign-in if not authenticated
@@ -868,13 +874,17 @@ export default function QuizzzGame() {
             )}
 
             {/* Streak Bonus */}
-            {rewards && (rewards as { streakBonus?: number }).streakBonus && (rewards as { streakBonus?: number }).streakBonus > 0 && (
+            {(() => {
+              const r = rewards as Record<string, unknown> | null | undefined;
+              const streakBonus = r && typeof r.streakBonus === 'number' ? r.streakBonus : 0;
+              return streakBonus > 0 && (
               <div className="bg-gradient-to-r from-orange-50 to-red-50 rounded-xl p-4 text-center">
                 <div className="font-bold text-orange-700">
-                  🔥 Streak Bonus: +{Math.round((rewards as { streakBonus: number }).streakBonus * 100)}% rewards!
+                  🔥 Streak Bonus: +{Math.round(streakBonus * 100)}% rewards!
                 </div>
               </div>
-            )}
+            );
+            })()}
 
             {/* Daily Challenges CTA */}
             <div className="bg-gradient-to-r from-green-50 to-teal-50 rounded-xl p-4 text-center">

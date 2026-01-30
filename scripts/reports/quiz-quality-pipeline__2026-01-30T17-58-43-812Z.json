@@ -1,0 +1,1805 @@
+{
+  "generatedAt": "2026-01-30T17:58:43.812Z",
+  "dryRun": true,
+  "minLessonScore": 70,
+  "courseFilter": "PRODUCTIVITY_2026_VI",
+  "lessonFilter": null,
+  "totals": {
+    "courses": 1,
+    "lessonsEvaluated": 30,
+    "lessonsNeedingRefine": 19,
+    "lessonsRewritten": 30,
+    "lessonsFailedRewrite": 0,
+    "questionsDeleted": 0,
+    "questionsInserted": 0
+  },
+  "lessons": [
+    {
+      "courseId": "PRODUCTIVITY_2026_VI",
+      "courseName": "Năng suất 2026: Cách quản lý nhóm và thời gian",
+      "language": "vi",
+      "dayNumber": 1,
+      "lessonId": "PRODUCTIVITY_2026_VI_DAY_01",
+      "title": "Định nghĩa năng suất: đầu ra, kết quả và ràng buộc",
+      "lessonCreatedAt": "2026-01-23T19:27:03.737Z",
+      "lessonQuality": {
+        "score": 85,
+        "issues": [
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 2652,
+          "wordCount": 591,
+          "hasBullets": true,
+          "hasNumberedSteps": true,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": true
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "VALIDATED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/PRODUCTIVITY_2026_VI/PRODUCTIVITY_2026_VI_DAY_01__2026-01-30T17-58-43-812Z.json",
+        "insertedCount": 4,
+        "replacedCount": 5,
+        "invalidFound": 0,
+        "duplicatesFound": 5,
+        "questionsDeleted": 0,
+        "warnings": [],
+        "existingCounts": {
+          "total": 7,
+          "valid": 7,
+          "invalid": 0,
+          "application": 5,
+          "critical": 2,
+          "recall": 0,
+          "duplicates": 5
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_VI",
+      "courseName": "Năng suất 2026: Cách quản lý nhóm và thời gian",
+      "language": "vi",
+      "dayNumber": 2,
+      "lessonId": "PRODUCTIVITY_2026_VI_DAY_02",
+      "title": "Thời gian, năng lượng, sự chú ý: những gì bạn quản lý trong thực tế",
+      "lessonCreatedAt": "2026-01-23T21:20:06.902Z",
+      "lessonQuality": {
+        "score": 70,
+        "issues": [
+          "NO_CLEAR_DEFINITIONS",
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 3336,
+          "wordCount": 728,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": true
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "VALIDATED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/PRODUCTIVITY_2026_VI/PRODUCTIVITY_2026_VI_DAY_02__2026-01-30T17-58-43-812Z.json",
+        "insertedCount": 3,
+        "replacedCount": 4,
+        "invalidFound": 0,
+        "duplicatesFound": 4,
+        "questionsDeleted": 0,
+        "warnings": [],
+        "existingCounts": {
+          "total": 7,
+          "valid": 7,
+          "invalid": 0,
+          "application": 5,
+          "critical": 2,
+          "recall": 0,
+          "duplicates": 4
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_VI",
+      "courseName": "Năng suất 2026: Cách quản lý nhóm và thời gian",
+      "language": "vi",
+      "dayNumber": 3,
+      "lessonId": "PRODUCTIVITY_2026_VI_DAY_03",
+      "title": "Phân cấp mục tiêu: tầm nhìn → kết quả → dự án → hành động tiếp theo",
+      "lessonCreatedAt": "2026-01-23T21:28:05.811Z",
+      "lessonQuality": {
+        "score": 70,
+        "issues": [
+          "NO_CLEAR_DEFINITIONS",
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 2832,
+          "wordCount": 625,
+          "hasBullets": true,
+          "hasNumberedSteps": true,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": true
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "VALIDATED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/PRODUCTIVITY_2026_VI/PRODUCTIVITY_2026_VI_DAY_03__2026-01-30T17-58-43-812Z.json",
+        "insertedCount": 3,
+        "replacedCount": 5,
+        "invalidFound": 0,
+        "duplicatesFound": 5,
+        "questionsDeleted": 0,
+        "warnings": [],
+        "existingCounts": {
+          "total": 7,
+          "valid": 7,
+          "invalid": 0,
+          "application": 5,
+          "critical": 2,
+          "recall": 0,
+          "duplicates": 5
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_VI",
+      "courseName": "Năng suất 2026: Cách quản lý nhóm và thời gian",
+      "language": "vi",
+      "dayNumber": 4,
+      "lessonId": "PRODUCTIVITY_2026_VI_DAY_04",
+      "title": "Thói quen vs hệ thống: tại sao hệ thống mở rộng tốt hơn",
+      "lessonCreatedAt": "2026-01-23T21:34:23.877Z",
+      "lessonQuality": {
+        "score": 85,
+        "issues": [
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 2687,
+          "wordCount": 598,
+          "hasBullets": true,
+          "hasNumberedSteps": true,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": true
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "VALIDATED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/PRODUCTIVITY_2026_VI/PRODUCTIVITY_2026_VI_DAY_04__2026-01-30T17-58-43-812Z.json",
+        "insertedCount": 4,
+        "replacedCount": 5,
+        "invalidFound": 0,
+        "duplicatesFound": 5,
+        "questionsDeleted": 0,
+        "warnings": [],
+        "existingCounts": {
+          "total": 7,
+          "valid": 7,
+          "invalid": 0,
+          "application": 5,
+          "critical": 2,
+          "recall": 0,
+          "duplicates": 5
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_VI",
+      "courseName": "Năng suất 2026: Cách quản lý nhóm và thời gian",
+      "language": "vi",
+      "dayNumber": 5,
+      "lessonId": "PRODUCTIVITY_2026_VI_DAY_05",
+      "title": "Đo lường: các chỉ số đánh giá hàng tuần đơn giản (throughput, khối tập trung, carryover)",
+      "lessonCreatedAt": "2026-01-23T21:40:14.944Z",
+      "lessonQuality": {
+        "score": 70,
+        "issues": [
+          "NO_CLEAR_DEFINITIONS",
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 2587,
+          "wordCount": 543,
+          "hasBullets": true,
+          "hasNumberedSteps": true,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": true
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "VALIDATED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/PRODUCTIVITY_2026_VI/PRODUCTIVITY_2026_VI_DAY_05__2026-01-30T17-58-43-812Z.json",
+        "insertedCount": 3,
+        "replacedCount": 4,
+        "invalidFound": 0,
+        "duplicatesFound": 4,
+        "questionsDeleted": 0,
+        "warnings": [],
+        "existingCounts": {
+          "total": 7,
+          "valid": 7,
+          "invalid": 0,
+          "application": 5,
+          "critical": 2,
+          "recall": 0,
+          "duplicates": 4
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_VI",
+      "courseName": "Năng suất 2026: Cách quản lý nhóm và thời gian",
+      "language": "vi",
+      "dayNumber": 6,
+      "lessonId": "PRODUCTIVITY_2026_VI_DAY_06",
+      "title": "Thu thập: hộp thư đến, danh sách kích hoạt, thói quen thu thập",
+      "lessonCreatedAt": "2026-01-23T21:43:43.972Z",
+      "lessonQuality": {
+        "score": 85,
+        "issues": [
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 2590,
+          "wordCount": 575,
+          "hasBullets": true,
+          "hasNumberedSteps": true,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": true
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "VALIDATED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/PRODUCTIVITY_2026_VI/PRODUCTIVITY_2026_VI_DAY_06__2026-01-30T17-58-43-812Z.json",
+        "insertedCount": 3,
+        "replacedCount": 5,
+        "invalidFound": 0,
+        "duplicatesFound": 5,
+        "questionsDeleted": 0,
+        "warnings": [],
+        "existingCounts": {
+          "total": 7,
+          "valid": 7,
+          "invalid": 0,
+          "application": 5,
+          "critical": 2,
+          "recall": 0,
+          "duplicates": 5
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_VI",
+      "courseName": "Năng suất 2026: Cách quản lý nhóm và thời gian",
+      "language": "vi",
+      "dayNumber": 7,
+      "lessonId": "PRODUCTIVITY_2026_VI_DAY_07",
+      "title": "Hệ thống hàng ngày/hàng tuần: ritual buổi sáng, cuộc họp hàng ngày, đánh giá hàng tuần",
+      "lessonCreatedAt": "2026-01-24T08:15:47.422Z",
+      "lessonQuality": {
+        "score": 55,
+        "issues": [
+          "NO_CLEAR_DEFINITIONS",
+          "NO_EXAMPLES",
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 1962,
+          "wordCount": 433,
+          "hasBullets": true,
+          "hasNumberedSteps": true,
+          "hasExamples": false,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": true,
+          "addPitfallsSection": false,
+          "addMetricsSection": true
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "VALIDATED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/PRODUCTIVITY_2026_VI/PRODUCTIVITY_2026_VI_DAY_07__2026-01-30T17-58-43-812Z.json",
+        "insertedCount": 4,
+        "replacedCount": 7,
+        "invalidFound": 7,
+        "duplicatesFound": 0,
+        "questionsDeleted": 0,
+        "warnings": [],
+        "existingCounts": {
+          "total": 7,
+          "valid": 0,
+          "invalid": 7,
+          "application": 0,
+          "critical": 0,
+          "recall": 0,
+          "duplicates": 0
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_VI",
+      "courseName": "Năng suất 2026: Cách quản lý nhóm và thời gian",
+      "language": "vi",
+      "dayNumber": 8,
+      "lessonId": "PRODUCTIVITY_2026_VI_DAY_8",
+      "title": "Chi phí chuyển đổi ngữ cảnh: Phần dư chú ý, Xử lý theo lô, Khối công việc sâu",
+      "lessonCreatedAt": "2026-01-24T08:31:20.044Z",
+      "lessonQuality": {
+        "score": 85,
+        "issues": [
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 2558,
+          "wordCount": 572,
+          "hasBullets": true,
+          "hasNumberedSteps": true,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": true
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "VALIDATED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/PRODUCTIVITY_2026_VI/PRODUCTIVITY_2026_VI_DAY_8__2026-01-30T17-58-43-812Z.json",
+        "insertedCount": 3,
+        "replacedCount": 4,
+        "invalidFound": 0,
+        "duplicatesFound": 4,
+        "questionsDeleted": 0,
+        "warnings": [],
+        "existingCounts": {
+          "total": 7,
+          "valid": 7,
+          "invalid": 0,
+          "application": 5,
+          "critical": 2,
+          "recall": 0,
+          "duplicates": 4
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_VI",
+      "courseName": "Năng suất 2026: Cách quản lý nhóm và thời gian",
+      "language": "vi",
+      "dayNumber": 9,
+      "lessonId": "PRODUCTIVITY_2026_VI_DAY_9",
+      "title": "Phân công vs Loại bỏ: Khi nào phân công, Cái gì loại bỏ",
+      "lessonCreatedAt": "2026-01-24T08:36:25.272Z",
+      "lessonQuality": {
+        "score": 100,
+        "issues": [],
+        "signals": {
+          "charCount": 2740,
+          "wordCount": 626,
+          "hasBullets": true,
+          "hasNumberedSteps": true,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "VALIDATED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/PRODUCTIVITY_2026_VI/PRODUCTIVITY_2026_VI_DAY_9__2026-01-30T17-58-43-812Z.json",
+        "insertedCount": 3,
+        "replacedCount": 4,
+        "invalidFound": 0,
+        "duplicatesFound": 4,
+        "questionsDeleted": 0,
+        "warnings": [],
+        "existingCounts": {
+          "total": 7,
+          "valid": 7,
+          "invalid": 0,
+          "application": 5,
+          "critical": 2,
+          "recall": 0,
+          "duplicates": 4
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_VI",
+      "courseName": "Năng suất 2026: Cách quản lý nhóm và thời gian",
+      "language": "vi",
+      "dayNumber": 10,
+      "lessonId": "PRODUCTIVITY_2026_VI_DAY_10",
+      "title": "Quản lý Năng lượng: Khi nào làm việc, Khi nào nghỉ ngơi, Nghi thức phục hồi",
+      "lessonCreatedAt": "2026-01-24T08:40:15.446Z",
+      "lessonQuality": {
+        "score": 70,
+        "issues": [
+          "NO_EXAMPLES",
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 3130,
+          "wordCount": 703,
+          "hasBullets": true,
+          "hasNumberedSteps": true,
+          "hasExamples": false,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": true,
+          "addPitfallsSection": false,
+          "addMetricsSection": true
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "VALIDATED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/PRODUCTIVITY_2026_VI/PRODUCTIVITY_2026_VI_DAY_10__2026-01-30T17-58-43-812Z.json",
+        "insertedCount": 3,
+        "replacedCount": 4,
+        "invalidFound": 0,
+        "duplicatesFound": 4,
+        "questionsDeleted": 0,
+        "warnings": [],
+        "existingCounts": {
+          "total": 7,
+          "valid": 7,
+          "invalid": 0,
+          "application": 5,
+          "critical": 2,
+          "recall": 0,
+          "duplicates": 4
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_VI",
+      "courseName": "Năng suất 2026: Cách quản lý nhóm và thời gian",
+      "language": "vi",
+      "dayNumber": 11,
+      "lessonId": "PRODUCTIVITY_2026_VI_DAY_11",
+      "title": "Đặt Mục Tiêu và OKR: Bạn Muốn Đạt Được Cái Gì?",
+      "lessonCreatedAt": "2026-01-24T08:41:52.491Z",
+      "lessonQuality": {
+        "score": 20,
+        "issues": [
+          "TOO_SHORT",
+          "NO_CLEAR_DEFINITIONS",
+          "NO_EXAMPLES",
+          "NO_CONTRASTS_GOOD_BAD",
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 476,
+          "wordCount": 104,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": false,
+          "hasGoodBadContrast": false,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": true,
+          "addPitfallsSection": true,
+          "addMetricsSection": true
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "VALIDATED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/PRODUCTIVITY_2026_VI/PRODUCTIVITY_2026_VI_DAY_11__2026-01-30T17-58-43-812Z.json",
+        "insertedCount": 4,
+        "replacedCount": 7,
+        "invalidFound": 7,
+        "duplicatesFound": 0,
+        "questionsDeleted": 0,
+        "warnings": [],
+        "existingCounts": {
+          "total": 7,
+          "valid": 0,
+          "invalid": 7,
+          "application": 0,
+          "critical": 0,
+          "recall": 0,
+          "duplicates": 0
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_VI",
+      "courseName": "Năng suất 2026: Cách quản lý nhóm và thời gian",
+      "language": "vi",
+      "dayNumber": 12,
+      "lessonId": "PRODUCTIVITY_2026_VI_DAY_12",
+      "title": "Cấu trúc Trách nhiệm: Các Hệ thống Giữ bạn trên Đường",
+      "lessonCreatedAt": "2026-01-24T09:15:54.637Z",
+      "lessonQuality": {
+        "score": 70,
+        "issues": [
+          "NO_CLEAR_DEFINITIONS",
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 2867,
+          "wordCount": 648,
+          "hasBullets": true,
+          "hasNumberedSteps": true,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": true
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "VALIDATED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/PRODUCTIVITY_2026_VI/PRODUCTIVITY_2026_VI_DAY_12__2026-01-30T17-58-43-812Z.json",
+        "insertedCount": 3,
+        "replacedCount": 4,
+        "invalidFound": 0,
+        "duplicatesFound": 4,
+        "questionsDeleted": 0,
+        "warnings": [],
+        "existingCounts": {
+          "total": 7,
+          "valid": 7,
+          "invalid": 0,
+          "application": 5,
+          "critical": 2,
+          "recall": 0,
+          "duplicates": 4
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_VI",
+      "courseName": "Năng suất 2026: Cách quản lý nhóm và thời gian",
+      "language": "vi",
+      "dayNumber": 13,
+      "lessonId": "PRODUCTIVITY_2026_VI_DAY_13",
+      "title": "Khung Quy Trình Ra Quyết Định: Quyết Định Nhanh, Ma Trận Quyết Định, Tránh Tê Liệt Phân Tích",
+      "lessonCreatedAt": "2026-01-24T09:23:09.345Z",
+      "lessonQuality": {
+        "score": 85,
+        "issues": [
+          "NO_EXAMPLES"
+        ],
+        "signals": {
+          "charCount": 3558,
+          "wordCount": 794,
+          "hasBullets": true,
+          "hasNumberedSteps": true,
+          "hasExamples": false,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": true,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "VALIDATED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/PRODUCTIVITY_2026_VI/PRODUCTIVITY_2026_VI_DAY_13__2026-01-30T17-58-43-812Z.json",
+        "insertedCount": 3,
+        "replacedCount": 4,
+        "invalidFound": 0,
+        "duplicatesFound": 4,
+        "questionsDeleted": 0,
+        "warnings": [],
+        "existingCounts": {
+          "total": 7,
+          "valid": 7,
+          "invalid": 0,
+          "application": 5,
+          "critical": 2,
+          "recall": 0,
+          "duplicates": 4
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_VI",
+      "courseName": "Năng suất 2026: Cách quản lý nhóm và thời gian",
+      "language": "vi",
+      "dayNumber": 14,
+      "lessonId": "PRODUCTIVITY_2026_VI_DAY_14",
+      "title": "Hiệu Quả Cuộc Họp: Chương Trình Nghị Sự, Giới Hạn Thời Gian, Nhật Ký Quyết Định",
+      "lessonCreatedAt": "2026-01-24T09:29:49.862Z",
+      "lessonQuality": {
+        "score": 20,
+        "issues": [
+          "TOO_SHORT",
+          "NO_CLEAR_DEFINITIONS",
+          "NO_EXAMPLES",
+          "NO_CONTRASTS_GOOD_BAD",
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 204,
+          "wordCount": 44,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": false,
+          "hasGoodBadContrast": false,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": true,
+          "addPitfallsSection": true,
+          "addMetricsSection": true
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "VALIDATED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/PRODUCTIVITY_2026_VI/PRODUCTIVITY_2026_VI_DAY_14__2026-01-30T17-58-43-812Z.json",
+        "insertedCount": 3,
+        "replacedCount": 7,
+        "invalidFound": 7,
+        "duplicatesFound": 0,
+        "questionsDeleted": 0,
+        "warnings": [],
+        "existingCounts": {
+          "total": 7,
+          "valid": 0,
+          "invalid": 7,
+          "application": 0,
+          "critical": 0,
+          "recall": 0,
+          "duplicates": 0
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_VI",
+      "courseName": "Năng suất 2026: Cách quản lý nhóm và thời gian",
+      "language": "vi",
+      "dayNumber": 15,
+      "lessonId": "PRODUCTIVITY_2026_VI_DAY_15",
+      "title": "Làm Việc Nhóm và Hiệu Năng: Vai Trò, Trách Nhiệm, Phối Hợp",
+      "lessonCreatedAt": "2026-01-24T09:29:52.930Z",
+      "lessonQuality": {
+        "score": 20,
+        "issues": [
+          "TOO_SHORT",
+          "NO_CLEAR_DEFINITIONS",
+          "NO_EXAMPLES",
+          "NO_CONTRASTS_GOOD_BAD",
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 151,
+          "wordCount": 32,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": false,
+          "hasGoodBadContrast": false,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": true,
+          "addPitfallsSection": true,
+          "addMetricsSection": true
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "VALIDATED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/PRODUCTIVITY_2026_VI/PRODUCTIVITY_2026_VI_DAY_15__2026-01-30T17-58-43-812Z.json",
+        "insertedCount": 4,
+        "replacedCount": 7,
+        "invalidFound": 7,
+        "duplicatesFound": 0,
+        "questionsDeleted": 0,
+        "warnings": [],
+        "existingCounts": {
+          "total": 7,
+          "valid": 0,
+          "invalid": 7,
+          "application": 0,
+          "critical": 0,
+          "recall": 0,
+          "duplicates": 0
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_VI",
+      "courseName": "Năng suất 2026: Cách quản lý nhóm và thời gian",
+      "language": "vi",
+      "dayNumber": 16,
+      "lessonId": "PRODUCTIVITY_2026_VI_DAY_16",
+      "title": "Quản Lý Căng Thẳng và Mệt Mỏi: Phục Hồi, Cân Bằng Công Việc-Cuộc Sống",
+      "lessonCreatedAt": "2026-01-24T09:29:56.301Z",
+      "lessonQuality": {
+        "score": 20,
+        "issues": [
+          "TOO_SHORT",
+          "NO_CLEAR_DEFINITIONS",
+          "NO_EXAMPLES",
+          "NO_CONTRASTS_GOOD_BAD",
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 176,
+          "wordCount": 38,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": false,
+          "hasGoodBadContrast": false,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": true,
+          "addPitfallsSection": true,
+          "addMetricsSection": true
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "VALIDATED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/PRODUCTIVITY_2026_VI/PRODUCTIVITY_2026_VI_DAY_16__2026-01-30T17-58-43-812Z.json",
+        "insertedCount": 3,
+        "replacedCount": 7,
+        "invalidFound": 7,
+        "duplicatesFound": 0,
+        "questionsDeleted": 0,
+        "warnings": [],
+        "existingCounts": {
+          "total": 7,
+          "valid": 0,
+          "invalid": 7,
+          "application": 0,
+          "critical": 0,
+          "recall": 0,
+          "duplicates": 0
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_VI",
+      "courseName": "Năng suất 2026: Cách quản lý nhóm và thời gian",
+      "language": "vi",
+      "dayNumber": 17,
+      "lessonId": "PRODUCTIVITY_2026_VI_DAY_17",
+      "title": "Duy Trì Động Lực: Theo Dõi Tiến Độ, Ăn Mừng Chiến Thắng",
+      "lessonCreatedAt": "2026-01-24T09:29:59.305Z",
+      "lessonQuality": {
+        "score": 20,
+        "issues": [
+          "TOO_SHORT",
+          "NO_CLEAR_DEFINITIONS",
+          "NO_EXAMPLES",
+          "NO_CONTRASTS_GOOD_BAD",
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 156,
+          "wordCount": 34,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": false,
+          "hasGoodBadContrast": false,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": true,
+          "addPitfallsSection": true,
+          "addMetricsSection": true
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "VALIDATED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/PRODUCTIVITY_2026_VI/PRODUCTIVITY_2026_VI_DAY_17__2026-01-30T17-58-43-812Z.json",
+        "insertedCount": 3,
+        "replacedCount": 7,
+        "invalidFound": 7,
+        "duplicatesFound": 0,
+        "questionsDeleted": 0,
+        "warnings": [],
+        "existingCounts": {
+          "total": 7,
+          "valid": 0,
+          "invalid": 7,
+          "application": 0,
+          "critical": 0,
+          "recall": 0,
+          "duplicates": 0
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_VI",
+      "courseName": "Năng suất 2026: Cách quản lý nhóm và thời gian",
+      "language": "vi",
+      "dayNumber": 18,
+      "lessonId": "PRODUCTIVITY_2026_VI_DAY_18",
+      "title": "Quản Lý Khủng Hoảng và Tính Thích Ứng: Thích Ứng, Học Nhanh",
+      "lessonCreatedAt": "2026-01-24T09:30:02.527Z",
+      "lessonQuality": {
+        "score": 20,
+        "issues": [
+          "TOO_SHORT",
+          "NO_CLEAR_DEFINITIONS",
+          "NO_EXAMPLES",
+          "NO_CONTRASTS_GOOD_BAD",
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 172,
+          "wordCount": 36,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": false,
+          "hasGoodBadContrast": false,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": true,
+          "addPitfallsSection": true,
+          "addMetricsSection": true
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "VALIDATED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/PRODUCTIVITY_2026_VI/PRODUCTIVITY_2026_VI_DAY_18__2026-01-30T17-58-43-812Z.json",
+        "insertedCount": 4,
+        "replacedCount": 7,
+        "invalidFound": 7,
+        "duplicatesFound": 0,
+        "questionsDeleted": 0,
+        "warnings": [],
+        "existingCounts": {
+          "total": 7,
+          "valid": 0,
+          "invalid": 7,
+          "application": 0,
+          "critical": 0,
+          "recall": 0,
+          "duplicates": 0
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_VI",
+      "courseName": "Năng suất 2026: Cách quản lý nhóm và thời gian",
+      "language": "vi",
+      "dayNumber": 19,
+      "lessonId": "PRODUCTIVITY_2026_VI_DAY_19",
+      "title": "Lập Kế Hoạch Dài Hạn: Năm Phía Trước, Chiến Lược, Tiến Hóa",
+      "lessonCreatedAt": "2026-01-24T09:30:05.394Z",
+      "lessonQuality": {
+        "score": 20,
+        "issues": [
+          "TOO_SHORT",
+          "NO_CLEAR_DEFINITIONS",
+          "NO_EXAMPLES",
+          "NO_CONTRASTS_GOOD_BAD",
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 179,
+          "wordCount": 38,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": false,
+          "hasGoodBadContrast": false,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": true,
+          "addPitfallsSection": true,
+          "addMetricsSection": true
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "VALIDATED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/PRODUCTIVITY_2026_VI/PRODUCTIVITY_2026_VI_DAY_19__2026-01-30T17-58-43-812Z.json",
+        "insertedCount": 4,
+        "replacedCount": 7,
+        "invalidFound": 7,
+        "duplicatesFound": 0,
+        "questionsDeleted": 0,
+        "warnings": [],
+        "existingCounts": {
+          "total": 7,
+          "valid": 0,
+          "invalid": 7,
+          "application": 0,
+          "critical": 0,
+          "recall": 0,
+          "duplicates": 0
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_VI",
+      "courseName": "Năng suất 2026: Cách quản lý nhóm và thời gian",
+      "language": "vi",
+      "dayNumber": 20,
+      "lessonId": "PRODUCTIVITY_2026_VI_DAY_20",
+      "title": "Năng Suất Cuộc Sống Cá Nhân: Tổ Chức Nhà, Dự Án Cá Nhân",
+      "lessonCreatedAt": "2026-01-24T09:30:08.718Z",
+      "lessonQuality": {
+        "score": 20,
+        "issues": [
+          "TOO_SHORT",
+          "NO_CLEAR_DEFINITIONS",
+          "NO_EXAMPLES",
+          "NO_CONTRASTS_GOOD_BAD",
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 182,
+          "wordCount": 41,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": false,
+          "hasGoodBadContrast": false,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": true,
+          "addPitfallsSection": true,
+          "addMetricsSection": true
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "VALIDATED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/PRODUCTIVITY_2026_VI/PRODUCTIVITY_2026_VI_DAY_20__2026-01-30T17-58-43-812Z.json",
+        "insertedCount": 2,
+        "replacedCount": 7,
+        "invalidFound": 7,
+        "duplicatesFound": 0,
+        "questionsDeleted": 0,
+        "warnings": [],
+        "existingCounts": {
+          "total": 7,
+          "valid": 0,
+          "invalid": 7,
+          "application": 0,
+          "critical": 0,
+          "recall": 0,
+          "duplicates": 0
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_VI",
+      "courseName": "Năng suất 2026: Cách quản lý nhóm và thời gian",
+      "language": "vi",
+      "dayNumber": 21,
+      "lessonId": "PRODUCTIVITY_2026_VI_DAY_21",
+      "title": "Cộng Đồng và Mạng Lưới: Quan Hệ, Học Với Người Khác",
+      "lessonCreatedAt": "2026-01-24T09:30:11.392Z",
+      "lessonQuality": {
+        "score": 20,
+        "issues": [
+          "TOO_SHORT",
+          "NO_CLEAR_DEFINITIONS",
+          "NO_EXAMPLES",
+          "NO_CONTRASTS_GOOD_BAD",
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 170,
+          "wordCount": 37,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": false,
+          "hasGoodBadContrast": false,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": true,
+          "addPitfallsSection": true,
+          "addMetricsSection": true
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "VALIDATED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/PRODUCTIVITY_2026_VI/PRODUCTIVITY_2026_VI_DAY_21__2026-01-30T17-58-43-812Z.json",
+        "insertedCount": 3,
+        "replacedCount": 7,
+        "invalidFound": 7,
+        "duplicatesFound": 0,
+        "questionsDeleted": 0,
+        "warnings": [],
+        "existingCounts": {
+          "total": 7,
+          "valid": 0,
+          "invalid": 7,
+          "application": 0,
+          "critical": 0,
+          "recall": 0,
+          "duplicates": 0
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_VI",
+      "courseName": "Năng suất 2026: Cách quản lý nhóm và thời gian",
+      "language": "vi",
+      "dayNumber": 22,
+      "lessonId": "PRODUCTIVITY_2026_VI_DAY_22",
+      "title": "Công Nghệ và Công Cụ: Tự Động Hóa, Chọn Công Nghệ Phù Hợp",
+      "lessonCreatedAt": "2026-01-24T09:30:13.987Z",
+      "lessonQuality": {
+        "score": 20,
+        "issues": [
+          "TOO_SHORT",
+          "NO_CLEAR_DEFINITIONS",
+          "NO_EXAMPLES",
+          "NO_CONTRASTS_GOOD_BAD",
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 158,
+          "wordCount": 33,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": false,
+          "hasGoodBadContrast": false,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": true,
+          "addPitfallsSection": true,
+          "addMetricsSection": true
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "VALIDATED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/PRODUCTIVITY_2026_VI/PRODUCTIVITY_2026_VI_DAY_22__2026-01-30T17-58-43-812Z.json",
+        "insertedCount": 4,
+        "replacedCount": 7,
+        "invalidFound": 7,
+        "duplicatesFound": 0,
+        "questionsDeleted": 0,
+        "warnings": [],
+        "existingCounts": {
+          "total": 7,
+          "valid": 0,
+          "invalid": 7,
+          "application": 0,
+          "critical": 0,
+          "recall": 0,
+          "duplicates": 0
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_VI",
+      "courseName": "Năng suất 2026: Cách quản lý nhóm và thời gian",
+      "language": "vi",
+      "dayNumber": 23,
+      "lessonId": "PRODUCTIVITY_2026_VI_DAY_23",
+      "title": "Sáng Tạo và Đổi Mới: Tái Suy Nghĩ, Thí Nghiệm",
+      "lessonCreatedAt": "2026-01-24T09:30:16.754Z",
+      "lessonQuality": {
+        "score": 20,
+        "issues": [
+          "TOO_SHORT",
+          "NO_CLEAR_DEFINITIONS",
+          "NO_EXAMPLES",
+          "NO_CONTRASTS_GOOD_BAD",
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 146,
+          "wordCount": 32,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": false,
+          "hasGoodBadContrast": false,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": true,
+          "addPitfallsSection": true,
+          "addMetricsSection": true
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "VALIDATED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/PRODUCTIVITY_2026_VI/PRODUCTIVITY_2026_VI_DAY_23__2026-01-30T17-58-43-812Z.json",
+        "insertedCount": 2,
+        "replacedCount": 7,
+        "invalidFound": 7,
+        "duplicatesFound": 0,
+        "questionsDeleted": 0,
+        "warnings": [],
+        "existingCounts": {
+          "total": 7,
+          "valid": 0,
+          "invalid": 7,
+          "application": 0,
+          "critical": 0,
+          "recall": 0,
+          "duplicates": 0
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_VI",
+      "courseName": "Năng suất 2026: Cách quản lý nhóm và thời gian",
+      "language": "vi",
+      "dayNumber": 24,
+      "lessonId": "PRODUCTIVITY_2026_VI_DAY_24",
+      "title": "Lọc Lựa và Ưu Tiên: Điều Cần Bỏ Qua, Điều Quan Trọng",
+      "lessonCreatedAt": "2026-01-24T09:30:19.561Z",
+      "lessonQuality": {
+        "score": 20,
+        "issues": [
+          "TOO_SHORT",
+          "NO_CLEAR_DEFINITIONS",
+          "NO_EXAMPLES",
+          "NO_CONTRASTS_GOOD_BAD",
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 173,
+          "wordCount": 36,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": false,
+          "hasGoodBadContrast": false,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": true,
+          "addPitfallsSection": true,
+          "addMetricsSection": true
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "VALIDATED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/PRODUCTIVITY_2026_VI/PRODUCTIVITY_2026_VI_DAY_24__2026-01-30T17-58-43-812Z.json",
+        "insertedCount": 3,
+        "replacedCount": 7,
+        "invalidFound": 7,
+        "duplicatesFound": 0,
+        "questionsDeleted": 0,
+        "warnings": [],
+        "existingCounts": {
+          "total": 7,
+          "valid": 0,
+          "invalid": 7,
+          "application": 0,
+          "critical": 0,
+          "recall": 0,
+          "duplicates": 0
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_VI",
+      "courseName": "Năng suất 2026: Cách quản lý nhóm và thời gian",
+      "language": "vi",
+      "dayNumber": 25,
+      "lessonId": "PRODUCTIVITY_2026_VI_DAY_25",
+      "title": "Phát Triển Kỹ Năng: Các Cấp Độ Cao Hơn, Năng Lực Mới",
+      "lessonCreatedAt": "2026-01-24T09:30:22.119Z",
+      "lessonQuality": {
+        "score": 20,
+        "issues": [
+          "TOO_SHORT",
+          "NO_CLEAR_DEFINITIONS",
+          "NO_EXAMPLES",
+          "NO_CONTRASTS_GOOD_BAD",
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 167,
+          "wordCount": 36,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": false,
+          "hasGoodBadContrast": false,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": true,
+          "addPitfallsSection": true,
+          "addMetricsSection": true
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "VALIDATED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/PRODUCTIVITY_2026_VI/PRODUCTIVITY_2026_VI_DAY_25__2026-01-30T17-58-43-812Z.json",
+        "insertedCount": 3,
+        "replacedCount": 7,
+        "invalidFound": 7,
+        "duplicatesFound": 0,
+        "questionsDeleted": 0,
+        "warnings": [],
+        "existingCounts": {
+          "total": 7,
+          "valid": 0,
+          "invalid": 7,
+          "application": 0,
+          "critical": 0,
+          "recall": 0,
+          "duplicates": 0
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_VI",
+      "courseName": "Năng suất 2026: Cách quản lý nhóm và thời gian",
+      "language": "vi",
+      "dayNumber": 26,
+      "lessonId": "PRODUCTIVITY_2026_VI_DAY_26",
+      "title": "Cố Vấn và Giảng Dạy: Chia Sẻ Kiến Thức, Giúp Người Khác",
+      "lessonCreatedAt": "2026-01-24T09:30:24.950Z",
+      "lessonQuality": {
+        "score": 20,
+        "issues": [
+          "TOO_SHORT",
+          "NO_CLEAR_DEFINITIONS",
+          "NO_EXAMPLES",
+          "NO_CONTRASTS_GOOD_BAD",
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 164,
+          "wordCount": 36,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": false,
+          "hasGoodBadContrast": false,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": true,
+          "addPitfallsSection": true,
+          "addMetricsSection": true
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "VALIDATED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/PRODUCTIVITY_2026_VI/PRODUCTIVITY_2026_VI_DAY_26__2026-01-30T17-58-43-812Z.json",
+        "insertedCount": 3,
+        "replacedCount": 7,
+        "invalidFound": 7,
+        "duplicatesFound": 0,
+        "questionsDeleted": 0,
+        "warnings": [],
+        "existingCounts": {
+          "total": 7,
+          "valid": 0,
+          "invalid": 7,
+          "application": 0,
+          "critical": 0,
+          "recall": 0,
+          "duplicates": 0
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_VI",
+      "courseName": "Năng suất 2026: Cách quản lý nhóm và thời gian",
+      "language": "vi",
+      "dayNumber": 27,
+      "lessonId": "PRODUCTIVITY_2026_VI_DAY_27",
+      "title": "Thói Quen và Nghi Thức: Thói Quen Hàng Ngày, Hành Động Dài Hạn",
+      "lessonCreatedAt": "2026-01-24T09:30:28.050Z",
+      "lessonQuality": {
+        "score": 20,
+        "issues": [
+          "TOO_SHORT",
+          "NO_CLEAR_DEFINITIONS",
+          "NO_EXAMPLES",
+          "NO_CONTRASTS_GOOD_BAD",
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 163,
+          "wordCount": 33,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": false,
+          "hasGoodBadContrast": false,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": true,
+          "addPitfallsSection": true,
+          "addMetricsSection": true
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "VALIDATED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/PRODUCTIVITY_2026_VI/PRODUCTIVITY_2026_VI_DAY_27__2026-01-30T17-58-43-812Z.json",
+        "insertedCount": 2,
+        "replacedCount": 7,
+        "invalidFound": 7,
+        "duplicatesFound": 0,
+        "questionsDeleted": 0,
+        "warnings": [],
+        "existingCounts": {
+          "total": 7,
+          "valid": 0,
+          "invalid": 7,
+          "application": 0,
+          "critical": 0,
+          "recall": 0,
+          "duplicates": 0
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_VI",
+      "courseName": "Năng suất 2026: Cách quản lý nhóm và thời gian",
+      "language": "vi",
+      "dayNumber": 28,
+      "lessonId": "PRODUCTIVITY_2026_VI_DAY_28",
+      "title": "Giá Trị và Mục Tiêu: Mục Đích Sống, Tầm Nhìn Dài Hạn",
+      "lessonCreatedAt": "2026-01-24T09:30:31.487Z",
+      "lessonQuality": {
+        "score": 20,
+        "issues": [
+          "TOO_SHORT",
+          "NO_CLEAR_DEFINITIONS",
+          "NO_EXAMPLES",
+          "NO_CONTRASTS_GOOD_BAD",
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 145,
+          "wordCount": 32,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": false,
+          "hasGoodBadContrast": false,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": true,
+          "addPitfallsSection": true,
+          "addMetricsSection": true
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "VALIDATED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/PRODUCTIVITY_2026_VI/PRODUCTIVITY_2026_VI_DAY_28__2026-01-30T17-58-43-812Z.json",
+        "insertedCount": 4,
+        "replacedCount": 7,
+        "invalidFound": 7,
+        "duplicatesFound": 0,
+        "questionsDeleted": 0,
+        "warnings": [],
+        "existingCounts": {
+          "total": 7,
+          "valid": 0,
+          "invalid": 7,
+          "application": 0,
+          "critical": 0,
+          "recall": 0,
+          "duplicates": 0
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_VI",
+      "courseName": "Năng suất 2026: Cách quản lý nhóm và thời gian",
+      "language": "vi",
+      "dayNumber": 29,
+      "lessonId": "PRODUCTIVITY_2026_VI_DAY_29",
+      "title": "Liên Tục Cải Thiện: Học Tập, Phản Hồi, Lặp Lại",
+      "lessonCreatedAt": "2026-01-24T09:30:35.577Z",
+      "lessonQuality": {
+        "score": 20,
+        "issues": [
+          "TOO_SHORT",
+          "NO_CLEAR_DEFINITIONS",
+          "NO_EXAMPLES",
+          "NO_CONTRASTS_GOOD_BAD",
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 155,
+          "wordCount": 30,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": false,
+          "hasGoodBadContrast": false,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": true,
+          "addPitfallsSection": true,
+          "addMetricsSection": true
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "VALIDATED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/PRODUCTIVITY_2026_VI/PRODUCTIVITY_2026_VI_DAY_29__2026-01-30T17-58-43-812Z.json",
+        "insertedCount": 3,
+        "replacedCount": 7,
+        "invalidFound": 7,
+        "duplicatesFound": 0,
+        "questionsDeleted": 0,
+        "warnings": [],
+        "existingCounts": {
+          "total": 7,
+          "valid": 0,
+          "invalid": 7,
+          "application": 0,
+          "critical": 0,
+          "recall": 0,
+          "duplicates": 0
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_VI",
+      "courseName": "Năng suất 2026: Cách quản lý nhóm và thời gian",
+      "language": "vi",
+      "dayNumber": 30,
+      "lessonId": "PRODUCTIVITY_2026_VI_DAY_30",
+      "title": "Bậc Thầy Năng Suất: Tích Hợp Toàn Diện, Cam Kết",
+      "lessonCreatedAt": "2026-01-24T09:30:38.635Z",
+      "lessonQuality": {
+        "score": 20,
+        "issues": [
+          "TOO_SHORT",
+          "NO_CLEAR_DEFINITIONS",
+          "NO_EXAMPLES",
+          "NO_CONTRASTS_GOOD_BAD",
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 142,
+          "wordCount": 30,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": false,
+          "hasGoodBadContrast": false,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": true,
+          "addPitfallsSection": true,
+          "addMetricsSection": true
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "VALIDATED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/PRODUCTIVITY_2026_VI/PRODUCTIVITY_2026_VI_DAY_30__2026-01-30T17-58-43-812Z.json",
+        "insertedCount": 4,
+        "replacedCount": 7,
+        "invalidFound": 7,
+        "duplicatesFound": 0,
+        "questionsDeleted": 0,
+        "warnings": [],
+        "existingCounts": {
+          "total": 7,
+          "valid": 0,
+          "invalid": 7,
+          "application": 0,
+          "critical": 0,
+          "recall": 0,
+          "duplicates": 0
+        }
+      }
+    }
+  ]
+}

@@ -6,7 +6,7 @@
  */
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import { useParams, useRouter } from 'next/navigation';
 import { useLocale } from 'next-intl';
 import { useSession } from 'next-auth/react';
@@ -283,13 +283,7 @@ export default function FinalExamPage() {
   const [result, setResult] = useState<{ score?: number; passed?: boolean } | null>(null);
   const [error, setError] = useState<string | null>(null);
 
-  useEffect(() => {
-    if (status === 'authenticated') {
-      loadEntitlement();
-    }
-  }, [status]);
-
-  const loadEntitlement = async () => {
+  const loadEntitlement = useCallback(async () => {
     setLoadingEnt(true);
     setError(null);
     try {
@@ -312,7 +306,13 @@ export default function FinalExamPage() {
     } finally {
       setLoadingEnt(false);
     }
-  };
+  }, [courseId]);
+
+  useEffect(() => {
+    if (status === 'authenticated') {
+      void loadEntitlement();
+    }
+  }, [loadEntitlement, status]);
 
   const redeemPoints = async () => {
     setSubmitting(true);

@@ -4,7 +4,7 @@
 
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import { useRouter } from 'next/navigation';
 import { useLocale } from 'next-intl';
 import { CheckCircle, XCircle, ArrowLeft, Loader2 } from 'lucide-react';
@@ -24,6 +24,10 @@ interface LessonResponse {
   };
   error?: string;
 }
+
+type LessonDayApiResponse = LessonResponse & {
+  courseLanguage?: string;
+};
 
 interface Question {
   id: string;
@@ -201,43 +205,19 @@ export default function LessonQuizPage({
   const [isAnswerCorrect, setIsAnswerCorrect] = useState<boolean | null>(null);
   const [error, setError] = useState<string | null>(null);
 
-  useEffect(() => {
-    const init = async () => {
-      const resolved = await params;
-      const cid = resolved.courseId;
-      const day = parseInt(resolved.dayNumber);
-      
-      setCourseId(cid);
-      setDayNumber(day);
-      
-      // Extract language from courseId suffix (e.g., PRODUCTIVITY_2026_AR → ar)
-      // This ensures links use correct language immediately, before API call
-      const parts = cid.split('_');
-      const suffix = parts[parts.length - 1].toLowerCase();
-      const validLanguages = ['hu', 'en', 'ar', 'ru', 'pt', 'vi', 'id', 'hi', 'tr', 'bg', 'pl'];
-      if (validLanguages.includes(suffix)) {
-        setCourseLanguage(suffix);
-      }
-      
-      await loadLessonAndQuestions(cid, day);
-    };
-    init();
-  }, [params]);
-
-  const loadLessonAndQuestions = async (cid: string, day: number) => {
+  const loadLessonAndQuestions = useCallback(async (cid: string, day: number, fallbackLanguage: string) => {
     try {
       setLoading(true);
       setError(null);
       const lessonRes = await fetch(`/api/courses/${cid}/day/${day}`, { cache: 'no-store' });
-      const lessonData: Record<string, unknown> = await lessonRes.json();
-      
+      const lessonData = (await lessonRes.json()) as LessonDayApiResponse;
+      const apiLanguage = lessonData.courseLanguage || fallbackLanguage;
+
       // Get course language from API response FIRST
-      if (lessonData.courseLanguage) {
-        setCourseLanguage(lessonData.courseLanguage);
-      }
+      if (lessonData.courseLanguage) setCourseLanguage(lessonData.courseLanguage);
       
       if (!lessonData.success || !lessonData.lesson) {
-        setError(lessonData.error || getQuizPageText('failedToLoadLesson', lessonData.courseLanguage || courseLanguage));
+        setError(lessonData.error || getQuizPageText('failedToLoadLesson', apiLanguage));
         return;
       }
       
@@ -254,15 +234,39 @@ export default function LessonQuizPage({
         setQuestions(qData.data.questions);
         setCurrentIndex(0);
       } else {
-        setError(qData.error?.message || getQuizPageText('quizError', lessonData.courseLanguage || courseLanguage));
+        setError(qData.error?.message || getQuizPageText('quizError', apiLanguage));
       }
     } catch (err) {
       console.error(err);
-      setError(getQuizPageText('quizError', courseLanguage));
+      setError(getQuizPageText('quizError', fallbackLanguage));
     } finally {
       setLoading(false);
     }
-  };
+  }, []);
+
+  useEffect(() => {
+    const init = async () => {
+      const resolved = await params;
+      const cid = resolved.courseId;
+      const day = parseInt(resolved.dayNumber);
+      
+      setCourseId(cid);
+      setDayNumber(day);
+      
+      // Extract language from courseId suffix (e.g., PRODUCTIVITY_2026_AR → ar)
+      // This ensures links use correct language immediately, before API call
+      const parts = cid.split('_');
+      const suffix = parts[parts.length - 1].toLowerCase();
+      const validLanguages = ['hu', 'en', 'ar', 'ru', 'pt', 'vi', 'id', 'hi', 'tr', 'bg', 'pl'];
+      const fallbackLanguage = validLanguages.includes(suffix) ? suffix : 'en';
+      if (validLanguages.includes(suffix)) {
+        setCourseLanguage(suffix);
+      }
+      
+      await loadLessonAndQuestions(cid, day, fallbackLanguage);
+    };
+    init();
+  }, [loadLessonAndQuestions, params]);
 
   const currentQuestion = questions[currentIndex];
 

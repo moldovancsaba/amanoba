@@ -7,7 +7,7 @@
 
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
 import { useLocale, useTranslations } from 'next-intl';
 import {
@@ -52,11 +52,7 @@ export default function AdminRewardsPage() {
   const [search, setSearch] = useState('');
   const [categoryFilter, setCategoryFilter] = useState<string>('all');
 
-  useEffect(() => {
-    fetchRewards();
-  }, [search, categoryFilter]);
-
-  const fetchRewards = async () => {
+  const fetchRewards = useCallback(async () => {
     try {
       setLoading(true);
       const params = new URLSearchParams();
@@ -78,7 +74,11 @@ export default function AdminRewardsPage() {
     } finally {
       setLoading(false);
     }
-  };
+  }, [categoryFilter, search]);
+
+  useEffect(() => {
+    void fetchRewards();
+  }, [fetchRewards]);
 
   if (loading) {
     return (

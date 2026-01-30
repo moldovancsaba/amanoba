@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-30T17:58:50.201Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_VI",
+    "name": "Năng suất 2026: Cách quản lý nhóm và thời gian",
+    "language": "vi"
+  },
+  "lesson": {
+    "dayNumber": 30,
+    "title": "Bậc Thầy Năng Suất: Tích Hợp Toàn Diện, Cam Kết",
+    "lessonId": "PRODUCTIVITY_2026_VI_DAY_30"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a1ebfaf87642652769d",
+      "uuid": "f5b2015d-770b-4565-ab36-4c6c8a2db312",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "You are working on a task and must pick an approach. How would you use the \"Tổng hợp, suy tư và hướng tới tương lai.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail , test the results, and document my experiences",
+        "I only understand it theoretically",
+        "Lua chon cu the: I don't apply it.",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day30",
+        "#vi",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a1ebfaf87642652769e",
+      "uuid": "77d4a697-12a3-4997-b392-17a4b3e8efb8",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "You're in a real situation and need to choose next steps. How would you use the \"Tổng hợp, suy tư và hướng tới tương lai.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail , test the results, and document my experiences",
+        "I only understand it theoretically",
+        "Ban chon: I don't apply it.",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day30",
+        "#vi",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a1ebfaf87642652769f",
+      "uuid": "60a58c24-27f1-4ff0-9e4d-b70790ee41df",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Tổng hợp, suy tư và hướng tới tương lai.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day30",
+        "#vi",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a1ebfaf8764265276a0",
+      "uuid": "2a054ae2-8ad7-40c3-81f7-f331637f617c",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Khái niệm \"Bậc Thầy Năng Suất: Tích Hợp Toàn Diện, Cam Kết Tổ...\" được đề cập trong bài học ảnh hưởng như thế nào đến việc đạt được goals của bạn?",
+      "options": [
+        "Như đã mô tả chi tiết trong bài học, Bậc Thầy Năng Suất: Tích Hợp T... tăng hiệu quả và giảm rủi ro",
+        "Không có tác động đáng kể",
+        "Chỉ quan trọng về mặt lý thuyết",
+        "Chỉ là yếu tố tùy chọn"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day30",
+        "#vi",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a1ebfaf8764265276a1",
+      "uuid": "6192f113-dab3-4fba-b137-74fddff89fc8",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Thầy quan trọng như thế nào trong ngữ cảnh của Bậc Thầy Năng Suất: Tích Hợp Toàn Diện, Cam Kết như được thảo luận trong bài học?",
+      "options": [
+        "Như đã mô tả chi tiết trong bài học, Thầy đóng vai trò quan trọng trong việc tối ưu hóa quy trình và đạt được mục tiêu",
+        "Chỉ là thông tin ngoại vi không có vai trò quan trọng",
+        "Chỉ là một khái niệm lý thuyết không có ứng dụng thực tế",
+        "Không được đề cập trong bài học"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day30",
+        "#vi",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "69776a1ebfaf8764265276a2",
+      "uuid": "bc9df2f4-f538-4fe9-89a6-6ea1a9147af9",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Suất quan trọng như thế nào trong ngữ cảnh của Bậc Thầy Năng Suất: Tích Hợp Toàn Diện, Cam Kết như được thảo luận trong bài học?",
+      "options": [
+        "Như đã mô tả chi tiết trong bài học, Suất đóng vai trò quan trọng trong việc tối ưu hóa quy trình và đạt được mục tiêu",
+        "Chỉ là thông tin ngoại vi không có vai trò quan trọng",
+        "Chỉ là một khái niệm lý thuyết không có ứng dụng thực tế",
+        "Không được đề cập trong bài học"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day30",
+        "#vi",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a1ebfaf8764265276a3",
+      "uuid": "33f14ef4-9b57-4de9-a083-78da3a8e9a77",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Toàn quan trọng như thế nào trong ngữ cảnh của Bậc Thầy Năng Suất: Tích Hợp Toàn Diện, Cam Kết như được thảo luận trong bài học?",
+      "options": [
+        "Như đã mô tả chi tiết trong bài học, Toàn đóng vai trò quan trọng trong việc tối ưu hóa quy trình và đạt được mục tiêu",
+        "Chỉ là thông tin ngoại vi không có vai trò quan trọng",
+        "Chỉ là một khái niệm lý thuyết không có ứng dụng thực tế",
+        "Không được đề cập trong bài học"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day30",
+        "#vi",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

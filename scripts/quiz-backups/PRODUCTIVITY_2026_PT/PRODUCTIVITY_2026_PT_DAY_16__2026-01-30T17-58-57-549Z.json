@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-30T17:59:07.191Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_PT",
+    "name": "Produtividade 2026: Como Gerenciar Equipes e Tempo",
+    "language": "pt"
+  },
+  "lesson": {
+    "dayNumber": 16,
+    "title": "Gerenciamento de Estresse e Fadiga: Recuperação, Equilíbrio Trabalho-Vida",
+    "lessonId": "PRODUCTIVITY_2026_PT_DAY_16"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a396360118c57912b06",
+      "uuid": "08b597b0-a237-49af-8135-20dead6f9c2a",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Durante a execucao, um trade-off obriga voce a priorizar. How would you use the \"Gerencie fadiga e mantenha limites de saúde.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail , test the results, and document my experiences",
+        "I only understand it theoretically",
+        "Opcao concreta: I don't apply it.",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day16",
+        "#pt",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a396360118c57912b07",
+      "uuid": "7e1d0378-1c54-4093-ac8e-dcd7f9fc12bb",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Gerencie fadiga e mantenha limites de saúde.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day16",
+        "#pt",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a396360118c57912b08",
+      "uuid": "4a0162a9-fa4a-4b74-80cb-aed97e6f258a",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Depois de uma revisao, voce precisa decidir o que mudar a seguir. How would you use the \"Gerencie fadiga e mantenha limites de saúde.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail , test the results, and document my experiences",
+        "I only understand it theoretically",
+        "Voce escolhe: I don't apply it.",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day16",
+        "#pt",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a396360118c57912b09",
+      "uuid": "eaa49cba-b4bb-41eb-bd4e-42a9f0784989",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Como o conceito \"Gerenciamento de Estresse e Fadiga: Recuperação, E...\", mencionado na lição, impacta o alcance de seus goals?",
+      "options": [
+        "Como descrito em detalhes na lição, Gerenciamento de Estresse e Fa... aumenta a eficácia e reduz os riscos",
+        "Sem impacto significativo",
+        "Importa apenas teoricamente",
+        "Apenas um elemento opcional"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day16",
+        "#pt",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a396360118c57912b0a",
+      "uuid": "fad61a94-7054-4eb5-a082-7ef00f59d4f5",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Quão importante é Gerenciamento no contexto de Gerenciamento de Estresse e Fadiga: Recuperação, Equilíbrio Trabalho-Vida, conforme discutido na lição?",
+      "options": [
+        "Conforme descrito em detalhes na lição, Gerenciamento desempenha um papel crucial na otimização de processos e no alcance de objetivos",
+        "Apenas informações periféricas sem papel significativo",
+        "Apenas um conceito teórico sem aplicação prática",
+        "Opcao concreta: Não mencionado na lição."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day16",
+        "#pt",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "69776a396360118c57912b0b",
+      "uuid": "2af89e73-c6fe-4159-9b5a-175ee65009c7",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Quão importante é Fadiga no contexto de Gerenciamento de Estresse e Fadiga: Recuperação, Equilíbrio Trabalho-Vida, conforme discutido na lição?",
+      "options": [
+        "Conforme descrito em detalhes na lição, Fadiga desempenha um papel crucial na otimização de processos e no alcance de objetivos",
+        "Apenas informações periféricas sem papel significativo",
+        "Apenas um conceito teórico sem aplicação prática",
+        "Não mencionado na lição"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day16",
+        "#pt",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a396360118c57912b0c",
+      "uuid": "ee31a3a3-4aa0-46a1-82d5-9876c56cd828",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Quão importante é Equilíbrio no contexto de Gerenciamento de Estresse e Fadiga: Recuperação, Equilíbrio Trabalho-Vida, conforme discutido na lição?",
+      "options": [
+        "Conforme descrito em detalhes na lição, Equilíbrio desempenha um papel crucial na otimização de processos e no alcance de objetivos",
+        "Apenas informações periféricas sem papel significativo",
+        "Apenas um conceito teórico sem aplicação prática",
+        "Não mencionado na lição"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day16",
+        "#pt",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

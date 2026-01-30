@@ -1,0 +1,81 @@
+# Lesson Refinement Tasks
+
+Generated: 2026-01-30T18:00:04.561Z
+Min lesson score: 70
+Course filter: PRODUCTIVITY_2026_VI
+
+- [ ] **PRODUCTIVITY_2026_VI** Day 7 — Hệ thống hàng ngày/hàng tuần: ritual buổi sáng, cuộc họp hàng ngày, đánh giá hàng tuần (lessonId: `PRODUCTIVITY_2026_VI_DAY_07`)
+  - Score: **55/100**
+  - Issues: NO_CLEAR_DEFINITIONS, NO_EXAMPLES, NO_METRICS_OR_CRITERIA
+
+- [ ] **PRODUCTIVITY_2026_VI** Day 11 — Đặt Mục Tiêu và OKR: Bạn Muốn Đạt Được Cái Gì? (lessonId: `PRODUCTIVITY_2026_VI_DAY_11`)
+  - Score: **20/100**
+  - Issues: TOO_SHORT, NO_CLEAR_DEFINITIONS, NO_EXAMPLES, NO_CONTRASTS_GOOD_BAD, NO_METRICS_OR_CRITERIA
+
+- [ ] **PRODUCTIVITY_2026_VI** Day 14 — Hiệu Quả Cuộc Họp: Chương Trình Nghị Sự, Giới Hạn Thời Gian, Nhật Ký Quyết Định (lessonId: `PRODUCTIVITY_2026_VI_DAY_14`)
+  - Score: **20/100**
+  - Issues: TOO_SHORT, NO_CLEAR_DEFINITIONS, NO_EXAMPLES, NO_CONTRASTS_GOOD_BAD, NO_METRICS_OR_CRITERIA
+
+- [ ] **PRODUCTIVITY_2026_VI** Day 15 — Làm Việc Nhóm và Hiệu Năng: Vai Trò, Trách Nhiệm, Phối Hợp (lessonId: `PRODUCTIVITY_2026_VI_DAY_15`)
+  - Score: **20/100**
+  - Issues: TOO_SHORT, NO_CLEAR_DEFINITIONS, NO_EXAMPLES, NO_CONTRASTS_GOOD_BAD, NO_METRICS_OR_CRITERIA
+
+- [ ] **PRODUCTIVITY_2026_VI** Day 16 — Quản Lý Căng Thẳng và Mệt Mỏi: Phục Hồi, Cân Bằng Công Việc-Cuộc Sống (lessonId: `PRODUCTIVITY_2026_VI_DAY_16`)
+  - Score: **20/100**
+  - Issues: TOO_SHORT, NO_CLEAR_DEFINITIONS, NO_EXAMPLES, NO_CONTRASTS_GOOD_BAD, NO_METRICS_OR_CRITERIA
+
+- [ ] **PRODUCTIVITY_2026_VI** Day 17 — Duy Trì Động Lực: Theo Dõi Tiến Độ, Ăn Mừng Chiến Thắng (lessonId: `PRODUCTIVITY_2026_VI_DAY_17`)
+  - Score: **20/100**
+  - Issues: TOO_SHORT, NO_CLEAR_DEFINITIONS, NO_EXAMPLES, NO_CONTRASTS_GOOD_BAD, NO_METRICS_OR_CRITERIA
+
+- [ ] **PRODUCTIVITY_2026_VI** Day 18 — Quản Lý Khủng Hoảng và Tính Thích Ứng: Thích Ứng, Học Nhanh (lessonId: `PRODUCTIVITY_2026_VI_DAY_18`)
+  - Score: **20/100**
+  - Issues: TOO_SHORT, NO_CLEAR_DEFINITIONS, NO_EXAMPLES, NO_CONTRASTS_GOOD_BAD, NO_METRICS_OR_CRITERIA
+
+- [ ] **PRODUCTIVITY_2026_VI** Day 19 — Lập Kế Hoạch Dài Hạn: Năm Phía Trước, Chiến Lược, Tiến Hóa (lessonId: `PRODUCTIVITY_2026_VI_DAY_19`)
+  - Score: **20/100**
+  - Issues: TOO_SHORT, NO_CLEAR_DEFINITIONS, NO_EXAMPLES, NO_CONTRASTS_GOOD_BAD, NO_METRICS_OR_CRITERIA
+
+- [ ] **PRODUCTIVITY_2026_VI** Day 20 — Năng Suất Cuộc Sống Cá Nhân: Tổ Chức Nhà, Dự Án Cá Nhân (lessonId: `PRODUCTIVITY_2026_VI_DAY_20`)
+  - Score: **20/100**
+  - Issues: TOO_SHORT, NO_CLEAR_DEFINITIONS, NO_EXAMPLES, NO_CONTRASTS_GOOD_BAD, NO_METRICS_OR_CRITERIA
+
+- [ ] **PRODUCTIVITY_2026_VI** Day 21 — Cộng Đồng và Mạng Lưới: Quan Hệ, Học Với Người Khác (lessonId: `PRODUCTIVITY_2026_VI_DAY_21`)
+  - Score: **20/100**
+  - Issues: TOO_SHORT, NO_CLEAR_DEFINITIONS, NO_EXAMPLES, NO_CONTRASTS_GOOD_BAD, NO_METRICS_OR_CRITERIA
+
+- [ ] **PRODUCTIVITY_2026_VI** Day 22 — Công Nghệ và Công Cụ: Tự Động Hóa, Chọn Công Nghệ Phù Hợp (lessonId: `PRODUCTIVITY_2026_VI_DAY_22`)
+  - Score: **20/100**
+  - Issues: TOO_SHORT, NO_CLEAR_DEFINITIONS, NO_EXAMPLES, NO_CONTRASTS_GOOD_BAD, NO_METRICS_OR_CRITERIA
+
+- [ ] **PRODUCTIVITY_2026_VI** Day 23 — Sáng Tạo và Đổi Mới: Tái Suy Nghĩ, Thí Nghiệm (lessonId: `PRODUCTIVITY_2026_VI_DAY_23`)
+  - Score: **20/100**
+  - Issues: TOO_SHORT, NO_CLEAR_DEFINITIONS, NO_EXAMPLES, NO_CONTRASTS_GOOD_BAD, NO_METRICS_OR_CRITERIA
+
+- [ ] **PRODUCTIVITY_2026_VI** Day 24 — Lọc Lựa và Ưu Tiên: Điều Cần Bỏ Qua, Điều Quan Trọng (lessonId: `PRODUCTIVITY_2026_VI_DAY_24`)
+  - Score: **20/100**
+  - Issues: TOO_SHORT, NO_CLEAR_DEFINITIONS, NO_EXAMPLES, NO_CONTRASTS_GOOD_BAD, NO_METRICS_OR_CRITERIA
+
+- [ ] **PRODUCTIVITY_2026_VI** Day 25 — Phát Triển Kỹ Năng: Các Cấp Độ Cao Hơn, Năng Lực Mới (lessonId: `PRODUCTIVITY_2026_VI_DAY_25`)
+  - Score: **20/100**
+  - Issues: TOO_SHORT, NO_CLEAR_DEFINITIONS, NO_EXAMPLES, NO_CONTRASTS_GOOD_BAD, NO_METRICS_OR_CRITERIA
+
+- [ ] **PRODUCTIVITY_2026_VI** Day 26 — Cố Vấn và Giảng Dạy: Chia Sẻ Kiến Thức, Giúp Người Khác (lessonId: `PRODUCTIVITY_2026_VI_DAY_26`)
+  - Score: **20/100**
+  - Issues: TOO_SHORT, NO_CLEAR_DEFINITIONS, NO_EXAMPLES, NO_CONTRASTS_GOOD_BAD, NO_METRICS_OR_CRITERIA
+
+- [ ] **PRODUCTIVITY_2026_VI** Day 27 — Thói Quen và Nghi Thức: Thói Quen Hàng Ngày, Hành Động Dài Hạn (lessonId: `PRODUCTIVITY_2026_VI_DAY_27`)
+  - Score: **20/100**
+  - Issues: TOO_SHORT, NO_CLEAR_DEFINITIONS, NO_EXAMPLES, NO_CONTRASTS_GOOD_BAD, NO_METRICS_OR_CRITERIA
+
+- [ ] **PRODUCTIVITY_2026_VI** Day 28 — Giá Trị và Mục Tiêu: Mục Đích Sống, Tầm Nhìn Dài Hạn (lessonId: `PRODUCTIVITY_2026_VI_DAY_28`)
+  - Score: **20/100**
+  - Issues: TOO_SHORT, NO_CLEAR_DEFINITIONS, NO_EXAMPLES, NO_CONTRASTS_GOOD_BAD, NO_METRICS_OR_CRITERIA
+
+- [ ] **PRODUCTIVITY_2026_VI** Day 29 — Liên Tục Cải Thiện: Học Tập, Phản Hồi, Lặp Lại (lessonId: `PRODUCTIVITY_2026_VI_DAY_29`)
+  - Score: **20/100**
+  - Issues: TOO_SHORT, NO_CLEAR_DEFINITIONS, NO_EXAMPLES, NO_CONTRASTS_GOOD_BAD, NO_METRICS_OR_CRITERIA
+
+- [ ] **PRODUCTIVITY_2026_VI** Day 30 — Bậc Thầy Năng Suất: Tích Hợp Toàn Diện, Cam Kết (lessonId: `PRODUCTIVITY_2026_VI_DAY_30`)
+  - Score: **20/100**
+  - Issues: TOO_SHORT, NO_CLEAR_DEFINITIONS, NO_EXAMPLES, NO_CONTRASTS_GOOD_BAD, NO_METRICS_OR_CRITERIA

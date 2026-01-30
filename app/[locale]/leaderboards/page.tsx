@@ -99,12 +99,12 @@ export default function LeaderboardsPage() {
         
         const raw = await response.json();
         const mapped = {
-          entries: (raw.entries || []).map((e: Record<string, unknown>) => ({
-            playerId: e.player?.id?.toString() || 'unknown',
-            playerName: e.player?.displayName || 'Unknown Player',
-            rank: e.rank,
+          entries: (raw.entries || []).map((e: { player?: { id?: unknown; displayName?: string }; rank?: number; previousRank?: number; score?: number }) => ({
+            playerId: (e.player?.id != null ? String(e.player.id) : null) || 'unknown',
+            playerName: e.player?.displayName ?? 'Unknown Player',
+            rank: e.rank ?? 0,
             previousRank: e.previousRank,
-            value: e.score,
+            value: e.score ?? 0,
             metadata: undefined,
           })),
           leaderboardType: 'score',
@@ -190,7 +190,7 @@ export default function LeaderboardsPage() {
                     : 'bg-brand-white text-brand-darkGrey border-brand-darkGrey/20 hover:border-brand-darkGrey'
                 }`}
               >
-                <div className="text-3xl mb-2">{game.icon}</div>
+                <div className="text-3xl mb-2"><Icon icon={game.iconComponent} size={32} /></div>
                 <div className="text-sm">{tGames(game.nameKey)}</div>
               </button>
             ))}

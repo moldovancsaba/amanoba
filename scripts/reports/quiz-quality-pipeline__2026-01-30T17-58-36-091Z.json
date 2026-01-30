@@ -1,0 +1,1803 @@
+{
+  "generatedAt": "2026-01-30T17:58:36.091Z",
+  "dryRun": true,
+  "minLessonScore": 70,
+  "courseFilter": "PRODUCTIVITY_2026_PT",
+  "lessonFilter": null,
+  "totals": {
+    "courses": 1,
+    "lessonsEvaluated": 30,
+    "lessonsNeedingRefine": 19,
+    "lessonsRewritten": 30,
+    "lessonsFailedRewrite": 0,
+    "questionsDeleted": 0,
+    "questionsInserted": 0
+  },
+  "lessons": [
+    {
+      "courseId": "PRODUCTIVITY_2026_PT",
+      "courseName": "Produtividade 2026: Como Gerenciar Equipes e Tempo",
+      "language": "pt",
+      "dayNumber": 1,
+      "lessonId": "PRODUCTIVITY_2026_PT_DAY_01",
+      "title": "Definição de produtividade: output, outcome e restrições",
+      "lessonCreatedAt": "2026-01-23T19:27:04.317Z",
+      "lessonQuality": {
+        "score": 85,
+        "issues": [
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 2762,
+          "wordCount": 403,
+          "hasBullets": true,
+          "hasNumberedSteps": true,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": true
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "VALIDATED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/PRODUCTIVITY_2026_PT/PRODUCTIVITY_2026_PT_DAY_01__2026-01-30T17-58-36-091Z.json",
+        "insertedCount": 1,
+        "replacedCount": 3,
+        "invalidFound": 0,
+        "duplicatesFound": 3,
+        "questionsDeleted": 0,
+        "warnings": [],
+        "existingCounts": {
+          "total": 7,
+          "valid": 7,
+          "invalid": 0,
+          "application": 5,
+          "critical": 2,
+          "recall": 0,
+          "duplicates": 3
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_PT",
+      "courseName": "Produtividade 2026: Como Gerenciar Equipes e Tempo",
+      "language": "pt",
+      "dayNumber": 2,
+      "lessonId": "PRODUCTIVITY_2026_PT_DAY_02",
+      "title": "Tempo, energia, atenção: o que você gerencia na prática",
+      "lessonCreatedAt": "2026-01-23T21:22:29.643Z",
+      "lessonQuality": {
+        "score": 70,
+        "issues": [
+          "NO_CLEAR_DEFINITIONS",
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 3378,
+          "wordCount": 515,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": true
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "VALIDATED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/PRODUCTIVITY_2026_PT/PRODUCTIVITY_2026_PT_DAY_02__2026-01-30T17-58-36-091Z.json",
+        "insertedCount": 3,
+        "replacedCount": 4,
+        "invalidFound": 0,
+        "duplicatesFound": 4,
+        "questionsDeleted": 0,
+        "warnings": [],
+        "existingCounts": {
+          "total": 7,
+          "valid": 7,
+          "invalid": 0,
+          "application": 5,
+          "critical": 2,
+          "recall": 0,
+          "duplicates": 4
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_PT",
+      "courseName": "Produtividade 2026: Como Gerenciar Equipes e Tempo",
+      "language": "pt",
+      "dayNumber": 3,
+      "lessonId": "PRODUCTIVITY_2026_PT_DAY_03",
+      "title": "Hierarquia de objetivos: visão → resultados → projetos → próximas ações",
+      "lessonCreatedAt": "2026-01-23T21:28:06.298Z",
+      "lessonQuality": {
+        "score": 70,
+        "issues": [
+          "NO_CLEAR_DEFINITIONS",
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 2922,
+          "wordCount": 460,
+          "hasBullets": true,
+          "hasNumberedSteps": true,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": true
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "VALIDATED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/PRODUCTIVITY_2026_PT/PRODUCTIVITY_2026_PT_DAY_03__2026-01-30T17-58-36-091Z.json",
+        "insertedCount": 4,
+        "replacedCount": 5,
+        "invalidFound": 0,
+        "duplicatesFound": 5,
+        "questionsDeleted": 0,
+        "warnings": [],
+        "existingCounts": {
+          "total": 7,
+          "valid": 7,
+          "invalid": 0,
+          "application": 5,
+          "critical": 2,
+          "recall": 0,
+          "duplicates": 5
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_PT",
+      "courseName": "Produtividade 2026: Como Gerenciar Equipes e Tempo",
+      "language": "pt",
+      "dayNumber": 4,
+      "lessonId": "PRODUCTIVITY_2026_PT_DAY_04",
+      "title": "Hábitos vs sistemas: por que sistemas escalam melhor",
+      "lessonCreatedAt": "2026-01-23T21:34:24.385Z",
+      "lessonQuality": {
+        "score": 85,
+        "issues": [
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 2867,
+          "wordCount": 421,
+          "hasBullets": true,
+          "hasNumberedSteps": true,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": true
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "VALIDATED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/PRODUCTIVITY_2026_PT/PRODUCTIVITY_2026_PT_DAY_04__2026-01-30T17-58-36-091Z.json",
+        "insertedCount": 2,
+        "replacedCount": 4,
+        "invalidFound": 0,
+        "duplicatesFound": 4,
+        "questionsDeleted": 0,
+        "warnings": [],
+        "existingCounts": {
+          "total": 7,
+          "valid": 7,
+          "invalid": 0,
+          "application": 5,
+          "critical": 2,
+          "recall": 0,
+          "duplicates": 4
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_PT",
+      "courseName": "Produtividade 2026: Como Gerenciar Equipes e Tempo",
+      "language": "pt",
+      "dayNumber": 5,
+      "lessonId": "PRODUCTIVITY_2026_PT_DAY_05",
+      "title": "Medição: métricas simples de revisão semanal (throughput, blocos de foco, carryover)",
+      "lessonCreatedAt": "2026-01-23T21:40:15.517Z",
+      "lessonQuality": {
+        "score": 70,
+        "issues": [
+          "NO_CLEAR_DEFINITIONS",
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 2640,
+          "wordCount": 403,
+          "hasBullets": true,
+          "hasNumberedSteps": true,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": true
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "VALIDATED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/PRODUCTIVITY_2026_PT/PRODUCTIVITY_2026_PT_DAY_05__2026-01-30T17-58-36-091Z.json",
+        "insertedCount": 3,
+        "replacedCount": 4,
+        "invalidFound": 0,
+        "duplicatesFound": 4,
+        "questionsDeleted": 0,
+        "warnings": [],
+        "existingCounts": {
+          "total": 7,
+          "valid": 7,
+          "invalid": 0,
+          "application": 5,
+          "critical": 2,
+          "recall": 0,
+          "duplicates": 4
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_PT",
+      "courseName": "Produtividade 2026: Como Gerenciar Equipes e Tempo",
+      "language": "pt",
+      "dayNumber": 6,
+      "lessonId": "PRODUCTIVITY_2026_PT_DAY_06",
+      "title": "Captura: caixas de entrada, lista de gatilhos, hábitos de captura",
+      "lessonCreatedAt": "2026-01-23T21:43:44.666Z",
+      "lessonQuality": {
+        "score": 85,
+        "issues": [
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 2803,
+          "wordCount": 441,
+          "hasBullets": true,
+          "hasNumberedSteps": true,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": true
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "VALIDATED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/PRODUCTIVITY_2026_PT/PRODUCTIVITY_2026_PT_DAY_06__2026-01-30T17-58-36-091Z.json",
+        "insertedCount": 4,
+        "replacedCount": 5,
+        "invalidFound": 0,
+        "duplicatesFound": 5,
+        "questionsDeleted": 0,
+        "warnings": [],
+        "existingCounts": {
+          "total": 7,
+          "valid": 7,
+          "invalid": 0,
+          "application": 5,
+          "critical": 2,
+          "recall": 0,
+          "duplicates": 5
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_PT",
+      "courseName": "Produtividade 2026: Como Gerenciar Equipes e Tempo",
+      "language": "pt",
+      "dayNumber": 7,
+      "lessonId": "PRODUCTIVITY_2026_PT_DAY_07",
+      "title": "Sistema diário/semanal: ritual matinal, reunião diária, revisão semanal",
+      "lessonCreatedAt": "2026-01-24T08:15:48.056Z",
+      "lessonQuality": {
+        "score": 55,
+        "issues": [
+          "NO_CLEAR_DEFINITIONS",
+          "NO_EXAMPLES",
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 2031,
+          "wordCount": 338,
+          "hasBullets": true,
+          "hasNumberedSteps": true,
+          "hasExamples": false,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": true,
+          "addPitfallsSection": false,
+          "addMetricsSection": true
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "VALIDATED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/PRODUCTIVITY_2026_PT/PRODUCTIVITY_2026_PT_DAY_07__2026-01-30T17-58-36-091Z.json",
+        "insertedCount": 5,
+        "replacedCount": 7,
+        "invalidFound": 7,
+        "duplicatesFound": 0,
+        "questionsDeleted": 0,
+        "warnings": [],
+        "existingCounts": {
+          "total": 7,
+          "valid": 0,
+          "invalid": 7,
+          "application": 0,
+          "critical": 0,
+          "recall": 0,
+          "duplicates": 0
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_PT",
+      "courseName": "Produtividade 2026: Como Gerenciar Equipes e Tempo",
+      "language": "pt",
+      "dayNumber": 8,
+      "lessonId": "PRODUCTIVITY_2026_PT_DAY_8",
+      "title": "Custo de Mudança de Contexto: Resíduo de Atenção, Processamento em Lote, Blocos de Trabalho Profundo",
+      "lessonCreatedAt": "2026-01-24T08:31:20.242Z",
+      "lessonQuality": {
+        "score": 85,
+        "issues": [
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 2621,
+          "wordCount": 421,
+          "hasBullets": true,
+          "hasNumberedSteps": true,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": true
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "VALIDATED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/PRODUCTIVITY_2026_PT/PRODUCTIVITY_2026_PT_DAY_8__2026-01-30T17-58-36-091Z.json",
+        "insertedCount": 2,
+        "replacedCount": 4,
+        "invalidFound": 0,
+        "duplicatesFound": 4,
+        "questionsDeleted": 0,
+        "warnings": [],
+        "existingCounts": {
+          "total": 7,
+          "valid": 7,
+          "invalid": 0,
+          "application": 5,
+          "critical": 2,
+          "recall": 0,
+          "duplicates": 4
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_PT",
+      "courseName": "Produtividade 2026: Como Gerenciar Equipes e Tempo",
+      "language": "pt",
+      "dayNumber": 9,
+      "lessonId": "PRODUCTIVITY_2026_PT_DAY_9",
+      "title": "Delegação vs Eliminação: Quando Delegar, O Que Eliminar",
+      "lessonCreatedAt": "2026-01-24T08:36:26.057Z",
+      "lessonQuality": {
+        "score": 100,
+        "issues": [],
+        "signals": {
+          "charCount": 2738,
+          "wordCount": 413,
+          "hasBullets": true,
+          "hasNumberedSteps": true,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "VALIDATED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/PRODUCTIVITY_2026_PT/PRODUCTIVITY_2026_PT_DAY_9__2026-01-30T17-58-36-091Z.json",
+        "insertedCount": 3,
+        "replacedCount": 4,
+        "invalidFound": 0,
+        "duplicatesFound": 4,
+        "questionsDeleted": 0,
+        "warnings": [],
+        "existingCounts": {
+          "total": 7,
+          "valid": 7,
+          "invalid": 0,
+          "application": 5,
+          "critical": 2,
+          "recall": 0,
+          "duplicates": 4
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_PT",
+      "courseName": "Produtividade 2026: Como Gerenciar Equipes e Tempo",
+      "language": "pt",
+      "dayNumber": 10,
+      "lessonId": "PRODUCTIVITY_2026_PT_DAY_10",
+      "title": "Gestão de Energia: Quando Trabalhar, Quando Descansar, Rituais de Recuperação",
+      "lessonCreatedAt": "2026-01-24T08:40:15.576Z",
+      "lessonQuality": {
+        "score": 70,
+        "issues": [
+          "NO_EXAMPLES",
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 3184,
+          "wordCount": 510,
+          "hasBullets": true,
+          "hasNumberedSteps": true,
+          "hasExamples": false,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": true,
+          "addPitfallsSection": false,
+          "addMetricsSection": true
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "VALIDATED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/PRODUCTIVITY_2026_PT/PRODUCTIVITY_2026_PT_DAY_10__2026-01-30T17-58-36-091Z.json",
+        "insertedCount": 3,
+        "replacedCount": 4,
+        "invalidFound": 0,
+        "duplicatesFound": 4,
+        "questionsDeleted": 0,
+        "warnings": [],
+        "existingCounts": {
+          "total": 7,
+          "valid": 7,
+          "invalid": 0,
+          "application": 5,
+          "critical": 2,
+          "recall": 0,
+          "duplicates": 4
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_PT",
+      "courseName": "Produtividade 2026: Como Gerenciar Equipes e Tempo",
+      "language": "pt",
+      "dayNumber": 11,
+      "lessonId": "PRODUCTIVITY_2026_PT_DAY_11",
+      "title": "Definição de Metas e OKR: O Que Você Quer Alcançar?",
+      "lessonCreatedAt": "2026-01-24T08:41:53.128Z",
+      "lessonQuality": {
+        "score": 35,
+        "issues": [
+          "TOO_SHORT",
+          "NO_EXAMPLES",
+          "NO_CONTRASTS_GOOD_BAD",
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 455,
+          "wordCount": 73,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": false,
+          "hasGoodBadContrast": false,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": true,
+          "addPitfallsSection": true,
+          "addMetricsSection": true
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "VALIDATED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/PRODUCTIVITY_2026_PT/PRODUCTIVITY_2026_PT_DAY_11__2026-01-30T17-58-36-091Z.json",
+        "insertedCount": 3,
+        "replacedCount": 7,
+        "invalidFound": 7,
+        "duplicatesFound": 0,
+        "questionsDeleted": 0,
+        "warnings": [],
+        "existingCounts": {
+          "total": 7,
+          "valid": 0,
+          "invalid": 7,
+          "application": 0,
+          "critical": 0,
+          "recall": 0,
+          "duplicates": 0
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_PT",
+      "courseName": "Produtividade 2026: Como Gerenciar Equipes e Tempo",
+      "language": "pt",
+      "dayNumber": 12,
+      "lessonId": "PRODUCTIVITY_2026_PT_DAY_12",
+      "title": "Estruturas de Responsabilidade: Sistemas que o Mantêm na Pista",
+      "lessonCreatedAt": "2026-01-24T09:15:55.377Z",
+      "lessonQuality": {
+        "score": 85,
+        "issues": [
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 3112,
+          "wordCount": 455,
+          "hasBullets": true,
+          "hasNumberedSteps": true,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": true
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "VALIDATED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/PRODUCTIVITY_2026_PT/PRODUCTIVITY_2026_PT_DAY_12__2026-01-30T17-58-36-091Z.json",
+        "insertedCount": 3,
+        "replacedCount": 4,
+        "invalidFound": 0,
+        "duplicatesFound": 4,
+        "questionsDeleted": 0,
+        "warnings": [],
+        "existingCounts": {
+          "total": 7,
+          "valid": 7,
+          "invalid": 0,
+          "application": 5,
+          "critical": 2,
+          "recall": 0,
+          "duplicates": 4
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_PT",
+      "courseName": "Produtividade 2026: Como Gerenciar Equipes e Tempo",
+      "language": "pt",
+      "dayNumber": 13,
+      "lessonId": "PRODUCTIVITY_2026_PT_DAY_13",
+      "title": "Estruturas de Tomada de Decisão: Decisões Rápidas, Matriz de Decisão, Evitando Paralisia de Análise",
+      "lessonCreatedAt": "2026-01-24T09:23:10.290Z",
+      "lessonQuality": {
+        "score": 85,
+        "issues": [
+          "NO_EXAMPLES"
+        ],
+        "signals": {
+          "charCount": 3555,
+          "wordCount": 558,
+          "hasBullets": true,
+          "hasNumberedSteps": true,
+          "hasExamples": false,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": true,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "VALIDATED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/PRODUCTIVITY_2026_PT/PRODUCTIVITY_2026_PT_DAY_13__2026-01-30T17-58-36-091Z.json",
+        "insertedCount": 3,
+        "replacedCount": 4,
+        "invalidFound": 0,
+        "duplicatesFound": 4,
+        "questionsDeleted": 0,
+        "warnings": [],
+        "existingCounts": {
+          "total": 7,
+          "valid": 7,
+          "invalid": 0,
+          "application": 5,
+          "critical": 2,
+          "recall": 0,
+          "duplicates": 4
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_PT",
+      "courseName": "Produtividade 2026: Como Gerenciar Equipes e Tempo",
+      "language": "pt",
+      "dayNumber": 14,
+      "lessonId": "PRODUCTIVITY_2026_PT_DAY_14",
+      "title": "Eficiência de Reuniões: Agenda, Limites de Tempo, Registro de Decisões",
+      "lessonCreatedAt": "2026-01-24T09:29:50.618Z",
+      "lessonQuality": {
+        "score": 20,
+        "issues": [
+          "TOO_SHORT",
+          "NO_CLEAR_DEFINITIONS",
+          "NO_EXAMPLES",
+          "NO_CONTRASTS_GOOD_BAD",
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 185,
+          "wordCount": 26,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": false,
+          "hasGoodBadContrast": false,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": true,
+          "addPitfallsSection": true,
+          "addMetricsSection": true
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "VALIDATED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/PRODUCTIVITY_2026_PT/PRODUCTIVITY_2026_PT_DAY_14__2026-01-30T17-58-36-091Z.json",
+        "insertedCount": 4,
+        "replacedCount": 7,
+        "invalidFound": 7,
+        "duplicatesFound": 0,
+        "questionsDeleted": 0,
+        "warnings": [],
+        "existingCounts": {
+          "total": 7,
+          "valid": 0,
+          "invalid": 7,
+          "application": 0,
+          "critical": 0,
+          "recall": 0,
+          "duplicates": 0
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_PT",
+      "courseName": "Produtividade 2026: Como Gerenciar Equipes e Tempo",
+      "language": "pt",
+      "dayNumber": 15,
+      "lessonId": "PRODUCTIVITY_2026_PT_DAY_15",
+      "title": "Trabalho em Equipe e Sinergia: Funções, Responsabilidade, Coordenação",
+      "lessonCreatedAt": "2026-01-24T09:29:54.065Z",
+      "lessonQuality": {
+        "score": 20,
+        "issues": [
+          "TOO_SHORT",
+          "NO_CLEAR_DEFINITIONS",
+          "NO_EXAMPLES",
+          "NO_CONTRASTS_GOOD_BAD",
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 164,
+          "wordCount": 20,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": false,
+          "hasGoodBadContrast": false,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": true,
+          "addPitfallsSection": true,
+          "addMetricsSection": true
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "VALIDATED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/PRODUCTIVITY_2026_PT/PRODUCTIVITY_2026_PT_DAY_15__2026-01-30T17-58-36-091Z.json",
+        "insertedCount": 2,
+        "replacedCount": 7,
+        "invalidFound": 7,
+        "duplicatesFound": 0,
+        "questionsDeleted": 0,
+        "warnings": [],
+        "existingCounts": {
+          "total": 7,
+          "valid": 0,
+          "invalid": 7,
+          "application": 0,
+          "critical": 0,
+          "recall": 0,
+          "duplicates": 0
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_PT",
+      "courseName": "Produtividade 2026: Como Gerenciar Equipes e Tempo",
+      "language": "pt",
+      "dayNumber": 16,
+      "lessonId": "PRODUCTIVITY_2026_PT_DAY_16",
+      "title": "Gerenciamento de Estresse e Fadiga: Recuperação, Equilíbrio Trabalho-Vida",
+      "lessonCreatedAt": "2026-01-24T09:29:57.163Z",
+      "lessonQuality": {
+        "score": 20,
+        "issues": [
+          "TOO_SHORT",
+          "NO_CLEAR_DEFINITIONS",
+          "NO_EXAMPLES",
+          "NO_CONTRASTS_GOOD_BAD",
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 176,
+          "wordCount": 24,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": false,
+          "hasGoodBadContrast": false,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": true,
+          "addPitfallsSection": true,
+          "addMetricsSection": true
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "VALIDATED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/PRODUCTIVITY_2026_PT/PRODUCTIVITY_2026_PT_DAY_16__2026-01-30T17-58-36-091Z.json",
+        "insertedCount": 2,
+        "replacedCount": 7,
+        "invalidFound": 7,
+        "duplicatesFound": 0,
+        "questionsDeleted": 0,
+        "warnings": [],
+        "existingCounts": {
+          "total": 7,
+          "valid": 0,
+          "invalid": 7,
+          "application": 0,
+          "critical": 0,
+          "recall": 0,
+          "duplicates": 0
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_PT",
+      "courseName": "Produtividade 2026: Como Gerenciar Equipes e Tempo",
+      "language": "pt",
+      "dayNumber": 17,
+      "lessonId": "PRODUCTIVITY_2026_PT_DAY_17",
+      "title": "Sustentando Motivação: Rastreando Progresso, Celebrando Vitórias",
+      "lessonCreatedAt": "2026-01-24T09:30:00.187Z",
+      "lessonQuality": {
+        "score": 20,
+        "issues": [
+          "TOO_SHORT",
+          "NO_CLEAR_DEFINITIONS",
+          "NO_EXAMPLES",
+          "NO_CONTRASTS_GOOD_BAD",
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 161,
+          "wordCount": 22,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": false,
+          "hasGoodBadContrast": false,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": true,
+          "addPitfallsSection": true,
+          "addMetricsSection": true
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "VALIDATED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/PRODUCTIVITY_2026_PT/PRODUCTIVITY_2026_PT_DAY_17__2026-01-30T17-58-36-091Z.json",
+        "insertedCount": 2,
+        "replacedCount": 7,
+        "invalidFound": 7,
+        "duplicatesFound": 0,
+        "questionsDeleted": 0,
+        "warnings": [],
+        "existingCounts": {
+          "total": 7,
+          "valid": 0,
+          "invalid": 7,
+          "application": 0,
+          "critical": 0,
+          "recall": 0,
+          "duplicates": 0
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_PT",
+      "courseName": "Produtividade 2026: Como Gerenciar Equipes e Tempo",
+      "language": "pt",
+      "dayNumber": 18,
+      "lessonId": "PRODUCTIVITY_2026_PT_DAY_18",
+      "title": "Gerenciamento de Crise e Adaptabilidade: Adaptação, Aprendizado Rápido",
+      "lessonCreatedAt": "2026-01-24T09:30:03.511Z",
+      "lessonQuality": {
+        "score": 20,
+        "issues": [
+          "TOO_SHORT",
+          "NO_CLEAR_DEFINITIONS",
+          "NO_EXAMPLES",
+          "NO_CONTRASTS_GOOD_BAD",
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 175,
+          "wordCount": 22,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": false,
+          "hasGoodBadContrast": false,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": true,
+          "addPitfallsSection": true,
+          "addMetricsSection": true
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "VALIDATED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/PRODUCTIVITY_2026_PT/PRODUCTIVITY_2026_PT_DAY_18__2026-01-30T17-58-36-091Z.json",
+        "insertedCount": 3,
+        "replacedCount": 7,
+        "invalidFound": 7,
+        "duplicatesFound": 0,
+        "questionsDeleted": 0,
+        "warnings": [],
+        "existingCounts": {
+          "total": 7,
+          "valid": 0,
+          "invalid": 7,
+          "application": 0,
+          "critical": 0,
+          "recall": 0,
+          "duplicates": 0
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_PT",
+      "courseName": "Produtividade 2026: Como Gerenciar Equipes e Tempo",
+      "language": "pt",
+      "dayNumber": 19,
+      "lessonId": "PRODUCTIVITY_2026_PT_DAY_19",
+      "title": "Planejamento de Longo Prazo: Anos Adiante, Estratégia, Evolução",
+      "lessonCreatedAt": "2026-01-24T09:30:06.498Z",
+      "lessonQuality": {
+        "score": 20,
+        "issues": [
+          "TOO_SHORT",
+          "NO_CLEAR_DEFINITIONS",
+          "NO_EXAMPLES",
+          "NO_CONTRASTS_GOOD_BAD",
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 188,
+          "wordCount": 26,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": false,
+          "hasGoodBadContrast": false,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": true,
+          "addPitfallsSection": true,
+          "addMetricsSection": true
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "VALIDATED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/PRODUCTIVITY_2026_PT/PRODUCTIVITY_2026_PT_DAY_19__2026-01-30T17-58-36-091Z.json",
+        "insertedCount": 3,
+        "replacedCount": 7,
+        "invalidFound": 7,
+        "duplicatesFound": 0,
+        "questionsDeleted": 0,
+        "warnings": [],
+        "existingCounts": {
+          "total": 7,
+          "valid": 0,
+          "invalid": 7,
+          "application": 0,
+          "critical": 0,
+          "recall": 0,
+          "duplicates": 0
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_PT",
+      "courseName": "Produtividade 2026: Como Gerenciar Equipes e Tempo",
+      "language": "pt",
+      "dayNumber": 20,
+      "lessonId": "PRODUCTIVITY_2026_PT_DAY_20",
+      "title": "Produtividade da Vida Pessoal: Organização do Lar, Projetos Pessoais",
+      "lessonCreatedAt": "2026-01-24T09:30:09.414Z",
+      "lessonQuality": {
+        "score": 20,
+        "issues": [
+          "TOO_SHORT",
+          "NO_CLEAR_DEFINITIONS",
+          "NO_EXAMPLES",
+          "NO_CONTRASTS_GOOD_BAD",
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 187,
+          "wordCount": 29,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": false,
+          "hasGoodBadContrast": false,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": true,
+          "addPitfallsSection": true,
+          "addMetricsSection": true
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "VALIDATED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/PRODUCTIVITY_2026_PT/PRODUCTIVITY_2026_PT_DAY_20__2026-01-30T17-58-36-091Z.json",
+        "insertedCount": 4,
+        "replacedCount": 7,
+        "invalidFound": 7,
+        "duplicatesFound": 0,
+        "questionsDeleted": 0,
+        "warnings": [],
+        "existingCounts": {
+          "total": 7,
+          "valid": 0,
+          "invalid": 7,
+          "application": 0,
+          "critical": 0,
+          "recall": 0,
+          "duplicates": 0
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_PT",
+      "courseName": "Produtividade 2026: Como Gerenciar Equipes e Tempo",
+      "language": "pt",
+      "dayNumber": 21,
+      "lessonId": "PRODUCTIVITY_2026_PT_DAY_21",
+      "title": "Comunidade e Rede: Relações, Aprendizado Com Outros",
+      "lessonCreatedAt": "2026-01-24T09:30:12.128Z",
+      "lessonQuality": {
+        "score": 20,
+        "issues": [
+          "TOO_SHORT",
+          "NO_CLEAR_DEFINITIONS",
+          "NO_EXAMPLES",
+          "NO_CONTRASTS_GOOD_BAD",
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 168,
+          "wordCount": 21,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": false,
+          "hasGoodBadContrast": false,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": true,
+          "addPitfallsSection": true,
+          "addMetricsSection": true
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "VALIDATED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/PRODUCTIVITY_2026_PT/PRODUCTIVITY_2026_PT_DAY_21__2026-01-30T17-58-36-091Z.json",
+        "insertedCount": 4,
+        "replacedCount": 7,
+        "invalidFound": 7,
+        "duplicatesFound": 0,
+        "questionsDeleted": 0,
+        "warnings": [],
+        "existingCounts": {
+          "total": 7,
+          "valid": 0,
+          "invalid": 7,
+          "application": 0,
+          "critical": 0,
+          "recall": 0,
+          "duplicates": 0
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_PT",
+      "courseName": "Produtividade 2026: Como Gerenciar Equipes e Tempo",
+      "language": "pt",
+      "dayNumber": 22,
+      "lessonId": "PRODUCTIVITY_2026_PT_DAY_22",
+      "title": "Tecnologia e Ferramentas: Automação, Escolhendo a Tecnologia Certa",
+      "lessonCreatedAt": "2026-01-24T09:30:15.019Z",
+      "lessonQuality": {
+        "score": 20,
+        "issues": [
+          "TOO_SHORT",
+          "NO_CLEAR_DEFINITIONS",
+          "NO_EXAMPLES",
+          "NO_CONTRASTS_GOOD_BAD",
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 187,
+          "wordCount": 24,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": false,
+          "hasGoodBadContrast": false,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": true,
+          "addPitfallsSection": true,
+          "addMetricsSection": true
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "VALIDATED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/PRODUCTIVITY_2026_PT/PRODUCTIVITY_2026_PT_DAY_22__2026-01-30T17-58-36-091Z.json",
+        "insertedCount": 3,
+        "replacedCount": 7,
+        "invalidFound": 7,
+        "duplicatesFound": 0,
+        "questionsDeleted": 0,
+        "warnings": [],
+        "existingCounts": {
+          "total": 7,
+          "valid": 0,
+          "invalid": 7,
+          "application": 0,
+          "critical": 0,
+          "recall": 0,
+          "duplicates": 0
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_PT",
+      "courseName": "Produtividade 2026: Como Gerenciar Equipes e Tempo",
+      "language": "pt",
+      "dayNumber": 23,
+      "lessonId": "PRODUCTIVITY_2026_PT_DAY_23",
+      "title": "Criatividade e Inovação: Repensar, Experimentação",
+      "lessonCreatedAt": "2026-01-24T09:30:17.677Z",
+      "lessonQuality": {
+        "score": 20,
+        "issues": [
+          "TOO_SHORT",
+          "NO_CLEAR_DEFINITIONS",
+          "NO_EXAMPLES",
+          "NO_CONTRASTS_GOOD_BAD",
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 152,
+          "wordCount": 19,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": false,
+          "hasGoodBadContrast": false,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": true,
+          "addPitfallsSection": true,
+          "addMetricsSection": true
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "VALIDATED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/PRODUCTIVITY_2026_PT/PRODUCTIVITY_2026_PT_DAY_23__2026-01-30T17-58-36-091Z.json",
+        "insertedCount": 4,
+        "replacedCount": 7,
+        "invalidFound": 7,
+        "duplicatesFound": 0,
+        "questionsDeleted": 0,
+        "warnings": [],
+        "existingCounts": {
+          "total": 7,
+          "valid": 0,
+          "invalid": 7,
+          "application": 0,
+          "critical": 0,
+          "recall": 0,
+          "duplicates": 0
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_PT",
+      "courseName": "Produtividade 2026: Como Gerenciar Equipes e Tempo",
+      "language": "pt",
+      "dayNumber": 24,
+      "lessonId": "PRODUCTIVITY_2026_PT_DAY_24",
+      "title": "Filtragem e Prioridades: O Que Ignorar, O Que Importa",
+      "lessonCreatedAt": "2026-01-24T09:30:20.201Z",
+      "lessonQuality": {
+        "score": 20,
+        "issues": [
+          "TOO_SHORT",
+          "NO_CLEAR_DEFINITIONS",
+          "NO_EXAMPLES",
+          "NO_CONTRASTS_GOOD_BAD",
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 158,
+          "wordCount": 29,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": false,
+          "hasGoodBadContrast": false,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": true,
+          "addPitfallsSection": true,
+          "addMetricsSection": true
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "VALIDATED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/PRODUCTIVITY_2026_PT/PRODUCTIVITY_2026_PT_DAY_24__2026-01-30T17-58-36-091Z.json",
+        "insertedCount": 2,
+        "replacedCount": 7,
+        "invalidFound": 7,
+        "duplicatesFound": 0,
+        "questionsDeleted": 0,
+        "warnings": [],
+        "existingCounts": {
+          "total": 7,
+          "valid": 0,
+          "invalid": 7,
+          "application": 0,
+          "critical": 0,
+          "recall": 0,
+          "duplicates": 0
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_PT",
+      "courseName": "Produtividade 2026: Como Gerenciar Equipes e Tempo",
+      "language": "pt",
+      "dayNumber": 25,
+      "lessonId": "PRODUCTIVITY_2026_PT_DAY_25",
+      "title": "Desenvolvimento de Habilidades: Níveis Mais Altos, Novas Competências",
+      "lessonCreatedAt": "2026-01-24T09:30:23.204Z",
+      "lessonQuality": {
+        "score": 20,
+        "issues": [
+          "TOO_SHORT",
+          "NO_CLEAR_DEFINITIONS",
+          "NO_EXAMPLES",
+          "NO_CONTRASTS_GOOD_BAD",
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 188,
+          "wordCount": 22,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": false,
+          "hasGoodBadContrast": false,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": true,
+          "addPitfallsSection": true,
+          "addMetricsSection": true
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "VALIDATED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/PRODUCTIVITY_2026_PT/PRODUCTIVITY_2026_PT_DAY_25__2026-01-30T17-58-36-091Z.json",
+        "insertedCount": 3,
+        "replacedCount": 7,
+        "invalidFound": 7,
+        "duplicatesFound": 0,
+        "questionsDeleted": 0,
+        "warnings": [],
+        "existingCounts": {
+          "total": 7,
+          "valid": 0,
+          "invalid": 7,
+          "application": 0,
+          "critical": 0,
+          "recall": 0,
+          "duplicates": 0
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_PT",
+      "courseName": "Produtividade 2026: Como Gerenciar Equipes e Tempo",
+      "language": "pt",
+      "dayNumber": 26,
+      "lessonId": "PRODUCTIVITY_2026_PT_DAY_26",
+      "title": "Mentoria e Ensino: Compartilhando Conhecimento, Ajudando Outros",
+      "lessonCreatedAt": "2026-01-24T09:30:25.607Z",
+      "lessonQuality": {
+        "score": 20,
+        "issues": [
+          "TOO_SHORT",
+          "NO_CLEAR_DEFINITIONS",
+          "NO_EXAMPLES",
+          "NO_CONTRASTS_GOOD_BAD",
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 180,
+          "wordCount": 23,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": false,
+          "hasGoodBadContrast": false,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": true,
+          "addPitfallsSection": true,
+          "addMetricsSection": true
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "VALIDATED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/PRODUCTIVITY_2026_PT/PRODUCTIVITY_2026_PT_DAY_26__2026-01-30T17-58-36-091Z.json",
+        "insertedCount": 2,
+        "replacedCount": 7,
+        "invalidFound": 7,
+        "duplicatesFound": 0,
+        "questionsDeleted": 0,
+        "warnings": [],
+        "existingCounts": {
+          "total": 7,
+          "valid": 0,
+          "invalid": 7,
+          "application": 0,
+          "critical": 0,
+          "recall": 0,
+          "duplicates": 0
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_PT",
+      "courseName": "Produtividade 2026: Como Gerenciar Equipes e Tempo",
+      "language": "pt",
+      "dayNumber": 27,
+      "lessonId": "PRODUCTIVITY_2026_PT_DAY_27",
+      "title": "Hábitos e Rituais: Rotinas Diárias, Ação de Longo Prazo",
+      "lessonCreatedAt": "2026-01-24T09:30:29.217Z",
+      "lessonQuality": {
+        "score": 20,
+        "issues": [
+          "TOO_SHORT",
+          "NO_CLEAR_DEFINITIONS",
+          "NO_EXAMPLES",
+          "NO_CONTRASTS_GOOD_BAD",
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 170,
+          "wordCount": 29,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": false,
+          "hasGoodBadContrast": false,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": true,
+          "addPitfallsSection": true,
+          "addMetricsSection": true
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "VALIDATED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/PRODUCTIVITY_2026_PT/PRODUCTIVITY_2026_PT_DAY_27__2026-01-30T17-58-36-091Z.json",
+        "insertedCount": 2,
+        "replacedCount": 7,
+        "invalidFound": 7,
+        "duplicatesFound": 0,
+        "questionsDeleted": 0,
+        "warnings": [],
+        "existingCounts": {
+          "total": 7,
+          "valid": 0,
+          "invalid": 7,
+          "application": 0,
+          "critical": 0,
+          "recall": 0,
+          "duplicates": 0
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_PT",
+      "courseName": "Produtividade 2026: Como Gerenciar Equipes e Tempo",
+      "language": "pt",
+      "dayNumber": 28,
+      "lessonId": "PRODUCTIVITY_2026_PT_DAY_28",
+      "title": "Valores e Objetivos: Propósito de Vida, Visão de Longo Prazo",
+      "lessonCreatedAt": "2026-01-24T09:30:32.519Z",
+      "lessonQuality": {
+        "score": 20,
+        "issues": [
+          "TOO_SHORT",
+          "NO_CLEAR_DEFINITIONS",
+          "NO_EXAMPLES",
+          "NO_CONTRASTS_GOOD_BAD",
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 171,
+          "wordCount": 28,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": false,
+          "hasGoodBadContrast": false,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": true,
+          "addPitfallsSection": true,
+          "addMetricsSection": true
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "VALIDATED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/PRODUCTIVITY_2026_PT/PRODUCTIVITY_2026_PT_DAY_28__2026-01-30T17-58-36-091Z.json",
+        "insertedCount": 3,
+        "replacedCount": 7,
+        "invalidFound": 7,
+        "duplicatesFound": 0,
+        "questionsDeleted": 0,
+        "warnings": [],
+        "existingCounts": {
+          "total": 7,
+          "valid": 0,
+          "invalid": 7,
+          "application": 0,
+          "critical": 0,
+          "recall": 0,
+          "duplicates": 0
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_PT",
+      "courseName": "Produtividade 2026: Como Gerenciar Equipes e Tempo",
+      "language": "pt",
+      "dayNumber": 29,
+      "lessonId": "PRODUCTIVITY_2026_PT_DAY_29",
+      "title": "Melhoria Contínua: Aprendizado, Feedback, Iteração",
+      "lessonCreatedAt": "2026-01-24T09:30:36.475Z",
+      "lessonQuality": {
+        "score": 20,
+        "issues": [
+          "TOO_SHORT",
+          "NO_CLEAR_DEFINITIONS",
+          "NO_EXAMPLES",
+          "NO_CONTRASTS_GOOD_BAD",
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 163,
+          "wordCount": 15,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": false,
+          "hasGoodBadContrast": false,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": true,
+          "addPitfallsSection": true,
+          "addMetricsSection": true
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "VALIDATED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/PRODUCTIVITY_2026_PT/PRODUCTIVITY_2026_PT_DAY_29__2026-01-30T17-58-36-091Z.json",
+        "insertedCount": 1,
+        "replacedCount": 7,
+        "invalidFound": 7,
+        "duplicatesFound": 0,
+        "questionsDeleted": 0,
+        "warnings": [],
+        "existingCounts": {
+          "total": 7,
+          "valid": 0,
+          "invalid": 7,
+          "application": 0,
+          "critical": 0,
+          "recall": 0,
+          "duplicates": 0
+        }
+      }
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_PT",
+      "courseName": "Produtividade 2026: Como Gerenciar Equipes e Tempo",
+      "language": "pt",
+      "dayNumber": 30,
+      "lessonId": "PRODUCTIVITY_2026_PT_DAY_30",
+      "title": "Mestre da Produtividade: Integração Abrangente, Compromisso",
+      "lessonCreatedAt": "2026-01-24T09:30:39.446Z",
+      "lessonQuality": {
+        "score": 20,
+        "issues": [
+          "TOO_SHORT",
+          "NO_CLEAR_DEFINITIONS",
+          "NO_EXAMPLES",
+          "NO_CONTRASTS_GOOD_BAD",
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 150,
+          "wordCount": 20,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": false,
+          "hasGoodBadContrast": false,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": true,
+          "addPitfallsSection": true,
+          "addMetricsSection": true
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "VALIDATED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/PRODUCTIVITY_2026_PT/PRODUCTIVITY_2026_PT_DAY_30__2026-01-30T17-58-36-091Z.json",
+        "insertedCount": 4,
+        "replacedCount": 7,
+        "invalidFound": 7,
+        "duplicatesFound": 0,
+        "questionsDeleted": 0,
+        "warnings": [],
+        "existingCounts": {
+          "total": 7,
+          "valid": 0,
+          "invalid": 7,
+          "application": 0,
+          "critical": 0,
+          "recall": 0,
+          "duplicates": 0
+        }
+      }
+    }
+  ]
+}

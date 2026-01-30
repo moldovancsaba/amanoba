@@ -225,6 +225,19 @@ export default function EditAchievementPage() {
       }
 
       // Prepare payload
+      const criteria: Record<string, unknown> = {
+        type: formData.criteria.type,
+        target: formData.criteria.target,
+      };
+      if (formData.criteria.gameId) criteria.gameId = formData.criteria.gameId;
+      if (formData.criteria.condition?.trim()) criteria.condition = formData.criteria.condition.trim();
+
+      const rewards: Record<string, unknown> = {
+        points: formData.rewards.points,
+        xp: formData.rewards.xp,
+      };
+      if (formData.rewards.title?.trim()) rewards.title = formData.rewards.title.trim();
+
       const payload: Record<string, unknown> = {
         name: formData.name.trim(),
         description: formData.description.trim(),
@@ -232,29 +245,12 @@ export default function EditAchievementPage() {
         tier: formData.tier,
         icon: formData.icon,
         isHidden: formData.isHidden,
-        criteria: {
-          type: formData.criteria.type,
-          target: formData.criteria.target,
-        },
-        rewards: {
-          points: formData.rewards.points,
-          xp: formData.rewards.xp,
-        },
+        criteria,
+        rewards,
         metadata: {
           isActive: formData.metadata.isActive,
         },
       };
-
-      // Add optional fields
-      if (formData.criteria.gameId) {
-        payload.criteria.gameId = formData.criteria.gameId;
-      }
-      if (formData.criteria.condition?.trim()) {
-        payload.criteria.condition = formData.criteria.condition.trim();
-      }
-      if (formData.rewards.title?.trim()) {
-        payload.rewards.title = formData.rewards.title.trim();
-      }
 
       const res = await fetch(`/api/admin/achievements/${achievementId}`, {
         method: 'PATCH',
@@ -304,13 +300,17 @@ export default function EditAchievementPage() {
   const updateFormData = (field: string, value: unknown) => {
     if (field.includes('.')) {
       const [parent, child] = field.split('.');
-      setFormData(prev => ({
-        ...prev,
-        [parent]: {
-          ...prev[parent as keyof FormData],
-          [child]: value,
-        },
-      }));
+      setFormData(prev => {
+        const parentVal = prev[parent as keyof FormData];
+        const spreadParent = typeof parentVal === 'object' && parentVal !== null ? parentVal as Record<string, unknown> : {};
+        return {
+          ...prev,
+          [parent]: {
+            ...spreadParent,
+            [child]: value,
+          },
+        };
+      });
     } else if (field.includes('criteria.')) {
       const subField = field.replace('criteria.', '');
       setFormData(prev => ({
@@ -536,7 +536,7 @@ export default function EditAchievementPage() {
               <div>
                 <label className="block text-white text-sm font-medium mb-2">
                   Criteria Type <span className="text-red-400">*</span>
-                  <HelpCircle className="w-4 h-4 inline-block ml-2 text-gray-400" title="What the player needs to accomplish" />
+                  <span title="What the player needs to accomplish"><HelpCircle className="w-4 h-4 inline-block ml-2 text-gray-400" /></span>
                 </label>
                 <select
                   value={formData.criteria.type}
