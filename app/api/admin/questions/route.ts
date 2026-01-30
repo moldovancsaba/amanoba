@@ -66,7 +66,7 @@ export async function GET(request: NextRequest) {
     const offset = parseInt(searchParams.get('offset') || '0');
 
     // Build filter
-    const filter: any = {};
+    const filter: Record<string, unknown> = {};
 
     // Language filter (hashtag based)
     if (language) {
@@ -271,7 +271,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Resolve relatedCourseIds if provided
-    let resolvedRelatedCourseIds: mongoose.Types.ObjectId[] = [];
+    const resolvedRelatedCourseIds: mongoose.Types.ObjectId[] = [];
     if (relatedCourseIds && Array.isArray(relatedCourseIds) && relatedCourseIds.length > 0) {
       for (const relatedId of relatedCourseIds) {
         if (typeof relatedId === 'string') {
@@ -335,11 +335,12 @@ export async function POST(request: NextRequest) {
       success: true,
       question: quizQuestion,
     }, { status: 201 });
-  } catch (error: any) {
+  } catch (error: unknown) {
     logger.error({ error }, 'Failed to create quiz question');
 
     // Handle duplicate UUID
-    if (error.code === 11000 && error.keyPattern?.uuid) {
+    const err = error as { code?: number; keyPattern?: { uuid?: number } };
+    if (err.code === 11000 && err.keyPattern?.uuid) {
       return NextResponse.json(
         { error: 'Question with this UUID already exists' },
         { status: 409 }

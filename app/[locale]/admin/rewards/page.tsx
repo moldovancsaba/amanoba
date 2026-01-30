@@ -16,7 +16,6 @@ import {
   Edit,
   Trash2,
   Gift,
-  Filter,
 } from 'lucide-react';
 
 interface Reward {

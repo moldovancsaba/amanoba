@@ -134,7 +134,7 @@ export async function POST(
 
       const correctOption = question.options[question.correctIndex];
       const selectedOptionValue =
-        (answer as any).selectedOption ?? question.options[answer.selectedIndex];
+        (answer as { selectedOption?: number; selectedIndex?: number }).selectedOption ?? question.options[answer.selectedIndex];
       const isCorrect =
         !!selectedOptionValue && !!correctOption
           ? selectedOptionValue === correctOption

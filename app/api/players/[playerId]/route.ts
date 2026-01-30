@@ -202,7 +202,7 @@ export async function GET(
 
     // Why: Structure response for easy frontend consumption
     // Security: Only include sensitive data (email, lastLoginAt, wallet) for self/admin
-    const response: any = {
+    const response: Record<string, unknown> = {
       player: {
         id: player._id,
         displayName: player.displayName,

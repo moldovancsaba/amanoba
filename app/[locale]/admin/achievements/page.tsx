@@ -12,11 +12,9 @@ import Link from 'next/link';
 import { useLocale, useTranslations } from 'next-intl';
 import {
   Plus,
-  Search,
   Edit,
   Trash2,
-  Trophy,
-  Filter,
+  Search,
 } from 'lucide-react';
 
 interface Achievement {

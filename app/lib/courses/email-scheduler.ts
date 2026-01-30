@@ -54,8 +54,8 @@ export async function sendDailyLessons(targetDate?: Date): Promise<{
 
     for (const progress of activeProgress) {
       try {
-        const player = progress.playerId as any;
-        const course = progress.courseId as any;
+        const player = progress.playerId as { _id?: { toString(): string }; emailPreferences?: { receiveLessonEmails?: boolean } };
+        const course = progress.courseId as { _id?: { toString(): string } };
 
         if (!player || !course) {
           logger.warn({ progressId: progress._id }, 'Progress record missing player or course');
@@ -202,8 +202,8 @@ export async function sendDailyLessons(targetDate?: Date): Promise<{
         results.errors++;
         logger.error({ error, progressId: progress._id }, 'Error processing course progress');
         results.details.push({
-          playerId: (progress.playerId as any)?._id?.toString() || 'unknown',
-          courseId: (progress.courseId as any)?._id?.toString() || 'unknown',
+          playerId: (progress.playerId as { _id?: { toString(): string } })?._id?.toString() || 'unknown',
+          courseId: (progress.courseId as { _id?: { toString(): string } })?._id?.toString() || 'unknown',
           day: progress.currentDay,
           status: `error: ${error instanceof Error ? error.message : 'Unknown error'}`,
         });
@@ -261,8 +261,8 @@ export async function sendCatchUpEmails(
       return { ...results, success: false };
     }
 
-    const player = progress.playerId as any;
-    const course = progress.courseId as any;
+    const player = progress.playerId as { emailPreferences?: { receiveLessonEmails?: boolean } };
+    const course = progress.courseId as { _id?: { toString(): string } };
 
     // Check email preferences
     if (player.emailPreferences?.receiveLessonEmails === false) {

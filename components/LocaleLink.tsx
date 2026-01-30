@@ -12,6 +12,8 @@ import { useLocale } from 'next-intl';
 import type { ComponentProps } from 'react';
 import { locales } from '@/app/lib/i18n/locales';
 
+type LinkHref = ComponentProps<typeof Link>['href'];
+
 /**
  * LocaleLink Component
  * 
@@ -25,17 +27,17 @@ export function LocaleLink({
   
   // If href already starts with /{locale}/, use as is
   // Otherwise, prepend locale
-  let localizedHref = href;
+  let localizedHref: LinkHref = href;
   
   if (typeof href === 'string') {
     if (href.startsWith('//')) {
-      localizedHref = href as any;
+      localizedHref = href as LinkHref;
     } else if (href.startsWith('/') && locales.some((loc) => href.startsWith(`/${loc}/`) || href === `/${loc}`)) {
-      localizedHref = href as any;
+      localizedHref = href as LinkHref;
     } else 
     if (href.startsWith('/') && !href.startsWith(`/${locale}/`) && !href.startsWith('/api/')) {
       // Prepend locale for internal links
-      localizedHref = `/${locale}${href}` as any;
+      localizedHref = `/${locale}${href}` as LinkHref;
     }
   } else if (typeof href === 'object' && href.pathname) {
     // Handle Next.js Link href object
@@ -43,12 +45,12 @@ export function LocaleLink({
       href.pathname.startsWith('/api/') ||
       locales.some((loc) => href.pathname.startsWith(`/${loc}/`) || href.pathname === `/${loc}`)
     ) {
-      localizedHref = href as any;
+      localizedHref = href as LinkHref;
     } else if (!href.pathname.startsWith(`/${locale}/`) && !href.pathname.startsWith('/api/')) {
       localizedHref = {
         ...href,
         pathname: `/${locale}${href.pathname}`,
-      } as any;
+      } as LinkHref;
     }
   }
   

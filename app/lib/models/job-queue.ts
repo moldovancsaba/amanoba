@@ -195,7 +195,7 @@ JobQueueSchema.methods.markFailed = async function (error: Error): Promise<void>
   } else {
     // Why: Schedule retry with exponential backoff
     this.status = 'pending';
-    this.nextRetryAt = (this.constructor as any).calculateNextRetry(this.attempts);
+    this.nextRetryAt = (this.constructor as { calculateNextRetry(attempts: number): Date }).calculateNextRetry(this.attempts);
   }
   
   await this.save();

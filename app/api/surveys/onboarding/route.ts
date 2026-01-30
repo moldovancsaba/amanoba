@@ -174,7 +174,7 @@ export async function POST(request: NextRequest) {
 
     // Validate answers match survey questions
     const questionIds = new Set(survey.questions.map((q) => q.questionId));
-    const answerQuestionIds = new Set(answers.map((a: any) => a.questionId));
+    const answerQuestionIds = new Set(answers.map((a: { questionId?: string }) => a.questionId));
 
     // Check all required questions are answered
     const requiredQuestions = survey.questions.filter((q) => q.required);
@@ -211,7 +211,7 @@ export async function POST(request: NextRequest) {
       playerId: player._id,
       surveyId: survey._id,
       brandId: brand._id,
-      answers: answers.map((a: any) => ({
+      answers: answers.map((a: { questionId?: string; value?: unknown; metadata?: unknown }) => ({
         questionId: a.questionId,
         value: a.value,
         metadata: a.metadata || {},

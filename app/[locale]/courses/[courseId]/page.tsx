@@ -688,7 +688,7 @@ export default function CourseDetailPage({
       const data = await response.json();
       if (data.success) {
         const myCourse = data.courses.find(
-          (c: any) => c.course.courseId === cid
+          (c: { course: { courseId: string } }) => c.course.courseId === cid
         );
         if (myCourse) {
           setEnrollment({

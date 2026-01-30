@@ -57,7 +57,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Why: Resolve game by ObjectId, gameId (enum), or route key
-    let game: (Document<unknown, {}, IGame> & IGame & { _id: mongoose.Types.ObjectId }) | null = null;
+    let game: (Document<unknown, object, IGame> & IGame & { _id: mongoose.Types.ObjectId }) | null = null;
     const rawGameId = validatedData.gameId;
     const isObjectId = mongoose.isValidObjectId(rawGameId);
 
@@ -143,7 +143,7 @@ export async function POST(request: NextRequest) {
           difficultyLevels: def.difficultyLevels,
         });
         // Cast to correct type after creation
-        game = createdGame as unknown as (Document<unknown, {}, IGame> & IGame & { _id: mongoose.Types.ObjectId });
+        game = createdGame as unknown as (Document<unknown, object, IGame> & IGame & { _id: mongoose.Types.ObjectId });
       }
     }
 

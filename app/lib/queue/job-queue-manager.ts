@@ -113,7 +113,7 @@ export async function fetchPendingJobs(
   limit: number = 10
 ): Promise<IJobQueue[]> {
   try {
-    const query: any = {
+    const query: Record<string, unknown> = {
       status: 'pending',
       nextRetryAt: { $lte: new Date() },
     };
@@ -184,7 +184,7 @@ export async function getQueueHealth(): Promise<QueueHealth> {
       const count = item.count;
 
       if (status !== 'completed' && jobType in health.byType) {
-        (health.byType[jobType as JobType] as any)[status] = count;
+        (health.byType[jobType as JobType] as Record<string, number>)[status] = count;
       }
 
       health.totals[status as keyof typeof health.totals] = 

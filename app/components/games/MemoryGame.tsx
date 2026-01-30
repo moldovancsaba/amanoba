@@ -212,7 +212,7 @@ export default function MemoryGame({
             const chRes = await fetch(`/api/challenges?playerId=${playerIdParam}&t=${Date.now()}`, { cache: 'no-store' });
             if (chRes.ok) {
               const ch = await chRes.json();
-              const completed = (ch.challenges || []).filter((c: any) => c.isCompleted).map((c: any) => ({
+              const completed = (ch.challenges || []).filter((c: { isCompleted?: boolean }) => c.isCompleted).map((c: { name?: string; rewards?: { points?: number; xp?: number } }) => ({
                 title: c.name,
                 rewardsEarned: { points: c.rewards?.points || 0, xp: c.rewards?.xp || 0 },
               }));

@@ -23,13 +23,7 @@ import {
   Edit,
   Trash2,
   X,
-  Check,
-  AlertCircle,
   HelpCircle,
-  Tag,
-  BookOpen,
-  FileText,
-  Zap,
 } from 'lucide-react';
 import { QuestionDifficulty, QuestionType, Question } from '@/types/quiz-question';
 
@@ -41,8 +35,8 @@ interface Course {
 }
 
 export default function AdminQuestionsPage() {
-  const locale = useLocale();
-  const t = useTranslations('admin');
+  const _locale = useLocale();
+  const _t = useTranslations('admin');
   
   // State
   const [questions, setQuestions] = useState<Question[]>([]);
@@ -223,7 +217,7 @@ export default function AdminQuestionsPage() {
 
       const method = editingQuestion ? 'PATCH' : 'POST';
 
-      const body: any = {
+      const body: Record<string, unknown> = {
         question: questionForm.question.trim(),
         options: questionForm.options.map(opt => opt.trim()),
         correctIndex: questionForm.correctIndex,

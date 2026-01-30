@@ -31,13 +31,13 @@ export default function ProfilePage({ params }: { params: Promise<{ playerId: st
   const { data: session } = useSession();
   const [playerId, setPlayerId] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
-  const [profileData, setProfileData] = useState<any>(null);
+  const [profileData, setProfileData] = useState<Record<string, unknown> | null>(null);
   const [apiError, setApiError] = useState<string | null>(null);
   const [apiLoading, setApiLoading] = useState(false);
   const [activeTab, setActiveTab] = useState<'overview' | 'achievements' | 'activity' | 'payments' | 'settings'>('overview');
-  const [paymentData, setPaymentData] = useState<any>(null);
+  const [paymentData, setPaymentData] = useState<Record<string, unknown>[] | null>(null);
   const [paymentLoading, setPaymentLoading] = useState(false);
-  const [certificatesData, setCertificatesData] = useState<any[]>([]);
+  const [certificatesData, setCertificatesData] = useState<Record<string, unknown>[]>([]);
   const [certificatesLoading, setCertificatesLoading] = useState(false);
   const [editDisplayName, setEditDisplayName] = useState('');
   const [profileSaveLoading, setProfileSaveLoading] = useState(false);
@@ -134,7 +134,7 @@ export default function ProfilePage({ params }: { params: Promise<{ playerId: st
         
         if (coursesData.success && coursesData.courses.length > 0) {
           // For each course, check certificate status
-          const certificatePromises = coursesData.courses.map(async (course: any) => {
+          const certificatePromises = coursesData.courses.map(async (course: { courseId: string; title?: string }) => {
             try {
               const statusRes = await fetch(`/api/profile/${playerId}/certificate-status?courseId=${encodeURIComponent(course.courseId)}`);
               const statusData = await statusRes.json();
@@ -874,7 +874,7 @@ export default function ProfilePage({ params }: { params: Promise<{ playerId: st
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                       {profileData.achievements?.featured && profileData.achievements.featured.length > 0 ? (
-                        profileData.achievements.featured.map((achievement: any) => (
+                        profileData.achievements.featured.map((achievement: Record<string, unknown>) => (
                           <div key={achievement.id} className="bg-brand-black/20 rounded-lg p-4">
                             <div className="flex items-start gap-3">
                               <div className="w-12 h-12 bg-brand-darkGrey/40 rounded-lg flex items-center justify-center text-2xl text-white">
@@ -914,7 +914,7 @@ export default function ProfilePage({ params }: { params: Promise<{ playerId: st
                     <h3 className="text-2xl font-bold text-white mb-6">Recent Activity</h3>
                     <div className="space-y-3">
                       {profileData.recentActivity && profileData.recentActivity.length > 0 ? (
-                        profileData.recentActivity.map((activity: any, index: number) => (
+                        profileData.recentActivity.map((activity: Record<string, unknown>, index: number) => (
                           <div key={index} className="bg-brand-black/20 rounded-lg p-4 flex items-center justify-between">
                             <div className="flex items-center gap-4">
                               <div className="text-3xl">{activity.gameIcon || '🎮'}</div>
@@ -954,7 +954,7 @@ export default function ProfilePage({ params }: { params: Promise<{ playerId: st
                       <div className="text-center py-8 text-gray-400">Loading payment history...</div>
                     ) : paymentData && paymentData.length > 0 ? (
                       <div className="space-y-3">
-                        {paymentData.map((tx: any) => {
+                        {paymentData.map((tx: Record<string, unknown>) => {
                           const formattedAmount = new Intl.NumberFormat('en-US', {
                             style: 'currency',
                             currency: tx.currency.toUpperCase(),

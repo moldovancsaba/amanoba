@@ -115,11 +115,11 @@ export async function GET(request: NextRequest) {
     // Format transactions for response
     const formattedTransactions = transactions.map((tx) => ({
       id: tx._id.toString(),
-      playerId: tx.playerId ? (tx.playerId as any)._id.toString() : null,
-      playerName: tx.playerId ? ((tx.playerId as any).displayName || (tx.playerId as any).username || 'Unknown') : 'Unknown',
-      playerEmail: tx.playerId ? (tx.playerId as any).email : null,
-      courseId: tx.courseId ? (tx.courseId as any).courseId : null,
-      courseName: tx.courseId ? (tx.courseId as any).name : null,
+      playerId: tx.playerId ? (tx.playerId as { _id: { toString(): string } })._id.toString() : null,
+      playerName: tx.playerId ? ((tx.playerId as { displayName?: string; username?: string }).displayName || (tx.playerId as { displayName?: string; username?: string }).username || 'Unknown') : 'Unknown',
+      playerEmail: tx.playerId ? (tx.playerId as { email?: string }).email : null,
+      courseId: tx.courseId ? (tx.courseId as { courseId?: string }).courseId : null,
+      courseName: tx.courseId ? (tx.courseId as { name?: string }).name : null,
       amount: tx.amount,
       currency: tx.currency,
       status: tx.status,

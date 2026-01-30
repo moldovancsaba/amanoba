@@ -307,8 +307,8 @@ export default function FinalExamPage() {
       setEntitlement(data.data);
       // Trust architecture: Card links guarantee URL locale = course language
       // No redirect or courseLanguage extraction needed
-    } catch (e: any) {
-      setError(e.message);
+    } catch (e: unknown) {
+      setError(e instanceof Error ? e.message : String(e));
     } finally {
       setLoadingEnt(false);
     }
@@ -326,8 +326,8 @@ export default function FinalExamPage() {
       const data = await res.json();
       if (!res.ok || !data.success) throw new Error(data.error || 'Redeem failed');
       await loadEntitlement();
-    } catch (e: any) {
-      setError(e.message);
+    } catch (e: unknown) {
+      setError(e instanceof Error ? e.message : String(e));
     } finally {
       setSubmitting(false);
     }
@@ -347,8 +347,8 @@ export default function FinalExamPage() {
       setAttemptId(data.data.attemptId);
       setQuestion(data.data.question);
       setResult(null);
-    } catch (e: any) {
-      setError(e.message);
+    } catch (e: unknown) {
+      setError(e instanceof Error ? e.message : String(e));
     } finally {
       setSubmitting(false);
     }
@@ -385,8 +385,8 @@ export default function FinalExamPage() {
       } else {
         setQuestion(data.data.nextQuestion);
       }
-    } catch (e: any) {
-      setError(e.message);
+    } catch (e: unknown) {
+      setError(e instanceof Error ? e.message : String(e));
     } finally {
       setSubmitting(false);
     }

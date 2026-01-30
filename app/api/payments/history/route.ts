@@ -57,8 +57,8 @@ export async function GET(request: NextRequest) {
     // Format transactions for response
     const formattedTransactions = transactions.map((tx) => ({
       id: tx._id.toString(),
-      courseId: tx.courseId ? (tx.courseId as any).courseId : null,
-      courseName: tx.courseId ? (tx.courseId as any).name : null,
+      courseId: tx.courseId ? (tx.courseId as { courseId?: string; name?: string }).courseId : null,
+      courseName: tx.courseId ? (tx.courseId as { courseId?: string; name?: string }).name : null,
       amount: tx.amount,
       currency: tx.currency,
       status: tx.status,

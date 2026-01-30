@@ -65,7 +65,7 @@ export async function GET(
     // Transform to simple course list
     const courses = progressList
       .map((progress) => {
-        const course = progress.courseId as any;
+        const course = progress.courseId as { _id?: unknown; name?: string };
         if (!course) return null;
         return {
           courseId: course.courseId || course._id?.toString(),

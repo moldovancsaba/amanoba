@@ -55,7 +55,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Validate all questions before inserting
-    const questionsToInsert = await Promise.all(questions.map(async (q: any, index: number) => {
+    const questionsToInsert = await Promise.all(questions.map(async (q: Record<string, unknown>, index: number) => {
       // Validate required fields
       if (!q.question || !q.options || q.correctIndex === undefined) {
         throw new Error(`Question ${index + 1}: Missing required fields (question, options, correctIndex)`);
@@ -107,7 +107,7 @@ export async function POST(request: NextRequest) {
         }
         resolvedRelatedCourseIds = (
           await Promise.all(
-            q.relatedCourseIds.map(async (relatedId: any) => {
+            q.relatedCourseIds.map(async (relatedId: unknown) => {
               if (typeof relatedId !== 'string') return null;
               if (mongoose.Types.ObjectId.isValid(relatedId)) {
                 const course = await Course.findById(relatedId);
@@ -166,13 +166,13 @@ export async function POST(request: NextRequest) {
       created: result.length,
       questions: result,
     }, { status: 201 });
-  } catch (error: any) {
+  } catch (error: unknown) {
     logger.error({ error }, 'Failed to create batch quiz questions');
     
     // Handle validation errors
     if (error.message) {
       return NextResponse.json(
-        { error: error.message },
+        { error: (error as Error).message },
         { status: 400 }
       );
     }

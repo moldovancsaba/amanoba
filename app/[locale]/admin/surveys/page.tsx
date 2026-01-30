@@ -13,7 +13,6 @@ import {
   BarChart3,
   Users,
   Clock,
-  TrendingUp,
   CheckCircle,
   Loader2,
 } from 'lucide-react';
@@ -57,8 +56,8 @@ interface SurveyAnalytics {
 }
 
 export default function AdminSurveysPage() {
-  const locale = useLocale();
-  const t = useTranslations('admin');
+  const _locale = useLocale();
+  const _t = useTranslations('admin');
   const [analytics, setAnalytics] = useState<SurveyAnalytics | null>(null);
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);

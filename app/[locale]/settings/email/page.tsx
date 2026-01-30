@@ -243,7 +243,7 @@ export default function EmailSettingsPage() {
           {/* Unsubscribe Link */}
           <div className="mt-6 pt-6 border-t border-brand-darkGrey/20">
             <p className="text-sm text-brand-darkGrey mb-2">
-              Don't want to receive emails anymore?
+              Don&apos;t want to receive emails anymore?
             </p>
             <LocaleLink
               href="/api/email/unsubscribe"

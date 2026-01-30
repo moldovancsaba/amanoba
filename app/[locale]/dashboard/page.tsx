@@ -94,7 +94,7 @@ export default function Dashboard() {
   const [playerData, setPlayerData] = useState<PlayerData | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [recommendations, setRecommendations] = useState<any[]>([]);
+  const [recommendations, setRecommendations] = useState<Record<string, unknown>[]>([]);
   const [loadingRecommendations, setLoadingRecommendations] = useState(false);
   const [featureFlags, setFeatureFlags] = useState<{
     courses: boolean;

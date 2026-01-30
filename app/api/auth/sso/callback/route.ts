@@ -183,15 +183,16 @@ export async function GET(request: NextRequest) {
       );
     }
 
-    // DEBUG: Log ID token claims to see what's in it
-    logger.info({
-      sub: claims.sub,
-      email: claims.email,
-      name: claims.name,
-      role: claims.role,
-      roles: claims.roles,
-      allClaims: Object.keys(claims)
-    }, 'DEBUG: ID token claims received from SSO');
+    if (process.env.NODE_ENV !== 'production') {
+      logger.info({
+        sub: claims.sub,
+        email: claims.email,
+        name: claims.name,
+        role: claims.role,
+        roles: claims.roles,
+        allClaims: Object.keys(claims)
+      }, 'DEBUG: ID token claims received from SSO');
+    }
 
     // Verify nonce (if present in both cookie and token claims)
     // Note: Some SSO providers may not include nonce in token claims
@@ -240,13 +241,14 @@ export async function GET(request: NextRequest) {
       );
     }
     
-    // DEBUG: Log extracted user info
-    logger.info({
-      sub: userInfo.sub,
-      email: userInfo.email,
-      role: userInfo.role,
-      roleSource: 'extracted_from_claims'
-    }, 'DEBUG: Extracted user info from claims');
+    if (process.env.NODE_ENV !== 'production') {
+      logger.info({
+        sub: userInfo.sub,
+        email: userInfo.email,
+        role: userInfo.role,
+        roleSource: 'extracted_from_claims'
+      }, 'DEBUG: Extracted user info from claims');
+    }
 
     try {
       await connectDB();
@@ -350,8 +352,8 @@ export async function GET(request: NextRequest) {
       
       // Log login event
       await logAuthEvent(
-        (player._id as any).toString(),
-        (player.brandId as any).toString(),
+        (player._id as { toString(): string }).toString(),
+        (player.brandId as { toString(): string }).toString(),
         'login'
       );
     } else {
@@ -426,7 +428,7 @@ export async function GET(request: NextRequest) {
             lastLoginAt: new Date(),
             lastSeenAt: new Date(),
           });
-        } catch (createError: any) {
+        } catch (createError: unknown) {
           // Handle duplicate key error - might be race condition or index issue
           if (createError?.code === 11000) {
             logger.warn(
@@ -555,7 +557,7 @@ export async function GET(request: NextRequest) {
             // Find referrer by matching player ID suffix
             // Note: This is a simplified lookup - in production, use a proper referral code lookup
             const allPlayers = await Player.find({}).select('_id displayName').lean();
-            const referrer = allPlayers.find((p: any) => {
+            const referrer = allPlayers.find((p: { _id: { toString(): string } }) => {
               const playerIdStr = p._id.toString();
               return playerIdStr.slice(-4).toLowerCase() === suffix;
             });
@@ -634,8 +636,8 @@ export async function GET(request: NextRequest) {
         
         // Log player registration event
         await logPlayerRegistration(
-          (player._id as any).toString(),
-          (defaultBrand._id as any).toString()
+          (player._id as { toString(): string }).toString(),
+          (defaultBrand._id as { toString(): string }).toString()
         );
       }
     }
@@ -646,20 +648,22 @@ export async function GET(request: NextRequest) {
     // Since we always trust SSO, player.role should match userInfo.role
     const finalRole = player.role || userInfo.role || 'user';
     
-    logger.info({
-      playerId: (player._id as any).toString(),
-      displayName: player.displayName,
-      roleFromDB: player.role,
-      roleFromSSO: userInfo.role,
-      finalRole,
-      roleSource: 'database_updated_from_sso'
-    }, 'DEBUG: About to call signIn with role (SSO is source of truth)');
+    if (process.env.NODE_ENV !== 'production') {
+      logger.info({
+        playerId: (player._id as { toString(): string }).toString(),
+        displayName: player.displayName,
+        roleFromDB: player.role,
+        roleFromSSO: userInfo.role,
+        finalRole,
+        roleSource: 'database_updated_from_sso'
+      }, 'DEBUG: About to call signIn with role (SSO is source of truth)');
+    }
     
     let signInResult;
     try {
       signInResult = await signIn('credentials', {
         redirect: false,
-        playerId: (player._id as any).toString(),
+        playerId: (player._id as { toString(): string }).toString(),
         displayName: player.displayName,
         isAnonymous: 'false',
         role: player.role || userInfo.role || 'user', // Use player.role (from DB, updated from SSO)
@@ -670,7 +674,7 @@ export async function GET(request: NextRequest) {
         {
           error: errorMessage,
           errorStack: signInError instanceof Error ? signInError.stack : undefined,
-          playerId: (player._id as any).toString(),
+          playerId: (player._id as { toString(): string }).toString(),
         },
         'Failed to call signIn - exception thrown'
       );
@@ -679,11 +683,13 @@ export async function GET(request: NextRequest) {
       );
     }
     
-    logger.info({
-      signInSuccess: !signInResult?.error,
-      rolePassed: player.role,
-      signInError: signInResult?.error
-    }, 'DEBUG: signIn completed');
+    if (process.env.NODE_ENV !== 'production') {
+      logger.info({
+        signInSuccess: !signInResult?.error,
+        rolePassed: player.role,
+        signInError: signInResult?.error
+      }, 'DEBUG: signIn completed');
+    }
 
     if (!signInResult || signInResult.error) {
       logger.error({ error: signInResult?.error }, 'Failed to create NextAuth session after SSO login');

@@ -61,13 +61,13 @@ export async function GET(
     }).lean();
 
     // Helper function to safely convert Map to object
-    const mapToObject = (map: any): Record<string, any> => {
+    const mapToObject = (map: Map<string, unknown> | Record<string, unknown> | null | undefined): Record<string, unknown> => {
       if (!map) return {};
       if (map instanceof Map) {
         return Object.fromEntries(map);
       }
       if (typeof map === 'object') {
-        return map;
+        return map as Record<string, unknown>;
       }
       return {};
     };

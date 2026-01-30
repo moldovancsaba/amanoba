@@ -14,7 +14,7 @@ import { requireAdmin } from '@/lib/rbac';
  *
  * Why: Debug endpoint to see raw database values (dev/staging only)
  * What: Returns unprocessed database documents for troubleshooting
- * Security: Admin-only; disabled in production (NODE_ENV=production)
+ * Security: Admin-only; returns 404 in production (P0.3 — never exposed in prod)
  */
 export async function GET(
   request: NextRequest,

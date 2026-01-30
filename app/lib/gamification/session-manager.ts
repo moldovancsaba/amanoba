@@ -544,7 +544,7 @@ export async function completeGameSession(
     // Why: These operations are not critical. If they fail, game data is still saved.
     // Failures here will be logged and can be retried via background jobs (Phase 4).
     
-    let newAchievements: any[] = [];
+    let newAchievements: unknown[] = [];
     
     // 13a. Check and unlock achievements (async, non-blocking)
     // Why: Achievement unlocking should not block session completion or cause rollbacks
@@ -980,8 +980,8 @@ export async function completeGameSession(
 
     // Handle transient transaction failures with a safe fallback (no transaction)
     const isTransient = !!(
-      (error as any)?.codeName === 'NoSuchTransaction' ||
-      (error as any)?.errorResponse?.errorLabels?.includes?.('TransientTransactionError')
+      (error as { codeName?: string; errorResponse?: { errorLabels?: string[] } })?.codeName === 'NoSuchTransaction' ||
+      (error as { codeName?: string; errorResponse?: { errorLabels?: string[] } })?.errorResponse?.errorLabels?.includes?.('TransientTransactionError')
     );
 
     if (isTransient) {
@@ -1007,15 +1007,15 @@ export async function completeGameSession(
         const streakResult = await updateWinStreak(session.playerId, input.outcome);
         const pointsResult = calculatePoints({
           game: game as IGame,
-          gameBrandConfig: { pointsConfig: (game as any).pointsConfig } as IGameBrandConfig,
+          gameBrandConfig: { pointsConfig: (game as IGame).pointsConfig } as IGameBrandConfig,
           sessionData: { score: input.score, maxScore: input.maxScore, accuracy: input.accuracy, duration: 0, outcome: input.outcome },
           playerContext: { isPremium: player.isPremium || false, currentWinStreak: streakResult.currentStreak },
-        } as any);
+        });
         const xpResult = calculateXP({
           game: game as IGame,
           sessionData: { outcome: input.outcome, score: input.score, maxScore: input.maxScore, accuracy: input.accuracy, duration: 0 },
           playerContext: { currentLevel: 1, isPremium: player.isPremium || false },
-        } as any);
+        });
 
         // Progression
         let progression = await PlayerProgression.findOne({ playerId: session.playerId });
@@ -1052,7 +1052,7 @@ export async function completeGameSession(
         wallet.lifetimeEarned += pointsResult.totalPoints;
         wallet.lastTransaction = new Date();
         await wallet.save();
-        await PointsTransaction.create([{ playerId: session.playerId, walletId: wallet._id, type: 'earn', amount: pointsResult.totalPoints, balanceBefore, balanceAfter: wallet.currentBalance, source: { type: 'game_session', referenceId: session._id, description: `${(game as any).name || 'Game'} - ${input.outcome}` }, metadata: { createdAt: new Date() } }]);
+        await PointsTransaction.create([{ playerId: session.playerId, walletId: wallet._id, type: 'earn', amount: pointsResult.totalPoints, balanceBefore, balanceAfter: wallet.currentBalance, source: { type: 'game_session', referenceId: session._id, description: `${(game as IGame).name || 'Game'} - ${input.outcome}` }, metadata: { createdAt: new Date() } }]);
 
         // Session finalize
         const sessionEnd = new Date();
@@ -1060,15 +1060,15 @@ export async function completeGameSession(
         session.sessionEnd = sessionEnd;
         session.duration = duration;
         session.status = 'completed';
-        session.gameData = { score: input.score, maxScore: input.maxScore, accuracy: input.accuracy, moves: input.moves, hints: input.hints, difficulty: input.difficulty, level: input.level, outcome: input.outcome, rawData: input.rawData } as any;
-        session.rewards = { pointsEarned: pointsResult.totalPoints, xpEarned: xpResult.totalXP, bonusMultiplier: 1.0, achievementsUnlocked: [], streakBonus: streakResult.currentStreak > 1 ? streakResult.bonusMultiplier : 0 } as any;
+        session.gameData = { score: input.score, maxScore: input.maxScore, accuracy: input.accuracy, moves: input.moves, hints: input.hints, difficulty: input.difficulty, level: input.level, outcome: input.outcome, rawData: input.rawData };
+        session.rewards = { pointsEarned: pointsResult.totalPoints, xpEarned: xpResult.totalXP, bonusMultiplier: 1.0, achievementsUnlocked: [], streakBonus: streakResult.currentStreak > 1 ? streakResult.bonusMultiplier : 0 };
         await session.save();
 
         // Return minimal result (achievements/daily challenges handled asynchronously by normal flow on next run)
         const result: SessionCompleteResult = {
           sessionId: session._id as mongoose.Types.ObjectId,
           rewards: { points: pointsResult.totalPoints, pointsBreakdown: pointsResult.formula, xp: xpResult.totalXP, bonusPoints: 0, bonusXP: 0 },
-          progression: { leveledUp: xpProc.leveledUp, newLevel: xpProc.finalLevel, levelsGained: xpProc.levelsGained, levelUpRewards: (xpProc.levelUpResults || []).map((r: any) => r.rewards) },
+          progression: { leveledUp: xpProc.leveledUp, newLevel: xpProc.finalLevel, levelsGained: xpProc.levelsGained, levelUpRewards: (xpProc.levelUpResults || []).map((r: { rewards?: unknown }) => r.rewards) },
           achievements: { newUnlocks: 0, achievements: [] },
           streak: { current: streakResult.currentStreak, best: streakResult.bestStreak, milestoneReached: streakResult.milestoneReached },
           newFeatures: [],

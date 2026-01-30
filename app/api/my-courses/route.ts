@@ -70,7 +70,7 @@ export async function GET(request: NextRequest) {
     );
 
     // Calculate progress for each course
-    const courses = filteredProgress.map((progress: any) => {
+    const courses = filteredProgress.map((progress: Record<string, unknown>) => {
       const course = progress.courseId;
       const completedDaysArray = progress.completedDays || [];
       const completedDays = completedDaysArray.length;

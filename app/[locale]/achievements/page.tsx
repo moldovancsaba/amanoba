@@ -11,9 +11,9 @@ import { useEffect, useState } from 'react';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import { useLocale, useTranslations } from 'next-intl';
-import { Lock, CheckCircle, ChevronLeft } from 'lucide-react';
+import { Lock, CheckCircle, ChevronLeft, Sparkles } from 'lucide-react';
 import { LocaleLink } from '@/components/LocaleLink';
-import Icon, { MdEmojiEvents, MdSentimentDissatisfied, MdDiamond, MdBolt, MdStar, MdAutoAwesome } from '@/components/Icon';
+import Icon, { MdEmojiEvents, MdSentimentDissatisfied, MdDiamond, MdBolt, MdStar } from '@/components/Icon';
 
 interface Achievement {
   id: string;

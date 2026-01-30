@@ -11,9 +11,9 @@ import { useEffect, useState } from 'react';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import { useLocale, useTranslations } from 'next-intl';
-import { ChevronLeft, CheckCircle, Circle, Lock } from 'lucide-react';
+import { ChevronLeft, CheckCircle, Circle, Lock, Sparkles, Trophy } from 'lucide-react';
 import { LocaleLink } from '@/components/LocaleLink';
-import Icon, { MdMap, MdMyLocation, MdAutoAwesome, MdEmojiEvents, MdSentimentDissatisfied, MdBolt, MdStars, MdCardGiftcard, MdCheckCircle } from '@/components/Icon';
+import Icon, { MdMap, MdMyLocation, MdAutoAwesome, MdEmojiEvents, MdSentimentDissatisfied, MdBolt, MdStars, MdCardGiftcard } from '@/components/Icon';
 
 interface QuestStep {
   stepNumber: number;

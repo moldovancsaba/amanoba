@@ -10,20 +10,14 @@
 import { useState, useEffect } from 'react';
 import { useLocale, useTranslations } from 'next-intl';
 import {
-  CreditCard,
   DollarSign,
   TrendingUp,
   TrendingDown,
-  Filter,
-  Search,
   Download,
-  Calendar,
   CheckCircle,
   XCircle,
   RefreshCw,
   Eye,
-  User,
-  BookOpen,
   X,
 } from 'lucide-react';
 
@@ -81,8 +75,8 @@ interface Analytics {
 }
 
 export default function AdminPaymentsPage() {
-  const locale = useLocale();
-  const t = useTranslations('admin');
+  const _locale = useLocale();
+  const _t = useTranslations('admin');
   const [transactions, setTransactions] = useState<PaymentTransaction[]>([]);
   const [analytics, setAnalytics] = useState<Analytics | null>(null);
   const [loading, setLoading] = useState(true);

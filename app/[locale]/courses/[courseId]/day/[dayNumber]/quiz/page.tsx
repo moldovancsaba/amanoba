@@ -229,7 +229,7 @@ export default function LessonQuizPage({
       setLoading(true);
       setError(null);
       const lessonRes = await fetch(`/api/courses/${cid}/day/${day}`, { cache: 'no-store' });
-      const lessonData: any = await lessonRes.json();
+      const lessonData: Record<string, unknown> = await lessonRes.json();
       
       // Get course language from API response FIRST
       if (lessonData.courseLanguage) {

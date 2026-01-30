@@ -37,7 +37,7 @@ export async function GET(request: NextRequest) {
 
 // Fetch or create today's active challenges via shared service
     const ensured = await ensureDailyChallengesForToday();
-    let challenges = ensured.challenges;
+    const challenges = ensured.challenges;
 
     // Fetch player's progress on these challenges (ensure ObjectId match)
     const challengeIds = challenges.map(c => c._id);
@@ -72,9 +72,9 @@ export async function GET(request: NextRequest) {
       if (sessions.length > 0) {
         const totals = {
           gamesPlayed: sessions.length,
-          gamesWon: sessions.filter((s: any) => (s.gameData?.outcome || (s as any).outcome) === 'win').length,
-          pointsEarned: sessions.reduce((sum: number, s: any) => sum + (s.rewards?.pointsEarned || 0), 0),
-          xpEarned: sessions.reduce((sum: number, s: any) => sum + (s.rewards?.xpEarned || 0), 0),
+          gamesWon: sessions.filter((s: { gameData?: { outcome?: string }; outcome?: string }) => (s.gameData?.outcome || s.outcome) === 'win').length,
+          pointsEarned: sessions.reduce((sum: number, s: { rewards?: { pointsEarned?: number } }) => sum + (s.rewards?.pointsEarned || 0), 0),
+          xpEarned: sessions.reduce((sum: number, s: { rewards?: { xpEarned?: number } }) => sum + (s.rewards?.xpEarned || 0), 0),
         };
 
         for (const ch of challenges) {

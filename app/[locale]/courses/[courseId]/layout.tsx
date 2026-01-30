@@ -51,7 +51,7 @@ export async function generateMetadata({
     if (!thumbnailUrl) {
       const brand = await Brand.findOne({ slug: 'amanoba' }).lean();
       if (brand?.metadata) {
-        thumbnailUrl = (brand.metadata as any)?.defaultCourseThumbnail;
+        thumbnailUrl = (brand.metadata as Record<string, unknown>)?.defaultCourseThumbnail;
       }
     }
 

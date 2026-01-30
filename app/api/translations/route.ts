@@ -6,13 +6,13 @@ import { locales } from '@/app/lib/i18n/locales';
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
 
-function deepMerge(base: any, override: any): any {
+function deepMerge(base: unknown, override: unknown): unknown {
   if (Array.isArray(base)) return override ?? base;
   if (typeof base === 'object' && base !== null) {
-    const result: any = { ...base };
+    const result: Record<string, unknown> = { ...(base as Record<string, unknown>) };
     if (override && typeof override === 'object') {
       for (const key of Object.keys(override)) {
-        result[key] = deepMerge(base[key], override[key]);
+        result[key] = deepMerge((base as Record<string, unknown>)[key], (override as Record<string, unknown>)[key]);
       }
     }
     return result;
@@ -29,7 +29,7 @@ export async function GET(request: NextRequest) {
   }
 
   const defaultMessages = (await import(`@/messages/${defaultLocale}.json`)).default;
-  let localeMessages: Record<string, any> = defaultMessages;
+  let localeMessages: Record<string, unknown> = defaultMessages as Record<string, unknown>;
 
   if (locale !== defaultLocale) {
     try {

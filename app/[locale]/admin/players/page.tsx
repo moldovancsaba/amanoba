@@ -15,10 +15,8 @@ import {
   Search,
   Users,
   Crown,
-  Ban,
   CheckCircle,
   XCircle,
-  Filter,
 } from 'lucide-react';
 
 interface Player {

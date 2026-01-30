@@ -16,8 +16,9 @@
 
 import { NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
+import mongoose from 'mongoose';
 import connectDB, { getConnectionState } from '@/app/lib/mongodb';
-import { QuizQuestion, QuestionDifficulty } from '@/app/lib/models';
+import { QuizQuestion, QuestionDifficulty, Course } from '@/app/lib/models';
 import logger from '@/app/lib/logger';
 
 export const runtime = 'nodejs';
@@ -102,7 +103,6 @@ export async function GET(request: NextRequest) {
       .filter(Boolean)
       .filter(id => {
         try {
-          const mongoose = require('mongoose');
           return mongoose.isValidObjectId(id);
         } catch {
           return false;
@@ -137,13 +137,11 @@ export async function GET(request: NextRequest) {
         matchStage.lessonId = lessonId;
       }
       if (courseId) {
-        const mongoose = require('mongoose');
         // If courseId is a valid ObjectId, use it directly
         if (mongoose.Types.ObjectId.isValid(courseId)) {
           matchStage.courseId = new mongoose.Types.ObjectId(courseId);
         } else {
           // If courseId is a string (like "AI_30_NAP"), look up the course first
-          const { Course } = require('@/app/lib/models');
           const course = await Course.findOne({ courseId: courseId }).lean();
           if (course && course._id) {
             matchStage.courseId = course._id;
@@ -186,7 +184,6 @@ export async function GET(request: NextRequest) {
 
     if (excludeIds.length > 0) {
       try {
-        const mongoose = require('mongoose');
         matchStage._id = { $nin: excludeIds.map(id => new mongoose.Types.ObjectId(id)) };
       } catch (err) {
         logger.warn({ error: err, excludeIds }, 'Failed to parse exclude IDs, ignoring exclude filter');

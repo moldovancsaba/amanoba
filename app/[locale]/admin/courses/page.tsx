@@ -91,7 +91,7 @@ function CreateCourseFamilyForm({ onCreated }: { onCreated: () => void }) {
       setCcsId('');
       setName('');
       onCreated();
-    } catch (e) {
+    } catch {
       setErr('Request failed');
     } finally {
       setSubmitting(false);

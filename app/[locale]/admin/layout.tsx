@@ -35,13 +35,6 @@ import {
 } from 'lucide-react';
 import Logo from '@/components/Logo';
 
-interface NavItem {
-  label: string;
-  href: string;
-  icon: React.ComponentType<{ className?: string }>;
-  badge?: string;
-}
-
 // Full nav for admins; editor-only users see only dashboard + courses
 const allNavigationItems = [
   { key: 'dashboard', href: '/admin', icon: LayoutDashboard },

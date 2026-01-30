@@ -8,13 +8,10 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import Link from 'next/link';
 import { useLocale, useTranslations } from 'next-intl';
 import {
-  Search,
   Calendar,
   Target,
-  Filter,
 } from 'lucide-react';
 
 interface Challenge {
@@ -43,7 +40,7 @@ interface Challenge {
 }
 
 export default function AdminChallengesPage() {
-  const locale = useLocale();
+  const _locale = useLocale();
   const t = useTranslations('admin');
   const tCommon = useTranslations('common');
   const [challenges, setChallenges] = useState<Challenge[]>([]);

@@ -219,17 +219,17 @@ export async function GET(request: NextRequest) {
 
     // Format recent activity
     const recentActivity = [
-      ...recentPlayers.slice(0, 1).map((p: any) => ({
+      ...recentPlayers.slice(0, 1).map((p: Record<string, unknown>) => ({
         type: 'player',
         message: `Új játékos regisztrálva: ${p.displayName}`,
         time: getTimeAgo(p.createdAt),
       })),
-      ...recentAchievements.slice(0, 1).map((a: any) => ({
+      ...recentAchievements.slice(0, 1).map((a: Record<string, unknown>) => ({
         type: 'achievement',
         message: `Eredmény feloldva: ${a.achievementId?.name || 'Ismeretlen'} (${a.playerId?.displayName || 'Ismeretlen'})`,
         time: getTimeAgo(a.unlockedAt),
       })),
-      ...recentSessions.slice(0, 1).map((s: any) => ({
+      ...recentSessions.slice(0, 1).map((s: Record<string, unknown>) => ({
         type: 'game',
         message: `${s.game?.name || 'Játék'} játszva ${s.count} alkalommal az elmúlt órában`,
         time: '1 órája',

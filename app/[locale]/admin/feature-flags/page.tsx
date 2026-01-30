@@ -27,8 +27,8 @@ interface FeatureFlags {
 }
 
 export default function AdminFeatureFlagsPage() {
-  const locale = useLocale();
-  const t = useTranslations('admin');
+  const _locale = useLocale();
+  const _t = useTranslations('admin');
   const tCommon = useTranslations('common');
   const [featureFlags, setFeatureFlags] = useState<FeatureFlags | null>(null);
   const [loading, setLoading] = useState(true);

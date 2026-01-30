@@ -114,7 +114,7 @@ export async function PATCH(
     }
 
     // Update fields
-    const updateData: any = {
+    const updateData: Record<string, unknown> = {
       'metadata.updatedAt': new Date(),
     };
 
@@ -257,10 +257,10 @@ export async function PATCH(
       success: true,
       question: updatedQuestion,
     });
-  } catch (error: any) {
+  } catch (error: unknown) {
     logger.error({ error, questionId: (await params).questionId }, 'Failed to update question');
 
-    if (error.message) {
+    if (error instanceof Error && error.message) {
       return NextResponse.json(
         { error: error.message },
         { status: 400 }

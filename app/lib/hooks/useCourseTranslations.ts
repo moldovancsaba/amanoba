@@ -15,10 +15,10 @@ import { useState, useEffect } from 'react';
 import { locales, type Locale } from '@/app/lib/i18n/locales';
 
 interface Translations {
-  [key: string]: any;
+  [key: string]: unknown;
 }
 
-let translationCache: Record<string, Translations> = {};
+const translationCache: Record<string, Translations> = {};
 
 /**
  * Load translations for a specific locale
@@ -56,7 +56,7 @@ async function loadTranslations(locale: Locale): Promise<Translations> {
 /**
  * Get nested value from translations object
  */
-function getNestedValue(obj: any, path: string): string {
+function getNestedValue(obj: Record<string, unknown>, path: string): string {
   const keys = path.split('.');
   let value = obj;
   for (const key of keys) {
@@ -113,7 +113,7 @@ export function useCourseTranslations(courseLanguage: string | undefined, fallba
   }, [courseLocale]);
 
   // Translation functions
-  const t = (key: string, params?: Record<string, any>): string => {
+  const t = (key: string, params?: Record<string, unknown>): string => {
     if (!translations || loading) {
       return key; // Return key while loading
     }
@@ -142,7 +142,7 @@ export function useCourseTranslations(courseLanguage: string | undefined, fallba
     return value;
   };
 
-  const tCommon = (key: string, params?: Record<string, any>): string => {
+  const tCommon = (key: string, params?: Record<string, unknown>): string => {
     if (!translations || loading) {
       return key;
     }

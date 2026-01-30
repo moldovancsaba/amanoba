@@ -19,7 +19,7 @@ import { logger } from '../logger';
  * @param locale - Language code (e.g., 'hu', 'en')
  * @returns Nested object structure compatible with next-intl
  */
-export async function getTranslationsForLocale(locale: string): Promise<Record<string, any>> {
+export async function getTranslationsForLocale(locale: string): Promise<Record<string, unknown>> {
   try {
     await connectDB();
 
@@ -27,7 +27,7 @@ export async function getTranslationsForLocale(locale: string): Promise<Record<s
 
     // Transform flat translations into nested structure
     // Key format: "namespace.key" or just "key"
-    const result: Record<string, any> = {};
+    const result: Record<string, unknown> = {};
 
     for (const translation of translations) {
       const { key, value, namespace } = translation;
@@ -77,14 +77,14 @@ export async function getTranslationsForLocale(locale: string): Promise<Record<s
 /**
  * Helper: Set nested value in object
  */
-function setNestedValue(obj: any, path: string, value: any): void {
+function setNestedValue(obj: Record<string, unknown>, path: string, value: unknown): void {
   const keys = path.split('.');
-  let current = obj;
+  let current: Record<string, unknown> = obj;
   for (let i = 0; i < keys.length - 1; i++) {
     if (!current[keys[i]]) {
       current[keys[i]] = {};
     }
-    current = current[keys[i]];
+    current = current[keys[i]] as Record<string, unknown>;
   }
   current[keys[keys.length - 1]] = value;
 }
@@ -97,7 +97,7 @@ function setNestedValue(obj: any, path: string, value: any): void {
  */
 export async function seedTranslations(
   locale: string,
-  translations: Record<string, any>
+  translations: Record<string, unknown>
 ): Promise<void> {
   try {
     await connectDB();
@@ -105,12 +105,12 @@ export async function seedTranslations(
     const flatTranslations: Array<{ key: string; locale: string; value: string; namespace?: string }> = [];
 
     // Flatten nested object
-    function flatten(obj: any, prefix = '', namespace?: string): void {
+    function flatten(obj: Record<string, unknown>, prefix = '', namespace?: string): void {
       for (const [key, value] of Object.entries(obj)) {
         const fullKey = prefix ? `${prefix}.${key}` : key;
         if (typeof value === 'object' && value !== null && !Array.isArray(value)) {
           // Nested object, recurse
-          flatten(value, fullKey, namespace || key);
+          flatten(value as Record<string, unknown>, fullKey, namespace || key);
         } else {
           // Leaf value
           flatTranslations.push({

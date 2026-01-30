@@ -11,7 +11,10 @@ import { useEffect, useState } from 'react';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import { useTranslations, useLocale } from 'next-intl';
-import { Trophy, ChevronLeft, Crown, Medal, Award, TrendingUp, TrendingDown } from 'lucide-react';
+import { ChevronLeft, Crown, Medal, Award, TrendingUp, TrendingDown } from 'lucide-react';
+import { MdPsychology, MdGpsFixed, MdCardMembership, MdNumbers, MdCalendarToday, MdBarChart, MdTrendingUp, MdEmojiEvents, MdSentimentDissatisfied, MdSportsEsports } from 'react-icons/md';
+import { IconType } from 'react-icons';
+import Icon from '@/components/Icon';
 import { LocaleLink } from '@/components/LocaleLink';
 import Logo from '@/components/Logo';
 
@@ -258,7 +261,7 @@ export default function LeaderboardsPage() {
 
             {/* Leaderboard Entries */}
             <div className="divide-y divide-brand-darkGrey/20">
-              {leaderboardData.entries.map((entry, index) => {
+              {leaderboardData.entries.map((entry) => {
                 const isCurrentPlayer = entry.playerId === currentPlayerId;
                 
                 return (

@@ -56,10 +56,10 @@ export async function GET(request: NextRequest) {
     const completionRate = totalResponses > 0 ? 100 : 0; // All responses are completed
 
     // Answer statistics by question
-    const questionStats: Record<string, any> = {};
+    const questionStats: Record<string, unknown> = {};
     for (const question of survey.questions) {
       const questionAnswers = responses
-        .map((r) => r.answers.find((a: any) => a.questionId === question.questionId))
+        .map((r) => r.answers.find((a: { questionId?: string }) => a.questionId === question.questionId))
         .filter(Boolean);
 
       if (question.type === 'single_choice' || question.type === 'multiple_choice') {
@@ -117,7 +117,7 @@ export async function GET(request: NextRequest) {
     // Most common interests
     const interestsCount: Record<string, number> = {};
     for (const response of responses) {
-      const player = response.playerId as any;
+      const player = response.playerId as { interests?: string[] };
       if (player?.interests && Array.isArray(player.interests)) {
         for (const interest of player.interests) {
           interestsCount[interest] = (interestsCount[interest] || 0) + 1;
@@ -142,9 +142,9 @@ export async function GET(request: NextRequest) {
     // Recent responses (last 10)
     const recentResponses = responses.slice(0, 10).map((r) => ({
       id: r._id.toString(),
-      playerName: (r.playerId as any)?.displayName || 'Unknown',
-      playerEmail: (r.playerId as any)?.email || null,
-      skillLevel: (r.playerId as any)?.skillLevel || null,
+      playerName: (r.playerId as { displayName?: string })?.displayName || 'Unknown',
+      playerEmail: (r.playerId as { email?: string | null })?.email || null,
+      skillLevel: (r.playerId as { skillLevel?: string })?.skillLevel || null,
       completedAt: r.completedAt,
       timeSpentSeconds: r.metadata?.timeSpentSeconds || null,
     }));

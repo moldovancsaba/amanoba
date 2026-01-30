@@ -17,8 +17,6 @@ import {
   CheckCircle,
   XCircle,
   Eye,
-  Ban,
-  RotateCcw,
 } from 'lucide-react';
 
 interface Certificate {
@@ -40,8 +38,8 @@ interface Certificate {
 }
 
 export default function AdminCertificatesPage() {
-  const locale = useLocale();
-  const t = useTranslations('admin');
+  const _locale = useLocale();
+  const _t = useTranslations('admin');
   const tCommon = useTranslations('common');
   const [certificates, setCertificates] = useState<Certificate[]>([]);
   const [initialLoading, setInitialLoading] = useState(true); // Only for first load

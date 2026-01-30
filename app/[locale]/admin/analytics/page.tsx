@@ -104,8 +104,8 @@ export default function AdminAnalyticsPage() {
             const fallbackJson = await fallbackRes.json();
             if (fallbackJson.success && fallbackJson.brands && fallbackJson.brands.length > 0) {
               // Find amanoba brand or use first active brand
-              const amanobaBrand = fallbackJson.brands.find((b: any) => b.slug === 'amanoba') || 
-                                  fallbackJson.brands.find((b: any) => b.isActive);
+              const amanobaBrand = fallbackJson.brands.find((b: { slug?: string }) => b.slug === 'amanoba') || 
+                                  fallbackJson.brands.find((b: { isActive?: boolean }) => b.isActive);
               if (amanobaBrand) {
                 // Convert ObjectId to string if needed
                 const brandIdValue = amanobaBrand._id?.toString() || amanobaBrand._id;

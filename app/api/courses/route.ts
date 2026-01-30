@@ -62,7 +62,7 @@ export async function GET(request: NextRequest) {
     if (hasCoursesWithoutThumbnail) {
       const brand = await Brand.findOne({ slug: 'amanoba' }).lean();
       if (brand?.metadata) {
-        defaultThumbnail = (brand.metadata as any)?.defaultCourseThumbnail || null;
+        defaultThumbnail = (brand.metadata as Record<string, unknown>)?.defaultCourseThumbnail as string | undefined || null;
       }
     }
 

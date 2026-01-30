@@ -82,9 +82,9 @@ export async function GET(request: NextRequest) {
  * Why: Matches courses based on player's skill level, interests, and enrollment status
  */
 async function getCourseRecommendations(
-  player: any,
+  player: Record<string, unknown>,
   limit: number
-): Promise<any[]> {
+): Promise<Record<string, unknown>[]> {
   // Get player's enrolled courses to exclude them
   const enrolledCourses = await CourseProgress.find({
     playerId: player._id,
@@ -107,7 +107,7 @@ async function getCourseRecommendations(
   }
 
   // Get all matching courses
-  let courses = await Course.find(query)
+  const courses = await Course.find(query)
     .select('courseId name description language thumbnail requiresPremium durationDays pointsConfig xpConfig price metadata')
     .lean();
 

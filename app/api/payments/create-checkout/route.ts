@@ -41,7 +41,7 @@ export const dynamic = 'force-dynamic';
 export async function POST(request: NextRequest) {
   let normalizedCourseId: string | undefined;
   let originalCourseId: string | undefined;
-  let player: any = null;
+  let player: unknown = null;
 
   try {
     // Check authentication

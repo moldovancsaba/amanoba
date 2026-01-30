@@ -167,7 +167,7 @@ export async function GET(
     });
 
     const profilePlayer = player as { profileVisibility?: string; profileSectionVisibility?: Record<string, string> };
-    const profileData: any = {
+    const profileData: Record<string, unknown> = {
       player: {
         id: player._id,
         displayName: player.displayName,

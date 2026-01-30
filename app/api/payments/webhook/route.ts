@@ -294,7 +294,7 @@ async function handleCheckoutSessionCompleted(session: Stripe.Checkout.Session) 
     }
 
     // Extract payment method details
-    const paymentMethodDetails: any = {};
+    const paymentMethodDetails: Record<string, unknown> = {};
     if (paymentMethod) {
       if (paymentMethod.type === 'card' && paymentMethod.card) {
         paymentMethodDetails.type = 'card';

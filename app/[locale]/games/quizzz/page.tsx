@@ -138,7 +138,7 @@ export default function QuizzzGame() {
       // Reset only when pool is exhausted to ensure no repeats until all questions seen
       const seenKey = `quizzz:seenIds:${diff}`;
       const seenIdsRaw = sessionStorage.getItem(seenKey);
-      let seenIds: string[] = seenIdsRaw ? JSON.parse(seenIdsRaw) : [];
+      const seenIds: string[] = seenIdsRaw ? JSON.parse(seenIdsRaw) : [];
       const excludeParam = seenIds.slice(0, 200).join(','); // Limit to 200 for URL safety
       
       // Why: NO CACHING + exclude + runId
@@ -502,7 +502,7 @@ export default function QuizzzGame() {
               const challengesRes = await fetch(`/api/challenges?playerId=${playerId}&t=${Date.now()}`, { cache: 'no-store' });
               if (challengesRes.ok) {
                 const ch = await challengesRes.json();
-                const completed = (ch.challenges || []).filter((c: any) => c.isCompleted).map((c: any) => ({
+                const completed = (ch.challenges || []).filter((c: { isCompleted?: boolean }) => c.isCompleted).map((c: { name?: string; rewards?: { points?: number; xp?: number } }) => ({
                   title: c.name,
                   rewardsEarned: { points: c.rewards?.points || 0, xp: c.rewards?.xp || 0 },
                 }));
@@ -817,7 +817,7 @@ export default function QuizzzGame() {
                     Level Up!
                   </h3>
                   <div className="text-lg text-gray-700">
-                    You're now <span className="font-bold text-green-600">Level {progression.newLevel}</span>
+                    You&apos;re now <span className="font-bold text-green-600">Level {progression.newLevel}</span>
                     {progression.newTitle && (
                       <div className="mt-1 text-sm">
                         New Title: <span className="font-bold text-purple-600">{progression.newTitle}</span>
@@ -868,10 +868,10 @@ export default function QuizzzGame() {
             )}
 
             {/* Streak Bonus */}
-            {rewards && (rewards as any).streakBonus && (rewards as any).streakBonus > 0 && (
+            {rewards && (rewards as { streakBonus?: number }).streakBonus && (rewards as { streakBonus?: number }).streakBonus > 0 && (
               <div className="bg-gradient-to-r from-orange-50 to-red-50 rounded-xl p-4 text-center">
                 <div className="font-bold text-orange-700">
-                  🔥 Streak Bonus: +{Math.round((rewards as any).streakBonus * 100)}% rewards!
+                  🔥 Streak Bonus: +{Math.round((rewards as { streakBonus: number }).streakBonus * 100)}% rewards!
                 </div>
               </div>
             )}

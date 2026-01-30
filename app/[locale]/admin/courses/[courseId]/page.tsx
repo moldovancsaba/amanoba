@@ -16,11 +16,8 @@ import {
   Save,
   Plus,
   Edit,
-  Trash2,
   Eye,
   Calendar,
-  BookOpen,
-  Gamepad2,
   Download,
   Upload,
 } from 'lucide-react';
@@ -96,7 +93,7 @@ export default function CourseEditorPage({
 }: {
   params: Promise<{ courseId: string }>;
 }) {
-  const router = useRouter();
+  const _router = useRouter();
   const locale = useLocale();
   const [course, setCourse] = useState<Course | null>(null);
   const [lessons, setLessons] = useState<Lesson[]>([]);
@@ -115,7 +112,7 @@ export default function CourseEditorPage({
   const [editorSearch, setEditorSearch] = useState('');
   const [editorSearchResults, setEditorSearchResults] = useState<Array<{ _id: string; displayName?: string; email?: string }>>([]);
   const [editorSearching, setEditorSearching] = useState(false);
-  const [addingEditor, setAddingEditor] = useState(false);
+  const [_addingEditor, _setAddingEditor] = useState(false);
   const resolvedLanguageOptions = course
     ? [
         ...(!COURSE_LANGUAGE_OPTIONS.some((option) => option.code === course.language)
@@ -856,7 +853,7 @@ export default function CourseEditorPage({
                   placeholder="e.g., AAE, CERT"
                 />
                 <p className="text-xs text-brand-darkGrey mt-1">
-                  Credential identifier shown on certificate (e.g., "AAE" for Amanoba-Accredited Expert)
+                  Credential identifier shown on certificate (e.g., &quot;AAE&quot; for Amanoba-Accredited Expert)
                 </p>
               </div>
             </>

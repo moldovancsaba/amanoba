@@ -22,16 +22,16 @@ import {
 } from 'lucide-react';
 
 export default function AdminSettingsPage() {
-  const locale = useLocale();
+  const _locale = useLocale();
   const t = useTranslations('admin');
-  const tCommon = useTranslations('common');
+  const _tCommon = useTranslations('common');
   const [saving, setSaving] = useState(false);
   const [saved, setSaved] = useState(false);
   const [defaultThumbnail, setDefaultThumbnail] = useState<string | null>(null);
   const [uploadingThumbnail, setUploadingThumbnail] = useState(false);
   
   // Certification settings state
-  const [certSettings, setCertSettings] = useState<any>(null);
+  const [certSettings, setCertSettings] = useState<Record<string, unknown> | null>(null);
   const [certSettingsLoading, setCertSettingsLoading] = useState(true);
   const [certSaving, setCertSaving] = useState(false);
 
@@ -504,7 +504,7 @@ export default function AdminSettingsPage() {
                   />
                 </label>
                 <p className="text-xs text-gray-400">
-                  This thumbnail will be used for courses that don't have their own thumbnail image. (JPEG, PNG, WebP, or GIF, max 10MB)
+                  This thumbnail will be used for courses that don&apos;t have their own thumbnail image. (JPEG, PNG, WebP, or GIF, max 10MB)
                 </p>
               </div>
             </div>

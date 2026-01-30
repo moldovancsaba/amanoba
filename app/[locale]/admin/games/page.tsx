@@ -18,7 +18,6 @@ import {
   Eye,
   EyeOff,
   Gamepad2,
-  Settings,
 } from 'lucide-react';
 
 interface Game {
@@ -71,7 +70,7 @@ export default function AdminGamesPage() {
     }
   };
 
-  const toggleGameStatus = async (gameId: string, currentStatus: boolean) => {
+  const toggleGameStatus = async (_gameId: string, _currentStatus: boolean) => {
     try {
       // TODO: Create API endpoint for updating game status
       // For now, just refresh the list

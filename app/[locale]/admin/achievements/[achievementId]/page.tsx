@@ -225,7 +225,7 @@ export default function EditAchievementPage() {
       }
 
       // Prepare payload
-      const payload: any = {
+      const payload: Record<string, unknown> = {
         name: formData.name.trim(),
         description: formData.description.trim(),
         category: formData.category,
@@ -301,7 +301,7 @@ export default function EditAchievementPage() {
     }
   };
 
-  const updateFormData = (field: string, value: any) => {
+  const updateFormData = (field: string, value: unknown) => {
     if (field.includes('.')) {
       const [parent, child] = field.split('.');
       setFormData(prev => ({
@@ -477,7 +477,7 @@ export default function EditAchievementPage() {
               {/* Icon */}
               <div>
                 <label className="block text-white text-sm font-medium mb-2">
-                  Icon <span className="text-red-400">*</span>
+                  {'Icon '}<span className="text-red-400">*</span>
                 </label>
                 <div className="flex gap-2 mb-2">
                   <input

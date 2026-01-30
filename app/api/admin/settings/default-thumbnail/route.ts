@@ -36,7 +36,7 @@ export async function GET(request: NextRequest) {
       return NextResponse.json({ error: 'Brand not found' }, { status: 404 });
     }
 
-    const defaultThumbnail = (brand.metadata as any)?.defaultCourseThumbnail || null;
+    const defaultThumbnail = (brand.metadata as Record<string, unknown>)?.defaultCourseThumbnail || null;
 
     return NextResponse.json({
       success: true,
@@ -87,7 +87,7 @@ export async function POST(request: NextRequest) {
     if (!brand.metadata) {
       brand.metadata = {};
     }
-    (brand.metadata as any).defaultCourseThumbnail = thumbnail;
+    (brand.metadata as Record<string, unknown>).defaultCourseThumbnail = thumbnail;
     await brand.save();
 
     logger.info({ thumbnail }, 'Default course thumbnail updated');
@@ -128,7 +128,7 @@ export async function DELETE(request: NextRequest) {
 
     // Remove default thumbnail from metadata
     if (brand.metadata) {
-      delete (brand.metadata as any).defaultCourseThumbnail;
+      delete (brand.metadata as Record<string, unknown>).defaultCourseThumbnail;
       await brand.save();
     }
 

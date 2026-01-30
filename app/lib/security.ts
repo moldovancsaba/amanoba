@@ -114,15 +114,26 @@ export const securityHeaders = {
 };
 
 /**
+ * Why: Single source for allowed origins (CORS and CSRF)
+ * What: ALLOWED_ORIGINS env (comma-separated) or fallback for dev/staging
+ */
+function getAllowedOrigins(): string[] {
+  const env = process.env.ALLOWED_ORIGINS;
+  if (env && env.trim()) {
+    return env.split(',').map((o) => o.trim()).filter(Boolean);
+  }
+  return [
+    'http://localhost:3000',
+    'https://amanoba.vercel.app',
+  ];
+}
+
+/**
  * Why: CORS configuration secures cross-origin requests
  * What: Configurable CORS headers for API endpoints
  */
 export function getCorsHeaders(origin?: string): Record<string, string> {
-  const allowedOrigins = [
-    'http://localhost:3000',
-    'https://amanoba.vercel.app',
-    // Add production domains here
-  ];
+  const allowedOrigins = getAllowedOrigins();
 
   const corsHeaders: Record<string, string> = {
     'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
@@ -311,14 +322,7 @@ export function secureCompare(a: string, b: string): boolean {
  */
 export function isValidOrigin(origin: string | null): boolean {
   if (!origin) return false;
-  
-  const allowedOrigins = [
-    'http://localhost:3000',
-    'https://amanoba.vercel.app',
-    // Add production domains
-  ];
-  
-  return allowedOrigins.includes(origin);
+  return getAllowedOrigins().includes(origin);
 }
 
 /**

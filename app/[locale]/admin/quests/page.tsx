@@ -12,11 +12,6 @@ import { useLocale, useTranslations } from 'next-intl';
 import {
   Scroll,
   Search,
-  Filter,
-  Eye,
-  EyeOff,
-  Calendar,
-  Users,
   Award,
   Loader2,
 } from 'lucide-react';
@@ -49,8 +44,8 @@ interface Quest {
 }
 
 export default function AdminQuestsPage() {
-  const locale = useLocale();
-  const t = useTranslations('admin');
+  const _locale = useLocale();
+  const _t = useTranslations('admin');
   const [quests, setQuests] = useState<Quest[]>([]);
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState('');
