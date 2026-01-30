@@ -42,8 +42,8 @@ interface NavItem {
   badge?: string;
 }
 
-// Navigation items will be translated in the component
-const navigationItems = [
+// Full nav for admins; editor-only users see only dashboard + courses
+const allNavigationItems = [
   { key: 'dashboard', href: '/admin', icon: LayoutDashboard },
   { key: 'analytics', href: '/admin/analytics', icon: BarChart3 },
   { key: 'payments', href: '/admin/payments', icon: CreditCard },
@@ -60,6 +60,8 @@ const navigationItems = [
   { key: 'featureFlags', href: '/admin/feature-flags', icon: Settings },
   { key: 'settings', href: '/admin/settings', icon: Settings },
 ];
+
+const editorOnlyNavKeys = new Set(['dashboard', 'courses']);
 
 // Create a client outside the component to avoid recreating on every render
 const queryClient = new QueryClient({
@@ -82,10 +84,10 @@ export default function AdminLayout({
   const t = useTranslations('admin');
   const [sidebarOpen, setSidebarOpen] = useState(true);
   const [version, setVersion] = useState<string>('2.7.0');
+  const [isEditorOnly, setIsEditorOnly] = useState<boolean | null>(null);
   const pathname = usePathname();
 
   useEffect(() => {
-    // Fetch version from package.json via API
     fetch('/api/admin/system-info')
       .then(res => res.json())
       .then(data => {
@@ -93,12 +95,23 @@ export default function AdminLayout({
           setVersion(data.systemInfo.version);
         }
       })
-      .catch(() => {
-        // Fallback to default if API fails
-      });
+      .catch(() => {});
   }, []);
-  
-  // Build navigation with translations
+
+  useEffect(() => {
+    fetch('/api/admin/access')
+      .then(res => res.json())
+      .then(data => {
+        setIsEditorOnly(data.isEditorOnly === true);
+      })
+      .catch(() => setIsEditorOnly(false));
+  }, []);
+
+  const navigationItems =
+    isEditorOnly === true
+      ? allNavigationItems.filter((item) => editorOnlyNavKeys.has(item.key))
+      : allNavigationItems;
+
   const navigation = navigationItems.map(item => ({
     ...item,
     label: t(item.key),
@@ -194,7 +207,9 @@ export default function AdminLayout({
               <div className="text-white text-sm font-medium">
                 {session?.user?.name || session?.user?.email || 'Admin User'}
               </div>
-              <div className="text-gray-400 text-xs">Administrator</div>
+              <div className="text-gray-400 text-xs">
+                {isEditorOnly ? t('editor') : 'Administrator'}
+              </div>
             </div>
             <div className="w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 flex items-center justify-center">
               <Crown className="w-6 h-6 text-white" />

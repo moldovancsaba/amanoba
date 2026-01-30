@@ -12,13 +12,12 @@ import { auth } from '@/auth';
 import connectDB from '@/lib/mongodb';
 import { Course, Lesson, QuizQuestion } from '@/lib/models';
 import { logger } from '@/lib/logger';
-import { requireAdmin } from '@/lib/rbac';
+import { requireAdminOrEditor, getPlayerIdFromSession, isAdmin, canAccessCourse } from '@/lib/rbac';
 
 /**
  * DELETE /api/admin/courses/[courseId]/lessons/[lessonId]/quiz/[questionId]/permanent
- * 
- * What: Permanently delete an inactive quiz question
- * Why: Allows admins to permanently remove deactivated questions
+ *
+ * What: Permanently delete an inactive quiz question (admins and editors with course access)
  */
 export async function DELETE(
   request: NextRequest,
@@ -26,18 +25,20 @@ export async function DELETE(
 ) {
   try {
     const session = await auth();
-    const adminCheck = requireAdmin(request, session);
-    if (adminCheck) {
-      return adminCheck;
+    const accessCheck = await requireAdminOrEditor(request, session);
+    if (accessCheck) {
+      return accessCheck;
     }
 
     await connectDB();
     const { courseId, lessonId, questionId } = await params;
 
-    // Find course and lesson
     const course = await Course.findOne({ courseId }).lean();
     if (!course) {
       return NextResponse.json({ error: 'Course not found' }, { status: 404 });
+    }
+    if (!isAdmin(session) && !canAccessCourse(course, getPlayerIdFromSession(session))) {
+      return NextResponse.json({ error: 'Forbidden', message: 'You do not have access to this course' }, { status: 403 });
     }
 
     const lesson = await Lesson.findOne({ 

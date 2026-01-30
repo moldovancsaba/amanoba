@@ -10,12 +10,12 @@ import { auth } from '@/auth';
 import connectDB from '@/lib/mongodb';
 import { Course, Lesson, CourseProgress, QuizQuestion, AssessmentResult } from '@/lib/models';
 import { logger } from '@/lib/logger';
-import { requireAdmin } from '@/lib/rbac';
+import { requireAdmin, requireAdminOrEditor, getPlayerIdFromSession, isAdmin, canAccessCourse } from '@/lib/rbac';
 
 /**
  * GET /api/admin/courses/[courseId]
- * 
- * What: Get a specific course by courseId
+ *
+ * What: Get a specific course by courseId (admins: any; editors: only their courses)
  */
 export async function GET(
   request: NextRequest,
@@ -23,9 +23,9 @@ export async function GET(
 ) {
   try {
     const session = await auth();
-    const adminCheck = requireAdmin(request, session);
-    if (adminCheck) {
-      return adminCheck;
+    const accessCheck = await requireAdminOrEditor(request, session);
+    if (accessCheck) {
+      return accessCheck;
     }
 
     await connectDB();
@@ -37,6 +37,10 @@ export async function GET(
       return NextResponse.json({ error: 'Course not found' }, { status: 404 });
     }
 
+    if (!isAdmin(session) && !canAccessCourse(course, getPlayerIdFromSession(session))) {
+      return NextResponse.json({ error: 'Forbidden', message: 'You do not have access to this course' }, { status: 403 });
+    }
+
     return NextResponse.json({ success: true, course });
   } catch (error) {
     logger.error({ error, courseId: (await params).courseId }, 'Failed to fetch course');
@@ -46,8 +50,8 @@ export async function GET(
 
 /**
  * PATCH /api/admin/courses/[courseId]
- * 
- * What: Update a specific course
+ *
+ * What: Update a specific course (admins: any field; editors: only their courses, cannot set assignedEditors/createdBy)
  */
 export async function PATCH(
   request: NextRequest,
@@ -55,18 +59,34 @@ export async function PATCH(
 ) {
   try {
     const session = await auth();
-    const adminCheck = requireAdmin(request, session);
-    if (adminCheck) {
-      return adminCheck;
+    const accessCheck = await requireAdminOrEditor(request, session);
+    if (accessCheck) {
+      return accessCheck;
     }
 
     await connectDB();
     const { courseId } = await params;
     const body = await request.json();
 
+    const existing = await Course.findOne({ courseId }).lean();
+    if (!existing) {
+      return NextResponse.json({ error: 'Course not found' }, { status: 404 });
+    }
+
+    if (!isAdmin(session) && !canAccessCourse(existing, getPlayerIdFromSession(session))) {
+      return NextResponse.json({ error: 'Forbidden', message: 'You do not have access to this course' }, { status: 403 });
+    }
+
+    // Only admins may change assignedEditors or createdBy
+    const payload = { ...body };
+    if (!isAdmin(session)) {
+      delete payload.assignedEditors;
+      delete payload.createdBy;
+    }
+
     const course = await Course.findOneAndUpdate(
       { courseId },
-      { $set: body },
+      { $set: payload },
       { new: true, runValidators: true }
     );
 

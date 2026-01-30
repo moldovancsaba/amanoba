@@ -45,6 +45,8 @@ interface Course {
   durationDays: number;
   parentCourseId?: string;
   selectedLessonIds?: string[];
+  createdBy?: string;
+  assignedEditors?: string[];
   pointsConfig: {
     completionPoints: number;
     lessonPoints: number;
@@ -108,6 +110,12 @@ export default function CourseEditorPage({
   const [shortCertCount, setShortCertCount] = useState(25);
   const [shortCreating, setShortCreating] = useState(false);
   const [showShortsCreate, setShowShortsCreate] = useState(false);
+  const [isAdmin, setIsAdmin] = useState(false);
+  const [editorNames, setEditorNames] = useState<Record<string, string>>({});
+  const [editorSearch, setEditorSearch] = useState('');
+  const [editorSearchResults, setEditorSearchResults] = useState<Array<{ _id: string; displayName?: string; email?: string }>>([]);
+  const [editorSearching, setEditorSearching] = useState(false);
+  const [addingEditor, setAddingEditor] = useState(false);
   const resolvedLanguageOptions = course
     ? [
         ...(!COURSE_LANGUAGE_OPTIONS.some((option) => option.code === course.language)
@@ -141,6 +149,33 @@ export default function CourseEditorPage({
       setShorts([]);
     }
   }, [course?.courseId, course?.parentCourseId]);
+
+  useEffect(() => {
+    fetch('/api/admin/access')
+      .then((r) => r.json())
+      .then((d) => setIsAdmin(d.isAdmin === true))
+      .catch(() => setIsAdmin(false));
+  }, []);
+
+  useEffect(() => {
+    const ids = course?.assignedEditors?.filter((id) => typeof id === 'string' && id) ?? [];
+    if (ids.length === 0) {
+      setEditorNames({});
+      return;
+    }
+    fetch(`/api/admin/players?ids=${ids.join(',')}`)
+      .then((r) => r.json())
+      .then((d) => {
+        if (!d.success || !Array.isArray(d.players)) return;
+        const map: Record<string, string> = {};
+        for (const p of d.players) {
+          const id = p._id ?? p.id;
+          if (id) map[String(id)] = p.displayName || p.email || String(id);
+        }
+        setEditorNames(map);
+      })
+      .catch(() => setEditorNames({}));
+  }, [course?.assignedEditors]);
 
   const fetchCourse = async (courseId: string) => {
     try {
@@ -472,6 +507,129 @@ export default function CourseEditorPage({
               </p>
             </div>
           </div>
+          {isAdmin && (
+            <div className="md:col-span-2">
+              <label className="block text-sm font-medium text-brand-black mb-2">Assigned editors</label>
+              <p className="text-xs text-brand-darkGrey mb-2">
+                Editors can edit this course and see it in their admin course list. Only admins can change this list.
+              </p>
+              <div className="space-y-2">
+                {(course.assignedEditors ?? []).map((id) => (
+                  <div
+                    key={id}
+                    className="flex items-center justify-between gap-2 py-2 px-3 bg-gray-100 rounded-lg"
+                  >
+                    <span className="text-brand-black font-medium">{editorNames[id] ?? id}</span>
+                    <button
+                      type="button"
+                      onClick={async () => {
+                        const next = (course.assignedEditors ?? []).filter((e) => e !== id);
+                        try {
+                          const r = await fetch(`/api/admin/courses/${course.courseId}`, {
+                            method: 'PATCH',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({ assignedEditors: next }),
+                          });
+                          if (r.ok) {
+                            const data = await r.json();
+                            setCourse(data.course);
+                          } else {
+                            const err = await r.json();
+                            alert(err.message || err.error || 'Failed to remove editor');
+                          }
+                        } catch (e) {
+                          console.error(e);
+                          alert('Failed to remove editor');
+                        }
+                      }}
+                      className="text-red-600 hover:text-red-700 font-medium text-sm"
+                    >
+                      Remove
+                    </button>
+                  </div>
+                ))}
+                <div className="flex flex-wrap gap-2 items-center">
+                  <input
+                    type="text"
+                    placeholder="Search by email or name..."
+                    value={editorSearch}
+                    onChange={(e) => setEditorSearch(e.target.value)}
+                    onKeyDown={(e) => e.key === 'Enter' && (e.preventDefault(), setEditorSearching(true))}
+                    className="px-3 py-2 border border-gray-300 rounded-lg text-brand-black w-64"
+                  />
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setEditorSearching(true);
+                      if (!editorSearch.trim()) {
+                        setEditorSearchResults([]);
+                        setEditorSearching(false);
+                        return;
+                      }
+                      fetch(`/api/admin/players?search=${encodeURIComponent(editorSearch.trim())}&limit=10`)
+                        .then((r) => r.json())
+                        .then((d) => {
+                          setEditorSearchResults(d.success && Array.isArray(d.players) ? d.players : []);
+                          setEditorSearching(false);
+                        })
+                        .catch(() => {
+                          setEditorSearchResults([]);
+                          setEditorSearching(false);
+                        });
+                    }}
+                    disabled={editorSearching}
+                    className="bg-brand-accent text-brand-black px-4 py-2 rounded-lg font-bold hover:bg-brand-primary-400 disabled:opacity-50"
+                  >
+                    {editorSearching ? 'Searching...' : 'Search'}
+                  </button>
+                </div>
+                {editorSearchResults.length > 0 && (
+                  <ul className="mt-2 border border-gray-200 rounded-lg divide-y divide-gray-200 max-h-48 overflow-y-auto">
+                    {editorSearchResults
+                      .filter((p) => !(course.assignedEditors ?? []).includes(String(p._id)))
+                      .map((p) => (
+                        <li key={String(p._id)} className="flex items-center justify-between px-3 py-2 hover:bg-gray-50">
+                          <span className="text-brand-black">
+                            {p.displayName || p.email || String(p._id)}
+                          </span>
+                          <button
+                            type="button"
+                            onClick={async () => {
+                              const current = course.assignedEditors ?? [];
+                              const id = String(p._id);
+                              if (current.includes(id)) return;
+                              const next = [...current, id];
+                              try {
+                                const r = await fetch(`/api/admin/courses/${course.courseId}`, {
+                                  method: 'PATCH',
+                                  headers: { 'Content-Type': 'application/json' },
+                                  body: JSON.stringify({ assignedEditors: next }),
+                                });
+                                if (r.ok) {
+                                  const data = await r.json();
+                                  setCourse(data.course);
+                                  setEditorSearchResults([]);
+                                  setEditorSearch('');
+                                } else {
+                                  const err = await r.json();
+                                  alert(err.message || err.error || 'Failed to add editor');
+                                }
+                              } catch (e) {
+                                console.error(e);
+                                alert('Failed to add editor');
+                              }
+                            }}
+                            className="text-brand-accent hover:underline font-medium text-sm"
+                          >
+                            Add
+                          </button>
+                        </li>
+                      ))}
+                  </ul>
+                )}
+              </div>
+            </div>
+          )}
           <div>
             <label className="flex items-center gap-2 cursor-pointer">
               <input

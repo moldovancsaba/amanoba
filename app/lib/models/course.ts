@@ -56,6 +56,10 @@ export interface ICourse extends Document {
   courseVariant?: string;
   /** CCS (course family) id. Set for language-variant and short courses; shorts inherit from parent. */
   ccsId?: string;
+  /** Creator (editor) — Player _id. Used for editor access: user sees admin if they created or are assigned to at least one course. */
+  createdBy?: mongoose.Types.ObjectId;
+  /** Assigned editors — Player _ids. Users in this array (or createdBy) can edit this course and see the admin entry point. */
+  assignedEditors?: mongoose.Types.ObjectId[];
   /** For shorts: draft until editor publishes. Catalog shows only non-draft. */
   isDraft?: boolean;
   certification?: {
@@ -229,6 +233,8 @@ const CourseSchema = new Schema<ICourse>(
     selectedLessonIds: [{ type: String, trim: true }],
     courseVariant: { type: String, trim: true },
     ccsId: { type: String, trim: true },
+    createdBy: { type: Schema.Types.ObjectId, ref: 'Player', default: null },
+    assignedEditors: [{ type: Schema.Types.ObjectId, ref: 'Player', default: undefined }],
     isDraft: { type: Boolean, default: false },
 
     // Certification configuration

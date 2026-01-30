@@ -10,13 +10,13 @@ import { auth } from '@/auth';
 import connectDB from '@/lib/mongodb';
 import { Course, Lesson, QuizQuestion, QuestionDifficulty } from '@/lib/models';
 import { logger } from '@/lib/logger';
-import { requireAdmin } from '@/lib/rbac';
+import { requireAdminOrEditor, getPlayerIdFromSession, isAdmin, canAccessCourse } from '@/lib/rbac';
 import mongoose from 'mongoose';
 
 /**
  * GET /api/admin/courses/[courseId]/lessons/[lessonId]/quiz
- * 
- * What: Get all quiz questions for a lesson
+ *
+ * What: Get all quiz questions for a lesson (admins and editors with course access)
  */
 export async function GET(
   request: NextRequest,
@@ -24,18 +24,20 @@ export async function GET(
 ) {
   try {
     const session = await auth();
-    const adminCheck = requireAdmin(request, session);
-    if (adminCheck) {
-      return adminCheck;
+    const accessCheck = await requireAdminOrEditor(request, session);
+    if (accessCheck) {
+      return accessCheck;
     }
 
     await connectDB();
     const { courseId, lessonId } = await params;
 
-    // Find course and lesson
     const course = await Course.findOne({ courseId }).lean();
     if (!course) {
       return NextResponse.json({ error: 'Course not found' }, { status: 404 });
+    }
+    if (!isAdmin(session) && !canAccessCourse(course, getPlayerIdFromSession(session))) {
+      return NextResponse.json({ error: 'Forbidden', message: 'You do not have access to this course' }, { status: 403 });
     }
 
     const lesson = await Lesson.findOne({ 
@@ -73,8 +75,8 @@ export async function GET(
 
 /**
  * POST /api/admin/courses/[courseId]/lessons/[lessonId]/quiz
- * 
- * What: Create a new quiz question for a lesson
+ *
+ * What: Create a new quiz question for a lesson (admins and editors with course access)
  */
 export async function POST(
   request: NextRequest,
@@ -82,23 +84,30 @@ export async function POST(
 ) {
   try {
     const session = await auth();
-    const adminCheck = requireAdmin(request, session);
-    if (adminCheck) {
-      return adminCheck;
+    const accessCheck = await requireAdminOrEditor(request, session);
+    if (accessCheck) {
+      return accessCheck;
     }
 
     await connectDB();
     const { courseId, lessonId } = await params;
     const body = await request.json();
 
-    // Find course and lesson
-    const course = await Course.findOne({ courseId });
+    const course = await Course.findOne({ courseId }).lean();
     if (!course) {
+      return NextResponse.json({ error: 'Course not found' }, { status: 404 });
+    }
+    if (!isAdmin(session) && !canAccessCourse(course, getPlayerIdFromSession(session))) {
+      return NextResponse.json({ error: 'Forbidden', message: 'You do not have access to this course' }, { status: 403 });
+    }
+
+    const courseDoc = await Course.findOne({ courseId });
+    if (!courseDoc) {
       return NextResponse.json({ error: 'Course not found' }, { status: 404 });
     }
 
     const lesson = await Lesson.findOne({ 
-      courseId: course._id,
+      courseId: courseDoc._id,
       lessonId 
     });
 
@@ -146,7 +155,7 @@ export async function POST(
       difficulty: difficulty as QuestionDifficulty,
       category,
       lessonId,
-      courseId: course._id,
+      courseId: courseDoc._id,
       isCourseSpecific: true,
       showCount: 0,
       correctCount: 0,

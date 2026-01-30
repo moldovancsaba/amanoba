@@ -403,3 +403,82 @@ export function getUserRole(session: Session | null): UserRole {
   const user = session.user as { role?: UserRole };
   return user.role || 'user';
 }
+
+/**
+ * Get current user's Player _id from session (for editor access checks).
+ */
+export function getPlayerIdFromSession(session: Session | null): string | null {
+  if (!session?.user) return null;
+  const user = session.user as { id?: string };
+  return user.id && typeof user.id === 'string' ? user.id : null;
+}
+
+/**
+ * Check if the given player has editor access (at least one course where they are createdBy or in assignedEditors).
+ * Used to show admin entry point and allow limited admin API access.
+ */
+export async function hasEditorAccess(playerId: string | null): Promise<boolean> {
+  if (!playerId) return false;
+  try {
+    const connectDB = (await import('@/lib/mongodb')).default;
+    await connectDB();
+    const { Course } = await import('@/lib/models');
+    const mongoose = await import('mongoose');
+    const pid = new mongoose.Types.ObjectId(playerId);
+    const count = await Course.countDocuments({
+      $or: [{ createdBy: pid }, { assignedEditors: pid }],
+    });
+    return count > 0;
+  } catch {
+    return false;
+  }
+}
+
+/**
+ * Require admin or editor access. Admins get full access; editors get access to course-scoped APIs only.
+ * Use after requireAuth when the route allows editors (e.g. GET /api/admin/courses, GET /api/admin/courses/[id]).
+ */
+export async function requireAdminOrEditor(
+  request: NextRequest,
+  session: Session | null
+): Promise<NextResponse | null> {
+  const authCheck = requireAuth(request, session);
+  if (authCheck) return authCheck;
+
+  if (isAdmin(session)) return null;
+
+  const playerId = getPlayerIdFromSession(session);
+  const editor = await hasEditorAccess(playerId);
+  if (editor) return null;
+
+  logger.warn(
+    {
+      path: request.nextUrl.pathname,
+      playerId,
+      ip: request.headers.get('x-forwarded-for'),
+    },
+    'Unauthorized admin/editor access attempt'
+  );
+  return NextResponse.json(
+    { error: 'Forbidden', message: 'Admin or editor access required' },
+    { status: 403 }
+  );
+}
+
+/**
+ * Check if a player can access a specific course (createdBy or in assignedEditors).
+ * Used to restrict GET/PATCH to courses the editor is assigned to.
+ * Accepts lean() documents where _id/createdBy/assignedEditors may be ObjectId or string.
+ */
+export function canAccessCourse(
+  course: { createdBy?: { toString?: () => string } | string; assignedEditors?: Array<{ toString?: () => string } | string> } | null,
+  playerId: string | null
+): boolean {
+  if (!course || !playerId) return false;
+  const pid = playerId.toString();
+  const created = course.createdBy != null ? (typeof course.createdBy === 'string' ? course.createdBy : course.createdBy?.toString?.()) : undefined;
+  if (created === pid) return true;
+  const editors = course.assignedEditors;
+  if (Array.isArray(editors) && editors.some((id) => (typeof id === 'string' ? id : id?.toString?.()) === pid)) return true;
+  return false;
+}

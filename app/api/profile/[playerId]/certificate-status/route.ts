@@ -121,7 +121,7 @@ export async function GET(
           finalExamPassed: false,
           finalExamScore: null,
           certificateEligible: false,
-          courseTitle: course.title || course.courseId,
+          courseTitle: course.name || course.courseId,
           playerName: player.displayName || 'Unknown',
         },
       });
@@ -191,7 +191,7 @@ export async function GET(
         finalExamPassed,
         finalExamScore,
         certificateEligible,
-        courseTitle: course.title || course.courseId,
+        courseTitle: course.name || course.courseId,
         playerName: player.displayName || 'Unknown',
         verificationSlug, // Include verificationSlug if certificate exists
       },

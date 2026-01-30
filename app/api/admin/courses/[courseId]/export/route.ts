@@ -10,12 +10,12 @@ import { auth } from '@/auth';
 import connectDB from '@/lib/mongodb';
 import { Course, Lesson, QuizQuestion, Brand } from '@/lib/models';
 import { logger } from '@/lib/logger';
-import { requireAdmin } from '@/lib/rbac';
+import { requireAdminOrEditor, getPlayerIdFromSession, isAdmin, canAccessCourse } from '@/lib/rbac';
 
 /**
  * GET /api/admin/courses/[courseId]/export
- * 
- * What: Export a complete course to JSON
+ *
+ * What: Export a complete course to JSON (admins and editors with course access)
  */
 export async function GET(
   request: NextRequest,
@@ -23,18 +23,20 @@ export async function GET(
 ) {
   try {
     const session = await auth();
-    const adminCheck = requireAdmin(request, session);
-    if (adminCheck) {
-      return adminCheck;
+    const accessCheck = await requireAdminOrEditor(request, session);
+    if (accessCheck) {
+      return accessCheck;
     }
 
     await connectDB();
     const { courseId } = await params;
 
-    // Find course
     const course = await Course.findOne({ courseId }).lean();
     if (!course) {
       return NextResponse.json({ error: 'Course not found' }, { status: 404 });
+    }
+    if (!isAdmin(session) && !canAccessCourse(course, getPlayerIdFromSession(session))) {
+      return NextResponse.json({ error: 'Forbidden', message: 'You do not have access to this course' }, { status: 403 });
     }
 
     // Get brand info (optional - export should work even if brand is missing)

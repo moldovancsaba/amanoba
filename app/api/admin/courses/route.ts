@@ -10,29 +10,27 @@ import { auth } from '@/auth';
 import connectDB from '@/lib/mongodb';
 import { Course, Brand } from '@/lib/models';
 import { logger } from '@/lib/logger';
-import { requireAdmin } from '@/lib/rbac';
+import { requireAdmin, requireAdminOrEditor, getPlayerIdFromSession, isAdmin } from '@/lib/rbac';
 import mongoose from 'mongoose';
 import { checkRateLimit, adminRateLimiter } from '@/lib/security';
 
 /**
  * GET /api/admin/courses
- * 
- * What: List all courses with optional filtering
+ *
+ * What: List all courses with optional filtering (admins see all; editors see only their courses)
  * Why: Display courses in admin dashboard
  */
 export async function GET(request: NextRequest) {
-  // Rate limiting: 50 requests per 15 minutes per IP (admin endpoints)
   const rateLimitResponse = await checkRateLimit(request, adminRateLimiter);
   if (rateLimitResponse) {
     return rateLimitResponse;
   }
 
   try {
-    // Auth and admin role check
     const session = await auth();
-    const adminCheck = requireAdmin(request, session);
-    if (adminCheck) {
-      return adminCheck;
+    const accessCheck = await requireAdminOrEditor(request, session);
+    if (accessCheck) {
+      return accessCheck;
     }
 
     await connectDB();
@@ -43,9 +41,8 @@ export async function GET(request: NextRequest) {
     const search = searchParams.get('search');
     const parentCourseId = searchParams.get('parentCourseId'); // list children of this parent
 
-    // Build query
     const query: Record<string, unknown> = {};
-    
+
     if (parentCourseId) {
       query.parentCourseId = parentCourseId.toUpperCase();
     }
@@ -54,11 +51,9 @@ export async function GET(request: NextRequest) {
     } else if (status === 'inactive') {
       query.isActive = false;
     }
-
     if (language) {
       query.language = language;
     }
-
     if (search) {
       query.$or = [
         { name: { $regex: search, $options: 'i' } },
@@ -67,7 +62,18 @@ export async function GET(request: NextRequest) {
       ];
     }
 
-    const courses = await Course.find(query)
+    // Editors see only courses they created or are assigned to
+    let finalQuery: Record<string, unknown> = query;
+    if (!isAdmin(session)) {
+      const playerId = getPlayerIdFromSession(session);
+      if (playerId) {
+        const pid = new mongoose.Types.ObjectId(playerId);
+        const editorFilter = { $or: [{ createdBy: pid }, { assignedEditors: pid }] };
+        finalQuery = Object.keys(query).length > 0 ? { $and: [query, editorFilter] } : editorFilter;
+      }
+    }
+
+    const courses = await Course.find(finalQuery)
       .sort({ createdAt: -1 })
       .lean();
 

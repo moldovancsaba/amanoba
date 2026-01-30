@@ -1,31 +1,19 @@
 /**
- * Certificate Image Generation API
- * 
- * What: Generates PNG certificate images using next/og ImageResponse
- * Why: Allows users to download and share certificate images
- * 
- * Endpoint: GET /api/profile/[playerId]/certificate/[courseId]/image
- * 
- * Query Parameters:
- * - variant: 'share_1200x627' (default) or 'print_a4'
- * 
- * Returns: PNG image
+ * Certificate Image by Slug (Shareable / OG)
+ *
+ * What: Serves certificate image by verification slug for social sharing and Open Graph
+ * Why: Shareable public URL (e.g. /api/certificates/abc123/image) for LinkedIn/social previews
+ *
+ * GET /api/certificates/[slug]/image
+ * Query: variant=share_1200x627 (default) | print_a4
  */
 
 import { NextRequest } from 'next/server';
 import { ImageResponse } from 'next/og';
-import mongoose from 'mongoose';
 import connectDB from '@/lib/mongodb';
-import {
-  Player,
-  Course,
-  CourseProgress,
-  FinalExamAttempt,
-  Brand,
-} from '@/lib/models';
+import { Certificate, Course, Brand } from '@/lib/models';
 import { logger } from '@/lib/logger';
 
-/** Default certificate image colors (used when Brand themeColors not available) */
 const CERT_COLORS_DEFAULT = {
   bgStart: '#1a1a1a',
   bgMid: '#2d2d2d',
@@ -41,51 +29,55 @@ const CERT_COLORS_DEFAULT = {
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
 
-/**
- * GET /api/profile/[playerId]/certificate/[courseId]/image
- * 
- * Generates a PNG certificate image.
- */
 export async function GET(
   request: NextRequest,
-  { params }: { params: Promise<{ playerId: string; courseId: string }> }
+  { params }: { params: Promise<{ slug: string }> }
 ) {
   try {
-    const { playerId, courseId } = await params;
-
-    if (!playerId || !courseId) {
-      return new Response('Player ID and Course ID are required', { status: 400 });
+    const { slug } = await params;
+    if (!slug) {
+      return new Response('Slug is required', { status: 400 });
     }
 
     const { searchParams } = new URL(request.url);
     const variant = searchParams.get('variant') || 'share_1200x627';
-
-    // Dimensions based on variant
-    const dimensions = variant === 'print_a4' 
-      ? { width: 1200, height: 1697 } // A4 ratio (1:1.414)
-      : { width: 1200, height: 627 }; // LinkedIn/social ratio (1.91:1)
-
-    logger.info({ playerId, courseId, variant }, 'Generating certificate image');
+    const dimensions =
+      variant === 'print_a4'
+        ? { width: 1200, height: 1697 }
+        : { width: 1200, height: 627 };
 
     await connectDB();
 
-    // Fetch data
-    const [player, course, progress] = await Promise.all([
-      Player.findById(playerId).lean(),
-      Course.findOne({ courseId }).lean(),
-      CourseProgress.findOne({
-        playerId: new mongoose.Types.ObjectId(playerId),
-        courseId: new mongoose.Types.ObjectId(courseId),
-      }).lean(),
-    ]);
-
-    if (!player || !course) {
-      return new Response('Player or course not found', { status: 404 });
+    const certificate = await Certificate.findOne({ verificationSlug: slug }).lean();
+    if (!certificate) {
+      return new Response('Certificate not found', { status: 404 });
+    }
+    if (certificate.isRevoked) {
+      return new ImageResponse(
+        (
+          <div
+            style={{
+              width: '100%',
+              height: '100%',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              background: '#1a1a1a',
+              color: '#ef4444',
+              fontSize: 32,
+              fontWeight: 'bold',
+            }}
+          >
+            Certificate revoked
+          </div>
+        ),
+        { width: 1200, height: 627 }
+      );
     }
 
-    // Resolve colors: use Brand themeColors when available, else defaults
+    const course = await Course.findOne({ courseId: certificate.courseId }).lean();
     let certColors = { ...CERT_COLORS_DEFAULT };
-    if (course.brandId) {
+    if (course?.brandId) {
       const brand = await Brand.findById(course.brandId).lean();
       if (brand?.themeColors?.accent) {
         certColors = {
@@ -104,26 +96,13 @@ export async function GET(
       }
     }
 
-    // Get final exam score
-    const finalExamAttempt = await FinalExamAttempt.findOne({
-      playerId: new mongoose.Types.ObjectId(playerId),
-      courseId: course._id,
-      status: 'GRADED',
-    })
-      .sort({ submittedAtISO: -1 })
-      .lean();
-
-    const finalExamScore = finalExamAttempt?.scorePercentInteger || null;
-    const playerName = player.displayName || 'Unknown';
-    const courseTitle = course.name || course.courseId;
-    const issuedDate = new Date().toLocaleDateString('en-US', { 
-      year: 'numeric', 
-      month: 'long', 
-      day: 'numeric' 
+    const issuedDate = new Date(certificate.issuedAtISO).toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
     });
 
-    // Generate certificate ID
-    const certificateId = `${playerId.slice(-8)}-${courseId.slice(-8)}`.toUpperCase();
+    logger.info({ slug, variant }, 'Certificate image by slug');
 
     return new ImageResponse(
       (
@@ -140,7 +119,6 @@ export async function GET(
             padding: '80px',
           }}
         >
-          {/* Decorative border */}
           <div
             style={{
               position: 'absolute',
@@ -163,8 +141,6 @@ export async function GET(
               borderRadius: '12px',
             }}
           />
-
-          {/* Main content */}
           <div
             style={{
               display: 'flex',
@@ -176,7 +152,6 @@ export async function GET(
               textAlign: 'center',
             }}
           >
-            {/* Certificate Title */}
             <div
               style={{
                 fontSize: variant === 'print_a4' ? 72 : 56,
@@ -190,8 +165,6 @@ export async function GET(
             >
               Certificate of Completion
             </div>
-
-            {/* Decorative line */}
             <div
               style={{
                 width: '200px',
@@ -200,8 +173,6 @@ export async function GET(
                 marginBottom: '60px',
               }}
             />
-
-            {/* Course Title */}
             <div
               style={{
                 fontSize: variant === 'print_a4' ? 48 : 36,
@@ -212,10 +183,8 @@ export async function GET(
                 maxWidth: '90%',
               }}
             >
-              {courseTitle}
+              {certificate.courseTitle}
             </div>
-
-            {/* Awarded to */}
             <div
               style={{
                 fontSize: variant === 'print_a4' ? 32 : 24,
@@ -225,8 +194,6 @@ export async function GET(
             >
               This is to certify that
             </div>
-
-            {/* Player Name */}
             <div
               style={{
                 fontSize: variant === 'print_a4' ? 56 : 42,
@@ -236,10 +203,8 @@ export async function GET(
                 lineHeight: 1.2,
               }}
             >
-              {playerName}
+              {certificate.recipientName}
             </div>
-
-            {/* Completion text */}
             <div
               style={{
                 fontSize: variant === 'print_a4' ? 32 : 24,
@@ -249,9 +214,7 @@ export async function GET(
             >
               has successfully completed the course
             </div>
-
-            {/* Score (if available) */}
-            {finalExamScore !== null && (
+            {certificate.finalExamScorePercentInteger != null && (
               <div
                 style={{
                   fontSize: variant === 'print_a4' ? 40 : 32,
@@ -260,11 +223,9 @@ export async function GET(
                   fontWeight: 'bold',
                 }}
               >
-                Final Exam Score: {finalExamScore}%
+                Final Exam Score: {certificate.finalExamScorePercentInteger}%
               </div>
             )}
-
-            {/* Footer */}
             <div
               style={{
                 position: 'absolute',
@@ -279,18 +240,16 @@ export async function GET(
                 color: certColors.footer,
               }}
             >
-              <div>ID: {certificateId}</div>
+              <div>ID: {certificate.certificateId}</div>
               <div>{issuedDate}</div>
             </div>
           </div>
         </div>
       ),
-      {
-        ...dimensions,
-      }
+      { ...dimensions }
     );
   } catch (error) {
-    logger.error({ error }, 'Failed to generate certificate image');
-    return new Response('Failed to generate certificate image', { status: 500 });
+    logger.error({ error, slug: (await params).slug }, 'Certificate image by slug failed');
+    return new Response('Failed to generate image', { status: 500 });
   }
 }

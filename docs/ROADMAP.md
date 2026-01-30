@@ -1,7 +1,7 @@
 # Amanoba Roadmap — Future Plans & Strategic Directions
 
-**Version**: 2.9.15  
-**Last Updated**: 2026-01-28  
+**Version**: 2.9.16  
+**Last Updated**: 2026-01-29  
 **Vision**: Transform Amanoba into a unified 30-day learning platform with gamified education, assessment tools, email-based lesson delivery, and monetization
 
 ---
@@ -25,109 +25,55 @@
 
 ## 🧭 Tech Debt & Improvements
 
-### P0 / High Priority
-- ~~Gate admin stats APIs (`app/api/admin/stats/verify`, `.../repair`) by role (admin/superadmin), not just session presence~~ ✅ FIXED (v2.8.0 - All admin routes protected with `requireAdmin()`)
-- ~~Fix runtime crash in `app/api/admin/system-info/route.ts` (missing `fs`/`path` imports or dead code removal)~~ ✅ FIXED (v2.7.1)
-- ~~Implement token-based unsubscribe in `app/api/email/unsubscribe/route.ts`~~ ✅ FIXED (v2.7.0)
-- ~~Implement Google Analytics with Consent Mode v2 for GDPR/CCPA compliance~~ ✅ FIXED (v2.9.2 - Full consent management system)
-- ~~Fix course progress tracking to properly restore user's position~~ ✅ FIXED (v2.9.2 - currentDay calculation fixed)
-- ~~Complete quiz system fix - all courses with 7 questions, proper metadata, quality standards~~ ✅ FIXED (v2.9.4 - All 18 courses complete)
-- ~~Fix admin payments page showing "No transactions found"~~ ✅ FIXED (v2.9.6 - Missing requireAdmin import and courseId normalization)
-- ~~Fix Stripe payment checkout - customer_email conflict~~ ✅ FIXED (v2.9.7 - Removed conflicting customer_email parameter)
-- ~~Wire rate limiting (`app/lib/security.ts`) into auth/profile/admin/progress endpoints~~ ✅ FIXED (v2.9.8 - Rate limiting wired to critical endpoints)
-- ~~Restrict `app/api/profile/[playerId]` data exposure (wallet balances, `lastSeenAt`) to self/admin~~ ✅ FIXED (v2.9.9 - Profile data exposure restricted to self/admin)
-- ~~Restrict `app/api/debug/player/[playerId]` (raw player data) to admins; disable in production~~ ✅ FIXED (v2.9.11 - Debug player endpoint admin-only and disabled in prod)
-- **Global audit: communication + catalog language integrity** (P0)
-  - Add course catalog language integrity checks for `course.name` + `course.description` + `course.translations.*` (catalog display)
-  - Add code-level email audit to catch send-time language leakage (e.g., unsubscribe footer)
-  - Localize all transactional emails (welcome/completion/reminder/payment) for all supported locales and **gate sending** on language integrity
+Completed items are in **RELEASE_NOTES.md** — roadmap and tasklist contain only open/future work.
 
-### P1 / Medium Priority
-- ~~Localize and brand policy/legal pages; switch plain `Link`/`href=\"/\"` to `LocaleLink`, add missing HU/EN messages, and apply `globals.css` shell~~ ✅ MOSTLY DONE (v2.9.15): POL1, POL3, POL4, POL5, POL6 done; POL2 (policy message keys) deferred — policy pages use inline content. See `docs/2026-01-28_PV_POLICY_MOBILE_DELIVERY_PLAN.md` and handover `docs/2026-01-28_HANDOVER_OPEN_TASKS.md`.
-- Reconcile `design-system.css` palette (indigo/pink) with `globals.css` gold/black; remove straggler per-page styles
-- Remove client debug logs (dashboard, games/quizzz, achievements, challenges, madoku, sudoku, whackpop, MemoryGame) before production builds
-- **Design system**: Use CTA token (#FAB908) for all primary CTAs (e.g. email lesson button currently #6366f1); replace inline `style={{}}` and hardcoded hex with Tailwind/design tokens where possible
-- **Facebook cleanup** (post-migration): Remove `facebookId`/`authProvider: 'facebook'` from Player model, CSP, docs, privacy/terms, and messages once migration is complete (see `docs/SSO_MIGRATION_COMPLETE.md`)
+### P0 — Open (High Priority)
+1. **Global audit: communication + catalog language integrity**
+   - Course catalog language integrity for `course.name` + `course.description` + `course.translations.*`
+   - Code-level email audit for send-time language leakage (unsubscribe footer, etc.)
+   - Localize transactional emails (welcome/completion/reminder/payment) and gate sending on language integrity
 
-### P2 / Low Priority
-- Add minimal test harness (`npm test`), smoke tests for `[locale]/dashboard`, `[locale]/courses`, and critical APIs
-- ~~Document/decide public profile surface and unsubscribe token contract to avoid regressions later~~ ✅ Public profile surface documented in `docs/PUBLIC_PROFILE_SCHEMA.md` (v2.9.15). Unsubscribe token contract remains in email/unsubscribe docs.
-- Single APP_URL constant for all env fallbacks (avoid mixing www.amanoba.com vs amanoba.com)
-- Certificate image route: source colors from CertificationSettings/Brand instead of hardcoded hex
-- CSP: Remove Facebook domains when Facebook is fully removed from codebase
+### P1 — Open (Medium Priority)
+2. Reconcile `design-system.css` palette with `globals.css` gold/black; remove straggler per-page styles  
+3. Remove client debug logs (dashboard, games, achievements, etc.) before production builds  
+4. **Design system**: Use CTA token (#FAB908) for all primary CTAs; replace inline styles and hardcoded hex with Tailwind/design tokens  
+5. **Facebook cleanup** (post-migration): Remove `facebookId`/`authProvider: 'facebook'` once migration complete (see `docs/SSO_MIGRATION_COMPLETE.md`)
 
-### Deep Code Audit (2026-01-28)
-**Document**: `docs/2026-01-28_DEEP_CODE_AUDIT.md`
+### P2 — Open (Low Priority)
+6. Add minimal test harness (`npm test`), smoke tests for dashboard, courses, critical APIs  
+7. Single APP_URL constant for all env fallbacks  
+8. Certificate image route: source colors from CertificationSettings/Brand  
+9. CSP: Remove Facebook domains when Facebook fully removed
 
-The audit captures inconsistencies, deprecated references, hardcoded values, design deviations, inline styles, and hardening gaps. **AUDIT1–AUDIT11 delivered 2026-01-28** (see `docs/RELEASE_NOTES.md` v2.9.13). ROADMAP P1/P2 bullets above that were part of the audit are done; remaining items (e.g. minimal test harness, public profile surface) stay in P1/P2. Tasklist "Code Audit Follow-Up" section marks all audit tasks ✅ DONE.
 
-### Profile Visibility & Privacy (P1)
+### User profile customization — photo, nickname, public/private (Planned)
 
-**Status**: ✅ **DELIVERED** (v2.9.15 — 2026-01-28)  
-**Priority**: P1  
-**Owner**: Tribeca (development). Content/copy: Katja.  
-**Docs**: `docs/PUBLIC_PROFILE_SCHEMA.md`, `docs/2026-01-28_PV_POLICY_MOBILE_DELIVERY_PLAN.md`.
+**Status**: 🟡 **PLANNED**  
+**Estimated**: TBD  
+**Priority**: MEDIUM
 
-**Goals delivered** (see `docs/TASKLIST.md` for task list):
+**Summary**: Users can add a profile photo (stored in imgbb.com via our existing API), set a nickname (the visible name shown on profile and elsewhere), and set their profile to public or private.
 
-1. **User can see their private profile** — Logged-in user can open and view their own profile with all private data (email, wallet, lastLoginAt, etc.) when visiting `/profile/<own-playerId>` or via “My profile” from dashboard/header.
-2. **User could set their profile to public/private** — User can choose whether their profile is reachable and viewable by others (public) or only by self/admin (private). Setting persisted and enforced in API and UI.
-3. **User can see their public profile** — When a profile is public, other users (and unauthenticated visitors, if desired) can open `/profile/<playerId>` and see a read-only “public” view with only non-sensitive, allowed fields (e.g. displayName, bio, public achievements/courses).
-4. **User could set their profile sections to public/private on the profile** — On the profile (or settings) page, user can set visibility per section (e.g. About, Courses & progress, Achievements, Certificates, Stats) to public or private, and the public profile view respects these per-section settings.
+**User Stories**:
+- As a user, I can upload a profile photo so others (or I) see my picture on my profile; the photo is stored in our imgbb.com storage via the existing ImgBB API.
+- As a user, I can set a nickname (visible name) so that name is shown on my profile, in leaderboards, and wherever we display the user’s name instead of email or internal id.
+- As a user, I can set my profile to public or private so I control who can view my profile (Profile Visibility & Privacy is delivered — see RELEASE_NOTES; ensure this toggle remains available and discoverable in profile/settings).
+
+**Scope**:
+- **Profile photo**: User-facing upload on profile or settings; image sent to backend, uploaded to imgbb.com via existing `app/lib/utils/imgbb.ts` (or equivalent API); store returned image URL on Player (e.g. `avatarUrl` or `profileImageUrl`); display on profile and optionally in header/comment/leaderboard.
+- **Nickname (visible name)**: Player field for display name (e.g. `displayName` or `nickname`); editable on profile/settings; used everywhere we show the user’s name (profile, public profile, leaderboards, certificates, etc.); validation (length, allowed characters).
+- **Public/private profile**: Profile Visibility & Privacy is delivered (RELEASE_NOTES); ensure the toggle is present in profile/settings and documented as part of this “profile customization” experience.
+
+**Technical Requirements** (to be detailed):
+- Player model: `avatarUrl` or `profileImageUrl` (string, imgbb URL); `displayName` or `nickname` (string, optional).
+- API: `POST /api/profile/photo` or `PATCH /api/profile` accepting image upload; server-side upload to imgbb using existing ImgBB API; save URL to Player. `PATCH /api/profile` for nickname and public/private (if not already covered).
+- UI: Profile or settings page — photo upload (crop/optional), nickname field, public/private toggle; use existing imgbb integration (`IMGBB_API_KEY`); next.config already allows imgbb image domains.
 
 ---
 
-## 🚀 Upcoming Milestones
+## 🚀 Upcoming Milestones (by priority)
 
-### Monetization System (Stripe Integration) — ✅ CORE COMPLETE
-
-**Status**: 🟢 **CORE COMPLETE** - Enhancements pending  
-**Estimated**: Core: ✅ DONE (2025-01-20), Enhancements: 1-2 days  
-**Priority**: HIGH
-
-**User Stories**:
-- As a student, I want to purchase premium courses so I can access premium content
-- As a student, I want my premium status to activate automatically after successful payment
-- As an admin, I want to see payment transactions so I can track revenue and manage subscriptions
-- As a student, I want to see my subscription status and expiration date in my profile
-- As a student, I want to receive confirmation emails after successful payment
-
-**Scope**:
-- Stripe Checkout integration for one-time course purchases
-- Webhook handler for payment events (success, failure, refund)
-- Automatic premium status activation on successful payment
-- Payment history tracking in Player model
-- Subscription expiration handling (already exists: `premiumExpiresAt`)
-- Payment UI on course detail page for premium courses
-- Admin dashboard for viewing payment transactions
-
-**Completed (v2.8.0)**:
-- ✅ Installed Stripe SDK: `stripe` and `@stripe/stripe-js`
-- ✅ Created `/api/payments/create-checkout` endpoint
-- ✅ Created `/api/payments/webhook` endpoint (Stripe webhook handler)
-- ✅ Created `/api/payments/success` endpoint (payment success handler)
-- ✅ Created `/api/payments/history` endpoint (payment history)
-- ✅ Added `stripeCustomerId` and `paymentHistory` fields to Player model
-- ✅ Created PaymentTransaction model for transaction logging
-- ✅ Added payment button to course detail page
-- ✅ Added payment history to player profile
-- ✅ Created payment confirmation email
-- ✅ Added premium course pricing to admin interface
-- ✅ Added Stripe minimum amount validation
-- ✅ Environment variables configured: `STRIPE_SECRET_KEY`, `STRIPE_PUBLISHABLE_KEY`, `STRIPE_WEBHOOK_SECRET`
-
-**Completed (v2.9.6 - v2.9.7)**:
-- ✅ Admin payment dashboard: View all transactions, revenue analytics (v2.9.6)
-- ✅ Fixed payment checkout: Removed conflicting customer_email parameter (v2.9.7)
-- ✅ Fixed admin payments page: Missing requireAdmin import and courseId normalization (v2.9.6)
-
-**Remaining Enhancements**:
-- ~~End-to-end payment flow testing (recommended before production)~~ ✅ v2.9.10 – Test plan + contract script in place; full E2E via Stripe CLI + manual (see docs/PAYMENT_E2E_TEST_PLAN.md)
-- ⏳ Enhanced error handling and edge cases
-- ⏳ Recurring subscriptions (monthly/yearly premium access)
-- ⏳ Payment method management
-- ⏳ Refund processing UI
-- ⏳ Invoice generation
+**Priority order**: P0 = Global audit (language integrity) in Tech Debt above. P1 = Editor User, User profile customization, design/CTA cleanup. P2 = Certificate System v0.1, Onboarding Survey, Email Automation, Multi-Format Forking. Completed work → **RELEASE_NOTES.md**.
 
 ---
 
@@ -229,6 +175,42 @@ The audit captures inconsistencies, deprecated references, hardcoded values, des
 
 ---
 
+### Editor User — Limited Admin Access (Planned)
+
+**Status**: 🟡 **PLANNED**  
+**Estimated**: TBD  
+**Priority**: MEDIUM
+
+**Summary**: Editor users have limited access to the admin UI. They can only access courses that they created or that are assigned to them for editing.
+
+**How a user becomes an editor**:
+- A user becomes an editor when **a course is assigned to them** for editing (by an admin). There is no separate “editor” account type: any user who has at least one course assigned to them for editing is treated as an editor for that course.
+- When a course (or a lesson within a course) is assigned to a user so they can edit it, that user **starts to see the admin button** (e.g. in header or dashboard) and can open the limited admin UI. They see only the courses assigned to them (or that they created).
+- **Course management** must provide an option to **assign a course to an editor**: e.g. on the course edit/settings screen, an admin can select a user (by email or playerId) and add them as an assigned editor for that course; that user then gains editor access for that course and the admin entry point becomes visible to them.
+
+**User Stories**:
+- As an editor, I can log in to the admin UI and see only the courses I created or that are assigned to me
+- As an editor, I can edit lessons and quiz questions for those courses (no access to other courses or system-wide admin features)
+- As an admin, I can assign a course to a user (editor) from course management so that user can edit that course and sees the admin button
+- As an admin, I can manage course–editor assignments (add/remove assigned editors per course)
+
+**Scope**:
+- Editor role (distinct from admin/superadmin): limited admin UI access
+- Course–editor association: courses have creator and/or assigned editors
+- Admin UI filtering: editors see only their courses (created by them or assigned to them)
+- No access for editors: system settings, payments, all courses list, user management, analytics (or restricted analytics per assigned courses only — to be defined)
+- **Vote reset on lesson update**: When a lesson is updated/finetuned (by editor or admin), reset that lesson’s upvote/downvote (and aggregate) so votes apply to the current content (see Course & content voting — actionable item 9).
+
+**Technical Requirements** (to be detailed):
+- **Becoming an editor**: No separate role signup; a user is an “editor” if they appear in `assignedEditors` for at least one course (or are `createdBy` for a course). Auth/session: derive “has editor access” from course assignments.
+- Course model: `createdBy` (playerId/userId), `assignedEditors` (array of playerIds or role refs)
+- **Admin button visibility**: Show the admin entry point (e.g. “Admin” in header/nav) only if the user is admin/superadmin **or** has at least one course assigned to them (or created by them). Otherwise hide it.
+- **Course management — assign course to editor**: In admin course edit/settings UI, add “Assign editor” (or “Assigned editors”): select user (e.g. by email or search), add to `assignedEditors` for that course; list and remove assigned editors. API: e.g. `PATCH /api/admin/courses/[courseId]` with `assignedEditors` or dedicated `POST /api/admin/courses/[courseId]/editors` to add/remove.
+- Admin routes and UI: gate by role; for editors, filter courses by createdBy / assignedEditors
+- Admin UI: course list and course/lesson/question edit screens scoped to editor’s courses
+
+---
+
 ### Certificate System v0.1 (Shareable, Course-Aware)
 
 **User Stories**:
@@ -255,7 +237,7 @@ The audit captures inconsistencies, deprecated references, hardcoded values, des
 ### Multi-Format Course Forking (30d → 7d / Weekend / 1d / 1h)
 
 **Implementation plan and handover**: `docs/2026-01-27_RAPID_CHILDREN_COURSES_ACTION_PLAN_AND_HANDOVER.md` — Admin grouping (Course Idea → 30-Day Outline → CCS → Language variants → Course); Shorts by lesson count (1–3 Essentials, 4–7 Beginner, 8–12 Foundations, 13–20 Core Skills, 21+ Full Program); checkbox lesson selection; read-only child editor; certificate with limited questions; timeline (goLiveAt) so any length can go live before 30-day is published; rollback plan; **Section 10** lists clarification questions (Course Idea/Outline storage, CCS entity vs files, naming, timeline model).  
-**Delivery plan (action items)**: `docs/2026-01-27_RAPID_CHILDREN_COURSES_DELIVERY_PLAN.md` — checkable P1.1–P6.3; Rapid/Short Children slice ✅ COMPLETE.
+**Delivery plan (action items)**: `docs/2026-01-27_RAPID_CHILDREN_COURSES_DELIVERY_PLAN.md` — checkable P1.1–P6.3.
 
 **User Stories**:
 - Shared infra: As an admin, I fork any 30-day course into a child variant with auto-sync on by default (lessons/quizzes mirror parent); I can detach specific lessons/quizzes and add unique ones (future toggle)
@@ -407,8 +389,17 @@ EMAIL_FROM_NAME=Amanoba Learning
   - Up/down vote for course (aggregate score and optional display).
   - Up/down vote for lessons (per-lesson score).
   - Up/down vote for questions (per-question score; e.g. quiz feedback).
-- ~~**Referral System Fix & Enable**: Fix and enable the referral system for course sharing and rewards~~ ✅ COMPLETE (v2.8.2)
-- ~~**SSO Integration**: Implement SSO via sso.doneisbetter.com for enterprise/partner authentication~~ ✅ COMPLETE (v2.8.2 - 100% SSO-aligned, Facebook removed)
+
+  **Actionable items (delivery order)**:
+  1. **Data model** — Add `CourseVote` (or embed votes on Course): `courseId`, `playerId`, `vote` (+1 / -1), `createdAt`; aggregate/cache `courseScore` on Course for display. Add `LessonVote` (or embed): `lessonId`, `playerId`, `vote`, `createdAt`; optional `lessonScore` on Lesson. Add `QuestionVote` (or embed): `questionId` (QuizQuestion ref), `playerId`, `vote`, `createdAt`; optional score cache on QuizQuestion or separate aggregate.
+  2. **API — Course votes** — `POST /api/courses/[courseId]/vote` (body: `{ vote: 1 | -1 }`); require auth; upsert one vote per player per course; return updated aggregate. `GET /api/courses/[courseId]` (or public course endpoint) include `score` / `voteCount` for optional display.
+  3. **UI — Course vote** — On course detail page (and optionally course card): show aggregate score and up/down controls; call vote API on click; one vote per user per course.
+  4. **API — Lesson votes** — `POST /api/lessons/[lessonId]/vote` (body: `{ vote: 1 | -1 }`); require auth; upsert per player per lesson; return aggregate. `GET` lesson or course-lesson response includes lesson score if needed.
+  5. **UI — Lesson vote** — In lesson viewer: show score and up/down controls; call lesson vote API.
+  6. **API — Question votes** — `POST /api/questions/[questionId]/vote` (body: `{ vote: 1 | -1 }`); require auth; upsert per player per question; return aggregate (e.g. for quiz feedback).
+  7. **UI — Question vote** — After quiz question or on feedback view: optional up/down per question; call question vote API.
+  8. **Admin/display** — Optional: admin view of vote aggregates per course/lesson/question; decide where to display public scores (course card, lesson header, quiz results).
+  9. **Vote reset on lesson update** — When a lesson is updated/finetuned (content or quiz changed), reset the upvote/downvote (and aggregate score) for that lesson so votes reflect the current content; optionally clear `LessonVote` records for that lesson or set score to null and recompute on next vote.
 
 ### Q2 2026
 - **Short-Format Tracks**: Launch fast-path course formats:
@@ -426,6 +417,7 @@ EMAIL_FROM_NAME=Amanoba Learning
 - **Course Recommendations**: Suggest courses based on student interests and performance
 - **Certificates**: Digital certificates for course completion
 - **Instructor Dashboard**: Allow instructors to create and manage courses
+- **Editor user**: See “Editor User — Limited Admin Access” under Upcoming Milestones: editors have limited admin UI access and can only edit courses they created or that are assigned to them.
 
 ### Q4 2026
 - **Mobile App**: Native mobile app for course access
@@ -457,133 +449,39 @@ EMAIL_FROM_NAME=Amanoba Learning
 
 ---
 
----
-
-## ✅ Recent Major Updates (v2.9.4)
-
-### Complete Quiz System Fix ✅ COMPLETE
-- **All 18 courses fixed** - Every lesson reached 7 questions at the time (current SSOT: minimum >=7; keep valid pools)
-- **2,716 questions** - All with proper metadata (UUID, hashtags, questionType)
-- **100% quiz coverage** - All 388 lessons have complete quizzes
-- **Quality standards enforced** - All questions meet strict quality requirements
-- **Language consistency** - All questions in correct course language
-- **Zero issues remaining** - Complete system audit shows 0 issues
-
-**Documentation**: `docs/FINAL_QUIZ_SYSTEM_DELIVERY.md`
-
----
-
-## ✅ Recent Major Updates (v2.8.2)
-
-### SSO Integration & Authentication Overhaul ✅ COMPLETE
-- **100% SSO-Aligned**: Removed Facebook authentication completely
-- **Role-Based Access Control**: Two personas only - `user` and `admin`
-- **SSO Role Mapping**: Automatic role extraction from SSO tokens (admin/user)
-- **Admin Route Protection**: All 29 admin API routes protected with `requireAdmin()`
-- **Terminology Cleanup**: Changed from "player"/"student" to "user" throughout UI
-- **Migration Scripts**: Database cleanup scripts for removing obsolete Facebook fields
-- **Documentation**: Comprehensive SSO integration requirements and troubleshooting guides
-
-### Dashboard Improvements ✅ COMPLETE
-- **Course Statistics**: Dashboard now shows actual course achievements
-  - Quizzes completed
-  - Lessons completed
-  - Courses enrolled
-  - Courses completed
-- **Real Data**: Replaced game statistics with course-specific metrics
-
-### Referral System ✅ ENABLED
-- **Referral Code Processing**: Automatic processing from URL parameters (`?ref=CODE`)
-- **Automatic Rewards**: 500 points awarded to referrer when friend signs up
-- **Referral Tracking**: Complete tracking system with statistics
-- **Share Options**: WhatsApp, Email, Copy Link, Native Share
-
-### Bug Fixes & Improvements
-- **Quiz Completion Tracking**: Fixed user-specific localStorage keys
-- **Course UI Language**: Consistent UI language based on course language
-- **Social Media Previews**: Open Graph and Twitter Card meta tags for course pages
-- **Default Course Thumbnail**: Automatic fallback to default thumbnail from settings
-- **SSO Admin Role**: Fixed role propagation from SSO to session
-
----
-
----
-
 ## 🎯 RECOMMENDED NEXT 3 ITEMS
 
-Based on current system state and priorities, here are the recommended next 3 items to work on:
+Based on current priorities (see Tech Debt P0/P1 and TASKLIST.md):
 
-### 1. Course Content Quality Audit & Enhancement (HIGH PRIORITY)
+### 1. Global audit — communication + catalog language integrity (P0)
 
-**Status**: 🟡 READY TO START  
-**Priority**: P0 (Critical - Content Quality)  
-**Estimated**: 2-3 weeks  
-**Documentation**: `docs/2026-01-25_COURSE_CONTENT_QUALITY_AUDIT_AND_FIX_MASTER_PLAN.md`
+**Status**: 🟡 IN PROGRESS (see TASKLIST.md)  
+**Docs**: `docs/QUIZ_QUALITY_PIPELINE_PLAYBOOK.md`, `docs/audit-ccs-global-quality.ts`
 
-**Why**: While quiz system is now complete, lesson content quality needs professional review. All 18 courses (388 lessons) need content audit for:
-- Grammar & language perfection
-- Tone & style consistency (conversational, active voice, plain language)
-- Logic & flow improvements
-- Fact-checking and updating outdated information
-- Content quality (respectful, educational value)
-
-**Scope**: 18 courses × 30 lessons = 540 lessons total  
-**Approach**: One course at a time, oldest to newest  
-**Deliverable**: All lessons reviewed and fixed to professor-level standards
+- Course catalog language integrity (`course.name`, `course.description`, `course.translations.*`)
+- Code-level email audit (send-time language leakage)
+- Localize transactional emails and gate sending on language integrity
 
 ---
 
-### 2. Quiz Question Quality Enhancement (MEDIUM-HIGH PRIORITY)
+### 2. Editor User — limited admin access (P1)
 
-**Status**: 🟡 READY TO START  
-**Priority**: P1 (Quality Improvement)  
-**Estimated**: 1-2 weeks  
-**Current State**: All quizzes have 7 questions, but some are placeholder/generic
+**Status**: 🟡 PLANNED  
+**Docs**: ROADMAP § Editor User
 
-**Why**: While all quizzes now have 7 questions with proper metadata, some questions (especially in other 8 courses) are generic placeholders. Need to:
-- Replace generic questions with lesson-specific questions
-- Read actual lesson content to create relevant questions
-- Ensure all questions are 100% related to lesson material
-- Improve answer quality (more educational, less generic)
-
-**Scope**: 
-- Productivity 2026: Already has quality questions ✅
-- Other 8 courses: ~197 questions need enhancement (created as placeholders)
-
-**Approach**: 
-- Read lesson content for each course
-- Create lesson-specific questions
-- Replace placeholder questions
-- Maintain minimum >=7 valid questions per lesson (pool may be larger), proper metadata, and current SSOT cognitive mix (0 recall, >=5 application)
-
-**Deliverable**: All questions are lesson-specific and educational
+- Editor = user with at least one course assigned; admin button visibility when assigned
+- Course management: “Assign course to editor”; API and UI for `assignedEditors`
 
 ---
 
-### 3. Question Translation Quality Review (MEDIUM PRIORITY)
+### 3. User profile customization — photo, nickname, public/private (P1)
 
-**Status**: 🟡 READY TO START  
-**Priority**: P2 (Quality Polish)  
-**Estimated**: 1 week  
-**Current State**: All questions exist in correct languages, but translation quality may vary
+**Status**: 🟡 PLANNED  
+**Docs**: ROADMAP § User profile customization
 
-**Why**: While all questions are in correct course language, translation quality should be verified to ensure:
-- Native-level quality (not machine translation artifacts)
-- Proper industry jargon handling
-- Cultural appropriateness
-- Natural phrasing
-
-**Scope**: 
-- Productivity 2026: 2,100 questions across 10 languages
-- Other courses: ~616 questions across multiple languages
-
-**Approach**: 
-- Sample questions from each course/language
-- Review for translation quality
-- Fix any machine-translation artifacts
-- Ensure industry terms handled correctly
-
-**Deliverable**: All questions verified as native-quality translations
+- Profile photo (upload → imgbb API → store URL on Player)
+- Nickname (visible name) editable on profile/settings
+- Public/private already delivered (v2.9.15); ensure toggle discoverable
 
 ---
 

@@ -54,6 +54,15 @@ export async function GET(request: NextRequest) {
         _id: player._id,
         displayName: player.displayName,
         email: player.email,
+        profilePicture: player.profilePicture,
+        profileVisibility: player.profileVisibility ?? 'private',
+        profileSectionVisibility: player.profileSectionVisibility ?? {
+          about: 'private',
+          courses: 'private',
+          achievements: 'private',
+          certificates: 'private',
+          stats: 'private',
+        },
         emailPreferences: player.emailPreferences,
         timezone: player.timezone,
         locale: player.locale,
@@ -98,12 +107,48 @@ export async function PATCH(request: NextRequest) {
     }
 
     const body = await request.json();
-    const { emailPreferences, timezone, locale } = body;
+    const { emailPreferences, timezone, locale, displayName, profilePicture, profileVisibility, profileSectionVisibility } = body;
 
     const player = await Player.findById(playerId);
 
     if (!player) {
       return NextResponse.json({ error: 'Player not found' }, { status: 404 });
+    }
+
+    // Update display name (nickname)
+    if (displayName !== undefined) {
+      const trimmed = typeof displayName === 'string' ? displayName.trim() : '';
+      if (trimmed.length === 0) {
+        return NextResponse.json({ error: 'Display name cannot be empty' }, { status: 400 });
+      }
+      if (trimmed.length > 50) {
+        return NextResponse.json({ error: 'Display name cannot exceed 50 characters' }, { status: 400 });
+      }
+      player.displayName = trimmed;
+    }
+
+    if (profilePicture !== undefined) {
+      player.profilePicture = typeof profilePicture === 'string' ? profilePicture.trim() || undefined : undefined;
+    }
+
+    if (profileVisibility !== undefined) {
+      if (profileVisibility !== 'public' && profileVisibility !== 'private') {
+        return NextResponse.json({ error: 'profileVisibility must be "public" or "private"' }, { status: 400 });
+      }
+      player.profileVisibility = profileVisibility;
+    }
+
+    if (profileSectionVisibility !== undefined && typeof profileSectionVisibility === 'object') {
+      const sectionKeys = ['about', 'courses', 'achievements', 'certificates', 'stats'] as const;
+      if (!player.profileSectionVisibility) {
+        player.profileSectionVisibility = { about: 'private', courses: 'private', achievements: 'private', certificates: 'private', stats: 'private' };
+      }
+      for (const key of sectionKeys) {
+        const val = profileSectionVisibility[key];
+        if (val === 'public' || val === 'private') {
+          (player.profileSectionVisibility as Record<string, string>)[key] = val;
+        }
+      }
     }
 
     // Update email preferences
@@ -153,6 +198,15 @@ export async function PATCH(request: NextRequest) {
         _id: player._id,
         displayName: player.displayName,
         email: player.email,
+        profilePicture: player.profilePicture,
+        profileVisibility: player.profileVisibility ?? 'private',
+        profileSectionVisibility: player.profileSectionVisibility ?? {
+          about: 'private',
+          courses: 'private',
+          achievements: 'private',
+          certificates: 'private',
+          stats: 'private',
+        },
         emailPreferences: player.emailPreferences,
         timezone: player.timezone,
         locale: player.locale,

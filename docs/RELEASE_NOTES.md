@@ -1,11 +1,101 @@
 # Amanoba Release Notes
 
-**Current Version**: 2.9.15  
-**Last Updated**: 2026-01-28
+**Current Version**: 2.9.19  
+**Last Updated**: 2026-01-30
 
 ---
 
 All completed tasks are documented here in reverse chronological order. This file follows the Changelog format and is updated with every version bump.
+
+---
+
+## [v2.9.19] — 2026-01-30 📋
+
+**Status**: User profile customization (P1) + My profile access  
+**Type**: Feature (profile photo, nickname, visibility), UX (dashboard profile link)
+
+### User profile customization
+
+- **Player model** (`app/lib/models/player.ts`): Added `profileVisibility` (`'public' | 'private'`, default `'private'`), `profileSectionVisibility` (about, courses, achievements, certificates, stats). Existing `profilePicture` and `displayName` used for photo and nickname.
+- **GET /api/profile**: Returns `profilePicture`, `profileVisibility`, `profileSectionVisibility`.
+- **PATCH /api/profile**: Accepts `displayName` (1–50 chars), `profilePicture`, `profileVisibility`, `profileSectionVisibility`; validated and persisted.
+- **POST /api/profile/photo**: FormData image → upload to IMGBB → save URL to `Player.profilePicture`; max 5MB; JPEG/PNG/WebP/GIF.
+- **Private profile**: GET /api/profile/[playerId] and GET /api/players/[playerId] return 404 "Profile not available" when profile is private and requester is not owner/admin. Owner/admin response includes visibility fields.
+- **Profile page** (`app/[locale]/profile/[playerId]/page.tsx`): New "Profile settings" tab (owner only): profile photo upload, display name (nickname) edit, profile visibility dropdown (Public/Private). Refetch after save.
+- **Dashboard** (`app/[locale]/dashboard/page.tsx`): "My profile" link in header → `/profile/{currentPlayerId}`; `dashboard.myProfile` in en/hu messages.
+
+**TASKLIST**: User profile customization removed from backlog; Recommended Next 3 → Certificate System v0.1, Onboarding/Email/Forking, P1 tech debt.
+
+**Build Status**: Verified  
+**Status**: ✅ User profile customization (P1) delivered
+
+---
+
+## [v2.9.18] — 2026-01-30 📋
+
+**Status**: Editor User (P1) — Limited admin access by course assignment  
+**Type**: Feature (editor role, course-scoped admin)
+
+### Editor User
+
+- **Course model** (`app/lib/models/course.ts`): `createdBy` (Player _id), `assignedEditors` (Player _ids). Editors see admin entry and only courses they created or are assigned to.
+- **RBAC** (`app/lib/rbac.ts`): `getPlayerIdFromSession`, `hasEditorAccess(playerId)`, `requireAdminOrEditor`, `canAccessCourse(course, playerId)`.
+- **GET /api/admin/access**: Returns `canAccessAdmin`, `isAdmin`, `isEditorOnly` for dashboard and admin layout.
+- **Admin courses**: GET list filtered for editors; GET/PATCH course detail and PATCH `assignedEditors` (admin-only) with course access check; DELETE course remains admin-only. Lessons, export, quiz (list/create/update/delete) use `requireAdminOrEditor` + course access.
+- **Dashboard**: Admin link shown when `canAccessAdmin` (fetches `/api/admin/access`).
+- **Admin layout**: Editor-only users see nav limited to Dashboard + Courses; header shows "Editor" vs "Administrator"; `admin.editor` in en/hu messages.
+- **Course edit page**: "Assigned editors" section (admin-only): list editors, search players, add/remove via PATCH `assignedEditors`. GET /api/admin/players?ids=... for editor names.
+
+**TASKLIST**: Editor User removed from backlog; Recommended Next 3 → User profile customization, Certificate v0.1, Onboarding/Email/Forking.
+
+**Build Status**: Verified  
+**Status**: ✅ Editor User (P1) delivered
+
+---
+
+## [v2.9.17] — 2026-01-30 📋
+
+**Status**: Global Audit P0 — CCS-AUDIT-EMAIL-4 + CCS-AUDIT-CONTENT-1  
+**Type**: Language integrity (lesson email fields), Content (Day 12–30)
+
+### CCS-AUDIT-EMAIL-4 — Fix cross-language lesson email fields
+
+- **Issue**: 10 lessons (GEO_SHOPIFY_30 Day 18; PLAYBOOK_2026_30 Days 1, 8, 17, 20, 21, 22, 23, 25, 30) failed language integrity (HU content with line-start English words: Design/Build/Review), causing send-time blocks.
+- **Fix**: Applied rephrases so HU validator passes: GEO_SHOPIFY_30 — `scripts/fix-geo-shopify-30-hu-review-terms.ts` (Review → Értékelés, incl. "Review blokk valós"); PLAYBOOK_2026_30 — `scripts/fix-playbook-2026-30-hu-language-integrity.ts` (Design/Build/Review line-start → "A design"/Építési/Értékelés, feedback loop → visszajelzési hurok, rollout ütemterv → bevezetési ütemterv). Backups under `scripts/lesson-backups/`.
+- **Verification**: CCS master audit → `lessonsFailingLanguageIntegrity: 0`. Email communications audit → 0 failing locales.
+
+### CCS-AUDIT-CONTENT-1 — Missing Day 12–30 lessons
+
+- **Status**: No missing day entries (`missingLessonDayEntries: 0`). All 30-day courses have 30 lesson records. Strategy A (EN-first, then localize) was completed in earlier phases (see execution docs). Content refinement for days 12–30 continues via quiz pipeline and lesson refine scripts where needed.
+
+**Files modified**: `scripts/fix-geo-shopify-30-hu-review-terms.ts` (added "Review blokk valós" replacement)  
+**Files added**: `scripts/fix-playbook-2026-30-hu-language-integrity.ts`  
+**TASKLIST**: P0 Global Audit marked complete; active tasks table cleared; Recommended Next 3 updated to Editor User, User profile customization, Certificate v0.1.
+
+**Build Status**: Verified  
+**Status**: ✅ CCS-AUDIT-EMAIL-4 DONE; CCS-AUDIT-CONTENT-1 CONFIRMED (no missing days)
+
+---
+
+## [v2.9.16] — 2026-01-29 📋
+
+**Status**: Quiz pipeline tiny-loop quality + Roadmap & Tasklist cleanup  
+**Type**: Quality (quiz pipeline), Documentation (roadmap, tasklist)
+
+### Quiz quality pipeline — tiny loop
+
+- **Tiny-loop workflow**: Quiz rewrite scripts now process questions one-at-a-time: backup once per lesson; replace each invalid question with a single validated candidate (generate candidates → validate first passing → delete old, insert new); fill missing slots one-at-a-time. No batch delete/insert of multiple questions.
+- **Scripts updated**: `quiz-quality-pipeline.ts`, `process-course-questions-generic.ts`, `final-comprehensive-question-generation.ts`, `process-all-courses-with-quality-validation.ts` — configurable `MAX_REPLACE_ATTEMPTS`, `MAX_FILL_ATTEMPTS_PER_SLOT`, `CANDIDATES_PER_ATTEMPT`.
+- **Validator fix**: Legacy DB records with undefined `questionType` or `difficulty` now default to `'application'` and `MEDIUM` in validation payload and inside `validateQuestionQuality` to avoid false failures.
+- **Playbook**: `docs/QUIZ_QUALITY_PIPELINE_PLAYBOOK.md` updated to document mandatory tiny-loop process for quiz rewriting.
+
+### Roadmap & Tasklist cleanup
+
+- **ROADMAP.md**: Tech debt section streamlined (completed items summarized with ref to RELEASE_NOTES); Upcoming Milestones reordered by priority; RECOMMENDED NEXT 3 ITEMS set to (1) Global audit, (2) Editor User, (3) User profile customization; Editor User and User profile customization planned features added; version 2.9.16, date 2026-01-29.
+- **TASKLIST.md**: Reduced to active P0 (Global Audit) only; completed work summarized with pointer to RELEASE_NOTES; Backlog and Recommended Next 3 aligned with ROADMAP; version 2.9.16, date 2026-01-29.
+
+**Build Status**: Verified  
+**Status**: ✅ QUIZ TINY-LOOP DELIVERED; ROADMAP & TASKLIST CLEANED
 
 ---
 

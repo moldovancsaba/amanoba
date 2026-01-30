@@ -10,13 +10,13 @@ import { auth } from '@/auth';
 import connectDB from '@/lib/mongodb';
 import { Course, Lesson } from '@/lib/models';
 import { logger } from '@/lib/logger';
-import { requireAdmin } from '@/lib/rbac';
+import { requireAdminOrEditor, getPlayerIdFromSession, isAdmin, canAccessCourse } from '@/lib/rbac';
 import mongoose from 'mongoose';
 
 /**
  * GET /api/admin/courses/[courseId]/lessons/[lessonId]
- * 
- * What: Get a specific lesson
+ *
+ * What: Get a specific lesson (admins and editors with course access)
  */
 export async function GET(
   request: NextRequest,
@@ -24,18 +24,20 @@ export async function GET(
 ) {
   try {
     const session = await auth();
-    const adminCheck = requireAdmin(request, session);
-    if (adminCheck) {
-      return adminCheck;
+    const accessCheck = await requireAdminOrEditor(request, session);
+    if (accessCheck) {
+      return accessCheck;
     }
 
     await connectDB();
     const { courseId, lessonId } = await params;
 
-    // Find course by courseId to get its ObjectId
     const course = await Course.findOne({ courseId }).lean();
     if (!course) {
       return NextResponse.json({ error: 'Course not found' }, { status: 404 });
+    }
+    if (!isAdmin(session) && !canAccessCourse(course, getPlayerIdFromSession(session))) {
+      return NextResponse.json({ error: 'Forbidden', message: 'You do not have access to this course' }, { status: 403 });
     }
 
     const lesson = await Lesson.findOne({ 
@@ -56,8 +58,8 @@ export async function GET(
 
 /**
  * PATCH /api/admin/courses/[courseId]/lessons/[lessonId]
- * 
- * What: Update a specific lesson
+ *
+ * What: Update a specific lesson (admins and editors with course access)
  */
 export async function PATCH(
   request: NextRequest,
@@ -65,13 +67,22 @@ export async function PATCH(
 ) {
   try {
     const session = await auth();
-    const adminCheck = requireAdmin(request, session);
-    if (adminCheck) {
-      return adminCheck;
+    const accessCheck = await requireAdminOrEditor(request, session);
+    if (accessCheck) {
+      return accessCheck;
     }
 
     await connectDB();
     const { courseId, lessonId } = await params;
+
+    const course = await Course.findOne({ courseId }).lean();
+    if (!course) {
+      return NextResponse.json({ error: 'Course not found' }, { status: 404 });
+    }
+    if (!isAdmin(session) && !canAccessCourse(course, getPlayerIdFromSession(session))) {
+      return NextResponse.json({ error: 'Forbidden', message: 'You do not have access to this course' }, { status: 403 });
+    }
+
     const body = await request.json();
 
     // Handle assessmentGameId conversion if provided
@@ -86,12 +97,6 @@ export async function PATCH(
         { error: 'Invalid assessmentGameId format' },
         { status: 400 }
       );
-    }
-
-    // Find course by courseId to get its ObjectId
-    const course = await Course.findOne({ courseId }).lean();
-    if (!course) {
-      return NextResponse.json({ error: 'Course not found' }, { status: 404 });
     }
 
     const lesson = await Lesson.findOneAndUpdate(
@@ -118,8 +123,8 @@ export async function PATCH(
 
 /**
  * DELETE /api/admin/courses/[courseId]/lessons/[lessonId]
- * 
- * What: Delete a specific lesson
+ *
+ * What: Delete a specific lesson (admins and editors with course access)
  */
 export async function DELETE(
   request: NextRequest,
@@ -127,18 +132,20 @@ export async function DELETE(
 ) {
   try {
     const session = await auth();
-    const adminCheck = requireAdmin(request, session);
-    if (adminCheck) {
-      return adminCheck;
+    const accessCheck = await requireAdminOrEditor(request, session);
+    if (accessCheck) {
+      return accessCheck;
     }
 
     await connectDB();
     const { courseId, lessonId } = await params;
 
-    // Find course by courseId to get its ObjectId
     const course = await Course.findOne({ courseId }).lean();
     if (!course) {
       return NextResponse.json({ error: 'Course not found' }, { status: 404 });
+    }
+    if (!isAdmin(session) && !canAccessCourse(course, getPlayerIdFromSession(session))) {
+      return NextResponse.json({ error: 'Forbidden', message: 'You do not have access to this course' }, { status: 403 });
     }
 
     const lesson = await Lesson.findOneAndDelete({ 

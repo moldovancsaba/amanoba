@@ -110,6 +110,14 @@ export async function GET(
       );
     }
 
+    const visibility = (player as { profileVisibility?: string }).profileVisibility ?? 'private';
+    if (visibility === 'private' && !canViewPrivateData) {
+      return NextResponse.json(
+        { success: false, error: 'Profile not available' },
+        { status: 404 }
+      );
+    }
+
     // Calculate statistics
     const totalAchievements = await Achievement.countDocuments({ 'availability.isActive': true });
     const unlockedAchievements = achievements.length;
@@ -158,7 +166,7 @@ export async function GET(
       };
     });
 
-    // Build response with conditional private data
+    const profilePlayer = player as { profileVisibility?: string; profileSectionVisibility?: Record<string, string> };
     const profileData: any = {
       player: {
         id: player._id,
@@ -166,8 +174,17 @@ export async function GET(
         profilePicture: player.profilePicture,
         isPremium: player.isPremium || false,
         createdAt: player.createdAt,
-        // lastSeenAt is private - only include if viewing own profile or admin
         ...(canViewPrivateData && { lastSeenAt: player.lastSeenAt }),
+        ...(canViewPrivateData && {
+          profileVisibility: profilePlayer.profileVisibility ?? 'private',
+          profileSectionVisibility: profilePlayer.profileSectionVisibility ?? {
+            about: 'private',
+            courses: 'private',
+            achievements: 'private',
+            certificates: 'private',
+            stats: 'private',
+          },
+        }),
       },
       progression: {
         level: progression?.level || 1,

@@ -107,6 +107,7 @@ export default function Dashboard() {
     achievements: boolean;
     rewards: boolean;
   } | null>(null);
+  const [canAccessAdmin, setCanAccessAdmin] = useState(false);
 
   // Why: Fetch player data when session is available or on manual refresh
   const fetchPlayerData = async () => {
@@ -193,7 +194,24 @@ export default function Dashboard() {
     fetchPlayerData();
     fetchFeatureFlags();
     fetchRecommendations();
+    if (session?.user) {
+      fetchAdminAccess();
+    } else {
+      setCanAccessAdmin(false);
+    }
   }, [session, status]);
+
+  const fetchAdminAccess = async () => {
+    try {
+      const response = await fetch('/api/admin/access');
+      const data = await response.json();
+      if (data.canAccessAdmin === true) {
+        setCanAccessAdmin(true);
+      }
+    } catch {
+      setCanAccessAdmin(false);
+    }
+  };
 
   const fetchFeatureFlags = async () => {
     try {
@@ -263,6 +281,7 @@ export default function Dashboard() {
 
   const { player, progression, wallet, streaks, achievementStats, courseStats } = playerData;
   const xpProgress = progression ? (progression.currentXP / progression.xpToNextLevel) * 100 : 0;
+  const currentPlayerId = player?.id ?? (session?.user as { id?: string; playerId?: string })?.playerId ?? (session?.user as { id?: string })?.id;
 
   return (
     <div className="min-h-screen bg-brand-black">
@@ -295,14 +314,15 @@ export default function Dashboard() {
               >
                 📚 {t('browseCourses')}
               </LocaleLink>
-              {session?.user && (() => {
-                const userRole = (session.user as { role?: string }).role;
-                // Debug: log role for troubleshooting (remove in production if needed)
-                if (process.env.NODE_ENV === 'development') {
-                  console.log('User role in session:', userRole, 'Full user:', session.user);
-                }
-                return userRole === 'admin';
-              })() && (
+              {currentPlayerId && (
+                <LocaleLink
+                  href={`/profile/${currentPlayerId}`}
+                  className="bg-brand-darkGrey text-brand-white px-4 py-3 sm:py-2 rounded-lg hover:bg-brand-secondary-700 transition-colors font-bold text-center mobile-full-width border-2 border-brand-accent"
+                >
+                  👤 {t('myProfile')}
+                </LocaleLink>
+              )}
+              {session?.user && canAccessAdmin && (
                 <LocaleLink
                   href="/admin"
                   className="bg-brand-primary-600 text-brand-white px-4 py-3 sm:py-2 rounded-lg hover:bg-brand-primary-700 transition-colors font-bold text-center mobile-full-width"

@@ -58,7 +58,7 @@ export async function GET(
     const progressList = await CourseProgress.find({
       playerId: new mongoose.Types.ObjectId(playerId),
     })
-      .populate('courseId', 'courseId title language')
+      .populate('courseId', 'courseId name language')
       .sort({ startedAt: -1 })
       .lean();
 
@@ -69,7 +69,7 @@ export async function GET(
         if (!course) return null;
         return {
           courseId: course.courseId || course._id?.toString(),
-          title: course.title || course.courseId || 'Unknown Course',
+          title: course.name || course.courseId || 'Unknown Course',
           language: course.language || 'en',
         };
       })

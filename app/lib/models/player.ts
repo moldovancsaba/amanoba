@@ -43,6 +43,16 @@ export interface IPlayer extends Document {
   surveyCompleted?: boolean; // Whether player has completed onboarding survey
   skillLevel?: 'beginner' | 'intermediate' | 'advanced'; // Skill level from survey
   interests?: string[]; // Interests/topics from survey (for course recommendations)
+  /** Profile visibility: private = 404 for non-owner; public = show per-section. See PUBLIC_PROFILE_SCHEMA.md */
+  profileVisibility?: 'public' | 'private';
+  /** Per-section visibility when profile is public. Keys: about, courses, achievements, certificates, stats */
+  profileSectionVisibility?: {
+    about?: 'public' | 'private';
+    courses?: 'public' | 'private';
+    achievements?: 'public' | 'private';
+    certificates?: 'public' | 'private';
+    stats?: 'public' | 'private';
+  };
   metadata?: Record<string, unknown>;
   createdAt: Date;
   updatedAt: Date;
@@ -277,8 +287,22 @@ const PlayerSchema = new Schema<IPlayer>(
       index: true,
     },
 
+    // Profile visibility (see PUBLIC_PROFILE_SCHEMA.md)
+    profileVisibility: {
+      type: String,
+      enum: ['public', 'private'],
+      default: 'private',
+      trim: true,
+    },
+    profileSectionVisibility: {
+      about: { type: String, enum: ['public', 'private'], default: 'private' },
+      courses: { type: String, enum: ['public', 'private'], default: 'private' },
+      achievements: { type: String, enum: ['public', 'private'], default: 'private' },
+      certificates: { type: String, enum: ['public', 'private'], default: 'private' },
+      stats: { type: String, enum: ['public', 'private'], default: 'private' },
+    },
+
     // Flexible metadata field for player-specific data
-    // Why: Allows storing additional player info without schema changes
     metadata: {
       type: Schema.Types.Mixed,
       default: {},

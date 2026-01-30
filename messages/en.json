@@ -103,6 +103,7 @@
     "yourLearningJourney": "Your learning journey",
     "refresh": "Refresh",
     "browseCourses": "Browse courses",
+    "myProfile": "My profile",
     "startLearning": "Start learning",
     "continueLearning": "Continue learning",
     "recommendedCourses": "Recommended Courses for You",
@@ -496,6 +497,7 @@
   },
     "admin": {
       "logout": "Logout",
+      "editor": "Editor",
     "title": "Admin",
     "dashboard": "Admin Dashboard",
     "dashboardTitle": "Admin Dashboard",

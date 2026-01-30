@@ -10,13 +10,24 @@ import { auth } from '@/auth';
 import connectDB from '@/lib/mongodb';
 import { Course, Lesson } from '@/lib/models';
 import { logger } from '@/lib/logger';
-import { requireAdmin } from '@/lib/rbac';
+import { requireAdminOrEditor, getPlayerIdFromSession, isAdmin, canAccessCourse } from '@/lib/rbac';
 import mongoose from 'mongoose';
+
+async function assertCourseAccess(
+  request: NextRequest,
+  session: Awaited<ReturnType<typeof auth>>,
+  course: { createdBy?: unknown; assignedEditors?: unknown[] } | null
+): Promise<NextResponse | null> {
+  if (!course) return NextResponse.json({ error: 'Course not found' }, { status: 404 });
+  if (isAdmin(session)) return null;
+  if (canAccessCourse(course, getPlayerIdFromSession(session))) return null;
+  return NextResponse.json({ error: 'Forbidden', message: 'You do not have access to this course' }, { status: 403 });
+}
 
 /**
  * GET /api/admin/courses/[courseId]/lessons
- * 
- * What: Get all lessons for a course
+ *
+ * What: Get all lessons for a course (admins: any; editors: only their courses)
  */
 export async function GET(
   request: NextRequest,
@@ -24,24 +35,28 @@ export async function GET(
 ) {
   try {
     const session = await auth();
-    const adminCheck = requireAdmin(request, session);
-    if (adminCheck) {
-      return adminCheck;
+    const accessCheck = await requireAdminOrEditor(request, session);
+    if (accessCheck) {
+      return accessCheck;
     }
 
     await connectDB();
     const { courseId } = await params;
 
-    // Find course first
-    const course = await Course.findOne({ courseId });
-    if (!course) {
+    const course = await Course.findOne({ courseId }).lean();
+    const forbid = await assertCourseAccess(request, session, course);
+    if (forbid) return forbid;
+
+    // Load course again for parent/child logic (need document for selectedLessonIds)
+    const courseDoc = await Course.findOne({ courseId });
+    if (!courseDoc) {
       return NextResponse.json({ error: 'Course not found' }, { status: 404 });
     }
 
     let lessons: Array<Record<string, unknown>>;
-    if (course.parentCourseId && course.selectedLessonIds?.length) {
+    if (courseDoc.parentCourseId && courseDoc.selectedLessonIds?.length) {
       // Child course: return parent lessons in selectedLessonIds order, with dayNumber 1..N
-      const ids = course.selectedLessonIds
+      const ids = courseDoc.selectedLessonIds
         .filter((id): id is string => typeof id === 'string' && !!id)
         .map((id) => new mongoose.Types.ObjectId(id));
       const byId = await Lesson.find({ _id: { $in: ids } }).lean();
@@ -51,7 +66,7 @@ export async function GET(
       );
       lessons = sorted.map((l, i) => ({ ...l, dayNumber: i + 1 }));
     } else {
-      lessons = await Lesson.find({ courseId: course._id })
+      lessons = await Lesson.find({ courseId: courseDoc._id })
         .sort({ dayNumber: 1 })
         .lean();
     }
@@ -69,8 +84,8 @@ export async function GET(
 
 /**
  * POST /api/admin/courses/[courseId]/lessons
- * 
- * What: Create a new lesson for a course
+ *
+ * What: Create a new lesson for a course (admins and editors with course access)
  */
 export async function POST(
   request: NextRequest,
@@ -78,19 +93,20 @@ export async function POST(
 ) {
   try {
     const session = await auth();
-    const adminCheck = requireAdmin(request, session);
-    if (adminCheck) {
-      return adminCheck;
+    const accessCheck = await requireAdminOrEditor(request, session);
+    if (accessCheck) {
+      return accessCheck;
     }
 
     await connectDB();
     const { courseId } = await params;
 
-    // Find course
     const course = await Course.findOne({ courseId });
     if (!course) {
       return NextResponse.json({ error: 'Course not found' }, { status: 404 });
     }
+    const forbid = await assertCourseAccess(request, session, course);
+    if (forbid) return forbid;
 
     const body = await request.json();
     const {

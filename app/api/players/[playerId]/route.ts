@@ -165,6 +165,14 @@ export async function GET(
       );
     }
 
+    const visibility = (player as { profileVisibility?: string }).profileVisibility ?? 'private';
+    if (visibility === 'private' && !canViewPrivateData) {
+      return NextResponse.json(
+        { error: 'Profile not available' },
+        { status: 404 }
+      );
+    }
+
     // Calculate course statistics
     // Why: Show actual learning progress from courses (quizzes, lessons, courses)
     // Note: When using .lean(), assessmentResults is a plain object, not a Map
@@ -198,7 +206,7 @@ export async function GET(
       player: {
         id: player._id,
         displayName: player.displayName,
-        // email is private - only include if viewing own profile or admin
+        profilePicture: player.profilePicture,
         ...(canViewPrivateData && { email: player.email }),
         isPremium: player.isPremium,
         premiumExpiresAt: player.premiumExpiresAt,
@@ -206,8 +214,17 @@ export async function GET(
         skillLevel: player.skillLevel || null,
         interests: player.interests || [],
         createdAt: player.createdAt,
-        // lastLoginAt is private - only include if viewing own profile or admin
         ...(canViewPrivateData && { lastLoginAt: player.lastLoginAt }),
+        ...(canViewPrivateData && {
+          profileVisibility: (player as { profileVisibility?: string }).profileVisibility ?? 'private',
+          profileSectionVisibility: (player as { profileSectionVisibility?: Record<string, string> }).profileSectionVisibility ?? {
+            about: 'private',
+            courses: 'private',
+            achievements: 'private',
+            certificates: 'private',
+            stats: 'private',
+          },
+        }),
       },
       progression: progression
         ? {

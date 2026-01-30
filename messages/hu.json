@@ -118,6 +118,7 @@
     "refresh": "Frissítés",
     "enrollInCourse": "Iratkozz fel kurzusra",
     "browseCourses": "Kurzusok böngészése",
+    "myProfile": "Profilom",
     "startLearning": "Kezdd el a tanulást",
     "continueLearning": "Folytasd a tanulást",
     "recommendedCourses": "Ajánlott kurzusok számodra",
@@ -500,6 +501,7 @@
   },
   "admin": {
     "title": "Admin",
+    "editor": "Szerkesztő",
     "dashboard": "Admin irányítópult",
     "dashboardTitle": "Admin Irányítópult",
     "dashboardDescription": "Üdvözöljük! Íme, mi történik a platformon.",

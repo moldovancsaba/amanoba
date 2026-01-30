@@ -12,14 +12,14 @@ import connectDB from '@/lib/mongodb';
 import { Player } from '@/lib/models';
 import { logger } from '@/lib/logger';
 import { checkRateLimit, adminRateLimiter } from '@/lib/security';
+import mongoose from 'mongoose';
 
 /**
  * GET /api/admin/players
- * 
- * What: List all players with optional filtering and pagination
+ *
+ * What: List all players with optional filtering and pagination; or fetch by ids (ids=id1,id2)
  */
 export async function GET(request: NextRequest) {
-  // Rate limiting: 50 requests per 15 minutes per IP (admin endpoints)
   const rateLimitResponse = await checkRateLimit(request, adminRateLimiter);
   if (rateLimitResponse) {
     return rateLimitResponse;
@@ -35,6 +35,16 @@ export async function GET(request: NextRequest) {
     await connectDB();
 
     const { searchParams } = new URL(request.url);
+    const idsParam = searchParams.get('ids');
+    if (idsParam) {
+      const ids = idsParam.split(',').map((id) => id.trim()).filter(Boolean);
+      const validIds = ids.filter((id) => mongoose.Types.ObjectId.isValid(id)).map((id) => new mongoose.Types.ObjectId(id));
+      const players = await Player.find({ _id: { $in: validIds } })
+        .select('_id displayName email')
+        .lean();
+      return NextResponse.json({ success: true, players });
+    }
+
     const search = searchParams.get('search');
     const userType = searchParams.get('userType');
     const isActive = searchParams.get('isActive');
