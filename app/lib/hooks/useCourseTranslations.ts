@@ -13,6 +13,7 @@
 
 import { useState, useEffect } from 'react';
 import { locales, type Locale } from '@/app/lib/i18n/locales';
+import { logger } from '@/app/lib/logger';
 
 interface Translations {
   [key: string]: unknown;
@@ -49,7 +50,7 @@ async function loadTranslations(locale: Locale): Promise<Translations> {
     translationCache[locale] = def;
     return def;
   } catch (error) {
-    console.error(`Failed to load translations for locale ${locale}:`, error);
+    logger.error({ locale, error }, 'Failed to load translations for locale');
     return {};
   }
 }

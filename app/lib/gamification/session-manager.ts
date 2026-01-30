@@ -21,7 +21,6 @@ import {
   PointsTransaction,
   Game,
   GameBrandConfig,
-  Brand,
   EventLog,
 } from '../models';
 import {

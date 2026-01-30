@@ -8,7 +8,7 @@
 import { Resend } from 'resend';
 import { logger } from '../logger';
 import connectDB from '../mongodb';
-import { Player, Course, Lesson } from '@/app/lib/models';
+import { Player, Course } from '@/app/lib/models';
 import type { ILesson } from '@/app/lib/models/lesson';
 import type { IPlayer } from '@/app/lib/models/player';
 import { locales, type Locale } from '@/app/lib/i18n/locales';
@@ -45,9 +45,9 @@ const EMAIL_CONFIG = {
   replyTo: process.env.EMAIL_REPLY_TO || 'support@amanoba.com',
 };
 
-/** Brand CTA and email design tokens (align with design-system.css) */
+/** Brand CTA and email design tokens (align with design-system.css and THEME_COLOR) */
 const EMAIL_TOKENS = {
-  ctaBg: '#FAB908',
+  ctaBg: process.env.NEXT_PUBLIC_THEME_COLOR || '#FAB908',
   ctaText: '#111827',
   bodyText: '#333333',
   muted: '#666666',

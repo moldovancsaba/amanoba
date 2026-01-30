@@ -13,7 +13,7 @@ import { useRouter } from 'next/navigation';
 import { useLocale, useTranslations } from 'next-intl';
 import { ChevronLeft, Clock, RefreshCw } from 'lucide-react';
 import { LocaleLink } from '@/components/LocaleLink';
-import Icon, { MdCalendarToday, MdMyLocation, MdCardGiftcard, MdCheckCircle, MdSentimentDissatisfied, MdGpsFixed, MdCheckCircle as MdComplete, MdBolt, MdCalendarToday as MdCalendar, MdDiamond } from '@/components/Icon';
+import Icon, { MdCalendarToday, MdMyLocation, MdCardGiftcard, MdCheckCircle, MdSentimentDissatisfied, MdBolt, MdDiamond } from '@/components/Icon';
 
 interface Challenge {
   _id: string;
@@ -88,7 +88,6 @@ export default function ChallengesPage() {
         }
         
         const data = await response.json();
-        if (process.env.NODE_ENV === 'development') console.log('Challenges loaded:', data);
         setChallenges(data.challenges || []);
       } catch (err) {
         console.error('Challenge fetch error:', err);
@@ -107,7 +106,6 @@ export default function ChallengesPage() {
     // Why: Refresh challenges when user returns to page (after playing a game)
     const handleVisibilityChange = () => {
       if (document.visibilityState === 'visible') {
-        if (process.env.NODE_ENV === 'development') console.log('Page became visible, refreshing challenges...');
         fetchChallenges();
       }
     };
@@ -116,7 +114,6 @@ export default function ChallengesPage() {
     
     // Why: Also refresh on window focus (user returns from another tab/window)
     const handleFocus = () => {
-      if (process.env.NODE_ENV === 'development') console.log('Window focused, refreshing challenges...');
       fetchChallenges();
     };
     

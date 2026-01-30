@@ -22,8 +22,8 @@ interface EmailPreferences {
 
 export default function EmailSettingsPage() {
   const { data: session } = useSession();
-  const locale = useLocale();
-  const t = useTranslations('settings');
+  const _locale = useLocale();
+  const _t = useTranslations('settings');
   const [preferences, setPreferences] = useState<EmailPreferences>({
     receiveLessonEmails: true,
     emailFrequency: 'daily',

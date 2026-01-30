@@ -27,6 +27,9 @@ npx tsx --env-file=.env.local scripts/quiz-item-qa/mongodb-cli.ts evaluate:item 
 # Process questions (dry run)
 npx tsx --env-file=.env.local scripts/quiz-item-qa/mongodb-cli.ts loop:run --items 5 --dry-run true
 
+# Process questions (live changes, one item at a time)
+npx tsx --env-file=.env.local scripts/quiz-item-qa/mongodb-cli.ts loop:run --items 1
+
 # Process questions (live changes)
 npx tsx --env-file=.env.local scripts/quiz-item-qa/mongodb-cli.ts loop:run --items 5
 
@@ -35,6 +38,31 @@ npx tsx --env-file=.env.local scripts/quiz-item-qa/mongodb-cli.ts apply:update -
 
 # Record handover entry
 npx tsx --env-file=.env.local scripts/quiz-item-qa/mongodb-cli.ts handover:record --id QUESTION_ID --agent "agent-name" --notes "Manual review required"
+```
+
+## Human check loop (1 item at a time)
+If you want a manual review opportunity before any DB write, use this strict sequence for **one item**:
+
+1) Get candidate id:
+```bash
+npx tsx --env-file=.env.local scripts/quiz-item-qa/mongodb-cli.ts pick:next
+```
+
+2) Review the question + all 4 options (this is the “show 1 question + answers” step):
+```bash
+npx tsx --env-file=.env.local scripts/quiz-item-qa/mongodb-cli.ts evaluate:item --id QUESTION_ID --json true
+```
+
+3) If (and only if) the autopatch is acceptable, apply it:
+```bash
+npx tsx --env-file=.env.local scripts/quiz-item-qa/mongodb-cli.ts apply:update --id QUESTION_ID --from-last-eval true
+```
+
+4) Record the result to the handover log and advance state.
+If you applied any DB change, `metadata.updatedAt` will change; keep the scanning cursor stable by recording the **pre-fix cursor**:
+```bash
+npx tsx --env-file=.env.local scripts/quiz-item-qa/mongodb-cli.ts handover:record --id QUESTION_ID --agent "agent-name" \
+  --cursor-updated-at CURSOR_UPDATED_AT --cursor-item-id CURSOR_ITEM_ID
 ```
 
 ## Golden standards
@@ -42899,3 +42927,3307 @@ Now log ..." described in the lesson in your own work?
 - Violations: 0
 - State stored in `.state/quiz_item_qa_state.json`
 
+## 2026-01-30T19:20:21.184Z — 697b1ffcde117f992bb9bed5
+- Updated at (current): 2026-01-30T19:20:21.093Z
+- Cursor updatedAt (pre-fix): 2026-01-29T08:53:16.131Z
+- Question: Miért kell rövid indoklás a terméklistához?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:21.404Z — 697b1ffcde117f992bb9bed6
+- Updated at (current): 2026-01-30T19:20:21.244Z
+- Cursor updatedAt (pre-fix): 2026-01-29T08:53:16.132Z
+- Question: Képzeld el, hogy egy feladaton dolgozol, és döntened kell. Mi a rossz példa use-case oldalra?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:21.536Z — 697b1ffcde117f992bb9bedc
+- Updated at (current): 2026-01-30T19:20:21.450Z
+- Cursor updatedAt (pre-fix): 2026-01-29T08:53:16.321Z
+- Question: Képzeld el, hogy egy feladaton dolgozol, és döntened kell. Miért árthat a spam jellegű link?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:21.677Z — 697b1ffcde117f992bb9bedf
+- Updated at (current): 2026-01-30T19:20:21.596Z
+- Cursor updatedAt (pre-fix): 2026-01-29T08:53:16.322Z
+- Question: Képzeld el, hogy egy feladaton dolgozol, és döntened kell. Milyen forrást kerülj?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:21.838Z — 697b1ffcde117f992bb9bee5
+- Updated at (current): 2026-01-30T19:20:21.741Z
+- Cursor updatedAt (pre-fix): 2026-01-29T08:53:16.527Z
+- Question: Mi a rossz példa AI-asszisztált tartalomra?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:21.966Z — 697b1ffcde117f992bb9beee
+- Updated at (current): 2026-01-30T19:20:21.888Z
+- Cursor updatedAt (pre-fix): 2026-01-29T08:53:16.716Z
+- Question: Képzeld el, hogy egy feladaton dolgozol, és döntened kell. Mi a jó példa frissítési gyakoriságra?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:22.095Z — 697b1ffcde117f992bb9bef3
+- Updated at (current): 2026-01-30T19:20:22.014Z
+- Cursor updatedAt (pre-fix): 2026-01-29T08:53:16.920Z
+- Question: Mi a merchant program táblázat fontos oszlopa?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:22.281Z — 697b1ffcde117f992bb9bef6
+- Updated at (current): 2026-01-30T19:20:22.188Z
+- Cursor updatedAt (pre-fix): 2026-01-29T08:53:16.921Z
+- Question: Miért fontos a régió szerinti eltérés ismerete?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:22.417Z — 697b1ffdde117f992bb9bf03
+- Updated at (current): 2026-01-30T19:20:22.326Z
+- Cursor updatedAt (pre-fix): 2026-01-29T08:53:17.282Z
+- Question: Képzeld el, hogy egy feladaton dolgozol, és döntened kell. Mi a capstone sprint fókusza?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:22.535Z — 697b1ffdde117f992bb9bf05
+- Updated at (current): 2026-01-30T19:20:22.463Z
+- Cursor updatedAt (pre-fix): 2026-01-29T08:53:17.283Z
+- Question: Képzeld el, hogy egy feladaton dolgozol, és döntened kell. Mi a jó output a sprint végén?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:22.656Z — 697b200402f89b2246e06dfd
+- Updated at (current): 2026-01-30T19:20:22.580Z
+- Cursor updatedAt (pre-fix): 2026-01-29T08:53:24.369Z
+- Question: You're working on a task and need to decide next steps. What is the risk of vague policy?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:22.777Z — 697b200402f89b2246e06e14
+- Updated at (current): 2026-01-30T19:20:22.704Z
+- Cursor updatedAt (pre-fix): 2026-01-29T08:53:24.752Z
+- Question: You're working on a task and need to decide next steps. Why share the list with the team?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:22.929Z — 697b200402f89b2246e06e1d
+- Updated at (current): 2026-01-30T19:20:22.829Z
+- Cursor updatedAt (pre-fix): 2026-01-29T08:53:24.922Z
+- Question: You're working on a task and need to decide next steps. What is a good blueprint example?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:23.074Z — 697b200502f89b2246e06e25
+- Updated at (current): 2026-01-30T19:20:22.982Z
+- Cursor updatedAt (pre-fix): 2026-01-29T08:53:25.103Z
+- Question: You're working on a task and need to decide next steps. What is a poor capsule?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:23.216Z — 697b200502f89b2246e06e2d
+- Updated at (current): 2026-01-30T19:20:23.125Z
+- Cursor updatedAt (pre-fix): 2026-01-29T08:53:25.281Z
+- Question: You're working on a task and need to decide next steps. What is a bad variant practice?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:23.335Z — 697b200502f89b2246e06e35
+- Updated at (current): 2026-01-30T19:20:23.262Z
+- Cursor updatedAt (pre-fix): 2026-01-29T08:53:25.461Z
+- Question: You're working on a task and need to decide next steps. What is a good top pick element?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:23.467Z — 697b200502f89b2246e06e3c
+- Updated at (current): 2026-01-30T19:20:23.388Z
+- Cursor updatedAt (pre-fix): 2026-01-29T08:53:25.635Z
+- Question: What is good practice for reviews in schema?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:23.619Z — 697b200502f89b2246e06e45
+- Updated at (current): 2026-01-30T19:20:23.523Z
+- Cursor updatedAt (pre-fix): 2026-01-29T08:53:25.810Z
+- Question: You're working on a task and need to decide next steps. What is a good price display example?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:23.735Z — 697b200502f89b2246e06e4a
+- Updated at (current): 2026-01-30T19:20:23.663Z
+- Cursor updatedAt (pre-fix): 2026-01-29T08:53:25.979Z
+- Question: You're working on a task and need to decide next steps. What belongs in alt text?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:23.885Z — 697b200502f89b2246e06e4d
+- Updated at (current): 2026-01-30T19:20:23.806Z
+- Cursor updatedAt (pre-fix): 2026-01-29T08:53:25.980Z
+- Question: You're working on a task and need to decide next steps. What should you add to a video?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:24.007Z — 697b200602f89b2246e06e53
+- Updated at (current): 2026-01-30T19:20:23.933Z
+- Cursor updatedAt (pre-fix): 2026-01-29T08:53:26.155Z
+- Question: You're working on a task and need to decide next steps. What is the risk of a “thin” PDP?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:24.145Z — 697b200602f89b2246e06e5e
+- Updated at (current): 2026-01-30T19:20:24.065Z
+- Cursor updatedAt (pre-fix): 2026-01-29T08:53:26.340Z
+- Question: You're working on a task and need to decide next steps. What is a poor intent map practice?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:24.295Z — 697b200602f89b2246e06e65
+- Updated at (current): 2026-01-30T19:20:24.197Z
+- Cursor updatedAt (pre-fix): 2026-01-29T08:53:26.522Z
+- Question: You're working on a task and need to decide next steps. Why does an AI-friendly structure help?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:24.479Z — 697b200602f89b2246e06e6a
+- Updated at (current): 2026-01-30T19:20:24.369Z
+- Cursor updatedAt (pre-fix): 2026-01-29T08:53:26.726Z
+- Question: You're working on a task and need to decide next steps. What belongs in a comparison table?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:24.613Z — 697b200602f89b2246e06e75
+- Updated at (current): 2026-01-30T19:20:24.526Z
+- Cursor updatedAt (pre-fix): 2026-01-29T08:53:26.915Z
+- Question: You're working on a task and need to decide next steps. What is a poor use-case page?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:24.773Z — 697b200702f89b2246e06e82
+- Updated at (current): 2026-01-30T19:20:24.683Z
+- Cursor updatedAt (pre-fix): 2026-01-29T08:53:27.276Z
+- Question: You're working on a task and need to decide next steps. What is good anti-spam practice?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:24.901Z — 697b200702f89b2246e06e8a
+- Updated at (current): 2026-01-30T19:20:24.827Z
+- Cursor updatedAt (pre-fix): 2026-01-29T08:53:27.450Z
+- Question: You're working on a task and need to decide next steps. Why set a feed refresh cadence?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:25.062Z — 697b200702f89b2246e06e95
+- Updated at (current): 2026-01-30T19:20:24.965Z
+- Cursor updatedAt (pre-fix): 2026-01-29T08:53:27.620Z
+- Question: You're working on a task and need to decide next steps. Why track region differences?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:25.223Z — 697b200702f89b2246e06ea4
+- Updated at (current): 2026-01-30T19:20:25.129Z
+- Cursor updatedAt (pre-fix): 2026-01-29T08:53:27.989Z
+- Question: You're working on a task and need to decide next steps. What is a good sprint output?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:25.278Z — 697b202dc5e277206a6088e0
+- Updated at (current): 2026-01-29T08:54:05.591Z
+- Question: You want AI answers to safely quote your store. Which change best matches the “Good vs Poor” examples in "What GEO is (and is not) for Shopify"?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:25.404Z — 697b2030d8669994531f73c4
+- Updated at (current): 2026-01-30T19:20:25.326Z
+- Cursor updatedAt (pre-fix): 2026-01-29T08:54:08.255Z
+- Question: Mi a jó példa vizuális nyelvi szabályra?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:25.542Z — 697b2032d8669994531f747b
+- Updated at (current): 2026-01-30T19:20:25.454Z
+- Cursor updatedAt (pre-fix): 2026-01-29T08:54:10.703Z
+- Question: Képzeld el, hogy egy feladaton dolgozol, és döntened kell. Mi a ritmus alapja?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:25.675Z — 697b2033d8669994531f748c
+- Updated at (current): 2026-01-30T19:20:25.593Z
+- Cursor updatedAt (pre-fix): 2026-01-29T08:54:11.056Z
+- Question: Képzeld el, hogy egy feladaton dolgozol, és döntened kell. Mit jelent a prefers-reduced-motion?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:25.813Z — 697b2033d8669994531f749d
+- Updated at (current): 2026-01-30T19:20:25.727Z
+- Cursor updatedAt (pre-fix): 2026-01-29T08:54:11.422Z
+- Question: Képzeld el, hogy egy feladaton dolgozol, és döntened kell. Miért rossz a 5/7/11 px keverése?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:26.050Z — 697b2033d8669994531f74b0
+- Updated at (current): 2026-01-30T19:20:25.896Z
+- Cursor updatedAt (pre-fix): 2026-01-29T08:54:11.770Z
+- Question: Képzeld el, hogy egy feladaton dolgozol, és döntened kell. Mi a rossz példa?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:26.177Z — 697b2034d8669994531f74be
+- Updated at (current): 2026-01-30T19:20:26.105Z
+- Cursor updatedAt (pre-fix): 2026-01-29T08:54:12.134Z
+- Question: Képzeld el, hogy egy feladaton dolgozol, és döntened kell. Mi a komponens API?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:26.312Z — 697b2034d8669994531f74c6
+- Updated at (current): 2026-01-30T19:20:26.240Z
+- Cursor updatedAt (pre-fix): 2026-01-29T08:54:12.315Z
+- Question: Miért ne használj base tokent közvetlenül UI-ban?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:26.609Z — 697b2034d8669994531f74d6
+- Updated at (current): 2026-01-30T19:20:26.509Z
+- Cursor updatedAt (pre-fix): 2026-01-29T08:54:12.672Z
+- Question: Egy projektben a „Platformközi konzisztencia” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:26.744Z — 697b2034d8669994531f74dd
+- Updated at (current): 2026-01-30T19:20:26.662Z
+- Cursor updatedAt (pre-fix): 2026-01-29T08:54:12.851Z
+- Question: Képzeld el, hogy egy feladaton dolgozol, és döntened kell. Mi tartozzon a changelogba?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:26.910Z — 697b2035d8669994531f74e2
+- Updated at (current): 2026-01-30T19:20:26.834Z
+- Cursor updatedAt (pre-fix): 2026-01-29T08:54:13.042Z
+- Question: Képzeld el, hogy egy feladaton dolgozol, és döntened kell. Miért kell mérni?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:27.234Z — 697b2035d8669994531f74e9
+- Updated at (current): 2026-01-30T19:20:26.962Z
+- Cursor updatedAt (pre-fix): 2026-01-29T08:54:13.217Z
+- Question: Képzeld el, hogy egy feladaton dolgozol, és döntened kell. Miért kell changelog?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:27.402Z — 697b2035d8669994531f74f1
+- Updated at (current): 2026-01-30T19:20:27.289Z
+- Cursor updatedAt (pre-fix): 2026-01-29T08:54:13.405Z
+- Question: Képzeld el, hogy egy feladaton dolgozol, és döntened kell. Mi legyen a checklisten?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:28.186Z — 697b2035d8669994531f74fd
+- Updated at (current): 2026-01-30T19:20:27.493Z
+- Cursor updatedAt (pre-fix): 2026-01-29T08:54:13.788Z
+- Question: Képzeld el, hogy egy feladaton dolgozol, és döntened kell. Miért mérjük a vizuális minőséget?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:28.659Z — 697b2035d8669994531f7506
+- Updated at (current): 2026-01-30T19:20:28.538Z
+- Cursor updatedAt (pre-fix): 2026-01-29T08:54:13.958Z
+- Question: Egy vezető a következő elv szerint dönt: „Rossz:”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:29.325Z — 697b2036d8669994531f750c
+- Updated at (current): 2026-01-30T19:20:29.196Z
+- Cursor updatedAt (pre-fix): 2026-01-29T08:54:14.148Z
+- Question: Képzeld el, hogy egy feladaton dolgozol, és döntened kell. Miért kell kategorizálni?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:29.487Z — 697b2036d8669994531f7511
+- Updated at (current): 2026-01-30T19:20:29.400Z
+- Cursor updatedAt (pre-fix): 2026-01-29T08:54:14.363Z
+- Question: Képzeld el, hogy egy feladaton dolgozol, és döntened kell. Mi a jó példa?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:30.186Z — 697b2036d8669994531f7518
+- Updated at (current): 2026-01-30T19:20:29.709Z
+- Cursor updatedAt (pre-fix): 2026-01-29T08:54:14.540Z
+- Question: Egy vezető a következő elv szerint dönt: „Playbook összeállítása”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:30.303Z — 697b2036d8669994531f751d
+- Updated at (current): 2026-01-30T19:20:30.233Z
+- Cursor updatedAt (pre-fix): 2026-01-29T08:54:14.706Z
+- Question: Képzeld el, hogy egy feladaton dolgozol, és döntened kell. Miért kell rollout terv?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:30.371Z — 697b203bac79ca83bb97216f
+- Updated at (current): 2026-01-29T08:54:19.239Z
+- Question: Mi a „több aktivitás = több eredmény” tévedés fő gondja?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:30.431Z — 697b203dac79ca83bb972215
+- Updated at (current): 2026-01-29T08:54:21.187Z
+- Question: Mit jelent a pipeline coverage 3-4x szabály?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:30.484Z — 697b203dac79ca83bb972220
+- Updated at (current): 2026-01-29T08:54:21.382Z
+- Question: Miért kell limitálni a csatornák számát?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:30.532Z — 697b204d060240540231b29f
+- Updated at (current): 2026-01-29T08:54:37.205Z
+- Question: Mi a legfontosabb szabály adatmegadáskor?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:30.584Z — 697b204d060240540231b2b9
+- Updated at (current): 2026-01-29T08:54:37.486Z
+- Question: Mi a különbség eszköz és varázslat között az AI-nál?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:30.635Z — 697b204f060240540231b32e
+- Updated at (current): 2026-01-29T08:54:39.364Z
+- Question: Miért tanítsd meg az AI-nak a stílusodat?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:30.684Z — 697b2050060240540231b34e
+- Updated at (current): 2026-01-29T08:54:40.360Z
+- Question: Miért kérd meg az AI-t is anonimizálásra?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:30.736Z — 697b2051060240540231b37c
+- Updated at (current): 2026-01-29T08:54:41.909Z
+- Question: Miért érdemes hiányzó határidőt javasoltatni az AI-val?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:31.184Z — 697b76d856490e5146888acb
+- Updated at (current): 2026-01-29T15:03:52.021Z
+- Question: A team says: “GEO is ranking, so we should chase keywords harder.” What is the most accurate correction?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:31.238Z — 697b775218847a0e87bdb737
+- Updated at (current): 2026-01-29T15:05:54.363Z
+- Question: You add an “answer capsule” at the top of a Shopify product page. Which capsule content is most aligned with the lesson?
+- Violations: 1
+- State stored in `.state/quiz_item_qa_state.json`
+- Notes:
+  - Manual review required
+
+## 2026-01-30T19:20:31.298Z — 697b77d1abefb6c3cf4bcfd9
+- Updated at (current): 2026-01-29T15:08:01.344Z
+- Question: Which statement best distinguishes “influence” from “transaction” in an AI-driven buying flow?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:31.410Z — 697b7831c01139a723210240
+- Updated at (current): 2026-01-29T15:09:37.707Z
+- Question: Why does the lesson emphasize “content expectations differ” across platforms?
+- Violations: 1
+- State stored in `.state/quiz_item_qa_state.json`
+- Notes:
+  - Manual review required
+
+## 2026-01-30T19:20:31.457Z — 697b7881bc06076675fafae8
+- Updated at (current): 2026-01-29T15:10:57.485Z
+- Question: Which set best matches the GEO KPIs the lesson suggests tracking weekly?
+- Violations: 1
+- State stored in `.state/quiz_item_qa_state.json`
+- Notes:
+  - Manual review required
+
+## 2026-01-30T19:20:31.512Z — 697b78a1a717bd4e8ef2b66f
+- Updated at (current): 2026-01-29T15:11:29.332Z
+- Question: While auditing identifiers, you find SKUs missing for many variants. What is the most measurable next step to reduce future duplication and tracking errors?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:31.585Z — 697b7965dcdbf814f2f126e2
+- Updated at (current): 2026-01-29T15:14:45.467Z
+- Question: A team tracks mismatch rate but does not track “critical mismatch count” (price/stock/policy links). What is the risk?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:31.637Z — 697b7a464526cdce732f63a8
+- Updated at (current): 2026-01-29T15:18:30.157Z
+- Question: You are auditing identifiers for 10 variants. Which SKU rule is most aligned with the lesson?
+- Violations: 1
+- State stored in `.state/quiz_item_qa_state.json`
+- Notes:
+  - Manual review required
+
+## 2026-01-30T19:20:31.689Z — 697b91c8f4f7723d655e4f44
+- Updated at (current): 2026-01-29T16:58:48.961Z
+- Question: Zespół naciska na więcej spotkań “żeby kontrolować postęp”. Jakie jest największe ryzyko dla produktywności przy definicji: rezultat / ograniczenia?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:31.742Z — 697b91dc3b1c69ab3f515af2
+- Updated at (current): 2026-01-29T16:59:08.568Z
+- Question: You are working on "What Is a Problem, Really?". A teammate mentions "Learning goal Define problem vs symptom" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:31.796Z — 697b91dd3b1c69ab3f515b44
+- Updated at (current): 2026-01-29T16:59:09.551Z
+- Question: In a "Working Backwards" scenario, how would applying "Backwards" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:31.851Z — 697b91de3b1c69ab3f515b67
+- Updated at (current): 2026-01-29T16:59:10.050Z
+- Question: In a "No Surprises Culture" scenario, how would applying "Surprises" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:31.906Z — 697b91de3b1c69ab3f515b79
+- Updated at (current): 2026-01-29T16:59:10.182Z
+- Question: In a "No Surprises Culture" scenario, how would applying "Surface options proposed" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:32.186Z — 697b91de3b1c69ab3f515b80
+- Updated at (current): 2026-01-29T16:59:10.238Z
+- Question: You are working on "No Surprises Culture". A teammate mentions "Learning Share status" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:32.251Z — 697b91e9cf21eba1283e6c55
+- Updated at (current): 2026-01-29T16:59:21.886Z
+- Question: In a "Trust signals: identity, support, proof" scenario, how would applying "Guided exercise (10–15 min)" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:32.310Z — 697b91e9cf21eba1283e6c60
+- Updated at (current): 2026-01-29T16:59:21.947Z
+- Question: In a "Trust signals: identity, support, proof" scenario, how would applying "Poor" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:32.374Z — 697b91e9cf21eba1283e6c69
+- Updated at (current): 2026-01-29T16:59:21.989Z
+- Question: In a "Trust signals: identity, support, proof" scenario, how would applying "Learning goal Build a trust block (identity/suppor" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:32.430Z — 697b91eacf21eba1283e6c72
+- Updated at (current): 2026-01-29T16:59:22.045Z
+- Question: In a "Trust signals: identity, support, proof" scenario, how would applying "support" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:32.492Z — 697b91eacf21eba1283e6c79
+- Updated at (current): 2026-01-29T16:59:22.102Z
+- Question: In a "Trust signals: identity, support, proof" scenario, how would applying "identity" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:32.542Z — 697b91eacf21eba1283e6c86
+- Updated at (current): 2026-01-29T16:59:22.440Z
+- Question: You are working on "Trust signals: identity, support, proof". A teammate mentions "Guided exercise (10–15 min)" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:32.607Z — 697b91eacf21eba1283e6c88
+- Updated at (current): 2026-01-29T16:59:22.470Z
+- Question: You are working on "Trust signals: identity, support, proof". A teammate mentions "Poor" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:32.659Z — 697b91eacf21eba1283e6c8b
+- Updated at (current): 2026-01-29T16:59:22.498Z
+- Question: You are working on "Trust signals: identity, support, proof". A teammate mentions "signals" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:32.745Z — 697b91eacf21eba1283e6c8d
+- Updated at (current): 2026-01-29T16:59:22.527Z
+- Question: You are working on "Trust signals: identity, support, proof". A teammate mentions "proof" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:32.814Z — 697b91eacf21eba1283e6c90
+- Updated at (current): 2026-01-29T16:59:22.595Z
+- Question: You are working on "Trust signals: identity, support, proof". A teammate mentions "Independent exercise (5–10 min)" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:32.934Z — 697b91eacf21eba1283e6c9a
+- Updated at (current): 2026-01-29T16:59:22.970Z
+- Question: In a "Off-site GEO: when it helps, when it harms" scenario, how would applying "Guided exercise (10–15 min)" change your ability to achieve GEO, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:32.994Z — 697b91ebcf21eba1283e6c9e
+- Updated at (current): 2026-01-29T16:59:23.017Z
+- Question: In a "Off-site GEO: when it helps, when it harms" scenario, how would applying "helps" change your ability to achieve GEO, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:33.063Z — 697b91ebcf21eba1283e6ca1
+- Updated at (current): 2026-01-29T16:59:23.069Z
+- Question: In a "Off-site GEO: when it helps, when it harms" scenario, how would applying "Poor" change your ability to achieve GEO, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:33.156Z — 697b91ebcf21eba1283e6ca4
+- Updated at (current): 2026-01-29T16:59:23.124Z
+- Question: In a "Off-site GEO: when it helps, when it harms" scenario, how would applying "Independent exercise (5–10 min)" change your ability to achieve GEO, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:33.209Z — 697b91ebcf21eba1283e6ca7
+- Updated at (current): 2026-01-29T16:59:23.175Z
+- Question: In a "Off-site GEO: when it helps, when it harms" scenario, how would applying "harms" change your ability to achieve GEO, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:33.260Z — 697b91ebcf21eba1283e6ca9
+- Updated at (current): 2026-01-29T16:59:23.198Z
+- Question: You are working on "Off-site GEO: when it helps, when it harms". A teammate mentions "Good" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:33.312Z — 697b91ebcf21eba1283e6cab
+- Updated at (current): 2026-01-29T16:59:23.259Z
+- Question: You are working on "Off-site GEO: when it helps, when it harms". A teammate mentions "Off-site GEO: when it helps, when it harms" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:33.369Z — 697b91ebcf21eba1283e6cad
+- Updated at (current): 2026-01-29T16:59:23.286Z
+- Question: You are working on "Off-site GEO: when it helps, when it harms". A teammate mentions "site" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:33.428Z — 697b91ebcf21eba1283e6caf
+- Updated at (current): 2026-01-29T16:59:23.315Z
+- Question: You are working on "Off-site GEO: when it helps, when it harms". A teammate mentions "harms" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:33.483Z — 697b91ebcf21eba1283e6cb1
+- Updated at (current): 2026-01-29T16:59:23.344Z
+- Question: You want to implement this practice in your own workflow: "exercise (5–10 min) Write an outreach draft for a partner ar". Which plan produces measurable output and fast feedback?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:33.537Z — 697b91ebcf21eba1283e6cb5
+- Updated at (current): 2026-01-29T16:59:23.426Z
+- Question: In a "Measurement system: weekly GEO run and report" scenario, how would applying "Why it matters No measurement, no proof of progres" change your ability to achieve GEO, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:33.587Z — 697b91ebcf21eba1283e6cb8
+- Updated at (current): 2026-01-29T16:59:23.470Z
+- Question: In a "Measurement system: weekly GEO run and report" scenario, how would applying "Good" change your ability to achieve GEO, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:33.646Z — 697b91ebcf21eba1283e6cbb
+- Updated at (current): 2026-01-29T16:59:23.514Z
+- Question: In a "Measurement system: weekly GEO run and report" scenario, how would applying "system" change your ability to achieve GEO, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:33.698Z — 697b91ebcf21eba1283e6cbe
+- Updated at (current): 2026-01-29T16:59:23.575Z
+- Question: In a "Measurement system: weekly GEO run and report" scenario, how would applying "Learning goal Schedule the weekly GEO test run" change your ability to achieve GEO, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:33.761Z — 697b91ebcf21eba1283e6cc1
+- Updated at (current): 2026-01-29T16:59:23.630Z
+- Question: In a "Measurement system: weekly GEO run and report" scenario, how would applying "report" change your ability to achieve GEO, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:33.818Z — 697b91ebcf21eba1283e6cc3
+- Updated at (current): 2026-01-29T16:59:23.655Z
+- Question: You are working on "Measurement system: weekly GEO run and report". A teammate mentions "Measurement" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:33.870Z — 697b91ebcf21eba1283e6cc5
+- Updated at (current): 2026-01-29T16:59:23.684Z
+- Question: You are working on "Measurement system: weekly GEO run and report". A teammate mentions "Guided exercise (10–15 min)" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:33.928Z — 697b91ebcf21eba1283e6cc7
+- Updated at (current): 2026-01-29T16:59:23.715Z
+- Question: You are working on "Measurement system: weekly GEO run and report". A teammate mentions "Optional deepening" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:33.981Z — 697b91ebcf21eba1283e6cc9
+- Updated at (current): 2026-01-29T16:59:23.741Z
+- Question: You are working on "Measurement system: weekly GEO run and report". A teammate mentions "report" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:34.051Z — 697b91eccf21eba1283e6ccb
+- Updated at (current): 2026-01-29T16:59:24.056Z
+- Question: You are working on "Measurement system: weekly GEO run and report". A teammate mentions "Poor" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:34.107Z — 697b91eccf21eba1283e6cd0
+- Updated at (current): 2026-01-29T16:59:24.241Z
+- Question: In a "What AI is (and what it is not)" scenario, how would applying "Independent exercise (5–10 min) — Do-not-use list" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:34.162Z — 697b91eccf21eba1283e6cd3
+- Updated at (current): 2026-01-29T16:59:24.311Z
+- Question: In a "What AI is (and what it is not)" scenario, how would applying "critical decisions without human review" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:34.219Z — 697b91eccf21eba1283e6cd6
+- Updated at (current): 2026-01-29T16:59:24.397Z
+- Question: In a "What AI is (and what it is not)" scenario, how would applying "What AI is (and what it is not) Tool, not magic Le" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:34.275Z — 697b91eccf21eba1283e6cd9
+- Updated at (current): 2026-01-29T16:59:24.471Z
+- Question: In a "What AI is (and what it is not)" scenario, how would applying "Tool, not magic" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:34.338Z — 697b91eccf21eba1283e6cdc
+- Updated at (current): 2026-01-29T16:59:24.550Z
+- Question: In a "What AI is (and what it is not)" scenario, how would applying "Helps" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:34.393Z — 697b91eccf21eba1283e6cde
+- Updated at (current): 2026-01-29T16:59:24.607Z
+- Question: You are working on "What AI is (and what it is not)". A teammate mentions "Independent exercise (5–10 min) — Do-not-use list" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:34.447Z — 697b91eccf21eba1283e6ce0
+- Updated at (current): 2026-01-29T16:59:24.645Z
+- Question: You are working on "What AI is (and what it is not)". A teammate mentions "What AI is (and what it is not)" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:34.504Z — 697b91eccf21eba1283e6ce2
+- Updated at (current): 2026-01-29T16:59:24.673Z
+- Question: You are working on "What AI is (and what it is not)". A teammate mentions "Tool, not magic" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:34.561Z — 697b91eccf21eba1283e6ce4
+- Updated at (current): 2026-01-29T16:59:24.701Z
+- Question: You are working on "What AI is (and what it is not)". A teammate mentions "Why it matters AI doesn’t know your intent; it reads text only" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:34.658Z — 697b91eccf21eba1283e6ce6
+- Updated at (current): 2026-01-29T16:59:24.802Z
+- Question: You are working on "What AI is (and what it is not)". A teammate mentions "(and" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:34.713Z — 697b91eccf21eba1283e6cea
+- Updated at (current): 2026-01-29T16:59:24.986Z
+- Question: In a "Break down tasks: workflow thinking" scenario, how would applying "Use stepwise prompts to reduce errors" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:34.769Z — 697b91edcf21eba1283e6ced
+- Updated at (current): 2026-01-29T16:59:25.076Z
+- Question: In a "Break down tasks: workflow thinking" scenario, how would applying "tasks" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:34.823Z — 697b91edcf21eba1283e6cf0
+- Updated at (current): 2026-01-29T16:59:25.134Z
+- Question: In a "Break down tasks: workflow thinking" scenario, how would applying "Phased (good)" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:34.879Z — 697b91edcf21eba1283e6cf3
+- Updated at (current): 2026-01-29T16:59:25.225Z
+- Question: In a "Break down tasks: workflow thinking" scenario, how would applying "Break down tasks: workflow thinking Guide the mode" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:34.942Z — 697b91edcf21eba1283e6cf6
+- Updated at (current): 2026-01-29T16:59:25.277Z
+- Question: In a "Break down tasks: workflow thinking" scenario, how would applying "workflow" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:34.998Z — 697b91edcf21eba1283e6cf8
+- Updated at (current): 2026-01-29T16:59:25.303Z
+- Question: You are working on "Break down tasks: workflow thinking". A teammate mentions "thinking" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:35.051Z — 697b91eecf21eba1283e6cfa
+- Updated at (current): 2026-01-29T16:59:26.094Z
+- Question: You are working on "Break down tasks: workflow thinking". A teammate mentions "Break down tasks: workflow thinking" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:35.104Z — 697b91eecf21eba1283e6cfc
+- Updated at (current): 2026-01-29T16:59:26.125Z
+- Question: You are working on "Break down tasks: workflow thinking". A teammate mentions "Break" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:35.177Z — 697b91eecf21eba1283e6cfe
+- Updated at (current): 2026-01-29T16:59:26.163Z
+- Question: You are working on "Break down tasks: workflow thinking". A teammate mentions "Independent exercise (5–10 min)" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:35.302Z — 697b91eecf21eba1283e6d00
+- Updated at (current): 2026-01-29T16:59:26.190Z
+- Question: You are working on "Break down tasks: workflow thinking". A teammate mentions "Break down tasks: workflow thinking Guide the model step by step Learning goal S" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:35.540Z — 697b91eecf21eba1283e6d05
+- Updated at (current): 2026-01-29T16:59:26.386Z
+- Question: In a "What Modern B2B Sales Means in 2026" scenario, how would applying "C) 3 common myths & swaps" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:35.599Z — 697b91eecf21eba1283e6d08
+- Updated at (current): 2026-01-29T16:59:26.452Z
+- Question: In a "What Modern B2B Sales Means in 2026" scenario, how would applying "Bad (tactic):" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:35.660Z — 697b91eecf21eba1283e6d0b
+- Updated at (current): 2026-01-29T16:59:26.501Z
+- Question: In a "What Modern B2B Sales Means in 2026" scenario, how would applying "Tactic" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:35.712Z — 697b91eecf21eba1283e6d0d
+- Updated at (current): 2026-01-29T16:59:26.537Z
+- Question: You are working on "What Modern B2B Sales Means in 2026". A teammate mentions "Bad (tactic):" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:35.769Z — 697b91eecf21eba1283e6d0f
+- Updated at (current): 2026-01-29T16:59:26.564Z
+- Question: You are working on "What Modern B2B Sales Means in 2026". A teammate mentions "“We must pitch.”" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:35.841Z — 697b91eecf21eba1283e6d11
+- Updated at (current): 2026-01-29T16:59:26.587Z
+- Question: You are working on "What Modern B2B Sales Means in 2026". A teammate mentions "B) System vs. tactic" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:35.904Z — 697b91eecf21eba1283e6d13
+- Updated at (current): 2026-01-29T16:59:26.620Z
+- Question: You are working on "What Modern B2B Sales Means in 2026". A teammate mentions "“CRM is admin.”" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:35.962Z — 697b91eecf21eba1283e6d15
+- Updated at (current): 2026-01-29T16:59:26.643Z
+- Question: You are working on "What Modern B2B Sales Means in 2026". A teammate mentions "Tactic" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:36.022Z — 697b91eecf21eba1283e6d19
+- Updated at (current): 2026-01-29T16:59:26.714Z
+- Question: In a "The B2B Sales System Map" scenario, how would applying "Proposal/Negotiation" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:36.301Z — 697b91eecf21eba1283e6d1c
+- Updated at (current): 2026-01-29T16:59:26.771Z
+- Question: In a "The B2B Sales System Map" scenario, how would applying "Define entry/exit criteria per stage" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:36.453Z — 697b91eecf21eba1283e6d1f
+- Updated at (current): 2026-01-29T16:59:26.818Z
+- Question: In a "The B2B Sales System Map" scenario, how would applying "Learning Goal Map sourcing → qualification → disco" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:36.517Z — 697b91eecf21eba1283e6d22
+- Updated at (current): 2026-01-29T16:59:26.884Z
+- Question: In a "The B2B Sales System Map" scenario, how would applying "The B2B Sales System Map" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:36.690Z — 697b91eecf21eba1283e6d24
+- Updated at (current): 2026-01-29T16:59:26.913Z
+- Question: You are working on "The B2B Sales System Map". A teammate mentions "Close/Expansion" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:36.753Z — 697b91eecf21eba1283e6d26
+- Updated at (current): 2026-01-29T16:59:26.953Z
+- Question: You are working on "The B2B Sales System Map". A teammate mentions "Measurement" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:37.026Z — 697b91eecf21eba1283e6d28
+- Updated at (current): 2026-01-29T16:59:26.979Z
+- Question: You are working on "The B2B Sales System Map". A teammate mentions "Guided Exercise (10–15 minutes)" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:37.104Z — 697b91efcf21eba1283e6d2a
+- Updated at (current): 2026-01-29T16:59:27.007Z
+- Question: You are working on "The B2B Sales System Map". A teammate mentions "The B2B Sales System Map" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:37.168Z — 697b91efcf21eba1283e6d2c
+- Updated at (current): 2026-01-29T16:59:27.044Z
+- Question: You are working on "The B2B Sales System Map". A teammate mentions "Independent Exercise (5–10 minutes)" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:37.239Z — 697b91efcf21eba1283e6d30
+- Updated at (current): 2026-01-29T16:59:27.204Z
+- Question: In a "ICP 2026: Problem-First, Not Industry-First" scenario, how would applying "Independent Exercise (5–10 minutes)" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:37.308Z — 697b91efcf21eba1283e6d33
+- Updated at (current): 2026-01-29T16:59:27.260Z
+- Question: In a "ICP 2026: Problem-First, Not Industry-First" scenario, how would applying "Good ICP (problem-first):" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:37.371Z — 697b91efcf21eba1283e6d36
+- Updated at (current): 2026-01-29T16:59:27.301Z
+- Question: In a "ICP 2026: Problem-First, Not Industry-First" scenario, how would applying "Learning Goal Create a problem-first ICP v1" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:37.431Z — 697b91efcf21eba1283e6d39
+- Updated at (current): 2026-01-29T16:59:27.364Z
+- Question: In a "ICP 2026: Problem-First, Not Industry-First" scenario, how would applying "Bad ICP (industry-first):" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:37.506Z — 697b91efcf21eba1283e6d3b
+- Updated at (current): 2026-01-29T16:59:27.392Z
+- Question: You want to implement this practice in your own workflow: "Exercise (10–15 minutes) Draft ICP v1 using the 4 elements (". Which plan produces measurable output and fast feedback?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:37.572Z — 697b91efcf21eba1283e6d3d
+- Updated at (current): 2026-01-29T16:59:27.424Z
+- Question: You are working on "ICP 2026: Problem-First, Not Industry-First". A teammate mentions "ICP 2026: Problem-First, Not Industry-First Define your ICP by problem space, no" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:37.641Z — 697b91efcf21eba1283e6d3f
+- Updated at (current): 2026-01-29T16:59:27.471Z
+- Question: You are working on "ICP 2026: Problem-First, Not Industry-First". A teammate mentions "Learning Goal Create a problem-first ICP v1" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:37.705Z — 697b91efcf21eba1283e6d41
+- Updated at (current): 2026-01-29T16:59:27.496Z
+- Question: You are working on "ICP 2026: Problem-First, Not Industry-First". A teammate mentions "Write a short, testable ICP definition" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:37.807Z — 697b91efcf21eba1283e6d43
+- Updated at (current): 2026-01-29T16:59:27.864Z
+- Question: You are working on "ICP 2026: Problem-First, Not Industry-First". A teammate mentions "" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:38.212Z — 697b91efcf21eba1283e6d47
+- Updated at (current): 2026-01-29T16:59:27.951Z
+- Question: In a "Buyer Persona and the Decision Unit" scenario, how would applying "Create one decision-unit map for an ICP" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:38.274Z — 697b91f0cf21eba1283e6d4a
+- Updated at (current): 2026-01-29T16:59:28.017Z
+- Question: In a "Buyer Persona and the Decision Unit" scenario, how would applying "Independent Exercise (5–10 minutes)" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:38.379Z — 697b91f0cf21eba1283e6d4d
+- Updated at (current): 2026-01-29T16:59:28.082Z
+- Question: In a "Buyer Persona and the Decision Unit" scenario, how would applying "Buyer Persona and the Decision Unit" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:38.452Z — 697b91f0cf21eba1283e6d50
+- Updated at (current): 2026-01-29T16:59:28.261Z
+- Question: In a "Buyer Persona and the Decision Unit" scenario, how would applying "Legal/IT/Security" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:38.519Z — 697b91f0cf21eba1283e6d52
+- Updated at (current): 2026-01-29T16:59:28.366Z
+- Question: You want to implement this practice in your own workflow: "Exercise (5–10 minutes) On a live deal, fill the missing rol". Which plan produces measurable output and fast feedback?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:38.615Z — 697b91f0cf21eba1283e6d54
+- Updated at (current): 2026-01-29T16:59:28.834Z
+- Question: You are working on "Buyer Persona and the Decision Unit". A teammate mentions "Finance/Procurement" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:38.840Z — 697b91f0cf21eba1283e6d56
+- Updated at (current): 2026-01-29T16:59:28.864Z
+- Question: You are working on "Buyer Persona and the Decision Unit". A teammate mentions "Buyer Persona and the Decision Unit Map who uses, who pays, who blocks, and who " but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:38.900Z — 697b91f0cf21eba1283e6d58
+- Updated at (current): 2026-01-29T16:59:28.893Z
+- Question: You are working on "Buyer Persona and the Decision Unit". A teammate mentions "Blockers & signals" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:38.978Z — 697b91f0cf21eba1283e6d5a
+- Updated at (current): 2026-01-29T16:59:28.932Z
+- Question: You are working on "Buyer Persona and the Decision Unit". A teammate mentions "Good:" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:39.039Z — 697b91f1cf21eba1283e6d5e
+- Updated at (current): 2026-01-29T16:59:29.024Z
+- Question: In a "Value Proposition: Measurable, Verifiable Claims" scenario, how would applying "Independent Exercise (5–10 minutes)" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:39.093Z — 697b91f1cf21eba1283e6d61
+- Updated at (current): 2026-01-29T16:59:29.128Z
+- Question: In a "Value Proposition: Measurable, Verifiable Claims" scenario, how would applying "List 5 proof points (measurable/verifiable)" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:39.157Z — 697b91f1cf21eba1283e6d64
+- Updated at (current): 2026-01-29T16:59:29.184Z
+- Question: In a "Value Proposition: Measurable, Verifiable Claims" scenario, how would applying "Measurable" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:39.251Z — 697b91f1cf21eba1283e6d67
+- Updated at (current): 2026-01-29T16:59:29.247Z
+- Question: In a "Value Proposition: Measurable, Verifiable Claims" scenario, how would applying "Verifiable" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:39.460Z — 697b91f1cf21eba1283e6d69
+- Updated at (current): 2026-01-29T16:59:29.270Z
+- Question: You are working on "Value Proposition: Measurable, Verifiable Claims". A teammate mentions "Guided Exercise (10–15 minutes)" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:39.531Z — 697b91f1cf21eba1283e6d6b
+- Updated at (current): 2026-01-29T16:59:29.298Z
+- Question: You are working on "Value Proposition: Measurable, Verifiable Claims". A teammate mentions "List 5 proof points (measurable/verifiable)" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:39.609Z — 697b91f1cf21eba1283e6d6d
+- Updated at (current): 2026-01-29T16:59:29.389Z
+- Question: You are working on "Value Proposition: Measurable, Verifiable Claims". A teammate mentions "Learning Goal Write a 3-sentence value statement" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:39.888Z — 697b91f1cf21eba1283e6d6f
+- Updated at (current): 2026-01-29T16:59:29.417Z
+- Question: You are working on "Value Proposition: Measurable, Verifiable Claims". A teammate mentions "Proof points" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:39.978Z — 697b91f1cf21eba1283e6d71
+- Updated at (current): 2026-01-29T16:59:29.456Z
+- Question: You are working on "Value Proposition: Measurable, Verifiable Claims". A teammate mentions "sentence value" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:40.044Z — 697b91f1cf21eba1283e6d75
+- Updated at (current): 2026-01-29T16:59:29.543Z
+- Question: In a "Ideal Sales Process and Weekly Metrics" scenario, how would applying "Bad:" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:40.116Z — 697b91f1cf21eba1283e6d78
+- Updated at (current): 2026-01-29T16:59:29.614Z
+- Question: In a "Ideal Sales Process and Weekly Metrics" scenario, how would applying "Build a weekly sheet (stage conversion, cycle time" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:40.176Z — 697b91f1cf21eba1283e6d7b
+- Updated at (current): 2026-01-29T16:59:29.666Z
+- Question: In a "Ideal Sales Process and Weekly Metrics" scenario, how would applying "Good:" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:40.315Z — 697b91f1cf21eba1283e6d7e
+- Updated at (current): 2026-01-29T16:59:29.744Z
+- Question: In a "Ideal Sales Process and Weekly Metrics" scenario, how would applying "Ideal" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:40.404Z — 697b91f1cf21eba1283e6d80
+- Updated at (current): 2026-01-29T16:59:29.817Z
+- Question: You are working on "Ideal Sales Process and Weekly Metrics". A teammate mentions "Metrics" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:40.484Z — 697b91f1cf21eba1283e6d82
+- Updated at (current): 2026-01-29T16:59:29.857Z
+- Question: You are working on "Ideal Sales Process and Weekly Metrics". A teammate mentions "Build a weekly sheet (stage conversion, cycle time, win rate, pipeline coverage)" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:40.557Z — 697b91f1cf21eba1283e6d84
+- Updated at (current): 2026-01-29T16:59:29.959Z
+- Question: You are working on "Ideal Sales Process and Weekly Metrics". A teammate mentions "Qualified discovery" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:40.697Z — 697b91f2cf21eba1283e6d86
+- Updated at (current): 2026-01-29T16:59:30.050Z
+- Question: You are working on "Ideal Sales Process and Weekly Metrics". A teammate mentions "Sales" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:40.823Z — 697b91f2cf21eba1283e6d88
+- Updated at (current): 2026-01-29T16:59:30.395Z
+- Question: You want to implement this practice in your own workflow: "Exercise (10–15 minutes) Write the 3 definitions (lead, SQL,". Which plan produces measurable output and fast feedback?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:40.915Z — 697b91f3cf21eba1283e6d8c
+- Updated at (current): 2026-01-29T16:59:31.366Z
+- Question: In a "Lead Source Map for 2026" scenario, how would applying "Channel brief" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:40.986Z — 697b91f3cf21eba1283e6d8f
+- Updated at (current): 2026-01-29T16:59:31.431Z
+- Question: In a "Lead Source Map for 2026" scenario, how would applying "Outbound" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:41.090Z — 697b91f3cf21eba1283e6d92
+- Updated at (current): 2026-01-29T16:59:31.483Z
+- Question: In a "Lead Source Map for 2026" scenario, how would applying "Inbound" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:41.253Z — 697b91f3cf21eba1283e6d95
+- Updated at (current): 2026-01-29T16:59:31.548Z
+- Question: In a "Lead Source Map for 2026" scenario, how would applying "Learning Goal Select 3 primary channels aligned to" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:41.342Z — 697b91f3cf21eba1283e6d97
+- Updated at (current): 2026-01-29T16:59:31.585Z
+- Question: You want to implement this practice in your own workflow: "Exercise (10–15 minutes) Write channel briefs for 3 channels". Which plan produces measurable output and fast feedback?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:41.408Z — 697b91f3cf21eba1283e6d99
+- Updated at (current): 2026-01-29T16:59:31.613Z
+- Question: You are working on "Lead Source Map for 2026". A teammate mentions "Partner/event/community" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:41.526Z — 697b91f3cf21eba1283e6d9b
+- Updated at (current): 2026-01-29T16:59:31.643Z
+- Question: You are working on "Lead Source Map for 2026". A teammate mentions "Guided Exercise (10–15 minutes)" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:41.656Z — 697b91f3cf21eba1283e6d9d
+- Updated at (current): 2026-01-29T16:59:31.677Z
+- Question: You are working on "Lead Source Map for 2026". A teammate mentions "Main channels" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:41.757Z — 697b91f3cf21eba1283e6d9f
+- Updated at (current): 2026-01-29T16:59:31.746Z
+- Question: You are working on "Lead Source Map for 2026". A teammate mentions "Outbound" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:41.898Z — 697b91f3cf21eba1283e6da3
+- Updated at (current): 2026-01-29T16:59:31.857Z
+- Question: In a "LinkedIn and Sales Navigator Core Flow" scenario, how would applying "Learning Goal Assemble a target company and person" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:42.106Z — 697b91f3cf21eba1283e6da6
+- Updated at (current): 2026-01-29T16:59:31.923Z
+- Question: In a "LinkedIn and Sales Navigator Core Flow" scenario, how would applying "Navigator" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:42.241Z — 697b91f4cf21eba1283e6da9
+- Updated at (current): 2026-01-29T16:59:32.026Z
+- Question: In a "LinkedIn and Sales Navigator Core Flow" scenario, how would applying "LinkedIn" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:42.301Z — 697b91f4cf21eba1283e6dac
+- Updated at (current): 2026-01-29T16:59:32.084Z
+- Question: In a "LinkedIn and Sales Navigator Core Flow" scenario, how would applying "Bad:" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:42.438Z — 697b91f4cf21eba1283e6dae
+- Updated at (current): 2026-01-29T16:59:32.113Z
+- Question: You are working on "LinkedIn and Sales Navigator Core Flow". A teammate mentions "LinkedIn" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:42.578Z — 697b91f4cf21eba1283e6db0
+- Updated at (current): 2026-01-29T16:59:32.143Z
+- Question: You are working on "LinkedIn and Sales Navigator Core Flow". A teammate mentions "Bad:" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:42.690Z — 697b91f4cf21eba1283e6db2
+- Updated at (current): 2026-01-29T16:59:32.169Z
+- Question: You want to implement this practice in your own workflow: "Exercise (5–10 minutes) Pick 5 companies from the list and n". Which plan produces measurable output and fast feedback?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:42.760Z — 697b91f4cf21eba1283e6db4
+- Updated at (current): 2026-01-29T16:59:32.193Z
+- Question: You are working on "LinkedIn and Sales Navigator Core Flow". A teammate mentions "Independent Exercise (5–10 minutes)" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:42.827Z — 697b91f4cf21eba1283e6db6
+- Updated at (current): 2026-01-29T16:59:32.223Z
+- Question: You are working on "LinkedIn and Sales Navigator Core Flow". A teammate mentions "Search logic" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:42.888Z — 697b91f4cf21eba1283e6dba
+- Updated at (current): 2026-01-29T16:59:32.293Z
+- Question: In a "Enrichment and Data QA" scenario, how would applying "Enrichment and Data QA Define minimum data, cut no" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:42.941Z — 697b91f4cf21eba1283e6dbd
+- Updated at (current): 2026-01-29T16:59:32.355Z
+- Question: In a "Enrichment and Data QA" scenario, how would applying "Learning minimum fields" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:42.997Z — 697b91f4cf21eba1283e6dc0
+- Updated at (current): 2026-01-29T16:59:32.413Z
+- Question: In a "Enrichment and Data QA" scenario, how would applying "Data" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:43.060Z — 697b91f4cf21eba1283e6dc3
+- Updated at (current): 2026-01-29T16:59:32.472Z
+- Question: In a "Enrichment and Data QA" scenario, how would applying "Matters Noisy personalization" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:43.121Z — 697b91f4cf21eba1283e6dc5
+- Updated at (current): 2026-01-29T16:59:32.494Z
+- Question: You are working on "Enrichment and Data QA". A teammate mentions "Bad:" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:43.180Z — 697b91f4cf21eba1283e6dc7
+- Updated at (current): 2026-01-29T16:59:32.515Z
+- Question: You are working on "Enrichment and Data QA". A teammate mentions "Independent Exercise (5–10 minutes)" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:43.238Z — 697b91f4cf21eba1283e6dc9
+- Updated at (current): 2026-01-29T16:59:32.543Z
+- Question: You are working on "Enrichment and Data QA". A teammate mentions "Guided Exercise (10–15 minutes)" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:43.296Z — 697b91f4cf21eba1283e6dcb
+- Updated at (current): 2026-01-29T16:59:32.565Z
+- Question: You are working on "Enrichment and Data QA". A teammate mentions "Audit leads errors" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:20:43.357Z — 697b91f4cf21eba1283e6dcd
+- Updated at (current): 2026-01-29T16:59:32.593Z
+- Question: You are working on "Enrichment and Data QA". A teammate mentions "Enrichment Define minimum" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:21:24.892Z — 697b91f4cf21eba1283e6dd1
+- Updated at (current): 2026-01-29T16:59:32.675Z
+- Question: In a "AI-Powered Research: Company, Persona, Trigger" scenario, how would applying "Persona" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:21:24.964Z — 697b91f4cf21eba1283e6dd4
+- Updated at (current): 2026-01-29T16:59:32.744Z
+- Question: In a "AI-Powered Research: Company, Persona, Trigger" scenario, how would applying "Powered" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:21:25.216Z — 697b91f4cf21eba1283e6dd7
+- Updated at (current): 2026-01-29T16:59:32.803Z
+- Question: In a "AI-Powered Research: Company, Persona, Trigger" scenario, how would applying "AI-Powered Research: Company, Persona, Trigger Bui" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:21:25.284Z — 697b91f4cf21eba1283e6dda
+- Updated at (current): 2026-01-29T16:59:32.857Z
+- Question: In a "AI-Powered Research: Company, Persona, Trigger" scenario, how would applying "Prompt pack" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:21:25.380Z — 697b91f4cf21eba1283e6ddc
+- Updated at (current): 2026-01-29T16:59:32.885Z
+- Question: You are working on "AI-Powered Research: Company, Persona, Trigger". A teammate mentions "Good:" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:13.224Z — 697b91f4cf21eba1283e6dde
+- Updated at (current): 2026-01-29T16:59:32.929Z
+- Question: You are working on "AI-Powered Research: Company, Persona, Trigger". A teammate mentions "Company" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:13.279Z — 697b91f4cf21eba1283e6de0
+- Updated at (current): 2026-01-29T16:59:32.964Z
+- Question: You are working on "AI-Powered Research: Company, Persona, Trigger". A teammate mentions "Guided Exercise (10–15 minutes)" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:13.336Z — 697b91f4cf21eba1283e6de2
+- Updated at (current): 2026-01-29T16:59:32.986Z
+- Question: You are working on "AI-Powered Research: Company, Persona, Trigger". A teammate mentions "Account brief" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:13.397Z — 697b91f5cf21eba1283e6de4
+- Updated at (current): 2026-01-29T16:59:33.014Z
+- Question: You are working on "AI-Powered Research: Company, Persona, Trigger". A teammate mentions "Learning Goal Create AI prompts (company, persona, trigger)" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:13.458Z — 697b91f5cf21eba1283e6de8
+- Updated at (current): 2026-01-29T16:59:33.083Z
+- Question: In a "Outbound Message: No Personalization, No Reply" scenario, how would applying "Independent Exercise (5–10 minutes)" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:13.519Z — 697b91f5cf21eba1283e6deb
+- Updated at (current): 2026-01-29T16:59:33.145Z
+- Question: In a "Outbound Message: No Personalization, No Reply" scenario, how would applying "Relevance cue" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:13.584Z — 697b91f5cf21eba1283e6dee
+- Updated at (current): 2026-01-29T16:59:33.193Z
+- Question: In a "Outbound Message: No Personalization, No Reply" scenario, how would applying "Problem" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:13.655Z — 697b91f5cf21eba1283e6df1
+- Updated at (current): 2026-01-29T16:59:33.231Z
+- Question: In a "Outbound Message: No Personalization, No Reply" scenario, how would applying "Guided Exercise (10–15 minutes)" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:13.714Z — 697b91f5cf21eba1283e6df3
+- Updated at (current): 2026-01-29T16:59:33.256Z
+- Question: You are working on "Outbound Message: No Personalization, No Reply". A teammate mentions "Outbound Message: No Personalization, No Reply" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:13.769Z — 697b91f5cf21eba1283e6df5
+- Updated at (current): 2026-01-29T16:59:33.278Z
+- Question: You are working on "Outbound Message: No Personalization, No Reply". A teammate mentions "Build 2 templates and 2 good/2 bad examples" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:13.829Z — 697b91f5cf21eba1283e6df7
+- Updated at (current): 2026-01-29T16:59:33.306Z
+- Question: You are working on "Outbound Message: No Personalization, No Reply". A teammate mentions "Problem" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:13.897Z — 697b91f5cf21eba1283e6df9
+- Updated at (current): 2026-01-29T16:59:33.334Z
+- Question: You are working on "Outbound Message: No Personalization, No Reply". A teammate mentions "parts" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:13.960Z — 697b91f5cf21eba1283e6dfb
+- Updated at (current): 2026-01-29T16:59:33.357Z
+- Question: You are working on "Outbound Message: No Personalization, No Reply". A teammate mentions "Guided Exercise (10–15 minutes)" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:14.019Z — 697b91f5cf21eba1283e6dff
+- Updated at (current): 2026-01-29T16:59:33.422Z
+- Question: In a "List Cleaning and Lead Hygiene" scenario, how would applying "Independent Exercise (5–10 minutes)" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:14.078Z — 697b91f5cf21eba1283e6e02
+- Updated at (current): 2026-01-29T16:59:33.475Z
+- Question: In a "List Cleaning and Lead Hygiene" scenario, how would applying "Set dedupe and do-not-contact rules" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:14.135Z — 697b91f5cf21eba1283e6e05
+- Updated at (current): 2026-01-29T16:59:33.522Z
+- Question: In a "List Cleaning and Lead Hygiene" scenario, how would applying "Guided Exercise (10–15 minutes)" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:14.199Z — 697b91f5cf21eba1283e6e08
+- Updated at (current): 2026-01-29T16:59:33.562Z
+- Question: In a "List Cleaning and Lead Hygiene" scenario, how would applying "List Cleaning and Lead Hygiene Standardize statuse" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:14.267Z — 697b91f5cf21eba1283e6e0a
+- Updated at (current): 2026-01-29T16:59:33.583Z
+- Question: You are working on "List Cleaning and Lead Hygiene". A teammate mentions "List Cleaning and Lead Hygiene Standardize statuses/sources, dedupe, and set DNC" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:14.348Z — 697b91f5cf21eba1283e6e0c
+- Updated at (current): 2026-01-29T16:59:33.617Z
+- Question: You are working on "List Cleaning and Lead Hygiene". A teammate mentions "Lead" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:14.402Z — 697b91f5cf21eba1283e6e0e
+- Updated at (current): 2026-01-29T16:59:33.646Z
+- Question: You are working on "List Cleaning and Lead Hygiene". A teammate mentions "Cleaning" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:14.454Z — 697b91f5cf21eba1283e6e10
+- Updated at (current): 2026-01-29T16:59:33.673Z
+- Question: You are working on "List Cleaning and Lead Hygiene". A teammate mentions "Bad:" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:14.508Z — 697b91f5cf21eba1283e6e12
+- Updated at (current): 2026-01-29T16:59:33.702Z
+- Question: You want to implement this practice in your own workflow: "Exercise (5–10 minutes) Set an automation or checklist for o". Which plan produces measurable output and fast feedback?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:14.559Z — 697b91f5cf21eba1283e6e16
+- Updated at (current): 2026-01-29T16:59:33.795Z
+- Question: In a "MQL vs SQL and the Qualification Gate" scenario, how would applying "Independent Exercise (5–10 minutes)" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:14.617Z — 697b91f5cf21eba1283e6e19
+- Updated at (current): 2026-01-29T16:59:33.846Z
+- Question: In a "MQL vs SQL and the Qualification Gate" scenario, how would applying "Matters leads waste" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:14.672Z — 697b91f5cf21eba1283e6e1c
+- Updated at (current): 2026-01-29T16:59:33.902Z
+- Question: In a "MQL vs SQL and the Qualification Gate" scenario, how would applying "MQL vs SQL and the Qualification Gate" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:14.727Z — 697b91f5cf21eba1283e6e1f
+- Updated at (current): 2026-01-29T16:59:33.956Z
+- Question: In a "MQL vs SQL and the Qualification Gate" scenario, how would applying "Guided Exercise (10–15 minutes)" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:14.777Z — 697b91f5cf21eba1283e6e21
+- Updated at (current): 2026-01-29T16:59:33.984Z
+- Question: You are working on "MQL vs SQL and the Qualification Gate". A teammate mentions "Qualification Decide fast:" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:14.828Z — 697b91f6cf21eba1283e6e23
+- Updated at (current): 2026-01-29T16:59:34.006Z
+- Question: You are working on "MQL vs SQL and the Qualification Gate". A teammate mentions "Good:" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:14.885Z — 697b91f6cf21eba1283e6e25
+- Updated at (current): 2026-01-29T16:59:34.061Z
+- Question: You want to implement this practice in your own workflow: "Exercise (5–10 minutes) Take 10 leads, apply the gate, note ". Which plan produces measurable output and fast feedback?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:14.959Z — 697b91f6cf21eba1283e6e27
+- Updated at (current): 2026-01-29T16:59:34.087Z
+- Question: You are working on "MQL vs SQL and the Qualification Gate". A teammate mentions "Guided Exercise (10–15 minutes)" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:15.030Z — 697b91f6cf21eba1283e6e29
+- Updated at (current): 2026-01-29T16:59:34.116Z
+- Question: You want to implement this practice in your own workflow: "Exercise (10–15 minutes) Write 5 gate questions". Which plan produces measurable output and fast feedback?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:15.125Z — 697b91f6cf21eba1283e6e2d
+- Updated at (current): 2026-01-29T16:59:34.505Z
+- Question: In a "Qualification Framework: MEDDPICC (Simplified)" scenario, how would applying "Mark missing elements in 3 live deals" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:15.214Z — 697b91f6cf21eba1283e6e30
+- Updated at (current): 2026-01-29T16:59:34.567Z
+- Question: In a "Qualification Framework: MEDDPICC (Simplified)" scenario, how would applying "(Simplified)" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:15.316Z — 697b91f6cf21eba1283e6e33
+- Updated at (current): 2026-01-29T16:59:34.612Z
+- Question: In a "Qualification Framework: MEDDPICC (Simplified)" scenario, how would applying "MEDDPICC" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:15.376Z — 697b91f6cf21eba1283e6e36
+- Updated at (current): 2026-01-29T16:59:34.672Z
+- Question: In a "Qualification Framework: MEDDPICC (Simplified)" scenario, how would applying "Bad:" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:15.429Z — 697b91f6cf21eba1283e6e38
+- Updated at (current): 2026-01-29T16:59:34.712Z
+- Question: You are working on "Qualification Framework: MEDDPICC (Simplified)". A teammate mentions "Bad:" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:15.485Z — 697b91f6cf21eba1283e6e3a
+- Updated at (current): 2026-01-29T16:59:34.757Z
+- Question: You are working on "Qualification Framework: MEDDPICC (Simplified)". A teammate mentions "Good:" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:15.545Z — 697b91f6cf21eba1283e6e3c
+- Updated at (current): 2026-01-29T16:59:34.785Z
+- Question: You want to implement this practice in your own workflow: "Exercise (10–15 minutes) Write 8–10 questions for the elemen". Which plan produces measurable output and fast feedback?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:15.598Z — 697b91f6cf21eba1283e6e3e
+- Updated at (current): 2026-01-29T16:59:34.807Z
+- Question: You are working on "Qualification Framework: MEDDPICC (Simplified)". A teammate mentions "Framework" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:15.651Z — 697b91f6cf21eba1283e6e40
+- Updated at (current): 2026-01-29T16:59:34.835Z
+- Question: You are working on "Qualification Framework: MEDDPICC (Simplified)". A teammate mentions "Independent Exercise (5–10 minutes)" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:15.706Z — 697b91f7cf21eba1283e6e44
+- Updated at (current): 2026-01-29T16:59:35.080Z
+- Question: In a "Discovery Call Structure (5 Blocks)" scenario, how would applying "No-go questions" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:15.758Z — 697b91f7cf21eba1283e6e47
+- Updated at (current): 2026-01-29T16:59:35.153Z
+- Question: In a "Discovery Call Structure (5 Blocks)" scenario, how would applying "Discovery Call Structure (5 Blocks)" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:15.809Z — 697b91f7cf21eba1283e6e4a
+- Updated at (current): 2026-01-29T16:59:35.221Z
+- Question: In a "Discovery Call Structure (5 Blocks)" scenario, how would applying "blocks" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:15.862Z — 697b91f7cf21eba1283e6e4d
+- Updated at (current): 2026-01-29T16:59:35.267Z
+- Question: In a "Discovery Call Structure (5 Blocks)" scenario, how would applying "Structure" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:15.916Z — 697b91f7cf21eba1283e6e4f
+- Updated at (current): 2026-01-29T16:59:35.295Z
+- Question: You are working on "Discovery Call Structure (5 Blocks)". A teammate mentions "Discovery Call Structure (5 Blocks)" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:15.965Z — 697b91f7cf21eba1283e6e51
+- Updated at (current): 2026-01-29T16:59:35.322Z
+- Question: You are working on "Discovery Call Structure (5 Blocks)". A teammate mentions "Good:" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:16.015Z — 697b91f7cf21eba1283e6e53
+- Updated at (current): 2026-01-29T16:59:35.348Z
+- Question: You are working on "Discovery Call Structure (5 Blocks)". A teammate mentions "blocks" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:16.065Z — 697b91f7cf21eba1283e6e55
+- Updated at (current): 2026-01-29T16:59:35.385Z
+- Question: You are working on "Discovery Call Structure (5 Blocks)". A teammate mentions "No-go questions" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:16.115Z — 697b91f7cf21eba1283e6e57
+- Updated at (current): 2026-01-29T16:59:35.408Z
+- Question: You want to implement this practice in your own workflow: "Exercise (5–10 minutes) Update an upcoming discovery invite ". Which plan produces measurable output and fast feedback?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:16.179Z — 697b91f7cf21eba1283e6e5b
+- Updated at (current): 2026-01-29T16:59:35.484Z
+- Question: In a "AI Meeting Prep and Notes" scenario, how would applying "Meeting prep prompt" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:16.230Z — 697b91f7cf21eba1283e6e5e
+- Updated at (current): 2026-01-29T16:59:35.555Z
+- Question: In a "AI Meeting Prep and Notes" scenario, how would applying "Write a meeting summary prompt (after)" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:16.286Z — 697b91f7cf21eba1283e6e61
+- Updated at (current): 2026-01-29T16:59:35.604Z
+- Question: In a "AI Meeting Prep and Notes" scenario, how would applying "Prep" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:16.336Z — 697b91f7cf21eba1283e6e64
+- Updated at (current): 2026-01-29T16:59:35.651Z
+- Question: In a "AI Meeting Prep and Notes" scenario, how would applying "Independent Exercise (5–10 minutes)" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:16.401Z — 697b91f7cf21eba1283e6e66
+- Updated at (current): 2026-01-29T16:59:35.673Z
+- Question: You want to implement this practice in your own workflow: "Exercise (5–10 minutes) Paste the summary into CRM and set a". Which plan produces measurable output and fast feedback?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:16.455Z — 697b91f7cf21eba1283e6e68
+- Updated at (current): 2026-01-29T16:59:35.702Z
+- Question: You want to implement this practice in your own workflow: "Exercise (10–15 minutes) Write prep and summary prompts". Which plan produces measurable output and fast feedback?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:16.507Z — 697b91f7cf21eba1283e6e6a
+- Updated at (current): 2026-01-29T16:59:35.722Z
+- Question: You are working on "AI Meeting Prep and Notes". A teammate mentions "Notes" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:16.566Z — 697b91f7cf21eba1283e6e6c
+- Updated at (current): 2026-01-29T16:59:35.747Z
+- Question: You are working on "AI Meeting Prep and Notes". A teammate mentions "Write a meeting summary prompt (after)" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:16.618Z — 697b91f7cf21eba1283e6e6e
+- Updated at (current): 2026-01-29T16:59:35.782Z
+- Question: You are working on "AI Meeting Prep and Notes". A teammate mentions "Prep" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:16.675Z — 697b91f7cf21eba1283e6e72
+- Updated at (current): 2026-01-29T16:59:35.997Z
+- Question: In a "Nurture and Re-Engage" scenario, how would applying "Segment: fit”, now”," change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:16.737Z — 697b91f8cf21eba1283e6e75
+- Updated at (current): 2026-01-29T16:59:36.042Z
+- Question: In a "Nurture and Re-Engage" scenario, how would applying "Guided Exercise (10–15 minutes)" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:16.795Z — 697b91f8cf21eba1283e6e78
+- Updated at (current): 2026-01-29T16:59:36.094Z
+- Question: In a "Nurture and Re-Engage" scenario, how would applying "Independent Exercise (5–10 minutes)" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:16.846Z — 697b91f8cf21eba1283e6e7b
+- Updated at (current): 2026-01-29T16:59:36.160Z
+- Question: In a "Nurture and Re-Engage" scenario, how would applying "steps" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:16.895Z — 697b91f8cf21eba1283e6e7d
+- Updated at (current): 2026-01-29T16:59:36.182Z
+- Question: You are working on "Nurture and Re-Engage". A teammate mentions "Learning Write 3-step" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:16.960Z — 697b91f8cf21eba1283e6e7f
+- Updated at (current): 2026-01-29T16:59:36.213Z
+- Question: You are working on "Nurture and Re-Engage". A teammate mentions "Nurture Re-Engage Build" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:17.014Z — 697b91f8cf21eba1283e6e81
+- Updated at (current): 2026-01-29T16:59:36.244Z
+- Question: You are working on "Nurture and Re-Engage". A teammate mentions "Engage" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:17.065Z — 697b91f8cf21eba1283e6e83
+- Updated at (current): 2026-01-29T16:59:36.273Z
+- Question: You are working on "Nurture and Re-Engage". A teammate mentions "Nurture" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:17.116Z — 697b91f8cf21eba1283e6e85
+- Updated at (current): 2026-01-29T16:59:36.296Z
+- Question: You want to implement this practice in your own workflow: "Exercise (10–15 minutes) Write 3 nurture messages (value, pr". Which plan produces measurable output and fast feedback?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:17.169Z — 697b91f8cf21eba1283e6e89
+- Updated at (current): 2026-01-29T16:59:36.486Z
+- Question: In a "Why You Need a CRM (Excel Is Not Enough)" scenario, how would applying "Why You Need a CRM (Excel Is Not Enough) Spot the " change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:17.226Z — 697b91f8cf21eba1283e6e8c
+- Updated at (current): 2026-01-29T16:59:36.546Z
+- Question: In a "Why You Need a CRM (Excel Is Not Enough)" scenario, how would applying "Need" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:17.286Z — 697b91f8cf21eba1283e6e8f
+- Updated at (current): 2026-01-29T16:59:36.611Z
+- Question: In a "Why You Need a CRM (Excel Is Not Enough)" scenario, how would applying "CRM minimum" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:17.346Z — 697b91f8cf21eba1283e6e92
+- Updated at (current): 2026-01-29T16:59:36.652Z
+- Question: In a "Why You Need a CRM (Excel Is Not Enough)" scenario, how would applying "Learning Goal List the switch signals (Excel → CRM" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:17.405Z — 697b91f8cf21eba1283e6e94
+- Updated at (current): 2026-01-29T16:59:36.673Z
+- Question: You are working on "Why You Need a CRM (Excel Is Not Enough)". A teammate mentions "(Excel" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:17.457Z — 697b91f8cf21eba1283e6e96
+- Updated at (current): 2026-01-29T16:59:36.696Z
+- Question: You are working on "Why You Need a CRM (Excel Is Not Enough)". A teammate mentions "Learning Goal List the switch signals (Excel → CRM)" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:17.507Z — 697b91f9cf21eba1283e6e98
+- Updated at (current): 2026-01-29T16:59:37.082Z
+- Question: You are working on "Why You Need a CRM (Excel Is Not Enough)". A teammate mentions "Good:" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:17.565Z — 697b91f9cf21eba1283e6e9a
+- Updated at (current): 2026-01-29T16:59:37.112Z
+- Question: You are working on "Why You Need a CRM (Excel Is Not Enough)". A teammate mentions "Excel failure signals" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:17.625Z — 697b91f9cf21eba1283e6e9c
+- Updated at (current): 2026-01-29T16:59:37.142Z
+- Question: You are working on "Why You Need a CRM (Excel Is Not Enough)". A teammate mentions "Define minimum fields (deal, contact, activity)" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:17.681Z — 697b91f9cf21eba1283e6ea0
+- Updated at (current): 2026-01-29T16:59:37.222Z
+- Question: In a "Pipeline Design: Stage Definitions" scenario, how would applying "Entry/exit" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:17.735Z — 697b91f9cf21eba1283e6ea3
+- Updated at (current): 2026-01-29T16:59:37.272Z
+- Question: In a "Pipeline Design: Stage Definitions" scenario, how would applying "Good:" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:17.800Z — 697b91f9cf21eba1283e6ea6
+- Updated at (current): 2026-01-29T16:59:37.332Z
+- Question: In a "Pipeline Design: Stage Definitions" scenario, how would applying "Definitions" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:17.863Z — 697b91f9cf21eba1283e6ea9
+- Updated at (current): 2026-01-29T16:59:37.402Z
+- Question: In a "Pipeline Design: Stage Definitions" scenario, how would applying "Required fields" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:17.915Z — 697b91f9cf21eba1283e6eab
+- Updated at (current): 2026-01-29T16:59:37.426Z
+- Question: You are working on "Pipeline Design: Stage Definitions". A teammate mentions "Independent Exercise (5–10 minutes)" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:17.968Z — 697b91f9cf21eba1283e6ead
+- Updated at (current): 2026-01-29T16:59:37.461Z
+- Question: You are working on "Pipeline Design: Stage Definitions". A teammate mentions "Required fields" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:18.036Z — 697b91f9cf21eba1283e6eaf
+- Updated at (current): 2026-01-29T16:59:37.496Z
+- Question: You are working on "Pipeline Design: Stage Definitions". A teammate mentions "Pipeline" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:18.088Z — 697b91f9cf21eba1283e6eb1
+- Updated at (current): 2026-01-29T16:59:37.527Z
+- Question: You are working on "Pipeline Design: Stage Definitions". A teammate mentions "Entry/exit" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:18.145Z — 697b91f9cf21eba1283e6eb3
+- Updated at (current): 2026-01-29T16:59:37.552Z
+- Question: You are working on "Pipeline Design: Stage Definitions". A teammate mentions "Pipeline Design: Stage Definitions" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:18.199Z — 697b91f9cf21eba1283e6eb7
+- Updated at (current): 2026-01-29T16:59:37.622Z
+- Question: In a "Pipedrive: Strengths and When to Choose It" scenario, how would applying "Pipedrive: Strengths and When to Choose It" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:18.257Z — 697b91f9cf21eba1283e6eba
+- Updated at (current): 2026-01-29T16:59:37.682Z
+- Question: In a "Pipedrive: Strengths and When to Choose It" scenario, how would applying "Strengths" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:18.317Z — 697b91f9cf21eba1283e6ebd
+- Updated at (current): 2026-01-29T16:59:37.741Z
+- Question: In a "Pipedrive: Strengths and When to Choose It" scenario, how would applying "Choose" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:18.377Z — 697b91f9cf21eba1283e6ec0
+- Updated at (current): 2026-01-29T16:59:37.797Z
+- Question: In a "Pipedrive: Strengths and When to Choose It" scenario, how would applying "Minimal setup" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:18.430Z — 697b91f9cf21eba1283e6ec2
+- Updated at (current): 2026-01-29T16:59:37.819Z
+- Question: You are working on "Pipedrive: Strengths and When to Choose It". A teammate mentions "Strengths" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:18.485Z — 697b91f9cf21eba1283e6ec4
+- Updated at (current): 2026-01-29T16:59:37.845Z
+- Question: You are working on "Pipedrive: Strengths and When to Choose It". A teammate mentions "Guided Exercise (10–15 minutes)" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:18.548Z — 697b91f9cf21eba1283e6ec6
+- Updated at (current): 2026-01-29T16:59:37.875Z
+- Question: You are working on "Pipedrive: Strengths and When to Choose It". A teammate mentions "Bad:" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:18.602Z — 697b91f9cf21eba1283e6ec8
+- Updated at (current): 2026-01-29T16:59:37.910Z
+- Question: You are working on "Pipedrive: Strengths and When to Choose It". A teammate mentions "Set up a minimal pipeline and required fields" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:18.654Z — 697b91f9cf21eba1283e6eca
+- Updated at (current): 2026-01-29T16:59:37.934Z
+- Question: You are working on "Pipedrive: Strengths and When to Choose It". A teammate mentions "Pipedrive" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:18.719Z — 697b91facf21eba1283e6ece
+- Updated at (current): 2026-01-29T16:59:38.003Z
+- Question: In a "HubSpot: strengths and when to choose it" scenario, how would applying "strengths" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:18.776Z — 697b91facf21eba1283e6ed1
+- Updated at (current): 2026-01-29T16:59:38.062Z
+- Question: In a "HubSpot: strengths and when to choose it" scenario, how would applying "Learning Goal Name HubSpot’s strengths and limits" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:18.848Z — 697b91facf21eba1283e6ed4
+- Updated at (current): 2026-01-29T16:59:38.111Z
+- Question: In a "HubSpot: strengths and when to choose it" scenario, how would applying "HubSpot: strengths and when to choose it Know when" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:18.905Z — 697b91facf21eba1283e6ed7
+- Updated at (current): 2026-01-29T16:59:38.165Z
+- Question: In a "HubSpot: strengths and when to choose it" scenario, how would applying "Good:" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:19.069Z — 697b91facf21eba1283e6ed9
+- Updated at (current): 2026-01-29T16:59:38.194Z
+- Question: You are working on "HubSpot: strengths and when to choose it". A teammate mentions "HubSpot" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:19.139Z — 697b91facf21eba1283e6edb
+- Updated at (current): 2026-01-29T16:59:38.216Z
+- Question: You are working on "HubSpot: strengths and when to choose it". A teammate mentions "Bad:" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:19.210Z — 697b91facf21eba1283e6edd
+- Updated at (current): 2026-01-29T16:59:38.262Z
+- Question: You are working on "HubSpot: strengths and when to choose it". A teammate mentions "Good:" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:19.261Z — 697b91facf21eba1283e6edf
+- Updated at (current): 2026-01-29T16:59:38.288Z
+- Question: You want to implement this practice in your own workflow: "Exercise (10–15 minutes) Write decision criteria: when HubSp". Which plan produces measurable output and fast feedback?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:19.315Z — 697b91facf21eba1283e6ee1
+- Updated at (current): 2026-01-29T16:59:38.318Z
+- Question: You are working on "HubSpot: strengths and when to choose it". A teammate mentions "Limits" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:19.366Z — 697b91facf21eba1283e6ee5
+- Updated at (current): 2026-01-29T16:59:38.395Z
+- Question: In a "Integrations and data flow basics" scenario, how would applying "Good:" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:19.434Z — 697b91facf21eba1283e6ee8
+- Updated at (current): 2026-01-29T16:59:38.458Z
+- Question: In a "Integrations and data flow basics" scenario, how would applying "Guided Exercise (10–15 minutes)" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:19.488Z — 697b91facf21eba1283e6eeb
+- Updated at (current): 2026-01-29T16:59:38.505Z
+- Question: In a "Integrations and data flow basics" scenario, how would applying "Integrations and data flow basics Map where data c" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:19.545Z — 697b91facf21eba1283e6eee
+- Updated at (current): 2026-01-29T16:59:38.572Z
+- Question: In a "Integrations and data flow basics" scenario, how would applying "basics" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:19.597Z — 697b91facf21eba1283e6ef0
+- Updated at (current): 2026-01-29T16:59:38.592Z
+- Question: You are working on "Integrations and data flow basics". A teammate mentions "Integrations" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:19.655Z — 697b91facf21eba1283e6ef2
+- Updated at (current): 2026-01-29T16:59:38.617Z
+- Question: You are working on "Integrations and data flow basics". A teammate mentions "Processing" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:19.706Z — 697b91facf21eba1283e6ef4
+- Updated at (current): 2026-01-29T16:59:38.646Z
+- Question: You are working on "Integrations and data flow basics". A teammate mentions "Define required fields and deduplication rules" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:19.774Z — 697b91facf21eba1283e6ef6
+- Updated at (current): 2026-01-29T16:59:38.681Z
+- Question: You are working on "Integrations and data flow basics". A teammate mentions "basics" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:19.827Z — 697b91facf21eba1283e6ef8
+- Updated at (current): 2026-01-29T16:59:38.705Z
+- Question: You want to implement this practice in your own workflow: "Exercise (5–10 minutes) Create one webhook/sync (e". Which plan produces measurable output and fast feedback?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:19.879Z — 697b91facf21eba1283e6efc
+- Updated at (current): 2026-01-29T16:59:38.786Z
+- Question: In a "CRM hygiene and daily routine" scenario, how would applying "Learning Goal Create a 10-minute daily checklist" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:19.936Z — 697b91facf21eba1283e6eff
+- Updated at (current): 2026-01-29T16:59:38.845Z
+- Question: In a "CRM hygiene and daily routine" scenario, how would applying "Good:" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:20.008Z — 697b91facf21eba1283e6f02
+- Updated at (current): 2026-01-29T16:59:38.893Z
+- Question: In a "CRM hygiene and daily routine" scenario, how would applying "daily" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:20.059Z — 697b91facf21eba1283e6f05
+- Updated at (current): 2026-01-29T16:59:38.955Z
+- Question: In a "CRM hygiene and daily routine" scenario, how would applying "routine" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:20.115Z — 697b91facf21eba1283e6f07
+- Updated at (current): 2026-01-29T16:59:38.980Z
+- Question: You are working on "CRM hygiene and daily routine". A teammate mentions "Automations" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:20.165Z — 697b91fbcf21eba1283e6f09
+- Updated at (current): 2026-01-29T16:59:39.032Z
+- Question: You are working on "CRM hygiene and daily routine". A teammate mentions "CRM hygiene and daily routine Introduce a 10-minute daily cleanup and weekly rep" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:20.234Z — 697b91fbcf21eba1283e6f0b
+- Updated at (current): 2026-01-29T16:59:39.057Z
+- Question: You are working on "CRM hygiene and daily routine". A teammate mentions "daily" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:20.284Z — 697b91fbcf21eba1283e6f0d
+- Updated at (current): 2026-01-29T16:59:39.088Z
+- Question: You want to implement this practice in your own workflow: "Exercise (5–10 minutes) Apply the checklist on 5 deals; upda". Which plan produces measurable output and fast feedback?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:20.336Z — 697b91fbcf21eba1283e6f0f
+- Updated at (current): 2026-01-29T16:59:39.112Z
+- Question: You are working on "CRM hygiene and daily routine". A teammate mentions "Set a weekly report view (stage conversion, cycle time, win rate)" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:20.387Z — 697b91fbcf21eba1283e6f13
+- Updated at (current): 2026-01-29T16:59:39.192Z
+- Question: In a "Proposal Structure: Decision-Ready Offer" scenario, how would applying "Bad:" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:20.438Z — 697b91fbcf21eba1283e6f16
+- Updated at (current): 2026-01-29T16:59:39.247Z
+- Question: In a "Proposal Structure: Decision-Ready Offer" scenario, how would applying "Structure" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:20.495Z — 697b91fbcf21eba1283e6f19
+- Updated at (current): 2026-01-29T16:59:39.325Z
+- Question: In a "Proposal Structure: Decision-Ready Offer" scenario, how would applying "Core blocks" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:20.546Z — 697b91fbcf21eba1283e6f1c
+- Updated at (current): 2026-01-29T16:59:39.369Z
+- Question: In a "Proposal Structure: Decision-Ready Offer" scenario, how would applying "Ready" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:20.597Z — 697b91fbcf21eba1283e6f1e
+- Updated at (current): 2026-01-29T16:59:39.391Z
+- Question: You are working on "Proposal Structure: Decision-Ready Offer". A teammate mentions "Learning Goal Draft a one-page proposal (goal, scope, time, risk, proof, next st" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:20.648Z — 697b91fbcf21eba1283e6f20
+- Updated at (current): 2026-01-29T16:59:39.411Z
+- Question: You want to implement this practice in your own workflow: "Exercise (10–15 minutes) Write the one-page proposal using t". Which plan produces measurable output and fast feedback?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:20.705Z — 697b91fbcf21eba1283e6f22
+- Updated at (current): 2026-01-29T16:59:39.447Z
+- Question: You are working on "Proposal Structure: Decision-Ready Offer". A teammate mentions "Core blocks" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:20.770Z — 697b91fbcf21eba1283e6f24
+- Updated at (current): 2026-01-29T16:59:39.480Z
+- Question: You are working on "Proposal Structure: Decision-Ready Offer". A teammate mentions "Ready" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:20.824Z — 697b91fbcf21eba1283e6f26
+- Updated at (current): 2026-01-29T16:59:39.518Z
+- Question: You are working on "Proposal Structure: Decision-Ready Offer". A teammate mentions "Structure" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:20.886Z — 697b91fbcf21eba1283e6f2a
+- Updated at (current): 2026-01-29T16:59:39.905Z
+- Question: In a "Pricing 2026: Packaging and Value" scenario, how would applying "Pricing 2026: Packaging and Value Build value-base" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:20.954Z — 697b91fbcf21eba1283e6f2d
+- Updated at (current): 2026-01-29T16:59:39.963Z
+- Question: In a "Pricing 2026: Packaging and Value" scenario, how would applying "Packaging" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:21.034Z — 697b91fccf21eba1283e6f30
+- Updated at (current): 2026-01-29T16:59:40.004Z
+- Question: In a "Pricing 2026: Packaging and Value" scenario, how would applying "Guided Exercise (10–15 minutes)" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:21.106Z — 697b91fccf21eba1283e6f33
+- Updated at (current): 2026-01-29T16:59:40.051Z
+- Question: In a "Pricing 2026: Packaging and Value" scenario, how would applying "Pricing 2026: Packaging and Value" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:21.177Z — 697b91fccf21eba1283e6f35
+- Updated at (current): 2026-01-29T16:59:40.081Z
+- Question: You are working on "Pricing 2026: Packaging and Value". A teammate mentions "Learning Goal Create 3 packages (good/better/best) or a minimum + add-on model" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:21.281Z — 697b91fccf21eba1283e6f37
+- Updated at (current): 2026-01-29T16:59:40.105Z
+- Question: You are working on "Pricing 2026: Packaging and Value". A teammate mentions "Packaging" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:21.344Z — 697b91fccf21eba1283e6f39
+- Updated at (current): 2026-01-29T16:59:40.126Z
+- Question: You want to implement this practice in your own workflow: "Exercise (10–15 minutes) Write 3 packages or minimum + add-o". Which plan produces measurable output and fast feedback?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:21.405Z — 697b91fccf21eba1283e6f3b
+- Updated at (current): 2026-01-29T16:59:40.152Z
+- Question: You are working on "Pricing 2026: Packaging and Value". A teammate mentions "Discount rules" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:21.464Z — 697b91fccf21eba1283e6f3d
+- Updated at (current): 2026-01-29T16:59:40.181Z
+- Question: You are working on "Pricing 2026: Packaging and Value". A teammate mentions "Pricing 2026: Packaging and Value Build value-based pricing: minimum package, ad" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:21.524Z — 697b91fccf21eba1283e6f41
+- Updated at (current): 2026-01-29T16:59:40.270Z
+- Question: In a "Procurement, Legal, and Security Questions" scenario, how would applying "Guided Exercise (10–15 minutes)" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:21.585Z — 697b91fccf21eba1283e6f44
+- Updated at (current): 2026-01-29T16:59:40.323Z
+- Question: In a "Procurement, Legal, and Security Questions" scenario, how would applying "Prepare a one-page security/DPA summary" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:21.653Z — 697b91fccf21eba1283e6f47
+- Updated at (current): 2026-01-29T16:59:40.399Z
+- Question: In a "Procurement, Legal, and Security Questions" scenario, how would applying "Questions" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:21.705Z — 697b91fccf21eba1283e6f4a
+- Updated at (current): 2026-01-29T16:59:40.445Z
+- Question: In a "Procurement, Legal, and Security Questions" scenario, how would applying "Security" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:21.756Z — 697b91fccf21eba1283e6f4c
+- Updated at (current): 2026-01-29T16:59:40.469Z
+- Question: You are working on "Procurement, Legal, and Security Questions". A teammate mentions "Legal" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:21.807Z — 697b91fccf21eba1283e6f4e
+- Updated at (current): 2026-01-29T16:59:40.493Z
+- Question: You are working on "Procurement, Legal, and Security Questions". A teammate mentions "Independent Exercise (5–10 minutes)" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:21.891Z — 697b91fccf21eba1283e6f50
+- Updated at (current): 2026-01-29T16:59:40.518Z
+- Question: You are working on "Procurement, Legal, and Security Questions". A teammate mentions "Learning Goal List procurement pack items (security, DPA, SLA, billing, signing)" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:21.946Z — 697b91fccf21eba1283e6f52
+- Updated at (current): 2026-01-29T16:59:40.577Z
+- Question: You are working on "Procurement, Legal, and Security Questions". A teammate mentions "Prepare a one-page security/DPA summary" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:21.997Z — 697b91fccf21eba1283e6f54
+- Updated at (current): 2026-01-29T16:59:40.604Z
+- Question: You are working on "Procurement, Legal, and Security Questions". A teammate mentions "Security" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:22.055Z — 697b91fccf21eba1283e6f58
+- Updated at (current): 2026-01-29T16:59:40.688Z
+- Question: In a "Objection Handling: Patterns and Probing" scenario, how would applying "Objection" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:22.108Z — 697b91fccf21eba1283e6f5b
+- Updated at (current): 2026-01-29T16:59:40.735Z
+- Question: In a "Objection Handling: Patterns and Probing" scenario, how would applying "Probing" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:22.177Z — 697b91fccf21eba1283e6f5e
+- Updated at (current): 2026-01-29T16:59:40.794Z
+- Question: In a "Objection Handling: Patterns and Probing" scenario, how would applying "steps" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:22.228Z — 697b91fccf21eba1283e6f61
+- Updated at (current): 2026-01-29T16:59:40.858Z
+- Question: In a "Objection Handling: Patterns and Probing" scenario, how would applying "Learning Goal Write 5 common objections with 3-ste" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:22.284Z — 697b91fccf21eba1283e6f63
+- Updated at (current): 2026-01-29T16:59:40.898Z
+- Question: You are working on "Objection Handling: Patterns and Probing". A teammate mentions "Learning Goal Write 5 common objections with 3-step responses" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:22.334Z — 697b91fccf21eba1283e6f65
+- Updated at (current): 2026-01-29T16:59:40.934Z
+- Question: You are working on "Objection Handling: Patterns and Probing". A teammate mentions "Create probing questions (“What exactly worries you?”)" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:22.392Z — 697b91fccf21eba1283e6f67
+- Updated at (current): 2026-01-29T16:59:40.957Z
+- Question: You are working on "Objection Handling: Patterns and Probing". A teammate mentions "Guided Exercise (10–15 minutes)" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:22.444Z — 697b91fccf21eba1283e6f69
+- Updated at (current): 2026-01-29T16:59:40.980Z
+- Question: You are working on "Objection Handling: Patterns and Probing". A teammate mentions "steps" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:22.494Z — 697b91fdcf21eba1283e6f6b
+- Updated at (current): 2026-01-29T16:59:41.009Z
+- Question: You are working on "Objection Handling: Patterns and Probing". A teammate mentions "Good:" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:22.558Z — 697b91fdcf21eba1283e6f6f
+- Updated at (current): 2026-01-29T16:59:41.093Z
+- Question: In a "Closing: Decision and Next Step" scenario, how would applying "Independent Exercise (5–10 minutes)" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:22.616Z — 697b91fdcf21eba1283e6f72
+- Updated at (current): 2026-01-29T16:59:41.155Z
+- Question: In a "Closing: Decision and Next Step" scenario, how would applying "Closing: Decision and Next Step" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:22.691Z — 697b91fdcf21eba1283e6f75
+- Updated at (current): 2026-01-29T16:59:41.220Z
+- Question: In a "Closing: Decision and Next Step" scenario, how would applying "Decision" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:22.834Z — 697b91fdcf21eba1283e6f78
+- Updated at (current): 2026-01-29T16:59:41.275Z
+- Question: In a "Closing: Decision and Next Step" scenario, how would applying "Closing" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:22.893Z — 697b91fdcf21eba1283e6f7a
+- Updated at (current): 2026-01-29T16:59:41.317Z
+- Question: You are working on "Closing: Decision and Next Step". A teammate mentions "Closing" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:22.945Z — 697b91fdcf21eba1283e6f7c
+- Updated at (current): 2026-01-29T16:59:41.338Z
+- Question: You are working on "Closing: Decision and Next Step". A teammate mentions "Closing: Decision and Next Step" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:23.045Z — 697b91fdcf21eba1283e6f7e
+- Updated at (current): 2026-01-29T16:59:41.403Z
+- Question: You are working on "Closing: Decision and Next Step". A teammate mentions "Write a decision email template" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:23.116Z — 697b91fdcf21eba1283e6f80
+- Updated at (current): 2026-01-29T16:59:41.426Z
+- Question: You are working on "Closing: Decision and Next Step". A teammate mentions "Bad:" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:23.187Z — 697b91fdcf21eba1283e6f82
+- Updated at (current): 2026-01-29T16:59:41.449Z
+- Question: You are working on "Closing: Decision and Next Step". A teammate mentions "Good:" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:23.240Z — 697b91fdcf21eba1283e6f86
+- Updated at (current): 2026-01-29T16:59:41.538Z
+- Question: In a "Capstone Sprint: Full B2B Sales Loop" scenario, how would applying "Good:" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:23.298Z — 697b91fdcf21eba1283e6f89
+- Updated at (current): 2026-01-29T16:59:41.597Z
+- Question: In a "Capstone Sprint: Full B2B Sales Loop" scenario, how would applying "Independent Exercise (5–10 minutes)" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:23.358Z — 697b91fdcf21eba1283e6f8c
+- Updated at (current): 2026-01-29T16:59:41.650Z
+- Question: In a "Capstone Sprint: Full B2B Sales Loop" scenario, how would applying "Run the full process on at least one account" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:23.416Z — 697b91fdcf21eba1283e6f8f
+- Updated at (current): 2026-01-29T16:59:41.694Z
+- Question: In a "Capstone Sprint: Full B2B Sales Loop" scenario, how would applying "Bad:" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:23.487Z — 697b91fdcf21eba1283e6f91
+- Updated at (current): 2026-01-29T16:59:41.721Z
+- Question: You are working on "Capstone Sprint: Full B2B Sales Loop". A teammate mentions "Capstone" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:23.560Z — 697b91fdcf21eba1283e6f93
+- Updated at (current): 2026-01-29T16:59:41.759Z
+- Question: You are working on "Capstone Sprint: Full B2B Sales Loop". A teammate mentions "Full" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:23.653Z — 697b91fdcf21eba1283e6f95
+- Updated at (current): 2026-01-29T16:59:41.781Z
+- Question: You are working on "Capstone Sprint: Full B2B Sales Loop". A teammate mentions "Mandatory steps" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:23.714Z — 697b91fdcf21eba1283e6f97
+- Updated at (current): 2026-01-29T16:59:41.809Z
+- Question: You are working on "Capstone Sprint: Full B2B Sales Loop". A teammate mentions "Independent Exercise (5–10 minutes)" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:23.768Z — 697b91fdcf21eba1283e6f99
+- Updated at (current): 2026-01-29T16:59:41.853Z
+- Question: You are working on "Capstone Sprint: Full B2B Sales Loop". A teammate mentions "Loop" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:23.840Z — 697b91fecf21eba1283e6f9e
+- Updated at (current): 2026-01-29T16:59:42.004Z
+- Question: In a "Why Visual Language Beats Style" scenario, how would applying "Why Visual Language Beats Style" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:23.906Z — 697b91fecf21eba1283e6fa1
+- Updated at (current): 2026-01-29T16:59:42.053Z
+- Question: In a "Why Visual Language Beats Style" scenario, how would applying "Why Visual Language Beats Style See why “style” do" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:23.975Z — 697b91fecf21eba1283e6fa4
+- Updated at (current): 2026-01-29T16:59:42.110Z
+- Question: In a "Why Visual Language Beats Style" scenario, how would applying "Good:" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:24.037Z — 697b91fecf21eba1283e6fa7
+- Updated at (current): 2026-01-29T16:59:42.169Z
+- Question: In a "Why Visual Language Beats Style" scenario, how would applying "Bad:" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:24.112Z — 697b91fecf21eba1283e6fa9
+- Updated at (current): 2026-01-29T16:59:42.198Z
+- Question: You are working on "Why Visual Language Beats Style". A teammate mentions "Visual Language" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:24.176Z — 697b91fecf21eba1283e6fab
+- Updated at (current): 2026-01-29T16:59:42.222Z
+- Question: You are working on "Why Visual Language Beats Style". A teammate mentions "Learning Goal State the difference between style and visual language in one sent" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:24.233Z — 697b91fecf21eba1283e6fad
+- Updated at (current): 2026-01-29T16:59:42.252Z
+- Question: You want to implement this practice in your own workflow: "Exercise (10–15 minutes) Write: “Our visual language exists ". Which plan produces measurable output and fast feedback?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:24.282Z — 697b91fecf21eba1283e6faf
+- Updated at (current): 2026-01-29T16:59:42.282Z
+- Question: You are working on "Why Visual Language Beats Style". A teammate mentions "Language" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:24.335Z — 697b91fecf21eba1283e6fb1
+- Updated at (current): 2026-01-29T16:59:42.311Z
+- Question: You are working on "Why Visual Language Beats Style". A teammate mentions "Guided Exercise (10–15 minutes)" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:24.414Z — 697b91fecf21eba1283e6fb4
+- Updated at (current): 2026-01-29T16:59:42.358Z
+- Question: You are working on "From Taste to System: Scaling Decisions". A teammate mentions "Independent Exercise (5–10 minutes)" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:24.472Z — 697b91fecf21eba1283e6fb6
+- Updated at (current): 2026-01-29T16:59:42.391Z
+- Question: You are working on "From Taste to System: Scaling Decisions". A teammate mentions "Rule → Pattern → Doc" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:24.523Z — 697b91fecf21eba1283e6fb8
+- Updated at (current): 2026-01-29T16:59:42.415Z
+- Question: You are working on "From Taste to System: Scaling Decisions". A teammate mentions "Optional Deepening" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:24.572Z — 697b91fecf21eba1283e6fba
+- Updated at (current): 2026-01-29T16:59:42.464Z
+- Question: You are working on "From Taste to System: Scaling Decisions". A teammate mentions "Decisions" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:24.656Z — 697b91fecf21eba1283e6fbc
+- Updated at (current): 2026-01-29T16:59:42.490Z
+- Question: You are working on "From Taste to System: Scaling Decisions". A teammate mentions "Learning Goal Write 3 design decisions as rules" but you need it operational. Which approach makes the output measurable and verifiable?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:24.714Z — 697b91fecf21eba1283e6fbe
+- Updated at (current): 2026-01-29T16:59:42.526Z
+- Question: In a "From Taste to System: Scaling Decisions" scenario, how would applying "From Taste to System: Scaling Decisions Turn subje" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:24.775Z — 697b91fecf21eba1283e6fc0
+- Updated at (current): 2026-01-29T16:59:42.553Z
+- Question: In a "From Taste to System: Scaling Decisions" scenario, how would applying "Guided Exercise (10–15 minutes)" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:24.856Z — 697b91fecf21eba1283e6fc3
+- Updated at (current): 2026-01-29T16:59:42.609Z
+- Question: In a "Anatomy of the Design Playbook" scenario, how would applying "Anatomy of the Design Playbook" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:24.922Z — 697b91fecf21eba1283e6fc5
+- Updated at (current): 2026-01-29T16:59:42.632Z
+- Question: In a "Anatomy of the Design Playbook" scenario, how would applying "Guided Exercise (10–15 minutes)" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:24.992Z — 697b91fecf21eba1283e6fc8
+- Updated at (current): 2026-01-29T16:59:42.700Z
+- Question: In a "Trends vs Principles vs Systems" scenario, how would applying "Why This Matters" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:25.068Z — 697b91fecf21eba1283e6fca
+- Updated at (current): 2026-01-29T16:59:42.762Z
+- Question: In a "Trends vs Principles vs Systems" scenario, how would applying "Learning Goal Use 3 signals to decide if something" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:25.132Z — 697b91fecf21eba1283e6fcd
+- Updated at (current): 2026-01-29T16:59:42.830Z
+- Question: In a "Define Your Visual Intent" scenario, how would applying "[density]" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:25.188Z — 697b91fecf21eba1283e6fcf
+- Updated at (current): 2026-01-29T16:59:42.949Z
+- Question: In a "Define Your Visual Intent" scenario, how would applying "Good:" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:25.256Z — 697b91ffcf21eba1283e6fd2
+- Updated at (current): 2026-01-29T16:59:43.011Z
+- Question: In a "Color as Meaning, Not Decoration" scenario, how would applying "Optional Deepening" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:25.331Z — 697b91ffcf21eba1283e6fd4
+- Updated at (current): 2026-01-29T16:59:43.054Z
+- Question: In a "Color as Meaning, Not Decoration" scenario, how would applying "Guided Exercise (10–15 minutes)" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:25.410Z — 697b91ffcf21eba1283e6fd7
+- Updated at (current): 2026-01-29T16:59:43.260Z
+- Question: In a "Typography as Hierarchy and Voice" scenario, how would applying "Independent Exercise (5–10 minutes)" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:25.479Z — 697b91ffcf21eba1283e6fd9
+- Updated at (current): 2026-01-29T16:59:43.287Z
+- Question: In a "Typography as Hierarchy and Voice" scenario, how would applying "Learning Goal Define type roles (display, h1–h6, b" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:25.552Z — 697b91ffcf21eba1283e6fdc
+- Updated at (current): 2026-01-29T16:59:43.364Z
+- Question: In a "Shape, Rhythm, Emotional Cues" scenario, how would applying "Shape meaning" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:25.619Z — 697b91ffcf21eba1283e6fde
+- Updated at (current): 2026-01-29T16:59:43.391Z
+- Question: In a "Shape, Rhythm, Emotional Cues" scenario, how would applying "Create rhythm: repetition, modules, consistent gap" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:25.689Z — 697b91ffcf21eba1283e6fe1
+- Updated at (current): 2026-01-29T16:59:43.442Z
+- Question: In a "Motion and Feedback Language" scenario, how would applying "Durations" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:25.785Z — 697b91ffcf21eba1283e6fe3
+- Updated at (current): 2026-01-29T16:59:43.467Z
+- Question: In a "Motion and Feedback Language" scenario, how would applying "Language" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:25.841Z — 697b91ffcf21eba1283e6fe6
+- Updated at (current): 2026-01-29T16:59:43.513Z
+- Question: In a "Accessibility as a Design Constraint" scenario, how would applying "Learning Goal WCAG basics: contrast, focus, keyboa" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:25.915Z — 697b91ffcf21eba1283e6fe8
+- Updated at (current): 2026-01-29T16:59:43.536Z
+- Question: In a "Accessibility as a Design Constraint" scenario, how would applying "Accessibility" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:25.988Z — 697b91ffcf21eba1283e6feb
+- Updated at (current): 2026-01-29T16:59:43.584Z
+- Question: In a "Grids That Survive Scale" scenario, how would applying "Why This Matters" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:26.056Z — 697b91ffcf21eba1283e6fed
+- Updated at (current): 2026-01-29T16:59:43.606Z
+- Question: In a "Grids That Survive Scale" scenario, how would applying "Learning Goal Define grid type (12 columns, 8/12/1" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:26.119Z — 697b91ffcf21eba1283e6ff0
+- Updated at (current): 2026-01-29T16:59:43.669Z
+- Question: In a "Density Modes and Responsiveness" scenario, how would applying "Responsiveness" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:26.185Z — 697b91ffcf21eba1283e6ff2
+- Updated at (current): 2026-01-29T16:59:43.711Z
+- Question: In a "Density Modes and Responsiveness" scenario, how would applying "Modes" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:26.260Z — 697b91ffcf21eba1283e6ff5
+- Updated at (current): 2026-01-29T16:59:43.758Z
+- Question: In a "Cross-Platform Consistency" scenario, how would applying "Cross-Platform Consistency Align tokens, component" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:26.327Z — 697b91ffcf21eba1283e6ff7
+- Updated at (current): 2026-01-29T16:59:43.784Z
+- Question: In a "Cross-Platform Consistency" scenario, how would applying "Good:" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:26.413Z — 697b91ffcf21eba1283e6ffa
+- Updated at (current): 2026-01-29T16:59:43.831Z
+- Question: In a "Mapping the Current Visual Chaos" scenario, how would applying "Why This Matters" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:26.482Z — 697b91ffcf21eba1283e6ffc
+- Updated at (current): 2026-01-29T16:59:43.855Z
+- Question: In a "Mapping the Current Visual Chaos" scenario, how would applying "Chaos" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:26.543Z — 697b9200cf21eba1283e7010
+- Updated at (current): 2026-01-29T16:59:44.496Z
+- Question: Egy vezető a következő elv szerint dönt: „% konverzió”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:26.614Z — 697b9200cf21eba1283e7013
+- Updated at (current): 2026-01-29T16:59:44.579Z
+- Question: Egy vezető a következő elv szerint dönt: „Lead → Minősített:”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:26.672Z — 697b9200cf21eba1283e7016
+- Updated at (current): 2026-01-29T16:59:44.626Z
+- Question: Egy vezető a következő elv szerint dönt: „Előrejelzés:”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:26.745Z — 697b9200cf21eba1283e7019
+- Updated at (current): 2026-01-29T16:59:44.682Z
+- Question: Egy vezető a következő elv szerint dönt: „Gyakorlat 1 – Tölcsér sablon létrehozása (15 perc)”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:26.823Z — 697b9200cf21eba1283e701b
+- Updated at (current): 2026-01-29T16:59:44.711Z
+- Question: Egy projektben a „Minősített → Kapcsolat:” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:26.890Z — 697b9200cf21eba1283e701d
+- Updated at (current): 2026-01-29T16:59:44.738Z
+- Question: Egy új gyakorlatot vezetsz be: „Gyakorlat 1 – Tölcsér sablon létrehozása (15 perc) Hozd létr”. Melyik bevezetési terv biztosít mérhető kimenetet és gyors visszacsatolást?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:26.953Z — 697b9200cf21eba1283e701f
+- Updated at (current): 2026-01-29T16:59:44.760Z
+- Question: Egy projektben a „Gyakorlat 1 – Tölcsér sablon létrehozása (15 perc)” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:27.014Z — 697b9200cf21eba1283e7023
+- Updated at (current): 2026-01-29T16:59:44.818Z
+- Question: Egy projektben a „Gyors javítás:” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:27.071Z — 697b9201cf21eba1283e7027
+- Updated at (current): 2026-01-29T16:59:45.048Z
+- Question: Egy vezető a következő elv szerint dönt: „A kulcs: kezdj a végeredménnyel, és számolj visszafelé”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:27.126Z — 697b9201cf21eba1283e702a
+- Updated at (current): 2026-01-29T16:59:45.102Z
+- Question: Egy vezető a következő elv szerint dönt: „Ma megtanulod, hogyan állíts be mérhető célokat, amelyek valóban működnek”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:27.188Z — 697b9201cf21eba1283e702d
+- Updated at (current): 2026-01-29T16:59:45.452Z
+- Question: Egy vezető a következő elv szerint dönt: „Havi cél: 4 lezárás”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:27.279Z — 697b9201cf21eba1283e7030
+- Updated at (current): 2026-01-29T16:59:45.519Z
+- Question: Egy vezető a következő elv szerint dönt: „Motiváció:”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:27.343Z — 697b9201cf21eba1283e7032
+- Updated at (current): 2026-01-29T16:59:45.634Z
+- Question: Egy új gyakorlatot vezetsz be: „Gyakorlat 2 – KPI követő táblázat (15 perc) Hozz létre egy K”. Melyik bevezetési terv biztosít mérhető kimenetet és gyors visszacsatolást?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:27.406Z — 697b9201cf21eba1283e7034
+- Updated at (current): 2026-01-29T16:59:45.673Z
+- Question: Egy projektben a „Számold vissza a konverziós arányokkal:” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:27.481Z — 697b9201cf21eba1283e7036
+- Updated at (current): 2026-01-29T16:59:45.701Z
+- Question: Egy projektben a „KPI = Key Performance Indicator” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:27.541Z — 697b9201cf21eba1283e7038
+- Updated at (current): 2026-01-29T16:59:45.755Z
+- Question: Egy projektben a „A kulcs: kezdj a végeredménnyel, és számolj visszafelé” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:27.605Z — 697b9201cf21eba1283e703c
+- Updated at (current): 2026-01-29T16:59:45.833Z
+- Question: Egy vezető a következő elv szerint dönt: „Miért rossz:”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:27.694Z — 697b9201cf21eba1283e703f
+- Updated at (current): 2026-01-29T16:59:45.900Z
+- Question: Egy vezető a következő elv szerint dönt: „Költséghatékonyság:”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:27.754Z — 697b9201cf21eba1283e7042
+- Updated at (current): 2026-01-29T16:59:45.962Z
+- Question: Egy projektben a „Elmagyarázás” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:27.818Z — 697b9202cf21eba1283e7047
+- Updated at (current): 2026-01-29T16:59:46.047Z
+- Question: Egy projektben a „Gyakorlat 2 – Prioritás csatornák kiválasztása (15 perc)” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:27.875Z — 697b9202cf21eba1283e7049
+- Updated at (current): 2026-01-29T16:59:46.075Z
+- Question: Egy projektben a „Inbound/Content” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:27.935Z — 697b9202cf21eba1283e704b
+- Updated at (current): 2026-01-29T16:59:46.113Z
+- Question: Egy projektben a „Ma megtanulod, hogyan generálsz lead-eket több csatornán keresztül” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:28.013Z — 697b9202cf21eba1283e7052
+- Updated at (current): 2026-01-29T16:59:46.253Z
+- Question: Egy vezető a következő elv szerint dönt: „Mérj:”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:28.074Z — 697b9202cf21eba1283e7055
+- Updated at (current): 2026-01-29T16:59:46.319Z
+- Question: Egy vezető a következő elv szerint dönt: „Javíts vagy változtass:”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:28.152Z — 697b9202cf21eba1283e7057
+- Updated at (current): 2026-01-29T16:59:46.350Z
+- Question: Egy projektben a „Konverziós arány optimalizálás – Hogyan javítsd a számokat?” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:28.212Z — 697b9202cf21eba1283e7059
+- Updated at (current): 2026-01-29T16:59:46.395Z
+- Question: Egy projektben a „Gyakorlat 1 – Leggyengébb láncszem azonosítása (15 perc)” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:28.276Z — 697b9202cf21eba1283e705b
+- Updated at (current): 2026-01-29T16:59:46.483Z
+- Question: Egy projektben a „Költséghatékonyság:” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:28.338Z — 697b9202cf21eba1283e705f
+- Updated at (current): 2026-01-29T16:59:46.571Z
+- Question: Egy vezető a következő elv szerint dönt: „Ma megtanulod, hogyan készíts előrejelzést a tölcsér adatai alapján”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:28.413Z — 697b9202cf21eba1283e7065
+- Updated at (current): 2026-01-29T16:59:46.706Z
+- Question: Egy vezető a következő elv szerint dönt: „Gyakorlat 2 – Havi előrejelzés (15 perc)”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:28.477Z — 697b9202cf21eba1283e7068
+- Updated at (current): 2026-01-29T16:59:46.780Z
+- Question: Egy vezető a következő elv szerint dönt: „Használd a konverziós arányaidat”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:28.544Z — 697b9202cf21eba1283e706b
+- Updated at (current): 2026-01-29T16:59:46.876Z
+- Question: Egy vezető a következő elv szerint dönt: „Számold ki a várható bezárásokat”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:28.612Z — 697b9203cf21eba1283e706d
+- Updated at (current): 2026-01-29T16:59:47.275Z
+- Question: Egy projektben a „Nézd meg a jelenlegi tölcsér állapotodat” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:28.667Z — 697b9203cf21eba1283e706f
+- Updated at (current): 2026-01-29T16:59:47.328Z
+- Question: Egy projektben a „Nézd meg a jelenlegi tölcsér állapotát:” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:28.753Z — 697b9203cf21eba1283e7071
+- Updated at (current): 2026-01-29T16:59:47.385Z
+- Question: Egy projektben a „Számold ki a várható bezárásokat” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:28.813Z — 697b9203cf21eba1283e7073
+- Updated at (current): 2026-01-29T16:59:47.509Z
+- Question: Egy projektben a „Gyakorlat 1 – Heti előrejelzés (20 perc)” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:28.922Z — 697b9203cf21eba1283e7075
+- Updated at (current): 2026-01-29T16:59:47.611Z
+- Question: Egy új gyakorlatot vezetsz be: „Példa: Ha most van 16 ajánlat elküldve, és a konverzió 25%, ”. Melyik bevezetési terv biztosít mérhető kimenetet és gyors visszacsatolást?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:28.994Z — 697b9203cf21eba1283e7079
+- Updated at (current): 2026-01-29T16:59:47.705Z
+- Question: Egy vezető a következő elv szerint dönt: „D - Decision Process”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:29.056Z — 697b9204cf21eba1283e707c
+- Updated at (current): 2026-01-29T16:59:48.230Z
+- Question: Egy vezető a következő elv szerint dönt: „Erőforrás optimalizálás:”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:29.115Z — 697b9204cf21eba1283e707f
+- Updated at (current): 2026-01-29T16:59:48.287Z
+- Question: Egy vezető a következő elv szerint dönt: „Jobb konverzió:”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:29.178Z — 697b9204cf21eba1283e7081
+- Updated at (current): 2026-01-29T16:59:48.321Z
+- Question: Egy projektben a „A kulcs: ne pazarold az idődet rossz lead-ekre – minősítsd őket korán” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:29.233Z — 697b9204cf21eba1283e7083
+- Updated at (current): 2026-01-29T16:59:48.461Z
+- Question: Egy projektben a „Miért fontos ez?” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:29.283Z — 697b9204cf21eba1283e7085
+- Updated at (current): 2026-01-29T16:59:48.509Z
+- Question: Egy projektben a „N - Need” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:29.338Z — 697b9205cf21eba1283e7089
+- Updated at (current): 2026-01-29T16:59:49.049Z
+- Question: Egy vezető a következő elv szerint dönt: „Szükséglet/Probléma”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:29.394Z — 697b9205cf21eba1283e708c
+- Updated at (current): 2026-01-29T16:59:49.148Z
+- Question: Egy vezető a következő elv szerint dönt: „Gyorsabb értékesítés:”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:29.447Z — 697b9205cf21eba1283e7092
+- Updated at (current): 2026-01-29T16:59:49.506Z
+- Question: Egy vezető a következő elv szerint dönt: „Cégméret:”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:29.505Z — 697b9205cf21eba1283e7095
+- Updated at (current): 2026-01-29T16:59:49.700Z
+- Question: Egy vezető a következő elv szerint dönt: „Fókusz = jobb eredmények.”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:29.565Z — 697b9205cf21eba1283e7097
+- Updated at (current): 2026-01-29T16:59:49.723Z
+- Question: Egy új gyakorlatot vezetsz be: „Példa ICP definíció ICP példa: Cégméret: 50-200 alkalmazott ”. Melyik bevezetési terv biztosít mérhető kimenetet és gyors visszacsatolást?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:29.614Z — 697b9205cf21eba1283e7099
+- Updated at (current): 2026-01-29T16:59:49.748Z
+- Question: Egy projektben a „Iparág” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:29.665Z — 697b9205cf21eba1283e709b
+- Updated at (current): 2026-01-29T16:59:49.776Z
+- Question: Egy projektben a „Költségvetés” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:29.726Z — 697b9205cf21eba1283e709f
+- Updated at (current): 2026-01-29T16:59:49.832Z
+- Question: Egy projektben a „Magasabb konverzió:” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:29.786Z — 697b9205cf21eba1283e70a6
+- Updated at (current): 2026-01-29T16:59:49.988Z
+- Question: Egy vezető a következő elv szerint dönt: „Ma megtanulod, milyen kérdéseket tegyél fel a minősítéshez, és hogyan építsd fel”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:29.837Z — 697b9206cf21eba1283e70a9
+- Updated at (current): 2026-01-29T16:59:50.031Z
+- Question: Egy vezető a következő elv szerint dönt: „Jobb minősítés = jobb eredmények.”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:29.912Z — 697b9206cf21eba1283e70ac
+- Updated at (current): 2026-01-29T16:59:50.083Z
+- Question: Egy vezető a következő elv szerint dönt: „Bevezetés (30 mp):”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:29.966Z — 697b9206cf21eba1283e70ae
+- Updated at (current): 2026-01-29T16:59:50.124Z
+- Question: Egy projektben a „fontos ez? Jobb minősítés = jobb eredmények” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:30.023Z — 697b9206cf21eba1283e70b0
+- Updated at (current): 2026-01-29T16:59:50.152Z
+- Question: Egy projektben a „Authority” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:30.075Z — 697b9206cf21eba1283e70b2
+- Updated at (current): 2026-01-29T16:59:50.184Z
+- Question: Egy projektben a „Timeline” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:30.125Z — 697b9206cf21eba1283e70b4
+- Updated at (current): 2026-01-29T16:59:50.210Z
+- Question: Egy projektben a „A kulcs: kérdezz, ne csak mutass be” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:30.179Z — 697b9206cf21eba1283e70b8
+- Updated at (current): 2026-01-29T16:59:50.293Z
+- Question: Egy vezető a következő elv szerint dönt: „Bevezetés:”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:30.246Z — 697b9206cf21eba1283e70bb
+- Updated at (current): 2026-01-29T16:59:50.360Z
+- Question: Egy vezető a következő elv szerint dönt: „Válassz egy kollégát vagy barátot”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:30.300Z — 697b9206cf21eba1283e70bd
+- Updated at (current): 2026-01-29T16:59:50.390Z
+- Question: Egy projektben a „Gyakorold a teljes minősítési beszélgetést” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:30.354Z — 697b9206cf21eba1283e70bf
+- Updated at (current): 2026-01-29T16:59:50.416Z
+- Question: Egy projektben a „Felfedezés (5-10 perc):” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:30.409Z — 697b9206cf21eba1283e70c3
+- Updated at (current): 2026-01-29T16:59:50.519Z
+- Question: Egy vezető a következő elv szerint dönt: „Ma megtanulod, hogyan működik az árazási pszichológia”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:30.466Z — 697b9206cf21eba1283e70c6
+- Updated at (current): 2026-01-29T16:59:50.575Z
+- Question: Egy vezető a következő elv szerint dönt: „Versenyelőny:”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:30.527Z — 697b9206cf21eba1283e70c9
+- Updated at (current): 2026-01-29T16:59:50.633Z
+- Question: Egy vezető a következő elv szerint dönt: „Premium pricing”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:30.585Z — 697b9206cf21eba1283e70cc
+- Updated at (current): 2026-01-29T16:59:50.710Z
+- Question: Egy vezető a következő elv szerint dönt: „Jó példa:”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:30.635Z — 697b9206cf21eba1283e70ce
+- Updated at (current): 2026-01-29T16:59:50.748Z
+- Question: Egy projektben a „Jó példa:” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:30.693Z — 697b9206cf21eba1283e70d0
+- Updated at (current): 2026-01-29T16:59:50.850Z
+- Question: Egy új gyakorlatot vezetsz be: „példa: "Az ár $1000”. Melyik bevezetési terv biztosít mérhető kimenetet és gyors visszacsatolást?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:30.750Z — 697b9206cf21eba1283e70d2
+- Updated at (current): 2026-01-29T16:59:50.878Z
+- Question: Egy projektben a „Írd le, hogyan kommunikálod az árat” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:30.803Z — 697b9206cf21eba1283e70d4
+- Updated at (current): 2026-01-29T16:59:50.928Z
+- Question: Egy projektben a „fontos ez? Ár = érzelmi reakció” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:30.869Z — 697b9207cf21eba1283e70d8
+- Updated at (current): 2026-01-29T16:59:51.012Z
+- Question: Egy vezető a következő elv szerint dönt: „Válasz”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:30.924Z — 697b9207cf21eba1283e70db
+- Updated at (current): 2026-01-29T16:59:51.074Z
+- Question: Egy vezető a következő elv szerint dönt: „Elismerés”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:30.976Z — 697b9207cf21eba1283e70dd
+- Updated at (current): 2026-01-29T16:59:51.098Z
+- Question: Egy projektben a „A cél: tisztázni, számszerűsíteni és kockázatot csökkenteni” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:31.031Z — 697b9207cf21eba1283e70df
+- Updated at (current): 2026-01-29T16:59:51.484Z
+- Question: Egy új gyakorlatot vezetsz be: „Gyakorlat (vezetett, 10–15 perc) — Kifogástérkép Írd le a to”. Melyik bevezetési terv biztosít mérhető kimenetet és gyors visszacsatolást?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:31.086Z — 697b9207cf21eba1283e70e3
+- Updated at (current): 2026-01-29T16:59:51.672Z
+- Question: Egy vezető a következő elv szerint dönt: „Napi cél”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:31.145Z — 697b9207cf21eba1283e70e6
+- Updated at (current): 2026-01-29T16:59:51.894Z
+- Question: Egy projektben a „Gyakorlat (vezetett, 10–15 perc) — Kérdéssor v1” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:31.242Z — 697b9207cf21eba1283e70e8
+- Updated at (current): 2026-01-29T16:59:51.975Z
+- Question: Egy projektben a „Discovery hívás – Diagnózis a “recept” előtt” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:31.299Z — 697b9208cf21eba1283e70ec
+- Updated at (current): 2026-01-29T16:59:52.579Z
+- Question: In a "Sales Funnel Fundamentals – Why Numbers Matter" scenario, how would applying "Closed" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:31.350Z — 697b9208cf21eba1283e70ee
+- Updated at (current): 2026-01-29T16:59:52.812Z
+- Question: In a "Sales Funnel Fundamentals – Why Numbers Matter" scenario, how would applying "Practice 1 – Create funnel template (15 min)" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:31.415Z — 697b9208cf21eba1283e70f1
+- Updated at (current): 2026-01-29T16:59:52.897Z
+- Question: In a "Setting KPIs and Targets – How to Work Backwards" scenario, how would applying "Setting KPIs and Targets – How to Work Backwards T" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:31.474Z — 697b9208cf21eba1283e70f3
+- Updated at (current): 2026-01-29T16:59:52.934Z
+- Question: In a "Setting KPIs and Targets – How to Work Backwards" scenario, how would applying "Monthly target: 4 closes" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:31.534Z — 697b9209cf21eba1283e70f6
+- Updated at (current): 2026-01-29T16:59:53.253Z
+- Question: In a "Multi-Channel Lead Generation – Where Do You Find Customers?" scenario, how would applying "Total" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:31.588Z — 697b9209cf21eba1283e70f8
+- Updated at (current): 2026-01-29T16:59:53.279Z
+- Question: In a "Multi-Channel Lead Generation – Where Do You Find Customers?" scenario, how would applying "One channel = risk." change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:31.642Z — 697b9209cf21eba1283e70fb
+- Updated at (current): 2026-01-29T16:59:53.325Z
+- Question: In a "Conversion Rate Optimization – How to Improve Your Numbers" scenario, how would applying "Look at your own conversion rates" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:31.706Z — 697b9209cf21eba1283e70fd
+- Updated at (current): 2026-01-29T16:59:53.346Z
+- Question: In a "Conversion Rate Optimization – How to Improve Your Numbers" scenario, how would applying "Key Takeaways" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:22:31.778Z — 697b9209cf21eba1283e7100
+- Updated at (current): 2026-01-29T16:59:53.407Z
+- Question: In a "Weekly/Monthly Forecasting – How to Predict the Future" scenario, how would applying "Practice 2 – Monthly forecast (15 min)" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:44:11.693Z — 697b9209cf21eba1283e7102
+- Updated at (current): 2026-01-29T16:59:53.962Z
+- Question: In a "Weekly/Monthly Forecasting – How to Predict the Future" scenario, how would applying "If you know what will happen, you can prepare in a" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:44:11.761Z — 697b920acf21eba1283e7105
+- Updated at (current): 2026-01-29T16:59:54.554Z
+- Question: In a "Qualification Framework (BANT, MEDDIC) – How to Qualify Leads?" scenario, how would applying "Key Takeaways" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:44:11.833Z — 697b920acf21eba1283e7107
+- Updated at (current): 2026-01-29T16:59:54.597Z
+- Question: In a "Qualification Framework (BANT, MEDDIC) – How to Qualify Leads?" scenario, how would applying "D - Decision Process" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:44:11.890Z — 697b920acf21eba1283e710a
+- Updated at (current): 2026-01-29T16:59:54.657Z
+- Question: In a "Ideal Customer Profile (ICP) – Who Do You Work With?" scenario, how would applying "Company Size" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:44:11.941Z — 697b920acf21eba1283e710c
+- Updated at (current): 2026-01-29T16:59:54.705Z
+- Question: In a "Ideal Customer Profile (ICP) – Who Do You Work With?" scenario, how would applying "Key Takeaways" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:44:11.999Z — 697b920acf21eba1283e710f
+- Updated at (current): 2026-01-29T16:59:54.808Z
+- Question: In a "Qualification Questions & Scripts – What to Ask to Qualify?" scenario, how would applying "Qualification Questions & Scripts – What to Ask to" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:44:12.054Z — 697b920acf21eba1283e7111
+- Updated at (current): 2026-01-29T16:59:54.836Z
+- Question: In a "Qualification Questions & Scripts – What to Ask to Qualify?" scenario, how would applying "Summary (1 min):" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:44:12.110Z — 697b920acf21eba1283e7114
+- Updated at (current): 2026-01-29T16:59:54.911Z
+- Question: In a "Qualification in Practice – How to Qualify in a Real Conversation?" scenario, how would applying "Practice 1 – Practice qualification conversation (" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:44:12.166Z — 697b920acf21eba1283e7116
+- Updated at (current): 2026-01-29T16:59:54.992Z
+- Question: In a "Qualification in Practice – How to Qualify in a Real Conversation?" scenario, how would applying "Professional appearance:" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:44:12.219Z — 697b920bcf21eba1283e7119
+- Updated at (current): 2026-01-29T16:59:55.309Z
+- Question: In a "Pricing Psychology – How Does Price Affect Buying Decisions?" scenario, how would applying "Daily Goal" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:44:12.272Z — 697b920bcf21eba1283e711b
+- Updated at (current): 2026-01-29T16:59:55.361Z
+- Question: In a "Pricing Psychology – How Does Price Affect Buying Decisions?" scenario, how would applying "The key: price is not just a number – it has emoti" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:44:12.329Z — 697b920bcf21eba1283e711e
+- Updated at (current): 2026-01-29T16:59:55.421Z
+- Question: In a "Objection Handling – Turn “No” Into Data" scenario, how would applying "Independent exercise (5–10 min) — “Explore-first” " change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:44:12.385Z — 697b920bcf21eba1283e7120
+- Updated at (current): 2026-01-29T16:59:55.447Z
+- Question: In a "Objection Handling – Turn “No” Into Data" scenario, how would applying "Objection Handling – Turn “No” Into Data Objection" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:44:12.446Z — 697b920bcf21eba1283e7123
+- Updated at (current): 2026-01-29T16:59:55.511Z
+- Question: In a "Discovery Calls – Diagnose Before You Prescribe" scenario, how would applying "Capture problem impact with numbers (time, money, " change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:44:12.507Z — 697b920bcf21eba1283e7125
+- Updated at (current): 2026-01-29T16:59:55.539Z
+- Question: In a "Discovery Calls – Diagnose Before You Prescribe" scenario, how would applying "Impact question" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:46:55.421Z — 697b7a464526cdce732f63a8
+- Updated at (current): 2026-01-30T19:46:40.505Z
+- Cursor updatedAt (pre-fix): 2026-01-29T16:59:55.539Z
+- Cursor itemId: 697b920bcf21eba1283e7125
+- Question: You are auditing identifiers for 10 variants. Which SKU rule best fits the scenario?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+- Notes:
+  - Repaired lesson-reference phrasing (standalone rule).
+
+## 2026-01-30T19:47:24.361Z — 697b7881bc06076675fafae8
+- Updated at (current): 2026-01-30T19:47:11.987Z
+- Cursor updatedAt (pre-fix): 2026-01-29T16:59:55.539Z
+- Cursor itemId: 697b920bcf21eba1283e7125
+- Question: Which set best matches the GEO KPIs you should track weekly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+- Notes:
+  - Repaired lesson-reference phrasing (standalone rule).
+
+## 2026-01-30T19:47:54.080Z — 697b7831c01139a723210240
+- Updated at (current): 2026-01-30T19:47:39.375Z
+- Cursor updatedAt (pre-fix): 2026-01-29T16:59:55.539Z
+- Cursor itemId: 697b920bcf21eba1283e7125
+- Question: Why is it important that “content expectations differ” across platforms?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+- Notes:
+  - Repaired lesson-reference phrasing (standalone rule).
+
+## 2026-01-30T19:48:18.249Z — 697b775218847a0e87bdb737
+- Updated at (current): 2026-01-30T19:48:04.784Z
+- Cursor updatedAt (pre-fix): 2026-01-29T16:59:55.539Z
+- Cursor itemId: 697b920bcf21eba1283e7125
+- Question: You add an “answer capsule” at the top of a Shopify product page. Which capsule content best fits the scenario?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+- Notes:
+  - Repaired lesson-reference phrasing (standalone rule).
+
+## 2026-01-30T19:54:41.192Z — 697b920bcf21eba1283e7128
+- Updated at (current): 2026-01-29T16:59:55.587Z
+- Question: In a "Proposal Writing – Make the Next Step Easy" scenario, how would applying "Problem + impact" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:54:41.249Z — 697b920bcf21eba1283e712a
+- Updated at (current): 2026-01-29T16:59:55.679Z
+- Question: In a "Proposal Writing – Make the Next Step Easy" scenario, how would applying "Timeline" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:54:41.303Z — 697b920bcf21eba1283e712d
+- Updated at (current): 2026-01-29T16:59:55.823Z
+- Question: In a "Negotiation – Trade, Don’t Give" scenario, how would applying "Give" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:54:41.357Z — 697b920bcf21eba1283e712f
+- Updated at (current): 2026-01-29T16:59:55.858Z
+- Question: In a "Negotiation – Trade, Don’t Give" scenario, how would applying "Protect value by trading concessions" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:54:41.417Z — 697b920bcf21eba1283e7132
+- Updated at (current): 2026-01-29T16:59:55.908Z
+- Question: In a "Handoff & Onboarding – Deliver What You Sold" scenario, how would applying "Learning goal Create a handoff checklist for sales" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:54:41.470Z — 697b920bcf21eba1283e7134
+- Updated at (current): 2026-01-29T16:59:55.954Z
+- Question: In a "Handoff & Onboarding – Deliver What You Sold" scenario, how would applying "Handoff & Onboarding – Deliver What You Sold A str" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:54:41.525Z — 697b920ccf21eba1283e7137
+- Updated at (current): 2026-01-29T16:59:56.012Z
+- Question: In a "Metrics – Leading Indicators That You Control" scenario, how would applying "Focus on leading indicators, not vanity numbers" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:54:41.584Z — 697b920ccf21eba1283e7139
+- Updated at (current): 2026-01-29T16:59:56.048Z
+- Question: In a "Metrics – Leading Indicators That You Control" scenario, how would applying "weekly review choose" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:54:41.642Z — 697b920ccf21eba1283e713c
+- Updated at (current): 2026-01-29T16:59:56.117Z
+- Question: In a "Sales Playbook – Make Your Process Transferable" scenario, how would applying "Learning goal Document your ICP, stages, and templ" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:54:41.699Z — 697b920ccf21eba1283e713e
+- Updated at (current): 2026-01-29T16:59:56.259Z
+- Question: In a "Sales Playbook – Make Your Process Transferable" scenario, how would applying "Playbook" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:54:41.810Z — 697b920ccf21eba1283e7149
+- Updated at (current): 2026-01-29T16:59:56.700Z
+- Question: Руководитель принимает решение по принципу: «Практика 2 – Скрипт квалификации (15 мин)». Какой эффект наиболее вероятен для достижения цели, и какой типичный риск возникает при неправильной интерпретации или измерении?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:54:41.876Z — 697b920ccf21eba1283e714d
+- Updated at (current): 2026-01-29T16:59:56.796Z
+- Question: Руководитель принимает решение по принципу: «Лучшие результаты:». Какой эффект наиболее вероятен для достижения цели, и какой типичный риск возникает при неправильной интерпретации или измерении?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:54:41.939Z — 697b9218cf21eba1283e729d
+- Updated at (current): 2026-01-29T17:00:08.344Z
+- Question: Egy vezető a következő elv szerint dönt: „Pontosan tudod, mit várhatsz a GEO-tól: idézést, bevonást és következetességet”. Melyik hatás a legvalószínűbb a GEO elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:54:42.013Z — 697b9218cf21eba1283e72a0
+- Updated at (current): 2026-01-29T17:00:08.388Z
+- Question: Egy vezető a következő elv szerint dönt: „Inklúzió”. Melyik hatás a legvalószínűbb a GEO elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-30T19:54:42.066Z — 697b9218cf21eba1283e72a3
+- Updated at (current): 2026-01-29T17:00:08.456Z
+- Question: Egy vezető a következő elv szerint dönt: „Gyakorlat: írd meg az első GEO promptjaidat (10-15 perc)”. Melyik hatás a legvalószínűbb a GEO elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`

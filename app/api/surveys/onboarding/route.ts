@@ -10,7 +10,6 @@ import { auth } from '@/auth';
 import connectDB from '@/lib/mongodb';
 import { Survey, SurveyResponse, Player, Brand } from '@/lib/models';
 import { logger } from '@/lib/logger';
-import mongoose from 'mongoose';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -21,7 +20,7 @@ export const dynamic = 'force-dynamic';
  * What: Get onboarding survey questions
  * Why: Returns survey questions for the survey form
  */
-export async function GET(request: NextRequest) {
+export async function GET(_request: NextRequest) {
   try {
     const session = await auth();
     if (!session?.user) {
@@ -173,7 +172,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Validate answers match survey questions
-    const questionIds = new Set(survey.questions.map((q) => q.questionId));
+    const _questionIds = new Set(survey.questions.map((q) => q.questionId));
     const answerQuestionIds = new Set(answers.map((a: { questionId?: string }) => a.questionId));
 
     // Check all required questions are answered

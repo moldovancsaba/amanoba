@@ -23,11 +23,8 @@ import PlayerSession from '@/app/lib/models/player-session';
 import PlayerProgression from '@/app/lib/models/player-progression';
 import PointsWallet from '@/app/lib/models/points-wallet';
 import PointsTransaction from '@/app/lib/models/points-transaction';
-import LeaderboardEntry from '@/app/lib/models/leaderboard-entry';
-import DailyChallenge from '@/app/lib/models/daily-challenge';
 import Player from '@/app/lib/models/player';
 import EventLog from '@/app/lib/models/event-log';
-import mongoose from 'mongoose';
 
 // Why: Type definitions for repair request and response
 interface RepairRequest {

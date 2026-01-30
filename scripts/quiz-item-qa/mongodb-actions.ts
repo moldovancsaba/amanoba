@@ -20,24 +20,23 @@ const HANDOVER_NEW2OLD_DOC = 'docs/QUIZ_ITEM_QA_HANDOVER_NEW2OLD.md';
 function ensureNew2OldDocExists() {
   if (existsSync(HANDOVER_NEW2OLD_DOC)) return;
 
-  // Best-effort: bootstrap from the main handover doc if present,
-  // otherwise create a minimal file with just the run log section.
-  if (existsSync(HANDOVER_DOC)) {
-    const base = readFileSync(HANDOVER_DOC, 'utf-8');
-    const marker = '\n## 2026';
-    const idx = base.indexOf(marker);
-    const header = (idx === -1 ? base : base.slice(0, idx)).trimEnd();
-    writeFileSync(
-      HANDOVER_NEW2OLD_DOC,
-      `${header}\n\n## Run log (new-to-old)\n\n`,
-      'utf-8'
-    );
-    return;
-  }
-
+  // Keep this file intentionally minimal: it's a run log, not the workflow doc.
   writeFileSync(
     HANDOVER_NEW2OLD_DOC,
-    '# Quiz Item QA Handover (New-to-old)\n\n## Run log (new-to-old)\n\n',
+    [
+      '# Quiz Item QA Handover (new-to-old)',
+      '',
+      'This file is a run log written by `scripts/quiz-item-qa` (`handover:record` / `loop:run`). New entries are prepended under **Run log (new-to-old)**.',
+      '',
+      'References:',
+      `- Canonical workflow + commands: \`${HANDOVER_DOC}\``,
+      '- Quality rules: `docs/QUIZ_QUALITY_PIPELINE_PLAYBOOK.md#gold-standard-question-type`, `docs/COURSE_BUILDING_RULES.md#gold-standard-only-acceptable-form`',
+      '- Cursor/state SSOT: `.state/quiz_item_qa_state.json` (do not edit manually)',
+      '',
+      '## Run log (new-to-old)',
+      '',
+      '',
+    ].join('\n'),
     'utf-8'
   );
 }

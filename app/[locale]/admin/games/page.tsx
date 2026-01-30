@@ -19,6 +19,7 @@ import {
   EyeOff,
   Gamepad2,
 } from 'lucide-react';
+import Image from 'next/image';
 
 interface Game {
   _id: string;
@@ -159,9 +160,11 @@ export default function AdminGamesPage() {
                     <td className="px-6 py-4">
                       <div className="flex items-center gap-3">
                         {game.thumbnail ? (
-                          <img
+                          <Image
                             src={game.thumbnail}
                             alt={game.name}
+                            width={40}
+                            height={40}
                             className="w-10 h-10 rounded-lg object-cover"
                           />
                         ) : (
@@ -202,7 +205,7 @@ export default function AdminGamesPage() {
                     </td>
                     <td className="px-6 py-4">
                       {game.isPremium ? (
-                        <span className="px-3 py-1 bg-yellow-500/20 text-yellow-400 rounded-full text-xs font-medium">
+                        <span className="px-3 py-1 bg-neutral-600/80 text-neutral-200 rounded-full text-xs font-medium">
                           {tCommon('premium')}
                         </span>
                       ) : (

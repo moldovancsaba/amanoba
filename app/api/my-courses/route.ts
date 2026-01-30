@@ -8,7 +8,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { auth } from '@/auth';
 import connectDB from '@/lib/mongodb';
-import { CourseProgress, Course, Player } from '@/lib/models';
+import { CourseProgress, Player } from '@/lib/models';
 import { logger } from '@/lib/logger';
 
 /**
@@ -42,7 +42,7 @@ function calculateCurrentDay(completedDays: number[], totalDays: number): number
  * 
  * What: Get all courses student is enrolled in
  */
-export async function GET(request: NextRequest) {
+export async function GET(_request: NextRequest) {
   try {
     const session = await auth();
     if (!session?.user) {

@@ -33,7 +33,7 @@ interface ResponseEmoji {
  * 
  * Cache: 1 hour (3600 seconds)
  */
-export async function GET(request: NextRequest) {
+export async function GET(_request: NextRequest) {
   try {
     // Why: Connect to database
     await connectDB();

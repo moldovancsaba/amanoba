@@ -6,13 +6,13 @@
  */
 
 import type { Metadata } from 'next';
-import { notFound, redirect } from 'next/navigation';
+import { notFound } from 'next/navigation';
 import connectDB from '@/app/lib/mongodb';
 import { Course } from '@/app/lib/models';
 import { Brand } from '@/app/lib/models';
 import { APP_URL } from '@/app/lib/constants/app-url';
 
-const courseLocales = ['hu', 'en', 'ar', 'hi', 'id', 'pt', 'vi', 'tr', 'bg', 'pl', 'ru'] as const;
+const _courseLocales = ['hu', 'en', 'ar', 'hi', 'id', 'pt', 'vi', 'tr', 'bg', 'pl', 'ru'] as const;
 
 const baseUrl = APP_URL;
 
@@ -168,7 +168,7 @@ export default async function CourseDetailLayout({
   children: React.ReactNode;
   params: Promise<{ courseId: string; locale: string }>;
 }) {
-  const { courseId, locale } = await params;
+  const { courseId, locale: _locale } = await params;
   await connectDB();
 
   const course = await Course.findOne({ courseId })

@@ -8,10 +8,9 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { auth } from '@/auth';
 import connectDB from '@/lib/mongodb';
-import { Course, Lesson, QuizQuestion, QuestionDifficulty } from '@/lib/models';
+import { Course, Lesson, QuizQuestion } from '@/lib/models';
 import { logger } from '@/lib/logger';
 import { requireAdminOrEditor, getPlayerIdFromSession, isAdmin, canAccessCourse } from '@/lib/rbac';
-import mongoose from 'mongoose';
 
 /**
  * PATCH /api/admin/courses/[courseId]/lessons/[lessonId]/quiz/[questionId]

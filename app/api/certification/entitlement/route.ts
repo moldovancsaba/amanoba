@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { auth } from '@/auth';
 import connectDB from '@/lib/mongodb';
 import { Course, CertificateEntitlement } from '@/lib/models';
-import { isCertificationAvailable, getCertificationPoolCount, resolvePoolCourse } from '@/lib/certification';
+import { getCertificationPoolCount, resolvePoolCourse } from '@/lib/certification';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';

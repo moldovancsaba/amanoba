@@ -72,7 +72,7 @@ export async function GET(
     await connectDB();
 
     // Fetch data
-    const [player, course, progress] = await Promise.all([
+    const [player, course, _progress] = await Promise.all([
       Player.findById(playerId).lean(),
       Course.findOne({ courseId }).lean(),
       CourseProgress.findOne({

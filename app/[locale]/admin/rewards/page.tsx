@@ -17,6 +17,7 @@ import {
   Trash2,
   Gift,
 } from 'lucide-react';
+import Image from 'next/image';
 
 interface Reward {
   _id: string;
@@ -149,9 +150,11 @@ export default function AdminRewardsPage() {
                   {reward.media.iconEmoji ? (
                     <div className="text-4xl">{reward.media.iconEmoji}</div>
                   ) : reward.media.imageUrl ? (
-                    <img
+                    <Image
                       src={reward.media.imageUrl}
                       alt={reward.name}
+                      width={48}
+                      height={48}
                       className="w-12 h-12 rounded-lg object-cover"
                     />
                   ) : (
@@ -167,7 +170,7 @@ export default function AdminRewardsPage() {
                   </div>
                 </div>
                 {reward.availability.premiumOnly && (
-                  <span className="px-2 py-1 bg-yellow-500/20 text-yellow-400 rounded text-xs">
+                  <span className="px-2 py-1 bg-neutral-600/80 text-neutral-200 rounded text-xs">
                     Premium
                   </span>
                 )}

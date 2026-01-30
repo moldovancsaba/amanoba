@@ -20,7 +20,8 @@ const GA_MEASUREMENT_ID = 'G-53XPWHKJTM';
 export default function GoogleAnalytics() {
   return (
     <>
-      {/* Initialize dataLayer and gtag function BEFORE loading gtag.js */}
+      {/* Initialize dataLayer and gtag function BEFORE loading gtag.js (beforeInteractive required for consent defaults; App Router has no _document) */}
+      {/* eslint-disable-next-line @next/next/no-before-interactive-script-outside-document */}
       <Script id="google-analytics-init" strategy="beforeInteractive">
         {`
           window.dataLayer = window.dataLayer || [];

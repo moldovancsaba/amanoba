@@ -282,8 +282,9 @@ export async function startAchievementWorker(
   logger.info('Achievement worker started successfully');
 }
 
-export default {
+const achievementWorker = {
   processAchievementJob,
   processAchievementBatch,
   startAchievementWorker,
 };
+export default achievementWorker;

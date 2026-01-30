@@ -9,9 +9,8 @@ import { NextRequest, NextResponse } from 'next/server';
 import { auth } from '@/auth';
 import { requireAdmin } from '@/lib/rbac';
 import connectDB from '@/lib/mongodb';
-import { Survey, SurveyResponse, Player, Brand } from '@/lib/models';
+import { Survey, SurveyResponse, Player } from '@/lib/models';
 import { logger } from '@/lib/logger';
-import mongoose from 'mongoose';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';

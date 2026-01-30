@@ -8,7 +8,7 @@
 
 import { useState, useEffect } from 'react';
 import { useSession } from 'next-auth/react';
-import { Play, RotateCcw, Lightbulb, X, Clock, Trophy, Zap } from 'lucide-react';
+import { Play, RotateCcw, Lightbulb, X, Clock, Zap } from 'lucide-react';
 import { LocaleLink } from '@/components/LocaleLink';
 import { useRouter } from 'next/navigation';
 import {
@@ -30,9 +30,8 @@ export default function SudokuGame() {
     const sessionData = useSession();
     session = sessionData.data;
     status = sessionData.status;
-  } catch (error) {
+  } catch (_error) {
     // Handle SSR/build time when session provider might not be available
-    if (process.env.NODE_ENV === 'development') console.log('Session not available during build');
   }
   
   const router = useRouter();
@@ -201,8 +200,8 @@ export default function SudokuGame() {
             }));
             setCompletedChallenges(completed);
           }
-        } catch (e) {
-          if (process.env.NODE_ENV === 'development') console.warn('Challenges refresh failed', e);
+        } catch (_e) {
+          // Challenges refresh failed (non-critical)
         }
       }
     } catch (error) {

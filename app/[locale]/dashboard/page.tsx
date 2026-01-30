@@ -11,6 +11,7 @@ import { useEffect, useState, useRef, useCallback } from 'react';
 import { useSession, signOut } from 'next-auth/react';
 import { useRouter, usePathname } from 'next/navigation';
 import { useTranslations, useLocale } from 'next-intl';
+import Image from 'next/image';
 import { LocaleLink } from '@/components/LocaleLink';
 import { ReferralCard } from '@/components/ReferralCard';
 import Logo from '@/components/Logo';
@@ -77,8 +78,8 @@ interface PlayerData {
 
 export default function Dashboard() {
   const { data: session, status } = useSession();
-  const router = useRouter();
-  const pathname = usePathname();
+  const _router = useRouter();
+  const _pathname = usePathname();
   const locale = useLocale();
   const hasCheckedSurvey = useRef(false);
   const t = useTranslations('dashboard');
@@ -172,8 +173,7 @@ export default function Dashboard() {
       if (response.ok) {
         const data = await response.json();
         setPlayerData(data);
-        if (process.env.NODE_ENV === 'development') console.log('Dashboard data refreshed:', data);
-        
+
         // ONBOARDING REDIRECT DISABLED - Will be re-enabled after fixing issues
         // Check if player needs to complete survey
         // Only check once per session and only if we're actually on dashboard
@@ -454,11 +454,13 @@ export default function Dashboard() {
                     className="block bg-brand-darkGrey/5 rounded-lg p-4 border-2 border-brand-darkGrey/20 hover:border-brand-accent transition-all hover:shadow-lg"
                   >
                     {course.thumbnail && (
-                      <div className="w-full h-32 bg-brand-darkGrey rounded-lg mb-3 overflow-hidden">
-                        <img
+                      <div className="relative w-full h-32 bg-brand-darkGrey rounded-lg mb-3 overflow-hidden">
+                        <Image
                           src={course.thumbnail}
                           alt={course.name}
-                          className="w-full h-full object-cover"
+                          fill
+                          className="object-cover"
+                          sizes="(max-width: 768px) 100vw, 20rem"
                         />
                       </div>
                     )}

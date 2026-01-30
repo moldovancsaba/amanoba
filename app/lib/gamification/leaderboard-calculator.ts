@@ -12,7 +12,7 @@
  */
 
 import type { PipelineStage } from 'mongoose';
-import { LeaderboardEntry, PlayerProgression, PointsWallet, Streak, Player } from '@/lib/models';
+import { LeaderboardEntry, PlayerProgression, PointsWallet, Streak } from '@/lib/models';
 import logger from '@/lib/logger';
 
 /**
@@ -522,7 +522,7 @@ async function calculateDailyStreakLeaderboard(
 async function calculateGamesWonLeaderboard(
   brandId?: string,
   limit: number = 100,
-  dateRange?: { start: Date; end: Date }
+  _dateRange?: { start: Date; end: Date }
 ): Promise<Array<{ playerId: string; value: number; rank: number }>> {
   const pipeline: Record<string, unknown>[] = [
     {
@@ -558,7 +558,7 @@ async function calculateGamesWonLeaderboard(
 async function calculateWinRateLeaderboard(
   brandId?: string,
   limit: number = 100,
-  dateRange?: { start: Date; end: Date }
+  _dateRange?: { start: Date; end: Date }
 ): Promise<Array<{ playerId: string; value: number; rank: number }>> {
   const pipeline: Record<string, unknown>[] = [
     {

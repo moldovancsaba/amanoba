@@ -11,7 +11,6 @@ import connectDB from '@/lib/mongodb';
 import { Course, Lesson, QuizQuestion, QuestionDifficulty } from '@/lib/models';
 import { logger } from '@/lib/logger';
 import { requireAdminOrEditor, getPlayerIdFromSession, isAdmin, canAccessCourse } from '@/lib/rbac';
-import mongoose from 'mongoose';
 
 /**
  * GET /api/admin/courses/[courseId]/lessons/[lessonId]/quiz

@@ -18,7 +18,8 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { Crown, User } from 'lucide-react';
+import Image from 'next/image';
+import { Crown } from 'lucide-react';
 
 export interface PlayerAvatarProps {
   playerId: string;
@@ -90,14 +91,16 @@ export default function PlayerAvatar({
   const avatarContent = (
     <div className={`relative ${sizeClasses[size]} ${className}`}>
       {/* Main avatar circle */}
-      <div className={`${sizeClasses[size]} rounded-full overflow-hidden border-2 ${
+      <div className={`relative ${sizeClasses[size]} rounded-full overflow-hidden border-2 ${
         isPremium ? 'border-indigo-300' : 'border-gray-600'
-      } bg-gradient-to-br from-indigo-600 to-purple-600 flex items-center justify-center relative`}>
+      } bg-gradient-to-br from-indigo-600 to-purple-600 flex items-center justify-center`}>
         {profilePicture && !imageError ? (
-          <img
+          <Image
             src={profilePicture}
             alt={displayName}
-            className="w-full h-full object-cover"
+            fill
+            className="object-cover"
+            unoptimized
             onError={() => setImageError(true)}
           />
         ) : (

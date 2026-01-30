@@ -220,8 +220,8 @@ export default function MemoryGame({
               }));
               setCompletedChallenges(completed);
             }
-          } catch (e) {
-            if (process.env.NODE_ENV === 'development') console.warn('Challenges refresh failed', e);
+          } catch {
+            // Challenges refresh failed (non-critical)
           }
         }
       } catch (error) {

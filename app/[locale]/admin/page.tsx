@@ -381,7 +381,7 @@ export default function AdminDashboardPage() {
             <div>
               <div className="text-gray-400 text-sm mb-1">{t('uptime')}</div>
               <div className="text-white">
-                {systemInfo?.uptime || '99.9%'}
+                {systemInfo?.uptime ?? '—'}
               </div>
             </div>
           </div>

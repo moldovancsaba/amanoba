@@ -22,10 +22,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import mongoose from 'mongoose';
 import connectDB from '@/lib/mongodb';
-import {
-  CourseProgress,
-  Course,
-} from '@/lib/models';
+import { CourseProgress } from '@/lib/models';
 import { logger } from '@/lib/logger';
 
 export const runtime = 'nodejs';

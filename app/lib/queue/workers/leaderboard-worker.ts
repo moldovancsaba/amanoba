@@ -186,7 +186,7 @@ export async function startLeaderboardWorker(
  */
 export async function enqueueLeaderboardUpdate(
   payload: LeaderboardJobPayload,
-  priority: number = 3
+  _priority: number = 3
 ): Promise<string> {
   const job = await JobQueueManager.enqueueJob({
     jobType: 'leaderboard',
@@ -208,7 +208,7 @@ export async function enqueueLeaderboardUpdate(
  */
 export async function enqueueAllLeaderboardsUpdate(
   brandId?: string,
-  priority: number = 2
+  _priority: number = 2
 ): Promise<string> {
   const job = await JobQueueManager.enqueueJob({
     jobType: 'leaderboard',

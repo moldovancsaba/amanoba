@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import mongoose from 'mongoose';
 import connectToDatabase from '@/lib/mongodb';
 import logger from '@/lib/logger';
-import { DailyChallenge, PlayerChallengeProgress } from '@/lib/models/daily-challenge';
+import { PlayerChallengeProgress } from '@/lib/models/daily-challenge';
 import { PlayerSession } from '@/lib/models';
 
 export const runtime = 'nodejs';
@@ -44,7 +44,7 @@ export async function GET(request: NextRequest) {
     let playerObjectId: mongoose.Types.ObjectId | null = null;
     try {
       playerObjectId = new mongoose.Types.ObjectId(playerId);
-    } catch (e) {
+    } catch (_e) {
       return NextResponse.json(
         { error: 'Invalid playerId' },
         { status: 400 }
@@ -78,7 +78,7 @@ export async function GET(request: NextRequest) {
         };
 
         for (const ch of challenges) {
-          const target = ch.requirement.target;
+          const _target = ch.requirement.target;
           let value = 0;
           switch (ch.type) {
             case 'games_played':

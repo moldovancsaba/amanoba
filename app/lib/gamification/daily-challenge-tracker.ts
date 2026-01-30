@@ -20,7 +20,7 @@ import {
   PlayerProgression,
   EventLog,
 } from '../models';
-import type { IDailyChallenge, ChallengeType } from '../models/daily-challenge';
+import type { IDailyChallenge } from '../models/daily-challenge';
 import logger from '../logger';
 import { ensureDailyChallengesForToday } from './daily-challenge-service';
 

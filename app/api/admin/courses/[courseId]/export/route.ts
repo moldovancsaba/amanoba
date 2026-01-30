@@ -41,10 +41,10 @@ export async function GET(
     }
 
     // Get brand info (optional - export should work even if brand is missing)
-    let brand = null;
+    let _brand = null;
     if (course.brandId) {
       try {
-        brand = await Brand.findById(course.brandId).lean();
+        _brand = await Brand.findById(course.brandId).lean();
       } catch (error) {
         logger.warn({ courseId, brandId: course.brandId, error }, 'Failed to fetch brand for export, continuing without brand info');
       }

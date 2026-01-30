@@ -11,12 +11,9 @@ import { useState, useEffect } from 'react';
 import { useSession } from 'next-auth/react';
 import { useTranslations } from 'next-intl';
 import { LocaleLink } from '@/components/LocaleLink';
+import Image from 'next/image';
 import {
   BookOpen,
-  Calendar,
-  Award,
-  TrendingUp,
-  Play,
   CheckCircle,
 } from 'lucide-react';
 import Logo from '@/components/Logo';
@@ -128,11 +125,13 @@ export default function MyCoursesPage() {
                 className="bg-brand-white rounded-xl p-5 sm:p-6 border-2 border-brand-accent hover:shadow-lg transition-all"
               >
                 {item.course.thumbnail && (
-                  <div className="w-full h-40 bg-brand-darkGrey rounded-lg mb-4 overflow-hidden">
-                    <img
+                  <div className="relative w-full h-40 bg-brand-darkGrey rounded-lg mb-4 overflow-hidden">
+                    <Image
                       src={item.course.thumbnail}
                       alt={item.course.name}
-                      className="w-full h-full object-cover"
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 768px) 100vw, 20rem"
                     />
                   </div>
                 )}

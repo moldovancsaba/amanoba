@@ -8,7 +8,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { auth } from '@/auth';
 import connectDB from '@/lib/mongodb';
-import { Player, PlayerSession, AchievementUnlock, PointsTransaction, CourseProgress, Game, RewardRedemption } from '@/lib/models';
+import { Player, PlayerSession, AchievementUnlock, PointsTransaction, Game, RewardRedemption } from '@/lib/models';
 import { logger } from '@/lib/logger';
 import { requireAdmin } from '@/lib/rbac';
 import { checkRateLimit, adminRateLimiter } from '@/lib/security';

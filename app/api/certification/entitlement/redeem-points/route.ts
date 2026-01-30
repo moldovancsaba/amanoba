@@ -126,7 +126,7 @@ export async function POST(request: NextRequest) {
     sessionDb.endSession();
 
     return NextResponse.json({ success: true, data: entitlement[0] });
-  } catch (error) {
+  } catch (_error) {
     await sessionDb.abortTransaction();
     sessionDb.endSession();
     return NextResponse.json({ success: false, error: 'Failed to redeem points' }, { status: 500 });

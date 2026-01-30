@@ -8,7 +8,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { auth } from '@/auth';
 import connectDB from '@/lib/mongodb';
-import { PaymentTransaction, Course } from '@/lib/models';
+import { PaymentTransaction } from '@/lib/models';
 import { logger } from '@/lib/logger';
 
 export const runtime = 'nodejs';

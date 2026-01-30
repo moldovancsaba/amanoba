@@ -16,10 +16,11 @@ import {
   Mail,
   Shield,
   Globe,
-  Image,
+  Image as ImageIcon,
   Upload,
   Award,
 } from 'lucide-react';
+import Image from 'next/image';
 
 interface CertPriceMoney {
   amount?: number;
@@ -467,7 +468,7 @@ export default function AdminSettingsPage() {
         {/* Course Settings */}
         <div className="bg-gray-800 rounded-xl p-6 border border-gray-700">
           <div className="flex items-center gap-3 mb-4">
-            <Image className="w-6 h-6 text-indigo-500" />
+            <ImageIcon className="w-6 h-6 text-indigo-500" />
             <h2 className="text-xl font-bold text-white">Course Settings</h2>
           </div>
           <div className="space-y-4">
@@ -478,10 +479,12 @@ export default function AdminSettingsPage() {
               <div className="space-y-3">
                 {defaultThumbnail && (
                   <div className="relative w-full h-48 bg-gray-700 rounded-lg overflow-hidden border-2 border-indigo-500">
-                    <img
+                    <Image
                       src={defaultThumbnail}
                       alt="Default course thumbnail"
-                      className="w-full h-full object-cover"
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 768px) 100vw, 24rem"
                     />
                     <button
                       onClick={async () => {

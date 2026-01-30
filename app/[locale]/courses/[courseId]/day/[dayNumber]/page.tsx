@@ -369,7 +369,7 @@ export default function DailyLessonPage({
   const [quizPassed, setQuizPassed] = useState(false);
   const [courseLanguage, setCourseLanguage] = useState<string>('en');
   const searchParams = useSearchParams();
-  const locale = useLocale();
+  const _locale = useLocale();
 
   const fetchLesson = useCallback(async (cid: string, day: number, opts: { silent?: boolean; fallbackLanguage?: string } = {}) => {
     const errorLanguage = opts.fallbackLanguage || 'en';

@@ -22,6 +22,7 @@ import {
   Play,
   CreditCard,
 } from 'lucide-react';
+import Image from 'next/image';
 import Logo from '@/components/Logo';
 
 interface Course {
@@ -98,6 +99,7 @@ export default function CourseDetailPage({
   const [courseId, setCourseId] = useState<string>('');
   const [lessons, setLessons] = useState<Lesson[]>([]);
   const [loadingLessons, setLoadingLessons] = useState(false);
+  const [thumbnailError, setThumbnailError] = useState(false);
   
   // All translations use course language via getCourseDetailText()
 
@@ -641,7 +643,7 @@ export default function CourseDetailPage({
       } else {
         setEntitlement(null);
       }
-    } catch (error) {
+    } catch (_error) {
       setEntitlement(null);
     }
   }, []);
@@ -947,16 +949,15 @@ export default function CourseDetailPage({
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-10">
           {/* Main Content */}
           <div className="lg:col-span-2 space-y-8">
-            {course.thumbnail ? (
-              <div className="w-full rounded-2xl overflow-hidden aspect-video">
-                <img
+            {course.thumbnail && !thumbnailError ? (
+              <div className="relative w-full rounded-2xl overflow-hidden aspect-video">
+                <Image
                   src={course.thumbnail}
                   alt={course.name}
-                  className="w-full h-full object-cover"
-                  onError={(e) => {
-                    // Fallback to a placeholder if image fails to load
-                    (e.target as HTMLImageElement).src = '/icon-192.svg';
-                  }}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 66vw"
+                  onError={() => setThumbnailError(true)}
                 />
               </div>
             ) : (

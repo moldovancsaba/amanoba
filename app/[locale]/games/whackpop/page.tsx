@@ -103,8 +103,8 @@ export default function WhackPopGame() {
   const [rewards, setRewards] = useState<{ xp: number; points: number; streakBonus?: number } | null>(null);
   const [completedChallenges, setCompletedChallenges] = useState<Array<{ title: string; rewardsEarned: { points: number; xp: number } }>>([]);
   const [isCompleting, setIsCompleting] = useState(false);
-  const [playerLevel, setPlayerLevel] = useState(1);
-  const [isPremium, setIsPremium] = useState(false);
+  const [_playerLevel, _setPlayerLevel] = useState(1);
+  const [isPremium, _setIsPremium] = useState(false);
   const [emojis, setEmojis] = useState<string[]>([]);
   const [isLoadingEmojis, setIsLoadingEmojis] = useState(true);
   const [fetchError, setFetchError] = useState<string | null>(null);
@@ -122,7 +122,6 @@ export default function WhackPopGame() {
           const { emojis: cachedEmojis, timestamp } = JSON.parse(cached);
           // Why: Cache valid for 1 hour (emojis rarely change)
           if (Date.now() - timestamp < 60 * 60 * 1000) {
-            if (process.env.NODE_ENV === 'development') console.log('Using cached emojis');
             setEmojis(cachedEmojis);
             setIsLoadingEmojis(false);
             return;
@@ -155,7 +154,6 @@ export default function WhackPopGame() {
         );
 
         setIsLoadingEmojis(false);
-        if (process.env.NODE_ENV === 'development') console.log(`Loaded ${fetchedEmojis.length} emojis from database`);
 
       } catch (error) {
         console.error('Error fetching emojis:', error);
@@ -169,7 +167,6 @@ export default function WhackPopGame() {
             '⚽', '🏀', '🏈', '⚾', '🎾', '🏐', '🏉', '🎱'
           ];
           
-          if (process.env.NODE_ENV === 'development') console.log('Using fallback emoji set');
           setEmojis(fallbackEmojis);
           
           // Why: Cache fallback emojis
@@ -352,8 +349,8 @@ export default function WhackPopGame() {
                 setCompletedChallenges(completed);
               }
             }
-          } catch (e) {
-            if (process.env.NODE_ENV === 'development') console.warn('Challenges refresh failed', e);
+          } catch {
+            // Challenges refresh failed (non-critical)
           }
         }
       } catch (error) {

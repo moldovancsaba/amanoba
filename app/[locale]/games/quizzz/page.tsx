@@ -117,8 +117,8 @@ export default function QuizzzGame() {
     title: string;
     rewardsEarned: { points: number; xp: number };
   }>>([]);
-  const [playerLevel, setPlayerLevel] = useState(1);
-  const [isPremium, setIsPremium] = useState(false);
+  const [_playerLevel, _setPlayerLevel] = useState(1);
+  const [isPremium, _setIsPremium] = useState(false);
   const [isLoadingQuestions, setIsLoadingQuestions] = useState(false);
   const [fetchError, setFetchError] = useState<string | null>(null);
   const [isCompleting, setIsCompleting] = useState(false);
@@ -172,16 +172,13 @@ export default function QuizzzGame() {
         // Why: If API returned fewer questions than requested, we've exhausted the pool
         // Reset seen list so questions can repeat on next game
         if (apiQuestions.length < count) {
-          if (process.env.NODE_ENV === 'development') console.log(`⚠️ Pool exhausted for ${diff} - got ${apiQuestions.length}/${count} questions. Resetting seen list.`);
           sessionStorage.setItem(seenKey, JSON.stringify(newIds));
         } else {
-          // Why: Add new questions to accumulated seen list
           const updated = [...new Set([...seenIds, ...newIds])];
           sessionStorage.setItem(seenKey, JSON.stringify(updated));
-          if (process.env.NODE_ENV === 'development') console.log(`✅ Tracking ${updated.length} total seen questions for ${diff}`);
         }
-      } catch (err) {
-        if (process.env.NODE_ENV === 'development') console.warn('Failed to update seen questions:', err);
+      } catch {
+        // Failed to update seen questions (non-critical)
       }
 
       // Why: Fetch correct answers separately (security: not in main response)
@@ -201,8 +198,7 @@ export default function QuizzzGame() {
           correctIndex: answersData.data.answers[idx].correctIndex,
         }));
       } else {
-        // Why: Fallback - generate random correct answers (for development)
-        if (process.env.NODE_ENV === 'development') console.warn('Could not fetch answers, using random fallback');
+        // Fallback: generate random correct answers when answers API unavailable
         questionsWithAnswers = apiQuestions.map(q => ({
           ...q,
           correctIndex: Math.floor(Math.random() * 4),
@@ -384,7 +380,6 @@ export default function QuizzzGame() {
     // Why: Start backend session to track progress and award rewards
     try {
       const playerId = (session.user as { id: string }).id;
-      if (process.env.NODE_ENV === 'development') console.log('Starting game session...', { playerId, gameId: 'quizzz', difficulty });
 
       const response = await fetch('/api/game-sessions/start', {
         method: 'POST',
@@ -399,7 +394,6 @@ export default function QuizzzGame() {
       if (response.ok) {
         const data = await response.json();
         setSessionId(data.sessionId);
-        if (process.env.NODE_ENV === 'development') console.log('✅ Game session started:', data.sessionId);
       } else {
         const errorText = await response.text();
         console.error('❌ Failed to start game session:', response.status, errorText);
@@ -457,7 +451,6 @@ export default function QuizzzGame() {
           correctAnswers: correctQuestionIds,
         }),
       });
-      if (process.env.NODE_ENV === 'development') console.log(`Tracked ${correctQuestionIds.length}/${questions.length} correct answers`);
     } catch (error) {
       console.error('Failed to track question stats:', error);
     }
@@ -474,8 +467,7 @@ export default function QuizzzGame() {
       try {
         setIsCompleting(true);
         const finalScore = Math.round(score * 100 * config.pointsMultiplier);
-        if (process.env.NODE_ENV === 'development') console.log('Completing session...', { sessionId, score, finalScore, isWin, duration, accuracy });
-        
+
         const response = await fetch('/api/game-sessions/complete', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
@@ -488,11 +480,8 @@ export default function QuizzzGame() {
           }),
         });
 
-        if (process.env.NODE_ENV === 'development') console.log('📡 Complete API response status:', response.status, response.statusText);
-
         if (response.ok) {
           const data = await response.json();
-          if (process.env.NODE_ENV === 'development') console.log('✅ Game session completed with rewards:', data);
           setRewards(data.rewards);
           setProgression(data.progression);
           setAchievements(data.achievements?.achievements || []);
@@ -511,8 +500,8 @@ export default function QuizzzGame() {
                 setCompletedChallenges(completed);
               }
             }
-          } catch (e) {
-            if (process.env.NODE_ENV === 'development') console.warn('Failed to refresh challenges after completion', e);
+          } catch {
+            // Challenges refresh after completion failed (non-critical)
           }
         } else {
           const errorText = await response.text();

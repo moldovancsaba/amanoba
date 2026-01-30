@@ -10,7 +10,6 @@ import { auth } from '@/auth';
 import { AnonymousLoginButton } from '@/app/components/AnonymousLoginButton';
 import { getTranslations } from 'next-intl/server';
 import { LocaleLink } from '@/components/LocaleLink';
-import Logo from '@/components/Logo';
 import Image from 'next/image';
 import Icon, { MdMenuBook, MdEmail, MdGpsFixed } from '@/components/Icon';
 

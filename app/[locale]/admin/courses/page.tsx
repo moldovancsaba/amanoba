@@ -28,6 +28,7 @@ import {
   FolderOpen,
   FileText,
 } from 'lucide-react';
+import Image from 'next/image';
 
 interface Course {
   _id: string;
@@ -586,11 +587,13 @@ export default function AdminCoursesPage() {
             >
               {/* Course Thumbnail */}
               {course.thumbnail && (
-                <div className="w-full h-40 bg-brand-darkGrey rounded-lg mb-4 overflow-hidden">
-                  <img
+                <div className="relative w-full h-40 bg-brand-darkGrey rounded-lg mb-4 overflow-hidden">
+                  <Image
                     src={course.thumbnail}
                     alt={course.name}
-                    className="w-full h-full object-cover"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 20rem"
                   />
                 </div>
               )}

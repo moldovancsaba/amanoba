@@ -99,7 +99,7 @@ export default function RichTextEditor({
         margin: 1em 0;
       }
       .ProseMirror a {
-        color: #FAB908 !important;
+        color: ${process.env.NEXT_PUBLIC_THEME_COLOR || '#FAB908'} !important;
         text-decoration: underline;
       }
       .ProseMirror p.is-editor-empty:first-child::before {

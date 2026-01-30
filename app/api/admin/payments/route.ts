@@ -8,7 +8,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { auth } from '@/auth';
 import connectDB from '@/lib/mongodb';
-import { PaymentTransaction, PaymentStatus, Course, Player } from '@/lib/models';
+import { PaymentTransaction, PaymentStatus, Course } from '@/lib/models';
 import { logger } from '@/lib/logger';
 import { requireAdmin } from '@/lib/rbac';
 import mongoose from 'mongoose';

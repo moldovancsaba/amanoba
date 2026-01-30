@@ -271,7 +271,7 @@ export default function FinalExamPage() {
   const params = useParams<{ courseId: string; locale: string }>();
   const courseId = params.courseId;
   const router = useRouter();
-  const locale = useLocale();
+  const _locale = useLocale();
   const { data: session, status } = useSession();
 
   const [courseLanguage, setCourseLanguage] = useState<string>('en');
@@ -422,7 +422,7 @@ export default function FinalExamPage() {
 
   const ent = entitlement;
   const unavailable = !ent?.certificationEnabled || !ent?.certificationAvailable;
-  const canStart = ent?.entitlementOwned && !unavailable;
+  const _canStart = ent?.entitlementOwned && !unavailable;
 
   return (
     <div className="max-w-3xl mx-auto p-6 text-white space-y-6" dir={courseLanguage === 'ar' ? 'rtl' : 'ltr'}>

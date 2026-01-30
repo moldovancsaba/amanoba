@@ -189,6 +189,18 @@ function sanitizeStandaloneQuestion(question: string): string {
   // We keep this conservative to avoid mangling semantics too much.
   let q = normalizeText(question);
 
+  // Common English "lesson reference" patterns that can be safely rewritten
+  // without changing the underlying meaning of the question.
+  q = q
+    .replace(/\bis\s+most\s+aligned\s+with\s+the\s+lesson\b/gi, 'best fits the scenario')
+    .replace(/\bmost\s+aligned\s+with\s+the\s+lesson\b/gi, 'best fits the scenario')
+    .replace(/\bthe\s+lesson\s+(suggests|recommends)\s+tracking\b/gi, 'you should track')
+    .replace(/\bthe\s+lesson\s+(suggests|recommends)\b/gi, 'you should')
+    .replace(/\bwhy\s+does\s+the\s+lesson\s+(emphasize|stress|highlight)\b/gi, 'Why is it important that')
+    .replace(/\bdoes\s+the\s+lesson\s+(emphasize|stress|highlight)\b/gi, 'is it important that')
+    .replace(/\baligned\s+with\s+the\s+lesson\b/gi, 'fits the scenario')
+    .replace(/\bmatches\s+the\s+lesson\b/gi, 'fits the scenario');
+
   q = q
     // "In the \"...\" lesson, ..." -> remove leading lesson-title wrapper
     .replace(/^in\s+the\s+["“][^"”]+["”]\s+lesson[:,]?\s*/i, '')
@@ -198,11 +210,15 @@ function sanitizeStandaloneQuestion(question: string): string {
     .replace(/\s+as\s+discussed\s+in\s+the\s+lesson\??\s*$/i, '')
     .replace(/\s+in\s+the\s+lesson\??\s*$/i, '')
     .replace(/\s+from\s+the\s+lesson\??\s*$/i, '')
+    .replace(/\s+(with|from)\s+the\s+lesson\??\s*$/i, '')
+    // Last-resort: strip dangling "the lesson" after targeted rewrites.
+    .replace(/\bthe\s+lesson\b/gi, '')
     .replace(/\s{2,}/g, ' ')
     .trim();
 
   // Remove leftover punctuation from stripped prefixes.
   q = q.replace(/^[,.;:()-]+\s*/g, '').trim();
+  q = q.replace(/\s+[?!.]\s*$/g, (m) => m.trim()).trim();
   return q;
 }
 

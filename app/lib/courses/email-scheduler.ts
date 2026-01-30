@@ -7,7 +7,7 @@
 
 import { logger } from '../logger';
 import connectDB from '../mongodb';
-import { CourseProgress, Player, Course, Lesson } from '../models';
+import { CourseProgress, Lesson } from '../models';
 import { sendLessonEmail, sendReminderEmail } from '../email/email-service';
 import { resolveLessonForChildDay } from '../course-helpers';
 import type { ILesson } from '../models/lesson';
@@ -143,8 +143,8 @@ export async function sendDailyLessons(targetDate?: Date): Promise<{
         }
 
         // Check timezone and preferred email time
-        const playerTimezone = player.emailPreferences?.timezone || player.timezone || 'UTC';
-        const preferredHour = player.emailPreferences?.preferredEmailTime ?? 8; // Default 8 AM
+        const _playerTimezone = player.emailPreferences?.timezone || player.timezone || 'UTC';
+        const _preferredHour = player.emailPreferences?.preferredEmailTime ?? 8; // Default 8 AM
 
         // For MVP: Send immediately (timezone-aware scheduling can be added later)
         // In production, this would check if current time matches preferred time in user's timezone

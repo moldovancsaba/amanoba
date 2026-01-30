@@ -12,7 +12,6 @@
  */
 
 import { IGame } from '../models/game';
-import { IPlayerProgression } from '../models/player-progression';
 
 /**
  * Interface: XP Calculation Input

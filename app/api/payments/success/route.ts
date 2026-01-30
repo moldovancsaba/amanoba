@@ -12,7 +12,6 @@ import { PaymentTransaction } from '@/lib/models';
 import { logger } from '@/lib/logger';
 import { APP_URL } from '@/app/lib/constants/app-url';
 import Stripe from 'stripe';
-import { redirect } from 'next/navigation';
 
 // Initialize Stripe
 const stripe = process.env.STRIPE_SECRET_KEY
@@ -69,7 +68,7 @@ export async function GET(request: NextRequest) {
     // Get metadata
     const metadata = checkoutSession.metadata;
     const courseId = metadata?.courseId;
-    const playerId = metadata?.playerId;
+    const _playerId = metadata?.playerId;
 
     // Verify transaction exists in database (webhook should have created it)
     const transaction = await PaymentTransaction.findOne({

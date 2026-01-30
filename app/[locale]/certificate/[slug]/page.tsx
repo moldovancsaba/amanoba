@@ -40,7 +40,7 @@ export default function CertificateVerificationPage({
 }: {
   params: Promise<{ slug: string }>;
 }) {
-  const t = useTranslations('common');
+  const _t = useTranslations('common');
   const locale = useLocale();
   const router = useRouter();
   const { data: session } = useSession();

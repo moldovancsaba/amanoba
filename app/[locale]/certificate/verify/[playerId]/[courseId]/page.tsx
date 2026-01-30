@@ -34,7 +34,7 @@ export default function CertificateVerificationPage({
 }: {
   params: Promise<{ playerId: string; courseId: string }>;
 }) {
-  const t = useTranslations('common');
+  const _t = useTranslations('common');
   const locale = useLocale();
   const router = useRouter();
   const [playerId, setPlayerId] = useState<string | null>(null);

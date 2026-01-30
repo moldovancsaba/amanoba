@@ -72,7 +72,7 @@ export async function GET(request: NextRequest) {
 
       // Calculate which steps are completed
       const stepsCompleted = progress?.stepsCompleted || [];
-      const stepsWithProgress = quest.steps.map((step, index) => ({
+      const stepsWithProgress = quest.steps.map((step, _index) => ({
         stepNumber: step.stepNumber,
         description: step.description,
         isCompleted: stepsCompleted.includes(step.stepNumber),

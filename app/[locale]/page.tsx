@@ -1,7 +1,6 @@
 import { auth } from '@/auth';
 import { getTranslations } from 'next-intl/server';
 import { LocaleLink } from '@/components/LocaleLink';
-import Logo from '@/components/Logo';
 import Image from 'next/image';
 import Icon, { MdMenuBook, MdEmail, MdGpsFixed, MdEmojiEvents, MdTrendingUp, MdStar } from '@/components/Icon';
 
@@ -17,7 +16,7 @@ export default async function LandingPage({
 }: {
   params: Promise<{ locale: string }>;
 }) {
-  const { locale } = await params;
+  const { locale: _locale } = await params;
   const session = await auth();
   const t = await getTranslations('common');
   const tAuth = await getTranslations('auth');

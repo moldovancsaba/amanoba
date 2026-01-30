@@ -72,6 +72,15 @@ interface AnalyticsSnapshot {
   data: Record<string, unknown>;
 }
 
+// Shared Recharts theme (align with design-system / Tailwind)
+const CHART_THEME = {
+  gridStroke: '#ffffff33',
+  axisStroke: '#ffffff',
+  tooltipBg: '#1f2937',
+  series: ['#6366f1', '#22c55e', '#f59e0b', '#ec4899', '#a855f7'],
+  seriesWithAlpha: (hex: string, alpha = '88') => `${hex}${alpha}` as string,
+} as const;
+
 // Force dynamic rendering - this page requires runtime data
 export const dynamic = 'force-dynamic';
 export const runtime = 'nodejs';
@@ -422,14 +431,14 @@ export default function AdminAnalyticsPage() {
             {activeUsersChartData && activeUsersChartData.length > 0 ? (
               <ResponsiveContainer width="100%" height={300}>
                 <LineChart data={activeUsersChartData}>
-                  <CartesianGrid strokeDasharray="3 3" stroke="#fff3" />
-                  <XAxis dataKey="date" stroke="#fff" />
-                  <YAxis stroke="#fff" />
-                  <Tooltip contentStyle={{ backgroundColor: '#1f2937', border: 'none' }} />
+                  <CartesianGrid strokeDasharray="3 3" stroke={CHART_THEME.gridStroke} />
+                  <XAxis dataKey="date" stroke={CHART_THEME.axisStroke} />
+                  <YAxis stroke={CHART_THEME.axisStroke} />
+                  <Tooltip contentStyle={{ backgroundColor: CHART_THEME.tooltipBg, border: 'none' }} />
                   <Legend />
-                  <Line type="monotone" dataKey="totalUsers" stroke="#6366f1" strokeWidth={2} name="Total Users" />
-                  <Line type="monotone" dataKey="newUsers" stroke="#22c55e" strokeWidth={2} name="New Users" />
-                  <Line type="monotone" dataKey="premiumUsers" stroke="#f59e0b" strokeWidth={2} name="Premium" />
+                  <Line type="monotone" dataKey="totalUsers" stroke={CHART_THEME.series[0]} strokeWidth={2} name="Total Users" />
+                  <Line type="monotone" dataKey="newUsers" stroke={CHART_THEME.series[1]} strokeWidth={2} name="New Users" />
+                  <Line type="monotone" dataKey="premiumUsers" stroke={CHART_THEME.series[2]} strokeWidth={2} name="Premium" />
                 </LineChart>
               </ResponsiveContainer>
             ) : (
@@ -445,13 +454,13 @@ export default function AdminAnalyticsPage() {
             {gameSessionsChartData && gameSessionsChartData.length > 0 ? (
               <ResponsiveContainer width="100%" height={300}>
                 <BarChart data={gameSessionsChartData}>
-                  <CartesianGrid strokeDasharray="3 3" stroke="#fff3" />
-                  <XAxis dataKey="date" stroke="#fff" />
-                  <YAxis stroke="#fff" />
-                  <Tooltip contentStyle={{ backgroundColor: '#1f2937', border: 'none' }} />
+                  <CartesianGrid strokeDasharray="3 3" stroke={CHART_THEME.gridStroke} />
+                  <XAxis dataKey="date" stroke={CHART_THEME.axisStroke} />
+                  <YAxis stroke={CHART_THEME.axisStroke} />
+                  <Tooltip contentStyle={{ backgroundColor: CHART_THEME.tooltipBg, border: 'none' }} />
                   <Legend />
-                  <Bar dataKey="sessions" fill="#ec4899" name="Sessions" />
-                  <Bar dataKey="points" fill="#a855f7" name="Points Earned" />
+                  <Bar dataKey="sessions" fill={CHART_THEME.series[3]} name="Sessions" />
+                  <Bar dataKey="points" fill={CHART_THEME.series[4]} name="Points Earned" />
                 </BarChart>
               </ResponsiveContainer>
             ) : (
@@ -467,13 +476,13 @@ export default function AdminAnalyticsPage() {
             {revenueChartData && revenueChartData.length > 0 ? (
               <ResponsiveContainer width="100%" height={300}>
                 <AreaChart data={revenueChartData}>
-                  <CartesianGrid strokeDasharray="3 3" stroke="#fff3" />
-                  <XAxis dataKey="date" stroke="#fff" />
-                  <YAxis stroke="#fff" />
-                  <Tooltip contentStyle={{ backgroundColor: '#1f2937', border: 'none' }} />
+                  <CartesianGrid strokeDasharray="3 3" stroke={CHART_THEME.gridStroke} />
+                  <XAxis dataKey="date" stroke={CHART_THEME.axisStroke} />
+                  <YAxis stroke={CHART_THEME.axisStroke} />
+                  <Tooltip contentStyle={{ backgroundColor: CHART_THEME.tooltipBg, border: 'none' }} />
                   <Legend />
-                  <Area type="monotone" dataKey="redemptions" stroke="#22c55e" fill="#22c55e88" name="Redemptions" />
-                  <Area type="monotone" dataKey="pointsRedeemed" stroke="#f59e0b" fill="#f59e0b88" name="Points Spent" />
+                  <Area type="monotone" dataKey="redemptions" stroke={CHART_THEME.series[1]} fill={CHART_THEME.seriesWithAlpha(CHART_THEME.series[1])} name="Redemptions" />
+                  <Area type="monotone" dataKey="pointsRedeemed" stroke={CHART_THEME.series[2]} fill={CHART_THEME.seriesWithAlpha(CHART_THEME.series[2])} name="Points Spent" />
                 </AreaChart>
               </ResponsiveContainer>
             ) : (
@@ -489,13 +498,13 @@ export default function AdminAnalyticsPage() {
             {engagementChartData && engagementChartData.length > 0 ? (
               <ResponsiveContainer width="100%" height={300}>
                 <LineChart data={engagementChartData}>
-                  <CartesianGrid strokeDasharray="3 3" stroke="#fff3" />
-                  <XAxis dataKey="date" stroke="#fff" />
-                  <YAxis stroke="#fff" />
-                  <Tooltip contentStyle={{ backgroundColor: '#1f2937', border: 'none' }} />
+                  <CartesianGrid strokeDasharray="3 3" stroke={CHART_THEME.gridStroke} />
+                  <XAxis dataKey="date" stroke={CHART_THEME.axisStroke} />
+                  <YAxis stroke={CHART_THEME.axisStroke} />
+                  <Tooltip contentStyle={{ backgroundColor: CHART_THEME.tooltipBg, border: 'none' }} />
                   <Legend />
-                  <Line type="monotone" dataKey="sessionsPerUser" stroke="#6366f1" strokeWidth={2} name="Sessions/User" />
-                  <Line type="monotone" dataKey="avgDuration" stroke="#ec4899" strokeWidth={2} name="Avg Duration (s)" />
+                  <Line type="monotone" dataKey="sessionsPerUser" stroke={CHART_THEME.series[0]} strokeWidth={2} name="Sessions/User" />
+                  <Line type="monotone" dataKey="avgDuration" stroke={CHART_THEME.series[3]} strokeWidth={2} name="Avg Duration (s)" />
                 </LineChart>
               </ResponsiveContainer>
             ) : (

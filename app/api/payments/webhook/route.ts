@@ -13,7 +13,7 @@
 
 import { NextRequest, NextResponse } from 'next/server';
 import connectDB from '@/lib/mongodb';
-import { Player, Course, PaymentTransaction, PaymentStatus, Brand } from '@/lib/models';
+import { Player, Course, PaymentTransaction, PaymentStatus } from '@/lib/models';
 import { logger } from '@/lib/logger';
 import { sendPaymentConfirmationEmail } from '@/lib/email';
 import Stripe from 'stripe';

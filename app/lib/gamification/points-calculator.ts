@@ -14,7 +14,6 @@
 
 import { IGame } from '../models/game';
 import { IGameBrandConfig } from '../models/game-brand-config';
-import { IStreak } from '../models/streak';
 
 /**
  * Interface: Points Calculation Input

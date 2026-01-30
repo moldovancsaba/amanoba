@@ -18,7 +18,7 @@
  * - Development: 'debug' shows all logs including verbose details
  * - Production: 'info' reduces noise, focuses on important events
  */
-const logLevel = process.env.NODE_ENV === 'production' ? 'info' : 'debug';
+const _logLevel = process.env.NODE_ENV === 'production' ? 'info' : 'debug';
 const isDev = process.env.NODE_ENV !== 'production';
 
 interface LogData {

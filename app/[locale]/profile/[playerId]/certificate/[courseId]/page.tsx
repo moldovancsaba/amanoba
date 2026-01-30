@@ -35,8 +35,8 @@ export default function CertificatePage({
 }: {
   params: Promise<{ playerId: string; courseId: string }>;
 }) {
-  const t = useTranslations('common');
-  const locale = useLocale();
+  const _t = useTranslations('common');
+  const _locale = useLocale();
   const router = useRouter();
   const [playerId, setPlayerId] = useState<string | null>(null);
   const [courseId, setCourseId] = useState<string | null>(null);
@@ -193,7 +193,7 @@ export default function CertificatePage({
     );
   }
 
-  const { enrolled, allLessonsCompleted, allQuizzesPassed, finalExamPassed, finalExamScore, certificateEligible, courseTitle, playerName } = certificateData;
+  const { enrolled: _enrolled, allLessonsCompleted: _allLessonsCompleted, allQuizzesPassed: _allQuizzesPassed, finalExamPassed: _finalExamPassed, finalExamScore, certificateEligible, courseTitle, playerName } = certificateData;
 
   // Generate certificate ID from playerId and courseId
   const certificateId = (playerId && courseId) ? `${playerId.slice(-8)}-${courseId.slice(-8)}`.toUpperCase() : '';

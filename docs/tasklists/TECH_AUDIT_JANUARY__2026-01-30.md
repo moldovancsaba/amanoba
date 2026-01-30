@@ -35,8 +35,8 @@
 - [x] P2.1 Update or remove `baseline-browser-mapping` — **documented**: transitive of autoprefixer → browserslist; run `npm update` to get latest nested deps
 - [x] P2.2 Remove extraneous `@emnapi/runtime` — **documented**: transitive dep (required by @emnapi/core in lockfile); leave as-is
 - [x] P2.3 Certificate image routes — **done**: already source colors from Brand themeColors when available; defaults in route
-- [ ] P2.4 Email service: map hex colors to design tokens or single email theme object (future)
-- [ ] P2.5 Admin analytics Recharts: move stroke/fill hex to shared chart theme (future)
+- [x] P2.4 Email service: map hex colors to design tokens or single email theme object — **done**: `EMAIL_TOKENS.ctaBg` uses `NEXT_PUBLIC_THEME_COLOR` or #FAB908
+- [x] P2.5 Admin analytics Recharts: move stroke/fill hex to shared chart theme — **done**: `CHART_THEME` in admin analytics page
 - [x] P2.6 Layout themeColor and APP_URL fallbacks — **done**: APP_URL from `app/lib/constants/app-url.ts` (env); themeColor from `THEME_COLOR` (NEXT_PUBLIC_THEME_COLOR or #FAB908)
 - [x] P2.7 Plan removal of `assessmentGameId` — **done**: see `docs/ASSESSMENT_GAME_ID_MIGRATION.md`; keep field for backward compatibility
 
@@ -44,12 +44,12 @@
 
 ## P3 — Known issues, UI, consistency
 
-- [ ] P3.1 Resolve or ticket: profile highestScore/perfectGames, admin settings save, system-info uptime, game status API, challenge retry queue
-- [ ] P3.2 Replace admin `<img>` with Next.js `<Image />` (courses, games, rewards pages)
-- [ ] P3.3 Audit CTA yellow usage (ensure only primary actions use #FAB908; badges/TOC use neutral)
-- [ ] P3.4 Standardise import alias (`@/` vs `@/app/`) and prefer `logger` over `console` in server code
-- [ ] P3.5 Remove unused imports and variables (or use underscore prefix where intentional)
+- [x] P3.1 Resolve or ticket: profile highestScore/perfectGames, admin settings save, system-info uptime, game status API, challenge retry queue — **done**: backlog in `docs/P3_KNOWN_ISSUES_BACKLOG.md`
+- [x] P3.2 Replace admin `<img>` with Next.js `<Image />` — **done**: admin settings, rewards, games, courses list, course editor
+- [x] P3.3 Audit CTA yellow usage (ensure only primary actions use #FAB908; badges/TOC use neutral) — **done**: `docs/2026-01-28_CTA_YELLOW_AUDIT.md`; admin rewards/games badges → neutral
+- [x] P3.4 Standardise import alias (`@/` vs `@/app/`) and prefer `logger` over `console` in server code — **documented**: alias convention in P3 backlog; logger preference backlog
+- [x] P3.5 Remove unused imports and variables — **done**: removed Logo, Users, Lock, Trophy, Calendar, Award, TrendingUp, Play, MdGpsFixed/MdComplete/MdCalendar, redirect; _prefix for intentional unused
 
 ---
 
-**Next command (suggested)**: P2.4–P2.5 (email/analytics colors), P3 items.
+**Follow-up (2026-01-28)**: Remaining non-admin `<img>` replaced with Next.js `<Image />` (dashboard, courses, my-courses, course detail, PlayerAvatar). Unused imports/vars removed or prefixed across app/api and app/lib. `useCourseTranslations` now uses `logger` instead of `console.error`. **ESLint**: Added `@typescript-eslint/no-unused-vars` with `argsIgnorePattern`/`varsIgnorePattern`/`caughtErrorsIgnorePattern` `^_` in `.eslintrc.json`; fixed remaining no-unused-vars, anonymous default export (achievement-worker), and GoogleAnalytics beforeInteractive (eslint-disable with comment). **`npx next lint` now reports zero ESLint warnings or errors.**

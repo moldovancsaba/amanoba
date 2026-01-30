@@ -14,14 +14,13 @@ import { LocaleLink } from '@/components/LocaleLink';
 import {
   BookOpen,
   Calendar,
-  Users,
   Award,
-  Lock,
   Star,
   Search,
   ArrowLeft,
   CreditCard,
 } from 'lucide-react';
+import Image from 'next/image';
 import Logo from '@/components/Logo';
 
 interface Course {
@@ -54,9 +53,9 @@ interface Course {
 export default function CoursesPage() {
   const { data: session } = useSession();
   const t = useTranslations('courses');
-  const tCommon = useTranslations('common');
+  const _tCommon = useTranslations('common');
   const tAuth = useTranslations('auth');
-  const locale = useLocale();
+  const _locale = useLocale();
   const [courses, setCourses] = useState<Course[]>([]);
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState('');
@@ -288,11 +287,13 @@ export default function CoursesPage() {
                   className="block bg-brand-white rounded-2xl p-6 sm:p-7 border-2 border-brand-accent hover:shadow-xl transition-all"
                 >
                   {course.thumbnail && (
-                    <div className="w-full h-44 sm:h-48 bg-brand-darkGrey rounded-lg mb-4 flex items-center justify-center overflow-hidden">
-                      <img
+                    <div className="relative w-full h-44 sm:h-48 bg-brand-darkGrey rounded-lg mb-4 flex items-center justify-center overflow-hidden">
+                      <Image
                         src={course.thumbnail}
                         alt={course.name}
-                        className="w-full h-full object-cover rounded-lg"
+                        fill
+                        className="object-cover rounded-lg"
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                       />
                     </div>
                   )}

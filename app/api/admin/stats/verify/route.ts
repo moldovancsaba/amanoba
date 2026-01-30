@@ -17,7 +17,6 @@ import { NextRequest, NextResponse } from 'next/server';
 import { auth } from '@/auth';
 import dbConnect from '@/app/lib/mongodb';
 import logger from '@/app/lib/logger';
-import { requireAdmin } from '@/app/lib/rbac';
 import PlayerSession from '@/app/lib/models/player-session';
 import PlayerProgression from '@/app/lib/models/player-progression';
 import PointsWallet from '@/app/lib/models/points-wallet';
@@ -25,7 +24,6 @@ import PointsTransaction from '@/app/lib/models/points-transaction';
 import LeaderboardEntry from '@/app/lib/models/leaderboard-entry';
 import DailyChallenge from '@/app/lib/models/daily-challenge';
 import Achievement from '@/app/lib/models/achievement';
-import AchievementUnlock from '@/app/lib/models/achievement-unlock';
 import Player from '@/app/lib/models/player';
 
 // Why: Type definitions for verification report structure

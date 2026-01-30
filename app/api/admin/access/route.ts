@@ -30,7 +30,7 @@ export async function GET() {
       isAdmin: admin,
       isEditorOnly,
     });
-  } catch (error) {
+  } catch (_error) {
     return NextResponse.json(
       { canAccessAdmin: false, isAdmin: false, isEditorOnly: false },
       { status: 200 }

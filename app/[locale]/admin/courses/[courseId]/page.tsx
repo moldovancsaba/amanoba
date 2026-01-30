@@ -21,6 +21,7 @@ import {
   Download,
   Upload,
 } from 'lucide-react';
+import Image from 'next/image';
 import RichTextEditor from '@/app/components/ui/rich-text-editor';
 import { getStripeMinimum, getFormattedMinimum, meetsStripeMinimum } from '@/app/lib/utils/stripe-minimums';
 import { marked } from 'marked';
@@ -466,10 +467,12 @@ export default function CourseEditorPage({
             <div className="space-y-3">
               {course.thumbnail && (
                 <div className="relative w-full h-48 bg-brand-darkGrey rounded-lg overflow-hidden border-2 border-brand-accent">
-                  <img
+                  <Image
                     src={course.thumbnail}
                     alt="Course thumbnail"
-                    className="w-full h-full object-cover"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 24rem"
                   />
                   <button
                     onClick={() => setCourse({ ...course, thumbnail: undefined })}
