@@ -48,7 +48,7 @@ import {
 import { IconType } from 'react-icons';
 
 // Emoji to Icon mapping
-const EMOJI_TO_ICON: Record<string, ReactIconType> = {
+const EMOJI_TO_ICON: Record<string, IconType> = {
   '💎': MdDiamond,
   '🏆': MdEmojiEvents,
   '⭐': MdStar,
@@ -85,7 +85,7 @@ const EMOJI_TO_ICON: Record<string, ReactIconType> = {
 
 interface IconProps {
   emoji?: string;
-  icon?: ReactIconType;
+  icon?: IconType;
   className?: string;
   size?: number | string;
 }

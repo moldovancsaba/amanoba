@@ -63,10 +63,11 @@ export async function GET(request: NextRequest) {
       });
     }
 
+    type FeatureFlagsDoc = { features?: Record<string, boolean> };
     return NextResponse.json({
       success: true,
       featureFlags: {
-        features: featureFlags.features,
+        features: (featureFlags as FeatureFlagsDoc).features ?? {},
       },
     });
   } catch (error) {

@@ -204,8 +204,8 @@ export async function GET(request: NextRequest) {
           { 
             nonceFromClaims: claims.nonce, 
             nonceFromCookie: storedNonce,
-            nonceLength: claims.nonce?.length,
-            storedLength: storedNonce?.length
+            nonceLength: (claims as { nonce?: string }).nonce?.length,
+            storedLength: (storedNonce as string)?.length
           }, 
           'SSO nonce mismatch'
         );
@@ -430,9 +430,10 @@ export async function GET(request: NextRequest) {
           });
         } catch (createError: unknown) {
           // Handle duplicate key error - might be race condition or index issue
-          if (createError?.code === 11000) {
+          const err = createError as Error & { code?: number };
+          if (err?.code === 11000) {
             logger.warn(
-              { ssoSub: userInfo.sub, email: userInfo.email, errorCode: createError.code },
+              { ssoSub: userInfo.sub, email: userInfo.email, errorCode: err.code },
               'Duplicate key error during player creation - retrying with find'
             );
             // Try to find existing player by email or ssoSub

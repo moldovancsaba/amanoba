@@ -295,7 +295,7 @@ export async function completeGameSession(
       pointsConfig: (game as { pointsConfig?: Record<string, unknown> }).pointsConfig,
       xpConfig: (game as { xpConfig?: Record<string, unknown> }).xpConfig,
       difficultySettings: (game as { difficultyLevels?: string[] }).difficultyLevels || ['normal'],
-    } as IGameBrandConfig);
+    } as unknown as IGameBrandConfig);
     
     // 3. Calculate session duration
     const sessionEnd = new Date();
@@ -571,7 +571,7 @@ export async function completeGameSession(
             { _id: session._id },
             { 
               $set: { 
-                'rewards.achievementsUnlocked': newAchievements.map(a => a.achievement._id as mongoose.Types.ObjectId)
+                'rewards.achievementsUnlocked': (newAchievements as { achievement: { _id: unknown } }[]).map(a => a.achievement._id as mongoose.Types.ObjectId)
               }
             }
           );
@@ -602,21 +602,21 @@ export async function completeGameSession(
           await enqueueJob({
             jobType: 'achievement',
             playerId: session.playerId,
-            sessionId: session._id,
+            sessionId: (session as { _id: mongoose.Types.ObjectId })._id,
             brandId: session.brandId,
             gameId: session.gameId,
             payload: {
               playerId: session.playerId.toString(),
-              gameId: session.gameId.toString(),
+              gameId: (session as { gameId: { toString(): string } }).gameId.toString(),
               progression: {
                 level: progression.level,
                 currentXP: progression.currentXP,
                 totalXP: progression.totalXP,
                 statistics: {
                   totalGamesPlayed: progression.statistics.totalGamesPlayed,
-                  wins: progression.statistics.wins,
-                  losses: progression.statistics.losses,
-                  draws: progression.statistics.draws,
+                  wins: progression.statistics.totalWins,
+                  losses: progression.statistics.totalLosses,
+                  draws: progression.statistics.totalDraws,
                   currentStreak: progression.statistics.currentStreak,
                   bestStreak: progression.statistics.bestStreak,
                 },
@@ -865,8 +865,8 @@ export async function completeGameSession(
           });
         }
         
-        // Log achievement unlock events
-        for (const ach of newAchievements) {
+        type AchItem = { achievement: { _id: unknown; name: string; tier: string }; rewards: unknown };
+        for (const ach of newAchievements as AchItem[]) {
           await EventLog.create({
             playerId: session.playerId,
             brandId: session.brandId,
@@ -882,7 +882,7 @@ export async function completeGameSession(
               createdAt: new Date(),
               version: '2.5.0',
               brandId: session.brandId.toString(),
-              achievementId: (ach.achievement._id).toString(),
+              achievementId: String(ach.achievement._id),
             },
           });
         }
@@ -948,7 +948,7 @@ export async function completeGameSession(
       },
       achievements: {
         newUnlocks: newAchievements.length,
-        achievements: newAchievements.map(a => ({
+        achievements: (newAchievements as { achievement: { _id: unknown; name: string; tier: string }; rewards: unknown }[]).map(a => ({
           id: a.achievement._id,
           name: a.achievement.name,
           tier: a.achievement.tier,
@@ -1007,7 +1007,7 @@ export async function completeGameSession(
         const streakResult = await updateWinStreak(session.playerId, input.outcome);
         const pointsResult = calculatePoints({
           game: game as IGame,
-          gameBrandConfig: { pointsConfig: (game as IGame).pointsConfig } as IGameBrandConfig,
+          gameBrandConfig: { pointsConfig: (game as IGame).pointsConfig } as unknown as IGameBrandConfig,
           sessionData: { score: input.score, maxScore: input.maxScore, accuracy: input.accuracy, duration: 0, outcome: input.outcome },
           playerContext: { isPremium: player.isPremium || false, currentWinStreak: streakResult.currentStreak },
         });

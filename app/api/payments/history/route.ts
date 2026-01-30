@@ -65,7 +65,7 @@ export async function GET(request: NextRequest) {
       premiumGranted: tx.premiumGranted || false,
       premiumExpiresAt: tx.premiumExpiresAt || null,
       paymentMethod: tx.paymentMethod || null,
-      createdAt: tx.createdAt,
+      createdAt: tx.metadata?.createdAt ?? (tx as { createdAt?: Date }).createdAt ?? new Date(),
       stripePaymentIntentId: tx.stripePaymentIntentId,
       stripeCheckoutSessionId: tx.stripeCheckoutSessionId,
     }));

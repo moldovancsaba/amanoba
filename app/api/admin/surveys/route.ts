@@ -67,10 +67,12 @@ export async function GET(request: NextRequest) {
         for (const answer of questionAnswers) {
           if (Array.isArray(answer?.value)) {
             for (const value of answer.value) {
-              answerCounts[value] = (answerCounts[value] || 0) + 1;
+              const key = String(value);
+              answerCounts[key] = (answerCounts[key] || 0) + 1;
             }
-          } else if (answer?.value) {
-            answerCounts[answer.value] = (answerCounts[answer.value] || 0) + 1;
+          } else if (answer?.value != null) {
+            const key = String(answer.value);
+            answerCounts[key] = (answerCounts[key] || 0) + 1;
           }
         }
         questionStats[question.questionId] = {

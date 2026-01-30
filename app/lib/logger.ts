@@ -59,8 +59,8 @@ function createSimpleLogger(context: Record<string, unknown> = {}): Logger {
 
   const log = (level: string, ...args: unknown[]) => {
     const [first, second] = args;
-    const msg = typeof first === 'string' ? first : second || '';
-    const data = typeof first === 'object' ? first : undefined;
+    const msg: string = typeof first === 'string' ? first : (typeof second === 'string' ? second : '');
+    const data = typeof first === 'object' && first !== null ? (first as LogData) : undefined;
     
     const formatted = formatMessage(level, msg, data);
     

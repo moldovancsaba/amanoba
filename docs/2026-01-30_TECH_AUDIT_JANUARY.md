@@ -11,7 +11,7 @@
 - **Build**: ✅ Passes (Next.js 15.5.9). One non-blocking warning: `baseline-browser-mapping` data is over two months old.
 - **Dependencies**: 4 npm audit vulnerabilities (2 high, 2 moderate). One extraneous package (`@emnapi/runtime`). Optional deps (WebAuthn, nodemailer) unmet — acceptable if not used.
 - **Deprecated**: `next lint` is deprecated (removal in Next.js 16). Lesson model field `assessmentGameId` is deprecated (use `quizConfig`).
-- **Lint**: **ESLint/TypeScript** — **~175 errors** and **~191 warnings** (build has `eslint.ignoreDuringBuilds: true` and `typescript.ignoreBuildErrors: true`). Lint and type-check do not block deploy.
+- **Lint**: **ESLint** — warnings remain (build has `eslint.ignoreDuringBuilds: false`; build passes with warnings). **TypeScript**: Application-level TS errors fixed (2026-01-28); `npx tsc --noEmit` passes; see `docs/2026-01-28_TYPESCRIPT_AUDIT_COMPLETE.md`. Build still has `typescript.ignoreBuildErrors: true` until team opts to enforce TS in build.
 - **Hardcoded values**: URLs, hex colors, and magic values appear in certificate image routes, security allowlists, email service, analytics charts, and layout. Centralised tokens/constants used in places but not everywhere.
 - **Security**: Audit vulnerabilities in js-yaml, jws, next, next-auth. Security headers present (X-Frame-Options, X-Content-Type-Options, Referrer-Policy). Env used for secrets; some fallback URLs hardcoded.
 - **UI**: Some `<img>` without Next.js `<Image />`; inline hex in admin analytics; progress widths use inline `style` (acceptable for dynamic values). CTA and design tokens documented in `layout_grammar.md` / `DESIGN_UPDATE.md` but not fully applied everywhere.

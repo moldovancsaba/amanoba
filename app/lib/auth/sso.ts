@@ -186,7 +186,7 @@ export function extractSSOUserInfo(claims: SSOTokenClaims): SSOUserInfo {
     (claims as ClaimsWithRole).realm_access?.roles || // Keycloak format
     (claims as ClaimsWithRole).resource_access; // Keycloak resource roles
   
-  const role = mapSSORole(roleValue);
+  const role = mapSSORole(roleValue as string | string[] | undefined);
   
   // Log role extraction for debugging (with more detail)
   logger.info(

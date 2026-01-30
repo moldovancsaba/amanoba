@@ -11,6 +11,7 @@
  * - Efficient bulk update operations
  */
 
+import type { PipelineStage } from 'mongoose';
 import { LeaderboardEntry, PlayerProgression, PointsWallet, Streak, Player } from '@/lib/models';
 import logger from '@/lib/logger';
 
@@ -332,7 +333,7 @@ async function calculatePointsBalanceLeaderboard(
     },
   ];
 
-  const results = await PointsWallet.aggregate(pipeline);
+  const results = await PointsWallet.aggregate(pipeline as unknown as PipelineStage[]);
   return results.map((r, index) => ({ ...r, playerId: r.playerId.toString(), rank: index + 1 }));
 }
 
@@ -367,7 +368,7 @@ async function calculatePointsLifetimeLeaderboard(
     },
   ];
 
-  const results = await PointsWallet.aggregate(pipeline);
+  const results = await PointsWallet.aggregate(pipeline as unknown as PipelineStage[]);
   return results.map((r, index) => ({ ...r, playerId: r.playerId.toString(), rank: index + 1 }));
 }
 
@@ -402,7 +403,7 @@ async function calculateXPLeaderboard(
     },
   ];
 
-  const results = await PlayerProgression.aggregate(pipeline);
+  const results = await PlayerProgression.aggregate(pipeline as unknown as PipelineStage[]);
   return results.map((r, index) => ({ ...r, playerId: r.playerId.toString(), rank: index + 1 }));
 }
 
@@ -437,7 +438,7 @@ async function calculateLevelLeaderboard(
     },
   ];
 
-  const results = await PlayerProgression.aggregate(pipeline);
+  const results = await PlayerProgression.aggregate(pipeline as unknown as PipelineStage[]);
   return results.map((r, index) => ({ ...r, playerId: r.playerId.toString(), rank: index + 1 }));
 }
 
@@ -473,7 +474,7 @@ async function calculateWinStreakLeaderboard(
     },
   ];
 
-  const results = await Streak.aggregate(pipeline);
+  const results = await Streak.aggregate(pipeline as unknown as PipelineStage[]);
   return results.map((r, index) => ({ ...r, playerId: r.playerId.toString(), rank: index + 1 }));
 }
 
@@ -509,7 +510,7 @@ async function calculateDailyStreakLeaderboard(
     },
   ];
 
-  const results = await Streak.aggregate(pipeline);
+  const results = await Streak.aggregate(pipeline as unknown as PipelineStage[]);
   return results.map((r, index) => ({ ...r, playerId: r.playerId.toString(), rank: index + 1 }));
 }
 
@@ -545,7 +546,7 @@ async function calculateGamesWonLeaderboard(
     },
   ];
 
-  const results = await PlayerProgression.aggregate(pipeline);
+  const results = await PlayerProgression.aggregate(pipeline as unknown as PipelineStage[]);
   return results.map((r, index) => ({ ...r, playerId: r.playerId.toString(), rank: index + 1 }));
 }
 
@@ -595,7 +596,7 @@ async function calculateWinRateLeaderboard(
     },
   ];
 
-  const results = await PlayerProgression.aggregate(pipeline);
+  const results = await PlayerProgression.aggregate(pipeline as unknown as PipelineStage[]);
   return results.map((r, index) => ({ ...r, playerId: r.playerId.toString(), rank: index + 1 }));
 }
 

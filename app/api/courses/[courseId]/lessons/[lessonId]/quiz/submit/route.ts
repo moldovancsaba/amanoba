@@ -8,7 +8,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { auth } from '@/auth';
 import connectDB from '@/lib/mongodb';
-import { Course, Lesson, QuizQuestion } from '@/lib/models';
+import { Course, Lesson, QuizQuestion, Player, CourseProgress } from '@/lib/models';
 import { logger } from '@/lib/logger';
 import mongoose from 'mongoose';
 import { checkRateLimit, apiRateLimiter } from '@/lib/security';
@@ -187,7 +187,7 @@ export async function POST(
                 courseId,
                 lessonId,
                 dayNumber: lesson.dayNumber,
-                playerId: player._id.toString(),
+                playerId: (player as { _id: { toString(): string } })._id.toString(),
               }, 'Quiz completion tracked in CourseProgress');
             }
           }

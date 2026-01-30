@@ -89,7 +89,7 @@ export async function POST(
 
     await progress.save();
 
-    logger.info({ courseId, playerId: player._id.toString() }, 'Student enrolled in course');
+    logger.info({ courseId, playerId: (player as { _id: { toString(): string } })._id.toString() }, 'Student enrolled in course');
 
     return NextResponse.json({
       success: true,

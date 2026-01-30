@@ -25,8 +25,9 @@ export async function GET(
   try {
     const session = await auth();
     const accessCheck = await requireAdminOrEditor(request, session);
-    if (accessCheck) {
-      return accessCheck;
+    if (accessCheck) return accessCheck;
+    if (!session?.user) {
+      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
     await connectDB();
@@ -85,8 +86,9 @@ export async function POST(
   try {
     const session = await auth();
     const accessCheck = await requireAdminOrEditor(request, session);
-    if (accessCheck) {
-      return accessCheck;
+    if (accessCheck) return accessCheck;
+    if (!session?.user) {
+      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
     await connectDB();

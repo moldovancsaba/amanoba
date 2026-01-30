@@ -86,8 +86,9 @@ export async function GET(request: NextRequest) {
     const session = await auth();
     const { requireAdmin } = await import('@/lib/rbac');
     const adminCheck = requireAdmin(request, session);
-    if (adminCheck) {
-      return adminCheck;
+    if (adminCheck) return adminCheck;
+    if (!session?.user) {
+      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
     await dbConnect();
@@ -171,22 +172,24 @@ export async function GET(request: NextRequest) {
 
     if (todaysChallenges.length > 0) {
       const latestChallenge = todaysChallenges.sort((a, b) => 
-        new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
+        new Date((b as { metadata?: { createdAt?: Date } }).metadata?.createdAt ?? 0).getTime() - new Date((a as { metadata?: { createdAt?: Date } }).metadata?.createdAt ?? 0).getTime()
       )[0];
-      report.discrepancies.challenges.lastCreatedAt = latestChallenge.createdAt.toISOString();
+      const createdAt = (latestChallenge as { metadata?: { createdAt?: Date } }).metadata?.createdAt;
+      report.discrepancies.challenges.lastCreatedAt = createdAt ? createdAt.toISOString() : null;
     }
 
-    // Why: Check leaderboard staleness
-    const leaderboardEntries = await LeaderboardEntry.find().sort({ lastCalculatedAt: 1 }).limit(1);
+    // Why: Check leaderboard staleness (ILeaderboardEntry uses metadata.lastCalculated)
+    const leaderboardEntries = await LeaderboardEntry.find().sort({ 'metadata.lastCalculated': 1 }).limit(1);
     if (leaderboardEntries.length > 0) {
       const oldestEntry = leaderboardEntries[0];
-      const ageMinutes = Math.floor((now.getTime() - new Date(oldestEntry.lastCalculatedAt).getTime()) / 60000);
+      const lastCalc = (oldestEntry as { metadata?: { lastCalculated?: Date } }).metadata?.lastCalculated;
+      const ageMinutes = Math.floor((now.getTime() - new Date(lastCalc ?? 0).getTime()) / 60000);
       report.discrepancies.leaderboards.oldestUpdateMinutesAgo = ageMinutes;
       
       // Why: Flag stale if older than 30 minutes
       if (ageMinutes > 30) {
         report.discrepancies.leaderboards.staleEntries = await LeaderboardEntry.countDocuments({
-          lastCalculatedAt: { $lt: new Date(now.getTime() - 30 * 60000) },
+          'metadata.lastCalculated': { $lt: new Date(now.getTime() - 30 * 60000) },
         });
       }
     }
@@ -252,26 +255,26 @@ export async function GET(request: NextRequest) {
           );
         }
 
-        if (progressionStats.wins !== actualStats.wins) {
+        if (progressionStats.totalWins !== actualStats.wins) {
           discrepancy.issues.push({
             type: 'wins',
             expected: actualStats.wins,
-            actual: progressionStats.wins,
-            difference: actualStats.wins - progressionStats.wins,
+            actual: progressionStats.totalWins,
+            difference: actualStats.wins - progressionStats.totalWins,
           });
         }
 
-        if (progressionStats.losses !== actualStats.losses) {
+        if (progressionStats.totalLosses !== actualStats.losses) {
           discrepancy.issues.push({
             type: 'losses',
             expected: actualStats.losses,
-            actual: progressionStats.losses,
-            difference: actualStats.losses - progressionStats.losses,
+            actual: progressionStats.totalLosses,
+            difference: actualStats.losses - progressionStats.totalLosses,
           });
         }
 
-        // Why: Check total points earned (may differ from wallet balance due to spending)
-        const expectedTotalPointsEarned = progressionStats.lifetimeStats?.totalPointsEarned || 0;
+        // Why: Check total points earned (PlayerProgression may not have lifetimeStats; use 0 if missing)
+        const expectedTotalPointsEarned = (progression as { statistics?: { lifetimeStats?: { totalPointsEarned?: number } } })?.statistics?.lifetimeStats?.totalPointsEarned ?? 0;
         if (expectedTotalPointsEarned !== actualStats.totalPoints) {
           discrepancy.issues.push({
             type: 'points',
@@ -292,10 +295,10 @@ export async function GET(request: NextRequest) {
       ]);
 
       const transactionSum = transactions.reduce((sum, tx) => {
-        return sum + (tx.type === 'earned' ? tx.amount : -tx.amount);
+        return sum + (tx.type === 'earn' ? tx.amount : -tx.amount);
       }, 0);
 
-      const walletBalance = wallet?.balance || 0;
+      const walletBalance = wallet?.currentBalance ?? 0;
 
       if (walletBalance !== transactionSum) {
         discrepancy.issues.push({

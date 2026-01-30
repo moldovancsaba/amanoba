@@ -349,16 +349,16 @@ export function getNewlyUnlockedFeatures(
   
   const currentProgression: Partial<IPlayerProgression> = {
     level: currentLevel,
-    statistics: { totalGamesPlayed: currentGamesPlayed },
-    achievements: { totalUnlocked: currentAchievements },
+    statistics: { totalGamesPlayed: currentGamesPlayed } as IPlayerProgression['statistics'],
+    achievements: { totalUnlocked: currentAchievements } as IPlayerProgression['achievements'],
   };
   
   const wasLocked = FEATURES.filter(
-    feature => !isFeatureUnlocked(feature, previousProgression, isPremium)
+    feature => !isFeatureUnlocked(feature, previousProgression as IPlayerProgression, isPremium)
   );
   
   const nowUnlocked = wasLocked.filter(feature =>
-    isFeatureUnlocked(feature, currentProgression, isPremium)
+    isFeatureUnlocked(feature, currentProgression as IPlayerProgression, isPremium)
   );
   
   return nowUnlocked;

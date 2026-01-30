@@ -53,9 +53,11 @@ export async function GET(request: NextRequest) {
         { status: 404 }
       );
     }
+    type PlayerWithDisplayName = { displayName?: string };
+    const playerDoc = player as PlayerWithDisplayName;
 
     // Generate referral code based on player ID (consistent)
-    const referralCode = generateReferralCode(player.displayName, playerId);
+    const referralCode = generateReferralCode(playerDoc.displayName ?? 'Player', playerId);
 
     // Get all referrals by this player
     const referrals = await ReferralTracking.find({ referrerId: playerId })
@@ -72,18 +74,20 @@ export async function GET(request: NextRequest) {
       0
     );
 
-    // Format referral data
-    const referralData = referrals.map((ref: Record<string, unknown>) => ({
+    // Format referral data (type populated lean result)
+    type PopulatedReferee = { _id?: unknown; displayName?: string; profilePicture?: string; createdAt?: Date };
+    type ReferralRow = { _id?: unknown; refereeId?: PopulatedReferee; status?: string; rewards?: { referrerPoints?: number }; metadata?: { createdAt?: Date; completedAt?: Date } };
+    const referralData = referrals.map((ref: ReferralRow) => ({
       id: ref._id,
       referredPlayer: {
-        id: ref.refereeId?._id || ref.refereeId,
-        displayName: (ref.refereeId?.displayName || 'Unknown') as string,
+        id: ref.refereeId?._id ?? ref.refereeId,
+        displayName: (ref.refereeId?.displayName ?? 'Unknown') as string,
         profilePicture: ref.refereeId?.profilePicture,
-        joinedAt: ref.refereeId?.createdAt || ref.metadata?.createdAt,
+        joinedAt: ref.refereeId?.createdAt ?? ref.metadata?.createdAt,
       },
       status: ref.status,
       rewardDetails: {
-        pointsEarned: ref.rewards?.referrerPoints || 0,
+        pointsEarned: ref.rewards?.referrerPoints ?? 0,
       },
       completedAt: ref.metadata?.completedAt,
       createdAt: ref.metadata?.createdAt,

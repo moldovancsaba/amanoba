@@ -238,9 +238,10 @@ export async function POST(request: NextRequest) {
     }
     await player.save();
 
+    type DocWithId = { _id: { toString(): string } };
     logger.info(
       {
-        playerId: player._id.toString(),
+        playerId: (player as DocWithId)._id.toString(),
         surveyId: survey.surveyId,
         skillLevel,
         interestsCount: interests.length,
@@ -252,7 +253,7 @@ export async function POST(request: NextRequest) {
       success: true,
       message: 'Survey completed successfully',
       surveyResponse: {
-        id: surveyResponse._id.toString(),
+        id: (surveyResponse as DocWithId)._id.toString(),
         completedAt: surveyResponse.completedAt,
       },
     });

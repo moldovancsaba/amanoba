@@ -68,16 +68,17 @@ export async function POST(request: NextRequest) {
     (progress.completedDays?.length || 0) >= (course.durationDays || 0);
   
   // Check if all quizzes are passed (assessmentResults has entries for all days)
-  const assessmentResults = progress?.assessmentResults || new Map();
+  const assessmentResultsMap = (progress?.assessmentResults ?? new Map()) as Map<string, unknown>;
   const allQuizzesPassed = enrolled && course.durationDays > 0 && 
     Array.from({ length: course.durationDays }, (_, i) => (i + 1).toString())
-      .every((dayStr) => assessmentResults.has(dayStr));
+      .every((dayStr) => assessmentResultsMap.has(dayStr));
 
   // Certificate is eligible only if ALL requirements are met
   const certificateEligible = enrolled && allLessonsCompleted && allQuizzesPassed && passed;
 
+  type DocWithId = { _id: { toString(): string } };
   const existing = await Certificate.findOne({
-    playerId: player._id.toString(),
+    playerId: (player as DocWithId)._id.toString(),
     courseId: course.courseId,
   });
 
@@ -85,7 +86,7 @@ export async function POST(request: NextRequest) {
     // All requirements met - issue or update certificate
     if (existing) {
       existing.finalExamScorePercentInteger = scorePercentInteger;
-      existing.lastAttemptId = attempt._id.toString();
+      existing.lastAttemptId = (attempt as DocWithId)._id.toString();
       existing.isRevoked = false;
       existing.revokedAtISO = undefined;
       existing.revokedReason = undefined;
@@ -94,7 +95,7 @@ export async function POST(request: NextRequest) {
       // Create new certificate
       await Certificate.create({
         certificateId: crypto.randomUUID(),
-        playerId: player._id.toString(),
+        playerId: (player as DocWithId)._id.toString(),
         recipientName: player.displayName || player.email || 'Learner',
         courseId: course.courseId,
         courseTitle: course.name || course.courseId,
@@ -107,7 +108,7 @@ export async function POST(request: NextRequest) {
         awardedPhraseId: 'awarded_verified_mastery',
         verificationSlug: crypto.randomBytes(10).toString('hex'),
         finalExamScorePercentInteger: scorePercentInteger,
-        lastAttemptId: attempt._id.toString(),
+        lastAttemptId: (attempt as DocWithId)._id.toString(),
         isRevoked: false,
         isPublic: true,
       });
@@ -115,7 +116,7 @@ export async function POST(request: NextRequest) {
   } else if (existing) {
     // Requirements not met - revoke certificate if it exists
     existing.finalExamScorePercentInteger = scorePercentInteger;
-    existing.lastAttemptId = attempt._id.toString();
+    existing.lastAttemptId = (attempt as DocWithId)._id.toString();
     existing.isRevoked = true;
     existing.revokedAtISO = new Date().toISOString();
     existing.revokedReason = passed 

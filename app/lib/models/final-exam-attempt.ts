@@ -33,7 +33,7 @@ const FinalExamAttemptSchema = new Schema<IFinalExamAttempt>(
     questionIds: { type: [String], required: true },
     questionOrder: { type: [String], required: true },
     answerOrderByQuestion: { type: Schema.Types.Mixed },
-    answers: { type: [Schema.Types.Mixed], default: [] },
+    answers: { type: Schema.Types.Mixed, default: [] },
     correctCount: { type: Number, default: 0 },
     scorePercentRaw: { type: Number },
     scorePercentInteger: { type: Number },

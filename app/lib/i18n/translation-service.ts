@@ -46,9 +46,9 @@ export async function getTranslationsForLocale(locale: string): Promise<Record<s
           if (!result[actualNamespace]) {
             result[actualNamespace] = {};
           }
-          setNestedValue(result[actualNamespace], actualKey, value);
+          setNestedValue(result[actualNamespace] as Record<string, unknown>, actualKey, value);
         } else {
-          result[namespace][key] = value;
+          (result[namespace] as Record<string, unknown>)[key] = value;
         }
       } else {
         // No namespace, handle nested keys
@@ -59,7 +59,7 @@ export async function getTranslationsForLocale(locale: string): Promise<Record<s
           if (!result[namespace]) {
             result[namespace] = {};
           }
-          setNestedValue(result[namespace], actualKey, value);
+          setNestedValue(result[namespace] as Record<string, unknown>, actualKey, value);
         } else {
           result[key] = value;
         }

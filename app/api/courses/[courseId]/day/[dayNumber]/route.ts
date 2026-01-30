@@ -8,6 +8,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { auth } from '@/auth';
 import connectDB from '@/lib/mongodb';
+import mongoose from 'mongoose';
 import { Course, Lesson, CourseProgress, Player, CourseProgressStatus } from '@/lib/models';
 import { logger } from '@/lib/logger';
 import { checkAndUnlockCourseCompletionAchievements } from '@/lib/gamification';
@@ -86,14 +87,14 @@ export async function GET(
 
     // Get progress or auto-enroll for testing
     let progress = await CourseProgress.findOne({
-      playerId: player._id,
+      playerId: player._id as mongoose.Types.ObjectId,
       courseId: course._id,
     });
 
     // Auto-enroll if not enrolled (useful for testing/admin)
     if (!progress) {
       progress = new CourseProgress({
-        playerId: player._id,
+        playerId: player._id as mongoose.Types.ObjectId,
         courseId: course._id,
         startedAt: new Date(),
         currentDay: 1,
@@ -102,7 +103,7 @@ export async function GET(
         lastAccessedAt: new Date(),
       });
       await progress.save();
-      logger.info({ courseId, playerId: player._id.toString() }, 'Auto-enrolled in course for testing');
+      logger.info({ courseId, playerId: (player._id as mongoose.Types.ObjectId).toString() }, 'Auto-enrolled in course for testing');
     }
 
     // Ensure currentDay is correct based on completedDays
@@ -117,7 +118,7 @@ export async function GET(
       progress.lastAccessedAt = new Date();
       await progress.save();
       logger.info(
-        { courseId, oldCurrentDay, newCurrentDay: correctCurrentDay, playerId: player._id.toString() },
+        { courseId, oldCurrentDay, newCurrentDay: correctCurrentDay, playerId: (player._id as mongoose.Types.ObjectId).toString() },
         'Updated currentDay to match completedDays'
       );
     }
@@ -221,14 +222,14 @@ export async function POST(
 
     // Get progress or auto-enroll for testing
     let progress = await CourseProgress.findOne({
-      playerId: player._id,
+      playerId: player._id as mongoose.Types.ObjectId,
       courseId: course._id,
     });
 
     // Auto-enroll if not enrolled (useful for testing/admin)
     if (!progress) {
       progress = new CourseProgress({
-        playerId: player._id,
+        playerId: player._id as mongoose.Types.ObjectId,
         courseId: course._id,
         startedAt: new Date(),
         currentDay: 1,
@@ -237,18 +238,19 @@ export async function POST(
         lastAccessedAt: new Date(),
       });
       await progress.save();
-      logger.info({ courseId, playerId: player._id.toString() }, 'Auto-enrolled in course for testing');
+      logger.info({ courseId, playerId: (player._id as mongoose.Types.ObjectId).toString() }, 'Auto-enrolled in course for testing');
     }
 
     // Find lesson: for child courses use resolveLessonForChildDay, else by courseId + dayNumber
-    let lesson: { pointsReward: number; xpReward: number } | null;
+    type LessonDoc = { pointsReward?: number; xpReward?: number; _id?: unknown; [k: string]: unknown };
+    let lesson: LessonDoc | null;
     if (course.parentCourseId && course.selectedLessonIds?.length) {
-      lesson = await resolveLessonForChildDay(course, day);
+      lesson = await resolveLessonForChildDay(course, day) as LessonDoc | null;
     } else {
       lesson = await Lesson.findOne({
         courseId: course._id,
         dayNumber: day,
-      });
+      }).lean() as LessonDoc | null;
     }
 
     if (!lesson) {
@@ -276,15 +278,15 @@ export async function POST(
         // Check and unlock course completion achievements
         try {
           const unlockedAchievements = await checkAndUnlockCourseCompletionAchievements(
-            player._id,
-            course._id
+            player._id as mongoose.Types.ObjectId,
+            course._id as mongoose.Types.ObjectId
           );
           
           if (unlockedAchievements.length > 0) {
             logger.info(
               {
                 courseId,
-                playerId: player._id.toString(),
+                playerId: (player._id as mongoose.Types.ObjectId).toString(),
                 completedDays: progress.completedDays.length,
                 achievementsUnlocked: unlockedAchievements.length,
                 achievementNames: unlockedAchievements.map(a => a.achievement.name),
@@ -293,14 +295,14 @@ export async function POST(
             );
           } else {
             logger.info(
-              { courseId, playerId: player._id.toString(), completedDays: progress.completedDays.length },
+              { courseId, playerId: (player._id as mongoose.Types.ObjectId).toString(), completedDays: progress.completedDays.length },
               'Course completed - no achievements to unlock'
             );
           }
         } catch (achievementError) {
           // Don't fail course completion if achievement unlock fails
           logger.warn(
-            { error: achievementError, courseId, playerId: player._id.toString() },
+            { error: achievementError, courseId, playerId: (player._id as mongoose.Types.ObjectId).toString() },
             'Failed to unlock course completion achievements'
           );
         }
@@ -308,13 +310,16 @@ export async function POST(
 
       await progress.save();
 
-      // Award points and XP
-      player.points += lesson.pointsReward;
-      player.xp += lesson.xpReward;
+      // Award points and XP (Player document may have points/xp from schema; type assertion for TS)
+      const pointsReward = lesson?.pointsReward ?? 0;
+      const xpReward = lesson?.xpReward ?? 0;
+      const playerWithRewards = player as unknown as { points?: number; xp?: number; save(): Promise<unknown> };
+      if (typeof playerWithRewards.points === 'number') playerWithRewards.points += pointsReward;
+      if (typeof playerWithRewards.xp === 'number') playerWithRewards.xp += xpReward;
       await player.save();
 
       logger.info(
-        { courseId, day, currentDay: progress.currentDay, completedDays: progress.completedDays.length, playerId: player._id.toString() },
+        { courseId, day, currentDay: progress.currentDay, completedDays: progress.completedDays.length, playerId: (player._id as mongoose.Types.ObjectId).toString() },
         'Lesson completed'
       );
     }

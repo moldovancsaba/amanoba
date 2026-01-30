@@ -11,6 +11,7 @@ import { CourseProgress, Player, Course, Lesson } from '../models';
 import { sendLessonEmail, sendReminderEmail } from '../email/email-service';
 import { resolveLessonForChildDay } from '../course-helpers';
 import type { ILesson } from '../models/lesson';
+import type { ICourse } from '../models/course';
 
 /**
  * Send Daily Lessons
@@ -54,10 +55,12 @@ export async function sendDailyLessons(targetDate?: Date): Promise<{
 
     for (const progress of activeProgress) {
       try {
-        const player = progress.playerId as { _id?: { toString(): string }; emailPreferences?: { receiveLessonEmails?: boolean } };
-        const course = progress.courseId as { _id?: { toString(): string } };
+        type PlayerDoc = { _id?: { toString(): string }; email?: string; emailPreferences?: { receiveLessonEmails?: boolean; timezone?: string; preferredEmailTime?: number }; timezone?: string };
+        type CourseDoc = { _id?: { toString(): string }; isActive?: boolean; parentCourseId?: string; selectedLessonIds?: unknown[] };
+        const player = progress.playerId as PlayerDoc | null | undefined;
+        const course = progress.courseId as CourseDoc | null | undefined;
 
-        if (!player || !course) {
+        if (!player || !course || !player._id || !course._id) {
           logger.warn({ progressId: progress._id }, 'Progress record missing player or course');
           results.skipped++;
           continue;
@@ -115,9 +118,9 @@ export async function sendDailyLessons(targetDate?: Date): Promise<{
         }
 
         // Resolve lesson: for child courses use parent lesson via selectedLessonIds; for parent use Lesson by day
-        const isChild = !!(course as { parentCourseId?: string }).parentCourseId && (course as { selectedLessonIds?: unknown[] }).selectedLessonIds?.length;
+        const isChild = !!course.parentCourseId && !!course.selectedLessonIds?.length;
         const lesson = isChild
-          ? await resolveLessonForChildDay(course as { parentCourseId: string; selectedLessonIds: unknown[] }, targetDay)
+          ? await resolveLessonForChildDay(course as unknown as ICourse, targetDay)
           : await Lesson.findOne({
               courseId: course._id,
               dayNumber: targetDay,
@@ -273,8 +276,9 @@ export async function sendCatchUpEmails(
     const currentDay = progress.currentDay;
     const missedDays: number[] = [];
 
+    const progressWithLessons = progress as { lessonsCompleted?: number[]; emailSentDays?: number[] };
     for (let day = Math.max(1, currentDay - maxDaysBack); day < currentDay; day++) {
-      if (!progress.lessonsCompleted?.includes(day) && !progress.emailSentDays?.includes(day)) {
+      if (!progressWithLessons.lessonsCompleted?.includes(day) && !progressWithLessons.emailSentDays?.includes(day)) {
         missedDays.push(day);
       }
     }

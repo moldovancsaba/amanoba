@@ -18,7 +18,7 @@ import Stripe from 'stripe';
 // Why: Server-side Stripe client for creating checkout sessions
 const stripe = process.env.STRIPE_SECRET_KEY
   ? new Stripe(process.env.STRIPE_SECRET_KEY, {
-      apiVersion: '2024-12-18.acacia',
+      apiVersion: '2024-12-18.acacia' as Stripe.LatestApiVersion,
     })
   : null;
 
@@ -41,7 +41,8 @@ export const dynamic = 'force-dynamic';
 export async function POST(request: NextRequest) {
   let normalizedCourseId: string | undefined;
   let originalCourseId: string | undefined;
-  let player: unknown = null;
+  type PlayerDoc = { _id: { toString(): string }; email?: string; displayName?: string; stripeCustomerId?: string; isPremium?: boolean; premiumExpiresAt?: Date; save(): Promise<unknown> };
+  let player: PlayerDoc | null = null;
 
   try {
     // Check authentication
@@ -75,12 +76,12 @@ export async function POST(request: NextRequest) {
     }
 
     // Normalize courseId to uppercase (Course schema stores courseId in uppercase)
-    const normalizedCourseId = courseId.toUpperCase().trim();
+    normalizedCourseId = courseId.toUpperCase().trim();
 
     // Get player
     const user = session.user as { id?: string; playerId?: string };
     const playerId = user.playerId || user.id;
-    player = await Player.findById(playerId);
+    player = (await Player.findById(playerId)) as PlayerDoc | null;
     if (!player) {
       return NextResponse.json({ error: 'Player not found' }, { status: 404 });
     }

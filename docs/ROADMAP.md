@@ -1,7 +1,7 @@
 # Amanoba Roadmap — Future Plans & Strategic Directions
 
-**Version**: 2.9.20  
-**Last Updated**: 2026-01-30  
+**Version**: 2.9.21  
+**Last Updated**: 2026-01-28  
 **Vision**: Transform Amanoba into a unified 30-day learning platform with gamified education, assessment tools, email-based lesson delivery, and monetization
 
 ---
@@ -47,7 +47,7 @@ Completed items are in **RELEASE_NOTES.md** — roadmap and tasklist contain onl
 
 ### Tech audit follow-up (Jan 2026) — priority order P0 → P1 → P2 → P3
 10. **P0 — Security**: Run `npm audit fix`; evaluate Next.js upgrade; restrict debug API; env for origin allowlists; gate SSO DEBUG logs.  
-11. **P1 — Lint/TS**: Fix critical ESLint errors (Sparkles, unescaped entities); fix Hook deps and high-impact `any`; re-enable lint (and optionally TS) in build; migrate from deprecated `next lint`.  
+11. **P1 — Lint/TS**: Fix critical ESLint errors (Sparkles, unescaped entities); fix Hook deps and high-impact `any`; re-enable lint (and optionally TS) in build; migrate from deprecated `next lint`. **P1.7 TypeScript**: ✅ Complete — all app-level TS errors fixed; `tsc --noEmit` passes; see `docs/2026-01-28_TYPESCRIPT_AUDIT_COMPLETE.md`.  
 12. **P2 — Deprecated/hardcoded**: Update/remove baseline-browser-mapping and @emnapi/runtime; centralise certificate/email/analytics colors; use env for production allowlists.  
 13. **P3 — Known issues, UI, consistency**: Resolve or ticket profile stats, admin settings, system-info, game status API, challenge retry; replace admin `<img>` with Next Image; audit CTA yellow; standardise imports and logging.  
 *Full list: `docs/2026-01-30_TECH_AUDIT_JANUARY.md` §12; tasklist: `docs/tasklists/TECH_AUDIT_JANUARY__2026-01-30.md`.*

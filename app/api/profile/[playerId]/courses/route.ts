@@ -62,15 +62,16 @@ export async function GET(
       .sort({ startedAt: -1 })
       .lean();
 
-    // Transform to simple course list
+    // Transform to simple course list (populate returns courseId, name, language)
+    type PopulatedCourse = { _id?: unknown; name?: string; courseId?: string; language?: string };
     const courses = progressList
       .map((progress) => {
-        const course = progress.courseId as { _id?: unknown; name?: string };
+        const course = progress.courseId as PopulatedCourse | null | undefined;
         if (!course) return null;
         return {
-          courseId: course.courseId || course._id?.toString(),
-          title: course.name || course.courseId || 'Unknown Course',
-          language: course.language || 'en',
+          courseId: course.courseId ?? (course._id != null ? String(course._id) : undefined),
+          title: course.name ?? course.courseId ?? 'Unknown Course',
+          language: course.language ?? 'en',
         };
       })
       .filter((course) => course !== null);

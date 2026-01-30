@@ -27,7 +27,7 @@ import mongoose from 'mongoose';
 export async function POST(request: NextRequest) {
   try {
     const session = await auth();
-    const apiActor = getAdminApiActor(request);
+    const apiActor = await getAdminApiActor(request);
     if (!apiActor) {
       const adminCheck = requireAdmin(request, session);
       if (adminCheck) {

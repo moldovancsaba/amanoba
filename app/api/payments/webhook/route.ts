@@ -22,7 +22,7 @@ import mongoose from 'mongoose';
 // Initialize Stripe
 const stripe = process.env.STRIPE_SECRET_KEY
   ? new Stripe(process.env.STRIPE_SECRET_KEY, {
-      apiVersion: '2024-12-18.acacia',
+      apiVersion: '2024-12-18.acacia' as Stripe.LatestApiVersion,
     })
   : null;
 
@@ -39,7 +39,7 @@ export const dynamic = 'force-dynamic';
  * Security: Verifies webhook signature using STRIPE_WEBHOOK_SECRET
  */
 export async function POST(request: NextRequest) {
-  let event: Stripe.Event;
+  let event: Stripe.Event | undefined = undefined;
 
   try {
     // Check Stripe is configured
@@ -305,10 +305,11 @@ async function handleCheckoutSessionCompleted(session: Stripe.Checkout.Session) 
     }
 
     // Create payment transaction with transaction safety
-    let transaction;
+    type DocWithObjectId = { _id: mongoose.Types.ObjectId; [k: string]: unknown };
+    let transaction: InstanceType<typeof PaymentTransaction> | (Awaited<ReturnType<typeof PaymentTransaction.findOne>> & DocWithObjectId);
     try {
       transaction = new PaymentTransaction({
-        playerId: player._id,
+        playerId: (player as unknown as DocWithObjectId)._id,
         courseId: course?._id,
         brandId: brandId,
         stripePaymentIntentId: paymentIntentId,
@@ -325,7 +326,7 @@ async function handleCheckoutSessionCompleted(session: Stripe.Checkout.Session) 
         metadata: {
           createdAt: new Date(),
           processedAt: new Date(),
-          ipAddress: session.customer_details?.ip_address,
+          ipAddress: (session.customer_details as { ip_address?: string })?.ip_address,
           userAgent: session.customer_details?.email, // Store email as user agent placeholder
         },
       });
@@ -373,17 +374,19 @@ async function handleCheckoutSessionCompleted(session: Stripe.Checkout.Session) 
     if (!player.paymentHistory) {
       player.paymentHistory = [];
     }
-    if (!player.paymentHistory.includes(transaction._id)) {
-      player.paymentHistory.push(transaction._id);
+    const transactionId = (transaction as unknown as DocWithObjectId)._id;
+    if (!player.paymentHistory?.includes(transactionId)) {
+      player.paymentHistory = player.paymentHistory || [];
+      player.paymentHistory.push(transactionId);
     }
     
     await player.save();
 
     logger.info(
       {
-        playerId: player._id.toString(),
+        playerId: (player as unknown as DocWithObjectId)._id.toString(),
         courseId: courseId || 'general',
-        transactionId: transaction._id.toString(),
+        transactionId: transactionId.toString(),
         amount: transaction.amount,
         premiumExpiresAt: premiumExpiresAt.toISOString(),
       },
@@ -392,17 +395,17 @@ async function handleCheckoutSessionCompleted(session: Stripe.Checkout.Session) 
 
     // Send payment confirmation email (non-blocking)
     sendPaymentConfirmationEmail(
-      player._id.toString(),
+      (player as unknown as DocWithObjectId)._id.toString(),
       courseId || null,
       transaction.amount,
       transaction.currency,
       premiumExpiresAt,
-      transaction._id.toString(),
+      transactionId.toString(),
       player.locale as 'hu' | 'en' | undefined
     ).catch((emailError) => {
       // Log email error but don't fail the webhook
       logger.error(
-        { error: emailError, playerId: player._id.toString(), transactionId: transaction._id.toString() },
+        { error: emailError, playerId: (player as unknown as DocWithObjectId)._id.toString(), transactionId: transactionId.toString() },
         'Failed to send payment confirmation email (non-critical)'
       );
     });
@@ -476,7 +479,7 @@ async function handlePaymentIntentFailed(paymentIntent: Stripe.PaymentIntent) {
       const player = await Player.findById(metadata.playerId);
       if (player) {
         const transaction = new PaymentTransaction({
-          playerId: player._id,
+          playerId: (player as { _id: mongoose.Types.ObjectId })._id,
           brandId: player.brandId,
           stripePaymentIntentId: paymentIntent.id,
           stripeCustomerId: paymentIntent.customer as string,
@@ -493,7 +496,7 @@ async function handlePaymentIntentFailed(paymentIntent: Stripe.PaymentIntent) {
         await transaction.save();
 
         logger.info(
-          { playerId: player._id.toString(), paymentIntentId: paymentIntent.id },
+          { playerId: (player as { _id: mongoose.Types.ObjectId })._id.toString(), paymentIntentId: paymentIntent.id },
           'Payment failed transaction recorded'
         );
       }
@@ -523,7 +526,7 @@ async function handleChargeRefunded(charge: Stripe.Charge) {
 
     // Check if already refunded
     if (transaction.status === PaymentStatus.REFUNDED || transaction.status === PaymentStatus.PARTIALLY_REFUNDED) {
-      logger.info({ transactionId: transaction._id }, 'Transaction already marked as refunded');
+      logger.info({ transactionId: (transaction as { _id: mongoose.Types.ObjectId })._id }, 'Transaction already marked as refunded');
       return;
     }
 
@@ -552,7 +555,7 @@ async function handleChargeRefunded(charge: Stripe.Charge) {
             await player.save();
 
             logger.info(
-              { playerId: player._id.toString(), transactionId: transaction._id.toString() },
+              { playerId: (player as { _id: mongoose.Types.ObjectId })._id.toString(), transactionId: (transaction as { _id: mongoose.Types.ObjectId })._id.toString() },
               'Premium access revoked due to refund'
             );
           }
@@ -562,7 +565,7 @@ async function handleChargeRefunded(charge: Stripe.Charge) {
 
     logger.info(
       {
-        transactionId: transaction._id.toString(),
+        transactionId: (transaction as { _id: mongoose.Types.ObjectId })._id.toString(),
         chargeId: charge.id,
         refundAmount,
         isPartialRefund,

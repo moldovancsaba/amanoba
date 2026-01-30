@@ -96,10 +96,10 @@ export async function GET(request: NextRequest) {
 
     // Hashtag filter (supports multiple, AND logic)
     if (hashtag.length > 0) {
-      if (filter.hashtags) {
-        // Combine with existing hashtag filter (AND logic)
+      const existingHashtags = filter.hashtags as { $in?: string[] } | undefined;
+      if (filter.hashtags && existingHashtags?.$in) {
         filter.hashtags = {
-          $all: [...(Array.isArray(filter.hashtags.$in) ? filter.hashtags.$in : []), ...hashtag],
+          $all: [...(Array.isArray(existingHashtags.$in) ? existingHashtags.$in : []), ...hashtag],
         };
       } else {
         filter.hashtags = { $all: hashtag };
@@ -254,7 +254,7 @@ export async function POST(request: NextRequest) {
               { status: 404 }
             );
           }
-          resolvedCourseId = maybeCourse._id;
+          resolvedCourseId = maybeCourse._id as mongoose.Types.ObjectId;
         } else {
           const course = await Course.findOne({ courseId });
           if (!course) {
@@ -263,10 +263,10 @@ export async function POST(request: NextRequest) {
               { status: 404 }
             );
           }
-          resolvedCourseId = course._id;
+          resolvedCourseId = course._id as mongoose.Types.ObjectId;
         }
       } else {
-        resolvedCourseId = courseId;
+        resolvedCourseId = courseId as unknown as mongoose.Types.ObjectId;
       }
     }
 
@@ -274,22 +274,23 @@ export async function POST(request: NextRequest) {
     const resolvedRelatedCourseIds: mongoose.Types.ObjectId[] = [];
     if (relatedCourseIds && Array.isArray(relatedCourseIds) && relatedCourseIds.length > 0) {
       for (const relatedId of relatedCourseIds) {
+        const idStr = typeof relatedId === 'string' ? relatedId : String(relatedId);
         if (typeof relatedId === 'string') {
           if (mongoose.Types.ObjectId.isValid(relatedId)) {
             const course = await Course.findById(relatedId);
             if (course) {
-              resolvedRelatedCourseIds.push(course._id);
+              resolvedRelatedCourseIds.push(course._id as mongoose.Types.ObjectId);
             }
           } else {
             const course = await Course.findOne({ courseId: relatedId });
             if (course) {
-              resolvedRelatedCourseIds.push(course._id);
+              resolvedRelatedCourseIds.push(course._id as mongoose.Types.ObjectId);
             }
           }
-        } else if (mongoose.Types.ObjectId.isValid(relatedId)) {
-          const course = await Course.findById(relatedId);
+        } else if (mongoose.Types.ObjectId.isValid(idStr)) {
+          const course = await Course.findById(idStr);
           if (course) {
-            resolvedRelatedCourseIds.push(course._id);
+            resolvedRelatedCourseIds.push(course._id as mongoose.Types.ObjectId);
           }
         }
       }
@@ -336,10 +337,10 @@ export async function POST(request: NextRequest) {
       question: quizQuestion,
     }, { status: 201 });
   } catch (error: unknown) {
-    logger.error({ error }, 'Failed to create quiz question');
+    const err = error as Error & { code?: number; keyPattern?: { uuid?: number } };
+    logger.error({ error: err }, 'Failed to create quiz question');
 
     // Handle duplicate UUID
-    const err = error as { code?: number; keyPattern?: { uuid?: number } };
     if (err.code === 11000 && err.keyPattern?.uuid) {
       return NextResponse.json(
         { error: 'Question with this UUID already exists' },
@@ -348,7 +349,7 @@ export async function POST(request: NextRequest) {
     }
 
     return NextResponse.json(
-      { error: error.message || 'Failed to create quiz question' },
+      { error: err?.message || 'Failed to create quiz question' },
       { status: 500 }
     );
   }

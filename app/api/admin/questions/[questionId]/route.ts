@@ -202,22 +202,23 @@ export async function PATCH(
       
       const resolvedRelatedCourseIds: mongoose.Types.ObjectId[] = [];
       for (const relatedId of body.relatedCourseIds) {
+        const idStr = typeof relatedId === 'string' ? relatedId : String(relatedId);
         if (typeof relatedId === 'string') {
           if (mongoose.Types.ObjectId.isValid(relatedId)) {
             const course = await Course.findById(relatedId);
             if (course) {
-              resolvedRelatedCourseIds.push(course._id);
+              resolvedRelatedCourseIds.push(course._id as mongoose.Types.ObjectId);
             }
           } else {
             const course = await Course.findOne({ courseId: relatedId });
             if (course) {
-              resolvedRelatedCourseIds.push(course._id);
+              resolvedRelatedCourseIds.push(course._id as mongoose.Types.ObjectId);
             }
           }
-        } else if (mongoose.Types.ObjectId.isValid(relatedId)) {
-          const course = await Course.findById(relatedId);
+        } else if (mongoose.Types.ObjectId.isValid(idStr)) {
+          const course = await Course.findById(idStr);
           if (course) {
-            resolvedRelatedCourseIds.push(course._id);
+            resolvedRelatedCourseIds.push(course._id as mongoose.Types.ObjectId);
           }
         }
       }

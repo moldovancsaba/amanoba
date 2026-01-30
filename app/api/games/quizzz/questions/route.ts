@@ -305,7 +305,7 @@ export async function GET(request: NextRequest) {
     
     // Why: Transform questions for response (remove correctIndex for security)
     const responseQuestions: ResponseQuestion[] = shuffled.map(q => {
-      const shuffledOptions = shuffle(q.options || []);
+      const shuffledOptions = shuffle(q.options || []) as string[];
       return {
         id: q._id.toString(),
         question: q.question,

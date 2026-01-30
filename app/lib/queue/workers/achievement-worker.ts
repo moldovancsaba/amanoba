@@ -112,7 +112,7 @@ export async function processAchievementJob(job: IJobQueue): Promise<boolean> {
           playerId: job.playerId,
           sessionId: job.sessionId,
           achievementsUnlocked: newAchievements.length,
-          achievements: newAchievements.map(a => a.achievement.code),
+          achievements: newAchievements.map(a => (a.achievement as { code?: string; _id?: unknown }).code ?? String((a.achievement as { _id?: unknown })._id)),
         },
         'Achievements unlocked by worker'
       );
@@ -156,7 +156,7 @@ export async function processAchievementJob(job: IJobQueue): Promise<boolean> {
     // Why: Mark job as failed and schedule retry
     const jobDoc = await JobQueue.findById(job._id);
     if (jobDoc) {
-      await jobDoc.markFailed(err);
+      await (jobDoc as unknown as { markFailed(e: Error): Promise<void> }).markFailed(err);
     }
 
     return false;

@@ -1,11 +1,30 @@
 # Amanoba Release Notes
 
-**Current Version**: 2.9.20  
-**Last Updated**: 2026-01-30
+**Current Version**: 2.9.21  
+**Last Updated**: 2026-01-28
 
 ---
 
 All completed tasks are documented here in reverse chronological order. This file follows the Changelog format and is updated with every version bump.
+
+---
+
+## [v2.9.21] — 2026-01-28 🛠️
+
+**Status**: TypeScript audit — application code  
+**Type**: Tech debt (P1.7), quality
+
+### TypeScript errors resolved
+
+- **Scope**: Application code under `app/`, `auth.ts`, `components/`, `middleware.ts`; `scripts/` excluded in `tsconfig.json`.
+- **Result**: `npx tsc --noEmit` passes with **0 errors**. Build still uses `typescript.ignoreBuildErrors: true`; can be set to `false` to enforce TS in build.
+- **Fixes**: API routes (day route mongoose import; payments create-checkout/webhook types; admin surveys, SSO callback, certification, enroll, quiz-submit, recommendations, feature-flags, games/quizzz, certificate-status, referrals, onboarding); lib (auth/sso, certification, email-scheduler, gamification achievement-engine/leaderboard-calculator/progressive-disclosure, session-manager, logger, useCourseTranslations, translation-service, queue job-queue-manager/workers); auth.ts (locale/ssoSub); components (Icon ReactIconType→IconType, LocaleLink pathname guard); middleware (locale narrow to Locale).
+- **Documentation**: `docs/2026-01-28_TYPESCRIPT_AUDIT_COMPLETE.md`; tasklist P1.7 marked complete in `docs/tasklists/TECH_AUDIT_JANUARY__2026-01-30.md`.
+
+**TASKLIST**: P1.7 TypeScript marked done; next suggested: P2.4–P2.5 (email/analytics colors), P3 items.
+
+**Build Status**: Verified (`tsc --noEmit` passes)  
+**Status**: ✅ TypeScript audit (app code) complete
 
 ---
 

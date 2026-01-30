@@ -65,20 +65,21 @@ export async function GET(request: NextRequest) {
       .lean();
 
     // My courses: only show published shorts (exclude isDraft === true)
-    const filteredProgress = progressList.filter(
-      (p: { courseId?: { isDraft?: boolean } }) => p.courseId && (p.courseId as { isDraft?: boolean }).isDraft !== true
+    type ProgressWithCourse = { courseId?: { isDraft?: boolean; courseId?: string; name?: string; description?: string; thumbnail?: string; language?: string; durationDays?: number }; completedDays?: number[]; status?: string; startedAt?: Date; lastAccessedAt?: Date };
+    const list = progressList as ProgressWithCourse[];
+    const filteredProgress = list.filter(
+      (p) => p.courseId && typeof p.courseId === 'object' && (p.courseId as { isDraft?: boolean }).isDraft !== true
     );
 
     // Calculate progress for each course
-    const courses = filteredProgress.map((progress: Record<string, unknown>) => {
-      const course = progress.courseId;
-      const completedDaysArray = progress.completedDays || [];
+    const courses = filteredProgress.map((progress) => {
+      const course = progress.courseId as ProgressWithCourse['courseId'];
+      const completedDaysArray = Array.isArray(progress.completedDays) ? progress.completedDays : [];
       const completedDays = completedDaysArray.length;
-      const totalDays = course?.durationDays || 30;
-      const progressPercentage = (completedDays / totalDays) * 100;
+      const totalDays = (course?.durationDays as number) || 30;
+      const progressPercentage = totalDays > 0 ? (completedDays / totalDays) * 100 : 0;
 
       // Calculate correct currentDay based on completed days
-      // This ensures the UI always shows the correct next lesson
       const correctCurrentDay = calculateCurrentDay(completedDaysArray, totalDays);
 
       return {
@@ -91,7 +92,7 @@ export async function GET(request: NextRequest) {
           durationDays: course?.durationDays,
         },
         progress: {
-          currentDay: correctCurrentDay, // Use calculated currentDay instead of stored one
+          currentDay: correctCurrentDay,
           completedDays,
           totalDays,
           progressPercentage: Math.round(progressPercentage),

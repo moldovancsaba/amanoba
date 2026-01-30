@@ -128,7 +128,7 @@ export async function fetchPendingJobs(
       .limit(limit)
       .lean();
 
-    return jobs as IJobQueue[];
+    return jobs as unknown as IJobQueue[];
   } catch (error) {
     logger.error(
       {
@@ -278,7 +278,7 @@ export async function getFailedJobs(limit: number = 100): Promise<IJobQueue[]> {
       .limit(limit)
       .lean();
 
-    return jobs as IJobQueue[];
+    return jobs as unknown as IJobQueue[];
   } catch (error) {
     logger.error(
       {

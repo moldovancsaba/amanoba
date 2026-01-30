@@ -92,7 +92,7 @@ export async function checkAndUnlockAchievements(
       
       // Evaluate achievement criteria
       const evaluation = evaluateAchievementCriteria(
-        achievement as IAchievement,
+        achievement as unknown as IAchievement,
         context
       );
       
@@ -110,7 +110,7 @@ export async function checkAndUnlockAchievements(
         
         const result = await unlockAchievement(
           context.playerId,
-          achievement as IAchievement,
+          achievement as unknown as IAchievement,
           evaluation.currentValue,
           context.recentSession
             ? new mongoose.Types.ObjectId() // Source session ID
@@ -448,7 +448,7 @@ export async function getPlayerAchievementsByCategory(
     unlocks.map(u => [u.achievementId.toString(), u])
   );
   
-  const grouped = new Map<string, Array<{ playerId: string; achievementId: string; unlockedAt: Date }>>();
+  const grouped = new Map<string, Array<{ achievement: IAchievement; progress: number; isUnlocked: boolean; unlockedAt?: Date }>>();
   
   for (const achievement of achievements) {
     const unlock = unlockMap.get(achievement._id.toString());
@@ -459,7 +459,7 @@ export async function getPlayerAchievementsByCategory(
     }
     
     grouped.get(category)!.push({
-      achievement,
+      achievement: achievement as unknown as IAchievement,
       progress: unlock?.progress || 0,
       isUnlocked: (unlock?.progress || 0) >= 100,
       unlockedAt: unlock?.unlockedAt,
@@ -558,7 +558,7 @@ export async function checkAndUnlockCourseCompletionAchievements(
       
       const result = await unlockAchievement(
         playerId,
-        achievement as IAchievement,
+        achievement as unknown as IAchievement,
         1, // currentValue = 1 (course completed)
         undefined // no source session
       );

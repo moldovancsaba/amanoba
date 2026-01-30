@@ -92,7 +92,7 @@ export async function POST(request: NextRequest) {
   const questions = await QuizQuestion.aggregate([
     {
       $match: {
-        courseId: new mongoose.Types.ObjectId(poolCourse._id),
+        courseId: new mongoose.Types.ObjectId(String(poolCourse._id)),
         isCourseSpecific: true,
         isActive: true,
       },
@@ -134,10 +134,11 @@ export async function POST(request: NextRequest) {
     startedAtISO: new Date().toISOString(),
   });
 
+  type AttemptDoc = { _id: { toString(): string } };
   return NextResponse.json({
     success: true,
     data: {
-      attemptId: attempt._id.toString(),
+      attemptId: (attempt as AttemptDoc)._id.toString(),
       question: firstPayload,
     },
   });

@@ -111,15 +111,17 @@ async function getCourseRecommendations(
     .select('courseId name description language thumbnail requiresPremium durationDays pointsConfig xpConfig price metadata')
     .lean();
 
+  type PlayerWithInterests = { interests?: string[] };
+  const interests = (player as PlayerWithInterests).interests;
   // Score courses based on interests
-  if (player.interests && player.interests.length > 0) {
+  if (interests && interests.length > 0) {
     const scoredCourses = courses.map((course) => {
       let score = 0;
 
       // Match interests with course tags
       if (course.metadata?.tags && Array.isArray(course.metadata.tags)) {
         const courseTags = course.metadata.tags.map((tag: string) => tag.toLowerCase());
-        const playerInterests = player.interests.map((interest: string) => interest.toLowerCase());
+        const playerInterests = interests.map((interest: string) => interest.toLowerCase());
 
         // Count matching tags
         const matchingTags = courseTags.filter((tag: string) =>
@@ -130,7 +132,7 @@ async function getCourseRecommendations(
 
       // Match interests with course name/description
       const courseText = `${course.name} ${course.description}`.toLowerCase();
-      for (const interest of player.interests) {
+      for (const interest of interests) {
         if (courseText.includes(interest.toLowerCase())) {
           score += 5;
         }

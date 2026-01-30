@@ -41,15 +41,16 @@ export function LocaleLink({
     }
   } else if (typeof href === 'object' && href.pathname) {
     // Handle Next.js Link href object
+    const pathname = href.pathname ?? '';
     if (
-      href.pathname.startsWith('/api/') ||
-      locales.some((loc) => href.pathname.startsWith(`/${loc}/`) || href.pathname === `/${loc}`)
+      pathname.startsWith('/api/') ||
+      locales.some((loc) => pathname.startsWith(`/${loc}/`) || pathname === `/${loc}`)
     ) {
       localizedHref = href as LinkHref;
-    } else if (!href.pathname.startsWith(`/${locale}/`) && !href.pathname.startsWith('/api/')) {
+    } else if (!pathname.startsWith(`/${locale}/`) && !pathname.startsWith('/api/')) {
       localizedHref = {
         ...href,
-        pathname: `/${locale}${href.pathname}`,
+        pathname: `/${locale}${pathname}`,
       } as LinkHref;
     }
   }

@@ -134,7 +134,7 @@ export async function GET(
 
     // Check if all quizzes are passed
     // assessmentResults is a Map<string, ObjectId> where key is dayNumber as string
-    const assessmentResults = progress?.assessmentResults || new Map();
+    const assessmentResults = (progress?.assessmentResults ?? new Map()) as unknown as Map<string, unknown>;
     const allQuizzesPassed = durationDays > 0 && 
       Array.from({ length: durationDays }, (_, i) => (i + 1).toString())
         .every((dayStr) => assessmentResults.has(dayStr));

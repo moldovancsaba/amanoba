@@ -13,6 +13,9 @@
 
 import logger from '@/lib/logger';
 import { JobQueueManager } from '../job-queue-manager';
+import mongoose from 'mongoose';
+import JobQueue from '@/lib/models/job-queue';
+import type { IJobQueue } from '@/lib/models/job-queue';
 import { calculateLeaderboard, calculateAllLeaderboards, LeaderboardType, LeaderboardPeriod } from '@/lib/gamification/leaderboard-calculator';
 
 /**
@@ -132,7 +135,7 @@ export async function startLeaderboardWorker(
 
   const processJobs = async () => {
     try {
-      const jobs = await JobQueueManager.fetchJobsToProcess('leaderboard', concurrency);
+      const jobs = await JobQueueManager.fetchPendingJobs('leaderboard', concurrency);
 
       if (jobs.length === 0) {
         return;
@@ -142,15 +145,18 @@ export async function startLeaderboardWorker(
 
       // Process jobs in parallel
       await Promise.all(
-        jobs.map(async (job) => {
+        jobs.map(async (job: IJobQueue) => {
           try {
-            await processLeaderboardJob(job._id.toString(), job.payload as LeaderboardJobPayload);
+            await processLeaderboardJob((job as { _id: { toString(): string } })._id.toString(), job.payload as unknown as LeaderboardJobPayload);
             
             // Mark job as completed
-            await JobQueueManager.completeJob(job._id.toString());
+            await JobQueue.findByIdAndUpdate((job as { _id: unknown })._id, { status: 'completed', completedAt: new Date() });
           } catch (error) {
-            // Retry job
-            await JobQueueManager.retryJob(job._id.toString(), error instanceof Error ? error.message : 'Unknown error');
+            // Retry job: load doc and call markFailed to schedule retry
+            const jobDoc = await JobQueue.findById((job as { _id: unknown })._id);
+            if (jobDoc) {
+              await (jobDoc as unknown as { markFailed(e: Error): Promise<void> }).markFailed(error instanceof Error ? error : new Error(String(error)));
+            }
           }
         })
       );
@@ -182,11 +188,12 @@ export async function enqueueLeaderboardUpdate(
   payload: LeaderboardJobPayload,
   priority: number = 3
 ): Promise<string> {
-  return JobQueueManager.enqueueJob({
-    type: 'leaderboard',
-    payload,
-    priority,
+  const job = await JobQueueManager.enqueueJob({
+    jobType: 'leaderboard',
+    playerId: new mongoose.Types.ObjectId(), // Placeholder for system-triggered job
+    payload: payload as unknown as Record<string, unknown>,
   });
+  return (job as { _id: { toString(): string } })._id.toString();
 }
 
 /**
@@ -203,12 +210,13 @@ export async function enqueueAllLeaderboardsUpdate(
   brandId?: string,
   priority: number = 2
 ): Promise<string> {
-  return JobQueueManager.enqueueJob({
-    type: 'leaderboard',
+  const job = await JobQueueManager.enqueueJob({
+    jobType: 'leaderboard',
+    playerId: new mongoose.Types.ObjectId(), // Placeholder for system-triggered job
     payload: {
       calculateAll: true,
       brandId,
-    } as LeaderboardJobPayload,
-    priority,
+    } as unknown as Record<string, unknown>,
   });
+  return (job as { _id: { toString(): string } })._id.toString();
 }

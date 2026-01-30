@@ -139,8 +139,8 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
     async session({ session, token }) {
       if (token && session.user) {
         session.user.id = token.id as string;
-        session.user.ssoSub = token.ssoSub || null;
-        session.user.locale = token.locale || 'en';
+        session.user.ssoSub = token.ssoSub ?? undefined;
+        session.user.locale = (token.locale ?? 'en') as 'en' | 'hu';
         session.user.isAnonymous = token.isAnonymous ?? false;
         session.user.role = (token.role as 'user' | 'admin') || 'user';
         session.user.authProvider = (token.authProvider as 'sso' | 'anonymous') || 'sso';

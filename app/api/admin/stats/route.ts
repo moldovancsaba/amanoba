@@ -218,22 +218,34 @@ export async function GET(request: NextRequest) {
     });
 
     // Format recent activity
+    type PlayerDoc = { displayName?: string; createdAt?: Date | string };
+    type AchievementDoc = { achievementId?: { name?: string }; playerId?: { displayName?: string }; unlockedAt?: Date | string };
+    type SessionDoc = { game?: { name?: string }; count?: number };
     const recentActivity = [
-      ...recentPlayers.slice(0, 1).map((p: Record<string, unknown>) => ({
-        type: 'player',
-        message: `Új játékos regisztrálva: ${p.displayName}`,
-        time: getTimeAgo(p.createdAt),
-      })),
-      ...recentAchievements.slice(0, 1).map((a: Record<string, unknown>) => ({
-        type: 'achievement',
-        message: `Eredmény feloldva: ${a.achievementId?.name || 'Ismeretlen'} (${a.playerId?.displayName || 'Ismeretlen'})`,
-        time: getTimeAgo(a.unlockedAt),
-      })),
-      ...recentSessions.slice(0, 1).map((s: Record<string, unknown>) => ({
-        type: 'game',
-        message: `${s.game?.name || 'Játék'} játszva ${s.count} alkalommal az elmúlt órában`,
-        time: '1 órája',
-      })),
+      ...recentPlayers.slice(0, 1).map((p: Record<string, unknown>) => {
+        const doc = p as PlayerDoc;
+        return {
+          type: 'player',
+          message: `Új játékos regisztrálva: ${doc.displayName ?? 'Unknown'}`,
+          time: getTimeAgo(doc.createdAt ?? new Date()),
+        };
+      }),
+      ...recentAchievements.slice(0, 1).map((a: Record<string, unknown>) => {
+        const doc = a as AchievementDoc;
+        return {
+          type: 'achievement',
+          message: `Eredmény feloldva: ${doc.achievementId?.name || 'Ismeretlen'} (${doc.playerId?.displayName || 'Ismeretlen'})`,
+          time: getTimeAgo(doc.unlockedAt ?? new Date()),
+        };
+      }),
+      ...recentSessions.slice(0, 1).map((s: Record<string, unknown>) => {
+        const doc = s as SessionDoc;
+        return {
+          type: 'game',
+          message: `${doc.game?.name || 'Játék'} játszva ${doc.count ?? 0} alkalommal az elmúlt órában`,
+          time: '1 órája',
+        };
+      }),
       {
         type: 'reward',
         message: `${recentRewards} jutalom beváltva ma`,

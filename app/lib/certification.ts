@@ -24,7 +24,7 @@ export async function getCertificationPoolCount(courseId: string): Promise<numbe
   const poolCourse = await resolvePoolCourse(courseId);
   if (!poolCourse?._id) return 0;
   const count = await QuizQuestion.countDocuments({
-    courseId: new mongoose.Types.ObjectId(poolCourse._id),
+    courseId: new mongoose.Types.ObjectId(String(poolCourse._id)),
     isCourseSpecific: true,
     isActive: true,
   });

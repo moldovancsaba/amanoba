@@ -155,10 +155,10 @@ export default auth((req) => {
     const callbackUrl = encodeURIComponent(pathname + req.nextUrl.search);
     // Determine locale from pathname
     // Admin routes should use English, public routes use Hungarian
-    let locale = actualPathname.startsWith('/admin') ? adminDefaultLocale : publicDefaultLocale;
+    let locale: Locale = actualPathname.startsWith('/admin') ? adminDefaultLocale : publicDefaultLocale;
     for (const loc of locales) {
       if (pathname.startsWith(`/${loc}/`) || pathname === `/${loc}`) {
-        locale = loc;
+        locale = (loc === 'en' || loc === 'hu' ? loc : publicDefaultLocale);
         break;
       }
     }

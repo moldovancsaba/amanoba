@@ -34,8 +34,8 @@ async function loadTranslations(locale: Locale): Promise<Translations> {
     if (response.ok) {
       const data = await response.json();
       if (data?.success && data?.messages) {
-        translationCache[locale] = data.messages;
-        return data.messages;
+        translationCache[locale] = data.messages as Translations;
+        return data.messages as Translations;
       }
     }
   } catch (error) {
@@ -45,8 +45,9 @@ async function loadTranslations(locale: Locale): Promise<Translations> {
   try {
     // Load from JSON files (client-side compatible)
     const messages = await import(`@/messages/${locale}.json`);
-    translationCache[locale] = messages.default;
-    return messages.default;
+    const def = messages.default as Translations;
+    translationCache[locale] = def;
+    return def;
   } catch (error) {
     console.error(`Failed to load translations for locale ${locale}:`, error);
     return {};
@@ -58,10 +59,10 @@ async function loadTranslations(locale: Locale): Promise<Translations> {
  */
 function getNestedValue(obj: Record<string, unknown>, path: string): string {
   const keys = path.split('.');
-  let value = obj;
+  let value: unknown = obj;
   for (const key of keys) {
     if (value && typeof value === 'object' && key in value) {
-      value = value[key];
+      value = (value as Record<string, unknown>)[key];
     } else {
       return path; // Return path if not found (next-intl behavior)
     }
