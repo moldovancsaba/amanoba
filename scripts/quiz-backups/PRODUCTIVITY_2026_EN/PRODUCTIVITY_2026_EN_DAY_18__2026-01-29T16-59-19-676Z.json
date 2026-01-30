@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-29T17:00:00.466Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_EN",
+    "name": "Productivity 2026: How to Manage Teams and Time",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 18,
+    "title": "Crisis management and adaptability (adaptation, quick learning)",
+    "lessonId": "PRODUCTIVITY_2026_EN_DAY_18"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69787d9ba326286129da903a",
+      "uuid": "0af1bccc-5f78-4096-9617-dcee3232b4d4",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "You are applying \"Crisis management and adaptability (adaptation, quick learning)\" this week. Which next step most directly turns intent into an outcome instead of extra activity?",
+      "options": [
+        "Pick one real scenario, apply the checklist, define a success metric/criterion, and review results at week’s end.",
+        "Add more meetings and messages so progress is visible, then assume the outcome improved.",
+        "Start multiple unrelated tasks to stay busy and increase the feeling of productivity.",
+        "Delay action until the plan is perfect, because execution without certainty risks mistakes."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day18",
+        "#en",
+        "#course-productivity_2026_en",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "69787d9ba326286129da903b",
+      "uuid": "d68bf5cb-b10e-4039-b8ab-6c87208ace85",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Which option is the best example of a measurable metric/criterion for \"Crisis management and adaptability (adaptation, quick learning)\" (so you can prove progress)?",
+      "options": [
+        "A specific number tracked weekly (e.g., decision latency, cycle time, time saved) with a threshold for success.",
+        "A general intention like “be better at this”, without numbers or a deadline.",
+        "A count of messages sent, regardless of whether outcomes improved.",
+        "A feeling-based check (“did it feel productive?”) with no measurable signal."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day18",
+        "#en",
+        "#course-productivity_2026_en",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "69787d9ba326286129da903c",
+      "uuid": "657a0451-9a67-488f-b6b9-9107e0cca6c9",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "In a \"Good vs Bad\" comparison for \"Crisis management and adaptability (adaptation, quick learning)\", which option is closest to a “Good” implementation?",
+      "options": [
+        "Clear outcomes, explicit owners/criteria, and fewer distractions so execution produces measurable results.",
+        "More activity (more meetings/updates) without decisions, owners, or measurable progress.",
+        "More tools and dashboards without changing the process or defining success criteria.",
+        "More urgency and overtime without adjusting constraints or simplifying the system."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day18",
+        "#en",
+        "#course-productivity_2026_en",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "69787d9ba326286129da903d",
+      "uuid": "4904e276-4d43-4f52-af3b-519c7d0b86ce",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Which mistake is most likely to break \"Crisis management and adaptability (adaptation, quick learning)\" in practice, according to the course’s systems framing?",
+      "options": [
+        "Optimizing visible activity instead of outcomes, so constraints get consumed without measurable progress.",
+        "Defining one clear metric and reviewing it weekly to adjust one rule at a time.",
+        "Reducing context switching and protecting focus blocks so outcomes can be produced.",
+        "Creating a short checklist and documenting it so the process is repeatable."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day18",
+        "#en",
+        "#course-productivity_2026_en",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "69787d9ba326286129da903e",
+      "uuid": "7a549bd5-4828-4ee2-bd7f-ebce7b53ac2e",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "You want \"Crisis management and adaptability (adaptation, quick learning)\" to work for a team, not just one person. Which change best makes it a scalable system?",
+      "options": [
+        "Document the checklist, define owners and success criteria, and run a lightweight cadence (review + adjustment).",
+        "Rely on individual willpower and hope everyone copies the best performer’s habits.",
+        "Make the process optional with no shared metrics so nobody feels pressured by measurement.",
+        "Increase coordination time so everyone stays busy and visible, even if execution time drops."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day18",
+        "#en",
+        "#course-productivity_2026_en",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "69787d9ba326286129da903f",
+      "uuid": "7ee75be1-c523-4fb0-8dad-f475cd78f93a",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "What is the biggest risk if you implement \"Crisis management and adaptability (adaptation, quick learning)\" incorrectly by adding more activity without changing outcomes?",
+      "options": [
+        "Constraints get consumed (time/energy/attention) while outcomes stagnate, so productivity drops even if work feels intense.",
+        "Outcomes improve automatically because activity volume guarantees results in complex systems.",
+        "Measurement becomes unnecessary because visible effort is a sufficient success signal.",
+        "Decision quality improves because fatigue forces faster thinking and fewer debates."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day18",
+        "#en",
+        "#course-productivity_2026_en",
+        "#productivity",
+        "#advanced",
+        "#critical-thinking"
+      ]
+    },
+    {
+      "_id": "69787d9ba326286129da9040",
+      "uuid": "ab547cbe-8615-4458-94c6-259bdc6bea83",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "When \"Crisis management and adaptability (adaptation, quick learning)\" fails, which diagnosis is most aligned with the course’s outcome/constraints definition?",
+      "options": [
+        "The system lacks clear criteria/metrics or protected execution time, so outcomes cannot be reliably produced and proven.",
+        "People are not working long enough hours, so adding overtime is the main fix regardless of constraints.",
+        "The team needs more tools, because tools replace the need for clear definitions and checklists.",
+        "The best fix is to stop reviewing results, because reflection slows execution."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day18",
+        "#en",
+        "#course-productivity_2026_en",
+        "#productivity",
+        "#advanced",
+        "#critical-thinking"
+      ]
+    }
+  ]
+}

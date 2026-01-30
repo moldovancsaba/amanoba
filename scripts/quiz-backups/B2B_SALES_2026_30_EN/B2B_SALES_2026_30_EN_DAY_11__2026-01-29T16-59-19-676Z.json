@@ -1,0 +1,68 @@
+{
+  "backedUpAt": "2026-01-29T16:59:33.061Z",
+  "course": {
+    "courseId": "B2B_SALES_2026_30_EN",
+    "name": "B2B Sales 2026 Masterclass",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 11,
+    "title": "Outbound Message: No Personalization, No Reply",
+    "lessonId": "B2B_SALES_2026_30_EN_DAY_11"
+  },
+  "questionCount": 4,
+  "questions": [
+    {
+      "_id": "697b1fd18f79f136a28b89dc",
+      "difficulty": "MEDIUM",
+      "question": "What are the 3 parts of a good outbound message?",
+      "options": [
+        "Long intro, price, link",
+        "Relevance cue, problem, concrete next step",
+        "Marketing slogan, CTA, logo",
+        "Feature list, CTA, price"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b1fd18f79f136a28b89dd",
+      "difficulty": "MEDIUM",
+      "question": "Purpose of the relevance cue?",
+      "options": [
+        "Decoration",
+        "Shows you paid attention (fact/trigger)",
+        "Increase word count",
+        "Replace ICP"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b1fd18f79f136a28b89de",
+      "difficulty": "MEDIUM",
+      "question": "Which is the bad example?",
+      "options": [
+        "Relevance cue + problem + 15-min specific step",
+        "“We help you grow with AI, let’s talk.”",
+        "Trigger mention",
+        "Mentioning stage definitions"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b1fd18f79f136a28b89df",
+      "difficulty": "MEDIUM",
+      "question": "Why add a next step?",
+      "options": [
+        "To make the email longer",
+        "To speed decisions and make commitment clear",
+        "To send more marketing",
+        "To avoid ICP"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    }
+  ]
+}

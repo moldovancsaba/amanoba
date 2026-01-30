@@ -1,0 +1,177 @@
+{
+  "backedUpAt": "2026-01-28T21:07:55.466Z",
+  "course": {
+    "courseId": "SALES_PRODUCTIVITY_30_RU",
+    "name": "Постройте свои продажи – 30 дней к большему количеству сделок",
+    "language": "ru"
+  },
+  "lesson": {
+    "dayNumber": 6,
+    "title": "Фреймворк квалификации (BANT, MEDDIC) – Как квалифицировать лиды?",
+    "lessonId": "SALES_PRODUCTIVITY_30_RU_DAY_06"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a5583229aca24a6d643",
+      "uuid": "74c0e8da-d423-43d8-a45f-2e6fad22c7d2",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Экономия времени:\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day6",
+        "#ru",
+        "#all-languages",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5583229aca24a6d644",
+      "uuid": "9c6f31d7-bf24-490e-8c60-9942bec2e151",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Лучшая конверсия:\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day6",
+        "#ru",
+        "#all-languages",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5583229aca24a6d645",
+      "uuid": "cd09abc4-e7c0-414a-b582-d60743d93d05",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Прогнозирование:\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day6",
+        "#ru",
+        "#all-languages",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5583229aca24a6d646",
+      "uuid": "675f6cf0-e16f-471f-945e-2e025d10fc11",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Как концепция \"Фреймворк квалификации (BANT, MEDDIC) – Как квалиф...\", упомянутая в уроке, влияет на достижение ваших goals?",
+      "options": [
+        "Как подробно описано в уроке, Фреймворк квалификации (BANT, ... повышает эффективность и снижает риски",
+        "Нет значительного влияния",
+        "Имеет значение только теоретически",
+        "Только опциональный элемент"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day6",
+        "#ru",
+        "#all-languages",
+        "#productivity",
+        "#sales",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5583229aca24a6d647",
+      "uuid": "a93bfc4c-061e-4606-b151-8dc176654478",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Какую роль играет Лучшая конверсия: в уроке \"Фреймворк квалификации (BANT, MEDDIC) – Как квалифицировать лиды?\"?",
+      "options": [
+        "Как подробно описано в уроке, Лучшая конверсия: играет ключевую роль в оптимизации процессов и достижении целей",
+        "Только периферийная информация без значительной роли",
+        "Только теоретическая концепция без практического применения",
+        "Не упоминается в уроке"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day6",
+        "#ru",
+        "#all-languages",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5583229aca24a6d648",
+      "uuid": "0b091077-9a9a-4ef2-93f2-fbbae8c155ed",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Какую роль играет Оптимизация ресурсов: в уроке \"Фреймворк квалификации (BANT, MEDDIC) – Как квалифицировать лиды?\"?",
+      "options": [
+        "Как подробно описано в уроке, Оптимизация ресурсов: играет ключевую роль в оптимизации процессов и достижении целей",
+        "Только периферийная информация без значительной роли",
+        "Только теоретическая концепция без практического применения",
+        "Не упоминается в уроке"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day6",
+        "#ru",
+        "#all-languages",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5583229aca24a6d649",
+      "uuid": "1ec3b2e0-bb6a-42fe-b614-4f520106dad4",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Насколько важен B - Budget в контексте Фреймворк квалификации (BANT, MEDDIC) – Как квалифицировать лиды?, как обсуждается в уроке?",
+      "options": [
+        "Как подробно описано в уроке, B - Budget играет ключевую роль в оптимизации процессов и достижении целей",
+        "Только периферийная информация без значительной роли",
+        "Только теоретическая концепция без практического применения",
+        "Не упоминается в уроке"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day6",
+        "#ru",
+        "#all-languages",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

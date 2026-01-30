@@ -1,0 +1,68 @@
+{
+  "backedUpAt": "2026-01-29T17:00:15.192Z",
+  "course": {
+    "courseId": "PLAYBOOK_2026_30",
+    "name": "The Playbook 2026 – Mesterkurzus Designereknek",
+    "language": "hu"
+  },
+  "lesson": {
+    "dayNumber": 5,
+    "title": "Vizuális szándék (VIS) megfogalmazása",
+    "lessonId": "PLAYBOOK_2026_30_DAY_5"
+  },
+  "questionCount": 4,
+  "questions": [
+    {
+      "_id": "697b2032d8669994531f7457",
+      "difficulty": "MEDIUM",
+      "question": "Mitől jó a Visual Intent Statement?",
+      "options": [
+        "Hosszú és homályos",
+        "1 mondat, tengelyekkel, mérhető elemekkel, tokenekhez kötve",
+        "Csak egy hangulatkép",
+        "Csak betűtípus neve"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b2032d8669994531f7458",
+      "difficulty": "MEDIUM",
+      "question": "Melyik jó tengely-pár?",
+      "options": [
+        "Sűrű ↔ Levegős",
+        "Logó ↔ Ár",
+        "Fotó ↔ Ikon",
+        "Szöveg ↔ Video"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b2032d8669994531f7459",
+      "difficulty": "MEDIUM",
+      "question": "Mi a rossz példa?",
+      "options": [
+        "„Legyen menő, startupos.”",
+        "„Barátságos-tech, levegős, visszafogott mozgás, CTA sárga #FAB908, animáció 180ms.”",
+        "„Kontraszt min. 7:1.”",
+        "„Tipó Inter/600, spacing 8-12-16.”"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b2032d8669994531f745a",
+      "difficulty": "MEDIUM",
+      "question": "Miért kell a VIS-t tokenekhez kötni?",
+      "options": [
+        "Hogy dekoratív legyen",
+        "Hogy a szándék mérhető és implementálható legyen komponensekben",
+        "Hogy marketing anyagot készítsünk",
+        "Hogy hosszabb legyen a dokumentum"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    }
+  ]
+}

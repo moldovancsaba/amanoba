@@ -1,0 +1,15 @@
+{
+  "backedUpAt": "2026-01-28T21:28:18.462Z",
+  "course": {
+    "courseId": "B2B_SALES_2026_30_EN",
+    "name": "B2B Sales 2026 Masterclass",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 23,
+    "title": "Integrations and Data Flow Basics",
+    "lessonId": "B2B_SALES_2026_30_EN_DAY_23"
+  },
+  "questionCount": 0,
+  "questions": []
+}

@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-28T21:29:01.135Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_AR",
+    "name": "الإنتاجية 2026: كيفية إدارة الفرق والوقت",
+    "language": "ar"
+  },
+  "lesson": {
+    "dayNumber": 17,
+    "title": "الحفاظ على الدافع: تتبع التقدم والاحتفال بالانتصارات",
+    "lessonId": "PRODUCTIVITY_2026_AR_DAY_17"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a623ed20b35fb7972ff",
+      "uuid": "d4b3006f-d8db-4745-9f37-e2ee5fdc166e",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"حافظ على الجهد والطاقة على المدى الطويل.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day17",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a623ed20b35fb797300",
+      "uuid": "dda45e08-b803-420a-9fa4-35452e19292e",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"حافظ على الجهد والطاقة على المدى الطويل.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day17",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a623ed20b35fb797301",
+      "uuid": "b79906a9-5043-420e-8c56-c57c566e24b9",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"حافظ على الجهد والطاقة على المدى الطويل.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day17",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a623ed20b35fb797302",
+      "uuid": "3986df3a-049f-470b-9109-cb76d2cf220f",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "How does the concept \"الحفاظ على الدافع: تتبع التقدم والاحتفال بالانتصار...\" mentioned in the lesson impact achieving your goals?",
+      "options": [
+        "As described in detail in the lesson, الحفاظ على الدافع: تتبع التقدم... increases effectiveness and reduces risk",
+        "No significant impact",
+        "Only matters theoretically",
+        "Only an optional element"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day17",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a623ed20b35fb797303",
+      "uuid": "8397fcb1-abde-48a2-9482-9f597cc83a8c",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is الحفاظ in the context of الحفاظ على الدافع: تتبع التقدم والاحتفال بالانتصارات as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, الحفاظ plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day17",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a623ed20b35fb797304",
+      "uuid": "4d2e003c-d4a0-4d6d-9db3-146a9ca2e4db",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is تتبع in the context of الحفاظ على الدافع: تتبع التقدم والاحتفال بالانتصارات as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, تتبع plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day17",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a623ed20b35fb797305",
+      "uuid": "a1c9a298-7085-49ea-8628-a8d6ee8d510e",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is والاحتفال in the context of الحفاظ على الدافع: تتبع التقدم والاحتفال بالانتصارات as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, والاحتفال plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day17",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

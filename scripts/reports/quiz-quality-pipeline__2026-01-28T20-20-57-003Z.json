@@ -1,0 +1,1420 @@
+{
+  "generatedAt": "2026-01-28T20:20:57.003Z",
+  "dryRun": false,
+  "minLessonScore": 70,
+  "courseFilter": "SALES_PRODUCTIVITY_30_HU",
+  "totals": {
+    "courses": 1,
+    "lessonsEvaluated": 30,
+    "lessonsNeedingRefine": 19,
+    "lessonsRewritten": 1,
+    "lessonsFailedRewrite": 0,
+    "questionsDeleted": 0,
+    "questionsInserted": 7
+  },
+  "lessons": [
+    {
+      "courseId": "SALES_PRODUCTIVITY_30_HU",
+      "courseName": "Értékesítés 2026 - Sales Reset",
+      "language": "hu",
+      "dayNumber": 1,
+      "lessonId": "SALES_PRODUCTIVITY_30_HU_DAY_01",
+      "title": "Az értékesítési tölcsér alapjai – Miért számítanak a számok?",
+      "lessonCreatedAt": "2026-01-22T13:11:09.324Z",
+      "lessonQuality": {
+        "score": 100,
+        "issues": [],
+        "signals": {
+          "charCount": 4125,
+          "wordCount": 592,
+          "hasBullets": true,
+          "hasNumberedSteps": true,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "PASS",
+      "rewrite": {
+        "existingCounts": {
+          "total": 7,
+          "valid": 7,
+          "invalid": 0,
+          "application": 5,
+          "critical": 2,
+          "recall": 0,
+          "duplicates": 0
+        },
+        "cleanedInvalid": false,
+        "cleanedDuplicates": false,
+        "backupPath": null
+      }
+    },
+    {
+      "courseId": "SALES_PRODUCTIVITY_30_HU",
+      "courseName": "Értékesítés 2026 - Sales Reset",
+      "language": "hu",
+      "dayNumber": 2,
+      "lessonId": "SALES_PRODUCTIVITY_30_HU_DAY_02",
+      "title": "KPI-k és célok beállítása – Hogyan számolj visszafelé?",
+      "lessonCreatedAt": "2026-01-22T13:19:44.600Z",
+      "lessonQuality": {
+        "score": 85,
+        "issues": [
+          "NO_CLEAR_DEFINITIONS"
+        ],
+        "signals": {
+          "charCount": 3442,
+          "wordCount": 514,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "PASS",
+      "rewrite": {
+        "existingCounts": {
+          "total": 7,
+          "valid": 7,
+          "invalid": 0,
+          "application": 5,
+          "critical": 2,
+          "recall": 0,
+          "duplicates": 0
+        },
+        "cleanedInvalid": false,
+        "cleanedDuplicates": false,
+        "backupPath": null
+      }
+    },
+    {
+      "courseId": "SALES_PRODUCTIVITY_30_HU",
+      "courseName": "Értékesítés 2026 - Sales Reset",
+      "language": "hu",
+      "dayNumber": 3,
+      "lessonId": "SALES_PRODUCTIVITY_30_HU_DAY_03",
+      "title": "Többcsatornás lead generálás – Hol találod meg az ügyfeleket?",
+      "lessonCreatedAt": "2026-01-22T13:35:32.037Z",
+      "lessonQuality": {
+        "score": 100,
+        "issues": [],
+        "signals": {
+          "charCount": 2720,
+          "wordCount": 365,
+          "hasBullets": true,
+          "hasNumberedSteps": true,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "PASS",
+      "rewrite": {
+        "existingCounts": {
+          "total": 7,
+          "valid": 7,
+          "invalid": 0,
+          "application": 5,
+          "critical": 2,
+          "recall": 0,
+          "duplicates": 0
+        },
+        "cleanedInvalid": false,
+        "cleanedDuplicates": false,
+        "backupPath": null
+      }
+    },
+    {
+      "courseId": "SALES_PRODUCTIVITY_30_HU",
+      "courseName": "Értékesítés 2026 - Sales Reset",
+      "language": "hu",
+      "dayNumber": 4,
+      "lessonId": "SALES_PRODUCTIVITY_30_HU_DAY_04",
+      "title": "Konverziós arány optimalizálás – Hogyan javítsd a számokat?",
+      "lessonCreatedAt": "2026-01-22T13:41:59.310Z",
+      "lessonQuality": {
+        "score": 75,
+        "issues": [
+          "NO_CLEAR_DEFINITIONS",
+          "NO_CONTRASTS_GOOD_BAD"
+        ],
+        "signals": {
+          "charCount": 2766,
+          "wordCount": 376,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": true,
+          "hasGoodBadContrast": false,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": true,
+          "addPitfallsSection": true,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "PASS",
+      "rewrite": {
+        "existingCounts": {
+          "total": 7,
+          "valid": 7,
+          "invalid": 0,
+          "application": 5,
+          "critical": 2,
+          "recall": 0,
+          "duplicates": 0
+        },
+        "cleanedInvalid": false,
+        "cleanedDuplicates": false,
+        "backupPath": null
+      }
+    },
+    {
+      "courseId": "SALES_PRODUCTIVITY_30_HU",
+      "courseName": "Értékesítés 2026 - Sales Reset",
+      "language": "hu",
+      "dayNumber": 5,
+      "lessonId": "SALES_PRODUCTIVITY_30_HU_DAY_05",
+      "title": "Heti/havi előrejelzés – Hogyan jósold meg a jövőt?",
+      "lessonCreatedAt": "2026-01-22T13:44:13.412Z",
+      "lessonQuality": {
+        "score": 70,
+        "issues": [
+          "NO_CLEAR_DEFINITIONS",
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 2693,
+          "wordCount": 373,
+          "hasBullets": true,
+          "hasNumberedSteps": true,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": true
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "PASS",
+      "rewrite": {
+        "existingCounts": {
+          "total": 7,
+          "valid": 7,
+          "invalid": 0,
+          "application": 5,
+          "critical": 2,
+          "recall": 0,
+          "duplicates": 0
+        },
+        "cleanedInvalid": false,
+        "cleanedDuplicates": false,
+        "backupPath": null
+      }
+    },
+    {
+      "courseId": "SALES_PRODUCTIVITY_30_HU",
+      "courseName": "Értékesítés 2026 - Sales Reset",
+      "language": "hu",
+      "dayNumber": 6,
+      "lessonId": "SALES_PRODUCTIVITY_30_HU_DAY_06",
+      "title": "Minősítési keretrendszer (BANT, MEDDIC) – Hogyan minősítsd a lead-eket?",
+      "lessonCreatedAt": "2026-01-22T13:46:48.057Z",
+      "lessonQuality": {
+        "score": 100,
+        "issues": [],
+        "signals": {
+          "charCount": 2883,
+          "wordCount": 379,
+          "hasBullets": true,
+          "hasNumberedSteps": true,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "PASS",
+      "rewrite": {
+        "existingCounts": {
+          "total": 7,
+          "valid": 7,
+          "invalid": 0,
+          "application": 5,
+          "critical": 2,
+          "recall": 0,
+          "duplicates": 0
+        },
+        "cleanedInvalid": false,
+        "cleanedDuplicates": false,
+        "backupPath": null
+      }
+    },
+    {
+      "courseId": "SALES_PRODUCTIVITY_30_HU",
+      "courseName": "Értékesítés 2026 - Sales Reset",
+      "language": "hu",
+      "dayNumber": 7,
+      "lessonId": "SALES_PRODUCTIVITY_30_HU_DAY_07",
+      "title": "Ideális ügyfélprofil (ICP) – Kik azok, akikkel dolgozol?",
+      "lessonCreatedAt": "2026-01-22T13:49:20.257Z",
+      "lessonQuality": {
+        "score": 90,
+        "issues": [
+          "NO_CONTRASTS_GOOD_BAD"
+        ],
+        "signals": {
+          "charCount": 2629,
+          "wordCount": 351,
+          "hasBullets": true,
+          "hasNumberedSteps": true,
+          "hasExamples": true,
+          "hasGoodBadContrast": false,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": true,
+          "addPitfallsSection": true,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "PASS",
+      "rewrite": {
+        "existingCounts": {
+          "total": 7,
+          "valid": 7,
+          "invalid": 0,
+          "application": 5,
+          "critical": 2,
+          "recall": 0,
+          "duplicates": 0
+        },
+        "cleanedInvalid": false,
+        "cleanedDuplicates": false,
+        "backupPath": null
+      }
+    },
+    {
+      "courseId": "SALES_PRODUCTIVITY_30_HU",
+      "courseName": "Értékesítés 2026 - Sales Reset",
+      "language": "hu",
+      "dayNumber": 8,
+      "lessonId": "SALES_PRODUCTIVITY_30_HU_DAY_08",
+      "title": "Minősítési kérdések és szkriptek – Mit kérdezz, hogy minősíts?",
+      "lessonCreatedAt": "2026-01-22T13:51:48.236Z",
+      "lessonQuality": {
+        "score": 100,
+        "issues": [],
+        "signals": {
+          "charCount": 2913,
+          "wordCount": 389,
+          "hasBullets": true,
+          "hasNumberedSteps": true,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "PASS",
+      "rewrite": {
+        "existingCounts": {
+          "total": 7,
+          "valid": 7,
+          "invalid": 0,
+          "application": 5,
+          "critical": 2,
+          "recall": 0,
+          "duplicates": 0
+        },
+        "cleanedInvalid": false,
+        "cleanedDuplicates": false,
+        "backupPath": null
+      }
+    },
+    {
+      "courseId": "SALES_PRODUCTIVITY_30_HU",
+      "courseName": "Értékesítés 2026 - Sales Reset",
+      "language": "hu",
+      "dayNumber": 9,
+      "lessonId": "SALES_PRODUCTIVITY_30_HU_DAY_09",
+      "title": "Lead pontozás és prioritizálás – Melyik lead-et kezeld először?",
+      "lessonCreatedAt": "2026-01-22T13:54:19.824Z",
+      "lessonQuality": {
+        "score": 60,
+        "issues": [
+          "NO_CLEAR_DEFINITIONS",
+          "NO_CONTRASTS_GOOD_BAD",
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 2513,
+          "wordCount": 366,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": true,
+          "hasGoodBadContrast": false,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": true,
+          "addPitfallsSection": true,
+          "addMetricsSection": true
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "REFINE_LESSON_FIRST",
+      "rewrite": null
+    },
+    {
+      "courseId": "SALES_PRODUCTIVITY_30_HU",
+      "courseName": "Értékesítés 2026 - Sales Reset",
+      "language": "hu",
+      "dayNumber": 10,
+      "lessonId": "SALES_PRODUCTIVITY_30_HU_DAY_10",
+      "title": "Minősítés gyakorlatban – Hogyan minősítsd egy valódi beszélgetésben?",
+      "lessonCreatedAt": "2026-01-22T13:56:51.912Z",
+      "lessonQuality": {
+        "score": 70,
+        "issues": [
+          "NO_CLEAR_DEFINITIONS",
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 3316,
+          "wordCount": 434,
+          "hasBullets": true,
+          "hasNumberedSteps": true,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": true
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "PASS",
+      "rewrite": {
+        "existingCounts": {
+          "total": 7,
+          "valid": 7,
+          "invalid": 0,
+          "application": 5,
+          "critical": 2,
+          "recall": 0,
+          "duplicates": 0
+        },
+        "cleanedInvalid": false,
+        "cleanedDuplicates": false,
+        "backupPath": null
+      }
+    },
+    {
+      "courseId": "SALES_PRODUCTIVITY_30_HU",
+      "courseName": "Értékesítés 2026 - Sales Reset",
+      "language": "hu",
+      "dayNumber": 11,
+      "lessonId": "SALES_PRODUCTIVITY_30_HU_DAY_11",
+      "title": "Árazási pszichológia – Hogyan hat az ár a vásárlási döntésre?",
+      "lessonCreatedAt": "2026-01-22T13:59:04.404Z",
+      "lessonQuality": {
+        "score": 85,
+        "issues": [
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 2471,
+          "wordCount": 356,
+          "hasBullets": true,
+          "hasNumberedSteps": true,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": true
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "PASS",
+      "rewrite": {
+        "existingCounts": {
+          "total": 7,
+          "valid": 7,
+          "invalid": 0,
+          "application": 5,
+          "critical": 2,
+          "recall": 0,
+          "duplicates": 0
+        },
+        "cleanedInvalid": false,
+        "cleanedDuplicates": false,
+        "backupPath": null
+      }
+    },
+    {
+      "courseId": "SALES_PRODUCTIVITY_30_HU",
+      "courseName": "Értékesítés 2026 - Sales Reset",
+      "language": "hu",
+      "dayNumber": 12,
+      "lessonId": "SALES_PRODUCTIVITY_30_HU_DAY_12",
+      "title": "Kifogáskezelés – A “nem” adat, nem támadás",
+      "lessonCreatedAt": "2026-01-28T19:29:48.833Z",
+      "lessonQuality": {
+        "score": 75,
+        "issues": [
+          "NO_CLEAR_DEFINITIONS",
+          "NO_CONTRASTS_GOOD_BAD"
+        ],
+        "signals": {
+          "charCount": 1638,
+          "wordCount": 234,
+          "hasBullets": true,
+          "hasNumberedSteps": true,
+          "hasExamples": true,
+          "hasGoodBadContrast": false,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": true,
+          "addPitfallsSection": true,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": false,
+        "errors": [
+          "Language integrity failed for lesson.content: detected injected English sentence(s) in HU."
+        ],
+        "warnings": [],
+        "findings": [
+          {
+            "label": "HU: English sentence/bullet detected",
+            "snippet": "Sorold be őket a 4 csoport egyikébe."
+          }
+        ]
+      },
+      "action": "REFINE_LESSON_FIRST",
+      "rewrite": null,
+      "reason": "Language integrity failed: Language integrity failed for lesson.content: detected injected English sentence(s) in HU."
+    },
+    {
+      "courseId": "SALES_PRODUCTIVITY_30_HU",
+      "courseName": "Értékesítés 2026 - Sales Reset",
+      "language": "hu",
+      "dayNumber": 13,
+      "lessonId": "SALES_PRODUCTIVITY_30_HU_DAY_13",
+      "title": "Discovery hívás – Diagnózis a “recept” előtt",
+      "lessonCreatedAt": "2026-01-28T19:29:49.249Z",
+      "lessonQuality": {
+        "score": 70,
+        "issues": [
+          "NO_CLEAR_DEFINITIONS",
+          "NO_EXAMPLES"
+        ],
+        "signals": {
+          "charCount": 1180,
+          "wordCount": 166,
+          "hasBullets": true,
+          "hasNumberedSteps": true,
+          "hasExamples": false,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": true,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "ENRICHED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/SALES_PRODUCTIVITY_30_HU/SALES_PRODUCTIVITY_30_HU_DAY_13__2026-01-28T20-20-57-003Z.json",
+        "insertedCount": 7,
+        "deletedInvalidCount": 0,
+        "deletedDuplicateCount": 0,
+        "warnings": [],
+        "existingCounts": {
+          "total": 0,
+          "valid": 0,
+          "invalid": 0,
+          "application": 0,
+          "critical": 0,
+          "recall": 0,
+          "duplicates": 0
+        }
+      }
+    },
+    {
+      "courseId": "SALES_PRODUCTIVITY_30_HU",
+      "courseName": "Értékesítés 2026 - Sales Reset",
+      "language": "hu",
+      "dayNumber": 14,
+      "lessonId": "SALES_PRODUCTIVITY_30_HU_DAY_14",
+      "title": "Ajánlatírás – Tedd könnyűvé a következő lépést",
+      "lessonCreatedAt": "2026-01-28T19:29:50.008Z",
+      "lessonQuality": {
+        "score": 45,
+        "issues": [
+          "TOO_SHORT",
+          "NO_CLEAR_DEFINITIONS",
+          "NO_EXAMPLES"
+        ],
+        "signals": {
+          "charCount": 856,
+          "wordCount": 112,
+          "hasBullets": true,
+          "hasNumberedSteps": true,
+          "hasExamples": false,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": true,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "REFINE_LESSON_FIRST",
+      "rewrite": null
+    },
+    {
+      "courseId": "SALES_PRODUCTIVITY_30_HU",
+      "courseName": "Értékesítés 2026 - Sales Reset",
+      "language": "hu",
+      "dayNumber": 15,
+      "lessonId": "SALES_PRODUCTIVITY_30_HU_DAY_15",
+      "title": "Tárgyalás – Cserélj, ne adj",
+      "lessonCreatedAt": "2026-01-28T19:29:50.263Z",
+      "lessonQuality": {
+        "score": 35,
+        "issues": [
+          "TOO_SHORT",
+          "NO_CLEAR_DEFINITIONS",
+          "NO_EXAMPLES",
+          "NO_CONTRASTS_GOOD_BAD"
+        ],
+        "signals": {
+          "charCount": 799,
+          "wordCount": 112,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": false,
+          "hasGoodBadContrast": false,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": true,
+          "addPitfallsSection": true,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "REFINE_LESSON_FIRST",
+      "rewrite": null
+    },
+    {
+      "courseId": "SALES_PRODUCTIVITY_30_HU",
+      "courseName": "Értékesítés 2026 - Sales Reset",
+      "language": "hu",
+      "dayNumber": 16,
+      "lessonId": "SALES_PRODUCTIVITY_30_HU_DAY_16",
+      "title": "Zárás – Vezesd le a döntési folyamatot",
+      "lessonCreatedAt": "2026-01-28T19:29:50.372Z",
+      "lessonQuality": {
+        "score": 35,
+        "issues": [
+          "TOO_SHORT",
+          "NO_CLEAR_DEFINITIONS",
+          "NO_EXAMPLES",
+          "NO_CONTRASTS_GOOD_BAD"
+        ],
+        "signals": {
+          "charCount": 705,
+          "wordCount": 98,
+          "hasBullets": true,
+          "hasNumberedSteps": true,
+          "hasExamples": false,
+          "hasGoodBadContrast": false,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": true,
+          "addPitfallsSection": true,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "REFINE_LESSON_FIRST",
+      "rewrite": null
+    },
+    {
+      "courseId": "SALES_PRODUCTIVITY_30_HU",
+      "courseName": "Értékesítés 2026 - Sales Reset",
+      "language": "hu",
+      "dayNumber": 17,
+      "lessonId": "SALES_PRODUCTIVITY_30_HU_DAY_17",
+      "title": "Átadás és onboarding – Azt szállítsd, amit eladtál",
+      "lessonCreatedAt": "2026-01-28T19:29:50.834Z",
+      "lessonQuality": {
+        "score": 45,
+        "issues": [
+          "TOO_SHORT",
+          "NO_CLEAR_DEFINITIONS",
+          "NO_EXAMPLES"
+        ],
+        "signals": {
+          "charCount": 731,
+          "wordCount": 105,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": false,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": true,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "REFINE_LESSON_FIRST",
+      "rewrite": null
+    },
+    {
+      "courseId": "SALES_PRODUCTIVITY_30_HU",
+      "courseName": "Értékesítés 2026 - Sales Reset",
+      "language": "hu",
+      "dayNumber": 18,
+      "lessonId": "SALES_PRODUCTIVITY_30_HU_DAY_18",
+      "title": "Account menedzsment – Tedd láthatóvá az értéket",
+      "lessonCreatedAt": "2026-01-28T19:29:50.881Z",
+      "lessonQuality": {
+        "score": 50,
+        "issues": [
+          "TOO_SHORT",
+          "NO_EXAMPLES",
+          "NO_CONTRASTS_GOOD_BAD"
+        ],
+        "signals": {
+          "charCount": 635,
+          "wordCount": 87,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": false,
+          "hasGoodBadContrast": false,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": true,
+          "addPitfallsSection": true,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "REFINE_LESSON_FIRST",
+      "rewrite": null
+    },
+    {
+      "courseId": "SALES_PRODUCTIVITY_30_HU",
+      "courseName": "Értékesítés 2026 - Sales Reset",
+      "language": "hu",
+      "dayNumber": 19,
+      "lessonId": "SALES_PRODUCTIVITY_30_HU_DAY_19",
+      "title": "Bővítés (upsell) – Bizonyítékból, nem nyomásból",
+      "lessonCreatedAt": "2026-01-28T19:29:50.931Z",
+      "lessonQuality": {
+        "score": 45,
+        "issues": [
+          "TOO_SHORT",
+          "NO_CLEAR_DEFINITIONS",
+          "NO_EXAMPLES"
+        ],
+        "signals": {
+          "charCount": 732,
+          "wordCount": 98,
+          "hasBullets": true,
+          "hasNumberedSteps": true,
+          "hasExamples": false,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": true,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "REFINE_LESSON_FIRST",
+      "rewrite": null
+    },
+    {
+      "courseId": "SALES_PRODUCTIVITY_30_HU",
+      "courseName": "Értékesítés 2026 - Sales Reset",
+      "language": "hu",
+      "dayNumber": 20,
+      "lessonId": "SALES_PRODUCTIVITY_30_HU_DAY_20",
+      "title": "Megújítás és megtartás – Készíts mentő tervet",
+      "lessonCreatedAt": "2026-01-28T19:29:50.970Z",
+      "lessonQuality": {
+        "score": 35,
+        "issues": [
+          "TOO_SHORT",
+          "NO_CLEAR_DEFINITIONS",
+          "NO_EXAMPLES",
+          "NO_CONTRASTS_GOOD_BAD"
+        ],
+        "signals": {
+          "charCount": 620,
+          "wordCount": 85,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": false,
+          "hasGoodBadContrast": false,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": true,
+          "addPitfallsSection": true,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "REFINE_LESSON_FIRST",
+      "rewrite": null
+    },
+    {
+      "courseId": "SALES_PRODUCTIVITY_30_HU",
+      "courseName": "Értékesítés 2026 - Sales Reset",
+      "language": "hu",
+      "dayNumber": 21,
+      "lessonId": "SALES_PRODUCTIVITY_30_HU_DAY_21",
+      "title": "Outbound e-mail – Személyre szabás időpazarlás nélkül",
+      "lessonCreatedAt": "2026-01-28T19:29:51.013Z",
+      "lessonQuality": {
+        "score": 30,
+        "issues": [
+          "TOO_SHORT",
+          "NO_CLEAR_DEFINITIONS",
+          "NO_EXAMPLES",
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 463,
+          "wordCount": 68,
+          "hasBullets": true,
+          "hasNumberedSteps": true,
+          "hasExamples": false,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": true,
+          "addPitfallsSection": false,
+          "addMetricsSection": true
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "REFINE_LESSON_FIRST",
+      "rewrite": null
+    },
+    {
+      "courseId": "SALES_PRODUCTIVITY_30_HU",
+      "courseName": "Értékesítés 2026 - Sales Reset",
+      "language": "hu",
+      "dayNumber": 22,
+      "lessonId": "SALES_PRODUCTIVITY_30_HU_DAY_22",
+      "title": "Cold call – Szerezz engedélyt gyorsan",
+      "lessonCreatedAt": "2026-01-28T19:29:51.055Z",
+      "lessonQuality": {
+        "score": 20,
+        "issues": [
+          "TOO_SHORT",
+          "NO_CLEAR_DEFINITIONS",
+          "NO_EXAMPLES",
+          "NO_CONTRASTS_GOOD_BAD",
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 354,
+          "wordCount": 50,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": false,
+          "hasGoodBadContrast": false,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": true,
+          "addPitfallsSection": true,
+          "addMetricsSection": true
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "REFINE_LESSON_FIRST",
+      "rewrite": null
+    },
+    {
+      "courseId": "SALES_PRODUCTIVITY_30_HU",
+      "courseName": "Értékesítés 2026 - Sales Reset",
+      "language": "hu",
+      "dayNumber": 23,
+      "lessonId": "SALES_PRODUCTIVITY_30_HU_DAY_23",
+      "title": "Follow-up – A beszélgetésből elköteleződés",
+      "lessonCreatedAt": "2026-01-28T19:29:51.098Z",
+      "lessonQuality": {
+        "score": 20,
+        "issues": [
+          "TOO_SHORT",
+          "NO_CLEAR_DEFINITIONS",
+          "NO_EXAMPLES",
+          "NO_CONTRASTS_GOOD_BAD",
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 488,
+          "wordCount": 65,
+          "hasBullets": true,
+          "hasNumberedSteps": true,
+          "hasExamples": false,
+          "hasGoodBadContrast": false,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": true,
+          "addPitfallsSection": true,
+          "addMetricsSection": true
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "REFINE_LESSON_FIRST",
+      "rewrite": null
+    },
+    {
+      "courseId": "SALES_PRODUCTIVITY_30_HU",
+      "courseName": "Értékesítés 2026 - Sales Reset",
+      "language": "hu",
+      "dayNumber": 24,
+      "lessonId": "SALES_PRODUCTIVITY_30_HU_DAY_24",
+      "title": "Pipeline higiénia – Tartsd valósnak a CRM-et",
+      "lessonCreatedAt": "2026-01-28T19:29:51.146Z",
+      "lessonQuality": {
+        "score": 45,
+        "issues": [
+          "TOO_SHORT",
+          "NO_CLEAR_DEFINITIONS",
+          "NO_EXAMPLES"
+        ],
+        "signals": {
+          "charCount": 392,
+          "wordCount": 53,
+          "hasBullets": true,
+          "hasNumberedSteps": true,
+          "hasExamples": false,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": true,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "REFINE_LESSON_FIRST",
+      "rewrite": null
+    },
+    {
+      "courseId": "SALES_PRODUCTIVITY_30_HU",
+      "courseName": "Értékesítés 2026 - Sales Reset",
+      "language": "hu",
+      "dayNumber": 25,
+      "lessonId": "SALES_PRODUCTIVITY_30_HU_DAY_25",
+      "title": "Időmenedzsment salesben – Védd a fókuszt",
+      "lessonCreatedAt": "2026-01-28T19:29:51.191Z",
+      "lessonQuality": {
+        "score": 20,
+        "issues": [
+          "TOO_SHORT",
+          "NO_CLEAR_DEFINITIONS",
+          "NO_EXAMPLES",
+          "NO_CONTRASTS_GOOD_BAD",
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 329,
+          "wordCount": 47,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": false,
+          "hasGoodBadContrast": false,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": true,
+          "addPitfallsSection": true,
+          "addMetricsSection": true
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "REFINE_LESSON_FIRST",
+      "rewrite": null
+    },
+    {
+      "courseId": "SALES_PRODUCTIVITY_30_HU",
+      "courseName": "Értékesítés 2026 - Sales Reset",
+      "language": "hu",
+      "dayNumber": 26,
+      "lessonId": "SALES_PRODUCTIVITY_30_HU_DAY_26",
+      "title": "AI használata salesben – Gyorsítás QA-val",
+      "lessonCreatedAt": "2026-01-28T19:29:51.244Z",
+      "lessonQuality": {
+        "score": 20,
+        "issues": [
+          "TOO_SHORT",
+          "NO_CLEAR_DEFINITIONS",
+          "NO_EXAMPLES",
+          "NO_CONTRASTS_GOOD_BAD",
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 380,
+          "wordCount": 53,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": false,
+          "hasGoodBadContrast": false,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": true,
+          "addPitfallsSection": true,
+          "addMetricsSection": true
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "REFINE_LESSON_FIRST",
+      "rewrite": null
+    },
+    {
+      "courseId": "SALES_PRODUCTIVITY_30_HU",
+      "courseName": "Értékesítés 2026 - Sales Reset",
+      "language": "hu",
+      "dayNumber": 27,
+      "lessonId": "SALES_PRODUCTIVITY_30_HU_DAY_27",
+      "title": "Mérőszámok – Vezető indikátorok, amiket irányítasz",
+      "lessonCreatedAt": "2026-01-28T19:29:51.286Z",
+      "lessonQuality": {
+        "score": 50,
+        "issues": [
+          "TOO_SHORT",
+          "NO_EXAMPLES",
+          "NO_CONTRASTS_GOOD_BAD"
+        ],
+        "signals": {
+          "charCount": 358,
+          "wordCount": 45,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": false,
+          "hasGoodBadContrast": false,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": true,
+          "addPitfallsSection": true,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "REFINE_LESSON_FIRST",
+      "rewrite": null
+    },
+    {
+      "courseId": "SALES_PRODUCTIVITY_30_HU",
+      "courseName": "Értékesítés 2026 - Sales Reset",
+      "language": "hu",
+      "dayNumber": 28,
+      "lessonId": "SALES_PRODUCTIVITY_30_HU_DAY_28",
+      "title": "Értékesítési kézikönyv – Tedd átadhatóvá a folyamatot",
+      "lessonCreatedAt": "2026-01-28T19:29:51.330Z",
+      "lessonQuality": {
+        "score": 20,
+        "issues": [
+          "TOO_SHORT",
+          "NO_CLEAR_DEFINITIONS",
+          "NO_EXAMPLES",
+          "NO_CONTRASTS_GOOD_BAD",
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 380,
+          "wordCount": 45,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": false,
+          "hasGoodBadContrast": false,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": true,
+          "addPitfallsSection": true,
+          "addMetricsSection": true
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "REFINE_LESSON_FIRST",
+      "rewrite": null
+    },
+    {
+      "courseId": "SALES_PRODUCTIVITY_30_HU",
+      "courseName": "Értékesítés 2026 - Sales Reset",
+      "language": "hu",
+      "dayNumber": 29,
+      "lessonId": "SALES_PRODUCTIVITY_30_HU_DAY_29",
+      "title": "Záró projekt – Futtasd a rendszert 7 napig",
+      "lessonCreatedAt": "2026-01-28T19:29:51.373Z",
+      "lessonQuality": {
+        "score": 35,
+        "issues": [
+          "TOO_SHORT",
+          "NO_CLEAR_DEFINITIONS",
+          "NO_EXAMPLES",
+          "NO_CONTRASTS_GOOD_BAD"
+        ],
+        "signals": {
+          "charCount": 334,
+          "wordCount": 49,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": false,
+          "hasGoodBadContrast": false,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": true,
+          "addPitfallsSection": true,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "REFINE_LESSON_FIRST",
+      "rewrite": null
+    },
+    {
+      "courseId": "SALES_PRODUCTIVITY_30_HU",
+      "courseName": "Értékesítés 2026 - Sales Reset",
+      "language": "hu",
+      "dayNumber": 30,
+      "lessonId": "SALES_PRODUCTIVITY_30_HU_DAY_30",
+      "title": "Folyamatos fejlődés – Havi áttekintő rutin",
+      "lessonCreatedAt": "2026-01-28T19:29:51.430Z",
+      "lessonQuality": {
+        "score": 20,
+        "issues": [
+          "TOO_SHORT",
+          "NO_CLEAR_DEFINITIONS",
+          "NO_EXAMPLES",
+          "NO_CONTRASTS_GOOD_BAD",
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 353,
+          "wordCount": 44,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": false,
+          "hasGoodBadContrast": false,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": true,
+          "addPitfallsSection": true,
+          "addMetricsSection": true
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "REFINE_LESSON_FIRST",
+      "rewrite": null
+    }
+  ]
+}

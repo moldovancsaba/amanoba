@@ -1,0 +1,423 @@
+{
+  "generatedAt": "2026-01-28T21:59:48.167Z",
+  "courseFilter": "PRODUCTIVITY_2026_PL",
+  "total": 30,
+  "failed": 3,
+  "results": [
+    {
+      "courseId": "PRODUCTIVITY_2026_PL",
+      "courseName": "Produktywność 2026: Jak zarządzać zespołami i czasem",
+      "language": "pl",
+      "dayNumber": 1,
+      "lessonId": "PRODUCTIVITY_2026_PL_DAY_01",
+      "title": "Definicja produktywności: wynik, rezultaty i ograniczenia",
+      "createdAt": "2026-01-23T19:27:03.540Z",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "findings": []
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_PL",
+      "courseName": "Produktywność 2026: Jak zarządzać zespołami i czasem",
+      "language": "pl",
+      "dayNumber": 2,
+      "lessonId": "PRODUCTIVITY_2026_PL_DAY_02",
+      "title": "Czas, energia, uwaga: co zarządzasz w praktyce",
+      "createdAt": "2026-01-23T21:20:06.664Z",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "findings": []
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_PL",
+      "courseName": "Produktywność 2026: Jak zarządzać zespołami i czasem",
+      "language": "pl",
+      "dayNumber": 3,
+      "lessonId": "PRODUCTIVITY_2026_PL_DAY_03",
+      "title": "Hierarchia celów: wizja → rezultaty → projekty → następne kroki",
+      "createdAt": "2026-01-23T21:28:05.658Z",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "findings": []
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_PL",
+      "courseName": "Produktywność 2026: Jak zarządzać zespołami i czasem",
+      "language": "pl",
+      "dayNumber": 4,
+      "lessonId": "PRODUCTIVITY_2026_PL_DAY_04",
+      "title": "Nawyki vs systemy: dlaczego systemy lepiej się skalują",
+      "createdAt": "2026-01-23T21:34:23.704Z",
+      "ok": false,
+      "errors": [
+        "Language integrity failed for lesson.content: detected injected English instruction line(s) for pl."
+      ],
+      "warnings": [],
+      "findings": [
+        {
+          "label": "Potential English line",
+          "snippet": "Scott Adams: \"How to Fail at Almost Everything\" — o systemach"
+        }
+      ]
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_PL",
+      "courseName": "Produktywność 2026: Jak zarządzać zespołami i czasem",
+      "language": "pl",
+      "dayNumber": 5,
+      "lessonId": "PRODUCTIVITY_2026_PL_DAY_05",
+      "title": "Pomiar: proste metryki cotygodniowego przeglądu (throughput, bloki skupienia, carryover)",
+      "createdAt": "2026-01-23T21:40:14.607Z",
+      "ok": false,
+      "errors": [
+        "Language integrity failed for lesson.content: detected injected English instruction line(s) for pl."
+      ],
+      "warnings": [],
+      "findings": [
+        {
+          "label": "Potential English line",
+          "snippet": "Plan: Co planujesz na następny tydzień?"
+        },
+        {
+          "label": "Potential English line",
+          "snippet": "Plan : Co zmienisz w następnym tygodniu? Jakie konkretne kroki podejmiesz?"
+        }
+      ]
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_PL",
+      "courseName": "Produktywność 2026: Jak zarządzać zespołami i czasem",
+      "language": "pl",
+      "dayNumber": 6,
+      "lessonId": "PRODUCTIVITY_2026_PL_DAY_06",
+      "title": "Przechwytywanie: skrzynki odbiorcze, lista wyzwalaczy, nawyki przechwytywania",
+      "createdAt": "2026-01-23T21:43:43.739Z",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "findings": []
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_PL",
+      "courseName": "Produktywność 2026: Jak zarządzać zespołami i czasem",
+      "language": "pl",
+      "dayNumber": 7,
+      "lessonId": "PRODUCTIVITY_2026_PL_DAY_07",
+      "title": "System dzienny/tygodniowy: poranek ritual, dzienny huddle, tygodniowy przegląd",
+      "createdAt": "2026-01-24T08:15:47.246Z",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "findings": []
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_PL",
+      "courseName": "Produktywność 2026: Jak zarządzać zespołami i czasem",
+      "language": "pl",
+      "dayNumber": 8,
+      "lessonId": "PRODUCTIVITY_2026_PL_DAY_8",
+      "title": "Koszt przełączania kontekstu: Reszta uwagi, Przetwarzanie wsadowe, Bloki głębokiej pracy",
+      "createdAt": "2026-01-24T08:31:19.934Z",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "findings": []
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_PL",
+      "courseName": "Produktywność 2026: Jak zarządzać zespołami i czasem",
+      "language": "pl",
+      "dayNumber": 9,
+      "lessonId": "PRODUCTIVITY_2026_PL_DAY_9",
+      "title": "Delegowanie vs Eliminacja: Kiedy Delegować, Co Wyeliminować",
+      "createdAt": "2026-01-24T08:36:24.978Z",
+      "ok": false,
+      "errors": [
+        "Language integrity failed for lesson.content: detected injected English instruction line(s) for pl."
+      ],
+      "warnings": [],
+      "findings": [
+        {
+          "label": "Potential English line",
+          "snippet": "Plan : Zidentyfikuj 3 możliwości delegowania lub eliminacji na kolejne 30 dni."
+        }
+      ]
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_PL",
+      "courseName": "Produktywność 2026: Jak zarządzać zespołami i czasem",
+      "language": "pl",
+      "dayNumber": 10,
+      "lessonId": "PRODUCTIVITY_2026_PL_DAY_10",
+      "title": "Zarządzanie Energią: Kiedy Pracować, Kiedy Odpoczywać, Rytuały Regeneracji",
+      "createdAt": "2026-01-24T08:40:15.095Z",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "findings": []
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_PL",
+      "courseName": "Produktywność 2026: Jak zarządzać zespołami i czasem",
+      "language": "pl",
+      "dayNumber": 11,
+      "lessonId": "PRODUCTIVITY_2026_PL_DAY_11",
+      "title": "Ustalanie Celów i OKR: Co Chcesz Osiągnąć?",
+      "createdAt": "2026-01-24T08:41:52.008Z",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "findings": []
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_PL",
+      "courseName": "Produktywność 2026: Jak zarządzać zespołami i czasem",
+      "language": "pl",
+      "dayNumber": 12,
+      "lessonId": "PRODUCTIVITY_2026_PL_DAY_12",
+      "title": "Struktury Odpowiedzialności: Systemy Utrzymujące Cię na Torze",
+      "createdAt": "2026-01-24T09:15:54.409Z",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "findings": []
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_PL",
+      "courseName": "Produktywność 2026: Jak zarządzać zespołami i czasem",
+      "language": "pl",
+      "dayNumber": 13,
+      "lessonId": "PRODUCTIVITY_2026_PL_DAY_13",
+      "title": "Ramy Podejmowania Decyzji: Szybkie decyzje, macierz decyzji, unikanie paraliżu analizy",
+      "createdAt": "2026-01-24T09:23:09.143Z",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "findings": []
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_PL",
+      "courseName": "Produktywność 2026: Jak zarządzać zespołami i czasem",
+      "language": "pl",
+      "dayNumber": 14,
+      "lessonId": "PRODUCTIVITY_2026_PL_DAY_14",
+      "title": "Wydajność Spotkań: Porządek obrad, Limity czasu, Dziennik Decyzji",
+      "createdAt": "2026-01-24T09:29:49.582Z",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "findings": []
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_PL",
+      "courseName": "Produktywność 2026: Jak zarządzać zespołami i czasem",
+      "language": "pl",
+      "dayNumber": 15,
+      "lessonId": "PRODUCTIVITY_2026_PL_DAY_15",
+      "title": "Praca w Zespole i Synergia: Role, Odpowiedzialność, Koordynacja",
+      "createdAt": "2026-01-24T09:29:52.617Z",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "findings": []
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_PL",
+      "courseName": "Produktywność 2026: Jak zarządzać zespołami i czasem",
+      "language": "pl",
+      "dayNumber": 16,
+      "lessonId": "PRODUCTIVITY_2026_PL_DAY_16",
+      "title": "Zarządzanie Stresem i Zmęczeniem: Odzyskiwanie, Równowaga Praca-Życie",
+      "createdAt": "2026-01-24T09:29:56.081Z",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "findings": []
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_PL",
+      "courseName": "Produktywność 2026: Jak zarządzać zespołami i czasem",
+      "language": "pl",
+      "dayNumber": 17,
+      "lessonId": "PRODUCTIVITY_2026_PL_DAY_17",
+      "title": "Utrzymywanie Motywacji: Śledzenie Postępu, Świętowanie Zwycięstw",
+      "createdAt": "2026-01-24T09:29:59.025Z",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "findings": []
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_PL",
+      "courseName": "Produktywność 2026: Jak zarządzać zespołami i czasem",
+      "language": "pl",
+      "dayNumber": 18,
+      "lessonId": "PRODUCTIVITY_2026_PL_DAY_18",
+      "title": "Zarządzanie Kryzysem i Elastyczność: Adaptacja, Szybkie Uczenie",
+      "createdAt": "2026-01-24T09:30:02.012Z",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "findings": []
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_PL",
+      "courseName": "Produktywność 2026: Jak zarządzać zespołami i czasem",
+      "language": "pl",
+      "dayNumber": 19,
+      "lessonId": "PRODUCTIVITY_2026_PL_DAY_19",
+      "title": "Planowanie Długoterminowe: Lata Naprzód, Strategia, Ewolucja",
+      "createdAt": "2026-01-24T09:30:05.160Z",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "findings": []
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_PL",
+      "courseName": "Produktywność 2026: Jak zarządzać zespołami i czasem",
+      "language": "pl",
+      "dayNumber": 20,
+      "lessonId": "PRODUCTIVITY_2026_PL_DAY_20",
+      "title": "Produktywność Życia Osobistego: Organizacja Domu, Projekty Osobiste",
+      "createdAt": "2026-01-24T09:30:08.322Z",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "findings": []
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_PL",
+      "courseName": "Produktywność 2026: Jak zarządzać zespołami i czasem",
+      "language": "pl",
+      "dayNumber": 21,
+      "lessonId": "PRODUCTIVITY_2026_PL_DAY_21",
+      "title": "Społeczność i Sieć: Relacje, Nauka z Innymi",
+      "createdAt": "2026-01-24T09:30:10.994Z",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "findings": []
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_PL",
+      "courseName": "Produktywność 2026: Jak zarządzać zespołami i czasem",
+      "language": "pl",
+      "dayNumber": 22,
+      "lessonId": "PRODUCTIVITY_2026_PL_DAY_22",
+      "title": "Technologia i Narzędzia: Automatyzacja, Wybór Właściwej Technologii",
+      "createdAt": "2026-01-24T09:30:13.754Z",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "findings": []
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_PL",
+      "courseName": "Produktywność 2026: Jak zarządzać zespołami i czasem",
+      "language": "pl",
+      "dayNumber": 23,
+      "lessonId": "PRODUCTIVITY_2026_PL_DAY_23",
+      "title": "Kreatywność i Innowacja: Przeszukiwanie na Nowo, Eksperymenty",
+      "createdAt": "2026-01-24T09:30:16.529Z",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "findings": []
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_PL",
+      "courseName": "Produktywność 2026: Jak zarządzać zespołami i czasem",
+      "language": "pl",
+      "dayNumber": 24,
+      "lessonId": "PRODUCTIVITY_2026_PL_DAY_24",
+      "title": "Filtrowanie i Priorytety: Co Ignorować, Co Jest Ważne",
+      "createdAt": "2026-01-24T09:30:19.193Z",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "findings": []
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_PL",
+      "courseName": "Produktywność 2026: Jak zarządzać zespołami i czasem",
+      "language": "pl",
+      "dayNumber": 25,
+      "lessonId": "PRODUCTIVITY_2026_PL_DAY_25",
+      "title": "Rozwój Umiejętności: Wyższe Poziomy, Nowe Kompetencje",
+      "createdAt": "2026-01-24T09:30:21.897Z",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "findings": []
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_PL",
+      "courseName": "Produktywność 2026: Jak zarządzać zespołami i czasem",
+      "language": "pl",
+      "dayNumber": 26,
+      "lessonId": "PRODUCTIVITY_2026_PL_DAY_26",
+      "title": "Mentorstwo i Nauczanie: Dzielenie Wiedzą, Pomaganie Innym",
+      "createdAt": "2026-01-24T09:30:24.561Z",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "findings": []
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_PL",
+      "courseName": "Produktywność 2026: Jak zarządzać zespołami i czasem",
+      "language": "pl",
+      "dayNumber": 27,
+      "lessonId": "PRODUCTIVITY_2026_PL_DAY_27",
+      "title": "Nawyki i Rytuały: Codzienne Rutyny, Długoterminowe Działania",
+      "createdAt": "2026-01-24T09:30:27.469Z",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "findings": []
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_PL",
+      "courseName": "Produktywność 2026: Jak zarządzać zespołami i czasem",
+      "language": "pl",
+      "dayNumber": 28,
+      "lessonId": "PRODUCTIVITY_2026_PL_DAY_28",
+      "title": "Wartości i Cele: Cel Życia, Długoterminowa Wizja",
+      "createdAt": "2026-01-24T09:30:31.235Z",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "findings": []
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_PL",
+      "courseName": "Produktywność 2026: Jak zarządzać zespołami i czasem",
+      "language": "pl",
+      "dayNumber": 29,
+      "lessonId": "PRODUCTIVITY_2026_PL_DAY_29",
+      "title": "Ciągłe Ulepszanie: Nauka, Opinia, Iteracja",
+      "createdAt": "2026-01-24T09:30:35.185Z",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "findings": []
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_PL",
+      "courseName": "Produktywność 2026: Jak zarządzać zespołami i czasem",
+      "language": "pl",
+      "dayNumber": 30,
+      "lessonId": "PRODUCTIVITY_2026_PL_DAY_30",
+      "title": "Mistrz Produktywności: Całościowa Integracja, Zaangażowanie",
+      "createdAt": "2026-01-24T09:30:38.393Z",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "findings": []
+    }
+  ]
+}

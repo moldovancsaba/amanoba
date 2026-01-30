@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-28T22:42:12.705Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_ID",
+    "name": "Produktivitas 2026: Cara Mengelola Tim dan Waktu",
+    "language": "id"
+  },
+  "lesson": {
+    "dayNumber": 15,
+    "title": "Kerjasama Tim dan Sinergi: Peran, Tanggung Jawab, Koordinasi",
+    "lessonId": "PRODUCTIVITY_2026_ID_DAY_15"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a2cdf6e5ec2a4427e52",
+      "uuid": "4a701640-c101-452c-98f5-4b7d2613486b",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Organisir tim untuk kinerja yang lebih baik.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day15",
+        "#id",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a2cdf6e5ec2a4427e53",
+      "uuid": "41094645-1d80-4ff1-92ff-cccaeece8d8f",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Organisir tim untuk kinerja yang lebih baik.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day15",
+        "#id",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a2cdf6e5ec2a4427e54",
+      "uuid": "4ca19514-a014-475f-973a-949c0b6c2df5",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Organisir tim untuk kinerja yang lebih baik.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day15",
+        "#id",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a2cdf6e5ec2a4427e55",
+      "uuid": "dd8a5593-f49c-46f8-ac15-62581eee0bcc",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Bagaimana konsep \"Kerjasama Tim dan Sinergi: Peran, Tanggung Jawab, ...\" yang disebutkan dalam pelajaran mempengaruhi pencapaian goals Anda?",
+      "options": [
+        "Seperti yang dijelaskan secara detail dalam pelajaran, Kerjasama Tim dan Sinergi: Per... meningkatkan efektivitas dan mengurangi risiko",
+        "Tidak ada dampak signifikan",
+        "Hanya penting secara teoritis",
+        "Hanya elemen opsional"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day15",
+        "#id",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a2cdf6e5ec2a4427e56",
+      "uuid": "daeca101-5cf2-4886-b0af-4798cdad354e",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Seberapa penting Kerjasama dalam konteks Kerjasama Tim dan Sinergi: Peran, Tanggung Jawab, Koordinasi seperti yang dibahas dalam pelajaran?",
+      "options": [
+        "Seperti yang dijelaskan secara detail dalam pelajaran, Kerjasama memainkan peran penting dalam mengoptimalkan proses dan mencapai tujuan",
+        "Hanya informasi periferal tanpa peran signifikan",
+        "Hanya konsep teoretis tanpa aplikasi praktis",
+        "Tidak disebutkan dalam pelajaran"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day15",
+        "#id",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a2cdf6e5ec2a4427e57",
+      "uuid": "d25b3787-3b7e-46dd-9d76-11c5a814dd8a",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Seberapa penting Peran dalam konteks Kerjasama Tim dan Sinergi: Peran, Tanggung Jawab, Koordinasi seperti yang dibahas dalam pelajaran?",
+      "options": [
+        "Seperti yang dijelaskan secara detail dalam pelajaran, Peran memainkan peran penting dalam mengoptimalkan proses dan mencapai tujuan",
+        "Hanya informasi periferal tanpa peran signifikan",
+        "Hanya konsep teoretis tanpa aplikasi praktis",
+        "Tidak disebutkan dalam pelajaran"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day15",
+        "#id",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a2cdf6e5ec2a4427e58",
+      "uuid": "5d945402-32ae-43bc-9177-d92afa160bca",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Seberapa penting Jawab dalam konteks Kerjasama Tim dan Sinergi: Peran, Tanggung Jawab, Koordinasi seperti yang dibahas dalam pelajaran?",
+      "options": [
+        "Seperti yang dijelaskan secara detail dalam pelajaran, Jawab memainkan peran penting dalam mengoptimalkan proses dan mencapai tujuan",
+        "Hanya informasi periferal tanpa peran signifikan",
+        "Hanya konsep teoretis tanpa aplikasi praktis",
+        "Tidak disebutkan dalam pelajaran"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day15",
+        "#id",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

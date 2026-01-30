@@ -1,0 +1,68 @@
+{
+  "backedUpAt": "2026-01-29T16:59:39.170Z",
+  "course": {
+    "courseId": "B2B_SALES_2026_30_EN",
+    "name": "B2B Sales 2026 Masterclass",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 25,
+    "title": "Proposal Structure: Decision-Ready Offer",
+    "lessonId": "B2B_SALES_2026_30_EN_DAY_25"
+  },
+  "questionCount": 4,
+  "questions": [
+    {
+      "_id": "697b1fd58f79f136a28b8a64",
+      "difficulty": "MEDIUM",
+      "question": "Purpose of a decision-ready proposal?",
+      "options": [
+        "Only list price",
+        "Enable a decision: goal, scope, risk, proof, next step",
+        "Entertain the buyer",
+        "Add length"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b1fd58f79f136a28b8a65",
+      "difficulty": "MEDIUM",
+      "question": "Which item is a clear red flag in a proposal?",
+      "options": [
+        "No decision date/next step",
+        "Has proof points",
+        "Has scope",
+        "Has CTA"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b1fd58f79f136a28b8a66",
+      "difficulty": "MEDIUM",
+      "question": "Required block?",
+      "options": [
+        "Goal, scope, time, risk, proof, next step",
+        "Only colors",
+        "Only NDA",
+        "Only logo"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b1fd58f79f136a28b8a67",
+      "difficulty": "MEDIUM",
+      "question": "Good CRM field for proposal stage?",
+      "options": [
+        "Decision date",
+        "Avatar",
+        "Emoji",
+        "Favorite food"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    }
+  ]
+}

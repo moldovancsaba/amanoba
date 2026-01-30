@@ -1,0 +1,68 @@
+{
+  "backedUpAt": "2026-01-29T17:00:17.449Z",
+  "course": {
+    "courseId": "PLAYBOOK_2026_30",
+    "name": "The Playbook 2026 – Mesterkurzus Designereknek",
+    "language": "hu"
+  },
+  "lesson": {
+    "dayNumber": 15,
+    "title": "Ismeretlen tartalomra tervezés",
+    "lessonId": "PLAYBOOK_2026_30_DAY_15"
+  },
+  "questionCount": 4,
+  "questions": [
+    {
+      "_id": "697b2033d8669994531f74b7",
+      "difficulty": "MEDIUM",
+      "question": "Hogyan kezeled a hosszú címet?",
+      "options": [
+        "Hagyom kilógni",
+        "Max 1-2 sor, utána truncate + tooltip",
+        "Mindig egy sorban tartom bárhogy",
+        "Nincs szabály"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b2033d8669994531f74b8",
+      "difficulty": "MEDIUM",
+      "question": "Mi az üres állapot alapja?",
+      "options": [
+        "Csak üres képernyő",
+        "Ikon + rövid üzenet + CTA",
+        "Reklám",
+        "Random szöveg"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b2033d8669994531f74b9",
+      "difficulty": "MEDIUM",
+      "question": "Mikor használj skeletont spinner helyett?",
+      "options": [
+        "Ha stabil elrendezést akarsz betöltés közben",
+        "Soha",
+        "Mindig spinnert",
+        "Csak mobilon"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b2033d8669994531f74ba",
+      "difficulty": "MEDIUM",
+      "question": "Mi a rossz példa?",
+      "options": [
+        "Hosszú cím törik a layoutot",
+        "Ellipszis 2 sor után, tooltip",
+        "Üres állapot CTA-val",
+        "Skeleton fix mérettel"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    }
+  ]
+}

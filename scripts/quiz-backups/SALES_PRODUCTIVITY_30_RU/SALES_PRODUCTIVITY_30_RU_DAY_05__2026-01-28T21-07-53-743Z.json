@@ -1,0 +1,177 @@
+{
+  "backedUpAt": "2026-01-28T21:07:55.370Z",
+  "course": {
+    "courseId": "SALES_PRODUCTIVITY_30_RU",
+    "name": "Постройте свои продажи – 30 дней к большему количеству сделок",
+    "language": "ru"
+  },
+  "lesson": {
+    "dayNumber": 5,
+    "title": "Недельное/месячное прогнозирование – Как предсказать будущее",
+    "lessonId": "SALES_PRODUCTIVITY_30_RU_DAY_05"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a5583229aca24a6d631",
+      "uuid": "046b9f1b-f7ba-4ce5-9ec6-735fdd1f28e1",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ По плану\n    \n  \n\n\nШаблон недельного п...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day5",
+        "#ru",
+        "#all-languages",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5583229aca24a6d632",
+      "uuid": "4d7d7166-4940-4ad1-8a63-f460f8b2ddc5",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ По плану\n\n\n\n\nПрактика 1 – Недельный пр...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day5",
+        "#ru",
+        "#all-languages",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5583229aca24a6d633",
+      "uuid": "9c4a00c9-7d3c-4986-a272-efa5176505e2",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ По плану\n    \n  \n\n\nШаблон недельного п...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day5",
+        "#ru",
+        "#all-languages",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5583229aca24a6d634",
+      "uuid": "28f5e134-65a6-4269-a6fc-2f4a95b4aa27",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Как концепция \"Недельное/месячное прогнозирование – Как предсказа...\", упомянутая в уроке, влияет на достижение ваших goals?",
+      "options": [
+        "Как подробно описано в уроке, Недельное/месячное прогнозиров... повышает эффективность и снижает риски",
+        "Нет значительного влияния",
+        "Имеет значение только теоретически",
+        "Только опциональный элемент"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day5",
+        "#ru",
+        "#all-languages",
+        "#productivity",
+        "#sales",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5583229aca24a6d635",
+      "uuid": "a288869c-cd2f-4493-9830-e2c1e972e38e",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Какую роль играет Коммуникация с руководством: в уроке \"Недельное/месячное прогнозирование – Как предсказать будущее\"?",
+      "options": [
+        "Как подробно описано в уроке, Коммуникация с руководством: играет ключевую роль в оптимизации процессов и достижении целей",
+        "Только периферийная информация без значительной роли",
+        "Только теоретическая концепция без практического применения",
+        "Не упоминается в уроке"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day5",
+        "#ru",
+        "#all-languages",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5583229aca24a6d636",
+      "uuid": "ae066480-b22c-4803-bc14-8a1c0779d498",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Какую роль играет Раннее предупреждение: в уроке \"Недельное/месячное прогнозирование – Как предсказать будущее\"?",
+      "options": [
+        "Как подробно описано в уроке, Раннее предупреждение: играет ключевую роль в оптимизации процессов и достижении целей",
+        "Только периферийная информация без значительной роли",
+        "Только теоретическая концепция без практического применения",
+        "Не упоминается в уроке"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day5",
+        "#ru",
+        "#all-languages",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5583229aca24a6d637",
+      "uuid": "baa5e6bf-88a0-45e3-8776-a2ed81fae0f9",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Какую роль играет Используйте коэффициенты конверсии: в уроке \"Недельное/месячное прогнозирование – Как предсказать будущее\"?",
+      "options": [
+        "Как подробно описано в уроке, Используйте коэффициенты конверсии: играет ключевую роль в оптимизации процессов и достижении целей",
+        "Только периферийная информация без значительной роли",
+        "Только теоретическая концепция без практического применения",
+        "Не упоминается в уроке"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day5",
+        "#ru",
+        "#all-languages",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

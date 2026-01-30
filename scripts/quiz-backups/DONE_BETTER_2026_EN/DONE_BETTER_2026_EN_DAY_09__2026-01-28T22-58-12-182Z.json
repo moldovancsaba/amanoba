@@ -1,0 +1,114 @@
+{
+  "backedUpAt": "2026-01-28T22:58:14.807Z",
+  "course": {
+    "courseId": "DONE_BETTER_2026_EN",
+    "name": "Done is better - Build What Matters",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 9,
+    "title": "Think in Moves, Not Projects",
+    "lessonId": "DONE_BETTER_2026_EN_DAY_09"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "697a92f522596d24dfc12cc6",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "A goal is \"double revenue in 12 months.\" What is a good next move?",
+      "options": [
+        "Define the smallest step that could be done and verified soon (e.g. one experiment or one segment test)",
+        "Create a 12-month project plan with no intermediate tests",
+        "Wait until you have a full strategy",
+        "Set a milestone for month 6 only"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a92f522596d24dfc12cc7",
+      "questionType": "application",
+      "difficulty": "EASY",
+      "question": "A team lists several tasks. One task has a clear test: \"We are done when 10 users complete onboarding in under 2 minutes.\" What makes this a \"move\" rather than just activity?",
+      "options": [
+        "It is testable: you can say \"done\" when an observable condition is true",
+        "It is on the project plan regardless of whether it can be verified",
+        "It takes at least a week to complete regardless of testability",
+        "It is assigned to someone else without defining how to verify completion"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a92f522596d24dfc12cc8",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "A team completes one testable step and gets feedback. What should they do next?",
+      "options": [
+        "Decide the next step from the evidence you got; do not just continue the old plan blindly",
+        "Immediately start the next task on the list without considering the feedback",
+        "Report and wait for approval before taking any action based on results",
+        "Take a break before the next phase without learning from the test"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a92f522596d24dfc12cc9",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "What is \"project theater\"?",
+      "options": [
+        "Long plans and deliverables that are too big to test soon; lots of motion, little learning",
+        "A formal kickoff meeting",
+        "Using project management software",
+        "Having a project manager"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a92f522596d24dfc12cca",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Why is \"no clear done for the current step\" a problem?",
+      "options": [
+        "You cannot get signal or decide the next move; scope creeps and feedback is delayed",
+        "It makes the step cheaper to execute",
+        "It increases creativity and flexibility",
+        "It has no effect on delivery or learning"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a92f522596d24dfc12ccb",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "A team lists several activities. Some have clear tests for \"done,\" others are just ongoing work. How do you distinguish motion from moves?",
+      "options": [
+        "Motion is activity; moves are testable steps with a clear done condition",
+        "Motion is faster to complete than moves regardless of testability",
+        "Moves are always smaller than motion without considering value",
+        "There is no meaningful difference between them in practice"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a92f522596d24dfc12ccc",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "You have an outcome you want. What question should you ask next to find the first move?",
+      "options": [
+        "What is the smallest step that could be done and verified today or this week?",
+        "What is the full list of tasks needed?",
+        "Who else should be involved in the project?",
+        "What is the budget available for this?"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    }
+  ]
+}

@@ -1,0 +1,2194 @@
+{
+  "generatedAt": "2026-01-29T06:08:22.732Z",
+  "courseId": "B2B_SALES_2026_30_RU",
+  "fromDay": 1,
+  "toDay": 30,
+  "apply": true,
+  "totals": {
+    "considered": 30,
+    "eligible70": 30,
+    "below70": 0,
+    "applied": 27
+  },
+  "planRows": [
+    {
+      "day": 1,
+      "lessonId": "B2B_SALES_2026_30_RU_DAY_1",
+      "title": "Что означает современная B2B‑продажа в 2026 году",
+      "action": "SKIP_ALREADY_OK",
+      "quality": {
+        "old": {
+          "score": 100,
+          "issues": [],
+          "signals": {
+            "charCount": 3109,
+            "wordCount": 444,
+            "hasBullets": true,
+            "hasNumberedSteps": true,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        },
+        "next": {
+          "score": 100,
+          "issues": [],
+          "signals": {
+            "charCount": 3109,
+            "wordCount": 444,
+            "hasBullets": true,
+            "hasNumberedSteps": true,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 3109,
+        "nextChars": 3109
+      },
+      "applyEligible": true
+    },
+    {
+      "day": 2,
+      "lessonId": "B2B_SALES_2026_30_RU_DAY_2",
+      "title": "Карта системы B2B‑продаж",
+      "action": "SKIP_ALREADY_OK",
+      "quality": {
+        "old": {
+          "score": 90,
+          "issues": [
+            "NO_CONTRASTS_GOOD_BAD"
+          ],
+          "signals": {
+            "charCount": 2260,
+            "wordCount": 312,
+            "hasBullets": true,
+            "hasNumberedSteps": true,
+            "hasExamples": true,
+            "hasGoodBadContrast": false,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": true,
+            "addPitfallsSection": true,
+            "addMetricsSection": false
+          }
+        },
+        "next": {
+          "score": 90,
+          "issues": [
+            "NO_CONTRASTS_GOOD_BAD"
+          ],
+          "signals": {
+            "charCount": 2260,
+            "wordCount": 312,
+            "hasBullets": true,
+            "hasNumberedSteps": true,
+            "hasExamples": true,
+            "hasGoodBadContrast": false,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": true,
+            "addPitfallsSection": true,
+            "addMetricsSection": false
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 2260,
+        "nextChars": 2260
+      },
+      "applyEligible": true
+    },
+    {
+      "day": 3,
+      "lessonId": "B2B_SALES_2026_30_RU_DAY_3",
+      "title": "Диагностируйте проблемы, чтобы управлять покупателем",
+      "action": "REFINE",
+      "quality": {
+        "old": {
+          "score": 50,
+          "issues": [
+            "TOO_SHORT",
+            "NO_CLEAR_DEFINITIONS",
+            "NO_CONTRASTS_GOOD_BAD"
+          ],
+          "signals": {
+            "charCount": 831,
+            "wordCount": 106,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": true,
+            "hasGoodBadContrast": false,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": false
+          },
+          "refineTemplate": {
+            "addDefinitionSection": true,
+            "addChecklistSection": false,
+            "addExamplesSection": true,
+            "addPitfallsSection": true,
+            "addMetricsSection": false
+          }
+        },
+        "next": {
+          "score": 100,
+          "issues": [],
+          "signals": {
+            "charCount": 1688,
+            "wordCount": 238,
+            "hasBullets": true,
+            "hasNumberedSteps": true,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 831,
+        "nextChars": 1688
+      },
+      "applyEligible": true,
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      }
+    },
+    {
+      "day": 4,
+      "lessonId": "B2B_SALES_2026_30_RU_DAY_4",
+      "title": "ROI, бизнес‑кейсы и согласование бюджета",
+      "action": "REFINE",
+      "quality": {
+        "old": {
+          "score": 50,
+          "issues": [
+            "TOO_SHORT",
+            "NO_CLEAR_DEFINITIONS",
+            "NO_CONTRASTS_GOOD_BAD"
+          ],
+          "signals": {
+            "charCount": 630,
+            "wordCount": 89,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": true,
+            "hasGoodBadContrast": false,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": false
+          },
+          "refineTemplate": {
+            "addDefinitionSection": true,
+            "addChecklistSection": false,
+            "addExamplesSection": true,
+            "addPitfallsSection": true,
+            "addMetricsSection": false
+          }
+        },
+        "next": {
+          "score": 100,
+          "issues": [],
+          "signals": {
+            "charCount": 2253,
+            "wordCount": 315,
+            "hasBullets": true,
+            "hasNumberedSteps": true,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 630,
+        "nextChars": 2253
+      },
+      "applyEligible": true,
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      }
+    },
+    {
+      "day": 5,
+      "lessonId": "B2B_SALES_2026_30_RU_DAY_5",
+      "title": "Стратегии работы с DMU и кто влияет",
+      "action": "SKIP_ALREADY_OK",
+      "quality": {
+        "old": {
+          "score": 85,
+          "issues": [
+            "NO_CLEAR_DEFINITIONS"
+          ],
+          "signals": {
+            "charCount": 1594,
+            "wordCount": 231,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": false
+          },
+          "refineTemplate": {
+            "addDefinitionSection": true,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        },
+        "next": {
+          "score": 85,
+          "issues": [
+            "NO_CLEAR_DEFINITIONS"
+          ],
+          "signals": {
+            "charCount": 1594,
+            "wordCount": 231,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": false
+          },
+          "refineTemplate": {
+            "addDefinitionSection": true,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 1594,
+        "nextChars": 1594
+      },
+      "applyEligible": true
+    },
+    {
+      "day": 6,
+      "lessonId": "B2B_SALES_2026_30_RU_DAY_6",
+      "title": "Переговоры, объективные критерии и “необходимая цена”",
+      "action": "REFINE",
+      "quality": {
+        "old": {
+          "score": 35,
+          "issues": [
+            "TOO_SHORT",
+            "NO_CLEAR_DEFINITIONS",
+            "NO_EXAMPLES",
+            "NO_CONTRASTS_GOOD_BAD"
+          ],
+          "signals": {
+            "charCount": 914,
+            "wordCount": 125,
+            "hasBullets": true,
+            "hasNumberedSteps": true,
+            "hasExamples": false,
+            "hasGoodBadContrast": false,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": false
+          },
+          "refineTemplate": {
+            "addDefinitionSection": true,
+            "addChecklistSection": false,
+            "addExamplesSection": true,
+            "addPitfallsSection": true,
+            "addMetricsSection": false
+          }
+        },
+        "next": {
+          "score": 100,
+          "issues": [],
+          "signals": {
+            "charCount": 2291,
+            "wordCount": 313,
+            "hasBullets": true,
+            "hasNumberedSteps": true,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 914,
+        "nextChars": 2291
+      },
+      "applyEligible": true,
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      }
+    },
+    {
+      "day": 7,
+      "lessonId": "B2B_SALES_2026_30_RU_DAY_7",
+      "title": "Команда и поддержка продаж: как масштабировать успех",
+      "action": "REFINE",
+      "quality": {
+        "old": {
+          "score": 20,
+          "issues": [
+            "TOO_SHORT",
+            "NO_CLEAR_DEFINITIONS",
+            "NO_EXAMPLES",
+            "NO_CONTRASTS_GOOD_BAD",
+            "NO_METRICS_OR_CRITERIA"
+          ],
+          "signals": {
+            "charCount": 706,
+            "wordCount": 95,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": false,
+            "hasGoodBadContrast": false,
+            "hasMetricsOrCriteria": false,
+            "hasDefinitionsOrComparisons": false
+          },
+          "refineTemplate": {
+            "addDefinitionSection": true,
+            "addChecklistSection": false,
+            "addExamplesSection": true,
+            "addPitfallsSection": true,
+            "addMetricsSection": true
+          }
+        },
+        "next": {
+          "score": 100,
+          "issues": [],
+          "signals": {
+            "charCount": 1688,
+            "wordCount": 242,
+            "hasBullets": true,
+            "hasNumberedSteps": true,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 706,
+        "nextChars": 1688
+      },
+      "applyEligible": true,
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      }
+    },
+    {
+      "day": 8,
+      "lessonId": "B2B_SALES_2026_30_RU_DAY_8",
+      "title": "Карты клиентского пути и точки контакта",
+      "action": "REFINE",
+      "quality": {
+        "old": {
+          "score": 50,
+          "issues": [
+            "TOO_SHORT",
+            "NO_CLEAR_DEFINITIONS",
+            "NO_CONTRASTS_GOOD_BAD"
+          ],
+          "signals": {
+            "charCount": 777,
+            "wordCount": 104,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": true,
+            "hasGoodBadContrast": false,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": false
+          },
+          "refineTemplate": {
+            "addDefinitionSection": true,
+            "addChecklistSection": false,
+            "addExamplesSection": true,
+            "addPitfallsSection": true,
+            "addMetricsSection": false
+          }
+        },
+        "next": {
+          "score": 100,
+          "issues": [],
+          "signals": {
+            "charCount": 1662,
+            "wordCount": 240,
+            "hasBullets": true,
+            "hasNumberedSteps": true,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 777,
+        "nextChars": 1662
+      },
+      "applyEligible": true,
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      }
+    },
+    {
+      "day": 9,
+      "lessonId": "B2B_SALES_2026_30_RU_DAY_9",
+      "title": "Референсы, кейсы и путь доверия",
+      "action": "REFINE",
+      "quality": {
+        "old": {
+          "score": 20,
+          "issues": [
+            "TOO_SHORT",
+            "NO_CLEAR_DEFINITIONS",
+            "NO_EXAMPLES",
+            "NO_CONTRASTS_GOOD_BAD",
+            "NO_METRICS_OR_CRITERIA"
+          ],
+          "signals": {
+            "charCount": 643,
+            "wordCount": 87,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": false,
+            "hasGoodBadContrast": false,
+            "hasMetricsOrCriteria": false,
+            "hasDefinitionsOrComparisons": false
+          },
+          "refineTemplate": {
+            "addDefinitionSection": true,
+            "addChecklistSection": false,
+            "addExamplesSection": true,
+            "addPitfallsSection": true,
+            "addMetricsSection": true
+          }
+        },
+        "next": {
+          "score": 100,
+          "issues": [],
+          "signals": {
+            "charCount": 2250,
+            "wordCount": 309,
+            "hasBullets": true,
+            "hasNumberedSteps": true,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 643,
+        "nextChars": 2250
+      },
+      "applyEligible": true,
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      }
+    },
+    {
+      "day": 10,
+      "lessonId": "B2B_SALES_2026_30_RU_DAY_10",
+      "title": "Планирование следующего квартала и “гигиена воронки”",
+      "action": "REFINE",
+      "quality": {
+        "old": {
+          "score": 35,
+          "issues": [
+            "TOO_SHORT",
+            "NO_CLEAR_DEFINITIONS",
+            "NO_EXAMPLES",
+            "NO_CONTRASTS_GOOD_BAD"
+          ],
+          "signals": {
+            "charCount": 659,
+            "wordCount": 93,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": false,
+            "hasGoodBadContrast": false,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": false
+          },
+          "refineTemplate": {
+            "addDefinitionSection": true,
+            "addChecklistSection": false,
+            "addExamplesSection": true,
+            "addPitfallsSection": true,
+            "addMetricsSection": false
+          }
+        },
+        "next": {
+          "score": 100,
+          "issues": [],
+          "signals": {
+            "charCount": 2233,
+            "wordCount": 314,
+            "hasBullets": true,
+            "hasNumberedSteps": true,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 659,
+        "nextChars": 2233
+      },
+      "applyEligible": true,
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      }
+    },
+    {
+      "day": 11,
+      "lessonId": "B2B_SALES_2026_30_RU_DAY_11",
+      "title": "Метрики и триггеры: как мониторить прогресс",
+      "action": "REFINE",
+      "quality": {
+        "old": {
+          "score": 35,
+          "issues": [
+            "TOO_SHORT",
+            "NO_CLEAR_DEFINITIONS",
+            "NO_EXAMPLES",
+            "NO_CONTRASTS_GOOD_BAD"
+          ],
+          "signals": {
+            "charCount": 610,
+            "wordCount": 86,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": false,
+            "hasGoodBadContrast": false,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": false
+          },
+          "refineTemplate": {
+            "addDefinitionSection": true,
+            "addChecklistSection": false,
+            "addExamplesSection": true,
+            "addPitfallsSection": true,
+            "addMetricsSection": false
+          }
+        },
+        "next": {
+          "score": 100,
+          "issues": [],
+          "signals": {
+            "charCount": 2215,
+            "wordCount": 314,
+            "hasBullets": true,
+            "hasNumberedSteps": true,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 610,
+        "nextChars": 2215
+      },
+      "applyEligible": true,
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      }
+    },
+    {
+      "day": 12,
+      "lessonId": "B2B_SALES_2026_30_RU_DAY_12",
+      "title": "Очистка списка и гигиена лидов",
+      "action": "REFINE",
+      "quality": {
+        "old": {
+          "score": 45,
+          "issues": [
+            "TOO_SHORT",
+            "NO_CLEAR_DEFINITIONS",
+            "NO_EXAMPLES"
+          ],
+          "signals": {
+            "charCount": 900,
+            "wordCount": 129,
+            "hasBullets": true,
+            "hasNumberedSteps": true,
+            "hasExamples": false,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": false
+          },
+          "refineTemplate": {
+            "addDefinitionSection": true,
+            "addChecklistSection": false,
+            "addExamplesSection": true,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        },
+        "next": {
+          "score": 100,
+          "issues": [],
+          "signals": {
+            "charCount": 2189,
+            "wordCount": 312,
+            "hasBullets": true,
+            "hasNumberedSteps": true,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 900,
+        "nextChars": 2189
+      },
+      "applyEligible": true,
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      }
+    },
+    {
+      "day": 13,
+      "lessonId": "B2B_SALES_2026_30_RU_DAY_13",
+      "title": "MQL vs SQL и “ворота” квалификации",
+      "action": "REFINE",
+      "quality": {
+        "old": {
+          "score": 35,
+          "issues": [
+            "TOO_SHORT",
+            "NO_EXAMPLES",
+            "NO_CONTRASTS_GOOD_BAD",
+            "NO_METRICS_OR_CRITERIA"
+          ],
+          "signals": {
+            "charCount": 897,
+            "wordCount": 131,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": false,
+            "hasGoodBadContrast": false,
+            "hasMetricsOrCriteria": false,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": true,
+            "addPitfallsSection": true,
+            "addMetricsSection": true
+          }
+        },
+        "next": {
+          "score": 100,
+          "issues": [],
+          "signals": {
+            "charCount": 2268,
+            "wordCount": 334,
+            "hasBullets": true,
+            "hasNumberedSteps": true,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 897,
+        "nextChars": 2268
+      },
+      "applyEligible": true,
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      }
+    },
+    {
+      "day": 14,
+      "lessonId": "B2B_SALES_2026_30_RU_DAY_14",
+      "title": "Фреймворк квалификации: MEDDPICC (упрощённо)",
+      "action": "REFINE",
+      "quality": {
+        "old": {
+          "score": 35,
+          "issues": [
+            "TOO_SHORT",
+            "NO_CLEAR_DEFINITIONS",
+            "NO_EXAMPLES",
+            "NO_CONTRASTS_GOOD_BAD"
+          ],
+          "signals": {
+            "charCount": 928,
+            "wordCount": 137,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": false,
+            "hasGoodBadContrast": false,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": false
+          },
+          "refineTemplate": {
+            "addDefinitionSection": true,
+            "addChecklistSection": false,
+            "addExamplesSection": true,
+            "addPitfallsSection": true,
+            "addMetricsSection": false
+          }
+        },
+        "next": {
+          "score": 100,
+          "issues": [],
+          "signals": {
+            "charCount": 2288,
+            "wordCount": 330,
+            "hasBullets": true,
+            "hasNumberedSteps": true,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 928,
+        "nextChars": 2288
+      },
+      "applyEligible": true,
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      }
+    },
+    {
+      "day": 15,
+      "lessonId": "B2B_SALES_2026_30_RU_DAY_15",
+      "title": "Структура дискавери (5 блоков)",
+      "action": "REFINE",
+      "quality": {
+        "old": {
+          "score": 20,
+          "issues": [
+            "TOO_SHORT",
+            "NO_CLEAR_DEFINITIONS",
+            "NO_EXAMPLES",
+            "NO_CONTRASTS_GOOD_BAD",
+            "NO_METRICS_OR_CRITERIA"
+          ],
+          "signals": {
+            "charCount": 843,
+            "wordCount": 121,
+            "hasBullets": true,
+            "hasNumberedSteps": true,
+            "hasExamples": false,
+            "hasGoodBadContrast": false,
+            "hasMetricsOrCriteria": false,
+            "hasDefinitionsOrComparisons": false
+          },
+          "refineTemplate": {
+            "addDefinitionSection": true,
+            "addChecklistSection": false,
+            "addExamplesSection": true,
+            "addPitfallsSection": true,
+            "addMetricsSection": true
+          }
+        },
+        "next": {
+          "score": 100,
+          "issues": [],
+          "signals": {
+            "charCount": 1645,
+            "wordCount": 236,
+            "hasBullets": true,
+            "hasNumberedSteps": true,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 843,
+        "nextChars": 1645
+      },
+      "applyEligible": true,
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      }
+    },
+    {
+      "day": 16,
+      "lessonId": "B2B_SALES_2026_30_RU_DAY_16",
+      "title": "Подготовка к встрече и заметки с помощью ИИ",
+      "action": "REFINE",
+      "quality": {
+        "old": {
+          "score": 35,
+          "issues": [
+            "TOO_SHORT",
+            "NO_EXAMPLES",
+            "NO_CONTRASTS_GOOD_BAD",
+            "NO_METRICS_OR_CRITERIA"
+          ],
+          "signals": {
+            "charCount": 859,
+            "wordCount": 121,
+            "hasBullets": true,
+            "hasNumberedSteps": true,
+            "hasExamples": false,
+            "hasGoodBadContrast": false,
+            "hasMetricsOrCriteria": false,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": true,
+            "addPitfallsSection": true,
+            "addMetricsSection": true
+          }
+        },
+        "next": {
+          "score": 100,
+          "issues": [],
+          "signals": {
+            "charCount": 2244,
+            "wordCount": 315,
+            "hasBullets": true,
+            "hasNumberedSteps": true,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 859,
+        "nextChars": 2244
+      },
+      "applyEligible": true,
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      }
+    },
+    {
+      "day": 17,
+      "lessonId": "B2B_SALES_2026_30_RU_DAY_17",
+      "title": "Следующий шаг и обязательство",
+      "action": "REFINE",
+      "quality": {
+        "old": {
+          "score": 20,
+          "issues": [
+            "TOO_SHORT",
+            "NO_CLEAR_DEFINITIONS",
+            "NO_EXAMPLES",
+            "NO_CONTRASTS_GOOD_BAD",
+            "NO_METRICS_OR_CRITERIA"
+          ],
+          "signals": {
+            "charCount": 817,
+            "wordCount": 115,
+            "hasBullets": true,
+            "hasNumberedSteps": true,
+            "hasExamples": false,
+            "hasGoodBadContrast": false,
+            "hasMetricsOrCriteria": false,
+            "hasDefinitionsOrComparisons": false
+          },
+          "refineTemplate": {
+            "addDefinitionSection": true,
+            "addChecklistSection": false,
+            "addExamplesSection": true,
+            "addPitfallsSection": true,
+            "addMetricsSection": true
+          }
+        },
+        "next": {
+          "score": 100,
+          "issues": [],
+          "signals": {
+            "charCount": 2148,
+            "wordCount": 305,
+            "hasBullets": true,
+            "hasNumberedSteps": true,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 817,
+        "nextChars": 2148
+      },
+      "applyEligible": true,
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      }
+    },
+    {
+      "day": 18,
+      "lessonId": "B2B_SALES_2026_30_RU_DAY_18",
+      "title": "Nurture и реактивация",
+      "action": "REFINE",
+      "quality": {
+        "old": {
+          "score": 35,
+          "issues": [
+            "TOO_SHORT",
+            "NO_CLEAR_DEFINITIONS",
+            "NO_CONTRASTS_GOOD_BAD",
+            "NO_METRICS_OR_CRITERIA"
+          ],
+          "signals": {
+            "charCount": 793,
+            "wordCount": 115,
+            "hasBullets": true,
+            "hasNumberedSteps": true,
+            "hasExamples": true,
+            "hasGoodBadContrast": false,
+            "hasMetricsOrCriteria": false,
+            "hasDefinitionsOrComparisons": false
+          },
+          "refineTemplate": {
+            "addDefinitionSection": true,
+            "addChecklistSection": false,
+            "addExamplesSection": true,
+            "addPitfallsSection": true,
+            "addMetricsSection": true
+          }
+        },
+        "next": {
+          "score": 100,
+          "issues": [],
+          "signals": {
+            "charCount": 1627,
+            "wordCount": 234,
+            "hasBullets": true,
+            "hasNumberedSteps": true,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 793,
+        "nextChars": 1627
+      },
+      "applyEligible": true,
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      }
+    },
+    {
+      "day": 19,
+      "lessonId": "B2B_SALES_2026_30_RU_DAY_19",
+      "title": "Зачем нужен CRM (и почему Excel не хватает)",
+      "action": "REFINE",
+      "quality": {
+        "old": {
+          "score": 35,
+          "issues": [
+            "TOO_SHORT",
+            "NO_CLEAR_DEFINITIONS",
+            "NO_EXAMPLES",
+            "NO_CONTRASTS_GOOD_BAD"
+          ],
+          "signals": {
+            "charCount": 816,
+            "wordCount": 118,
+            "hasBullets": true,
+            "hasNumberedSteps": true,
+            "hasExamples": false,
+            "hasGoodBadContrast": false,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": false
+          },
+          "refineTemplate": {
+            "addDefinitionSection": true,
+            "addChecklistSection": false,
+            "addExamplesSection": true,
+            "addPitfallsSection": true,
+            "addMetricsSection": false
+          }
+        },
+        "next": {
+          "score": 100,
+          "issues": [],
+          "signals": {
+            "charCount": 2258,
+            "wordCount": 318,
+            "hasBullets": true,
+            "hasNumberedSteps": true,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 816,
+        "nextChars": 2258
+      },
+      "applyEligible": true,
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      }
+    },
+    {
+      "day": 20,
+      "lessonId": "B2B_SALES_2026_30_RU_DAY_20",
+      "title": "Дизайн воронки: определения стадий",
+      "action": "REFINE",
+      "quality": {
+        "old": {
+          "score": 35,
+          "issues": [
+            "TOO_SHORT",
+            "NO_CLEAR_DEFINITIONS",
+            "NO_EXAMPLES",
+            "NO_CONTRASTS_GOOD_BAD"
+          ],
+          "signals": {
+            "charCount": 825,
+            "wordCount": 118,
+            "hasBullets": true,
+            "hasNumberedSteps": true,
+            "hasExamples": false,
+            "hasGoodBadContrast": false,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": false
+          },
+          "refineTemplate": {
+            "addDefinitionSection": true,
+            "addChecklistSection": false,
+            "addExamplesSection": true,
+            "addPitfallsSection": true,
+            "addMetricsSection": false
+          }
+        },
+        "next": {
+          "score": 100,
+          "issues": [],
+          "signals": {
+            "charCount": 2197,
+            "wordCount": 310,
+            "hasBullets": true,
+            "hasNumberedSteps": true,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 825,
+        "nextChars": 2197
+      },
+      "applyEligible": true,
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      }
+    },
+    {
+      "day": 21,
+      "lessonId": "B2B_SALES_2026_30_RU_DAY_21",
+      "title": "Pipedrive: сильные стороны и когда выбирать",
+      "action": "REFINE",
+      "quality": {
+        "old": {
+          "score": 35,
+          "issues": [
+            "TOO_SHORT",
+            "NO_CLEAR_DEFINITIONS",
+            "NO_EXAMPLES",
+            "NO_CONTRASTS_GOOD_BAD"
+          ],
+          "signals": {
+            "charCount": 798,
+            "wordCount": 108,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": false,
+            "hasGoodBadContrast": false,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": false
+          },
+          "refineTemplate": {
+            "addDefinitionSection": true,
+            "addChecklistSection": false,
+            "addExamplesSection": true,
+            "addPitfallsSection": true,
+            "addMetricsSection": false
+          }
+        },
+        "next": {
+          "score": 100,
+          "issues": [],
+          "signals": {
+            "charCount": 2258,
+            "wordCount": 314,
+            "hasBullets": true,
+            "hasNumberedSteps": true,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 798,
+        "nextChars": 2258
+      },
+      "applyEligible": true,
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      }
+    },
+    {
+      "day": 22,
+      "lessonId": "B2B_SALES_2026_30_RU_DAY_22",
+      "title": "HubSpot: сильные стороны и когда выбирать",
+      "action": "REFINE",
+      "quality": {
+        "old": {
+          "score": 35,
+          "issues": [
+            "TOO_SHORT",
+            "NO_CLEAR_DEFINITIONS",
+            "NO_EXAMPLES",
+            "NO_CONTRASTS_GOOD_BAD"
+          ],
+          "signals": {
+            "charCount": 798,
+            "wordCount": 109,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": false,
+            "hasGoodBadContrast": false,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": false
+          },
+          "refineTemplate": {
+            "addDefinitionSection": true,
+            "addChecklistSection": false,
+            "addExamplesSection": true,
+            "addPitfallsSection": true,
+            "addMetricsSection": false
+          }
+        },
+        "next": {
+          "score": 100,
+          "issues": [],
+          "signals": {
+            "charCount": 2254,
+            "wordCount": 314,
+            "hasBullets": true,
+            "hasNumberedSteps": true,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 798,
+        "nextChars": 2254
+      },
+      "applyEligible": true,
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      }
+    },
+    {
+      "day": 23,
+      "lessonId": "B2B_SALES_2026_30_RU_DAY_23",
+      "title": "Интеграции и основы потока данных",
+      "action": "REFINE",
+      "quality": {
+        "old": {
+          "score": 20,
+          "issues": [
+            "TOO_SHORT",
+            "NO_CLEAR_DEFINITIONS",
+            "NO_EXAMPLES",
+            "NO_CONTRASTS_GOOD_BAD",
+            "NO_METRICS_OR_CRITERIA"
+          ],
+          "signals": {
+            "charCount": 766,
+            "wordCount": 110,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": false,
+            "hasGoodBadContrast": false,
+            "hasMetricsOrCriteria": false,
+            "hasDefinitionsOrComparisons": false
+          },
+          "refineTemplate": {
+            "addDefinitionSection": true,
+            "addChecklistSection": false,
+            "addExamplesSection": true,
+            "addPitfallsSection": true,
+            "addMetricsSection": true
+          }
+        },
+        "next": {
+          "score": 100,
+          "issues": [],
+          "signals": {
+            "charCount": 2238,
+            "wordCount": 312,
+            "hasBullets": true,
+            "hasNumberedSteps": true,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 766,
+        "nextChars": 2238
+      },
+      "applyEligible": true,
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      }
+    },
+    {
+      "day": 24,
+      "lessonId": "B2B_SALES_2026_30_RU_DAY_24",
+      "title": "Гигиена CRM и ежедневная рутина",
+      "action": "REFINE",
+      "quality": {
+        "old": {
+          "score": 20,
+          "issues": [
+            "TOO_SHORT",
+            "NO_CLEAR_DEFINITIONS",
+            "NO_EXAMPLES",
+            "NO_CONTRASTS_GOOD_BAD",
+            "NO_METRICS_OR_CRITERIA"
+          ],
+          "signals": {
+            "charCount": 812,
+            "wordCount": 116,
+            "hasBullets": true,
+            "hasNumberedSteps": true,
+            "hasExamples": false,
+            "hasGoodBadContrast": false,
+            "hasMetricsOrCriteria": false,
+            "hasDefinitionsOrComparisons": false
+          },
+          "refineTemplate": {
+            "addDefinitionSection": true,
+            "addChecklistSection": false,
+            "addExamplesSection": true,
+            "addPitfallsSection": true,
+            "addMetricsSection": true
+          }
+        },
+        "next": {
+          "score": 100,
+          "issues": [],
+          "signals": {
+            "charCount": 2191,
+            "wordCount": 312,
+            "hasBullets": true,
+            "hasNumberedSteps": true,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 812,
+        "nextChars": 2191
+      },
+      "applyEligible": true,
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      }
+    },
+    {
+      "day": 25,
+      "lessonId": "B2B_SALES_2026_30_RU_DAY_25",
+      "title": "Структура предложения: готово к решению",
+      "action": "REFINE",
+      "quality": {
+        "old": {
+          "score": 35,
+          "issues": [
+            "TOO_SHORT",
+            "NO_CLEAR_DEFINITIONS",
+            "NO_EXAMPLES",
+            "NO_CONTRASTS_GOOD_BAD"
+          ],
+          "signals": {
+            "charCount": 758,
+            "wordCount": 107,
+            "hasBullets": true,
+            "hasNumberedSteps": true,
+            "hasExamples": false,
+            "hasGoodBadContrast": false,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": false
+          },
+          "refineTemplate": {
+            "addDefinitionSection": true,
+            "addChecklistSection": false,
+            "addExamplesSection": true,
+            "addPitfallsSection": true,
+            "addMetricsSection": false
+          }
+        },
+        "next": {
+          "score": 100,
+          "issues": [],
+          "signals": {
+            "charCount": 2211,
+            "wordCount": 309,
+            "hasBullets": true,
+            "hasNumberedSteps": true,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 758,
+        "nextChars": 2211
+      },
+      "applyEligible": true,
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      }
+    },
+    {
+      "day": 26,
+      "lessonId": "B2B_SALES_2026_30_RU_DAY_26",
+      "title": "Ценообразование 2026: упаковка и ценность",
+      "action": "REFINE",
+      "quality": {
+        "old": {
+          "score": 20,
+          "issues": [
+            "TOO_SHORT",
+            "NO_CLEAR_DEFINITIONS",
+            "NO_EXAMPLES",
+            "NO_CONTRASTS_GOOD_BAD",
+            "NO_METRICS_OR_CRITERIA"
+          ],
+          "signals": {
+            "charCount": 790,
+            "wordCount": 109,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": false,
+            "hasGoodBadContrast": false,
+            "hasMetricsOrCriteria": false,
+            "hasDefinitionsOrComparisons": false
+          },
+          "refineTemplate": {
+            "addDefinitionSection": true,
+            "addChecklistSection": false,
+            "addExamplesSection": true,
+            "addPitfallsSection": true,
+            "addMetricsSection": true
+          }
+        },
+        "next": {
+          "score": 100,
+          "issues": [],
+          "signals": {
+            "charCount": 2215,
+            "wordCount": 309,
+            "hasBullets": true,
+            "hasNumberedSteps": true,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 790,
+        "nextChars": 2215
+      },
+      "applyEligible": true,
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      }
+    },
+    {
+      "day": 27,
+      "lessonId": "B2B_SALES_2026_30_RU_DAY_27",
+      "title": "Закупки, юристы и безопасность",
+      "action": "REFINE",
+      "quality": {
+        "old": {
+          "score": 20,
+          "issues": [
+            "TOO_SHORT",
+            "NO_CLEAR_DEFINITIONS",
+            "NO_EXAMPLES",
+            "NO_CONTRASTS_GOOD_BAD",
+            "NO_METRICS_OR_CRITERIA"
+          ],
+          "signals": {
+            "charCount": 805,
+            "wordCount": 105,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": false,
+            "hasGoodBadContrast": false,
+            "hasMetricsOrCriteria": false,
+            "hasDefinitionsOrComparisons": false
+          },
+          "refineTemplate": {
+            "addDefinitionSection": true,
+            "addChecklistSection": false,
+            "addExamplesSection": true,
+            "addPitfallsSection": true,
+            "addMetricsSection": true
+          }
+        },
+        "next": {
+          "score": 100,
+          "issues": [],
+          "signals": {
+            "charCount": 2199,
+            "wordCount": 300,
+            "hasBullets": true,
+            "hasNumberedSteps": true,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 805,
+        "nextChars": 2199
+      },
+      "applyEligible": true,
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      }
+    },
+    {
+      "day": 28,
+      "lessonId": "B2B_SALES_2026_30_RU_DAY_28",
+      "title": "Работа с возражениями: паттерны и уточнение",
+      "action": "REFINE",
+      "quality": {
+        "old": {
+          "score": 20,
+          "issues": [
+            "TOO_SHORT",
+            "NO_CLEAR_DEFINITIONS",
+            "NO_EXAMPLES",
+            "NO_CONTRASTS_GOOD_BAD",
+            "NO_METRICS_OR_CRITERIA"
+          ],
+          "signals": {
+            "charCount": 743,
+            "wordCount": 104,
+            "hasBullets": true,
+            "hasNumberedSteps": true,
+            "hasExamples": false,
+            "hasGoodBadContrast": false,
+            "hasMetricsOrCriteria": false,
+            "hasDefinitionsOrComparisons": false
+          },
+          "refineTemplate": {
+            "addDefinitionSection": true,
+            "addChecklistSection": false,
+            "addExamplesSection": true,
+            "addPitfallsSection": true,
+            "addMetricsSection": true
+          }
+        },
+        "next": {
+          "score": 100,
+          "issues": [],
+          "signals": {
+            "charCount": 2240,
+            "wordCount": 310,
+            "hasBullets": true,
+            "hasNumberedSteps": true,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 743,
+        "nextChars": 2240
+      },
+      "applyEligible": true,
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      }
+    },
+    {
+      "day": 29,
+      "lessonId": "B2B_SALES_2026_30_RU_DAY_29",
+      "title": "Закрытие: решение и следующий шаг",
+      "action": "REFINE",
+      "quality": {
+        "old": {
+          "score": 20,
+          "issues": [
+            "TOO_SHORT",
+            "NO_CLEAR_DEFINITIONS",
+            "NO_EXAMPLES",
+            "NO_CONTRASTS_GOOD_BAD",
+            "NO_METRICS_OR_CRITERIA"
+          ],
+          "signals": {
+            "charCount": 749,
+            "wordCount": 101,
+            "hasBullets": true,
+            "hasNumberedSteps": true,
+            "hasExamples": false,
+            "hasGoodBadContrast": false,
+            "hasMetricsOrCriteria": false,
+            "hasDefinitionsOrComparisons": false
+          },
+          "refineTemplate": {
+            "addDefinitionSection": true,
+            "addChecklistSection": false,
+            "addExamplesSection": true,
+            "addPitfallsSection": true,
+            "addMetricsSection": true
+          }
+        },
+        "next": {
+          "score": 100,
+          "issues": [],
+          "signals": {
+            "charCount": 2156,
+            "wordCount": 307,
+            "hasBullets": true,
+            "hasNumberedSteps": true,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 749,
+        "nextChars": 2156
+      },
+      "applyEligible": true,
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      }
+    },
+    {
+      "day": 30,
+      "lessonId": "B2B_SALES_2026_30_RU_DAY_30",
+      "title": "Итоговый спринт: полный цикл B2B‑продаж",
+      "action": "REFINE",
+      "quality": {
+        "old": {
+          "score": 35,
+          "issues": [
+            "TOO_SHORT",
+            "NO_CLEAR_DEFINITIONS",
+            "NO_CONTRASTS_GOOD_BAD",
+            "NO_METRICS_OR_CRITERIA"
+          ],
+          "signals": {
+            "charCount": 860,
+            "wordCount": 125,
+            "hasBullets": true,
+            "hasNumberedSteps": true,
+            "hasExamples": true,
+            "hasGoodBadContrast": false,
+            "hasMetricsOrCriteria": false,
+            "hasDefinitionsOrComparisons": false
+          },
+          "refineTemplate": {
+            "addDefinitionSection": true,
+            "addChecklistSection": false,
+            "addExamplesSection": true,
+            "addPitfallsSection": true,
+            "addMetricsSection": true
+          }
+        },
+        "next": {
+          "score": 100,
+          "issues": [],
+          "signals": {
+            "charCount": 1663,
+            "wordCount": 238,
+            "hasBullets": true,
+            "hasNumberedSteps": true,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 860,
+        "nextChars": 1663
+      },
+      "applyEligible": true,
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      }
+    }
+  ],
+  "applyResults": [
+    {
+      "day": 3,
+      "lessonId": "B2B_SALES_2026_30_RU_DAY_3",
+      "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/lesson-backups/B2B_SALES_2026_30_RU/B2B_SALES_2026_30_RU_DAY_3__2026-01-29T06-08-19-592Z.json",
+      "matched": 1,
+      "modified": 1,
+      "newScore": 100
+    },
+    {
+      "day": 4,
+      "lessonId": "B2B_SALES_2026_30_RU_DAY_4",
+      "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/lesson-backups/B2B_SALES_2026_30_RU/B2B_SALES_2026_30_RU_DAY_4__2026-01-29T06-08-19-592Z.json",
+      "matched": 1,
+      "modified": 1,
+      "newScore": 100
+    },
+    {
+      "day": 6,
+      "lessonId": "B2B_SALES_2026_30_RU_DAY_6",
+      "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/lesson-backups/B2B_SALES_2026_30_RU/B2B_SALES_2026_30_RU_DAY_6__2026-01-29T06-08-19-592Z.json",
+      "matched": 1,
+      "modified": 1,
+      "newScore": 100
+    },
+    {
+      "day": 7,
+      "lessonId": "B2B_SALES_2026_30_RU_DAY_7",
+      "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/lesson-backups/B2B_SALES_2026_30_RU/B2B_SALES_2026_30_RU_DAY_7__2026-01-29T06-08-19-592Z.json",
+      "matched": 1,
+      "modified": 1,
+      "newScore": 100
+    },
+    {
+      "day": 8,
+      "lessonId": "B2B_SALES_2026_30_RU_DAY_8",
+      "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/lesson-backups/B2B_SALES_2026_30_RU/B2B_SALES_2026_30_RU_DAY_8__2026-01-29T06-08-19-592Z.json",
+      "matched": 1,
+      "modified": 1,
+      "newScore": 100
+    },
+    {
+      "day": 9,
+      "lessonId": "B2B_SALES_2026_30_RU_DAY_9",
+      "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/lesson-backups/B2B_SALES_2026_30_RU/B2B_SALES_2026_30_RU_DAY_9__2026-01-29T06-08-19-592Z.json",
+      "matched": 1,
+      "modified": 1,
+      "newScore": 100
+    },
+    {
+      "day": 10,
+      "lessonId": "B2B_SALES_2026_30_RU_DAY_10",
+      "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/lesson-backups/B2B_SALES_2026_30_RU/B2B_SALES_2026_30_RU_DAY_10__2026-01-29T06-08-19-592Z.json",
+      "matched": 1,
+      "modified": 1,
+      "newScore": 100
+    },
+    {
+      "day": 11,
+      "lessonId": "B2B_SALES_2026_30_RU_DAY_11",
+      "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/lesson-backups/B2B_SALES_2026_30_RU/B2B_SALES_2026_30_RU_DAY_11__2026-01-29T06-08-19-592Z.json",
+      "matched": 1,
+      "modified": 1,
+      "newScore": 100
+    },
+    {
+      "day": 12,
+      "lessonId": "B2B_SALES_2026_30_RU_DAY_12",
+      "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/lesson-backups/B2B_SALES_2026_30_RU/B2B_SALES_2026_30_RU_DAY_12__2026-01-29T06-08-19-592Z.json",
+      "matched": 1,
+      "modified": 1,
+      "newScore": 100
+    },
+    {
+      "day": 13,
+      "lessonId": "B2B_SALES_2026_30_RU_DAY_13",
+      "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/lesson-backups/B2B_SALES_2026_30_RU/B2B_SALES_2026_30_RU_DAY_13__2026-01-29T06-08-19-592Z.json",
+      "matched": 1,
+      "modified": 1,
+      "newScore": 100
+    },
+    {
+      "day": 14,
+      "lessonId": "B2B_SALES_2026_30_RU_DAY_14",
+      "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/lesson-backups/B2B_SALES_2026_30_RU/B2B_SALES_2026_30_RU_DAY_14__2026-01-29T06-08-19-592Z.json",
+      "matched": 1,
+      "modified": 1,
+      "newScore": 100
+    },
+    {
+      "day": 15,
+      "lessonId": "B2B_SALES_2026_30_RU_DAY_15",
+      "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/lesson-backups/B2B_SALES_2026_30_RU/B2B_SALES_2026_30_RU_DAY_15__2026-01-29T06-08-19-592Z.json",
+      "matched": 1,
+      "modified": 1,
+      "newScore": 100
+    },
+    {
+      "day": 16,
+      "lessonId": "B2B_SALES_2026_30_RU_DAY_16",
+      "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/lesson-backups/B2B_SALES_2026_30_RU/B2B_SALES_2026_30_RU_DAY_16__2026-01-29T06-08-19-592Z.json",
+      "matched": 1,
+      "modified": 1,
+      "newScore": 100
+    },
+    {
+      "day": 17,
+      "lessonId": "B2B_SALES_2026_30_RU_DAY_17",
+      "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/lesson-backups/B2B_SALES_2026_30_RU/B2B_SALES_2026_30_RU_DAY_17__2026-01-29T06-08-19-592Z.json",
+      "matched": 1,
+      "modified": 1,
+      "newScore": 100
+    },
+    {
+      "day": 18,
+      "lessonId": "B2B_SALES_2026_30_RU_DAY_18",
+      "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/lesson-backups/B2B_SALES_2026_30_RU/B2B_SALES_2026_30_RU_DAY_18__2026-01-29T06-08-19-592Z.json",
+      "matched": 1,
+      "modified": 1,
+      "newScore": 100
+    },
+    {
+      "day": 19,
+      "lessonId": "B2B_SALES_2026_30_RU_DAY_19",
+      "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/lesson-backups/B2B_SALES_2026_30_RU/B2B_SALES_2026_30_RU_DAY_19__2026-01-29T06-08-19-592Z.json",
+      "matched": 1,
+      "modified": 1,
+      "newScore": 100
+    },
+    {
+      "day": 20,
+      "lessonId": "B2B_SALES_2026_30_RU_DAY_20",
+      "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/lesson-backups/B2B_SALES_2026_30_RU/B2B_SALES_2026_30_RU_DAY_20__2026-01-29T06-08-19-592Z.json",
+      "matched": 1,
+      "modified": 1,
+      "newScore": 100
+    },
+    {
+      "day": 21,
+      "lessonId": "B2B_SALES_2026_30_RU_DAY_21",
+      "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/lesson-backups/B2B_SALES_2026_30_RU/B2B_SALES_2026_30_RU_DAY_21__2026-01-29T06-08-19-592Z.json",
+      "matched": 1,
+      "modified": 1,
+      "newScore": 100
+    },
+    {
+      "day": 22,
+      "lessonId": "B2B_SALES_2026_30_RU_DAY_22",
+      "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/lesson-backups/B2B_SALES_2026_30_RU/B2B_SALES_2026_30_RU_DAY_22__2026-01-29T06-08-19-592Z.json",
+      "matched": 1,
+      "modified": 1,
+      "newScore": 100
+    },
+    {
+      "day": 23,
+      "lessonId": "B2B_SALES_2026_30_RU_DAY_23",
+      "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/lesson-backups/B2B_SALES_2026_30_RU/B2B_SALES_2026_30_RU_DAY_23__2026-01-29T06-08-19-592Z.json",
+      "matched": 1,
+      "modified": 1,
+      "newScore": 100
+    },
+    {
+      "day": 24,
+      "lessonId": "B2B_SALES_2026_30_RU_DAY_24",
+      "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/lesson-backups/B2B_SALES_2026_30_RU/B2B_SALES_2026_30_RU_DAY_24__2026-01-29T06-08-19-592Z.json",
+      "matched": 1,
+      "modified": 1,
+      "newScore": 100
+    },
+    {
+      "day": 25,
+      "lessonId": "B2B_SALES_2026_30_RU_DAY_25",
+      "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/lesson-backups/B2B_SALES_2026_30_RU/B2B_SALES_2026_30_RU_DAY_25__2026-01-29T06-08-19-592Z.json",
+      "matched": 1,
+      "modified": 1,
+      "newScore": 100
+    },
+    {
+      "day": 26,
+      "lessonId": "B2B_SALES_2026_30_RU_DAY_26",
+      "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/lesson-backups/B2B_SALES_2026_30_RU/B2B_SALES_2026_30_RU_DAY_26__2026-01-29T06-08-19-592Z.json",
+      "matched": 1,
+      "modified": 1,
+      "newScore": 100
+    },
+    {
+      "day": 27,
+      "lessonId": "B2B_SALES_2026_30_RU_DAY_27",
+      "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/lesson-backups/B2B_SALES_2026_30_RU/B2B_SALES_2026_30_RU_DAY_27__2026-01-29T06-08-19-592Z.json",
+      "matched": 1,
+      "modified": 1,
+      "newScore": 100
+    },
+    {
+      "day": 28,
+      "lessonId": "B2B_SALES_2026_30_RU_DAY_28",
+      "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/lesson-backups/B2B_SALES_2026_30_RU/B2B_SALES_2026_30_RU_DAY_28__2026-01-29T06-08-19-592Z.json",
+      "matched": 1,
+      "modified": 1,
+      "newScore": 100
+    },
+    {
+      "day": 29,
+      "lessonId": "B2B_SALES_2026_30_RU_DAY_29",
+      "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/lesson-backups/B2B_SALES_2026_30_RU/B2B_SALES_2026_30_RU_DAY_29__2026-01-29T06-08-19-592Z.json",
+      "matched": 1,
+      "modified": 1,
+      "newScore": 100
+    },
+    {
+      "day": 30,
+      "lessonId": "B2B_SALES_2026_30_RU_DAY_30",
+      "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/lesson-backups/B2B_SALES_2026_30_RU/B2B_SALES_2026_30_RU_DAY_30__2026-01-29T06-08-19-592Z.json",
+      "matched": 1,
+      "modified": 1,
+      "newScore": 100
+    }
+  ]
+}

@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-28T22:42:13.575Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_ID",
+    "name": "Produktivitas 2026: Cara Mengelola Tim dan Waktu",
+    "language": "id"
+  },
+  "lesson": {
+    "dayNumber": 24,
+    "title": "Penyaringan dan Prioritas: Apa yang Diabaikan, Apa yang Penting",
+    "lessonId": "PRODUCTIVITY_2026_ID_DAY_24"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a2cdf6e5ec2a4427eae",
+      "uuid": "83d5e6da-c758-40de-8bee-83ff51c70d82",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Bagaimana konsep \"Penyaringan dan Prioritas: Apa yang Diabaikan, Apa...\" yang disebutkan dalam pelajaran mempengaruhi pencapaian goals Anda?",
+      "options": [
+        "Seperti yang dijelaskan secara detail dalam pelajaran, Penyaringan dan Prioritas: Apa... meningkatkan efektivitas dan mengurangi risiko",
+        "Tidak ada dampak signifikan",
+        "Hanya penting secara teoritis",
+        "Hanya elemen opsional"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day24",
+        "#id",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a2cdf6e5ec2a4427eaf",
+      "uuid": "539e1399-686b-4dd8-9d42-cf4e67a9165a",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Bagaimana Anda akan menggunakan konsep \"Penyaringan\" seperti yang dijelaskan dalam pelajaran dalam praktik?",
+      "options": [
+        "Saya mengikuti langkah-langkah yang dijelaskan secara detail dalam pelajaran, menguji hasil, dan mendokumentasikan pengalaman saya",
+        "Saya hanya memahaminya secara teoritis",
+        "Saya tidak menerapkannya",
+        "Saya menunggu instruksi lebih lanjut"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day24",
+        "#id",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a2cdf6e5ec2a4427eb0",
+      "uuid": "134dd658-726e-48e4-8758-51ee8312c287",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Bagaimana Anda akan menggunakan konsep \"Prioritas\" seperti yang dijelaskan dalam pelajaran dalam praktik?",
+      "options": [
+        "Saya mengikuti langkah-langkah yang dijelaskan secara detail dalam pelajaran, menguji hasil, dan mendokumentasikan pengalaman saya",
+        "Saya hanya memahaminya secara teoritis",
+        "Saya tidak menerapkannya",
+        "Saya menunggu instruksi lebih lanjut"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day24",
+        "#id",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a2cdf6e5ec2a4427eb1",
+      "uuid": "47d2ca4d-b694-42e2-9315-082feb308630",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Bagaimana Anda akan menggunakan konsep \"yang\" seperti yang dijelaskan dalam pelajaran dalam praktik?",
+      "options": [
+        "Saya mengikuti langkah-langkah yang dijelaskan secara detail dalam pelajaran, menguji hasil, dan mendokumentasikan pengalaman saya",
+        "Saya hanya memahaminya secara teoritis",
+        "Saya tidak menerapkannya",
+        "Saya menunggu instruksi lebih lanjut"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day24",
+        "#id",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a2cdf6e5ec2a4427eb2",
+      "uuid": "e6e2320f-012e-49a0-9247-67592624c6c1",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Apa yang terkandung dalam bagian \"Tanulási Cél\" dalam pelajaran?",
+      "options": [
+        "Informasi, metode, dan contoh spesifik terkait tanulási cél seperti yang dijelaskan secara detail dalam pelajaran",
+        "Hanya informasi umum",
+        "Hanya pengetahuan teoretis",
+        "Tidak ada konten spesifik"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day24",
+        "#id",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a2cdf6e5ec2a4427eb3",
+      "uuid": "59e94774-aa70-4a40-bd89-d48fefdbbc7b",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Seberapa penting Prioritas dalam konteks Penyaringan dan Prioritas: Apa yang Diabaikan, Apa yang Penting seperti yang dibahas dalam pelajaran?",
+      "options": [
+        "Seperti yang dijelaskan secara detail dalam pelajaran, Prioritas memainkan peran penting dalam mengoptimalkan proses dan mencapai tujuan",
+        "Hanya informasi periferal tanpa peran signifikan",
+        "Hanya konsep teoretis tanpa aplikasi praktis",
+        "Tidak disebutkan dalam pelajaran"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day24",
+        "#id",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a2cdf6e5ec2a4427eb4",
+      "uuid": "a1edad7f-0161-4081-993d-acf3f07772f1",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Seberapa penting Diabaikan dalam konteks Penyaringan dan Prioritas: Apa yang Diabaikan, Apa yang Penting seperti yang dibahas dalam pelajaran?",
+      "options": [
+        "Seperti yang dijelaskan secara detail dalam pelajaran, Diabaikan memainkan peran penting dalam mengoptimalkan proses dan mencapai tujuan",
+        "Hanya informasi periferal tanpa peran signifikan",
+        "Hanya konsep teoretis tanpa aplikasi praktis",
+        "Tidak disebutkan dalam pelajaran"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day24",
+        "#id",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

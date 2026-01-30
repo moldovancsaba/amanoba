@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-28T21:29:00.137Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_AR",
+    "name": "الإنتاجية 2026: كيفية إدارة الفرق والوقت",
+    "language": "ar"
+  },
+  "lesson": {
+    "dayNumber": 4,
+    "title": "العادات مقابل الأنظمة: لماذا تتوسع الأنظمة بشكل أفضل",
+    "lessonId": "PRODUCTIVITY_2026_AR_DAY_04"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a603ed20b35fb797249",
+      "uuid": "ad721231-546b-4803-9a1b-097807d860f7",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ تفهم الفرق بين العادات والأنظمة.\n✅ تعر...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day4",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a603ed20b35fb79724a",
+      "uuid": "e77375f6-62fa-495e-9a79-76870520482e",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ تفهم الفرق بين العادات والأنظمة.\n✅ تعر...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day4",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a603ed20b35fb79724b",
+      "uuid": "15fc9e4e-c124-4caf-8c77-708b2a29da6c",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ تفهم الفرق بين العادات والأنظمة.\n✅ تعر...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day4",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a603ed20b35fb79724c",
+      "uuid": "0afab5a7-4ffb-4038-b8c7-05e5e855a861",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "How does the concept \"العادات مقابل الأنظمة: لماذا تتوسع الأنظمة بشكل أف...\" mentioned in the lesson impact achieving your goals?",
+      "options": [
+        "As described in detail in the lesson, العادات مقابل الأنظمة: لماذا ت... increases effectiveness and reduces risk",
+        "No significant impact",
+        "Only matters theoretically",
+        "Only an optional element"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day4",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a603ed20b35fb79724d",
+      "uuid": "f228d52e-b0a1-45fc-b1ac-c2bc5d10a7ac",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is العادات in the context of العادات مقابل الأنظمة: لماذا تتوسع الأنظمة بشكل أفضل as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, العادات plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day4",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a603ed20b35fb79724e",
+      "uuid": "73816cc5-7d08-4bb5-949c-e7f22e5d69df",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is التعريف in the context of العادات مقابل الأنظمة: لماذا تتوسع الأنظمة بشكل أفضل as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, التعريف plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day4",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a603ed20b35fb79724f",
+      "uuid": "0374cc48-85e2-48aa-b0d8-d7bbe2fd1685",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "In the \"العادات مقابل الأنظمة: لماذا تتوسع الأنظمة بشكل أفضل\" lesson, what role does نهج قائم على العادة play?",
+      "options": [
+        "As described in detail in the lesson, نهج قائم على العادة plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day4",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

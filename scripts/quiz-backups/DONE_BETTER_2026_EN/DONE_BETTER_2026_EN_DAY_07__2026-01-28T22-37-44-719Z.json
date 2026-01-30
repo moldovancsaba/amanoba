@@ -1,0 +1,114 @@
+{
+  "backedUpAt": "2026-01-28T22:37:47.160Z",
+  "course": {
+    "courseId": "DONE_BETTER_2026_EN",
+    "name": "Done is better - Build What Matters",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 7,
+    "title": "Find the Leverage Point",
+    "lessonId": "DONE_BETTER_2026_EN_DAY_07"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "697a87baa81588c9f41a21f2",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "A team is spreading effort evenly across five initiatives. How should they prioritize?",
+      "options": [
+        "Identify where a small change would have the largest effect and prioritize that component",
+        "Keep spreading evenly to be fair",
+        "Pick the initiative the CEO mentioned last",
+        "Drop all but one at random"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87baa81588c9f41a21f3",
+      "questionType": "application",
+      "difficulty": "EASY",
+      "question": "Which describes a leverage point?",
+      "options": [
+        "A part of the system where a small change produces a large effect",
+        "The part that is easiest to change",
+        "The part with the biggest budget",
+        "The part that takes the longest"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87baa81588c9f41a21f4",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "You have a decomposed problem. What is the next step?",
+      "options": [
+        "Name the single highest-leverage component and commit one concrete move on it",
+        "Work on the component that is most fun",
+        "Assign equal time to every component",
+        "Wait for someone to tell you the priority"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87baa81588c9f41a21f5",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "A manager focuses on \"what is easy\" instead of \"what matters most.\" What is the likely outcome?",
+      "options": [
+        "Lots of activity with diluted impact; the real bottleneck remains",
+        "Faster delivery with the same outcome",
+        "Higher morale only with no delivery impact",
+        "No downside; easy work is always valuable"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87baa81588c9f41a21f6",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "How do you tell leverage-point work from busywork?",
+      "options": [
+        "Leverage-point work changes something that, if fixed, eases the rest; busywork is activity that does not move that hinge",
+        "Busywork is faster to complete",
+        "Leverage work is always technical in nature",
+        "You cannot tell without expert analysis"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87baa81588c9f41a21f7",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Treating all parts of a system as equally important tends to lead to:",
+      "options": [
+        "Inefficient use of effort; the hinge may never get the focus it needs",
+        "Perfect balance",
+        "Fewer arguments",
+        "Faster consensus"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87baa81588c9f41a21f8",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "After identifying the leverage point, what should you do?",
+      "options": [
+        "Commit one concrete move on that component and execute it",
+        "Document it and add it to the backlog",
+        "Discuss it in the next quarterly review",
+        "Look for a second leverage point before acting"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    }
+  ]
+}

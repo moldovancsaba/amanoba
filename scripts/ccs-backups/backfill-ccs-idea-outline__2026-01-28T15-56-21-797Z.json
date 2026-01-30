@@ -1,0 +1,49 @@
+{
+  "generatedAt": "2026-01-28T15:56:21.797Z",
+  "env": "production (via .env.local)",
+  "action": "backfill-ccs-idea-outline",
+  "ccs": [
+    {
+      "ccsId": "PRODUCTIVITY_2026",
+      "name": "PRODUCTIVITY_2026",
+      "idea": null,
+      "outline": null,
+      "relatedDocuments": []
+    },
+    {
+      "ccsId": "GEO_SHOPIFY_30",
+      "name": "GEO_SHOPIFY_30",
+      "idea": null,
+      "outline": null,
+      "relatedDocuments": []
+    },
+    {
+      "ccsId": "AI_30_DAY",
+      "name": "AI_30_DAY",
+      "idea": null,
+      "outline": null,
+      "relatedDocuments": []
+    },
+    {
+      "ccsId": "B2B_SALES_2026_30",
+      "name": "B2B_SALES_2026_30",
+      "idea": null,
+      "outline": null,
+      "relatedDocuments": []
+    },
+    {
+      "ccsId": "PLAYBOOK_2026_30",
+      "name": "PLAYBOOK_2026_30",
+      "idea": null,
+      "outline": null,
+      "relatedDocuments": []
+    },
+    {
+      "ccsId": "SALES_PRODUCTIVITY_30",
+      "name": "SALES_PRODUCTIVITY_30",
+      "idea": null,
+      "outline": null,
+      "relatedDocuments": []
+    }
+  ]
+}

@@ -1,0 +1,177 @@
+{
+  "backedUpAt": "2026-01-29T08:53:05.251Z",
+  "course": {
+    "courseId": "GEO_SHOPIFY_30_EN",
+    "name": "GEO Shopify – 30-day course",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 7,
+    "title": "Shopify product data audit: title, description, variants",
+    "lessonId": "GEO_SHOPIFY_30_EN_DAY_07"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a14b7889cedb02a2a52",
+      "uuid": "175606ec-f004-4ae1-b475-529c5cf3787b",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"exercise (10–15 min)\n\nCreate an audit sh...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day7",
+        "#en",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a14b7889cedb02a2a53",
+      "uuid": "6246cad7-23d4-4127-84b3-c8346d66bdee",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"exercise (5–10 min)\nLog 5 issues (e...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day7",
+        "#en",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a14b7889cedb02a2a54",
+      "uuid": "84660056-a493-4e1c-8c1a-285803c8fbe5",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"exercise (10–15 min)\n\nCreate an audit sh...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day7",
+        "#en",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a14b7889cedb02a2a55",
+      "uuid": "ce57576c-8a39-45f5-bf3c-0342b692017d",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "How does the concept \"Shopify product data audit: title, description, va...\" mentioned in the lesson impact achieving your goals?",
+      "options": [
+        "As described in detail in the lesson, Shopify product data audit: ti... increases effectiveness and reduces risk",
+        "No significant impact",
+        "Only matters theoretically",
+        "Only an optional element"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day7",
+        "#en",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a14b7889cedb02a2a56",
+      "uuid": "92f12b47-b0a7-48ac-a06d-c14671ae3811",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is Poor in the context of Shopify product data audit: title, description, variants as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, Poor plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day7",
+        "#en",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a14b7889cedb02a2a57",
+      "uuid": "4ba51b73-3819-499e-a8b2-40499c9600e0",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is product in the context of Shopify product data audit: title, description, variants as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, product plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day7",
+        "#en",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a14b7889cedb02a2a58",
+      "uuid": "4b67f493-c068-4906-8d26-1a3aa4741445",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is audit in the context of Shopify product data audit: title, description, variants as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, audit plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day7",
+        "#en",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

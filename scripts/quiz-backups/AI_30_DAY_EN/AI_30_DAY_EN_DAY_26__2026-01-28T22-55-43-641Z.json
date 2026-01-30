@@ -1,0 +1,15 @@
+{
+  "backedUpAt": "2026-01-28T22:55:47.370Z",
+  "course": {
+    "courseId": "AI_30_DAY_EN",
+    "name": "30-Day AI Catch-Up Program (EN)",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 26,
+    "title": "Working with tables and CSVs (small-scale)",
+    "lessonId": "AI_30_DAY_EN_DAY_26"
+  },
+  "questionCount": 0,
+  "questions": []
+}

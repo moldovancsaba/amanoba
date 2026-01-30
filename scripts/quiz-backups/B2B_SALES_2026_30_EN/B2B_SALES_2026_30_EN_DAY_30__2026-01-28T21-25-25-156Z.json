@@ -1,0 +1,15 @@
+{
+  "backedUpAt": "2026-01-28T21:25:28.947Z",
+  "course": {
+    "courseId": "B2B_SALES_2026_30_EN",
+    "name": "B2B Sales 2026 Masterclass",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 30,
+    "title": "Capstone Sprint: Full B2B Sales Loop",
+    "lessonId": "B2B_SALES_2026_30_EN_DAY_30"
+  },
+  "questionCount": 0,
+  "questions": []
+}

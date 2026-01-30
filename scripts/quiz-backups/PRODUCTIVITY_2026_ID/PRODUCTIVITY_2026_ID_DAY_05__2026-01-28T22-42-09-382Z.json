@@ -1,0 +1,168 @@
+{
+  "backedUpAt": "2026-01-28T22:42:11.827Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_ID",
+    "name": "Produktivitas 2026: Cara Mengelola Tim dan Waktu",
+    "language": "id"
+  },
+  "lesson": {
+    "dayNumber": 5,
+    "title": "Pengukuran: metrik tinjauan mingguan sederhana (throughput, blok fokus, carryover)",
+    "lessonId": "PRODUCTIVITY_2026_ID_DAY_05"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a2adf6e5ec2a4427dcb",
+      "uuid": "298eaa33-079c-4de8-9b18-93ccb4f9196f",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Berapa banyak metrik yang kita gunakan dalam tinjauan mingguan?",
+      "options": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "correctIndex": 2,
+      "hashtags": [
+        "#day-05",
+        "#purpose",
+        "#application",
+        "#id"
+      ]
+    },
+    {
+      "_id": "69776a2adf6e5ec2a4427dcc",
+      "uuid": "69d4cfe3-cca5-419b-b818-b6d3f1fc1903",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ Anda mengetahui tiga metrik kunci: thr...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day5",
+        "#id",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a2adf6e5ec2a4427dcd",
+      "uuid": "a80bef09-7a9d-4713-b50e-1635e4a05b3b",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ Pengukuran objektif, bukan hanya berba...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day5",
+        "#id",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a2adf6e5ec2a4427dce",
+      "uuid": "8b88e8c4-ac85-49d1-b562-5dd167a142b7",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Bagaimana konsep \"penting yang Anda selesaikan dalam seminggu? Ini a...\" yang disebutkan dalam pelajaran mempengaruhi pencapaian goals Anda?",
+      "options": [
+        "Seperti yang dijelaskan secara detail dalam pelajaran, penting yang Anda selesaikan d... meningkatkan efektivitas dan mengurangi risiko",
+        "Tidak ada dampak signifikan",
+        "Hanya penting secara teoritis",
+        "Hanya elemen opsional"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day5",
+        "#id",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a2adf6e5ec2a4427dcf",
+      "uuid": "49ad6bac-060f-40cf-9d30-9ebaf4a5d9b9",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Seberapa penting Blok fokus dalam konteks Pengukuran: metrik tinjauan mingguan sederhana (throughput, blok fokus, carryover) seperti yang dibahas dalam pelajaran?",
+      "options": [
+        "Seperti yang dijelaskan secara detail dalam pelajaran, Blok fokus memainkan peran penting dalam mengoptimalkan proses dan mencapai tujuan",
+        "Hanya informasi periferal tanpa peran signifikan",
+        "Hanya konsep teoretis tanpa aplikasi praktis",
+        "Tidak disebutkan dalam pelajaran"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day5",
+        "#id",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a2adf6e5ec2a4427dd0",
+      "uuid": "c92a1f41-6ef7-42c6-aebe-5f4eeb03a225",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Seberapa penting 1. Throughput dalam konteks Pengukuran: metrik tinjauan mingguan sederhana (throughput, blok fokus, carryover) seperti yang dibahas dalam pelajaran?",
+      "options": [
+        "Seperti yang dijelaskan secara detail dalam pelajaran, 1. Throughput memainkan peran penting dalam mengoptimalkan proses dan mencapai tujuan",
+        "Hanya informasi periferal tanpa peran signifikan",
+        "Hanya konsep teoretis tanpa aplikasi praktis",
+        "Tidak disebutkan dalam pelajaran"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day5",
+        "#id",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a2adf6e5ec2a4427dd1",
+      "uuid": "a3596c25-b3e6-447d-86f8-9ef3ee6ea326",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Seberapa penting 3. Carryover dalam konteks Pengukuran: metrik tinjauan mingguan sederhana (throughput, blok fokus, carryover) seperti yang dibahas dalam pelajaran?",
+      "options": [
+        "Seperti yang dijelaskan secara detail dalam pelajaran, 3. Carryover memainkan peran penting dalam mengoptimalkan proses dan mencapai tujuan",
+        "Hanya informasi periferal tanpa peran signifikan",
+        "Hanya konsep teoretis tanpa aplikasi praktis",
+        "Tidak disebutkan dalam pelajaran"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day5",
+        "#id",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

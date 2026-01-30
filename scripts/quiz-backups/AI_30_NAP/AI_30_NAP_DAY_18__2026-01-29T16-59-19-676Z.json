@@ -1,0 +1,94 @@
+{
+  "backedUpAt": "2026-01-29T17:00:36.390Z",
+  "course": {
+    "courseId": "AI_30_NAP",
+    "name": "30-Day AI Catch-Up Program",
+    "language": "hu"
+  },
+  "lesson": {
+    "dayNumber": 18,
+    "title": "Szerephez illesztett sabloncsomag II.",
+    "lessonId": "AI_30_NAP_DAY_18"
+  },
+  "questionCount": 6,
+  "questions": [
+    {
+      "_id": "697b2057060240540231b41f",
+      "difficulty": "EASY",
+      "question": "Mi jellemzi a haladó sablonokat?",
+      "options": [
+        "Komplex, integrációs vagy automatizáló feladatok több lépéssel",
+        "Csak egy mondatos kérések",
+        "Mindig ugyanaz a kimenet",
+        "Nincs benne ellenőrzés"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b2057060240540231b421",
+      "difficulty": "MEDIUM",
+      "question": "Melyik jó példa integrációs sablonra?",
+      "options": [
+        "Adatbeolvasás + összefoglaló + döntési javaslat egy promptban",
+        "Csak email kérése",
+        "Csak egy üres táblázat",
+        "Csak köszönés"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b2057060240540231b423",
+      "difficulty": "MEDIUM",
+      "question": "Miért kell QA/ellenőrző lépés a haladó sablonokban?",
+      "options": [
+        "Számok, források, konzisztencia ellenőrzése; jelezze a hiányt",
+        "Felesleges, mindig hibátlan",
+        "Csak lassít",
+        "Nem lehet ellenőrizni"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b2057060240540231b425",
+      "difficulty": "EASY",
+      "question": "Milyen változókat érdemes megadni?",
+      "options": [
+        "Adatforrás, formátum, határidő, stílus",
+        "Csak a cím",
+        "Csak a dátum",
+        "Nincs szükség változóra"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b2057060240540231b427",
+      "difficulty": "EASY",
+      "question": "Mi a három fő haladó sablontípus ebben a leckében?",
+      "options": [
+        "Komplex, integrációs, automatizálási",
+        "Email, email, email",
+        "Táblázat, táblázat, táblázat",
+        "Kép, hang, video"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b2057060240540231b429",
+      "difficulty": "HARD",
+      "question": "Mit jelent a chaining ebben a kontextusban?",
+      "options": [
+        "Több prompt egymás után (pl. vázlat → bővítés → QA)",
+        "Egy prompt végtelen ismétlése",
+        "Nincs ilyen",
+        "Képfűzés"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    }
+  ]
+}

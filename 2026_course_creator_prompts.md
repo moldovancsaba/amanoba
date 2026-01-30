@@ -9,6 +9,13 @@ This file is a **copy/paste prompt library** for creating, auditing, and fixing 
   - `docs/QUIZ_QUALITY_PIPELINE_HANDOVER.md` (for any quiz-related work)
   - `docs/QUIZ_QUALITY_PIPELINE_PLAYBOOK.md` (for commands + reports)
   - `2026_course_quality_prompt.md` (single-source-of-truth for course QC)
+- You must also ensure **end-to-end email language integrity** across all communication flows:
+  - Run: `npx tsx scripts/audit-email-communications-language-integrity.ts`
+  - Transactional email templates (welcome/completion/reminder/payment) must be localized and must not inject other languages.
+- You must ensure **catalog language integrity** (course discovery + enrollment UX):
+  - Run: `npx tsx --env-file=.env.local scripts/audit-ccs-global-quality.ts --min-lesson-score 70`
+  - Enforce: `course.name/description` match `course.language` and `course.translations.<locale>` match `<locale>`.
+- Multi-language authoring default (A): author EN first, then localize other languages from EN.
 - No autonomous assumptions: ask clarifying questions before writing to DB or changing course content.
 - Always provide a **Safety Rollback Plan** before any destructive action (delete/overwrite/seed).
 
@@ -105,6 +112,7 @@ Deliverable requirements (per day / lesson):
   - at least 5 application question archetypes
   - at least 2 critical-thinking question archetypes
   - what misconceptions/distractors should target
+  - **Gold standard**: every question must be standalone, grounded in the lesson, scenario-based, ask for a concrete deliverable/outcome, and use concrete distractors (see `docs/QUIZ_QUALITY_PIPELINE_PLAYBOOK.md`)
 
 End with:
 - A “Coverage Map” showing which concepts repeat across days (spiral learning)
@@ -152,6 +160,7 @@ CCS output format:
 
 Hard quiz rules (must be encoded in CCS):
 - 0 RECALL questions (hard disallow)
+- **Gold standard**: questions must be standalone, grounded in lesson, scenario-based, concrete deliverable/outcome, concrete distractors (see `docs/QUIZ_QUALITY_PIPELINE_PLAYBOOK.md`)
 - Questions and options must be standalone and educational; no “as described in the lesson”
 - No throwaway options; options must be detailed
  - **Language integrity (hard)**: non‑EN courses must not contain injected English sentences/bullets in lessons or quizzes.
@@ -188,6 +197,7 @@ Rules:
   - 0 recall
   - pool size >= 7 (can be >7; do not delete valid questions just because there are more than 7)
   - application >= 5
+  - **Gold standard**: standalone, grounded, scenario-based, concrete deliverable, concrete distractors (see playbook)
   - standalone questions/options; no lesson-referential wording; detailed educational options
 
 Deliverables:
@@ -222,6 +232,7 @@ Audit and fix the quality of course **[COURSE_ID]**.
 
 Hard requirements:
 - 0 RECALL questions (hard disallow; if present, remove and replace with APPLICATION/CRITICAL_THINKING)
+- **Gold standard**: only questions that are standalone, grounded, scenario-based, concrete deliverable, concrete distractors (see `docs/QUIZ_QUALITY_PIPELINE_PLAYBOOK.md`)
 - Minimum per lesson: **>= 7** valid questions (can be more)
 - Minimum per lesson: **>= 5 APPLICATION**
 - Standalone wording; no lesson-referential answers; no fuzzy title-references

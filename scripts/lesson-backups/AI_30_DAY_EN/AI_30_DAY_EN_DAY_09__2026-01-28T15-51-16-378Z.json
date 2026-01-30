@@ -1,0 +1,9 @@
+{
+  "generatedAt": "2026-01-28T15:51:16.380Z",
+  "courseId": "AI_30_DAY_EN",
+  "lessonId": "AI_30_DAY_EN_DAY_09",
+  "title": "Summaries that keep the signal",
+  "content": "<h1>Summaries that keep the signal</h1>\n<p><em>Get concise outputs without losing essentials</em></p>\n<hr />\n<h2>Learning goal</h2>\n<ul>\n<li>Create a summary template.</li>\n<li>Summarize a meeting or article with bullets + actions.</li>\n</ul>\n<hr />\n<h2>Why it matters</h2>\n<ul>\n<li>Summaries must retain decisions, actions, and blockers.</li>\n<li>Structure avoids fluff.</li>\n</ul>\n<hr />\n<h2>Explanation</h2>\n<ul>\n<li>Ask for: 5 bullets + 3 action items + 2 risks/questions.</li>\n<li>Include “Who / What / When” in actions.</li>\n</ul>\n<hr />\n<h2>Examples</h2>\n<ul>\n<li><strong>Template</strong>: “Summarize the transcript in 5 bullets; list 3 actions (who/what/when); list 2 risks.”</li>\n<li><strong>Weak</strong>: “Summarize.”</li>\n</ul>\n<hr />\n<h2>Guided exercise (10–15 min)</h2>\n<ol>\n<li>Take a meeting note/article; run the summary template.</li>\n<li>Add missing who/when details manually if absent.</li>\n</ol>\n<h2>Independent exercise (5–10 min)</h2>\n<p>Refine the template for your team (channels, owners, deadlines).</p>\n<hr />\n<h2>Self-check</h2>\n<ul>\n<li>5 bullets present.</li>\n<li>3 actions with who/what/when.</li>\n<li>Risks/questions listed.</li>\n</ul>\n<hr />\n<h2>Optional deepening</h2>\n<ul>\n<li>Meeting prompt examples: <a href=\"https://www.oneusefulthing.org\" target=\"_blank\" rel=\"noreferrer\">https://www.oneusefulthing.org</a></li>\n</ul>",
+  "emailSubject": "AI 30-Day – Day 9: Summaries with signal",
+  "emailBody": "<h1>AI 30-Day – Day 9</h1>\n<h2>Summaries with signal</h2>\n<p>Today you’ll build a summary template that keeps actions and risks.</p>\n<p><a href=\"http://localhost:3000/courses/AI_30_DAY_EN/day/{{dayNumber}}\">Open the lesson →</a></p>"
+}

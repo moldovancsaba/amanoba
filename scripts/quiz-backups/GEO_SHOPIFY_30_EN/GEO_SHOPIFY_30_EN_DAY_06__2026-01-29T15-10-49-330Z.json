@@ -1,0 +1,81 @@
+{
+  "backedUpAt": "2026-01-29T15:10:49.980Z",
+  "course": {
+    "courseId": "GEO_SHOPIFY_30_EN",
+    "name": "GEO Shopify – 30-day course",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 6,
+    "title": "Define success: GEO prompt set + KPIs",
+    "lessonId": "GEO_SHOPIFY_30_EN_DAY_06"
+  },
+  "questionCount": 5,
+  "questions": [
+    {
+      "_id": "697b200302f89b2246e06dd1",
+      "difficulty": "EASY",
+      "question": "How many prompts should the GEO set contain?",
+      "options": [
+        "30–50 tailored to your categories",
+        "5 generic prompts",
+        "1 prompt only",
+        "200 random prompts"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b200302f89b2246e06dd2",
+      "difficulty": "MEDIUM",
+      "question": "Which question types belong in the set?",
+      "options": [
+        "best/vs/alternatives/policy/sizing/shipping",
+        "Only brand slogan",
+        "Only meta title",
+        "Only backlinks"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b200302f89b2246e06dd3",
+      "difficulty": "MEDIUM",
+      "question": "Which GEO KPIs matter?",
+      "options": [
+        "Inclusion, citation, coverage, consistency",
+        "Only bounce rate",
+        "Only page speed",
+        "Only meta title length"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b200302f89b2246e06dd4",
+      "difficulty": "HARD",
+      "question": "Which commercial KPIs relate to AI referrals?",
+      "options": [
+        "AI referral traffic, conversion, add-to-cart, returns",
+        "Only social likes",
+        "Only backlink count",
+        "Only meta description length"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b200302f89b2246e06dd5",
+      "difficulty": "MEDIUM",
+      "question": "Why prioritize prompts A/B/C?",
+      "options": [
+        "To focus on the most important test questions",
+        "Only for color-coding",
+        "No need to prioritize",
+        "Just decoration"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    }
+  ]
+}

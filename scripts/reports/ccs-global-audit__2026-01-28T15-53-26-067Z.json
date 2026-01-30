@@ -1,0 +1,1982 @@
+{
+  "generatedAt": "2026-01-28T15:53:27.174Z",
+  "env": "production (via .env.local)",
+  "filters": {
+    "ccsId": null,
+    "courseId": "AI_30_DAY_EN",
+    "minLessonScore": 70,
+    "includeInactive": false
+  },
+  "totals": {
+    "ccsFamilies": 6,
+    "courses": 1,
+    "coursesMissingCcsId": 0,
+    "coursesMissingCcsIdMappedToKnownCcs": 0,
+    "coursesMissingCcsIdUnmapped": 0,
+    "coursesWithStructuralErrors": 0,
+    "coursesWithStructuralWarnings": 0,
+    "coursesFailingCatalogLanguageIntegrity": 0,
+    "lessons": 30,
+    "duplicateDayLessonGroups": 0,
+    "missingLessonDayEntries": 0,
+    "lessonsFailingLanguageIntegrity": 0,
+    "lessonsBelowQualityThreshold": 28,
+    "lessonsWithQuizErrors": 28,
+    "duplicateQuestionSets": 8,
+    "duplicateQuestionsToDelete": 8,
+    "invalidQuestions": 63,
+    "lessonsGeneratorInsufficient": 0
+  },
+  "ccs": [
+    {
+      "ccsId": "PRODUCTIVITY_2026",
+      "name": "PRODUCTIVITY_2026",
+      "ideaPresent": false,
+      "outlinePresent": false,
+      "relatedDocumentsCount": 0,
+      "courses": []
+    },
+    {
+      "ccsId": "GEO_SHOPIFY_30",
+      "name": "GEO_SHOPIFY_30",
+      "ideaPresent": false,
+      "outlinePresent": false,
+      "relatedDocumentsCount": 0,
+      "courses": []
+    },
+    {
+      "ccsId": "AI_30_DAY",
+      "name": "AI_30_DAY",
+      "ideaPresent": false,
+      "outlinePresent": false,
+      "relatedDocumentsCount": 0,
+      "courses": [
+        {
+          "course": {
+            "courseId": "AI_30_DAY_EN",
+            "name": "30-Day AI Catch-Up Program (EN)",
+            "description": "30-day practical AI program for beginners and late adopters: short, focused lessons with concrete examples, guided and independent exercises, and QA habits to make AI useful and safe in everyday work.",
+            "language": "en",
+            "isActive": true,
+            "isDraft": false,
+            "requiresPremium": false,
+            "durationDays": 30,
+            "parentCourseId": null,
+            "courseVariant": null,
+            "structuralErrors": [],
+            "structuralWarnings": [],
+            "catalogLanguageIntegrity": {
+              "ok": true,
+              "errors": [],
+              "warnings": [],
+              "findings": []
+            },
+            "inferredCcsId": null,
+            "duplicateDayGroups": [],
+            "missingDays": [],
+            "lessonsAudited": 30,
+            "lessonsWithErrors": 28
+          },
+          "lessons": [
+            {
+              "dayNumber": 1,
+              "lessonId": "AI_30_DAY_EN_DAY_01",
+              "title": "What AI is (and what it is not)",
+              "createdAt": "2026-01-19T22:35:32.976Z",
+              "lessonQuality": {
+                "score": 70,
+                "issues": [
+                  "NO_EXAMPLES",
+                  "NO_METRICS_OR_CRITERIA"
+                ],
+                "signals": {
+                  "charCount": 1269,
+                  "wordCount": 198,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": false,
+                  "hasGoodBadContrast": true,
+                  "hasMetricsOrCriteria": false,
+                  "hasDefinitionsOrComparisons": true
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": false,
+                  "addChecklistSection": false,
+                  "addExamplesSection": true,
+                  "addPitfallsSection": false,
+                  "addMetricsSection": true
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 7,
+                "validExisting": 7,
+                "invalidExisting": 0,
+                "application": 7,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [],
+              "warnings": []
+            },
+            {
+              "dayNumber": 2,
+              "lessonId": "AI_30_DAY_EN_DAY_02",
+              "title": "The 4 parts of a good prompt",
+              "createdAt": "2026-01-19T22:35:35.399Z",
+              "lessonQuality": {
+                "score": 45,
+                "issues": [
+                  "TOO_SHORT",
+                  "NO_CLEAR_DEFINITIONS",
+                  "NO_METRICS_OR_CRITERIA"
+                ],
+                "signals": {
+                  "charCount": 955,
+                  "wordCount": 138,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": true,
+                  "hasMetricsOrCriteria": false,
+                  "hasDefinitionsOrComparisons": false
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": true,
+                  "addChecklistSection": false,
+                  "addExamplesSection": false,
+                  "addPitfallsSection": false,
+                  "addMetricsSection": true
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 7,
+                "validExisting": 0,
+                "invalidExisting": 7,
+                "application": 0,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 1,
+                "duplicatesToDelete": 1,
+                "invalidSamples": [
+                  {
+                    "_id": "697769fa27e27f61ac41433f",
+                    "firstError": "Contains lesson-referential wording (EN: in/as described in the lesson). Questions and answers must be fully standalone and must not refer to the lesson/course."
+                  },
+                  {
+                    "_id": "697769fa27e27f61ac414340",
+                    "firstError": "Contains lesson-referential wording (EN: in/as described in the lesson). Questions and answers must be fully standalone and must not refer to the lesson/course."
+                  },
+                  {
+                    "_id": "697769fa27e27f61ac414341",
+                    "firstError": "Contains lesson-referential wording (EN: in/as described in the lesson). Questions and answers must be fully standalone and must not refer to the lesson/course."
+                  }
+                ],
+                "duplicateSamples": [
+                  {
+                    "question": "How would you implement the practice \"exercise (10–15 min)\n\nWrite 2 prompts wi...\" described in the lesson in your own work?",
+                    "keepId": "697769fa27e27f61ac41433f",
+                    "deleteIds": [
+                      "697769fa27e27f61ac414341"
+                    ]
+                  }
+                ]
+              },
+              "generator": null,
+              "errors": [
+                "LESSON_QUALITY_BELOW_THRESHOLD",
+                "QUIZ_TOO_FEW_VALID",
+                "QUIZ_TOO_FEW_APPLICATION",
+                "QUIZ_HAS_INVALID_QUESTIONS",
+                "QUIZ_HAS_DUPLICATES"
+              ],
+              "warnings": []
+            },
+            {
+              "dayNumber": 3,
+              "lessonId": "AI_30_DAY_EN_DAY_03",
+              "title": "Iterate: from draft to great output",
+              "createdAt": "2026-01-19T22:35:57.800Z",
+              "lessonQuality": {
+                "score": 45,
+                "issues": [
+                  "TOO_SHORT",
+                  "NO_CLEAR_DEFINITIONS",
+                  "NO_METRICS_OR_CRITERIA"
+                ],
+                "signals": {
+                  "charCount": 982,
+                  "wordCount": 146,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": true,
+                  "hasMetricsOrCriteria": false,
+                  "hasDefinitionsOrComparisons": false
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": true,
+                  "addChecklistSection": false,
+                  "addExamplesSection": false,
+                  "addPitfallsSection": false,
+                  "addMetricsSection": true
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 7,
+                "validExisting": 0,
+                "invalidExisting": 7,
+                "application": 0,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [
+                  {
+                    "_id": "697769fa27e27f61ac414366",
+                    "firstError": "Contains lesson-referential wording (EN: in/as described in the lesson). Questions and answers must be fully standalone and must not refer to the lesson/course."
+                  },
+                  {
+                    "_id": "697769fa27e27f61ac414367",
+                    "firstError": "Contains lesson-referential wording (EN: in/as described in the lesson). Questions and answers must be fully standalone and must not refer to the lesson/course."
+                  },
+                  {
+                    "_id": "697769fa27e27f61ac414368",
+                    "firstError": "Contains lesson-referential wording (EN: in/as described in the lesson). Questions and answers must be fully standalone and must not refer to the lesson/course."
+                  }
+                ],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [
+                "LESSON_QUALITY_BELOW_THRESHOLD",
+                "QUIZ_TOO_FEW_VALID",
+                "QUIZ_TOO_FEW_APPLICATION",
+                "QUIZ_HAS_INVALID_QUESTIONS"
+              ],
+              "warnings": []
+            },
+            {
+              "dayNumber": 4,
+              "lessonId": "AI_30_DAY_EN_DAY_04",
+              "title": "Break down tasks: workflow thinking",
+              "createdAt": "2026-01-19T22:35:58.023Z",
+              "lessonQuality": {
+                "score": 75,
+                "issues": [
+                  "TOO_SHORT"
+                ],
+                "signals": {
+                  "charCount": 1047,
+                  "wordCount": 157,
+                  "hasBullets": true,
+                  "hasNumberedSteps": true,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": true,
+                  "hasMetricsOrCriteria": true,
+                  "hasDefinitionsOrComparisons": true
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": false,
+                  "addChecklistSection": false,
+                  "addExamplesSection": false,
+                  "addPitfallsSection": false,
+                  "addMetricsSection": false
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 7,
+                "validExisting": 7,
+                "invalidExisting": 0,
+                "application": 7,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [],
+              "warnings": []
+            },
+            {
+              "dayNumber": 5,
+              "lessonId": "AI_30_DAY_EN_DAY_05",
+              "title": "Quality and safety: QA and guardrails",
+              "createdAt": "2026-01-19T22:35:58.201Z",
+              "lessonQuality": {
+                "score": 45,
+                "issues": [
+                  "TOO_SHORT",
+                  "NO_CLEAR_DEFINITIONS",
+                  "NO_METRICS_OR_CRITERIA"
+                ],
+                "signals": {
+                  "charCount": 1024,
+                  "wordCount": 149,
+                  "hasBullets": true,
+                  "hasNumberedSteps": true,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": true,
+                  "hasMetricsOrCriteria": false,
+                  "hasDefinitionsOrComparisons": false
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": true,
+                  "addChecklistSection": false,
+                  "addExamplesSection": false,
+                  "addPitfallsSection": false,
+                  "addMetricsSection": true
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 7,
+                "validExisting": 0,
+                "invalidExisting": 7,
+                "application": 0,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 1,
+                "duplicatesToDelete": 1,
+                "invalidSamples": [
+                  {
+                    "_id": "697769fb27e27f61ac414398",
+                    "firstError": "Contains lesson-referential wording (EN: in/as described in the lesson). Questions and answers must be fully standalone and must not refer to the lesson/course."
+                  },
+                  {
+                    "_id": "697769fb27e27f61ac414399",
+                    "firstError": "Contains lesson-referential wording (EN: in/as described in the lesson). Questions and answers must be fully standalone and must not refer to the lesson/course."
+                  },
+                  {
+                    "_id": "697769fb27e27f61ac41439a",
+                    "firstError": "Contains lesson-referential wording (EN: in/as described in the lesson). Questions and answers must be fully standalone and must not refer to the lesson/course."
+                  }
+                ],
+                "duplicateSamples": [
+                  {
+                    "question": "How would you implement the practice \"exercise (10–15 min)\n\nWrite a 5-point QA...\" described in the lesson in your own work?",
+                    "keepId": "697769fb27e27f61ac414398",
+                    "deleteIds": [
+                      "697769fb27e27f61ac41439a"
+                    ]
+                  }
+                ]
+              },
+              "generator": null,
+              "errors": [
+                "LESSON_QUALITY_BELOW_THRESHOLD",
+                "QUIZ_TOO_FEW_VALID",
+                "QUIZ_TOO_FEW_APPLICATION",
+                "QUIZ_HAS_INVALID_QUESTIONS",
+                "QUIZ_HAS_DUPLICATES"
+              ],
+              "warnings": []
+            },
+            {
+              "dayNumber": 6,
+              "lessonId": "AI_30_DAY_EN_DAY_06",
+              "title": "Template library: reusable prompts",
+              "createdAt": "2026-01-19T22:49:37.894Z",
+              "lessonQuality": {
+                "score": 50,
+                "issues": [
+                  "TOO_SHORT",
+                  "NO_CLEAR_DEFINITIONS",
+                  "NO_CONTRASTS_GOOD_BAD"
+                ],
+                "signals": {
+                  "charCount": 1075,
+                  "wordCount": 147,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": false,
+                  "hasMetricsOrCriteria": true,
+                  "hasDefinitionsOrComparisons": false
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": true,
+                  "addChecklistSection": false,
+                  "addExamplesSection": true,
+                  "addPitfallsSection": true,
+                  "addMetricsSection": false
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 7,
+                "validExisting": 0,
+                "invalidExisting": 7,
+                "application": 0,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 1,
+                "duplicatesToDelete": 1,
+                "invalidSamples": [
+                  {
+                    "_id": "697769fb27e27f61ac4143ab",
+                    "firstError": "Contains lesson-referential wording (EN: in/as described in the lesson). Questions and answers must be fully standalone and must not refer to the lesson/course."
+                  },
+                  {
+                    "_id": "697769fb27e27f61ac4143ac",
+                    "firstError": "Contains lesson-referential wording (EN: in/as described in the lesson). Questions and answers must be fully standalone and must not refer to the lesson/course."
+                  },
+                  {
+                    "_id": "697769fb27e27f61ac4143ad",
+                    "firstError": "Contains lesson-referential wording (EN: in/as described in the lesson). Questions and answers must be fully standalone and must not refer to the lesson/course."
+                  }
+                ],
+                "duplicateSamples": [
+                  {
+                    "question": "How would you implement the practice \"exercise (10–15 min)\n\nList 5 repetitive ...\" described in the lesson in your own work?",
+                    "keepId": "697769fb27e27f61ac4143ab",
+                    "deleteIds": [
+                      "697769fb27e27f61ac4143ad"
+                    ]
+                  }
+                ]
+              },
+              "generator": null,
+              "errors": [
+                "LESSON_QUALITY_BELOW_THRESHOLD",
+                "QUIZ_TOO_FEW_VALID",
+                "QUIZ_TOO_FEW_APPLICATION",
+                "QUIZ_HAS_INVALID_QUESTIONS",
+                "QUIZ_HAS_DUPLICATES"
+              ],
+              "warnings": []
+            },
+            {
+              "dayNumber": 7,
+              "lessonId": "AI_30_DAY_EN_DAY_07",
+              "title": "Role prompts and constraints",
+              "createdAt": "2026-01-19T22:49:38.083Z",
+              "lessonQuality": {
+                "score": 60,
+                "issues": [
+                  "TOO_SHORT",
+                  "NO_METRICS_OR_CRITERIA"
+                ],
+                "signals": {
+                  "charCount": 1075,
+                  "wordCount": 148,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": true,
+                  "hasMetricsOrCriteria": false,
+                  "hasDefinitionsOrComparisons": true
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": false,
+                  "addChecklistSection": false,
+                  "addExamplesSection": false,
+                  "addPitfallsSection": false,
+                  "addMetricsSection": true
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 7,
+                "validExisting": 0,
+                "invalidExisting": 7,
+                "application": 0,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 1,
+                "duplicatesToDelete": 1,
+                "invalidSamples": [
+                  {
+                    "_id": "697769fb27e27f61ac4143bb",
+                    "firstError": "Contains lesson-referential wording (EN: in/as described in the lesson). Questions and answers must be fully standalone and must not refer to the lesson/course."
+                  },
+                  {
+                    "_id": "697769fb27e27f61ac4143bc",
+                    "firstError": "Contains lesson-referential wording (EN: in/as described in the lesson). Questions and answers must be fully standalone and must not refer to the lesson/course."
+                  },
+                  {
+                    "_id": "697769fb27e27f61ac4143bd",
+                    "firstError": "Contains lesson-referential wording (EN: in/as described in the lesson). Questions and answers must be fully standalone and must not refer to the lesson/course."
+                  }
+                ],
+                "duplicateSamples": [
+                  {
+                    "question": "How would you implement the practice \"exercise (10–15 min)\n\nPick a task: add a...\" described in the lesson in your own work?",
+                    "keepId": "697769fb27e27f61ac4143bb",
+                    "deleteIds": [
+                      "697769fb27e27f61ac4143bd"
+                    ]
+                  }
+                ]
+              },
+              "generator": null,
+              "errors": [
+                "LESSON_QUALITY_BELOW_THRESHOLD",
+                "QUIZ_TOO_FEW_VALID",
+                "QUIZ_TOO_FEW_APPLICATION",
+                "QUIZ_HAS_INVALID_QUESTIONS",
+                "QUIZ_HAS_DUPLICATES"
+              ],
+              "warnings": []
+            },
+            {
+              "dayNumber": 8,
+              "lessonId": "AI_30_DAY_EN_DAY_08",
+              "title": "Fact-checking and source requests",
+              "createdAt": "2026-01-19T22:49:38.314Z",
+              "lessonQuality": {
+                "score": 50,
+                "issues": [
+                  "TOO_SHORT",
+                  "NO_CONTRASTS_GOOD_BAD",
+                  "NO_METRICS_OR_CRITERIA"
+                ],
+                "signals": {
+                  "charCount": 1025,
+                  "wordCount": 141,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": false,
+                  "hasMetricsOrCriteria": false,
+                  "hasDefinitionsOrComparisons": true
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": false,
+                  "addChecklistSection": false,
+                  "addExamplesSection": true,
+                  "addPitfallsSection": true,
+                  "addMetricsSection": true
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 7,
+                "validExisting": 0,
+                "invalidExisting": 7,
+                "application": 0,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 1,
+                "duplicatesToDelete": 1,
+                "invalidSamples": [
+                  {
+                    "_id": "697769fb27e27f61ac4143ca",
+                    "firstError": "Contains lesson-referential wording (EN: in/as described in the lesson). Questions and answers must be fully standalone and must not refer to the lesson/course."
+                  },
+                  {
+                    "_id": "697769fb27e27f61ac4143cb",
+                    "firstError": "Contains lesson-referential wording (EN: in/as described in the lesson). Questions and answers must be fully standalone and must not refer to the lesson/course."
+                  },
+                  {
+                    "_id": "697769fb27e27f61ac4143cc",
+                    "firstError": "Contains lesson-referential wording (EN: in/as described in the lesson). Questions and answers must be fully standalone and must not refer to the lesson/course."
+                  }
+                ],
+                "duplicateSamples": [
+                  {
+                    "question": "How would you implement the practice \"exercise (10–15 min)\n\nPick a factual top...\" described in the lesson in your own work?",
+                    "keepId": "697769fb27e27f61ac4143ca",
+                    "deleteIds": [
+                      "697769fb27e27f61ac4143cc"
+                    ]
+                  }
+                ]
+              },
+              "generator": null,
+              "errors": [
+                "LESSON_QUALITY_BELOW_THRESHOLD",
+                "QUIZ_TOO_FEW_VALID",
+                "QUIZ_TOO_FEW_APPLICATION",
+                "QUIZ_HAS_INVALID_QUESTIONS",
+                "QUIZ_HAS_DUPLICATES"
+              ],
+              "warnings": []
+            },
+            {
+              "dayNumber": 9,
+              "lessonId": "AI_30_DAY_EN_DAY_09",
+              "title": "Summaries that keep the signal",
+              "createdAt": "2026-01-19T22:49:38.503Z",
+              "lessonQuality": {
+                "score": 35,
+                "issues": [
+                  "TOO_SHORT",
+                  "NO_CLEAR_DEFINITIONS",
+                  "NO_CONTRASTS_GOOD_BAD",
+                  "NO_METRICS_OR_CRITERIA"
+                ],
+                "signals": {
+                  "charCount": 891,
+                  "wordCount": 126,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": false,
+                  "hasMetricsOrCriteria": false,
+                  "hasDefinitionsOrComparisons": false
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": true,
+                  "addChecklistSection": false,
+                  "addExamplesSection": true,
+                  "addPitfallsSection": true,
+                  "addMetricsSection": true
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 7,
+                "validExisting": 0,
+                "invalidExisting": 7,
+                "application": 0,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 1,
+                "duplicatesToDelete": 1,
+                "invalidSamples": [
+                  {
+                    "_id": "697769fb27e27f61ac4143d8",
+                    "firstError": "Contains lesson-referential wording (EN: in/as described in the lesson). Questions and answers must be fully standalone and must not refer to the lesson/course."
+                  },
+                  {
+                    "_id": "697769fb27e27f61ac4143d9",
+                    "firstError": "Contains lesson-referential wording (EN: in/as described in the lesson). Questions and answers must be fully standalone and must not refer to the lesson/course."
+                  },
+                  {
+                    "_id": "697769fb27e27f61ac4143da",
+                    "firstError": "Contains lesson-referential wording (EN: in/as described in the lesson). Questions and answers must be fully standalone and must not refer to the lesson/course."
+                  }
+                ],
+                "duplicateSamples": [
+                  {
+                    "question": "How would you implement the practice \"exercise (10–15 min)\n\nTake a meeting not...\" described in the lesson in your own work?",
+                    "keepId": "697769fb27e27f61ac4143d8",
+                    "deleteIds": [
+                      "697769fb27e27f61ac4143da"
+                    ]
+                  }
+                ]
+              },
+              "generator": null,
+              "errors": [
+                "LESSON_QUALITY_BELOW_THRESHOLD",
+                "QUIZ_TOO_FEW_VALID",
+                "QUIZ_TOO_FEW_APPLICATION",
+                "QUIZ_HAS_INVALID_QUESTIONS",
+                "QUIZ_HAS_DUPLICATES"
+              ],
+              "warnings": []
+            },
+            {
+              "dayNumber": 10,
+              "lessonId": "AI_30_DAY_EN_DAY_10",
+              "title": "Rewrite and tone shift",
+              "createdAt": "2026-01-19T22:49:38.673Z",
+              "lessonQuality": {
+                "score": 50,
+                "issues": [
+                  "TOO_SHORT",
+                  "NO_CLEAR_DEFINITIONS",
+                  "NO_CONTRASTS_GOOD_BAD"
+                ],
+                "signals": {
+                  "charCount": 956,
+                  "wordCount": 125,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": false,
+                  "hasMetricsOrCriteria": true,
+                  "hasDefinitionsOrComparisons": false
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": true,
+                  "addChecklistSection": false,
+                  "addExamplesSection": true,
+                  "addPitfallsSection": true,
+                  "addMetricsSection": false
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 7,
+                "validExisting": 0,
+                "invalidExisting": 7,
+                "application": 0,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 1,
+                "duplicatesToDelete": 1,
+                "invalidSamples": [
+                  {
+                    "_id": "697769fb27e27f61ac4143e4",
+                    "firstError": "Contains lesson-referential wording (EN: in/as described in the lesson). Questions and answers must be fully standalone and must not refer to the lesson/course."
+                  },
+                  {
+                    "_id": "697769fb27e27f61ac4143e5",
+                    "firstError": "Contains lesson-referential wording (EN: in/as described in the lesson). Questions and answers must be fully standalone and must not refer to the lesson/course."
+                  },
+                  {
+                    "_id": "697769fb27e27f61ac4143e6",
+                    "firstError": "Contains lesson-referential wording (EN: in/as described in the lesson). Questions and answers must be fully standalone and must not refer to the lesson/course."
+                  }
+                ],
+                "duplicateSamples": [
+                  {
+                    "question": "How would you implement the practice \"exercise (10–15 min)\n\nPick a rough draft...\" described in the lesson in your own work?",
+                    "keepId": "697769fb27e27f61ac4143e4",
+                    "deleteIds": [
+                      "697769fb27e27f61ac4143e6"
+                    ]
+                  }
+                ]
+              },
+              "generator": null,
+              "errors": [
+                "LESSON_QUALITY_BELOW_THRESHOLD",
+                "QUIZ_TOO_FEW_VALID",
+                "QUIZ_TOO_FEW_APPLICATION",
+                "QUIZ_HAS_INVALID_QUESTIONS",
+                "QUIZ_HAS_DUPLICATES"
+              ],
+              "warnings": []
+            },
+            {
+              "dayNumber": 11,
+              "lessonId": "AI_30_DAY_EN_DAY_11",
+              "title": "Planning with AI: outlines and storyboards",
+              "createdAt": "2026-01-19T22:52:07.793Z",
+              "lessonQuality": {
+                "score": 35,
+                "issues": [
+                  "TOO_SHORT",
+                  "NO_CLEAR_DEFINITIONS",
+                  "NO_CONTRASTS_GOOD_BAD",
+                  "NO_METRICS_OR_CRITERIA"
+                ],
+                "signals": {
+                  "charCount": 1127,
+                  "wordCount": 155,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": false,
+                  "hasMetricsOrCriteria": false,
+                  "hasDefinitionsOrComparisons": false
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": true,
+                  "addChecklistSection": false,
+                  "addExamplesSection": true,
+                  "addPitfallsSection": true,
+                  "addMetricsSection": true
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 7,
+                "validExisting": 0,
+                "invalidExisting": 7,
+                "application": 0,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 1,
+                "duplicatesToDelete": 1,
+                "invalidSamples": [
+                  {
+                    "_id": "697769fb27e27f61ac4143ef",
+                    "firstError": "Contains lesson-referential wording (EN: in/as described in the lesson). Questions and answers must be fully standalone and must not refer to the lesson/course."
+                  },
+                  {
+                    "_id": "697769fb27e27f61ac4143f0",
+                    "firstError": "Contains lesson-referential wording (EN: in/as described in the lesson). Questions and answers must be fully standalone and must not refer to the lesson/course."
+                  },
+                  {
+                    "_id": "697769fb27e27f61ac4143f1",
+                    "firstError": "Contains lesson-referential wording (EN: in/as described in the lesson). Questions and answers must be fully standalone and must not refer to the lesson/course."
+                  }
+                ],
+                "duplicateSamples": [
+                  {
+                    "question": "How would you implement the practice \"exercise (10–15 min)\n\nPick a deliverable...\" described in the lesson in your own work?",
+                    "keepId": "697769fb27e27f61ac4143ef",
+                    "deleteIds": [
+                      "697769fb27e27f61ac4143f1"
+                    ]
+                  }
+                ]
+              },
+              "generator": null,
+              "errors": [
+                "LESSON_QUALITY_BELOW_THRESHOLD",
+                "QUIZ_TOO_FEW_VALID",
+                "QUIZ_TOO_FEW_APPLICATION",
+                "QUIZ_HAS_INVALID_QUESTIONS",
+                "QUIZ_HAS_DUPLICATES"
+              ],
+              "warnings": []
+            },
+            {
+              "dayNumber": 12,
+              "lessonId": "AI_30_DAY_EN_DAY_12",
+              "title": "Research helper: questions, not answers",
+              "createdAt": "2026-01-28T15:53:20.291Z",
+              "lessonQuality": {
+                "score": 45,
+                "issues": [
+                  "TOO_SHORT",
+                  "NO_CLEAR_DEFINITIONS",
+                  "NO_METRICS_OR_CRITERIA"
+                ],
+                "signals": {
+                  "charCount": 1061,
+                  "wordCount": 148,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": true,
+                  "hasMetricsOrCriteria": false,
+                  "hasDefinitionsOrComparisons": false
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": true,
+                  "addChecklistSection": false,
+                  "addExamplesSection": false,
+                  "addPitfallsSection": false,
+                  "addMetricsSection": true
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 0,
+                "validExisting": 0,
+                "invalidExisting": 0,
+                "application": 0,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [
+                "LESSON_QUALITY_BELOW_THRESHOLD",
+                "QUIZ_TOO_FEW_VALID",
+                "QUIZ_TOO_FEW_APPLICATION"
+              ],
+              "warnings": []
+            },
+            {
+              "dayNumber": 13,
+              "lessonId": "AI_30_DAY_EN_DAY_13",
+              "title": "Drafting long-form with sections",
+              "createdAt": "2026-01-28T15:53:20.339Z",
+              "lessonQuality": {
+                "score": 50,
+                "issues": [
+                  "TOO_SHORT",
+                  "NO_CLEAR_DEFINITIONS",
+                  "NO_CONTRASTS_GOOD_BAD"
+                ],
+                "signals": {
+                  "charCount": 998,
+                  "wordCount": 124,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": false,
+                  "hasMetricsOrCriteria": true,
+                  "hasDefinitionsOrComparisons": false
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": true,
+                  "addChecklistSection": false,
+                  "addExamplesSection": true,
+                  "addPitfallsSection": true,
+                  "addMetricsSection": false
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 0,
+                "validExisting": 0,
+                "invalidExisting": 0,
+                "application": 0,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [
+                "LESSON_QUALITY_BELOW_THRESHOLD",
+                "QUIZ_TOO_FEW_VALID",
+                "QUIZ_TOO_FEW_APPLICATION"
+              ],
+              "warnings": []
+            },
+            {
+              "dayNumber": 14,
+              "lessonId": "AI_30_DAY_EN_DAY_14",
+              "title": "Transforming formats: table, bullets, narrative",
+              "createdAt": "2026-01-28T15:53:20.387Z",
+              "lessonQuality": {
+                "score": 60,
+                "issues": [
+                  "TOO_SHORT",
+                  "NO_CLEAR_DEFINITIONS"
+                ],
+                "signals": {
+                  "charCount": 1037,
+                  "wordCount": 137,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": true,
+                  "hasMetricsOrCriteria": true,
+                  "hasDefinitionsOrComparisons": false
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": true,
+                  "addChecklistSection": false,
+                  "addExamplesSection": false,
+                  "addPitfallsSection": false,
+                  "addMetricsSection": false
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 0,
+                "validExisting": 0,
+                "invalidExisting": 0,
+                "application": 0,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [
+                "LESSON_QUALITY_BELOW_THRESHOLD",
+                "QUIZ_TOO_FEW_VALID",
+                "QUIZ_TOO_FEW_APPLICATION"
+              ],
+              "warnings": []
+            },
+            {
+              "dayNumber": 15,
+              "lessonId": "AI_30_DAY_EN_DAY_15",
+              "title": "Automation prep: prompts as pseudo-steps",
+              "createdAt": "2026-01-28T15:53:20.434Z",
+              "lessonQuality": {
+                "score": 35,
+                "issues": [
+                  "TOO_SHORT",
+                  "NO_CLEAR_DEFINITIONS",
+                  "NO_CONTRASTS_GOOD_BAD",
+                  "NO_METRICS_OR_CRITERIA"
+                ],
+                "signals": {
+                  "charCount": 1116,
+                  "wordCount": 157,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": false,
+                  "hasMetricsOrCriteria": false,
+                  "hasDefinitionsOrComparisons": false
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": true,
+                  "addChecklistSection": false,
+                  "addExamplesSection": true,
+                  "addPitfallsSection": true,
+                  "addMetricsSection": true
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 0,
+                "validExisting": 0,
+                "invalidExisting": 0,
+                "application": 0,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [
+                "LESSON_QUALITY_BELOW_THRESHOLD",
+                "QUIZ_TOO_FEW_VALID",
+                "QUIZ_TOO_FEW_APPLICATION"
+              ],
+              "warnings": []
+            },
+            {
+              "dayNumber": 16,
+              "lessonId": "AI_30_DAY_EN_DAY_16",
+              "title": "Brainstorming and idea expansion (without rambling)",
+              "createdAt": "2026-01-28T15:53:20.484Z",
+              "lessonQuality": {
+                "score": 60,
+                "issues": [
+                  "TOO_SHORT",
+                  "NO_CLEAR_DEFINITIONS"
+                ],
+                "signals": {
+                  "charCount": 927,
+                  "wordCount": 140,
+                  "hasBullets": true,
+                  "hasNumberedSteps": true,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": true,
+                  "hasMetricsOrCriteria": true,
+                  "hasDefinitionsOrComparisons": false
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": true,
+                  "addChecklistSection": false,
+                  "addExamplesSection": false,
+                  "addPitfallsSection": false,
+                  "addMetricsSection": false
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 0,
+                "validExisting": 0,
+                "invalidExisting": 0,
+                "application": 0,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [
+                "LESSON_QUALITY_BELOW_THRESHOLD",
+                "QUIZ_TOO_FEW_VALID",
+                "QUIZ_TOO_FEW_APPLICATION"
+              ],
+              "warnings": []
+            },
+            {
+              "dayNumber": 17,
+              "lessonId": "AI_30_DAY_EN_DAY_17",
+              "title": "Pros/cons and decision support",
+              "createdAt": "2026-01-28T15:53:20.542Z",
+              "lessonQuality": {
+                "score": 65,
+                "issues": [
+                  "TOO_SHORT",
+                  "NO_CONTRASTS_GOOD_BAD"
+                ],
+                "signals": {
+                  "charCount": 932,
+                  "wordCount": 130,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": false,
+                  "hasMetricsOrCriteria": true,
+                  "hasDefinitionsOrComparisons": true
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": false,
+                  "addChecklistSection": false,
+                  "addExamplesSection": true,
+                  "addPitfallsSection": true,
+                  "addMetricsSection": false
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 0,
+                "validExisting": 0,
+                "invalidExisting": 0,
+                "application": 0,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [
+                "LESSON_QUALITY_BELOW_THRESHOLD",
+                "QUIZ_TOO_FEW_VALID",
+                "QUIZ_TOO_FEW_APPLICATION"
+              ],
+              "warnings": []
+            },
+            {
+              "dayNumber": 18,
+              "lessonId": "AI_30_DAY_EN_DAY_18",
+              "title": "Data summarization: tables and simple calcs",
+              "createdAt": "2026-01-28T15:53:20.589Z",
+              "lessonQuality": {
+                "score": 35,
+                "issues": [
+                  "TOO_SHORT",
+                  "NO_CLEAR_DEFINITIONS",
+                  "NO_CONTRASTS_GOOD_BAD",
+                  "NO_METRICS_OR_CRITERIA"
+                ],
+                "signals": {
+                  "charCount": 983,
+                  "wordCount": 147,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": false,
+                  "hasMetricsOrCriteria": false,
+                  "hasDefinitionsOrComparisons": false
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": true,
+                  "addChecklistSection": false,
+                  "addExamplesSection": true,
+                  "addPitfallsSection": true,
+                  "addMetricsSection": true
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 0,
+                "validExisting": 0,
+                "invalidExisting": 0,
+                "application": 0,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [
+                "LESSON_QUALITY_BELOW_THRESHOLD",
+                "QUIZ_TOO_FEW_VALID",
+                "QUIZ_TOO_FEW_APPLICATION"
+              ],
+              "warnings": []
+            },
+            {
+              "dayNumber": 19,
+              "lessonId": "AI_30_DAY_EN_DAY_19",
+              "title": "Adapting to personas and audiences",
+              "createdAt": "2026-01-28T15:53:20.631Z",
+              "lessonQuality": {
+                "score": 60,
+                "issues": [
+                  "TOO_SHORT",
+                  "NO_METRICS_OR_CRITERIA"
+                ],
+                "signals": {
+                  "charCount": 926,
+                  "wordCount": 136,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": true,
+                  "hasMetricsOrCriteria": false,
+                  "hasDefinitionsOrComparisons": true
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": false,
+                  "addChecklistSection": false,
+                  "addExamplesSection": false,
+                  "addPitfallsSection": false,
+                  "addMetricsSection": true
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 0,
+                "validExisting": 0,
+                "invalidExisting": 0,
+                "application": 0,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [
+                "LESSON_QUALITY_BELOW_THRESHOLD",
+                "QUIZ_TOO_FEW_VALID",
+                "QUIZ_TOO_FEW_APPLICATION"
+              ],
+              "warnings": []
+            },
+            {
+              "dayNumber": 20,
+              "lessonId": "AI_30_DAY_EN_DAY_20",
+              "title": "Team feedback loop: sharing and revising",
+              "createdAt": "2026-01-28T15:53:20.682Z",
+              "lessonQuality": {
+                "score": 35,
+                "issues": [
+                  "TOO_SHORT",
+                  "NO_CLEAR_DEFINITIONS",
+                  "NO_CONTRASTS_GOOD_BAD",
+                  "NO_METRICS_OR_CRITERIA"
+                ],
+                "signals": {
+                  "charCount": 971,
+                  "wordCount": 142,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": false,
+                  "hasMetricsOrCriteria": false,
+                  "hasDefinitionsOrComparisons": false
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": true,
+                  "addChecklistSection": false,
+                  "addExamplesSection": true,
+                  "addPitfallsSection": true,
+                  "addMetricsSection": true
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 0,
+                "validExisting": 0,
+                "invalidExisting": 0,
+                "application": 0,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [
+                "LESSON_QUALITY_BELOW_THRESHOLD",
+                "QUIZ_TOO_FEW_VALID",
+                "QUIZ_TOO_FEW_APPLICATION"
+              ],
+              "warnings": []
+            },
+            {
+              "dayNumber": 21,
+              "lessonId": "AI_30_DAY_EN_DAY_21",
+              "title": "Building FAQs and knowledge bases",
+              "createdAt": "2026-01-28T15:53:20.724Z",
+              "lessonQuality": {
+                "score": 45,
+                "issues": [
+                  "TOO_SHORT",
+                  "NO_CLEAR_DEFINITIONS",
+                  "NO_METRICS_OR_CRITERIA"
+                ],
+                "signals": {
+                  "charCount": 1066,
+                  "wordCount": 153,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": true,
+                  "hasMetricsOrCriteria": false,
+                  "hasDefinitionsOrComparisons": false
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": true,
+                  "addChecklistSection": false,
+                  "addExamplesSection": false,
+                  "addPitfallsSection": false,
+                  "addMetricsSection": true
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 0,
+                "validExisting": 0,
+                "invalidExisting": 0,
+                "application": 0,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [
+                "LESSON_QUALITY_BELOW_THRESHOLD",
+                "QUIZ_TOO_FEW_VALID",
+                "QUIZ_TOO_FEW_APPLICATION"
+              ],
+              "warnings": []
+            },
+            {
+              "dayNumber": 22,
+              "lessonId": "AI_30_DAY_EN_DAY_22",
+              "title": "Prompt A/B testing and evaluation",
+              "createdAt": "2026-01-28T15:53:20.789Z",
+              "lessonQuality": {
+                "score": 65,
+                "issues": [
+                  "TOO_SHORT",
+                  "NO_CONTRASTS_GOOD_BAD"
+                ],
+                "signals": {
+                  "charCount": 901,
+                  "wordCount": 126,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": false,
+                  "hasMetricsOrCriteria": true,
+                  "hasDefinitionsOrComparisons": true
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": false,
+                  "addChecklistSection": false,
+                  "addExamplesSection": true,
+                  "addPitfallsSection": true,
+                  "addMetricsSection": false
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 0,
+                "validExisting": 0,
+                "invalidExisting": 0,
+                "application": 0,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [
+                "LESSON_QUALITY_BELOW_THRESHOLD",
+                "QUIZ_TOO_FEW_VALID",
+                "QUIZ_TOO_FEW_APPLICATION"
+              ],
+              "warnings": []
+            },
+            {
+              "dayNumber": 23,
+              "lessonId": "AI_30_DAY_EN_DAY_23",
+              "title": "Rubrics and scoring AI outputs",
+              "createdAt": "2026-01-28T15:53:20.845Z",
+              "lessonQuality": {
+                "score": 60,
+                "issues": [
+                  "TOO_SHORT",
+                  "NO_CLEAR_DEFINITIONS"
+                ],
+                "signals": {
+                  "charCount": 904,
+                  "wordCount": 135,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": true,
+                  "hasMetricsOrCriteria": true,
+                  "hasDefinitionsOrComparisons": false
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": true,
+                  "addChecklistSection": false,
+                  "addExamplesSection": false,
+                  "addPitfallsSection": false,
+                  "addMetricsSection": false
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 0,
+                "validExisting": 0,
+                "invalidExisting": 0,
+                "application": 0,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [
+                "LESSON_QUALITY_BELOW_THRESHOLD",
+                "QUIZ_TOO_FEW_VALID",
+                "QUIZ_TOO_FEW_APPLICATION"
+              ],
+              "warnings": []
+            },
+            {
+              "dayNumber": 24,
+              "lessonId": "AI_30_DAY_EN_DAY_24",
+              "title": "Handling refusals and hallucinations",
+              "createdAt": "2026-01-28T15:53:20.901Z",
+              "lessonQuality": {
+                "score": 35,
+                "issues": [
+                  "TOO_SHORT",
+                  "NO_CLEAR_DEFINITIONS",
+                  "NO_CONTRASTS_GOOD_BAD",
+                  "NO_METRICS_OR_CRITERIA"
+                ],
+                "signals": {
+                  "charCount": 965,
+                  "wordCount": 135,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": false,
+                  "hasMetricsOrCriteria": false,
+                  "hasDefinitionsOrComparisons": false
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": true,
+                  "addChecklistSection": false,
+                  "addExamplesSection": true,
+                  "addPitfallsSection": true,
+                  "addMetricsSection": true
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 0,
+                "validExisting": 0,
+                "invalidExisting": 0,
+                "application": 0,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [
+                "LESSON_QUALITY_BELOW_THRESHOLD",
+                "QUIZ_TOO_FEW_VALID",
+                "QUIZ_TOO_FEW_APPLICATION"
+              ],
+              "warnings": []
+            },
+            {
+              "dayNumber": 25,
+              "lessonId": "AI_30_DAY_EN_DAY_25",
+              "title": "Privacy and compliance guardrails",
+              "createdAt": "2026-01-28T15:53:20.949Z",
+              "lessonQuality": {
+                "score": 45,
+                "issues": [
+                  "TOO_SHORT",
+                  "NO_CLEAR_DEFINITIONS",
+                  "NO_METRICS_OR_CRITERIA"
+                ],
+                "signals": {
+                  "charCount": 922,
+                  "wordCount": 128,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": true,
+                  "hasMetricsOrCriteria": false,
+                  "hasDefinitionsOrComparisons": false
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": true,
+                  "addChecklistSection": false,
+                  "addExamplesSection": false,
+                  "addPitfallsSection": false,
+                  "addMetricsSection": true
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 0,
+                "validExisting": 0,
+                "invalidExisting": 0,
+                "application": 0,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [
+                "LESSON_QUALITY_BELOW_THRESHOLD",
+                "QUIZ_TOO_FEW_VALID",
+                "QUIZ_TOO_FEW_APPLICATION"
+              ],
+              "warnings": []
+            },
+            {
+              "dayNumber": 26,
+              "lessonId": "AI_30_DAY_EN_DAY_26",
+              "title": "Working with tables and CSVs (small-scale)",
+              "createdAt": "2026-01-28T15:53:20.999Z",
+              "lessonQuality": {
+                "score": 50,
+                "issues": [
+                  "TOO_SHORT",
+                  "NO_CONTRASTS_GOOD_BAD",
+                  "NO_METRICS_OR_CRITERIA"
+                ],
+                "signals": {
+                  "charCount": 1120,
+                  "wordCount": 151,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": false,
+                  "hasMetricsOrCriteria": false,
+                  "hasDefinitionsOrComparisons": true
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": false,
+                  "addChecklistSection": false,
+                  "addExamplesSection": true,
+                  "addPitfallsSection": true,
+                  "addMetricsSection": true
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 0,
+                "validExisting": 0,
+                "invalidExisting": 0,
+                "application": 0,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [
+                "LESSON_QUALITY_BELOW_THRESHOLD",
+                "QUIZ_TOO_FEW_VALID",
+                "QUIZ_TOO_FEW_APPLICATION"
+              ],
+              "warnings": []
+            },
+            {
+              "dayNumber": 27,
+              "lessonId": "AI_30_DAY_EN_DAY_27",
+              "title": "Email and outreach sequences with personalization",
+              "createdAt": "2026-01-28T15:53:21.043Z",
+              "lessonQuality": {
+                "score": 35,
+                "issues": [
+                  "TOO_SHORT",
+                  "NO_CLEAR_DEFINITIONS",
+                  "NO_CONTRASTS_GOOD_BAD",
+                  "NO_METRICS_OR_CRITERIA"
+                ],
+                "signals": {
+                  "charCount": 1058,
+                  "wordCount": 144,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": false,
+                  "hasMetricsOrCriteria": false,
+                  "hasDefinitionsOrComparisons": false
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": true,
+                  "addChecklistSection": false,
+                  "addExamplesSection": true,
+                  "addPitfallsSection": true,
+                  "addMetricsSection": true
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 0,
+                "validExisting": 0,
+                "invalidExisting": 0,
+                "application": 0,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [
+                "LESSON_QUALITY_BELOW_THRESHOLD",
+                "QUIZ_TOO_FEW_VALID",
+                "QUIZ_TOO_FEW_APPLICATION"
+              ],
+              "warnings": []
+            },
+            {
+              "dayNumber": 28,
+              "lessonId": "AI_30_DAY_EN_DAY_28",
+              "title": "Slides/briefs: from outline to draft",
+              "createdAt": "2026-01-28T15:53:21.094Z",
+              "lessonQuality": {
+                "score": 35,
+                "issues": [
+                  "TOO_SHORT",
+                  "NO_CLEAR_DEFINITIONS",
+                  "NO_CONTRASTS_GOOD_BAD",
+                  "NO_METRICS_OR_CRITERIA"
+                ],
+                "signals": {
+                  "charCount": 937,
+                  "wordCount": 152,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": false,
+                  "hasMetricsOrCriteria": false,
+                  "hasDefinitionsOrComparisons": false
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": true,
+                  "addChecklistSection": false,
+                  "addExamplesSection": true,
+                  "addPitfallsSection": true,
+                  "addMetricsSection": true
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 0,
+                "validExisting": 0,
+                "invalidExisting": 0,
+                "application": 0,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [
+                "LESSON_QUALITY_BELOW_THRESHOLD",
+                "QUIZ_TOO_FEW_VALID",
+                "QUIZ_TOO_FEW_APPLICATION"
+              ],
+              "warnings": []
+            },
+            {
+              "dayNumber": 29,
+              "lessonId": "AI_30_DAY_EN_DAY_29",
+              "title": "Personal daily workflow with AI",
+              "createdAt": "2026-01-28T15:53:21.133Z",
+              "lessonQuality": {
+                "score": 35,
+                "issues": [
+                  "TOO_SHORT",
+                  "NO_CLEAR_DEFINITIONS",
+                  "NO_CONTRASTS_GOOD_BAD",
+                  "NO_METRICS_OR_CRITERIA"
+                ],
+                "signals": {
+                  "charCount": 1034,
+                  "wordCount": 143,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": false,
+                  "hasMetricsOrCriteria": false,
+                  "hasDefinitionsOrComparisons": false
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": true,
+                  "addChecklistSection": false,
+                  "addExamplesSection": true,
+                  "addPitfallsSection": true,
+                  "addMetricsSection": true
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 0,
+                "validExisting": 0,
+                "invalidExisting": 0,
+                "application": 0,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [
+                "LESSON_QUALITY_BELOW_THRESHOLD",
+                "QUIZ_TOO_FEW_VALID",
+                "QUIZ_TOO_FEW_APPLICATION"
+              ],
+              "warnings": []
+            },
+            {
+              "dayNumber": 30,
+              "lessonId": "AI_30_DAY_EN_DAY_30",
+              "title": "Capstone: your end-to-end AI workflow",
+              "createdAt": "2026-01-28T15:53:21.178Z",
+              "lessonQuality": {
+                "score": 20,
+                "issues": [
+                  "TOO_SHORT",
+                  "NO_CLEAR_DEFINITIONS",
+                  "NO_EXAMPLES",
+                  "NO_CONTRASTS_GOOD_BAD",
+                  "NO_METRICS_OR_CRITERIA"
+                ],
+                "signals": {
+                  "charCount": 825,
+                  "wordCount": 113,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": false,
+                  "hasGoodBadContrast": false,
+                  "hasMetricsOrCriteria": false,
+                  "hasDefinitionsOrComparisons": false
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": true,
+                  "addChecklistSection": false,
+                  "addExamplesSection": true,
+                  "addPitfallsSection": true,
+                  "addMetricsSection": true
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 0,
+                "validExisting": 0,
+                "invalidExisting": 0,
+                "application": 0,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [
+                "LESSON_QUALITY_BELOW_THRESHOLD",
+                "QUIZ_TOO_FEW_VALID",
+                "QUIZ_TOO_FEW_APPLICATION"
+              ],
+              "warnings": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ccsId": "B2B_SALES_2026_30",
+      "name": "B2B_SALES_2026_30",
+      "ideaPresent": false,
+      "outlinePresent": false,
+      "relatedDocumentsCount": 0,
+      "courses": []
+    },
+    {
+      "ccsId": "PLAYBOOK_2026_30",
+      "name": "PLAYBOOK_2026_30",
+      "ideaPresent": false,
+      "outlinePresent": false,
+      "relatedDocumentsCount": 0,
+      "courses": []
+    },
+    {
+      "ccsId": "SALES_PRODUCTIVITY_30",
+      "name": "SALES_PRODUCTIVITY_30",
+      "ideaPresent": false,
+      "outlinePresent": false,
+      "relatedDocumentsCount": 0,
+      "courses": []
+    }
+  ],
+  "coursesMissingCcsId": []
+}

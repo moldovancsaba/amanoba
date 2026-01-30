@@ -1,0 +1,94 @@
+{
+  "backedUpAt": "2026-01-29T17:00:35.927Z",
+  "course": {
+    "courseId": "AI_30_NAP",
+    "name": "30-Day AI Catch-Up Program",
+    "language": "hu"
+  },
+  "lesson": {
+    "dayNumber": 16,
+    "title": "Szerephez illesztett AI – belépő nap",
+    "lessonId": "AI_30_NAP_DAY_16"
+  },
+  "questionCount": 6,
+  "questions": [
+    {
+      "_id": "697b2056060240540231b401",
+      "difficulty": "EASY",
+      "question": "Mi a napi cél ennél a leckénél?",
+      "options": [
+        "Személyre szabni az AI-használatot a saját szerepedre (feladatlista, gyorsítási pontok, sablonok)",
+        "Általános feladatokat írni",
+        "Csak hosszabb szöveget kérni",
+        "Semmit nem kell csinálni"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b2056060240540231b403",
+      "difficulty": "EASY",
+      "question": "Melyik példa tartozhat a Marketing szerephez?",
+      "options": [
+        "Kampány brief, persona, értékajánlat, posztvázlat",
+        "Bug report",
+        "SQL query írás",
+        "Firmware frissítés"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b2056060240540231b405",
+      "difficulty": "MEDIUM",
+      "question": "Miért készíts szerep-specifikus prompt sablont?",
+      "options": [
+        "Gyorsít és a te feladataidra optimalizál",
+        "Csak hosszabb lesz",
+        "Nem hasznos",
+        "Mert kötelező számot írni"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b2056060240540231b407",
+      "difficulty": "MEDIUM",
+      "question": "Mi legyen a „Top 5 napi feladat” listában?",
+      "options": [
+        "A tényleges napi feladataid, ahol az AI segíthet",
+        "Bármi, ami eszedbe jut",
+        "Csak hobbi",
+        "Csak random ötletek"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b2056060240540231b409",
+      "difficulty": "HARD",
+      "question": "Mit tartalmazzon a szerep-specifikus AI terv?",
+      "options": [
+        "Feladatlista, AI-val gyorsítható elemek, prompt sablonok, várt output",
+        "Csak egy címet",
+        "Csak a stílust",
+        "Csak a határidőt"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b2056060240540231b40b",
+      "difficulty": "HARD",
+      "question": "Mi a tipp a szerep-specifikus használathoz?",
+      "options": [
+        "Kezdj 3 sablonnal, teszteld, majd bővíts",
+        "Mindig 0 sablonnal kezdj",
+        "Ne tesztelj",
+        "Ne adj kontextust"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    }
+  ]
+}

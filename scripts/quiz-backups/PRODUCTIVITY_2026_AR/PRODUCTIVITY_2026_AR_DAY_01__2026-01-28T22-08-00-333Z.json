@@ -1,0 +1,168 @@
+{
+  "backedUpAt": "2026-01-28T22:08:14.155Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_AR",
+    "name": "الإنتاجية 2026: كيفية إدارة الفرق والوقت",
+    "language": "ar"
+  },
+  "lesson": {
+    "dayNumber": 1,
+    "title": "تعريف الإنتاجية: المخرجات والنتائج والقيود",
+    "lessonId": "PRODUCTIVITY_2026_AR_DAY_01"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a5f3ed20b35fb7971c8",
+      "uuid": "835e3998-cdda-430c-adf3-abe20023460b",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "لماذا التركيز على النتائج مهم بدلاً من التركيز على المخرجات؟",
+      "options": [
+        "لأن المخرجات العالية تضمن تلقائيًا نتائج جيدة",
+        "لأن النتائج تجلب قيمة فعلية، وليس كمية الأنشطة",
+        "لأن المخرجات أسهل في القياس",
+        "لأنه لا يوجد فرق"
+      ],
+      "correctIndex": 1,
+      "hashtags": [
+        "#day-01",
+        "#foundation",
+        "#recall",
+        "#ar"
+      ]
+    },
+    {
+      "_id": "69776a5f3ed20b35fb7971c9",
+      "uuid": "8b6f7fa5-8c1a-48fd-8b8e-5999a8320594",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ أنت تميز بين المخرجات والنتائج.\n✅ حددت...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day1",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5f3ed20b35fb7971ca",
+      "uuid": "83f02c6e-310d-4753-8535-b7fa6977dd23",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ أنت تميز بين المخرجات والنتائج.\n✅ حددت...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day1",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5f3ed20b35fb7971cb",
+      "uuid": "dd8f6ad4-b2a6-4262-ab57-9c209ca1a6e3",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ أنت تميز بين المخرجات والنتائج.\n✅ حددت...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day1",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5f3ed20b35fb7971cc",
+      "uuid": "e820eb58-87ef-4b8d-abbc-658261baf188",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "How does the concept \"تعريف الإنتاجية: المخرجات والنتائج والقيود الخطوة ...\" mentioned in the lesson impact achieving your goals?",
+      "options": [
+        "As described in detail in the lesson, تعريف الإنتاجية: المخرجات والن... increases effectiveness and reduces risk",
+        "No significant impact",
+        "Only matters theoretically",
+        "Only an optional element"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day1",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5f3ed20b35fb7971cd",
+      "uuid": "402527e2-19a7-4fc4-baa0-9db84f96c143",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is المخرجات in the context of تعريف الإنتاجية: المخرجات والنتائج والقيود as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, المخرجات plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day1",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5f3ed20b35fb7971ce",
+      "uuid": "e28a5612-0626-4834-8f76-e700e881e0da",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is المفتاح in the context of تعريف الإنتاجية: المخرجات والنتائج والقيود as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, المفتاح plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day1",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

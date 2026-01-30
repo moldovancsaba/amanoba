@@ -1,0 +1,138 @@
+{
+  "backedUpAt": "2026-01-29T07:23:45.444Z",
+  "course": {
+    "courseId": "DONE_BETTER_2026_EN",
+    "name": "Done is better - Build What Matters",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 29,
+    "title": "Your Personal Playbook",
+    "lessonId": "DONE_BETTER_2026_EN_DAY_29"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "697a92f822596d24dfc12da9",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "You want to codify how you work. What should you create?",
+      "options": [
+        "A playbook: principles, checklists, and rules; include problem separation, restatement, moves, feedback, reflection",
+        "A long document with extensive detail but no actionable principles or practices",
+        "A vision statement only without concrete practices or rules you can actually follow",
+        "A list of goals only without methods for achieving them or systematic approaches"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a92f822596d24dfc12dab",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "What should the playbook include from this kind of course?",
+      "options": [
+        "Problem separation, restatement, moves, feedback, reflection; one improvement you will follow",
+        "Only motivational quotes to inspire action without methods or systematic approaches",
+        "Only definitions of concepts without practical application or actionable steps",
+        "Only examples from the course without extracting principles or creating your own rules"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a92f822596d24dfc12dae",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "What should you add for the next 90 days?",
+      "options": [
+        "One rule you will follow from the playbook to build the habit and test its effectiveness",
+        "Everything you learned without focusing on specific practices or actionable changes",
+        "Nothing; the playbook is complete and does not need action or implementation",
+        "Only goals without methods or rules for achieving them or systematic approaches"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a92f822596d24dfc12daf",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How long should a first playbook draft be?",
+      "options": [
+        "One page: principles and one checklist that you can actually use and follow",
+        "As long as possible to include every detail and example regardless of usability",
+        "Only bullet points without explanations or context or actionable guidance",
+        "Only one sentence summarizing everything without actionable steps or practices"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a9488379957dcc63a953a",
+      "uuid": "31c3085e-656f-4600-9c7d-76d319126f6a",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you apply the \"Why it matters:\" concept to a \"Your Personal Playbook\" task so the outcome is measurable and verifiable?",
+      "options": [
+        "I create a checklist, apply it to a small scope first, measure the impact, then roll it out to the full scope",
+        "I keep it as a definition and never validate it in practice",
+        "I skip implementation because it seems time-consuming",
+        "I implement it but do not measure or document anything"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day29",
+        "#en",
+        "#all-languages",
+        "#course-done_better_2026_en",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "697a9488379957dcc63a953b",
+      "uuid": "465b0879-2960-4262-9757-17b7fc866614",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you apply the \"Definition:\" concept to a \"Your Personal Playbook\" task so the outcome is measurable and verifiable?",
+      "options": [
+        "I create a checklist, apply it to a small scope first, measure the impact, then roll it out to the full scope",
+        "I keep it as a definition and never validate it in practice",
+        "I skip implementation because it seems time-consuming",
+        "I implement it but do not measure or document anything"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day29",
+        "#en",
+        "#all-languages",
+        "#course-done_better_2026_en",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "697a9488379957dcc63a953c",
+      "uuid": "96f1efac-3d71-4b06-86d9-a2431e3721aa",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you apply the \"Notes:\" concept to a \"Your Personal Playbook\" task so the outcome is measurable and verifiable?",
+      "options": [
+        "I create a checklist, apply it to a small scope first, measure the impact, then roll it out to the full scope",
+        "I keep it as a definition and never validate it in practice",
+        "I skip implementation because it seems time-consuming",
+        "I implement it but do not measure or document anything"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day29",
+        "#en",
+        "#all-languages",
+        "#course-done_better_2026_en",
+        "#intermediate",
+        "#application"
+      ]
+    }
+  ]
+}

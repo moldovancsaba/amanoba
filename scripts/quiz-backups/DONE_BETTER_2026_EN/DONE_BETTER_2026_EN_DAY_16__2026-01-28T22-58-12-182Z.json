@@ -1,0 +1,114 @@
+{
+  "backedUpAt": "2026-01-28T22:58:15.308Z",
+  "course": {
+    "courseId": "DONE_BETTER_2026_EN",
+    "name": "Done is better - Build What Matters",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 16,
+    "title": "Ship the Skeleton",
+    "lessonId": "DONE_BETTER_2026_EN_DAY_16"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "697a92f622596d24dfc12d1a",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "A team is polishing a feature before any user has seen it. What is the risk?",
+      "options": [
+        "Polish before proof wastes time; ship or test the minimal structure first",
+        "Users will love the polish when they see it",
+        "It will be faster to ship later",
+        "No significant risk in this case"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a92f622596d24dfc12d1b",
+      "questionType": "application",
+      "difficulty": "EASY",
+      "question": "A team wants to build a new dashboard. They create a version with just the core chart and one filter, ship it to 10 users, then add features based on feedback. What is this approach called?",
+      "options": [
+        "Shipping the skeleton: building the minimal structure that could work, then adding detail after validation",
+        "Shipping only wireframes and nothing else without functionality",
+        "Shipping incomplete work without testing or validation",
+        "Shipping without testing or validation to save time"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a92f622596d24dfc12d1c",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How do you identify the skeleton of a deliverable?",
+      "options": [
+        "Ask: what is the minimum structure that could be tested or used to prove the core?",
+        "Remove the last 50% of features without understanding what is essential",
+        "Copy a competitor's MVP without adapting it to your specific context",
+        "Ask the client to choose without understanding what is actually necessary"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a92f622596d24dfc12d1d",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Confusing skeleton with \"incomplete or shoddy work\" can lead to:",
+      "options": [
+        "Never shipping the skeleton and delaying learning from real user feedback",
+        "Faster delivery through skipping the skeleton and building everything at once",
+        "Higher quality by polishing before testing with actual users",
+        "Better design through adding all features before validating the core"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a92f622596d24dfc12d1e",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Why add detail only after the skeleton is validated?",
+      "options": [
+        "Detail after validation is efficient; detail before proof is waste",
+        "Detail is always bad",
+        "Skeleton is enough forever",
+        "It has no effect on outcomes or learning"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a92f622596d24dfc12d1f",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "After shipping the skeleton, what should you do?",
+      "options": [
+        "Get signal from users; add detail only based on evidence of what they actually need",
+        "Add all planned features immediately without waiting for user feedback or validation",
+        "Freeze the product and do not make any changes regardless of feedback or evidence",
+        "Move to the next project without learning from the skeleton launch or user response"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a92f622596d24dfc12d20",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "What is the first step for a deliverable you are working on?",
+      "options": [
+        "Strip it to the skeleton: the minimum that could be tested; ship or test that first",
+        "Finish the full specification before testing anything with users or gathering feedback",
+        "Get sign-off on the complete design before building anything or validating assumptions",
+        "Assign all tasks to the team without identifying what is essential or testable"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    }
+  ]
+}

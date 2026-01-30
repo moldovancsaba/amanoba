@@ -1,0 +1,10 @@
+{
+  "backedUpAt": "2026-01-28T22:55:28.794Z",
+  "courseId": "AI_30_DAY_EN",
+  "lessonId": "AI_30_DAY_EN_DAY_21",
+  "dayNumber": 21,
+  "title": "Building FAQs and knowledge bases",
+  "content": "<h1>Building FAQs and knowledge bases</h1>\n<p><em>Turn scattered questions into a structured, reusable FAQ</em></p>\n<hr />\n<h2>Learning goal</h2>\n<ul>\n<li>Collect top questions and draft concise answers.</li>\n<li>Organize FAQs by category and audience.</li>\n<li>Add guardrails to avoid wrong claims.</li>\n</ul>\n<hr />\n<h2>Why it matters</h2>\n<ul>\n<li>Good FAQs speed support and improve consistent answers.</li>\n<li>Structure helps AI retrieve accurate snippets.</li>\n</ul>\n<hr />\n<h2>Explanation</h2>\n<ul>\n<li>Gather 10–15 real questions from email/chat/support.</li>\n<li>Prompt: “Answer in 2–3 sentences, cite policy if relevant; if unknown, state unknown.”</li>\n<li>Group by topic; add tags (billing, product, policy).</li>\n</ul>\n<hr />\n<h2>Examples</h2>\n<ul>\n<li><strong>Good</strong>: Short answer + link to policy, tags added.</li>\n<li><strong>Poor</strong>: Long, speculative text with no source.</li>\n<hr />\n<h2>Guided exercise (10–15 min)</h2>\n<ol>\n<li>List 10 frequent questions.</li>\n<li>Generate answers with the policy guardrail.</li>\n<li>Tag by category and add source links.</li>\n</ol>\n<h2>Independent exercise (5–10 min)</h2>\n<p>Create a “don’t know? escalate” line for unknown questions.</p>\n<hr />\n<h2>Self-check</h2>\n<ul>\n<li>10 FAQs written.</li>\n<li>Sources/links included where needed.</li>\n<li>Categories/tags applied.</li>\n<li>Unknown path defined.</li>\n</ul>\n<hr />\n<h2>Optional deepening</h2>\n<ul>\n<li>Knowledge base structuring tips: <a href=\"https://platform.openai.com/docs/guides/prompt-engineering\" target=\"_blank\" rel=\"noreferrer\">prompt guide</a></li>\n</ul>",
+  "emailSubject": "AI 30-Day – Day 21: FAQs",
+  "emailBody": "<h1>AI 30-Day – Day 21</h1>\n<h2>Build FAQs</h2>\n<p>Today you’ll draft FAQs with sources and categories.</p>\n<p><a href=\"http://localhost:3000/courses/AI_30_DAY_EN/day/{{dayNumber}}\">Open the lesson →</a></p>"
+}

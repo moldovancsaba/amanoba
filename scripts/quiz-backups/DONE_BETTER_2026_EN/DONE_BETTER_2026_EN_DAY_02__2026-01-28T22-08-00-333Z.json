@@ -1,0 +1,114 @@
+{
+  "backedUpAt": "2026-01-28T22:08:18.499Z",
+  "course": {
+    "courseId": "DONE_BETTER_2026_EN",
+    "name": "Done is better - Build What Matters",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 2,
+    "title": "What Is a Problem, Really?",
+    "lessonId": "DONE_BETTER_2026_EN_DAY_02"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "697a87baa81588c9f41a2180",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "A team keeps missing deadlines. What is the first step to find the real problem?",
+      "options": [
+        "List what you observe (symptoms) and ask what would have to be true for this to happen",
+        "Schedule more meetings to discuss deadlines",
+        "Blame the team for poor execution",
+        "Ignore the pattern and hope it improves"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87baa81588c9f41a2181",
+      "questionType": "application",
+      "difficulty": "EASY",
+      "question": "What is a symptom in problem-solving?",
+      "options": [
+        "An observable sign of something wrong, often confused with the root cause",
+        "The solution to the problem",
+        "A type of project or initiative",
+        "A meeting agenda or checklist"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87baa81588c9f41a2182",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Why is separating symptom from problem important?",
+      "options": [
+        "Treating symptoms wastes effort and leaves the cause intact",
+        "Symptoms are always wrong and misleading",
+        "Problems are easy to see without analysis",
+        "It is not important for delivery"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87baa81588c9f41a2183",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "You see \"low morale\" in a team. What should you do next?",
+      "options": [
+        "Treat it as a symptom; ask what would have to be true for morale to be low",
+        "Assume it is the root cause and address it directly",
+        "Ignore it and focus on deliverables only",
+        "Only measure satisfaction scores and report them"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87baa81588c9f41a2184",
+      "questionType": "critical-thinking",
+      "difficulty": "MEDIUM",
+      "question": "What is the risk of solving only symptoms?",
+      "options": [
+        "The real problem remains and symptoms return or multiply",
+        "You solve everything and the team is happy",
+        "Team gets bored with too much analysis",
+        "No significant risk; symptoms often stay fixed"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87baa81588c9f41a2185",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How do you state the real problem?",
+      "options": [
+        "As an actionable gap between current and desired state, in one sentence",
+        "As a long list of symptoms and observations",
+        "As a blame statement about who failed",
+        "As a wish or vague desired outcome"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87baa81588c9f41a2186",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Which is a symptom rather than a problem?",
+      "options": [
+        "Customers are churning",
+        "We have no retention strategy aligned to value",
+        "We do not know why they leave",
+        "We need more marketing to grow revenue"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    }
+  ]
+}

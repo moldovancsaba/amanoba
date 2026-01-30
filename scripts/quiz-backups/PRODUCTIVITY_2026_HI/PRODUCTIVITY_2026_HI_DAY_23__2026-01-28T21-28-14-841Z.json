@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-28T21:28:26.263Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_HI",
+    "name": "उत्पादकता 2026: टीमों और समय का प्रबंधन कैसे करें",
+    "language": "hi"
+  },
+  "lesson": {
+    "dayNumber": 23,
+    "title": "रचनात्मकता और नवाचार: पुनर्विचार, प्रयोग",
+    "lessonId": "PRODUCTIVITY_2026_HI_DAY_23"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a69206e4784b9a0c1a3",
+      "uuid": "3b4a9e26-bfd1-4ebe-be8b-9f23dc09d7b7",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"काम में रचनात्मकता और नवाचार को एकीकृत करें।\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day23",
+        "#hi",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a69206e4784b9a0c1a4",
+      "uuid": "967c4b8b-bfa2-4a75-9ca4-1b1325a96e76",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"काम में रचनात्मकता और नवाचार को एकीकृत करें।\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day23",
+        "#hi",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a69206e4784b9a0c1a5",
+      "uuid": "5c9081a8-e2e5-4be8-8163-4eb76fc6a2d5",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"काम में रचनात्मकता और नवाचार को एकीकृत करें।\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day23",
+        "#hi",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a69206e4784b9a0c1a6",
+      "uuid": "c2dd9620-8e1f-4769-a3ea-c6c6395203b7",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "पाठ में उल्लिखित अवधारणा \"रचनात्मकता और नवाचार: पुनर्विचार, प्रयोग काम में र...\" आपके goals प्राप्त करने को कैसे प्रभावित करती है?",
+      "options": [
+        "जैसा कि पाठ में विस्तार से वर्णित है, रचनात्मकता और नवाचार: पुनर्विच... प्रभावशीलता बढ़ाता है और जोखिम कम करता है",
+        "कोई महत्वपूर्ण प्रभाव नहीं",
+        "केवल सैद्धांतिक रूप से मायने रखता है",
+        "केवल एक वैकल्पिक तत्व"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day23",
+        "#hi",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a69206e4784b9a0c1a7",
+      "uuid": "ea8ced53-f983-438d-950d-85fc60f19844",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "पाठ में चर्चा किए गए रचनात्मकता और नवाचार: पुनर्विचार, प्रयोग के संदर्भ में रचनात्मकता कितना महत्वपूर्ण है?",
+      "options": [
+        "जैसा कि पाठ में विस्तार से वर्णित है, रचनात्मकता प्रक्रियाओं को अनुकूलित करने और लक्ष्यों को प्राप्त करने में महत्वपूर्ण भूमिका निभाता है",
+        "केवल परिधीय जानकारी, कोई महत्वपूर्ण भूमिका नहीं",
+        "केवल एक सैद्धांतिक अवधारणा, कोई व्यावहारिक अनुप्रयोग नहीं",
+        "पाठ में उल्लेख नहीं किया गया"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day23",
+        "#hi",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a69206e4784b9a0c1a8",
+      "uuid": "37c1d13b-075d-4bea-a5d3-464a7ebf5bb9",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "पाठ में चर्चा किए गए रचनात्मकता और नवाचार: पुनर्विचार, प्रयोग के संदर्भ में पुनर्विचार कितना महत्वपूर्ण है?",
+      "options": [
+        "जैसा कि पाठ में विस्तार से वर्णित है, पुनर्विचार प्रक्रियाओं को अनुकूलित करने और लक्ष्यों को प्राप्त करने में महत्वपूर्ण भूमिका निभाता है",
+        "केवल परिधीय जानकारी, कोई महत्वपूर्ण भूमिका नहीं",
+        "केवल एक सैद्धांतिक अवधारणा, कोई व्यावहारिक अनुप्रयोग नहीं",
+        "पाठ में उल्लेख नहीं किया गया"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day23",
+        "#hi",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a69206e4784b9a0c1a9",
+      "uuid": "5762774e-1330-4e7a-b66c-f5e11d7381ce",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "काम में रचनात्मकता और नवाचार को एकीकृत करें। \"रचनात्मकता और नवाचार: पुनर्विचार, प्रयोग\" पाठ में क्या भूमिका निभाता है?",
+      "options": [
+        "जैसा कि पाठ में विस्तार से वर्णित है, काम में रचनात्मकता और नवाचार को एकीकृत करें। प्रक्रियाओं को अनुकूलित करने और लक्ष्यों को प्राप्त करने में महत्वपूर्ण भूमिका निभाता है",
+        "केवल परिधीय जानकारी, कोई महत्वपूर्ण भूमिका नहीं",
+        "केवल एक सैद्धांतिक अवधारणा, कोई व्यावहारिक अनुप्रयोग नहीं",
+        "पाठ में उल्लेख नहीं किया गया"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day23",
+        "#hi",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

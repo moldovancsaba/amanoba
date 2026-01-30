@@ -1,0 +1,68 @@
+{
+  "backedUpAt": "2026-01-29T17:00:26.009Z",
+  "course": {
+    "courseId": "B2B_SALES_2026_30",
+    "name": "B2B Értékesítés 2026 Masterclass",
+    "language": "hu"
+  },
+  "lesson": {
+    "dayNumber": 20,
+    "title": "Pipeline design: stagenkénti definíciók",
+    "lessonId": "B2B_SALES_2026_30_DAY_20"
+  },
+  "questionCount": 4,
+  "questions": [
+    {
+      "_id": "697b2041ac79ca83bb972289",
+      "difficulty": "MEDIUM",
+      "question": "Miért kell belépési/kilépési feltétel?",
+      "options": [
+        "Dekoráció",
+        "Hogy a stage jelentése egységes és mérhető legyen",
+        "Hosszabb legyen a CRM",
+        "Több e-mailt küldjünk"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b2041ac79ca83bb97228a",
+      "difficulty": "MEDIUM",
+      "question": "Mi a kötelező mezők célja?",
+      "options": [
+        "Design",
+        "Riport és automatizálás alapja",
+        "Marketing",
+        "Nincs cél"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b2041ac79ca83bb97228b",
+      "difficulty": "MEDIUM",
+      "question": "Mi a rossz példa?",
+      "options": [
+        "„Call után ide rakom, ha úgy érzem”",
+        "Belépés: ICP+probléma; Kilépés: döntési folyamat ismert",
+        "Next step és felelős rögzítve",
+        "Forrás mező kitöltve"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b2041ac79ca83bb97228c",
+      "difficulty": "MEDIUM",
+      "question": "Mi legyen minden dealen?",
+      "options": [
+        "Emotikon",
+        "Next step + dátum + felelős",
+        "Csak érték",
+        "Csak jegyzet"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    }
+  ]
+}

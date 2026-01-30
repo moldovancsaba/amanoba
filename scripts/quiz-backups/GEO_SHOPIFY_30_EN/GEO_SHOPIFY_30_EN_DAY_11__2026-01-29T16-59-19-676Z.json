@@ -1,0 +1,81 @@
+{
+  "backedUpAt": "2026-01-29T16:59:21.856Z",
+  "course": {
+    "courseId": "GEO_SHOPIFY_30_EN",
+    "name": "GEO Shopify – 30-day course",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 11,
+    "title": "Trust signals: identity, support, proof",
+    "lessonId": "GEO_SHOPIFY_30_EN_DAY_11"
+  },
+  "questionCount": 5,
+  "questions": [
+    {
+      "_id": "697b200402f89b2246e06e06",
+      "difficulty": "EASY",
+      "question": "What are the three trust elements?",
+      "options": [
+        "Identity, support, proof",
+        "Only meta title",
+        "Only images",
+        "Only price"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b200402f89b2246e06e07",
+      "difficulty": "MEDIUM",
+      "question": "Why must proof be real?",
+      "options": [
+        "AI and users must trust it; fake proof is risky",
+        "It does not matter",
+        "Only for design",
+        "Only for SEO keywords"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b200402f89b2246e06e08",
+      "difficulty": "MEDIUM",
+      "question": "Where should you place the trust block?",
+      "options": [
+        "PDP/collection/about pages",
+        "Hidden in footer only",
+        "Nowhere",
+        "Blog only"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b200402f89b2246e06e09",
+      "difficulty": "HARD",
+      "question": "Why show support response time?",
+      "options": [
+        "Transparency and quotability",
+        "Not needed",
+        "Only for ads",
+        "Only for speed"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b200402f89b2246e06e0a",
+      "difficulty": "EASY",
+      "question": "What is a poor trust example?",
+      "options": [
+        "No contact, fake reviews, empty about",
+        "Contact shown, real reviews",
+        "Warranty listed",
+        "Support channels visible"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    }
+  ]
+}

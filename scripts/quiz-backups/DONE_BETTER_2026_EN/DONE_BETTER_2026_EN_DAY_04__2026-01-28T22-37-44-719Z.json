@@ -1,0 +1,114 @@
+{
+  "backedUpAt": "2026-01-28T22:37:46.939Z",
+  "course": {
+    "courseId": "DONE_BETTER_2026_EN",
+    "name": "Done is better - Build What Matters",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 4,
+    "title": "Unknowns Are Assets",
+    "lessonId": "DONE_BETTER_2026_EN_DAY_04"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "697a87baa81588c9f41a21b3",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How should you treat unknowns?",
+      "options": [
+        "As assets that guide inquiry and next steps",
+        "As weaknesses to hide from others",
+        "As reasons not to act until certainty",
+        "As irrelevant to the decision at hand"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87baa81588c9f41a21b4",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Why is naming unknowns important?",
+      "options": [
+        "It reduces the cost of not knowing and aligns others",
+        "It makes you look smart and in control",
+        "It is required by law or policy",
+        "It has no effect on outcomes"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87baa81588c9f41a21b5",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "What is a good way to communicate unknowns?",
+      "options": [
+        "What you do not know yet, and when or how you will find out",
+        "Only what you know and skip the rest",
+        "Vague statements to avoid commitment",
+        "Nothing; keep them to yourself"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87baa81588c9f41a21b6",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Saying \"I don't know yet\" in a project context is best described as:",
+      "options": [
+        "Leadership: it builds trust and sets expectations",
+        "Weakness that undermines authority",
+        "Rude or unprofessional behavior",
+        "Unnecessary if you have a plan"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87baa81588c9f41a21b7",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "What is the risk of making decisions as if unknowns do not exist?",
+      "options": [
+        "Surprises and rework when reality diverges from assumptions",
+        "Faster decisions with no downside",
+        "No significant risk in most cases",
+        "Higher confidence and team alignment"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87baa81588c9f41a21b8",
+      "questionType": "application",
+      "difficulty": "EASY",
+      "question": "In this framework, how do unknowns function as a map for next steps?",
+      "options": [
+        "They show what to learn or validate next",
+        "They are a physical map of the project",
+        "They replace the need for a formal plan",
+        "They do not; unknowns are irrelevant"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87baa81588c9f41a21b9",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Which behavior undermines trust?",
+      "options": [
+        "Hiding unknowns to look in control",
+        "Listing what you don't know yet",
+        "Setting a date to revisit the question",
+        "Asking for input from stakeholders"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    }
+  ]
+}

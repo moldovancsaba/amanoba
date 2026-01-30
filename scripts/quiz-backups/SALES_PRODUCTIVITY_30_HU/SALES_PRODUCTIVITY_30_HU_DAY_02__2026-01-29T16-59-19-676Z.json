@@ -1,0 +1,184 @@
+{
+  "backedUpAt": "2026-01-29T16:59:44.873Z",
+  "course": {
+    "courseId": "SALES_PRODUCTIVITY_30_HU",
+    "name": "Értékesítés 2026 - Sales Reset",
+    "language": "hu"
+  },
+  "lesson": {
+    "dayNumber": 2,
+    "title": "KPI-k és célok beállítása – Hogyan számolj visszafelé?",
+    "lessonId": "SALES_PRODUCTIVITY_30_HU_DAY_02"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "6979db369316e77110ed0515",
+      "uuid": "568ba286-a822-4e78-a97f-8cbee8d52d1b",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Egy új gyakorlatot vezetsz be: „Gyakorlat 1 – Visszafelé számolás (20 perc) Állíts be egy ha”. Melyik bevezetési terv biztosít mérhető kimenetet és gyors visszacsatolást?",
+      "options": [
+        "Lépésről lépésre bevezetem, előtte/utána mérőpontokat állítok be, dokumentálom az eredményt, és iterálok a hibák alapján",
+        "Egyszerre mindent átállítok, majd nem ellenőrzöm, mi romlott el",
+        "Csak elolvasom, de nem építem be a folyamatomba",
+        "Megvárom, hogy valaki más készítsen helyettem megoldást"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day2",
+        "#hu",
+        "#all-languages",
+        "#course-sales_productivity_30_hu",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "6979db369316e77110ed0516",
+      "uuid": "37b1777c-3496-4e96-be63-7ea6161bdd61",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Egy új gyakorlatot vezetsz be: „Gyakorlat 2 – KPI követő táblázat (15 perc) Hozz létre egy K”. Melyik bevezetési terv biztosít mérhető kimenetet és gyors visszacsatolást?",
+      "options": [
+        "Lépésről lépésre bevezetem, előtte/utána mérőpontokat állítok be, dokumentálom az eredményt, és iterálok a hibák alapján",
+        "Egyszerre mindent átállítok, majd nem ellenőrzöm, mi romlott el",
+        "Csak elolvasom, de nem építem be a folyamatomba",
+        "Megvárom, hogy valaki más készítsen helyettem megoldást"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day2",
+        "#hu",
+        "#all-languages",
+        "#course-sales_productivity_30_hu",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "6979db369316e77110ed0517",
+      "uuid": "4f3d766c-3eb4-4531-86eb-ff8ea147c25c",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Egy új gyakorlatot vezetsz be: „példa: Konkrét KPI-k Havi cél: 4 lezárás Napi 20 új lead (Li”. Melyik bevezetési terv biztosít mérhető kimenetet és gyors visszacsatolást?",
+      "options": [
+        "Lépésről lépésre bevezetem, előtte/utána mérőpontokat állítok be, dokumentálom az eredményt, és iterálok a hibák alapján",
+        "Egyszerre mindent átállítok, majd nem ellenőrzöm, mi romlott el",
+        "Csak elolvasom, de nem építem be a folyamatomba",
+        "Megvárom, hogy valaki más készítsen helyettem megoldást"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day2",
+        "#hu",
+        "#all-languages",
+        "#course-sales_productivity_30_hu",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "6979db369316e77110ed0518",
+      "uuid": "524a909c-37aa-4a9a-9a3f-2e53ea5c91b9",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Egy új gyakorlatot vezetsz be: „példa: Homályos célok Havi cél: \"Sok üzlet\" \"Több lead\" \"Jó ”. Melyik bevezetési terv biztosít mérhető kimenetet és gyors visszacsatolást?",
+      "options": [
+        "Lépésről lépésre bevezetem, előtte/utána mérőpontokat állítok be, dokumentálom az eredményt, és iterálok a hibák alapján",
+        "Egyszerre mindent átállítok, majd nem ellenőrzöm, mi romlott el",
+        "Csak elolvasom, de nem építem be a folyamatomba",
+        "Megvárom, hogy valaki más készítsen helyettem megoldást"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day2",
+        "#hu",
+        "#all-languages",
+        "#course-sales_productivity_30_hu",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "6979db369316e77110ed0519",
+      "uuid": "ac4b2a9e-e58b-4109-b2ad-cd96bb76b037",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Egy projektben a „Rossz cél = rossz eredmény.” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?",
+      "options": [
+        "Konkrét ellenőrzőlistát készítek, implementálom egy kis scope-on, tesztelem a hatást, majd kiterjesztem a teljes scope-ra",
+        "Csak definícióként kezelem, ezért nem derül ki, működik-e a gyakorlatban",
+        "Kihagyom az implementációt, mert túl időigényesnek tűnik",
+        "Végrehajtom, de nem mérek és nem dokumentálok semmit"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day2",
+        "#hu",
+        "#all-languages",
+        "#course-sales_productivity_30_hu",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "6979db369316e77110ed051a",
+      "uuid": "506ac08c-26bc-4be1-b8b4-0bf1e6913622",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Egy vezető a következő elv szerint dönt: „fontos ez? Rossz cél = rossz eredmény”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?",
+      "options": [
+        "A fókusz növelheti az eredményességet, mert a korlátok mellett a legnagyobb hatású kimenetre koncentrál; kockázat: rossz mérőszámra optimalizálva „látszat‑output” készül.",
+        "Az output automatikusan egyenlő az eredménnyel, ezért elég több feladatot lezárni; kockázat: nő az aktivitás, de romlik az ügyfélérték és a minőség.",
+        "A korlátok (idő/energia/figyelem) figyelmen kívül hagyhatók, mert a termelékenység csak akaraterő kérdése; kockázat: túlterhelés, hibák és kiégés.",
+        "A sebesség maximalizálása a legfontosabb, a minőség majd „később” javítható; kockázat: utómunka, újranyitások és bizalomvesztés alakul ki."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day2",
+        "#hu",
+        "#all-languages",
+        "#course-sales_productivity_30_hu",
+        "#productivity",
+        "#sales",
+        "#advanced",
+        "#critical-thinking"
+      ]
+    },
+    {
+      "_id": "6979db369316e77110ed051b",
+      "uuid": "68ca1351-e71d-4906-bd9d-74549fa03848",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Egy vezető a következő elv szerint dönt: „KPI-k és célok beállítása – Hogyan számolj visszafelé”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?",
+      "options": [
+        "A fókusz növelheti az eredményességet, mert a korlátok mellett a legnagyobb hatású kimenetre koncentrál; kockázat: rossz mérőszámra optimalizálva „látszat‑output” készül.",
+        "Az output automatikusan egyenlő az eredménnyel, ezért elég több feladatot lezárni; kockázat: nő az aktivitás, de romlik az ügyfélérték és a minőség.",
+        "A korlátok (idő/energia/figyelem) figyelmen kívül hagyhatók, mert a termelékenység csak akaraterő kérdése; kockázat: túlterhelés, hibák és kiégés.",
+        "A sebesség maximalizálása a legfontosabb, a minőség majd „később” javítható; kockázat: utómunka, újranyitások és bizalomvesztés alakul ki."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day2",
+        "#hu",
+        "#all-languages",
+        "#course-sales_productivity_30_hu",
+        "#productivity",
+        "#sales",
+        "#advanced",
+        "#critical-thinking"
+      ]
+    }
+  ]
+}

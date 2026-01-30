@@ -1,0 +1,2200 @@
+{
+  "generatedAt": "2026-01-28T22:37:36.690Z",
+  "courseId": "DONE_BETTER_2026_EN",
+  "fromDay": 1,
+  "toDay": 30,
+  "apply": true,
+  "totals": {
+    "considered": 30,
+    "eligible70": 30,
+    "below70": 0,
+    "applied": 27
+  },
+  "planRows": [
+    {
+      "day": 1,
+      "lessonId": "DONE_BETTER_2026_EN_DAY_01",
+      "title": "Welcome to Real Thinking",
+      "action": "REFINE",
+      "quality": {
+        "old": {
+          "score": 50,
+          "issues": [
+            "TOO_SHORT",
+            "NO_CONTRASTS_GOOD_BAD",
+            "NO_METRICS_OR_CRITERIA"
+          ],
+          "signals": {
+            "charCount": 931,
+            "wordCount": 152,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": true,
+            "hasGoodBadContrast": false,
+            "hasMetricsOrCriteria": false,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": true,
+            "addPitfallsSection": true,
+            "addMetricsSection": true
+          }
+        },
+        "next": {
+          "score": 100,
+          "issues": [],
+          "signals": {
+            "charCount": 1888,
+            "wordCount": 299,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 931,
+        "nextChars": 1888
+      },
+      "applyEligible": true,
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      }
+    },
+    {
+      "day": 2,
+      "lessonId": "DONE_BETTER_2026_EN_DAY_02",
+      "title": "What Is a Problem, Really?",
+      "action": "SKIP_ALREADY_OK",
+      "quality": {
+        "old": {
+          "score": 75,
+          "issues": [
+            "NO_CONTRASTS_GOOD_BAD",
+            "NO_METRICS_OR_CRITERIA"
+          ],
+          "signals": {
+            "charCount": 1526,
+            "wordCount": 254,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": true,
+            "hasGoodBadContrast": false,
+            "hasMetricsOrCriteria": false,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": true,
+            "addPitfallsSection": true,
+            "addMetricsSection": true
+          }
+        },
+        "next": {
+          "score": 75,
+          "issues": [
+            "NO_CONTRASTS_GOOD_BAD",
+            "NO_METRICS_OR_CRITERIA"
+          ],
+          "signals": {
+            "charCount": 1526,
+            "wordCount": 254,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": true,
+            "hasGoodBadContrast": false,
+            "hasMetricsOrCriteria": false,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": true,
+            "addPitfallsSection": true,
+            "addMetricsSection": true
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 1526,
+        "nextChars": 1526
+      },
+      "applyEligible": true
+    },
+    {
+      "day": 3,
+      "lessonId": "DONE_BETTER_2026_EN_DAY_03",
+      "title": "Understand Before You Move",
+      "action": "REFINE",
+      "quality": {
+        "old": {
+          "score": 35,
+          "issues": [
+            "TOO_SHORT",
+            "NO_EXAMPLES",
+            "NO_CONTRASTS_GOOD_BAD",
+            "NO_METRICS_OR_CRITERIA"
+          ],
+          "signals": {
+            "charCount": 907,
+            "wordCount": 147,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": false,
+            "hasGoodBadContrast": false,
+            "hasMetricsOrCriteria": false,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": true,
+            "addPitfallsSection": true,
+            "addMetricsSection": true
+          }
+        },
+        "next": {
+          "score": 100,
+          "issues": [],
+          "signals": {
+            "charCount": 1905,
+            "wordCount": 300,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 907,
+        "nextChars": 1905
+      },
+      "applyEligible": true,
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      }
+    },
+    {
+      "day": 4,
+      "lessonId": "DONE_BETTER_2026_EN_DAY_04",
+      "title": "Unknowns Are Assets",
+      "action": "REFINE",
+      "quality": {
+        "old": {
+          "score": 20,
+          "issues": [
+            "TOO_SHORT",
+            "NO_CLEAR_DEFINITIONS",
+            "NO_EXAMPLES",
+            "NO_CONTRASTS_GOOD_BAD",
+            "NO_METRICS_OR_CRITERIA"
+          ],
+          "signals": {
+            "charCount": 884,
+            "wordCount": 156,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": false,
+            "hasGoodBadContrast": false,
+            "hasMetricsOrCriteria": false,
+            "hasDefinitionsOrComparisons": false
+          },
+          "refineTemplate": {
+            "addDefinitionSection": true,
+            "addChecklistSection": false,
+            "addExamplesSection": true,
+            "addPitfallsSection": true,
+            "addMetricsSection": true
+          }
+        },
+        "next": {
+          "score": 100,
+          "issues": [],
+          "signals": {
+            "charCount": 1640,
+            "wordCount": 272,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 884,
+        "nextChars": 1640
+      },
+      "applyEligible": true,
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      }
+    },
+    {
+      "day": 5,
+      "lessonId": "DONE_BETTER_2026_EN_DAY_05",
+      "title": "Rewriting the Problem",
+      "action": "REFINE",
+      "quality": {
+        "old": {
+          "score": 45,
+          "issues": [
+            "NO_CLEAR_DEFINITIONS",
+            "NO_EXAMPLES",
+            "NO_CONTRASTS_GOOD_BAD",
+            "NO_METRICS_OR_CRITERIA"
+          ],
+          "signals": {
+            "charCount": 1175,
+            "wordCount": 194,
+            "hasBullets": true,
+            "hasNumberedSteps": true,
+            "hasExamples": false,
+            "hasGoodBadContrast": false,
+            "hasMetricsOrCriteria": false,
+            "hasDefinitionsOrComparisons": false
+          },
+          "refineTemplate": {
+            "addDefinitionSection": true,
+            "addChecklistSection": false,
+            "addExamplesSection": true,
+            "addPitfallsSection": true,
+            "addMetricsSection": true
+          }
+        },
+        "next": {
+          "score": 100,
+          "issues": [],
+          "signals": {
+            "charCount": 1998,
+            "wordCount": 331,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 1175,
+        "nextChars": 1998
+      },
+      "applyEligible": true,
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      }
+    },
+    {
+      "day": 6,
+      "lessonId": "DONE_BETTER_2026_EN_DAY_06",
+      "title": "Decompose Everything",
+      "action": "REFINE",
+      "quality": {
+        "old": {
+          "score": 45,
+          "issues": [
+            "NO_CLEAR_DEFINITIONS",
+            "NO_EXAMPLES",
+            "NO_CONTRASTS_GOOD_BAD",
+            "NO_METRICS_OR_CRITERIA"
+          ],
+          "signals": {
+            "charCount": 1188,
+            "wordCount": 188,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": false,
+            "hasGoodBadContrast": false,
+            "hasMetricsOrCriteria": false,
+            "hasDefinitionsOrComparisons": false
+          },
+          "refineTemplate": {
+            "addDefinitionSection": true,
+            "addChecklistSection": false,
+            "addExamplesSection": true,
+            "addPitfallsSection": true,
+            "addMetricsSection": true
+          }
+        },
+        "next": {
+          "score": 100,
+          "issues": [],
+          "signals": {
+            "charCount": 2331,
+            "wordCount": 370,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 1188,
+        "nextChars": 2331
+      },
+      "applyEligible": true,
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      }
+    },
+    {
+      "day": 7,
+      "lessonId": "DONE_BETTER_2026_EN_DAY_07",
+      "title": "Find the Leverage Point",
+      "action": "REFINE",
+      "quality": {
+        "old": {
+          "score": 20,
+          "issues": [
+            "TOO_SHORT",
+            "NO_CLEAR_DEFINITIONS",
+            "NO_EXAMPLES",
+            "NO_CONTRASTS_GOOD_BAD",
+            "NO_METRICS_OR_CRITERIA"
+          ],
+          "signals": {
+            "charCount": 924,
+            "wordCount": 148,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": false,
+            "hasGoodBadContrast": false,
+            "hasMetricsOrCriteria": false,
+            "hasDefinitionsOrComparisons": false
+          },
+          "refineTemplate": {
+            "addDefinitionSection": true,
+            "addChecklistSection": false,
+            "addExamplesSection": true,
+            "addPitfallsSection": true,
+            "addMetricsSection": true
+          }
+        },
+        "next": {
+          "score": 100,
+          "issues": [],
+          "signals": {
+            "charCount": 1998,
+            "wordCount": 310,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 924,
+        "nextChars": 1998
+      },
+      "applyEligible": true,
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      }
+    },
+    {
+      "day": 8,
+      "lessonId": "DONE_BETTER_2026_EN_DAY_08",
+      "title": "Plans Are Hypotheses",
+      "action": "REFINE",
+      "quality": {
+        "old": {
+          "score": 45,
+          "issues": [
+            "NO_CLEAR_DEFINITIONS",
+            "NO_EXAMPLES",
+            "NO_CONTRASTS_GOOD_BAD",
+            "NO_METRICS_OR_CRITERIA"
+          ],
+          "signals": {
+            "charCount": 1078,
+            "wordCount": 198,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": false,
+            "hasGoodBadContrast": false,
+            "hasMetricsOrCriteria": false,
+            "hasDefinitionsOrComparisons": false
+          },
+          "refineTemplate": {
+            "addDefinitionSection": true,
+            "addChecklistSection": false,
+            "addExamplesSection": true,
+            "addPitfallsSection": true,
+            "addMetricsSection": true
+          }
+        },
+        "next": {
+          "score": 100,
+          "issues": [],
+          "signals": {
+            "charCount": 1758,
+            "wordCount": 299,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 1078,
+        "nextChars": 1758
+      },
+      "applyEligible": true,
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      }
+    },
+    {
+      "day": 9,
+      "lessonId": "DONE_BETTER_2026_EN_DAY_09",
+      "title": "Think in Moves, Not Projects",
+      "action": "REFINE",
+      "quality": {
+        "old": {
+          "score": 60,
+          "issues": [
+            "NO_EXAMPLES",
+            "NO_CONTRASTS_GOOD_BAD",
+            "NO_METRICS_OR_CRITERIA"
+          ],
+          "signals": {
+            "charCount": 1082,
+            "wordCount": 185,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": false,
+            "hasGoodBadContrast": false,
+            "hasMetricsOrCriteria": false,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": true,
+            "addPitfallsSection": true,
+            "addMetricsSection": true
+          }
+        },
+        "next": {
+          "score": 100,
+          "issues": [],
+          "signals": {
+            "charCount": 2183,
+            "wordCount": 372,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 1082,
+        "nextChars": 2183
+      },
+      "applyEligible": true,
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      }
+    },
+    {
+      "day": 10,
+      "lessonId": "DONE_BETTER_2026_EN_DAY_10",
+      "title": "Analogy as a Weapon",
+      "action": "REFINE",
+      "quality": {
+        "old": {
+          "score": 20,
+          "issues": [
+            "TOO_SHORT",
+            "NO_CLEAR_DEFINITIONS",
+            "NO_EXAMPLES",
+            "NO_CONTRASTS_GOOD_BAD",
+            "NO_METRICS_OR_CRITERIA"
+          ],
+          "signals": {
+            "charCount": 910,
+            "wordCount": 141,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": false,
+            "hasGoodBadContrast": false,
+            "hasMetricsOrCriteria": false,
+            "hasDefinitionsOrComparisons": false
+          },
+          "refineTemplate": {
+            "addDefinitionSection": true,
+            "addChecklistSection": false,
+            "addExamplesSection": true,
+            "addPitfallsSection": true,
+            "addMetricsSection": true
+          }
+        },
+        "next": {
+          "score": 100,
+          "issues": [],
+          "signals": {
+            "charCount": 1663,
+            "wordCount": 264,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 910,
+        "nextChars": 1663
+      },
+      "applyEligible": true,
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      }
+    },
+    {
+      "day": 11,
+      "lessonId": "DONE_BETTER_2026_EN_DAY_11",
+      "title": "Working Backwards",
+      "action": "SKIP_ALREADY_OK",
+      "quality": {
+        "old": {
+          "score": 75,
+          "issues": [
+            "NO_CONTRASTS_GOOD_BAD",
+            "NO_METRICS_OR_CRITERIA"
+          ],
+          "signals": {
+            "charCount": 1137,
+            "wordCount": 194,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": true,
+            "hasGoodBadContrast": false,
+            "hasMetricsOrCriteria": false,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": true,
+            "addPitfallsSection": true,
+            "addMetricsSection": true
+          }
+        },
+        "next": {
+          "score": 75,
+          "issues": [
+            "NO_CONTRASTS_GOOD_BAD",
+            "NO_METRICS_OR_CRITERIA"
+          ],
+          "signals": {
+            "charCount": 1137,
+            "wordCount": 194,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": true,
+            "hasGoodBadContrast": false,
+            "hasMetricsOrCriteria": false,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": true,
+            "addPitfallsSection": true,
+            "addMetricsSection": true
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 1137,
+        "nextChars": 1137
+      },
+      "applyEligible": true
+    },
+    {
+      "day": 12,
+      "lessonId": "DONE_BETTER_2026_EN_DAY_12",
+      "title": "Simplify Until It Breaks",
+      "action": "REFINE",
+      "quality": {
+        "old": {
+          "score": 20,
+          "issues": [
+            "TOO_SHORT",
+            "NO_CLEAR_DEFINITIONS",
+            "NO_EXAMPLES",
+            "NO_CONTRASTS_GOOD_BAD",
+            "NO_METRICS_OR_CRITERIA"
+          ],
+          "signals": {
+            "charCount": 924,
+            "wordCount": 156,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": false,
+            "hasGoodBadContrast": false,
+            "hasMetricsOrCriteria": false,
+            "hasDefinitionsOrComparisons": false
+          },
+          "refineTemplate": {
+            "addDefinitionSection": true,
+            "addChecklistSection": false,
+            "addExamplesSection": true,
+            "addPitfallsSection": true,
+            "addMetricsSection": true
+          }
+        },
+        "next": {
+          "score": 100,
+          "issues": [],
+          "signals": {
+            "charCount": 1642,
+            "wordCount": 267,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 924,
+        "nextChars": 1642
+      },
+      "applyEligible": true,
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      }
+    },
+    {
+      "day": 13,
+      "lessonId": "DONE_BETTER_2026_EN_DAY_13",
+      "title": "Multiple Paths Thinking",
+      "action": "REFINE",
+      "quality": {
+        "old": {
+          "score": 60,
+          "issues": [
+            "NO_EXAMPLES",
+            "NO_CONTRASTS_GOOD_BAD",
+            "NO_METRICS_OR_CRITERIA"
+          ],
+          "signals": {
+            "charCount": 1108,
+            "wordCount": 191,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": false,
+            "hasGoodBadContrast": false,
+            "hasMetricsOrCriteria": false,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": true,
+            "addPitfallsSection": true,
+            "addMetricsSection": true
+          }
+        },
+        "next": {
+          "score": 100,
+          "issues": [],
+          "signals": {
+            "charCount": 1697,
+            "wordCount": 282,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 1108,
+        "nextChars": 1697
+      },
+      "applyEligible": true,
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      }
+    },
+    {
+      "day": 14,
+      "lessonId": "DONE_BETTER_2026_EN_DAY_14",
+      "title": "Choose with Intent",
+      "action": "REFINE",
+      "quality": {
+        "old": {
+          "score": 50,
+          "issues": [
+            "TOO_SHORT",
+            "NO_EXAMPLES",
+            "NO_CONTRASTS_GOOD_BAD"
+          ],
+          "signals": {
+            "charCount": 915,
+            "wordCount": 148,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": false,
+            "hasGoodBadContrast": false,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": true,
+            "addPitfallsSection": true,
+            "addMetricsSection": false
+          }
+        },
+        "next": {
+          "score": 100,
+          "issues": [],
+          "signals": {
+            "charCount": 1895,
+            "wordCount": 304,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 915,
+        "nextChars": 1895
+      },
+      "applyEligible": true,
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      }
+    },
+    {
+      "day": 15,
+      "lessonId": "DONE_BETTER_2026_EN_DAY_15",
+      "title": "Done Means Testable",
+      "action": "REFINE",
+      "quality": {
+        "old": {
+          "score": 50,
+          "issues": [
+            "TOO_SHORT",
+            "NO_CONTRASTS_GOOD_BAD",
+            "NO_METRICS_OR_CRITERIA"
+          ],
+          "signals": {
+            "charCount": 869,
+            "wordCount": 156,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": true,
+            "hasGoodBadContrast": false,
+            "hasMetricsOrCriteria": false,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": true,
+            "addPitfallsSection": true,
+            "addMetricsSection": true
+          }
+        },
+        "next": {
+          "score": 100,
+          "issues": [],
+          "signals": {
+            "charCount": 1805,
+            "wordCount": 303,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 869,
+        "nextChars": 1805
+      },
+      "applyEligible": true,
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      }
+    },
+    {
+      "day": 16,
+      "lessonId": "DONE_BETTER_2026_EN_DAY_16",
+      "title": "Ship the Skeleton",
+      "action": "REFINE",
+      "quality": {
+        "old": {
+          "score": 35,
+          "issues": [
+            "TOO_SHORT",
+            "NO_EXAMPLES",
+            "NO_CONTRASTS_GOOD_BAD",
+            "NO_METRICS_OR_CRITERIA"
+          ],
+          "signals": {
+            "charCount": 878,
+            "wordCount": 143,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": false,
+            "hasGoodBadContrast": false,
+            "hasMetricsOrCriteria": false,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": true,
+            "addPitfallsSection": true,
+            "addMetricsSection": true
+          }
+        },
+        "next": {
+          "score": 100,
+          "issues": [],
+          "signals": {
+            "charCount": 1810,
+            "wordCount": 293,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 878,
+        "nextChars": 1810
+      },
+      "applyEligible": true,
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      }
+    },
+    {
+      "day": 17,
+      "lessonId": "DONE_BETTER_2026_EN_DAY_17",
+      "title": "Fast Feedback Loops",
+      "action": "REFINE",
+      "quality": {
+        "old": {
+          "score": 20,
+          "issues": [
+            "TOO_SHORT",
+            "NO_CLEAR_DEFINITIONS",
+            "NO_EXAMPLES",
+            "NO_CONTRASTS_GOOD_BAD",
+            "NO_METRICS_OR_CRITERIA"
+          ],
+          "signals": {
+            "charCount": 821,
+            "wordCount": 135,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": false,
+            "hasGoodBadContrast": false,
+            "hasMetricsOrCriteria": false,
+            "hasDefinitionsOrComparisons": false
+          },
+          "refineTemplate": {
+            "addDefinitionSection": true,
+            "addChecklistSection": false,
+            "addExamplesSection": true,
+            "addPitfallsSection": true,
+            "addMetricsSection": true
+          }
+        },
+        "next": {
+          "score": 100,
+          "issues": [],
+          "signals": {
+            "charCount": 1599,
+            "wordCount": 257,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 821,
+        "nextChars": 1599
+      },
+      "applyEligible": true,
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      }
+    },
+    {
+      "day": 18,
+      "lessonId": "DONE_BETTER_2026_EN_DAY_18",
+      "title": "Kill Beautiful Ideas Early",
+      "action": "REFINE",
+      "quality": {
+        "old": {
+          "score": 45,
+          "issues": [
+            "TOO_SHORT",
+            "NO_EXAMPLES",
+            "NO_METRICS_OR_CRITERIA"
+          ],
+          "signals": {
+            "charCount": 856,
+            "wordCount": 149,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": false,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": false,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": true,
+            "addPitfallsSection": false,
+            "addMetricsSection": true
+          }
+        },
+        "next": {
+          "score": 100,
+          "issues": [],
+          "signals": {
+            "charCount": 1656,
+            "wordCount": 279,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 856,
+        "nextChars": 1656
+      },
+      "applyEligible": true,
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      }
+    },
+    {
+      "day": 19,
+      "lessonId": "DONE_BETTER_2026_EN_DAY_19",
+      "title": "Measure What Matters",
+      "action": "REFINE",
+      "quality": {
+        "old": {
+          "score": 50,
+          "issues": [
+            "TOO_SHORT",
+            "NO_EXAMPLES",
+            "NO_CONTRASTS_GOOD_BAD"
+          ],
+          "signals": {
+            "charCount": 828,
+            "wordCount": 141,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": false,
+            "hasGoodBadContrast": false,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": true,
+            "addPitfallsSection": true,
+            "addMetricsSection": false
+          }
+        },
+        "next": {
+          "score": 100,
+          "issues": [],
+          "signals": {
+            "charCount": 1606,
+            "wordCount": 259,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 828,
+        "nextChars": 1606
+      },
+      "applyEligible": true,
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      }
+    },
+    {
+      "day": 20,
+      "lessonId": "DONE_BETTER_2026_EN_DAY_20",
+      "title": "Pivot Without Drama",
+      "action": "REFINE",
+      "quality": {
+        "old": {
+          "score": 35,
+          "issues": [
+            "TOO_SHORT",
+            "NO_EXAMPLES",
+            "NO_CONTRASTS_GOOD_BAD",
+            "NO_METRICS_OR_CRITERIA"
+          ],
+          "signals": {
+            "charCount": 908,
+            "wordCount": 152,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": false,
+            "hasGoodBadContrast": false,
+            "hasMetricsOrCriteria": false,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": true,
+            "addPitfallsSection": true,
+            "addMetricsSection": true
+          }
+        },
+        "next": {
+          "score": 100,
+          "issues": [],
+          "signals": {
+            "charCount": 1843,
+            "wordCount": 296,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 908,
+        "nextChars": 1843
+      },
+      "applyEligible": true,
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      }
+    },
+    {
+      "day": 21,
+      "lessonId": "DONE_BETTER_2026_EN_DAY_21",
+      "title": "Momentum Over Comfort",
+      "action": "REFINE",
+      "quality": {
+        "old": {
+          "score": 20,
+          "issues": [
+            "TOO_SHORT",
+            "NO_CLEAR_DEFINITIONS",
+            "NO_EXAMPLES",
+            "NO_CONTRASTS_GOOD_BAD",
+            "NO_METRICS_OR_CRITERIA"
+          ],
+          "signals": {
+            "charCount": 894,
+            "wordCount": 144,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": false,
+            "hasGoodBadContrast": false,
+            "hasMetricsOrCriteria": false,
+            "hasDefinitionsOrComparisons": false
+          },
+          "refineTemplate": {
+            "addDefinitionSection": true,
+            "addChecklistSection": false,
+            "addExamplesSection": true,
+            "addPitfallsSection": true,
+            "addMetricsSection": true
+          }
+        },
+        "next": {
+          "score": 100,
+          "issues": [],
+          "signals": {
+            "charCount": 1850,
+            "wordCount": 295,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 894,
+        "nextChars": 1850
+      },
+      "applyEligible": true,
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      }
+    },
+    {
+      "day": 22,
+      "lessonId": "DONE_BETTER_2026_EN_DAY_22",
+      "title": "Truth Is a Tool",
+      "action": "REFINE",
+      "quality": {
+        "old": {
+          "score": 35,
+          "issues": [
+            "TOO_SHORT",
+            "NO_EXAMPLES",
+            "NO_CONTRASTS_GOOD_BAD",
+            "NO_METRICS_OR_CRITERIA"
+          ],
+          "signals": {
+            "charCount": 875,
+            "wordCount": 147,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": false,
+            "hasGoodBadContrast": false,
+            "hasMetricsOrCriteria": false,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": true,
+            "addPitfallsSection": true,
+            "addMetricsSection": true
+          }
+        },
+        "next": {
+          "score": 100,
+          "issues": [],
+          "signals": {
+            "charCount": 1648,
+            "wordCount": 267,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 875,
+        "nextChars": 1648
+      },
+      "applyEligible": true,
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      }
+    },
+    {
+      "day": 23,
+      "lessonId": "DONE_BETTER_2026_EN_DAY_23",
+      "title": "No Surprises Culture",
+      "action": "SKIP_ALREADY_OK",
+      "quality": {
+        "old": {
+          "score": 70,
+          "issues": [
+            "NO_EXAMPLES",
+            "NO_METRICS_OR_CRITERIA"
+          ],
+          "signals": {
+            "charCount": 1124,
+            "wordCount": 198,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": false,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": false,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": true,
+            "addPitfallsSection": false,
+            "addMetricsSection": true
+          }
+        },
+        "next": {
+          "score": 70,
+          "issues": [
+            "NO_EXAMPLES",
+            "NO_METRICS_OR_CRITERIA"
+          ],
+          "signals": {
+            "charCount": 1124,
+            "wordCount": 198,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": false,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": false,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": true,
+            "addPitfallsSection": false,
+            "addMetricsSection": true
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 1124,
+        "nextChars": 1124
+      },
+      "applyEligible": true
+    },
+    {
+      "day": 24,
+      "lessonId": "DONE_BETTER_2026_EN_DAY_24",
+      "title": "Communicate Unknowns",
+      "action": "REFINE",
+      "quality": {
+        "old": {
+          "score": 35,
+          "issues": [
+            "TOO_SHORT",
+            "NO_EXAMPLES",
+            "NO_CONTRASTS_GOOD_BAD",
+            "NO_METRICS_OR_CRITERIA"
+          ],
+          "signals": {
+            "charCount": 870,
+            "wordCount": 152,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": false,
+            "hasGoodBadContrast": false,
+            "hasMetricsOrCriteria": false,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": true,
+            "addPitfallsSection": true,
+            "addMetricsSection": true
+          }
+        },
+        "next": {
+          "score": 100,
+          "issues": [],
+          "signals": {
+            "charCount": 1886,
+            "wordCount": 317,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 870,
+        "nextChars": 1886
+      },
+      "applyEligible": true,
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      }
+    },
+    {
+      "day": 25,
+      "lessonId": "DONE_BETTER_2026_EN_DAY_25",
+      "title": "From Client to Partner",
+      "action": "REFINE",
+      "quality": {
+        "old": {
+          "score": 35,
+          "issues": [
+            "TOO_SHORT",
+            "NO_EXAMPLES",
+            "NO_CONTRASTS_GOOD_BAD",
+            "NO_METRICS_OR_CRITERIA"
+          ],
+          "signals": {
+            "charCount": 993,
+            "wordCount": 144,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": false,
+            "hasGoodBadContrast": false,
+            "hasMetricsOrCriteria": false,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": true,
+            "addPitfallsSection": true,
+            "addMetricsSection": true
+          }
+        },
+        "next": {
+          "score": 100,
+          "issues": [],
+          "signals": {
+            "charCount": 2056,
+            "wordCount": 313,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 993,
+        "nextChars": 2056
+      },
+      "applyEligible": true,
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      }
+    },
+    {
+      "day": 26,
+      "lessonId": "DONE_BETTER_2026_EN_DAY_26",
+      "title": "Reflect Like a Pro",
+      "action": "REFINE",
+      "quality": {
+        "old": {
+          "score": 45,
+          "issues": [
+            "NO_CLEAR_DEFINITIONS",
+            "NO_EXAMPLES",
+            "NO_CONTRASTS_GOOD_BAD",
+            "NO_METRICS_OR_CRITERIA"
+          ],
+          "signals": {
+            "charCount": 1117,
+            "wordCount": 177,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": false,
+            "hasGoodBadContrast": false,
+            "hasMetricsOrCriteria": false,
+            "hasDefinitionsOrComparisons": false
+          },
+          "refineTemplate": {
+            "addDefinitionSection": true,
+            "addChecklistSection": false,
+            "addExamplesSection": true,
+            "addPitfallsSection": true,
+            "addMetricsSection": true
+          }
+        },
+        "next": {
+          "score": 100,
+          "issues": [],
+          "signals": {
+            "charCount": 1725,
+            "wordCount": 273,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 1117,
+        "nextChars": 1725
+      },
+      "applyEligible": true,
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      }
+    },
+    {
+      "day": 27,
+      "lessonId": "DONE_BETTER_2026_EN_DAY_27",
+      "title": "Build Your Thinking Loop",
+      "action": "REFINE",
+      "quality": {
+        "old": {
+          "score": 20,
+          "issues": [
+            "TOO_SHORT",
+            "NO_CLEAR_DEFINITIONS",
+            "NO_EXAMPLES",
+            "NO_CONTRASTS_GOOD_BAD",
+            "NO_METRICS_OR_CRITERIA"
+          ],
+          "signals": {
+            "charCount": 906,
+            "wordCount": 154,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": false,
+            "hasGoodBadContrast": false,
+            "hasMetricsOrCriteria": false,
+            "hasDefinitionsOrComparisons": false
+          },
+          "refineTemplate": {
+            "addDefinitionSection": true,
+            "addChecklistSection": false,
+            "addExamplesSection": true,
+            "addPitfallsSection": true,
+            "addMetricsSection": true
+          }
+        },
+        "next": {
+          "score": 100,
+          "issues": [],
+          "signals": {
+            "charCount": 1830,
+            "wordCount": 285,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 906,
+        "nextChars": 1830
+      },
+      "applyEligible": true,
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      }
+    },
+    {
+      "day": 28,
+      "lessonId": "DONE_BETTER_2026_EN_DAY_28",
+      "title": "From Chaos to Clarity",
+      "action": "REFINE",
+      "quality": {
+        "old": {
+          "score": 35,
+          "issues": [
+            "TOO_SHORT",
+            "NO_EXAMPLES",
+            "NO_CONTRASTS_GOOD_BAD",
+            "NO_METRICS_OR_CRITERIA"
+          ],
+          "signals": {
+            "charCount": 909,
+            "wordCount": 147,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": false,
+            "hasGoodBadContrast": false,
+            "hasMetricsOrCriteria": false,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": true,
+            "addPitfallsSection": true,
+            "addMetricsSection": true
+          }
+        },
+        "next": {
+          "score": 100,
+          "issues": [],
+          "signals": {
+            "charCount": 1982,
+            "wordCount": 312,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 909,
+        "nextChars": 1982
+      },
+      "applyEligible": true,
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      }
+    },
+    {
+      "day": 29,
+      "lessonId": "DONE_BETTER_2026_EN_DAY_29",
+      "title": "Your Personal Playbook",
+      "action": "REFINE",
+      "quality": {
+        "old": {
+          "score": 20,
+          "issues": [
+            "TOO_SHORT",
+            "NO_CLEAR_DEFINITIONS",
+            "NO_EXAMPLES",
+            "NO_CONTRASTS_GOOD_BAD",
+            "NO_METRICS_OR_CRITERIA"
+          ],
+          "signals": {
+            "charCount": 982,
+            "wordCount": 153,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": false,
+            "hasGoodBadContrast": false,
+            "hasMetricsOrCriteria": false,
+            "hasDefinitionsOrComparisons": false
+          },
+          "refineTemplate": {
+            "addDefinitionSection": true,
+            "addChecklistSection": false,
+            "addExamplesSection": true,
+            "addPitfallsSection": true,
+            "addMetricsSection": true
+          }
+        },
+        "next": {
+          "score": 100,
+          "issues": [],
+          "signals": {
+            "charCount": 1932,
+            "wordCount": 290,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 982,
+        "nextChars": 1932
+      },
+      "applyEligible": true,
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      }
+    },
+    {
+      "day": 30,
+      "lessonId": "DONE_BETTER_2026_EN_DAY_30",
+      "title": "The Mind That Handles Anything",
+      "action": "REFINE",
+      "quality": {
+        "old": {
+          "score": 20,
+          "issues": [
+            "TOO_SHORT",
+            "NO_CLEAR_DEFINITIONS",
+            "NO_EXAMPLES",
+            "NO_CONTRASTS_GOOD_BAD",
+            "NO_METRICS_OR_CRITERIA"
+          ],
+          "signals": {
+            "charCount": 947,
+            "wordCount": 153,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": false,
+            "hasGoodBadContrast": false,
+            "hasMetricsOrCriteria": false,
+            "hasDefinitionsOrComparisons": false
+          },
+          "refineTemplate": {
+            "addDefinitionSection": true,
+            "addChecklistSection": false,
+            "addExamplesSection": true,
+            "addPitfallsSection": true,
+            "addMetricsSection": true
+          }
+        },
+        "next": {
+          "score": 100,
+          "issues": [],
+          "signals": {
+            "charCount": 1991,
+            "wordCount": 307,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 947,
+        "nextChars": 1991
+      },
+      "applyEligible": true,
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      }
+    }
+  ],
+  "applyResults": [
+    {
+      "day": 1,
+      "lessonId": "DONE_BETTER_2026_EN_DAY_01",
+      "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/lesson-backups/DONE_BETTER_2026_EN/DONE_BETTER_2026_EN_DAY_01__2026-01-28T22-37-34-200Z.json",
+      "matched": 1,
+      "modified": 1,
+      "newScore": 100
+    },
+    {
+      "day": 3,
+      "lessonId": "DONE_BETTER_2026_EN_DAY_03",
+      "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/lesson-backups/DONE_BETTER_2026_EN/DONE_BETTER_2026_EN_DAY_03__2026-01-28T22-37-34-200Z.json",
+      "matched": 1,
+      "modified": 1,
+      "newScore": 100
+    },
+    {
+      "day": 4,
+      "lessonId": "DONE_BETTER_2026_EN_DAY_04",
+      "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/lesson-backups/DONE_BETTER_2026_EN/DONE_BETTER_2026_EN_DAY_04__2026-01-28T22-37-34-200Z.json",
+      "matched": 1,
+      "modified": 1,
+      "newScore": 100
+    },
+    {
+      "day": 5,
+      "lessonId": "DONE_BETTER_2026_EN_DAY_05",
+      "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/lesson-backups/DONE_BETTER_2026_EN/DONE_BETTER_2026_EN_DAY_05__2026-01-28T22-37-34-200Z.json",
+      "matched": 1,
+      "modified": 1,
+      "newScore": 100
+    },
+    {
+      "day": 6,
+      "lessonId": "DONE_BETTER_2026_EN_DAY_06",
+      "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/lesson-backups/DONE_BETTER_2026_EN/DONE_BETTER_2026_EN_DAY_06__2026-01-28T22-37-34-200Z.json",
+      "matched": 1,
+      "modified": 1,
+      "newScore": 100
+    },
+    {
+      "day": 7,
+      "lessonId": "DONE_BETTER_2026_EN_DAY_07",
+      "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/lesson-backups/DONE_BETTER_2026_EN/DONE_BETTER_2026_EN_DAY_07__2026-01-28T22-37-34-200Z.json",
+      "matched": 1,
+      "modified": 1,
+      "newScore": 100
+    },
+    {
+      "day": 8,
+      "lessonId": "DONE_BETTER_2026_EN_DAY_08",
+      "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/lesson-backups/DONE_BETTER_2026_EN/DONE_BETTER_2026_EN_DAY_08__2026-01-28T22-37-34-200Z.json",
+      "matched": 1,
+      "modified": 1,
+      "newScore": 100
+    },
+    {
+      "day": 9,
+      "lessonId": "DONE_BETTER_2026_EN_DAY_09",
+      "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/lesson-backups/DONE_BETTER_2026_EN/DONE_BETTER_2026_EN_DAY_09__2026-01-28T22-37-34-200Z.json",
+      "matched": 1,
+      "modified": 1,
+      "newScore": 100
+    },
+    {
+      "day": 10,
+      "lessonId": "DONE_BETTER_2026_EN_DAY_10",
+      "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/lesson-backups/DONE_BETTER_2026_EN/DONE_BETTER_2026_EN_DAY_10__2026-01-28T22-37-34-200Z.json",
+      "matched": 1,
+      "modified": 1,
+      "newScore": 100
+    },
+    {
+      "day": 12,
+      "lessonId": "DONE_BETTER_2026_EN_DAY_12",
+      "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/lesson-backups/DONE_BETTER_2026_EN/DONE_BETTER_2026_EN_DAY_12__2026-01-28T22-37-34-200Z.json",
+      "matched": 1,
+      "modified": 1,
+      "newScore": 100
+    },
+    {
+      "day": 13,
+      "lessonId": "DONE_BETTER_2026_EN_DAY_13",
+      "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/lesson-backups/DONE_BETTER_2026_EN/DONE_BETTER_2026_EN_DAY_13__2026-01-28T22-37-34-200Z.json",
+      "matched": 1,
+      "modified": 1,
+      "newScore": 100
+    },
+    {
+      "day": 14,
+      "lessonId": "DONE_BETTER_2026_EN_DAY_14",
+      "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/lesson-backups/DONE_BETTER_2026_EN/DONE_BETTER_2026_EN_DAY_14__2026-01-28T22-37-34-200Z.json",
+      "matched": 1,
+      "modified": 1,
+      "newScore": 100
+    },
+    {
+      "day": 15,
+      "lessonId": "DONE_BETTER_2026_EN_DAY_15",
+      "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/lesson-backups/DONE_BETTER_2026_EN/DONE_BETTER_2026_EN_DAY_15__2026-01-28T22-37-34-200Z.json",
+      "matched": 1,
+      "modified": 1,
+      "newScore": 100
+    },
+    {
+      "day": 16,
+      "lessonId": "DONE_BETTER_2026_EN_DAY_16",
+      "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/lesson-backups/DONE_BETTER_2026_EN/DONE_BETTER_2026_EN_DAY_16__2026-01-28T22-37-34-200Z.json",
+      "matched": 1,
+      "modified": 1,
+      "newScore": 100
+    },
+    {
+      "day": 17,
+      "lessonId": "DONE_BETTER_2026_EN_DAY_17",
+      "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/lesson-backups/DONE_BETTER_2026_EN/DONE_BETTER_2026_EN_DAY_17__2026-01-28T22-37-34-200Z.json",
+      "matched": 1,
+      "modified": 1,
+      "newScore": 100
+    },
+    {
+      "day": 18,
+      "lessonId": "DONE_BETTER_2026_EN_DAY_18",
+      "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/lesson-backups/DONE_BETTER_2026_EN/DONE_BETTER_2026_EN_DAY_18__2026-01-28T22-37-34-200Z.json",
+      "matched": 1,
+      "modified": 1,
+      "newScore": 100
+    },
+    {
+      "day": 19,
+      "lessonId": "DONE_BETTER_2026_EN_DAY_19",
+      "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/lesson-backups/DONE_BETTER_2026_EN/DONE_BETTER_2026_EN_DAY_19__2026-01-28T22-37-34-200Z.json",
+      "matched": 1,
+      "modified": 1,
+      "newScore": 100
+    },
+    {
+      "day": 20,
+      "lessonId": "DONE_BETTER_2026_EN_DAY_20",
+      "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/lesson-backups/DONE_BETTER_2026_EN/DONE_BETTER_2026_EN_DAY_20__2026-01-28T22-37-34-200Z.json",
+      "matched": 1,
+      "modified": 1,
+      "newScore": 100
+    },
+    {
+      "day": 21,
+      "lessonId": "DONE_BETTER_2026_EN_DAY_21",
+      "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/lesson-backups/DONE_BETTER_2026_EN/DONE_BETTER_2026_EN_DAY_21__2026-01-28T22-37-34-200Z.json",
+      "matched": 1,
+      "modified": 1,
+      "newScore": 100
+    },
+    {
+      "day": 22,
+      "lessonId": "DONE_BETTER_2026_EN_DAY_22",
+      "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/lesson-backups/DONE_BETTER_2026_EN/DONE_BETTER_2026_EN_DAY_22__2026-01-28T22-37-34-200Z.json",
+      "matched": 1,
+      "modified": 1,
+      "newScore": 100
+    },
+    {
+      "day": 24,
+      "lessonId": "DONE_BETTER_2026_EN_DAY_24",
+      "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/lesson-backups/DONE_BETTER_2026_EN/DONE_BETTER_2026_EN_DAY_24__2026-01-28T22-37-34-200Z.json",
+      "matched": 1,
+      "modified": 1,
+      "newScore": 100
+    },
+    {
+      "day": 25,
+      "lessonId": "DONE_BETTER_2026_EN_DAY_25",
+      "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/lesson-backups/DONE_BETTER_2026_EN/DONE_BETTER_2026_EN_DAY_25__2026-01-28T22-37-34-200Z.json",
+      "matched": 1,
+      "modified": 1,
+      "newScore": 100
+    },
+    {
+      "day": 26,
+      "lessonId": "DONE_BETTER_2026_EN_DAY_26",
+      "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/lesson-backups/DONE_BETTER_2026_EN/DONE_BETTER_2026_EN_DAY_26__2026-01-28T22-37-34-200Z.json",
+      "matched": 1,
+      "modified": 1,
+      "newScore": 100
+    },
+    {
+      "day": 27,
+      "lessonId": "DONE_BETTER_2026_EN_DAY_27",
+      "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/lesson-backups/DONE_BETTER_2026_EN/DONE_BETTER_2026_EN_DAY_27__2026-01-28T22-37-34-200Z.json",
+      "matched": 1,
+      "modified": 1,
+      "newScore": 100
+    },
+    {
+      "day": 28,
+      "lessonId": "DONE_BETTER_2026_EN_DAY_28",
+      "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/lesson-backups/DONE_BETTER_2026_EN/DONE_BETTER_2026_EN_DAY_28__2026-01-28T22-37-34-200Z.json",
+      "matched": 1,
+      "modified": 1,
+      "newScore": 100
+    },
+    {
+      "day": 29,
+      "lessonId": "DONE_BETTER_2026_EN_DAY_29",
+      "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/lesson-backups/DONE_BETTER_2026_EN/DONE_BETTER_2026_EN_DAY_29__2026-01-28T22-37-34-200Z.json",
+      "matched": 1,
+      "modified": 1,
+      "newScore": 100
+    },
+    {
+      "day": 30,
+      "lessonId": "DONE_BETTER_2026_EN_DAY_30",
+      "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/lesson-backups/DONE_BETTER_2026_EN/DONE_BETTER_2026_EN_DAY_30__2026-01-28T22-37-34-200Z.json",
+      "matched": 1,
+      "modified": 1,
+      "newScore": 100
+    }
+  ]
+}

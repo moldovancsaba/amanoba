@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-28T22:55:45.310Z",
+  "course": {
+    "courseId": "AI_30_DAY_EN",
+    "name": "30-Day AI Catch-Up Program (EN)",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 3,
+    "title": "Iterate: from draft to great output",
+    "lessonId": "AI_30_DAY_EN_DAY_03"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "697769fa27e27f61ac414366",
+      "uuid": "e5f216e2-09c3-48f1-8ec8-e824311b4289",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"Practice structured feedback to the mode...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day3",
+        "#en",
+        "#all-languages",
+        "#ai",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "697769fa27e27f61ac414367",
+      "uuid": "dd536b67-bb30-4057-a9a6-0fbd0187f172",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"exercise (10–15 min)\n\nTake a v1 answer (...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day3",
+        "#en",
+        "#all-languages",
+        "#ai",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "697769fa27e27f61ac414368",
+      "uuid": "8691992e-201b-4d72-874a-d0d71387f412",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"exercise (5–10 min)\nApply the same loop ...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day3",
+        "#en",
+        "#all-languages",
+        "#ai",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "697769fa27e27f61ac414369",
+      "uuid": "026e2c5f-4ff4-44bf-8240-dfef1296e323",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "How does the concept \"Iterate: from draft to great output Feedback makes...\" mentioned in the lesson impact achieving your goals?",
+      "options": [
+        "As described in detail in the lesson, Iterate: from draft to great o... increases effectiveness and reduces risk",
+        "No significant impact",
+        "Only matters theoretically",
+        "Only an optional element"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day3",
+        "#en",
+        "#all-languages",
+        "#ai",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "697769fa27e27f61ac41436a",
+      "uuid": "7e8929bd-5992-41cc-a663-acc0e4221d68",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is Weak feedback in the context of Iterate: from draft to great output as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, Weak feedback plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day3",
+        "#en",
+        "#all-languages",
+        "#ai",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "697769fa27e27f61ac41436b",
+      "uuid": "99703e1f-b9dd-4b0a-ab74-80c8ab100518",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is Iterate in the context of Iterate: from draft to great output as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, Iterate plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day3",
+        "#en",
+        "#all-languages",
+        "#ai",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "697769fa27e27f61ac41436c",
+      "uuid": "904d8527-4d1d-48dd-9eb4-19947a655ea8",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is draft in the context of Iterate: from draft to great output as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, draft plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day3",
+        "#en",
+        "#all-languages",
+        "#ai",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

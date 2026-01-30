@@ -1,0 +1,10 @@
+{
+  "backedUpAt": "2026-01-28T22:37:36.490Z",
+  "courseId": "DONE_BETTER_2026_EN",
+  "lessonId": "DONE_BETTER_2026_EN_DAY_24",
+  "dayNumber": 24,
+  "title": "Communicate Unknowns",
+  "content": "<h1>Communicate Unknowns</h1>\n<p><em>Saying \"I don't know yet\" is leadership.</em></p>\n<hr />\n<h2>Learning goal</h2>\n<ul>\n<li>Name what you do not know.</li>\n<li>Say when you will know it (or how you will find out).</li>\n<li>Reduce anxiety by making unknowns explicit.</li>\n</ul>\n<hr />\n<h2>Why it matters</h2>\n<ul>\n<li>Hidden unknowns create anxiety.</li>\n<li>Naming unknowns builds trust.</li>\n<li>Leadership includes saying \"I don't know yet.\"</li>\n</ul>\n<hr />\n<h2>Key idea</h2>\n<p>Communicate unknowns means explicitly stating what you do not know yet and when you will know it. Saying \"I don't know yet\" is leadership. Reduce anxiety by making unknowns explicit.</p>\n<hr />\n<h2>Common mistakes</h2>\n<ul>\n<li>Faking certainty when you do not know.</li>\n<li>Hiding unknowns to look in control.</li>\n<li>Never updating when you do learn.</li>\n</ul>\n<hr />\n<h2>Today's move</h2>\n<p>In your next meeting or update, name one thing you do not know yet and when or how you will find out. Say it out loud.</p>\n<hr />\n<h2>Self-check</h2>\n<ul>\n<li>You can explain the key idea in one sentence.</li>\n<li>You have one concrete move to do today.</li>\n</ul>",
+  "emailSubject": "Done is better – Day {{dayNumber}}: {{lessonTitle}}",
+  "emailBody": "<h1>Done is better - Build What Matters</h1><h2>Day {{dayNumber}}: {{lessonTitle}}</h2><p>{{lessonContent}}</p><p><a href=\"http://localhost:3000/courses/DONE_BETTER_2026_EN/day/{{dayNumber}}\">Open the lesson →</a></p>"
+}

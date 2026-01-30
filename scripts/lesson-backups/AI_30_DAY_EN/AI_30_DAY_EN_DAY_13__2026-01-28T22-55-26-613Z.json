@@ -1,0 +1,10 @@
+{
+  "backedUpAt": "2026-01-28T22:55:28.551Z",
+  "courseId": "AI_30_DAY_EN",
+  "lessonId": "AI_30_DAY_EN_DAY_13",
+  "dayNumber": 13,
+  "title": "Drafting long-form with sections",
+  "content": "<h1>Drafting long-form with sections</h1>\n<p><em>Generate longer content safely, section by section</em></p>\n<hr />\n<h2>Learning goal</h2>\n<ul>\n<li>Draft 2 sections from your outline.</li>\n<li>Apply QA and tone constraints per section.</li>\n</ul>\n<hr />\n<h2>Why it matters</h2>\n<ul>\n<li>Section-by-section control keeps quality and consistency.</li>\n<li>Reduces drift and hallucination.</li>\n</ul>\n<hr />\n<h2>Explanation</h2>\n<ul>\n<li>Use outline from Day 11; generate per section.</li>\n<li>Include tone/length/format per section.</li>\n<li>Add QA: “List assumptions/uncertainties.”</li>\n</ul>\n<hr />\n<h2>Examples</h2>\n<ul>\n<li><strong>Prompt</strong>: “Write Section 2 (120 words, neutral tone, 3 bullets). Keep metrics; list uncertainties.”</li>\n<li><strong>Weak</strong>: “Write everything at once.”</li>\n</ul>\n<hr />\n<h2>Guided exercise (10–15 min)</h2>\n<ol>\n<li>Pick 2 sections; generate them with constraints.</li>\n<li>QA each: check facts/tone/length; note assumptions.</li>\n</ol>\n<h2>Independent exercise (5–10 min)</h2>\n<p>Draft one more section; update your outline if something is missing.</p>\n<hr />\n<h2>Self-check</h2>\n<ul>\n<li>Sections respect tone/length/format.</li>\n<li>Assumptions/uncertainties listed.</li>\n<li>Facts reviewed.</li>\n</ul>\n<hr />\n<h2>Optional deepening</h2>\n<ul>\n<li>Long-form prompting tips: <a href=\"https://platform.openai.com/docs/guides/prompt-engineering\" target=\"_blank\" rel=\"noreferrer\">https://platform.openai.com/docs/guides/prompt-engineering</a></li>\n</ul>",
+  "emailSubject": "AI 30-Day – Day 13: Long-form drafting",
+  "emailBody": "<h1>AI 30-Day – Day 13</h1>\n<h2>Long-form drafting</h2>\n<p>Today you’ll draft sections with constraints and QA checks.</p>\n<p><a href=\"http://localhost:3000/courses/AI_30_DAY_EN/day/{{dayNumber}}\">Open the lesson →</a></p>"
+}

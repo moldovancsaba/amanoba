@@ -1,0 +1,114 @@
+{
+  "backedUpAt": "2026-01-28T22:37:48.400Z",
+  "course": {
+    "courseId": "DONE_BETTER_2026_EN",
+    "name": "Done is better - Build What Matters",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 21,
+    "title": "Momentum Over Comfort",
+    "lessonId": "DONE_BETTER_2026_EN_DAY_21"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "697a87bca81588c9f41a229c",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "A leader is waiting for \"more information\" before deciding. What is the risk?",
+      "options": [
+        "Certainty rarely arrives; define the smallest test you could run with what you have",
+        "They will make a better decision",
+        "It is safer",
+        "No significant risk in this case"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87bca81588c9f41a229d",
+      "questionType": "application",
+      "difficulty": "EASY",
+      "question": "In this framework, how is \"momentum over comfort\" defined?",
+      "options": [
+        "Prefer a small step with uncertainty over waiting for certainty; move when you have enough to test",
+        "Move recklessly without any check",
+        "Ignore risk and act immediately",
+        "Always act fast regardless of evidence"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87bca81588c9f41a229e",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How do you balance momentum and risk?",
+      "options": [
+        "Move when you have enough to test, not when you have zero risk",
+        "Wait until risk is zero",
+        "Ignore risk",
+        "Take the biggest step possible"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87bca81588c9f41a229f",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Waiting for perfect information before acting often leads to:",
+      "options": [
+        "Delay and missed learning; you never get perfect information",
+        "Better decisions",
+        "Lower cost",
+        "No significant downside in practice"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87bca81588c9f41a22a0",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Confusing momentum with recklessness can result in:",
+      "options": [
+        "Acting without any check and repeating avoidable mistakes",
+        "Faster delivery",
+        "More learning",
+        "No meaningful effect on outcomes"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87bca81588c9f41a22a1",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "What should you do with a decision you have been delaying for \"more information\"?",
+      "options": [
+        "Define the smallest test you could run with what you have; schedule it",
+        "Keep waiting",
+        "Make the decision without testing",
+        "Delegate it"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87bca81588c9f41a22a2",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Why use momentum to learn?",
+      "options": [
+        "Small steps with feedback create learning; waiting for certainty does not",
+        "Momentum is always good",
+        "Learning is optional",
+        "It has no effect on outcomes or learning"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    }
+  ]
+}

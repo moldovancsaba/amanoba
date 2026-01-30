@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-29T16:59:43.512Z",
+  "course": {
+    "courseId": "PLAYBOOK_2026_30_EN",
+    "name": "The Playbook 2026 – Masterclass for Designers",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 10,
+    "title": "Accessibility as a Design Constraint",
+    "lessonId": "PLAYBOOK_2026_30_EN_DAY_10"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "6979db369316e77110ed04f3",
+      "uuid": "6b939442-5d08-4b98-9dbc-dfc74c5861ff",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you apply the \"Bad:\" concept to a \"Accessibility as a Design Constraint\" task so the outcome is measurable and verifiable?",
+      "options": [
+        "I create a checklist, apply it to a small scope first, measure the impact, then roll it out to the full scope",
+        "I keep it as a definition and never validate it in practice",
+        "I skip implementation because it seems time-consuming",
+        "I implement it but do not measure or document anything"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day10",
+        "#en",
+        "#all-languages",
+        "#course-playbook_2026_30_en",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "6979db369316e77110ed04f4",
+      "uuid": "3060efb1-4ea9-4e5a-a27d-13d0908ccb8b",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you apply the \"Good:\" concept to a \"Accessibility as a Design Constraint\" task so the outcome is measurable and verifiable?",
+      "options": [
+        "I create a checklist, apply it to a small scope first, measure the impact, then roll it out to the full scope",
+        "I keep it as a definition and never validate it in practice",
+        "I skip implementation because it seems time-consuming",
+        "I implement it but do not measure or document anything"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day10",
+        "#en",
+        "#all-languages",
+        "#course-playbook_2026_30_en",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "6979db369316e77110ed04f5",
+      "uuid": "90f65cb0-8c71-48fc-8072-a90bd98baaa2",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you apply the \"Accessibility\" concept to a \"Accessibility as a Design Constraint\" task so the outcome is measurable and verifiable?",
+      "options": [
+        "I create a checklist, apply it to a small scope first, measure the impact, then roll it out to the full scope",
+        "I keep it as a definition and never validate it in practice",
+        "I skip implementation because it seems time-consuming",
+        "I implement it but do not measure or document anything"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day10",
+        "#en",
+        "#all-languages",
+        "#course-playbook_2026_30_en",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "6979db369316e77110ed04f6",
+      "uuid": "c7e5eb37-6f52-4270-9ab6-a95406c6a55c",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you apply the \"Design\" concept to a \"Accessibility as a Design Constraint\" task so the outcome is measurable and verifiable?",
+      "options": [
+        "I create a checklist, apply it to a small scope first, measure the impact, then roll it out to the full scope",
+        "I keep it as a definition and never validate it in practice",
+        "I skip implementation because it seems time-consuming",
+        "I implement it but do not measure or document anything"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day10",
+        "#en",
+        "#all-languages",
+        "#course-playbook_2026_30_en",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "6979db369316e77110ed04f7",
+      "uuid": "19ebc82d-ec93-47a0-9377-02db26af4e49",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you apply the \"Constraint\" concept to a \"Accessibility as a Design Constraint\" task so the outcome is measurable and verifiable?",
+      "options": [
+        "I create a checklist, apply it to a small scope first, measure the impact, then roll it out to the full scope",
+        "I keep it as a definition and never validate it in practice",
+        "I skip implementation because it seems time-consuming",
+        "I implement it but do not measure or document anything"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day10",
+        "#en",
+        "#all-languages",
+        "#course-playbook_2026_30_en",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "6979db369316e77110ed04f8",
+      "uuid": "39d28996-c9ff-46f2-84a1-3cdbea2df165",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you apply the \"Learning Goal\" concept to a \"Accessibility as a Design Constraint\" task so the outcome is measurable and verifiable?",
+      "options": [
+        "I create a checklist, apply it to a small scope first, measure the impact, then roll it out to the full scope",
+        "I keep it as a definition and never validate it in practice",
+        "I skip implementation because it seems time-consuming",
+        "I implement it but do not measure or document anything"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day10",
+        "#en",
+        "#all-languages",
+        "#course-playbook_2026_30_en",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "6979db369316e77110ed04f9",
+      "uuid": "f22e8f4f-7643-4319-841f-44f82c297667",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you apply the \"Why This Matters\" concept to a \"Accessibility as a Design Constraint\" task so the outcome is measurable and verifiable?",
+      "options": [
+        "I create a checklist, apply it to a small scope first, measure the impact, then roll it out to the full scope",
+        "I keep it as a definition and never validate it in practice",
+        "I skip implementation because it seems time-consuming",
+        "I implement it but do not measure or document anything"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day10",
+        "#en",
+        "#all-languages",
+        "#course-playbook_2026_30_en",
+        "#intermediate",
+        "#application"
+      ]
+    }
+  ]
+}

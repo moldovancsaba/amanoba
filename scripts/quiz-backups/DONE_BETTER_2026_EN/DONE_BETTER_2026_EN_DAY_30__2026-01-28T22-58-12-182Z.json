@@ -1,0 +1,114 @@
+{
+  "backedUpAt": "2026-01-28T22:58:16.441Z",
+  "course": {
+    "courseId": "DONE_BETTER_2026_EN",
+    "name": "Done is better - Build What Matters",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 30,
+    "title": "The Mind That Handles Anything",
+    "lessonId": "DONE_BETTER_2026_EN_DAY_30"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "697a92f822596d24dfc12db4",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "The course is over. How do you sustain progress?",
+      "options": [
+        "Summarize your system (think, decide, deliver); commit to 90 days using the playbook; define one review cadence",
+        "Rely on motivation to continue applying what you learned without systematic structure",
+        "Set a yearly goal only without daily or weekly practices or review mechanisms",
+        "Wait for the next course to continue learning without applying current knowledge or building habits"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a92f822596d24dfc12db5",
+      "questionType": "application",
+      "difficulty": "EASY",
+      "question": "A leader relies on motivation to drive team performance. After six months, motivation drops and performance declines. What should they have built instead?",
+      "options": [
+        "A repeatable system that persists when motivation fades",
+        "More motivation and inspiration to keep the team going",
+        "Systems are boring compared to motivation and should be avoided",
+        "This only applies during training, not in real work situations"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a92f822596d24dfc12db6",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "What should you schedule in 30 days?",
+      "options": [
+        "One review: how is the system working? what do you change?",
+        "Nothing; the system will work automatically without review or adjustment",
+        "A full replan of everything without evaluating what is working or what to keep",
+        "Only a celebration of progress without reflecting on improvements or needed changes"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a92f822596d24dfc12db7",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Relying on motivation to sustain the system often leads to:",
+      "options": [
+        "The system fades when motivation drops; build review and accountability",
+        "Higher motivation",
+        "Faster execution",
+        "No meaningful effect on outcomes"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a92f822596d24dfc12db8",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "No review cadence can result in:",
+      "options": [
+        "The system drifting; schedule at least one review to keep it alive",
+        "More flexibility",
+        "Less overhead",
+        "No significant downside in practice"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a92f822596d24dfc12db9",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How do you write your system in three lines?",
+      "options": [
+        "Think (how you understand and plan), decide (how you choose), deliver (how you move, test, reflect)",
+        "Goals, tasks, deadlines without underlying methods or principles or systematic approaches",
+        "Mission, vision, values without concrete practices or approaches or actionable steps",
+        "Past, present, future without actionable steps or processes or repeatable methods"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a92f822596d24dfc12dba",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "What should you commit to for the next 90 days?",
+      "options": [
+        "Using the playbook and one accountability or review cadence to maintain progress",
+        "Only the playbook without any review or accountability mechanisms or checkpoints",
+        "Only the review without actually using the playbook in practice or building habits",
+        "Nothing specific; let progress happen naturally without structure or systematic approach"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    }
+  ]
+}

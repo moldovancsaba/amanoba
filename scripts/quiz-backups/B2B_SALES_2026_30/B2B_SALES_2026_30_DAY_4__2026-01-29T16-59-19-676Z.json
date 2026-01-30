@@ -1,0 +1,68 @@
+{
+  "backedUpAt": "2026-01-29T17:00:19.756Z",
+  "course": {
+    "courseId": "B2B_SALES_2026_30",
+    "name": "B2B Értékesítés 2026 Masterclass",
+    "language": "hu"
+  },
+  "lesson": {
+    "dayNumber": 4,
+    "title": "Buyer persona és döntési egység",
+    "lessonId": "B2B_SALES_2026_30_DAY_4"
+  },
+  "questionCount": 4,
+  "questions": [
+    {
+      "_id": "697b203cac79ca83bb9721ee",
+      "difficulty": "MEDIUM",
+      "question": "Miért veszélyes csak a championra támaszkodni?",
+      "options": [
+        "Mert túl sok időt vesz igénybe",
+        "Mert a döntés több szereplős, a blokkolók későn derülnek ki",
+        "Mert a champion mindig nemet mond",
+        "Mert így nem kell CRM"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b203cac79ca83bb9721ef",
+      "difficulty": "MEDIUM",
+      "question": "Melyik szerep jellemzően a költség/ROI fókuszú?",
+      "options": [
+        "Felhasználó",
+        "Pénzügy/beszerzés",
+        "Jog",
+        "IT/security"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b203cac79ca83bb9721f0",
+      "difficulty": "MEDIUM",
+      "question": "Mi a blokkolók korai azonosításának előnye?",
+      "options": [
+        "Kevesebb meeting",
+        "Gyorsabb tárgyalás és kisebb slip kockázat",
+        "Nagyobb ár",
+        "Kevesebb dokumentum"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b203cac79ca83bb9721f1",
+      "difficulty": "MEDIUM",
+      "question": "Mi hiányzik egy „rossz” megközelítésből?",
+      "options": [
+        "Pitch deck",
+        "Döntési egység térkép és szerepek",
+        "Email sablon",
+        "Marketing lista"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    }
+  ]
+}

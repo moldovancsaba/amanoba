@@ -1,0 +1,68 @@
+{
+  "backedUpAt": "2026-01-29T16:59:31.333Z",
+  "course": {
+    "courseId": "B2B_SALES_2026_30_EN",
+    "name": "B2B Sales 2026 Masterclass",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 7,
+    "title": "Lead Source Map for 2026",
+    "lessonId": "B2B_SALES_2026_30_EN_DAY_7"
+  },
+  "questionCount": 4,
+  "questions": [
+    {
+      "_id": "697b1fd08f79f136a28b89b5",
+      "difficulty": "MEDIUM",
+      "question": "Why limit the number of channels?",
+      "options": [
+        "Fewer emails",
+        "Without focus/experiments, learning collapses into noise",
+        "Legal requirement",
+        "No need for ICP"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b1fd08f79f136a28b89b6",
+      "difficulty": "MEDIUM",
+      "question": "What belongs in a channel brief?",
+      "options": [
+        "Only a slogan",
+        "ICP fit, resources, metrics, cutoff",
+        "Only budget",
+        "Only a pitch deck"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b1fd08f79f136a28b89b7",
+      "difficulty": "MEDIUM",
+      "question": "Good 2-week test metric set?",
+      "options": [
+        "Website visits",
+        "Replies, meetings, SQL per channel",
+        "Facebook likes",
+        "LinkedIn followers"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b1fd08f79f136a28b89b8",
+      "difficulty": "MEDIUM",
+      "question": "When do you stop a channel?",
+      "options": [
+        "Never",
+        "When cutoff says it misses reply/meeting/SQL goals",
+        "When pitch deck runs out",
+        "When no new marketing campaign exists"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    }
+  ]
+}

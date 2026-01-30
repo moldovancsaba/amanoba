@@ -1,0 +1,136 @@
+{
+  "backedUpAt": "2026-01-29T07:23:42.615Z",
+  "course": {
+    "courseId": "DONE_BETTER_2026_EN",
+    "name": "Done is better - Build What Matters",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 1,
+    "title": "Welcome to Real Thinking",
+    "lessonId": "DONE_BETTER_2026_EN_DAY_01"
+  },
+  "questionCount": 8,
+  "questions": [
+    {
+      "_id": "697a92f322596d24dfc12c14",
+      "questionType": "application",
+      "difficulty": "EASY",
+      "question": "What is the primary goal of this course?",
+      "options": [
+        "To be more effective, not just smart or busy",
+        "To become more intelligent without changing behavior",
+        "To do more tasks regardless of outcomes",
+        "To feel more motivated in the short term only"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a92f322596d24dfc12c15",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How should you sustain progress after the course?",
+      "options": [
+        "Use a repeatable system, not reliance on motivation",
+        "Wait for inspiration before taking action",
+        "Do more activities without tracking outcomes",
+        "Focus only on intelligence and raw talent"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a92f322596d24dfc12c16",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "What three-part loop does the course emphasize?",
+      "options": [
+        "Think (understand and plan), decide (choose with intent), deliver (move, test, reflect)",
+        "Plan everything upfront, execute without adjustment, forget what you learned",
+        "Work continuously, rest only when exhausted, repeat without reflection or learning",
+        "Hope for the best, try without structure, give up when it gets hard"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a92f322596d24dfc12c17",
+      "questionType": "critical-thinking",
+      "difficulty": "MEDIUM",
+      "question": "Which mistake is most likely to block effectiveness?",
+      "options": [
+        "Confusing activity with progress",
+        "Taking too many breaks between focused work",
+        "Asking for help when you are stuck",
+        "Writing things down for later review"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a92f322596d24dfc12c18",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "A leader says: \"We did 50 meetings this month.\" What is missing for effectiveness?",
+      "options": [
+        "A link to outcomes or results, not just activity",
+        "More meetings to align the team",
+        "Fewer notes so people can focus",
+        "Longer meetings to cover everything"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a92f322596d24dfc12c19",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "A new manager wants to build sustainable effectiveness habits. They are deciding between a daily reflection loop and waiting for quarterly reviews. What should they choose?",
+      "options": [
+        "One small daily loop that captures what they learned and what they will do next",
+        "A yearly goal only with no daily structure or reflection",
+        "No structure and rely on ad hoc decisions when problems arise",
+        "Only motivation and positive thinking without any systematic approach"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a92f322596d24dfc12c1a",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Why is \"system not motivation\" important?",
+      "options": [
+        "Systems are repeatable; motivation fades over time",
+        "Motivation is illegal in professional settings",
+        "Systems are slower than pure motivation",
+        "Motivation is enough for most people long-term"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a9484379957dcc63a9406",
+      "uuid": "f36ead11-05ad-4512-baaa-9fcb86c3b5a0",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you apply the \"Why it matters:\" concept to a \"Welcome to Real Thinking\" task so the outcome is measurable and verifiable?",
+      "options": [
+        "I create a checklist, apply it to a small scope first, measure the impact, then roll it out to the full scope",
+        "I keep it as a definition and never validate it in practice",
+        "I skip implementation because it seems time-consuming",
+        "I implement it but do not measure or document anything"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day1",
+        "#en",
+        "#all-languages",
+        "#course-done_better_2026_en",
+        "#intermediate",
+        "#application"
+      ]
+    }
+  ]
+}

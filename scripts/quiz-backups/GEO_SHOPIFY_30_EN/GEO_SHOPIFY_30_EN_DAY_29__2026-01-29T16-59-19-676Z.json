@@ -1,0 +1,81 @@
+{
+  "backedUpAt": "2026-01-29T16:59:23.393Z",
+  "course": {
+    "courseId": "GEO_SHOPIFY_30_EN",
+    "name": "GEO Shopify – 30-day course",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 29,
+    "title": "Measurement system: weekly GEO run and report",
+    "lessonId": "GEO_SHOPIFY_30_EN_DAY_29"
+  },
+  "questionCount": 5,
+  "questions": [
+    {
+      "_id": "697b200702f89b2246e06e9a",
+      "difficulty": "MEDIUM",
+      "question": "What should you measure weekly?",
+      "options": [
+        "Inclusion, citation, consistency, AI referral KPIs",
+        "Only speed",
+        "Only backlinks",
+        "Only title length"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b200702f89b2246e06e9b",
+      "difficulty": "EASY",
+      "question": "What is a key report template field?",
+      "options": [
+        "Prompt | Inclusion | Citation | Consistency | Notes",
+        "Only an emoji",
+        "Only price",
+        "Only images"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b200702f89b2246e06e9c",
+      "difficulty": "MEDIUM",
+      "question": "Why set the schedule explicitly?",
+      "options": [
+        "Keep measurement regular, not ad hoc",
+        "Not important",
+        "Only design",
+        "Only SEO"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b200702f89b2246e06e9d",
+      "difficulty": "EASY",
+      "question": "What is a poor measurement example?",
+      "options": [
+        "“Feels better” with no notes",
+        "Documented results",
+        "Template filled",
+        "Linked prompts"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b200702f89b2246e06e9e",
+      "difficulty": "HARD",
+      "question": "What to do with the first 5 runs?",
+      "options": [
+        "Record as baseline",
+        "Delete them",
+        "Hide them",
+        "Use only in marketing slogans"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    }
+  ]
+}

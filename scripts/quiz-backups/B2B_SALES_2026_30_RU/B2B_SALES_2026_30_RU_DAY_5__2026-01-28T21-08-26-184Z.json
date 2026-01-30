@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-28T21:08:27.709Z",
+  "course": {
+    "courseId": "B2B_SALES_2026_30_RU",
+    "name": "B2B Продажи 2026 — мастер‑класс (30 дней) (RU)",
+    "language": "ru"
+  },
+  "lesson": {
+    "dayNumber": 5,
+    "title": "Стратегии работы с DMU и кто влияет",
+    "lessonId": "B2B_SALES_2026_30_RU_DAY_5"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a043526e26ccc51724c",
+      "uuid": "7b203acc-0600-4352-950e-ee62c64b52a5",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Инициаторы\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day5",
+        "#ru",
+        "#all-languages",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a043526e26ccc51724d",
+      "uuid": "eec9be40-1d49-42a4-80f4-e2afb36ec279",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Пользователи\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day5",
+        "#ru",
+        "#all-languages",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a043526e26ccc51724e",
+      "uuid": "73c5cbad-68e7-42b7-a07b-c732596ac749",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Финансы\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day5",
+        "#ru",
+        "#all-languages",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a043526e26ccc51724f",
+      "uuid": "9cd71d42-d2c1-48a8-97d4-36c9015c573f",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Как концепция \"Стратегии работы с DMU и кто влияет Сегодня вы опр...\", упомянутая в уроке, влияет на достижение ваших goals?",
+      "options": [
+        "Как подробно описано в уроке, Стратегии работы с DMU и кто в... повышает эффективность и снижает риски",
+        "Нет значительного влияния",
+        "Имеет значение только теоретически",
+        "Только опциональный элемент"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day5",
+        "#ru",
+        "#all-languages",
+        "#sales",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a043526e26ccc517250",
+      "uuid": "0c40b1de-3a4a-4d23-a3fe-006ddf556b23",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Насколько важен Пользователи в контексте Стратегии работы с DMU и кто влияет, как обсуждается в уроке?",
+      "options": [
+        "Как подробно описано в уроке, Пользователи играет ключевую роль в оптимизации процессов и достижении целей",
+        "Только периферийная информация без значительной роли",
+        "Только теоретическая концепция без практического применения",
+        "Не упоминается в уроке"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day5",
+        "#ru",
+        "#all-languages",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a043526e26ccc517251",
+      "uuid": "dd0b5666-e455-42f6-a22d-7bf80cfb65df",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Насколько важен Юристы/ИБ в контексте Стратегии работы с DMU и кто влияет, как обсуждается в уроке?",
+      "options": [
+        "Как подробно описано в уроке, Юристы/ИБ играет ключевую роль в оптимизации процессов и достижении целей",
+        "Только периферийная информация без значительной роли",
+        "Только теоретическая концепция без практического применения",
+        "Не упоминается в уроке"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day5",
+        "#ru",
+        "#all-languages",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a043526e26ccc517252",
+      "uuid": "0ffac824-c2a0-465f-b407-885c52afe769",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Какую роль играет Не пытайтесь “поймать на скидке”. в уроке \"Стратегии работы с DMU и кто влияет\"?",
+      "options": [
+        "Как подробно описано в уроке, Не пытайтесь “поймать на скидке”. играет ключевую роль в оптимизации процессов и достижении целей",
+        "Только периферийная информация без значительной роли",
+        "Только теоретическая концепция без практического применения",
+        "Не упоминается в уроке"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day5",
+        "#ru",
+        "#all-languages",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

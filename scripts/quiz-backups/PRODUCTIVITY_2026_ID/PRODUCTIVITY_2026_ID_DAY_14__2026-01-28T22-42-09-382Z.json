@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-28T22:42:12.596Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_ID",
+    "name": "Produktivitas 2026: Cara Mengelola Tim dan Waktu",
+    "language": "id"
+  },
+  "lesson": {
+    "dayNumber": 14,
+    "title": "Efisiensi Pertemuan: Agenda, Batas Waktu, Catatan Keputusan",
+    "lessonId": "PRODUCTIVITY_2026_ID_DAY_14"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a2bdf6e5ec2a4427e46",
+      "uuid": "92bbc8cb-405a-4a65-9ed7-ab069f48e325",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Bagaimana konsep \"Efisiensi Pertemuan: Agenda, Batas Waktu, Catatan ...\" yang disebutkan dalam pelajaran mempengaruhi pencapaian goals Anda?",
+      "options": [
+        "Seperti yang dijelaskan secara detail dalam pelajaran, Efisiensi Pertemuan: Agenda, B... meningkatkan efektivitas dan mengurangi risiko",
+        "Tidak ada dampak signifikan",
+        "Hanya penting secara teoritis",
+        "Hanya elemen opsional"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day14",
+        "#id",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a2bdf6e5ec2a4427e47",
+      "uuid": "ff52edda-e048-40c1-a103-467c41afc7d1",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Bagaimana Anda akan menggunakan konsep \"Efisiensi\" seperti yang dijelaskan dalam pelajaran dalam praktik?",
+      "options": [
+        "Saya mengikuti langkah-langkah yang dijelaskan secara detail dalam pelajaran, menguji hasil, dan mendokumentasikan pengalaman saya",
+        "Saya hanya memahaminya secara teoritis",
+        "Saya tidak menerapkannya",
+        "Saya menunggu instruksi lebih lanjut"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day14",
+        "#id",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a2bdf6e5ec2a4427e48",
+      "uuid": "61391f1b-272a-4fc0-8d6c-4645391b3caa",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Bagaimana Anda akan menggunakan konsep \"Pertemuan\" seperti yang dijelaskan dalam pelajaran dalam praktik?",
+      "options": [
+        "Saya mengikuti langkah-langkah yang dijelaskan secara detail dalam pelajaran, menguji hasil, dan mendokumentasikan pengalaman saya",
+        "Saya hanya memahaminya secara teoritis",
+        "Saya tidak menerapkannya",
+        "Saya menunggu instruksi lebih lanjut"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day14",
+        "#id",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a2bdf6e5ec2a4427e49",
+      "uuid": "8dc6f76c-3b04-4c49-9bab-937eaedf12c1",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Bagaimana Anda akan menggunakan konsep \"Agenda\" seperti yang dijelaskan dalam pelajaran dalam praktik?",
+      "options": [
+        "Saya mengikuti langkah-langkah yang dijelaskan secara detail dalam pelajaran, menguji hasil, dan mendokumentasikan pengalaman saya",
+        "Saya hanya memahaminya secara teoritis",
+        "Saya tidak menerapkannya",
+        "Saya menunggu instruksi lebih lanjut"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day14",
+        "#id",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a2bdf6e5ec2a4427e4a",
+      "uuid": "2f621c5b-e8db-43f7-b004-59c20b5d66c8",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Seberapa penting Pertemuan dalam konteks Efisiensi Pertemuan: Agenda, Batas Waktu, Catatan Keputusan seperti yang dibahas dalam pelajaran?",
+      "options": [
+        "Seperti yang dijelaskan secara detail dalam pelajaran, Pertemuan memainkan peran penting dalam mengoptimalkan proses dan mencapai tujuan",
+        "Hanya informasi periferal tanpa peran signifikan",
+        "Hanya konsep teoretis tanpa aplikasi praktis",
+        "Tidak disebutkan dalam pelajaran"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day14",
+        "#id",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a2bdf6e5ec2a4427e4b",
+      "uuid": "306cf542-e5ed-4098-9933-7ca1d0d9dc8b",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Seberapa penting Batas dalam konteks Efisiensi Pertemuan: Agenda, Batas Waktu, Catatan Keputusan seperti yang dibahas dalam pelajaran?",
+      "options": [
+        "Seperti yang dijelaskan secara detail dalam pelajaran, Batas memainkan peran penting dalam mengoptimalkan proses dan mencapai tujuan",
+        "Hanya informasi periferal tanpa peran signifikan",
+        "Hanya konsep teoretis tanpa aplikasi praktis",
+        "Tidak disebutkan dalam pelajaran"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day14",
+        "#id",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a2bdf6e5ec2a4427e4c",
+      "uuid": "003c7f85-aee2-4afa-bea5-f5b245e1726b",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Seberapa penting Catatan dalam konteks Efisiensi Pertemuan: Agenda, Batas Waktu, Catatan Keputusan seperti yang dibahas dalam pelajaran?",
+      "options": [
+        "Seperti yang dijelaskan secara detail dalam pelajaran, Catatan memainkan peran penting dalam mengoptimalkan proses dan mencapai tujuan",
+        "Hanya informasi periferal tanpa peran signifikan",
+        "Hanya konsep teoretis tanpa aplikasi praktis",
+        "Tidak disebutkan dalam pelajaran"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day14",
+        "#id",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

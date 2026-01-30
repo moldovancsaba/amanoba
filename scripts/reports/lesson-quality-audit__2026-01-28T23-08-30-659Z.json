@@ -1,0 +1,1174 @@
+{
+  "generatedAt": "2026-01-28T23:08:30.659Z",
+  "minScore": 70,
+  "courseFilter": "B2B_SALES_2026_30_RU",
+  "total": 30,
+  "belowThreshold": 27,
+  "results": [
+    {
+      "courseId": "B2B_SALES_2026_30_RU",
+      "courseName": "B2B Продажи 2026 — мастер‑класс (30 дней) (RU)",
+      "language": "ru",
+      "dayNumber": 1,
+      "lessonId": "B2B_SALES_2026_30_RU_DAY_1",
+      "title": "Что означает современная B2B‑продажа в 2026 году",
+      "createdAt": "2026-01-22T09:54:56.648Z",
+      "score": 100,
+      "issues": [],
+      "signals": {
+        "charCount": 3109,
+        "wordCount": 444,
+        "hasBullets": true,
+        "hasNumberedSteps": true,
+        "hasExamples": true,
+        "hasGoodBadContrast": true,
+        "hasMetricsOrCriteria": true,
+        "hasDefinitionsOrComparisons": true
+      },
+      "refineTemplate": {
+        "addDefinitionSection": false,
+        "addChecklistSection": false,
+        "addExamplesSection": false,
+        "addPitfallsSection": false,
+        "addMetricsSection": false
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      }
+    },
+    {
+      "courseId": "B2B_SALES_2026_30_RU",
+      "courseName": "B2B Продажи 2026 — мастер‑класс (30 дней) (RU)",
+      "language": "ru",
+      "dayNumber": 2,
+      "lessonId": "B2B_SALES_2026_30_RU_DAY_2",
+      "title": "Карта системы B2B‑продаж",
+      "createdAt": "2026-01-22T09:54:57.278Z",
+      "score": 90,
+      "issues": [
+        "NO_CONTRASTS_GOOD_BAD"
+      ],
+      "signals": {
+        "charCount": 2260,
+        "wordCount": 312,
+        "hasBullets": true,
+        "hasNumberedSteps": true,
+        "hasExamples": true,
+        "hasGoodBadContrast": false,
+        "hasMetricsOrCriteria": true,
+        "hasDefinitionsOrComparisons": true
+      },
+      "refineTemplate": {
+        "addDefinitionSection": false,
+        "addChecklistSection": false,
+        "addExamplesSection": true,
+        "addPitfallsSection": true,
+        "addMetricsSection": false
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      }
+    },
+    {
+      "courseId": "B2B_SALES_2026_30_RU",
+      "courseName": "B2B Продажи 2026 — мастер‑класс (30 дней) (RU)",
+      "language": "ru",
+      "dayNumber": 3,
+      "lessonId": "B2B_SALES_2026_30_RU_DAY_3",
+      "title": "Диагностируйте проблемы, чтобы управлять покупателем",
+      "createdAt": "2026-01-22T11:08:18.156Z",
+      "score": 50,
+      "issues": [
+        "TOO_SHORT",
+        "NO_CLEAR_DEFINITIONS",
+        "NO_CONTRASTS_GOOD_BAD"
+      ],
+      "signals": {
+        "charCount": 831,
+        "wordCount": 106,
+        "hasBullets": true,
+        "hasNumberedSteps": false,
+        "hasExamples": true,
+        "hasGoodBadContrast": false,
+        "hasMetricsOrCriteria": true,
+        "hasDefinitionsOrComparisons": false
+      },
+      "refineTemplate": {
+        "addDefinitionSection": true,
+        "addChecklistSection": false,
+        "addExamplesSection": true,
+        "addPitfallsSection": true,
+        "addMetricsSection": false
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      }
+    },
+    {
+      "courseId": "B2B_SALES_2026_30_RU",
+      "courseName": "B2B Продажи 2026 — мастер‑класс (30 дней) (RU)",
+      "language": "ru",
+      "dayNumber": 4,
+      "lessonId": "B2B_SALES_2026_30_RU_DAY_4",
+      "title": "ROI, бизнес‑кейсы и согласование бюджета",
+      "createdAt": "2026-01-22T11:08:18.255Z",
+      "score": 50,
+      "issues": [
+        "TOO_SHORT",
+        "NO_CLEAR_DEFINITIONS",
+        "NO_CONTRASTS_GOOD_BAD"
+      ],
+      "signals": {
+        "charCount": 630,
+        "wordCount": 89,
+        "hasBullets": true,
+        "hasNumberedSteps": false,
+        "hasExamples": true,
+        "hasGoodBadContrast": false,
+        "hasMetricsOrCriteria": true,
+        "hasDefinitionsOrComparisons": false
+      },
+      "refineTemplate": {
+        "addDefinitionSection": true,
+        "addChecklistSection": false,
+        "addExamplesSection": true,
+        "addPitfallsSection": true,
+        "addMetricsSection": false
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      }
+    },
+    {
+      "courseId": "B2B_SALES_2026_30_RU",
+      "courseName": "B2B Продажи 2026 — мастер‑класс (30 дней) (RU)",
+      "language": "ru",
+      "dayNumber": 5,
+      "lessonId": "B2B_SALES_2026_30_RU_DAY_5",
+      "title": "Стратегии работы с DMU и кто влияет",
+      "createdAt": "2026-01-22T11:31:13.182Z",
+      "score": 85,
+      "issues": [
+        "NO_CLEAR_DEFINITIONS"
+      ],
+      "signals": {
+        "charCount": 1594,
+        "wordCount": 231,
+        "hasBullets": true,
+        "hasNumberedSteps": false,
+        "hasExamples": true,
+        "hasGoodBadContrast": true,
+        "hasMetricsOrCriteria": true,
+        "hasDefinitionsOrComparisons": false
+      },
+      "refineTemplate": {
+        "addDefinitionSection": true,
+        "addChecklistSection": false,
+        "addExamplesSection": false,
+        "addPitfallsSection": false,
+        "addMetricsSection": false
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      }
+    },
+    {
+      "courseId": "B2B_SALES_2026_30_RU",
+      "courseName": "B2B Продажи 2026 — мастер‑класс (30 дней) (RU)",
+      "language": "ru",
+      "dayNumber": 6,
+      "lessonId": "B2B_SALES_2026_30_RU_DAY_6",
+      "title": "Переговоры, объективные критерии и “необходимая цена”",
+      "createdAt": "2026-01-22T11:31:13.278Z",
+      "score": 35,
+      "issues": [
+        "TOO_SHORT",
+        "NO_CLEAR_DEFINITIONS",
+        "NO_EXAMPLES",
+        "NO_CONTRASTS_GOOD_BAD"
+      ],
+      "signals": {
+        "charCount": 914,
+        "wordCount": 125,
+        "hasBullets": true,
+        "hasNumberedSteps": true,
+        "hasExamples": false,
+        "hasGoodBadContrast": false,
+        "hasMetricsOrCriteria": true,
+        "hasDefinitionsOrComparisons": false
+      },
+      "refineTemplate": {
+        "addDefinitionSection": true,
+        "addChecklistSection": false,
+        "addExamplesSection": true,
+        "addPitfallsSection": true,
+        "addMetricsSection": false
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      }
+    },
+    {
+      "courseId": "B2B_SALES_2026_30_RU",
+      "courseName": "B2B Продажи 2026 — мастер‑класс (30 дней) (RU)",
+      "language": "ru",
+      "dayNumber": 7,
+      "lessonId": "B2B_SALES_2026_30_RU_DAY_7",
+      "title": "Команда и поддержка продаж: как масштабировать успех",
+      "createdAt": "2026-01-22T11:31:13.386Z",
+      "score": 20,
+      "issues": [
+        "TOO_SHORT",
+        "NO_CLEAR_DEFINITIONS",
+        "NO_EXAMPLES",
+        "NO_CONTRASTS_GOOD_BAD",
+        "NO_METRICS_OR_CRITERIA"
+      ],
+      "signals": {
+        "charCount": 706,
+        "wordCount": 95,
+        "hasBullets": true,
+        "hasNumberedSteps": false,
+        "hasExamples": false,
+        "hasGoodBadContrast": false,
+        "hasMetricsOrCriteria": false,
+        "hasDefinitionsOrComparisons": false
+      },
+      "refineTemplate": {
+        "addDefinitionSection": true,
+        "addChecklistSection": false,
+        "addExamplesSection": true,
+        "addPitfallsSection": true,
+        "addMetricsSection": true
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      }
+    },
+    {
+      "courseId": "B2B_SALES_2026_30_RU",
+      "courseName": "B2B Продажи 2026 — мастер‑класс (30 дней) (RU)",
+      "language": "ru",
+      "dayNumber": 8,
+      "lessonId": "B2B_SALES_2026_30_RU_DAY_8",
+      "title": "Карты клиентского пути и точки контакта",
+      "createdAt": "2026-01-22T11:32:03.024Z",
+      "score": 50,
+      "issues": [
+        "TOO_SHORT",
+        "NO_CLEAR_DEFINITIONS",
+        "NO_CONTRASTS_GOOD_BAD"
+      ],
+      "signals": {
+        "charCount": 777,
+        "wordCount": 104,
+        "hasBullets": true,
+        "hasNumberedSteps": false,
+        "hasExamples": true,
+        "hasGoodBadContrast": false,
+        "hasMetricsOrCriteria": true,
+        "hasDefinitionsOrComparisons": false
+      },
+      "refineTemplate": {
+        "addDefinitionSection": true,
+        "addChecklistSection": false,
+        "addExamplesSection": true,
+        "addPitfallsSection": true,
+        "addMetricsSection": false
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      }
+    },
+    {
+      "courseId": "B2B_SALES_2026_30_RU",
+      "courseName": "B2B Продажи 2026 — мастер‑класс (30 дней) (RU)",
+      "language": "ru",
+      "dayNumber": 9,
+      "lessonId": "B2B_SALES_2026_30_RU_DAY_9",
+      "title": "Референсы, кейсы и путь доверия",
+      "createdAt": "2026-01-22T11:32:03.127Z",
+      "score": 20,
+      "issues": [
+        "TOO_SHORT",
+        "NO_CLEAR_DEFINITIONS",
+        "NO_EXAMPLES",
+        "NO_CONTRASTS_GOOD_BAD",
+        "NO_METRICS_OR_CRITERIA"
+      ],
+      "signals": {
+        "charCount": 643,
+        "wordCount": 87,
+        "hasBullets": true,
+        "hasNumberedSteps": false,
+        "hasExamples": false,
+        "hasGoodBadContrast": false,
+        "hasMetricsOrCriteria": false,
+        "hasDefinitionsOrComparisons": false
+      },
+      "refineTemplate": {
+        "addDefinitionSection": true,
+        "addChecklistSection": false,
+        "addExamplesSection": true,
+        "addPitfallsSection": true,
+        "addMetricsSection": true
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      }
+    },
+    {
+      "courseId": "B2B_SALES_2026_30_RU",
+      "courseName": "B2B Продажи 2026 — мастер‑класс (30 дней) (RU)",
+      "language": "ru",
+      "dayNumber": 10,
+      "lessonId": "B2B_SALES_2026_30_RU_DAY_10",
+      "title": "Планирование следующего квартала и “гигиена воронки”",
+      "createdAt": "2026-01-22T11:32:03.222Z",
+      "score": 35,
+      "issues": [
+        "TOO_SHORT",
+        "NO_CLEAR_DEFINITIONS",
+        "NO_EXAMPLES",
+        "NO_CONTRASTS_GOOD_BAD"
+      ],
+      "signals": {
+        "charCount": 659,
+        "wordCount": 93,
+        "hasBullets": true,
+        "hasNumberedSteps": false,
+        "hasExamples": false,
+        "hasGoodBadContrast": false,
+        "hasMetricsOrCriteria": true,
+        "hasDefinitionsOrComparisons": false
+      },
+      "refineTemplate": {
+        "addDefinitionSection": true,
+        "addChecklistSection": false,
+        "addExamplesSection": true,
+        "addPitfallsSection": true,
+        "addMetricsSection": false
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      }
+    },
+    {
+      "courseId": "B2B_SALES_2026_30_RU",
+      "courseName": "B2B Продажи 2026 — мастер‑класс (30 дней) (RU)",
+      "language": "ru",
+      "dayNumber": 11,
+      "lessonId": "B2B_SALES_2026_30_RU_DAY_11",
+      "title": "Метрики и триггеры: как мониторить прогресс",
+      "createdAt": "2026-01-22T11:33:53.608Z",
+      "score": 35,
+      "issues": [
+        "TOO_SHORT",
+        "NO_CLEAR_DEFINITIONS",
+        "NO_EXAMPLES",
+        "NO_CONTRASTS_GOOD_BAD"
+      ],
+      "signals": {
+        "charCount": 610,
+        "wordCount": 86,
+        "hasBullets": true,
+        "hasNumberedSteps": false,
+        "hasExamples": false,
+        "hasGoodBadContrast": false,
+        "hasMetricsOrCriteria": true,
+        "hasDefinitionsOrComparisons": false
+      },
+      "refineTemplate": {
+        "addDefinitionSection": true,
+        "addChecklistSection": false,
+        "addExamplesSection": true,
+        "addPitfallsSection": true,
+        "addMetricsSection": false
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      }
+    },
+    {
+      "courseId": "B2B_SALES_2026_30_RU",
+      "courseName": "B2B Продажи 2026 — мастер‑класс (30 дней) (RU)",
+      "language": "ru",
+      "dayNumber": 12,
+      "lessonId": "B2B_SALES_2026_30_RU_DAY_12",
+      "title": "Очистка списка и гигиена лидов",
+      "createdAt": "2026-01-28T19:40:31.038Z",
+      "score": 45,
+      "issues": [
+        "TOO_SHORT",
+        "NO_CLEAR_DEFINITIONS",
+        "NO_EXAMPLES"
+      ],
+      "signals": {
+        "charCount": 900,
+        "wordCount": 129,
+        "hasBullets": true,
+        "hasNumberedSteps": true,
+        "hasExamples": false,
+        "hasGoodBadContrast": true,
+        "hasMetricsOrCriteria": true,
+        "hasDefinitionsOrComparisons": false
+      },
+      "refineTemplate": {
+        "addDefinitionSection": true,
+        "addChecklistSection": false,
+        "addExamplesSection": true,
+        "addPitfallsSection": false,
+        "addMetricsSection": false
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      }
+    },
+    {
+      "courseId": "B2B_SALES_2026_30_RU",
+      "courseName": "B2B Продажи 2026 — мастер‑класс (30 дней) (RU)",
+      "language": "ru",
+      "dayNumber": 13,
+      "lessonId": "B2B_SALES_2026_30_RU_DAY_13",
+      "title": "MQL vs SQL и “ворота” квалификации",
+      "createdAt": "2026-01-28T19:40:31.476Z",
+      "score": 35,
+      "issues": [
+        "TOO_SHORT",
+        "NO_EXAMPLES",
+        "NO_CONTRASTS_GOOD_BAD",
+        "NO_METRICS_OR_CRITERIA"
+      ],
+      "signals": {
+        "charCount": 897,
+        "wordCount": 131,
+        "hasBullets": true,
+        "hasNumberedSteps": false,
+        "hasExamples": false,
+        "hasGoodBadContrast": false,
+        "hasMetricsOrCriteria": false,
+        "hasDefinitionsOrComparisons": true
+      },
+      "refineTemplate": {
+        "addDefinitionSection": false,
+        "addChecklistSection": false,
+        "addExamplesSection": true,
+        "addPitfallsSection": true,
+        "addMetricsSection": true
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      }
+    },
+    {
+      "courseId": "B2B_SALES_2026_30_RU",
+      "courseName": "B2B Продажи 2026 — мастер‑класс (30 дней) (RU)",
+      "language": "ru",
+      "dayNumber": 14,
+      "lessonId": "B2B_SALES_2026_30_RU_DAY_14",
+      "title": "Фреймворк квалификации: MEDDPICC (упрощённо)",
+      "createdAt": "2026-01-28T19:40:32.224Z",
+      "score": 35,
+      "issues": [
+        "TOO_SHORT",
+        "NO_CLEAR_DEFINITIONS",
+        "NO_EXAMPLES",
+        "NO_CONTRASTS_GOOD_BAD"
+      ],
+      "signals": {
+        "charCount": 928,
+        "wordCount": 137,
+        "hasBullets": true,
+        "hasNumberedSteps": false,
+        "hasExamples": false,
+        "hasGoodBadContrast": false,
+        "hasMetricsOrCriteria": true,
+        "hasDefinitionsOrComparisons": false
+      },
+      "refineTemplate": {
+        "addDefinitionSection": true,
+        "addChecklistSection": false,
+        "addExamplesSection": true,
+        "addPitfallsSection": true,
+        "addMetricsSection": false
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      }
+    },
+    {
+      "courseId": "B2B_SALES_2026_30_RU",
+      "courseName": "B2B Продажи 2026 — мастер‑класс (30 дней) (RU)",
+      "language": "ru",
+      "dayNumber": 15,
+      "lessonId": "B2B_SALES_2026_30_RU_DAY_15",
+      "title": "Структура дискавери (5 блоков)",
+      "createdAt": "2026-01-28T19:40:32.490Z",
+      "score": 20,
+      "issues": [
+        "TOO_SHORT",
+        "NO_CLEAR_DEFINITIONS",
+        "NO_EXAMPLES",
+        "NO_CONTRASTS_GOOD_BAD",
+        "NO_METRICS_OR_CRITERIA"
+      ],
+      "signals": {
+        "charCount": 843,
+        "wordCount": 121,
+        "hasBullets": true,
+        "hasNumberedSteps": true,
+        "hasExamples": false,
+        "hasGoodBadContrast": false,
+        "hasMetricsOrCriteria": false,
+        "hasDefinitionsOrComparisons": false
+      },
+      "refineTemplate": {
+        "addDefinitionSection": true,
+        "addChecklistSection": false,
+        "addExamplesSection": true,
+        "addPitfallsSection": true,
+        "addMetricsSection": true
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      }
+    },
+    {
+      "courseId": "B2B_SALES_2026_30_RU",
+      "courseName": "B2B Продажи 2026 — мастер‑класс (30 дней) (RU)",
+      "language": "ru",
+      "dayNumber": 16,
+      "lessonId": "B2B_SALES_2026_30_RU_DAY_16",
+      "title": "Подготовка к встрече и заметки с помощью ИИ",
+      "createdAt": "2026-01-28T19:40:32.652Z",
+      "score": 35,
+      "issues": [
+        "TOO_SHORT",
+        "NO_EXAMPLES",
+        "NO_CONTRASTS_GOOD_BAD",
+        "NO_METRICS_OR_CRITERIA"
+      ],
+      "signals": {
+        "charCount": 859,
+        "wordCount": 121,
+        "hasBullets": true,
+        "hasNumberedSteps": true,
+        "hasExamples": false,
+        "hasGoodBadContrast": false,
+        "hasMetricsOrCriteria": false,
+        "hasDefinitionsOrComparisons": true
+      },
+      "refineTemplate": {
+        "addDefinitionSection": false,
+        "addChecklistSection": false,
+        "addExamplesSection": true,
+        "addPitfallsSection": true,
+        "addMetricsSection": true
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      }
+    },
+    {
+      "courseId": "B2B_SALES_2026_30_RU",
+      "courseName": "B2B Продажи 2026 — мастер‑класс (30 дней) (RU)",
+      "language": "ru",
+      "dayNumber": 17,
+      "lessonId": "B2B_SALES_2026_30_RU_DAY_17",
+      "title": "Следующий шаг и обязательство",
+      "createdAt": "2026-01-28T19:40:33.130Z",
+      "score": 20,
+      "issues": [
+        "TOO_SHORT",
+        "NO_CLEAR_DEFINITIONS",
+        "NO_EXAMPLES",
+        "NO_CONTRASTS_GOOD_BAD",
+        "NO_METRICS_OR_CRITERIA"
+      ],
+      "signals": {
+        "charCount": 817,
+        "wordCount": 115,
+        "hasBullets": true,
+        "hasNumberedSteps": true,
+        "hasExamples": false,
+        "hasGoodBadContrast": false,
+        "hasMetricsOrCriteria": false,
+        "hasDefinitionsOrComparisons": false
+      },
+      "refineTemplate": {
+        "addDefinitionSection": true,
+        "addChecklistSection": false,
+        "addExamplesSection": true,
+        "addPitfallsSection": true,
+        "addMetricsSection": true
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      }
+    },
+    {
+      "courseId": "B2B_SALES_2026_30_RU",
+      "courseName": "B2B Продажи 2026 — мастер‑класс (30 дней) (RU)",
+      "language": "ru",
+      "dayNumber": 18,
+      "lessonId": "B2B_SALES_2026_30_RU_DAY_18",
+      "title": "Nurture и реактивация",
+      "createdAt": "2026-01-28T19:40:33.198Z",
+      "score": 35,
+      "issues": [
+        "TOO_SHORT",
+        "NO_CLEAR_DEFINITIONS",
+        "NO_CONTRASTS_GOOD_BAD",
+        "NO_METRICS_OR_CRITERIA"
+      ],
+      "signals": {
+        "charCount": 793,
+        "wordCount": 115,
+        "hasBullets": true,
+        "hasNumberedSteps": true,
+        "hasExamples": true,
+        "hasGoodBadContrast": false,
+        "hasMetricsOrCriteria": false,
+        "hasDefinitionsOrComparisons": false
+      },
+      "refineTemplate": {
+        "addDefinitionSection": true,
+        "addChecklistSection": false,
+        "addExamplesSection": true,
+        "addPitfallsSection": true,
+        "addMetricsSection": true
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      }
+    },
+    {
+      "courseId": "B2B_SALES_2026_30_RU",
+      "courseName": "B2B Продажи 2026 — мастер‑класс (30 дней) (RU)",
+      "language": "ru",
+      "dayNumber": 19,
+      "lessonId": "B2B_SALES_2026_30_RU_DAY_19",
+      "title": "Зачем нужен CRM (и почему Excel не хватает)",
+      "createdAt": "2026-01-28T19:40:33.272Z",
+      "score": 35,
+      "issues": [
+        "TOO_SHORT",
+        "NO_CLEAR_DEFINITIONS",
+        "NO_EXAMPLES",
+        "NO_CONTRASTS_GOOD_BAD"
+      ],
+      "signals": {
+        "charCount": 816,
+        "wordCount": 118,
+        "hasBullets": true,
+        "hasNumberedSteps": true,
+        "hasExamples": false,
+        "hasGoodBadContrast": false,
+        "hasMetricsOrCriteria": true,
+        "hasDefinitionsOrComparisons": false
+      },
+      "refineTemplate": {
+        "addDefinitionSection": true,
+        "addChecklistSection": false,
+        "addExamplesSection": true,
+        "addPitfallsSection": true,
+        "addMetricsSection": false
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      }
+    },
+    {
+      "courseId": "B2B_SALES_2026_30_RU",
+      "courseName": "B2B Продажи 2026 — мастер‑класс (30 дней) (RU)",
+      "language": "ru",
+      "dayNumber": 20,
+      "lessonId": "B2B_SALES_2026_30_RU_DAY_20",
+      "title": "Дизайн воронки: определения стадий",
+      "createdAt": "2026-01-28T19:40:33.331Z",
+      "score": 35,
+      "issues": [
+        "TOO_SHORT",
+        "NO_CLEAR_DEFINITIONS",
+        "NO_EXAMPLES",
+        "NO_CONTRASTS_GOOD_BAD"
+      ],
+      "signals": {
+        "charCount": 825,
+        "wordCount": 118,
+        "hasBullets": true,
+        "hasNumberedSteps": true,
+        "hasExamples": false,
+        "hasGoodBadContrast": false,
+        "hasMetricsOrCriteria": true,
+        "hasDefinitionsOrComparisons": false
+      },
+      "refineTemplate": {
+        "addDefinitionSection": true,
+        "addChecklistSection": false,
+        "addExamplesSection": true,
+        "addPitfallsSection": true,
+        "addMetricsSection": false
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      }
+    },
+    {
+      "courseId": "B2B_SALES_2026_30_RU",
+      "courseName": "B2B Продажи 2026 — мастер‑класс (30 дней) (RU)",
+      "language": "ru",
+      "dayNumber": 21,
+      "lessonId": "B2B_SALES_2026_30_RU_DAY_21",
+      "title": "Pipedrive: сильные стороны и когда выбирать",
+      "createdAt": "2026-01-28T19:40:33.395Z",
+      "score": 35,
+      "issues": [
+        "TOO_SHORT",
+        "NO_CLEAR_DEFINITIONS",
+        "NO_EXAMPLES",
+        "NO_CONTRASTS_GOOD_BAD"
+      ],
+      "signals": {
+        "charCount": 798,
+        "wordCount": 108,
+        "hasBullets": true,
+        "hasNumberedSteps": false,
+        "hasExamples": false,
+        "hasGoodBadContrast": false,
+        "hasMetricsOrCriteria": true,
+        "hasDefinitionsOrComparisons": false
+      },
+      "refineTemplate": {
+        "addDefinitionSection": true,
+        "addChecklistSection": false,
+        "addExamplesSection": true,
+        "addPitfallsSection": true,
+        "addMetricsSection": false
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      }
+    },
+    {
+      "courseId": "B2B_SALES_2026_30_RU",
+      "courseName": "B2B Продажи 2026 — мастер‑класс (30 дней) (RU)",
+      "language": "ru",
+      "dayNumber": 22,
+      "lessonId": "B2B_SALES_2026_30_RU_DAY_22",
+      "title": "HubSpot: сильные стороны и когда выбирать",
+      "createdAt": "2026-01-28T19:40:33.442Z",
+      "score": 35,
+      "issues": [
+        "TOO_SHORT",
+        "NO_CLEAR_DEFINITIONS",
+        "NO_EXAMPLES",
+        "NO_CONTRASTS_GOOD_BAD"
+      ],
+      "signals": {
+        "charCount": 798,
+        "wordCount": 109,
+        "hasBullets": true,
+        "hasNumberedSteps": false,
+        "hasExamples": false,
+        "hasGoodBadContrast": false,
+        "hasMetricsOrCriteria": true,
+        "hasDefinitionsOrComparisons": false
+      },
+      "refineTemplate": {
+        "addDefinitionSection": true,
+        "addChecklistSection": false,
+        "addExamplesSection": true,
+        "addPitfallsSection": true,
+        "addMetricsSection": false
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      }
+    },
+    {
+      "courseId": "B2B_SALES_2026_30_RU",
+      "courseName": "B2B Продажи 2026 — мастер‑класс (30 дней) (RU)",
+      "language": "ru",
+      "dayNumber": 23,
+      "lessonId": "B2B_SALES_2026_30_RU_DAY_23",
+      "title": "Интеграции и основы потока данных",
+      "createdAt": "2026-01-28T19:40:33.495Z",
+      "score": 20,
+      "issues": [
+        "TOO_SHORT",
+        "NO_CLEAR_DEFINITIONS",
+        "NO_EXAMPLES",
+        "NO_CONTRASTS_GOOD_BAD",
+        "NO_METRICS_OR_CRITERIA"
+      ],
+      "signals": {
+        "charCount": 766,
+        "wordCount": 110,
+        "hasBullets": true,
+        "hasNumberedSteps": false,
+        "hasExamples": false,
+        "hasGoodBadContrast": false,
+        "hasMetricsOrCriteria": false,
+        "hasDefinitionsOrComparisons": false
+      },
+      "refineTemplate": {
+        "addDefinitionSection": true,
+        "addChecklistSection": false,
+        "addExamplesSection": true,
+        "addPitfallsSection": true,
+        "addMetricsSection": true
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      }
+    },
+    {
+      "courseId": "B2B_SALES_2026_30_RU",
+      "courseName": "B2B Продажи 2026 — мастер‑класс (30 дней) (RU)",
+      "language": "ru",
+      "dayNumber": 24,
+      "lessonId": "B2B_SALES_2026_30_RU_DAY_24",
+      "title": "Гигиена CRM и ежедневная рутина",
+      "createdAt": "2026-01-28T19:40:33.542Z",
+      "score": 20,
+      "issues": [
+        "TOO_SHORT",
+        "NO_CLEAR_DEFINITIONS",
+        "NO_EXAMPLES",
+        "NO_CONTRASTS_GOOD_BAD",
+        "NO_METRICS_OR_CRITERIA"
+      ],
+      "signals": {
+        "charCount": 812,
+        "wordCount": 116,
+        "hasBullets": true,
+        "hasNumberedSteps": true,
+        "hasExamples": false,
+        "hasGoodBadContrast": false,
+        "hasMetricsOrCriteria": false,
+        "hasDefinitionsOrComparisons": false
+      },
+      "refineTemplate": {
+        "addDefinitionSection": true,
+        "addChecklistSection": false,
+        "addExamplesSection": true,
+        "addPitfallsSection": true,
+        "addMetricsSection": true
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      }
+    },
+    {
+      "courseId": "B2B_SALES_2026_30_RU",
+      "courseName": "B2B Продажи 2026 — мастер‑класс (30 дней) (RU)",
+      "language": "ru",
+      "dayNumber": 25,
+      "lessonId": "B2B_SALES_2026_30_RU_DAY_25",
+      "title": "Структура предложения: готово к решению",
+      "createdAt": "2026-01-28T19:40:33.585Z",
+      "score": 35,
+      "issues": [
+        "TOO_SHORT",
+        "NO_CLEAR_DEFINITIONS",
+        "NO_EXAMPLES",
+        "NO_CONTRASTS_GOOD_BAD"
+      ],
+      "signals": {
+        "charCount": 758,
+        "wordCount": 107,
+        "hasBullets": true,
+        "hasNumberedSteps": true,
+        "hasExamples": false,
+        "hasGoodBadContrast": false,
+        "hasMetricsOrCriteria": true,
+        "hasDefinitionsOrComparisons": false
+      },
+      "refineTemplate": {
+        "addDefinitionSection": true,
+        "addChecklistSection": false,
+        "addExamplesSection": true,
+        "addPitfallsSection": true,
+        "addMetricsSection": false
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      }
+    },
+    {
+      "courseId": "B2B_SALES_2026_30_RU",
+      "courseName": "B2B Продажи 2026 — мастер‑класс (30 дней) (RU)",
+      "language": "ru",
+      "dayNumber": 26,
+      "lessonId": "B2B_SALES_2026_30_RU_DAY_26",
+      "title": "Ценообразование 2026: упаковка и ценность",
+      "createdAt": "2026-01-28T19:40:33.636Z",
+      "score": 20,
+      "issues": [
+        "TOO_SHORT",
+        "NO_CLEAR_DEFINITIONS",
+        "NO_EXAMPLES",
+        "NO_CONTRASTS_GOOD_BAD",
+        "NO_METRICS_OR_CRITERIA"
+      ],
+      "signals": {
+        "charCount": 790,
+        "wordCount": 109,
+        "hasBullets": true,
+        "hasNumberedSteps": false,
+        "hasExamples": false,
+        "hasGoodBadContrast": false,
+        "hasMetricsOrCriteria": false,
+        "hasDefinitionsOrComparisons": false
+      },
+      "refineTemplate": {
+        "addDefinitionSection": true,
+        "addChecklistSection": false,
+        "addExamplesSection": true,
+        "addPitfallsSection": true,
+        "addMetricsSection": true
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      }
+    },
+    {
+      "courseId": "B2B_SALES_2026_30_RU",
+      "courseName": "B2B Продажи 2026 — мастер‑класс (30 дней) (RU)",
+      "language": "ru",
+      "dayNumber": 27,
+      "lessonId": "B2B_SALES_2026_30_RU_DAY_27",
+      "title": "Закупки, юристы и безопасность",
+      "createdAt": "2026-01-28T19:40:33.694Z",
+      "score": 20,
+      "issues": [
+        "TOO_SHORT",
+        "NO_CLEAR_DEFINITIONS",
+        "NO_EXAMPLES",
+        "NO_CONTRASTS_GOOD_BAD",
+        "NO_METRICS_OR_CRITERIA"
+      ],
+      "signals": {
+        "charCount": 805,
+        "wordCount": 105,
+        "hasBullets": true,
+        "hasNumberedSteps": false,
+        "hasExamples": false,
+        "hasGoodBadContrast": false,
+        "hasMetricsOrCriteria": false,
+        "hasDefinitionsOrComparisons": false
+      },
+      "refineTemplate": {
+        "addDefinitionSection": true,
+        "addChecklistSection": false,
+        "addExamplesSection": true,
+        "addPitfallsSection": true,
+        "addMetricsSection": true
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      }
+    },
+    {
+      "courseId": "B2B_SALES_2026_30_RU",
+      "courseName": "B2B Продажи 2026 — мастер‑класс (30 дней) (RU)",
+      "language": "ru",
+      "dayNumber": 28,
+      "lessonId": "B2B_SALES_2026_30_RU_DAY_28",
+      "title": "Работа с возражениями: паттерны и уточнение",
+      "createdAt": "2026-01-28T19:40:33.736Z",
+      "score": 20,
+      "issues": [
+        "TOO_SHORT",
+        "NO_CLEAR_DEFINITIONS",
+        "NO_EXAMPLES",
+        "NO_CONTRASTS_GOOD_BAD",
+        "NO_METRICS_OR_CRITERIA"
+      ],
+      "signals": {
+        "charCount": 743,
+        "wordCount": 104,
+        "hasBullets": true,
+        "hasNumberedSteps": true,
+        "hasExamples": false,
+        "hasGoodBadContrast": false,
+        "hasMetricsOrCriteria": false,
+        "hasDefinitionsOrComparisons": false
+      },
+      "refineTemplate": {
+        "addDefinitionSection": true,
+        "addChecklistSection": false,
+        "addExamplesSection": true,
+        "addPitfallsSection": true,
+        "addMetricsSection": true
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      }
+    },
+    {
+      "courseId": "B2B_SALES_2026_30_RU",
+      "courseName": "B2B Продажи 2026 — мастер‑класс (30 дней) (RU)",
+      "language": "ru",
+      "dayNumber": 29,
+      "lessonId": "B2B_SALES_2026_30_RU_DAY_29",
+      "title": "Закрытие: решение и следующий шаг",
+      "createdAt": "2026-01-28T19:40:33.796Z",
+      "score": 20,
+      "issues": [
+        "TOO_SHORT",
+        "NO_CLEAR_DEFINITIONS",
+        "NO_EXAMPLES",
+        "NO_CONTRASTS_GOOD_BAD",
+        "NO_METRICS_OR_CRITERIA"
+      ],
+      "signals": {
+        "charCount": 749,
+        "wordCount": 101,
+        "hasBullets": true,
+        "hasNumberedSteps": true,
+        "hasExamples": false,
+        "hasGoodBadContrast": false,
+        "hasMetricsOrCriteria": false,
+        "hasDefinitionsOrComparisons": false
+      },
+      "refineTemplate": {
+        "addDefinitionSection": true,
+        "addChecklistSection": false,
+        "addExamplesSection": true,
+        "addPitfallsSection": true,
+        "addMetricsSection": true
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      }
+    },
+    {
+      "courseId": "B2B_SALES_2026_30_RU",
+      "courseName": "B2B Продажи 2026 — мастер‑класс (30 дней) (RU)",
+      "language": "ru",
+      "dayNumber": 30,
+      "lessonId": "B2B_SALES_2026_30_RU_DAY_30",
+      "title": "Итоговый спринт: полный цикл B2B‑продаж",
+      "createdAt": "2026-01-28T19:40:33.847Z",
+      "score": 35,
+      "issues": [
+        "TOO_SHORT",
+        "NO_CLEAR_DEFINITIONS",
+        "NO_CONTRASTS_GOOD_BAD",
+        "NO_METRICS_OR_CRITERIA"
+      ],
+      "signals": {
+        "charCount": 860,
+        "wordCount": 125,
+        "hasBullets": true,
+        "hasNumberedSteps": true,
+        "hasExamples": true,
+        "hasGoodBadContrast": false,
+        "hasMetricsOrCriteria": false,
+        "hasDefinitionsOrComparisons": false
+      },
+      "refineTemplate": {
+        "addDefinitionSection": true,
+        "addChecklistSection": false,
+        "addExamplesSection": true,
+        "addPitfallsSection": true,
+        "addMetricsSection": true
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      }
+    }
+  ]
+}

@@ -1,0 +1,68 @@
+{
+  "backedUpAt": "2026-01-29T16:59:37.980Z",
+  "course": {
+    "courseId": "B2B_SALES_2026_30_EN",
+    "name": "B2B Sales 2026 Masterclass",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 22,
+    "title": "HubSpot: strengths and when to choose it",
+    "lessonId": "B2B_SALES_2026_30_EN_DAY_22"
+  },
+  "questionCount": 4,
+  "questions": [
+    {
+      "_id": "697b1fd48f79f136a28b8a4c",
+      "difficulty": "MEDIUM",
+      "question": "When is HubSpot a good choice?",
+      "options": [
+        "When you only need a simple pipeline without marketing",
+        "When you need marketing + sales + automation in one place",
+        "When you need an ERP",
+        "When you need an HR system"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b1fd48f79f136a28b8a4d",
+      "difficulty": "MEDIUM",
+      "question": "What belongs in the minimal setup?",
+      "options": [
+        "Lifecycle statuses + deal pipeline + required fields + workflow",
+        "Just a logo",
+        "Only a landing page",
+        "Only a slide deck"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b1fd48f79f136a28b8a4e",
+      "difficulty": "MEDIUM",
+      "question": "One HubSpot limitation:",
+      "options": [
+        "No mobile app",
+        "License cost and complexity higher than Pipedrive",
+        "No pipeline feature",
+        "Cannot send email"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b1fd48f79f136a28b8a4f",
+      "difficulty": "MEDIUM",
+      "question": "Good workflow example:",
+      "options": [
+        "Form → contact + company → deal → owner assign",
+        "Send random emails",
+        "Manual CSV export/import",
+        "Only Slack messages"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    }
+  ]
+}

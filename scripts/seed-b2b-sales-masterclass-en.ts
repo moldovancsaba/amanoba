@@ -23,6 +23,14 @@ const COURSE_NAME = 'B2B Sales 2026 Masterclass';
 const COURSE_DESCRIPTION =
   '30-day, systems-first B2B sales training: from ICP and qualification through discovery, pipeline design, pricing and closing. 20–30 minutes per day with AI support and measurable deliverables.';
 
+function hasFlag(flag: string) {
+  return process.argv.includes(flag);
+}
+
+const APPLY = hasFlag('--apply');
+const ONLY_MISSING_LESSONS = !hasFlag('--update-existing-lessons');
+const INCLUDE_QUIZZES = hasFlag('--include-quizzes');
+
 type LessonEntry = {
   day: number;
   title: string;
@@ -3729,89 +3737,108 @@ async function main() {
     (await Brand.findOne().sort({ createdAt: 1 }));
   if (!brand) throw new Error('No brand found');
 
-  const course = await Course.findOneAndUpdate(
-    { courseId: COURSE_ID },
-    {
-      courseId: COURSE_ID,
-      name: COURSE_NAME,
-      description: COURSE_DESCRIPTION,
-      language: 'en',
-      durationDays: 30,
-      isActive: true,
-      requiresPremium: false,
-      pointsConfig: {
-        completionPoints: 500,
-        lessonPoints: 25,
-        perfectCourseBonus: 300,
-      },
-      xpConfig: {
-        completionXP: 500,
-        lessonXP: 25,
-      },
-      metadata: {
-        category: 'B2B Sales',
-        difficulty: 'intermediate',
-        tags: ['b2b', 'sales', 'pipeline', 'ai'],
-      },
-      brandId: brand._id,
+  const courseUpdate = {
+    courseId: COURSE_ID,
+    name: COURSE_NAME,
+    description: COURSE_DESCRIPTION,
+    language: 'en',
+    durationDays: 30,
+    isActive: true,
+    requiresPremium: false,
+    pointsConfig: {
+      completionPoints: 500,
+      lessonPoints: 25,
+      perfectCourseBonus: 300,
     },
-    { upsert: true, new: true }
-  );
+    xpConfig: {
+      completionXP: 500,
+      lessonXP: 25,
+    },
+    metadata: {
+      category: 'B2B Sales',
+      difficulty: 'intermediate',
+      tags: ['b2b', 'sales', 'pipeline', 'ai'],
+    },
+    brandId: brand._id,
+  };
+
+  const course =
+    APPLY
+      ? await Course.findOneAndUpdate({ courseId: COURSE_ID }, courseUpdate, { upsert: true, new: true })
+      : await Course.findOne({ courseId: COURSE_ID });
+
+  if (!course) {
+    throw new Error(`Course ${COURSE_ID} not found (dry-run). Re-run with --apply to create it.`);
+  }
+
+  console.log(`✅ Course ${COURSE_ID} ${APPLY ? 'created/updated' : 'loaded (dry-run)'}`);
+  console.log(`- Mode: ${APPLY ? 'APPLY' : 'DRY-RUN'}`);
+  console.log(`- onlyMissingLessons: ${ONLY_MISSING_LESSONS}`);
+  console.log(`- includeQuizzes: ${INCLUDE_QUIZZES}`);
 
   for (const entry of lessons) {
     const lessonId = `${COURSE_ID}_DAY_${entry.day}`;
-    const lessonDoc = await Lesson.findOneAndUpdate(
-      { lessonId },
-      {
-        lessonId,
-        courseId: course._id,
-        dayNumber: entry.day,
-        language: 'en',
-        title: entry.title,
-        content: entry.content,
-        emailSubject: entry.emailSubject,
-        emailBody: entry.emailBody,
-        quizConfig: {
-          enabled: true,
-          successThreshold: 80,
-          questionCount: entry.quiz?.questions.length || 4,
-          poolSize: entry.quiz?.questions.length || 4,
-          required: true,
-        },
-        pointsReward: 25,
-        xpReward: 25,
-        isActive: true,
-        displayOrder: entry.day,
-      },
-      { upsert: true, new: true }
-    );
+    const existing = await Lesson.findOne({ lessonId }).select('_id').lean();
+    if (existing && ONLY_MISSING_LESSONS) continue;
 
-    if (entry.quiz) {
-      await QuizQuestion.deleteMany({ lessonId });
-      await QuizQuestion.insertMany(
-        entry.quiz.questions.map((q) => ({
-          question: q.question,
-          options: q.options,
-          correctIndex: q.correctIndex,
-          difficulty: QuestionDifficulty.MEDIUM,
-          category: 'Course Specific',
-          lessonId,
-          courseId: course._id,
-          isCourseSpecific: true,
-          showCount: 0,
-          correctCount: 0,
-          metadata: {
-            createdAt: new Date(),
-            updatedAt: new Date(),
-          },
-        }))
-      );
+    const lessonUpdate = {
+      lessonId,
+      courseId: course._id,
+      dayNumber: entry.day,
+      language: 'en',
+      title: entry.title,
+      content: entry.content,
+      emailSubject: entry.emailSubject,
+      emailBody: entry.emailBody,
+      quizConfig: {
+        enabled: true,
+        successThreshold: 80,
+        questionCount: entry.quiz?.questions.length || 4,
+        poolSize: entry.quiz?.questions.length || 4,
+        required: true,
+      },
+      pointsReward: 25,
+      xpReward: 25,
+      isActive: true,
+      displayOrder: entry.day,
+    };
+
+    if (APPLY) {
+      await Lesson.findOneAndUpdate({ lessonId }, lessonUpdate, { upsert: true, new: true });
+      console.log(`✅ Lesson ${lessonId} upserted`);
+    } else {
+      console.log(`📝 Would upsert lesson ${lessonId}${existing ? ' (update)' : ' (create)'}`);
+    }
+
+    if (entry.quiz && INCLUDE_QUIZZES) {
+      if (APPLY) {
+        await QuizQuestion.deleteMany({ lessonId });
+        await QuizQuestion.insertMany(
+          entry.quiz.questions.map((q) => ({
+            question: q.question,
+            options: q.options,
+            correctIndex: q.correctIndex,
+            difficulty: QuestionDifficulty.MEDIUM,
+            category: 'Course Specific',
+            lessonId,
+            courseId: course._id,
+            isCourseSpecific: true,
+            showCount: 0,
+            correctCount: 0,
+            metadata: {
+              createdAt: new Date(),
+              updatedAt: new Date(),
+            },
+          }))
+        );
+      }
+      console.log(`${APPLY ? '✅' : '📝'} Quiz reset for ${lessonId} (${entry.quiz.questions.length} questions)`);
     }
   }
 
   await mongoose.disconnect();
   // eslint-disable-next-line no-console
-  console.log('Seeded B2B Sales 2026 Masterclass (EN) with first 30 lessons.');
+  console.log(`Seeded B2B Sales 2026 Masterclass (EN) (${APPLY ? 'APPLY' : 'DRY-RUN'}).`);
 }
 
 main().catch((err) => {

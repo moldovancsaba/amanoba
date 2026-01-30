@@ -1,0 +1,68 @@
+{
+  "backedUpAt": "2026-01-29T17:00:21.984Z",
+  "course": {
+    "courseId": "B2B_SALES_2026_30",
+    "name": "B2B Értékesítés 2026 Masterclass",
+    "language": "hu"
+  },
+  "lesson": {
+    "dayNumber": 10,
+    "title": "AI-alapú kutatás: cég, szerep, trigger",
+    "lessonId": "B2B_SALES_2026_30_DAY_10"
+  },
+  "questionCount": 4,
+  "questions": [
+    {
+      "_id": "697b203dac79ca83bb97223d",
+      "difficulty": "MEDIUM",
+      "question": "Mi a 3 tény + 1 trigger célja?",
+      "options": [
+        "Dekoráció",
+        "Releváns, rövid outreach alapja",
+        "Hosszabb email",
+        "Jogilag kötelező"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b203dac79ca83bb97223e",
+      "difficulty": "MEDIUM",
+      "question": "Mi tartozik az account briefbe?",
+      "options": [
+        "Csak a weboldal linkje",
+        "Cég röviden, 3 tény, 1 trigger, fájdalom, next step",
+        "Csak a pitch deck",
+        "Csak az árlista"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b203dac79ca83bb97223f",
+      "difficulty": "MEDIUM",
+      "question": "Miért kell külön persona prompt?",
+      "options": [
+        "Mert hosszabb lesz a válasz",
+        "Mert szerep/KPI/fájdalom specifikus relevanciát ad",
+        "Mert jogilag kell",
+        "Mert így nem kell ICP"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b203dac79ca83bb972240",
+      "difficulty": "MEDIUM",
+      "question": "Mi a rossz megközelítés?",
+      "options": [
+        "Brief 3 tény + triggerrel",
+        "Weboldal bemásolva trigger és next step nélkül",
+        "Ajánlott next step megírása",
+        "Persona szerepének felírása"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    }
+  ]
+}

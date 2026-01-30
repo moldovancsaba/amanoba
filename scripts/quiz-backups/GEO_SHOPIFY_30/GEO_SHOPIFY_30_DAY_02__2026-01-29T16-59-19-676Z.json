@@ -1,0 +1,81 @@
+{
+  "backedUpAt": "2026-01-29T17:00:08.745Z",
+  "course": {
+    "courseId": "GEO_SHOPIFY_30",
+    "name": "GEO Shopify – 30 napos kurzus",
+    "language": "hu"
+  },
+  "lesson": {
+    "dayNumber": 2,
+    "title": "GEO vs SEO Shopify-n: mire figyelj?",
+    "lessonId": "GEO_SHOPIFY_30_DAY_02"
+  },
+  "questionCount": 5,
+  "questions": [
+    {
+      "_id": "697b1ff7de117f992bb9bdc7",
+      "difficulty": "EASY",
+      "question": "Mi GEO-first elem a Shopify PDP-n?",
+      "options": [
+        "Ár/készlet/azonosítók tiszta megjelenítése",
+        "Csak hosszú meta description",
+        "Csak backlink",
+        "Csak page speed"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b1ff7de117f992bb9bdc8",
+      "difficulty": "MEDIUM",
+      "question": "Miért kell answer capsule a GEO-ban?",
+      "options": [
+        "Tömör, idézhető blokkot ad a modellnek a PDP tetején",
+        "Csak design elem",
+        "Nem szükséges",
+        "Csak SEO kulcsszavak miatt"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b1ff7de117f992bb9bdc9",
+      "difficulty": "MEDIUM",
+      "question": "Melyik jó tétel egy 10 pontos GEO checklisthez?",
+      "options": [
+        "GTIN/SKU megadva és olvasható",
+        "Rejtett ár",
+        "Nincs készlet jelzés",
+        "Duplikált URL-ek"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b1ff7de117f992bb9bdca",
+      "difficulty": "EASY",
+      "question": "Mi az SEO-first példa a listából?",
+      "options": [
+        "Meta title/description finomhangolás",
+        "Készletjelzés kiírása",
+        "Visszaküldési policy feltüntetése",
+        "Answer capsule írása"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b1ff7de117f992bb9bdcb",
+      "difficulty": "HARD",
+      "question": "Miért fontos a tiszta variánsadat GEO-ban?",
+      "options": [
+        "Az AI ne keverje össze a méretet/színt összegzéskor",
+        "Csak kényelmi okból",
+        "Nem számít",
+        "Csak SEO kulcsszó miatt"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    }
+  ]
+}

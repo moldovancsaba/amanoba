@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-28T22:09:38.359Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_AR",
+    "name": "الإنتاجية 2026: كيفية إدارة الفرق والوقت",
+    "language": "ar"
+  },
+  "lesson": {
+    "dayNumber": 7,
+    "title": "النظام اليومي/الأسبوعي: الطقس الصباحي، اجتماع يومي، مراجعة أسبوعية",
+    "lessonId": "PRODUCTIVITY_2026_AR_DAY_07"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a613ed20b35fb797286",
+      "uuid": "321ddc0a-3665-45a7-b393-9d69c350dba3",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ لديك طقس صباحي 15 دقيقة.\n✅ لديك نظام ا...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day7",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a613ed20b35fb797287",
+      "uuid": "43bf77fc-e1fb-4889-92a8-7cd5a0f3e92d",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ لديك طقس صباحي 15 دقيقة.\n✅ لديك نظام ا...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day7",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a613ed20b35fb797288",
+      "uuid": "e5931d3d-8521-4ae9-a615-9265fc7a9b83",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ لديك طقس صباحي 15 دقيقة.\n✅ لديك نظام ا...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day7",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a613ed20b35fb797289",
+      "uuid": "2bdd6641-2741-4d95-8572-6a4975fe18a6",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "How does the concept \"النظام اليومي/الأسبوعي: الطقس الصباحي، اجتماع يومي...\" mentioned in the lesson impact achieving your goals?",
+      "options": [
+        "As described in detail in the lesson, النظام اليومي/الأسبوعي: الطقس ... increases effectiveness and reduces risk",
+        "No significant impact",
+        "Only matters theoretically",
+        "Only an optional element"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day7",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a613ed20b35fb79728a",
+      "uuid": "3d5e2343-7a22-4aab-b410-00a0b93c0a55",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is الطقس الصباحي in the context of النظام اليومي/الأسبوعي: الطقس الصباحي، اجتماع يومي، مراجعة أسبوعية as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, الطقس الصباحي plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day7",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a613ed20b35fb79728b",
+      "uuid": "bfff6415-1110-46b9-90cd-fa27f9b516e5",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "In the \"النظام اليومي/الأسبوعي: الطقس الصباحي، اجتماع يومي، مراجعة أسبوعية\" lesson, what role does المراجعة الأسبوعية play?",
+      "options": [
+        "As described in detail in the lesson, المراجعة الأسبوعية plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day7",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a613ed20b35fb79728c",
+      "uuid": "4fdc4c8d-9e85-414f-9bd1-3c7b10c8ede0",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "In the \"النظام اليومي/الأسبوعي: الطقس الصباحي، اجتماع يومي، مراجعة أسبوعية\" lesson, what role does 2. التخطيط (8 دقائق) play?",
+      "options": [
+        "As described in detail in the lesson, 2. التخطيط (8 دقائق) plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day7",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

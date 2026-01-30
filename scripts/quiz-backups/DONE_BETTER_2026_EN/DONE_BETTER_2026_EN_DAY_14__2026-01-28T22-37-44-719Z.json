@@ -1,0 +1,114 @@
+{
+  "backedUpAt": "2026-01-28T22:37:47.774Z",
+  "course": {
+    "courseId": "DONE_BETTER_2026_EN",
+    "name": "Done is better - Build What Matters",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 14,
+    "title": "Choose with Intent",
+    "lessonId": "DONE_BETTER_2026_EN_DAY_14"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "697a87bca81588c9f41a224e",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "A decision has been discussed but not written down. What is the risk?",
+      "options": [
+        "Implicit decisions cause misalignment; write what we chose and why",
+        "None; everyone was in the room",
+        "It will be forgotten",
+        "Writing takes too long"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87bca81588c9f41a224f",
+      "questionType": "application",
+      "difficulty": "EASY",
+      "question": "In this framework, how is \"choose with intent\" defined or applied?",
+      "options": [
+        "Use criteria and boundaries to decide; make the decision explicit",
+        "Let the loudest person decide for the team",
+        "Vote on everything and follow the majority",
+        "Delegate all decisions to someone else"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87bca81588c9f41a2250",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How do you avoid drift on decisions?",
+      "options": [
+        "Make the decision explicit: what we chose, why, and what we are not doing",
+        "Meet more often",
+        "Assign a single decider",
+        "Avoid hard choices"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87bca81588c9f41a2251",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Delaying decision by asking for more data indefinitely leads to:",
+      "options": [
+        "Drift; the default option or inaction wins without intent",
+        "Better decisions",
+        "More alignment",
+        "Lower risk"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87bca81588c9f41a2252",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Confusing consensus with a clear decision can result in:",
+      "options": [
+        "No one owns the outcome; \"everyone agreed\" but no one wrote what was chosen",
+        "Faster execution",
+        "Higher satisfaction",
+        "No significant downside in practice"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87bca81588c9f41a2253",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "What should you write down when you make a decision?",
+      "options": [
+        "What we chose, why, and what we are not doing",
+        "Only the outcome and not the rationale",
+        "Only the date and not the rationale",
+        "Only who was present at the meeting"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87bca81588c9f41a2254",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "A team keeps revisiting the same choice. What is likely missing?",
+      "options": [
+        "An explicit decision with criteria and boundaries",
+        "More data",
+        "A different leader",
+        "A longer meeting"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "backedUpAt": "2026-01-28T21:25:02.424Z",
+  "course": {
+    "courseId": "B2B_SALES_2026_30_EN",
+    "name": "B2B Sales 2026 Masterclass",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 13,
+    "title": "MQL vs SQL and the Qualification Gate",
+    "lessonId": "B2B_SALES_2026_30_EN_DAY_13"
+  },
+  "questionCount": 0,
+  "questions": []
+}

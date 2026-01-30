@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-28T21:29:03.826Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_HI",
+    "name": "उत्पादकता 2026: टीमों और समय का प्रबंधन कैसे करें",
+    "language": "hi"
+  },
+  "lesson": {
+    "dayNumber": 11,
+    "title": "लक्ष्य निर्धारण और OKR: आप क्या हासिल करना चाहते हैं?",
+    "lessonId": "PRODUCTIVITY_2026_HI_DAY_11"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a68206e4784b9a0c122",
+      "uuid": "1fa21202-d16e-43ca-8606-bec3e6db6ec0",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"उद्देश्य के बिना उत्पादकता = सिर्फ व्यस्त।\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day11",
+        "#hi",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a68206e4784b9a0c123",
+      "uuid": "d9a762c0-aef2-4a76-8199-1e74c41c2833",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"दिशा\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day11",
+        "#hi",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a68206e4784b9a0c124",
+      "uuid": "45abd324-7593-4c7d-acc9-9602e3fad284",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"प्रेरणा\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day11",
+        "#hi",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a68206e4784b9a0c125",
+      "uuid": "7dd6c3fc-d9d3-4d2e-b424-5df456e65e48",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "पाठ में उल्लिखित अवधारणा \"महत्वपूर्ण क्यों है\n\nदिशा: लक्ष्य के बिना, गतिविधि...\" आपके goals प्राप्त करने को कैसे प्रभावित करती है?",
+      "options": [
+        "जैसा कि पाठ में विस्तार से वर्णित है, महत्वपूर्ण क्यों है\n\nदिशा: लक्... प्रभावशीलता बढ़ाता है और जोखिम कम करता है",
+        "कोई महत्वपूर्ण प्रभाव नहीं",
+        "केवल सैद्धांतिक रूप से मायने रखता है",
+        "केवल एक वैकल्पिक तत्व"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day11",
+        "#hi",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a68206e4784b9a0c126",
+      "uuid": "34f69b69-9245-42ab-8b52-ac992499a44a",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "पाठ में चर्चा किए गए लक्ष्य निर्धारण और OKR: आप क्या हासिल करना चाहते हैं? के संदर्भ में प्रेरणा कितना महत्वपूर्ण है?",
+      "options": [
+        "जैसा कि पाठ में विस्तार से वर्णित है, प्रेरणा प्रक्रियाओं को अनुकूलित करने और लक्ष्यों को प्राप्त करने में महत्वपूर्ण भूमिका निभाता है",
+        "केवल परिधीय जानकारी, कोई महत्वपूर्ण भूमिका नहीं",
+        "केवल एक सैद्धांतिक अवधारणा, कोई व्यावहारिक अनुप्रयोग नहीं",
+        "पाठ में उल्लेख नहीं किया गया"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day11",
+        "#hi",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a68206e4784b9a0c127",
+      "uuid": "0ce51d8a-5066-49b2-8272-735dcf410bb1",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "पाठ में चर्चा किए गए लक्ष्य निर्धारण और OKR: आप क्या हासिल करना चाहते हैं? के संदर्भ में निर्धारण कितना महत्वपूर्ण है?",
+      "options": [
+        "जैसा कि पाठ में विस्तार से वर्णित है, निर्धारण प्रक्रियाओं को अनुकूलित करने और लक्ष्यों को प्राप्त करने में महत्वपूर्ण भूमिका निभाता है",
+        "केवल परिधीय जानकारी, कोई महत्वपूर्ण भूमिका नहीं",
+        "केवल एक सैद्धांतिक अवधारणा, कोई व्यावहारिक अनुप्रयोग नहीं",
+        "पाठ में उल्लेख नहीं किया गया"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day11",
+        "#hi",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a68206e4784b9a0c128",
+      "uuid": "78fede55-5197-4aae-b30b-dda396b2aebb",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "पाठ में चर्चा किए गए लक्ष्य निर्धारण और OKR: आप क्या हासिल करना चाहते हैं? के संदर्भ में हासिल कितना महत्वपूर्ण है?",
+      "options": [
+        "जैसा कि पाठ में विस्तार से वर्णित है, हासिल प्रक्रियाओं को अनुकूलित करने और लक्ष्यों को प्राप्त करने में महत्वपूर्ण भूमिका निभाता है",
+        "केवल परिधीय जानकारी, कोई महत्वपूर्ण भूमिका नहीं",
+        "केवल एक सैद्धांतिक अवधारणा, कोई व्यावहारिक अनुप्रयोग नहीं",
+        "पाठ में उल्लेख नहीं किया गया"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day11",
+        "#hi",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

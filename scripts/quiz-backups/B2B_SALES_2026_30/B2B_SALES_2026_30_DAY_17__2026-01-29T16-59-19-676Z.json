@@ -1,0 +1,68 @@
+{
+  "backedUpAt": "2026-01-29T17:00:24.826Z",
+  "course": {
+    "courseId": "B2B_SALES_2026_30",
+    "name": "B2B Értékesítés 2026 Masterclass",
+    "language": "hu"
+  },
+  "lesson": {
+    "dayNumber": 17,
+    "title": "Következő lépés és kötelezettség kérése",
+    "lessonId": "B2B_SALES_2026_30_DAY_17"
+  },
+  "questionCount": 4,
+  "questions": [
+    {
+      "_id": "697b203fac79ca83bb972274",
+      "difficulty": "MEDIUM",
+      "question": "Miért kell kis elköteleződést kérni?",
+      "options": [
+        "Hogy hosszabb legyen a meeting",
+        "Szándék jelzése, deal megakadásának megelőzése",
+        "Több email küldése",
+        "Marketing okból"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b203fac79ca83bb972275",
+      "difficulty": "MEDIUM",
+      "question": "Mi a jó next step sablon eleme?",
+      "options": [
+        "Általános „majd beszéljünk”",
+        "Konkrét feladat, határidő, felelős",
+        "Csak small talk",
+        "Csak ár"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b203fac79ca83bb972276",
+      "difficulty": "MEDIUM",
+      "question": "Mi a rossz példa?",
+      "options": [
+        "„Majd beszéljünk valamikor.”",
+        "„Küldesz 3 lost ok listát péntekig….”",
+        "Időpont egyeztetése",
+        "Felelős kijelölése"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b203fac79ca83bb972277",
+      "difficulty": "MEDIUM",
+      "question": "Mit ellenőriz a checklist?",
+      "options": [
+        "Van-e logó",
+        "Idő, felelős, deliverable megvan-e",
+        "Hossz-e az email",
+        "Van-e emoji"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    }
+  ]
+}

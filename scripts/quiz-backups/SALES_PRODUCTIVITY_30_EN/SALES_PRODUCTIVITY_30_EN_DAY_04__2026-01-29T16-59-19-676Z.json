@@ -1,0 +1,184 @@
+{
+  "backedUpAt": "2026-01-29T16:59:53.324Z",
+  "course": {
+    "courseId": "SALES_PRODUCTIVITY_30_EN",
+    "name": "Build Your Sales – 30 Days to More Deals",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 4,
+    "title": "Conversion Rate Optimization – How to Improve Your Numbers",
+    "lessonId": "SALES_PRODUCTIVITY_30_EN_DAY_04"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "6979db389316e77110ed058e",
+      "uuid": "f67004c8-9478-4eef-9227-6290f597db9b",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you apply the \"Small improvement = big impact.\" concept to a \"Conversion Rate Optimization – How to Improve Your Numbers\" task so the outcome is measurable and verifiable?",
+      "options": [
+        "I create a checklist, apply it to a small scope first, measure the impact, then roll it out to the full scope",
+        "I keep it as a definition and never validate it in practice",
+        "I skip implementation because it seems time-consuming",
+        "I implement it but do not measure or document anything"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day4",
+        "#en",
+        "#all-languages",
+        "#course-sales_productivity_30_en",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "6979db389316e77110ed058f",
+      "uuid": "c5539417-d5dc-4d11-9f11-be3fdb12c068",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you apply the \"Quick results:\" concept to a \"Conversion Rate Optimization – How to Improve Your Numbers\" task so the outcome is measurable and verifiable?",
+      "options": [
+        "I create a checklist, apply it to a small scope first, measure the impact, then roll it out to the full scope",
+        "I keep it as a definition and never validate it in practice",
+        "I skip implementation because it seems time-consuming",
+        "I implement it but do not measure or document anything"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day4",
+        "#en",
+        "#all-languages",
+        "#course-sales_productivity_30_en",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "6979db389316e77110ed0590",
+      "uuid": "28134dc7-50cd-4227-8d41-4b7d6a47cbe0",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you apply the \"Cost efficiency:\" concept to a \"Conversion Rate Optimization – How to Improve Your Numbers\" task so the outcome is measurable and verifiable?",
+      "options": [
+        "I create a checklist, apply it to a small scope first, measure the impact, then roll it out to the full scope",
+        "I keep it as a definition and never validate it in practice",
+        "I skip implementation because it seems time-consuming",
+        "I implement it but do not measure or document anything"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day4",
+        "#en",
+        "#all-languages",
+        "#course-sales_productivity_30_en",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "6979db389316e77110ed0591",
+      "uuid": "daf071cb-4e13-4ca4-93a8-0be9469b67ea",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you apply the \"Competitive advantage:\" concept to a \"Conversion Rate Optimization – How to Improve Your Numbers\" task so the outcome is measurable and verifiable?",
+      "options": [
+        "I create a checklist, apply it to a small scope first, measure the impact, then roll it out to the full scope",
+        "I keep it as a definition and never validate it in practice",
+        "I skip implementation because it seems time-consuming",
+        "I implement it but do not measure or document anything"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day4",
+        "#en",
+        "#all-languages",
+        "#course-sales_productivity_30_en",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "6979db389316e77110ed0592",
+      "uuid": "fb60178d-c5e8-4042-8f9c-083dedf965cf",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you apply the \"CRO = Conversion Rate Optimization\" concept to a \"Conversion Rate Optimization – How to Improve Your Numbers\" task so the outcome is measurable and verifiable?",
+      "options": [
+        "I create a checklist, apply it to a small scope first, measure the impact, then roll it out to the full scope",
+        "I keep it as a definition and never validate it in practice",
+        "I skip implementation because it seems time-consuming",
+        "I implement it but do not measure or document anything"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day4",
+        "#en",
+        "#all-languages",
+        "#course-sales_productivity_30_en",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "6979db389316e77110ed0593",
+      "uuid": "f84ca665-b960-4655-ae14-f8064b4259ab",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you apply the \"Example:\" concept to a \"Conversion Rate Optimization – How to Improve Your Numbers\" task so the outcome is measurable and verifiable?",
+      "options": [
+        "I create a checklist, apply it to a small scope first, measure the impact, then roll it out to the full scope",
+        "I keep it as a definition and never validate it in practice",
+        "I skip implementation because it seems time-consuming",
+        "I implement it but do not measure or document anything"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day4",
+        "#en",
+        "#all-languages",
+        "#course-sales_productivity_30_en",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "6979db389316e77110ed0594",
+      "uuid": "1acaffea-30d1-4115-997a-a5f543de2a55",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you apply the \"Measure:\" concept to a \"Conversion Rate Optimization – How to Improve Your Numbers\" task so the outcome is measurable and verifiable?",
+      "options": [
+        "I create a checklist, apply it to a small scope first, measure the impact, then roll it out to the full scope",
+        "I keep it as a definition and never validate it in practice",
+        "I skip implementation because it seems time-consuming",
+        "I implement it but do not measure or document anything"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day4",
+        "#en",
+        "#all-languages",
+        "#course-sales_productivity_30_en",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#application"
+      ]
+    }
+  ]
+}

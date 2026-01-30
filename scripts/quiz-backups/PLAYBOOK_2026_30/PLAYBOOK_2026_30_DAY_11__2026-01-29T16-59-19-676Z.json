@@ -1,0 +1,68 @@
+{
+  "backedUpAt": "2026-01-29T17:00:16.618Z",
+  "course": {
+    "courseId": "PLAYBOOK_2026_30",
+    "name": "The Playbook 2026 – Mesterkurzus Designereknek",
+    "language": "hu"
+  },
+  "lesson": {
+    "dayNumber": 11,
+    "title": "Grid, ami skálázódik",
+    "lessonId": "PLAYBOOK_2026_30_DAY_11"
+  },
+  "questionCount": 4,
+  "questions": [
+    {
+      "_id": "697b2033d8669994531f7493",
+      "difficulty": "MEDIUM",
+      "question": "Mi a tipikus max-width egy desktop containerre?",
+      "options": [
+        "600px",
+        "1200–1440px",
+        "320px",
+        "Nincs szükség max-widthre"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b2033d8669994531f7494",
+      "difficulty": "MEDIUM",
+      "question": "Miért kell egységes gutter?",
+      "options": [
+        "Dekoráció",
+        "Konzisztens ritmus és fejlesztői sebesség",
+        "Csak mobilon számít",
+        "Nem számít"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b2033d8669994531f7495",
+      "difficulty": "MEDIUM",
+      "question": "Mit tartalmazzon a grid dokumentáció?",
+      "options": [
+        "Csak logókat",
+        "Oszlop/gutter/margin értékeket, breakpoints, példákat",
+        "Árlistát",
+        "Csak szöveget"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b2033d8669994531f7496",
+      "difficulty": "MEDIUM",
+      "question": "Mi a jó példa?",
+      "options": [
+        "Random gap értékek",
+        "12 oszlop, 16–24px gutter, fix breakpoints",
+        "Nincs breakpoint",
+        "Csak inline grid"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    }
+  ]
+}

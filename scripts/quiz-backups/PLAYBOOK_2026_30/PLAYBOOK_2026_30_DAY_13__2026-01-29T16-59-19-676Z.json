@@ -1,0 +1,68 @@
+{
+  "backedUpAt": "2026-01-29T17:00:17.040Z",
+  "course": {
+    "courseId": "PLAYBOOK_2026_30",
+    "name": "The Playbook 2026 – Mesterkurzus Designereknek",
+    "language": "hu"
+  },
+  "lesson": {
+    "dayNumber": 13,
+    "title": "Sűrűségmódok és reszponzivitás",
+    "lessonId": "PLAYBOOK_2026_30_DAY_13"
+  },
+  "questionCount": 4,
+  "questions": [
+    {
+      "_id": "697b2033d8669994531f74a5",
+      "difficulty": "MEDIUM",
+      "question": "Miért kell több sűrűségi mód?",
+      "options": [
+        "Dekoráció",
+        "Különböző kontextusok (dashboard vs marketing) eltérő sűrűséget igényelnek",
+        "Csak mobil miatt",
+        "Nem kell"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b2033d8669994531f74a6",
+      "difficulty": "MEDIUM",
+      "question": "Mi a dense mód jellemzője?",
+      "options": [
+        "Nagy gap, nagy tipó",
+        "Kisebb padding/gap, kisebb tipó",
+        "Random értékek",
+        "Csak színváltás"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b2033d8669994531f74a7",
+      "difficulty": "MEDIUM",
+      "question": "Mit tartalmazzon a sűrűség táblázat?",
+      "options": [
+        "Árakat",
+        "space/tipó értékeket airy/comfort/dense módra",
+        "Csak logókat",
+        "Csak képeket"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b2033d8669994531f74a8",
+      "difficulty": "MEDIUM",
+      "question": "Mi a jó példa?",
+      "options": [
+        "Táblázat airy módban",
+        "Dashboard dense: kisebb padding, gap, tipó -1",
+        "Minden komponens ugyanaz",
+        "Nincs váltás"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    }
+  ]
+}

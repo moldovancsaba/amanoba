@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-28T22:42:12.393Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_ID",
+    "name": "Produktivitas 2026: Cara Mengelola Tim dan Waktu",
+    "language": "id"
+  },
+  "lesson": {
+    "dayNumber": 12,
+    "title": "Struktur Akuntabilitas: Sistem yang Membuat Anda Tetap di Jalur",
+    "lessonId": "PRODUCTIVITY_2026_ID_DAY_12"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a2bdf6e5ec2a4427e2f",
+      "uuid": "ce1a8801-16d1-4d3f-9f13-049a0fc7201a",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ Saya memiliki tujuan 4-8 minggu yang j...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day12",
+        "#id",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a2bdf6e5ec2a4427e30",
+      "uuid": "e938f636-a9c2-41bf-8b75-e1e4ae5154de",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ Saya telah menulis tujuan saya dalam p...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day12",
+        "#id",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a2bdf6e5ec2a4427e31",
+      "uuid": "9f8989a2-d44f-4152-ae1f-313370b7051d",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ Saya memiliki tujuan 4-8 minggu yang j...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day12",
+        "#id",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a2bdf6e5ec2a4427e32",
+      "uuid": "25d2d9c2-19ee-4e3c-b5c3-37062ffe70b1",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Bagaimana konsep \"penting minggu ini?\"\nFrekuensi: Setidaknya sekali ...\" yang disebutkan dalam pelajaran mempengaruhi pencapaian goals Anda?",
+      "options": [
+        "Seperti yang dijelaskan secara detail dalam pelajaran, penting minggu ini?\"\nFrekuensi... meningkatkan efektivitas dan mengurangi risiko",
+        "Tidak ada dampak signifikan",
+        "Hanya penting secara teoritis",
+        "Hanya elemen opsional"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day12",
+        "#id",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a2bdf6e5ec2a4427e33",
+      "uuid": "41cf7b0f-9b97-41fc-b1e8-c4d2592db6f3",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Seberapa penting Komitmen Sadar dalam konteks Struktur Akuntabilitas: Sistem yang Membuat Anda Tetap di Jalur seperti yang dibahas dalam pelajaran?",
+      "options": [
+        "Seperti yang dijelaskan secara detail dalam pelajaran, Komitmen Sadar memainkan peran penting dalam mengoptimalkan proses dan mencapai tujuan",
+        "Hanya informasi periferal tanpa peran signifikan",
+        "Hanya konsep teoretis tanpa aplikasi praktis",
+        "Tidak disebutkan dalam pelajaran"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day12",
+        "#id",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a2bdf6e5ec2a4427e34",
+      "uuid": "4bbea177-0fd3-4a5f-a4ac-00ea78c98029",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Apa peran Peningkatan Ketekunan dalam pelajaran \"Struktur Akuntabilitas: Sistem yang Membuat Anda Tetap di Jalur\"?",
+      "options": [
+        "Seperti yang dijelaskan secara detail dalam pelajaran, Peningkatan Ketekunan memainkan peran penting dalam mengoptimalkan proses dan mencapai tujuan",
+        "Hanya informasi periferal tanpa peran signifikan",
+        "Hanya konsep teoretis tanpa aplikasi praktis",
+        "Tidak disebutkan dalam pelajaran"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day12",
+        "#id",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a2bdf6e5ec2a4427e35",
+      "uuid": "87921f59-35f8-450b-a565-bf68064ead83",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Apa peran Pertanyaan Mereka dalam pelajaran \"Struktur Akuntabilitas: Sistem yang Membuat Anda Tetap di Jalur\"?",
+      "options": [
+        "Seperti yang dijelaskan secara detail dalam pelajaran, Pertanyaan Mereka memainkan peran penting dalam mengoptimalkan proses dan mencapai tujuan",
+        "Hanya informasi periferal tanpa peran signifikan",
+        "Hanya konsep teoretis tanpa aplikasi praktis",
+        "Tidak disebutkan dalam pelajaran"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day12",
+        "#id",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

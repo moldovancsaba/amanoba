@@ -1,0 +1,177 @@
+{
+  "backedUpAt": "2026-01-28T21:08:07.020Z",
+  "course": {
+    "courseId": "SALES_PRODUCTIVITY_30_RU",
+    "name": "Постройте свои продажи – 30 дней к большему количеству сделок",
+    "language": "ru"
+  },
+  "lesson": {
+    "dayNumber": 2,
+    "title": "Установка KPI и целей – Как работать в обратном направлении",
+    "lessonId": "SALES_PRODUCTIVITY_30_RU_DAY_02"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a5483229aca24a6d5dd",
+      "uuid": "433f0a14-0ed9-4b7f-bafb-49233e115419",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Плохая цель = плохой результат.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day2",
+        "#ru",
+        "#all-languages",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5483229aca24a6d5de",
+      "uuid": "0cc25404-3d9f-487c-89ff-1ec74ca43f06",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Работа в обратном направлении:\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day2",
+        "#ru",
+        "#all-languages",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5483229aca24a6d5df",
+      "uuid": "145b904a-98ac-4a51-a674-e5b4e5fb745b",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Измеримость:\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day2",
+        "#ru",
+        "#all-languages",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5483229aca24a6d5e0",
+      "uuid": "625f4d4a-c28a-4627-a112-8471f7b6fb60",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Как концепция \"Установка KPI и целей – Как работать в обратном на...\", упомянутая в уроке, влияет на достижение ваших goals?",
+      "options": [
+        "Как подробно описано в уроке, Установка KPI и целей – Как ра... повышает эффективность и снижает риски",
+        "Нет значительного влияния",
+        "Имеет значение только теоретически",
+        "Только опциональный элемент"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day2",
+        "#ru",
+        "#all-languages",
+        "#productivity",
+        "#sales",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5483229aca24a6d5e1",
+      "uuid": "0fad3def-3d1e-4095-a690-b66866e47a35",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Какую роль играет Работа в обратном направлении: в уроке \"Установка KPI и целей – Как работать в обратном направлении\"?",
+      "options": [
+        "Как подробно описано в уроке, Работа в обратном направлении: играет ключевую роль в оптимизации процессов и достижении целей",
+        "Только периферийная информация без значительной роли",
+        "Только теоретическая концепция без практического применения",
+        "Не упоминается в уроке"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day2",
+        "#ru",
+        "#all-languages",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5483229aca24a6d5e2",
+      "uuid": "17feec92-849d-48c9-92be-2bfda8c28af0",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Насколько важен Мотивация: в контексте Установка KPI и целей – Как работать в обратном направлении, как обсуждается в уроке?",
+      "options": [
+        "Как подробно описано в уроке, Мотивация: играет ключевую роль в оптимизации процессов и достижении целей",
+        "Только периферийная информация без значительной роли",
+        "Только теоретическая концепция без практического применения",
+        "Не упоминается в уроке"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day2",
+        "#ru",
+        "#all-languages",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5483229aca24a6d5e3",
+      "uuid": "eab754d7-cdc7-476a-8650-1d5f967c4dfd",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Насколько важен Примеры: в контексте Установка KPI и целей – Как работать в обратном направлении, как обсуждается в уроке?",
+      "options": [
+        "Как подробно описано в уроке, Примеры: играет ключевую роль в оптимизации процессов и достижении целей",
+        "Только периферийная информация без значительной роли",
+        "Только теоретическая концепция без практического применения",
+        "Не упоминается в уроке"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day2",
+        "#ru",
+        "#all-languages",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

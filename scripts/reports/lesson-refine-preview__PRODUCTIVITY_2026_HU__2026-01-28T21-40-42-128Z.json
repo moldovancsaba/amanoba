@@ -1,0 +1,83 @@
+{
+  "generatedAt": "2026-01-28T21:40:42.136Z",
+  "courseId": "PRODUCTIVITY_2026_HU",
+  "fromDay": 4,
+  "toDay": 7,
+  "apply": false,
+  "totals": {
+    "considered": 1,
+    "eligible70": 0,
+    "below70": 1,
+    "applied": 0
+  },
+  "planRows": [
+    {
+      "day": 7,
+      "lessonId": "PRODUCTIVITY_2026_HU_DAY_07",
+      "title": "Napi/heti rendszer: reggeli ritual, napi huddle, heti áttekintés",
+      "quality": {
+        "old": {
+          "score": 100,
+          "issues": [],
+          "signals": {
+            "charCount": 2600,
+            "wordCount": 359,
+            "hasBullets": true,
+            "hasNumberedSteps": true,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        },
+        "next": {
+          "score": 100,
+          "issues": [],
+          "signals": {
+            "charCount": 2600,
+            "wordCount": 359,
+            "hasBullets": true,
+            "hasNumberedSteps": true,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 2600,
+        "nextChars": 2600
+      },
+      "applyEligible": false,
+      "languageIntegrity": {
+        "ok": false,
+        "errors": [
+          "Language integrity failed for lesson.content: detected injected English sentence(s) in HU."
+        ],
+        "warnings": [],
+        "findings": [
+          {
+            "label": "HU: English sentence/bullet detected",
+            "snippet": "Adj hozzá buffer time and defend it from meetings/messages."
+          }
+        ]
+      }
+    }
+  ],
+  "applyResults": []
+}

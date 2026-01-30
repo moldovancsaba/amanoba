@@ -1,0 +1,68 @@
+{
+  "backedUpAt": "2026-01-29T16:59:37.600Z",
+  "course": {
+    "courseId": "B2B_SALES_2026_30_EN",
+    "name": "B2B Sales 2026 Masterclass",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 21,
+    "title": "Pipedrive: Strengths and When to Choose It",
+    "lessonId": "B2B_SALES_2026_30_EN_DAY_21"
+  },
+  "questionCount": 4,
+  "questions": [
+    {
+      "_id": "697b1fd38f79f136a28b8a2c",
+      "difficulty": "MEDIUM",
+      "question": "What is Pipedrive strong at?",
+      "options": [
+        "Complex marketing automation",
+        "Fast pipeline and activity handling",
+        "ERP",
+        "HR"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b1fd38f79f136a28b8a2d",
+      "difficulty": "MEDIUM",
+      "question": "Minimal setup includes:",
+      "options": [
+        "Logo only",
+        "Pipeline stages + required fields + activity reminder",
+        "Only price list",
+        "Only email template"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b1fd38f79f136a28b8a2e",
+      "difficulty": "MEDIUM",
+      "question": "When is Pipedrive not ideal?",
+      "options": [
+        "When you want fast pipeline tracking",
+        "When you need complex marketing automation/lifecycle",
+        "When you need a mobile app",
+        "When you want activity reminders"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b1fd38f79f136a28b8a2f",
+      "difficulty": "MEDIUM",
+      "question": "Good example?",
+      "options": [
+        "Decision criteria written, pipeline set, 5 deals populated",
+        "Choosing a tool with no criteria",
+        "No reminders set",
+        "No required fields"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    }
+  ]
+}

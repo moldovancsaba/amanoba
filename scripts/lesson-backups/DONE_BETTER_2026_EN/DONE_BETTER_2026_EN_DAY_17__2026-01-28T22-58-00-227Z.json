@@ -1,0 +1,10 @@
+{
+  "backedUpAt": "2026-01-28T22:58:02.441Z",
+  "courseId": "DONE_BETTER_2026_EN",
+  "lessonId": "DONE_BETTER_2026_EN_DAY_17",
+  "dayNumber": 17,
+  "title": "Fast Feedback Loops",
+  "content": "<h1>Fast Feedback Loops</h1>\n<p><em>Reality is your best mentor.</em></p>\n<hr />\n<h2>Learning goal</h2>\n<ul>\n<li>Shorten the time between action and signal.</li>\n<li>Use feedback to adjust the next move.</li>\n<li>Avoid long cycles with no learning.</li>\n</ul>\n<hr />\n<h2>Why it matters</h2>\n<ul>\n<li>Long cycles delay learning.</li>\n<li>Reality corrects plans.</li>\n<li>Fast loops reduce cost of being wrong.</li>\n</ul>\n<hr />\n<h2>Key idea</h2>\n<p>A feedback loop is getting real-world signal quickly to adjust the next move. Reality is your best mentor. Shorten the time between action and signal.</p>\n<hr />\n<h2>Common mistakes</h2>\n<ul>\n<li>Waiting too long before checking reality.</li>\n<li>Ignoring feedback that contradicts the plan.</li>\n<li>Measuring only what confirms the plan.</li>\n</ul>\n<hr />\n<h2>Today's move</h2>\n<p>For one active initiative, define the next feedback moment: when and how you will get signal. Move it earlier if possible.</p>\n<hr />\n<h2>Self-check</h2>\n<ul>\n<li>You can explain the key idea in one sentence.</li>\n<li>You have one concrete move to do today.</li>\n</ul>",
+  "emailSubject": "Done is better – Day {{dayNumber}}: {{lessonTitle}}",
+  "emailBody": "<h1>Done is better - Build What Matters</h1><h2>Day {{dayNumber}}: {{lessonTitle}}</h2><p>{{lessonContent}}</p><p><a href=\"http://localhost:3000/courses/DONE_BETTER_2026_EN/day/{{dayNumber}}\">Open the lesson →</a></p>"
+}

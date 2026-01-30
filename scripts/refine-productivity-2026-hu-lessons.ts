@@ -216,8 +216,55 @@ function procedureNameHu(id: string, fallback: string) {
 
 function translateProcedureStepHu(step: string) {
   const s = String(step || '').trim();
+  const exact: Record<string, string> = {
+    // P1_PERSONAL_PRODUCTIVITY_DEFINITION
+    'List your recurring outputs (activities).': 'Írd össze a visszatérő kimeneteidet (tevékenységeidet).',
+    'Convert each output into a desired outcome (result).': 'Minden outputot fordíts le egy kívánt outcome-ra (eredményre).',
+    'List your constraints (time, energy, attention, resources).': 'Sorold fel a korlátaidat (idő, energia, figyelem, erőforrások).',
+    'Write a 2–3 sentence definition of productivity for yourself using outcome/constraints.':
+      'Írj 2–3 mondatos saját termelékenység-definíciót outcome + korlátok alapján.',
+    'Pick one improvement lever for the week (reduce constraint waste or increase outcome quality).':
+      'Válassz 1 fejlesztési kart a hétre (korlátpazarlás csökkentése vagy outcome-minőség növelése).',
+
+    // P2_WEEKLY_REVIEW_THROUGHPUT_FOCUS_CARRYOVER
+    'Count throughput: completed important outcomes.': 'Számold meg a throughputot: hány fontos outcome készült el.',
+    'Count focus blocks: uninterrupted deep work blocks completed.':
+      'Számold meg a fókuszblokkokat: hány zavartalan mélymunka-blokk teljesült.',
+    'Count carryover: tasks rolled from last week.': 'Számold meg a carryovert: hány feladat csúszott át a múlt hétről.',
+    'Write 2 insights: what worked / what broke.': 'Írj 2 tanulságot: mi működött / mi tört el.',
+    'Make 1 rule change for next week and schedule it.': 'Válassz 1 szabályváltoztatást a jövő hétre, és tedd be a naptárba.',
+
+    // P3_DEEP_WORK_DAY_DESIGN
+    'Audit your context switches for one day.': 'Egy napig figyeld meg a kontextusváltásaidat.',
+    'Batch similar tasks into fixed windows (e.g., email twice daily).':
+      'Csoportosítsd a hasonló feladatokat fix idősávokba (pl. email naponta kétszer).',
+    'Schedule 1–3 deep work blocks (90–120 min) with explicit rules.':
+      'Tervezd be 1–3 mélymunka-blokkot (90–120 perc) egyértelmű szabályokkal.',
+    'Add buffer time and defend it from meetings/messages.': 'Adj hozzá buffer időt, és védd meg meetingektől/üzenetektől.',
+    'Track adherence for one week and adjust.': 'Kövesd a betartást egy hétig, majd finomhangolj.',
+
+    // P4_TASK_AUDIT_DELEGATE_ELIMINATE
+    'List all tasks performed in a week.': 'Írd össze az összes feladatot, amit egy héten elvégzel.',
+    'Mark low-value tasks (time cost, low outcome).': 'Jelöld meg az alacsony értékű feladatokat (időköltség magas, outcome alacsony).',
+    'For each low-value task: decide delegate vs eliminate vs keep.':
+      'Minden alacsony értékű feladatnál dönts: delegálod / kivágod / megtartod.',
+    'Write delegation briefs (expected output, due date, success criteria, check-ins).':
+      'Írj delegálási briefet (várt output, határidő, siker-kritériumok, check-in pontok).',
+    'Execute: eliminate 1 and delegate 1 this week; review impact.':
+      'Végrehajtás: ezen a héten vágj ki 1 dolgot és delegálj 1 feladatot; majd nézd meg a hatását.',
+
+    // P5_DECISION_MATRIX_AND_CATEGORIES
+    'Define decision category (small/medium/large) based on reversibility and impact.':
+      'Határozd meg a döntés kategóriáját (kicsi/közepes/nagy) a visszafordíthatóság és a hatás alapján.',
+    'For medium/large: list options and criteria; weight criteria; score options.':
+      'Közepes/nagy döntésnél: sorold fel az opciókat és kritériumokat; súlyozz; pontozd az opciókat.',
+    'Set an information boundary (time limit / minimum data).': 'Állíts be információs határt (időlimit / minimum adat).',
+    'Make the 80% decision and implement.': 'Hozd meg a 80%-os döntést, és valósítsd meg.',
+    'Review outcomes and update your decision rules.': 'Nézd át az eredményeket, és frissítsd a döntési szabályaidat.',
+  };
+  if (exact[s]) return exact[s];
+
   const map: Array<[RegExp, string]> = [
-    [/^Track adherence for one week and adjust\.$/i, 'Kövesd a betartást egy hétig, majd finomhangolj.'],
     [
       /^Write delegation briefs \(expected output, due date, success criteria, check-ins\)\.$/i,
       'Írj delegálási briefet (várt output, határidő, siker-kritériumok, check-in pontok).',
@@ -383,9 +430,6 @@ async function main() {
   const appUrl = process.env.NEXT_PUBLIC_APP_URL || 'https://www.amanoba.com';
 
   for (let day = FROM_DAY; day <= TO_DAY; day++) {
-    // Our known low-quality set for HU is Day 7, 11, and 14–30. Skip 8–10 and 12–13 by default.
-    if (day !== 7 && day !== 11 && day < 14) continue;
-
     const lesson = byDay.get(day);
     if (!lesson) {
       planRows.push({ day, action: 'SKIP_NO_LESSON', reason: 'Missing lesson in DB for that day' });
@@ -401,6 +445,28 @@ async function main() {
     const oldContent = String(lesson.content || '');
     const oldTitle = String(lesson.title || '');
     const oldScore = assessLessonQuality({ title: oldTitle, content: oldContent, language: 'hu' });
+    const oldIntegrity = validateLessonRecordLanguageIntegrity({
+      language: 'hu',
+      content: oldContent,
+      emailSubject: lesson.emailSubject || null,
+      emailBody: lesson.emailBody || null,
+    });
+
+    const forceRefineForLanguage = !oldIntegrity.ok;
+
+    // Safety: never overwrite already-strong lessons unless language integrity fails.
+    if (oldScore.score >= 70 && !forceRefineForLanguage) {
+      planRows.push({
+        day,
+        lessonId: lesson.lessonId,
+        title: oldTitle,
+        action: 'SKIP_ALREADY_OK',
+        quality: { old: oldScore, next: oldScore },
+        lengths: { oldChars: stripHtml(oldContent).length, nextChars: stripHtml(oldContent).length },
+        applyEligible: true,
+      });
+      continue;
+    }
 
     const requiredConcepts = (ccsLesson.requiredConcepts || []).filter(Boolean);
     const requiredProcedures = (ccsLesson.requiredProcedures || [])
@@ -434,6 +500,7 @@ async function main() {
       day,
       lessonId: lesson.lessonId,
       title: oldTitle,
+      action: 'REFINE',
       quality: { old: oldScore, next: nextScore },
       lengths: { oldChars: stripHtml(oldContent).length, nextChars: stripHtml(nextContent).length },
       applyEligible: nextScore.score >= 70 && integrity.ok,

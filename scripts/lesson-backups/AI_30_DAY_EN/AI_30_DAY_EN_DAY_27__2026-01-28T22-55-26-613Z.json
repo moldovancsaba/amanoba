@@ -1,0 +1,10 @@
+{
+  "backedUpAt": "2026-01-28T22:55:28.959Z",
+  "courseId": "AI_30_DAY_EN",
+  "lessonId": "AI_30_DAY_EN_DAY_27",
+  "dayNumber": 27,
+  "title": "Email and outreach sequences with personalization",
+  "content": "<h1>Email and outreach sequences with personalization</h1>\n<p><em>Design short sequences that adapt per recipient</em></p>\n<hr />\n<h2>Learning goal</h2>\n<ul>\n<li>Write a 3-step sequence with variants.</li>\n<li>Add personalization slots and guardrails.</li>\n</ul>\n<hr />\n<h2>Why it matters</h2>\n<ul>\n<li>Sequenced outreach is more effective than one-off blasts.</li>\n<li>Personalization increases response, but must stay accurate.</li>\n</ul>\n<hr />\n<h2>Explanation</h2>\n<ul>\n<li>Steps: intro, follow-up, final nudge.</li>\n<li>Slots: {{name}}, {{company}}, {{pain}}, {{offer}}; forbid making up facts.</li>\n<li>Ask for subject + body + CTA per step, under word limits.</li>\n</ul>\n<hr />\n<h2>Examples</h2>\n<ul>\n<li><strong>Prompt</strong>: “Create 3 emails (intro/follow-up/final). Max 90/80/60 words. Include subject + CTA. Use placeholders; do not invent details.”</li>\n<li><strong>Weak</strong>: “Write an email.”</li>\n<hr />\n<h2>Guided exercise (10–15 min)</h2>\n<ol>\n<li>Define the offer and audience.</li>\n<li>Generate the 3-step sequence with placeholders.</li>\n</ol>\n<h2>Independent exercise (5–10 min)</h2>\n<p>Fill placeholders for one real contact; verify accuracy.</p>\n<hr />\n<h2>Self-check</h2>\n<ul>\n<li>3 emails with subjects and CTAs.</li>\n<li>Placeholders present; no fabricated claims.</li>\n<li>Word limits respected.</li>\n</ul>\n<hr />\n<h2>Optional deepening</h2>\n<ul>\n<li>Outreach prompt ideas: <a href=\"https://www.oneusefulthing.org\" target=\"_blank\" rel=\"noreferrer\">https://www.oneusefulthing.org</a></li>\n</ul>",
+  "emailSubject": "AI 30-Day – Day 27: Outreach sequences",
+  "emailBody": "<h1>AI 30-Day – Day 27</h1>\n<h2>Outreach sequences</h2>\n<p>Today you’ll design a 3-step sequence with safe placeholders.</p>\n<p><a href=\"http://localhost:3000/courses/AI_30_DAY_EN/day/{{dayNumber}}\">Open the lesson →</a></p>"
+}

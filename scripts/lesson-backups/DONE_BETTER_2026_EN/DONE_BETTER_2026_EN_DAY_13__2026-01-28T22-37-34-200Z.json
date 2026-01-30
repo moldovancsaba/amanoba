@@ -1,0 +1,10 @@
+{
+  "backedUpAt": "2026-01-28T22:37:36.173Z",
+  "courseId": "DONE_BETTER_2026_EN",
+  "lessonId": "DONE_BETTER_2026_EN_DAY_13",
+  "dayNumber": 13,
+  "title": "Multiple Paths Thinking",
+  "content": "<h1>Multiple Paths Thinking</h1>\n<p><em>One plan is hope. Three plans is control.</em></p>\n<hr />\n<h2>Learning goal</h2>\n<ul>\n<li>Generate at least three different paths to the goal.</li>\n<li>Assess risk and cost for each.</li>\n<li>Choose one to execute; keep a backup.</li>\n</ul>\n<hr />\n<h2>Why it matters</h2>\n<ul>\n<li>Single plan = single point of failure.</li>\n<li>Alternatives reduce anxiety and increase options.</li>\n<li>Revisiting plans when evidence changes is control.</li>\n</ul>\n<hr />\n<h2>Key idea</h2>\n<p>Multiple paths means having more than one plan so that failure of one does not mean failure of the goal. One plan is hope; three plans is control.</p>\n<hr />\n<h2>Procedure</h2>\n<ol><li>Define the goal.</li><li>List at least three different ways to get there.</li><li>For each: main risk and cost.</li><li>Choose one to execute first; keep one as backup; park the third.</li><li>Revisit when you have new evidence.</li></ol>\n<hr />\n<h2>Common mistakes</h2>\n<ul>\n<li>Betting everything on one plan.</li>\n<li>Treating backup plans as lack of commitment.</li>\n<li>Never revisiting plans when evidence changes.</li>\n</ul>\n<hr />\n<h2>Today's move</h2>\n<p>For one important goal, list 3 different paths. Pick one to run first and one as backup. Write down the trigger that would make you switch.</p>\n<hr />\n<h2>Self-check</h2>\n<ul>\n<li>You can explain the key idea in one sentence.</li>\n<li>You have one concrete move to do today.</li>\n</ul>",
+  "emailSubject": "Done is better – Day {{dayNumber}}: {{lessonTitle}}",
+  "emailBody": "<h1>Done is better - Build What Matters</h1><h2>Day {{dayNumber}}: {{lessonTitle}}</h2><p>{{lessonContent}}</p><p><a href=\"http://localhost:3000/courses/DONE_BETTER_2026_EN/day/{{dayNumber}}\">Open the lesson →</a></p>"
+}

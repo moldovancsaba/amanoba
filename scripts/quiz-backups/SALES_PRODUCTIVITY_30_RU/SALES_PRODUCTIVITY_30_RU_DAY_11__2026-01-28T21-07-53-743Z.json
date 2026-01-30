@@ -1,0 +1,177 @@
+{
+  "backedUpAt": "2026-01-28T21:07:56.176Z",
+  "course": {
+    "courseId": "SALES_PRODUCTIVITY_30_RU",
+    "name": "Постройте свои продажи – 30 дней к большему количеству сделок",
+    "language": "ru"
+  },
+  "lesson": {
+    "dayNumber": 11,
+    "title": "Психология ценообразования – Как цена влияет на решения о покупке?",
+    "lessonId": "SALES_PRODUCTIVITY_30_RU_DAY_11"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a5583229aca24a6d68b",
+      "uuid": "968b7179-f841-4abf-98e8-6cad4f67dd70",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Цена = эмоциональная реакция.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day11",
+        "#ru",
+        "#all-languages",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5583229aca24a6d68c",
+      "uuid": "2720c369-4306-4670-8b59-1857a0f21dfa",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Лучшая конверсия:\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day11",
+        "#ru",
+        "#all-languages",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5583229aca24a6d68d",
+      "uuid": "802bfffa-e869-4426-bd21-4345682f7f27",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Более высокая цена:\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day11",
+        "#ru",
+        "#all-languages",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5583229aca24a6d68e",
+      "uuid": "9ceb7507-5e9c-4c7c-ab9a-77764b80c27f",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Как концепция \"Психология ценообразования – Как цена влияет на ре...\", упомянутая в уроке, влияет на достижение ваших goals?",
+      "options": [
+        "Как подробно описано в уроке, Психология ценообразования – К... повышает эффективность и снижает риски",
+        "Нет значительного влияния",
+        "Имеет значение только теоретически",
+        "Только опциональный элемент"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day11",
+        "#ru",
+        "#all-languages",
+        "#productivity",
+        "#sales",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5583229aca24a6d68f",
+      "uuid": "baa970d6-51c3-47f1-89bd-8c3e502e483f",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Какую роль играет Лучшая конверсия: в уроке \"Психология ценообразования – Как цена влияет на решения о покупке?\"?",
+      "options": [
+        "Как подробно описано в уроке, Лучшая конверсия: играет ключевую роль в оптимизации процессов и достижении целей",
+        "Только периферийная информация без значительной роли",
+        "Только теоретическая концепция без практического применения",
+        "Не упоминается в уроке"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day11",
+        "#ru",
+        "#all-languages",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5583229aca24a6d690",
+      "uuid": "b45b8623-c43a-4338-a24d-beabf0ab4b02",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Какую роль играет Конкурентное преимущество: в уроке \"Психология ценообразования – Как цена влияет на решения о покупке?\"?",
+      "options": [
+        "Как подробно описано в уроке, Конкурентное преимущество: играет ключевую роль в оптимизации процессов и достижении целей",
+        "Только периферийная информация без значительной роли",
+        "Только теоретическая концепция без практического применения",
+        "Не упоминается в уроке"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day11",
+        "#ru",
+        "#all-languages",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5583229aca24a6d691",
+      "uuid": "9c5f5ff6-3298-44dc-8f9f-822728ec0b7b",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Насколько важен 2. Anchoring в контексте Психология ценообразования – Как цена влияет на решения о покупке?, как обсуждается в уроке?",
+      "options": [
+        "Как подробно описано в уроке, 2. Anchoring играет ключевую роль в оптимизации процессов и достижении целей",
+        "Только периферийная информация без значительной роли",
+        "Только теоретическая концепция без практического применения",
+        "Не упоминается в уроке"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day11",
+        "#ru",
+        "#all-languages",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

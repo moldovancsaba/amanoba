@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-28T22:55:46.488Z",
+  "course": {
+    "courseId": "AI_30_DAY_EN",
+    "name": "30-Day AI Catch-Up Program (EN)",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 10,
+    "title": "Rewrite and tone shift",
+    "lessonId": "AI_30_DAY_EN_DAY_10"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "697769fb27e27f61ac4143e4",
+      "uuid": "c1943962-97d0-4f55-9769-2933bb52f6c4",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"exercise (10–15 min)\n\nPick a rough draft...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day10",
+        "#en",
+        "#all-languages",
+        "#ai",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "697769fb27e27f61ac4143e5",
+      "uuid": "b04c4958-17c8-4669-8301-4b636d14956f",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"exercise (5–10 min)\nCreate a reusable “t...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day10",
+        "#en",
+        "#all-languages",
+        "#ai",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "697769fb27e27f61ac4143e6",
+      "uuid": "bedbe9f3-3611-4923-98ac-8405db2303a4",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"exercise (10–15 min)\n\nPick a rough draft...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day10",
+        "#en",
+        "#all-languages",
+        "#ai",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "697769fb27e27f61ac4143e7",
+      "uuid": "5bb8490d-e850-4a0a-8a0c-bd4d62c75e40",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "How does the concept \"Rewrite and tone shift Edit drafts into different ...\" mentioned in the lesson impact achieving your goals?",
+      "options": [
+        "As described in detail in the lesson, Rewrite and tone shift Edit dr... increases effectiveness and reduces risk",
+        "No significant impact",
+        "Only matters theoretically",
+        "Only an optional element"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day10",
+        "#en",
+        "#all-languages",
+        "#ai",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "697769fb27e27f61ac4143e8",
+      "uuid": "a77b0e33-c92e-4b98-956a-9af1114da684",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is Prompt in the context of Rewrite and tone shift as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, Prompt plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day10",
+        "#en",
+        "#all-languages",
+        "#ai",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "697769fb27e27f61ac4143e9",
+      "uuid": "dea2e6a2-40a8-4305-b818-b7ad3b2f347f",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is Rewrite in the context of Rewrite and tone shift as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, Rewrite plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day10",
+        "#en",
+        "#all-languages",
+        "#ai",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "697769fb27e27f61ac4143ea",
+      "uuid": "0e777905-e7e7-40af-871e-125535fdb966",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is shift in the context of Rewrite and tone shift as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, shift plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day10",
+        "#en",
+        "#all-languages",
+        "#ai",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

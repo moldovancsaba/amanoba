@@ -1,0 +1,1730 @@
+{
+  "generatedAt": "2026-01-28T15:55:42.411Z",
+  "env": "production (via .env.local)",
+  "filters": {
+    "ccsId": null,
+    "courseId": "PLAYBOOK_2026_30_EN",
+    "minLessonScore": 70,
+    "includeInactive": false
+  },
+  "totals": {
+    "ccsFamilies": 6,
+    "courses": 1,
+    "coursesMissingCcsId": 0,
+    "coursesMissingCcsIdMappedToKnownCcs": 0,
+    "coursesMissingCcsIdUnmapped": 0,
+    "coursesWithStructuralErrors": 0,
+    "coursesWithStructuralWarnings": 0,
+    "coursesFailingCatalogLanguageIntegrity": 0,
+    "lessons": 30,
+    "duplicateDayLessonGroups": 0,
+    "missingLessonDayEntries": 0,
+    "lessonsFailingLanguageIntegrity": 0,
+    "lessonsBelowQualityThreshold": 16,
+    "lessonsWithQuizErrors": 19,
+    "duplicateQuestionSets": 0,
+    "duplicateQuestionsToDelete": 0,
+    "invalidQuestions": 0,
+    "lessonsGeneratorInsufficient": 0
+  },
+  "ccs": [
+    {
+      "ccsId": "PRODUCTIVITY_2026",
+      "name": "PRODUCTIVITY_2026",
+      "ideaPresent": false,
+      "outlinePresent": false,
+      "relatedDocumentsCount": 0,
+      "courses": []
+    },
+    {
+      "ccsId": "GEO_SHOPIFY_30",
+      "name": "GEO_SHOPIFY_30",
+      "ideaPresent": false,
+      "outlinePresent": false,
+      "relatedDocumentsCount": 0,
+      "courses": []
+    },
+    {
+      "ccsId": "AI_30_DAY",
+      "name": "AI_30_DAY",
+      "ideaPresent": false,
+      "outlinePresent": false,
+      "relatedDocumentsCount": 0,
+      "courses": []
+    },
+    {
+      "ccsId": "B2B_SALES_2026_30",
+      "name": "B2B_SALES_2026_30",
+      "ideaPresent": false,
+      "outlinePresent": false,
+      "relatedDocumentsCount": 0,
+      "courses": []
+    },
+    {
+      "ccsId": "PLAYBOOK_2026_30",
+      "name": "PLAYBOOK_2026_30",
+      "ideaPresent": false,
+      "outlinePresent": false,
+      "relatedDocumentsCount": 0,
+      "courses": [
+        {
+          "course": {
+            "courseId": "PLAYBOOK_2026_30_EN",
+            "name": "The Playbook 2026 – Masterclass for Designers",
+            "description": "30-day, production-grade design playbook build. Visual language, semantics, layout, tokens, components, governance, capstone playbook. 20–30 min per day with tangible artifacts.",
+            "language": "en",
+            "isActive": true,
+            "isDraft": false,
+            "requiresPremium": false,
+            "durationDays": 30,
+            "parentCourseId": null,
+            "courseVariant": null,
+            "structuralErrors": [],
+            "structuralWarnings": [],
+            "catalogLanguageIntegrity": {
+              "ok": true,
+              "errors": [],
+              "warnings": [],
+              "findings": []
+            },
+            "inferredCcsId": null,
+            "duplicateDayGroups": [],
+            "missingDays": [],
+            "lessonsAudited": 30,
+            "lessonsWithErrors": 19
+          },
+          "lessons": [
+            {
+              "dayNumber": 1,
+              "lessonId": "PLAYBOOK_2026_30_EN_DAY_1",
+              "title": "Why Visual Language Beats Style",
+              "createdAt": "2026-01-20T15:26:25.733Z",
+              "lessonQuality": {
+                "score": 85,
+                "issues": [
+                  "NO_METRICS_OR_CRITERIA"
+                ],
+                "signals": {
+                  "charCount": 1620,
+                  "wordCount": 232,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": true,
+                  "hasMetricsOrCriteria": false,
+                  "hasDefinitionsOrComparisons": true
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": false,
+                  "addChecklistSection": false,
+                  "addExamplesSection": false,
+                  "addPitfallsSection": false,
+                  "addMetricsSection": true
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 7,
+                "validExisting": 7,
+                "invalidExisting": 0,
+                "application": 7,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [],
+              "warnings": []
+            },
+            {
+              "dayNumber": 2,
+              "lessonId": "PLAYBOOK_2026_30_EN_DAY_2",
+              "title": "From Taste to System: Scaling Decisions",
+              "createdAt": "2026-01-20T15:26:26.762Z",
+              "lessonQuality": {
+                "score": 70,
+                "issues": [
+                  "NO_CLEAR_DEFINITIONS",
+                  "NO_METRICS_OR_CRITERIA"
+                ],
+                "signals": {
+                  "charCount": 1519,
+                  "wordCount": 224,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": true,
+                  "hasMetricsOrCriteria": false,
+                  "hasDefinitionsOrComparisons": false
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": true,
+                  "addChecklistSection": false,
+                  "addExamplesSection": false,
+                  "addPitfallsSection": false,
+                  "addMetricsSection": true
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 7,
+                "validExisting": 7,
+                "invalidExisting": 0,
+                "application": 7,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [],
+              "warnings": []
+            },
+            {
+              "dayNumber": 3,
+              "lessonId": "PLAYBOOK_2026_30_EN_DAY_3",
+              "title": "Anatomy of the Design Playbook",
+              "createdAt": "2026-01-20T15:26:27.031Z",
+              "lessonQuality": {
+                "score": 70,
+                "issues": [
+                  "NO_CLEAR_DEFINITIONS",
+                  "NO_METRICS_OR_CRITERIA"
+                ],
+                "signals": {
+                  "charCount": 1344,
+                  "wordCount": 188,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": true,
+                  "hasMetricsOrCriteria": false,
+                  "hasDefinitionsOrComparisons": false
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": true,
+                  "addChecklistSection": false,
+                  "addExamplesSection": false,
+                  "addPitfallsSection": false,
+                  "addMetricsSection": true
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 7,
+                "validExisting": 7,
+                "invalidExisting": 0,
+                "application": 7,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [],
+              "warnings": []
+            },
+            {
+              "dayNumber": 4,
+              "lessonId": "PLAYBOOK_2026_30_EN_DAY_4",
+              "title": "Trends vs Principles vs Systems",
+              "createdAt": "2026-01-20T15:54:14.503Z",
+              "lessonQuality": {
+                "score": 85,
+                "issues": [
+                  "NO_METRICS_OR_CRITERIA"
+                ],
+                "signals": {
+                  "charCount": 2160,
+                  "wordCount": 305,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": true,
+                  "hasMetricsOrCriteria": false,
+                  "hasDefinitionsOrComparisons": true
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": false,
+                  "addChecklistSection": false,
+                  "addExamplesSection": false,
+                  "addPitfallsSection": false,
+                  "addMetricsSection": true
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 7,
+                "validExisting": 7,
+                "invalidExisting": 0,
+                "application": 7,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [],
+              "warnings": []
+            },
+            {
+              "dayNumber": 5,
+              "lessonId": "PLAYBOOK_2026_30_EN_DAY_5",
+              "title": "Define Your Visual Intent",
+              "createdAt": "2026-01-20T15:54:14.615Z",
+              "lessonQuality": {
+                "score": 70,
+                "issues": [
+                  "NO_CLEAR_DEFINITIONS",
+                  "NO_METRICS_OR_CRITERIA"
+                ],
+                "signals": {
+                  "charCount": 1871,
+                  "wordCount": 272,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": true,
+                  "hasMetricsOrCriteria": false,
+                  "hasDefinitionsOrComparisons": false
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": true,
+                  "addChecklistSection": false,
+                  "addExamplesSection": false,
+                  "addPitfallsSection": false,
+                  "addMetricsSection": true
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 7,
+                "validExisting": 7,
+                "invalidExisting": 0,
+                "application": 7,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [],
+              "warnings": []
+            },
+            {
+              "dayNumber": 6,
+              "lessonId": "PLAYBOOK_2026_30_EN_DAY_6",
+              "title": "Color as Meaning, Not Decoration",
+              "createdAt": "2026-01-20T15:54:14.719Z",
+              "lessonQuality": {
+                "score": 70,
+                "issues": [
+                  "NO_CLEAR_DEFINITIONS",
+                  "NO_METRICS_OR_CRITERIA"
+                ],
+                "signals": {
+                  "charCount": 1880,
+                  "wordCount": 241,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": true,
+                  "hasMetricsOrCriteria": false,
+                  "hasDefinitionsOrComparisons": false
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": true,
+                  "addChecklistSection": false,
+                  "addExamplesSection": false,
+                  "addPitfallsSection": false,
+                  "addMetricsSection": true
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 7,
+                "validExisting": 7,
+                "invalidExisting": 0,
+                "application": 7,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [],
+              "warnings": []
+            },
+            {
+              "dayNumber": 7,
+              "lessonId": "PLAYBOOK_2026_30_EN_DAY_7",
+              "title": "Typography as Hierarchy and Voice",
+              "createdAt": "2026-01-20T15:59:44.199Z",
+              "lessonQuality": {
+                "score": 85,
+                "issues": [
+                  "NO_METRICS_OR_CRITERIA"
+                ],
+                "signals": {
+                  "charCount": 1570,
+                  "wordCount": 210,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": true,
+                  "hasMetricsOrCriteria": false,
+                  "hasDefinitionsOrComparisons": true
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": false,
+                  "addChecklistSection": false,
+                  "addExamplesSection": false,
+                  "addPitfallsSection": false,
+                  "addMetricsSection": true
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 7,
+                "validExisting": 7,
+                "invalidExisting": 0,
+                "application": 7,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [],
+              "warnings": []
+            },
+            {
+              "dayNumber": 8,
+              "lessonId": "PLAYBOOK_2026_30_EN_DAY_8",
+              "title": "Shape, Rhythm, Emotional Cues",
+              "createdAt": "2026-01-20T15:59:44.292Z",
+              "lessonQuality": {
+                "score": 85,
+                "issues": [
+                  "NO_METRICS_OR_CRITERIA"
+                ],
+                "signals": {
+                  "charCount": 1457,
+                  "wordCount": 188,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": true,
+                  "hasMetricsOrCriteria": false,
+                  "hasDefinitionsOrComparisons": true
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": false,
+                  "addChecklistSection": false,
+                  "addExamplesSection": false,
+                  "addPitfallsSection": false,
+                  "addMetricsSection": true
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 7,
+                "validExisting": 7,
+                "invalidExisting": 0,
+                "application": 7,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [],
+              "warnings": []
+            },
+            {
+              "dayNumber": 9,
+              "lessonId": "PLAYBOOK_2026_30_EN_DAY_9",
+              "title": "Motion and Feedback Language",
+              "createdAt": "2026-01-20T15:59:44.398Z",
+              "lessonQuality": {
+                "score": 85,
+                "issues": [
+                  "NO_METRICS_OR_CRITERIA"
+                ],
+                "signals": {
+                  "charCount": 1547,
+                  "wordCount": 182,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": true,
+                  "hasMetricsOrCriteria": false,
+                  "hasDefinitionsOrComparisons": true
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": false,
+                  "addChecklistSection": false,
+                  "addExamplesSection": false,
+                  "addPitfallsSection": false,
+                  "addMetricsSection": true
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 7,
+                "validExisting": 7,
+                "invalidExisting": 0,
+                "application": 7,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [],
+              "warnings": []
+            },
+            {
+              "dayNumber": 10,
+              "lessonId": "PLAYBOOK_2026_30_EN_DAY_10",
+              "title": "Accessibility as a Design Constraint",
+              "createdAt": "2026-01-20T15:59:44.551Z",
+              "lessonQuality": {
+                "score": 70,
+                "issues": [
+                  "NO_CLEAR_DEFINITIONS",
+                  "NO_METRICS_OR_CRITERIA"
+                ],
+                "signals": {
+                  "charCount": 1353,
+                  "wordCount": 163,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": true,
+                  "hasMetricsOrCriteria": false,
+                  "hasDefinitionsOrComparisons": false
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": true,
+                  "addChecklistSection": false,
+                  "addExamplesSection": false,
+                  "addPitfallsSection": false,
+                  "addMetricsSection": true
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 7,
+                "validExisting": 7,
+                "invalidExisting": 0,
+                "application": 7,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [],
+              "warnings": []
+            },
+            {
+              "dayNumber": 11,
+              "lessonId": "PLAYBOOK_2026_30_EN_DAY_11",
+              "title": "Grids That Survive Scale",
+              "createdAt": "2026-01-20T16:05:44.939Z",
+              "lessonQuality": {
+                "score": 70,
+                "issues": [
+                  "NO_CLEAR_DEFINITIONS",
+                  "NO_METRICS_OR_CRITERIA"
+                ],
+                "signals": {
+                  "charCount": 1387,
+                  "wordCount": 185,
+                  "hasBullets": true,
+                  "hasNumberedSteps": true,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": true,
+                  "hasMetricsOrCriteria": false,
+                  "hasDefinitionsOrComparisons": false
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": true,
+                  "addChecklistSection": false,
+                  "addExamplesSection": false,
+                  "addPitfallsSection": false,
+                  "addMetricsSection": true
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 7,
+                "validExisting": 7,
+                "invalidExisting": 0,
+                "application": 7,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [],
+              "warnings": []
+            },
+            {
+              "dayNumber": 12,
+              "lessonId": "PLAYBOOK_2026_30_EN_DAY_12",
+              "title": "Spacing as Grammar",
+              "createdAt": "2026-01-28T15:55:35.610Z",
+              "lessonQuality": {
+                "score": 60,
+                "issues": [
+                  "TOO_SHORT",
+                  "NO_CLEAR_DEFINITIONS"
+                ],
+                "signals": {
+                  "charCount": 1120,
+                  "wordCount": 147,
+                  "hasBullets": true,
+                  "hasNumberedSteps": true,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": true,
+                  "hasMetricsOrCriteria": true,
+                  "hasDefinitionsOrComparisons": false
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": true,
+                  "addChecklistSection": false,
+                  "addExamplesSection": false,
+                  "addPitfallsSection": false,
+                  "addMetricsSection": false
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 0,
+                "validExisting": 0,
+                "invalidExisting": 0,
+                "application": 0,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [
+                "LESSON_QUALITY_BELOW_THRESHOLD",
+                "QUIZ_TOO_FEW_VALID",
+                "QUIZ_TOO_FEW_APPLICATION"
+              ],
+              "warnings": []
+            },
+            {
+              "dayNumber": 13,
+              "lessonId": "PLAYBOOK_2026_30_EN_DAY_13",
+              "title": "Density Modes and Responsiveness",
+              "createdAt": "2026-01-28T15:55:35.661Z",
+              "lessonQuality": {
+                "score": 70,
+                "issues": [
+                  "NO_CLEAR_DEFINITIONS",
+                  "NO_METRICS_OR_CRITERIA"
+                ],
+                "signals": {
+                  "charCount": 1307,
+                  "wordCount": 162,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": true,
+                  "hasMetricsOrCriteria": false,
+                  "hasDefinitionsOrComparisons": false
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": true,
+                  "addChecklistSection": false,
+                  "addExamplesSection": false,
+                  "addPitfallsSection": false,
+                  "addMetricsSection": true
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 0,
+                "validExisting": 0,
+                "invalidExisting": 0,
+                "application": 0,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": {
+                "attempted": true,
+                "generateTarget": 40,
+                "validatedNew": 14,
+                "canSatisfyMinimums": true,
+                "reasonIfNot": null
+              },
+              "errors": [
+                "QUIZ_TOO_FEW_VALID",
+                "QUIZ_TOO_FEW_APPLICATION"
+              ],
+              "warnings": []
+            },
+            {
+              "dayNumber": 14,
+              "lessonId": "PLAYBOOK_2026_30_EN_DAY_14",
+              "title": "Visual Hierarchy Under Pressure",
+              "createdAt": "2026-01-28T15:55:35.704Z",
+              "lessonQuality": {
+                "score": 60,
+                "issues": [
+                  "TOO_SHORT",
+                  "NO_METRICS_OR_CRITERIA"
+                ],
+                "signals": {
+                  "charCount": 1231,
+                  "wordCount": 147,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": true,
+                  "hasMetricsOrCriteria": false,
+                  "hasDefinitionsOrComparisons": true
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": false,
+                  "addChecklistSection": false,
+                  "addExamplesSection": false,
+                  "addPitfallsSection": false,
+                  "addMetricsSection": true
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 0,
+                "validExisting": 0,
+                "invalidExisting": 0,
+                "application": 0,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [
+                "LESSON_QUALITY_BELOW_THRESHOLD",
+                "QUIZ_TOO_FEW_VALID",
+                "QUIZ_TOO_FEW_APPLICATION"
+              ],
+              "warnings": []
+            },
+            {
+              "dayNumber": 15,
+              "lessonId": "PLAYBOOK_2026_30_EN_DAY_15",
+              "title": "Designing for Unknown Content",
+              "createdAt": "2026-01-28T15:55:35.762Z",
+              "lessonQuality": {
+                "score": 60,
+                "issues": [
+                  "TOO_SHORT",
+                  "NO_METRICS_OR_CRITERIA"
+                ],
+                "signals": {
+                  "charCount": 1278,
+                  "wordCount": 156,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": true,
+                  "hasMetricsOrCriteria": false,
+                  "hasDefinitionsOrComparisons": true
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": false,
+                  "addChecklistSection": false,
+                  "addExamplesSection": false,
+                  "addPitfallsSection": false,
+                  "addMetricsSection": true
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 0,
+                "validExisting": 0,
+                "invalidExisting": 0,
+                "application": 0,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [
+                "LESSON_QUALITY_BELOW_THRESHOLD",
+                "QUIZ_TOO_FEW_VALID",
+                "QUIZ_TOO_FEW_APPLICATION"
+              ],
+              "warnings": []
+            },
+            {
+              "dayNumber": 16,
+              "lessonId": "PLAYBOOK_2026_30_EN_DAY_16",
+              "title": "Think in Components, Not Pages",
+              "createdAt": "2026-01-28T15:55:35.804Z",
+              "lessonQuality": {
+                "score": 60,
+                "issues": [
+                  "TOO_SHORT",
+                  "NO_CLEAR_DEFINITIONS"
+                ],
+                "signals": {
+                  "charCount": 1075,
+                  "wordCount": 148,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": true,
+                  "hasMetricsOrCriteria": true,
+                  "hasDefinitionsOrComparisons": false
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": true,
+                  "addChecklistSection": false,
+                  "addExamplesSection": false,
+                  "addPitfallsSection": false,
+                  "addMetricsSection": false
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 0,
+                "validExisting": 0,
+                "invalidExisting": 0,
+                "application": 0,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [
+                "LESSON_QUALITY_BELOW_THRESHOLD",
+                "QUIZ_TOO_FEW_VALID",
+                "QUIZ_TOO_FEW_APPLICATION"
+              ],
+              "warnings": []
+            },
+            {
+              "dayNumber": 17,
+              "lessonId": "PLAYBOOK_2026_30_EN_DAY_17",
+              "title": "Token Architecture",
+              "createdAt": "2026-01-28T15:55:35.850Z",
+              "lessonQuality": {
+                "score": 60,
+                "issues": [
+                  "TOO_SHORT",
+                  "NO_CLEAR_DEFINITIONS"
+                ],
+                "signals": {
+                  "charCount": 1165,
+                  "wordCount": 142,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": true,
+                  "hasMetricsOrCriteria": true,
+                  "hasDefinitionsOrComparisons": false
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": true,
+                  "addChecklistSection": false,
+                  "addExamplesSection": false,
+                  "addPitfallsSection": false,
+                  "addMetricsSection": false
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 0,
+                "validExisting": 0,
+                "invalidExisting": 0,
+                "application": 0,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [
+                "LESSON_QUALITY_BELOW_THRESHOLD",
+                "QUIZ_TOO_FEW_VALID",
+                "QUIZ_TOO_FEW_APPLICATION"
+              ],
+              "warnings": []
+            },
+            {
+              "dayNumber": 18,
+              "lessonId": "PLAYBOOK_2026_30_EN_DAY_18",
+              "title": "Variants and State Logic",
+              "createdAt": "2026-01-28T15:55:35.894Z",
+              "lessonQuality": {
+                "score": 45,
+                "issues": [
+                  "TOO_SHORT",
+                  "NO_CLEAR_DEFINITIONS",
+                  "NO_METRICS_OR_CRITERIA"
+                ],
+                "signals": {
+                  "charCount": 1100,
+                  "wordCount": 138,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": true,
+                  "hasMetricsOrCriteria": false,
+                  "hasDefinitionsOrComparisons": false
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": true,
+                  "addChecklistSection": false,
+                  "addExamplesSection": false,
+                  "addPitfallsSection": false,
+                  "addMetricsSection": true
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 0,
+                "validExisting": 0,
+                "invalidExisting": 0,
+                "application": 0,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [
+                "LESSON_QUALITY_BELOW_THRESHOLD",
+                "QUIZ_TOO_FEW_VALID",
+                "QUIZ_TOO_FEW_APPLICATION"
+              ],
+              "warnings": []
+            },
+            {
+              "dayNumber": 19,
+              "lessonId": "PLAYBOOK_2026_30_EN_DAY_19",
+              "title": "Cross-Platform Consistency",
+              "createdAt": "2026-01-28T15:55:35.936Z",
+              "lessonQuality": {
+                "score": 75,
+                "issues": [
+                  "TOO_SHORT"
+                ],
+                "signals": {
+                  "charCount": 1123,
+                  "wordCount": 134,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": true,
+                  "hasMetricsOrCriteria": true,
+                  "hasDefinitionsOrComparisons": true
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": false,
+                  "addChecklistSection": false,
+                  "addExamplesSection": false,
+                  "addPitfallsSection": false,
+                  "addMetricsSection": false
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 0,
+                "validExisting": 0,
+                "invalidExisting": 0,
+                "application": 0,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": {
+                "attempted": true,
+                "generateTarget": 40,
+                "validatedNew": 14,
+                "canSatisfyMinimums": true,
+                "reasonIfNot": null
+              },
+              "errors": [
+                "QUIZ_TOO_FEW_VALID",
+                "QUIZ_TOO_FEW_APPLICATION"
+              ],
+              "warnings": []
+            },
+            {
+              "dayNumber": 20,
+              "lessonId": "PLAYBOOK_2026_30_EN_DAY_20",
+              "title": "Naming and System Hygiene",
+              "createdAt": "2026-01-28T15:55:35.986Z",
+              "lessonQuality": {
+                "score": 45,
+                "issues": [
+                  "TOO_SHORT",
+                  "NO_CLEAR_DEFINITIONS",
+                  "NO_METRICS_OR_CRITERIA"
+                ],
+                "signals": {
+                  "charCount": 1120,
+                  "wordCount": 127,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": true,
+                  "hasMetricsOrCriteria": false,
+                  "hasDefinitionsOrComparisons": false
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": true,
+                  "addChecklistSection": false,
+                  "addExamplesSection": false,
+                  "addPitfallsSection": false,
+                  "addMetricsSection": true
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 0,
+                "validExisting": 0,
+                "invalidExisting": 0,
+                "application": 0,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [
+                "LESSON_QUALITY_BELOW_THRESHOLD",
+                "QUIZ_TOO_FEW_VALID",
+                "QUIZ_TOO_FEW_APPLICATION"
+              ],
+              "warnings": []
+            },
+            {
+              "dayNumber": 21,
+              "lessonId": "PLAYBOOK_2026_30_EN_DAY_21",
+              "title": "Managing Design Debt and Entropy",
+              "createdAt": "2026-01-28T15:55:36.041Z",
+              "lessonQuality": {
+                "score": 60,
+                "issues": [
+                  "TOO_SHORT",
+                  "NO_CLEAR_DEFINITIONS"
+                ],
+                "signals": {
+                  "charCount": 1127,
+                  "wordCount": 158,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": true,
+                  "hasMetricsOrCriteria": true,
+                  "hasDefinitionsOrComparisons": false
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": true,
+                  "addChecklistSection": false,
+                  "addExamplesSection": false,
+                  "addPitfallsSection": false,
+                  "addMetricsSection": false
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 0,
+                "validExisting": 0,
+                "invalidExisting": 0,
+                "application": 0,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [
+                "LESSON_QUALITY_BELOW_THRESHOLD",
+                "QUIZ_TOO_FEW_VALID",
+                "QUIZ_TOO_FEW_APPLICATION"
+              ],
+              "warnings": []
+            },
+            {
+              "dayNumber": 22,
+              "lessonId": "PLAYBOOK_2026_30_EN_DAY_22",
+              "title": "Change Management for the Design System",
+              "createdAt": "2026-01-28T15:55:36.083Z",
+              "lessonQuality": {
+                "score": 45,
+                "issues": [
+                  "TOO_SHORT",
+                  "NO_CLEAR_DEFINITIONS",
+                  "NO_METRICS_OR_CRITERIA"
+                ],
+                "signals": {
+                  "charCount": 924,
+                  "wordCount": 133,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": true,
+                  "hasMetricsOrCriteria": false,
+                  "hasDefinitionsOrComparisons": false
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": true,
+                  "addChecklistSection": false,
+                  "addExamplesSection": false,
+                  "addPitfallsSection": false,
+                  "addMetricsSection": true
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 0,
+                "validExisting": 0,
+                "invalidExisting": 0,
+                "application": 0,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [
+                "LESSON_QUALITY_BELOW_THRESHOLD",
+                "QUIZ_TOO_FEW_VALID",
+                "QUIZ_TOO_FEW_APPLICATION"
+              ],
+              "warnings": []
+            },
+            {
+              "dayNumber": 23,
+              "lessonId": "PLAYBOOK_2026_30_EN_DAY_23",
+              "title": "Review and Approval Workflow",
+              "createdAt": "2026-01-28T15:55:36.124Z",
+              "lessonQuality": {
+                "score": 60,
+                "issues": [
+                  "TOO_SHORT",
+                  "NO_METRICS_OR_CRITERIA"
+                ],
+                "signals": {
+                  "charCount": 962,
+                  "wordCount": 124,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": true,
+                  "hasMetricsOrCriteria": false,
+                  "hasDefinitionsOrComparisons": true
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": false,
+                  "addChecklistSection": false,
+                  "addExamplesSection": false,
+                  "addPitfallsSection": false,
+                  "addMetricsSection": true
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 0,
+                "validExisting": 0,
+                "invalidExisting": 0,
+                "application": 0,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [
+                "LESSON_QUALITY_BELOW_THRESHOLD",
+                "QUIZ_TOO_FEW_VALID",
+                "QUIZ_TOO_FEW_APPLICATION"
+              ],
+              "warnings": []
+            },
+            {
+              "dayNumber": 24,
+              "lessonId": "PLAYBOOK_2026_30_EN_DAY_24",
+              "title": "Teaching the System to the Team",
+              "createdAt": "2026-01-28T15:55:36.168Z",
+              "lessonQuality": {
+                "score": 60,
+                "issues": [
+                  "TOO_SHORT",
+                  "NO_CLEAR_DEFINITIONS"
+                ],
+                "signals": {
+                  "charCount": 916,
+                  "wordCount": 124,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": true,
+                  "hasMetricsOrCriteria": true,
+                  "hasDefinitionsOrComparisons": false
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": true,
+                  "addChecklistSection": false,
+                  "addExamplesSection": false,
+                  "addPitfallsSection": false,
+                  "addMetricsSection": false
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 0,
+                "validExisting": 0,
+                "invalidExisting": 0,
+                "application": 0,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [
+                "LESSON_QUALITY_BELOW_THRESHOLD",
+                "QUIZ_TOO_FEW_VALID",
+                "QUIZ_TOO_FEW_APPLICATION"
+              ],
+              "warnings": []
+            },
+            {
+              "dayNumber": 25,
+              "lessonId": "PLAYBOOK_2026_30_EN_DAY_25",
+              "title": "Measuring Visual Quality",
+              "createdAt": "2026-01-28T15:55:36.214Z",
+              "lessonQuality": {
+                "score": 60,
+                "issues": [
+                  "TOO_SHORT",
+                  "NO_CLEAR_DEFINITIONS"
+                ],
+                "signals": {
+                  "charCount": 901,
+                  "wordCount": 117,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": true,
+                  "hasMetricsOrCriteria": true,
+                  "hasDefinitionsOrComparisons": false
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": true,
+                  "addChecklistSection": false,
+                  "addExamplesSection": false,
+                  "addPitfallsSection": false,
+                  "addMetricsSection": false
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 0,
+                "validExisting": 0,
+                "invalidExisting": 0,
+                "application": 0,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [
+                "LESSON_QUALITY_BELOW_THRESHOLD",
+                "QUIZ_TOO_FEW_VALID",
+                "QUIZ_TOO_FEW_APPLICATION"
+              ],
+              "warnings": []
+            },
+            {
+              "dayNumber": 26,
+              "lessonId": "PLAYBOOK_2026_30_EN_DAY_26",
+              "title": "Selecting the Capstone Product",
+              "createdAt": "2026-01-28T15:55:36.261Z",
+              "lessonQuality": {
+                "score": 60,
+                "issues": [
+                  "TOO_SHORT",
+                  "NO_CLEAR_DEFINITIONS"
+                ],
+                "signals": {
+                  "charCount": 820,
+                  "wordCount": 122,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": true,
+                  "hasMetricsOrCriteria": true,
+                  "hasDefinitionsOrComparisons": false
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": true,
+                  "addChecklistSection": false,
+                  "addExamplesSection": false,
+                  "addPitfallsSection": false,
+                  "addMetricsSection": false
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 0,
+                "validExisting": 0,
+                "invalidExisting": 0,
+                "application": 0,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [
+                "LESSON_QUALITY_BELOW_THRESHOLD",
+                "QUIZ_TOO_FEW_VALID",
+                "QUIZ_TOO_FEW_APPLICATION"
+              ],
+              "warnings": []
+            },
+            {
+              "dayNumber": 27,
+              "lessonId": "PLAYBOOK_2026_30_EN_DAY_27",
+              "title": "Mapping the Current Visual Chaos",
+              "createdAt": "2026-01-28T15:55:36.505Z",
+              "lessonQuality": {
+                "score": 75,
+                "issues": [
+                  "TOO_SHORT"
+                ],
+                "signals": {
+                  "charCount": 792,
+                  "wordCount": 108,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": true,
+                  "hasMetricsOrCriteria": true,
+                  "hasDefinitionsOrComparisons": true
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": false,
+                  "addChecklistSection": false,
+                  "addExamplesSection": false,
+                  "addPitfallsSection": false,
+                  "addMetricsSection": false
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 0,
+                "validExisting": 0,
+                "invalidExisting": 0,
+                "application": 0,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": {
+                "attempted": true,
+                "generateTarget": 40,
+                "validatedNew": 15,
+                "canSatisfyMinimums": true,
+                "reasonIfNot": null
+              },
+              "errors": [
+                "QUIZ_TOO_FEW_VALID",
+                "QUIZ_TOO_FEW_APPLICATION"
+              ],
+              "warnings": []
+            },
+            {
+              "dayNumber": 28,
+              "lessonId": "PLAYBOOK_2026_30_EN_DAY_28",
+              "title": "Extracting and Normalizing the System",
+              "createdAt": "2026-01-28T15:55:36.734Z",
+              "lessonQuality": {
+                "score": 45,
+                "issues": [
+                  "TOO_SHORT",
+                  "NO_CLEAR_DEFINITIONS",
+                  "NO_METRICS_OR_CRITERIA"
+                ],
+                "signals": {
+                  "charCount": 843,
+                  "wordCount": 115,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": true,
+                  "hasMetricsOrCriteria": false,
+                  "hasDefinitionsOrComparisons": false
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": true,
+                  "addChecklistSection": false,
+                  "addExamplesSection": false,
+                  "addPitfallsSection": false,
+                  "addMetricsSection": true
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 0,
+                "validExisting": 0,
+                "invalidExisting": 0,
+                "application": 0,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [
+                "LESSON_QUALITY_BELOW_THRESHOLD",
+                "QUIZ_TOO_FEW_VALID",
+                "QUIZ_TOO_FEW_APPLICATION"
+              ],
+              "warnings": []
+            },
+            {
+              "dayNumber": 29,
+              "lessonId": "PLAYBOOK_2026_30_EN_DAY_29",
+              "title": "Assembling the Playbook",
+              "createdAt": "2026-01-28T15:55:36.780Z",
+              "lessonQuality": {
+                "score": 45,
+                "issues": [
+                  "TOO_SHORT",
+                  "NO_CLEAR_DEFINITIONS",
+                  "NO_METRICS_OR_CRITERIA"
+                ],
+                "signals": {
+                  "charCount": 748,
+                  "wordCount": 101,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": true,
+                  "hasMetricsOrCriteria": false,
+                  "hasDefinitionsOrComparisons": false
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": true,
+                  "addChecklistSection": false,
+                  "addExamplesSection": false,
+                  "addPitfallsSection": false,
+                  "addMetricsSection": true
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 0,
+                "validExisting": 0,
+                "invalidExisting": 0,
+                "application": 0,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [
+                "LESSON_QUALITY_BELOW_THRESHOLD",
+                "QUIZ_TOO_FEW_VALID",
+                "QUIZ_TOO_FEW_APPLICATION"
+              ],
+              "warnings": []
+            },
+            {
+              "dayNumber": 30,
+              "lessonId": "PLAYBOOK_2026_30_EN_DAY_30",
+              "title": "Final Presentation and Rollout",
+              "createdAt": "2026-01-28T15:55:36.822Z",
+              "lessonQuality": {
+                "score": 60,
+                "issues": [
+                  "TOO_SHORT",
+                  "NO_CLEAR_DEFINITIONS"
+                ],
+                "signals": {
+                  "charCount": 737,
+                  "wordCount": 107,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": true,
+                  "hasMetricsOrCriteria": true,
+                  "hasDefinitionsOrComparisons": false
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": true,
+                  "addChecklistSection": false,
+                  "addExamplesSection": false,
+                  "addPitfallsSection": false,
+                  "addMetricsSection": false
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 0,
+                "validExisting": 0,
+                "invalidExisting": 0,
+                "application": 0,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [
+                "LESSON_QUALITY_BELOW_THRESHOLD",
+                "QUIZ_TOO_FEW_VALID",
+                "QUIZ_TOO_FEW_APPLICATION"
+              ],
+              "warnings": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ccsId": "SALES_PRODUCTIVITY_30",
+      "name": "SALES_PRODUCTIVITY_30",
+      "ideaPresent": false,
+      "outlinePresent": false,
+      "relatedDocumentsCount": 0,
+      "courses": []
+    }
+  ],
+  "coursesMissingCcsId": []
+}

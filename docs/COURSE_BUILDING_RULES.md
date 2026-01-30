@@ -144,9 +144,14 @@ This document defines the standardized process for creating and delivering cours
 2. **Create separate course record for each language** - Each language gets its own course document
 3. **Link via courseId pattern** - Use `PRODUCTIVITY_2026_HU`, `PRODUCTIVITY_2026_EN`, etc., or use translations field
 
+**Seed scripts — database requirement:**  
+The app connects to MongoDB with `dbName: process.env.DB_NAME || 'amanoba'` (see `app/lib/mongodb.ts`). Any seed script that creates courses, CCS, lessons, or quiz questions **must** use the same database when connecting, e.g. `mongoose.connect(process.env.MONGODB_URI, { dbName: process.env.DB_NAME || 'amanoba' })`. Otherwise data is written to the default DB (e.g. `test`) and will not appear in the app or admin. Reference: `scripts/seed-playbook-design-2026-en.ts`, `scripts/seed-done-better-2026-en.ts`, and `docs/course_runs/DONE_BETTER_2026_EN__2026-01-28.md`.
+
 ---
 
 ### Step 2: Create First Lesson & Quiz
+
+**NO QUALITY EXCEPTION ACCEPTED** for any content. No course, lesson, or quiz may bypass or receive exceptions from the quality gates below.
 
 **Quality Standards:**
 
@@ -159,6 +164,9 @@ This document defines the standardized process for creating and delivering cours
 - ✅ **Clear structure** - Introduction, main content, summary, action items
 
 #### Quiz Questions (MANDATORY QUALITY STANDARDS):
+
+**Gold standard (only acceptable form):** Every question must be standalone, grounded in the lesson, scenario-based, ask for a concrete deliverable/outcome, and use concrete educational distractors. See `docs/QUIZ_QUALITY_PIPELINE_PLAYBOOK.md` for the canonical example and "why other types fail."
+
 - ✅ **Minimum 7 questions per quiz** - can be **more** than 7 (never delete valid questions just to cap)
 - ✅ **100% related to lesson content** - Every question must test actual lesson material
 - ✅ **Same language as course** - 100% language consistency, no mixing, no fallbacks

@@ -1,0 +1,15 @@
+{
+  "backedUpAt": "2026-01-28T22:55:47.203Z",
+  "course": {
+    "courseId": "AI_30_DAY_EN",
+    "name": "30-Day AI Catch-Up Program (EN)",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 23,
+    "title": "Rubrics and scoring AI outputs",
+    "lessonId": "AI_30_DAY_EN_DAY_23"
+  },
+  "questionCount": 0,
+  "questions": []
+}

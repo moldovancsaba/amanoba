@@ -1,0 +1,114 @@
+{
+  "backedUpAt": "2026-01-28T22:37:47.939Z",
+  "course": {
+    "courseId": "DONE_BETTER_2026_EN",
+    "name": "Done is better - Build What Matters",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 16,
+    "title": "Ship the Skeleton",
+    "lessonId": "DONE_BETTER_2026_EN_DAY_16"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "697a87bca81588c9f41a2265",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "A team is polishing a feature before any user has seen it. What is the risk?",
+      "options": [
+        "Polish before proof wastes time; ship or test the minimal structure first",
+        "Users will love the polish when they see it",
+        "It will be faster to ship later",
+        "No significant risk in this case"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87bca81588c9f41a2266",
+      "questionType": "application",
+      "difficulty": "EASY",
+      "question": "In this framework, how would you describe \"ship the skeleton\" in practice?",
+      "options": [
+        "Build the minimal structure that could work; ship or test that first, then add detail after validation",
+        "Ship only wireframes and nothing else",
+        "Ship incomplete work without testing",
+        "Ship without testing or validation"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87bca81588c9f41a2267",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How do you identify the skeleton of a deliverable?",
+      "options": [
+        "Ask: what is the minimum structure that could be tested or used?",
+        "Remove the last 50% of features",
+        "Copy a competitor's MVP",
+        "Ask the client to choose"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87bca81588c9f41a2268",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Confusing skeleton with \"incomplete or shoddy work\" can lead to:",
+      "options": [
+        "Never shipping the skeleton and delaying learning",
+        "Faster delivery",
+        "Higher quality",
+        "Better design"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87bca81588c9f41a2269",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Why add detail only after the skeleton is validated?",
+      "options": [
+        "Detail after validation is efficient; detail before proof is waste",
+        "Detail is always bad",
+        "Skeleton is enough forever",
+        "It has no effect on outcomes or learning"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87bca81588c9f41a226a",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "After shipping the skeleton, what should you do?",
+      "options": [
+        "Get signal; add detail only based on evidence",
+        "Add all planned features",
+        "Freeze the product",
+        "Move to the next project"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87bca81588c9f41a226b",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "What is the first step for a deliverable you are working on?",
+      "options": [
+        "Strip it to the skeleton: the minimum that could be tested; ship or test that",
+        "Finish the full spec",
+        "Get sign-off on the design",
+        "Assign all tasks"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    }
+  ]
+}

@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-28T22:42:12.294Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_ID",
+    "name": "Produktivitas 2026: Cara Mengelola Tim dan Waktu",
+    "language": "id"
+  },
+  "lesson": {
+    "dayNumber": 11,
+    "title": "Penetapan Tujuan dan OKR: Apa yang Ingin Anda Capai?",
+    "lessonId": "PRODUCTIVITY_2026_ID_DAY_11"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a2bdf6e5ec2a4427e23",
+      "uuid": "924a69d2-a993-4aa0-bd92-2616ac855765",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Produktivitas tanpa tujuan = hanya sibuk.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day11",
+        "#id",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a2bdf6e5ec2a4427e24",
+      "uuid": "c9841299-ea78-4569-ab5d-5737316f654a",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Arah\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day11",
+        "#id",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a2bdf6e5ec2a4427e25",
+      "uuid": "0c94e664-d154-4dff-83ce-497de23606f8",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Motivasi\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day11",
+        "#id",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a2bdf6e5ec2a4427e26",
+      "uuid": "086819e4-af71-4f80-9bb4-e0d21ddb9c37",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Bagaimana konsep \"Penetapan Tujuan dan OKR: Apa yang Ingin Anda Capa...\" yang disebutkan dalam pelajaran mempengaruhi pencapaian goals Anda?",
+      "options": [
+        "Seperti yang dijelaskan secara detail dalam pelajaran, Penetapan Tujuan dan OKR: Apa ... meningkatkan efektivitas dan mengurangi risiko",
+        "Tidak ada dampak signifikan",
+        "Hanya penting secara teoritis",
+        "Hanya elemen opsional"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day11",
+        "#id",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a2bdf6e5ec2a4427e27",
+      "uuid": "fa0b79d5-aed0-4c69-a18a-89760b15c269",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Seberapa penting Arah dalam konteks Penetapan Tujuan dan OKR: Apa yang Ingin Anda Capai? seperti yang dibahas dalam pelajaran?",
+      "options": [
+        "Seperti yang dijelaskan secara detail dalam pelajaran, Arah memainkan peran penting dalam mengoptimalkan proses dan mencapai tujuan",
+        "Hanya informasi periferal tanpa peran signifikan",
+        "Hanya konsep teoretis tanpa aplikasi praktis",
+        "Tidak disebutkan dalam pelajaran"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day11",
+        "#id",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a2bdf6e5ec2a4427e28",
+      "uuid": "4b0b5b69-77ac-433f-a5a3-09f5a8741989",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Seberapa penting Pengukuran dalam konteks Penetapan Tujuan dan OKR: Apa yang Ingin Anda Capai? seperti yang dibahas dalam pelajaran?",
+      "options": [
+        "Seperti yang dijelaskan secara detail dalam pelajaran, Pengukuran memainkan peran penting dalam mengoptimalkan proses dan mencapai tujuan",
+        "Hanya informasi periferal tanpa peran signifikan",
+        "Hanya konsep teoretis tanpa aplikasi praktis",
+        "Tidak disebutkan dalam pelajaran"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day11",
+        "#id",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a2bdf6e5ec2a4427e29",
+      "uuid": "be9c56b6-3b50-4141-81f8-694774b05e7b",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Seberapa penting Tujuan dalam konteks Penetapan Tujuan dan OKR: Apa yang Ingin Anda Capai? seperti yang dibahas dalam pelajaran?",
+      "options": [
+        "Seperti yang dijelaskan secara detail dalam pelajaran, Tujuan memainkan peran penting dalam mengoptimalkan proses dan mencapai tujuan",
+        "Hanya informasi periferal tanpa peran signifikan",
+        "Hanya konsep teoretis tanpa aplikasi praktis",
+        "Tidak disebutkan dalam pelajaran"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day11",
+        "#id",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

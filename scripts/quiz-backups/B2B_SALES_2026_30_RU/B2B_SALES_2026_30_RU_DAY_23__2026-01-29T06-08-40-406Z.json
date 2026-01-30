@@ -1,0 +1,15 @@
+{
+  "backedUpAt": "2026-01-29T06:08:44.108Z",
+  "course": {
+    "courseId": "B2B_SALES_2026_30_RU",
+    "name": "B2B Продажи 2026 — мастер‑класс (30 дней) (RU)",
+    "language": "ru"
+  },
+  "lesson": {
+    "dayNumber": 23,
+    "title": "Интеграции и основы потока данных",
+    "lessonId": "B2B_SALES_2026_30_RU_DAY_23"
+  },
+  "questionCount": 0,
+  "questions": []
+}

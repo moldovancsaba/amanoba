@@ -1,0 +1,107 @@
+{
+  "backedUpAt": "2026-01-28T22:08:17.968Z",
+  "course": {
+    "courseId": "GEO_SHOPIFY_30",
+    "name": "GEO Shopify – 30 napos kurzus",
+    "language": "hu"
+  },
+  "lesson": {
+    "dayNumber": 17,
+    "title": "Strukturált adatok ellenőrzése (schema)",
+    "lessonId": "GEO_SHOPIFY_30_DAY_17"
+  },
+  "questionCount": 4,
+  "questions": [
+    {
+      "_id": "697766a8bfa810d766366ed4",
+      "uuid": "489d81b0-e5a4-4a64-b12d-ffb59f9315fc",
+      "questionType": "recall",
+      "difficulty": "EASY",
+      "question": "Mi a GEO egyik alapelve a(z) \"Strukturált adatok ellenőrzése (schema)\" leckében?",
+      "options": [
+        "Egyértelmű, idézhető tartalom",
+        "Véletlenszerű információ",
+        "Minimális adat",
+        "Nincs elv"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day17",
+        "#geo",
+        "#beginner",
+        "#recall",
+        "#hu",
+        "#all-languages"
+      ]
+    },
+    {
+      "_id": "697766a8bfa810d766366ed6",
+      "uuid": "7e18cf5f-0e17-4570-9dfc-20dcc6ee55f1",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "A leckében leírt \"Gyakorlat: validáld a schema-t (10-15 pe...\" gyakorlatot hogyan implementálnád a saját munkádban?",
+      "options": [
+        "Lépésről lépésre követem a leckében leírt módszert, dokumentálom az eredményeket, és finomhangolom a folyamatot",
+        "Egyszerre próbálom ki mindent",
+        "Csak olvasom, nem alkalmazom",
+        "Várok, amíg mások megcsinálják"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day17",
+        "#hu",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "697766a8bfa810d766366ed7",
+      "uuid": "3de6f412-315a-45c4-8a50-fd4389cfa40a",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "A leckében leírt \"gyakorlat: bővítsd további oldalakra (5-...\" gyakorlatot hogyan implementálnád a saját munkádban?",
+      "options": [
+        "Lépésről lépésre követem a leckében leírt módszert, dokumentálom az eredményeket, és finomhangolom a folyamatot",
+        "Egyszerre próbálom ki mindent",
+        "Csak olvasom, nem alkalmazom",
+        "Várok, amíg mások megcsinálják"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day17",
+        "#hu",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "697766a8bfa810d766366ed8",
+      "uuid": "2f1ffcc6-464b-4a78-a2ce-9381bc9e6edf",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "A leckében leírt \"Gyakorlat: validáld a schema-t (10-15 pe...\" gyakorlatot hogyan implementálnád a saját munkádban?",
+      "options": [
+        "Lépésről lépésre követem a leckében leírt módszert, dokumentálom az eredményeket, és finomhangolom a folyamatot",
+        "Egyszerre próbálom ki mindent",
+        "Csak olvasom, nem alkalmazom",
+        "Várok, amíg mások megcsinálják"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day17",
+        "#hu",
+        "#all-languages",
+        "#geo",
+        "#shopify",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

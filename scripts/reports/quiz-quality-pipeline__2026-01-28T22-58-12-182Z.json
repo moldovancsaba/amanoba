@@ -1,0 +1,1658 @@
+{
+  "generatedAt": "2026-01-28T22:58:12.182Z",
+  "dryRun": false,
+  "minLessonScore": 70,
+  "courseFilter": "DONE_BETTER_2026_EN",
+  "totals": {
+    "courses": 1,
+    "lessonsEvaluated": 30,
+    "lessonsNeedingRefine": 0,
+    "lessonsRewritten": 26,
+    "lessonsFailedRewrite": 0,
+    "questionsDeleted": 54,
+    "questionsInserted": 55
+  },
+  "lessons": [
+    {
+      "courseId": "DONE_BETTER_2026_EN",
+      "courseName": "Done is better - Build What Matters",
+      "language": "en",
+      "dayNumber": 1,
+      "lessonId": "DONE_BETTER_2026_EN_DAY_01",
+      "title": "Welcome to Real Thinking",
+      "lessonCreatedAt": "2026-01-28T19:32:32.725Z",
+      "lessonQuality": {
+        "score": 100,
+        "issues": [],
+        "signals": {
+          "charCount": 1888,
+          "wordCount": 299,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "ENRICHED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/DONE_BETTER_2026_EN/DONE_BETTER_2026_EN_DAY_01__2026-01-28T22-58-12-182Z.json",
+        "insertedCount": 1,
+        "deletedInvalidCount": 0,
+        "deletedDuplicateCount": 0,
+        "warnings": [
+          "Question 1: Question may lack context. Ensure it provides enough context to be understood standalone.",
+          "Question 4: Critical thinking questions should typically be HARD or EXPERT difficulty."
+        ],
+        "existingCounts": {
+          "total": 7,
+          "valid": 7,
+          "invalid": 0,
+          "application": 4,
+          "critical": 3,
+          "recall": 0,
+          "duplicates": 0
+        }
+      }
+    },
+    {
+      "courseId": "DONE_BETTER_2026_EN",
+      "courseName": "Done is better - Build What Matters",
+      "language": "en",
+      "dayNumber": 2,
+      "lessonId": "DONE_BETTER_2026_EN_DAY_02",
+      "title": "What Is a Problem, Really?",
+      "lessonCreatedAt": "2026-01-28T19:32:33.628Z",
+      "lessonQuality": {
+        "score": 75,
+        "issues": [
+          "NO_CONTRASTS_GOOD_BAD",
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 1526,
+          "wordCount": 254,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": true,
+          "hasGoodBadContrast": false,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": true,
+          "addPitfallsSection": true,
+          "addMetricsSection": true
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "ENRICHED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/DONE_BETTER_2026_EN/DONE_BETTER_2026_EN_DAY_02__2026-01-28T22-58-12-182Z.json",
+        "insertedCount": 1,
+        "deletedInvalidCount": 1,
+        "deletedDuplicateCount": 0,
+        "warnings": [
+          "Question 5: Critical thinking questions should typically be HARD or EXPERT difficulty.; Question may lack context. Ensure it provides enough context to be understood standalone."
+        ],
+        "existingCounts": {
+          "total": 7,
+          "valid": 6,
+          "invalid": 1,
+          "application": 4,
+          "critical": 2,
+          "recall": 0,
+          "duplicates": 0
+        }
+      }
+    },
+    {
+      "courseId": "DONE_BETTER_2026_EN",
+      "courseName": "Done is better - Build What Matters",
+      "language": "en",
+      "dayNumber": 3,
+      "lessonId": "DONE_BETTER_2026_EN_DAY_03",
+      "title": "Understand Before You Move",
+      "lessonCreatedAt": "2026-01-28T19:32:34.387Z",
+      "lessonQuality": {
+        "score": 100,
+        "issues": [],
+        "signals": {
+          "charCount": 1905,
+          "wordCount": 300,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "PASS",
+      "rewrite": {
+        "existingCounts": {
+          "total": 7,
+          "valid": 7,
+          "invalid": 0,
+          "application": 5,
+          "critical": 2,
+          "recall": 0,
+          "duplicates": 0
+        },
+        "cleanedInvalid": false,
+        "cleanedDuplicates": false,
+        "backupPath": null
+      }
+    },
+    {
+      "courseId": "DONE_BETTER_2026_EN",
+      "courseName": "Done is better - Build What Matters",
+      "language": "en",
+      "dayNumber": 4,
+      "lessonId": "DONE_BETTER_2026_EN_DAY_04",
+      "title": "Unknowns Are Assets",
+      "lessonCreatedAt": "2026-01-28T19:32:34.504Z",
+      "lessonQuality": {
+        "score": 100,
+        "issues": [],
+        "signals": {
+          "charCount": 1640,
+          "wordCount": 272,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "ENRICHED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/DONE_BETTER_2026_EN/DONE_BETTER_2026_EN_DAY_04__2026-01-28T22-58-12-182Z.json",
+        "insertedCount": 1,
+        "deletedInvalidCount": 1,
+        "deletedDuplicateCount": 0,
+        "warnings": [],
+        "existingCounts": {
+          "total": 7,
+          "valid": 6,
+          "invalid": 1,
+          "application": 4,
+          "critical": 2,
+          "recall": 0,
+          "duplicates": 0
+        }
+      }
+    },
+    {
+      "courseId": "DONE_BETTER_2026_EN",
+      "courseName": "Done is better - Build What Matters",
+      "language": "en",
+      "dayNumber": 5,
+      "lessonId": "DONE_BETTER_2026_EN_DAY_05",
+      "title": "Rewriting the Problem",
+      "lessonCreatedAt": "2026-01-28T19:32:34.623Z",
+      "lessonQuality": {
+        "score": 100,
+        "issues": [],
+        "signals": {
+          "charCount": 1998,
+          "wordCount": 331,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "ENRICHED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/DONE_BETTER_2026_EN/DONE_BETTER_2026_EN_DAY_05__2026-01-28T22-58-12-182Z.json",
+        "insertedCount": 1,
+        "deletedInvalidCount": 1,
+        "deletedDuplicateCount": 0,
+        "warnings": [
+          "Question 2: Question may lack context. Ensure it provides enough context to be understood standalone."
+        ],
+        "existingCounts": {
+          "total": 7,
+          "valid": 6,
+          "invalid": 1,
+          "application": 4,
+          "critical": 2,
+          "recall": 0,
+          "duplicates": 0
+        }
+      }
+    },
+    {
+      "courseId": "DONE_BETTER_2026_EN",
+      "courseName": "Done is better - Build What Matters",
+      "language": "en",
+      "dayNumber": 6,
+      "lessonId": "DONE_BETTER_2026_EN_DAY_06",
+      "title": "Decompose Everything",
+      "lessonCreatedAt": "2026-01-28T19:32:34.717Z",
+      "lessonQuality": {
+        "score": 100,
+        "issues": [],
+        "signals": {
+          "charCount": 2331,
+          "wordCount": 370,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "PASS",
+      "rewrite": {
+        "existingCounts": {
+          "total": 7,
+          "valid": 7,
+          "invalid": 0,
+          "application": 5,
+          "critical": 2,
+          "recall": 0,
+          "duplicates": 0
+        },
+        "cleanedInvalid": false,
+        "cleanedDuplicates": false,
+        "backupPath": null
+      }
+    },
+    {
+      "courseId": "DONE_BETTER_2026_EN",
+      "courseName": "Done is better - Build What Matters",
+      "language": "en",
+      "dayNumber": 7,
+      "lessonId": "DONE_BETTER_2026_EN_DAY_07",
+      "title": "Find the Leverage Point",
+      "lessonCreatedAt": "2026-01-28T19:32:34.807Z",
+      "lessonQuality": {
+        "score": 100,
+        "issues": [],
+        "signals": {
+          "charCount": 1998,
+          "wordCount": 310,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "PASS",
+      "rewrite": {
+        "existingCounts": {
+          "total": 7,
+          "valid": 7,
+          "invalid": 0,
+          "application": 5,
+          "critical": 2,
+          "recall": 0,
+          "duplicates": 0
+        },
+        "cleanedInvalid": false,
+        "cleanedDuplicates": false,
+        "backupPath": null
+      }
+    },
+    {
+      "courseId": "DONE_BETTER_2026_EN",
+      "courseName": "Done is better - Build What Matters",
+      "language": "en",
+      "dayNumber": 8,
+      "lessonId": "DONE_BETTER_2026_EN_DAY_08",
+      "title": "Plans Are Hypotheses",
+      "lessonCreatedAt": "2026-01-28T19:32:34.921Z",
+      "lessonQuality": {
+        "score": 100,
+        "issues": [],
+        "signals": {
+          "charCount": 1758,
+          "wordCount": 299,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "ENRICHED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/DONE_BETTER_2026_EN/DONE_BETTER_2026_EN_DAY_08__2026-01-28T22-58-12-182Z.json",
+        "insertedCount": 2,
+        "deletedInvalidCount": 2,
+        "deletedDuplicateCount": 0,
+        "warnings": [],
+        "existingCounts": {
+          "total": 7,
+          "valid": 5,
+          "invalid": 2,
+          "application": 3,
+          "critical": 2,
+          "recall": 0,
+          "duplicates": 0
+        }
+      }
+    },
+    {
+      "courseId": "DONE_BETTER_2026_EN",
+      "courseName": "Done is better - Build What Matters",
+      "language": "en",
+      "dayNumber": 9,
+      "lessonId": "DONE_BETTER_2026_EN_DAY_09",
+      "title": "Think in Moves, Not Projects",
+      "lessonCreatedAt": "2026-01-28T19:32:35.007Z",
+      "lessonQuality": {
+        "score": 100,
+        "issues": [],
+        "signals": {
+          "charCount": 2183,
+          "wordCount": 372,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "ENRICHED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/DONE_BETTER_2026_EN/DONE_BETTER_2026_EN_DAY_09__2026-01-28T22-58-12-182Z.json",
+        "insertedCount": 1,
+        "deletedInvalidCount": 1,
+        "deletedDuplicateCount": 0,
+        "warnings": [
+          "CRITICAL_THINKING questions: 1 (recommended at least 2)."
+        ],
+        "existingCounts": {
+          "total": 7,
+          "valid": 6,
+          "invalid": 1,
+          "application": 5,
+          "critical": 1,
+          "recall": 0,
+          "duplicates": 0
+        }
+      }
+    },
+    {
+      "courseId": "DONE_BETTER_2026_EN",
+      "courseName": "Done is better - Build What Matters",
+      "language": "en",
+      "dayNumber": 10,
+      "lessonId": "DONE_BETTER_2026_EN_DAY_10",
+      "title": "Analogy as a Weapon",
+      "lessonCreatedAt": "2026-01-28T19:32:35.381Z",
+      "lessonQuality": {
+        "score": 100,
+        "issues": [],
+        "signals": {
+          "charCount": 1663,
+          "wordCount": 264,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "ENRICHED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/DONE_BETTER_2026_EN/DONE_BETTER_2026_EN_DAY_10__2026-01-28T22-58-12-182Z.json",
+        "insertedCount": 3,
+        "deletedInvalidCount": 3,
+        "deletedDuplicateCount": 0,
+        "warnings": [
+          "CRITICAL_THINKING questions: 1 (recommended at least 2)."
+        ],
+        "existingCounts": {
+          "total": 7,
+          "valid": 4,
+          "invalid": 3,
+          "application": 3,
+          "critical": 1,
+          "recall": 0,
+          "duplicates": 0
+        }
+      }
+    },
+    {
+      "courseId": "DONE_BETTER_2026_EN",
+      "courseName": "Done is better - Build What Matters",
+      "language": "en",
+      "dayNumber": 11,
+      "lessonId": "DONE_BETTER_2026_EN_DAY_11",
+      "title": "Working Backwards",
+      "lessonCreatedAt": "2026-01-28T19:32:35.472Z",
+      "lessonQuality": {
+        "score": 75,
+        "issues": [
+          "NO_CONTRASTS_GOOD_BAD",
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 1137,
+          "wordCount": 194,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": true,
+          "hasGoodBadContrast": false,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": true,
+          "addPitfallsSection": true,
+          "addMetricsSection": true
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "ENRICHED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/DONE_BETTER_2026_EN/DONE_BETTER_2026_EN_DAY_11__2026-01-28T22-58-12-182Z.json",
+        "insertedCount": 1,
+        "deletedInvalidCount": 1,
+        "deletedDuplicateCount": 0,
+        "warnings": [
+          "CRITICAL_THINKING questions: 1 (recommended at least 2)."
+        ],
+        "existingCounts": {
+          "total": 7,
+          "valid": 6,
+          "invalid": 1,
+          "application": 5,
+          "critical": 1,
+          "recall": 0,
+          "duplicates": 0
+        }
+      }
+    },
+    {
+      "courseId": "DONE_BETTER_2026_EN",
+      "courseName": "Done is better - Build What Matters",
+      "language": "en",
+      "dayNumber": 12,
+      "lessonId": "DONE_BETTER_2026_EN_DAY_12",
+      "title": "Simplify Until It Breaks",
+      "lessonCreatedAt": "2026-01-28T19:32:35.582Z",
+      "lessonQuality": {
+        "score": 100,
+        "issues": [],
+        "signals": {
+          "charCount": 1642,
+          "wordCount": 267,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "PASS",
+      "rewrite": {
+        "existingCounts": {
+          "total": 7,
+          "valid": 7,
+          "invalid": 0,
+          "application": 5,
+          "critical": 2,
+          "recall": 0,
+          "duplicates": 0
+        },
+        "cleanedInvalid": false,
+        "cleanedDuplicates": false,
+        "backupPath": null
+      }
+    },
+    {
+      "courseId": "DONE_BETTER_2026_EN",
+      "courseName": "Done is better - Build What Matters",
+      "language": "en",
+      "dayNumber": 13,
+      "lessonId": "DONE_BETTER_2026_EN_DAY_13",
+      "title": "Multiple Paths Thinking",
+      "lessonCreatedAt": "2026-01-28T19:32:35.676Z",
+      "lessonQuality": {
+        "score": 100,
+        "issues": [],
+        "signals": {
+          "charCount": 1697,
+          "wordCount": 282,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "ENRICHED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/DONE_BETTER_2026_EN/DONE_BETTER_2026_EN_DAY_13__2026-01-28T22-58-12-182Z.json",
+        "insertedCount": 2,
+        "deletedInvalidCount": 2,
+        "deletedDuplicateCount": 0,
+        "warnings": [
+          "CRITICAL_THINKING questions: 1 (recommended at least 2)."
+        ],
+        "existingCounts": {
+          "total": 7,
+          "valid": 5,
+          "invalid": 2,
+          "application": 4,
+          "critical": 1,
+          "recall": 0,
+          "duplicates": 0
+        }
+      }
+    },
+    {
+      "courseId": "DONE_BETTER_2026_EN",
+      "courseName": "Done is better - Build What Matters",
+      "language": "en",
+      "dayNumber": 14,
+      "lessonId": "DONE_BETTER_2026_EN_DAY_14",
+      "title": "Choose with Intent",
+      "lessonCreatedAt": "2026-01-28T19:32:35.784Z",
+      "lessonQuality": {
+        "score": 100,
+        "issues": [],
+        "signals": {
+          "charCount": 1895,
+          "wordCount": 304,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "ENRICHED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/DONE_BETTER_2026_EN/DONE_BETTER_2026_EN_DAY_14__2026-01-28T22-58-12-182Z.json",
+        "insertedCount": 2,
+        "deletedInvalidCount": 2,
+        "deletedDuplicateCount": 0,
+        "warnings": [
+          "CRITICAL_THINKING questions: 1 (recommended at least 2)."
+        ],
+        "existingCounts": {
+          "total": 7,
+          "valid": 5,
+          "invalid": 2,
+          "application": 4,
+          "critical": 1,
+          "recall": 0,
+          "duplicates": 0
+        }
+      }
+    },
+    {
+      "courseId": "DONE_BETTER_2026_EN",
+      "courseName": "Done is better - Build What Matters",
+      "language": "en",
+      "dayNumber": 15,
+      "lessonId": "DONE_BETTER_2026_EN_DAY_15",
+      "title": "Done Means Testable",
+      "lessonCreatedAt": "2026-01-28T19:32:35.866Z",
+      "lessonQuality": {
+        "score": 100,
+        "issues": [],
+        "signals": {
+          "charCount": 1805,
+          "wordCount": 303,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "ENRICHED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/DONE_BETTER_2026_EN/DONE_BETTER_2026_EN_DAY_15__2026-01-28T22-58-12-182Z.json",
+        "insertedCount": 1,
+        "deletedInvalidCount": 1,
+        "deletedDuplicateCount": 0,
+        "warnings": [
+          "CRITICAL_THINKING questions: 1 (recommended at least 2).",
+          "Question 6: Question may lack context. Ensure it provides enough context to be understood standalone."
+        ],
+        "existingCounts": {
+          "total": 7,
+          "valid": 6,
+          "invalid": 1,
+          "application": 5,
+          "critical": 1,
+          "recall": 0,
+          "duplicates": 0
+        }
+      }
+    },
+    {
+      "courseId": "DONE_BETTER_2026_EN",
+      "courseName": "Done is better - Build What Matters",
+      "language": "en",
+      "dayNumber": 16,
+      "lessonId": "DONE_BETTER_2026_EN_DAY_16",
+      "title": "Ship the Skeleton",
+      "lessonCreatedAt": "2026-01-28T19:32:35.946Z",
+      "lessonQuality": {
+        "score": 100,
+        "issues": [],
+        "signals": {
+          "charCount": 1810,
+          "wordCount": 293,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "ENRICHED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/DONE_BETTER_2026_EN/DONE_BETTER_2026_EN_DAY_16__2026-01-28T22-58-12-182Z.json",
+        "insertedCount": 1,
+        "deletedInvalidCount": 1,
+        "deletedDuplicateCount": 0,
+        "warnings": [
+          "CRITICAL_THINKING questions: 1 (recommended at least 2)."
+        ],
+        "existingCounts": {
+          "total": 7,
+          "valid": 6,
+          "invalid": 1,
+          "application": 5,
+          "critical": 1,
+          "recall": 0,
+          "duplicates": 0
+        }
+      }
+    },
+    {
+      "courseId": "DONE_BETTER_2026_EN",
+      "courseName": "Done is better - Build What Matters",
+      "language": "en",
+      "dayNumber": 17,
+      "lessonId": "DONE_BETTER_2026_EN_DAY_17",
+      "title": "Fast Feedback Loops",
+      "lessonCreatedAt": "2026-01-28T19:32:36.036Z",
+      "lessonQuality": {
+        "score": 100,
+        "issues": [],
+        "signals": {
+          "charCount": 1599,
+          "wordCount": 257,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "ENRICHED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/DONE_BETTER_2026_EN/DONE_BETTER_2026_EN_DAY_17__2026-01-28T22-58-12-182Z.json",
+        "insertedCount": 2,
+        "deletedInvalidCount": 2,
+        "deletedDuplicateCount": 0,
+        "warnings": [
+          "CRITICAL_THINKING questions: 0 (recommended at least 2)."
+        ],
+        "existingCounts": {
+          "total": 7,
+          "valid": 5,
+          "invalid": 2,
+          "application": 5,
+          "critical": 0,
+          "recall": 0,
+          "duplicates": 0
+        }
+      }
+    },
+    {
+      "courseId": "DONE_BETTER_2026_EN",
+      "courseName": "Done is better - Build What Matters",
+      "language": "en",
+      "dayNumber": 18,
+      "lessonId": "DONE_BETTER_2026_EN_DAY_18",
+      "title": "Kill Beautiful Ideas Early",
+      "lessonCreatedAt": "2026-01-28T19:32:36.124Z",
+      "lessonQuality": {
+        "score": 100,
+        "issues": [],
+        "signals": {
+          "charCount": 1656,
+          "wordCount": 279,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "ENRICHED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/DONE_BETTER_2026_EN/DONE_BETTER_2026_EN_DAY_18__2026-01-28T22-58-12-182Z.json",
+        "insertedCount": 1,
+        "deletedInvalidCount": 1,
+        "deletedDuplicateCount": 0,
+        "warnings": [
+          "CRITICAL_THINKING questions: 1 (recommended at least 2)."
+        ],
+        "existingCounts": {
+          "total": 7,
+          "valid": 6,
+          "invalid": 1,
+          "application": 5,
+          "critical": 1,
+          "recall": 0,
+          "duplicates": 0
+        }
+      }
+    },
+    {
+      "courseId": "DONE_BETTER_2026_EN",
+      "courseName": "Done is better - Build What Matters",
+      "language": "en",
+      "dayNumber": 19,
+      "lessonId": "DONE_BETTER_2026_EN_DAY_19",
+      "title": "Measure What Matters",
+      "lessonCreatedAt": "2026-01-28T19:32:36.216Z",
+      "lessonQuality": {
+        "score": 100,
+        "issues": [],
+        "signals": {
+          "charCount": 1606,
+          "wordCount": 259,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "ENRICHED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/DONE_BETTER_2026_EN/DONE_BETTER_2026_EN_DAY_19__2026-01-28T22-58-12-182Z.json",
+        "insertedCount": 3,
+        "deletedInvalidCount": 3,
+        "deletedDuplicateCount": 0,
+        "warnings": [
+          "CRITICAL_THINKING questions: 0 (recommended at least 2)."
+        ],
+        "existingCounts": {
+          "total": 7,
+          "valid": 4,
+          "invalid": 3,
+          "application": 4,
+          "critical": 0,
+          "recall": 0,
+          "duplicates": 0
+        }
+      }
+    },
+    {
+      "courseId": "DONE_BETTER_2026_EN",
+      "courseName": "Done is better - Build What Matters",
+      "language": "en",
+      "dayNumber": 20,
+      "lessonId": "DONE_BETTER_2026_EN_DAY_20",
+      "title": "Pivot Without Drama",
+      "lessonCreatedAt": "2026-01-28T19:32:36.306Z",
+      "lessonQuality": {
+        "score": 100,
+        "issues": [],
+        "signals": {
+          "charCount": 1843,
+          "wordCount": 296,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "ENRICHED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/DONE_BETTER_2026_EN/DONE_BETTER_2026_EN_DAY_20__2026-01-28T22-58-12-182Z.json",
+        "insertedCount": 3,
+        "deletedInvalidCount": 3,
+        "deletedDuplicateCount": 0,
+        "warnings": [
+          "CRITICAL_THINKING questions: 0 (recommended at least 2)."
+        ],
+        "existingCounts": {
+          "total": 7,
+          "valid": 4,
+          "invalid": 3,
+          "application": 4,
+          "critical": 0,
+          "recall": 0,
+          "duplicates": 0
+        }
+      }
+    },
+    {
+      "courseId": "DONE_BETTER_2026_EN",
+      "courseName": "Done is better - Build What Matters",
+      "language": "en",
+      "dayNumber": 21,
+      "lessonId": "DONE_BETTER_2026_EN_DAY_21",
+      "title": "Momentum Over Comfort",
+      "lessonCreatedAt": "2026-01-28T19:32:36.415Z",
+      "lessonQuality": {
+        "score": 100,
+        "issues": [],
+        "signals": {
+          "charCount": 1850,
+          "wordCount": 295,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "ENRICHED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/DONE_BETTER_2026_EN/DONE_BETTER_2026_EN_DAY_21__2026-01-28T22-58-12-182Z.json",
+        "insertedCount": 3,
+        "deletedInvalidCount": 3,
+        "deletedDuplicateCount": 0,
+        "warnings": [
+          "CRITICAL_THINKING questions: 0 (recommended at least 2)."
+        ],
+        "existingCounts": {
+          "total": 7,
+          "valid": 4,
+          "invalid": 3,
+          "application": 4,
+          "critical": 0,
+          "recall": 0,
+          "duplicates": 0
+        }
+      }
+    },
+    {
+      "courseId": "DONE_BETTER_2026_EN",
+      "courseName": "Done is better - Build What Matters",
+      "language": "en",
+      "dayNumber": 22,
+      "lessonId": "DONE_BETTER_2026_EN_DAY_22",
+      "title": "Truth Is a Tool",
+      "lessonCreatedAt": "2026-01-28T19:32:36.522Z",
+      "lessonQuality": {
+        "score": 100,
+        "issues": [],
+        "signals": {
+          "charCount": 1648,
+          "wordCount": 267,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "ENRICHED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/DONE_BETTER_2026_EN/DONE_BETTER_2026_EN_DAY_22__2026-01-28T22-58-12-182Z.json",
+        "insertedCount": 3,
+        "deletedInvalidCount": 3,
+        "deletedDuplicateCount": 0,
+        "warnings": [
+          "CRITICAL_THINKING questions: 0 (recommended at least 2)."
+        ],
+        "existingCounts": {
+          "total": 7,
+          "valid": 4,
+          "invalid": 3,
+          "application": 4,
+          "critical": 0,
+          "recall": 0,
+          "duplicates": 0
+        }
+      }
+    },
+    {
+      "courseId": "DONE_BETTER_2026_EN",
+      "courseName": "Done is better - Build What Matters",
+      "language": "en",
+      "dayNumber": 23,
+      "lessonId": "DONE_BETTER_2026_EN_DAY_23",
+      "title": "No Surprises Culture",
+      "lessonCreatedAt": "2026-01-28T19:32:36.633Z",
+      "lessonQuality": {
+        "score": 70,
+        "issues": [
+          "NO_EXAMPLES",
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 1124,
+          "wordCount": 198,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": false,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": true,
+          "addPitfallsSection": false,
+          "addMetricsSection": true
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "ENRICHED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/DONE_BETTER_2026_EN/DONE_BETTER_2026_EN_DAY_23__2026-01-28T22-58-12-182Z.json",
+        "insertedCount": 2,
+        "deletedInvalidCount": 2,
+        "deletedDuplicateCount": 0,
+        "warnings": [
+          "CRITICAL_THINKING questions: 0 (recommended at least 2)."
+        ],
+        "existingCounts": {
+          "total": 7,
+          "valid": 5,
+          "invalid": 2,
+          "application": 5,
+          "critical": 0,
+          "recall": 0,
+          "duplicates": 0
+        }
+      }
+    },
+    {
+      "courseId": "DONE_BETTER_2026_EN",
+      "courseName": "Done is better - Build What Matters",
+      "language": "en",
+      "dayNumber": 24,
+      "lessonId": "DONE_BETTER_2026_EN_DAY_24",
+      "title": "Communicate Unknowns",
+      "lessonCreatedAt": "2026-01-28T19:32:36.746Z",
+      "lessonQuality": {
+        "score": 100,
+        "issues": [],
+        "signals": {
+          "charCount": 1886,
+          "wordCount": 317,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "ENRICHED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/DONE_BETTER_2026_EN/DONE_BETTER_2026_EN_DAY_24__2026-01-28T22-58-12-182Z.json",
+        "insertedCount": 3,
+        "deletedInvalidCount": 3,
+        "deletedDuplicateCount": 0,
+        "warnings": [
+          "CRITICAL_THINKING questions: 0 (recommended at least 2)."
+        ],
+        "existingCounts": {
+          "total": 7,
+          "valid": 4,
+          "invalid": 3,
+          "application": 4,
+          "critical": 0,
+          "recall": 0,
+          "duplicates": 0
+        }
+      }
+    },
+    {
+      "courseId": "DONE_BETTER_2026_EN",
+      "courseName": "Done is better - Build What Matters",
+      "language": "en",
+      "dayNumber": 25,
+      "lessonId": "DONE_BETTER_2026_EN_DAY_25",
+      "title": "From Client to Partner",
+      "lessonCreatedAt": "2026-01-28T19:32:36.859Z",
+      "lessonQuality": {
+        "score": 100,
+        "issues": [],
+        "signals": {
+          "charCount": 2056,
+          "wordCount": 313,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "ENRICHED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/DONE_BETTER_2026_EN/DONE_BETTER_2026_EN_DAY_25__2026-01-28T22-58-12-182Z.json",
+        "insertedCount": 2,
+        "deletedInvalidCount": 2,
+        "deletedDuplicateCount": 0,
+        "warnings": [
+          "CRITICAL_THINKING questions: 0 (recommended at least 2)."
+        ],
+        "existingCounts": {
+          "total": 7,
+          "valid": 5,
+          "invalid": 2,
+          "application": 5,
+          "critical": 0,
+          "recall": 0,
+          "duplicates": 0
+        }
+      }
+    },
+    {
+      "courseId": "DONE_BETTER_2026_EN",
+      "courseName": "Done is better - Build What Matters",
+      "language": "en",
+      "dayNumber": 26,
+      "lessonId": "DONE_BETTER_2026_EN_DAY_26",
+      "title": "Reflect Like a Pro",
+      "lessonCreatedAt": "2026-01-28T19:32:36.956Z",
+      "lessonQuality": {
+        "score": 100,
+        "issues": [],
+        "signals": {
+          "charCount": 1725,
+          "wordCount": 273,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "ENRICHED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/DONE_BETTER_2026_EN/DONE_BETTER_2026_EN_DAY_26__2026-01-28T22-58-12-182Z.json",
+        "insertedCount": 4,
+        "deletedInvalidCount": 4,
+        "deletedDuplicateCount": 0,
+        "warnings": [
+          "CRITICAL_THINKING questions: 0 (recommended at least 2)."
+        ],
+        "existingCounts": {
+          "total": 7,
+          "valid": 3,
+          "invalid": 4,
+          "application": 3,
+          "critical": 0,
+          "recall": 0,
+          "duplicates": 0
+        }
+      }
+    },
+    {
+      "courseId": "DONE_BETTER_2026_EN",
+      "courseName": "Done is better - Build What Matters",
+      "language": "en",
+      "dayNumber": 27,
+      "lessonId": "DONE_BETTER_2026_EN_DAY_27",
+      "title": "Build Your Thinking Loop",
+      "lessonCreatedAt": "2026-01-28T19:32:37.047Z",
+      "lessonQuality": {
+        "score": 100,
+        "issues": [],
+        "signals": {
+          "charCount": 1830,
+          "wordCount": 285,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "ENRICHED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/DONE_BETTER_2026_EN/DONE_BETTER_2026_EN_DAY_27__2026-01-28T22-58-12-182Z.json",
+        "insertedCount": 4,
+        "deletedInvalidCount": 4,
+        "deletedDuplicateCount": 0,
+        "warnings": [
+          "CRITICAL_THINKING questions: 0 (recommended at least 2)."
+        ],
+        "existingCounts": {
+          "total": 7,
+          "valid": 3,
+          "invalid": 4,
+          "application": 3,
+          "critical": 0,
+          "recall": 0,
+          "duplicates": 0
+        }
+      }
+    },
+    {
+      "courseId": "DONE_BETTER_2026_EN",
+      "courseName": "Done is better - Build What Matters",
+      "language": "en",
+      "dayNumber": 28,
+      "lessonId": "DONE_BETTER_2026_EN_DAY_28",
+      "title": "From Chaos to Clarity",
+      "lessonCreatedAt": "2026-01-28T19:32:37.138Z",
+      "lessonQuality": {
+        "score": 100,
+        "issues": [],
+        "signals": {
+          "charCount": 1982,
+          "wordCount": 312,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "ENRICHED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/DONE_BETTER_2026_EN/DONE_BETTER_2026_EN_DAY_28__2026-01-28T22-58-12-182Z.json",
+        "insertedCount": 2,
+        "deletedInvalidCount": 2,
+        "deletedDuplicateCount": 0,
+        "warnings": [
+          "CRITICAL_THINKING questions: 0 (recommended at least 2)."
+        ],
+        "existingCounts": {
+          "total": 7,
+          "valid": 5,
+          "invalid": 2,
+          "application": 5,
+          "critical": 0,
+          "recall": 0,
+          "duplicates": 0
+        }
+      }
+    },
+    {
+      "courseId": "DONE_BETTER_2026_EN",
+      "courseName": "Done is better - Build What Matters",
+      "language": "en",
+      "dayNumber": 29,
+      "lessonId": "DONE_BETTER_2026_EN_DAY_29",
+      "title": "Your Personal Playbook",
+      "lessonCreatedAt": "2026-01-28T19:32:37.545Z",
+      "lessonQuality": {
+        "score": 100,
+        "issues": [],
+        "signals": {
+          "charCount": 1932,
+          "wordCount": 290,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "ENRICHED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/DONE_BETTER_2026_EN/DONE_BETTER_2026_EN_DAY_29__2026-01-28T22-58-12-182Z.json",
+        "insertedCount": 3,
+        "deletedInvalidCount": 3,
+        "deletedDuplicateCount": 0,
+        "warnings": [
+          "CRITICAL_THINKING questions: 0 (recommended at least 2)."
+        ],
+        "existingCounts": {
+          "total": 7,
+          "valid": 4,
+          "invalid": 3,
+          "application": 4,
+          "critical": 0,
+          "recall": 0,
+          "duplicates": 0
+        }
+      }
+    },
+    {
+      "courseId": "DONE_BETTER_2026_EN",
+      "courseName": "Done is better - Build What Matters",
+      "language": "en",
+      "dayNumber": 30,
+      "lessonId": "DONE_BETTER_2026_EN_DAY_30",
+      "title": "The Mind That Handles Anything",
+      "lessonCreatedAt": "2026-01-28T19:32:37.667Z",
+      "lessonQuality": {
+        "score": 100,
+        "issues": [],
+        "signals": {
+          "charCount": 1991,
+          "wordCount": 307,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "ENRICHED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/DONE_BETTER_2026_EN/DONE_BETTER_2026_EN_DAY_30__2026-01-28T22-58-12-182Z.json",
+        "insertedCount": 3,
+        "deletedInvalidCount": 3,
+        "deletedDuplicateCount": 0,
+        "warnings": [
+          "CRITICAL_THINKING questions: 0 (recommended at least 2)."
+        ],
+        "existingCounts": {
+          "total": 7,
+          "valid": 4,
+          "invalid": 3,
+          "application": 4,
+          "critical": 0,
+          "recall": 0,
+          "duplicates": 0
+        }
+      }
+    }
+  ]
+}

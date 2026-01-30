@@ -1,0 +1,68 @@
+{
+  "backedUpAt": "2026-01-29T16:59:33.767Z",
+  "course": {
+    "courseId": "B2B_SALES_2026_30_EN",
+    "name": "B2B Sales 2026 Masterclass",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 13,
+    "title": "MQL vs SQL and the Qualification Gate",
+    "lessonId": "B2B_SALES_2026_30_EN_DAY_13"
+  },
+  "questionCount": 4,
+  "questions": [
+    {
+      "_id": "697b1fd18f79f136a28b89ec",
+      "difficulty": "MEDIUM",
+      "question": "Key element of an SQL?",
+      "options": [
+        "Just a download",
+        "ICP + problem + reachable decision maker/gatekeeper",
+        "Only an event attendance",
+        "Only web traffic"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b1fd18f79f136a28b89ed",
+      "difficulty": "MEDIUM",
+      "question": "Why a fast “no”?",
+      "options": [
+        "Less work",
+        "Focus, better pipeline quality, time saved",
+        "Bigger list",
+        "Legal requirement"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b1fd18f79f136a28b89ee",
+      "difficulty": "MEDIUM",
+      "question": "Bad example?",
+      "options": [
+        "Every signup gets discovery",
+        "Only ICP + pain + decision maker goes to discovery",
+        "Using “no” templates",
+        "Looking for triggers"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b1fd18f79f136a28b89ef",
+      "difficulty": "MEDIUM",
+      "question": "What should the gate include?",
+      "options": [
+        "Price list",
+        "ICP, pain, decision maker, trigger, timing",
+        "Pitch deck",
+        "Marketing campaign"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    }
+  ]
+}

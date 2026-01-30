@@ -1,0 +1,177 @@
+{
+  "backedUpAt": "2026-01-28T21:08:07.338Z",
+  "course": {
+    "courseId": "SALES_PRODUCTIVITY_30_RU",
+    "name": "Постройте свои продажи – 30 дней к большему количеству сделок",
+    "language": "ru"
+  },
+  "lesson": {
+    "dayNumber": 3,
+    "title": "Многоканальная генерация лидов – Где найти клиентов?",
+    "lessonId": "SALES_PRODUCTIVITY_30_RU_DAY_03"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a5483229aca24a6d5fd",
+      "uuid": "1ad406be-d4f8-4a96-aa47-400c8f8e50e4",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Один канал = риск.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day3",
+        "#ru",
+        "#all-languages",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5483229aca24a6d5fe",
+      "uuid": "9a920813-5edc-4ecb-8b02-6c98becd1f23",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Диверсификация:\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day3",
+        "#ru",
+        "#all-languages",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5483229aca24a6d5ff",
+      "uuid": "d6edbfe7-435b-483b-bfb7-37286926a746",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Эффективность затрат:\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day3",
+        "#ru",
+        "#all-languages",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5483229aca24a6d600",
+      "uuid": "643cd71f-d2a4-4d13-9888-ab79be456b11",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Как концепция \"Многоканальная генерация лидов – Где найти клиенто...\", упомянутая в уроке, влияет на достижение ваших goals?",
+      "options": [
+        "Как подробно описано в уроке, Многоканальная генерация лидов... повышает эффективность и снижает риски",
+        "Нет значительного влияния",
+        "Имеет значение только теоретически",
+        "Только опциональный элемент"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day3",
+        "#ru",
+        "#all-languages",
+        "#productivity",
+        "#sales",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5483229aca24a6d601",
+      "uuid": "bbbf9d0f-baaa-47d5-8b70-6c28abdf9ab2",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Насколько важен Диверсификация: в контексте Многоканальная генерация лидов – Где найти клиентов?, как обсуждается в уроке?",
+      "options": [
+        "Как подробно описано в уроке, Диверсификация: играет ключевую роль в оптимизации процессов и достижении целей",
+        "Только периферийная информация без значительной роли",
+        "Только теоретическая концепция без практического применения",
+        "Не упоминается в уроке"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day3",
+        "#ru",
+        "#all-languages",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5483229aca24a6d602",
+      "uuid": "e2137cb0-1794-4208-b668-a4872a9441a8",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Какую роль играет Масштабируемость: в уроке \"Многоканальная генерация лидов – Где найти клиентов?\"?",
+      "options": [
+        "Как подробно описано в уроке, Масштабируемость: играет ключевую роль в оптимизации процессов и достижении целей",
+        "Только периферийная информация без значительной роли",
+        "Только теоретическая концепция без практического применения",
+        "Не упоминается в уроке"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day3",
+        "#ru",
+        "#all-languages",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5483229aca24a6d603",
+      "uuid": "f0ee5072-f976-4d3d-82a0-3aa739a96c77",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Насколько важен 2. CRM/Referral в контексте Многоканальная генерация лидов – Где найти клиентов?, как обсуждается в уроке?",
+      "options": [
+        "Как подробно описано в уроке, 2. CRM/Referral играет ключевую роль в оптимизации процессов и достижении целей",
+        "Только периферийная информация без значительной роли",
+        "Только теоретическая концепция без практического применения",
+        "Не упоминается в уроке"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day3",
+        "#ru",
+        "#all-languages",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

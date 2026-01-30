@@ -1,0 +1,177 @@
+{
+  "backedUpAt": "2026-01-29T06:25:23.151Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_HU",
+    "name": "Termelékenység 2026: Hogyan kezelj csapatokat és időt",
+    "language": "hu"
+  },
+  "lesson": {
+    "dayNumber": 21,
+    "title": "Közösség és hálózat: Kapcsolatok, tanulás mások mellett",
+    "lessonId": "PRODUCTIVITY_2026_HU_DAY_21"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "6978a03babea34442b979cf1",
+      "uuid": "6fcd8250-b447-4ad9-b6c9-c86581f26b4a",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Egy vezető a következő elv szerint dönt: „nap Közösség és hálózat: Kapcsolatok, tanulás mások mellett Miért számít ma”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?",
+      "options": [
+        "A fókusz növelheti az eredményességet, mert a korlátok mellett a legnagyobb hatású kimenetre koncentrál; kockázat: rossz mérőszámra optimalizálva „látszat‑output” készül.",
+        "Az output automatikusan egyenlő az eredménnyel, ezért elég több feladatot lezárni; kockázat: nő az aktivitás, de romlik az ügyfélérték és a minőség.",
+        "A korlátok (idő/energia/figyelem) figyelmen kívül hagyhatók, mert a termelékenység csak akaraterő kérdése; kockázat: túlterhelés, hibák és kiégés.",
+        "A sebesség maximalizálása a legfontosabb, a minőség majd „később” javítható; kockázat: utómunka, újranyitások és bizalomvesztés alakul ki."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day21",
+        "#hu",
+        "#all-languages",
+        "#course-productivity_2026_hu",
+        "#productivity",
+        "#advanced",
+        "#critical-thinking"
+      ]
+    },
+    {
+      "_id": "6978a03babea34442b979cf2",
+      "uuid": "42a352ec-f267-44e6-8e09-a2d3d3a62147",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Egy vezető a következő elv szerint dönt: „Use relationships as a leverage multiplier for learning and outcomes”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?",
+      "options": [
+        "A fókusz növelheti az eredményességet, mert a korlátok mellett a legnagyobb hatású kimenetre koncentrál; kockázat: rossz mérőszámra optimalizálva „látszat‑output” készül.",
+        "Az output automatikusan egyenlő az eredménnyel, ezért elég több feladatot lezárni; kockázat: nő az aktivitás, de romlik az ügyfélérték és a minőség.",
+        "A korlátok (idő/energia/figyelem) figyelmen kívül hagyhatók, mert a termelékenység csak akaraterő kérdése; kockázat: túlterhelés, hibák és kiégés.",
+        "A sebesség maximalizálása a legfontosabb, a minőség majd „később” javítható; kockázat: utómunka, újranyitások és bizalomvesztés alakul ki."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day21",
+        "#hu",
+        "#all-languages",
+        "#course-productivity_2026_hu",
+        "#productivity",
+        "#advanced",
+        "#critical-thinking"
+      ]
+    },
+    {
+      "_id": "6978a03babea34442b979cf3",
+      "uuid": "1fab641d-31e8-4a76-982e-c04126189894",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Egy új gyakorlatot vezetsz be: „Példa (jó vs rossz) Példa (jó): 2 fókuszblokk, 1 elkészült k”. Melyik bevezetési terv biztosít mérhető kimenetet és gyors visszacsatolást?",
+      "options": [
+        "Lépésről lépésre bevezetem, előtte/utána mérőpontokat állítok be, dokumentálom az eredményt, és iterálok a hibák alapján",
+        "Egyszerre mindent átállítok, majd nem ellenőrzöm, mi romlott el",
+        "Csak elolvasom, de nem építem be a folyamatomba",
+        "Megvárom, hogy valaki más készítsen helyettem megoldást"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day21",
+        "#hu",
+        "#all-languages",
+        "#course-productivity_2026_hu",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "6978a03babea34442b979cf4",
+      "uuid": "f612d23f-565f-471b-b217-0ede954817ce",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Egy új gyakorlatot vezetsz be: „Példa (rossz): 12 „elindított” feladat, de nincs lezárt ered”. Melyik bevezetési terv biztosít mérhető kimenetet és gyors visszacsatolást?",
+      "options": [
+        "Lépésről lépésre bevezetem, előtte/utána mérőpontokat állítok be, dokumentálom az eredményt, és iterálok a hibák alapján",
+        "Egyszerre mindent átállítok, majd nem ellenőrzöm, mi romlott el",
+        "Csak elolvasom, de nem építem be a folyamatomba",
+        "Megvárom, hogy valaki más készítsen helyettem megoldást"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day21",
+        "#hu",
+        "#all-languages",
+        "#course-productivity_2026_hu",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "6978a03babea34442b979cf5",
+      "uuid": "233ff61c-bb8e-415c-8780-7b99b7259e0e",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Egy projektben a „Miért számít ma?” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?",
+      "options": [
+        "Konkrét ellenőrzőlistát készítek, implementálom egy kis scope-on, tesztelem a hatást, majd kiterjesztem a teljes scope-ra",
+        "Csak definícióként kezelem, ezért nem derül ki, működik-e a gyakorlatban",
+        "Kihagyom az implementációt, mert túl időigényesnek tűnik",
+        "Végrehajtom, de nem mérek és nem dokumentálok semmit"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day21",
+        "#hu",
+        "#all-languages",
+        "#course-productivity_2026_hu",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "6978a03babea34442b979cf6",
+      "uuid": "4768a9f8-e90e-40cf-8207-8e9acc12d0f6",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Egy projektben a „Szokások vs rendszerek:” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?",
+      "options": [
+        "Konkrét ellenőrzőlistát készítek, implementálom egy kis scope-on, tesztelem a hatást, majd kiterjesztem a teljes scope-ra",
+        "Csak definícióként kezelem, ezért nem derül ki, működik-e a gyakorlatban",
+        "Kihagyom az implementációt, mert túl időigényesnek tűnik",
+        "Végrehajtom, de nem mérek és nem dokumentálok semmit"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day21",
+        "#hu",
+        "#all-languages",
+        "#course-productivity_2026_hu",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "6978a03babea34442b979cf7",
+      "uuid": "70ac30c8-7e4f-47c4-b619-f0d24d7d29c1",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Egy projektben a „Outcome (eredmény/hatás):” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?",
+      "options": [
+        "Konkrét ellenőrzőlistát készítek, implementálom egy kis scope-on, tesztelem a hatást, majd kiterjesztem a teljes scope-ra",
+        "Csak definícióként kezelem, ezért nem derül ki, működik-e a gyakorlatban",
+        "Kihagyom az implementációt, mert túl időigényesnek tűnik",
+        "Végrehajtom, de nem mérek és nem dokumentálok semmit"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day21",
+        "#hu",
+        "#all-languages",
+        "#course-productivity_2026_hu",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    }
+  ]
+}

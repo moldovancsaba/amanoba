@@ -1,0 +1,146 @@
+{
+  "backedUpAt": "2026-01-29T07:23:45.319Z",
+  "course": {
+    "courseId": "DONE_BETTER_2026_EN",
+    "name": "Done is better - Build What Matters",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 27,
+    "title": "Build Your Thinking Loop",
+    "lessonId": "DONE_BETTER_2026_EN_DAY_27"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "697a92f722596d24dfc12d93",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "You solve problems ad hoc each time. What would help?",
+      "options": [
+        "Define your loop: understand, plan, move, test, reflect, adjust; document it and use it on the next problem",
+        "Solve harder problems to develop better problem-solving skills naturally without structure",
+        "Get more training without developing your own systematic approach or repeatable process",
+        "Wait for a template or framework from someone else without creating your own method"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a92f722596d24dfc12d95",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "After defining your loop, what should you do?",
+      "options": [
+        "Run it on one small problem; note one change to the loop after you use it",
+        "File it and refer to it later without actually using it or testing its effectiveness",
+        "Share it only with others without testing it yourself or learning from experience",
+        "Use it only for big problems and continue ad hoc for small ones without consistency"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a92f722596d24dfc12d99",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "What should you do with the loop after using it?",
+      "options": [
+        "Note one change to the loop based on what you learned from using it",
+        "Never change it to maintain consistency regardless of what you learn or discover",
+        "Only share it with others without improving it based on your own experience",
+        "Archive it and move on to a different approach without learning from what worked"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a9488379957dcc63a952e",
+      "uuid": "4eef5817-98bf-4ad7-91df-67a55d2ea46f",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you apply the \"Why it matters:\" concept to a \"Build Your Thinking Loop\" task so the outcome is measurable and verifiable?",
+      "options": [
+        "I create a checklist, apply it to a small scope first, measure the impact, then roll it out to the full scope",
+        "I keep it as a definition and never validate it in practice",
+        "I skip implementation because it seems time-consuming",
+        "I implement it but do not measure or document anything"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day27",
+        "#en",
+        "#all-languages",
+        "#course-done_better_2026_en",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "697a9488379957dcc63a952f",
+      "uuid": "cd67736a-18dd-45b0-a058-e8d26d923c7d",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you apply the \"Definition:\" concept to a \"Build Your Thinking Loop\" task so the outcome is measurable and verifiable?",
+      "options": [
+        "I create a checklist, apply it to a small scope first, measure the impact, then roll it out to the full scope",
+        "I keep it as a definition and never validate it in practice",
+        "I skip implementation because it seems time-consuming",
+        "I implement it but do not measure or document anything"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day27",
+        "#en",
+        "#all-languages",
+        "#course-done_better_2026_en",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "697a9488379957dcc63a9530",
+      "uuid": "4d46f000-e53b-4726-bb40-cb53b294a6d1",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you apply the \"Notes:\" concept to a \"Build Your Thinking Loop\" task so the outcome is measurable and verifiable?",
+      "options": [
+        "I create a checklist, apply it to a small scope first, measure the impact, then roll it out to the full scope",
+        "I keep it as a definition and never validate it in practice",
+        "I skip implementation because it seems time-consuming",
+        "I implement it but do not measure or document anything"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day27",
+        "#en",
+        "#all-languages",
+        "#course-done_better_2026_en",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "697a9488379957dcc63a9531",
+      "uuid": "f21831e3-aa58-4e6a-bf42-5e5bdc7e8962",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you apply the \"Scenario:\" concept to a \"Build Your Thinking Loop\" task so the outcome is measurable and verifiable?",
+      "options": [
+        "I create a checklist, apply it to a small scope first, measure the impact, then roll it out to the full scope",
+        "I keep it as a definition and never validate it in practice",
+        "I skip implementation because it seems time-consuming",
+        "I implement it but do not measure or document anything"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day27",
+        "#en",
+        "#all-languages",
+        "#course-done_better_2026_en",
+        "#intermediate",
+        "#application"
+      ]
+    }
+  ]
+}

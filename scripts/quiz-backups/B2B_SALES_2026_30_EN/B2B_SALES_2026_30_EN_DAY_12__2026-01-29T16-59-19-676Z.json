@@ -1,0 +1,68 @@
+{
+  "backedUpAt": "2026-01-29T16:59:33.401Z",
+  "course": {
+    "courseId": "B2B_SALES_2026_30_EN",
+    "name": "B2B Sales 2026 Masterclass",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 12,
+    "title": "List Cleaning and Lead Hygiene",
+    "lessonId": "B2B_SALES_2026_30_EN_DAY_12"
+  },
+  "questionCount": 4,
+  "questions": [
+    {
+      "_id": "697b1fd18f79f136a28b89e4",
+      "difficulty": "MEDIUM",
+      "question": "Core goal of lead hygiene?",
+      "options": [
+        "More marketing emails",
+        "A real pipeline and accurate reporting",
+        "Fewer statuses",
+        "Higher spam rate"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b1fd18f79f136a28b89e5",
+      "difficulty": "MEDIUM",
+      "question": "Dedupe rule base?",
+      "options": [
+        "Random",
+        "Email/domain + name combo",
+        "First name only",
+        "Industry only"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b1fd18f79f136a28b89e6",
+      "difficulty": "MEDIUM",
+      "question": "Why keep a DNC list?",
+      "options": [
+        "Decoration",
+        "Handle bounce/spam/legal requests; reduce risk",
+        "Fewer campaigns",
+        "More expensive software"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b1fd18f79f136a28b89e7",
+      "difficulty": "MEDIUM",
+      "question": "Bad example?",
+      "options": [
+        "Unified status, duplicates flagged",
+        "Duplicates, mixed status names, no DNC",
+        "DNC list maintained",
+        "QA cadence set"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    }
+  ]
+}

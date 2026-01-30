@@ -1,0 +1,10 @@
+{
+  "backedUpAt": "2026-01-28T22:37:35.203Z",
+  "courseId": "DONE_BETTER_2026_EN",
+  "lessonId": "DONE_BETTER_2026_EN_DAY_05",
+  "dayNumber": 5,
+  "title": "Rewriting the Problem",
+  "content": "<h1>Rewriting the Problem</h1>\n<p><em>If you cannot restate it clearly, you do not own it.</em></p>\n<hr />\n<h2>Learning goal</h2>\n<ul>\n<li>Restate the problem in your own words.</li>\n<li>Make it clear enough to explain in 30 seconds.</li>\n<li>Lock the restatement as the working problem.</li>\n</ul>\n<hr />\n<h2>Why it matters</h2>\n<ul>\n<li>Jargon and inherited wording hide fuzzy thinking.</li>\n<li>Restatement forces ownership.</li>\n<li>Clear problem statements lead to better solutions.</li>\n</ul>\n<hr />\n<h2>Key idea</h2>\n<p>Rewrite the problem in plain language. If you cannot explain it to someone else in 30 seconds, simplify again. The restatement is the problem you will solve.</p>\n<hr />\n<h2>Procedure</h2>\n<ol>\n<li>Write the problem as given.</li>\n<li>Rewrite it in your own words (no jargon).</li>\n<li>Ask: what would solving this look like?</li>\n<li>If you cannot explain it in 30 seconds, simplify again.</li>\n<li>Lock the restatement as the working problem.</li>\n</ol>\n<hr />\n<h2>Common mistakes</h2>\n<ul>\n<li>Using jargon or someone else's wording without internalizing.</li>\n<li>Keeping the problem fuzzy.</li>\n<li>Skipping restatement and going straight to solutions.</li>\n</ul>\n<hr />\n<h2>Today's move</h2>\n<p>Take the problem from Day 2. Rewrite it in three sentences or less so a colleague could understand it without context. Use that as your working problem.</p>\n<hr />\n<h2>Self-check</h2>\n<ul>\n<li>You can explain the key idea in one sentence.</li>\n<li>You have one concrete move to do today.</li>\n</ul>",
+  "emailSubject": "Done is better – Day {{dayNumber}}: {{lessonTitle}}",
+  "emailBody": "<h1>Done is better - Build What Matters</h1><h2>Day {{dayNumber}}: {{lessonTitle}}</h2><p>{{lessonContent}}</p><p><a href=\"http://localhost:3000/courses/DONE_BETTER_2026_EN/day/{{dayNumber}}\">Open the lesson →</a></p>"
+}

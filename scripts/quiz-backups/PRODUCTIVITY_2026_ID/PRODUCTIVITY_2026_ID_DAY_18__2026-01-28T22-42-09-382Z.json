@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-28T22:42:12.976Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_ID",
+    "name": "Produktivitas 2026: Cara Mengelola Tim dan Waktu",
+    "language": "id"
+  },
+  "lesson": {
+    "dayNumber": 18,
+    "title": "Manajemen Krisis dan Kemampuan Beradaptasi: Adaptasi, Pembelajaran Cepat",
+    "lessonId": "PRODUCTIVITY_2026_ID_DAY_18"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a2cdf6e5ec2a4427e72",
+      "uuid": "b4ad9728-5484-4851-8613-e29d6a8fac60",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Bagaimana konsep \"Manajemen Krisis dan Kemampuan Beradaptasi: Adapta...\" yang disebutkan dalam pelajaran mempengaruhi pencapaian goals Anda?",
+      "options": [
+        "Seperti yang dijelaskan secara detail dalam pelajaran, Manajemen Krisis dan Kemampuan... meningkatkan efektivitas dan mengurangi risiko",
+        "Tidak ada dampak signifikan",
+        "Hanya penting secara teoritis",
+        "Hanya elemen opsional"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day18",
+        "#id",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a2cdf6e5ec2a4427e73",
+      "uuid": "516d9081-f285-473c-9073-f6ec0e6708d8",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Bagaimana Anda akan menggunakan konsep \"Manajemen\" seperti yang dijelaskan dalam pelajaran dalam praktik?",
+      "options": [
+        "Saya mengikuti langkah-langkah yang dijelaskan secara detail dalam pelajaran, menguji hasil, dan mendokumentasikan pengalaman saya",
+        "Saya hanya memahaminya secara teoritis",
+        "Saya tidak menerapkannya",
+        "Saya menunggu instruksi lebih lanjut"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day18",
+        "#id",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a2cdf6e5ec2a4427e74",
+      "uuid": "d3c0ae04-257c-4534-8f2c-4e8149e439ef",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Bagaimana Anda akan menggunakan konsep \"Krisis\" seperti yang dijelaskan dalam pelajaran dalam praktik?",
+      "options": [
+        "Saya mengikuti langkah-langkah yang dijelaskan secara detail dalam pelajaran, menguji hasil, dan mendokumentasikan pengalaman saya",
+        "Saya hanya memahaminya secara teoritis",
+        "Saya tidak menerapkannya",
+        "Saya menunggu instruksi lebih lanjut"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day18",
+        "#id",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a2cdf6e5ec2a4427e75",
+      "uuid": "bb9424be-cd48-4534-940d-e5f1f5653c6d",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Bagaimana Anda akan menggunakan konsep \"Kemampuan\" seperti yang dijelaskan dalam pelajaran dalam praktik?",
+      "options": [
+        "Saya mengikuti langkah-langkah yang dijelaskan secara detail dalam pelajaran, menguji hasil, dan mendokumentasikan pengalaman saya",
+        "Saya hanya memahaminya secara teoritis",
+        "Saya tidak menerapkannya",
+        "Saya menunggu instruksi lebih lanjut"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day18",
+        "#id",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a2cdf6e5ec2a4427e76",
+      "uuid": "190fd640-5b1e-4bce-8906-36e20a851b10",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Seberapa penting Krisis dalam konteks Manajemen Krisis dan Kemampuan Beradaptasi: Adaptasi, Pembelajaran Cepat seperti yang dibahas dalam pelajaran?",
+      "options": [
+        "Seperti yang dijelaskan secara detail dalam pelajaran, Krisis memainkan peran penting dalam mengoptimalkan proses dan mencapai tujuan",
+        "Hanya informasi periferal tanpa peran signifikan",
+        "Hanya konsep teoretis tanpa aplikasi praktis",
+        "Tidak disebutkan dalam pelajaran"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day18",
+        "#id",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a2cdf6e5ec2a4427e77",
+      "uuid": "3350c62d-54d0-482f-9a9b-59560c0bf1e0",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Seberapa penting Beradaptasi dalam konteks Manajemen Krisis dan Kemampuan Beradaptasi: Adaptasi, Pembelajaran Cepat seperti yang dibahas dalam pelajaran?",
+      "options": [
+        "Seperti yang dijelaskan secara detail dalam pelajaran, Beradaptasi memainkan peran penting dalam mengoptimalkan proses dan mencapai tujuan",
+        "Hanya informasi periferal tanpa peran signifikan",
+        "Hanya konsep teoretis tanpa aplikasi praktis",
+        "Tidak disebutkan dalam pelajaran"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day18",
+        "#id",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a2cdf6e5ec2a4427e78",
+      "uuid": "a5466520-e0ec-41a5-aea4-af06e0b870a5",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Seberapa penting Pembelajaran dalam konteks Manajemen Krisis dan Kemampuan Beradaptasi: Adaptasi, Pembelajaran Cepat seperti yang dibahas dalam pelajaran?",
+      "options": [
+        "Seperti yang dijelaskan secara detail dalam pelajaran, Pembelajaran memainkan peran penting dalam mengoptimalkan proses dan mencapai tujuan",
+        "Hanya informasi periferal tanpa peran signifikan",
+        "Hanya konsep teoretis tanpa aplikasi praktis",
+        "Tidak disebutkan dalam pelajaran"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day18",
+        "#id",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

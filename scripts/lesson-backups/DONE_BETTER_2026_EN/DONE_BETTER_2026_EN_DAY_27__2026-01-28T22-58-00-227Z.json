@@ -1,0 +1,10 @@
+{
+  "backedUpAt": "2026-01-28T22:58:02.682Z",
+  "courseId": "DONE_BETTER_2026_EN",
+  "lessonId": "DONE_BETTER_2026_EN_DAY_27",
+  "dayNumber": 27,
+  "title": "Build Your Thinking Loop",
+  "content": "<h1>Build Your Thinking Loop</h1>\n<p><em>You will design your own repeatable problem engine.</em></p>\n<hr />\n<h2>Learning goal</h2>\n<ul>\n<li>Define your loop: understand, plan, move, test, reflect, adjust.</li>\n<li>Document it in a checklist or playbook.</li>\n<li>Use it on the next problem.</li>\n</ul>\n<hr />\n<h2>Why it matters</h2>\n<ul>\n<li>Ad hoc problem-solving is inconsistent.</li>\n<li>A loop is repeatable and improvable.</li>\n<li>You leave with a system, not motivation.</li>\n</ul>\n<hr />\n<h2>Key idea</h2>\n<p>A thinking loop is a repeatable process: understand, plan, move, test, reflect, adjust. You design your own repeatable problem engine. Document it and use it on the next problem.</p>\n<hr />\n<h2>Common mistakes</h2>\n<ul>\n<li>No written loop (only in your head).</li>\n<li>One-size-fits-all for every problem type.</li>\n<li>Never updating the loop after use.</li>\n</ul>\n<hr />\n<h2>Today's move</h2>\n<p>Write your loop in 6 steps or fewer. Run it on one small problem this week. Note one change to the loop after you use it.</p>\n<hr />\n<h2>Self-check</h2>\n<ul>\n<li>You can explain the key idea in one sentence.</li>\n<li>You have one concrete move to do today.</li>\n</ul>",
+  "emailSubject": "Done is better – Day {{dayNumber}}: {{lessonTitle}}",
+  "emailBody": "<h1>Done is better - Build What Matters</h1><h2>Day {{dayNumber}}: {{lessonTitle}}</h2><p>{{lessonContent}}</p><p><a href=\"http://localhost:3000/courses/DONE_BETTER_2026_EN/day/{{dayNumber}}\">Open the lesson →</a></p>"
+}

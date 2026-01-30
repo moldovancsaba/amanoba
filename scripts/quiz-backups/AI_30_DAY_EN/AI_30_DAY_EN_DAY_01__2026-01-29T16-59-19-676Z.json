@@ -1,0 +1,81 @@
+{
+  "backedUpAt": "2026-01-29T16:59:24.212Z",
+  "course": {
+    "courseId": "AI_30_DAY_EN",
+    "name": "30-Day AI Catch-Up Program (EN)",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 1,
+    "title": "What AI is (and what it is not)",
+    "lessonId": "AI_30_DAY_EN_DAY_01"
+  },
+  "questionCount": 5,
+  "questions": [
+    {
+      "_id": "697b1fdb08e9997876a4681c",
+      "difficulty": "EASY",
+      "question": "What is AI in this course context?",
+      "options": [
+        "A tool that needs clear input and QA",
+        "Magic that makes decisions for you",
+        "A password manager",
+        "A legal/medical advisor you can rely on blindly"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b1fdb08e9997876a4681d",
+      "difficulty": "MEDIUM",
+      "question": "What should you avoid sharing with AI?",
+      "options": [
+        "Passwords and sensitive personal data",
+        "Public product descriptions",
+        "Generic scenarios",
+        "Non-sensitive drafts"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b1fdb08e9997876a4681e",
+      "difficulty": "HARD",
+      "question": "Why is QA your responsibility?",
+      "options": [
+        "AI does not assume liability; you decide and verify",
+        "Because AI never makes mistakes",
+        "Because QA is optional",
+        "Because prompts are perfect"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b1fdb08e9997876a4681f",
+      "difficulty": "MEDIUM",
+      "question": "What is a good first action?",
+      "options": [
+        "Write your AI use map and do-not-use list",
+        "Let AI handle payroll",
+        "Paste confidential contracts",
+        "Skip mapping and improvise"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b1fdb08e9997876a46820",
+      "difficulty": "MEDIUM",
+      "question": "Why is “good input → better output” true?",
+      "options": [
+        "Models rely on the text you provide; clarity guides results",
+        "AI reads your mind",
+        "Output is random",
+        "Input does not matter"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    }
+  ]
+}

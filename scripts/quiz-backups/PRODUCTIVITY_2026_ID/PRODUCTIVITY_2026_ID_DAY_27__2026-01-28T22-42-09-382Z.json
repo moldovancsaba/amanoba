@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-28T22:42:13.859Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_ID",
+    "name": "Produktivitas 2026: Cara Mengelola Tim dan Waktu",
+    "language": "id"
+  },
+  "lesson": {
+    "dayNumber": 27,
+    "title": "Kebiasaan dan Ritual: Rutinitas Harian, Tindakan Jangka Panjang",
+    "lessonId": "PRODUCTIVITY_2026_ID_DAY_27"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a2ddf6e5ec2a4427ecc",
+      "uuid": "0766472e-2ca4-41cf-afb8-398bc0760c16",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Bangun kebiasaan yang berkembang seiring waktu.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day27",
+        "#id",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a2ddf6e5ec2a4427ecd",
+      "uuid": "28e7b8c3-08c9-463d-b709-1ea2904d686b",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Bangun kebiasaan yang berkembang seiring waktu.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day27",
+        "#id",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a2ddf6e5ec2a4427ece",
+      "uuid": "dbb663f6-4b26-4a15-ae21-66628792ad9f",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Bangun kebiasaan yang berkembang seiring waktu.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day27",
+        "#id",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a2ddf6e5ec2a4427ecf",
+      "uuid": "6adffaed-27f6-49c5-9d10-f5d5453cf25d",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Bagaimana konsep \"Kebiasaan dan Ritual: Rutinitas Harian, Tindakan J...\" yang disebutkan dalam pelajaran mempengaruhi pencapaian goals Anda?",
+      "options": [
+        "Seperti yang dijelaskan secara detail dalam pelajaran, Kebiasaan dan Ritual: Rutinita... meningkatkan efektivitas dan mengurangi risiko",
+        "Tidak ada dampak signifikan",
+        "Hanya penting secara teoritis",
+        "Hanya elemen opsional"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day27",
+        "#id",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a2ddf6e5ec2a4427ed0",
+      "uuid": "f5b512e6-51c1-4874-9535-a2a75830c2b9",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Seberapa penting Kebiasaan dalam konteks Kebiasaan dan Ritual: Rutinitas Harian, Tindakan Jangka Panjang seperti yang dibahas dalam pelajaran?",
+      "options": [
+        "Seperti yang dijelaskan secara detail dalam pelajaran, Kebiasaan memainkan peran penting dalam mengoptimalkan proses dan mencapai tujuan",
+        "Hanya informasi periferal tanpa peran signifikan",
+        "Hanya konsep teoretis tanpa aplikasi praktis",
+        "Tidak disebutkan dalam pelajaran"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day27",
+        "#id",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a2ddf6e5ec2a4427ed1",
+      "uuid": "ef6c7cdd-8f4d-4583-b2f7-4a0ab6cdf1ca",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Seberapa penting Rutinitas dalam konteks Kebiasaan dan Ritual: Rutinitas Harian, Tindakan Jangka Panjang seperti yang dibahas dalam pelajaran?",
+      "options": [
+        "Seperti yang dijelaskan secara detail dalam pelajaran, Rutinitas memainkan peran penting dalam mengoptimalkan proses dan mencapai tujuan",
+        "Hanya informasi periferal tanpa peran signifikan",
+        "Hanya konsep teoretis tanpa aplikasi praktis",
+        "Tidak disebutkan dalam pelajaran"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day27",
+        "#id",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a2ddf6e5ec2a4427ed2",
+      "uuid": "479fb40d-5c73-43cc-8436-10bd25ef9854",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Seberapa penting Tindakan dalam konteks Kebiasaan dan Ritual: Rutinitas Harian, Tindakan Jangka Panjang seperti yang dibahas dalam pelajaran?",
+      "options": [
+        "Seperti yang dijelaskan secara detail dalam pelajaran, Tindakan memainkan peran penting dalam mengoptimalkan proses dan mencapai tujuan",
+        "Hanya informasi periferal tanpa peran signifikan",
+        "Hanya konsep teoretis tanpa aplikasi praktis",
+        "Tidak disebutkan dalam pelajaran"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day27",
+        "#id",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

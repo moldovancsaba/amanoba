@@ -1,0 +1,68 @@
+{
+  "backedUpAt": "2026-01-29T16:59:39.881Z",
+  "course": {
+    "courseId": "B2B_SALES_2026_30_EN",
+    "name": "B2B Sales 2026 Masterclass",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 26,
+    "title": "Pricing 2026: Packaging and Value",
+    "lessonId": "B2B_SALES_2026_30_EN_DAY_26"
+  },
+  "questionCount": 4,
+  "questions": [
+    {
+      "_id": "697b1fd58f79f136a28b8a6c",
+      "difficulty": "MEDIUM",
+      "question": "Why have discount rules?",
+      "options": [
+        "Add colors",
+        "Protect margin and consistency",
+        "Marketing fun",
+        "HR reason"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b1fd58f79f136a28b8a6d",
+      "difficulty": "MEDIUM",
+      "question": "Minimum package principle?",
+      "options": [
+        "Smallest price at all costs",
+        "Enough to succeed, not under-scoped",
+        "Always free",
+        "Only enterprise"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b1fd58f79f136a28b8a6e",
+      "difficulty": "MEDIUM",
+      "question": "Good add-on example?",
+      "options": [
+        "Support tier, integrations, onboarding",
+        "Emoji pack",
+        "Free pens",
+        "No add-ons"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b1fd58f79f136a28b8a6f",
+      "difficulty": "MEDIUM",
+      "question": "Who can discount?",
+      "options": [
+        "Anyone anytime",
+        "Defined approver per rules",
+        "Only marketing",
+        "Only support"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    }
+  ]
+}

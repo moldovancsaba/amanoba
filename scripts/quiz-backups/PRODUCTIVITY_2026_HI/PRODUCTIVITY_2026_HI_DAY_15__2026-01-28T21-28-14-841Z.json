@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-28T21:28:26.012Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_HI",
+    "name": "उत्पादकता 2026: टीमों और समय का प्रबंधन कैसे करें",
+    "language": "hi"
+  },
+  "lesson": {
+    "dayNumber": 15,
+    "title": "टीमवर्क और तालमेल: भूमिकाएं, जिम्मेदारी, समन्वय",
+    "lessonId": "PRODUCTIVITY_2026_HI_DAY_15"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a68206e4784b9a0c150",
+      "uuid": "27373454-5932-4799-bcda-da2856d042a4",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"बेहतर प्रदर्शन के लिए टीमों को व्यवस्थित करें।\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day15",
+        "#hi",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a68206e4784b9a0c151",
+      "uuid": "d828f91c-004c-4a4e-b40f-bd96f283b494",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"बेहतर प्रदर्शन के लिए टीमों को व्यवस्थित करें।\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day15",
+        "#hi",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a68206e4784b9a0c152",
+      "uuid": "0d140fb5-0e36-493d-884b-52e1d23502ee",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"बेहतर प्रदर्शन के लिए टीमों को व्यवस्थित करें।\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day15",
+        "#hi",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a68206e4784b9a0c153",
+      "uuid": "86a532bc-b0ee-46ab-93cd-9b4335be0e19",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "पाठ में उल्लिखित अवधारणा \"टीमवर्क और तालमेल: भूमिकाएं, जिम्मेदारी, समन्वय बे...\" आपके goals प्राप्त करने को कैसे प्रभावित करती है?",
+      "options": [
+        "जैसा कि पाठ में विस्तार से वर्णित है, टीमवर्क और तालमेल: भूमिकाएं, ज... प्रभावशीलता बढ़ाता है और जोखिम कम करता है",
+        "कोई महत्वपूर्ण प्रभाव नहीं",
+        "केवल सैद्धांतिक रूप से मायने रखता है",
+        "केवल एक वैकल्पिक तत्व"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day15",
+        "#hi",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a68206e4784b9a0c154",
+      "uuid": "849e44b4-85de-449f-943b-2440d20c8c15",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "पाठ में चर्चा किए गए टीमवर्क और तालमेल: भूमिकाएं, जिम्मेदारी, समन्वय के संदर्भ में टीमवर्क कितना महत्वपूर्ण है?",
+      "options": [
+        "जैसा कि पाठ में विस्तार से वर्णित है, टीमवर्क प्रक्रियाओं को अनुकूलित करने और लक्ष्यों को प्राप्त करने में महत्वपूर्ण भूमिका निभाता है",
+        "केवल परिधीय जानकारी, कोई महत्वपूर्ण भूमिका नहीं",
+        "केवल एक सैद्धांतिक अवधारणा, कोई व्यावहारिक अनुप्रयोग नहीं",
+        "पाठ में उल्लेख नहीं किया गया"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day15",
+        "#hi",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a68206e4784b9a0c155",
+      "uuid": "861b1c96-370b-4b98-ac0d-04247c3d9c77",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "पाठ में चर्चा किए गए टीमवर्क और तालमेल: भूमिकाएं, जिम्मेदारी, समन्वय के संदर्भ में भूमिकाएं कितना महत्वपूर्ण है?",
+      "options": [
+        "जैसा कि पाठ में विस्तार से वर्णित है, भूमिकाएं प्रक्रियाओं को अनुकूलित करने और लक्ष्यों को प्राप्त करने में महत्वपूर्ण भूमिका निभाता है",
+        "केवल परिधीय जानकारी, कोई महत्वपूर्ण भूमिका नहीं",
+        "केवल एक सैद्धांतिक अवधारणा, कोई व्यावहारिक अनुप्रयोग नहीं",
+        "पाठ में उल्लेख नहीं किया गया"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day15",
+        "#hi",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a68206e4784b9a0c156",
+      "uuid": "14e6a4b6-883f-449d-91e6-396a0a5d1416",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "पाठ में चर्चा किए गए टीमवर्क और तालमेल: भूमिकाएं, जिम्मेदारी, समन्वय के संदर्भ में समन्वय कितना महत्वपूर्ण है?",
+      "options": [
+        "जैसा कि पाठ में विस्तार से वर्णित है, समन्वय प्रक्रियाओं को अनुकूलित करने और लक्ष्यों को प्राप्त करने में महत्वपूर्ण भूमिका निभाता है",
+        "केवल परिधीय जानकारी, कोई महत्वपूर्ण भूमिका नहीं",
+        "केवल एक सैद्धांतिक अवधारणा, कोई व्यावहारिक अनुप्रयोग नहीं",
+        "पाठ में उल्लेख नहीं किया गया"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day15",
+        "#hi",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

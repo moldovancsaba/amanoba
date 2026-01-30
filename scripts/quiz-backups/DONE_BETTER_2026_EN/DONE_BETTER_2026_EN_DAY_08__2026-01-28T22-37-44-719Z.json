@@ -1,0 +1,114 @@
+{
+  "backedUpAt": "2026-01-28T22:37:47.252Z",
+  "course": {
+    "courseId": "DONE_BETTER_2026_EN",
+    "name": "Done is better - Build What Matters",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 8,
+    "title": "Plans Are Hypotheses",
+    "lessonId": "DONE_BETTER_2026_EN_DAY_08"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "697a87bba81588c9f41a2200",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "A team has a detailed plan for the next quarter. How should they treat it?",
+      "options": [
+        "As a hypothesis: if we do X we expect Y; define a test and update when evidence contradicts",
+        "As a fixed commitment that must be defended",
+        "As a rough draft no one will follow",
+        "As confidential and not to be shared"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87bba81588c9f41a2201",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "What is the smallest test of a plan?",
+      "options": [
+        "One move whose outcome you can observe to confirm or disprove the bet",
+        "A full pilot of the whole plan before launch",
+        "A stakeholder sign-off on the document",
+        "A Gantt chart showing all milestones"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87bba81588c9f41a2202",
+      "questionType": "application",
+      "difficulty": "EASY",
+      "question": "Evidence shows the plan is wrong. What should you do?",
+      "options": [
+        "Update the hypothesis; do not defend the plan",
+        "Double down and work harder",
+        "Hide the evidence",
+        "Blame external factors only"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87bba81588c9f41a2203",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Why is \"no clear criterion for success or failure\" dangerous?",
+      "options": [
+        "You never know when to update the plan; you drift or defend indefinitely",
+        "Plans become shorter and easier to follow",
+        "It increases flexibility and options",
+        "It has no effect on delivery or learning"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87bba81588c9f41a2204",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "A leader says: \"We will stick to the plan no matter what.\" What is the risk?",
+      "options": [
+        "Investing in a wrong direction while evidence says to change; resources and trust erode",
+        "Team will feel secure and aligned",
+        "Execution will be faster with no rework",
+        "No significant risk; commitment is good"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87bba81588c9f41a2205",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How do you turn a plan into a testable hypothesis?",
+      "options": [
+        "Write it as a bet: if we do X we expect Y; then define one test you can run to check",
+        "Add more detail to the plan",
+        "Get more people to approve it",
+        "Set a longer timeline"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87bba81588c9f41a2206",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "What is the difference between planning and execution in this framework?",
+      "options": [
+        "Planning produces a hypothesis; execution is the experiment that confirms or disproves it",
+        "Planning is strategic; execution is tactical only",
+        "There is no difference",
+        "Execution should ignore the plan"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    }
+  ]
+}

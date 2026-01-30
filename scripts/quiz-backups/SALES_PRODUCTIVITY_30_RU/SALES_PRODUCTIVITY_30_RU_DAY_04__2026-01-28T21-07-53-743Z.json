@@ -1,0 +1,177 @@
+{
+  "backedUpAt": "2026-01-28T21:07:55.274Z",
+  "course": {
+    "courseId": "SALES_PRODUCTIVITY_30_RU",
+    "name": "Постройте свои продажи – 30 дней к большему количеству сделок",
+    "language": "ru"
+  },
+  "lesson": {
+    "dayNumber": 4,
+    "title": "Оптимизация коэффициента конверсии – Как улучшить цифры",
+    "lessonId": "SALES_PRODUCTIVITY_30_RU_DAY_04"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a5483229aca24a6d61b",
+      "uuid": "207c224c-6598-4b25-8ada-cb889496e883",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Небольшое улучшение = большой эффект.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day4",
+        "#ru",
+        "#all-languages",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5483229aca24a6d61c",
+      "uuid": "92513a91-26f2-4222-8464-c40aaba3b64e",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Быстрые результаты:\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day4",
+        "#ru",
+        "#all-languages",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5483229aca24a6d61d",
+      "uuid": "0cba4dea-90b2-4b3f-8664-2bebac669425",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Эффективность затрат:\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day4",
+        "#ru",
+        "#all-languages",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5483229aca24a6d61e",
+      "uuid": "40296858-9373-4da5-a900-d73c73554201",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Как концепция \"Оптимизация коэффициента конверсии – Как улучшить ...\", упомянутая в уроке, влияет на достижение ваших goals?",
+      "options": [
+        "Как подробно описано в уроке, Оптимизация коэффициента конве... повышает эффективность и снижает риски",
+        "Нет значительного влияния",
+        "Имеет значение только теоретически",
+        "Только опциональный элемент"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day4",
+        "#ru",
+        "#all-languages",
+        "#productivity",
+        "#sales",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5483229aca24a6d61f",
+      "uuid": "eb4e08f4-2c31-4eb6-87a3-bbd4916947b0",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Какую роль играет Быстрые результаты: в уроке \"Оптимизация коэффициента конверсии – Как улучшить цифры\"?",
+      "options": [
+        "Как подробно описано в уроке, Быстрые результаты: играет ключевую роль в оптимизации процессов и достижении целей",
+        "Только периферийная информация без значительной роли",
+        "Только теоретическая концепция без практического применения",
+        "Не упоминается в уроке"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day4",
+        "#ru",
+        "#all-languages",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5483229aca24a6d620",
+      "uuid": "3c9676d4-0e40-497d-87e4-6cf182d5dc66",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Какую роль играет Конкурентное преимущество: в уроке \"Оптимизация коэффициента конверсии – Как улучшить цифры\"?",
+      "options": [
+        "Как подробно описано в уроке, Конкурентное преимущество: играет ключевую роль в оптимизации процессов и достижении целей",
+        "Только периферийная информация без значительной роли",
+        "Только теоретическая концепция без практического применения",
+        "Не упоминается в уроке"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day4",
+        "#ru",
+        "#all-languages",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5483229aca24a6d621",
+      "uuid": "92ddf08c-831c-424f-9e88-e8cfaa0549b0",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Насколько важен Пример: в контексте Оптимизация коэффициента конверсии – Как улучшить цифры, как обсуждается в уроке?",
+      "options": [
+        "Как подробно описано в уроке, Пример: играет ключевую роль в оптимизации процессов и достижении целей",
+        "Только периферийная информация без значительной роли",
+        "Только теоретическая концепция без практического применения",
+        "Не упоминается в уроке"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day4",
+        "#ru",
+        "#all-languages",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "backedUpAt": "2026-01-28T22:55:28.745Z",
+  "courseId": "AI_30_DAY_EN",
+  "lessonId": "AI_30_DAY_EN_DAY_19",
+  "dayNumber": 19,
+  "title": "Adapting to personas and audiences",
+  "content": "<h1>Adapting to personas and audiences</h1>\n<p><em>Change output for different readers</em></p>\n<hr />\n<h2>Learning goal</h2>\n<ul>\n<li>Create persona cards and adapt one text to two personas.</li>\n<li>Check for clarity and relevance per audience.</li>\n</ul>\n<hr />\n<h2>Why it matters</h2>\n<ul>\n<li>Persona-aware writing improves adoption.</li>\n<li>Wrong tone/detail loses readers.</li>\n</ul>\n<hr />\n<h2>Explanation</h2>\n<ul>\n<li>Define persona: role, goals, pain points, preferred style.</li>\n<li>Prompt: “Rewrite for persona X; keep facts; adjust tone/detail.”</li>\n<li>Ask for a short checklist: “Does this address goals/pains?”</li>\n</ul>\n<hr />\n<h2>Examples</h2>\n<ul>\n<li><strong>Good</strong>: Exec brief vs. frontline guide; facts intact, tone differs.</li>\n<li><strong>Poor</strong>: Same text for all.</li>\n<hr />\n<h2>Guided exercise (10–15 min)</h2>\n<ol>\n<li>Create 2 persona cards.</li>\n<li>Rewrite one draft for each persona; keep facts; change tone/detail.</li>\n</ol>\n<h2>Independent exercise (5–10 min)</h2>\n<p>Ask AI to list 2 gaps for each persona and fix them.</p>\n<hr />\n<h2>Self-check</h2>\n<ul>\n<li>Persona cards defined.</li>\n<li>Two rewrites completed.</li>\n<li>Facts preserved; tone/detail adapted.</li>\n</ul>\n<hr />\n<h2>Optional deepening</h2>\n<ul>\n<li>Persona prompting: <a href=\"https://platform.openai.com/docs/guides/prompt-engineering\" target=\"_blank\" rel=\"noreferrer\">prompt guide</a></li>\n</ul>",
+  "emailSubject": "AI 30-Day – Day 19: Personas",
+  "emailBody": "<h1>AI 30-Day – Day 19</h1>\n<h2>Personas</h2>\n<p>Today you’ll build persona cards and adapt one draft to each persona.</p>\n<p><a href=\"http://localhost:3000/courses/AI_30_DAY_EN/day/{{dayNumber}}\">Open the lesson →</a></p>"
+}

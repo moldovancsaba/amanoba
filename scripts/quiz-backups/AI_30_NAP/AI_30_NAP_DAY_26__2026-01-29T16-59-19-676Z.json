@@ -1,0 +1,94 @@
+{
+  "backedUpAt": "2026-01-29T17:00:37.790Z",
+  "course": {
+    "courseId": "AI_30_NAP",
+    "name": "30-Day AI Catch-Up Program",
+    "language": "hu"
+  },
+  "lesson": {
+    "dayNumber": 26,
+    "title": "Saját AI-rutin kialakítása",
+    "lessonId": "AI_30_NAP_DAY_26"
+  },
+  "questionCount": 6,
+  "questions": [
+    {
+      "_id": "697b205b060240540231b497",
+      "difficulty": "EASY",
+      "question": "Mi a napi AI-rutin fő célja?",
+      "options": [
+        "Rendszeres, időkeretes feladatblokkok (reggel/napközben/este) QA-val",
+        "Csak egyszeri prompt írás",
+        "Csak kreatív írás",
+        "Semmi, nincs cél"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b205b060240540231b499",
+      "difficulty": "MEDIUM",
+      "question": "Mit tartalmazzon minden rutin feladat?",
+      "options": [
+        "Cél, prompt, időkeret, QA lépés",
+        "Csak egy cím",
+        "Csak dátum",
+        "Csak stílus"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b205c060240540231b49b",
+      "difficulty": "MEDIUM",
+      "question": "Miért kell QA lépést beépíteni?",
+      "options": [
+        "Számok/határidők/felelősök ellenőrzése nélkül könnyen hibázol",
+        "Időpazarlás",
+        "Felesleges, mindig jó az AI",
+        "Csak dísz"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b205c060240540231b49d",
+      "difficulty": "MEDIUM",
+      "question": "Mi a biztonsági szabály a rutinban?",
+      "options": [
+        "Anonimizálás, ne adj be érzékeny adatot",
+        "Add meg a jelszavakat",
+        "Használd az összes adatot nyersen",
+        "Nincs szabály"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b205c060240540231b49f",
+      "difficulty": "MEDIUM",
+      "question": "Miért hasznos időkeretet adni a rutin feladatokra?",
+      "options": [
+        "Fegyelmezi a használatot és megelőzi az időfolyást",
+        "Csak dísz",
+        "Nem számít az idő",
+        "Mindig korlátlan idő kell"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b205c060240540231b4a1",
+      "difficulty": "MEDIUM",
+      "question": "Miért kérj alternatívát (2 stílus) rutinban is?",
+      "options": [
+        "Hogy legyen választási lehetőség és gyorsan finomíts",
+        "Csak hosszabbítja a folyamatot",
+        "Nem szabad alternatívát kérni",
+        "Csak ha nincs idő"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    }
+  ]
+}

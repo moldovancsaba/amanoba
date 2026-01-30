@@ -1,0 +1,94 @@
+{
+  "backedUpAt": "2026-01-29T17:00:35.060Z",
+  "course": {
+    "courseId": "AI_30_NAP",
+    "name": "30-Day AI Catch-Up Program",
+    "language": "hu"
+  },
+  "lesson": {
+    "dayNumber": 12,
+    "title": "Workflow: input → feldolgozás → output",
+    "lessonId": "AI_30_NAP_DAY_12"
+  },
+  "questionCount": 6,
+  "questions": [
+    {
+      "_id": "697b2054060240540231b3c7",
+      "difficulty": "EASY",
+      "question": "Mi a workflow 4 fő lépése?",
+      "options": [
+        "Input, Feldolgozás, Output, Ellenőrzés",
+        "Csak Input",
+        "Csak Output",
+        "Feldolgozás és kész"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b2054060240540231b3c9",
+      "difficulty": "MEDIUM",
+      "question": "Miért kell anonimizálni az inputot?",
+      "options": [
+        "Védelem: ne ossz meg személyes/bizalmas adatot",
+        "Hogy hosszabb legyen a szöveg",
+        "Mert kötelező szabály, de haszna nincs",
+        "Hogy ne kelljen kontextust adni"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b2054060240540231b3cb",
+      "difficulty": "MEDIUM",
+      "question": "Mi tartozik a Feldolgozás lépéshez?",
+      "options": [
+        "Prompt v1 → feedback → prompt v2 (iteráció)",
+        "Csak a prompt leírása",
+        "Csak a kimenet",
+        "Csak az anonimizálás"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b2054060240540231b3cd",
+      "difficulty": "MEDIUM",
+      "question": "Mit ellenőrizel az Outputnál?",
+      "options": [
+        "Formátum, hossz, CTA, felelősök/határidők, teljesség",
+        "Csak a színt",
+        "Csak a dátumot",
+        "Csak a szóközöket"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b2054060240540231b3cf",
+      "difficulty": "HARD",
+      "question": "Miért fontos az ellenőrzés lépése?",
+      "options": [
+        "Tényeket validálsz, hibát szűrsz, döntéseket tisztázol",
+        "Csak dísz",
+        "Mindig hibátlan az AI",
+        "Időpazarlás"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b2054060240540231b3d1",
+      "difficulty": "MEDIUM",
+      "question": "Mi a mini pipeline példa meeting jegyzetnél?",
+      "options": [
+        "Tisztítás → összefoglaló/döntés/teendő → export → ellenőrzés",
+        "Jegyzet → küldés",
+        "Csak összefoglaló",
+        "Csak teendők"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    }
+  ]
+}

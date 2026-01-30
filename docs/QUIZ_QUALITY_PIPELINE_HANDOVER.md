@@ -21,8 +21,45 @@ It is designed to be used as a **handover prompt + operating manual**, similar i
 
 ## Quality Standard (Hard Requirements)
 
+**NO QUALITY EXCEPTION ACCEPTED** for any content. No course, lesson, or quiz may bypass or receive exceptions from the requirements below.
+
+### Gold-standard question type (only acceptable form)
+
+**Only questions that match this form are acceptable.** Full section: `docs/QUIZ_QUALITY_PIPELINE_PLAYBOOK.md`.
+
+**Canonical example:** *"What is the concrete document or list needed to define the ICP according to different problem groups?"* — Standalone, grounded (ICP, problem groups), scenario-based, asks for a concrete deliverable, concrete distractors.
+
+**Five rules (all required):** Standalone | Grounded in lesson | Scenario-based | Concrete deliverable/outcome | Concrete distractors (plausible domain mistakes, no generic filler).
+
+**Why other types fail:** Lesson/course-referential → not standalone. Generic/disconnected → not grounded. Self-answering → doesn’t test. Vague distractors → not educational. Padding → no real scenario. **Accept only gold-standard form.**
+
+## CRITICAL: What Quality Improvement Means (Anti-Patterns)
+
+**FORBIDDEN LAZY APPROACHES:**
+- ❌ **DO NOT** just add words to meet length requirements (e.g., "What should you commit to?" → "What should you commit to from Day 1 to build a sustainable system?"). This is padding, not quality.
+- ❌ **DO NOT** repeat the same schema/pattern across questions (e.g., "In this framework, how is X defined?" repeated 10 times).
+- ❌ **DO NOT** extend questions with generic phrases like "in this framework", "in practice", "to build X" just to hit character counts.
+- ❌ **DO NOT** lengthen options by adding filler words without adding educational value.
+
+**REQUIRED QUALITY APPROACHES:**
+- ✅ **REWRITE** questions as concrete, scenario-based situations students might actually face.
+- ✅ **CREATE** educational distractors that teach common mistakes or misconceptions.
+- ✅ **VARY** question structures: use scenarios, case studies, "what would you do if...", "a team is facing...", "you observe...".
+- ✅ **ENSURE** each question tests real understanding and application, not just pattern matching.
+- ✅ **MAKE** wrong answers plausible and educational - they should represent real mistakes people make.
+
+**Example of BAD (lazy padding):**
+- Q: "What should you commit to?" → "What should you commit to from Day 1 to build a sustainable system?"
+- This is the SAME question with filler words.
+
+**Example of GOOD (real quality):**
+- Q: "A leader says: 'We did 50 meetings this month.' What is missing for effectiveness?"
+- This is a concrete scenario that tests understanding through application.
+
 ### Question requirements
-- Standalone: answerable without opening the lesson.
+- **Standalone & random-order safe**: Questions are shown in **random order** and may be used **standalone**. Each question must be **self-contained**: no "this course", "this kind of course", "from the lesson", "the playbook" (unless the question defines it), "from this course", or any wording that assumes the learner just read a specific lesson. Answerable without opening the lesson or relying on lesson order.
+- **Minimum lengths (validator-enforced)**: Question ≥ 40 characters; each option ≥ 25 characters. No exceptions.
+- **No generic template patterns**: e.g. questions starting with “What does \”…” are rejected; use scenario-based or “In this framework, how is X used?” style instead.
 - No lesson references: no “as described in the lesson”, no “follow the method in the lesson”, no title-based crutches.
 - No checklist-snippet crutches: reject questions that quote truncated checklist snippets (e.g. `✅ ...` or quoted `...`) instead of giving a clear scenario.
 - No throwaway options: no “no impact / only theoretical / not mentioned…”.
@@ -38,6 +75,11 @@ It is designed to be used as a **handover prompt + operating manual**, similar i
 Lessons (and emails) must match the course language:
 - `lesson.content`, `lesson.emailSubject`, `lesson.emailBody` must be in-language.
 - No English sentence/bullet injection into non‑EN lessons (e.g., “Scale capability…”, “Create a …”).
+- **End-to-end email integrity**: the *final* HTML received by the user must be in-language.
+  - If send-time code appends content (e.g., unsubscribe footers), that appended content must be localized too.
+  - Run the code-level audit: `npx tsx scripts/audit-email-communications-language-integrity.ts`.
+  - This audit also validates **transactional email templates** (welcome/completion/reminder/payment), not only lesson-email footers.
+  - Delivery system enforcement: email sends are blocked if the final subject/body fails language integrity at send-time.
 
 If language integrity fails:
 - Block apply-mode lesson changes for that lesson.
@@ -89,6 +131,8 @@ Instead: the pipeline creates **lesson refinement tasks** and skips quiz rewrite
 
 ### Global inventory + CCS-wide audit (system-level)
 - `scripts/audit-ccs-global-quality.ts` — CCS-family audit across all linked courses (and will also *infer* CCS for courses missing `ccsId` and emit action items to link them).
+  - Includes: **course catalog language integrity** checks for `course.name` + `course.description` + `course.translations.<locale>` (catalog display).
+  - Note: **short courses** (with `parentCourseId` + `selectedLessonIds`) do not require per-day Lesson docs; missing-day checks apply only to non-short courses.
 
 ### Rollback tooling
 - `scripts/restore-lesson-quiz-from-backup.ts` — restores a lesson quiz from a backup file.
@@ -119,6 +163,7 @@ Verify after restore:
 Generates a single master tasklist covering **all CCS families and all courses**, including:
 - Lessons below quality threshold
 - Lessons failing language integrity (including email fields)
+- Courses failing catalog language integrity (course name/description)
 - Per-question quiz validation failures
 - Duplicate quiz question text (normalized; keep first by `_id`)
 - Minimum quiz pool not met (>=7 valid, >=5 application, 0 recall)
@@ -127,6 +172,11 @@ Generates a single master tasklist covering **all CCS families and all courses**
 
 ```bash
 npx tsx --env-file=.env.local scripts/audit-ccs-global-quality.ts --min-lesson-score 70
+```
+
+Also run the code-level email audit (send-time HTML integrity):
+```bash
+npx tsx scripts/audit-email-communications-language-integrity.ts
 ```
 
 Include inactive content (for a true “everything in DB” audit):

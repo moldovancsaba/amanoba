@@ -1,0 +1,10 @@
+{
+  "backedUpAt": "2026-01-28T22:37:36.199Z",
+  "courseId": "DONE_BETTER_2026_EN",
+  "lessonId": "DONE_BETTER_2026_EN_DAY_14",
+  "dayNumber": 14,
+  "title": "Choose with Intent",
+  "content": "<h1>Choose with Intent</h1>\n<p><em>Decision is a skill. You will stop drifting.</em></p>\n<hr />\n<h2>Learning goal</h2>\n<ul>\n<li>Use criteria and boundaries to decide.</li>\n<li>Make the decision explicit (what we chose and why).</li>\n<li>Avoid drift: defaulting without choosing.</li>\n</ul>\n<hr />\n<h2>Why it matters</h2>\n<ul>\n<li>Implicit decisions cause misalignment.</li>\n<li>Explicit choices create accountability.</li>\n<li>Decision is a skill you can practice.</li>\n</ul>\n<hr />\n<h2>Key idea</h2>\n<p>Decision as skill means choosing with intent using criteria and boundaries, not drift. Make the decision explicit: what we chose and why. You stop drifting when you practice it.</p>\n<hr />\n<h2>Common mistakes</h2>\n<ul>\n<li>Delaying decision by asking for more data indefinitely.</li>\n<li>Implicit decisions that no one wrote down.</li>\n<li>Confusing consensus with a clear decision.</li>\n</ul>\n<hr />\n<h2>Today's move</h2>\n<p>Make one decision today that you would have left vague. Write it down: what we chose, why, and what we are not doing.</p>\n<hr />\n<h2>Self-check</h2>\n<ul>\n<li>You can explain the key idea in one sentence.</li>\n<li>You have one concrete move to do today.</li>\n</ul>",
+  "emailSubject": "Done is better – Day {{dayNumber}}: {{lessonTitle}}",
+  "emailBody": "<h1>Done is better - Build What Matters</h1><h2>Day {{dayNumber}}: {{lessonTitle}}</h2><p>{{lessonContent}}</p><p><a href=\"http://localhost:3000/courses/DONE_BETTER_2026_EN/day/{{dayNumber}}\">Open the lesson →</a></p>"
+}

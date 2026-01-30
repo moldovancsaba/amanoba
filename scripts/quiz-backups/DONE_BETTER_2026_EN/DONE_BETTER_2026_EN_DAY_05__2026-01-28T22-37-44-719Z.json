@@ -1,0 +1,114 @@
+{
+  "backedUpAt": "2026-01-28T22:37:47.046Z",
+  "course": {
+    "courseId": "DONE_BETTER_2026_EN",
+    "name": "Done is better - Build What Matters",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 5,
+    "title": "Rewriting the Problem",
+    "lessonId": "DONE_BETTER_2026_EN_DAY_05"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "697a87baa81588c9f41a21cc",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Why restate the problem in your own words?",
+      "options": [
+        "If you cannot restate it clearly, you do not own it",
+        "To use more jargon and sound expert",
+        "To please others who prefer complexity",
+        "It is optional when time is limited"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87baa81588c9f41a21cd",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "What is a good test for whether you own the problem?",
+      "options": [
+        "You can explain it to someone else in 30 seconds without jargon",
+        "You have a long document describing it",
+        "You have consensus from the team",
+        "You have a budget approved for it"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87baa81588c9f41a21ce",
+      "questionType": "application",
+      "difficulty": "EASY",
+      "question": "What should you do with the restatement once it is clear?",
+      "options": [
+        "Lock it as the working problem you will solve",
+        "Forget it and move to solutions",
+        "Add more jargon for precision",
+        "Delegate it only and do not use it"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87baa81588c9f41a21cf",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "A problem is stated in technical jargon. What is the next step?",
+      "options": [
+        "Rewrite it in plain language so anyone could understand",
+        "Keep the jargon for accuracy",
+        "Shorten it only without changing words",
+        "Skip restatement and start solving"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87baa81588c9f41a21d0",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "What is the risk of skipping restatement and going straight to solutions?",
+      "options": [
+        "Solving the wrong problem or a fuzzy one",
+        "Faster delivery with no downside",
+        "No significant risk in most cases",
+        "Better ideas from jumping to solutions"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87baa81588c9f41a21d1",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Which is a restatement that shows ownership?",
+      "options": [
+        "A one-sentence gap between current and desired state in plain language",
+        "A copy of the original brief unchanged",
+        "A list of symptoms only without a gap",
+        "A solution disguised as a problem statement"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87baa81588c9f41a21d2",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Why avoid jargon in the restatement?",
+      "options": [
+        "Jargon often hides fuzzy thinking; plain language forces clarity",
+        "Jargon is always wrong in business",
+        "Plain language is shorter and faster",
+        "There is no strong reason to avoid it"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    }
+  ]
+}

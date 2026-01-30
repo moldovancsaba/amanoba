@@ -1,0 +1,68 @@
+{
+  "backedUpAt": "2026-01-29T17:00:25.194Z",
+  "course": {
+    "courseId": "B2B_SALES_2026_30",
+    "name": "B2B Értékesítés 2026 Masterclass",
+    "language": "hu"
+  },
+  "lesson": {
+    "dayNumber": 18,
+    "title": "Nurture és visszahozás",
+    "lessonId": "B2B_SALES_2026_30_DAY_18"
+  },
+  "questionCount": 4,
+  "questions": [
+    {
+      "_id": "697b2040ac79ca83bb97227b",
+      "difficulty": "MEDIUM",
+      "question": "Mi a 3 lépcső sorrendje?",
+      "options": [
+        "Ajánlat, proof, érték",
+        "Érték, proof, ajánlat",
+        "Proof, ajánlat, érték",
+        "Csak ajánlat"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b2040ac79ca83bb97227c",
+      "difficulty": "MEDIUM",
+      "question": "Mikor nem érdemes nurture-t küldeni?",
+      "options": [
+        "Nem fit leadnél",
+        "Most nem kategóriánál",
+        "Később kategóriánál",
+        "Soha"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b2040ac79ca83bb97227d",
+      "difficulty": "MEDIUM",
+      "question": "Mi a jó példa?",
+      "options": [
+        "Havonta egy általános email",
+        "3 üzenet: esettanulmány + benchmark + audit ajánlat",
+        "Csak egy marketing hírlevél",
+        "Csak egy árlista"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b2040ac79ca83bb97227e",
+      "difficulty": "MEDIUM",
+      "question": "Mit mérj nurture-ben?",
+      "options": [
+        "Csak megnyitást",
+        "Reply/meeting/SQL konverziót",
+        "Csak web trafficot",
+        "Csak like-okat"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    }
+  ]
+}

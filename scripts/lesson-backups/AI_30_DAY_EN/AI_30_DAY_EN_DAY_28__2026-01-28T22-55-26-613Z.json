@@ -1,0 +1,10 @@
+{
+  "backedUpAt": "2026-01-28T22:55:28.983Z",
+  "courseId": "AI_30_DAY_EN",
+  "lessonId": "AI_30_DAY_EN_DAY_28",
+  "dayNumber": 28,
+  "title": "Slides/briefs: from outline to draft",
+  "content": "<h1>Slides/briefs: from outline to draft</h1>\n<p><em>Generate slide/brief content from an outline</em></p>\n<hr />\n<h2>Learning goal</h2>\n<ul>\n<li>Turn an outline into slide-ready bullets.</li>\n<li>Add speaker notes or summary for each slide.</li>\n</ul>\n<hr />\n<h2>Why it matters</h2>\n<ul>\n<li>Slide-ready text saves time and keeps structure.</li>\n<li>Notes clarify intent and next steps.</li>\n</ul>\n<hr />\n<h2>Explanation</h2>\n<ul>\n<li>Provide outline sections; ask for Title + 3 bullets + 1 note each.</li>\n<li>Set limits (bullet length, no images, no fake data).</li>\n<li>Ask for a closing slide with CTA.</li>\n</ul>\n<hr />\n<h2>Examples</h2>\n<ul>\n<li><strong>Prompt</strong>: “For each outline item, give slide title + 3 bullets (max 12 words) + 1 note. No fake stats. Add closing slide with CTA.”</li>\n<li><strong>Weak</strong>: “Make slides.”</li>\n<hr />\n<h2>Guided exercise (10–15 min)</h2>\n<ol>\n<li>Use your Day 11 outline; generate slide bullets + notes.</li>\n<li>Check for length/clarity and remove fluff.</li>\n</ol>\n<h2>Independent exercise (5–10 min)</h2>\n<p>Add a CTA slide tailored to your audience.</p>\n<hr />\n<h2>Self-check</h2>\n<ul>\n<li>Slide bullets concise.</li>\n<li>Notes present.</li>\n<li>No fabricated data.</li>\n</ul>\n<hr />\n<h2>Optional deepening</h2>\n<ul>\n<li>Slide prompting tips: <a href=\"https://platform.openai.com/docs/guides/prompt-engineering\" target=\"_blank\" rel=\"noreferrer\">prompt guide</a></li>\n</ul>",
+  "emailSubject": "AI 30-Day – Day 28: Slides/briefs",
+  "emailBody": "<h1>AI 30-Day – Day 28</h1>\n<h2>Slides/briefs</h2>\n<p>Today you’ll turn your outline into slide-ready bullets with notes.</p>\n<p><a href=\"http://localhost:3000/courses/AI_30_DAY_EN/day/{{dayNumber}}\">Open the lesson →</a></p>"
+}

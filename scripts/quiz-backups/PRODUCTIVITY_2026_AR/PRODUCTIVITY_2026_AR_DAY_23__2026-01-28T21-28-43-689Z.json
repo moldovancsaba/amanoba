@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-28T21:29:01.673Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_AR",
+    "name": "الإنتاجية 2026: كيفية إدارة الفرق والوقت",
+    "language": "ar"
+  },
+  "lesson": {
+    "dayNumber": 23,
+    "title": "الإبداع والابتكار: إعادة التفكير والتجريب",
+    "lessonId": "PRODUCTIVITY_2026_AR_DAY_23"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a623ed20b35fb79733c",
+      "uuid": "df24e88d-6cc4-49b6-871b-54744e9e4491",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"دمج الإبداع والابتكار في العمل.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day23",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a623ed20b35fb79733d",
+      "uuid": "5a2c133c-35bc-4f41-97d4-d2c72c9444d1",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"دمج الإبداع والابتكار في العمل.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day23",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a623ed20b35fb79733e",
+      "uuid": "0856a15d-9ad7-4f84-89b8-9f21b2192c7f",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"دمج الإبداع والابتكار في العمل.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day23",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a623ed20b35fb79733f",
+      "uuid": "b4c094df-8c8c-4781-aa92-44d26689b9d7",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "How does the concept \"الإبداع والابتكار: إعادة التفكير والتجريب دمج الإب...\" mentioned in the lesson impact achieving your goals?",
+      "options": [
+        "As described in detail in the lesson, الإبداع والابتكار: إعادة التفك... increases effectiveness and reduces risk",
+        "No significant impact",
+        "Only matters theoretically",
+        "Only an optional element"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day23",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a623ed20b35fb797340",
+      "uuid": "1b76e462-3b97-4651-acf8-ac3d87eef32a",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is الإبداع in the context of الإبداع والابتكار: إعادة التفكير والتجريب as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, الإبداع plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day23",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a623ed20b35fb797341",
+      "uuid": "2f335744-e9f8-4444-a9a7-f16b2a84c6ec",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is إعادة in the context of الإبداع والابتكار: إعادة التفكير والتجريب as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, إعادة plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day23",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a623ed20b35fb797342",
+      "uuid": "67b4fa12-1d8d-45f5-82c8-724909cb2e1e",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is والتجريب in the context of الإبداع والابتكار: إعادة التفكير والتجريب as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, والتجريب plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day23",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

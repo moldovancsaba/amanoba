@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-28T21:29:01.232Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_AR",
+    "name": "الإنتاجية 2026: كيفية إدارة الفرق والوقت",
+    "language": "ar"
+  },
+  "lesson": {
+    "dayNumber": 18,
+    "title": "إدارة الأزمات والقدرة على التكيف: التكيف والتعلم السريع",
+    "lessonId": "PRODUCTIVITY_2026_AR_DAY_18"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a623ed20b35fb79730a",
+      "uuid": "e3822ef5-c2d4-45b2-89c8-ea5ddc9feea1",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"استعد وارد على التحديات غير المتوقعة.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day18",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a623ed20b35fb79730b",
+      "uuid": "bab039dc-1abf-4854-a96f-68d840607fb1",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"استعد وارد على التحديات غير المتوقعة.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day18",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a623ed20b35fb79730c",
+      "uuid": "88cf1b85-e436-4457-bd0c-cc9ad0e0a6ee",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"استعد وارد على التحديات غير المتوقعة.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day18",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a623ed20b35fb79730d",
+      "uuid": "50d59d2d-7c41-437a-bbef-23c3b6de8cce",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "How does the concept \"إدارة الأزمات والقدرة على التكيف: التكيف والتعلم ا...\" mentioned in the lesson impact achieving your goals?",
+      "options": [
+        "As described in detail in the lesson, إدارة الأزمات والقدرة على التك... increases effectiveness and reduces risk",
+        "No significant impact",
+        "Only matters theoretically",
+        "Only an optional element"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day18",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a623ed20b35fb79730e",
+      "uuid": "d4f4c940-4201-467a-90c5-95995f7294f5",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is إدارة in the context of إدارة الأزمات والقدرة على التكيف: التكيف والتعلم السريع as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, إدارة plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day18",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a623ed20b35fb79730f",
+      "uuid": "1871ba38-8c4c-42f0-9193-75b97920485f",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is والقدرة in the context of إدارة الأزمات والقدرة على التكيف: التكيف والتعلم السريع as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, والقدرة plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day18",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a623ed20b35fb797310",
+      "uuid": "d7d37a99-3670-44ad-9f8f-d3629b8408a4",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is والتعلم in the context of إدارة الأزمات والقدرة على التكيف: التكيف والتعلم السريع as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, والتعلم plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day18",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

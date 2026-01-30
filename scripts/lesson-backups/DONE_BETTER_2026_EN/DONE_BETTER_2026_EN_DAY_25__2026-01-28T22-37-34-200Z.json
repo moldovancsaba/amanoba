@@ -1,0 +1,10 @@
+{
+  "backedUpAt": "2026-01-28T22:37:36.512Z",
+  "courseId": "DONE_BETTER_2026_EN",
+  "lessonId": "DONE_BETTER_2026_EN_DAY_25",
+  "dayNumber": 25,
+  "title": "From Client to Partner",
+  "content": "<h1>From Client to Partner</h1>\n<p><em>Transparency turns transactions into alliances.</em></p>\n<hr />\n<h2>Learning goal</h2>\n<ul>\n<li>Share constraints, timelines, and trade-offs with clients or partners.</li>\n<li>Invite them into the problem, not just the deliverable.</li>\n<li>Build trust through transparency, not through overpromising.</li>\n</ul>\n<hr />\n<h2>Why it matters</h2>\n<ul>\n<li>Transactions stay fragile.</li>\n<li>Partners align on reality.</li>\n<li>Transparency builds long-term trust.</li>\n</ul>\n<hr />\n<h2>Key idea</h2>\n<p>Transparency means sharing status, constraints, and unknowns so others can align. Transparency turns transactions into alliances. Invite clients into the problem, not just the deliverable.</p>\n<hr />\n<h2>Common mistakes</h2>\n<ul>\n<li>Hiding problems to preserve the relationship short-term.</li>\n<li>Treating the client as someone to please rather than to align with.</li>\n<li>No clear communication cadence.</li>\n</ul>\n<hr />\n<h2>Today's move</h2>\n<p>With one client or partner, share one constraint or trade-off you have not mentioned before. Propose how you will handle it together.</p>\n<hr />\n<h2>Self-check</h2>\n<ul>\n<li>You can explain the key idea in one sentence.</li>\n<li>You have one concrete move to do today.</li>\n</ul>",
+  "emailSubject": "Done is better – Day {{dayNumber}}: {{lessonTitle}}",
+  "emailBody": "<h1>Done is better - Build What Matters</h1><h2>Day {{dayNumber}}: {{lessonTitle}}</h2><p>{{lessonContent}}</p><p><a href=\"http://localhost:3000/courses/DONE_BETTER_2026_EN/day/{{dayNumber}}\">Open the lesson →</a></p>"
+}

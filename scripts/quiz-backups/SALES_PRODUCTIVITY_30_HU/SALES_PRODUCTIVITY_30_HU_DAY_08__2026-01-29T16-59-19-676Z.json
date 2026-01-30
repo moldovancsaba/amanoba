@@ -1,0 +1,184 @@
+{
+  "backedUpAt": "2026-01-29T16:59:49.883Z",
+  "course": {
+    "courseId": "SALES_PRODUCTIVITY_30_HU",
+    "name": "Értékesítés 2026 - Sales Reset",
+    "language": "hu"
+  },
+  "lesson": {
+    "dayNumber": 8,
+    "title": "Minősítési kérdések és szkriptek – Mit kérdezz, hogy minősíts?",
+    "lessonId": "SALES_PRODUCTIVITY_30_HU_DAY_08"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "6979db379316e77110ed0551",
+      "uuid": "3cbd2820-994d-41a5-be6c-cfd3a95a287e",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Egy új gyakorlatot vezetsz be: „Gyakorlat 1 – Minősítési kérdés lista (20 perc) Válaszd ki a”. Melyik bevezetési terv biztosít mérhető kimenetet és gyors visszacsatolást?",
+      "options": [
+        "Lépésről lépésre bevezetem, előtte/utána mérőpontokat állítok be, dokumentálom az eredményt, és iterálok a hibák alapján",
+        "Egyszerre mindent átállítok, majd nem ellenőrzöm, mi romlott el",
+        "Csak elolvasom, de nem építem be a folyamatomba",
+        "Megvárom, hogy valaki más készítsen helyettem megoldást"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day8",
+        "#hu",
+        "#all-languages",
+        "#course-sales_productivity_30_hu",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "6979db379316e77110ed0552",
+      "uuid": "33b3ade7-2320-4b57-b142-07cf0fb74a97",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Egy új gyakorlatot vezetsz be: „Gyakorlat 2 – Minősítési szkript (15 perc) Írd le a teljes m”. Melyik bevezetési terv biztosít mérhető kimenetet és gyors visszacsatolást?",
+      "options": [
+        "Lépésről lépésre bevezetem, előtte/utána mérőpontokat állítok be, dokumentálom az eredményt, és iterálok a hibák alapján",
+        "Egyszerre mindent átállítok, majd nem ellenőrzöm, mi romlott el",
+        "Csak elolvasom, de nem építem be a folyamatomba",
+        "Megvárom, hogy valaki más készítsen helyettem megoldást"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day8",
+        "#hu",
+        "#all-languages",
+        "#course-sales_productivity_30_hu",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "6979db379316e77110ed0553",
+      "uuid": "5eb5494c-37e6-439a-ad3b-898c1a3d819f",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Egy új gyakorlatot vezetsz be: „Példa kérdés Budget \"Mily”. Melyik bevezetési terv biztosít mérhető kimenetet és gyors visszacsatolást?",
+      "options": [
+        "Lépésről lépésre bevezetem, előtte/utána mérőpontokat állítok be, dokumentálom az eredményt, és iterálok a hibák alapján",
+        "Egyszerre mindent átállítok, majd nem ellenőrzöm, mi romlott el",
+        "Csak elolvasom, de nem építem be a folyamatomba",
+        "Megvárom, hogy valaki más készítsen helyettem megoldást"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day8",
+        "#hu",
+        "#all-languages",
+        "#course-sales_productivity_30_hu",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "6979db379316e77110ed0554",
+      "uuid": "f75b59d5-16e8-4530-898a-1c5cb88b2511",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Egy új gyakorlatot vezetsz be: „példa: \"Érdekelne a megoldásunk?\" (zárt kérdés, könnyű \"Igen”. Melyik bevezetési terv biztosít mérhető kimenetet és gyors visszacsatolást?",
+      "options": [
+        "Lépésről lépésre bevezetem, előtte/utána mérőpontokat állítok be, dokumentálom az eredményt, és iterálok a hibák alapján",
+        "Egyszerre mindent átállítok, majd nem ellenőrzöm, mi romlott el",
+        "Csak elolvasom, de nem építem be a folyamatomba",
+        "Megvárom, hogy valaki más készítsen helyettem megoldást"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day8",
+        "#hu",
+        "#all-languages",
+        "#course-sales_productivity_30_hu",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "6979db379316e77110ed0555",
+      "uuid": "5f0a8ac5-afe2-446d-bbc0-ac09c6f718db",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Egy projektben a „Jobb minősítés = jobb eredmények.” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?",
+      "options": [
+        "Konkrét ellenőrzőlistát készítek, implementálom egy kis scope-on, tesztelem a hatást, majd kiterjesztem a teljes scope-ra",
+        "Csak definícióként kezelem, ezért nem derül ki, működik-e a gyakorlatban",
+        "Kihagyom az implementációt, mert túl időigényesnek tűnik",
+        "Végrehajtom, de nem mérek és nem dokumentálok semmit"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day8",
+        "#hu",
+        "#all-languages",
+        "#course-sales_productivity_30_hu",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "6979db379316e77110ed0556",
+      "uuid": "089fe5b6-e888-4b59-93e9-097c4868ab84",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Egy vezető a következő elv szerint dönt: „fontos ez? Jobb minősítés = jobb eredmények”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?",
+      "options": [
+        "A fókusz növelheti az eredményességet, mert a korlátok mellett a legnagyobb hatású kimenetre koncentrál; kockázat: rossz mérőszámra optimalizálva „látszat‑output” készül.",
+        "Az output automatikusan egyenlő az eredménnyel, ezért elég több feladatot lezárni; kockázat: nő az aktivitás, de romlik az ügyfélérték és a minőség.",
+        "A korlátok (idő/energia/figyelem) figyelmen kívül hagyhatók, mert a termelékenység csak akaraterő kérdése; kockázat: túlterhelés, hibák és kiégés.",
+        "A sebesség maximalizálása a legfontosabb, a minőség majd „később” javítható; kockázat: utómunka, újranyitások és bizalomvesztés alakul ki."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day8",
+        "#hu",
+        "#all-languages",
+        "#course-sales_productivity_30_hu",
+        "#productivity",
+        "#sales",
+        "#advanced",
+        "#critical-thinking"
+      ]
+    },
+    {
+      "_id": "6979db379316e77110ed0557",
+      "uuid": "ac31c13b-0bf9-4848-a9fd-de5550a647a5",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Egy vezető a következő elv szerint dönt: „fontos ez most?\" (mélyítés) Záró kérdések: \"Mikorra kell megoldani?\" (konkrét vá”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?",
+      "options": [
+        "A fókusz növelheti az eredményességet, mert a korlátok mellett a legnagyobb hatású kimenetre koncentrál; kockázat: rossz mérőszámra optimalizálva „látszat‑output” készül.",
+        "Az output automatikusan egyenlő az eredménnyel, ezért elég több feladatot lezárni; kockázat: nő az aktivitás, de romlik az ügyfélérték és a minőség.",
+        "A korlátok (idő/energia/figyelem) figyelmen kívül hagyhatók, mert a termelékenység csak akaraterő kérdése; kockázat: túlterhelés, hibák és kiégés.",
+        "A sebesség maximalizálása a legfontosabb, a minőség majd „később” javítható; kockázat: utómunka, újranyitások és bizalomvesztés alakul ki."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day8",
+        "#hu",
+        "#all-languages",
+        "#course-sales_productivity_30_hu",
+        "#productivity",
+        "#sales",
+        "#advanced",
+        "#critical-thinking"
+      ]
+    }
+  ]
+}

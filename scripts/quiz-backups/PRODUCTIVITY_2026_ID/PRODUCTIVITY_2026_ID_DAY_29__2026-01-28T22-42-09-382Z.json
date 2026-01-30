@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-28T22:42:14.038Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_ID",
+    "name": "Produktivitas 2026: Cara Mengelola Tim dan Waktu",
+    "language": "id"
+  },
+  "lesson": {
+    "dayNumber": 29,
+    "title": "Perbaikan Berkelanjutan: Pembelajaran, Umpan Balik, Iterasi",
+    "lessonId": "PRODUCTIVITY_2026_ID_DAY_29"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a2ddf6e5ec2a4427ee0",
+      "uuid": "c09f72c0-180b-43fd-aaaa-1fcba0e82215",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Bagaimana konsep \"Perbaikan Berkelanjutan: Pembelajaran, Umpan Balik...\" yang disebutkan dalam pelajaran mempengaruhi pencapaian goals Anda?",
+      "options": [
+        "Seperti yang dijelaskan secara detail dalam pelajaran, Perbaikan Berkelanjutan: Pembe... meningkatkan efektivitas dan mengurangi risiko",
+        "Tidak ada dampak signifikan",
+        "Hanya penting secara teoritis",
+        "Hanya elemen opsional"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day29",
+        "#id",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a2ddf6e5ec2a4427ee1",
+      "uuid": "4029642e-0256-4b63-9670-d402b0a21608",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Bagaimana Anda akan menggunakan konsep \"Perbaikan\" seperti yang dijelaskan dalam pelajaran dalam praktik?",
+      "options": [
+        "Saya mengikuti langkah-langkah yang dijelaskan secara detail dalam pelajaran, menguji hasil, dan mendokumentasikan pengalaman saya",
+        "Saya hanya memahaminya secara teoritis",
+        "Saya tidak menerapkannya",
+        "Saya menunggu instruksi lebih lanjut"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day29",
+        "#id",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a2ddf6e5ec2a4427ee2",
+      "uuid": "4b735140-4262-4ebd-aa51-ce422c9724f9",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Bagaimana Anda akan menggunakan konsep \"Berkelanjutan\" seperti yang dijelaskan dalam pelajaran dalam praktik?",
+      "options": [
+        "Saya mengikuti langkah-langkah yang dijelaskan secara detail dalam pelajaran, menguji hasil, dan mendokumentasikan pengalaman saya",
+        "Saya hanya memahaminya secara teoritis",
+        "Saya tidak menerapkannya",
+        "Saya menunggu instruksi lebih lanjut"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day29",
+        "#id",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a2ddf6e5ec2a4427ee3",
+      "uuid": "1bf0e163-25a9-4352-97be-1f0088e059aa",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Bagaimana Anda akan menggunakan konsep \"Pembelajaran\" seperti yang dijelaskan dalam pelajaran dalam praktik?",
+      "options": [
+        "Saya mengikuti langkah-langkah yang dijelaskan secara detail dalam pelajaran, menguji hasil, dan mendokumentasikan pengalaman saya",
+        "Saya hanya memahaminya secara teoritis",
+        "Saya tidak menerapkannya",
+        "Saya menunggu instruksi lebih lanjut"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day29",
+        "#id",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a2ddf6e5ec2a4427ee4",
+      "uuid": "c8bac3f0-7c05-4993-81e1-05db1d5d8c14",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Seberapa penting Berkelanjutan dalam konteks Perbaikan Berkelanjutan: Pembelajaran, Umpan Balik, Iterasi seperti yang dibahas dalam pelajaran?",
+      "options": [
+        "Seperti yang dijelaskan secara detail dalam pelajaran, Berkelanjutan memainkan peran penting dalam mengoptimalkan proses dan mencapai tujuan",
+        "Hanya informasi periferal tanpa peran signifikan",
+        "Hanya konsep teoretis tanpa aplikasi praktis",
+        "Tidak disebutkan dalam pelajaran"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day29",
+        "#id",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a2ddf6e5ec2a4427ee5",
+      "uuid": "07850144-7f56-4c68-a7a5-d470e22841e9",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Seberapa penting Umpan dalam konteks Perbaikan Berkelanjutan: Pembelajaran, Umpan Balik, Iterasi seperti yang dibahas dalam pelajaran?",
+      "options": [
+        "Seperti yang dijelaskan secara detail dalam pelajaran, Umpan memainkan peran penting dalam mengoptimalkan proses dan mencapai tujuan",
+        "Hanya informasi periferal tanpa peran signifikan",
+        "Hanya konsep teoretis tanpa aplikasi praktis",
+        "Tidak disebutkan dalam pelajaran"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day29",
+        "#id",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a2ddf6e5ec2a4427ee6",
+      "uuid": "1d5fee1d-6eef-4918-b2f9-67bdcff13e1a",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Seberapa penting Iterasi dalam konteks Perbaikan Berkelanjutan: Pembelajaran, Umpan Balik, Iterasi seperti yang dibahas dalam pelajaran?",
+      "options": [
+        "Seperti yang dijelaskan secara detail dalam pelajaran, Iterasi memainkan peran penting dalam mengoptimalkan proses dan mencapai tujuan",
+        "Hanya informasi periferal tanpa peran signifikan",
+        "Hanya konsep teoretis tanpa aplikasi praktis",
+        "Tidak disebutkan dalam pelajaran"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day29",
+        "#id",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

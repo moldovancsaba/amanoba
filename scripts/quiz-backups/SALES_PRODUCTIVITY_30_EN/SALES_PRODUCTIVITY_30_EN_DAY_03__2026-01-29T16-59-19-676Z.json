@@ -1,0 +1,184 @@
+{
+  "backedUpAt": "2026-01-29T16:59:53.252Z",
+  "course": {
+    "courseId": "SALES_PRODUCTIVITY_30_EN",
+    "name": "Build Your Sales – 30 Days to More Deals",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 3,
+    "title": "Multi-Channel Lead Generation – Where Do You Find Customers?",
+    "lessonId": "SALES_PRODUCTIVITY_30_EN_DAY_03"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "6979db389316e77110ed0584",
+      "uuid": "c3cc3b02-ae7e-4a01-a95d-63a1daa5b5d9",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you apply the \"One channel = risk.\" concept to a \"Multi-Channel Lead Generation – Where Do You Find Customers?\" task so the outcome is measurable and verifiable?",
+      "options": [
+        "I create a checklist, apply it to a small scope first, measure the impact, then roll it out to the full scope",
+        "I keep it as a definition and never validate it in practice",
+        "I skip implementation because it seems time-consuming",
+        "I implement it but do not measure or document anything"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day3",
+        "#en",
+        "#all-languages",
+        "#course-sales_productivity_30_en",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "6979db389316e77110ed0585",
+      "uuid": "aae0e5b8-21ae-4ef9-8429-141591a14550",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you apply the \"Diversification:\" concept to a \"Multi-Channel Lead Generation – Where Do You Find Customers?\" task so the outcome is measurable and verifiable?",
+      "options": [
+        "I create a checklist, apply it to a small scope first, measure the impact, then roll it out to the full scope",
+        "I keep it as a definition and never validate it in practice",
+        "I skip implementation because it seems time-consuming",
+        "I implement it but do not measure or document anything"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day3",
+        "#en",
+        "#all-languages",
+        "#course-sales_productivity_30_en",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "6979db389316e77110ed0586",
+      "uuid": "cc8259e6-8dfc-4e22-bb31-fc05deec7fb4",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you apply the \"Cost efficiency:\" concept to a \"Multi-Channel Lead Generation – Where Do You Find Customers?\" task so the outcome is measurable and verifiable?",
+      "options": [
+        "I create a checklist, apply it to a small scope first, measure the impact, then roll it out to the full scope",
+        "I keep it as a definition and never validate it in practice",
+        "I skip implementation because it seems time-consuming",
+        "I implement it but do not measure or document anything"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day3",
+        "#en",
+        "#all-languages",
+        "#course-sales_productivity_30_en",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "6979db389316e77110ed0587",
+      "uuid": "60cb0c8d-f4fa-4c8e-a3b3-d6502eaa170b",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you apply the \"Scalability:\" concept to a \"Multi-Channel Lead Generation – Where Do You Find Customers?\" task so the outcome is measurable and verifiable?",
+      "options": [
+        "I create a checklist, apply it to a small scope first, measure the impact, then roll it out to the full scope",
+        "I keep it as a definition and never validate it in practice",
+        "I skip implementation because it seems time-consuming",
+        "I implement it but do not measure or document anything"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day3",
+        "#en",
+        "#all-languages",
+        "#course-sales_productivity_30_en",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "6979db389316e77110ed0588",
+      "uuid": "347029c9-867c-488f-8ae8-bd2553635de0",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you apply the \"Cold Outreach\" concept to a \"Multi-Channel Lead Generation – Where Do You Find Customers?\" task so the outcome is measurable and verifiable?",
+      "options": [
+        "I create a checklist, apply it to a small scope first, measure the impact, then roll it out to the full scope",
+        "I keep it as a definition and never validate it in practice",
+        "I skip implementation because it seems time-consuming",
+        "I implement it but do not measure or document anything"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day3",
+        "#en",
+        "#all-languages",
+        "#course-sales_productivity_30_en",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "6979db389316e77110ed0589",
+      "uuid": "e1168f35-2d33-489b-a425-c5a97926e747",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you apply the \"CRM/Referral\" concept to a \"Multi-Channel Lead Generation – Where Do You Find Customers?\" task so the outcome is measurable and verifiable?",
+      "options": [
+        "I create a checklist, apply it to a small scope first, measure the impact, then roll it out to the full scope",
+        "I keep it as a definition and never validate it in practice",
+        "I skip implementation because it seems time-consuming",
+        "I implement it but do not measure or document anything"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day3",
+        "#en",
+        "#all-languages",
+        "#course-sales_productivity_30_en",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "6979db389316e77110ed058a",
+      "uuid": "739aa467-b966-41c8-b021-2c9f8c19fb50",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you apply the \"Email Marketing (eDM)\" concept to a \"Multi-Channel Lead Generation – Where Do You Find Customers?\" task so the outcome is measurable and verifiable?",
+      "options": [
+        "I create a checklist, apply it to a small scope first, measure the impact, then roll it out to the full scope",
+        "I keep it as a definition and never validate it in practice",
+        "I skip implementation because it seems time-consuming",
+        "I implement it but do not measure or document anything"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day3",
+        "#en",
+        "#all-languages",
+        "#course-sales_productivity_30_en",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#application"
+      ]
+    }
+  ]
+}

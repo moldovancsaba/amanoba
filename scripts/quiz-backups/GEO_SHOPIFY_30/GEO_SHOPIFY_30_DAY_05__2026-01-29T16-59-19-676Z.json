@@ -1,0 +1,81 @@
+{
+  "backedUpAt": "2026-01-29T17:00:10.303Z",
+  "course": {
+    "courseId": "GEO_SHOPIFY_30",
+    "name": "GEO Shopify – 30 napos kurzus",
+    "language": "hu"
+  },
+  "lesson": {
+    "dayNumber": 5,
+    "title": "Platform térkép: ChatGPT, Copilot, Google AI",
+    "lessonId": "GEO_SHOPIFY_30_DAY_05"
+  },
+  "questionCount": 5,
+  "questions": [
+    {
+      "_id": "697b1ff8de117f992bb9be20",
+      "difficulty": "EASY",
+      "question": "Miért fontos ismerni a platform korlátokat (ChatGPT/Copilot/Google AI)?",
+      "options": [
+        "Eltérő programok, régiós szabályok, adat/policy elvárások",
+        "Nincs különbség, mindegyik ugyanaz",
+        "Csak a design számít",
+        "Csak a backlinkek számítanak"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b1ff8de117f992bb9be21",
+      "difficulty": "MEDIUM",
+      "question": "Mit tegyél egy 1 oldalas platform összefoglalóba?",
+      "options": [
+        "Követelmények, korlátok, teendők (adat/policy/URL) platformonként",
+        "Csak árlistát",
+        "Csak logókat",
+        "Csak SEO kulcsszavakat"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b1ff8de117f992bb9be22",
+      "difficulty": "MEDIUM",
+      "question": "Mi a jó teendő egy kiválasztott platformra?",
+      "options": [
+        "Konkrét feladat: pl. GTIN ellenőrzés, policy blokk frissítés, answer capsule",
+        "Csak általános „dolgozz rajta”",
+        "Semmi konkrét",
+        "Csak page speed mérés"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b1ff8de117f992bb9be23",
+      "difficulty": "HARD",
+      "question": "Mi a jó gyakorlat adatkonzisztenciára?",
+      "options": [
+        "Egységes ár/készlet/policy minden platformon",
+        "Mindenhol más ár",
+        "Policy elrejtése",
+        "Duplikált feed"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b1ff8de117f992bb9be24",
+      "difficulty": "MEDIUM",
+      "question": "Miért kell tudni, hol jelenhetsz meg?",
+      "options": [
+        "Hogy célzottan javítsd az adat/policy megfelelést",
+        "Csak érdekesség",
+        "Nem fontos",
+        "Csak design miatt"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    }
+  ]
+}

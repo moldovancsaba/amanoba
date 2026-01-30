@@ -1,0 +1,10 @@
+{
+  "backedUpAt": "2026-01-28T22:55:28.885Z",
+  "courseId": "AI_30_DAY_EN",
+  "lessonId": "AI_30_DAY_EN_DAY_24",
+  "dayNumber": 24,
+  "title": "Handling refusals and hallucinations",
+  "content": "<h1>Handling refusals and hallucinations</h1>\n<p><em>Add guardrails for safety and fallback answers</em></p>\n<hr />\n<h2>Learning goal</h2>\n<ul>\n<li>Write prompts that allow “I don’t know” and cite uncertainty.</li>\n<li>Add checks for risky content.</li>\n</ul>\n<hr />\n<h2>Why it matters</h2>\n<ul>\n<li>Refusals are safer than confident errors.</li>\n<li>Uncertainty flags guide human QA.</li>\n</ul>\n<hr />\n<h2>Explanation</h2>\n<ul>\n<li>Include: “If unsure, say ‘Not sure, need X data’.”</li>\n<li>Forbid: “Do not fabricate data or sources.”</li>\n<li>Ask for an “uncertainty” line in outputs.</li>\n</ul>\n<hr />\n<h2>Examples</h2>\n<ul>\n<li><strong>Prompt</strong>: “Answer in 3 bullets; if unknown, state unknown and what data is needed; do not invent.”</li>\n<li><strong>Weak</strong>: “Answer everything confidently.”</li>\n<hr />\n<h2>Guided exercise (10–15 min)</h2>\n<ol>\n<li>Take a factual prompt; add refusal/uncertainty clauses.</li>\n<li>Generate output; confirm it flags unknowns.</li>\n</ol>\n<h2>Independent exercise (5–10 min)</h2>\n<p>Add a short “risk check” line to your QA checklist.</p>\n<hr />\n<h2>Self-check</h2>\n<ul>\n<li>Prompt allows “unknown”.</li>\n<li>No fabricated data.</li>\n<li>Uncertainty/risk noted.</li>\n</ul>\n<hr />\n<h2>Optional deepening</h2>\n<ul>\n<li>Safety prompts: <a href=\"https://platform.openai.com/docs/guides/safety-best-practices\" target=\"_blank\" rel=\"noreferrer\">https://platform.openai.com/docs/guides/safety-best-practices</a></li>\n</ul>",
+  "emailSubject": "AI 30-Day – Day 24: Refusals & safety",
+  "emailBody": "<h1>AI 30-Day – Day 24</h1>\n<h2>Refusals & safety</h2>\n<p>Today you’ll add uncertainty/“don’t know” handling and forbid fabrication.</p>\n<p><a href=\"http://localhost:3000/courses/AI_30_DAY_EN/day/{{dayNumber}}\">Open the lesson →</a></p>"
+}

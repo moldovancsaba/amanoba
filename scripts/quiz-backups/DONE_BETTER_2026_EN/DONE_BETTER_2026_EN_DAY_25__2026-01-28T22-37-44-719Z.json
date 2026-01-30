@@ -1,0 +1,114 @@
+{
+  "backedUpAt": "2026-01-28T22:37:48.711Z",
+  "course": {
+    "courseId": "DONE_BETTER_2026_EN",
+    "name": "Done is better - Build What Matters",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 25,
+    "title": "From Client to Partner",
+    "lessonId": "DONE_BETTER_2026_EN_DAY_25"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "697a87bda81588c9f41a22c8",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "A client expects a delivery date you are not sure you can meet. What should you do?",
+      "options": [
+        "Share the constraint or trade-off you have not mentioned; propose how you will handle it together",
+        "Promise the date",
+        "Stay vague",
+        "Blame internal factors only"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87bda81588c9f41a22c9",
+      "questionType": "application",
+      "difficulty": "EASY",
+      "question": "In this framework, how is \"from client to partner\" defined?",
+      "options": [
+        "Share constraints, timelines, and trade-offs; invite them into the problem, not just the deliverable",
+        "Give the client everything they ask for without pushback",
+        "Treat the client as the enemy to manage",
+        "Only share deliverables and hide constraints"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87bda81588c9f41a22ca",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How do you build trust through transparency with a client?",
+      "options": [
+        "Share one constraint or trade-off you have not mentioned; propose how you will handle it together",
+        "Hide problems",
+        "Overpromise",
+        "Only report status"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87bda81588c9f41a22cb",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Hiding problems to preserve the relationship short-term can lead to:",
+      "options": [
+        "Surprises later and broken trust when the problem surfaces",
+        "Stronger relationship",
+        "Faster delivery",
+        "No meaningful effect on outcomes"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87bda81588c9f41a22cc",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Treating the client as someone to please rather than to align with tends to:",
+      "options": [
+        "Overpromising and underdelivering; no real partnership",
+        "Better satisfaction",
+        "Faster decisions",
+        "No significant downside in practice"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87bda81588c9f41a22cd",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "What should you share with a client or partner?",
+      "options": [
+        "Constraints, timelines, trade-offs, and unknowns so they can align",
+        "Only good news",
+        "Only the deliverable",
+        "Only when asked"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87bda81588c9f41a22ce",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "What is the next step with one client or partner?",
+      "options": [
+        "Share one constraint or trade-off you have not mentioned before; propose how you will handle it together",
+        "Wait for them to ask",
+        "Send a generic update",
+        "Schedule more meetings"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    }
+  ]
+}

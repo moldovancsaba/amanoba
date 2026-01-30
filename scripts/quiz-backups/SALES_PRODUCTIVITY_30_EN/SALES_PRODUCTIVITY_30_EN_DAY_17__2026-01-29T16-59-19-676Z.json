@@ -1,0 +1,184 @@
+{
+  "backedUpAt": "2026-01-29T16:59:55.907Z",
+  "course": {
+    "courseId": "SALES_PRODUCTIVITY_30_EN",
+    "name": "Build Your Sales – 30 Days to More Deals",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 17,
+    "title": "Handoff & Onboarding – Deliver What You Sold",
+    "lessonId": "SALES_PRODUCTIVITY_30_EN_DAY_17"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "697a6fa25f71efbe655b931e",
+      "uuid": "42dce0be-ddb9-4a1c-8f3d-868269ca3da4",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you apply the \"Handoff\" concept to a \"Handoff & Onboarding – Deliver What You Sold\" task so the outcome is measurable and verifiable?",
+      "options": [
+        "I create a checklist, apply it to a small scope first, measure the impact, then roll it out to the full scope",
+        "I keep it as a definition and never validate it in practice",
+        "I skip implementation because it seems time-consuming",
+        "I implement it but do not measure or document anything"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day17",
+        "#en",
+        "#all-languages",
+        "#course-sales_productivity_30_en",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "697a6fa25f71efbe655b931f",
+      "uuid": "9decf004-4f18-4673-b8e6-5e028a6acf83",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you apply the \"Onboarding\" concept to a \"Handoff & Onboarding – Deliver What You Sold\" task so the outcome is measurable and verifiable?",
+      "options": [
+        "I create a checklist, apply it to a small scope first, measure the impact, then roll it out to the full scope",
+        "I keep it as a definition and never validate it in practice",
+        "I skip implementation because it seems time-consuming",
+        "I implement it but do not measure or document anything"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day17",
+        "#en",
+        "#all-languages",
+        "#course-sales_productivity_30_en",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "697a6fa25f71efbe655b9320",
+      "uuid": "742983c9-6308-41c0-8b25-8da3ebb028d9",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you apply the \"Deliver\" concept to a \"Handoff & Onboarding – Deliver What You Sold\" task so the outcome is measurable and verifiable?",
+      "options": [
+        "I create a checklist, apply it to a small scope first, measure the impact, then roll it out to the full scope",
+        "I keep it as a definition and never validate it in practice",
+        "I skip implementation because it seems time-consuming",
+        "I implement it but do not measure or document anything"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day17",
+        "#en",
+        "#all-languages",
+        "#course-sales_productivity_30_en",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "697a6fa25f71efbe655b9321",
+      "uuid": "9b6b7ca6-2408-4838-b3a6-f9e1af0b3930",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you apply the \"What\" concept to a \"Handoff & Onboarding – Deliver What You Sold\" task so the outcome is measurable and verifiable?",
+      "options": [
+        "I create a checklist, apply it to a small scope first, measure the impact, then roll it out to the full scope",
+        "I keep it as a definition and never validate it in practice",
+        "I skip implementation because it seems time-consuming",
+        "I implement it but do not measure or document anything"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day17",
+        "#en",
+        "#all-languages",
+        "#course-sales_productivity_30_en",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "697a6fa25f71efbe655b9322",
+      "uuid": "a4a9c400-f564-4533-8a57-77ad84acc02c",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you apply the \"Sold\" concept to a \"Handoff & Onboarding – Deliver What You Sold\" task so the outcome is measurable and verifiable?",
+      "options": [
+        "I create a checklist, apply it to a small scope first, measure the impact, then roll it out to the full scope",
+        "I keep it as a definition and never validate it in practice",
+        "I skip implementation because it seems time-consuming",
+        "I implement it but do not measure or document anything"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day17",
+        "#en",
+        "#all-languages",
+        "#course-sales_productivity_30_en",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "697a6fa25f71efbe655b9323",
+      "uuid": "90958e53-df4b-4a91-8065-c190e855e6ad",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you apply the \"Learning goal\" concept to a \"Handoff & Onboarding – Deliver What You Sold\" task so the outcome is measurable and verifiable?",
+      "options": [
+        "I create a checklist, apply it to a small scope first, measure the impact, then roll it out to the full scope",
+        "I keep it as a definition and never validate it in practice",
+        "I skip implementation because it seems time-consuming",
+        "I implement it but do not measure or document anything"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day17",
+        "#en",
+        "#all-languages",
+        "#course-sales_productivity_30_en",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "697a6fa25f71efbe655b9324",
+      "uuid": "1f056a0a-084b-4991-a41e-a7be0794e95f",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you apply the \"Why it matters\" concept to a \"Handoff & Onboarding – Deliver What You Sold\" task so the outcome is measurable and verifiable?",
+      "options": [
+        "I create a checklist, apply it to a small scope first, measure the impact, then roll it out to the full scope",
+        "I keep it as a definition and never validate it in practice",
+        "I skip implementation because it seems time-consuming",
+        "I implement it but do not measure or document anything"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day17",
+        "#en",
+        "#all-languages",
+        "#course-sales_productivity_30_en",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#application"
+      ]
+    }
+  ]
+}

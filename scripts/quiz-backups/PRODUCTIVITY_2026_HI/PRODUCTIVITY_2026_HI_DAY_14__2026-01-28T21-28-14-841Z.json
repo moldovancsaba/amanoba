@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-28T21:28:25.987Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_HI",
+    "name": "उत्पादकता 2026: टीमों और समय का प्रबंधन कैसे करें",
+    "language": "hi"
+  },
+  "lesson": {
+    "dayNumber": 14,
+    "title": "बैठक दक्षता: एजेंडा, समय सीमा, निर्णय लॉग",
+    "lessonId": "PRODUCTIVITY_2026_HI_DAY_14"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a68206e4784b9a0c145",
+      "uuid": "8a17e5b0-63ff-4c48-a6dc-57476f281e4a",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"अधिकतम दक्षता के लिए बैठकों को डिज़ाइन और चलाएं।\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day14",
+        "#hi",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a68206e4784b9a0c146",
+      "uuid": "13002f09-613a-41bf-90a8-195a2e7501cc",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"अधिकतम दक्षता के लिए बैठकों को डिज़ाइन और चलाएं।\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day14",
+        "#hi",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a68206e4784b9a0c147",
+      "uuid": "bf1a3cc2-7c79-45b2-8200-81ea014c09a5",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"अधिकतम दक्षता के लिए बैठकों को डिज़ाइन और चलाएं।\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day14",
+        "#hi",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a68206e4784b9a0c148",
+      "uuid": "7f764c5d-aef0-4a56-8b03-d9aa0eb890e0",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "पाठ में उल्लिखित अवधारणा \"बैठक दक्षता: एजेंडा, समय सीमा, निर्णय लॉग अधिकतम द...\" आपके goals प्राप्त करने को कैसे प्रभावित करती है?",
+      "options": [
+        "जैसा कि पाठ में विस्तार से वर्णित है, बैठक दक्षता: एजेंडा, समय सीमा,... प्रभावशीलता बढ़ाता है और जोखिम कम करता है",
+        "कोई महत्वपूर्ण प्रभाव नहीं",
+        "केवल सैद्धांतिक रूप से मायने रखता है",
+        "केवल एक वैकल्पिक तत्व"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day14",
+        "#hi",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a68206e4784b9a0c149",
+      "uuid": "85be6af6-2021-416e-9d71-47ac53f1b3d9",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "पाठ में चर्चा किए गए बैठक दक्षता: एजेंडा, समय सीमा, निर्णय लॉग के संदर्भ में बैठक कितना महत्वपूर्ण है?",
+      "options": [
+        "जैसा कि पाठ में विस्तार से वर्णित है, बैठक प्रक्रियाओं को अनुकूलित करने और लक्ष्यों को प्राप्त करने में महत्वपूर्ण भूमिका निभाता है",
+        "केवल परिधीय जानकारी, कोई महत्वपूर्ण भूमिका नहीं",
+        "केवल एक सैद्धांतिक अवधारणा, कोई व्यावहारिक अनुप्रयोग नहीं",
+        "पाठ में उल्लेख नहीं किया गया"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day14",
+        "#hi",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a68206e4784b9a0c14a",
+      "uuid": "29dd5ced-5eac-43da-8766-c9be88d5c7c9",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "पाठ में चर्चा किए गए बैठक दक्षता: एजेंडा, समय सीमा, निर्णय लॉग के संदर्भ में एजेंडा कितना महत्वपूर्ण है?",
+      "options": [
+        "जैसा कि पाठ में विस्तार से वर्णित है, एजेंडा प्रक्रियाओं को अनुकूलित करने और लक्ष्यों को प्राप्त करने में महत्वपूर्ण भूमिका निभाता है",
+        "केवल परिधीय जानकारी, कोई महत्वपूर्ण भूमिका नहीं",
+        "केवल एक सैद्धांतिक अवधारणा, कोई व्यावहारिक अनुप्रयोग नहीं",
+        "पाठ में उल्लेख नहीं किया गया"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day14",
+        "#hi",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a68206e4784b9a0c14b",
+      "uuid": "28f4f4c6-c25b-4f71-975a-e627caccb562",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "पाठ में चर्चा किए गए बैठक दक्षता: एजेंडा, समय सीमा, निर्णय लॉग के संदर्भ में निर्णय कितना महत्वपूर्ण है?",
+      "options": [
+        "जैसा कि पाठ में विस्तार से वर्णित है, निर्णय प्रक्रियाओं को अनुकूलित करने और लक्ष्यों को प्राप्त करने में महत्वपूर्ण भूमिका निभाता है",
+        "केवल परिधीय जानकारी, कोई महत्वपूर्ण भूमिका नहीं",
+        "केवल एक सैद्धांतिक अवधारणा, कोई व्यावहारिक अनुप्रयोग नहीं",
+        "पाठ में उल्लेख नहीं किया गया"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day14",
+        "#hi",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

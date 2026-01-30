@@ -1,0 +1,114 @@
+{
+  "backedUpAt": "2026-01-28T22:58:15.070Z",
+  "course": {
+    "courseId": "DONE_BETTER_2026_EN",
+    "name": "Done is better - Build What Matters",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 13,
+    "title": "Multiple Paths Thinking",
+    "lessonId": "DONE_BETTER_2026_EN_DAY_13"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "697a92f522596d24dfc12cf9",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "You have one plan for an important goal. What should you do?",
+      "options": [
+        "Generate at least two more paths; assess risk and cost; choose one to run and one as backup",
+        "Commit fully to the one plan without considering alternatives or risks",
+        "Abandon the goal because having only one plan is too risky",
+        "Wait until the plan fails before developing alternatives"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a92f522596d24dfc12cfa",
+      "questionType": "application",
+      "difficulty": "EASY",
+      "question": "A startup has one plan to reach profitability: increase prices by 20%. After two months, customer churn spikes. What is the problem with having only one plan?",
+      "options": [
+        "Single point of failure; when evidence changes you have no alternative path",
+        "One plan is easier to communicate but less robust in practice",
+        "Backup plans reduce commitment to the primary plan unnecessarily",
+        "It is not a problem in most business situations"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a92f522596d24dfc12cfb",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "A company is launching a critical product feature. The team has one plan. How many alternative paths should they develop?",
+      "options": [
+        "At least three paths; choose one to execute, keep one backup, park the third",
+        "Exactly one path to maintain focus and avoid confusion",
+        "As many as the team can imagine without filtering or evaluation",
+        "One per stakeholder to ensure buy-in from all parties"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a92f522596d24dfc12cfc",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Betting everything on one plan is risky because:",
+      "options": [
+        "When the plan fails or evidence contradicts, you have no pivot path",
+        "Plans always succeed without needing alternatives",
+        "Backup plans are expensive and unnecessary",
+        "It is not risky in most business contexts"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a92f522596d24dfc12cfd",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Treating backup plans as \"lack of commitment\" can lead to:",
+      "options": [
+        "Avoiding alternatives and then having no option when the main plan fails",
+        "Stronger execution",
+        "Faster decisions",
+        "Better morale"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a92f522596d24dfc12cfe",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "When should you revisit your chosen path and backup?",
+      "options": [
+        "When you have new evidence (e.g. a test result or market signal)",
+        "Only at quarterly reviews",
+        "Never; stick to the choice",
+        "When someone complains"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a92f522596d24dfc12cff",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "For each path you list, what should you assess?",
+      "options": [
+        "Main risk and cost; then choose one to run first and one as backup",
+        "Only cost and not risk or timeline",
+        "Only timeline and not risk or cost",
+        "Only who will do it and not criteria"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    }
+  ]
+}

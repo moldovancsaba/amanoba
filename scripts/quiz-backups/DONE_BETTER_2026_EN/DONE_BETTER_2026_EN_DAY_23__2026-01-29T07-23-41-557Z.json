@@ -1,0 +1,130 @@
+{
+  "backedUpAt": "2026-01-29T07:23:45.042Z",
+  "course": {
+    "courseId": "DONE_BETTER_2026_EN",
+    "name": "Done is better - Build What Matters",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 23,
+    "title": "No Surprises Culture",
+    "lessonId": "DONE_BETTER_2026_EN_DAY_23"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "697a92f622596d24dfc12d67",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "A project is at risk but the stakeholder will find out only at the deadline. What is wrong?",
+      "options": [
+        "Surprises destroy trust; share status early: on track, at risk, or blocked",
+        "Nothing; avoid worrying them by keeping problems hidden until the end",
+        "They should have asked earlier if they wanted to know about problems",
+        "It is too late to do anything so there is no point in sharing status"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a92f622596d24dfc12d68",
+      "questionType": "application",
+      "difficulty": "EASY",
+      "question": "A project is behind schedule. Instead of waiting until the deadline, the team lead emails stakeholders: \"We are at risk. Here's why and here are three options to address it.\" What does this demonstrate?",
+      "options": [
+        "No surprises culture: sharing status early and surfacing bad news with options",
+        "Never sharing bad news with anyone to avoid worry or conflict",
+        "Only sharing good news and hiding risks or problems",
+        "Sharing everything daily regardless of relevance or impact"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a92f622596d24dfc12d69",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "A team member is blocked on a critical task. What should they do?",
+      "options": [
+        "Share status (at risk/blocked) and add one sentence on what you need or what you propose",
+        "Wait until you are unblocked before communicating anything to avoid bothering others",
+        "Blame others for the blockage without proposing solutions or alternatives",
+        "Work longer hours to try to overcome the blockage yourself without asking for help"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a92f622596d24dfc12d6c",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "A stakeholder asks for a project update. What should you send as a minimum?",
+      "options": [
+        "A one-line status: on track / at risk / blocked; if at risk or blocked, add what you need or propose",
+        "A full report with all details regardless of relevance or urgency",
+        "Nothing until the end when the project is complete or has failed",
+        "Only good news to avoid worrying stakeholders with problems or risks"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a92f622596d24dfc12d6d",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Why escalate bad news with a proposed fix?",
+      "options": [
+        "So the recipient can act or align; options reduce anxiety and build trust",
+        "To shift blame to others and avoid responsibility for the problem",
+        "To look competent by having solutions ready even if they are not good",
+        "It is optional and not necessary for effective communication"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a9487379957dcc63a9517",
+      "uuid": "117622f8-9d74-42dd-87e2-51941fb74989",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you apply the \"Trust is built before problems appear.\" concept to a \"No Surprises Culture\" task so the outcome is measurable and verifiable?",
+      "options": [
+        "I create a checklist, apply it to a small scope first, measure the impact, then roll it out to the full scope",
+        "I keep it as a definition and never validate it in practice",
+        "I skip implementation because it seems time-consuming",
+        "I implement it but do not measure or document anything"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day23",
+        "#en",
+        "#all-languages",
+        "#course-done_better_2026_en",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "697a9487379957dcc63a9518",
+      "uuid": "75b8d10b-3bfb-407d-9e9f-aa96bec566c9",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you apply the \"Surprises\" concept to a \"No Surprises Culture\" task so the outcome is measurable and verifiable?",
+      "options": [
+        "I create a checklist, apply it to a small scope first, measure the impact, then roll it out to the full scope",
+        "I keep it as a definition and never validate it in practice",
+        "I skip implementation because it seems time-consuming",
+        "I implement it but do not measure or document anything"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day23",
+        "#en",
+        "#all-languages",
+        "#course-done_better_2026_en",
+        "#intermediate",
+        "#application"
+      ]
+    }
+  ]
+}

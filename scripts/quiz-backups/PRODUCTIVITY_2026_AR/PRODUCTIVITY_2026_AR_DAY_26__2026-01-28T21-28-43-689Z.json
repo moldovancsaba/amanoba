@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-28T21:29:01.943Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_AR",
+    "name": "الإنتاجية 2026: كيفية إدارة الفرق والوقت",
+    "language": "ar"
+  },
+  "lesson": {
+    "dayNumber": 26,
+    "title": "الإرشاد والتدريس: مشاركة المعرفة والمساعدة للآخرين",
+    "lessonId": "PRODUCTIVITY_2026_AR_DAY_26"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a633ed20b35fb79735a",
+      "uuid": "49e167bb-9bc9-4876-bb9f-ef01b23fc605",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"تعليم الآخرين يسرع من تعلمك الخاص.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day26",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a633ed20b35fb79735b",
+      "uuid": "7842bb58-1842-4701-9f96-b4be1abad9cb",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"تعليم الآخرين يسرع من تعلمك الخاص.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day26",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a633ed20b35fb79735c",
+      "uuid": "5c352706-cf81-4cd0-bb6b-bcb6ae098068",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"تعليم الآخرين يسرع من تعلمك الخاص.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day26",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a633ed20b35fb79735d",
+      "uuid": "20c3986b-9cd8-4d92-93bd-95bbc3aaa9db",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "How does the concept \"الإرشاد والتدريس: مشاركة المعرفة والمساعدة للآخرين...\" mentioned in the lesson impact achieving your goals?",
+      "options": [
+        "As described in detail in the lesson, الإرشاد والتدريس: مشاركة المعر... increases effectiveness and reduces risk",
+        "No significant impact",
+        "Only matters theoretically",
+        "Only an optional element"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day26",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a633ed20b35fb79735e",
+      "uuid": "23f73487-d215-4ac4-a8ce-3eae4eba64bf",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is الإرشاد in the context of الإرشاد والتدريس: مشاركة المعرفة والمساعدة للآخرين as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, الإرشاد plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day26",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a633ed20b35fb79735f",
+      "uuid": "2e10c9f2-60d3-4e20-befb-dc35b24ac78f",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is مشاركة in the context of الإرشاد والتدريس: مشاركة المعرفة والمساعدة للآخرين as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, مشاركة plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day26",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a633ed20b35fb797360",
+      "uuid": "6ad0093b-5056-4a79-a528-582912624cb0",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is والمساعدة in the context of الإرشاد والتدريس: مشاركة المعرفة والمساعدة للآخرين as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, والمساعدة plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day26",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

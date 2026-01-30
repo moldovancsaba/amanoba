@@ -169,6 +169,53 @@ function procedureNameTr(id: string, fallback: string) {
 
 function translateProcedureStepTr(step: string) {
   const s = String(step || '').trim();
+  const exact: Record<string, string> = {
+    // P1_PERSONAL_PRODUCTIVITY_DEFINITION
+    'List your recurring outputs (activities).': 'Tekrarlanan çıktılarınızı (faaliyetlerinizi) listeleyin.',
+    'Convert each output into a desired outcome (result).': 'Her çıktıyı istenen bir sonuca (outcome) dönüştürün.',
+    'List your constraints (time, energy, attention, resources).': 'Kısıtlarınızı (zaman, enerji, dikkat, kaynak) listeleyin.',
+    'Write a 2–3 sentence definition of productivity for yourself using outcome/constraints.':
+      'Outcome/kısıtlar üzerinden kendiniz için 2–3 cümlelik bir verimlilik tanımı yazın.',
+    'Pick one improvement lever for the week (reduce constraint waste or increase outcome quality).':
+      'Hafta için tek bir iyileştirme kaldıraçı seçin (kısıt israfını azaltın veya outcome kalitesini artırın).',
+
+    // P2_WEEKLY_REVIEW_THROUGHPUT_FOCUS_CARRYOVER
+    'Count throughput: completed important outcomes.': 'Throughput’u sayın: tamamlanan önemli sonuçlar (outcome).',
+    'Count focus blocks: uninterrupted deep work blocks completed.': 'Odak bloklarını sayın: kesintisiz tamamlanan derin çalışma blokları.',
+    'Count carryover: tasks rolled from last week.': 'Carryover’ı sayın: geçen haftadan devreden görevler.',
+    'Write 2 insights: what worked / what broke.': '2 içgörü yazın: ne işe yaradı / ne bozuldu.',
+    'Make 1 rule change for next week and schedule it.': 'Gelecek hafta için 1 kural değişikliği seçin ve takvime ekleyin.',
+
+    // P3_DEEP_WORK_DAY_DESIGN
+    'Audit your context switches for one day.': 'Bir gün boyunca bağlam (context) değişimlerinizi inceleyin.',
+    'Batch similar tasks into fixed windows (e.g., email twice daily).':
+      'Benzer işleri sabit zaman pencerelerine toplayın (örn. e-postaya günde iki kez bakmak).',
+    'Schedule 1–3 deep work blocks (90–120 min) with explicit rules.':
+      'Açık kurallarla 1–3 derin çalışma bloğu (90–120 dk) planlayın.',
+    'Add buffer time and defend it from meetings/messages.': 'Tampon (buffer) zaman ekleyin ve toplantı/mesajlardan koruyun.',
+    'Track adherence for one week and adjust.': 'Bir hafta boyunca uyumu takip edin ve ayarlayın.',
+
+    // P4_TASK_AUDIT_DELEGATE_ELIMINATE
+    'List all tasks performed in a week.': 'Bir haftada yaptığınız tüm görevleri listeleyin.',
+    'Mark low-value tasks (time cost, low outcome).': 'Düşük değerli görevleri işaretleyin (zaman maliyeti yüksek, outcome düşük).',
+    'For each low-value task: decide delegate vs eliminate vs keep.':
+      'Her düşük değerli görev için karar verin: delege et / ele (kaldır) / bırak.',
+    'Write delegation briefs (expected output, due date, success criteria, check-ins).':
+      'Delege etme brifleri yazın (beklenen çıktı, teslim tarihi, başarı kriteri, kontrol noktaları).',
+    'Execute: eliminate 1 and delegate 1 this week; review impact.':
+      'Uygulayın: bu hafta 1 işi kaldırın ve 1 işi delege edin; etkisini gözden geçirin.',
+
+    // P5_DECISION_MATRIX_AND_CATEGORIES
+    'Define decision category (small/medium/large) based on reversibility and impact.':
+      'Geri döndürülebilirlik ve etkiye göre karar kategorisini tanımlayın (küçük/orta/büyük).',
+    'For medium/large: list options and criteria; weight criteria; score options.':
+      'Orta/büyük kararlar için: seçenekleri ve kriterleri listeleyin; kriterleri ağırlıklandırın; seçenekleri puanlayın.',
+    'Set an information boundary (time limit / minimum data).': 'Bir bilgi sınırı belirleyin (zaman limiti / minimum veri).',
+    'Make the 80% decision and implement.': '%80 kararını verin ve uygulayın.',
+    'Review outcomes and update your decision rules.': 'Sonuçları gözden geçirin ve karar kurallarınızı güncelleyin.',
+  };
+  if (exact[s]) return exact[s];
+
   const map: Array<[RegExp, string]> = [
     [/^Count throughput:/i, 'Throughput’u say:'],
     [/^Count focus blocks:/i, 'Odak bloklarını say:'],
@@ -370,8 +417,15 @@ async function main() {
     const oldContent = String(lesson.content || '');
     const oldTitle = String(lesson.title || '');
     const oldScore = assessLessonQuality({ title: oldTitle, content: oldContent, language: 'tr' });
+    const oldIntegrity = validateLessonRecordLanguageIntegrity({
+      language: 'tr',
+      content: oldContent,
+      emailSubject: lesson.emailSubject || null,
+      emailBody: lesson.emailBody || null,
+    });
     const oldText = stripHtml(oldContent);
     const forceRefineForLanguage =
+      !oldIntegrity.ok ||
       // CCS English leakage indicators (we previously inserted CCS intent/goals verbatim).
       /\b(Replace|Distinguish|Identify|Write|Establish)\b/.test(oldText) ||
       /“busy work”/i.test(oldText);

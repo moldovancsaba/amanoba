@@ -1,0 +1,10 @@
+{
+  "backedUpAt": "2026-01-28T22:37:36.458Z",
+  "courseId": "DONE_BETTER_2026_EN",
+  "lessonId": "DONE_BETTER_2026_EN_DAY_22",
+  "dayNumber": 22,
+  "title": "Truth Is a Tool",
+  "content": "<h1>Truth Is a Tool</h1>\n<p><em>Accuracy beats politeness.</em></p>\n<hr />\n<h2>Learning goal</h2>\n<ul>\n<li>State facts and assessments clearly.</li>\n<li>Separate truth from tone (you can be direct and respectful).</li>\n<li>Use truth to fix problems, not to blame.</li>\n</ul>\n<hr />\n<h2>Why it matters</h2>\n<ul>\n<li>Softening the message often hides the fix.</li>\n<li>Accuracy enables correction.</li>\n<li>Truth is a tool, not a weapon.</li>\n</ul>\n<hr />\n<h2>Key idea</h2>\n<p>Truth as a tool means using accuracy and candor as operating principles. Accuracy beats politeness in the long run. Be direct and respectful; use truth to fix, not to blame.</p>\n<hr />\n<h2>Common mistakes</h2>\n<ul>\n<li>Softening the message until it is unclear.</li>\n<li>Using truth as a weapon rather than a tool.</li>\n<li>Avoiding hard truths to keep peace short-term.</li>\n</ul>\n<hr />\n<h2>Today's move</h2>\n<p>Identify one message you have been softening. Rewrite it in one sentence: clear, accurate, and respectful. Deliver it.</p>\n<hr />\n<h2>Self-check</h2>\n<ul>\n<li>You can explain the key idea in one sentence.</li>\n<li>You have one concrete move to do today.</li>\n</ul>",
+  "emailSubject": "Done is better – Day {{dayNumber}}: {{lessonTitle}}",
+  "emailBody": "<h1>Done is better - Build What Matters</h1><h2>Day {{dayNumber}}: {{lessonTitle}}</h2><p>{{lessonContent}}</p><p><a href=\"http://localhost:3000/courses/DONE_BETTER_2026_EN/day/{{dayNumber}}\">Open the lesson →</a></p>"
+}

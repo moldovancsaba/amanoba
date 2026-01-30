@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-28T22:42:11.992Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_ID",
+    "name": "Produktivitas 2026: Cara Mengelola Tim dan Waktu",
+    "language": "id"
+  },
+  "lesson": {
+    "dayNumber": 7,
+    "title": "Sistem harian/mingguan: ritual pagi, huddle harian, tinjauan mingguan",
+    "lessonId": "PRODUCTIVITY_2026_ID_DAY_07"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a2bdf6e5ec2a4427def",
+      "uuid": "2b1a3ad1-66e4-4e83-8446-66804b756b03",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ Anda memiliki ritual pagi 15 menit.\n✅ ...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day7",
+        "#id",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a2bdf6e5ec2a4427df0",
+      "uuid": "c21d3715-76b7-4bd7-91eb-ba0a8453f794",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ Anda memiliki ritual pagi 15 menit.\n✅ ...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day7",
+        "#id",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a2bdf6e5ec2a4427df1",
+      "uuid": "12b20b4b-f19b-45e7-bd59-edccf31343b3",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ Anda memiliki ritual pagi 15 menit.\n✅ ...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day7",
+        "#id",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a2bdf6e5ec2a4427df2",
+      "uuid": "c0043ba0-5280-4be5-bdb0-1e2abaab35e3",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Bagaimana konsep \"Sistem harian/mingguan: ritual pagi, huddle harian...\" yang disebutkan dalam pelajaran mempengaruhi pencapaian goals Anda?",
+      "options": [
+        "Seperti yang dijelaskan secara detail dalam pelajaran, Sistem harian/mingguan: ritual... meningkatkan efektivitas dan mengurangi risiko",
+        "Tidak ada dampak signifikan",
+        "Hanya penting secara teoritis",
+        "Hanya elemen opsional"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day7",
+        "#id",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a2bdf6e5ec2a4427df3",
+      "uuid": "6700af6d-e57b-439e-876c-3b46d56d7ef5",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Seberapa penting Ritual pagi dalam konteks Sistem harian/mingguan: ritual pagi, huddle harian, tinjauan mingguan seperti yang dibahas dalam pelajaran?",
+      "options": [
+        "Seperti yang dijelaskan secara detail dalam pelajaran, Ritual pagi memainkan peran penting dalam mengoptimalkan proses dan mencapai tujuan",
+        "Hanya informasi periferal tanpa peran signifikan",
+        "Hanya konsep teoretis tanpa aplikasi praktis",
+        "Tidak disebutkan dalam pelajaran"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day7",
+        "#id",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a2bdf6e5ec2a4427df4",
+      "uuid": "e177acec-d07a-40dd-a292-b1bd3c761417",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Apa peran Tinjauan mingguan dalam pelajaran \"Sistem harian/mingguan: ritual pagi, huddle harian, tinjauan mingguan\"?",
+      "options": [
+        "Seperti yang dijelaskan secara detail dalam pelajaran, Tinjauan mingguan memainkan peran penting dalam mengoptimalkan proses dan mencapai tujuan",
+        "Hanya informasi periferal tanpa peran signifikan",
+        "Hanya konsep teoretis tanpa aplikasi praktis",
+        "Tidak disebutkan dalam pelajaran"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day7",
+        "#id",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a2bdf6e5ec2a4427df5",
+      "uuid": "f027247b-98bd-4b33-ac7b-a7c66b8e80e0",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Apa peran 2. Perencanaan (8 menit) dalam pelajaran \"Sistem harian/mingguan: ritual pagi, huddle harian, tinjauan mingguan\"?",
+      "options": [
+        "Seperti yang dijelaskan secara detail dalam pelajaran, 2. Perencanaan (8 menit) memainkan peran penting dalam mengoptimalkan proses dan mencapai tujuan",
+        "Hanya informasi periferal tanpa peran signifikan",
+        "Hanya konsep teoretis tanpa aplikasi praktis",
+        "Tidak disebutkan dalam pelajaran"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day7",
+        "#id",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,68 @@
+{
+  "backedUpAt": "2026-01-29T17:00:20.517Z",
+  "course": {
+    "courseId": "B2B_SALES_2026_30",
+    "name": "B2B Értékesítés 2026 Masterclass",
+    "language": "hu"
+  },
+  "lesson": {
+    "dayNumber": 6,
+    "title": "Ideális sales folyamat és heti metrikák",
+    "lessonId": "B2B_SALES_2026_30_DAY_6"
+  },
+  "questionCount": 4,
+  "questions": [
+    {
+      "_id": "697b203dac79ca83bb972214",
+      "difficulty": "MEDIUM",
+      "question": "Mi a qualified discovery egyik kötelező eleme?",
+      "options": [
+        "Egy demó videó",
+        "Fájdalom, hatás és next step rögzítve",
+        "Egy árlista",
+        "Egy LinkedIn poszt"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b203dac79ca83bb972215",
+      "difficulty": "MEDIUM",
+      "question": "Mit jelent a pipeline coverage 3-4x szabály?",
+      "options": [
+        "Háromszor-négyszer annyi meeting",
+        "A célbevétel 3-4x-ének megfelelő pipeline érték",
+        "Háromszor-négyszer annyi email",
+        "Háromszor-négyszer annyi demo"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b203dac79ca83bb972216",
+      "difficulty": "MEDIUM",
+      "question": "Miért kell a lost okokat kódolni?",
+      "options": [
+        "Dekorra",
+        "Hogy javítható trendeket láss (top 5 ok)",
+        "Mert kötelező jogilag",
+        "Hogy több emailt küldj"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b203dac79ca83bb972217",
+      "difficulty": "MEDIUM",
+      "question": "Mi a mai legfontosabb kimenet?",
+      "options": [
+        "Egy marketing kampány",
+        "Heti mérőlap + definíciók + kijelölt szűk keresztmetszet",
+        "Egy új landing page",
+        "Egy új CRM"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    }
+  ]
+}

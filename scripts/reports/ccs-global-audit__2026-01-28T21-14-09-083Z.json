@@ -1,0 +1,2618 @@
+{
+  "generatedAt": "2026-01-28T21:14:09.901Z",
+  "env": "production (via .env.local)",
+  "filters": {
+    "ccsId": null,
+    "courseId": "PRODUCTIVITY_2026_AR",
+    "minLessonScore": 70,
+    "includeInactive": false
+  },
+  "totals": {
+    "ccsFamilies": 7,
+    "courses": 1,
+    "coursesMissingCcsId": 0,
+    "coursesMissingCcsIdMappedToKnownCcs": 0,
+    "coursesMissingCcsIdUnmapped": 0,
+    "coursesWithStructuralErrors": 0,
+    "coursesWithStructuralWarnings": 0,
+    "coursesFailingCatalogLanguageIntegrity": 0,
+    "lessons": 30,
+    "duplicateDayLessonGroups": 0,
+    "missingLessonDayEntries": 0,
+    "lessonsFailingLanguageIntegrity": 5,
+    "lessonsBelowQualityThreshold": 0,
+    "lessonsWithQuizErrors": 30,
+    "duplicateQuestionSets": 29,
+    "duplicateQuestionsToDelete": 55,
+    "invalidQuestions": 210,
+    "lessonsGeneratorInsufficient": 25
+  },
+  "ccs": [
+    {
+      "ccsId": "PRODUCTIVITY_2026",
+      "name": "PRODUCTIVITY_2026",
+      "ideaPresent": true,
+      "outlinePresent": true,
+      "relatedDocumentsCount": 0,
+      "courses": [
+        {
+          "course": {
+            "courseId": "PRODUCTIVITY_2026_AR",
+            "name": "الإنتاجية 2026: كيفية إدارة الفرق والوقت",
+            "description": "دورة عملية لمدة 30 يومًا حول أساسيات الإنتاجية وإدارة المهام (جي تي دي) والأولويات وكانبان والطرق الرشيقة والتخطيط الاستراتيجي. دروس يومية من 20-30 دقيقة مع أدوات وقوالب ملموسة.",
+            "language": "ar",
+            "isActive": true,
+            "isDraft": false,
+            "requiresPremium": false,
+            "durationDays": 30,
+            "parentCourseId": null,
+            "courseVariant": null,
+            "structuralErrors": [],
+            "structuralWarnings": [],
+            "catalogLanguageIntegrity": {
+              "ok": true,
+              "errors": [],
+              "warnings": [],
+              "findings": []
+            },
+            "inferredCcsId": null,
+            "duplicateDayGroups": [],
+            "missingDays": [],
+            "lessonsAudited": 30,
+            "lessonsWithErrors": 30
+          },
+          "lessons": [
+            {
+              "dayNumber": 1,
+              "lessonId": "PRODUCTIVITY_2026_AR_DAY_01",
+              "title": "تعريف الإنتاجية: المخرجات والنتائج والقيود",
+              "createdAt": "2026-01-23T19:27:04.127Z",
+              "lessonQuality": {
+                "score": 85,
+                "issues": [
+                  "NO_METRICS_OR_CRITERIA"
+                ],
+                "signals": {
+                  "charCount": 2144,
+                  "wordCount": 354,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": true,
+                  "hasMetricsOrCriteria": false,
+                  "hasDefinitionsOrComparisons": true
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": false,
+                  "addChecklistSection": false,
+                  "addExamplesSection": false,
+                  "addPitfallsSection": false,
+                  "addMetricsSection": true
+                }
+              },
+              "languageIntegrity": {
+                "ok": false,
+                "errors": [
+                  "Language integrity failed for lesson.content: contains long Latin segments for Arabic."
+                ],
+                "warnings": [],
+                "findings": [
+                  {
+                    "label": "Latin segment >= 5",
+                    "snippet": "ديفيد ألين: \"Getting Things Done\" — أساسيات التفكير القائم على النتائج"
+                  }
+                ]
+              },
+              "quiz": {
+                "totalExisting": 7,
+                "validExisting": 0,
+                "invalidExisting": 7,
+                "application": 0,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 1,
+                "duplicatesToDelete": 2,
+                "invalidSamples": [
+                  {
+                    "_id": "69776a5f3ed20b35fb7971c8",
+                    "firstError": "RECALL questions are disallowed. Regenerate this question as APPLICATION or CRITICAL_THINKING."
+                  },
+                  {
+                    "_id": "69776a5f3ed20b35fb7971c9",
+                    "firstError": "Contains lesson-referential wording (EN: in/as described in the lesson). Questions and answers must be fully standalone and must not refer to the lesson/course."
+                  },
+                  {
+                    "_id": "69776a5f3ed20b35fb7971ca",
+                    "firstError": "Contains lesson-referential wording (EN: in/as described in the lesson). Questions and answers must be fully standalone and must not refer to the lesson/course."
+                  }
+                ],
+                "duplicateSamples": [
+                  {
+                    "question": "How would you implement the practice \"✅ أنت تميز بين المخرجات والنتائج.\n✅ حددت...\" described in the lesson in your own work?",
+                    "keepId": "69776a5f3ed20b35fb7971c9",
+                    "deleteIds": [
+                      "69776a5f3ed20b35fb7971ca",
+                      "69776a5f3ed20b35fb7971cb"
+                    ]
+                  }
+                ]
+              },
+              "generator": null,
+              "errors": [
+                "LESSON_LANGUAGE_INTEGRITY_FAIL",
+                "QUIZ_TOO_FEW_VALID",
+                "QUIZ_TOO_FEW_APPLICATION",
+                "QUIZ_HAS_INVALID_QUESTIONS",
+                "QUIZ_HAS_DUPLICATES"
+              ],
+              "warnings": []
+            },
+            {
+              "dayNumber": 2,
+              "lessonId": "PRODUCTIVITY_2026_AR_DAY_02",
+              "title": "الوقت والطاقة والانتباه: ما تديره في الممارسة",
+              "createdAt": "2026-01-23T21:22:29.455Z",
+              "lessonQuality": {
+                "score": 70,
+                "issues": [
+                  "NO_CLEAR_DEFINITIONS",
+                  "NO_METRICS_OR_CRITERIA"
+                ],
+                "signals": {
+                  "charCount": 2666,
+                  "wordCount": 437,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": true,
+                  "hasMetricsOrCriteria": false,
+                  "hasDefinitionsOrComparisons": false
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": true,
+                  "addChecklistSection": false,
+                  "addExamplesSection": false,
+                  "addPitfallsSection": false,
+                  "addMetricsSection": true
+                }
+              },
+              "languageIntegrity": {
+                "ok": false,
+                "errors": [
+                  "Language integrity failed for lesson.content: contains long Latin segments for Arabic."
+                ],
+                "warnings": [],
+                "findings": [
+                  {
+                    "label": "Latin segment >= 5",
+                    "snippet": "Cal Newport: \"Deep Work\" — حول العمل العميق وإدارة الانتباه"
+                  },
+                  {
+                    "label": "Latin segment >= 5",
+                    "snippet": "Tony Schwartz: \"The Energy Project\" — حول إدارة الطاقة"
+                  }
+                ]
+              },
+              "quiz": {
+                "totalExisting": 7,
+                "validExisting": 0,
+                "invalidExisting": 7,
+                "application": 0,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 1,
+                "duplicatesToDelete": 2,
+                "invalidSamples": [
+                  {
+                    "_id": "69776a603ed20b35fb79720f",
+                    "firstError": "RECALL questions are disallowed. Regenerate this question as APPLICATION or CRITICAL_THINKING."
+                  },
+                  {
+                    "_id": "69776a603ed20b35fb797210",
+                    "firstError": "RECALL questions are disallowed. Regenerate this question as APPLICATION or CRITICAL_THINKING."
+                  },
+                  {
+                    "_id": "69776a603ed20b35fb797211",
+                    "firstError": "Contains lesson-referential wording (EN: in/as described in the lesson). Questions and answers must be fully standalone and must not refer to the lesson/course."
+                  }
+                ],
+                "duplicateSamples": [
+                  {
+                    "question": "How would you implement the practice \"✅ تفهم كيف يعمل الوقت والطاقة والانتباه ...\" described in the lesson in your own work?",
+                    "keepId": "69776a603ed20b35fb797211",
+                    "deleteIds": [
+                      "69776a603ed20b35fb797212",
+                      "69776a603ed20b35fb797213"
+                    ]
+                  }
+                ]
+              },
+              "generator": null,
+              "errors": [
+                "LESSON_LANGUAGE_INTEGRITY_FAIL",
+                "QUIZ_TOO_FEW_VALID",
+                "QUIZ_TOO_FEW_APPLICATION",
+                "QUIZ_HAS_INVALID_QUESTIONS",
+                "QUIZ_HAS_DUPLICATES"
+              ],
+              "warnings": []
+            },
+            {
+              "dayNumber": 3,
+              "lessonId": "PRODUCTIVITY_2026_AR_DAY_03",
+              "title": "تسلسل الهدف: الرؤية → النتائج → المشاريع → الإجراءات التالية",
+              "createdAt": "2026-01-23T21:28:06.133Z",
+              "lessonQuality": {
+                "score": 100,
+                "issues": [],
+                "signals": {
+                  "charCount": 996,
+                  "wordCount": 172,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": true,
+                  "hasMetricsOrCriteria": true,
+                  "hasDefinitionsOrComparisons": true
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": false,
+                  "addChecklistSection": false,
+                  "addExamplesSection": false,
+                  "addPitfallsSection": false,
+                  "addMetricsSection": false
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 7,
+                "validExisting": 0,
+                "invalidExisting": 7,
+                "application": 0,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 1,
+                "duplicatesToDelete": 2,
+                "invalidSamples": [
+                  {
+                    "_id": "69776a603ed20b35fb79722f",
+                    "firstError": "RECALL questions are disallowed. Regenerate this question as APPLICATION or CRITICAL_THINKING."
+                  },
+                  {
+                    "_id": "69776a603ed20b35fb797230",
+                    "firstError": "Contains lesson-referential wording (EN: in/as described in the lesson). Questions and answers must be fully standalone and must not refer to the lesson/course."
+                  },
+                  {
+                    "_id": "69776a603ed20b35fb797231",
+                    "firstError": "Contains lesson-referential wording (EN: in/as described in the lesson). Questions and answers must be fully standalone and must not refer to the lesson/course."
+                  }
+                ],
+                "duplicateSamples": [
+                  {
+                    "question": "How would you implement the practice \"✅ لديك رؤية (3-5 سنوات).\n✅ لديك 2-3 نتائ...\" described in the lesson in your own work?",
+                    "keepId": "69776a603ed20b35fb797230",
+                    "deleteIds": [
+                      "69776a603ed20b35fb797231",
+                      "69776a603ed20b35fb797232"
+                    ]
+                  }
+                ]
+              },
+              "generator": {
+                "attempted": true,
+                "generateTarget": 40,
+                "validatedNew": 0,
+                "canSatisfyMinimums": false,
+                "reasonIfNot": "Could not reach minimums with generator output (finalValid=0, finalApp=0)."
+              },
+              "errors": [
+                "QUIZ_TOO_FEW_VALID",
+                "QUIZ_TOO_FEW_APPLICATION",
+                "QUIZ_HAS_INVALID_QUESTIONS",
+                "QUIZ_HAS_DUPLICATES",
+                "GENERATOR_INSUFFICIENT_TO_REACH_MINIMUMS"
+              ],
+              "warnings": []
+            },
+            {
+              "dayNumber": 4,
+              "lessonId": "PRODUCTIVITY_2026_AR_DAY_04",
+              "title": "العادات مقابل الأنظمة: لماذا تتوسع الأنظمة بشكل أفضل",
+              "createdAt": "2026-01-23T21:34:24.204Z",
+              "lessonQuality": {
+                "score": 100,
+                "issues": [],
+                "signals": {
+                  "charCount": 988,
+                  "wordCount": 170,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": true,
+                  "hasMetricsOrCriteria": true,
+                  "hasDefinitionsOrComparisons": true
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": false,
+                  "addChecklistSection": false,
+                  "addExamplesSection": false,
+                  "addPitfallsSection": false,
+                  "addMetricsSection": false
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 7,
+                "validExisting": 0,
+                "invalidExisting": 7,
+                "application": 0,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 1,
+                "duplicatesToDelete": 2,
+                "invalidSamples": [
+                  {
+                    "_id": "69776a603ed20b35fb797249",
+                    "firstError": "Contains lesson-referential wording (EN: in/as described in the lesson). Questions and answers must be fully standalone and must not refer to the lesson/course."
+                  },
+                  {
+                    "_id": "69776a603ed20b35fb79724a",
+                    "firstError": "Contains lesson-referential wording (EN: in/as described in the lesson). Questions and answers must be fully standalone and must not refer to the lesson/course."
+                  },
+                  {
+                    "_id": "69776a603ed20b35fb79724b",
+                    "firstError": "Contains lesson-referential wording (EN: in/as described in the lesson). Questions and answers must be fully standalone and must not refer to the lesson/course."
+                  }
+                ],
+                "duplicateSamples": [
+                  {
+                    "question": "How would you implement the practice \"✅ تفهم الفرق بين العادات والأنظمة.\n✅ تعر...\" described in the lesson in your own work?",
+                    "keepId": "69776a603ed20b35fb797249",
+                    "deleteIds": [
+                      "69776a603ed20b35fb79724a",
+                      "69776a603ed20b35fb79724b"
+                    ]
+                  }
+                ]
+              },
+              "generator": {
+                "attempted": true,
+                "generateTarget": 40,
+                "validatedNew": 0,
+                "canSatisfyMinimums": false,
+                "reasonIfNot": "Could not reach minimums with generator output (finalValid=0, finalApp=0)."
+              },
+              "errors": [
+                "QUIZ_TOO_FEW_VALID",
+                "QUIZ_TOO_FEW_APPLICATION",
+                "QUIZ_HAS_INVALID_QUESTIONS",
+                "QUIZ_HAS_DUPLICATES",
+                "GENERATOR_INSUFFICIENT_TO_REACH_MINIMUMS"
+              ],
+              "warnings": []
+            },
+            {
+              "dayNumber": 5,
+              "lessonId": "PRODUCTIVITY_2026_AR_DAY_05",
+              "title": "القياس: مقاييس المراجعة الأسبوعية البسيطة (الإنتاجية، كتل التركيز، التحويل)",
+              "createdAt": "2026-01-23T21:40:15.319Z",
+              "lessonQuality": {
+                "score": 70,
+                "issues": [
+                  "NO_CLEAR_DEFINITIONS",
+                  "NO_METRICS_OR_CRITERIA"
+                ],
+                "signals": {
+                  "charCount": 2001,
+                  "wordCount": 346,
+                  "hasBullets": true,
+                  "hasNumberedSteps": true,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": true,
+                  "hasMetricsOrCriteria": false,
+                  "hasDefinitionsOrComparisons": false
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": true,
+                  "addChecklistSection": false,
+                  "addExamplesSection": false,
+                  "addPitfallsSection": false,
+                  "addMetricsSection": true
+                }
+              },
+              "languageIntegrity": {
+                "ok": false,
+                "errors": [
+                  "Language integrity failed for lesson.content: contains long Latin segments for Arabic."
+                ],
+                "warnings": [],
+                "findings": [
+                  {
+                    "label": "Latin segment >= 5",
+                    "snippet": "David Allen: \"Getting Things Done\" — حول المراجعة الأسبوعية"
+                  },
+                  {
+                    "label": "Latin segment >= 5",
+                    "snippet": "Cal Newport: \"Deep Work\" — حول قياس كتل التركيز"
+                  },
+                  {
+                    "label": "Latin segment >= 5",
+                    "snippet": "Eliyahu Goldratt: \"The Goal\" — حول قياس الإنتاجية"
+                  }
+                ]
+              },
+              "quiz": {
+                "totalExisting": 7,
+                "validExisting": 0,
+                "invalidExisting": 7,
+                "application": 0,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 1,
+                "duplicatesToDelete": 2,
+                "invalidSamples": [
+                  {
+                    "_id": "69776a603ed20b35fb797260",
+                    "firstError": "RECALL questions are disallowed. Regenerate this question as APPLICATION or CRITICAL_THINKING."
+                  },
+                  {
+                    "_id": "69776a603ed20b35fb797261",
+                    "firstError": "Contains lesson-referential wording (EN: in/as described in the lesson). Questions and answers must be fully standalone and must not refer to the lesson/course."
+                  },
+                  {
+                    "_id": "69776a603ed20b35fb797262",
+                    "firstError": "Contains lesson-referential wording (EN: in/as described in the lesson). Questions and answers must be fully standalone and must not refer to the lesson/course."
+                  }
+                ],
+                "duplicateSamples": [
+                  {
+                    "question": "How would you implement the practice \"✅ تعرف المقاييس الثلاثة الرئيسية: الإنتا...\" described in the lesson in your own work?",
+                    "keepId": "69776a603ed20b35fb797261",
+                    "deleteIds": [
+                      "69776a603ed20b35fb797262",
+                      "69776a603ed20b35fb797263"
+                    ]
+                  }
+                ]
+              },
+              "generator": null,
+              "errors": [
+                "LESSON_LANGUAGE_INTEGRITY_FAIL",
+                "QUIZ_TOO_FEW_VALID",
+                "QUIZ_TOO_FEW_APPLICATION",
+                "QUIZ_HAS_INVALID_QUESTIONS",
+                "QUIZ_HAS_DUPLICATES"
+              ],
+              "warnings": []
+            },
+            {
+              "dayNumber": 6,
+              "lessonId": "PRODUCTIVITY_2026_AR_DAY_06",
+              "title": "التقاط: صناديق الوارد، قائمة المحفزات، عادات التقاط",
+              "createdAt": "2026-01-23T21:43:44.493Z",
+              "lessonQuality": {
+                "score": 85,
+                "issues": [
+                  "NO_METRICS_OR_CRITERIA"
+                ],
+                "signals": {
+                  "charCount": 2173,
+                  "wordCount": 358,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": true,
+                  "hasMetricsOrCriteria": false,
+                  "hasDefinitionsOrComparisons": true
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": false,
+                  "addChecklistSection": false,
+                  "addExamplesSection": false,
+                  "addPitfallsSection": false,
+                  "addMetricsSection": true
+                }
+              },
+              "languageIntegrity": {
+                "ok": false,
+                "errors": [
+                  "Language integrity failed for lesson.content: contains long Latin segments for Arabic."
+                ],
+                "warnings": [],
+                "findings": [
+                  {
+                    "label": "Latin segment >= 5",
+                    "snippet": "مثال : صندوق بريد إلكتروني، صندوق بريد فعلي، تطبيق ملاحظات (Notion, Evernote)، قائمة مهام (Todoist, Asana)."
+                  },
+                  {
+                    "label": "Latin segment >= 5",
+                    "snippet": "David Allen: \"Getting Things Done\" — حول التقاط وصناديق الوارد"
+                  },
+                  {
+                    "label": "Latin segment >= 5",
+                    "snippet": "Tiago Forte: \"Building a Second Brain\" — حول أنظمة الملاحظات"
+                  }
+                ]
+              },
+              "quiz": {
+                "totalExisting": 7,
+                "validExisting": 0,
+                "invalidExisting": 7,
+                "application": 0,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 1,
+                "duplicatesToDelete": 2,
+                "invalidSamples": [
+                  {
+                    "_id": "69776a603ed20b35fb797274",
+                    "firstError": "Contains lesson-referential wording (EN: in/as described in the lesson). Questions and answers must be fully standalone and must not refer to the lesson/course."
+                  },
+                  {
+                    "_id": "69776a603ed20b35fb797275",
+                    "firstError": "Contains lesson-referential wording (EN: in/as described in the lesson). Questions and answers must be fully standalone and must not refer to the lesson/course."
+                  },
+                  {
+                    "_id": "69776a603ed20b35fb797276",
+                    "firstError": "Contains lesson-referential wording (EN: in/as described in the lesson). Questions and answers must be fully standalone and must not refer to the lesson/course."
+                  }
+                ],
+                "duplicateSamples": [
+                  {
+                    "question": "How would you implement the practice \"✅ لديك نظام صناديق وارد موثوق.\n✅ لديك قا...\" described in the lesson in your own work?",
+                    "keepId": "69776a603ed20b35fb797274",
+                    "deleteIds": [
+                      "69776a603ed20b35fb797275",
+                      "69776a603ed20b35fb797276"
+                    ]
+                  }
+                ]
+              },
+              "generator": null,
+              "errors": [
+                "LESSON_LANGUAGE_INTEGRITY_FAIL",
+                "QUIZ_TOO_FEW_VALID",
+                "QUIZ_TOO_FEW_APPLICATION",
+                "QUIZ_HAS_INVALID_QUESTIONS",
+                "QUIZ_HAS_DUPLICATES"
+              ],
+              "warnings": []
+            },
+            {
+              "dayNumber": 7,
+              "lessonId": "PRODUCTIVITY_2026_AR_DAY_07",
+              "title": "النظام اليومي/الأسبوعي: الطقس الصباحي، اجتماع يومي، مراجعة أسبوعية",
+              "createdAt": "2026-01-24T08:15:47.886Z",
+              "lessonQuality": {
+                "score": 70,
+                "issues": [
+                  "NO_EXAMPLES",
+                  "NO_METRICS_OR_CRITERIA"
+                ],
+                "signals": {
+                  "charCount": 1618,
+                  "wordCount": 279,
+                  "hasBullets": true,
+                  "hasNumberedSteps": true,
+                  "hasExamples": false,
+                  "hasGoodBadContrast": true,
+                  "hasMetricsOrCriteria": false,
+                  "hasDefinitionsOrComparisons": true
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": false,
+                  "addChecklistSection": false,
+                  "addExamplesSection": true,
+                  "addPitfallsSection": false,
+                  "addMetricsSection": true
+                }
+              },
+              "languageIntegrity": {
+                "ok": false,
+                "errors": [
+                  "Language integrity failed for lesson.content: contains long Latin segments for Arabic."
+                ],
+                "warnings": [],
+                "findings": [
+                  {
+                    "label": "Latin segment >= 5",
+                    "snippet": "2. المقاييس (5 دقائق) : الإنتاجية، كتل التركيز، carryover، الرفاهية."
+                  }
+                ]
+              },
+              "quiz": {
+                "totalExisting": 7,
+                "validExisting": 0,
+                "invalidExisting": 7,
+                "application": 0,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 1,
+                "duplicatesToDelete": 2,
+                "invalidSamples": [
+                  {
+                    "_id": "69776a613ed20b35fb797286",
+                    "firstError": "Contains lesson-referential wording (EN: in/as described in the lesson). Questions and answers must be fully standalone and must not refer to the lesson/course."
+                  },
+                  {
+                    "_id": "69776a613ed20b35fb797287",
+                    "firstError": "Contains lesson-referential wording (EN: in/as described in the lesson). Questions and answers must be fully standalone and must not refer to the lesson/course."
+                  },
+                  {
+                    "_id": "69776a613ed20b35fb797288",
+                    "firstError": "Contains lesson-referential wording (EN: in/as described in the lesson). Questions and answers must be fully standalone and must not refer to the lesson/course."
+                  }
+                ],
+                "duplicateSamples": [
+                  {
+                    "question": "How would you implement the practice \"✅ لديك طقس صباحي 15 دقيقة.\n✅ لديك نظام ا...\" described in the lesson in your own work?",
+                    "keepId": "69776a613ed20b35fb797286",
+                    "deleteIds": [
+                      "69776a613ed20b35fb797287",
+                      "69776a613ed20b35fb797288"
+                    ]
+                  }
+                ]
+              },
+              "generator": null,
+              "errors": [
+                "LESSON_LANGUAGE_INTEGRITY_FAIL",
+                "QUIZ_TOO_FEW_VALID",
+                "QUIZ_TOO_FEW_APPLICATION",
+                "QUIZ_HAS_INVALID_QUESTIONS",
+                "QUIZ_HAS_DUPLICATES"
+              ],
+              "warnings": []
+            },
+            {
+              "dayNumber": 8,
+              "lessonId": "PRODUCTIVITY_2026_AR_DAY_8",
+              "title": "تكلفة تبديل السياق: بقايا الانتباه ومعالجة الدفعات وكتل العمل العميق",
+              "createdAt": "2026-01-24T08:31:20.193Z",
+              "lessonQuality": {
+                "score": 70,
+                "issues": [
+                  "NO_CLEAR_DEFINITIONS",
+                  "NO_METRICS_OR_CRITERIA"
+                ],
+                "signals": {
+                  "charCount": 1932,
+                  "wordCount": 334,
+                  "hasBullets": true,
+                  "hasNumberedSteps": true,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": true,
+                  "hasMetricsOrCriteria": false,
+                  "hasDefinitionsOrComparisons": false
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": true,
+                  "addChecklistSection": false,
+                  "addExamplesSection": false,
+                  "addPitfallsSection": false,
+                  "addMetricsSection": true
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 7,
+                "validExisting": 0,
+                "invalidExisting": 7,
+                "application": 0,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 1,
+                "duplicatesToDelete": 2,
+                "invalidSamples": [
+                  {
+                    "_id": "69776a613ed20b35fb797295",
+                    "firstError": "Contains lesson-referential wording (EN: in/as described in the lesson). Questions and answers must be fully standalone and must not refer to the lesson/course."
+                  },
+                  {
+                    "_id": "69776a613ed20b35fb797296",
+                    "firstError": "Contains lesson-referential wording (EN: in/as described in the lesson). Questions and answers must be fully standalone and must not refer to the lesson/course."
+                  },
+                  {
+                    "_id": "69776a613ed20b35fb797297",
+                    "firstError": "Contains lesson-referential wording (EN: in/as described in the lesson). Questions and answers must be fully standalone and must not refer to the lesson/course."
+                  }
+                ],
+                "duplicateSamples": [
+                  {
+                    "question": "How would you implement the practice \"✅ أفهم ما هي بقايا الانتباه.\n✅ لدي جدول ...\" described in the lesson in your own work?",
+                    "keepId": "69776a613ed20b35fb797295",
+                    "deleteIds": [
+                      "69776a613ed20b35fb797296",
+                      "69776a613ed20b35fb797297"
+                    ]
+                  }
+                ]
+              },
+              "generator": {
+                "attempted": true,
+                "generateTarget": 40,
+                "validatedNew": 0,
+                "canSatisfyMinimums": false,
+                "reasonIfNot": "Could not reach minimums with generator output (finalValid=0, finalApp=0)."
+              },
+              "errors": [
+                "QUIZ_TOO_FEW_VALID",
+                "QUIZ_TOO_FEW_APPLICATION",
+                "QUIZ_HAS_INVALID_QUESTIONS",
+                "QUIZ_HAS_DUPLICATES",
+                "GENERATOR_INSUFFICIENT_TO_REACH_MINIMUMS"
+              ],
+              "warnings": []
+            },
+            {
+              "dayNumber": 9,
+              "lessonId": "PRODUCTIVITY_2026_AR_DAY_9",
+              "title": "التفويض مقابل الحذف: متى تفوض، ماذا تحذف",
+              "createdAt": "2026-01-24T08:36:25.768Z",
+              "lessonQuality": {
+                "score": 70,
+                "issues": [
+                  "NO_CLEAR_DEFINITIONS",
+                  "NO_EXAMPLES"
+                ],
+                "signals": {
+                  "charCount": 2123,
+                  "wordCount": 366,
+                  "hasBullets": true,
+                  "hasNumberedSteps": true,
+                  "hasExamples": false,
+                  "hasGoodBadContrast": true,
+                  "hasMetricsOrCriteria": true,
+                  "hasDefinitionsOrComparisons": false
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": true,
+                  "addChecklistSection": false,
+                  "addExamplesSection": true,
+                  "addPitfallsSection": false,
+                  "addMetricsSection": false
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 7,
+                "validExisting": 0,
+                "invalidExisting": 7,
+                "application": 0,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 1,
+                "duplicatesToDelete": 2,
+                "invalidSamples": [
+                  {
+                    "_id": "69776a613ed20b35fb7972a3",
+                    "firstError": "Contains lesson-referential wording (EN: in/as described in the lesson). Questions and answers must be fully standalone and must not refer to the lesson/course."
+                  },
+                  {
+                    "_id": "69776a613ed20b35fb7972a4",
+                    "firstError": "Contains lesson-referential wording (EN: in/as described in the lesson). Questions and answers must be fully standalone and must not refer to the lesson/course."
+                  },
+                  {
+                    "_id": "69776a613ed20b35fb7972a5",
+                    "firstError": "Contains lesson-referential wording (EN: in/as described in the lesson). Questions and answers must be fully standalone and must not refer to the lesson/course."
+                  }
+                ],
+                "duplicateSamples": [
+                  {
+                    "question": "How would you implement the practice \"✅ أعرف أي المهام يمكن تفويضها وأيها لا.\n...\" described in the lesson in your own work?",
+                    "keepId": "69776a613ed20b35fb7972a3",
+                    "deleteIds": [
+                      "69776a613ed20b35fb7972a4",
+                      "69776a613ed20b35fb7972a5"
+                    ]
+                  }
+                ]
+              },
+              "generator": {
+                "attempted": true,
+                "generateTarget": 40,
+                "validatedNew": 0,
+                "canSatisfyMinimums": false,
+                "reasonIfNot": "Could not reach minimums with generator output (finalValid=0, finalApp=0)."
+              },
+              "errors": [
+                "QUIZ_TOO_FEW_VALID",
+                "QUIZ_TOO_FEW_APPLICATION",
+                "QUIZ_HAS_INVALID_QUESTIONS",
+                "QUIZ_HAS_DUPLICATES",
+                "GENERATOR_INSUFFICIENT_TO_REACH_MINIMUMS"
+              ],
+              "warnings": []
+            },
+            {
+              "dayNumber": 10,
+              "lessonId": "PRODUCTIVITY_2026_AR_DAY_10",
+              "title": "إدارة الطاقة: متى تعمل، متى تستريح، طقوس الاستعادة",
+              "createdAt": "2026-01-24T08:40:15.533Z",
+              "lessonQuality": {
+                "score": 70,
+                "issues": [
+                  "NO_CLEAR_DEFINITIONS",
+                  "NO_METRICS_OR_CRITERIA"
+                ],
+                "signals": {
+                  "charCount": 2538,
+                  "wordCount": 439,
+                  "hasBullets": true,
+                  "hasNumberedSteps": true,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": true,
+                  "hasMetricsOrCriteria": false,
+                  "hasDefinitionsOrComparisons": false
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": true,
+                  "addChecklistSection": false,
+                  "addExamplesSection": false,
+                  "addPitfallsSection": false,
+                  "addMetricsSection": true
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 7,
+                "validExisting": 0,
+                "invalidExisting": 7,
+                "application": 0,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 1,
+                "duplicatesToDelete": 1,
+                "invalidSamples": [
+                  {
+                    "_id": "69776a613ed20b35fb7972ae",
+                    "firstError": "Contains lesson-referential wording (EN: in/as described in the lesson). Questions and answers must be fully standalone and must not refer to the lesson/course."
+                  },
+                  {
+                    "_id": "69776a613ed20b35fb7972af",
+                    "firstError": "Contains lesson-referential wording (EN: in/as described in the lesson). Questions and answers must be fully standalone and must not refer to the lesson/course."
+                  },
+                  {
+                    "_id": "69776a613ed20b35fb7972b0",
+                    "firstError": "Contains lesson-referential wording (EN: in/as described in the lesson). Questions and answers must be fully standalone and must not refer to the lesson/course."
+                  }
+                ],
+                "duplicateSamples": [
+                  {
+                    "question": "How would you implement the practice \"✅ أعرف ساعات ذروة الطاقة لدي.\n✅ لقد جدول...\" described in the lesson in your own work?",
+                    "keepId": "69776a613ed20b35fb7972ae",
+                    "deleteIds": [
+                      "69776a613ed20b35fb7972b0"
+                    ]
+                  }
+                ]
+              },
+              "generator": {
+                "attempted": true,
+                "generateTarget": 40,
+                "validatedNew": 0,
+                "canSatisfyMinimums": false,
+                "reasonIfNot": "Could not reach minimums with generator output (finalValid=0, finalApp=0)."
+              },
+              "errors": [
+                "QUIZ_TOO_FEW_VALID",
+                "QUIZ_TOO_FEW_APPLICATION",
+                "QUIZ_HAS_INVALID_QUESTIONS",
+                "QUIZ_HAS_DUPLICATES",
+                "GENERATOR_INSUFFICIENT_TO_REACH_MINIMUMS"
+              ],
+              "warnings": []
+            },
+            {
+              "dayNumber": 11,
+              "lessonId": "PRODUCTIVITY_2026_AR_DAY_11",
+              "title": "تحديد الأهداف و OKR: ماذا تريد أن تحقق؟",
+              "createdAt": "2026-01-24T08:41:52.826Z",
+              "lessonQuality": {
+                "score": 100,
+                "issues": [],
+                "signals": {
+                  "charCount": 976,
+                  "wordCount": 170,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": true,
+                  "hasMetricsOrCriteria": true,
+                  "hasDefinitionsOrComparisons": true
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": false,
+                  "addChecklistSection": false,
+                  "addExamplesSection": false,
+                  "addPitfallsSection": false,
+                  "addMetricsSection": false
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 7,
+                "validExisting": 0,
+                "invalidExisting": 7,
+                "application": 0,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [
+                  {
+                    "_id": "69776a613ed20b35fb7972ba",
+                    "firstError": "Contains lesson-referential wording (EN: in/as described in the lesson). Questions and answers must be fully standalone and must not refer to the lesson/course."
+                  },
+                  {
+                    "_id": "69776a613ed20b35fb7972bb",
+                    "firstError": "Contains lesson-referential wording (EN: in/as described in the lesson). Questions and answers must be fully standalone and must not refer to the lesson/course."
+                  },
+                  {
+                    "_id": "69776a613ed20b35fb7972bc",
+                    "firstError": "Contains lesson-referential wording (EN: in/as described in the lesson). Questions and answers must be fully standalone and must not refer to the lesson/course."
+                  }
+                ],
+                "duplicateSamples": []
+              },
+              "generator": {
+                "attempted": true,
+                "generateTarget": 40,
+                "validatedNew": 0,
+                "canSatisfyMinimums": false,
+                "reasonIfNot": "Could not reach minimums with generator output (finalValid=0, finalApp=0)."
+              },
+              "errors": [
+                "QUIZ_TOO_FEW_VALID",
+                "QUIZ_TOO_FEW_APPLICATION",
+                "QUIZ_HAS_INVALID_QUESTIONS",
+                "GENERATOR_INSUFFICIENT_TO_REACH_MINIMUMS"
+              ],
+              "warnings": []
+            },
+            {
+              "dayNumber": 12,
+              "lessonId": "PRODUCTIVITY_2026_AR_DAY_12",
+              "title": "هياكل المساءلة: الأنظمة التي تبقيك على المسار الصحيح",
+              "createdAt": "2026-01-24T09:15:55.128Z",
+              "lessonQuality": {
+                "score": 70,
+                "issues": [
+                  "NO_CLEAR_DEFINITIONS",
+                  "NO_METRICS_OR_CRITERIA"
+                ],
+                "signals": {
+                  "charCount": 2258,
+                  "wordCount": 384,
+                  "hasBullets": true,
+                  "hasNumberedSteps": true,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": true,
+                  "hasMetricsOrCriteria": false,
+                  "hasDefinitionsOrComparisons": false
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": true,
+                  "addChecklistSection": false,
+                  "addExamplesSection": false,
+                  "addPitfallsSection": false,
+                  "addMetricsSection": true
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 7,
+                "validExisting": 0,
+                "invalidExisting": 7,
+                "application": 0,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 1,
+                "duplicatesToDelete": 1,
+                "invalidSamples": [
+                  {
+                    "_id": "69776a613ed20b35fb7972c6",
+                    "firstError": "Contains lesson-referential wording (EN: in/as described in the lesson). Questions and answers must be fully standalone and must not refer to the lesson/course."
+                  },
+                  {
+                    "_id": "69776a613ed20b35fb7972c7",
+                    "firstError": "Contains lesson-referential wording (EN: in/as described in the lesson). Questions and answers must be fully standalone and must not refer to the lesson/course."
+                  },
+                  {
+                    "_id": "69776a613ed20b35fb7972c8",
+                    "firstError": "Contains lesson-referential wording (EN: in/as described in the lesson). Questions and answers must be fully standalone and must not refer to the lesson/course."
+                  }
+                ],
+                "duplicateSamples": [
+                  {
+                    "question": "How would you implement the practice \"✅ لدي هدف واضح لمدة 4-8 أسابيع للمساءلة....\" described in the lesson in your own work?",
+                    "keepId": "69776a613ed20b35fb7972c6",
+                    "deleteIds": [
+                      "69776a613ed20b35fb7972c8"
+                    ]
+                  }
+                ]
+              },
+              "generator": {
+                "attempted": true,
+                "generateTarget": 40,
+                "validatedNew": 0,
+                "canSatisfyMinimums": false,
+                "reasonIfNot": "Could not reach minimums with generator output (finalValid=0, finalApp=0)."
+              },
+              "errors": [
+                "QUIZ_TOO_FEW_VALID",
+                "QUIZ_TOO_FEW_APPLICATION",
+                "QUIZ_HAS_INVALID_QUESTIONS",
+                "QUIZ_HAS_DUPLICATES",
+                "GENERATOR_INSUFFICIENT_TO_REACH_MINIMUMS"
+              ],
+              "warnings": []
+            },
+            {
+              "dayNumber": 13,
+              "lessonId": "PRODUCTIVITY_2026_AR_DAY_13",
+              "title": "أطر اتخاذ القرار: القرارات السريعة، مصفوفة القرار، تجنب شلل التحليل",
+              "createdAt": "2026-01-24T09:23:09.713Z",
+              "lessonQuality": {
+                "score": 85,
+                "issues": [
+                  "NO_CLEAR_DEFINITIONS"
+                ],
+                "signals": {
+                  "charCount": 2777,
+                  "wordCount": 484,
+                  "hasBullets": true,
+                  "hasNumberedSteps": true,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": true,
+                  "hasMetricsOrCriteria": true,
+                  "hasDefinitionsOrComparisons": false
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": true,
+                  "addChecklistSection": false,
+                  "addExamplesSection": false,
+                  "addPitfallsSection": false,
+                  "addMetricsSection": false
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 7,
+                "validExisting": 0,
+                "invalidExisting": 7,
+                "application": 0,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 1,
+                "duplicatesToDelete": 1,
+                "invalidSamples": [
+                  {
+                    "_id": "69776a613ed20b35fb7972d1",
+                    "firstError": "Contains lesson-referential wording (EN: in/as described in the lesson). Questions and answers must be fully standalone and must not refer to the lesson/course."
+                  },
+                  {
+                    "_id": "69776a613ed20b35fb7972d2",
+                    "firstError": "Contains lesson-referential wording (EN: in/as described in the lesson). Questions and answers must be fully standalone and must not refer to the lesson/course."
+                  },
+                  {
+                    "_id": "69776a613ed20b35fb7972d3",
+                    "firstError": "Contains lesson-referential wording (EN: in/as described in the lesson). Questions and answers must be fully standalone and must not refer to the lesson/course."
+                  }
+                ],
+                "duplicateSamples": [
+                  {
+                    "question": "How would you implement the practice \"✅ أفهم شلل التحليل وكيف يعمل.\n✅ أعرف كيف...\" described in the lesson in your own work?",
+                    "keepId": "69776a613ed20b35fb7972d1",
+                    "deleteIds": [
+                      "69776a613ed20b35fb7972d3"
+                    ]
+                  }
+                ]
+              },
+              "generator": {
+                "attempted": true,
+                "generateTarget": 40,
+                "validatedNew": 0,
+                "canSatisfyMinimums": false,
+                "reasonIfNot": "Could not reach minimums with generator output (finalValid=0, finalApp=0)."
+              },
+              "errors": [
+                "QUIZ_TOO_FEW_VALID",
+                "QUIZ_TOO_FEW_APPLICATION",
+                "QUIZ_HAS_INVALID_QUESTIONS",
+                "QUIZ_HAS_DUPLICATES",
+                "GENERATOR_INSUFFICIENT_TO_REACH_MINIMUMS"
+              ],
+              "warnings": []
+            },
+            {
+              "dayNumber": 14,
+              "lessonId": "PRODUCTIVITY_2026_AR_DAY_14",
+              "title": "كفاءة الاجتماعات: جدول الأعمال، حدود الوقت، سجل القرارات",
+              "createdAt": "2026-01-24T09:29:50.373Z",
+              "lessonQuality": {
+                "score": 100,
+                "issues": [],
+                "signals": {
+                  "charCount": 993,
+                  "wordCount": 170,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": true,
+                  "hasMetricsOrCriteria": true,
+                  "hasDefinitionsOrComparisons": true
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": false,
+                  "addChecklistSection": false,
+                  "addExamplesSection": false,
+                  "addPitfallsSection": false,
+                  "addMetricsSection": false
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 7,
+                "validExisting": 0,
+                "invalidExisting": 7,
+                "application": 0,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 1,
+                "duplicatesToDelete": 2,
+                "invalidSamples": [
+                  {
+                    "_id": "69776a613ed20b35fb7972dd",
+                    "firstError": "Contains lesson-referential wording (EN: in/as described in the lesson). Questions and answers must be fully standalone and must not refer to the lesson/course."
+                  },
+                  {
+                    "_id": "69776a613ed20b35fb7972de",
+                    "firstError": "Contains lesson-referential wording (EN: in/as described in the lesson). Questions and answers must be fully standalone and must not refer to the lesson/course."
+                  },
+                  {
+                    "_id": "69776a613ed20b35fb7972df",
+                    "firstError": "Contains lesson-referential wording (EN: in/as described in the lesson). Questions and answers must be fully standalone and must not refer to the lesson/course."
+                  }
+                ],
+                "duplicateSamples": [
+                  {
+                    "question": "How would you use the \"تصميم وإدارة الاجتماعات بأقصى كفاءة.\" concept as described in the lesson in practice?",
+                    "keepId": "69776a613ed20b35fb7972dd",
+                    "deleteIds": [
+                      "69776a613ed20b35fb7972de",
+                      "69776a613ed20b35fb7972df"
+                    ]
+                  }
+                ]
+              },
+              "generator": {
+                "attempted": true,
+                "generateTarget": 40,
+                "validatedNew": 0,
+                "canSatisfyMinimums": false,
+                "reasonIfNot": "Could not reach minimums with generator output (finalValid=0, finalApp=0)."
+              },
+              "errors": [
+                "QUIZ_TOO_FEW_VALID",
+                "QUIZ_TOO_FEW_APPLICATION",
+                "QUIZ_HAS_INVALID_QUESTIONS",
+                "QUIZ_HAS_DUPLICATES",
+                "GENERATOR_INSUFFICIENT_TO_REACH_MINIMUMS"
+              ],
+              "warnings": []
+            },
+            {
+              "dayNumber": 15,
+              "lessonId": "PRODUCTIVITY_2026_AR_DAY_15",
+              "title": "العمل الجماعي والتآزر: الأدوار والمسؤولية والتنسيق",
+              "createdAt": "2026-01-24T09:29:53.663Z",
+              "lessonQuality": {
+                "score": 100,
+                "issues": [],
+                "signals": {
+                  "charCount": 1496,
+                  "wordCount": 250,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": true,
+                  "hasMetricsOrCriteria": true,
+                  "hasDefinitionsOrComparisons": true
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": false,
+                  "addChecklistSection": false,
+                  "addExamplesSection": false,
+                  "addPitfallsSection": false,
+                  "addMetricsSection": false
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 7,
+                "validExisting": 0,
+                "invalidExisting": 7,
+                "application": 0,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 1,
+                "duplicatesToDelete": 2,
+                "invalidSamples": [
+                  {
+                    "_id": "69776a613ed20b35fb7972e8",
+                    "firstError": "Contains lesson-referential wording (EN: in/as described in the lesson). Questions and answers must be fully standalone and must not refer to the lesson/course."
+                  },
+                  {
+                    "_id": "69776a613ed20b35fb7972e9",
+                    "firstError": "Contains lesson-referential wording (EN: in/as described in the lesson). Questions and answers must be fully standalone and must not refer to the lesson/course."
+                  },
+                  {
+                    "_id": "69776a613ed20b35fb7972ea",
+                    "firstError": "Contains lesson-referential wording (EN: in/as described in the lesson). Questions and answers must be fully standalone and must not refer to the lesson/course."
+                  }
+                ],
+                "duplicateSamples": [
+                  {
+                    "question": "How would you use the \"تنظيم الفرق لتحسين الأداء.\" concept as described in the lesson in practice?",
+                    "keepId": "69776a613ed20b35fb7972e8",
+                    "deleteIds": [
+                      "69776a613ed20b35fb7972e9",
+                      "69776a613ed20b35fb7972ea"
+                    ]
+                  }
+                ]
+              },
+              "generator": {
+                "attempted": true,
+                "generateTarget": 40,
+                "validatedNew": 0,
+                "canSatisfyMinimums": false,
+                "reasonIfNot": "Could not reach minimums with generator output (finalValid=0, finalApp=0)."
+              },
+              "errors": [
+                "QUIZ_TOO_FEW_VALID",
+                "QUIZ_TOO_FEW_APPLICATION",
+                "QUIZ_HAS_INVALID_QUESTIONS",
+                "QUIZ_HAS_DUPLICATES",
+                "GENERATOR_INSUFFICIENT_TO_REACH_MINIMUMS"
+              ],
+              "warnings": []
+            },
+            {
+              "dayNumber": 16,
+              "lessonId": "PRODUCTIVITY_2026_AR_DAY_16",
+              "title": "إدارة الإجهاد والإرهاق: الاستعادة، توازن العمل والحياة",
+              "createdAt": "2026-01-24T09:29:56.768Z",
+              "lessonQuality": {
+                "score": 100,
+                "issues": [],
+                "signals": {
+                  "charCount": 991,
+                  "wordCount": 169,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": true,
+                  "hasMetricsOrCriteria": true,
+                  "hasDefinitionsOrComparisons": true
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": false,
+                  "addChecklistSection": false,
+                  "addExamplesSection": false,
+                  "addPitfallsSection": false,
+                  "addMetricsSection": false
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 7,
+                "validExisting": 0,
+                "invalidExisting": 7,
+                "application": 0,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 1,
+                "duplicatesToDelete": 2,
+                "invalidSamples": [
+                  {
+                    "_id": "69776a623ed20b35fb7972f3",
+                    "firstError": "Contains lesson-referential wording (EN: in/as described in the lesson). Questions and answers must be fully standalone and must not refer to the lesson/course."
+                  },
+                  {
+                    "_id": "69776a623ed20b35fb7972f4",
+                    "firstError": "Contains lesson-referential wording (EN: in/as described in the lesson). Questions and answers must be fully standalone and must not refer to the lesson/course."
+                  },
+                  {
+                    "_id": "69776a623ed20b35fb7972f5",
+                    "firstError": "Contains lesson-referential wording (EN: in/as described in the lesson). Questions and answers must be fully standalone and must not refer to the lesson/course."
+                  }
+                ],
+                "duplicateSamples": [
+                  {
+                    "question": "How would you use the \"أدر الإرهاق والحفاظ على حدود صحية.\" concept as described in the lesson in practice?",
+                    "keepId": "69776a623ed20b35fb7972f3",
+                    "deleteIds": [
+                      "69776a623ed20b35fb7972f4",
+                      "69776a623ed20b35fb7972f5"
+                    ]
+                  }
+                ]
+              },
+              "generator": {
+                "attempted": true,
+                "generateTarget": 40,
+                "validatedNew": 0,
+                "canSatisfyMinimums": false,
+                "reasonIfNot": "Could not reach minimums with generator output (finalValid=0, finalApp=0)."
+              },
+              "errors": [
+                "QUIZ_TOO_FEW_VALID",
+                "QUIZ_TOO_FEW_APPLICATION",
+                "QUIZ_HAS_INVALID_QUESTIONS",
+                "QUIZ_HAS_DUPLICATES",
+                "GENERATOR_INSUFFICIENT_TO_REACH_MINIMUMS"
+              ],
+              "warnings": []
+            },
+            {
+              "dayNumber": 17,
+              "lessonId": "PRODUCTIVITY_2026_AR_DAY_17",
+              "title": "الحفاظ على الدافع: تتبع التقدم والاحتفال بالانتصارات",
+              "createdAt": "2026-01-24T09:29:59.867Z",
+              "lessonQuality": {
+                "score": 100,
+                "issues": [],
+                "signals": {
+                  "charCount": 989,
+                  "wordCount": 169,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": true,
+                  "hasMetricsOrCriteria": true,
+                  "hasDefinitionsOrComparisons": true
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": false,
+                  "addChecklistSection": false,
+                  "addExamplesSection": false,
+                  "addPitfallsSection": false,
+                  "addMetricsSection": false
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 7,
+                "validExisting": 0,
+                "invalidExisting": 7,
+                "application": 0,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 1,
+                "duplicatesToDelete": 2,
+                "invalidSamples": [
+                  {
+                    "_id": "69776a623ed20b35fb7972ff",
+                    "firstError": "Contains lesson-referential wording (EN: in/as described in the lesson). Questions and answers must be fully standalone and must not refer to the lesson/course."
+                  },
+                  {
+                    "_id": "69776a623ed20b35fb797300",
+                    "firstError": "Contains lesson-referential wording (EN: in/as described in the lesson). Questions and answers must be fully standalone and must not refer to the lesson/course."
+                  },
+                  {
+                    "_id": "69776a623ed20b35fb797301",
+                    "firstError": "Contains lesson-referential wording (EN: in/as described in the lesson). Questions and answers must be fully standalone and must not refer to the lesson/course."
+                  }
+                ],
+                "duplicateSamples": [
+                  {
+                    "question": "How would you use the \"حافظ على الجهد والطاقة على المدى الطويل.\" concept as described in the lesson in practice?",
+                    "keepId": "69776a623ed20b35fb7972ff",
+                    "deleteIds": [
+                      "69776a623ed20b35fb797300",
+                      "69776a623ed20b35fb797301"
+                    ]
+                  }
+                ]
+              },
+              "generator": {
+                "attempted": true,
+                "generateTarget": 40,
+                "validatedNew": 0,
+                "canSatisfyMinimums": false,
+                "reasonIfNot": "Could not reach minimums with generator output (finalValid=0, finalApp=0)."
+              },
+              "errors": [
+                "QUIZ_TOO_FEW_VALID",
+                "QUIZ_TOO_FEW_APPLICATION",
+                "QUIZ_HAS_INVALID_QUESTIONS",
+                "QUIZ_HAS_DUPLICATES",
+                "GENERATOR_INSUFFICIENT_TO_REACH_MINIMUMS"
+              ],
+              "warnings": []
+            },
+            {
+              "dayNumber": 18,
+              "lessonId": "PRODUCTIVITY_2026_AR_DAY_18",
+              "title": "إدارة الأزمات والقدرة على التكيف: التكيف والتعلم السريع",
+              "createdAt": "2026-01-24T09:30:03.169Z",
+              "lessonQuality": {
+                "score": 100,
+                "issues": [],
+                "signals": {
+                  "charCount": 1467,
+                  "wordCount": 244,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": true,
+                  "hasMetricsOrCriteria": true,
+                  "hasDefinitionsOrComparisons": true
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": false,
+                  "addChecklistSection": false,
+                  "addExamplesSection": false,
+                  "addPitfallsSection": false,
+                  "addMetricsSection": false
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 7,
+                "validExisting": 0,
+                "invalidExisting": 7,
+                "application": 0,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 1,
+                "duplicatesToDelete": 2,
+                "invalidSamples": [
+                  {
+                    "_id": "69776a623ed20b35fb79730a",
+                    "firstError": "Contains lesson-referential wording (EN: in/as described in the lesson). Questions and answers must be fully standalone and must not refer to the lesson/course."
+                  },
+                  {
+                    "_id": "69776a623ed20b35fb79730b",
+                    "firstError": "Contains lesson-referential wording (EN: in/as described in the lesson). Questions and answers must be fully standalone and must not refer to the lesson/course."
+                  },
+                  {
+                    "_id": "69776a623ed20b35fb79730c",
+                    "firstError": "Contains lesson-referential wording (EN: in/as described in the lesson). Questions and answers must be fully standalone and must not refer to the lesson/course."
+                  }
+                ],
+                "duplicateSamples": [
+                  {
+                    "question": "How would you use the \"استعد وارد على التحديات غير المتوقعة.\" concept as described in the lesson in practice?",
+                    "keepId": "69776a623ed20b35fb79730a",
+                    "deleteIds": [
+                      "69776a623ed20b35fb79730b",
+                      "69776a623ed20b35fb79730c"
+                    ]
+                  }
+                ]
+              },
+              "generator": {
+                "attempted": true,
+                "generateTarget": 40,
+                "validatedNew": 0,
+                "canSatisfyMinimums": false,
+                "reasonIfNot": "Could not reach minimums with generator output (finalValid=0, finalApp=0)."
+              },
+              "errors": [
+                "QUIZ_TOO_FEW_VALID",
+                "QUIZ_TOO_FEW_APPLICATION",
+                "QUIZ_HAS_INVALID_QUESTIONS",
+                "QUIZ_HAS_DUPLICATES",
+                "GENERATOR_INSUFFICIENT_TO_REACH_MINIMUMS"
+              ],
+              "warnings": []
+            },
+            {
+              "dayNumber": 19,
+              "lessonId": "PRODUCTIVITY_2026_AR_DAY_19",
+              "title": "التخطيط طويل الأجل: سنوات مقبلة، استراتيجية، تطور",
+              "createdAt": "2026-01-24T09:30:06.091Z",
+              "lessonQuality": {
+                "score": 100,
+                "issues": [],
+                "signals": {
+                  "charCount": 1461,
+                  "wordCount": 243,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": true,
+                  "hasMetricsOrCriteria": true,
+                  "hasDefinitionsOrComparisons": true
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": false,
+                  "addChecklistSection": false,
+                  "addExamplesSection": false,
+                  "addPitfallsSection": false,
+                  "addMetricsSection": false
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 7,
+                "validExisting": 0,
+                "invalidExisting": 7,
+                "application": 0,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 1,
+                "duplicatesToDelete": 2,
+                "invalidSamples": [
+                  {
+                    "_id": "69776a623ed20b35fb797314",
+                    "firstError": "Contains lesson-referential wording (EN: in/as described in the lesson). Questions and answers must be fully standalone and must not refer to the lesson/course."
+                  },
+                  {
+                    "_id": "69776a623ed20b35fb797315",
+                    "firstError": "Contains lesson-referential wording (EN: in/as described in the lesson). Questions and answers must be fully standalone and must not refer to the lesson/course."
+                  },
+                  {
+                    "_id": "69776a623ed20b35fb797316",
+                    "firstError": "Contains lesson-referential wording (EN: in/as described in the lesson). Questions and answers must be fully standalone and must not refer to the lesson/course."
+                  }
+                ],
+                "duplicateSamples": [
+                  {
+                    "question": "How would you use the \"التقدم نحو أهداف سنوية ومتعددة السنوات.\" concept as described in the lesson in practice?",
+                    "keepId": "69776a623ed20b35fb797314",
+                    "deleteIds": [
+                      "69776a623ed20b35fb797315",
+                      "69776a623ed20b35fb797316"
+                    ]
+                  }
+                ]
+              },
+              "generator": {
+                "attempted": true,
+                "generateTarget": 40,
+                "validatedNew": 0,
+                "canSatisfyMinimums": false,
+                "reasonIfNot": "Could not reach minimums with generator output (finalValid=0, finalApp=0)."
+              },
+              "errors": [
+                "QUIZ_TOO_FEW_VALID",
+                "QUIZ_TOO_FEW_APPLICATION",
+                "QUIZ_HAS_INVALID_QUESTIONS",
+                "QUIZ_HAS_DUPLICATES",
+                "GENERATOR_INSUFFICIENT_TO_REACH_MINIMUMS"
+              ],
+              "warnings": []
+            },
+            {
+              "dayNumber": 20,
+              "lessonId": "PRODUCTIVITY_2026_AR_DAY_20",
+              "title": "إنتاجية الحياة الشخصية: تنظيم المنزل والمشاريع الشخصية",
+              "createdAt": "2026-01-24T09:30:09.172Z",
+              "lessonQuality": {
+                "score": 100,
+                "issues": [],
+                "signals": {
+                  "charCount": 991,
+                  "wordCount": 169,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": true,
+                  "hasMetricsOrCriteria": true,
+                  "hasDefinitionsOrComparisons": true
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": false,
+                  "addChecklistSection": false,
+                  "addExamplesSection": false,
+                  "addPitfallsSection": false,
+                  "addMetricsSection": false
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 7,
+                "validExisting": 0,
+                "invalidExisting": 7,
+                "application": 0,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 1,
+                "duplicatesToDelete": 2,
+                "invalidSamples": [
+                  {
+                    "_id": "69776a623ed20b35fb79731e",
+                    "firstError": "Contains lesson-referential wording (EN: in/as described in the lesson). Questions and answers must be fully standalone and must not refer to the lesson/course."
+                  },
+                  {
+                    "_id": "69776a623ed20b35fb79731f",
+                    "firstError": "Contains lesson-referential wording (EN: in/as described in the lesson). Questions and answers must be fully standalone and must not refer to the lesson/course."
+                  },
+                  {
+                    "_id": "69776a623ed20b35fb797320",
+                    "firstError": "Contains lesson-referential wording (EN: in/as described in the lesson). Questions and answers must be fully standalone and must not refer to the lesson/course."
+                  }
+                ],
+                "duplicateSamples": [
+                  {
+                    "question": "How would you use the \"وسع الإنتاجية إلى جميع مجالات الحياة.\" concept as described in the lesson in practice?",
+                    "keepId": "69776a623ed20b35fb79731e",
+                    "deleteIds": [
+                      "69776a623ed20b35fb79731f",
+                      "69776a623ed20b35fb797320"
+                    ]
+                  }
+                ]
+              },
+              "generator": {
+                "attempted": true,
+                "generateTarget": 40,
+                "validatedNew": 0,
+                "canSatisfyMinimums": false,
+                "reasonIfNot": "Could not reach minimums with generator output (finalValid=0, finalApp=0)."
+              },
+              "errors": [
+                "QUIZ_TOO_FEW_VALID",
+                "QUIZ_TOO_FEW_APPLICATION",
+                "QUIZ_HAS_INVALID_QUESTIONS",
+                "QUIZ_HAS_DUPLICATES",
+                "GENERATOR_INSUFFICIENT_TO_REACH_MINIMUMS"
+              ],
+              "warnings": []
+            },
+            {
+              "dayNumber": 21,
+              "lessonId": "PRODUCTIVITY_2026_AR_DAY_21",
+              "title": "المجتمع والشبكة: العلاقات والتعلم مع الآخرين",
+              "createdAt": "2026-01-24T09:30:11.861Z",
+              "lessonQuality": {
+                "score": 100,
+                "issues": [],
+                "signals": {
+                  "charCount": 981,
+                  "wordCount": 168,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": true,
+                  "hasMetricsOrCriteria": true,
+                  "hasDefinitionsOrComparisons": true
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": false,
+                  "addChecklistSection": false,
+                  "addExamplesSection": false,
+                  "addPitfallsSection": false,
+                  "addMetricsSection": false
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 7,
+                "validExisting": 0,
+                "invalidExisting": 7,
+                "application": 0,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 1,
+                "duplicatesToDelete": 2,
+                "invalidSamples": [
+                  {
+                    "_id": "69776a623ed20b35fb797328",
+                    "firstError": "Contains lesson-referential wording (EN: in/as described in the lesson). Questions and answers must be fully standalone and must not refer to the lesson/course."
+                  },
+                  {
+                    "_id": "69776a623ed20b35fb797329",
+                    "firstError": "Contains lesson-referential wording (EN: in/as described in the lesson). Questions and answers must be fully standalone and must not refer to the lesson/course."
+                  },
+                  {
+                    "_id": "69776a623ed20b35fb79732a",
+                    "firstError": "Contains lesson-referential wording (EN: in/as described in the lesson). Questions and answers must be fully standalone and must not refer to the lesson/course."
+                  }
+                ],
+                "duplicateSamples": [
+                  {
+                    "question": "How would you use the \"بناء والحفاظ على المجتمعات لتحقيق الإنتاجية.\" concept as described in the lesson in practice?",
+                    "keepId": "69776a623ed20b35fb797328",
+                    "deleteIds": [
+                      "69776a623ed20b35fb797329",
+                      "69776a623ed20b35fb79732a"
+                    ]
+                  }
+                ]
+              },
+              "generator": {
+                "attempted": true,
+                "generateTarget": 40,
+                "validatedNew": 0,
+                "canSatisfyMinimums": false,
+                "reasonIfNot": "Could not reach minimums with generator output (finalValid=0, finalApp=0)."
+              },
+              "errors": [
+                "QUIZ_TOO_FEW_VALID",
+                "QUIZ_TOO_FEW_APPLICATION",
+                "QUIZ_HAS_INVALID_QUESTIONS",
+                "QUIZ_HAS_DUPLICATES",
+                "GENERATOR_INSUFFICIENT_TO_REACH_MINIMUMS"
+              ],
+              "warnings": []
+            },
+            {
+              "dayNumber": 22,
+              "lessonId": "PRODUCTIVITY_2026_AR_DAY_22",
+              "title": "التكنولوجيا والأدوات: الأتمتة واختيار التكنولوجيا المناسبة",
+              "createdAt": "2026-01-24T09:30:14.672Z",
+              "lessonQuality": {
+                "score": 100,
+                "issues": [],
+                "signals": {
+                  "charCount": 995,
+                  "wordCount": 168,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": true,
+                  "hasMetricsOrCriteria": true,
+                  "hasDefinitionsOrComparisons": true
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": false,
+                  "addChecklistSection": false,
+                  "addExamplesSection": false,
+                  "addPitfallsSection": false,
+                  "addMetricsSection": false
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 7,
+                "validExisting": 0,
+                "invalidExisting": 7,
+                "application": 0,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 1,
+                "duplicatesToDelete": 2,
+                "invalidSamples": [
+                  {
+                    "_id": "69776a623ed20b35fb797332",
+                    "firstError": "Contains lesson-referential wording (EN: in/as described in the lesson). Questions and answers must be fully standalone and must not refer to the lesson/course."
+                  },
+                  {
+                    "_id": "69776a623ed20b35fb797333",
+                    "firstError": "Contains lesson-referential wording (EN: in/as described in the lesson). Questions and answers must be fully standalone and must not refer to the lesson/course."
+                  },
+                  {
+                    "_id": "69776a623ed20b35fb797334",
+                    "firstError": "Contains lesson-referential wording (EN: in/as described in the lesson). Questions and answers must be fully standalone and must not refer to the lesson/course."
+                  }
+                ],
+                "duplicateSamples": [
+                  {
+                    "question": "How would you use the \"استفد من التكنولوجيا لتعزيز الإنتاجية.\" concept as described in the lesson in practice?",
+                    "keepId": "69776a623ed20b35fb797332",
+                    "deleteIds": [
+                      "69776a623ed20b35fb797333",
+                      "69776a623ed20b35fb797334"
+                    ]
+                  }
+                ]
+              },
+              "generator": {
+                "attempted": true,
+                "generateTarget": 40,
+                "validatedNew": 0,
+                "canSatisfyMinimums": false,
+                "reasonIfNot": "Could not reach minimums with generator output (finalValid=0, finalApp=0)."
+              },
+              "errors": [
+                "QUIZ_TOO_FEW_VALID",
+                "QUIZ_TOO_FEW_APPLICATION",
+                "QUIZ_HAS_INVALID_QUESTIONS",
+                "QUIZ_HAS_DUPLICATES",
+                "GENERATOR_INSUFFICIENT_TO_REACH_MINIMUMS"
+              ],
+              "warnings": []
+            },
+            {
+              "dayNumber": 23,
+              "lessonId": "PRODUCTIVITY_2026_AR_DAY_23",
+              "title": "الإبداع والابتكار: إعادة التفكير والتجريب",
+              "createdAt": "2026-01-24T09:30:17.271Z",
+              "lessonQuality": {
+                "score": 100,
+                "issues": [],
+                "signals": {
+                  "charCount": 1453,
+                  "wordCount": 241,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": true,
+                  "hasMetricsOrCriteria": true,
+                  "hasDefinitionsOrComparisons": true
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": false,
+                  "addChecklistSection": false,
+                  "addExamplesSection": false,
+                  "addPitfallsSection": false,
+                  "addMetricsSection": false
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 7,
+                "validExisting": 0,
+                "invalidExisting": 7,
+                "application": 0,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 1,
+                "duplicatesToDelete": 2,
+                "invalidSamples": [
+                  {
+                    "_id": "69776a623ed20b35fb79733c",
+                    "firstError": "Contains lesson-referential wording (EN: in/as described in the lesson). Questions and answers must be fully standalone and must not refer to the lesson/course."
+                  },
+                  {
+                    "_id": "69776a623ed20b35fb79733d",
+                    "firstError": "Contains lesson-referential wording (EN: in/as described in the lesson). Questions and answers must be fully standalone and must not refer to the lesson/course."
+                  },
+                  {
+                    "_id": "69776a623ed20b35fb79733e",
+                    "firstError": "Contains lesson-referential wording (EN: in/as described in the lesson). Questions and answers must be fully standalone and must not refer to the lesson/course."
+                  }
+                ],
+                "duplicateSamples": [
+                  {
+                    "question": "How would you use the \"دمج الإبداع والابتكار في العمل.\" concept as described in the lesson in practice?",
+                    "keepId": "69776a623ed20b35fb79733c",
+                    "deleteIds": [
+                      "69776a623ed20b35fb79733d",
+                      "69776a623ed20b35fb79733e"
+                    ]
+                  }
+                ]
+              },
+              "generator": {
+                "attempted": true,
+                "generateTarget": 40,
+                "validatedNew": 0,
+                "canSatisfyMinimums": false,
+                "reasonIfNot": "Could not reach minimums with generator output (finalValid=0, finalApp=0)."
+              },
+              "errors": [
+                "QUIZ_TOO_FEW_VALID",
+                "QUIZ_TOO_FEW_APPLICATION",
+                "QUIZ_HAS_INVALID_QUESTIONS",
+                "QUIZ_HAS_DUPLICATES",
+                "GENERATOR_INSUFFICIENT_TO_REACH_MINIMUMS"
+              ],
+              "warnings": []
+            },
+            {
+              "dayNumber": 24,
+              "lessonId": "PRODUCTIVITY_2026_AR_DAY_24",
+              "title": "التصفية والأولويات: ما يجب تجاهله وما يهم",
+              "createdAt": "2026-01-24T09:30:19.969Z",
+              "lessonQuality": {
+                "score": 100,
+                "issues": [],
+                "signals": {
+                  "charCount": 978,
+                  "wordCount": 169,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": true,
+                  "hasMetricsOrCriteria": true,
+                  "hasDefinitionsOrComparisons": true
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": false,
+                  "addChecklistSection": false,
+                  "addExamplesSection": false,
+                  "addPitfallsSection": false,
+                  "addMetricsSection": false
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 7,
+                "validExisting": 0,
+                "invalidExisting": 7,
+                "application": 0,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 1,
+                "duplicatesToDelete": 2,
+                "invalidSamples": [
+                  {
+                    "_id": "69776a623ed20b35fb797346",
+                    "firstError": "Contains lesson-referential wording (EN: in/as described in the lesson). Questions and answers must be fully standalone and must not refer to the lesson/course."
+                  },
+                  {
+                    "_id": "69776a623ed20b35fb797347",
+                    "firstError": "Contains lesson-referential wording (EN: in/as described in the lesson). Questions and answers must be fully standalone and must not refer to the lesson/course."
+                  },
+                  {
+                    "_id": "69776a623ed20b35fb797348",
+                    "firstError": "Contains lesson-referential wording (EN: in/as described in the lesson). Questions and answers must be fully standalone and must not refer to the lesson/course."
+                  }
+                ],
+                "duplicateSamples": [
+                  {
+                    "question": "How would you use the \"تعلم قول \"لا\" والتركيز على ما يهم.\" concept as described in the lesson in practice?",
+                    "keepId": "69776a623ed20b35fb797346",
+                    "deleteIds": [
+                      "69776a623ed20b35fb797347",
+                      "69776a623ed20b35fb797348"
+                    ]
+                  }
+                ]
+              },
+              "generator": {
+                "attempted": true,
+                "generateTarget": 40,
+                "validatedNew": 0,
+                "canSatisfyMinimums": false,
+                "reasonIfNot": "Could not reach minimums with generator output (finalValid=0, finalApp=0)."
+              },
+              "errors": [
+                "QUIZ_TOO_FEW_VALID",
+                "QUIZ_TOO_FEW_APPLICATION",
+                "QUIZ_HAS_INVALID_QUESTIONS",
+                "QUIZ_HAS_DUPLICATES",
+                "GENERATOR_INSUFFICIENT_TO_REACH_MINIMUMS"
+              ],
+              "warnings": []
+            },
+            {
+              "dayNumber": 25,
+              "lessonId": "PRODUCTIVITY_2026_AR_DAY_25",
+              "title": "تطوير المهارات: مستويات أعلى، كفاءات جديدة",
+              "createdAt": "2026-01-24T09:30:22.830Z",
+              "lessonQuality": {
+                "score": 100,
+                "issues": [],
+                "signals": {
+                  "charCount": 979,
+                  "wordCount": 168,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": true,
+                  "hasMetricsOrCriteria": true,
+                  "hasDefinitionsOrComparisons": true
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": false,
+                  "addChecklistSection": false,
+                  "addExamplesSection": false,
+                  "addPitfallsSection": false,
+                  "addMetricsSection": false
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 7,
+                "validExisting": 0,
+                "invalidExisting": 7,
+                "application": 0,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 1,
+                "duplicatesToDelete": 2,
+                "invalidSamples": [
+                  {
+                    "_id": "69776a633ed20b35fb797350",
+                    "firstError": "Contains lesson-referential wording (EN: in/as described in the lesson). Questions and answers must be fully standalone and must not refer to the lesson/course."
+                  },
+                  {
+                    "_id": "69776a633ed20b35fb797351",
+                    "firstError": "Contains lesson-referential wording (EN: in/as described in the lesson). Questions and answers must be fully standalone and must not refer to the lesson/course."
+                  },
+                  {
+                    "_id": "69776a633ed20b35fb797352",
+                    "firstError": "Contains lesson-referential wording (EN: in/as described in the lesson). Questions and answers must be fully standalone and must not refer to the lesson/course."
+                  }
+                ],
+                "duplicateSamples": [
+                  {
+                    "question": "How would you use the \"طور كفاءاتك الأساسية وخبرتك.\" concept as described in the lesson in practice?",
+                    "keepId": "69776a633ed20b35fb797350",
+                    "deleteIds": [
+                      "69776a633ed20b35fb797351",
+                      "69776a633ed20b35fb797352"
+                    ]
+                  }
+                ]
+              },
+              "generator": {
+                "attempted": true,
+                "generateTarget": 40,
+                "validatedNew": 0,
+                "canSatisfyMinimums": false,
+                "reasonIfNot": "Could not reach minimums with generator output (finalValid=0, finalApp=0)."
+              },
+              "errors": [
+                "QUIZ_TOO_FEW_VALID",
+                "QUIZ_TOO_FEW_APPLICATION",
+                "QUIZ_HAS_INVALID_QUESTIONS",
+                "QUIZ_HAS_DUPLICATES",
+                "GENERATOR_INSUFFICIENT_TO_REACH_MINIMUMS"
+              ],
+              "warnings": []
+            },
+            {
+              "dayNumber": 26,
+              "lessonId": "PRODUCTIVITY_2026_AR_DAY_26",
+              "title": "الإرشاد والتدريس: مشاركة المعرفة والمساعدة للآخرين",
+              "createdAt": "2026-01-24T09:30:25.365Z",
+              "lessonQuality": {
+                "score": 100,
+                "issues": [],
+                "signals": {
+                  "charCount": 1496,
+                  "wordCount": 250,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": true,
+                  "hasMetricsOrCriteria": true,
+                  "hasDefinitionsOrComparisons": true
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": false,
+                  "addChecklistSection": false,
+                  "addExamplesSection": false,
+                  "addPitfallsSection": false,
+                  "addMetricsSection": false
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 7,
+                "validExisting": 0,
+                "invalidExisting": 7,
+                "application": 0,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 1,
+                "duplicatesToDelete": 2,
+                "invalidSamples": [
+                  {
+                    "_id": "69776a633ed20b35fb79735a",
+                    "firstError": "Contains lesson-referential wording (EN: in/as described in the lesson). Questions and answers must be fully standalone and must not refer to the lesson/course."
+                  },
+                  {
+                    "_id": "69776a633ed20b35fb79735b",
+                    "firstError": "Contains lesson-referential wording (EN: in/as described in the lesson). Questions and answers must be fully standalone and must not refer to the lesson/course."
+                  },
+                  {
+                    "_id": "69776a633ed20b35fb79735c",
+                    "firstError": "Contains lesson-referential wording (EN: in/as described in the lesson). Questions and answers must be fully standalone and must not refer to the lesson/course."
+                  }
+                ],
+                "duplicateSamples": [
+                  {
+                    "question": "How would you use the \"تعليم الآخرين يسرع من تعلمك الخاص.\" concept as described in the lesson in practice?",
+                    "keepId": "69776a633ed20b35fb79735a",
+                    "deleteIds": [
+                      "69776a633ed20b35fb79735b",
+                      "69776a633ed20b35fb79735c"
+                    ]
+                  }
+                ]
+              },
+              "generator": {
+                "attempted": true,
+                "generateTarget": 40,
+                "validatedNew": 0,
+                "canSatisfyMinimums": false,
+                "reasonIfNot": "Could not reach minimums with generator output (finalValid=0, finalApp=0)."
+              },
+              "errors": [
+                "QUIZ_TOO_FEW_VALID",
+                "QUIZ_TOO_FEW_APPLICATION",
+                "QUIZ_HAS_INVALID_QUESTIONS",
+                "QUIZ_HAS_DUPLICATES",
+                "GENERATOR_INSUFFICIENT_TO_REACH_MINIMUMS"
+              ],
+              "warnings": []
+            },
+            {
+              "dayNumber": 27,
+              "lessonId": "PRODUCTIVITY_2026_AR_DAY_27",
+              "title": "العادات والطقوس: الروتين اليومي والعمل طويل الأجل",
+              "createdAt": "2026-01-24T09:30:28.692Z",
+              "lessonQuality": {
+                "score": 100,
+                "issues": [],
+                "signals": {
+                  "charCount": 986,
+                  "wordCount": 169,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": true,
+                  "hasMetricsOrCriteria": true,
+                  "hasDefinitionsOrComparisons": true
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": false,
+                  "addChecklistSection": false,
+                  "addExamplesSection": false,
+                  "addPitfallsSection": false,
+                  "addMetricsSection": false
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 7,
+                "validExisting": 0,
+                "invalidExisting": 7,
+                "application": 0,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 1,
+                "duplicatesToDelete": 2,
+                "invalidSamples": [
+                  {
+                    "_id": "69776a633ed20b35fb797364",
+                    "firstError": "Contains lesson-referential wording (EN: in/as described in the lesson). Questions and answers must be fully standalone and must not refer to the lesson/course."
+                  },
+                  {
+                    "_id": "69776a633ed20b35fb797365",
+                    "firstError": "Contains lesson-referential wording (EN: in/as described in the lesson). Questions and answers must be fully standalone and must not refer to the lesson/course."
+                  },
+                  {
+                    "_id": "69776a633ed20b35fb797366",
+                    "firstError": "Contains lesson-referential wording (EN: in/as described in the lesson). Questions and answers must be fully standalone and must not refer to the lesson/course."
+                  }
+                ],
+                "duplicateSamples": [
+                  {
+                    "question": "How would you use the \"بناء العادات التي تتراكم بمرور الوقت.\" concept as described in the lesson in practice?",
+                    "keepId": "69776a633ed20b35fb797364",
+                    "deleteIds": [
+                      "69776a633ed20b35fb797365",
+                      "69776a633ed20b35fb797366"
+                    ]
+                  }
+                ]
+              },
+              "generator": {
+                "attempted": true,
+                "generateTarget": 40,
+                "validatedNew": 0,
+                "canSatisfyMinimums": false,
+                "reasonIfNot": "Could not reach minimums with generator output (finalValid=0, finalApp=0)."
+              },
+              "errors": [
+                "QUIZ_TOO_FEW_VALID",
+                "QUIZ_TOO_FEW_APPLICATION",
+                "QUIZ_HAS_INVALID_QUESTIONS",
+                "QUIZ_HAS_DUPLICATES",
+                "GENERATOR_INSUFFICIENT_TO_REACH_MINIMUMS"
+              ],
+              "warnings": []
+            },
+            {
+              "dayNumber": 28,
+              "lessonId": "PRODUCTIVITY_2026_AR_DAY_28",
+              "title": "القيم والأهداف: الغرض من الحياة والرؤية طويلة الأجل",
+              "createdAt": "2026-01-24T09:30:32.121Z",
+              "lessonQuality": {
+                "score": 100,
+                "issues": [],
+                "signals": {
+                  "charCount": 988,
+                  "wordCount": 170,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": true,
+                  "hasMetricsOrCriteria": true,
+                  "hasDefinitionsOrComparisons": true
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": false,
+                  "addChecklistSection": false,
+                  "addExamplesSection": false,
+                  "addPitfallsSection": false,
+                  "addMetricsSection": false
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 7,
+                "validExisting": 0,
+                "invalidExisting": 7,
+                "application": 0,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 1,
+                "duplicatesToDelete": 2,
+                "invalidSamples": [
+                  {
+                    "_id": "69776a633ed20b35fb79736e",
+                    "firstError": "Contains lesson-referential wording (EN: in/as described in the lesson). Questions and answers must be fully standalone and must not refer to the lesson/course."
+                  },
+                  {
+                    "_id": "69776a633ed20b35fb79736f",
+                    "firstError": "Contains lesson-referential wording (EN: in/as described in the lesson). Questions and answers must be fully standalone and must not refer to the lesson/course."
+                  },
+                  {
+                    "_id": "69776a633ed20b35fb797370",
+                    "firstError": "Contains lesson-referential wording (EN: in/as described in the lesson). Questions and answers must be fully standalone and must not refer to the lesson/course."
+                  }
+                ],
+                "duplicateSamples": [
+                  {
+                    "question": "How would you use the \"اربط الإنتاجية بقيم حياتك.\" concept as described in the lesson in practice?",
+                    "keepId": "69776a633ed20b35fb79736e",
+                    "deleteIds": [
+                      "69776a633ed20b35fb79736f",
+                      "69776a633ed20b35fb797370"
+                    ]
+                  }
+                ]
+              },
+              "generator": {
+                "attempted": true,
+                "generateTarget": 40,
+                "validatedNew": 0,
+                "canSatisfyMinimums": false,
+                "reasonIfNot": "Could not reach minimums with generator output (finalValid=0, finalApp=0)."
+              },
+              "errors": [
+                "QUIZ_TOO_FEW_VALID",
+                "QUIZ_TOO_FEW_APPLICATION",
+                "QUIZ_HAS_INVALID_QUESTIONS",
+                "QUIZ_HAS_DUPLICATES",
+                "GENERATOR_INSUFFICIENT_TO_REACH_MINIMUMS"
+              ],
+              "warnings": []
+            },
+            {
+              "dayNumber": 29,
+              "lessonId": "PRODUCTIVITY_2026_AR_DAY_29",
+              "title": "التحسين المستمر: التعلم والتغذية الراجعة والتكرار",
+              "createdAt": "2026-01-24T09:30:36.177Z",
+              "lessonQuality": {
+                "score": 100,
+                "issues": [],
+                "signals": {
+                  "charCount": 1462,
+                  "wordCount": 244,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": true,
+                  "hasMetricsOrCriteria": true,
+                  "hasDefinitionsOrComparisons": true
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": false,
+                  "addChecklistSection": false,
+                  "addExamplesSection": false,
+                  "addPitfallsSection": false,
+                  "addMetricsSection": false
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 7,
+                "validExisting": 0,
+                "invalidExisting": 7,
+                "application": 0,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 1,
+                "duplicatesToDelete": 2,
+                "invalidSamples": [
+                  {
+                    "_id": "69776a633ed20b35fb797378",
+                    "firstError": "Contains lesson-referential wording (EN: in/as described in the lesson). Questions and answers must be fully standalone and must not refer to the lesson/course."
+                  },
+                  {
+                    "_id": "69776a633ed20b35fb797379",
+                    "firstError": "Contains lesson-referential wording (EN: in/as described in the lesson). Questions and answers must be fully standalone and must not refer to the lesson/course."
+                  },
+                  {
+                    "_id": "69776a633ed20b35fb79737a",
+                    "firstError": "Contains lesson-referential wording (EN: in/as described in the lesson). Questions and answers must be fully standalone and must not refer to the lesson/course."
+                  }
+                ],
+                "duplicateSamples": [
+                  {
+                    "question": "How would you use the \"الإنتاجية لا تنتهي أبداً—تتطور.\" concept as described in the lesson in practice?",
+                    "keepId": "69776a633ed20b35fb797378",
+                    "deleteIds": [
+                      "69776a633ed20b35fb797379",
+                      "69776a633ed20b35fb79737a"
+                    ]
+                  }
+                ]
+              },
+              "generator": {
+                "attempted": true,
+                "generateTarget": 40,
+                "validatedNew": 0,
+                "canSatisfyMinimums": false,
+                "reasonIfNot": "Could not reach minimums with generator output (finalValid=0, finalApp=0)."
+              },
+              "errors": [
+                "QUIZ_TOO_FEW_VALID",
+                "QUIZ_TOO_FEW_APPLICATION",
+                "QUIZ_HAS_INVALID_QUESTIONS",
+                "QUIZ_HAS_DUPLICATES",
+                "GENERATOR_INSUFFICIENT_TO_REACH_MINIMUMS"
+              ],
+              "warnings": []
+            },
+            {
+              "dayNumber": 30,
+              "lessonId": "PRODUCTIVITY_2026_AR_DAY_30",
+              "title": "سيد الإنتاجية: التكامل الشامل والالتزام",
+              "createdAt": "2026-01-24T09:30:39.104Z",
+              "lessonQuality": {
+                "score": 100,
+                "issues": [],
+                "signals": {
+                  "charCount": 1452,
+                  "wordCount": 243,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": true,
+                  "hasMetricsOrCriteria": true,
+                  "hasDefinitionsOrComparisons": true
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": false,
+                  "addChecklistSection": false,
+                  "addExamplesSection": false,
+                  "addPitfallsSection": false,
+                  "addMetricsSection": false
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 7,
+                "validExisting": 0,
+                "invalidExisting": 7,
+                "application": 0,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 1,
+                "duplicatesToDelete": 2,
+                "invalidSamples": [
+                  {
+                    "_id": "69776a633ed20b35fb797382",
+                    "firstError": "Contains lesson-referential wording (EN: in/as described in the lesson). Questions and answers must be fully standalone and must not refer to the lesson/course."
+                  },
+                  {
+                    "_id": "69776a633ed20b35fb797383",
+                    "firstError": "Contains lesson-referential wording (EN: in/as described in the lesson). Questions and answers must be fully standalone and must not refer to the lesson/course."
+                  },
+                  {
+                    "_id": "69776a633ed20b35fb797384",
+                    "firstError": "Contains lesson-referential wording (EN: in/as described in the lesson). Questions and answers must be fully standalone and must not refer to the lesson/course."
+                  }
+                ],
+                "duplicateSamples": [
+                  {
+                    "question": "How would you use the \"التركيب والتأمل والنظر إلى الأمام.\" concept as described in the lesson in practice?",
+                    "keepId": "69776a633ed20b35fb797382",
+                    "deleteIds": [
+                      "69776a633ed20b35fb797383",
+                      "69776a633ed20b35fb797384"
+                    ]
+                  }
+                ]
+              },
+              "generator": {
+                "attempted": true,
+                "generateTarget": 40,
+                "validatedNew": 0,
+                "canSatisfyMinimums": false,
+                "reasonIfNot": "Could not reach minimums with generator output (finalValid=0, finalApp=0)."
+              },
+              "errors": [
+                "QUIZ_TOO_FEW_VALID",
+                "QUIZ_TOO_FEW_APPLICATION",
+                "QUIZ_HAS_INVALID_QUESTIONS",
+                "QUIZ_HAS_DUPLICATES",
+                "GENERATOR_INSUFFICIENT_TO_REACH_MINIMUMS"
+              ],
+              "warnings": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ccsId": "GEO_SHOPIFY_30",
+      "name": "GEO_SHOPIFY_30",
+      "ideaPresent": true,
+      "outlinePresent": true,
+      "relatedDocumentsCount": 0,
+      "courses": []
+    },
+    {
+      "ccsId": "AI_30_DAY",
+      "name": "AI_30_DAY",
+      "ideaPresent": true,
+      "outlinePresent": true,
+      "relatedDocumentsCount": 0,
+      "courses": []
+    },
+    {
+      "ccsId": "B2B_SALES_2026_30",
+      "name": "B2B_SALES_2026_30",
+      "ideaPresent": true,
+      "outlinePresent": true,
+      "relatedDocumentsCount": 0,
+      "courses": []
+    },
+    {
+      "ccsId": "PLAYBOOK_2026_30",
+      "name": "PLAYBOOK_2026_30",
+      "ideaPresent": true,
+      "outlinePresent": true,
+      "relatedDocumentsCount": 0,
+      "courses": []
+    },
+    {
+      "ccsId": "SALES_PRODUCTIVITY_30",
+      "name": "SALES_PRODUCTIVITY_30",
+      "ideaPresent": true,
+      "outlinePresent": true,
+      "relatedDocumentsCount": 0,
+      "courses": []
+    },
+    {
+      "ccsId": "DONE_BETTER_2026",
+      "name": "Done is better - Build What Matters",
+      "ideaPresent": true,
+      "outlinePresent": true,
+      "relatedDocumentsCount": 0,
+      "courses": []
+    }
+  ],
+  "coursesMissingCcsId": []
+}

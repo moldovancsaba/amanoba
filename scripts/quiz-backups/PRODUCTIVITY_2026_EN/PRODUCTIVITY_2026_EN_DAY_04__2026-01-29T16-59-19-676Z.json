@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-29T16:59:58.550Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_EN",
+    "name": "Productivity 2026: How to Manage Teams and Time",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 4,
+    "title": "Habits vs systems: why systems scale better",
+    "lessonId": "PRODUCTIVITY_2026_EN_DAY_04"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69787d9aa326286129da8f80",
+      "uuid": "01a29a80-4093-4efc-a681-aff44aa96c88",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "In “habits vs systems”, which example is a system (scales and can be documented) rather than only a personal habit?",
+      "options": [
+        "An email processing workflow: inbox rules, two daily processing windows, and a documented decision rule for every message.",
+        "Remembering to check email “sometime today” and hoping nothing important is missed.",
+        "Trying to be disciplined by working harder when motivation is high, without changing the process.",
+        "Willing yourself to avoid distractions without changing notifications or environment."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day4",
+        "#en",
+        "#course-productivity_2026_en",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "69787d9aa326286129da8f81",
+      "uuid": "c0706218-0eae-4b20-b74d-aa4458e1f36c",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "A process needs to work for 10 people, not just 1. According to the course, what should you build?",
+      "options": [
+        "A system with clear inputs/outputs, steps, and documentation so execution is consistent across people.",
+        "A personal habit and hope everyone copies your style informally over time.",
+        "A motivational slogan to increase willpower so the process “sticks” automatically.",
+        "A rule that only the most disciplined person can perform the process to maintain quality."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day4",
+        "#en",
+        "#course-productivity_2026_en",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "69787d9aa326286129da8f82",
+      "uuid": "1589f9d8-41cf-4573-87d3-95b5c56de3df",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Which option best describes why systems “scale” better than habits in this course?",
+      "options": [
+        "Systems reduce dependence on daily motivation and allow repeatable execution through structure and documentation.",
+        "Systems guarantee success without maintenance, so you never need to review or improve them.",
+        "Habits cannot exist in teams, so systems are the only way people can work together.",
+        "Systems are only about buying tools; habits are about behavior and therefore less important."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day4",
+        "#en",
+        "#course-productivity_2026_en",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "69787d9aa326286129da8f83",
+      "uuid": "35eadd43-924b-46ba-b4c1-afbea323a0f2",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "You want to convert “remember to do X” into a system. Which design is closest to input → process → output?",
+      "options": [
+        "Input: incoming requests; Process: triage daily + schedule; Output: prioritized tasks with owners and due dates.",
+        "Input: stress; Process: work harder; Output: hope the problem disappears over time.",
+        "Input: ideas; Process: keep them in your head; Output: occasional random action when remembered.",
+        "Input: emails; Process: check constantly; Output: more activity but no clear completion rule."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day4",
+        "#en",
+        "#course-productivity_2026_en",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "69787d9aa326286129da8f84",
+      "uuid": "c41b1602-5c70-4c4d-9499-91557960c834",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "What is the main risk of relying only on habits for team productivity, according to the course’s systems framing?",
+      "options": [
+        "Execution becomes person-dependent; when the “habit owner” is absent, quality and consistency collapse.",
+        "Habits automatically transfer to others, so the team becomes more consistent without any documentation.",
+        "Habits reduce the need for communication, so coordination becomes unnecessary.",
+        "Habits make outcomes measurable by default, so metrics are no longer needed."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day4",
+        "#en",
+        "#course-productivity_2026_en",
+        "#productivity",
+        "#advanced",
+        "#critical-thinking"
+      ]
+    },
+    {
+      "_id": "69787d9aa326286129da8f85",
+      "uuid": "bf55c5d0-5036-4a89-b651-c8ca71352ec2",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "A system takes time to design. Why is it still higher leverage than “trying harder” as a habit strategy?",
+      "options": [
+        "Because a good system reduces decision load and makes correct behavior the default, producing consistent outcomes over time.",
+        "Because system design eliminates the need for review and improvement once written down.",
+        "Because systems only work when motivation is high, so they are equivalent to habits in practice.",
+        "Because habits are always harmful and should never be used for any personal change."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day4",
+        "#en",
+        "#course-productivity_2026_en",
+        "#productivity",
+        "#advanced",
+        "#critical-thinking"
+      ]
+    },
+    {
+      "_id": "69787d9aa326286129da8f86",
+      "uuid": "a175f5b9-e755-4ff5-9283-e795324fd6ad",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "You want to scale a weekly review to a team. Which change turns it into a system rather than a personal habit?",
+      "options": [
+        "Create a documented template (metrics + questions), set a recurring time, and assign owners so it runs consistently without relying on one person.",
+        "Tell everyone to “remember to review weekly” and hope it becomes part of the culture naturally.",
+        "Wait until the team feels motivated and then do reviews only when energy is high.",
+        "Make weekly review optional with no shared metrics so everyone can interpret progress differently."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day4",
+        "#en",
+        "#course-productivity_2026_en",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    }
+  ]
+}

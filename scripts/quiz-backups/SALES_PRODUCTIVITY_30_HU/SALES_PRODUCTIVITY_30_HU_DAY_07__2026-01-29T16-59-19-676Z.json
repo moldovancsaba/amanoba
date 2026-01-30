@@ -1,0 +1,184 @@
+{
+  "backedUpAt": "2026-01-29T16:59:49.023Z",
+  "course": {
+    "courseId": "SALES_PRODUCTIVITY_30_HU",
+    "name": "Értékesítés 2026 - Sales Reset",
+    "language": "hu"
+  },
+  "lesson": {
+    "dayNumber": 7,
+    "title": "Ideális ügyfélprofil (ICP) – Kik azok, akikkel dolgozol?",
+    "lessonId": "SALES_PRODUCTIVITY_30_HU_DAY_07"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "6979db379316e77110ed0547",
+      "uuid": "1883a652-4842-4d78-a6e1-060abad2403a",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Egy új gyakorlatot vezetsz be: „Gyakorlat 1 – ICP definíció (25 perc) Nézd meg a legjobb ügy”. Melyik bevezetési terv biztosít mérhető kimenetet és gyors visszacsatolást?",
+      "options": [
+        "Lépésről lépésre bevezetem, előtte/utána mérőpontokat állítok be, dokumentálom az eredményt, és iterálok a hibák alapján",
+        "Egyszerre mindent átállítok, majd nem ellenőrzöm, mi romlott el",
+        "Csak elolvasom, de nem építem be a folyamatomba",
+        "Megvárom, hogy valaki más készítsen helyettem megoldást"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day7",
+        "#hu",
+        "#all-languages",
+        "#course-sales_productivity_30_hu",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "6979db379316e77110ed0548",
+      "uuid": "d1b6e490-0152-456a-b305-63c21c0ddb0a",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Egy új gyakorlatot vezetsz be: „Gyakorlat 2 – ICP követő táblázat (10 perc) Hozz létre egy t”. Melyik bevezetési terv biztosít mérhető kimenetet és gyors visszacsatolást?",
+      "options": [
+        "Lépésről lépésre bevezetem, előtte/utána mérőpontokat állítok be, dokumentálom az eredményt, és iterálok a hibák alapján",
+        "Egyszerre mindent átállítok, majd nem ellenőrzöm, mi romlott el",
+        "Csak elolvasom, de nem építem be a folyamatomba",
+        "Megvárom, hogy valaki más készítsen helyettem megoldást"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day7",
+        "#hu",
+        "#all-languages",
+        "#course-sales_productivity_30_hu",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "6979db379316e77110ed0549",
+      "uuid": "4d03d1ab-13a2-4fd5-bf7a-0b1dd25c4a6d",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Egy új gyakorlatot vezetsz be: „példa céget, amelyek megfelelnek az ICP-nek Létrehozni egy I”. Melyik bevezetési terv biztosít mérhető kimenetet és gyors visszacsatolást?",
+      "options": [
+        "Lépésről lépésre bevezetem, előtte/utána mérőpontokat állítok be, dokumentálom az eredményt, és iterálok a hibák alapján",
+        "Egyszerre mindent átállítok, majd nem ellenőrzöm, mi romlott el",
+        "Csak elolvasom, de nem építem be a folyamatomba",
+        "Megvárom, hogy valaki más készítsen helyettem megoldást"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day7",
+        "#hu",
+        "#all-languages",
+        "#course-sales_productivity_30_hu",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "6979db379316e77110ed054a",
+      "uuid": "79ebe43c-1cc4-49e7-99aa-35d4211f97d2",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Egy új gyakorlatot vezetsz be: „Példa ICP definíció ICP példa: Cégméret: 50-200 alkalmazott ”. Melyik bevezetési terv biztosít mérhető kimenetet és gyors visszacsatolást?",
+      "options": [
+        "Lépésről lépésre bevezetem, előtte/utána mérőpontokat állítok be, dokumentálom az eredményt, és iterálok a hibák alapján",
+        "Egyszerre mindent átállítok, majd nem ellenőrzöm, mi romlott el",
+        "Csak elolvasom, de nem építem be a folyamatomba",
+        "Megvárom, hogy valaki más készítsen helyettem megoldást"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day7",
+        "#hu",
+        "#all-languages",
+        "#course-sales_productivity_30_hu",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "6979db379316e77110ed054b",
+      "uuid": "e716cf20-a48d-4f05-b84b-1e5ce6916951",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Egy új gyakorlatot vezetsz be: „példa céget, amelyek megfelelnek az ICP-nek Gyakorlat 2 – IC”. Melyik bevezetési terv biztosít mérhető kimenetet és gyors visszacsatolást?",
+      "options": [
+        "Lépésről lépésre bevezetem, előtte/utána mérőpontokat állítok be, dokumentálom az eredményt, és iterálok a hibák alapján",
+        "Egyszerre mindent átállítok, majd nem ellenőrzöm, mi romlott el",
+        "Csak elolvasom, de nem építem be a folyamatomba",
+        "Megvárom, hogy valaki más készítsen helyettem megoldást"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day7",
+        "#hu",
+        "#all-languages",
+        "#course-sales_productivity_30_hu",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "6979db379316e77110ed054c",
+      "uuid": "0b5b6a66-5a9e-42ed-8871-b53b4fedba66",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Egy vezető a következő elv szerint dönt: „fontos ez? Fókusz = jobb eredmények”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?",
+      "options": [
+        "A fókusz növelheti az eredményességet, mert a korlátok mellett a legnagyobb hatású kimenetre koncentrál; kockázat: rossz mérőszámra optimalizálva „látszat‑output” készül.",
+        "Az output automatikusan egyenlő az eredménnyel, ezért elég több feladatot lezárni; kockázat: nő az aktivitás, de romlik az ügyfélérték és a minőség.",
+        "A korlátok (idő/energia/figyelem) figyelmen kívül hagyhatók, mert a termelékenység csak akaraterő kérdése; kockázat: túlterhelés, hibák és kiégés.",
+        "A sebesség maximalizálása a legfontosabb, a minőség majd „később” javítható; kockázat: utómunka, újranyitások és bizalomvesztés alakul ki."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day7",
+        "#hu",
+        "#all-languages",
+        "#course-sales_productivity_30_hu",
+        "#productivity",
+        "#sales",
+        "#advanced",
+        "#critical-thinking"
+      ]
+    },
+    {
+      "_id": "6979db379316e77110ed054d",
+      "uuid": "a370ba8d-60e4-4db6-b032-f3a85f4aba33",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Egy vezető a következő elv szerint dönt: „Ideális ügyfélprofil (ICP) – Kik azok, akikkel dolgozol”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?",
+      "options": [
+        "A fókusz növelheti az eredményességet, mert a korlátok mellett a legnagyobb hatású kimenetre koncentrál; kockázat: rossz mérőszámra optimalizálva „látszat‑output” készül.",
+        "Az output automatikusan egyenlő az eredménnyel, ezért elég több feladatot lezárni; kockázat: nő az aktivitás, de romlik az ügyfélérték és a minőség.",
+        "A korlátok (idő/energia/figyelem) figyelmen kívül hagyhatók, mert a termelékenység csak akaraterő kérdése; kockázat: túlterhelés, hibák és kiégés.",
+        "A sebesség maximalizálása a legfontosabb, a minőség majd „később” javítható; kockázat: utómunka, újranyitások és bizalomvesztés alakul ki."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day7",
+        "#hu",
+        "#all-languages",
+        "#course-sales_productivity_30_hu",
+        "#productivity",
+        "#sales",
+        "#advanced",
+        "#critical-thinking"
+      ]
+    }
+  ]
+}

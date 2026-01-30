@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-28T21:29:05.440Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_HI",
+    "name": "उत्पादकता 2026: टीमों और समय का प्रबंधन कैसे करें",
+    "language": "hi"
+  },
+  "lesson": {
+    "dayNumber": 27,
+    "title": "आदतें और अनुष्ठान: दैनिक दिनचर्या, दीर्घकालीन कार्य",
+    "lessonId": "PRODUCTIVITY_2026_HI_DAY_27"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a6a206e4784b9a0c1cb",
+      "uuid": "92a9623e-4d02-466f-bf51-a0bef8862dc2",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"आदतें बनाएं जो समय के साथ जमा होती हैं।\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day27",
+        "#hi",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a6a206e4784b9a0c1cc",
+      "uuid": "f51e6fdc-2749-466d-bf2a-f387ff57260e",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"आदतें बनाएं जो समय के साथ जमा होती हैं।\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day27",
+        "#hi",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a6a206e4784b9a0c1cd",
+      "uuid": "16a37713-057d-4537-a5c3-b54eb8827e92",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"आदतें बनाएं जो समय के साथ जमा होती हैं।\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day27",
+        "#hi",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a6a206e4784b9a0c1ce",
+      "uuid": "c4e1afec-5a91-4d85-9f61-bd7f91793c7a",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "पाठ में उल्लिखित अवधारणा \"आदतें और अनुष्ठान: दैनिक दिनचर्या, दीर्घकालीन कार्...\" आपके goals प्राप्त करने को कैसे प्रभावित करती है?",
+      "options": [
+        "जैसा कि पाठ में विस्तार से वर्णित है, आदतें और अनुष्ठान: दैनिक दिनचर... प्रभावशीलता बढ़ाता है और जोखिम कम करता है",
+        "कोई महत्वपूर्ण प्रभाव नहीं",
+        "केवल सैद्धांतिक रूप से मायने रखता है",
+        "केवल एक वैकल्पिक तत्व"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day27",
+        "#hi",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a6a206e4784b9a0c1cf",
+      "uuid": "6a424c19-f895-4377-a763-6b01e2b0490a",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "पाठ में चर्चा किए गए आदतें और अनुष्ठान: दैनिक दिनचर्या, दीर्घकालीन कार्य के संदर्भ में आदतें कितना महत्वपूर्ण है?",
+      "options": [
+        "जैसा कि पाठ में विस्तार से वर्णित है, आदतें प्रक्रियाओं को अनुकूलित करने और लक्ष्यों को प्राप्त करने में महत्वपूर्ण भूमिका निभाता है",
+        "केवल परिधीय जानकारी, कोई महत्वपूर्ण भूमिका नहीं",
+        "केवल एक सैद्धांतिक अवधारणा, कोई व्यावहारिक अनुप्रयोग नहीं",
+        "पाठ में उल्लेख नहीं किया गया"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day27",
+        "#hi",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a6a206e4784b9a0c1d0",
+      "uuid": "784ee0a3-30eb-4993-b105-6bea0646a2aa",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "पाठ में चर्चा किए गए आदतें और अनुष्ठान: दैनिक दिनचर्या, दीर्घकालीन कार्य के संदर्भ में दैनिक कितना महत्वपूर्ण है?",
+      "options": [
+        "जैसा कि पाठ में विस्तार से वर्णित है, दैनिक प्रक्रियाओं को अनुकूलित करने और लक्ष्यों को प्राप्त करने में महत्वपूर्ण भूमिका निभाता है",
+        "केवल परिधीय जानकारी, कोई महत्वपूर्ण भूमिका नहीं",
+        "केवल एक सैद्धांतिक अवधारणा, कोई व्यावहारिक अनुप्रयोग नहीं",
+        "पाठ में उल्लेख नहीं किया गया"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day27",
+        "#hi",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a6a206e4784b9a0c1d1",
+      "uuid": "c497dacc-d707-4895-bfad-08b8e1a7ce9b",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "पाठ में चर्चा किए गए आदतें और अनुष्ठान: दैनिक दिनचर्या, दीर्घकालीन कार्य के संदर्भ में दीर्घकालीन कितना महत्वपूर्ण है?",
+      "options": [
+        "जैसा कि पाठ में विस्तार से वर्णित है, दीर्घकालीन प्रक्रियाओं को अनुकूलित करने और लक्ष्यों को प्राप्त करने में महत्वपूर्ण भूमिका निभाता है",
+        "केवल परिधीय जानकारी, कोई महत्वपूर्ण भूमिका नहीं",
+        "केवल एक सैद्धांतिक अवधारणा, कोई व्यावहारिक अनुप्रयोग नहीं",
+        "पाठ में उल्लेख नहीं किया गया"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day27",
+        "#hi",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

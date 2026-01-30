@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-28T21:29:02.115Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_AR",
+    "name": "الإنتاجية 2026: كيفية إدارة الفرق والوقت",
+    "language": "ar"
+  },
+  "lesson": {
+    "dayNumber": 28,
+    "title": "القيم والأهداف: الغرض من الحياة والرؤية طويلة الأجل",
+    "lessonId": "PRODUCTIVITY_2026_AR_DAY_28"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a633ed20b35fb79736e",
+      "uuid": "9ea8c55c-3e09-4f45-9ce0-5df7cf5f212b",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"اربط الإنتاجية بقيم حياتك.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day28",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a633ed20b35fb79736f",
+      "uuid": "cad31d6f-611b-4ed4-a216-531e355f028d",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"اربط الإنتاجية بقيم حياتك.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day28",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a633ed20b35fb797370",
+      "uuid": "36d1b161-9109-4b12-b96c-345d6507fc3f",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"اربط الإنتاجية بقيم حياتك.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day28",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a633ed20b35fb797371",
+      "uuid": "94ce1514-33f7-4fdd-bb2f-53329b542249",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "How does the concept \"القيم والأهداف: الغرض من الحياة والرؤية طويلة الأج...\" mentioned in the lesson impact achieving your goals?",
+      "options": [
+        "As described in detail in the lesson, القيم والأهداف: الغرض من الحيا... increases effectiveness and reduces risk",
+        "No significant impact",
+        "Only matters theoretically",
+        "Only an optional element"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day28",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a633ed20b35fb797372",
+      "uuid": "62220896-5d99-45eb-8a5d-07142cdadc81",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is القيم in the context of القيم والأهداف: الغرض من الحياة والرؤية طويلة الأجل as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, القيم plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day28",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a633ed20b35fb797373",
+      "uuid": "407364f8-f78d-4d7b-b8d8-df131cba21a4",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is الغرض in the context of القيم والأهداف: الغرض من الحياة والرؤية طويلة الأجل as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, الغرض plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day28",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a633ed20b35fb797374",
+      "uuid": "37c43be1-2fe2-4f80-9942-ec5df82b2121",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is والرؤية in the context of القيم والأهداف: الغرض من الحياة والرؤية طويلة الأجل as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, والرؤية plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day28",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

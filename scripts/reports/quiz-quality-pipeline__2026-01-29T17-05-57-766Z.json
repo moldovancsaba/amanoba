@@ -1,0 +1,1598 @@
+{
+  "generatedAt": "2026-01-29T17:05:57.766Z",
+  "dryRun": false,
+  "minLessonScore": 70,
+  "courseFilter": "B2B_SALES_2026_30_EN",
+  "lessonFilter": null,
+  "totals": {
+    "courses": 1,
+    "lessonsEvaluated": 30,
+    "lessonsNeedingRefine": 1,
+    "lessonsRewritten": 0,
+    "lessonsFailedRewrite": 0,
+    "questionsDeleted": 0,
+    "questionsInserted": 0
+  },
+  "lessons": [
+    {
+      "courseId": "B2B_SALES_2026_30_EN",
+      "courseName": "B2B Sales 2026 Masterclass",
+      "language": "en",
+      "dayNumber": 1,
+      "lessonId": "B2B_SALES_2026_30_EN_DAY_1",
+      "title": "What Modern B2B Sales Means in 2026",
+      "lessonCreatedAt": "2026-01-20T11:57:29.037Z",
+      "lessonQuality": {
+        "score": 100,
+        "issues": [],
+        "signals": {
+          "charCount": 2412,
+          "wordCount": 377,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "PASS",
+      "rewrite": {
+        "existingCounts": {
+          "total": 9,
+          "valid": 9,
+          "invalid": 0,
+          "application": 5,
+          "critical": 3,
+          "recall": 0,
+          "duplicates": 0
+        },
+        "cleanedInvalid": false,
+        "cleanedDuplicates": false,
+        "backupPath": null
+      }
+    },
+    {
+      "courseId": "B2B_SALES_2026_30_EN",
+      "courseName": "B2B Sales 2026 Masterclass",
+      "language": "en",
+      "dayNumber": 2,
+      "lessonId": "B2B_SALES_2026_30_EN_DAY_2",
+      "title": "The B2B Sales System Map",
+      "lessonCreatedAt": "2026-01-20T11:57:30.013Z",
+      "lessonQuality": {
+        "score": 100,
+        "issues": [],
+        "signals": {
+          "charCount": 2015,
+          "wordCount": 275,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "PASS",
+      "rewrite": {
+        "existingCounts": {
+          "total": 9,
+          "valid": 9,
+          "invalid": 0,
+          "application": 5,
+          "critical": 4,
+          "recall": 0,
+          "duplicates": 0
+        },
+        "cleanedInvalid": false,
+        "cleanedDuplicates": false,
+        "backupPath": null
+      }
+    },
+    {
+      "courseId": "B2B_SALES_2026_30_EN",
+      "courseName": "B2B Sales 2026 Masterclass",
+      "language": "en",
+      "dayNumber": 3,
+      "lessonId": "B2B_SALES_2026_30_EN_DAY_3",
+      "title": "ICP 2026: Problem-First, Not Industry-First",
+      "lessonCreatedAt": "2026-01-20T11:57:30.250Z",
+      "lessonQuality": {
+        "score": 85,
+        "issues": [
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 1614,
+          "wordCount": 228,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": true
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "PASS",
+      "rewrite": {
+        "existingCounts": {
+          "total": 9,
+          "valid": 9,
+          "invalid": 0,
+          "application": 5,
+          "critical": 4,
+          "recall": 0,
+          "duplicates": 0
+        },
+        "cleanedInvalid": false,
+        "cleanedDuplicates": false,
+        "backupPath": null
+      }
+    },
+    {
+      "courseId": "B2B_SALES_2026_30_EN",
+      "courseName": "B2B Sales 2026 Masterclass",
+      "language": "en",
+      "dayNumber": 4,
+      "lessonId": "B2B_SALES_2026_30_EN_DAY_4",
+      "title": "Buyer Persona and the Decision Unit",
+      "lessonCreatedAt": "2026-01-20T12:10:08.982Z",
+      "lessonQuality": {
+        "score": 70,
+        "issues": [
+          "NO_CLEAR_DEFINITIONS",
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 1538,
+          "wordCount": 231,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": true
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "PASS",
+      "rewrite": {
+        "existingCounts": {
+          "total": 9,
+          "valid": 9,
+          "invalid": 0,
+          "application": 5,
+          "critical": 4,
+          "recall": 0,
+          "duplicates": 0
+        },
+        "cleanedInvalid": false,
+        "cleanedDuplicates": false,
+        "backupPath": null
+      }
+    },
+    {
+      "courseId": "B2B_SALES_2026_30_EN",
+      "courseName": "B2B Sales 2026 Masterclass",
+      "language": "en",
+      "dayNumber": 5,
+      "lessonId": "B2B_SALES_2026_30_EN_DAY_5",
+      "title": "Value Proposition: Measurable, Verifiable Claims",
+      "lessonCreatedAt": "2026-01-20T12:10:09.078Z",
+      "lessonQuality": {
+        "score": 70,
+        "issues": [
+          "NO_CLEAR_DEFINITIONS",
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 1513,
+          "wordCount": 216,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": true
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "PASS",
+      "rewrite": {
+        "existingCounts": {
+          "total": 9,
+          "valid": 9,
+          "invalid": 0,
+          "application": 5,
+          "critical": 4,
+          "recall": 0,
+          "duplicates": 0
+        },
+        "cleanedInvalid": false,
+        "cleanedDuplicates": false,
+        "backupPath": null
+      }
+    },
+    {
+      "courseId": "B2B_SALES_2026_30_EN",
+      "courseName": "B2B Sales 2026 Masterclass",
+      "language": "en",
+      "dayNumber": 6,
+      "lessonId": "B2B_SALES_2026_30_EN_DAY_6",
+      "title": "Ideal Sales Process and Weekly Metrics",
+      "lessonCreatedAt": "2026-01-20T12:10:09.164Z",
+      "lessonQuality": {
+        "score": 100,
+        "issues": [],
+        "signals": {
+          "charCount": 1726,
+          "wordCount": 228,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "PASS",
+      "rewrite": {
+        "existingCounts": {
+          "total": 9,
+          "valid": 9,
+          "invalid": 0,
+          "application": 5,
+          "critical": 4,
+          "recall": 0,
+          "duplicates": 0
+        },
+        "cleanedInvalid": false,
+        "cleanedDuplicates": false,
+        "backupPath": null
+      }
+    },
+    {
+      "courseId": "B2B_SALES_2026_30_EN",
+      "courseName": "B2B Sales 2026 Masterclass",
+      "language": "en",
+      "dayNumber": 7,
+      "lessonId": "B2B_SALES_2026_30_EN_DAY_7",
+      "title": "Lead Source Map for 2026",
+      "lessonCreatedAt": "2026-01-20T12:17:46.567Z",
+      "lessonQuality": {
+        "score": 85,
+        "issues": [
+          "NO_CLEAR_DEFINITIONS"
+        ],
+        "signals": {
+          "charCount": 1493,
+          "wordCount": 208,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "PASS",
+      "rewrite": {
+        "existingCounts": {
+          "total": 9,
+          "valid": 9,
+          "invalid": 0,
+          "application": 5,
+          "critical": 4,
+          "recall": 0,
+          "duplicates": 0
+        },
+        "cleanedInvalid": false,
+        "cleanedDuplicates": false,
+        "backupPath": null
+      }
+    },
+    {
+      "courseId": "B2B_SALES_2026_30_EN",
+      "courseName": "B2B Sales 2026 Masterclass",
+      "language": "en",
+      "dayNumber": 8,
+      "lessonId": "B2B_SALES_2026_30_EN_DAY_8",
+      "title": "LinkedIn and Sales Navigator Core Flow",
+      "lessonCreatedAt": "2026-01-20T12:17:46.679Z",
+      "lessonQuality": {
+        "score": 70,
+        "issues": [
+          "NO_CLEAR_DEFINITIONS",
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 1405,
+          "wordCount": 196,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": true
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "PASS",
+      "rewrite": {
+        "existingCounts": {
+          "total": 9,
+          "valid": 9,
+          "invalid": 0,
+          "application": 5,
+          "critical": 4,
+          "recall": 0,
+          "duplicates": 0
+        },
+        "cleanedInvalid": false,
+        "cleanedDuplicates": false,
+        "backupPath": null
+      }
+    },
+    {
+      "courseId": "B2B_SALES_2026_30_EN",
+      "courseName": "B2B Sales 2026 Masterclass",
+      "language": "en",
+      "dayNumber": 9,
+      "lessonId": "B2B_SALES_2026_30_EN_DAY_9",
+      "title": "Enrichment and Data QA",
+      "lessonCreatedAt": "2026-01-20T12:17:46.778Z",
+      "lessonQuality": {
+        "score": 70,
+        "issues": [
+          "NO_CLEAR_DEFINITIONS",
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 1218,
+          "wordCount": 167,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": true
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "PASS",
+      "rewrite": {
+        "existingCounts": {
+          "total": 9,
+          "valid": 9,
+          "invalid": 0,
+          "application": 5,
+          "critical": 4,
+          "recall": 0,
+          "duplicates": 0
+        },
+        "cleanedInvalid": false,
+        "cleanedDuplicates": false,
+        "backupPath": null
+      }
+    },
+    {
+      "courseId": "B2B_SALES_2026_30_EN",
+      "courseName": "B2B Sales 2026 Masterclass",
+      "language": "en",
+      "dayNumber": 10,
+      "lessonId": "B2B_SALES_2026_30_EN_DAY_10",
+      "title": "AI-Powered Research: Company, Persona, Trigger",
+      "lessonCreatedAt": "2026-01-20T12:22:08.404Z",
+      "lessonQuality": {
+        "score": 85,
+        "issues": [
+          "NO_CLEAR_DEFINITIONS"
+        ],
+        "signals": {
+          "charCount": 1521,
+          "wordCount": 218,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "PASS",
+      "rewrite": {
+        "existingCounts": {
+          "total": 9,
+          "valid": 9,
+          "invalid": 0,
+          "application": 5,
+          "critical": 4,
+          "recall": 0,
+          "duplicates": 0
+        },
+        "cleanedInvalid": false,
+        "cleanedDuplicates": false,
+        "backupPath": null
+      }
+    },
+    {
+      "courseId": "B2B_SALES_2026_30_EN",
+      "courseName": "B2B Sales 2026 Masterclass",
+      "language": "en",
+      "dayNumber": 11,
+      "lessonId": "B2B_SALES_2026_30_EN_DAY_11",
+      "title": "Outbound Message: No Personalization, No Reply",
+      "lessonCreatedAt": "2026-01-20T12:22:08.676Z",
+      "lessonQuality": {
+        "score": 85,
+        "issues": [
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 1456,
+          "wordCount": 226,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": true
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "PASS",
+      "rewrite": {
+        "existingCounts": {
+          "total": 9,
+          "valid": 9,
+          "invalid": 0,
+          "application": 5,
+          "critical": 4,
+          "recall": 0,
+          "duplicates": 0
+        },
+        "cleanedInvalid": false,
+        "cleanedDuplicates": false,
+        "backupPath": null
+      }
+    },
+    {
+      "courseId": "B2B_SALES_2026_30_EN",
+      "courseName": "B2B Sales 2026 Masterclass",
+      "language": "en",
+      "dayNumber": 12,
+      "lessonId": "B2B_SALES_2026_30_EN_DAY_12",
+      "title": "List Cleaning and Lead Hygiene",
+      "lessonCreatedAt": "2026-01-28T15:55:00.657Z",
+      "lessonQuality": {
+        "score": 85,
+        "issues": [
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 1213,
+          "wordCount": 161,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": true
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "PASS",
+      "rewrite": {
+        "existingCounts": {
+          "total": 9,
+          "valid": 9,
+          "invalid": 0,
+          "application": 5,
+          "critical": 4,
+          "recall": 0,
+          "duplicates": 0
+        },
+        "cleanedInvalid": false,
+        "cleanedDuplicates": false,
+        "backupPath": null
+      }
+    },
+    {
+      "courseId": "B2B_SALES_2026_30_EN",
+      "courseName": "B2B Sales 2026 Masterclass",
+      "language": "en",
+      "dayNumber": 13,
+      "lessonId": "B2B_SALES_2026_30_EN_DAY_13",
+      "title": "MQL vs SQL and the Qualification Gate",
+      "lessonCreatedAt": "2026-01-28T15:55:00.702Z",
+      "lessonQuality": {
+        "score": 85,
+        "issues": [
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 1264,
+          "wordCount": 188,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": true
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "PASS",
+      "rewrite": {
+        "existingCounts": {
+          "total": 9,
+          "valid": 9,
+          "invalid": 0,
+          "application": 5,
+          "critical": 4,
+          "recall": 0,
+          "duplicates": 0
+        },
+        "cleanedInvalid": false,
+        "cleanedDuplicates": false,
+        "backupPath": null
+      }
+    },
+    {
+      "courseId": "B2B_SALES_2026_30_EN",
+      "courseName": "B2B Sales 2026 Masterclass",
+      "language": "en",
+      "dayNumber": 14,
+      "lessonId": "B2B_SALES_2026_30_EN_DAY_14",
+      "title": "Qualification Framework: MEDDPICC (Simplified)",
+      "lessonCreatedAt": "2026-01-28T15:55:00.746Z",
+      "lessonQuality": {
+        "score": 85,
+        "issues": [
+          "NO_CLEAR_DEFINITIONS"
+        ],
+        "signals": {
+          "charCount": 1326,
+          "wordCount": 182,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "PASS",
+      "rewrite": {
+        "existingCounts": {
+          "total": 9,
+          "valid": 9,
+          "invalid": 0,
+          "application": 5,
+          "critical": 4,
+          "recall": 0,
+          "duplicates": 0
+        },
+        "cleanedInvalid": false,
+        "cleanedDuplicates": false,
+        "backupPath": null
+      }
+    },
+    {
+      "courseId": "B2B_SALES_2026_30_EN",
+      "courseName": "B2B Sales 2026 Masterclass",
+      "language": "en",
+      "dayNumber": 15,
+      "lessonId": "B2B_SALES_2026_30_EN_DAY_15",
+      "title": "Discovery Call Structure (5 Blocks)",
+      "lessonCreatedAt": "2026-01-28T15:55:00.788Z",
+      "lessonQuality": {
+        "score": 70,
+        "issues": [
+          "NO_CLEAR_DEFINITIONS",
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 1445,
+          "wordCount": 202,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": true
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "PASS",
+      "rewrite": {
+        "existingCounts": {
+          "total": 9,
+          "valid": 9,
+          "invalid": 0,
+          "application": 5,
+          "critical": 4,
+          "recall": 0,
+          "duplicates": 0
+        },
+        "cleanedInvalid": false,
+        "cleanedDuplicates": false,
+        "backupPath": null
+      }
+    },
+    {
+      "courseId": "B2B_SALES_2026_30_EN",
+      "courseName": "B2B Sales 2026 Masterclass",
+      "language": "en",
+      "dayNumber": 16,
+      "lessonId": "B2B_SALES_2026_30_EN_DAY_16",
+      "title": "AI Meeting Prep and Notes",
+      "lessonCreatedAt": "2026-01-28T15:55:00.833Z",
+      "lessonQuality": {
+        "score": 70,
+        "issues": [
+          "NO_CLEAR_DEFINITIONS",
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 1368,
+          "wordCount": 199,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": true
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "PASS",
+      "rewrite": {
+        "existingCounts": {
+          "total": 9,
+          "valid": 9,
+          "invalid": 0,
+          "application": 5,
+          "critical": 4,
+          "recall": 0,
+          "duplicates": 0
+        },
+        "cleanedInvalid": false,
+        "cleanedDuplicates": false,
+        "backupPath": null
+      }
+    },
+    {
+      "courseId": "B2B_SALES_2026_30_EN",
+      "courseName": "B2B Sales 2026 Masterclass",
+      "language": "en",
+      "dayNumber": 17,
+      "lessonId": "B2B_SALES_2026_30_EN_DAY_17",
+      "title": "Next Step and Commitment",
+      "lessonCreatedAt": "2026-01-28T15:55:00.878Z",
+      "lessonQuality": {
+        "score": 45,
+        "issues": [
+          "TOO_SHORT",
+          "NO_CLEAR_DEFINITIONS",
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 1210,
+          "wordCount": 158,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": true
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "REFINE_LESSON_FIRST",
+      "rewrite": null
+    },
+    {
+      "courseId": "B2B_SALES_2026_30_EN",
+      "courseName": "B2B Sales 2026 Masterclass",
+      "language": "en",
+      "dayNumber": 18,
+      "lessonId": "B2B_SALES_2026_30_EN_DAY_18",
+      "title": "Nurture and Re-Engage",
+      "lessonCreatedAt": "2026-01-28T15:55:00.921Z",
+      "lessonQuality": {
+        "score": 85,
+        "issues": [
+          "NO_CLEAR_DEFINITIONS"
+        ],
+        "signals": {
+          "charCount": 1173,
+          "wordCount": 165,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "PASS",
+      "rewrite": {
+        "existingCounts": {
+          "total": 9,
+          "valid": 9,
+          "invalid": 0,
+          "application": 5,
+          "critical": 4,
+          "recall": 0,
+          "duplicates": 0
+        },
+        "cleanedInvalid": false,
+        "cleanedDuplicates": false,
+        "backupPath": null
+      }
+    },
+    {
+      "courseId": "B2B_SALES_2026_30_EN",
+      "courseName": "B2B Sales 2026 Masterclass",
+      "language": "en",
+      "dayNumber": 19,
+      "lessonId": "B2B_SALES_2026_30_EN_DAY_19",
+      "title": "Why You Need a CRM (Excel Is Not Enough)",
+      "lessonCreatedAt": "2026-01-28T15:55:00.962Z",
+      "lessonQuality": {
+        "score": 85,
+        "issues": [
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 1448,
+          "wordCount": 208,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": true
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "PASS",
+      "rewrite": {
+        "existingCounts": {
+          "total": 9,
+          "valid": 9,
+          "invalid": 0,
+          "application": 5,
+          "critical": 4,
+          "recall": 0,
+          "duplicates": 0
+        },
+        "cleanedInvalid": false,
+        "cleanedDuplicates": false,
+        "backupPath": null
+      }
+    },
+    {
+      "courseId": "B2B_SALES_2026_30_EN",
+      "courseName": "B2B Sales 2026 Masterclass",
+      "language": "en",
+      "dayNumber": 20,
+      "lessonId": "B2B_SALES_2026_30_EN_DAY_20",
+      "title": "Pipeline Design: Stage Definitions",
+      "lessonCreatedAt": "2026-01-28T15:55:01.026Z",
+      "lessonQuality": {
+        "score": 100,
+        "issues": [],
+        "signals": {
+          "charCount": 1323,
+          "wordCount": 177,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "PASS",
+      "rewrite": {
+        "existingCounts": {
+          "total": 9,
+          "valid": 9,
+          "invalid": 0,
+          "application": 5,
+          "critical": 4,
+          "recall": 0,
+          "duplicates": 0
+        },
+        "cleanedInvalid": false,
+        "cleanedDuplicates": false,
+        "backupPath": null
+      }
+    },
+    {
+      "courseId": "B2B_SALES_2026_30_EN",
+      "courseName": "B2B Sales 2026 Masterclass",
+      "language": "en",
+      "dayNumber": 21,
+      "lessonId": "B2B_SALES_2026_30_EN_DAY_21",
+      "title": "Pipedrive: Strengths and When to Choose It",
+      "lessonCreatedAt": "2026-01-28T15:55:01.072Z",
+      "lessonQuality": {
+        "score": 100,
+        "issues": [],
+        "signals": {
+          "charCount": 1555,
+          "wordCount": 202,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "PASS",
+      "rewrite": {
+        "existingCounts": {
+          "total": 9,
+          "valid": 9,
+          "invalid": 0,
+          "application": 5,
+          "critical": 4,
+          "recall": 0,
+          "duplicates": 0
+        },
+        "cleanedInvalid": false,
+        "cleanedDuplicates": false,
+        "backupPath": null
+      }
+    },
+    {
+      "courseId": "B2B_SALES_2026_30_EN",
+      "courseName": "B2B Sales 2026 Masterclass",
+      "language": "en",
+      "dayNumber": 22,
+      "lessonId": "B2B_SALES_2026_30_EN_DAY_22",
+      "title": "HubSpot: strengths and when to choose it",
+      "lessonCreatedAt": "2026-01-28T15:55:01.112Z",
+      "lessonQuality": {
+        "score": 100,
+        "issues": [],
+        "signals": {
+          "charCount": 1960,
+          "wordCount": 281,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "PASS",
+      "rewrite": {
+        "existingCounts": {
+          "total": 9,
+          "valid": 9,
+          "invalid": 0,
+          "application": 5,
+          "critical": 4,
+          "recall": 0,
+          "duplicates": 0
+        },
+        "cleanedInvalid": false,
+        "cleanedDuplicates": false,
+        "backupPath": null
+      }
+    },
+    {
+      "courseId": "B2B_SALES_2026_30_EN",
+      "courseName": "B2B Sales 2026 Masterclass",
+      "language": "en",
+      "dayNumber": 23,
+      "lessonId": "B2B_SALES_2026_30_EN_DAY_23",
+      "title": "Integrations and data flow basics",
+      "lessonCreatedAt": "2026-01-28T15:55:01.157Z",
+      "lessonQuality": {
+        "score": 70,
+        "issues": [
+          "NO_CLEAR_DEFINITIONS",
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 1641,
+          "wordCount": 216,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": true
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "PASS",
+      "rewrite": {
+        "existingCounts": {
+          "total": 9,
+          "valid": 9,
+          "invalid": 0,
+          "application": 5,
+          "critical": 4,
+          "recall": 0,
+          "duplicates": 0
+        },
+        "cleanedInvalid": false,
+        "cleanedDuplicates": false,
+        "backupPath": null
+      }
+    },
+    {
+      "courseId": "B2B_SALES_2026_30_EN",
+      "courseName": "B2B Sales 2026 Masterclass",
+      "language": "en",
+      "dayNumber": 24,
+      "lessonId": "B2B_SALES_2026_30_EN_DAY_24",
+      "title": "CRM hygiene and daily routine",
+      "lessonCreatedAt": "2026-01-28T15:55:01.203Z",
+      "lessonQuality": {
+        "score": 70,
+        "issues": [
+          "NO_CLEAR_DEFINITIONS",
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 1655,
+          "wordCount": 241,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": true
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "PASS",
+      "rewrite": {
+        "existingCounts": {
+          "total": 9,
+          "valid": 9,
+          "invalid": 0,
+          "application": 5,
+          "critical": 4,
+          "recall": 0,
+          "duplicates": 0
+        },
+        "cleanedInvalid": false,
+        "cleanedDuplicates": false,
+        "backupPath": null
+      }
+    },
+    {
+      "courseId": "B2B_SALES_2026_30_EN",
+      "courseName": "B2B Sales 2026 Masterclass",
+      "language": "en",
+      "dayNumber": 25,
+      "lessonId": "B2B_SALES_2026_30_EN_DAY_25",
+      "title": "Proposal Structure: Decision-Ready Offer",
+      "lessonCreatedAt": "2026-01-28T15:55:01.488Z",
+      "lessonQuality": {
+        "score": 70,
+        "issues": [
+          "NO_CLEAR_DEFINITIONS",
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 1522,
+          "wordCount": 221,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": true
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "PASS",
+      "rewrite": {
+        "existingCounts": {
+          "total": 9,
+          "valid": 9,
+          "invalid": 0,
+          "application": 5,
+          "critical": 4,
+          "recall": 0,
+          "duplicates": 0
+        },
+        "cleanedInvalid": false,
+        "cleanedDuplicates": false,
+        "backupPath": null
+      }
+    },
+    {
+      "courseId": "B2B_SALES_2026_30_EN",
+      "courseName": "B2B Sales 2026 Masterclass",
+      "language": "en",
+      "dayNumber": 26,
+      "lessonId": "B2B_SALES_2026_30_EN_DAY_26",
+      "title": "Pricing 2026: Packaging and Value",
+      "lessonCreatedAt": "2026-01-28T15:55:01.531Z",
+      "lessonQuality": {
+        "score": 70,
+        "issues": [
+          "NO_CLEAR_DEFINITIONS",
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 1324,
+          "wordCount": 174,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": true
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "PASS",
+      "rewrite": {
+        "existingCounts": {
+          "total": 9,
+          "valid": 9,
+          "invalid": 0,
+          "application": 5,
+          "critical": 4,
+          "recall": 0,
+          "duplicates": 0
+        },
+        "cleanedInvalid": false,
+        "cleanedDuplicates": false,
+        "backupPath": null
+      }
+    },
+    {
+      "courseId": "B2B_SALES_2026_30_EN",
+      "courseName": "B2B Sales 2026 Masterclass",
+      "language": "en",
+      "dayNumber": 27,
+      "lessonId": "B2B_SALES_2026_30_EN_DAY_27",
+      "title": "Procurement, Legal, and Security Questions",
+      "lessonCreatedAt": "2026-01-28T15:55:01.578Z",
+      "lessonQuality": {
+        "score": 70,
+        "issues": [
+          "NO_CLEAR_DEFINITIONS",
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 1491,
+          "wordCount": 194,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": true
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "PASS",
+      "rewrite": {
+        "existingCounts": {
+          "total": 9,
+          "valid": 9,
+          "invalid": 0,
+          "application": 5,
+          "critical": 4,
+          "recall": 0,
+          "duplicates": 0
+        },
+        "cleanedInvalid": false,
+        "cleanedDuplicates": false,
+        "backupPath": null
+      }
+    },
+    {
+      "courseId": "B2B_SALES_2026_30_EN",
+      "courseName": "B2B Sales 2026 Masterclass",
+      "language": "en",
+      "dayNumber": 28,
+      "lessonId": "B2B_SALES_2026_30_EN_DAY_28",
+      "title": "Objection Handling: Patterns and Probing",
+      "lessonCreatedAt": "2026-01-28T15:55:01.625Z",
+      "lessonQuality": {
+        "score": 70,
+        "issues": [
+          "NO_CLEAR_DEFINITIONS",
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 1338,
+          "wordCount": 187,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": true
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "PASS",
+      "rewrite": {
+        "existingCounts": {
+          "total": 9,
+          "valid": 9,
+          "invalid": 0,
+          "application": 5,
+          "critical": 4,
+          "recall": 0,
+          "duplicates": 0
+        },
+        "cleanedInvalid": false,
+        "cleanedDuplicates": false,
+        "backupPath": null
+      }
+    },
+    {
+      "courseId": "B2B_SALES_2026_30_EN",
+      "courseName": "B2B Sales 2026 Masterclass",
+      "language": "en",
+      "dayNumber": 29,
+      "lessonId": "B2B_SALES_2026_30_EN_DAY_29",
+      "title": "Closing: Decision and Next Step",
+      "lessonCreatedAt": "2026-01-28T15:55:01.677Z",
+      "lessonQuality": {
+        "score": 85,
+        "issues": [
+          "NO_CLEAR_DEFINITIONS"
+        ],
+        "signals": {
+          "charCount": 1399,
+          "wordCount": 192,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "PASS",
+      "rewrite": {
+        "existingCounts": {
+          "total": 9,
+          "valid": 9,
+          "invalid": 0,
+          "application": 5,
+          "critical": 4,
+          "recall": 0,
+          "duplicates": 0
+        },
+        "cleanedInvalid": false,
+        "cleanedDuplicates": false,
+        "backupPath": null
+      }
+    },
+    {
+      "courseId": "B2B_SALES_2026_30_EN",
+      "courseName": "B2B Sales 2026 Masterclass",
+      "language": "en",
+      "dayNumber": 30,
+      "lessonId": "B2B_SALES_2026_30_EN_DAY_30",
+      "title": "Capstone Sprint: Full B2B Sales Loop",
+      "lessonCreatedAt": "2026-01-28T15:55:01.741Z",
+      "lessonQuality": {
+        "score": 70,
+        "issues": [
+          "NO_CLEAR_DEFINITIONS",
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 1465,
+          "wordCount": 206,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": true
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "PASS",
+      "rewrite": {
+        "existingCounts": {
+          "total": 9,
+          "valid": 9,
+          "invalid": 0,
+          "application": 5,
+          "critical": 4,
+          "recall": 0,
+          "duplicates": 0
+        },
+        "cleanedInvalid": false,
+        "cleanedDuplicates": false,
+        "backupPath": null
+      }
+    }
+  ]
+}

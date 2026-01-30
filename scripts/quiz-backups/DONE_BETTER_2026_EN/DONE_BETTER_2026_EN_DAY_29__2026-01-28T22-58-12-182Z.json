@@ -1,0 +1,114 @@
+{
+  "backedUpAt": "2026-01-28T22:58:16.358Z",
+  "course": {
+    "courseId": "DONE_BETTER_2026_EN",
+    "name": "Done is better - Build What Matters",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 29,
+    "title": "Your Personal Playbook",
+    "lessonId": "DONE_BETTER_2026_EN_DAY_29"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "697a92f822596d24dfc12da9",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "You want to codify how you work. What should you create?",
+      "options": [
+        "A playbook: principles, checklists, and rules; include problem separation, restatement, moves, feedback, reflection",
+        "A long document with extensive detail but no actionable principles or practices",
+        "A vision statement only without concrete practices or rules you can actually follow",
+        "A list of goals only without methods for achieving them or systematic approaches"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a92f822596d24dfc12daa",
+      "questionType": "application",
+      "difficulty": "EASY",
+      "question": "What is a \"personal playbook\"?",
+      "options": [
+        "Your codified way of thinking, deciding, and delivering that you can repeat",
+        "A daily to-do list of tasks without underlying principles or methods or repeatability",
+        "A project plan for one specific initiative without general applicability or transferability",
+        "A job description of your role without personal practices or approaches or methods"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a92f822596d24dfc12dab",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "What should the playbook include from this kind of course?",
+      "options": [
+        "Problem separation, restatement, moves, feedback, reflection; one improvement you will follow",
+        "Only motivational quotes to inspire action without methods or systematic approaches",
+        "Only definitions of concepts without practical application or actionable steps",
+        "Only examples from the course without extracting principles or creating your own rules"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a92f822596d24dfc12dac",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "A playbook that is too generic to use can lead to:",
+      "options": [
+        "It never influences daily decisions; make it concrete enough to apply",
+        "Flexibility",
+        "Easier updates",
+        "No meaningful effect on outcomes"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a92f822596d24dfc12dad",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Writing the playbook once and never using or updating it tends to:",
+      "options": [
+        "No connection between playbook and decisions; it becomes shelf-ware",
+        "Consistency",
+        "Faster execution",
+        "No significant downside in practice"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a92f822596d24dfc12dae",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "What should you add for the next 90 days?",
+      "options": [
+        "One rule you will follow from the playbook to build the habit and test its effectiveness",
+        "Everything you learned without focusing on specific practices or actionable changes",
+        "Nothing; the playbook is complete and does not need action or implementation",
+        "Only goals without methods or rules for achieving them or systematic approaches"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a92f822596d24dfc12daf",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How long should a first playbook draft be?",
+      "options": [
+        "One page: principles and one checklist that you can actually use and follow",
+        "As long as possible to include every detail and example regardless of usability",
+        "Only bullet points without explanations or context or actionable guidance",
+        "Only one sentence summarizing everything without actionable steps or practices"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    }
+  ]
+}

@@ -1,0 +1,68 @@
+{
+  "backedUpAt": "2026-01-29T17:00:26.759Z",
+  "course": {
+    "courseId": "B2B_SALES_2026_30",
+    "name": "B2B Értékesítés 2026 Masterclass",
+    "language": "hu"
+  },
+  "lesson": {
+    "dayNumber": 22,
+    "title": "HubSpot: erősségek, mikor jó választás",
+    "lessonId": "B2B_SALES_2026_30_DAY_22"
+  },
+  "questionCount": 4,
+  "questions": [
+    {
+      "_id": "697b2042ac79ca83bb972297",
+      "difficulty": "MEDIUM",
+      "question": "Mikor érdemes HubSpotot választani?",
+      "options": [
+        "Ha csak alap pipeline kell marketing nélkül",
+        "Ha marketing + sales + automatizmus egy helyen kell",
+        "Ha ERP-t keresel",
+        "Ha HR rendszert keresel"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b2042ac79ca83bb972298",
+      "difficulty": "MEDIUM",
+      "question": "Mi a minimál setup része?",
+      "options": [
+        "Lifecycle státuszok + deal pipeline + kötelező mezők + workflow",
+        "Csak logó",
+        "Csak landing page",
+        "Csak prezentáció"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b2042ac79ca83bb972299",
+      "difficulty": "MEDIUM",
+      "question": "Mi a HubSpot egyik korlátja?",
+      "options": [
+        "Nincs mobil app",
+        "Licenc költség nő és komplexebb, mint Pipedrive",
+        "Nincs pipeline funkció",
+        "Nem tud emailt küldeni"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b2042ac79ca83bb97229a",
+      "difficulty": "MEDIUM",
+      "question": "Mi a jó workflow példa?",
+      "options": [
+        "Form → contact + company → deal → owner assign",
+        "Random emailek küldése",
+        "Csak manuális export",
+        "Csak Slack üzenet"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    }
+  ]
+}

@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-28T21:28:24.607Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_AR",
+    "name": "الإنتاجية 2026: كيفية إدارة الفرق والوقت",
+    "language": "ar"
+  },
+  "lesson": {
+    "dayNumber": 13,
+    "title": "أطر اتخاذ القرار: القرارات السريعة، مصفوفة القرار، تجنب شلل التحليل",
+    "lessonId": "PRODUCTIVITY_2026_AR_DAY_13"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a613ed20b35fb7972d1",
+      "uuid": "e25256eb-8594-48e3-8bd4-867c28306106",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ أفهم شلل التحليل وكيف يعمل.\n✅ أعرف كيف...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day13",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a613ed20b35fb7972d2",
+      "uuid": "8b0ffd0f-b3f7-427d-b6c6-87eb4ba33bcf",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ أفهم الفرق بين \"جيد بما فيه الكفاية\" و...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day13",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a613ed20b35fb7972d3",
+      "uuid": "666a08b7-d1f6-4b15-857a-5fc6c84d371c",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ أفهم شلل التحليل وكيف يعمل.\n✅ أعرف كيف...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day13",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a613ed20b35fb7972d4",
+      "uuid": "3f2a179b-1bc7-4bcf-85cf-55507a5c2708",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "How does the concept \"أطر اتخاذ القرار: القرارات السريعة، مصفوفة القرار،...\" mentioned in the lesson impact achieving your goals?",
+      "options": [
+        "As described in detail in the lesson, أطر اتخاذ القرار: القرارات الس... increases effectiveness and reduces risk",
+        "No significant impact",
+        "Only matters theoretically",
+        "Only an optional element"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day13",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a613ed20b35fb7972d5",
+      "uuid": "42e9856f-615a-4c78-a262-6afa988d5e7e",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "In the \"أطر اتخاذ القرار: القرارات السريعة، مصفوفة القرار، تجنب شلل التحليل\" lesson, what role does الوقت أغلى من الكمال play?",
+      "options": [
+        "As described in detail in the lesson, الوقت أغلى من الكمال plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day13",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a613ed20b35fb7972d6",
+      "uuid": "7a4777c8-3bd6-4461-9892-7a1fc7ca1311",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is إرهاق القرار in the context of أطر اتخاذ القرار: القرارات السريعة، مصفوفة القرار، تجنب شلل التحليل as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, إرهاق القرار plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day13",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a613ed20b35fb7972d7",
+      "uuid": "6d3a289d-da0e-42ba-b06a-523732243f23",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is الخطوة 2 in the context of أطر اتخاذ القرار: القرارات السريعة، مصفوفة القرار، تجنب شلل التحليل as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, الخطوة 2 plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day13",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

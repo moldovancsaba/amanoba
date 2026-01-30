@@ -376,7 +376,7 @@ const lessons: LessonEntry[] = [
           correctIndex: 1,
         },
         {
-          question: 'Mi a legfontosabb kimenet a mai nap végére?',
+          question: 'Egy B2B értékesítési nap célja, hogy az ideális ügyfélprofilodat (ICP) problématerület alapján definiálod. Mi a legfontosabb kimenet ennek a napnak a végére?',
           options: [
             'Egy iparáglista',
             'Egy probléma-alapú ICP definíció és 5 tesztkérdés',
@@ -705,7 +705,7 @@ const lessons: LessonEntry[] = [
           correctIndex: 1,
         },
         {
-          question: 'Mi a mai legfontosabb kimenet?',
+          question: 'Egy nap a konverziós tölcsér mérésére és a szűk keresztmetszet javítására fókuszál. Mi a legfontosabb kimenet?',
           options: [
             'Egy marketing kampány',
             'Heti mérőlap + definíciók + kijelölt szűk keresztmetszet',

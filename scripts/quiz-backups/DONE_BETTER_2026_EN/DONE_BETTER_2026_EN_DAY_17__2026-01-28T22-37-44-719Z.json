@@ -1,0 +1,114 @@
+{
+  "backedUpAt": "2026-01-28T22:37:48.033Z",
+  "course": {
+    "courseId": "DONE_BETTER_2026_EN",
+    "name": "Done is better - Build What Matters",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 17,
+    "title": "Fast Feedback Loops",
+    "lessonId": "DONE_BETTER_2026_EN_DAY_17"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "697a87bca81588c9f41a2270",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "A team runs a long cycle with no check until the end. What is the risk?",
+      "options": [
+        "Learning is delayed; reality corrects plans too late",
+        "They will work harder",
+        "It is cheaper",
+        "No significant risk in this case"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87bca81588c9f41a2271",
+      "questionType": "application",
+      "difficulty": "EASY",
+      "question": "What is a feedback loop in this context?",
+      "options": [
+        "Getting real-world signal quickly to adjust the next move",
+        "Sending a survey at the end",
+        "Asking for approval",
+        "Reporting status only"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87bca81588c9f41a2272",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How do you shorten the time between action and signal?",
+      "options": [
+        "Define the next feedback moment: when and how you will get signal; move it earlier if possible",
+        "Work faster",
+        "Send more emails",
+        "Meet more often"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87bca81588c9f41a2273",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Ignoring feedback that contradicts the plan can lead to:",
+      "options": [
+        "Investing in a wrong direction while evidence says otherwise",
+        "Stronger commitment",
+        "Faster execution",
+        "No significant downside in practice"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87bca81588c9f41a2274",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Measuring only what confirms the plan is risky because:",
+      "options": [
+        "You miss disconfirming signal and update too late",
+        "You save time",
+        "You please stakeholders",
+        "It has no effect on outcomes or learning"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87bca81588c9f41a2275",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "For one active initiative, what should you define?",
+      "options": [
+        "The next feedback moment: when and how you will get signal",
+        "The final deadline only",
+        "The full list of tasks",
+        "Who is responsible only"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87bca81588c9f41a2276",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Why is \"reality is your best mentor\" important?",
+      "options": [
+        "Reality corrects plans; fast loops reduce the cost of being wrong",
+        "Reality is always right",
+        "Plans are useless",
+        "It is optional"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    }
+  ]
+}

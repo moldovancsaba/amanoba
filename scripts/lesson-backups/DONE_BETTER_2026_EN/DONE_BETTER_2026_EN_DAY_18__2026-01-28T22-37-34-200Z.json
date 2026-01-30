@@ -1,0 +1,10 @@
+{
+  "backedUpAt": "2026-01-28T22:37:36.334Z",
+  "courseId": "DONE_BETTER_2026_EN",
+  "lessonId": "DONE_BETTER_2026_EN_DAY_18",
+  "dayNumber": 18,
+  "title": "Kill Beautiful Ideas Early",
+  "content": "<h1>Kill Beautiful Ideas Early</h1>\n<p><em>The earlier it dies, the cheaper it is.</em></p>\n<hr />\n<h2>Learning goal</h2>\n<ul>\n<li>Define a test or signal that would kill the idea.</li>\n<li>Run the test as soon as possible.</li>\n<li>Stop investing when the idea fails the test.</li>\n</ul>\n<hr />\n<h2>Why it matters</h2>\n<ul>\n<li>Sunk cost grows over time.</li>\n<li>Early kill saves resources.</li>\n<li>Killing an idea is not personal failure.</li>\n</ul>\n<hr />\n<h2>Key idea</h2>\n<p>Kill early means stopping bad or wrong ideas as soon as evidence shows they do not work. Define the kill criterion; run the test; stop investing when it fails.</p>\n<hr />\n<h2>Common mistakes</h2>\n<ul>\n<li>Sunk cost: continuing because we already invested.</li>\n<li>No clear kill criterion.</li>\n<li>Treating killing an idea as personal failure.</li>\n</ul>\n<hr />\n<h2>Today's move</h2>\n<p>For one idea or project, write the kill criterion: \"We stop if [observable condition].\" Decide when you will check it.</p>\n<hr />\n<h2>Self-check</h2>\n<ul>\n<li>You can explain the key idea in one sentence.</li>\n<li>You have one concrete move to do today.</li>\n</ul>",
+  "emailSubject": "Done is better – Day {{dayNumber}}: {{lessonTitle}}",
+  "emailBody": "<h1>Done is better - Build What Matters</h1><h2>Day {{dayNumber}}: {{lessonTitle}}</h2><p>{{lessonContent}}</p><p><a href=\"http://localhost:3000/courses/DONE_BETTER_2026_EN/day/{{dayNumber}}\">Open the lesson →</a></p>"
+}

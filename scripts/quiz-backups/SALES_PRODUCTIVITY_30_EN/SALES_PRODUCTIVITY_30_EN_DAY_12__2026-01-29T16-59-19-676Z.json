@@ -1,0 +1,184 @@
+{
+  "backedUpAt": "2026-01-29T16:59:55.421Z",
+  "course": {
+    "courseId": "SALES_PRODUCTIVITY_30_EN",
+    "name": "Build Your Sales – 30 Days to More Deals",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 12,
+    "title": "Objection Handling – Turn “No” Into Data",
+    "lessonId": "SALES_PRODUCTIVITY_30_EN_DAY_12"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "697a6fa25f71efbe655b92dd",
+      "uuid": "d35c5c18-0546-4b3b-a845-d1ab9249a193",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you apply the \"Value\" concept to a \"Objection Handling – Turn “No” Into Data\" task so the outcome is measurable and verifiable?",
+      "options": [
+        "I create a checklist, apply it to a small scope first, measure the impact, then roll it out to the full scope",
+        "I keep it as a definition and never validate it in practice",
+        "I skip implementation because it seems time-consuming",
+        "I implement it but do not measure or document anything"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day12",
+        "#en",
+        "#all-languages",
+        "#course-sales_productivity_30_en",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "697a6fa25f71efbe655b92de",
+      "uuid": "9b31456a-ee96-4ff6-bc6d-4372828c4e97",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you apply the \"Timing\" concept to a \"Objection Handling – Turn “No” Into Data\" task so the outcome is measurable and verifiable?",
+      "options": [
+        "I create a checklist, apply it to a small scope first, measure the impact, then roll it out to the full scope",
+        "I keep it as a definition and never validate it in practice",
+        "I skip implementation because it seems time-consuming",
+        "I implement it but do not measure or document anything"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day12",
+        "#en",
+        "#all-languages",
+        "#course-sales_productivity_30_en",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "697a6fa25f71efbe655b92df",
+      "uuid": "6a8c199d-2ce3-492d-a23b-f97de7b0c8e5",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you apply the \"Trust\" concept to a \"Objection Handling – Turn “No” Into Data\" task so the outcome is measurable and verifiable?",
+      "options": [
+        "I create a checklist, apply it to a small scope first, measure the impact, then roll it out to the full scope",
+        "I keep it as a definition and never validate it in practice",
+        "I skip implementation because it seems time-consuming",
+        "I implement it but do not measure or document anything"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day12",
+        "#en",
+        "#all-languages",
+        "#course-sales_productivity_30_en",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "697a6fa25f71efbe655b92e0",
+      "uuid": "64a49863-eda8-4d56-bd03-1e749c62fe5a",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you apply the \"Listen\" concept to a \"Objection Handling – Turn “No” Into Data\" task so the outcome is measurable and verifiable?",
+      "options": [
+        "I create a checklist, apply it to a small scope first, measure the impact, then roll it out to the full scope",
+        "I keep it as a definition and never validate it in practice",
+        "I skip implementation because it seems time-consuming",
+        "I implement it but do not measure or document anything"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day12",
+        "#en",
+        "#all-languages",
+        "#course-sales_productivity_30_en",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "697a6fa25f71efbe655b92e1",
+      "uuid": "954666d7-ec53-41de-a51d-e228f91520d4",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you apply the \"Acknowledge\" concept to a \"Objection Handling – Turn “No” Into Data\" task so the outcome is measurable and verifiable?",
+      "options": [
+        "I create a checklist, apply it to a small scope first, measure the impact, then roll it out to the full scope",
+        "I keep it as a definition and never validate it in practice",
+        "I skip implementation because it seems time-consuming",
+        "I implement it but do not measure or document anything"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day12",
+        "#en",
+        "#all-languages",
+        "#course-sales_productivity_30_en",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "697a6fa25f71efbe655b92e2",
+      "uuid": "569bf19e-44c1-4fb5-8351-0b309bec592e",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you apply the \"Explore\" concept to a \"Objection Handling – Turn “No” Into Data\" task so the outcome is measurable and verifiable?",
+      "options": [
+        "I create a checklist, apply it to a small scope first, measure the impact, then roll it out to the full scope",
+        "I keep it as a definition and never validate it in practice",
+        "I skip implementation because it seems time-consuming",
+        "I implement it but do not measure or document anything"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day12",
+        "#en",
+        "#all-languages",
+        "#course-sales_productivity_30_en",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "697a6fa25f71efbe655b92e3",
+      "uuid": "26e710be-2d85-4947-93c9-b76190b7ea50",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you apply the \"Respond\" concept to a \"Objection Handling – Turn “No” Into Data\" task so the outcome is measurable and verifiable?",
+      "options": [
+        "I create a checklist, apply it to a small scope first, measure the impact, then roll it out to the full scope",
+        "I keep it as a definition and never validate it in practice",
+        "I skip implementation because it seems time-consuming",
+        "I implement it but do not measure or document anything"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day12",
+        "#en",
+        "#all-languages",
+        "#course-sales_productivity_30_en",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#application"
+      ]
+    }
+  ]
+}

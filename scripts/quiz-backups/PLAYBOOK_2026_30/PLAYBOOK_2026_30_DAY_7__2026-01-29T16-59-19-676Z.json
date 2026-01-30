@@ -1,0 +1,68 @@
+{
+  "backedUpAt": "2026-01-29T17:00:15.909Z",
+  "course": {
+    "courseId": "PLAYBOOK_2026_30",
+    "name": "The Playbook 2026 – Mesterkurzus Designereknek",
+    "language": "hu"
+  },
+  "lesson": {
+    "dayNumber": 7,
+    "title": "Tipográfia: hierarchia és hang magyarul",
+    "lessonId": "PLAYBOOK_2026_30_DAY_7"
+  },
+  "questionCount": 4,
+  "questions": [
+    {
+      "_id": "697b2032d8669994531f746f",
+      "difficulty": "MEDIUM",
+      "question": "Mi a jó sorhossz body szövegre?",
+      "options": [
+        "20–30 karakter",
+        "60–75 karakter",
+        "120+ karakter",
+        "Nincs szabály"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b2032d8669994531f7470",
+      "difficulty": "MEDIUM",
+      "question": "Miért fontos a tipó szerepek definiálása?",
+      "options": [
+        "Dekoráció miatt",
+        "Hierarchiát és hangot ad, konzisztens döntést biztosít",
+        "Csak marketing miatt",
+        "Csak nyomtatásnál számít"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b2032d8669994531f7471",
+      "difficulty": "MEDIUM",
+      "question": "Mi a rossz példa?",
+      "options": [
+        "Minden szöveg azonos méretben, line-height nélkül",
+        "Body 16/24, H1 32/40, max 70 karakter",
+        "H2 24/32, caption 12/16",
+        "Konzisztens spacing"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b2032d8669994531f7472",
+      "difficulty": "MEDIUM",
+      "question": "Melyik tengely befolyásolja a tipó hangját?",
+      "options": [
+        "Melegség/formalitás",
+        "Árlista",
+        "Backend nyelv",
+        "CI/CD"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    }
+  ]
+}

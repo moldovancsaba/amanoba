@@ -1,0 +1,10 @@
+{
+  "backedUpAt": "2026-01-28T22:37:36.653Z",
+  "courseId": "DONE_BETTER_2026_EN",
+  "lessonId": "DONE_BETTER_2026_EN_DAY_30",
+  "dayNumber": 30,
+  "title": "The Mind That Handles Anything",
+  "content": "<h1>The Mind That Handles Anything</h1>\n<p><em>You leave with a system, not motivation.</em></p>\n<hr />\n<h2>Learning goal</h2>\n<ul>\n<li>Summarize your system: think, decide, deliver.</li>\n<li>Commit to the next 90 days using the playbook.</li>\n<li>Define one accountability or review cadence.</li>\n</ul>\n<hr />\n<h2>Why it matters</h2>\n<ul>\n<li>Motivation fades; systems persist.</li>\n<li>90 days creates habit.</li>\n<li>Accountability keeps the system alive.</li>\n</ul>\n<hr />\n<h2>Key idea</h2>\n<p>You leave with a system, not motivation. Summarize: think, decide, deliver. Commit to the next 90 days using the playbook. Define one accountability or review cadence.</p>\n<hr />\n<h2>Common mistakes</h2>\n<ul>\n<li>Relying on motivation to sustain the system.</li>\n<li>No review cadence.</li>\n<li>Treating the course as a one-time event rather than the start of a practice.</li>\n</ul>\n<hr />\n<h2>Today's move</h2>\n<p>Write your system in three lines: think (how you understand and plan), decide (how you choose), deliver (how you move, test, reflect). Schedule one review in 30 days.</p>\n<hr />\n<h2>Self-check</h2>\n<ul>\n<li>You can explain the key idea in one sentence.</li>\n<li>You have one concrete move to do today.</li>\n</ul>",
+  "emailSubject": "Done is better – Day {{dayNumber}}: {{lessonTitle}}",
+  "emailBody": "<h1>Done is better - Build What Matters</h1><h2>Day {{dayNumber}}: {{lessonTitle}}</h2><p>{{lessonContent}}</p><p><a href=\"http://localhost:3000/courses/DONE_BETTER_2026_EN/day/{{dayNumber}}\">Open the lesson →</a></p>"
+}

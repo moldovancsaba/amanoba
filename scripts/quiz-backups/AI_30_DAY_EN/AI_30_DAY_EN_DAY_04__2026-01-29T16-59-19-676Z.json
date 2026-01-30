@@ -1,0 +1,81 @@
+{
+  "backedUpAt": "2026-01-29T16:59:24.960Z",
+  "course": {
+    "courseId": "AI_30_DAY_EN",
+    "name": "30-Day AI Catch-Up Program (EN)",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 4,
+    "title": "Break down tasks: workflow thinking",
+    "lessonId": "AI_30_DAY_EN_DAY_04"
+  },
+  "questionCount": 5,
+  "questions": [
+    {
+      "_id": "697b1fdc08e9997876a468a1",
+      "difficulty": "MEDIUM",
+      "question": "Why break tasks into steps?",
+      "options": [
+        "Complex tasks fail in one shot; steps improve control",
+        "Because AI is slow",
+        "Because prompts must be long",
+        "No benefit"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b1fdc08e9997876a468a2",
+      "difficulty": "EASY",
+      "question": "Which phased approach is better?",
+      "options": [
+        "Outline → expand → add risks/metrics",
+        "“Write everything now”",
+        "Send empty prompt",
+        "Ask for a joke"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b1fdc08e9997876a468a3",
+      "difficulty": "HARD",
+      "question": "What is a QA step example?",
+      "options": [
+        "“List assumptions and missing data before finalizing.”",
+        "No QA needed",
+        "Ignore risks",
+        "Change only the font"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b1fdc08e9997876a468a4",
+      "difficulty": "MEDIUM",
+      "question": "What do you do after outline?",
+      "options": [
+        "Expand each bullet with constraints",
+        "Publish outline as final",
+        "Delete it",
+        "Ask for memes"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b1fdc08e9997876a468a5",
+      "difficulty": "MEDIUM",
+      "question": "Why compare to one-shot?",
+      "options": [
+        "To confirm phased approach improves quality",
+        "No reason",
+        "Only for SEO",
+        "Only for design"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    }
+  ]
+}

@@ -1,0 +1,2047 @@
+{
+  "generatedAt": "2026-01-28T22:41:45.560Z",
+  "courseId": "PRODUCTIVITY_2026_ID",
+  "fromDay": 1,
+  "toDay": 30,
+  "apply": false,
+  "totals": {
+    "considered": 30,
+    "eligible70": 30,
+    "below70": 0,
+    "applied": 0
+  },
+  "planRows": [
+    {
+      "day": 1,
+      "lessonId": "PRODUCTIVITY_2026_ID_DAY_01",
+      "title": "Definisi produktivitas: output, outcome, dan kendala",
+      "action": "REFINE",
+      "quality": {
+        "old": {
+          "score": 65,
+          "issues": [
+            "NO_METRICS_OR_CRITERIA",
+            "LANGUAGE_MISMATCH_SUSPECTED"
+          ],
+          "signals": {
+            "charCount": 2753,
+            "wordCount": 384,
+            "hasBullets": true,
+            "hasNumberedSteps": true,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": false,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": true
+          }
+        },
+        "next": {
+          "score": 80,
+          "issues": [
+            "LANGUAGE_MISMATCH_SUSPECTED"
+          ],
+          "signals": {
+            "charCount": 1977,
+            "wordCount": 270,
+            "hasBullets": true,
+            "hasNumberedSteps": true,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 2753,
+        "nextChars": 1977
+      },
+      "applyEligible": true,
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      }
+    },
+    {
+      "day": 2,
+      "lessonId": "PRODUCTIVITY_2026_ID_DAY_02",
+      "title": "Waktu, energi, perhatian: apa yang Anda kelola dalam praktik",
+      "action": "REFINE",
+      "quality": {
+        "old": {
+          "score": 50,
+          "issues": [
+            "NO_CLEAR_DEFINITIONS",
+            "NO_METRICS_OR_CRITERIA",
+            "LANGUAGE_MISMATCH_SUSPECTED"
+          ],
+          "signals": {
+            "charCount": 3345,
+            "wordCount": 466,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": false,
+            "hasDefinitionsOrComparisons": false
+          },
+          "refineTemplate": {
+            "addDefinitionSection": true,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": true
+          }
+        },
+        "next": {
+          "score": 80,
+          "issues": [
+            "LANGUAGE_MISMATCH_SUSPECTED"
+          ],
+          "signals": {
+            "charCount": 2368,
+            "wordCount": 333,
+            "hasBullets": true,
+            "hasNumberedSteps": true,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 3345,
+        "nextChars": 2368
+      },
+      "applyEligible": true,
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      }
+    },
+    {
+      "day": 3,
+      "lessonId": "PRODUCTIVITY_2026_ID_DAY_03",
+      "title": "Hierarki tujuan: visi → hasil → proyek → tindakan selanjutnya",
+      "action": "REFINE",
+      "quality": {
+        "old": {
+          "score": 65,
+          "issues": [
+            "NO_METRICS_OR_CRITERIA",
+            "LANGUAGE_MISMATCH_SUSPECTED"
+          ],
+          "signals": {
+            "charCount": 2993,
+            "wordCount": 436,
+            "hasBullets": true,
+            "hasNumberedSteps": true,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": false,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": true
+          }
+        },
+        "next": {
+          "score": 80,
+          "issues": [
+            "LANGUAGE_MISMATCH_SUSPECTED"
+          ],
+          "signals": {
+            "charCount": 1604,
+            "wordCount": 225,
+            "hasBullets": true,
+            "hasNumberedSteps": true,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 2993,
+        "nextChars": 1604
+      },
+      "applyEligible": true,
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      }
+    },
+    {
+      "day": 4,
+      "lessonId": "PRODUCTIVITY_2026_ID_DAY_04",
+      "title": "Kebiasaan vs sistem: mengapa sistem lebih baik dalam skala",
+      "action": "REFINE",
+      "quality": {
+        "old": {
+          "score": 65,
+          "issues": [
+            "NO_METRICS_OR_CRITERIA",
+            "LANGUAGE_MISMATCH_SUSPECTED"
+          ],
+          "signals": {
+            "charCount": 2928,
+            "wordCount": 385,
+            "hasBullets": true,
+            "hasNumberedSteps": true,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": false,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": true
+          }
+        },
+        "next": {
+          "score": 80,
+          "issues": [
+            "LANGUAGE_MISMATCH_SUSPECTED"
+          ],
+          "signals": {
+            "charCount": 1601,
+            "wordCount": 224,
+            "hasBullets": true,
+            "hasNumberedSteps": true,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 2928,
+        "nextChars": 1601
+      },
+      "applyEligible": true,
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      }
+    },
+    {
+      "day": 5,
+      "lessonId": "PRODUCTIVITY_2026_ID_DAY_05",
+      "title": "Pengukuran: metrik tinjauan mingguan sederhana (throughput, blok fokus, carryover)",
+      "action": "REFINE",
+      "quality": {
+        "old": {
+          "score": 65,
+          "issues": [
+            "NO_CLEAR_DEFINITIONS",
+            "LANGUAGE_MISMATCH_SUSPECTED"
+          ],
+          "signals": {
+            "charCount": 2755,
+            "wordCount": 391,
+            "hasBullets": true,
+            "hasNumberedSteps": true,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": false
+          },
+          "refineTemplate": {
+            "addDefinitionSection": true,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        },
+        "next": {
+          "score": 80,
+          "issues": [
+            "LANGUAGE_MISMATCH_SUSPECTED"
+          ],
+          "signals": {
+            "charCount": 2456,
+            "wordCount": 348,
+            "hasBullets": true,
+            "hasNumberedSteps": true,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 2755,
+        "nextChars": 2456
+      },
+      "applyEligible": true,
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      }
+    },
+    {
+      "day": 6,
+      "lessonId": "PRODUCTIVITY_2026_ID_DAY_06",
+      "title": "Penangkapan: kotak masuk, daftar pemicu, kebiasaan penangkapan",
+      "action": "REFINE",
+      "quality": {
+        "old": {
+          "score": 65,
+          "issues": [
+            "NO_METRICS_OR_CRITERIA",
+            "LANGUAGE_MISMATCH_SUSPECTED"
+          ],
+          "signals": {
+            "charCount": 2742,
+            "wordCount": 373,
+            "hasBullets": true,
+            "hasNumberedSteps": true,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": false,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": true
+          }
+        },
+        "next": {
+          "score": 80,
+          "issues": [
+            "LANGUAGE_MISMATCH_SUSPECTED"
+          ],
+          "signals": {
+            "charCount": 1605,
+            "wordCount": 222,
+            "hasBullets": true,
+            "hasNumberedSteps": true,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 2742,
+        "nextChars": 1605
+      },
+      "applyEligible": true,
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      }
+    },
+    {
+      "day": 7,
+      "lessonId": "PRODUCTIVITY_2026_ID_DAY_07",
+      "title": "Sistem harian/mingguan: ritual pagi, huddle harian, tinjauan mingguan",
+      "action": "REFINE",
+      "quality": {
+        "old": {
+          "score": 50,
+          "issues": [
+            "NO_CLEAR_DEFINITIONS",
+            "NO_EXAMPLES",
+            "LANGUAGE_MISMATCH_SUSPECTED"
+          ],
+          "signals": {
+            "charCount": 1975,
+            "wordCount": 304,
+            "hasBullets": true,
+            "hasNumberedSteps": true,
+            "hasExamples": false,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": false
+          },
+          "refineTemplate": {
+            "addDefinitionSection": true,
+            "addChecklistSection": false,
+            "addExamplesSection": true,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        },
+        "next": {
+          "score": 80,
+          "issues": [
+            "LANGUAGE_MISMATCH_SUSPECTED"
+          ],
+          "signals": {
+            "charCount": 2685,
+            "wordCount": 377,
+            "hasBullets": true,
+            "hasNumberedSteps": true,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 1975,
+        "nextChars": 2685
+      },
+      "applyEligible": true,
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      }
+    },
+    {
+      "day": 8,
+      "lessonId": "PRODUCTIVITY_2026_ID_DAY_8",
+      "title": "Biaya Pergantian Konteks: Sisa Perhatian, Pemrosesan Batch, Blok Kerja Mendalam",
+      "action": "REFINE",
+      "quality": {
+        "old": {
+          "score": 50,
+          "issues": [
+            "NO_CLEAR_DEFINITIONS",
+            "NO_METRICS_OR_CRITERIA",
+            "LANGUAGE_MISMATCH_SUSPECTED"
+          ],
+          "signals": {
+            "charCount": 2617,
+            "wordCount": 376,
+            "hasBullets": true,
+            "hasNumberedSteps": true,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": false,
+            "hasDefinitionsOrComparisons": false
+          },
+          "refineTemplate": {
+            "addDefinitionSection": true,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": true
+          }
+        },
+        "next": {
+          "score": 80,
+          "issues": [
+            "LANGUAGE_MISMATCH_SUSPECTED"
+          ],
+          "signals": {
+            "charCount": 2387,
+            "wordCount": 334,
+            "hasBullets": true,
+            "hasNumberedSteps": true,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 2617,
+        "nextChars": 2387
+      },
+      "applyEligible": true,
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      }
+    },
+    {
+      "day": 9,
+      "lessonId": "PRODUCTIVITY_2026_ID_DAY_9",
+      "title": "Delegasi vs Eliminasi: Kapan Mendelegasikan, Apa yang Dieliminasi",
+      "action": "SKIP_ALREADY_OK",
+      "quality": {
+        "old": {
+          "score": 80,
+          "issues": [
+            "LANGUAGE_MISMATCH_SUSPECTED"
+          ],
+          "signals": {
+            "charCount": 2882,
+            "wordCount": 397,
+            "hasBullets": true,
+            "hasNumberedSteps": true,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        },
+        "next": {
+          "score": 80,
+          "issues": [
+            "LANGUAGE_MISMATCH_SUSPECTED"
+          ],
+          "signals": {
+            "charCount": 2882,
+            "wordCount": 397,
+            "hasBullets": true,
+            "hasNumberedSteps": true,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 2882,
+        "nextChars": 2882
+      },
+      "applyEligible": true
+    },
+    {
+      "day": 10,
+      "lessonId": "PRODUCTIVITY_2026_ID_DAY_10",
+      "title": "Manajemen Energi: Kapan Bekerja, Kapan Istirahat, Ritual Pemulihan",
+      "action": "REFINE",
+      "quality": {
+        "old": {
+          "score": 50,
+          "issues": [
+            "NO_EXAMPLES",
+            "NO_METRICS_OR_CRITERIA",
+            "LANGUAGE_MISMATCH_SUSPECTED"
+          ],
+          "signals": {
+            "charCount": 3116,
+            "wordCount": 454,
+            "hasBullets": true,
+            "hasNumberedSteps": true,
+            "hasExamples": false,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": false,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": true,
+            "addPitfallsSection": false,
+            "addMetricsSection": true
+          }
+        },
+        "next": {
+          "score": 80,
+          "issues": [
+            "LANGUAGE_MISMATCH_SUSPECTED"
+          ],
+          "signals": {
+            "charCount": 2375,
+            "wordCount": 332,
+            "hasBullets": true,
+            "hasNumberedSteps": true,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 3116,
+        "nextChars": 2375
+      },
+      "applyEligible": true,
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      }
+    },
+    {
+      "day": 11,
+      "lessonId": "PRODUCTIVITY_2026_ID_DAY_11",
+      "title": "Penetapan Tujuan dan OKR: Apa yang Ingin Anda Capai?",
+      "action": "REFINE",
+      "quality": {
+        "old": {
+          "score": 20,
+          "issues": [
+            "TOO_SHORT",
+            "NO_CLEAR_DEFINITIONS",
+            "NO_EXAMPLES",
+            "NO_CONTRASTS_GOOD_BAD",
+            "NO_METRICS_OR_CRITERIA"
+          ],
+          "signals": {
+            "charCount": 451,
+            "wordCount": 63,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": false,
+            "hasGoodBadContrast": false,
+            "hasMetricsOrCriteria": false,
+            "hasDefinitionsOrComparisons": false
+          },
+          "refineTemplate": {
+            "addDefinitionSection": true,
+            "addChecklistSection": false,
+            "addExamplesSection": true,
+            "addPitfallsSection": true,
+            "addMetricsSection": true
+          }
+        },
+        "next": {
+          "score": 80,
+          "issues": [
+            "LANGUAGE_MISMATCH_SUSPECTED"
+          ],
+          "signals": {
+            "charCount": 1596,
+            "wordCount": 224,
+            "hasBullets": true,
+            "hasNumberedSteps": true,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 451,
+        "nextChars": 1596
+      },
+      "applyEligible": true,
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      }
+    },
+    {
+      "day": 12,
+      "lessonId": "PRODUCTIVITY_2026_ID_DAY_12",
+      "title": "Struktur Akuntabilitas: Sistem yang Membuat Anda Tetap di Jalur",
+      "action": "REFINE",
+      "quality": {
+        "old": {
+          "score": 50,
+          "issues": [
+            "NO_CLEAR_DEFINITIONS",
+            "NO_EXAMPLES",
+            "LANGUAGE_MISMATCH_SUSPECTED"
+          ],
+          "signals": {
+            "charCount": 3080,
+            "wordCount": 418,
+            "hasBullets": true,
+            "hasNumberedSteps": true,
+            "hasExamples": false,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": false
+          },
+          "refineTemplate": {
+            "addDefinitionSection": true,
+            "addChecklistSection": false,
+            "addExamplesSection": true,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        },
+        "next": {
+          "score": 80,
+          "issues": [
+            "LANGUAGE_MISMATCH_SUSPECTED"
+          ],
+          "signals": {
+            "charCount": 1607,
+            "wordCount": 224,
+            "hasBullets": true,
+            "hasNumberedSteps": true,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 3080,
+        "nextChars": 1607
+      },
+      "applyEligible": true,
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      }
+    },
+    {
+      "day": 13,
+      "lessonId": "PRODUCTIVITY_2026_ID_DAY_13",
+      "title": "Kerangka Pengambilan Keputusan: Keputusan Cepat, Matriks Keputusan, Menghindari Kelumpuhan Analisis",
+      "action": "REFINE",
+      "quality": {
+        "old": {
+          "score": 65,
+          "issues": [
+            "NO_EXAMPLES",
+            "LANGUAGE_MISMATCH_SUSPECTED"
+          ],
+          "signals": {
+            "charCount": 3647,
+            "wordCount": 494,
+            "hasBullets": true,
+            "hasNumberedSteps": true,
+            "hasExamples": false,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": true,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        },
+        "next": {
+          "score": 80,
+          "issues": [
+            "LANGUAGE_MISMATCH_SUSPECTED"
+          ],
+          "signals": {
+            "charCount": 2361,
+            "wordCount": 320,
+            "hasBullets": true,
+            "hasNumberedSteps": true,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 3647,
+        "nextChars": 2361
+      },
+      "applyEligible": true,
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      }
+    },
+    {
+      "day": 14,
+      "lessonId": "PRODUCTIVITY_2026_ID_DAY_14",
+      "title": "Efisiensi Pertemuan: Agenda, Batas Waktu, Catatan Keputusan",
+      "action": "REFINE",
+      "quality": {
+        "old": {
+          "score": 20,
+          "issues": [
+            "TOO_SHORT",
+            "NO_CLEAR_DEFINITIONS",
+            "NO_EXAMPLES",
+            "NO_CONTRASTS_GOOD_BAD",
+            "NO_METRICS_OR_CRITERIA"
+          ],
+          "signals": {
+            "charCount": 184,
+            "wordCount": 23,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": false,
+            "hasGoodBadContrast": false,
+            "hasMetricsOrCriteria": false,
+            "hasDefinitionsOrComparisons": false
+          },
+          "refineTemplate": {
+            "addDefinitionSection": true,
+            "addChecklistSection": false,
+            "addExamplesSection": true,
+            "addPitfallsSection": true,
+            "addMetricsSection": true
+          }
+        },
+        "next": {
+          "score": 80,
+          "issues": [
+            "LANGUAGE_MISMATCH_SUSPECTED"
+          ],
+          "signals": {
+            "charCount": 1603,
+            "wordCount": 222,
+            "hasBullets": true,
+            "hasNumberedSteps": true,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 184,
+        "nextChars": 1603
+      },
+      "applyEligible": true,
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      }
+    },
+    {
+      "day": 15,
+      "lessonId": "PRODUCTIVITY_2026_ID_DAY_15",
+      "title": "Kerjasama Tim dan Sinergi: Peran, Tanggung Jawab, Koordinasi",
+      "action": "REFINE",
+      "quality": {
+        "old": {
+          "score": 20,
+          "issues": [
+            "TOO_SHORT",
+            "NO_CLEAR_DEFINITIONS",
+            "NO_EXAMPLES",
+            "NO_CONTRASTS_GOOD_BAD",
+            "NO_METRICS_OR_CRITERIA"
+          ],
+          "signals": {
+            "charCount": 163,
+            "wordCount": 24,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": false,
+            "hasGoodBadContrast": false,
+            "hasMetricsOrCriteria": false,
+            "hasDefinitionsOrComparisons": false
+          },
+          "refineTemplate": {
+            "addDefinitionSection": true,
+            "addChecklistSection": false,
+            "addExamplesSection": true,
+            "addPitfallsSection": true,
+            "addMetricsSection": true
+          }
+        },
+        "next": {
+          "score": 80,
+          "issues": [
+            "LANGUAGE_MISMATCH_SUSPECTED"
+          ],
+          "signals": {
+            "charCount": 2464,
+            "wordCount": 339,
+            "hasBullets": true,
+            "hasNumberedSteps": true,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 163,
+        "nextChars": 2464
+      },
+      "applyEligible": true,
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      }
+    },
+    {
+      "day": 16,
+      "lessonId": "PRODUCTIVITY_2026_ID_DAY_16",
+      "title": "Manajemen Stres dan Kelelahan: Pemulihan, Keseimbangan Kerja-Hidup",
+      "action": "REFINE",
+      "quality": {
+        "old": {
+          "score": 20,
+          "issues": [
+            "TOO_SHORT",
+            "NO_CLEAR_DEFINITIONS",
+            "NO_EXAMPLES",
+            "NO_CONTRASTS_GOOD_BAD",
+            "NO_METRICS_OR_CRITERIA"
+          ],
+          "signals": {
+            "charCount": 179,
+            "wordCount": 21,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": false,
+            "hasGoodBadContrast": false,
+            "hasMetricsOrCriteria": false,
+            "hasDefinitionsOrComparisons": false
+          },
+          "refineTemplate": {
+            "addDefinitionSection": true,
+            "addChecklistSection": false,
+            "addExamplesSection": true,
+            "addPitfallsSection": true,
+            "addMetricsSection": true
+          }
+        },
+        "next": {
+          "score": 80,
+          "issues": [
+            "LANGUAGE_MISMATCH_SUSPECTED"
+          ],
+          "signals": {
+            "charCount": 1610,
+            "wordCount": 222,
+            "hasBullets": true,
+            "hasNumberedSteps": true,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 179,
+        "nextChars": 1610
+      },
+      "applyEligible": true,
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      }
+    },
+    {
+      "day": 17,
+      "lessonId": "PRODUCTIVITY_2026_ID_DAY_17",
+      "title": "Mempertahankan Motivasi: Melacak Kemajuan, Merayakan Kemenangan",
+      "action": "REFINE",
+      "quality": {
+        "old": {
+          "score": 20,
+          "issues": [
+            "TOO_SHORT",
+            "NO_CLEAR_DEFINITIONS",
+            "NO_EXAMPLES",
+            "NO_CONTRASTS_GOOD_BAD",
+            "NO_METRICS_OR_CRITERIA"
+          ],
+          "signals": {
+            "charCount": 178,
+            "wordCount": 22,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": false,
+            "hasGoodBadContrast": false,
+            "hasMetricsOrCriteria": false,
+            "hasDefinitionsOrComparisons": false
+          },
+          "refineTemplate": {
+            "addDefinitionSection": true,
+            "addChecklistSection": false,
+            "addExamplesSection": true,
+            "addPitfallsSection": true,
+            "addMetricsSection": true
+          }
+        },
+        "next": {
+          "score": 80,
+          "issues": [
+            "LANGUAGE_MISMATCH_SUSPECTED"
+          ],
+          "signals": {
+            "charCount": 1607,
+            "wordCount": 221,
+            "hasBullets": true,
+            "hasNumberedSteps": true,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 178,
+        "nextChars": 1607
+      },
+      "applyEligible": true,
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      }
+    },
+    {
+      "day": 18,
+      "lessonId": "PRODUCTIVITY_2026_ID_DAY_18",
+      "title": "Manajemen Krisis dan Kemampuan Beradaptasi: Adaptasi, Pembelajaran Cepat",
+      "action": "REFINE",
+      "quality": {
+        "old": {
+          "score": 20,
+          "issues": [
+            "TOO_SHORT",
+            "NO_CLEAR_DEFINITIONS",
+            "NO_EXAMPLES",
+            "NO_CONTRASTS_GOOD_BAD",
+            "NO_METRICS_OR_CRITERIA"
+          ],
+          "signals": {
+            "charCount": 195,
+            "wordCount": 24,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": false,
+            "hasGoodBadContrast": false,
+            "hasMetricsOrCriteria": false,
+            "hasDefinitionsOrComparisons": false
+          },
+          "refineTemplate": {
+            "addDefinitionSection": true,
+            "addChecklistSection": false,
+            "addExamplesSection": true,
+            "addPitfallsSection": true,
+            "addMetricsSection": true
+          }
+        },
+        "next": {
+          "score": 80,
+          "issues": [
+            "LANGUAGE_MISMATCH_SUSPECTED"
+          ],
+          "signals": {
+            "charCount": 2334,
+            "wordCount": 318,
+            "hasBullets": true,
+            "hasNumberedSteps": true,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 195,
+        "nextChars": 2334
+      },
+      "applyEligible": true,
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      }
+    },
+    {
+      "day": 19,
+      "lessonId": "PRODUCTIVITY_2026_ID_DAY_19",
+      "title": "Perencanaan Jangka Panjang: Tahun Ke Depan, Strategi, Evolusi",
+      "action": "REFINE",
+      "quality": {
+        "old": {
+          "score": 20,
+          "issues": [
+            "TOO_SHORT",
+            "NO_CLEAR_DEFINITIONS",
+            "NO_EXAMPLES",
+            "NO_CONTRASTS_GOOD_BAD",
+            "NO_METRICS_OR_CRITERIA"
+          ],
+          "signals": {
+            "charCount": 170,
+            "wordCount": 22,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": false,
+            "hasGoodBadContrast": false,
+            "hasMetricsOrCriteria": false,
+            "hasDefinitionsOrComparisons": false
+          },
+          "refineTemplate": {
+            "addDefinitionSection": true,
+            "addChecklistSection": false,
+            "addExamplesSection": true,
+            "addPitfallsSection": true,
+            "addMetricsSection": true
+          }
+        },
+        "next": {
+          "score": 80,
+          "issues": [
+            "LANGUAGE_MISMATCH_SUSPECTED"
+          ],
+          "signals": {
+            "charCount": 2323,
+            "wordCount": 318,
+            "hasBullets": true,
+            "hasNumberedSteps": true,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 170,
+        "nextChars": 2323
+      },
+      "applyEligible": true,
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      }
+    },
+    {
+      "day": 20,
+      "lessonId": "PRODUCTIVITY_2026_ID_DAY_20",
+      "title": "Produktivitas Kehidupan Pribadi: Organisasi Rumah, Proyek Pribadi",
+      "action": "REFINE",
+      "quality": {
+        "old": {
+          "score": 30,
+          "issues": [
+            "TOO_SHORT",
+            "NO_CLEAR_DEFINITIONS",
+            "NO_EXAMPLES",
+            "NO_METRICS_OR_CRITERIA"
+          ],
+          "signals": {
+            "charCount": 172,
+            "wordCount": 21,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": false,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": false,
+            "hasDefinitionsOrComparisons": false
+          },
+          "refineTemplate": {
+            "addDefinitionSection": true,
+            "addChecklistSection": false,
+            "addExamplesSection": true,
+            "addPitfallsSection": false,
+            "addMetricsSection": true
+          }
+        },
+        "next": {
+          "score": 80,
+          "issues": [
+            "LANGUAGE_MISMATCH_SUSPECTED"
+          ],
+          "signals": {
+            "charCount": 1609,
+            "wordCount": 222,
+            "hasBullets": true,
+            "hasNumberedSteps": true,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 172,
+        "nextChars": 1609
+      },
+      "applyEligible": true,
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      }
+    },
+    {
+      "day": 21,
+      "lessonId": "PRODUCTIVITY_2026_ID_DAY_21",
+      "title": "Komunitas dan Jaringan: Hubungan, Belajar Bersama Orang Lain",
+      "action": "REFINE",
+      "quality": {
+        "old": {
+          "score": 20,
+          "issues": [
+            "TOO_SHORT",
+            "NO_CLEAR_DEFINITIONS",
+            "NO_EXAMPLES",
+            "NO_CONTRASTS_GOOD_BAD",
+            "NO_METRICS_OR_CRITERIA"
+          ],
+          "signals": {
+            "charCount": 181,
+            "wordCount": 22,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": false,
+            "hasGoodBadContrast": false,
+            "hasMetricsOrCriteria": false,
+            "hasDefinitionsOrComparisons": false
+          },
+          "refineTemplate": {
+            "addDefinitionSection": true,
+            "addChecklistSection": false,
+            "addExamplesSection": true,
+            "addPitfallsSection": true,
+            "addMetricsSection": true
+          }
+        },
+        "next": {
+          "score": 80,
+          "issues": [
+            "LANGUAGE_MISMATCH_SUSPECTED"
+          ],
+          "signals": {
+            "charCount": 1604,
+            "wordCount": 223,
+            "hasBullets": true,
+            "hasNumberedSteps": true,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 181,
+        "nextChars": 1604
+      },
+      "applyEligible": true,
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      }
+    },
+    {
+      "day": 22,
+      "lessonId": "PRODUCTIVITY_2026_ID_DAY_22",
+      "title": "Teknologi dan Alat: Otomasi, Memilih Teknologi yang Tepat",
+      "action": "REFINE",
+      "quality": {
+        "old": {
+          "score": 20,
+          "issues": [
+            "TOO_SHORT",
+            "NO_CLEAR_DEFINITIONS",
+            "NO_EXAMPLES",
+            "NO_CONTRASTS_GOOD_BAD",
+            "NO_METRICS_OR_CRITERIA"
+          ],
+          "signals": {
+            "charCount": 180,
+            "wordCount": 20,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": false,
+            "hasGoodBadContrast": false,
+            "hasMetricsOrCriteria": false,
+            "hasDefinitionsOrComparisons": false
+          },
+          "refineTemplate": {
+            "addDefinitionSection": true,
+            "addChecklistSection": false,
+            "addExamplesSection": true,
+            "addPitfallsSection": true,
+            "addMetricsSection": true
+          }
+        },
+        "next": {
+          "score": 80,
+          "issues": [
+            "LANGUAGE_MISMATCH_SUSPECTED"
+          ],
+          "signals": {
+            "charCount": 1601,
+            "wordCount": 223,
+            "hasBullets": true,
+            "hasNumberedSteps": true,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 180,
+        "nextChars": 1601
+      },
+      "applyEligible": true,
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      }
+    },
+    {
+      "day": 23,
+      "lessonId": "PRODUCTIVITY_2026_ID_DAY_23",
+      "title": "Kreativitas dan Inovasi: Pemikiran Ulang, Eksperimen",
+      "action": "REFINE",
+      "quality": {
+        "old": {
+          "score": 20,
+          "issues": [
+            "TOO_SHORT",
+            "NO_CLEAR_DEFINITIONS",
+            "NO_EXAMPLES",
+            "NO_CONTRASTS_GOOD_BAD",
+            "NO_METRICS_OR_CRITERIA"
+          ],
+          "signals": {
+            "charCount": 179,
+            "wordCount": 22,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": false,
+            "hasGoodBadContrast": false,
+            "hasMetricsOrCriteria": false,
+            "hasDefinitionsOrComparisons": false
+          },
+          "refineTemplate": {
+            "addDefinitionSection": true,
+            "addChecklistSection": false,
+            "addExamplesSection": true,
+            "addPitfallsSection": true,
+            "addMetricsSection": true
+          }
+        },
+        "next": {
+          "score": 80,
+          "issues": [
+            "LANGUAGE_MISMATCH_SUSPECTED"
+          ],
+          "signals": {
+            "charCount": 2314,
+            "wordCount": 316,
+            "hasBullets": true,
+            "hasNumberedSteps": true,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 179,
+        "nextChars": 2314
+      },
+      "applyEligible": true,
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      }
+    },
+    {
+      "day": 24,
+      "lessonId": "PRODUCTIVITY_2026_ID_DAY_24",
+      "title": "Penyaringan dan Prioritas: Apa yang Diabaikan, Apa yang Penting",
+      "action": "REFINE",
+      "quality": {
+        "old": {
+          "score": 20,
+          "issues": [
+            "TOO_SHORT",
+            "NO_CLEAR_DEFINITIONS",
+            "NO_EXAMPLES",
+            "NO_CONTRASTS_GOOD_BAD",
+            "NO_METRICS_OR_CRITERIA"
+          ],
+          "signals": {
+            "charCount": 206,
+            "wordCount": 29,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": false,
+            "hasGoodBadContrast": false,
+            "hasMetricsOrCriteria": false,
+            "hasDefinitionsOrComparisons": false
+          },
+          "refineTemplate": {
+            "addDefinitionSection": true,
+            "addChecklistSection": false,
+            "addExamplesSection": true,
+            "addPitfallsSection": true,
+            "addMetricsSection": true
+          }
+        },
+        "next": {
+          "score": 80,
+          "issues": [
+            "LANGUAGE_MISMATCH_SUSPECTED"
+          ],
+          "signals": {
+            "charCount": 1607,
+            "wordCount": 224,
+            "hasBullets": true,
+            "hasNumberedSteps": true,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 206,
+        "nextChars": 1607
+      },
+      "applyEligible": true,
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      }
+    },
+    {
+      "day": 25,
+      "lessonId": "PRODUCTIVITY_2026_ID_DAY_25",
+      "title": "Pengembangan Keterampilan: Level Lebih Tinggi, Kompetensi Baru",
+      "action": "REFINE",
+      "quality": {
+        "old": {
+          "score": 20,
+          "issues": [
+            "TOO_SHORT",
+            "NO_CLEAR_DEFINITIONS",
+            "NO_EXAMPLES",
+            "NO_CONTRASTS_GOOD_BAD",
+            "NO_METRICS_OR_CRITERIA"
+          ],
+          "signals": {
+            "charCount": 167,
+            "wordCount": 21,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": false,
+            "hasGoodBadContrast": false,
+            "hasMetricsOrCriteria": false,
+            "hasDefinitionsOrComparisons": false
+          },
+          "refineTemplate": {
+            "addDefinitionSection": true,
+            "addChecklistSection": false,
+            "addExamplesSection": true,
+            "addPitfallsSection": true,
+            "addMetricsSection": true
+          }
+        },
+        "next": {
+          "score": 80,
+          "issues": [
+            "LANGUAGE_MISMATCH_SUSPECTED"
+          ],
+          "signals": {
+            "charCount": 1606,
+            "wordCount": 222,
+            "hasBullets": true,
+            "hasNumberedSteps": true,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 167,
+        "nextChars": 1606
+      },
+      "applyEligible": true,
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      }
+    },
+    {
+      "day": 26,
+      "lessonId": "PRODUCTIVITY_2026_ID_DAY_26",
+      "title": "Mentoring dan Pengajaran: Berbagi Pengetahuan, Membantu Orang Lain",
+      "action": "REFINE",
+      "quality": {
+        "old": {
+          "score": 20,
+          "issues": [
+            "TOO_SHORT",
+            "NO_CLEAR_DEFINITIONS",
+            "NO_EXAMPLES",
+            "NO_CONTRASTS_GOOD_BAD",
+            "NO_METRICS_OR_CRITERIA"
+          ],
+          "signals": {
+            "charCount": 197,
+            "wordCount": 24,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": false,
+            "hasGoodBadContrast": false,
+            "hasMetricsOrCriteria": false,
+            "hasDefinitionsOrComparisons": false
+          },
+          "refineTemplate": {
+            "addDefinitionSection": true,
+            "addChecklistSection": false,
+            "addExamplesSection": true,
+            "addPitfallsSection": true,
+            "addMetricsSection": true
+          }
+        },
+        "next": {
+          "score": 80,
+          "issues": [
+            "LANGUAGE_MISMATCH_SUSPECTED"
+          ],
+          "signals": {
+            "charCount": 2470,
+            "wordCount": 339,
+            "hasBullets": true,
+            "hasNumberedSteps": true,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 197,
+        "nextChars": 2470
+      },
+      "applyEligible": true,
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      }
+    },
+    {
+      "day": 27,
+      "lessonId": "PRODUCTIVITY_2026_ID_DAY_27",
+      "title": "Kebiasaan dan Ritual: Rutinitas Harian, Tindakan Jangka Panjang",
+      "action": "REFINE",
+      "quality": {
+        "old": {
+          "score": 20,
+          "issues": [
+            "TOO_SHORT",
+            "NO_CLEAR_DEFINITIONS",
+            "NO_EXAMPLES",
+            "NO_CONTRASTS_GOOD_BAD",
+            "NO_METRICS_OR_CRITERIA"
+          ],
+          "signals": {
+            "charCount": 172,
+            "wordCount": 22,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": false,
+            "hasGoodBadContrast": false,
+            "hasMetricsOrCriteria": false,
+            "hasDefinitionsOrComparisons": false
+          },
+          "refineTemplate": {
+            "addDefinitionSection": true,
+            "addChecklistSection": false,
+            "addExamplesSection": true,
+            "addPitfallsSection": true,
+            "addMetricsSection": true
+          }
+        },
+        "next": {
+          "score": 80,
+          "issues": [
+            "LANGUAGE_MISMATCH_SUSPECTED"
+          ],
+          "signals": {
+            "charCount": 1607,
+            "wordCount": 223,
+            "hasBullets": true,
+            "hasNumberedSteps": true,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 172,
+        "nextChars": 1607
+      },
+      "applyEligible": true,
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      }
+    },
+    {
+      "day": 28,
+      "lessonId": "PRODUCTIVITY_2026_ID_DAY_28",
+      "title": "Nilai dan Tujuan: Tujuan Hidup, Visi Jangka Panjang",
+      "action": "REFINE",
+      "quality": {
+        "old": {
+          "score": 20,
+          "issues": [
+            "TOO_SHORT",
+            "NO_CLEAR_DEFINITIONS",
+            "NO_EXAMPLES",
+            "NO_CONTRASTS_GOOD_BAD",
+            "NO_METRICS_OR_CRITERIA"
+          ],
+          "signals": {
+            "charCount": 164,
+            "wordCount": 20,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": false,
+            "hasGoodBadContrast": false,
+            "hasMetricsOrCriteria": false,
+            "hasDefinitionsOrComparisons": false
+          },
+          "refineTemplate": {
+            "addDefinitionSection": true,
+            "addChecklistSection": false,
+            "addExamplesSection": true,
+            "addPitfallsSection": true,
+            "addMetricsSection": true
+          }
+        },
+        "next": {
+          "score": 80,
+          "issues": [
+            "LANGUAGE_MISMATCH_SUSPECTED"
+          ],
+          "signals": {
+            "charCount": 1595,
+            "wordCount": 223,
+            "hasBullets": true,
+            "hasNumberedSteps": true,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 164,
+        "nextChars": 1595
+      },
+      "applyEligible": true,
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      }
+    },
+    {
+      "day": 29,
+      "lessonId": "PRODUCTIVITY_2026_ID_DAY_29",
+      "title": "Perbaikan Berkelanjutan: Pembelajaran, Umpan Balik, Iterasi",
+      "action": "REFINE",
+      "quality": {
+        "old": {
+          "score": 20,
+          "issues": [
+            "TOO_SHORT",
+            "NO_CLEAR_DEFINITIONS",
+            "NO_EXAMPLES",
+            "NO_CONTRASTS_GOOD_BAD",
+            "NO_METRICS_OR_CRITERIA"
+          ],
+          "signals": {
+            "charCount": 178,
+            "wordCount": 18,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": false,
+            "hasGoodBadContrast": false,
+            "hasMetricsOrCriteria": false,
+            "hasDefinitionsOrComparisons": false
+          },
+          "refineTemplate": {
+            "addDefinitionSection": true,
+            "addChecklistSection": false,
+            "addExamplesSection": true,
+            "addPitfallsSection": true,
+            "addMetricsSection": true
+          }
+        },
+        "next": {
+          "score": 80,
+          "issues": [
+            "LANGUAGE_MISMATCH_SUSPECTED"
+          ],
+          "signals": {
+            "charCount": 2434,
+            "wordCount": 345,
+            "hasBullets": true,
+            "hasNumberedSteps": true,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 178,
+        "nextChars": 2434
+      },
+      "applyEligible": true,
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      }
+    },
+    {
+      "day": 30,
+      "lessonId": "PRODUCTIVITY_2026_ID_DAY_30",
+      "title": "Master Produktivitas: Integrasi Komprehensif, Komitmen",
+      "action": "REFINE",
+      "quality": {
+        "old": {
+          "score": 20,
+          "issues": [
+            "TOO_SHORT",
+            "NO_CLEAR_DEFINITIONS",
+            "NO_EXAMPLES",
+            "NO_CONTRASTS_GOOD_BAD",
+            "NO_METRICS_OR_CRITERIA"
+          ],
+          "signals": {
+            "charCount": 151,
+            "wordCount": 19,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": false,
+            "hasGoodBadContrast": false,
+            "hasMetricsOrCriteria": false,
+            "hasDefinitionsOrComparisons": false
+          },
+          "refineTemplate": {
+            "addDefinitionSection": true,
+            "addChecklistSection": false,
+            "addExamplesSection": true,
+            "addPitfallsSection": true,
+            "addMetricsSection": true
+          }
+        },
+        "next": {
+          "score": 80,
+          "issues": [
+            "LANGUAGE_MISMATCH_SUSPECTED"
+          ],
+          "signals": {
+            "charCount": 2429,
+            "wordCount": 344,
+            "hasBullets": true,
+            "hasNumberedSteps": true,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 151,
+        "nextChars": 2429
+      },
+      "applyEligible": true,
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      }
+    }
+  ],
+  "applyResults": []
+}

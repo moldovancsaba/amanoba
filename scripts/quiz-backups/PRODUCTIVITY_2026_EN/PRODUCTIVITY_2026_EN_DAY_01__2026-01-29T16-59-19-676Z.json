@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-29T16:59:58.141Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_EN",
+    "name": "Productivity 2026: How to Manage Teams and Time",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 1,
+    "title": "Productivity definition: output, outcomes, and constraints",
+    "lessonId": "PRODUCTIVITY_2026_EN_DAY_01"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69787d98a326286129da8ef5",
+      "uuid": "36b3bc9e-0b8f-4e9a-9719-ebe1ed938fb0",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "In the output vs outcome model, which option best describes an outcome (result) rather than output (activity volume)?",
+      "options": [
+        "A client’s critical issue is resolved and satisfaction increases, even if you sent fewer emails.",
+        "You sent 80 emails and attended 6 meetings, so you were busy all day.",
+        "You updated five spreadsheets and reorganized folders, but nothing changed for the customer.",
+        "You opened your task app 30 times and added many new items to the list."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day1",
+        "#en",
+        "#course-productivity_2026_en",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "69787d98a326286129da8ef6",
+      "uuid": "098472a3-a323-4b0b-81be-716859e9c0e8",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Productivity is defined here as outcome divided by constraints. Which decision increases productivity if your time is fixed but attention is limited?",
+      "options": [
+        "Do one high-impact task to completion in a protected focus block, then handle messages in a separate batch.",
+        "Increase activity volume by multitasking so more tasks are “touched” during the same hours.",
+        "Add more status updates and meetings to feel in control, even if execution time shrinks.",
+        "Keep switching between tasks whenever a notification arrives to stay responsive."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day1",
+        "#en",
+        "#course-productivity_2026_en",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "69787d98a326286129da8ef7",
+      "uuid": "266d7a87-ff89-41c7-a0df-8fa2f2575865",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "You have the same goal but different days feel harder. Which option is the most accurate “constraints” diagnosis in this course’s definition?",
+      "options": [
+        "Constraints include time, energy, attention, and resources; when one drops, the same work produces less outcome.",
+        "Constraints are only the number of hours on your calendar; energy and attention do not affect results.",
+        "Constraints are mainly motivation; if you want it enough, limits do not matter.",
+        "Constraints are irrelevant; productivity is purely the number of tasks completed."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day1",
+        "#en",
+        "#course-productivity_2026_en",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "69787d98a326286129da8ef8",
+      "uuid": "078b53ef-4d40-4dfa-a479-151a35587057",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "A teammate brags about “100 emails sent today.” Which question best reframes the discussion from output to outcome?",
+      "options": [
+        "What changed for the customer or project because of those emails, and how will we measure that change?",
+        "How can we send even more emails tomorrow to prove we are working hard?",
+        "Which email client did you use, and can we automate sending more messages?",
+        "How many hours did you spend typing, regardless of whether anything improved?"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day1",
+        "#en",
+        "#course-productivity_2026_en",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "69787d98a326286129da8ef9",
+      "uuid": "7ac4cbf4-61f5-41ee-bbcb-e8b5778cb6a2",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Which personal definition best matches the course’s productivity framing (outcome relative to constraints)?",
+      "options": [
+        "Productivity is creating measurable outcomes while managing time, energy, attention, and resources sustainably.",
+        "Productivity is staying busy and completing many small tasks to feel progress every day.",
+        "Productivity is working long hours so nobody questions your commitment.",
+        "Productivity is responding instantly to messages so you look available at all times."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day1",
+        "#en",
+        "#course-productivity_2026_en",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "69787d98a326286129da8efa",
+      "uuid": "da3003be-1b6f-47a7-b3e3-17af0d61cb3f",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Why can higher output sometimes reduce productivity in the outcome/constraints definition, even if you feel “productive”?",
+      "options": [
+        "Because output can consume constraints (time/energy/attention) without increasing outcomes, so the denominator grows while the numerator does not.",
+        "Because more activity always guarantees better outcomes, so productivity always goes up with output.",
+        "Because outcomes are random and cannot be influenced, so only output matters for improvement.",
+        "Because measuring outcomes is impossible, so productivity must be defined only by activity volume."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day1",
+        "#en",
+        "#course-productivity_2026_en",
+        "#productivity",
+        "#advanced",
+        "#critical-thinking"
+      ]
+    },
+    {
+      "_id": "69787d98a326286129da8efb",
+      "uuid": "5d03f67c-474d-4d6c-bce4-58efbc5c9ff0",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "A manager demands “more activity” (more meetings, more updates) to prove progress. What is the most likely failure mode under the outcome/constraints definition?",
+      "options": [
+        "Constraints get consumed by coordination overhead, reducing deep execution time and lowering real outcomes.",
+        "Constraints improve automatically because meetings create energy and focus by default for everyone.",
+        "Outcomes become guaranteed because activity volume itself is the same as delivering results.",
+        "Attention and energy increase with more status reporting, so outcomes always accelerate."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day1",
+        "#en",
+        "#course-productivity_2026_en",
+        "#productivity",
+        "#advanced",
+        "#critical-thinking"
+      ]
+    }
+  ]
+}

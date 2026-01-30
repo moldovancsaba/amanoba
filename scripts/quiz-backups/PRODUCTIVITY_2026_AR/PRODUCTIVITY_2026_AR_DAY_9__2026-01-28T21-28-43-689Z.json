@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-28T21:29:00.351Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_AR",
+    "name": "الإنتاجية 2026: كيفية إدارة الفرق والوقت",
+    "language": "ar"
+  },
+  "lesson": {
+    "dayNumber": 9,
+    "title": "التفويض مقابل الحذف: متى تفوض، ماذا تحذف",
+    "lessonId": "PRODUCTIVITY_2026_AR_DAY_9"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a613ed20b35fb7972a3",
+      "uuid": "3a8bcb10-e197-474b-8258-1afb6a4a6cf4",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ أعرف أي المهام يمكن تفويضها وأيها لا.\n...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day9",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a613ed20b35fb7972a4",
+      "uuid": "3c225e4a-c848-4dc0-93cc-4ef6a2ef1b8f",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ أعرف أي المهام يمكن تفويضها وأيها لا.\n...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day9",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a613ed20b35fb7972a5",
+      "uuid": "586d270f-ff18-4bd9-a45d-d244cdd32246",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ أعرف أي المهام يمكن تفويضها وأيها لا.\n...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day9",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a613ed20b35fb7972a6",
+      "uuid": "929ef2a7-341b-480c-aabc-56b4e15bb93d",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "How does the concept \"التفويض مقابل الحذف: متى تفوض، ماذا تحذف ليس كل مه...\" mentioned in the lesson impact achieving your goals?",
+      "options": [
+        "As described in detail in the lesson, التفويض مقابل الحذف: متى تفوض،... increases effectiveness and reduces risk",
+        "No significant impact",
+        "Only matters theoretically",
+        "Only an optional element"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day9",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a613ed20b35fb7972a7",
+      "uuid": "cdab9d64-98b0-421e-8027-627143423f27",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is الحمل الذهني in the context of التفويض مقابل الحذف: متى تفوض، ماذا تحذف as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, الحمل الذهني plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day9",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a613ed20b35fb7972a8",
+      "uuid": "2aae2a81-2284-4aa6-8541-54739a7b1f07",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is نمو الفريق in the context of التفويض مقابل الحذف: متى تفوض، ماذا تحذف as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, نمو الفريق plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day9",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a613ed20b35fb7972a9",
+      "uuid": "fa499bae-1587-4409-ad5b-0187fc4423f8",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is نقطة القرار in the context of التفويض مقابل الحذف: متى تفوض، ماذا تحذف as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, نقطة القرار plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day9",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

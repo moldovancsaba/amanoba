@@ -1,0 +1,10 @@
+{
+  "backedUpAt": "2026-01-28T22:55:28.074Z",
+  "courseId": "AI_30_DAY_EN",
+  "lessonId": "AI_30_DAY_EN_DAY_10",
+  "dayNumber": 10,
+  "title": "Rewrite and tone shift",
+  "content": "<h1>Rewrite and tone shift</h1>\n<p><em>Edit drafts into different voices and lengths</em></p>\n<hr />\n<h2>Learning goal</h2>\n<ul>\n<li>Rewrite one text into three tones.</li>\n<li>Control length and clarity.</li>\n</ul>\n<hr />\n<h2>Why it matters</h2>\n<ul>\n<li>Adapting tone for audience increases adoption.</li>\n<li>Concise rewrites reduce noise.</li>\n</ul>\n<hr />\n<h2>Explanation</h2>\n<ul>\n<li>Specify tone (formal, friendly, technical, executive brief).</li>\n<li>Set length (words/sentences) and format (bullets/paragraph).</li>\n<li>Ask to preserve key facts; remove fluff.</li>\n</ul>\n<hr />\n<h2>Examples</h2>\n<ul>\n<li><strong>Prompt</strong>: “Rewrite this for executives in 120 words, neutral tone, 3 bullets, keep the metrics.”</li>\n<li><strong>Weak</strong>: “Rewrite nicely.”</li>\n</ul>\n<hr />\n<h2>Guided exercise (10–15 min)</h2>\n<ol>\n<li>Pick a rough draft; rewrite in 3 tones (formal/friendly/executive).</li>\n<li>Check facts survived; trim fluff.</li>\n</ol>\n<h2>Independent exercise (5–10 min)</h2>\n<p>Create a reusable “tone shift” template for future rewrites.</p>\n<hr />\n<h2>Self-check</h2>\n<ul>\n<li>3 tone variants created.</li>\n<li>Facts preserved.</li>\n<li>Length/format constraints followed.</li>\n</ul>\n<hr />\n<h2>Optional deepening</h2>\n<ul>\n<li>Editing prompts ideas: <a href=\"https://platform.openai.com/docs/guides/prompt-engineering\" target=\"_blank\" rel=\"noreferrer\">https://platform.openai.com/docs/guides/prompt-engineering</a></li>\n</ul>",
+  "emailSubject": "AI 30-Day – Day 10: Rewrite & tone shift",
+  "emailBody": "<h1>AI 30-Day – Day 10</h1>\n<h2>Rewrite & tone shift</h2>\n<p>Today you’ll rewrite a draft into three tones and enforce length/format.</p>\n<p><a href=\"http://localhost:3000/courses/AI_30_DAY_EN/day/{{dayNumber}}\">Open the lesson →</a></p>"
+}

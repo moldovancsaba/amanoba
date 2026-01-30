@@ -1,0 +1,68 @@
+{
+  "backedUpAt": "2026-01-29T17:00:24.462Z",
+  "course": {
+    "courseId": "B2B_SALES_2026_30",
+    "name": "B2B Értékesítés 2026 Masterclass",
+    "language": "hu"
+  },
+  "lesson": {
+    "dayNumber": 16,
+    "title": "AI meeting előkészítés és jegyzetelés",
+    "lessonId": "B2B_SALES_2026_30_DAY_16"
+  },
+  "questionCount": 4,
+  "questions": [
+    {
+      "_id": "697b203fac79ca83bb97226d",
+      "difficulty": "MEDIUM",
+      "question": "Mi a meeting prep prompt kimenete?",
+      "options": [
+        "Hosszú transcript",
+        "3 hipotézis/pain, 3 kérdés, 1 ajánlott next step",
+        "Csak árlista",
+        "Csak pitch deck"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b203fac79ca83bb97226e",
+      "difficulty": "MEDIUM",
+      "question": "Mi a summary prompt egyik célja?",
+      "options": [
+        "Transcript másolása",
+        "Döntési pontok, kockázat, next step rögzítése",
+        "Hosszabb email",
+        "Marketing kampány"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b203fac79ca83bb97226f",
+      "difficulty": "MEDIUM",
+      "question": "Mi a rossz példa?",
+      "options": [
+        "Next step dátummal a summaryban",
+        "Transcript bemásolása next step nélkül",
+        "Kockázatok jelölése",
+        "Fájdalom és hatás összefoglalása"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b203fac79ca83bb972270",
+      "difficulty": "MEDIUM",
+      "question": "Mit teszel a summary után?",
+      "options": [
+        "Semmit",
+        "CRM-be írod és emlékeztetőt állítasz a next stepre",
+        "Email listára teszed",
+        "Törlöd"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    }
+  ]
+}

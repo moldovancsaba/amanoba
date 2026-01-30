@@ -1,0 +1,68 @@
+{
+  "backedUpAt": "2026-01-29T16:59:26.688Z",
+  "course": {
+    "courseId": "B2B_SALES_2026_30_EN",
+    "name": "B2B Sales 2026 Masterclass",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 2,
+    "title": "The B2B Sales System Map",
+    "lessonId": "B2B_SALES_2026_30_EN_DAY_2"
+  },
+  "questionCount": 4,
+  "questions": [
+    {
+      "_id": "697b1fce8f79f136a28b894b",
+      "difficulty": "MEDIUM",
+      "question": "What is the main purpose of the Sales System Map?",
+      "options": [
+        "Decoration on the team wall",
+        "Shared language and definitions for every step",
+        "Just listing KPIs",
+        "Operating without a CRM"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b1fce8f79f136a28b894c",
+      "difficulty": "MEDIUM",
+      "question": "Which is a core element of the SQL definition?",
+      "options": [
+        "Only having an email",
+        "Fits ICP and has a relevant problem",
+        "Has a LinkedIn profile",
+        "Has a backlog task"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b1fce8f79f136a28b894d",
+      "difficulty": "MEDIUM",
+      "question": "Why is “Lead → Call → Proposal → Close” risky alone?",
+      "options": [
+        "It is too long",
+        "No entry/exit definitions, so the pipeline is opinion-based",
+        "It has too many metrics",
+        "It excludes marketing"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b1fce8f79f136a28b894e",
+      "difficulty": "MEDIUM",
+      "question": "What should you measure per stage?",
+      "options": [
+        "Only win rate",
+        "Stage conversion and stage-level cycle time",
+        "Only call count",
+        "Only revenue"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    }
+  ]
+}

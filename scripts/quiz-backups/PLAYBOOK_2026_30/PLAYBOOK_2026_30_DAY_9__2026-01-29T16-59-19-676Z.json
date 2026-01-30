@@ -1,0 +1,68 @@
+{
+  "backedUpAt": "2026-01-29T17:00:16.256Z",
+  "course": {
+    "courseId": "PLAYBOOK_2026_30",
+    "name": "The Playbook 2026 – Mesterkurzus Designereknek",
+    "language": "hu"
+  },
+  "lesson": {
+    "dayNumber": 9,
+    "title": "Mozgás és visszajelzés nyelve",
+    "lessonId": "PLAYBOOK_2026_30_DAY_9"
+  },
+  "questionCount": 4,
+  "questions": [
+    {
+      "_id": "697b2032d8669994531f7481",
+      "difficulty": "MEDIUM",
+      "question": "Mi a tipikus micro-interaction időzítés?",
+      "options": [
+        "50ms",
+        "150–200ms",
+        "600ms",
+        "1s felett"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b2032d8669994531f7482",
+      "difficulty": "MEDIUM",
+      "question": "Miért rossz a túl sok mozgás?",
+      "options": [
+        "Mert olcsó",
+        "Zavar, fáraszt, akadálymentességi probléma lehet",
+        "Mert gyorsít",
+        "Nincs hatása"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b2032d8669994531f7483",
+      "difficulty": "MEDIUM",
+      "question": "Mi a helyes fókusz jelzés?",
+      "options": [
+        "Láthatatlan",
+        "Látható, kontrasztos kontúr (pl. 3px), egységes szabály",
+        "Bounce animáció 600ms",
+        "Csak hover"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b2032d8669994531f7484",
+      "difficulty": "MEDIUM",
+      "question": "Melyik állapot-szabály jó CTA-ra?",
+      "options": [
+        "Hover 150ms ease-out, active -2px translateY, focus kontúr",
+        "Hover 800ms bounce, active 3x scale",
+        "Nincs állapot",
+        "Random időzítés"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    }
+  ]
+}

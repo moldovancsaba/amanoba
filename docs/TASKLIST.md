@@ -32,6 +32,7 @@ Tasks are listed in priority order. Upon completion, tasks are moved to RELEASE_
 | CCS-AUDIT-CATALOG-1 | Add course name/description language integrity checks to CCS global audit | AI | 2026-01-28 | ✅ DONE |
 | CCS-AUDIT-EMAIL-3 | Localize transactional emails (welcome/completion/reminder/payment) for all supported locales + gate sending on language integrity | AI | 2026-01-28 | ✅ DONE |
 | CCS-AUDIT-EMAIL-4 | Fix remaining cross-language lesson email fields flagged by master audit (to prevent send-time blocks) | AI | 2026-01-29 | ⏳ TODO |
+| CCS-AUDIT-CONTENT-1 | Complete missing Day 12–30 lessons using Strategy A (EN-first, then localize) | AI | 2026-01-29 | 🟡 IN PROGRESS |
 
 **Verification**
 - Run CCS master audit: `npx tsx --env-file=.env.local scripts/audit-ccs-global-quality.ts --min-lesson-score 70`

@@ -1,0 +1,168 @@
+{
+  "backedUpAt": "2026-01-28T22:09:38.173Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_AR",
+    "name": "الإنتاجية 2026: كيفية إدارة الفرق والوقت",
+    "language": "ar"
+  },
+  "lesson": {
+    "dayNumber": 5,
+    "title": "القياس: مقاييس المراجعة الأسبوعية البسيطة (الإنتاجية، كتل التركيز، التحويل)",
+    "lessonId": "PRODUCTIVITY_2026_AR_DAY_05"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a603ed20b35fb797260",
+      "uuid": "bc8bfd8c-94bd-48bd-affa-5b8b901500f0",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "كم مقياسًا نستخدم في المراجعة الأسبوعية؟",
+      "options": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "correctIndex": 2,
+      "hashtags": [
+        "#day-05",
+        "#foundation",
+        "#recall",
+        "#ar"
+      ]
+    },
+    {
+      "_id": "69776a603ed20b35fb797261",
+      "uuid": "fd84150c-70ff-4ced-aa68-87e979daf768",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ تعرف المقاييس الثلاثة الرئيسية: الإنتا...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day5",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a603ed20b35fb797262",
+      "uuid": "97f13a2f-b763-4402-8d4a-7cbfba0183ac",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ تعرف المقاييس الثلاثة الرئيسية: الإنتا...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day5",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a603ed20b35fb797263",
+      "uuid": "9b8b36f0-ea6f-4563-873f-65f074ae617d",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ تعرف المقاييس الثلاثة الرئيسية: الإنتا...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day5",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a603ed20b35fb797264",
+      "uuid": "45771b12-32e4-4b85-8961-d10193a6c7a3",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "How does the concept \"القياس: مقاييس المراجعة الأسبوعية البسيطة ما لا تق...\" mentioned in the lesson impact achieving your goals?",
+      "options": [
+        "As described in detail in the lesson, القياس: مقاييس المراجعة الأسبو... increases effectiveness and reduces risk",
+        "No significant impact",
+        "Only matters theoretically",
+        "Only an optional element"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day5",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a603ed20b35fb797265",
+      "uuid": "d245b206-5b45-4c0f-b910-bd46793158ec",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is الإنتاجية in the context of القياس: مقاييس المراجعة الأسبوعية البسيطة (الإنتاجية، كتل التركيز، التحويل) as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, الإنتاجية plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day5",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a603ed20b35fb797266",
+      "uuid": "f607f81c-0ccf-4bf3-9cf8-6273a514cfb6",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is التحويل in the context of القياس: مقاييس المراجعة الأسبوعية البسيطة (الإنتاجية، كتل التركيز، التحويل) as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, التحويل plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day5",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

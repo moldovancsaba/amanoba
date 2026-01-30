@@ -1,0 +1,177 @@
+{
+  "backedUpAt": "2026-01-28T21:08:08.514Z",
+  "course": {
+    "courseId": "SALES_PRODUCTIVITY_30_RU",
+    "name": "Постройте свои продажи – 30 дней к большему количеству сделок",
+    "language": "ru"
+  },
+  "lesson": {
+    "dayNumber": 10,
+    "title": "Квалификация на практике – Как квалифицировать в реальном разговоре?",
+    "lessonId": "SALES_PRODUCTIVITY_30_RU_DAY_10"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a5583229aca24a6d67f",
+      "uuid": "b9714e5e-0dbb-402b-a4a8-eb39293a1660",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Практика делает совершенным.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day10",
+        "#ru",
+        "#all-languages",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5583229aca24a6d680",
+      "uuid": "855b2120-0449-4c41-bf2c-847c81af5898",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Лучшие результаты:\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day10",
+        "#ru",
+        "#all-languages",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5583229aca24a6d681",
+      "uuid": "d30b095d-4757-44dd-b043-714a8400430d",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Экономия времени:\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day10",
+        "#ru",
+        "#all-languages",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5583229aca24a6d682",
+      "uuid": "9db4b943-ebed-4eb6-8717-1566d231108b",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Как концепция \"важно сейчас?\" (Сила потребности)\n  \"Когда нужно р...\", упомянутая в уроке, влияет на достижение ваших goals?",
+      "options": [
+        "Как подробно описано в уроке, важно сейчас?\" (Сила потребнос... повышает эффективность и снижает риски",
+        "Нет значительного влияния",
+        "Имеет значение только теоретически",
+        "Только опциональный элемент"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day10",
+        "#ru",
+        "#all-languages",
+        "#productivity",
+        "#sales",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5583229aca24a6d683",
+      "uuid": "3a643d63-6023-4dcb-bbe5-558efa766a88",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Какую роль играет Лучшие результаты: в уроке \"Квалификация на практике – Как квалифицировать в реальном разговоре?\"?",
+      "options": [
+        "Как подробно описано в уроке, Лучшие результаты: играет ключевую роль в оптимизации процессов и достижении целей",
+        "Только периферийная информация без значительной роли",
+        "Только теоретическая концепция без практического применения",
+        "Не упоминается в уроке"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day10",
+        "#ru",
+        "#all-languages",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5583229aca24a6d684",
+      "uuid": "74bd2228-7a50-4b73-bba3-d0faab2ce885",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Какую роль играет Профессиональный вид: в уроке \"Квалификация на практике – Как квалифицировать в реальном разговоре?\"?",
+      "options": [
+        "Как подробно описано в уроке, Профессиональный вид: играет ключевую роль в оптимизации процессов и достижении целей",
+        "Только периферийная информация без значительной роли",
+        "Только теоретическая концепция без практического применения",
+        "Не упоминается в уроке"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day10",
+        "#ru",
+        "#all-languages",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5583229aca24a6d685",
+      "uuid": "4bdd0f73-c96d-4c22-b7e0-b73a51c34833",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Какую роль играет Исследование (5-10 мин): в уроке \"Квалификация на практике – Как квалифицировать в реальном разговоре?\"?",
+      "options": [
+        "Как подробно описано в уроке, Исследование (5-10 мин): играет ключевую роль в оптимизации процессов и достижении целей",
+        "Только периферийная информация без значительной роли",
+        "Только теоретическая концепция без практического применения",
+        "Не упоминается в уроке"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day10",
+        "#ru",
+        "#all-languages",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,155 @@
+{
+  "generatedAt": "2026-01-28T22:05:59.824Z",
+  "courseId": "PRODUCTIVITY_2026_HU",
+  "fromDay": 29,
+  "toDay": 30,
+  "apply": true,
+  "totals": {
+    "considered": 2,
+    "eligible70": 2,
+    "below70": 0,
+    "applied": 2
+  },
+  "planRows": [
+    {
+      "day": 29,
+      "lessonId": "PRODUCTIVITY_2026_HU_DAY_29",
+      "title": "Folyamatos fejlesztés: Tanulás, visszajelzés, iteráció",
+      "action": "REFINE",
+      "quality": {
+        "old": {
+          "score": 100,
+          "issues": [],
+          "signals": {
+            "charCount": 1981,
+            "wordCount": 269,
+            "hasBullets": true,
+            "hasNumberedSteps": true,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        },
+        "next": {
+          "score": 100,
+          "issues": [],
+          "signals": {
+            "charCount": 2001,
+            "wordCount": 275,
+            "hasBullets": true,
+            "hasNumberedSteps": true,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 1981,
+        "nextChars": 2001
+      },
+      "applyEligible": true,
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      }
+    },
+    {
+      "day": 30,
+      "lessonId": "PRODUCTIVITY_2026_HU_DAY_30",
+      "title": "A termelékenység mestere: Komprehenzív integráció, elkötelezettség",
+      "action": "REFINE",
+      "quality": {
+        "old": {
+          "score": 100,
+          "issues": [],
+          "signals": {
+            "charCount": 2100,
+            "wordCount": 282,
+            "hasBullets": true,
+            "hasNumberedSteps": true,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        },
+        "next": {
+          "score": 100,
+          "issues": [],
+          "signals": {
+            "charCount": 2120,
+            "wordCount": 288,
+            "hasBullets": true,
+            "hasNumberedSteps": true,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 2100,
+        "nextChars": 2120
+      },
+      "applyEligible": true,
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      }
+    }
+  ],
+  "applyResults": [
+    {
+      "day": 29,
+      "lessonId": "PRODUCTIVITY_2026_HU_DAY_29",
+      "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/lesson-backups/PRODUCTIVITY_2026_HU/PRODUCTIVITY_2026_HU_DAY_29__2026-01-28T22-05-59-429Z.json",
+      "matched": 1,
+      "modified": 1,
+      "newScore": 100
+    },
+    {
+      "day": 30,
+      "lessonId": "PRODUCTIVITY_2026_HU_DAY_30",
+      "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/lesson-backups/PRODUCTIVITY_2026_HU/PRODUCTIVITY_2026_HU_DAY_30__2026-01-28T22-05-59-429Z.json",
+      "matched": 1,
+      "modified": 1,
+      "newScore": 100
+    }
+  ]
+}

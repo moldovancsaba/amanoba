@@ -1,0 +1,114 @@
+{
+  "backedUpAt": "2026-01-28T22:58:15.679Z",
+  "course": {
+    "courseId": "DONE_BETTER_2026_EN",
+    "name": "Done is better - Build What Matters",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 21,
+    "title": "Momentum Over Comfort",
+    "lessonId": "DONE_BETTER_2026_EN_DAY_21"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "697a92f622596d24dfc12d51",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "A leader is waiting for \"more information\" before deciding. What is the risk?",
+      "options": [
+        "Certainty rarely arrives; define the smallest test you could run with what you have",
+        "They will make a better decision with complete information",
+        "It is safer to wait until all information is available",
+        "No significant risk in this case; waiting is always the right approach"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a92f622596d24dfc12d52",
+      "questionType": "application",
+      "difficulty": "EASY",
+      "question": "A leader delays a decision for three months waiting for \"more data.\" Meanwhile, competitors launch similar products. What principle did they violate?",
+      "options": [
+        "Momentum over comfort: prefer a small step with uncertainty over waiting for certainty",
+        "Moving recklessly without any check or validation",
+        "Ignoring risk and acting immediately without planning",
+        "Always acting fast regardless of evidence or outcomes"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a92f622596d24dfc12d53",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "A leader faces a decision with some uncertainty. How do they balance momentum and risk?",
+      "options": [
+        "Move when you have enough to test, not when you have zero risk",
+        "Wait until risk is zero before taking any action or making progress",
+        "Ignore risk and move forward regardless of potential problems or consequences",
+        "Take the biggest step possible to maximize progress regardless of risk or testability"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a92f622596d24dfc12d54",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Waiting for perfect information before acting often leads to:",
+      "options": [
+        "Delay and missed learning; you never get perfect information",
+        "Better decisions",
+        "Lower cost",
+        "No significant downside in practice"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a92f622596d24dfc12d55",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Confusing momentum with recklessness can result in:",
+      "options": [
+        "Acting without any check and repeating avoidable mistakes",
+        "Faster delivery",
+        "More learning",
+        "No meaningful effect on outcomes"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a92f622596d24dfc12d56",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "What should you do with a decision you have been delaying for \"more information\"?",
+      "options": [
+        "Define the smallest test you could run with what you have; schedule it",
+        "Keep waiting until you have perfect information and complete certainty",
+        "Make the decision without testing or validation to move forward",
+        "Delegate it to someone else who can make the decision without information"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a92f622596d24dfc12d57",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Why use momentum to learn?",
+      "options": [
+        "Small steps with feedback create learning; waiting for certainty does not produce learning",
+        "Momentum is always good regardless of direction or outcomes",
+        "Learning is optional and not necessary for successful delivery",
+        "It has no effect on outcomes or learning compared to waiting"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    }
+  ]
+}

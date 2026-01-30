@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-28T22:42:13.958Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_ID",
+    "name": "Produktivitas 2026: Cara Mengelola Tim dan Waktu",
+    "language": "id"
+  },
+  "lesson": {
+    "dayNumber": 28,
+    "title": "Nilai dan Tujuan: Tujuan Hidup, Visi Jangka Panjang",
+    "lessonId": "PRODUCTIVITY_2026_ID_DAY_28"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a2ddf6e5ec2a4427ed6",
+      "uuid": "2c06c5cf-98ee-443b-bbd4-2bd8835621ae",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Selaraskan produktivitas dengan nilai-nilai Anda.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day28",
+        "#id",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a2ddf6e5ec2a4427ed7",
+      "uuid": "7d04737e-6f90-4eb7-9722-aa31d1bf349a",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Selaraskan produktivitas dengan nilai-nilai Anda.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day28",
+        "#id",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a2ddf6e5ec2a4427ed8",
+      "uuid": "5f2319cf-3c90-496c-a76e-2d1439528158",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Selaraskan produktivitas dengan nilai-nilai Anda.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day28",
+        "#id",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a2ddf6e5ec2a4427ed9",
+      "uuid": "7489fc60-3e3e-4d6d-94f3-ab1647faa177",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Bagaimana konsep \"Nilai dan Tujuan: Tujuan Hidup, Visi Jangka Panjan...\" yang disebutkan dalam pelajaran mempengaruhi pencapaian goals Anda?",
+      "options": [
+        "Seperti yang dijelaskan secara detail dalam pelajaran, Nilai dan Tujuan: Tujuan Hidup... meningkatkan efektivitas dan mengurangi risiko",
+        "Tidak ada dampak signifikan",
+        "Hanya penting secara teoritis",
+        "Hanya elemen opsional"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day28",
+        "#id",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a2ddf6e5ec2a4427eda",
+      "uuid": "04c72b10-1878-40dd-bb15-7c5b05e4c9b0",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Seberapa penting Nilai dalam konteks Nilai dan Tujuan: Tujuan Hidup, Visi Jangka Panjang seperti yang dibahas dalam pelajaran?",
+      "options": [
+        "Seperti yang dijelaskan secara detail dalam pelajaran, Nilai memainkan peran penting dalam mengoptimalkan proses dan mencapai tujuan",
+        "Hanya informasi periferal tanpa peran signifikan",
+        "Hanya konsep teoretis tanpa aplikasi praktis",
+        "Tidak disebutkan dalam pelajaran"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day28",
+        "#id",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a2ddf6e5ec2a4427edb",
+      "uuid": "35d3a67c-aa68-4642-bbd4-29050831c0d8",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Seberapa penting Hidup dalam konteks Nilai dan Tujuan: Tujuan Hidup, Visi Jangka Panjang seperti yang dibahas dalam pelajaran?",
+      "options": [
+        "Seperti yang dijelaskan secara detail dalam pelajaran, Hidup memainkan peran penting dalam mengoptimalkan proses dan mencapai tujuan",
+        "Hanya informasi periferal tanpa peran signifikan",
+        "Hanya konsep teoretis tanpa aplikasi praktis",
+        "Tidak disebutkan dalam pelajaran"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day28",
+        "#id",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a2ddf6e5ec2a4427edc",
+      "uuid": "7664de77-0cef-4b4e-93cf-dce371197f1b",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Seberapa penting Jangka dalam konteks Nilai dan Tujuan: Tujuan Hidup, Visi Jangka Panjang seperti yang dibahas dalam pelajaran?",
+      "options": [
+        "Seperti yang dijelaskan secara detail dalam pelajaran, Jangka memainkan peran penting dalam mengoptimalkan proses dan mencapai tujuan",
+        "Hanya informasi periferal tanpa peran signifikan",
+        "Hanya konsep teoretis tanpa aplikasi praktis",
+        "Tidak disebutkan dalam pelajaran"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day28",
+        "#id",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

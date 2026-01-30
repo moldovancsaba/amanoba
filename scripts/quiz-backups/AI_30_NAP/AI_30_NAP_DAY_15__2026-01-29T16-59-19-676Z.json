@@ -1,0 +1,81 @@
+{
+  "backedUpAt": "2026-01-29T17:00:35.537Z",
+  "course": {
+    "courseId": "AI_30_NAP",
+    "name": "30-Day AI Catch-Up Program",
+    "language": "hu"
+  },
+  "lesson": {
+    "dayNumber": 15,
+    "title": "Ismétlés: rossz prompt → jó prompt",
+    "lessonId": "AI_30_NAP_DAY_15"
+  },
+  "questionCount": 5,
+  "questions": [
+    {
+      "_id": "697b2056060240540231b3f4",
+      "difficulty": "EASY",
+      "question": "Mi a fő cél a rossz → jó prompt átalakításnál?",
+      "options": [
+        "Hiányzó elemek pótlása (cél, kontextus, forma, stílus, hossz, CTA)",
+        "Hosszabb szöveget írni",
+        "Kevesebb információt adni",
+        "Eltávolítani a kontextust"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b2056060240540231b3f6",
+      "difficulty": "EASY",
+      "question": "Mi a 3 lépés a javításnál?",
+      "options": [
+        "Diagnózis → pontosítás → validálás/összehasonlítás",
+        "Csak újrafuttatás",
+        "Csak törlés",
+        "Csak formázás"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b2056060240540231b3f8",
+      "difficulty": "MEDIUM",
+      "question": "Miért érdemes formátumot váltani (bullet vs. bekezdés)?",
+      "options": [
+        "Eltérő formátum gyakran használhatóbb/áttekinthetőbb",
+        "Mindig rosszabb",
+        "Felesleges",
+        "Csak hosszabb lesz"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b2056060240540231b3fa",
+      "difficulty": "MEDIUM",
+      "question": "Mi jó feedback egy rossz válaszra?",
+      "options": [
+        "„Hiányzik a CTA, túl hosszú. Rövidítsd 50%-kal, bulletben, üzleti stílusban.”",
+        "„Nem jó.”",
+        "„Legyen szebb.”",
+        "„Írj valamit.”"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b2056060240540231b3fc",
+      "difficulty": "HARD",
+      "question": "Miért hasznos „Before/After” gyűjteményt tartani?",
+      "options": [
+        "Referenciának és tanuláshoz, hogy lásd a fejlődést",
+        "Csak helyet foglal",
+        "Nem hasznos",
+        "Mert kötelező szabály"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    }
+  ]
+}

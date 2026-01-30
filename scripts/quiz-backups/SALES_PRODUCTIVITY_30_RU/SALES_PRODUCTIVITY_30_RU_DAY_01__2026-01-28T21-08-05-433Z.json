@@ -1,0 +1,177 @@
+{
+  "backedUpAt": "2026-01-28T21:08:06.104Z",
+  "course": {
+    "courseId": "SALES_PRODUCTIVITY_30_RU",
+    "name": "Постройте свои продажи – 30 дней к большему количеству сделок",
+    "language": "ru"
+  },
+  "lesson": {
+    "dayNumber": 1,
+    "title": "Основы воронки продаж – Почему важны цифры",
+    "lessonId": "SALES_PRODUCTIVITY_30_RU_DAY_01"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a5383229aca24a6d59c",
+      "uuid": "642f552e-8418-4c58-9a97-640cf5fdde12",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Нет цифр = нет контроля.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day1",
+        "#ru",
+        "#all-languages",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5383229aca24a6d59d",
+      "uuid": "6cf9955a-1dd5-4a21-9eb3-faca2e82b36c",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Прогнозирование:\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day1",
+        "#ru",
+        "#all-languages",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5383229aca24a6d59e",
+      "uuid": "7bad83f4-a950-4799-81c8-ebe8dbaaec2c",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Быстрые исправления:\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day1",
+        "#ru",
+        "#all-languages",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5383229aca24a6d59f",
+      "uuid": "6259339d-e342-4e0c-bb43-85dfe640d6a4",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Как концепция \"Основы воронки продаж – Почему важны цифры Сегодня...\", упомянутая в уроке, влияет на достижение ваших goals?",
+      "options": [
+        "Как подробно описано в уроке, Основы воронки продаж – Почему... повышает эффективность и снижает риски",
+        "Нет значительного влияния",
+        "Имеет значение только теоретически",
+        "Только опциональный элемент"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day1",
+        "#ru",
+        "#all-languages",
+        "#productivity",
+        "#sales",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5383229aca24a6d5a0",
+      "uuid": "789caa1b-893e-46c7-8d91-dfdf1719d157",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Какую роль играет Прогнозирование: в уроке \"Основы воронки продаж – Почему важны цифры\"?",
+      "options": [
+        "Как подробно описано в уроке, Прогнозирование: играет ключевую роль в оптимизации процессов и достижении целей",
+        "Только периферийная информация без значительной роли",
+        "Только теоретическая концепция без практического применения",
+        "Не упоминается в уроке"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day1",
+        "#ru",
+        "#all-languages",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5383229aca24a6d5a1",
+      "uuid": "4d8f902f-b5f3-4242-b65e-d404ac430646",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Насколько важен Мотивация: в контексте Основы воронки продаж – Почему важны цифры, как обсуждается в уроке?",
+      "options": [
+        "Как подробно описано в уроке, Мотивация: играет ключевую роль в оптимизации процессов и достижении целей",
+        "Только периферийная информация без значительной роли",
+        "Только теоретическая концепция без практического применения",
+        "Не упоминается в уроке"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day1",
+        "#ru",
+        "#all-languages",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5383229aca24a6d5a2",
+      "uuid": "c9cef35e-0301-4e7f-8e5c-22c72c391505",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Насколько важен 2% конверсия в контексте Основы воронки продаж – Почему важны цифры, как обсуждается в уроке?",
+      "options": [
+        "Как подробно описано в уроке, 2% конверсия играет ключевую роль в оптимизации процессов и достижении целей",
+        "Только периферийная информация без значительной роли",
+        "Только теоретическая концепция без практического применения",
+        "Не упоминается в уроке"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day1",
+        "#ru",
+        "#all-languages",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

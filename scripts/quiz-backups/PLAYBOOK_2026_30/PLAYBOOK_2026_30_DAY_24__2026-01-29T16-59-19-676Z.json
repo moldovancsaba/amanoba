@@ -1,0 +1,68 @@
+{
+  "backedUpAt": "2026-01-29T17:00:18.222Z",
+  "course": {
+    "courseId": "PLAYBOOK_2026_30",
+    "name": "The Playbook 2026 – Mesterkurzus Designereknek",
+    "language": "hu"
+  },
+  "lesson": {
+    "dayNumber": 24,
+    "title": "A rendszer tanítása a csapatnak",
+    "lessonId": "PLAYBOOK_2026_30_DAY_24"
+  },
+  "questionCount": 4,
+  "questions": [
+    {
+      "_id": "697b2035d8669994531f74f6",
+      "difficulty": "MEDIUM",
+      "question": "Miért kell enablement?",
+      "options": [
+        "Nem kell",
+        "Használat nélkül a rendszer halott",
+        "Dekoráció",
+        "Marketing"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b2035d8669994531f74f7",
+      "difficulty": "MEDIUM",
+      "question": "Mi legyen a csomagban?",
+      "options": [
+        "Rövid guide, videó, példák, linkek",
+        "Csak egy logó",
+        "Csak árlista",
+        "Semmi"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b2035d8669994531f74f8",
+      "difficulty": "MEDIUM",
+      "question": "Milyen metrikát érdemes mérni?",
+      "options": [
+        "Reuse %, ticket trend",
+        "Csak bevétel",
+        "Csak időjárás",
+        "Semmit"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b2035d8669994531f74f9",
+      "difficulty": "MEDIUM",
+      "question": "Mi a rossz példa?",
+      "options": [
+        "Kickoff + videó + office hours",
+        "„Küldtünk egy linket, oldjátok meg”",
+        "Mért adoption",
+        "Q&A session"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    }
+  ]
+}

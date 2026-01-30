@@ -1,0 +1,114 @@
+{
+  "backedUpAt": "2026-01-28T22:37:45.266Z",
+  "course": {
+    "courseId": "DONE_BETTER_2026_EN",
+    "name": "Done is better - Build What Matters",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 1,
+    "title": "Welcome to Real Thinking",
+    "lessonId": "DONE_BETTER_2026_EN_DAY_01"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "697a87b9a81588c9f41a214a",
+      "questionType": "application",
+      "difficulty": "EASY",
+      "question": "What is the primary goal of this course?",
+      "options": [
+        "To be more effective, not just smart or busy",
+        "To become more intelligent without changing behavior",
+        "To do more tasks regardless of outcomes",
+        "To feel more motivated in the short term only"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87b9a81588c9f41a214b",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How should you sustain progress after the course?",
+      "options": [
+        "Use a repeatable system, not reliance on motivation",
+        "Wait for inspiration before taking action",
+        "Do more activities without tracking outcomes",
+        "Focus only on intelligence and raw talent"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87b9a81588c9f41a214c",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "What three-part loop does the course emphasize?",
+      "options": [
+        "Think, decide, deliver",
+        "Plan, execute, forget",
+        "Work, rest, repeat without reflection",
+        "Hope, try, give up when it gets hard"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87b9a81588c9f41a214d",
+      "questionType": "critical-thinking",
+      "difficulty": "MEDIUM",
+      "question": "Which mistake is most likely to block effectiveness?",
+      "options": [
+        "Confusing activity with progress",
+        "Taking too many breaks between focused work",
+        "Asking for help when you are stuck",
+        "Writing things down for later review"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87b9a81588c9f41a214e",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "A leader says: \"We did 50 meetings this month.\" What is missing for effectiveness?",
+      "options": [
+        "A link to outcomes or results, not just activity",
+        "More meetings to align the team",
+        "Fewer notes so people can focus",
+        "Longer meetings to cover everything"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87b9a81588c9f41a214f",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "What should you commit to from Day 1?",
+      "options": [
+        "One small daily loop (e.g. what did I learn, what do I do next)",
+        "A yearly goal only with no daily structure",
+        "No structure and rely on ad hoc decisions",
+        "Only motivation and positive thinking"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87b9a81588c9f41a2150",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Why is \"system not motivation\" important?",
+      "options": [
+        "Systems are repeatable; motivation fades over time",
+        "Motivation is illegal in professional settings",
+        "Systems are slower than pure motivation",
+        "Motivation is enough for most people long-term"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    }
+  ]
+}

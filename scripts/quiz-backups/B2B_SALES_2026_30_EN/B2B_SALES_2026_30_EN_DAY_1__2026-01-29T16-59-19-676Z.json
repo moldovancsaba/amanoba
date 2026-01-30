@@ -1,0 +1,68 @@
+{
+  "backedUpAt": "2026-01-29T16:59:26.358Z",
+  "course": {
+    "courseId": "B2B_SALES_2026_30_EN",
+    "name": "B2B Sales 2026 Masterclass",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 1,
+    "title": "What Modern B2B Sales Means in 2026",
+    "lessonId": "B2B_SALES_2026_30_EN_DAY_1"
+  },
+  "questionCount": 4,
+  "questions": [
+    {
+      "_id": "697b1fce8f79f136a28b890b",
+      "difficulty": "MEDIUM",
+      "question": "What is the primary goal of modern B2B sales in this course?",
+      "options": [
+        "Make as many calls and pitches as possible",
+        "Support decisions and reduce risk with a clear next step",
+        "Only negotiate price",
+        "Fill the CRM as admin work"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b1fce8f79f136a28b890c",
+      "difficulty": "MEDIUM",
+      "question": "What separates a system from a tactic?",
+      "options": [
+        "A system is one good line; a tactic is a pipeline",
+        "A system is definitions, steps, and measurement; a tactic is a short trick",
+        "There is no difference",
+        "A tactic is always better"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b1fce8f79f136a28b890d",
+      "difficulty": "MEDIUM",
+      "question": "Why is “more activity = more results” risky?",
+      "options": [
+        "Because activity is expensive",
+        "Because without ICP and qualification, more activity just creates noise",
+        "Because activity lowers win rate by default",
+        "Because activity ignores marketing"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b1fce8f79f136a28b890e",
+      "difficulty": "MEDIUM",
+      "question": "Why isn’t pitching enough?",
+      "options": [
+        "Pitches are too long",
+        "Buyers want risk reduction and a clear next step, not product monologues",
+        "Pitching is only for marketing",
+        "Pitching hides price"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    }
+  ]
+}

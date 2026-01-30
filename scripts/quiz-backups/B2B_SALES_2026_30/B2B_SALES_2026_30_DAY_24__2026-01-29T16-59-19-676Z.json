@@ -1,0 +1,68 @@
+{
+  "backedUpAt": "2026-01-29T17:00:27.500Z",
+  "course": {
+    "courseId": "B2B_SALES_2026_30",
+    "name": "B2B Értékesítés 2026 Masterclass",
+    "language": "hu"
+  },
+  "lesson": {
+    "dayNumber": 24,
+    "title": "CRM higiénia és napi routine",
+    "lessonId": "B2B_SALES_2026_30_DAY_24"
+  },
+  "questionCount": 4,
+  "questions": [
+    {
+      "_id": "697b2043ac79ca83bb9722a5",
+      "difficulty": "MEDIUM",
+      "question": "Mi a napi 10 perc rutin célja?",
+      "options": [
+        "Dekoráció",
+        "Pipeline valóságának fenntartása",
+        "Marketing kampány indítása",
+        "HR feladat"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b2043ac79ca83bb9722a6",
+      "difficulty": "MEDIUM",
+      "question": "Mi a stale deal szabály tipikus küszöbe?",
+      "options": [
+        "14 nap activity nélkül review",
+        "1 nap activity nélkül azonnali zárás",
+        "6 hónap activity nélkül",
+        "Nincs ilyen"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b2043ac79ca83bb9722a7",
+      "difficulty": "MEDIUM",
+      "question": "Mi tartozik a heti riportba?",
+      "options": [
+        "Stage konverzió, cycle time, win rate",
+        "Csapat ebéd menüje",
+        "Irodai növények száma",
+        "Csak emailek száma"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b2043ac79ca83bb9722a8",
+      "difficulty": "MEDIUM",
+      "question": "Mi a rossz példa?",
+      "options": [
+        "Havi egyszer takarítasz, addig minden lejár",
+        "Minden nap frissíted a next step-et",
+        "Be van állítva emlékeztető",
+        "Van stale szabály"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    }
+  ]
+}

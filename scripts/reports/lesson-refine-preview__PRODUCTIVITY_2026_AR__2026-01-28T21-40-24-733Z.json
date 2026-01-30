@@ -1,0 +1,389 @@
+{
+  "generatedAt": "2026-01-28T21:40:25.975Z",
+  "courseId": "PRODUCTIVITY_2026_AR",
+  "fromDay": 1,
+  "toDay": 7,
+  "apply": true,
+  "totals": {
+    "considered": 7,
+    "eligible70": 7,
+    "below70": 0,
+    "applied": 5
+  },
+  "planRows": [
+    {
+      "day": 1,
+      "lessonId": "PRODUCTIVITY_2026_AR_DAY_01",
+      "title": "تعريف الإنتاجية: المخرجات والنتائج والقيود",
+      "action": "REFINE",
+      "quality": {
+        "old": {
+          "score": 85,
+          "issues": [
+            "NO_METRICS_OR_CRITERIA"
+          ],
+          "signals": {
+            "charCount": 2144,
+            "wordCount": 354,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": false,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": true
+          }
+        },
+        "next": {
+          "score": 100,
+          "issues": [],
+          "signals": {
+            "charCount": 1311,
+            "wordCount": 218,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 2144,
+        "nextChars": 1311
+      },
+      "applyEligible": true,
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      }
+    },
+    {
+      "day": 2,
+      "lessonId": "PRODUCTIVITY_2026_AR_DAY_02",
+      "title": "الوقت والطاقة والانتباه: ما تديره في الممارسة",
+      "action": "REFINE",
+      "quality": {
+        "old": {
+          "score": 70,
+          "issues": [
+            "NO_CLEAR_DEFINITIONS",
+            "NO_METRICS_OR_CRITERIA"
+          ],
+          "signals": {
+            "charCount": 2666,
+            "wordCount": 437,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": false,
+            "hasDefinitionsOrComparisons": false
+          },
+          "refineTemplate": {
+            "addDefinitionSection": true,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": true
+          }
+        },
+        "next": {
+          "score": 100,
+          "issues": [],
+          "signals": {
+            "charCount": 1485,
+            "wordCount": 253,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 2666,
+        "nextChars": 1485
+      },
+      "applyEligible": true,
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      }
+    },
+    {
+      "day": 3,
+      "lessonId": "PRODUCTIVITY_2026_AR_DAY_03",
+      "title": "تسلسل الهدف: الرؤية → النتائج → المشاريع → الإجراءات التالية",
+      "action": "SKIP_ALREADY_OK",
+      "applyEligible": true
+    },
+    {
+      "day": 4,
+      "lessonId": "PRODUCTIVITY_2026_AR_DAY_04",
+      "title": "العادات مقابل الأنظمة: لماذا تتوسع الأنظمة بشكل أفضل",
+      "action": "SKIP_ALREADY_OK",
+      "applyEligible": true
+    },
+    {
+      "day": 5,
+      "lessonId": "PRODUCTIVITY_2026_AR_DAY_05",
+      "title": "القياس: مقاييس المراجعة الأسبوعية البسيطة (الإنتاجية، كتل التركيز، التحويل)",
+      "action": "REFINE",
+      "quality": {
+        "old": {
+          "score": 70,
+          "issues": [
+            "NO_CLEAR_DEFINITIONS",
+            "NO_METRICS_OR_CRITERIA"
+          ],
+          "signals": {
+            "charCount": 2001,
+            "wordCount": 346,
+            "hasBullets": true,
+            "hasNumberedSteps": true,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": false,
+            "hasDefinitionsOrComparisons": false
+          },
+          "refineTemplate": {
+            "addDefinitionSection": true,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": true
+          }
+        },
+        "next": {
+          "score": 100,
+          "issues": [],
+          "signals": {
+            "charCount": 1487,
+            "wordCount": 247,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 2001,
+        "nextChars": 1487
+      },
+      "applyEligible": true,
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      }
+    },
+    {
+      "day": 6,
+      "lessonId": "PRODUCTIVITY_2026_AR_DAY_06",
+      "title": "التقاط: صناديق الوارد، قائمة المحفزات، عادات التقاط",
+      "action": "REFINE",
+      "quality": {
+        "old": {
+          "score": 85,
+          "issues": [
+            "NO_METRICS_OR_CRITERIA"
+          ],
+          "signals": {
+            "charCount": 2173,
+            "wordCount": 358,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": false,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": true
+          }
+        },
+        "next": {
+          "score": 100,
+          "issues": [],
+          "signals": {
+            "charCount": 987,
+            "wordCount": 169,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 2173,
+        "nextChars": 987
+      },
+      "applyEligible": true,
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      }
+    },
+    {
+      "day": 7,
+      "lessonId": "PRODUCTIVITY_2026_AR_DAY_07",
+      "title": "النظام اليومي/الأسبوعي: الطقس الصباحي، اجتماع يومي، مراجعة أسبوعية",
+      "action": "REFINE",
+      "quality": {
+        "old": {
+          "score": 70,
+          "issues": [
+            "NO_EXAMPLES",
+            "NO_METRICS_OR_CRITERIA"
+          ],
+          "signals": {
+            "charCount": 1618,
+            "wordCount": 279,
+            "hasBullets": true,
+            "hasNumberedSteps": true,
+            "hasExamples": false,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": false,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": true,
+            "addPitfallsSection": false,
+            "addMetricsSection": true
+          }
+        },
+        "next": {
+          "score": 100,
+          "issues": [],
+          "signals": {
+            "charCount": 1919,
+            "wordCount": 321,
+            "hasBullets": true,
+            "hasNumberedSteps": false,
+            "hasExamples": true,
+            "hasGoodBadContrast": true,
+            "hasMetricsOrCriteria": true,
+            "hasDefinitionsOrComparisons": true
+          },
+          "refineTemplate": {
+            "addDefinitionSection": false,
+            "addChecklistSection": false,
+            "addExamplesSection": false,
+            "addPitfallsSection": false,
+            "addMetricsSection": false
+          }
+        }
+      },
+      "lengths": {
+        "oldChars": 1618,
+        "nextChars": 1919
+      },
+      "applyEligible": true,
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      }
+    }
+  ],
+  "applyResults": [
+    {
+      "day": 1,
+      "lessonId": "PRODUCTIVITY_2026_AR_DAY_01",
+      "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/lesson-backups/PRODUCTIVITY_2026_AR/PRODUCTIVITY_2026_AR_DAY_01__2026-01-28T21-40-24-733Z.json",
+      "matched": 1,
+      "modified": 1,
+      "newScore": 100
+    },
+    {
+      "day": 2,
+      "lessonId": "PRODUCTIVITY_2026_AR_DAY_02",
+      "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/lesson-backups/PRODUCTIVITY_2026_AR/PRODUCTIVITY_2026_AR_DAY_02__2026-01-28T21-40-24-733Z.json",
+      "matched": 1,
+      "modified": 1,
+      "newScore": 100
+    },
+    {
+      "day": 5,
+      "lessonId": "PRODUCTIVITY_2026_AR_DAY_05",
+      "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/lesson-backups/PRODUCTIVITY_2026_AR/PRODUCTIVITY_2026_AR_DAY_05__2026-01-28T21-40-24-733Z.json",
+      "matched": 1,
+      "modified": 1,
+      "newScore": 100
+    },
+    {
+      "day": 6,
+      "lessonId": "PRODUCTIVITY_2026_AR_DAY_06",
+      "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/lesson-backups/PRODUCTIVITY_2026_AR/PRODUCTIVITY_2026_AR_DAY_06__2026-01-28T21-40-24-733Z.json",
+      "matched": 1,
+      "modified": 1,
+      "newScore": 100
+    },
+    {
+      "day": 7,
+      "lessonId": "PRODUCTIVITY_2026_AR_DAY_07",
+      "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/lesson-backups/PRODUCTIVITY_2026_AR/PRODUCTIVITY_2026_AR_DAY_07__2026-01-28T21-40-24-733Z.json",
+      "matched": 1,
+      "modified": 1,
+      "newScore": 100
+    }
+  ]
+}

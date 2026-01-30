@@ -1,0 +1,68 @@
+{
+  "backedUpAt": "2026-01-29T17:00:24.140Z",
+  "course": {
+    "courseId": "B2B_SALES_2026_30",
+    "name": "B2B Értékesítés 2026 Masterclass",
+    "language": "hu"
+  },
+  "lesson": {
+    "dayNumber": 15,
+    "title": "Discovery hívás felépítése (5 blokk)",
+    "lessonId": "B2B_SALES_2026_30_DAY_15"
+  },
+  "questionCount": 4,
+  "questions": [
+    {
+      "_id": "697b203fac79ca83bb972266",
+      "difficulty": "MEDIUM",
+      "question": "Mi tartozik az 5 blokk egyikébe?",
+      "options": [
+        "Small talk és pitch",
+        "Probléma/fájdalom + hatás",
+        "Csak áralku",
+        "Csak marketing"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b203fac79ca83bb972267",
+      "difficulty": "MEDIUM",
+      "question": "Mi a tiltott kérdések baja?",
+      "options": [
+        "Rövidek",
+        "Időt visznek, nem adnak döntési infót",
+        "Túl drágák",
+        "Nem magyarul vannak"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b203fac79ca83bb972268",
+      "difficulty": "MEDIUM",
+      "question": "Miért kell next step a végén?",
+      "options": [
+        "Hogy hosszabb legyen a hívás",
+        "Hogy ne akadjon meg a pipeline és legyen felelős/időpont",
+        "Hogy legyen több email",
+        "Hogy legyen több small talk"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b203fac79ca83bb972269",
+      "difficulty": "MEDIUM",
+      "question": "Mi a rossz példa?",
+      "options": [
+        "Agenda upfront, next step",
+        "Small talk + pitch, nincs probléma, nincs next step",
+        "Security kérdés feltevése",
+        "Hatás feltárása"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    }
+  ]
+}

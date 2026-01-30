@@ -1,0 +1,81 @@
+{
+  "backedUpAt": "2026-01-29T15:14:34.497Z",
+  "course": {
+    "courseId": "GEO_SHOPIFY_30_EN",
+    "name": "GEO Shopify – 30-day course",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 8,
+    "title": "Why feeds matter: “offer truth”",
+    "lessonId": "GEO_SHOPIFY_30_EN_DAY_08"
+  },
+  "questionCount": 5,
+  "questions": [
+    {
+      "_id": "697b200402f89b2246e06de8",
+      "difficulty": "EASY",
+      "question": "What is “offer truth”?",
+      "options": [
+        "Price/stock/policy match between feed and PDP",
+        "Only meta title",
+        "Only backlinks",
+        "Only design"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b200402f89b2246e06de9",
+      "difficulty": "MEDIUM",
+      "question": "What is the risk of mismatched feed vs PDP price?",
+      "options": [
+        "Exclusion or misleading AI recommendations",
+        "No risk",
+        "Only page speed change",
+        "Only SEO penalty"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b200402f89b2246e06dea",
+      "difficulty": "MEDIUM",
+      "question": "What should you compare on 5 products?",
+      "options": [
+        "Price, stock, policy alignment between feed and PDP",
+        "Only image ALT",
+        "Only meta description length",
+        "Only page speed"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b200402f89b2246e06deb",
+      "difficulty": "HARD",
+      "question": "Which fix is relevant?",
+      "options": [
+        "Price sync, stock sync, unified policy block",
+        "Buy backlinks",
+        "Keyword stuffing",
+        "Design swap only"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b200402f89b2246e06dec",
+      "difficulty": "MEDIUM",
+      "question": "Why must IDs match in the feed too?",
+      "options": [
+        "So AI and merchant programs identify the product correctly",
+        "It does not matter",
+        "Only for SEO",
+        "Only for marketing copy"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    }
+  ]
+}

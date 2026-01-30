@@ -1,0 +1,184 @@
+{
+  "backedUpAt": "2026-01-29T16:59:56.116Z",
+  "course": {
+    "courseId": "SALES_PRODUCTIVITY_30_EN",
+    "name": "Build Your Sales – 30 Days to More Deals",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 28,
+    "title": "Sales Playbook – Make Your Process Transferable",
+    "lessonId": "SALES_PRODUCTIVITY_30_EN_DAY_28"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "697a6fa25f71efbe655b9336",
+      "uuid": "1d850670-9cdf-4ccf-89cd-db5534e89ae2",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you apply the \"Sales\" concept to a \"Sales Playbook – Make Your Process Transferable\" task so the outcome is measurable and verifiable?",
+      "options": [
+        "I create a checklist, apply it to a small scope first, measure the impact, then roll it out to the full scope",
+        "I keep it as a definition and never validate it in practice",
+        "I skip implementation because it seems time-consuming",
+        "I implement it but do not measure or document anything"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day28",
+        "#en",
+        "#all-languages",
+        "#course-sales_productivity_30_en",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "697a6fa25f71efbe655b9337",
+      "uuid": "3fcca54b-8ea6-4b73-b455-42fc79361e13",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you apply the \"Playbook\" concept to a \"Sales Playbook – Make Your Process Transferable\" task so the outcome is measurable and verifiable?",
+      "options": [
+        "I create a checklist, apply it to a small scope first, measure the impact, then roll it out to the full scope",
+        "I keep it as a definition and never validate it in practice",
+        "I skip implementation because it seems time-consuming",
+        "I implement it but do not measure or document anything"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day28",
+        "#en",
+        "#all-languages",
+        "#course-sales_productivity_30_en",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "697a6fa25f71efbe655b9338",
+      "uuid": "07389339-dd32-4d0e-a80f-377f837fda59",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you apply the \"Make\" concept to a \"Sales Playbook – Make Your Process Transferable\" task so the outcome is measurable and verifiable?",
+      "options": [
+        "I create a checklist, apply it to a small scope first, measure the impact, then roll it out to the full scope",
+        "I keep it as a definition and never validate it in practice",
+        "I skip implementation because it seems time-consuming",
+        "I implement it but do not measure or document anything"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day28",
+        "#en",
+        "#all-languages",
+        "#course-sales_productivity_30_en",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "697a6fa25f71efbe655b9339",
+      "uuid": "d3f243fd-fd71-4e76-bceb-54b83cd8831c",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you apply the \"Your\" concept to a \"Sales Playbook – Make Your Process Transferable\" task so the outcome is measurable and verifiable?",
+      "options": [
+        "I create a checklist, apply it to a small scope first, measure the impact, then roll it out to the full scope",
+        "I keep it as a definition and never validate it in practice",
+        "I skip implementation because it seems time-consuming",
+        "I implement it but do not measure or document anything"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day28",
+        "#en",
+        "#all-languages",
+        "#course-sales_productivity_30_en",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "697a6fa25f71efbe655b933a",
+      "uuid": "58692bf1-0965-4ffc-8210-55ff7646e1b2",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you apply the \"Process\" concept to a \"Sales Playbook – Make Your Process Transferable\" task so the outcome is measurable and verifiable?",
+      "options": [
+        "I create a checklist, apply it to a small scope first, measure the impact, then roll it out to the full scope",
+        "I keep it as a definition and never validate it in practice",
+        "I skip implementation because it seems time-consuming",
+        "I implement it but do not measure or document anything"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day28",
+        "#en",
+        "#all-languages",
+        "#course-sales_productivity_30_en",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "697a6fa25f71efbe655b933b",
+      "uuid": "14147e88-9334-49c8-9e03-ce093750fe19",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you apply the \"Transferable\" concept to a \"Sales Playbook – Make Your Process Transferable\" task so the outcome is measurable and verifiable?",
+      "options": [
+        "I create a checklist, apply it to a small scope first, measure the impact, then roll it out to the full scope",
+        "I keep it as a definition and never validate it in practice",
+        "I skip implementation because it seems time-consuming",
+        "I implement it but do not measure or document anything"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day28",
+        "#en",
+        "#all-languages",
+        "#course-sales_productivity_30_en",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "697a6fa25f71efbe655b933c",
+      "uuid": "f84dfdd6-c066-4752-9a89-52f777943f6e",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you apply the \"Learning goal\" concept to a \"Sales Playbook – Make Your Process Transferable\" task so the outcome is measurable and verifiable?",
+      "options": [
+        "I create a checklist, apply it to a small scope first, measure the impact, then roll it out to the full scope",
+        "I keep it as a definition and never validate it in practice",
+        "I skip implementation because it seems time-consuming",
+        "I implement it but do not measure or document anything"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day28",
+        "#en",
+        "#all-languages",
+        "#course-sales_productivity_30_en",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#application"
+      ]
+    }
+  ]
+}

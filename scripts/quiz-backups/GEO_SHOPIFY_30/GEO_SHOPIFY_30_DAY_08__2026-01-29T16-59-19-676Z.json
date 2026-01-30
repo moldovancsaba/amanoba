@@ -1,0 +1,81 @@
+{
+  "backedUpAt": "2026-01-29T17:00:11.294Z",
+  "course": {
+    "courseId": "GEO_SHOPIFY_30",
+    "name": "GEO Shopify – 30 napos kurzus",
+    "language": "hu"
+  },
+  "lesson": {
+    "dayNumber": 8,
+    "title": "Miért fontos a feed és az „offer truth”",
+    "lessonId": "GEO_SHOPIFY_30_DAY_08"
+  },
+  "questionCount": 5,
+  "questions": [
+    {
+      "_id": "697b1ff8de117f992bb9be49",
+      "difficulty": "EASY",
+      "question": "Mi az „offer truth” lényege?",
+      "options": [
+        "Ár/készlet/policy egyezzen feedben és PDP-n",
+        "Csak meta title",
+        "Csak backlink",
+        "Csak design"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b1ff8de117f992bb9be4a",
+      "difficulty": "MEDIUM",
+      "question": "Mi a kockázata az eltérő árnak feed vs PDP?",
+      "options": [
+        "Kizárás vagy félrevezető AI ajánlás",
+        "Semmi",
+        "Csak page speed lassul",
+        "Csak SEO büntetés"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b1ff8de117f992bb9be4b",
+      "difficulty": "MEDIUM",
+      "question": "Mit nézz meg 5 terméknél?",
+      "options": [
+        "Ár, készlet, policy egyezés feed és PDP között",
+        "Csak a képek ALT-ja",
+        "Csak a meta description hossza",
+        "Csak a page speed"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b1ff8de117f992bb9be4c",
+      "difficulty": "HARD",
+      "question": "Mi a jó javítási feladat minta?",
+      "options": [
+        "Ár sync, készlet sync, policy blokk egységesítés",
+        "Backlink vásárlás",
+        "Kulcsszó tömés",
+        "Csak design csere"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b1ff8de117f992bb9be4d",
+      "difficulty": "MEDIUM",
+      "question": "Miért kell azonosítók egyezése a feedben is?",
+      "options": [
+        "Az AI és a merchant program pontosan azonosítsa a terméket",
+        "Nem számít",
+        "Csak SEO miatt",
+        "Csak marketing szöveg"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    }
+  ]
+}

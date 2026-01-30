@@ -1,0 +1,168 @@
+{
+  "backedUpAt": "2026-01-28T21:29:03.138Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_HI",
+    "name": "उत्पादकता 2026: टीमों और समय का प्रबंधन कैसे करें",
+    "language": "hi"
+  },
+  "lesson": {
+    "dayNumber": 5,
+    "title": "माप: सरल साप्ताहिक समीक्षा मेट्रिक्स (थ्रूपुट, फोकस ब्लॉक, कैरीओवर)",
+    "lessonId": "PRODUCTIVITY_2026_HI_DAY_05"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a67206e4784b9a0c0cd",
+      "uuid": "716dc4ba-91d8-417a-ba8f-f13b81746ad5",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "हम साप्ताहिक समीक्षा में कितने मेट्रिक्स का उपयोग करते हैं?",
+      "options": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "correctIndex": 2,
+      "hashtags": [
+        "#day-05",
+        "#scenario",
+        "#application",
+        "#hi"
+      ]
+    },
+    {
+      "_id": "69776a67206e4784b9a0c0ce",
+      "uuid": "e31183ab-c17c-4422-ab51-eb281e3c7c57",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ आप तीन मुख्य मेट्रिक्स जानते हैं: thro...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day5",
+        "#hi",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a67206e4784b9a0c0cf",
+      "uuid": "0bd828ad-6a54-4154-bb6b-eb4a0bbc2c51",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ माप वस्तुनिष्ठ है, न कि केवल भावना-आधा...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day5",
+        "#hi",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a67206e4784b9a0c0d0",
+      "uuid": "031e9c6f-5080-46c7-9c09-446db37f4537",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "पाठ में उल्लिखित अवधारणा \"महत्वपूर्ण है\n\nThroughput: आपने एक सप्ताह में कितन...\" आपके goals प्राप्त करने को कैसे प्रभावित करती है?",
+      "options": [
+        "जैसा कि पाठ में विस्तार से वर्णित है, महत्वपूर्ण है\n\nThroughput: आपन... प्रभावशीलता बढ़ाता है और जोखिम कम करता है",
+        "कोई महत्वपूर्ण प्रभाव नहीं",
+        "केवल सैद्धांतिक रूप से मायने रखता है",
+        "केवल एक वैकल्पिक तत्व"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day5",
+        "#hi",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a67206e4784b9a0c0d1",
+      "uuid": "916e5791-d137-45be-acfd-558f75aff234",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "पाठ में चर्चा किए गए माप: सरल साप्ताहिक समीक्षा मेट्रिक्स (throughput, फोकस ब्लॉक, carryover) के संदर्भ में Throughput कितना महत्वपूर्ण है?",
+      "options": [
+        "जैसा कि पाठ में विस्तार से वर्णित है, Throughput प्रक्रियाओं को अनुकूलित करने और लक्ष्यों को प्राप्त करने में महत्वपूर्ण भूमिका निभाता है",
+        "केवल परिधीय जानकारी, कोई महत्वपूर्ण भूमिका नहीं",
+        "केवल एक सैद्धांतिक अवधारणा, कोई व्यावहारिक अनुप्रयोग नहीं",
+        "पाठ में उल्लेख नहीं किया गया"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day5",
+        "#hi",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a67206e4784b9a0c0d2",
+      "uuid": "430d8791-eb93-4624-a4f0-8b831d782c2c",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "पाठ में चर्चा किए गए माप: सरल साप्ताहिक समीक्षा मेट्रिक्स (throughput, फोकस ब्लॉक, carryover) के संदर्भ में Carryover कितना महत्वपूर्ण है?",
+      "options": [
+        "जैसा कि पाठ में विस्तार से वर्णित है, Carryover प्रक्रियाओं को अनुकूलित करने और लक्ष्यों को प्राप्त करने में महत्वपूर्ण भूमिका निभाता है",
+        "केवल परिधीय जानकारी, कोई महत्वपूर्ण भूमिका नहीं",
+        "केवल एक सैद्धांतिक अवधारणा, कोई व्यावहारिक अनुप्रयोग नहीं",
+        "पाठ में उल्लेख नहीं किया गया"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day5",
+        "#hi",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a67206e4784b9a0c0d3",
+      "uuid": "7395a87e-c6a1-4f9a-adee-281c91b5c556",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "पाठ में चर्चा किए गए माप: सरल साप्ताहिक समीक्षा मेट्रिक्स (throughput, फोकस ब्लॉक, carryover) के संदर्भ में 2. फोकस ब्लॉक कितना महत्वपूर्ण है?",
+      "options": [
+        "जैसा कि पाठ में विस्तार से वर्णित है, 2. फोकस ब्लॉक प्रक्रियाओं को अनुकूलित करने और लक्ष्यों को प्राप्त करने में महत्वपूर्ण भूमिका निभाता है",
+        "केवल परिधीय जानकारी, कोई महत्वपूर्ण भूमिका नहीं",
+        "केवल एक सैद्धांतिक अवधारणा, कोई व्यावहारिक अनुप्रयोग नहीं",
+        "पाठ में उल्लेख नहीं किया गया"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day5",
+        "#hi",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

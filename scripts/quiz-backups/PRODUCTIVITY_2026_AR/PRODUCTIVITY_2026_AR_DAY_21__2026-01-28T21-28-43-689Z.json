@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-28T21:29:01.491Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_AR",
+    "name": "الإنتاجية 2026: كيفية إدارة الفرق والوقت",
+    "language": "ar"
+  },
+  "lesson": {
+    "dayNumber": 21,
+    "title": "المجتمع والشبكة: العلاقات والتعلم مع الآخرين",
+    "lessonId": "PRODUCTIVITY_2026_AR_DAY_21"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a623ed20b35fb797328",
+      "uuid": "23157989-b490-4a0a-86d5-e714413caaeb",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"بناء والحفاظ على المجتمعات لتحقيق الإنتاجية.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day21",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a623ed20b35fb797329",
+      "uuid": "1e131e60-8ea2-450a-829c-2b934fd7e191",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"بناء والحفاظ على المجتمعات لتحقيق الإنتاجية.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day21",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a623ed20b35fb79732a",
+      "uuid": "05fb6302-26fb-4c21-9f45-d96309178566",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"بناء والحفاظ على المجتمعات لتحقيق الإنتاجية.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day21",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a623ed20b35fb79732b",
+      "uuid": "44298818-cc37-470d-9a66-e765bbe3f119",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "How does the concept \"المجتمع والشبكة: العلاقات والتعلم مع الآخرين بناء ...\" mentioned in the lesson impact achieving your goals?",
+      "options": [
+        "As described in detail in the lesson, المجتمع والشبكة: العلاقات والت... increases effectiveness and reduces risk",
+        "No significant impact",
+        "Only matters theoretically",
+        "Only an optional element"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day21",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a623ed20b35fb79732c",
+      "uuid": "c6c4fc3f-329b-4c75-8245-737024807101",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is المجتمع in the context of المجتمع والشبكة: العلاقات والتعلم مع الآخرين as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, المجتمع plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day21",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a623ed20b35fb79732d",
+      "uuid": "e4dc20d6-ea91-44f7-ae67-37fe2e3b59e9",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is العلاقات in the context of المجتمع والشبكة: العلاقات والتعلم مع الآخرين as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, العلاقات plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day21",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a623ed20b35fb79732e",
+      "uuid": "7a83f3b9-3436-42a3-bdaf-c64ceadacfb6",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is الآخرين in the context of المجتمع والشبكة: العلاقات والتعلم مع الآخرين as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, الآخرين plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day21",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

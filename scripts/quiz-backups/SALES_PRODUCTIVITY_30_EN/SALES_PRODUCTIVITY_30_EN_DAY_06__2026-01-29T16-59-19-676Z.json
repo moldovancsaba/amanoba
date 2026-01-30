@@ -1,0 +1,184 @@
+{
+  "backedUpAt": "2026-01-29T16:59:54.553Z",
+  "course": {
+    "courseId": "SALES_PRODUCTIVITY_30_EN",
+    "name": "Build Your Sales – 30 Days to More Deals",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 6,
+    "title": "Qualification Framework (BANT, MEDDIC) – How to Qualify Leads?",
+    "lessonId": "SALES_PRODUCTIVITY_30_EN_DAY_06"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "6979db389316e77110ed05a2",
+      "uuid": "e3853862-0edb-479c-876b-c818c2678358",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you apply the \"Time savings:\" concept to a \"Qualification Framework (BANT, MEDDIC) – How to Qualify Leads?\" task so the outcome is measurable and verifiable?",
+      "options": [
+        "I create a checklist, apply it to a small scope first, measure the impact, then roll it out to the full scope",
+        "I keep it as a definition and never validate it in practice",
+        "I skip implementation because it seems time-consuming",
+        "I implement it but do not measure or document anything"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day6",
+        "#en",
+        "#all-languages",
+        "#course-sales_productivity_30_en",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "6979db389316e77110ed05a3",
+      "uuid": "e7827195-9c41-42c4-9685-953e4ccabc2f",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you apply the \"Better conversion:\" concept to a \"Qualification Framework (BANT, MEDDIC) – How to Qualify Leads?\" task so the outcome is measurable and verifiable?",
+      "options": [
+        "I create a checklist, apply it to a small scope first, measure the impact, then roll it out to the full scope",
+        "I keep it as a definition and never validate it in practice",
+        "I skip implementation because it seems time-consuming",
+        "I implement it but do not measure or document anything"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day6",
+        "#en",
+        "#all-languages",
+        "#course-sales_productivity_30_en",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "6979db389316e77110ed05a4",
+      "uuid": "01b19db9-0683-4c18-9dc7-111599a927b3",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you apply the \"Forecasting:\" concept to a \"Qualification Framework (BANT, MEDDIC) – How to Qualify Leads?\" task so the outcome is measurable and verifiable?",
+      "options": [
+        "I create a checklist, apply it to a small scope first, measure the impact, then roll it out to the full scope",
+        "I keep it as a definition and never validate it in practice",
+        "I skip implementation because it seems time-consuming",
+        "I implement it but do not measure or document anything"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day6",
+        "#en",
+        "#all-languages",
+        "#course-sales_productivity_30_en",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "6979db389316e77110ed05a5",
+      "uuid": "4d98570a-06e0-4821-a329-9c9b5b14bf66",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you apply the \"Resource optimization:\" concept to a \"Qualification Framework (BANT, MEDDIC) – How to Qualify Leads?\" task so the outcome is measurable and verifiable?",
+      "options": [
+        "I create a checklist, apply it to a small scope first, measure the impact, then roll it out to the full scope",
+        "I keep it as a definition and never validate it in practice",
+        "I skip implementation because it seems time-consuming",
+        "I implement it but do not measure or document anything"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day6",
+        "#en",
+        "#all-languages",
+        "#course-sales_productivity_30_en",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "6979db389316e77110ed05a6",
+      "uuid": "55a75224-c3d2-4440-927b-708a71266fca",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you apply the \"BANT = Budget, Authority, Need, Timeline\" concept to a \"Qualification Framework (BANT, MEDDIC) – How to Qualify Leads?\" task so the outcome is measurable and verifiable?",
+      "options": [
+        "I create a checklist, apply it to a small scope first, measure the impact, then roll it out to the full scope",
+        "I keep it as a definition and never validate it in practice",
+        "I skip implementation because it seems time-consuming",
+        "I implement it but do not measure or document anything"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day6",
+        "#en",
+        "#all-languages",
+        "#course-sales_productivity_30_en",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "6979db389316e77110ed05a7",
+      "uuid": "94fbb468-da05-43db-a5a9-05c67e747291",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you apply the \"B - Budget\" concept to a \"Qualification Framework (BANT, MEDDIC) – How to Qualify Leads?\" task so the outcome is measurable and verifiable?",
+      "options": [
+        "I create a checklist, apply it to a small scope first, measure the impact, then roll it out to the full scope",
+        "I keep it as a definition and never validate it in practice",
+        "I skip implementation because it seems time-consuming",
+        "I implement it but do not measure or document anything"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day6",
+        "#en",
+        "#all-languages",
+        "#course-sales_productivity_30_en",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "6979db389316e77110ed05a8",
+      "uuid": "47c73062-5670-441e-88d0-5d28e52ae295",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you apply the \"A - Authority\" concept to a \"Qualification Framework (BANT, MEDDIC) – How to Qualify Leads?\" task so the outcome is measurable and verifiable?",
+      "options": [
+        "I create a checklist, apply it to a small scope first, measure the impact, then roll it out to the full scope",
+        "I keep it as a definition and never validate it in practice",
+        "I skip implementation because it seems time-consuming",
+        "I implement it but do not measure or document anything"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day6",
+        "#en",
+        "#all-languages",
+        "#course-sales_productivity_30_en",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#application"
+      ]
+    }
+  ]
+}

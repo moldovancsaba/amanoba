@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-28T22:55:46.206Z",
+  "course": {
+    "courseId": "AI_30_DAY_EN",
+    "name": "30-Day AI Catch-Up Program (EN)",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 7,
+    "title": "Role prompts and constraints",
+    "lessonId": "AI_30_DAY_EN_DAY_07"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "697769fb27e27f61ac4143bb",
+      "uuid": "9402965c-b9b6-4b2f-911a-8771ca12bfd2",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"exercise (10–15 min)\n\nPick a task: add a...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day7",
+        "#en",
+        "#all-languages",
+        "#ai",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "697769fb27e27f61ac4143bc",
+      "uuid": "9b6dfac9-5db7-4563-b64e-aa0f1c6d6443",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"exercise (5–10 min)\nApply a different ro...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day7",
+        "#en",
+        "#all-languages",
+        "#ai",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "697769fb27e27f61ac4143bd",
+      "uuid": "0b5a6ca9-4c2f-4a55-8483-a03d6173f08b",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"exercise (10–15 min)\n\nPick a task: add a...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day7",
+        "#en",
+        "#all-languages",
+        "#ai",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "697769fb27e27f61ac4143be",
+      "uuid": "35279dc5-4115-4913-b5a8-140f0a07d9fd",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "How does the concept \"Role prompts and constraints Get better answers by...\" mentioned in the lesson impact achieving your goals?",
+      "options": [
+        "As described in detail in the lesson, Role prompts and constraints G... increases effectiveness and reduces risk",
+        "No significant impact",
+        "Only matters theoretically",
+        "Only an optional element"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day7",
+        "#en",
+        "#all-languages",
+        "#ai",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "697769fb27e27f61ac4143bf",
+      "uuid": "84088235-3bc0-4a17-9067-3915a37e4e42",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is Poor in the context of Role prompts and constraints as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, Poor plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day7",
+        "#en",
+        "#all-languages",
+        "#ai",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "697769fb27e27f61ac4143c0",
+      "uuid": "37f7e63c-e684-43ec-a221-0c8c85952a79",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is prompts in the context of Role prompts and constraints as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, prompts plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day7",
+        "#en",
+        "#all-languages",
+        "#ai",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "697769fb27e27f61ac4143c1",
+      "uuid": "9e034c20-bc6e-4995-96ec-ad293ba8a7fc",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is Good in the context of Role prompts and constraints as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, Good plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day7",
+        "#en",
+        "#all-languages",
+        "#ai",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

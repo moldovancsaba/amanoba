@@ -1,0 +1,162 @@
+{
+  "backedUpAt": "2026-01-28T22:42:11.219Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_ID",
+    "name": "Produktivitas 2026: Cara Mengelola Tim dan Waktu",
+    "language": "id"
+  },
+  "lesson": {
+    "dayNumber": 3,
+    "title": "Hierarki tujuan: visi → hasil → proyek → tindakan selanjutnya",
+    "lessonId": "PRODUCTIVITY_2026_ID_DAY_03"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a2adf6e5ec2a4427da0",
+      "uuid": "12b05a4e-c2ed-4f69-9587-8e991ea06987",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Berapa banyak tingkat yang dimiliki hierarki tujuan?",
+      "options": [
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "correctIndex": 2,
+      "hashtags": [
+        "#day-03",
+        "#foundation",
+        "#recall",
+        "#id"
+      ]
+    },
+    {
+      "_id": "69776a2adf6e5ec2a4427da1",
+      "uuid": "73a7e3b0-6e6b-4945-8fd2-9a6448411451",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Mana yang merupakan tingkat tertinggi dalam hierarki tujuan?",
+      "options": [
+        "Tindakan selanjutnya",
+        "Proyek",
+        "Hasil",
+        "Visi"
+      ],
+      "correctIndex": 3,
+      "hashtags": [
+        "#day-03",
+        "#purpose",
+        "#application",
+        "#id"
+      ]
+    },
+    {
+      "_id": "69776a2adf6e5ec2a4427da2",
+      "uuid": "948e41c7-ccb5-4f58-997c-23101ff3e25c",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Rentang waktu apa yang dicakup oleh visi?",
+      "options": [
+        "1-2 tahun",
+        "3-5 tahun",
+        "6-12 bulan",
+        "1-3 bulan"
+      ],
+      "correctIndex": 1,
+      "hashtags": [
+        "#day-03",
+        "#scenario",
+        "#application",
+        "#id"
+      ]
+    },
+    {
+      "_id": "69776a2adf6e5ec2a4427da3",
+      "uuid": "69448321-7b67-4d87-879b-1bc6dc228311",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Apa kesalahan umum saat melakukan proyek tanpa visi?",
+      "options": [
+        "Anda maju terlalu lambat",
+        "Anda tidak tahu mengapa Anda melakukannya",
+        "Anda maju terlalu cepat",
+        "Tidak ada kesalahan"
+      ],
+      "correctIndex": 1,
+      "hashtags": [
+        "#day-03",
+        "#foundation",
+        "#recall",
+        "#id"
+      ]
+    },
+    {
+      "_id": "69776a2adf6e5ec2a4427da4",
+      "uuid": "54a78eb1-78bc-457e-a039-845fc51a2bf7",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ Anda memiliki visi (3-5 tahun).\n✅ Anda...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day3",
+        "#id",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a2adf6e5ec2a4427da5",
+      "uuid": "2c68682b-c44b-4e83-bcda-fbb65f1ab28e",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Bagaimana konsep \"Membuat hierarki tujuan pribadi...\" yang disebutkan dalam pelajaran mempengaruhi pencapaian goals Anda?",
+      "options": [
+        "Seperti yang dijelaskan secara detail dalam pelajaran, Membuat hierarki tujuan pribad... meningkatkan efektivitas dan mengurangi risiko",
+        "Tidak ada dampak signifikan",
+        "Hanya penting secara teoritis",
+        "Hanya elemen opsional"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day3",
+        "#id",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a2adf6e5ec2a4427da6",
+      "uuid": "643644a9-6cbc-41c4-9734-87313d90d38f",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Seberapa penting Visi dalam konteks Hierarki tujuan: visi → hasil → proyek → tindakan selanjutnya seperti yang dibahas dalam pelajaran?",
+      "options": [
+        "Seperti yang dijelaskan secara detail dalam pelajaran, Visi memainkan peran penting dalam mengoptimalkan proses dan mencapai tujuan",
+        "Hanya informasi periferal tanpa peran signifikan",
+        "Hanya konsep teoretis tanpa aplikasi praktis",
+        "Tidak disebutkan dalam pelajaran"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day3",
+        "#id",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

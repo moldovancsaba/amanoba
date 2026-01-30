@@ -1,0 +1,114 @@
+{
+  "backedUpAt": "2026-01-28T22:37:48.623Z",
+  "course": {
+    "courseId": "DONE_BETTER_2026_EN",
+    "name": "Done is better - Build What Matters",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 24,
+    "title": "Communicate Unknowns",
+    "lessonId": "DONE_BETTER_2026_EN_DAY_24"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "697a87bda81588c9f41a22bd",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "You do not know yet when a deliverable will be ready. What should you do?",
+      "options": [
+        "Name what you do not know and when or how you will find out; say it out loud",
+        "Give a fake date",
+        "Stay silent",
+        "Blame others"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87bda81588c9f41a22be",
+      "questionType": "application",
+      "difficulty": "EASY",
+      "question": "In this framework, how is \"communicate unknowns\" defined?",
+      "options": [
+        "Explicitly state what you do not know yet and when you will know it",
+        "Never admit you do not know to stakeholders",
+        "Only share certainties and hide gaps",
+        "Share everything including speculation"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87bda81588c9f41a22bf",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "In your next meeting or update, what could you do?",
+      "options": [
+        "Name one thing you do not know yet and when or how you will find out",
+        "Avoid the topic",
+        "Give a vague answer",
+        "Promise to know soon without a date"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87bda81588c9f41a22c0",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Faking certainty when you do not know can lead to:",
+      "options": [
+        "Lost trust when reality diverges; others make plans on false assumptions",
+        "Higher confidence",
+        "Faster decisions",
+        "No meaningful effect on outcomes"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87bda81588c9f41a22c1",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Hiding unknowns to look in control tends to:",
+      "options": [
+        "Create surprises and erode trust when the unknown becomes visible",
+        "Build trust",
+        "Reduce anxiety",
+        "No significant downside in practice"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87bda81588c9f41a22c2",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Why is saying \"I don't know yet\" leadership?",
+      "options": [
+        "It sets expectations and builds trust; others can align or help",
+        "It shows humility",
+        "It is required",
+        "It is not"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87bda81588c9f41a22c3",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "When you learn something new about an unknown, what should you do?",
+      "options": [
+        "Update and communicate; do not leave people with stale \"I don't know\"",
+        "Only update your own plan",
+        "Wait until you know everything",
+        "No need to update"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    }
+  ]
+}

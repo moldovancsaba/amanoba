@@ -1,0 +1,68 @@
+{
+  "backedUpAt": "2026-01-29T17:00:23.792Z",
+  "course": {
+    "courseId": "B2B_SALES_2026_30",
+    "name": "B2B Értékesítés 2026 Masterclass",
+    "language": "hu"
+  },
+  "lesson": {
+    "dayNumber": 14,
+    "title": "Qualification keretrendszer: MEDDPICC (egyszerűsítve)",
+    "lessonId": "B2B_SALES_2026_30_DAY_14"
+  },
+  "questionCount": 4,
+  "questions": [
+    {
+      "_id": "697b203eac79ca83bb97225f",
+      "difficulty": "MEDIUM",
+      "question": "Mi a MEDDPICC egyik fő eleme?",
+      "options": [
+        "Marketing budget",
+        "Economic buyer (ki ír alá)",
+        "LinkedIn követők",
+        "CSR program"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b203eac79ca83bb972260",
+      "difficulty": "MEDIUM",
+      "question": "Miért kell kérdéslista?",
+      "options": [
+        "Hosszabb meeting",
+        "Kockázatok korai felismerése, következő lépés kijelölése",
+        "Dekoráció",
+        "Kevesebb jegyzet"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b203eac79ca83bb972261",
+      "difficulty": "MEDIUM",
+      "question": "Mi a rossz példa?",
+      "options": [
+        "Hiányzó economic buyer jelölve",
+        "Nincs lista, érzésre mész",
+        "Paper process rögzítve",
+        "Next step leírva"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b203eac79ca83bb972262",
+      "difficulty": "MEDIUM",
+      "question": "Melyik kérdés tartozik a Metrics-hez?",
+      "options": [
+        "Ki ír alá?",
+        "Mi számít sikernek?",
+        "Mi a jogi folyamat?",
+        "Ki a champion?"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    }
+  ]
+}

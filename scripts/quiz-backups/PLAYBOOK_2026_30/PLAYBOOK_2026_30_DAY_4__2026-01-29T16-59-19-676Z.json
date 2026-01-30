@@ -1,0 +1,68 @@
+{
+  "backedUpAt": "2026-01-29T17:00:14.763Z",
+  "course": {
+    "courseId": "PLAYBOOK_2026_30",
+    "name": "The Playbook 2026 – Mesterkurzus Designereknek",
+    "language": "hu"
+  },
+  "lesson": {
+    "dayNumber": 4,
+    "title": "Trend vagy alapelv? Így fordítsd rendszerbe",
+    "lessonId": "PLAYBOOK_2026_30_DAY_4"
+  },
+  "questionCount": 4,
+  "questions": [
+    {
+      "_id": "697b2032d8669994531f7444",
+      "difficulty": "MEDIUM",
+      "question": "Mi a különbség trend és alapelv között?",
+      "options": [
+        "Trend időtálló, alapelv rövid életű",
+        "Trend felszín, alapelv percepciós igazság, ami 10 év múlva is áll",
+        "Trend kötelező, alapelv opcionális",
+        "Nincs különbség"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b2032d8669994531f7445",
+      "difficulty": "MEDIUM",
+      "question": "Miért veszélyes trendet rendszer nélkül beemelni?",
+      "options": [
+        "Mert olcsó",
+        "Mert koherenciát törhet és hozzáférhetőséget ronthat",
+        "Mert gyorsítja a fejlesztést",
+        "Mert mindig jobb"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b2032d8669994531f7446",
+      "difficulty": "MEDIUM",
+      "question": "Mi a „Trend intake” sablon szerepe?",
+      "options": [
+        "Képek gyűjtése",
+        "Trend → alapelv → szabály → hol használható → tiltások → mérés",
+        "Marketing szlogen",
+        "Árlista készítése"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b2032d8669994531f7447",
+      "difficulty": "MEDIUM",
+      "question": "Melyik jó rendszer-szabály egy trendhez?",
+      "options": [
+        "„Tedd mindenhová.”",
+        "„Csak másodlagos kártyán blur 85% + 6% átlátszóság, min. 4.5:1 kontraszt.”",
+        "„Legyen szép.”",
+        "„Amikor kedvünk van.”"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    }
+  ]
+}

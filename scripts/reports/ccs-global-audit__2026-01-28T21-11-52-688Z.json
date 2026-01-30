@@ -1,0 +1,1753 @@
+{
+  "generatedAt": "2026-01-28T21:11:53.561Z",
+  "env": "production (via .env.local)",
+  "filters": {
+    "ccsId": null,
+    "courseId": "SALES_PRODUCTIVITY_30_RU",
+    "minLessonScore": 70,
+    "includeInactive": false
+  },
+  "totals": {
+    "ccsFamilies": 7,
+    "courses": 1,
+    "coursesMissingCcsId": 0,
+    "coursesMissingCcsIdMappedToKnownCcs": 0,
+    "coursesMissingCcsIdUnmapped": 0,
+    "coursesWithStructuralErrors": 0,
+    "coursesWithStructuralWarnings": 0,
+    "coursesFailingCatalogLanguageIntegrity": 0,
+    "lessons": 30,
+    "duplicateDayLessonGroups": 0,
+    "missingLessonDayEntries": 0,
+    "lessonsFailingLanguageIntegrity": 0,
+    "lessonsBelowQualityThreshold": 18,
+    "lessonsWithQuizErrors": 18,
+    "duplicateQuestionSets": 0,
+    "duplicateQuestionsToDelete": 0,
+    "invalidQuestions": 0,
+    "lessonsGeneratorInsufficient": 0
+  },
+  "ccs": [
+    {
+      "ccsId": "PRODUCTIVITY_2026",
+      "name": "PRODUCTIVITY_2026",
+      "ideaPresent": true,
+      "outlinePresent": true,
+      "relatedDocumentsCount": 0,
+      "courses": []
+    },
+    {
+      "ccsId": "GEO_SHOPIFY_30",
+      "name": "GEO_SHOPIFY_30",
+      "ideaPresent": true,
+      "outlinePresent": true,
+      "relatedDocumentsCount": 0,
+      "courses": []
+    },
+    {
+      "ccsId": "AI_30_DAY",
+      "name": "AI_30_DAY",
+      "ideaPresent": true,
+      "outlinePresent": true,
+      "relatedDocumentsCount": 0,
+      "courses": []
+    },
+    {
+      "ccsId": "B2B_SALES_2026_30",
+      "name": "B2B_SALES_2026_30",
+      "ideaPresent": true,
+      "outlinePresent": true,
+      "relatedDocumentsCount": 0,
+      "courses": []
+    },
+    {
+      "ccsId": "PLAYBOOK_2026_30",
+      "name": "PLAYBOOK_2026_30",
+      "ideaPresent": true,
+      "outlinePresent": true,
+      "relatedDocumentsCount": 0,
+      "courses": []
+    },
+    {
+      "ccsId": "SALES_PRODUCTIVITY_30",
+      "name": "SALES_PRODUCTIVITY_30",
+      "ideaPresent": true,
+      "outlinePresent": true,
+      "relatedDocumentsCount": 0,
+      "courses": [
+        {
+          "course": {
+            "courseId": "SALES_PRODUCTIVITY_30_RU",
+            "name": "Постройте свои продажи – 30 дней к большему количеству сделок",
+            "description": "30-дневный практический курс B2B-продаж для начинающих. Научитесь играть в цифры, квалифицировать лиды и использовать ценностное ценообразование – все с ежедневными практическими упражнениями и шаблонами.",
+            "language": "ru",
+            "isActive": true,
+            "isDraft": false,
+            "requiresPremium": false,
+            "durationDays": 30,
+            "parentCourseId": null,
+            "courseVariant": null,
+            "structuralErrors": [],
+            "structuralWarnings": [],
+            "catalogLanguageIntegrity": {
+              "ok": true,
+              "errors": [],
+              "warnings": [],
+              "findings": []
+            },
+            "inferredCcsId": null,
+            "duplicateDayGroups": [],
+            "missingDays": [],
+            "lessonsAudited": 30,
+            "lessonsWithErrors": 18
+          },
+          "lessons": [
+            {
+              "dayNumber": 1,
+              "lessonId": "SALES_PRODUCTIVITY_30_RU_DAY_01",
+              "title": "Основы воронки продаж – Почему важны цифры",
+              "createdAt": "2026-01-22T13:11:10.334Z",
+              "lessonQuality": {
+                "score": 100,
+                "issues": [],
+                "signals": {
+                  "charCount": 4167,
+                  "wordCount": 579,
+                  "hasBullets": true,
+                  "hasNumberedSteps": true,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": true,
+                  "hasMetricsOrCriteria": true,
+                  "hasDefinitionsOrComparisons": true
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": false,
+                  "addChecklistSection": false,
+                  "addExamplesSection": false,
+                  "addPitfallsSection": false,
+                  "addMetricsSection": false
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 7,
+                "validExisting": 7,
+                "invalidExisting": 0,
+                "application": 5,
+                "critical": 2,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [],
+              "warnings": []
+            },
+            {
+              "dayNumber": 2,
+              "lessonId": "SALES_PRODUCTIVITY_30_RU_DAY_02",
+              "title": "Установка KPI и целей – Как работать в обратном направлении",
+              "createdAt": "2026-01-22T13:19:45.276Z",
+              "lessonQuality": {
+                "score": 100,
+                "issues": [],
+                "signals": {
+                  "charCount": 3760,
+                  "wordCount": 534,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": true,
+                  "hasMetricsOrCriteria": true,
+                  "hasDefinitionsOrComparisons": true
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": false,
+                  "addChecklistSection": false,
+                  "addExamplesSection": false,
+                  "addPitfallsSection": false,
+                  "addMetricsSection": false
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 7,
+                "validExisting": 7,
+                "invalidExisting": 0,
+                "application": 5,
+                "critical": 2,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [],
+              "warnings": []
+            },
+            {
+              "dayNumber": 3,
+              "lessonId": "SALES_PRODUCTIVITY_30_RU_DAY_03",
+              "title": "Многоканальная генерация лидов – Где найти клиентов?",
+              "createdAt": "2026-01-22T13:35:32.460Z",
+              "lessonQuality": {
+                "score": 70,
+                "issues": [
+                  "NO_CLEAR_DEFINITIONS",
+                  "NO_METRICS_OR_CRITERIA"
+                ],
+                "signals": {
+                  "charCount": 2648,
+                  "wordCount": 370,
+                  "hasBullets": true,
+                  "hasNumberedSteps": true,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": true,
+                  "hasMetricsOrCriteria": false,
+                  "hasDefinitionsOrComparisons": false
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": true,
+                  "addChecklistSection": false,
+                  "addExamplesSection": false,
+                  "addPitfallsSection": false,
+                  "addMetricsSection": true
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 7,
+                "validExisting": 7,
+                "invalidExisting": 0,
+                "application": 5,
+                "critical": 2,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [],
+              "warnings": []
+            },
+            {
+              "dayNumber": 4,
+              "lessonId": "SALES_PRODUCTIVITY_30_RU_DAY_04",
+              "title": "Оптимизация коэффициента конверсии – Как улучшить цифры",
+              "createdAt": "2026-01-22T13:41:59.811Z",
+              "lessonQuality": {
+                "score": 75,
+                "issues": [
+                  "NO_CONTRASTS_GOOD_BAD",
+                  "NO_METRICS_OR_CRITERIA"
+                ],
+                "signals": {
+                  "charCount": 2865,
+                  "wordCount": 389,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": false,
+                  "hasMetricsOrCriteria": false,
+                  "hasDefinitionsOrComparisons": true
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": false,
+                  "addChecklistSection": false,
+                  "addExamplesSection": true,
+                  "addPitfallsSection": true,
+                  "addMetricsSection": true
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 7,
+                "validExisting": 7,
+                "invalidExisting": 0,
+                "application": 5,
+                "critical": 2,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [],
+              "warnings": []
+            },
+            {
+              "dayNumber": 5,
+              "lessonId": "SALES_PRODUCTIVITY_30_RU_DAY_05",
+              "title": "Недельное/месячное прогнозирование – Как предсказать будущее",
+              "createdAt": "2026-01-22T13:44:13.830Z",
+              "lessonQuality": {
+                "score": 85,
+                "issues": [
+                  "NO_METRICS_OR_CRITERIA"
+                ],
+                "signals": {
+                  "charCount": 2733,
+                  "wordCount": 353,
+                  "hasBullets": true,
+                  "hasNumberedSteps": true,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": true,
+                  "hasMetricsOrCriteria": false,
+                  "hasDefinitionsOrComparisons": true
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": false,
+                  "addChecklistSection": false,
+                  "addExamplesSection": false,
+                  "addPitfallsSection": false,
+                  "addMetricsSection": true
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 7,
+                "validExisting": 7,
+                "invalidExisting": 0,
+                "application": 5,
+                "critical": 2,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [],
+              "warnings": []
+            },
+            {
+              "dayNumber": 6,
+              "lessonId": "SALES_PRODUCTIVITY_30_RU_DAY_06",
+              "title": "Фреймворк квалификации (BANT, MEDDIC) – Как квалифицировать лиды?",
+              "createdAt": "2026-01-22T13:46:48.558Z",
+              "lessonQuality": {
+                "score": 75,
+                "issues": [
+                  "NO_CLEAR_DEFINITIONS",
+                  "NO_CONTRASTS_GOOD_BAD"
+                ],
+                "signals": {
+                  "charCount": 2702,
+                  "wordCount": 379,
+                  "hasBullets": true,
+                  "hasNumberedSteps": true,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": false,
+                  "hasMetricsOrCriteria": true,
+                  "hasDefinitionsOrComparisons": false
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": true,
+                  "addChecklistSection": false,
+                  "addExamplesSection": true,
+                  "addPitfallsSection": true,
+                  "addMetricsSection": false
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 7,
+                "validExisting": 7,
+                "invalidExisting": 0,
+                "application": 5,
+                "critical": 2,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [],
+              "warnings": []
+            },
+            {
+              "dayNumber": 7,
+              "lessonId": "SALES_PRODUCTIVITY_30_RU_DAY_07",
+              "title": "Идеальный профиль клиента (ICP) – С кем вы работаете?",
+              "createdAt": "2026-01-22T13:49:20.675Z",
+              "lessonQuality": {
+                "score": 75,
+                "issues": [
+                  "NO_CONTRASTS_GOOD_BAD",
+                  "NO_METRICS_OR_CRITERIA"
+                ],
+                "signals": {
+                  "charCount": 2608,
+                  "wordCount": 358,
+                  "hasBullets": true,
+                  "hasNumberedSteps": true,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": false,
+                  "hasMetricsOrCriteria": false,
+                  "hasDefinitionsOrComparisons": true
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": false,
+                  "addChecklistSection": false,
+                  "addExamplesSection": true,
+                  "addPitfallsSection": true,
+                  "addMetricsSection": true
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 7,
+                "validExisting": 7,
+                "invalidExisting": 0,
+                "application": 5,
+                "critical": 2,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [],
+              "warnings": []
+            },
+            {
+              "dayNumber": 8,
+              "lessonId": "SALES_PRODUCTIVITY_30_RU_DAY_08",
+              "title": "Вопросы квалификации и скрипты – Что спрашивать для квалификации?",
+              "createdAt": "2026-01-22T13:51:48.636Z",
+              "lessonQuality": {
+                "score": 100,
+                "issues": [],
+                "signals": {
+                  "charCount": 2821,
+                  "wordCount": 373,
+                  "hasBullets": true,
+                  "hasNumberedSteps": true,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": true,
+                  "hasMetricsOrCriteria": true,
+                  "hasDefinitionsOrComparisons": true
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": false,
+                  "addChecklistSection": false,
+                  "addExamplesSection": false,
+                  "addPitfallsSection": false,
+                  "addMetricsSection": false
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 7,
+                "validExisting": 7,
+                "invalidExisting": 0,
+                "application": 6,
+                "critical": 1,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [],
+              "warnings": []
+            },
+            {
+              "dayNumber": 9,
+              "lessonId": "SALES_PRODUCTIVITY_30_RU_DAY_09",
+              "title": "Скоринг лидов и приоритизация – Какой лид обработать первым?",
+              "createdAt": "2026-01-22T13:54:20.278Z",
+              "lessonQuality": {
+                "score": 75,
+                "issues": [
+                  "NO_CONTRASTS_GOOD_BAD",
+                  "NO_METRICS_OR_CRITERIA"
+                ],
+                "signals": {
+                  "charCount": 2442,
+                  "wordCount": 360,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": false,
+                  "hasMetricsOrCriteria": false,
+                  "hasDefinitionsOrComparisons": true
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": false,
+                  "addChecklistSection": false,
+                  "addExamplesSection": true,
+                  "addPitfallsSection": true,
+                  "addMetricsSection": true
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 7,
+                "validExisting": 7,
+                "invalidExisting": 0,
+                "application": 5,
+                "critical": 2,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [],
+              "warnings": []
+            },
+            {
+              "dayNumber": 10,
+              "lessonId": "SALES_PRODUCTIVITY_30_RU_DAY_10",
+              "title": "Квалификация на практике – Как квалифицировать в реальном разговоре?",
+              "createdAt": "2026-01-22T13:56:52.356Z",
+              "lessonQuality": {
+                "score": 70,
+                "issues": [
+                  "NO_CLEAR_DEFINITIONS",
+                  "NO_METRICS_OR_CRITERIA"
+                ],
+                "signals": {
+                  "charCount": 3110,
+                  "wordCount": 427,
+                  "hasBullets": true,
+                  "hasNumberedSteps": true,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": true,
+                  "hasMetricsOrCriteria": false,
+                  "hasDefinitionsOrComparisons": false
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": true,
+                  "addChecklistSection": false,
+                  "addExamplesSection": false,
+                  "addPitfallsSection": false,
+                  "addMetricsSection": true
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 7,
+                "validExisting": 7,
+                "invalidExisting": 0,
+                "application": 6,
+                "critical": 1,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [],
+              "warnings": []
+            },
+            {
+              "dayNumber": 11,
+              "lessonId": "SALES_PRODUCTIVITY_30_RU_DAY_11",
+              "title": "Психология ценообразования – Как цена влияет на решения о покупке?",
+              "createdAt": "2026-01-22T13:59:04.851Z",
+              "lessonQuality": {
+                "score": 85,
+                "issues": [
+                  "NO_METRICS_OR_CRITERIA"
+                ],
+                "signals": {
+                  "charCount": 2674,
+                  "wordCount": 353,
+                  "hasBullets": true,
+                  "hasNumberedSteps": true,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": true,
+                  "hasMetricsOrCriteria": false,
+                  "hasDefinitionsOrComparisons": true
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": false,
+                  "addChecklistSection": false,
+                  "addExamplesSection": false,
+                  "addPitfallsSection": false,
+                  "addMetricsSection": true
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 7,
+                "validExisting": 7,
+                "invalidExisting": 0,
+                "application": 5,
+                "critical": 2,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [],
+              "warnings": []
+            },
+            {
+              "dayNumber": 12,
+              "lessonId": "SALES_PRODUCTIVITY_30_RU_DAY_12",
+              "title": "Работа с возражениями — “нет” как данные",
+              "createdAt": "2026-01-28T19:30:03.588Z",
+              "lessonQuality": {
+                "score": 75,
+                "issues": [
+                  "NO_CLEAR_DEFINITIONS",
+                  "NO_CONTRASTS_GOOD_BAD"
+                ],
+                "signals": {
+                  "charCount": 1592,
+                  "wordCount": 226,
+                  "hasBullets": true,
+                  "hasNumberedSteps": true,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": false,
+                  "hasMetricsOrCriteria": true,
+                  "hasDefinitionsOrComparisons": false
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": true,
+                  "addChecklistSection": false,
+                  "addExamplesSection": true,
+                  "addPitfallsSection": true,
+                  "addMetricsSection": false
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 7,
+                "validExisting": 7,
+                "invalidExisting": 0,
+                "application": 5,
+                "critical": 2,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [],
+              "warnings": []
+            },
+            {
+              "dayNumber": 13,
+              "lessonId": "SALES_PRODUCTIVITY_30_RU_DAY_13",
+              "title": "Дискавери‑звонок — сначала диагностика",
+              "createdAt": "2026-01-28T19:30:04.034Z",
+              "lessonQuality": {
+                "score": 35,
+                "issues": [
+                  "TOO_SHORT",
+                  "NO_CLEAR_DEFINITIONS",
+                  "NO_EXAMPLES",
+                  "NO_CONTRASTS_GOOD_BAD"
+                ],
+                "signals": {
+                  "charCount": 801,
+                  "wordCount": 119,
+                  "hasBullets": true,
+                  "hasNumberedSteps": true,
+                  "hasExamples": false,
+                  "hasGoodBadContrast": false,
+                  "hasMetricsOrCriteria": true,
+                  "hasDefinitionsOrComparisons": false
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": true,
+                  "addChecklistSection": false,
+                  "addExamplesSection": true,
+                  "addPitfallsSection": true,
+                  "addMetricsSection": false
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 0,
+                "validExisting": 0,
+                "invalidExisting": 0,
+                "application": 0,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [
+                "LESSON_QUALITY_BELOW_THRESHOLD",
+                "QUIZ_TOO_FEW_VALID",
+                "QUIZ_TOO_FEW_APPLICATION"
+              ],
+              "warnings": []
+            },
+            {
+              "dayNumber": 14,
+              "lessonId": "SALES_PRODUCTIVITY_30_RU_DAY_14",
+              "title": "Коммерческое предложение — упростите решение",
+              "createdAt": "2026-01-28T19:30:04.803Z",
+              "lessonQuality": {
+                "score": 35,
+                "issues": [
+                  "TOO_SHORT",
+                  "NO_CLEAR_DEFINITIONS",
+                  "NO_EXAMPLES",
+                  "NO_CONTRASTS_GOOD_BAD"
+                ],
+                "signals": {
+                  "charCount": 576,
+                  "wordCount": 80,
+                  "hasBullets": true,
+                  "hasNumberedSteps": true,
+                  "hasExamples": false,
+                  "hasGoodBadContrast": false,
+                  "hasMetricsOrCriteria": true,
+                  "hasDefinitionsOrComparisons": false
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": true,
+                  "addChecklistSection": false,
+                  "addExamplesSection": true,
+                  "addPitfallsSection": true,
+                  "addMetricsSection": false
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 0,
+                "validExisting": 0,
+                "invalidExisting": 0,
+                "application": 0,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [
+                "LESSON_QUALITY_BELOW_THRESHOLD",
+                "QUIZ_TOO_FEW_VALID",
+                "QUIZ_TOO_FEW_APPLICATION"
+              ],
+              "warnings": []
+            },
+            {
+              "dayNumber": 15,
+              "lessonId": "SALES_PRODUCTIVITY_30_RU_DAY_15",
+              "title": "Переговоры — торгуйтесь, а не “дарите”",
+              "createdAt": "2026-01-28T19:30:05.061Z",
+              "lessonQuality": {
+                "score": 35,
+                "issues": [
+                  "TOO_SHORT",
+                  "NO_CLEAR_DEFINITIONS",
+                  "NO_EXAMPLES",
+                  "NO_CONTRASTS_GOOD_BAD"
+                ],
+                "signals": {
+                  "charCount": 616,
+                  "wordCount": 90,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": false,
+                  "hasGoodBadContrast": false,
+                  "hasMetricsOrCriteria": true,
+                  "hasDefinitionsOrComparisons": false
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": true,
+                  "addChecklistSection": false,
+                  "addExamplesSection": true,
+                  "addPitfallsSection": true,
+                  "addMetricsSection": false
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 0,
+                "validExisting": 0,
+                "invalidExisting": 0,
+                "application": 0,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [
+                "LESSON_QUALITY_BELOW_THRESHOLD",
+                "QUIZ_TOO_FEW_VALID",
+                "QUIZ_TOO_FEW_APPLICATION"
+              ],
+              "warnings": []
+            },
+            {
+              "dayNumber": 16,
+              "lessonId": "SALES_PRODUCTIVITY_30_RU_DAY_16",
+              "title": "Закрытие сделки — проведите путь решения",
+              "createdAt": "2026-01-28T19:30:05.168Z",
+              "lessonQuality": {
+                "score": 35,
+                "issues": [
+                  "TOO_SHORT",
+                  "NO_CLEAR_DEFINITIONS",
+                  "NO_EXAMPLES",
+                  "NO_CONTRASTS_GOOD_BAD"
+                ],
+                "signals": {
+                  "charCount": 598,
+                  "wordCount": 84,
+                  "hasBullets": true,
+                  "hasNumberedSteps": true,
+                  "hasExamples": false,
+                  "hasGoodBadContrast": false,
+                  "hasMetricsOrCriteria": true,
+                  "hasDefinitionsOrComparisons": false
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": true,
+                  "addChecklistSection": false,
+                  "addExamplesSection": true,
+                  "addPitfallsSection": true,
+                  "addMetricsSection": false
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 0,
+                "validExisting": 0,
+                "invalidExisting": 0,
+                "application": 0,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [
+                "LESSON_QUALITY_BELOW_THRESHOLD",
+                "QUIZ_TOO_FEW_VALID",
+                "QUIZ_TOO_FEW_APPLICATION"
+              ],
+              "warnings": []
+            },
+            {
+              "dayNumber": 17,
+              "lessonId": "SALES_PRODUCTIVITY_30_RU_DAY_17",
+              "title": "Передача в внедрение — выполните обещанное",
+              "createdAt": "2026-01-28T19:30:05.590Z",
+              "lessonQuality": {
+                "score": 35,
+                "issues": [
+                  "TOO_SHORT",
+                  "NO_EXAMPLES",
+                  "NO_CONTRASTS_GOOD_BAD",
+                  "NO_METRICS_OR_CRITERIA"
+                ],
+                "signals": {
+                  "charCount": 501,
+                  "wordCount": 71,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": false,
+                  "hasGoodBadContrast": false,
+                  "hasMetricsOrCriteria": false,
+                  "hasDefinitionsOrComparisons": true
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": false,
+                  "addChecklistSection": false,
+                  "addExamplesSection": true,
+                  "addPitfallsSection": true,
+                  "addMetricsSection": true
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 0,
+                "validExisting": 0,
+                "invalidExisting": 0,
+                "application": 0,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [
+                "LESSON_QUALITY_BELOW_THRESHOLD",
+                "QUIZ_TOO_FEW_VALID",
+                "QUIZ_TOO_FEW_APPLICATION"
+              ],
+              "warnings": []
+            },
+            {
+              "dayNumber": 18,
+              "lessonId": "SALES_PRODUCTIVITY_30_RU_DAY_18",
+              "title": "Управление аккаунтом — делайте ценность видимой",
+              "createdAt": "2026-01-28T19:30:05.638Z",
+              "lessonQuality": {
+                "score": 20,
+                "issues": [
+                  "TOO_SHORT",
+                  "NO_CLEAR_DEFINITIONS",
+                  "NO_EXAMPLES",
+                  "NO_CONTRASTS_GOOD_BAD",
+                  "NO_METRICS_OR_CRITERIA"
+                ],
+                "signals": {
+                  "charCount": 502,
+                  "wordCount": 65,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": false,
+                  "hasGoodBadContrast": false,
+                  "hasMetricsOrCriteria": false,
+                  "hasDefinitionsOrComparisons": false
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": true,
+                  "addChecklistSection": false,
+                  "addExamplesSection": true,
+                  "addPitfallsSection": true,
+                  "addMetricsSection": true
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 0,
+                "validExisting": 0,
+                "invalidExisting": 0,
+                "application": 0,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [
+                "LESSON_QUALITY_BELOW_THRESHOLD",
+                "QUIZ_TOO_FEW_VALID",
+                "QUIZ_TOO_FEW_APPLICATION"
+              ],
+              "warnings": []
+            },
+            {
+              "dayNumber": 19,
+              "lessonId": "SALES_PRODUCTIVITY_30_RU_DAY_19",
+              "title": "Расширение — рост через следующий результат",
+              "createdAt": "2026-01-28T19:30:05.690Z",
+              "lessonQuality": {
+                "score": 20,
+                "issues": [
+                  "TOO_SHORT",
+                  "NO_CLEAR_DEFINITIONS",
+                  "NO_EXAMPLES",
+                  "NO_CONTRASTS_GOOD_BAD",
+                  "NO_METRICS_OR_CRITERIA"
+                ],
+                "signals": {
+                  "charCount": 415,
+                  "wordCount": 54,
+                  "hasBullets": true,
+                  "hasNumberedSteps": true,
+                  "hasExamples": false,
+                  "hasGoodBadContrast": false,
+                  "hasMetricsOrCriteria": false,
+                  "hasDefinitionsOrComparisons": false
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": true,
+                  "addChecklistSection": false,
+                  "addExamplesSection": true,
+                  "addPitfallsSection": true,
+                  "addMetricsSection": true
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 0,
+                "validExisting": 0,
+                "invalidExisting": 0,
+                "application": 0,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [
+                "LESSON_QUALITY_BELOW_THRESHOLD",
+                "QUIZ_TOO_FEW_VALID",
+                "QUIZ_TOO_FEW_APPLICATION"
+              ],
+              "warnings": []
+            },
+            {
+              "dayNumber": 20,
+              "lessonId": "SALES_PRODUCTIVITY_30_RU_DAY_20",
+              "title": "Продление и удержание — план спасения",
+              "createdAt": "2026-01-28T19:30:05.731Z",
+              "lessonQuality": {
+                "score": 20,
+                "issues": [
+                  "TOO_SHORT",
+                  "NO_CLEAR_DEFINITIONS",
+                  "NO_EXAMPLES",
+                  "NO_CONTRASTS_GOOD_BAD",
+                  "NO_METRICS_OR_CRITERIA"
+                ],
+                "signals": {
+                  "charCount": 351,
+                  "wordCount": 50,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": false,
+                  "hasGoodBadContrast": false,
+                  "hasMetricsOrCriteria": false,
+                  "hasDefinitionsOrComparisons": false
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": true,
+                  "addChecklistSection": false,
+                  "addExamplesSection": true,
+                  "addPitfallsSection": true,
+                  "addMetricsSection": true
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 0,
+                "validExisting": 0,
+                "invalidExisting": 0,
+                "application": 0,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [
+                "LESSON_QUALITY_BELOW_THRESHOLD",
+                "QUIZ_TOO_FEW_VALID",
+                "QUIZ_TOO_FEW_APPLICATION"
+              ],
+              "warnings": []
+            },
+            {
+              "dayNumber": 21,
+              "lessonId": "SALES_PRODUCTIVITY_30_RU_DAY_21",
+              "title": "Холодные письма — персонализация без потери времени",
+              "createdAt": "2026-01-28T19:30:05.778Z",
+              "lessonQuality": {
+                "score": 20,
+                "issues": [
+                  "TOO_SHORT",
+                  "NO_CLEAR_DEFINITIONS",
+                  "NO_EXAMPLES",
+                  "NO_CONTRASTS_GOOD_BAD",
+                  "NO_METRICS_OR_CRITERIA"
+                ],
+                "signals": {
+                  "charCount": 486,
+                  "wordCount": 73,
+                  "hasBullets": true,
+                  "hasNumberedSteps": true,
+                  "hasExamples": false,
+                  "hasGoodBadContrast": false,
+                  "hasMetricsOrCriteria": false,
+                  "hasDefinitionsOrComparisons": false
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": true,
+                  "addChecklistSection": false,
+                  "addExamplesSection": true,
+                  "addPitfallsSection": true,
+                  "addMetricsSection": true
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 0,
+                "validExisting": 0,
+                "invalidExisting": 0,
+                "application": 0,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [
+                "LESSON_QUALITY_BELOW_THRESHOLD",
+                "QUIZ_TOO_FEW_VALID",
+                "QUIZ_TOO_FEW_APPLICATION"
+              ],
+              "warnings": []
+            },
+            {
+              "dayNumber": 22,
+              "lessonId": "SALES_PRODUCTIVITY_30_RU_DAY_22",
+              "title": "Холодные звонки — получите разрешение быстро",
+              "createdAt": "2026-01-28T19:30:05.827Z",
+              "lessonQuality": {
+                "score": 20,
+                "issues": [
+                  "TOO_SHORT",
+                  "NO_CLEAR_DEFINITIONS",
+                  "NO_EXAMPLES",
+                  "NO_CONTRASTS_GOOD_BAD",
+                  "NO_METRICS_OR_CRITERIA"
+                ],
+                "signals": {
+                  "charCount": 385,
+                  "wordCount": 50,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": false,
+                  "hasGoodBadContrast": false,
+                  "hasMetricsOrCriteria": false,
+                  "hasDefinitionsOrComparisons": false
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": true,
+                  "addChecklistSection": false,
+                  "addExamplesSection": true,
+                  "addPitfallsSection": true,
+                  "addMetricsSection": true
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 0,
+                "validExisting": 0,
+                "invalidExisting": 0,
+                "application": 0,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [
+                "LESSON_QUALITY_BELOW_THRESHOLD",
+                "QUIZ_TOO_FEW_VALID",
+                "QUIZ_TOO_FEW_APPLICATION"
+              ],
+              "warnings": []
+            },
+            {
+              "dayNumber": 23,
+              "lessonId": "SALES_PRODUCTIVITY_30_RU_DAY_23",
+              "title": "Фоллоу‑ап — превратите разговор в обязательства",
+              "createdAt": "2026-01-28T19:30:05.868Z",
+              "lessonQuality": {
+                "score": 20,
+                "issues": [
+                  "TOO_SHORT",
+                  "NO_CLEAR_DEFINITIONS",
+                  "NO_EXAMPLES",
+                  "NO_CONTRASTS_GOOD_BAD",
+                  "NO_METRICS_OR_CRITERIA"
+                ],
+                "signals": {
+                  "charCount": 505,
+                  "wordCount": 69,
+                  "hasBullets": true,
+                  "hasNumberedSteps": true,
+                  "hasExamples": false,
+                  "hasGoodBadContrast": false,
+                  "hasMetricsOrCriteria": false,
+                  "hasDefinitionsOrComparisons": false
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": true,
+                  "addChecklistSection": false,
+                  "addExamplesSection": true,
+                  "addPitfallsSection": true,
+                  "addMetricsSection": true
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 0,
+                "validExisting": 0,
+                "invalidExisting": 0,
+                "application": 0,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [
+                "LESSON_QUALITY_BELOW_THRESHOLD",
+                "QUIZ_TOO_FEW_VALID",
+                "QUIZ_TOO_FEW_APPLICATION"
+              ],
+              "warnings": []
+            },
+            {
+              "dayNumber": 24,
+              "lessonId": "SALES_PRODUCTIVITY_30_RU_DAY_24",
+              "title": "Гигиена воронки — держите данные реальными",
+              "createdAt": "2026-01-28T19:30:05.915Z",
+              "lessonQuality": {
+                "score": 45,
+                "issues": [
+                  "TOO_SHORT",
+                  "NO_CLEAR_DEFINITIONS",
+                  "NO_EXAMPLES"
+                ],
+                "signals": {
+                  "charCount": 404,
+                  "wordCount": 59,
+                  "hasBullets": true,
+                  "hasNumberedSteps": true,
+                  "hasExamples": false,
+                  "hasGoodBadContrast": true,
+                  "hasMetricsOrCriteria": true,
+                  "hasDefinitionsOrComparisons": false
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": true,
+                  "addChecklistSection": false,
+                  "addExamplesSection": true,
+                  "addPitfallsSection": false,
+                  "addMetricsSection": false
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 0,
+                "validExisting": 0,
+                "invalidExisting": 0,
+                "application": 0,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [
+                "LESSON_QUALITY_BELOW_THRESHOLD",
+                "QUIZ_TOO_FEW_VALID",
+                "QUIZ_TOO_FEW_APPLICATION"
+              ],
+              "warnings": []
+            },
+            {
+              "dayNumber": 25,
+              "lessonId": "SALES_PRODUCTIVITY_30_RU_DAY_25",
+              "title": "Управление временем — защищайте фокус",
+              "createdAt": "2026-01-28T19:30:05.964Z",
+              "lessonQuality": {
+                "score": 20,
+                "issues": [
+                  "TOO_SHORT",
+                  "NO_CLEAR_DEFINITIONS",
+                  "NO_EXAMPLES",
+                  "NO_CONTRASTS_GOOD_BAD",
+                  "NO_METRICS_OR_CRITERIA"
+                ],
+                "signals": {
+                  "charCount": 400,
+                  "wordCount": 59,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": false,
+                  "hasGoodBadContrast": false,
+                  "hasMetricsOrCriteria": false,
+                  "hasDefinitionsOrComparisons": false
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": true,
+                  "addChecklistSection": false,
+                  "addExamplesSection": true,
+                  "addPitfallsSection": true,
+                  "addMetricsSection": true
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 0,
+                "validExisting": 0,
+                "invalidExisting": 0,
+                "application": 0,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [
+                "LESSON_QUALITY_BELOW_THRESHOLD",
+                "QUIZ_TOO_FEW_VALID",
+                "QUIZ_TOO_FEW_APPLICATION"
+              ],
+              "warnings": []
+            },
+            {
+              "dayNumber": 26,
+              "lessonId": "SALES_PRODUCTIVITY_30_RU_DAY_26",
+              "title": "ИИ в продажах — скорость с проверкой",
+              "createdAt": "2026-01-28T19:30:06.008Z",
+              "lessonQuality": {
+                "score": 20,
+                "issues": [
+                  "TOO_SHORT",
+                  "NO_CLEAR_DEFINITIONS",
+                  "NO_EXAMPLES",
+                  "NO_CONTRASTS_GOOD_BAD",
+                  "NO_METRICS_OR_CRITERIA"
+                ],
+                "signals": {
+                  "charCount": 411,
+                  "wordCount": 59,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": false,
+                  "hasGoodBadContrast": false,
+                  "hasMetricsOrCriteria": false,
+                  "hasDefinitionsOrComparisons": false
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": true,
+                  "addChecklistSection": false,
+                  "addExamplesSection": true,
+                  "addPitfallsSection": true,
+                  "addMetricsSection": true
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 0,
+                "validExisting": 0,
+                "invalidExisting": 0,
+                "application": 0,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [
+                "LESSON_QUALITY_BELOW_THRESHOLD",
+                "QUIZ_TOO_FEW_VALID",
+                "QUIZ_TOO_FEW_APPLICATION"
+              ],
+              "warnings": []
+            },
+            {
+              "dayNumber": 27,
+              "lessonId": "SALES_PRODUCTIVITY_30_RU_DAY_27",
+              "title": "Метрики — ведущие показатели, которые вы контролируете",
+              "createdAt": "2026-01-28T19:30:06.051Z",
+              "lessonQuality": {
+                "score": 35,
+                "issues": [
+                  "TOO_SHORT",
+                  "NO_CLEAR_DEFINITIONS",
+                  "NO_EXAMPLES",
+                  "NO_CONTRASTS_GOOD_BAD"
+                ],
+                "signals": {
+                  "charCount": 374,
+                  "wordCount": 49,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": false,
+                  "hasGoodBadContrast": false,
+                  "hasMetricsOrCriteria": true,
+                  "hasDefinitionsOrComparisons": false
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": true,
+                  "addChecklistSection": false,
+                  "addExamplesSection": true,
+                  "addPitfallsSection": true,
+                  "addMetricsSection": false
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 0,
+                "validExisting": 0,
+                "invalidExisting": 0,
+                "application": 0,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [
+                "LESSON_QUALITY_BELOW_THRESHOLD",
+                "QUIZ_TOO_FEW_VALID",
+                "QUIZ_TOO_FEW_APPLICATION"
+              ],
+              "warnings": []
+            },
+            {
+              "dayNumber": 28,
+              "lessonId": "SALES_PRODUCTIVITY_30_RU_DAY_28",
+              "title": "Руководство по продажам — сделайте процесс переносимым",
+              "createdAt": "2026-01-28T19:30:06.108Z",
+              "lessonQuality": {
+                "score": 35,
+                "issues": [
+                  "TOO_SHORT",
+                  "NO_CLEAR_DEFINITIONS",
+                  "NO_EXAMPLES",
+                  "NO_CONTRASTS_GOOD_BAD"
+                ],
+                "signals": {
+                  "charCount": 377,
+                  "wordCount": 45,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": false,
+                  "hasGoodBadContrast": false,
+                  "hasMetricsOrCriteria": true,
+                  "hasDefinitionsOrComparisons": false
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": true,
+                  "addChecklistSection": false,
+                  "addExamplesSection": true,
+                  "addPitfallsSection": true,
+                  "addMetricsSection": false
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 0,
+                "validExisting": 0,
+                "invalidExisting": 0,
+                "application": 0,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [
+                "LESSON_QUALITY_BELOW_THRESHOLD",
+                "QUIZ_TOO_FEW_VALID",
+                "QUIZ_TOO_FEW_APPLICATION"
+              ],
+              "warnings": []
+            },
+            {
+              "dayNumber": 29,
+              "lessonId": "SALES_PRODUCTIVITY_30_RU_DAY_29",
+              "title": "Итоговый проект — запустите систему на 7 дней",
+              "createdAt": "2026-01-28T19:30:06.171Z",
+              "lessonQuality": {
+                "score": 35,
+                "issues": [
+                  "TOO_SHORT",
+                  "NO_CLEAR_DEFINITIONS",
+                  "NO_EXAMPLES",
+                  "NO_CONTRASTS_GOOD_BAD"
+                ],
+                "signals": {
+                  "charCount": 361,
+                  "wordCount": 51,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": false,
+                  "hasGoodBadContrast": false,
+                  "hasMetricsOrCriteria": true,
+                  "hasDefinitionsOrComparisons": false
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": true,
+                  "addChecklistSection": false,
+                  "addExamplesSection": true,
+                  "addPitfallsSection": true,
+                  "addMetricsSection": false
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 0,
+                "validExisting": 0,
+                "invalidExisting": 0,
+                "application": 0,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [
+                "LESSON_QUALITY_BELOW_THRESHOLD",
+                "QUIZ_TOO_FEW_VALID",
+                "QUIZ_TOO_FEW_APPLICATION"
+              ],
+              "warnings": []
+            },
+            {
+              "dayNumber": 30,
+              "lessonId": "SALES_PRODUCTIVITY_30_RU_DAY_30",
+              "title": "Постоянное улучшение — ежемесячный обзор",
+              "createdAt": "2026-01-28T19:30:06.238Z",
+              "lessonQuality": {
+                "score": 35,
+                "issues": [
+                  "TOO_SHORT",
+                  "NO_CLEAR_DEFINITIONS",
+                  "NO_EXAMPLES",
+                  "NO_CONTRASTS_GOOD_BAD"
+                ],
+                "signals": {
+                  "charCount": 366,
+                  "wordCount": 46,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": false,
+                  "hasGoodBadContrast": false,
+                  "hasMetricsOrCriteria": true,
+                  "hasDefinitionsOrComparisons": false
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": true,
+                  "addChecklistSection": false,
+                  "addExamplesSection": true,
+                  "addPitfallsSection": true,
+                  "addMetricsSection": false
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 0,
+                "validExisting": 0,
+                "invalidExisting": 0,
+                "application": 0,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [
+                "LESSON_QUALITY_BELOW_THRESHOLD",
+                "QUIZ_TOO_FEW_VALID",
+                "QUIZ_TOO_FEW_APPLICATION"
+              ],
+              "warnings": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ccsId": "DONE_BETTER_2026",
+      "name": "Done is better - Build What Matters",
+      "ideaPresent": true,
+      "outlinePresent": true,
+      "relatedDocumentsCount": 0,
+      "courses": []
+    }
+  ],
+  "coursesMissingCcsId": []
+}

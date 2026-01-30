@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-28T22:55:46.561Z",
+  "course": {
+    "courseId": "AI_30_DAY_EN",
+    "name": "30-Day AI Catch-Up Program (EN)",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 11,
+    "title": "Planning with AI: outlines and storyboards",
+    "lessonId": "AI_30_DAY_EN_DAY_11"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "697769fb27e27f61ac4143ef",
+      "uuid": "1b78151c-b058-4fc5-bbea-02f075e361ac",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"exercise (10–15 min)\n\nPick a deliverable...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day11",
+        "#en",
+        "#all-languages",
+        "#ai",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "697769fb27e27f61ac4143f0",
+      "uuid": "64005d3b-9cff-4ee9-bdce-12a71f5f3e88",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"exercise (5–10 min)\nAsk the model to sug...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day11",
+        "#en",
+        "#all-languages",
+        "#ai",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "697769fb27e27f61ac4143f1",
+      "uuid": "a6265da6-808c-47e4-83e0-0fb8f7a2a5bf",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"exercise (10–15 min)\n\nPick a deliverable...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day11",
+        "#en",
+        "#all-languages",
+        "#ai",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "697769fb27e27f61ac4143f2",
+      "uuid": "e47d7630-2e98-4359-aa58-5a88cc1d5e9e",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "How does the concept \"Planning with AI: outlines and storyboards Use the...\" mentioned in the lesson impact achieving your goals?",
+      "options": [
+        "As described in detail in the lesson, Planning with AI: outlines and... increases effectiveness and reduces risk",
+        "No significant impact",
+        "Only matters theoretically",
+        "Only an optional element"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day11",
+        "#en",
+        "#all-languages",
+        "#ai",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "697769fb27e27f61ac4143f3",
+      "uuid": "32f99c4f-d65d-4aee-8c6f-a39b42f572b9",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is Prompt in the context of Planning with AI: outlines and storyboards as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, Prompt plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day11",
+        "#en",
+        "#all-languages",
+        "#ai",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "697769fb27e27f61ac4143f4",
+      "uuid": "2a40b7cc-a75e-4a27-af7e-caecdd78cd1f",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is Planning in the context of Planning with AI: outlines and storyboards as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, Planning plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day11",
+        "#en",
+        "#all-languages",
+        "#ai",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "697769fb27e27f61ac4143f5",
+      "uuid": "59ba7371-54df-48d2-a42a-3cae0a67d75c",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is outlines in the context of Planning with AI: outlines and storyboards as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, outlines plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day11",
+        "#en",
+        "#all-languages",
+        "#ai",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

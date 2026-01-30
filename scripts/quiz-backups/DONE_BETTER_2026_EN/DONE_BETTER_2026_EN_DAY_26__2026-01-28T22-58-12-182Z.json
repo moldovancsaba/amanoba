@@ -1,0 +1,114 @@
+{
+  "backedUpAt": "2026-01-28T22:58:16.123Z",
+  "course": {
+    "courseId": "DONE_BETTER_2026_EN",
+    "name": "Done is better - Build What Matters",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 26,
+    "title": "Reflect Like a Pro",
+    "lessonId": "DONE_BETTER_2026_EN_DAY_26"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "697a92f722596d24dfc12d88",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "A project just ended. What should you do next?",
+      "options": [
+        "Run a short reflection: what happened, what we learned, what we change; extract one rule or checklist item",
+        "Celebrate only without reflecting on what worked or what to improve for next time",
+        "Move to the next project immediately without learning from this one or extracting lessons",
+        "Write a long report documenting everything without extracting actionable lessons or changes"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a92f722596d24dfc12d89",
+      "questionType": "application",
+      "difficulty": "EASY",
+      "question": "After a project ends, a team spends 10 minutes answering: \"What happened? What did we learn? What will we change?\" They extract one rule for next time. What does this demonstrate?",
+      "options": [
+        "Reflecting like a pro: extracting concrete rules from experience, done regularly",
+        "Thinking about the project once at the end without structure",
+        "Blaming and praising without extracting actionable rules",
+        "Only documenting facts without lessons or changes"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a92f722596d24dfc12d8a",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "A project just completed successfully. When should the team run reflection on what they learned?",
+      "options": [
+        "After wins and losses; regularly, not only after failure",
+        "Only after failure when something goes wrong",
+        "Only at year-end as part of annual planning",
+        "Never; reflection is not necessary for successful delivery"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a92f722596d24dfc12d8b",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Skipping reflection when things go well can lead to:",
+      "options": [
+        "Missing lessons; experience stays anecdotal",
+        "Faster delivery",
+        "Higher morale",
+        "No meaningful effect on outcomes"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a92f722596d24dfc12d8c",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Blaming instead of learning tends to:",
+      "options": [
+        "No concrete change; the same mistake repeats",
+        "Accountability",
+        "Faster resolution",
+        "No significant downside in practice"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a92f722596d24dfc12d8d",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "What should reflection produce?",
+      "options": [
+        "One concrete change: a rule or behavior for next time, not only insights",
+        "Only insights without translating them into actionable changes or improvements",
+        "Only a report documenting what happened without lessons or actionable takeaways",
+        "Only praise for what went well without identifying improvements or changes needed"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a92f722596d24dfc12d8e",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How long can a useful reflection be?",
+      "options": [
+        "Short: e.g. 5 minutes; what happened, one lesson, one thing you will do differently",
+        "At least an hour to thoroughly analyze every detail of what happened before acting",
+        "Only written in a formal document without discussion or action or changes",
+        "Only in a meeting with all stakeholders present regardless of length or efficiency"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    }
+  ]
+}

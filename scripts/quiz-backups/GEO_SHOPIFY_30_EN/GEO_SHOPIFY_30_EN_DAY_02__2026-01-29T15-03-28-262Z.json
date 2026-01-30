@@ -1,0 +1,86 @@
+{
+  "backedUpAt": "2026-01-29T15:03:28.915Z",
+  "course": {
+    "courseId": "GEO_SHOPIFY_30_EN",
+    "name": "GEO Shopify – 30-day course",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 2,
+    "title": "GEO vs SEO on Shopify: what to watch",
+    "lessonId": "GEO_SHOPIFY_30_EN_DAY_02"
+  },
+  "questionCount": 5,
+  "questions": [
+    {
+      "_id": "697b2142e121de7b30570a9f",
+      "uuid": "78057b40-654d-429d-bbd7-5002c1426f0c",
+      "difficulty": "EASY",
+      "question": "Which element is GEO-first?",
+      "options": [
+        "Clear price/stock/identifiers rendered on the page",
+        "Only meta description length",
+        "Only backlink count",
+        "Only page speed"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b2142e121de7b30570aa0",
+      "uuid": "03ea6d59-b6ef-415b-85f8-070ba1d18fe4",
+      "difficulty": "MEDIUM",
+      "question": "What belongs in a GEO checklist?",
+      "options": [
+        "Price, stock, GTIN/SKU, policy, answer capsule, stable URL, alt, schema, internal links, review rules",
+        "Only hero image",
+        "Only a blog link",
+        "Only meta title"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b2142e121de7b30570aa1",
+      "uuid": "db1c49a7-a33e-4f7c-b143-fb904e2181db",
+      "difficulty": "MEDIUM",
+      "question": "Why does structured data matter for GEO?",
+      "options": [
+        "It helps models parse price/availability/identifiers safely",
+        "It is only for breadcrumbs",
+        "It replaces on-page text",
+        "It is only for speed"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b2142e121de7b30570aa2",
+      "uuid": "7701a0f1-27a8-4d30-9b6d-5d3839ebe7d7",
+      "difficulty": "EASY",
+      "question": "Which is a poor example?",
+      "options": [
+        "Messy copy, missing IDs, mixed variants",
+        "Top summary with clear price/stock",
+        "Policy link visible",
+        "GTIN and SKU present"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b2142e121de7b30570aa3",
+      "uuid": "7115f9aa-ad11-476f-bde4-c447b39e8535",
+      "difficulty": "HARD",
+      "question": "What should you do on a second PDP audit?",
+      "options": [
+        "Identify at least 3 gaps and log them",
+        "Ignore findings",
+        "Only change the font",
+        "Delete the page"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    }
+  ]
+}

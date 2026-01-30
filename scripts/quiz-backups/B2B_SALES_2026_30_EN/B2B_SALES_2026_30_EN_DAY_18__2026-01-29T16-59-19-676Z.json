@@ -1,0 +1,68 @@
+{
+  "backedUpAt": "2026-01-29T16:59:35.973Z",
+  "course": {
+    "courseId": "B2B_SALES_2026_30_EN",
+    "name": "B2B Sales 2026 Masterclass",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 18,
+    "title": "Nurture and Re-Engage",
+    "lessonId": "B2B_SALES_2026_30_EN_DAY_18"
+  },
+  "questionCount": 4,
+  "questions": [
+    {
+      "_id": "697b1fd38f79f136a28b8a14",
+      "difficulty": "MEDIUM",
+      "question": "Correct order of the 3 steps?",
+      "options": [
+        "Offer, proof, value",
+        "Value, proof, offer",
+        "Proof, offer, value",
+        "Only offer"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b1fd38f79f136a28b8a15",
+      "difficulty": "MEDIUM",
+      "question": "When to skip nurture?",
+      "options": [
+        "Not fit leads",
+        "Not now leads",
+        "Later leads",
+        "Never"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b1fd38f79f136a28b8a16",
+      "difficulty": "MEDIUM",
+      "question": "Good example?",
+      "options": [
+        "Monthly generic email",
+        "3 emails: case study + benchmark + audit offer",
+        "Only a marketing newsletter",
+        "Only a price list"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b1fd38f79f136a28b8a17",
+      "difficulty": "MEDIUM",
+      "question": "What to measure in nurture?",
+      "options": [
+        "Opens only",
+        "Reply/meeting/SQL conversion",
+        "Web traffic only",
+        "Likes only"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    }
+  ]
+}

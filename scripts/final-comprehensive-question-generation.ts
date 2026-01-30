@@ -6,6 +6,8 @@
  * IMPORTANT (updated):
  * - Do NOT delete valid questions just because there are >7.
  * - Keep valid questions, delete invalid ones, and add new valid ones until minimums are met.
+ * - TINY LOOP: Replace each invalid question one at a time; fill each missing slot one at a time.
+ *   No batch delete/batch insert — quality is higher when each question is managed individually.
  *
  * Usage:
  *   npx tsx --env-file=.env.local scripts/final-comprehensive-question-generation.ts [--course COURSE_ID] [--min-lesson-score 70] [--dry-run]
@@ -152,92 +154,12 @@ async function regenerateAll() {
           continue;
         }
 
-        // Generate additional questions (do not delete valid ones; only remove invalid ones).
-        const neededTotal = Math.max(0, 7 - existingCounts.valid);
-        const neededApp = Math.max(0, 5 - existingCounts.application);
-        const generateTarget = Math.max(neededTotal, neededApp, 7, 12);
-
-        const generated = generateContentBasedQuestions(
-          lesson.dayNumber,
-          lesson.title || '',
-          lesson.content || '',
-          course.language,
-          course.courseId,
-          validExisting,
-          generateTarget
-        );
-
-        const validatedNew: any[] = [];
-        for (const q of generated) {
-          const v = validateQuestionQuality(
-            q.question,
-            q.options,
-            q.questionType,
-            q.difficulty,
-            course.language,
-            lesson.title,
-            lesson.content
-          );
-          if (v.isValid) validatedNew.push(q);
-        }
-
-        const existingTextKeys = new Set<string>(validExisting.map(q => normalizeQuestionText(q.question)));
-        const additions: any[] = [];
-        let remainingNeededTotal = neededTotal;
-        let remainingNeededApp = neededApp;
-
-        const tryAdd = (q: any) => {
-          const key = normalizeQuestionText(q.question);
-          if (!key) return false;
-          if (existingTextKeys.has(key)) return false;
-          existingTextKeys.add(key);
-          additions.push(q);
-          return true;
-        };
-
-        if (remainingNeededApp > 0) {
-          for (const q of validatedNew) {
-            if (remainingNeededApp <= 0) break;
-            if (q.questionType !== 'application') continue;
-            if (tryAdd(q)) {
-              remainingNeededApp--;
-              if (remainingNeededTotal > 0) remainingNeededTotal--;
-            }
-          }
-        }
-
-        if (remainingNeededTotal > 0) {
-          for (const q of validatedNew) {
-            if (remainingNeededTotal <= 0) break;
-            if (tryAdd(q)) remainingNeededTotal--;
-          }
-        }
-
-        const combinedForValidation = [
-          ...validExisting.map(q => ({
-            question: q.question,
-            options: q.options,
-            questionType: q.questionType,
-            difficulty: q.difficulty,
-          })),
-          ...additions.map(q => ({
-            question: q.question,
-            options: q.options,
-            questionType: q.questionType,
-            difficulty: q.difficulty,
-          })),
-        ];
-
-        const batchValidation = validateLessonQuestions(combinedForValidation as any, course.language, lesson.title);
-
-        if (!batchValidation.isValid) {
-          lessonsFailed++;
-          console.log(`   ❌ Failed validation: ${batchValidation.errors[0] || 'Strict QC failed'}`);
-          continue;
-        }
+        // ——— TINY LOOP: replace each invalid one at a time, then fill missing slots one at a time. ———
+        const MAX_REPLACE_ATTEMPTS = 5;
+        const MAX_FILL_ATTEMPTS_PER_SLOT = 10;
+        const CANDIDATES_PER_ATTEMPT = 8;
 
         if (!DRY_RUN) {
-          // Backup existing questions (before deleting invalid ones or inserting new ones)
           const courseFolder = join(BACKUP_DIR, course.courseId);
           mkdirSync(courseFolder, { recursive: true });
           const backupPath = join(courseFolder, `${lesson.lessonId}__${stamp}.json`);
@@ -264,45 +186,181 @@ async function regenerateAll() {
               2
             )
           );
+        }
 
-          // Delete only invalid questions (never delete just for being >7)
-          if (invalidExisting.length > 0) {
-            const delInvalid = await QuizQuestion.deleteMany({ _id: { $in: invalidExisting.map(q => q._id) } });
-            totalDeleted += delInvalid.deletedCount || 0;
+        let currentValid = [...validExisting];
+        const existingTextKeys = new Set<string>(currentValid.map(q => normalizeQuestionText(q.question)));
+        let insertedCount = 0;
+        let replacedCount = 0;
+
+        // Phase 1: Replace each invalid question one at a time.
+        for (let i = 0; i < invalidExisting.length; i++) {
+          const invalidQ = invalidExisting[i];
+          const displayOrder = (invalidQ as any).displayOrder ?? currentValid.length + i + 1;
+          let replaced = false;
+          for (let attempt = 0; attempt < MAX_REPLACE_ATTEMPTS && !replaced; attempt++) {
+            const candidates = generateContentBasedQuestions(
+              lesson.dayNumber,
+              lesson.title || '',
+              lesson.content || '',
+              course.language,
+              course.courseId,
+              currentValid,
+              CANDIDATES_PER_ATTEMPT,
+              { seed: `${course.courseId}::${lesson.lessonId}::replace${i}::${stamp}::a${attempt}` }
+            );
+            for (const q of candidates) {
+              const v = validateQuestionQuality(
+                q.question,
+                q.options,
+                q.questionType as any,
+                q.difficulty as any,
+                course.language,
+                lesson.title,
+                lesson.content
+              );
+              if (!v.isValid) continue;
+              const key = normalizeQuestionText(q.question);
+              if (!key || existingTextKeys.has(key)) continue;
+              if (!DRY_RUN) {
+                await QuizQuestion.deleteOne({ _id: invalidQ._id });
+                await QuizQuestion.insertMany([
+                  {
+                    uuid: randomUUID(),
+                    lessonId: lesson.lessonId,
+                    courseId: course._id,
+                    question: q.question,
+                    options: q.options,
+                    correctIndex: q.correctIndex,
+                    difficulty: q.difficulty,
+                    category: q.category ?? 'Course Specific',
+                    isCourseSpecific: true,
+                    questionType: q.questionType as string,
+                    hashtags: q.hashtags,
+                    isActive: true,
+                    displayOrder,
+                    showCount: 0,
+                    correctCount: 0,
+                    metadata: {
+                      createdAt: new Date(),
+                      updatedAt: new Date(),
+                      auditedAt: new Date(),
+                      auditedBy: 'final-comprehensive-tiny-loop',
+                    },
+                  },
+                ]);
+                totalDeleted += 1;
+                totalInserted += 1;
+              }
+              existingTextKeys.add(key);
+              currentValid.push({ ...q, displayOrder, _id: null });
+              replaced = true;
+              replacedCount++;
+              break;
+            }
           }
-
-          const toInsert = additions.map(q => ({
-            uuid: randomUUID(),
-            lessonId: lesson.lessonId,
-            courseId: course._id,
-            question: q.question,
-            options: q.options,
-            correctIndex: q.correctIndex,
-            difficulty: q.difficulty,
-            category: q.category,
-            isCourseSpecific: true,
-            questionType: q.questionType as string,
-            hashtags: q.hashtags,
-            isActive: true,
-            showCount: 0,
-            correctCount: 0,
-            metadata: {
-              createdAt: new Date(),
-              updatedAt: new Date(),
-              auditedAt: new Date(),
-              auditedBy: 'final-comprehensive-question-generation',
-            },
-          }));
-
-          if (toInsert.length > 0) {
-            await QuizQuestion.insertMany(toInsert);
-            totalInserted += toInsert.length;
+          if (!replaced && !DRY_RUN) {
+            await QuizQuestion.deleteOne({ _id: invalidQ._id });
+            totalDeleted += 1;
           }
+        }
+
+        // Phase 2: Fill missing slots one at a time.
+        let remainingNeededTotal = Math.max(0, 7 - currentValid.length);
+        let remainingNeededApp = Math.max(0, 5 - currentValid.filter(q => q.questionType === 'application').length);
+        let remainingNeededCritical = Math.max(0, 2 - currentValid.filter(q => q.questionType === 'critical-thinking').length);
+        let nextDisplayOrder = Math.max(0, ...currentValid.map(q => (q as any).displayOrder ?? 0)) + 1;
+        let fillAttempts = 0;
+        const maxFillAttempts = (remainingNeededTotal + 2) * MAX_FILL_ATTEMPTS_PER_SLOT;
+
+        while ((remainingNeededTotal > 0 || remainingNeededApp > 0 || remainingNeededCritical > 0) && fillAttempts < maxFillAttempts) {
+          fillAttempts++;
+          const preferApp = remainingNeededApp > 0;
+          const preferCritical = !preferApp && remainingNeededCritical > 0;
+          const candidates = generateContentBasedQuestions(
+            lesson.dayNumber,
+            lesson.title || '',
+            lesson.content || '',
+            course.language,
+            course.courseId,
+            currentValid,
+            CANDIDATES_PER_ATTEMPT,
+            { seed: `${course.courseId}::${lesson.lessonId}::fill::${stamp}::${fillAttempts}` }
+          );
+          let added = false;
+          for (const q of candidates) {
+            const v = validateQuestionQuality(
+              q.question,
+              q.options,
+              q.questionType as any,
+              q.difficulty as any,
+              course.language,
+              lesson.title,
+              lesson.content
+            );
+            if (!v.isValid) continue;
+            const key = normalizeQuestionText(q.question);
+            if (!key || existingTextKeys.has(key)) continue;
+            if (preferApp && q.questionType !== 'application') continue;
+            if (preferCritical && q.questionType !== 'critical-thinking') continue;
+            if (!DRY_RUN) {
+              await QuizQuestion.insertMany([
+                {
+                  uuid: randomUUID(),
+                  lessonId: lesson.lessonId,
+                  courseId: course._id,
+                  question: q.question,
+                  options: q.options,
+                  correctIndex: q.correctIndex,
+                  difficulty: q.difficulty,
+                  category: q.category ?? 'Course Specific',
+                  isCourseSpecific: true,
+                  questionType: q.questionType as string,
+                  hashtags: q.hashtags,
+                  isActive: true,
+                  displayOrder: nextDisplayOrder++,
+                  showCount: 0,
+                  correctCount: 0,
+                  metadata: {
+                    createdAt: new Date(),
+                    updatedAt: new Date(),
+                    auditedAt: new Date(),
+                    auditedBy: 'final-comprehensive-tiny-loop',
+                  },
+                },
+              ]);
+              totalInserted += 1;
+            }
+            existingTextKeys.add(key);
+            currentValid.push({ ...q, displayOrder: nextDisplayOrder - 1, _id: null });
+            insertedCount++;
+            if (q.questionType === 'application' && remainingNeededApp > 0) remainingNeededApp--;
+            if (q.questionType === 'critical-thinking' && remainingNeededCritical > 0) remainingNeededCritical--;
+            if (remainingNeededTotal > 0) remainingNeededTotal--;
+            added = true;
+            break;
+          }
+          if (!added) continue;
+        }
+
+        const combinedForValidation = currentValid.map(q => ({
+          question: q.question,
+          options: q.options,
+          questionType: q.questionType,
+          difficulty: q.difficulty,
+          correctIndex: q.correctIndex,
+        }));
+        const batchValidation = validateLessonQuestions(combinedForValidation as any, course.language, lesson.title);
+
+        if (!batchValidation.isValid) {
+          lessonsFailed++;
+          console.log(`   ❌ Failed validation: ${batchValidation.errors[0] || 'Strict QC failed'}`);
+          continue;
         }
 
         lessonsSucceeded++;
         console.log(
-          `   ✅ ${DRY_RUN ? 'Validated' : 'Enriched'} (kept valid, removed invalid, added ${additions.length})`
+          `   ✅ ${DRY_RUN ? 'Validated' : 'Enriched'} (replaced ${replacedCount}, added ${insertedCount})`
         );
       }
     }

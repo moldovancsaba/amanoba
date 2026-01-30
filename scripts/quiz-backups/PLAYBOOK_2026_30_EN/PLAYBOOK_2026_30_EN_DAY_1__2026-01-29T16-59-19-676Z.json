@@ -1,0 +1,68 @@
+{
+  "backedUpAt": "2026-01-29T16:59:41.981Z",
+  "course": {
+    "courseId": "PLAYBOOK_2026_30_EN",
+    "name": "The Playbook 2026 – Masterclass for Designers",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 1,
+    "title": "Why Visual Language Beats Style",
+    "lessonId": "PLAYBOOK_2026_30_EN_DAY_1"
+  },
+  "questionCount": 4,
+  "questions": [
+    {
+      "_id": "697b0d71b2f193c960ea6985",
+      "difficulty": "MEDIUM",
+      "question": "What’s the key difference between style and visual language?",
+      "options": [
+        "Style is rule-based, visual language is opinion",
+        "Style is subjective; visual language is rule-based and transferable",
+        "They are the same",
+        "Visual language is only about colors"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b0d71b2f193c960ea6986",
+      "difficulty": "MEDIUM",
+      "question": "Why doesn’t style scale?",
+      "options": [
+        "It is always documented",
+        "It is person-dependent and not measurable",
+        "It is too cheap",
+        "It is always coded"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b0d71b2f193c960ea6987",
+      "difficulty": "MEDIUM",
+      "question": "Which is a good visual language rule?",
+      "options": [
+        "“Make it pretty.”",
+        "“CTA: #FAB908 background, #111827 text, 12x16 padding, no other CTA uses yellow.”",
+        "“Use more gradients.”",
+        "“Use a modern font.”"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b0d71b2f193c960ea6988",
+      "difficulty": "MEDIUM",
+      "question": "What is a Visual Intent Statement for?",
+      "options": [
+        "A decorative slogan",
+        "Tone/voice/density in one sentence",
+        "An ad copy",
+        "A price list"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    }
+  ]
+}

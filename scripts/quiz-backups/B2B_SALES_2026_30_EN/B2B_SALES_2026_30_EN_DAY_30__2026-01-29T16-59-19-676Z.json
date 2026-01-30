@@ -1,0 +1,68 @@
+{
+  "backedUpAt": "2026-01-29T16:59:41.503Z",
+  "course": {
+    "courseId": "B2B_SALES_2026_30_EN",
+    "name": "B2B Sales 2026 Masterclass",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 30,
+    "title": "Capstone Sprint: Full B2B Sales Loop",
+    "lessonId": "B2B_SALES_2026_30_EN_DAY_30"
+  },
+  "questionCount": 4,
+  "questions": [
+    {
+      "_id": "697b1fd68f79f136a28b8a8c",
+      "difficulty": "MEDIUM",
+      "question": "Main goal of capstone?",
+      "options": [
+        "Reading only",
+        "Run a real process and document it",
+        "Marketing",
+        "HR"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b1fd68f79f136a28b8a8d",
+      "difficulty": "MEDIUM",
+      "question": "Mandatory deliverable?",
+      "options": [
+        "Account brief, outreach log, discovery notes, qualification decision",
+        "Only logo",
+        "Only NDA",
+        "Only price"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b1fd68f79f136a28b8a8e",
+      "difficulty": "MEDIUM",
+      "question": "Why write a report?",
+      "options": [
+        "Decoration",
+        "Extract lessons and next steps",
+        "HR",
+        "Marketing"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b1fd68f79f136a28b8a8f",
+      "difficulty": "MEDIUM",
+      "question": "Bad example?",
+      "options": [
+        "Not running the process, only reading",
+        "Documenting and running",
+        "Writing backlog",
+        "Flagging risks"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    }
+  ]
+}

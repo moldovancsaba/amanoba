@@ -1,0 +1,68 @@
+{
+  "backedUpAt": "2026-01-29T16:59:38.372Z",
+  "course": {
+    "courseId": "B2B_SALES_2026_30_EN",
+    "name": "B2B Sales 2026 Masterclass",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 23,
+    "title": "Integrations and data flow basics",
+    "lessonId": "B2B_SALES_2026_30_EN_DAY_23"
+  },
+  "questionCount": 4,
+  "questions": [
+    {
+      "_id": "697b1fd58f79f136a28b8a54",
+      "difficulty": "MEDIUM",
+      "question": "Why deduplicate?",
+      "options": [
+        "To make the CRM prettier",
+        "To avoid duplicate contacts and bad reports",
+        "To lower license cost",
+        "To send more emails"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b1fd58f79f136a28b8a55",
+      "difficulty": "MEDIUM",
+      "question": "Good data path example:",
+      "options": [
+        "Form → webhook → enrichment → dedup → CRM + activity log",
+        "CSV export → email → manual import",
+        "Slack message → nothing",
+        "Random spreadsheet → nothing"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b1fd58f79f136a28b8a56",
+      "difficulty": "MEDIUM",
+      "question": "Typical required fields:",
+      "options": [
+        "Source, owner, next step",
+        "Emoji, photo, mood",
+        "Only name",
+        "Only phone number"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b1fd58f79f136a28b8a57",
+      "difficulty": "MEDIUM",
+      "question": "Purpose of enrichment:",
+      "options": [
+        "Decoration",
+        "Improve data quality (industry, size, domain)",
+        "Entertainment",
+        "Raise price"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    }
+  ]
+}

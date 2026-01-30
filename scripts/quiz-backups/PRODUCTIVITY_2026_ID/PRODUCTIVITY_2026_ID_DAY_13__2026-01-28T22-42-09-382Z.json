@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-28T22:42:12.488Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_ID",
+    "name": "Produktivitas 2026: Cara Mengelola Tim dan Waktu",
+    "language": "id"
+  },
+  "lesson": {
+    "dayNumber": 13,
+    "title": "Kerangka Pengambilan Keputusan: Keputusan Cepat, Matriks Keputusan, Menghindari Kelumpuhan Analisis",
+    "lessonId": "PRODUCTIVITY_2026_ID_DAY_13"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a2bdf6e5ec2a4427e3b",
+      "uuid": "7f90d9dc-50b2-4f28-a894-70beea29f583",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ Saya memahami kelumpuhan analisis dan ...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day13",
+        "#id",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a2bdf6e5ec2a4427e3c",
+      "uuid": "888363c1-1b1f-4990-9075-53df498d2361",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ Saya tahu cara mengintegrasikan faktor...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day13",
+        "#id",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a2bdf6e5ec2a4427e3d",
+      "uuid": "ea742ac4-2675-4780-b3bd-1ad1a7ba8a21",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ Saya memahami kelumpuhan analisis dan ...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day13",
+        "#id",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a2bdf6e5ec2a4427e3e",
+      "uuid": "70da824b-f86e-4cd6-a5b8-3a2a790e152c",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Bagaimana konsep \"Kerangka Pengambilan Keputusan: Keputusan Cepat, M...\" yang disebutkan dalam pelajaran mempengaruhi pencapaian goals Anda?",
+      "options": [
+        "Seperti yang dijelaskan secara detail dalam pelajaran, Kerangka Pengambilan Keputusan... meningkatkan efektivitas dan mengurangi risiko",
+        "Tidak ada dampak signifikan",
+        "Hanya penting secara teoritis",
+        "Hanya elemen opsional"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day13",
+        "#id",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a2bdf6e5ec2a4427e3f",
+      "uuid": "ca672481-3998-494e-a12e-7dc592c2e64e",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Apa peran Waktu Lebih Mahal Dari Kesempurnaan dalam pelajaran \"Kerangka Pengambilan Keputusan: Keputusan Cepat, Matriks Keputusan, Menghindari Kelumpuhan Analisis\"?",
+      "options": [
+        "Seperti yang dijelaskan secara detail dalam pelajaran, Waktu Lebih Mahal Dari Kesempurnaan memainkan peran penting dalam mengoptimalkan proses dan mencapai tujuan",
+        "Hanya informasi periferal tanpa peran signifikan",
+        "Hanya konsep teoretis tanpa aplikasi praktis",
+        "Tidak disebutkan dalam pelajaran"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day13",
+        "#id",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a2bdf6e5ec2a4427e40",
+      "uuid": "3eeb2d06-cbb0-40fd-bc50-12fad4e1161d",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Apa peran Kelelahan Keputusan dalam pelajaran \"Kerangka Pengambilan Keputusan: Keputusan Cepat, Matriks Keputusan, Menghindari Kelumpuhan Analisis\"?",
+      "options": [
+        "Seperti yang dijelaskan secara detail dalam pelajaran, Kelelahan Keputusan memainkan peran penting dalam mengoptimalkan proses dan mencapai tujuan",
+        "Hanya informasi periferal tanpa peran signifikan",
+        "Hanya konsep teoretis tanpa aplikasi praktis",
+        "Tidak disebutkan dalam pelajaran"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day13",
+        "#id",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a2bdf6e5ec2a4427e41",
+      "uuid": "2c5d89a2-35ae-4e54-89fd-c09bb713e207",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Seberapa penting Langkah 1 dalam konteks Kerangka Pengambilan Keputusan: Keputusan Cepat, Matriks Keputusan, Menghindari Kelumpuhan Analisis seperti yang dibahas dalam pelajaran?",
+      "options": [
+        "Seperti yang dijelaskan secara detail dalam pelajaran, Langkah 1 memainkan peran penting dalam mengoptimalkan proses dan mencapai tujuan",
+        "Hanya informasi periferal tanpa peran signifikan",
+        "Hanya konsep teoretis tanpa aplikasi praktis",
+        "Tidak disebutkan dalam pelajaran"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day13",
+        "#id",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

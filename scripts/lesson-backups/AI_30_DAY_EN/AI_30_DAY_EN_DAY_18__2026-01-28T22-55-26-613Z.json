@@ -1,0 +1,10 @@
+{
+  "backedUpAt": "2026-01-28T22:55:28.721Z",
+  "courseId": "AI_30_DAY_EN",
+  "lessonId": "AI_30_DAY_EN_DAY_18",
+  "dayNumber": 18,
+  "title": "Data summarization: tables and simple calcs",
+  "content": "<h1>Data summarization: tables and simple calcs</h1>\n<p><em>Turn structured data into insights safely</em></p>\n<hr />\n<h2>Learning goal</h2>\n<ul>\n<li>Summarize a small dataset into a table with totals/percentages.</li>\n<li>Add a short insight paragraph with caveats.</li>\n</ul>\n<hr />\n<h2>Why it matters</h2>\n<ul>\n<li>Structured summaries beat raw dumps.</li>\n<li>Caveats prevent over-trust in derived numbers.</li>\n</ul>\n<hr />\n<h2>Explanation</h2>\n<ul>\n<li>Provide data inline (small) or describe columns.</li>\n<li>Ask for: table with totals/percentages, 3 insights, 2 caveats.</li>\n<li>Forbid invented data.</li>\n</ul>\n<hr />\n<h2>Examples</h2>\n<ul>\n<li><strong>Prompt</strong>: “Here is data (rows). Create a table with totals/% per category. Then 3 insights + 2 caveats. Do not invent missing values.”</li>\n<li><strong>Weak</strong>: “Analyze this.”</li>\n<hr />\n<h2>Guided exercise (10–15 min)</h2>\n<ol>\n<li>Paste a small CSV-like snippet or describe 2–3 columns.</li>\n<li>Request table + insights + caveats.</li>\n</ol>\n<h2>Independent exercise (5–10 min)</h2>\n<p>Add a formatting constraint (markdown table) and rerun; check math.</p>\n<hr />\n<h2>Self-check</h2>\n<ul>\n<li>Table present with totals/%.</li>\n<li>3 insights stated.</li>\n<li>2 caveats stated; no invented data.</li>\n</ul>\n<hr />\n<h2>Optional deepening</h2>\n<ul>\n<li>Data prompt tips: <a href=\"https://platform.openai.com/docs/guides/prompt-engineering\" target=\"_blank\" rel=\"noreferrer\">prompt guide</a></li>\n</ul>",
+  "emailSubject": "AI 30-Day – Day 18: Data summarization",
+  "emailBody": "<h1>AI 30-Day – Day 18</h1>\n<h2>Data summarization</h2>\n<p>Today you’ll create a table with totals/% and write insights + caveats.</p>\n<p><a href=\"http://localhost:3000/courses/AI_30_DAY_EN/day/{{dayNumber}}\">Open the lesson →</a></p>"
+}

@@ -1,0 +1,104 @@
+{
+  "backedUpAt": "2026-01-29T17:06:36.282Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_EN",
+    "name": "Productivity 2026: How to Manage Teams and Time",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 13,
+    "title": "Decision-Making Frameworks: Rapid Decisions, Decision Matrix, Avoiding Analysis Paralysis",
+    "lessonId": "PRODUCTIVITY_2026_EN_DAY_13"
+  },
+  "questionCount": 4,
+  "questions": [
+    {
+      "_id": "69787d9ba326286129da9004",
+      "uuid": "2ff8ab81-6d41-4d15-9128-f8c720918680",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "In decision-making frameworks, which situation is best handled with a decision matrix (not endless research)?",
+      "options": [
+        "A medium-to-high impact choice with multiple criteria (cost, quality, time) where comparing options objectively reduces procrastination.",
+        "A trivial reversible choice where you can decide immediately and fix later if needed.",
+        "A choice where you already know the answer and only need to act, not compare options.",
+        "A choice with only one viable option where scoring adds no new information."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day13",
+        "#en",
+        "#course-productivity_2026_en",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "69787d9ba326286129da9005",
+      "uuid": "00ce3f10-5692-4b2a-9862-9debfb12a21d",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "You delay a decision for weeks because you want perfect information. What course-aligned rule breaks analysis paralysis?",
+      "options": [
+        "Set an information boundary (time limit or minimum data), make the 80% decision, then iterate after implementation.",
+        "Keep researching until uncertainty is zero, because reversing decisions later is always more expensive.",
+        "Ask more people for opinions until everyone agrees; consensus is the same as correctness.",
+        "Avoid deciding by starting a new project; action can replace decision-making entirely."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day13",
+        "#en",
+        "#course-productivity_2026_en",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "69787d9ba326286129da9008",
+      "uuid": "17fdb61b-052a-4c52-955d-f6207bd027c0",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "What is a likely failure mode if a team applies the 80% rule to high-risk irreversible decisions without safeguards?",
+      "options": [
+        "They may move fast but create costly rework; the rule must be paired with decision categories and risk checks for large decisions.",
+        "They will automatically make perfect decisions because speed guarantees accuracy under uncertainty.",
+        "They will eliminate decision fatigue entirely, so risk management becomes unnecessary.",
+        "They will never need stakeholder input again because iteration replaces alignment on outcomes."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day13",
+        "#en",
+        "#course-productivity_2026_en",
+        "#productivity",
+        "#advanced",
+        "#critical-thinking"
+      ]
+    },
+    {
+      "_id": "69787d9ba326286129da900a",
+      "uuid": "6431abf9-1b93-4b24-abbf-c9540c07163c",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "You’re stuck choosing between two “good” options. What course-aligned question best forces clarity before you decide?",
+      "options": [
+        "Which outcome matters most, what constraint is binding, and what criterion will we use to judge the decision in one week?",
+        "Which option feels safest emotionally right now, even if it delays the outcome for another month?",
+        "Which option creates the most activity and meetings, because visibility is the main success signal?",
+        "Which option avoids any downside at all, because decisions should have zero risk to be acceptable?"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day13",
+        "#en",
+        "#course-productivity_2026_en",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    }
+  ]
+}

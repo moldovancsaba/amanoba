@@ -91,6 +91,17 @@ When the task involves **creating courses**, **refining lessons**, **generating 
 
 Rule: If any other document conflicts with the SSOT set above, **update the other document** or clearly mark it as historical, so the system stays contradiction-free.
 
+### Multi-language Course Authoring Rule (A: EN-first, then localize)
+
+Default strategy for multi-language course families:
+- Author and complete the **EN course first** (CCS idea/outline + Day 1–30 lessons).
+- Then localize each target language course from the EN baseline.
+
+Hard requirements:
+- Localizations must be **fully in-language** (no English leakage) and must pass Language Integrity gates for lesson content + email fields.
+- Do not overwrite existing in-language lessons unless explicitly requested; by default only create **missing** day lessons.
+- Always backup before writing and record rollback commands.
+
 🛡️ STACK & DEPENDENCY DISCIPLINE
 
 We maintain a strict, minimal tech stack with no deviations allowed.

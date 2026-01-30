@@ -1,0 +1,68 @@
+{
+  "backedUpAt": "2026-01-29T16:59:32.272Z",
+  "course": {
+    "courseId": "B2B_SALES_2026_30_EN",
+    "name": "B2B Sales 2026 Masterclass",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 9,
+    "title": "Enrichment and Data QA",
+    "lessonId": "B2B_SALES_2026_30_EN_DAY_9"
+  },
+  "questionCount": 4,
+  "questions": [
+    {
+      "_id": "697b1fd08f79f136a28b89ca",
+      "difficulty": "MEDIUM",
+      "question": "Why is a minimum field list critical?",
+      "options": [
+        "Decoration",
+        "It underpins personalization and relevance; without it outreach is noisy",
+        "Legal requirement",
+        "Fewer emails needed"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b1fd08f79f136a28b89cb",
+      "difficulty": "MEDIUM",
+      "question": "What belongs in the QA checklist?",
+      "options": [
+        "Only the pitch deck",
+        "Duplicates, bad domain, missing role/trigger",
+        "Only web traffic",
+        "Only marketing campaigns"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b1fd08f79f136a28b89cc",
+      "difficulty": "MEDIUM",
+      "question": "Which is the bad example?",
+      "options": [
+        "Account + lead fields filled, trigger noted",
+        "Only email, no role, no trigger, duplicate contact",
+        "Trigger noted",
+        "Seniority field captured"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b1fd08f79f136a28b89cd",
+      "difficulty": "MEDIUM",
+      "question": "Example exclusion rule?",
+      "options": [
+        "If no role or trigger, do not send",
+        "If too much data",
+        "If a LinkedIn profile exists",
+        "If ICP fit exists"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    }
+  ]
+}

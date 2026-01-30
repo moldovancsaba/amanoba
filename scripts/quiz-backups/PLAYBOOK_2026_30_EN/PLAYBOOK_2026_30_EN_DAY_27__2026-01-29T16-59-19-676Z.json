@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-29T16:59:43.830Z",
+  "course": {
+    "courseId": "PLAYBOOK_2026_30_EN",
+    "name": "The Playbook 2026 – Masterclass for Designers",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 27,
+    "title": "Mapping the Current Visual Chaos",
+    "lessonId": "PLAYBOOK_2026_30_EN_DAY_27"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "697a7f9159c0b6661ee34aed",
+      "uuid": "f7e6eaab-f0e7-47a2-82df-e16f55cab28d",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you apply the \"Bad:\" concept to a \"Mapping the Current Visual Chaos\" task so the outcome is measurable and verifiable?",
+      "options": [
+        "I create a checklist, apply it to a small scope first, measure the impact, then roll it out to the full scope",
+        "I keep it as a definition and never validate it in practice",
+        "I skip implementation because it seems time-consuming",
+        "I implement it but do not measure or document anything"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day27",
+        "#en",
+        "#all-languages",
+        "#course-playbook_2026_30_en",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "697a7f9159c0b6661ee34aee",
+      "uuid": "0622ddb0-8b9f-4c33-88cf-017ad8660cc3",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you apply the \"Good:\" concept to a \"Mapping the Current Visual Chaos\" task so the outcome is measurable and verifiable?",
+      "options": [
+        "I create a checklist, apply it to a small scope first, measure the impact, then roll it out to the full scope",
+        "I keep it as a definition and never validate it in practice",
+        "I skip implementation because it seems time-consuming",
+        "I implement it but do not measure or document anything"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day27",
+        "#en",
+        "#all-languages",
+        "#course-playbook_2026_30_en",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "697a7f9159c0b6661ee34aef",
+      "uuid": "db291cd7-20fd-4e01-9cf2-f9d381697b98",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you apply the \"Mapping\" concept to a \"Mapping the Current Visual Chaos\" task so the outcome is measurable and verifiable?",
+      "options": [
+        "I create a checklist, apply it to a small scope first, measure the impact, then roll it out to the full scope",
+        "I keep it as a definition and never validate it in practice",
+        "I skip implementation because it seems time-consuming",
+        "I implement it but do not measure or document anything"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day27",
+        "#en",
+        "#all-languages",
+        "#course-playbook_2026_30_en",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "697a7f9159c0b6661ee34af0",
+      "uuid": "753aeca3-32e8-4c65-9ace-3072f84b71bd",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you apply the \"Current\" concept to a \"Mapping the Current Visual Chaos\" task so the outcome is measurable and verifiable?",
+      "options": [
+        "I create a checklist, apply it to a small scope first, measure the impact, then roll it out to the full scope",
+        "I keep it as a definition and never validate it in practice",
+        "I skip implementation because it seems time-consuming",
+        "I implement it but do not measure or document anything"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day27",
+        "#en",
+        "#all-languages",
+        "#course-playbook_2026_30_en",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "697a7f9159c0b6661ee34af1",
+      "uuid": "6eefd22b-fa0d-4c09-addb-01fbda1dc54a",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you apply the \"Visual\" concept to a \"Mapping the Current Visual Chaos\" task so the outcome is measurable and verifiable?",
+      "options": [
+        "I create a checklist, apply it to a small scope first, measure the impact, then roll it out to the full scope",
+        "I keep it as a definition and never validate it in practice",
+        "I skip implementation because it seems time-consuming",
+        "I implement it but do not measure or document anything"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day27",
+        "#en",
+        "#all-languages",
+        "#course-playbook_2026_30_en",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "697a7f9159c0b6661ee34af2",
+      "uuid": "17838552-8032-4c22-9d11-41e4227d9425",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you apply the \"Chaos\" concept to a \"Mapping the Current Visual Chaos\" task so the outcome is measurable and verifiable?",
+      "options": [
+        "I create a checklist, apply it to a small scope first, measure the impact, then roll it out to the full scope",
+        "I keep it as a definition and never validate it in practice",
+        "I skip implementation because it seems time-consuming",
+        "I implement it but do not measure or document anything"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day27",
+        "#en",
+        "#all-languages",
+        "#course-playbook_2026_30_en",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "697a7f9159c0b6661ee34af3",
+      "uuid": "e01b3764-17d4-4746-8554-3b5726f08d36",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you apply the \"Learning Goal\" concept to a \"Mapping the Current Visual Chaos\" task so the outcome is measurable and verifiable?",
+      "options": [
+        "I create a checklist, apply it to a small scope first, measure the impact, then roll it out to the full scope",
+        "I keep it as a definition and never validate it in practice",
+        "I skip implementation because it seems time-consuming",
+        "I implement it but do not measure or document anything"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day27",
+        "#en",
+        "#all-languages",
+        "#course-playbook_2026_30_en",
+        "#intermediate",
+        "#application"
+      ]
+    }
+  ]
+}

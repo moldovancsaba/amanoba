@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-28T21:28:24.918Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_AR",
+    "name": "الإنتاجية 2026: كيفية إدارة الفرق والوقت",
+    "language": "ar"
+  },
+  "lesson": {
+    "dayNumber": 24,
+    "title": "التصفية والأولويات: ما يجب تجاهله وما يهم",
+    "lessonId": "PRODUCTIVITY_2026_AR_DAY_24"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a623ed20b35fb797346",
+      "uuid": "3b054d5e-cc50-474b-9908-9765f46a5d1f",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"تعلم قول \"لا\" والتركيز على ما يهم.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day24",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a623ed20b35fb797347",
+      "uuid": "d5e2f131-ee17-4151-8075-f9ef0f71ca70",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"تعلم قول \"لا\" والتركيز على ما يهم.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day24",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a623ed20b35fb797348",
+      "uuid": "9f641776-3f04-4298-86f4-0ae6e15d21f0",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"تعلم قول \"لا\" والتركيز على ما يهم.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day24",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a623ed20b35fb797349",
+      "uuid": "45d9795d-204c-434d-afa0-25a1f188fb79",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "How does the concept \"التصفية والأولويات: ما يجب تجاهله وما يهم تعلم قول...\" mentioned in the lesson impact achieving your goals?",
+      "options": [
+        "As described in detail in the lesson, التصفية والأولويات: ما يجب تجا... increases effectiveness and reduces risk",
+        "No significant impact",
+        "Only matters theoretically",
+        "Only an optional element"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day24",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a623ed20b35fb79734a",
+      "uuid": "a7483dca-0c7a-4d4c-bba9-583facc51885",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is التصفية in the context of التصفية والأولويات: ما يجب تجاهله وما يهم as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, التصفية plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day24",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a623ed20b35fb79734b",
+      "uuid": "0242b8b0-1b97-4243-9687-876f9ba585d8",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is تجاهله in the context of التصفية والأولويات: ما يجب تجاهله وما يهم as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, تجاهله plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day24",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a623ed20b35fb79734c",
+      "uuid": "9206f08e-270c-4585-a9c9-dd5570a67a6b",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "What does the \"Tanulási Cél\" section contain in the lesson?",
+      "options": [
+        "Specific information, methods, and examples related to tanulási cél as described in detail in the lesson",
+        "Only general information",
+        "Only theoretical knowledge",
+        "No specific content"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day24",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-28T21:29:02.324Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_AR",
+    "name": "الإنتاجية 2026: كيفية إدارة الفرق والوقت",
+    "language": "ar"
+  },
+  "lesson": {
+    "dayNumber": 30,
+    "title": "سيد الإنتاجية: التكامل الشامل والالتزام",
+    "lessonId": "PRODUCTIVITY_2026_AR_DAY_30"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a633ed20b35fb797382",
+      "uuid": "8acf9f2a-c0fb-419f-9731-e02048e65caf",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"التركيب والتأمل والنظر إلى الأمام.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day30",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a633ed20b35fb797383",
+      "uuid": "35f2c9f4-2928-4c6f-8b8b-f9936a521606",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"التركيب والتأمل والنظر إلى الأمام.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day30",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a633ed20b35fb797384",
+      "uuid": "4acbc8a9-d9fd-45cd-93e1-8e7ccf999c8b",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"التركيب والتأمل والنظر إلى الأمام.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day30",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a633ed20b35fb797385",
+      "uuid": "9dbbf9a1-7a8e-47dc-8c20-80e9e2ac38b4",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "How does the concept \"سيد الإنتاجية: التكامل الشامل والالتزام التركيب وا...\" mentioned in the lesson impact achieving your goals?",
+      "options": [
+        "As described in detail in the lesson, سيد الإنتاجية: التكامل الشامل ... increases effectiveness and reduces risk",
+        "No significant impact",
+        "Only matters theoretically",
+        "Only an optional element"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day30",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a633ed20b35fb797386",
+      "uuid": "8503de27-14f7-45d5-9354-af1fca76ed87",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is الإنتاجية in the context of سيد الإنتاجية: التكامل الشامل والالتزام as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, الإنتاجية plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day30",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a633ed20b35fb797387",
+      "uuid": "cfbf36a2-c3c4-46b0-8631-068e80df94f4",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is الشامل in the context of سيد الإنتاجية: التكامل الشامل والالتزام as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, الشامل plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day30",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a633ed20b35fb797388",
+      "uuid": "c46e12ac-74f5-465d-940c-4a875fa0e043",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "In the \"سيد الإنتاجية: التكامل الشامل والالتزام\" lesson, what role does التركيب والتأمل والنظر إلى الأمام. play?",
+      "options": [
+        "As described in detail in the lesson, التركيب والتأمل والنظر إلى الأمام. plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day30",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

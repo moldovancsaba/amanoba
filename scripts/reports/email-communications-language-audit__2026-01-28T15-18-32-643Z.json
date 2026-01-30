@@ -1,0 +1,169 @@
+{
+  "generatedAt": "2026-01-28T15:18:32.654Z",
+  "scope": "code-level email communications",
+  "totals": {
+    "locales": 11,
+    "unsubscribeFooterFailingLocales": 0,
+    "transactionalTemplatesFailingLocales": 0
+  },
+  "unsubscribeFooter": [
+    {
+      "locale": "hu",
+      "ok": true,
+      "errors": [],
+      "findings": []
+    },
+    {
+      "locale": "en",
+      "ok": true,
+      "errors": [],
+      "findings": []
+    },
+    {
+      "locale": "ar",
+      "ok": true,
+      "errors": [],
+      "findings": []
+    },
+    {
+      "locale": "hi",
+      "ok": true,
+      "errors": [],
+      "findings": []
+    },
+    {
+      "locale": "id",
+      "ok": true,
+      "errors": [],
+      "findings": []
+    },
+    {
+      "locale": "pt",
+      "ok": true,
+      "errors": [],
+      "findings": []
+    },
+    {
+      "locale": "vi",
+      "ok": true,
+      "errors": [],
+      "findings": []
+    },
+    {
+      "locale": "tr",
+      "ok": true,
+      "errors": [],
+      "findings": []
+    },
+    {
+      "locale": "bg",
+      "ok": true,
+      "errors": [],
+      "findings": []
+    },
+    {
+      "locale": "pl",
+      "ok": true,
+      "errors": [],
+      "findings": []
+    },
+    {
+      "locale": "ru",
+      "ok": true,
+      "errors": [],
+      "findings": []
+    }
+  ],
+  "transactionalTemplates": [
+    {
+      "locale": "hu",
+      "ok": true,
+      "failures": []
+    },
+    {
+      "locale": "en",
+      "ok": true,
+      "failures": []
+    },
+    {
+      "locale": "ar",
+      "ok": true,
+      "failures": []
+    },
+    {
+      "locale": "hi",
+      "ok": true,
+      "failures": []
+    },
+    {
+      "locale": "id",
+      "ok": true,
+      "failures": []
+    },
+    {
+      "locale": "pt",
+      "ok": true,
+      "failures": []
+    },
+    {
+      "locale": "vi",
+      "ok": true,
+      "failures": []
+    },
+    {
+      "locale": "tr",
+      "ok": true,
+      "failures": []
+    },
+    {
+      "locale": "bg",
+      "ok": true,
+      "failures": []
+    },
+    {
+      "locale": "pl",
+      "ok": true,
+      "failures": []
+    },
+    {
+      "locale": "ru",
+      "ok": true,
+      "failures": []
+    }
+  ],
+  "communicationFlows": {
+    "dailyLessonEmail": {
+      "auditedHere": true,
+      "risk": "high",
+      "note": "Daily lesson emails append an unsubscribe footer at send-time. This audit verifies the footer is localized for all supported locales."
+    },
+    "welcomeEmail": {
+      "auditedHere": true,
+      "risk": "high",
+      "note": "Welcome email templates are rendered per locale and validated for language integrity."
+    },
+    "completionEmail": {
+      "auditedHere": true,
+      "risk": "high",
+      "note": "Completion email templates are rendered per locale and validated for language integrity."
+    },
+    "reminderEmail": {
+      "auditedHere": true,
+      "risk": "high",
+      "note": "Reminder email templates are rendered per locale and validated for language integrity."
+    },
+    "paymentConfirmationEmail": {
+      "auditedHere": true,
+      "risk": "medium",
+      "note": "Payment confirmation templates are rendered per locale and validated for language integrity (excluding the send-time unsubscribe footer)."
+    }
+  },
+  "actionItems": [
+    {
+      "id": "EMAIL_TEMPLATES_LANGUAGE_INTEGRITY",
+      "severity": "P2",
+      "title": "Ensure all transactional email templates pass language integrity for all supported locales",
+      "details": "All transactional email templates passed language integrity validation for all supported locales."
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "backedUpAt": "2026-01-28T22:37:35.481Z",
+  "courseId": "DONE_BETTER_2026_EN",
+  "lessonId": "DONE_BETTER_2026_EN_DAY_07",
+  "dayNumber": 7,
+  "title": "Find the Leverage Point",
+  "content": "<h1>Find the Leverage Point</h1>\n<p><em>Not every piece matters equally. Learn to spot the hinge.</em></p>\n<hr />\n<h2>Learning goal</h2>\n<ul>\n<li>Identify where a small change would have large effect.</li>\n<li>Prioritize moves that address the leverage point.</li>\n<li>Avoid spreading effort evenly everywhere.</li>\n</ul>\n<hr />\n<h2>Why it matters</h2>\n<ul>\n<li>Equal effort everywhere is inefficient.</li>\n<li>Leverage multiplies impact.</li>\n<li>Spotting the hinge is a skill.</li>\n</ul>\n<hr />\n<h2>Key idea</h2>\n<p>A leverage point is a part of the system where a small change produces a large effect. Not every piece matters equally; learn to spot the hinge.</p>\n<hr />\n<h2>Common mistakes</h2>\n<ul>\n<li>Treating all parts as equally important.</li>\n<li>Working on what is easy instead of what matters most.</li>\n<li>Confusing activity at the leverage point with busywork elsewhere.</li>\n</ul>\n<hr />\n<h2>Today's move</h2>\n<p>For your decomposed problem, name the single highest-leverage component. Commit one concrete move on that component this week.</p>\n<hr />\n<h2>Self-check</h2>\n<ul>\n<li>You can explain the key idea in one sentence.</li>\n<li>You have one concrete move to do today.</li>\n</ul>",
+  "emailSubject": "Done is better – Day {{dayNumber}}: {{lessonTitle}}",
+  "emailBody": "<h1>Done is better - Build What Matters</h1><h2>Day {{dayNumber}}: {{lessonTitle}}</h2><p>{{lessonContent}}</p><p><a href=\"http://localhost:3000/courses/DONE_BETTER_2026_EN/day/{{dayNumber}}\">Open the lesson →</a></p>"
+}

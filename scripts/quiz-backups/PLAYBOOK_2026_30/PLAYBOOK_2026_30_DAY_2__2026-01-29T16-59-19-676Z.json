@@ -1,0 +1,68 @@
+{
+  "backedUpAt": "2026-01-29T17:00:13.970Z",
+  "course": {
+    "courseId": "PLAYBOOK_2026_30",
+    "name": "The Playbook 2026 – Mesterkurzus Designereknek",
+    "language": "hu"
+  },
+  "lesson": {
+    "dayNumber": 2,
+    "title": "Ízlésből rendszerbe: hogyan skálázod a döntést",
+    "lessonId": "PLAYBOOK_2026_30_DAY_2"
+  },
+  "questionCount": 4,
+  "questions": [
+    {
+      "_id": "697b2031d8669994531f7415",
+      "difficulty": "MEDIUM",
+      "question": "Mi a Rule → Pattern → Doc lánc lényege?",
+      "options": [
+        "Vélemény → minta → semmi",
+        "Szabály → vizuális példa → dokumentáció helye",
+        "Csak képek gyűjtése",
+        "Marketing szlogenek"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b2031d8669994531f7416",
+      "difficulty": "MEDIUM",
+      "question": "Miért kell dokumentálni a szabályt?",
+      "options": [
+        "Hogy szebb legyen",
+        "Hogy átadható, ismételhető, mérhető legyen",
+        "Hogy titok maradjon",
+        "Hogy hosszabb legyen a projekt"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b2031d8669994531f7417",
+      "difficulty": "MEDIUM",
+      "question": "Mi tartozik a Playbook vázába?",
+      "options": [
+        "Csak logók",
+        "Intent, szemantika, layout, komponensek/tokenek, governance",
+        "Csak árlista",
+        "Csak moodboard"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b2031d8669994531f7418",
+      "difficulty": "MEDIUM",
+      "question": "Mi a rossz példa?",
+      "options": [
+        "„Ha jól néz ki, oké.”",
+        "„Primary CTA: szabály + minta + Doc link.”",
+        "„CTA sárga, 12x16 padding, linkelve a Figma komponenshez.”",
+        "„A CTA nem használható más célra.”"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    }
+  ]
+}

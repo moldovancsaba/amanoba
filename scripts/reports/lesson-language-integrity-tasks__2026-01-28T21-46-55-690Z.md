@@ -1,0 +1,14 @@
+# Lesson Language Integrity Tasks
+
+Generated: 2026-01-28T21:46:55.693Z
+Course filter: GEO_SHOPIFY_30
+
+- [ ] **GEO_SHOPIFY_30** Day 17 — Strukturált adatok ellenőrzése (schema) (lessonId: `GEO_SHOPIFY_30_DAY_17`)
+  - Language: **hu**
+  - Error: Language integrity failed for lesson.content: detected injected English sentence(s) in HU.
+  - Example: review – valós review-k (ha vannak)
+
+- [ ] **GEO_SHOPIFY_30** Day 18 — Árak, ajánlatok, review-k biztonságosan (lessonId: `GEO_SHOPIFY_30_DAY_18`)
+  - Language: **hu**
+  - Error: Language integrity failed for lesson.content: detected injected English sentence(s) in HU.
+  - Example: Review blokk átnézése:

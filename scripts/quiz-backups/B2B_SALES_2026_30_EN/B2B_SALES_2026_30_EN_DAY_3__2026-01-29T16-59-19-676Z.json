@@ -1,0 +1,68 @@
+{
+  "backedUpAt": "2026-01-29T16:59:27.101Z",
+  "course": {
+    "courseId": "B2B_SALES_2026_30_EN",
+    "name": "B2B Sales 2026 Masterclass",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 3,
+    "title": "ICP 2026: Problem-First, Not Industry-First",
+    "lessonId": "B2B_SALES_2026_30_EN_DAY_3"
+  },
+  "questionCount": 4,
+  "questions": [
+    {
+      "_id": "697b1fcf8f79f136a28b896f",
+      "difficulty": "MEDIUM",
+      "question": "Why is an industry-first ICP risky on its own?",
+      "options": [
+        "It is too long",
+        "It is not tied to a concrete problem, so outreach focus is poor",
+        "It is too expensive",
+        "It has no marketing"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b1fcf8f79f136a28b8970",
+      "difficulty": "MEDIUM",
+      "question": "Which item is NOT part of a problem-first ICP?",
+      "options": [
+        "Pain/problem",
+        "Trigger",
+        "Maturity",
+        "Number of LinkedIn posts"
+      ],
+      "correctIndex": 3,
+      "hashtags": []
+    },
+    {
+      "_id": "697b1fcf8f79f136a28b8971",
+      "difficulty": "MEDIUM",
+      "question": "Which is a bad-fit signal?",
+      "options": [
+        "There is a pain owner",
+        "No decision maker or budget",
+        "There is a GTM team",
+        "There is a trigger event"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b1fcf8f79f136a28b8972",
+      "difficulty": "MEDIUM",
+      "question": "What is the key deliverable for today?",
+      "options": [
+        "An industry list",
+        "A problem-first ICP definition and 5 test questions",
+        "A pitch deck",
+        "A marketing campaign plan"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    }
+  ]
+}

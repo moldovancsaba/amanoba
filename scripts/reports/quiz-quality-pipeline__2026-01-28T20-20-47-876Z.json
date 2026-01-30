@@ -1,0 +1,1498 @@
+{
+  "generatedAt": "2026-01-28T20:20:47.876Z",
+  "dryRun": false,
+  "minLessonScore": 70,
+  "courseFilter": "SALES_PRODUCTIVITY_30_EN",
+  "totals": {
+    "courses": 1,
+    "lessonsEvaluated": 30,
+    "lessonsNeedingRefine": 13,
+    "lessonsRewritten": 7,
+    "lessonsFailedRewrite": 0,
+    "questionsDeleted": 0,
+    "questionsInserted": 49
+  },
+  "lessons": [
+    {
+      "courseId": "SALES_PRODUCTIVITY_30_EN",
+      "courseName": "Build Your Sales – 30 Days to More Deals",
+      "language": "en",
+      "dayNumber": 1,
+      "lessonId": "SALES_PRODUCTIVITY_30_EN_DAY_01",
+      "title": "Sales Funnel Fundamentals – Why Numbers Matter",
+      "lessonCreatedAt": "2026-01-22T13:11:10.133Z",
+      "lessonQuality": {
+        "score": 100,
+        "issues": [],
+        "signals": {
+          "charCount": 3904,
+          "wordCount": 620,
+          "hasBullets": true,
+          "hasNumberedSteps": true,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "PASS",
+      "rewrite": {
+        "existingCounts": {
+          "total": 7,
+          "valid": 7,
+          "invalid": 0,
+          "application": 7,
+          "critical": 0,
+          "recall": 0,
+          "duplicates": 0
+        },
+        "cleanedInvalid": false,
+        "cleanedDuplicates": false,
+        "backupPath": null
+      }
+    },
+    {
+      "courseId": "SALES_PRODUCTIVITY_30_EN",
+      "courseName": "Build Your Sales – 30 Days to More Deals",
+      "language": "en",
+      "dayNumber": 2,
+      "lessonId": "SALES_PRODUCTIVITY_30_EN_DAY_02",
+      "title": "Setting KPIs and Targets – How to Work Backwards",
+      "lessonCreatedAt": "2026-01-22T13:19:45.030Z",
+      "lessonQuality": {
+        "score": 85,
+        "issues": [
+          "NO_CLEAR_DEFINITIONS"
+        ],
+        "signals": {
+          "charCount": 3355,
+          "wordCount": 555,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "PASS",
+      "rewrite": {
+        "existingCounts": {
+          "total": 7,
+          "valid": 7,
+          "invalid": 0,
+          "application": 7,
+          "critical": 0,
+          "recall": 0,
+          "duplicates": 0
+        },
+        "cleanedInvalid": false,
+        "cleanedDuplicates": false,
+        "backupPath": null
+      }
+    },
+    {
+      "courseId": "SALES_PRODUCTIVITY_30_EN",
+      "courseName": "Build Your Sales – 30 Days to More Deals",
+      "language": "en",
+      "dayNumber": 3,
+      "lessonId": "SALES_PRODUCTIVITY_30_EN_DAY_03",
+      "title": "Multi-Channel Lead Generation – Where Do You Find Customers?",
+      "lessonCreatedAt": "2026-01-22T13:35:32.260Z",
+      "lessonQuality": {
+        "score": 85,
+        "issues": [
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 2592,
+          "wordCount": 387,
+          "hasBullets": true,
+          "hasNumberedSteps": true,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": true
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "PASS",
+      "rewrite": {
+        "existingCounts": {
+          "total": 7,
+          "valid": 7,
+          "invalid": 0,
+          "application": 7,
+          "critical": 0,
+          "recall": 0,
+          "duplicates": 0
+        },
+        "cleanedInvalid": false,
+        "cleanedDuplicates": false,
+        "backupPath": null
+      }
+    },
+    {
+      "courseId": "SALES_PRODUCTIVITY_30_EN",
+      "courseName": "Build Your Sales – 30 Days to More Deals",
+      "language": "en",
+      "dayNumber": 4,
+      "lessonId": "SALES_PRODUCTIVITY_30_EN_DAY_04",
+      "title": "Conversion Rate Optimization – How to Improve Your Numbers",
+      "lessonCreatedAt": "2026-01-22T13:41:59.555Z",
+      "lessonQuality": {
+        "score": 75,
+        "issues": [
+          "NO_CONTRASTS_GOOD_BAD",
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 2710,
+          "wordCount": 415,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": true,
+          "hasGoodBadContrast": false,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": true,
+          "addPitfallsSection": true,
+          "addMetricsSection": true
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "PASS",
+      "rewrite": {
+        "existingCounts": {
+          "total": 7,
+          "valid": 7,
+          "invalid": 0,
+          "application": 7,
+          "critical": 0,
+          "recall": 0,
+          "duplicates": 0
+        },
+        "cleanedInvalid": false,
+        "cleanedDuplicates": false,
+        "backupPath": null
+      }
+    },
+    {
+      "courseId": "SALES_PRODUCTIVITY_30_EN",
+      "courseName": "Build Your Sales – 30 Days to More Deals",
+      "language": "en",
+      "dayNumber": 5,
+      "lessonId": "SALES_PRODUCTIVITY_30_EN_DAY_05",
+      "title": "Weekly/Monthly Forecasting – How to Predict the Future",
+      "lessonCreatedAt": "2026-01-22T13:44:13.633Z",
+      "lessonQuality": {
+        "score": 70,
+        "issues": [
+          "NO_CLEAR_DEFINITIONS",
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 2590,
+          "wordCount": 394,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": true
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "PASS",
+      "rewrite": {
+        "existingCounts": {
+          "total": 7,
+          "valid": 7,
+          "invalid": 0,
+          "application": 7,
+          "critical": 0,
+          "recall": 0,
+          "duplicates": 0
+        },
+        "cleanedInvalid": false,
+        "cleanedDuplicates": false,
+        "backupPath": null
+      }
+    },
+    {
+      "courseId": "SALES_PRODUCTIVITY_30_EN",
+      "courseName": "Build Your Sales – 30 Days to More Deals",
+      "language": "en",
+      "dayNumber": 6,
+      "lessonId": "SALES_PRODUCTIVITY_30_EN_DAY_06",
+      "title": "Qualification Framework (BANT, MEDDIC) – How to Qualify Leads?",
+      "lessonCreatedAt": "2026-01-22T13:46:48.313Z",
+      "lessonQuality": {
+        "score": 100,
+        "issues": [],
+        "signals": {
+          "charCount": 2731,
+          "wordCount": 412,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "PASS",
+      "rewrite": {
+        "existingCounts": {
+          "total": 7,
+          "valid": 7,
+          "invalid": 0,
+          "application": 7,
+          "critical": 0,
+          "recall": 0,
+          "duplicates": 0
+        },
+        "cleanedInvalid": false,
+        "cleanedDuplicates": false,
+        "backupPath": null
+      }
+    },
+    {
+      "courseId": "SALES_PRODUCTIVITY_30_EN",
+      "courseName": "Build Your Sales – 30 Days to More Deals",
+      "language": "en",
+      "dayNumber": 7,
+      "lessonId": "SALES_PRODUCTIVITY_30_EN_DAY_07",
+      "title": "Ideal Customer Profile (ICP) – Who Do You Work With?",
+      "lessonCreatedAt": "2026-01-22T13:49:20.458Z",
+      "lessonQuality": {
+        "score": 75,
+        "issues": [
+          "NO_CONTRASTS_GOOD_BAD",
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 2493,
+          "wordCount": 386,
+          "hasBullets": true,
+          "hasNumberedSteps": true,
+          "hasExamples": true,
+          "hasGoodBadContrast": false,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": true,
+          "addPitfallsSection": true,
+          "addMetricsSection": true
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "PASS",
+      "rewrite": {
+        "existingCounts": {
+          "total": 7,
+          "valid": 7,
+          "invalid": 0,
+          "application": 7,
+          "critical": 0,
+          "recall": 0,
+          "duplicates": 0
+        },
+        "cleanedInvalid": false,
+        "cleanedDuplicates": false,
+        "backupPath": null
+      }
+    },
+    {
+      "courseId": "SALES_PRODUCTIVITY_30_EN",
+      "courseName": "Build Your Sales – 30 Days to More Deals",
+      "language": "en",
+      "dayNumber": 8,
+      "lessonId": "SALES_PRODUCTIVITY_30_EN_DAY_08",
+      "title": "Qualification Questions & Scripts – What to Ask to Qualify?",
+      "lessonCreatedAt": "2026-01-22T13:51:48.437Z",
+      "lessonQuality": {
+        "score": 85,
+        "issues": [
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 2915,
+          "wordCount": 429,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": true
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "PASS",
+      "rewrite": {
+        "existingCounts": {
+          "total": 7,
+          "valid": 7,
+          "invalid": 0,
+          "application": 7,
+          "critical": 0,
+          "recall": 0,
+          "duplicates": 0
+        },
+        "cleanedInvalid": false,
+        "cleanedDuplicates": false,
+        "backupPath": null
+      }
+    },
+    {
+      "courseId": "SALES_PRODUCTIVITY_30_EN",
+      "courseName": "Build Your Sales – 30 Days to More Deals",
+      "language": "en",
+      "dayNumber": 9,
+      "lessonId": "SALES_PRODUCTIVITY_30_EN_DAY_09",
+      "title": "Lead Scoring & Prioritization – Which Lead Do You Handle First?",
+      "lessonCreatedAt": "2026-01-22T13:54:20.064Z",
+      "lessonQuality": {
+        "score": 60,
+        "issues": [
+          "NO_CLEAR_DEFINITIONS",
+          "NO_CONTRASTS_GOOD_BAD",
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 2291,
+          "wordCount": 371,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": true,
+          "hasGoodBadContrast": false,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": true,
+          "addPitfallsSection": true,
+          "addMetricsSection": true
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "REFINE_LESSON_FIRST",
+      "rewrite": null
+    },
+    {
+      "courseId": "SALES_PRODUCTIVITY_30_EN",
+      "courseName": "Build Your Sales – 30 Days to More Deals",
+      "language": "en",
+      "dayNumber": 10,
+      "lessonId": "SALES_PRODUCTIVITY_30_EN_DAY_10",
+      "title": "Qualification in Practice – How to Qualify in a Real Conversation?",
+      "lessonCreatedAt": "2026-01-22T13:56:52.125Z",
+      "lessonQuality": {
+        "score": 70,
+        "issues": [
+          "NO_CLEAR_DEFINITIONS",
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 3179,
+          "wordCount": 493,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": true
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "PASS",
+      "rewrite": {
+        "existingCounts": {
+          "total": 7,
+          "valid": 7,
+          "invalid": 0,
+          "application": 7,
+          "critical": 0,
+          "recall": 0,
+          "duplicates": 0
+        },
+        "cleanedInvalid": false,
+        "cleanedDuplicates": false,
+        "backupPath": null
+      }
+    },
+    {
+      "courseId": "SALES_PRODUCTIVITY_30_EN",
+      "courseName": "Build Your Sales – 30 Days to More Deals",
+      "language": "en",
+      "dayNumber": 11,
+      "lessonId": "SALES_PRODUCTIVITY_30_EN_DAY_11",
+      "title": "Pricing Psychology – How Does Price Affect Buying Decisions?",
+      "lessonCreatedAt": "2026-01-22T13:59:04.631Z",
+      "lessonQuality": {
+        "score": 85,
+        "issues": [
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 2531,
+          "wordCount": 383,
+          "hasBullets": true,
+          "hasNumberedSteps": true,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": true
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "PASS",
+      "rewrite": {
+        "existingCounts": {
+          "total": 7,
+          "valid": 7,
+          "invalid": 0,
+          "application": 7,
+          "critical": 0,
+          "recall": 0,
+          "duplicates": 0
+        },
+        "cleanedInvalid": false,
+        "cleanedDuplicates": false,
+        "backupPath": null
+      }
+    },
+    {
+      "courseId": "SALES_PRODUCTIVITY_30_EN",
+      "courseName": "Build Your Sales – 30 Days to More Deals",
+      "language": "en",
+      "dayNumber": 12,
+      "lessonId": "SALES_PRODUCTIVITY_30_EN_DAY_12",
+      "title": "Objection Handling – Turn “No” Into Data",
+      "lessonCreatedAt": "2026-01-28T19:29:30.335Z",
+      "lessonQuality": {
+        "score": 75,
+        "issues": [
+          "NO_CLEAR_DEFINITIONS",
+          "NO_CONTRASTS_GOOD_BAD"
+        ],
+        "signals": {
+          "charCount": 1686,
+          "wordCount": 266,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": true,
+          "hasGoodBadContrast": false,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": true,
+          "addPitfallsSection": true,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "ENRICHED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/SALES_PRODUCTIVITY_30_EN/SALES_PRODUCTIVITY_30_EN_DAY_12__2026-01-28T20-20-47-876Z.json",
+        "insertedCount": 7,
+        "deletedInvalidCount": 0,
+        "deletedDuplicateCount": 0,
+        "warnings": [
+          "CRITICAL_THINKING questions: 0 (recommended at least 2)."
+        ],
+        "existingCounts": {
+          "total": 0,
+          "valid": 0,
+          "invalid": 0,
+          "application": 0,
+          "critical": 0,
+          "recall": 0,
+          "duplicates": 0
+        }
+      }
+    },
+    {
+      "courseId": "SALES_PRODUCTIVITY_30_EN",
+      "courseName": "Build Your Sales – 30 Days to More Deals",
+      "language": "en",
+      "dayNumber": 13,
+      "lessonId": "SALES_PRODUCTIVITY_30_EN_DAY_13",
+      "title": "Discovery Calls – Diagnose Before You Prescribe",
+      "lessonCreatedAt": "2026-01-28T19:29:30.767Z",
+      "lessonQuality": {
+        "score": 75,
+        "issues": [
+          "NO_CLEAR_DEFINITIONS",
+          "NO_CONTRASTS_GOOD_BAD"
+        ],
+        "signals": {
+          "charCount": 1376,
+          "wordCount": 212,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": true,
+          "hasGoodBadContrast": false,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": true,
+          "addPitfallsSection": true,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "ENRICHED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/SALES_PRODUCTIVITY_30_EN/SALES_PRODUCTIVITY_30_EN_DAY_13__2026-01-28T20-20-47-876Z.json",
+        "insertedCount": 7,
+        "deletedInvalidCount": 0,
+        "deletedDuplicateCount": 0,
+        "warnings": [
+          "CRITICAL_THINKING questions: 0 (recommended at least 2)."
+        ],
+        "existingCounts": {
+          "total": 0,
+          "valid": 0,
+          "invalid": 0,
+          "application": 0,
+          "critical": 0,
+          "recall": 0,
+          "duplicates": 0
+        }
+      }
+    },
+    {
+      "courseId": "SALES_PRODUCTIVITY_30_EN",
+      "courseName": "Build Your Sales – 30 Days to More Deals",
+      "language": "en",
+      "dayNumber": 14,
+      "lessonId": "SALES_PRODUCTIVITY_30_EN_DAY_14",
+      "title": "Proposal Writing – Make the Next Step Easy",
+      "lessonCreatedAt": "2026-01-28T19:29:31.524Z",
+      "lessonQuality": {
+        "score": 90,
+        "issues": [
+          "NO_CONTRASTS_GOOD_BAD"
+        ],
+        "signals": {
+          "charCount": 1226,
+          "wordCount": 178,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": true,
+          "hasGoodBadContrast": false,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": true,
+          "addPitfallsSection": true,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "ENRICHED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/SALES_PRODUCTIVITY_30_EN/SALES_PRODUCTIVITY_30_EN_DAY_14__2026-01-28T20-20-47-876Z.json",
+        "insertedCount": 7,
+        "deletedInvalidCount": 0,
+        "deletedDuplicateCount": 0,
+        "warnings": [
+          "CRITICAL_THINKING questions: 0 (recommended at least 2)."
+        ],
+        "existingCounts": {
+          "total": 0,
+          "valid": 0,
+          "invalid": 0,
+          "application": 0,
+          "critical": 0,
+          "recall": 0,
+          "duplicates": 0
+        }
+      }
+    },
+    {
+      "courseId": "SALES_PRODUCTIVITY_30_EN",
+      "courseName": "Build Your Sales – 30 Days to More Deals",
+      "language": "en",
+      "dayNumber": 15,
+      "lessonId": "SALES_PRODUCTIVITY_30_EN_DAY_15",
+      "title": "Negotiation – Trade, Don’t Give",
+      "lessonCreatedAt": "2026-01-28T19:29:31.755Z",
+      "lessonQuality": {
+        "score": 85,
+        "issues": [
+          "NO_EXAMPLES"
+        ],
+        "signals": {
+          "charCount": 1126,
+          "wordCount": 173,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": false,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": true,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "ENRICHED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/SALES_PRODUCTIVITY_30_EN/SALES_PRODUCTIVITY_30_EN_DAY_15__2026-01-28T20-20-47-876Z.json",
+        "insertedCount": 7,
+        "deletedInvalidCount": 0,
+        "deletedDuplicateCount": 0,
+        "warnings": [
+          "CRITICAL_THINKING questions: 0 (recommended at least 2)."
+        ],
+        "existingCounts": {
+          "total": 0,
+          "valid": 0,
+          "invalid": 0,
+          "application": 0,
+          "critical": 0,
+          "recall": 0,
+          "duplicates": 0
+        }
+      }
+    },
+    {
+      "courseId": "SALES_PRODUCTIVITY_30_EN",
+      "courseName": "Build Your Sales – 30 Days to More Deals",
+      "language": "en",
+      "dayNumber": 16,
+      "lessonId": "SALES_PRODUCTIVITY_30_EN_DAY_16",
+      "title": "Closing – Run a Clear Decision Process",
+      "lessonCreatedAt": "2026-01-28T19:29:31.920Z",
+      "lessonQuality": {
+        "score": 60,
+        "issues": [
+          "NO_CLEAR_DEFINITIONS",
+          "NO_EXAMPLES",
+          "NO_CONTRASTS_GOOD_BAD"
+        ],
+        "signals": {
+          "charCount": 1063,
+          "wordCount": 174,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": false,
+          "hasGoodBadContrast": false,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": true,
+          "addPitfallsSection": true,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "REFINE_LESSON_FIRST",
+      "rewrite": null
+    },
+    {
+      "courseId": "SALES_PRODUCTIVITY_30_EN",
+      "courseName": "Build Your Sales – 30 Days to More Deals",
+      "language": "en",
+      "dayNumber": 17,
+      "lessonId": "SALES_PRODUCTIVITY_30_EN_DAY_17",
+      "title": "Handoff & Onboarding – Deliver What You Sold",
+      "lessonCreatedAt": "2026-01-28T19:29:32.432Z",
+      "lessonQuality": {
+        "score": 70,
+        "issues": [
+          "NO_CLEAR_DEFINITIONS",
+          "NO_EXAMPLES"
+        ],
+        "signals": {
+          "charCount": 1152,
+          "wordCount": 168,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": false,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": true,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "ENRICHED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/SALES_PRODUCTIVITY_30_EN/SALES_PRODUCTIVITY_30_EN_DAY_17__2026-01-28T20-20-47-876Z.json",
+        "insertedCount": 7,
+        "deletedInvalidCount": 0,
+        "deletedDuplicateCount": 0,
+        "warnings": [
+          "CRITICAL_THINKING questions: 0 (recommended at least 2)."
+        ],
+        "existingCounts": {
+          "total": 0,
+          "valid": 0,
+          "invalid": 0,
+          "application": 0,
+          "critical": 0,
+          "recall": 0,
+          "duplicates": 0
+        }
+      }
+    },
+    {
+      "courseId": "SALES_PRODUCTIVITY_30_EN",
+      "courseName": "Build Your Sales – 30 Days to More Deals",
+      "language": "en",
+      "dayNumber": 18,
+      "lessonId": "SALES_PRODUCTIVITY_30_EN_DAY_18",
+      "title": "Account Management – Keep Value Visible",
+      "lessonCreatedAt": "2026-01-28T19:29:32.509Z",
+      "lessonQuality": {
+        "score": 35,
+        "issues": [
+          "TOO_SHORT",
+          "NO_CLEAR_DEFINITIONS",
+          "NO_EXAMPLES",
+          "NO_CONTRASTS_GOOD_BAD"
+        ],
+        "signals": {
+          "charCount": 974,
+          "wordCount": 148,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": false,
+          "hasGoodBadContrast": false,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": true,
+          "addPitfallsSection": true,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "REFINE_LESSON_FIRST",
+      "rewrite": null
+    },
+    {
+      "courseId": "SALES_PRODUCTIVITY_30_EN",
+      "courseName": "Build Your Sales – 30 Days to More Deals",
+      "language": "en",
+      "dayNumber": 19,
+      "lessonId": "SALES_PRODUCTIVITY_30_EN_DAY_19",
+      "title": "Expansion – Upsell Without Being Pushy",
+      "lessonCreatedAt": "2026-01-28T19:29:32.555Z",
+      "lessonQuality": {
+        "score": 60,
+        "issues": [
+          "NO_CLEAR_DEFINITIONS",
+          "NO_EXAMPLES",
+          "NO_CONTRASTS_GOOD_BAD"
+        ],
+        "signals": {
+          "charCount": 1113,
+          "wordCount": 169,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": false,
+          "hasGoodBadContrast": false,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": true,
+          "addPitfallsSection": true,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "REFINE_LESSON_FIRST",
+      "rewrite": null
+    },
+    {
+      "courseId": "SALES_PRODUCTIVITY_30_EN",
+      "courseName": "Build Your Sales – 30 Days to More Deals",
+      "language": "en",
+      "dayNumber": 20,
+      "lessonId": "SALES_PRODUCTIVITY_30_EN_DAY_20",
+      "title": "Renewals & Retention – Build a Save Plan",
+      "lessonCreatedAt": "2026-01-28T19:29:32.605Z",
+      "lessonQuality": {
+        "score": 60,
+        "issues": [
+          "NO_CLEAR_DEFINITIONS",
+          "NO_EXAMPLES",
+          "NO_CONTRASTS_GOOD_BAD"
+        ],
+        "signals": {
+          "charCount": 1122,
+          "wordCount": 180,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": false,
+          "hasGoodBadContrast": false,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": true,
+          "addPitfallsSection": true,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "REFINE_LESSON_FIRST",
+      "rewrite": null
+    },
+    {
+      "courseId": "SALES_PRODUCTIVITY_30_EN",
+      "courseName": "Build Your Sales – 30 Days to More Deals",
+      "language": "en",
+      "dayNumber": 21,
+      "lessonId": "SALES_PRODUCTIVITY_30_EN_DAY_21",
+      "title": "Outbound Emails – Personalize Without Wasting Time",
+      "lessonCreatedAt": "2026-01-28T19:29:32.649Z",
+      "lessonQuality": {
+        "score": 30,
+        "issues": [
+          "TOO_SHORT",
+          "NO_CLEAR_DEFINITIONS",
+          "NO_EXAMPLES",
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 921,
+          "wordCount": 141,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": false,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": true,
+          "addPitfallsSection": false,
+          "addMetricsSection": true
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "REFINE_LESSON_FIRST",
+      "rewrite": null
+    },
+    {
+      "courseId": "SALES_PRODUCTIVITY_30_EN",
+      "courseName": "Build Your Sales – 30 Days to More Deals",
+      "language": "en",
+      "dayNumber": 22,
+      "lessonId": "SALES_PRODUCTIVITY_30_EN_DAY_22",
+      "title": "Cold Calls – Earn Permission Fast",
+      "lessonCreatedAt": "2026-01-28T19:29:32.696Z",
+      "lessonQuality": {
+        "score": 45,
+        "issues": [
+          "NO_CLEAR_DEFINITIONS",
+          "NO_EXAMPLES",
+          "NO_CONTRASTS_GOOD_BAD",
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 1039,
+          "wordCount": 176,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": false,
+          "hasGoodBadContrast": false,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": true,
+          "addPitfallsSection": true,
+          "addMetricsSection": true
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "REFINE_LESSON_FIRST",
+      "rewrite": null
+    },
+    {
+      "courseId": "SALES_PRODUCTIVITY_30_EN",
+      "courseName": "Build Your Sales – 30 Days to More Deals",
+      "language": "en",
+      "dayNumber": 23,
+      "lessonId": "SALES_PRODUCTIVITY_30_EN_DAY_23",
+      "title": "Follow-up – Turn Conversations Into Commitments",
+      "lessonCreatedAt": "2026-01-28T19:29:32.745Z",
+      "lessonQuality": {
+        "score": 45,
+        "issues": [
+          "NO_CLEAR_DEFINITIONS",
+          "NO_EXAMPLES",
+          "NO_CONTRASTS_GOOD_BAD",
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 991,
+          "wordCount": 168,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": false,
+          "hasGoodBadContrast": false,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": true,
+          "addPitfallsSection": true,
+          "addMetricsSection": true
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "REFINE_LESSON_FIRST",
+      "rewrite": null
+    },
+    {
+      "courseId": "SALES_PRODUCTIVITY_30_EN",
+      "courseName": "Build Your Sales – 30 Days to More Deals",
+      "language": "en",
+      "dayNumber": 24,
+      "lessonId": "SALES_PRODUCTIVITY_30_EN_DAY_24",
+      "title": "Pipeline Hygiene – Keep Your CRM Real",
+      "lessonCreatedAt": "2026-01-28T19:29:32.795Z",
+      "lessonQuality": {
+        "score": 60,
+        "issues": [
+          "TOO_SHORT",
+          "NO_CLEAR_DEFINITIONS"
+        ],
+        "signals": {
+          "charCount": 953,
+          "wordCount": 153,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "REFINE_LESSON_FIRST",
+      "rewrite": null
+    },
+    {
+      "courseId": "SALES_PRODUCTIVITY_30_EN",
+      "courseName": "Build Your Sales – 30 Days to More Deals",
+      "language": "en",
+      "dayNumber": 25,
+      "lessonId": "SALES_PRODUCTIVITY_30_EN_DAY_25",
+      "title": "Time Management for Sales – Protect Deep Work",
+      "lessonCreatedAt": "2026-01-28T19:29:32.845Z",
+      "lessonQuality": {
+        "score": 60,
+        "issues": [
+          "NO_CLEAR_DEFINITIONS",
+          "NO_EXAMPLES",
+          "NO_CONTRASTS_GOOD_BAD"
+        ],
+        "signals": {
+          "charCount": 1043,
+          "wordCount": 163,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": false,
+          "hasGoodBadContrast": false,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": true,
+          "addPitfallsSection": true,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "REFINE_LESSON_FIRST",
+      "rewrite": null
+    },
+    {
+      "courseId": "SALES_PRODUCTIVITY_30_EN",
+      "courseName": "Build Your Sales – 30 Days to More Deals",
+      "language": "en",
+      "dayNumber": 26,
+      "lessonId": "SALES_PRODUCTIVITY_30_EN_DAY_26",
+      "title": "Using AI in Sales – Speed With QA",
+      "lessonCreatedAt": "2026-01-28T19:29:32.895Z",
+      "lessonQuality": {
+        "score": 45,
+        "issues": [
+          "NO_CLEAR_DEFINITIONS",
+          "NO_EXAMPLES",
+          "NO_CONTRASTS_GOOD_BAD",
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 1169,
+          "wordCount": 184,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": false,
+          "hasGoodBadContrast": false,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": true,
+          "addPitfallsSection": true,
+          "addMetricsSection": true
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "REFINE_LESSON_FIRST",
+      "rewrite": null
+    },
+    {
+      "courseId": "SALES_PRODUCTIVITY_30_EN",
+      "courseName": "Build Your Sales – 30 Days to More Deals",
+      "language": "en",
+      "dayNumber": 27,
+      "lessonId": "SALES_PRODUCTIVITY_30_EN_DAY_27",
+      "title": "Metrics – Leading Indicators That You Control",
+      "lessonCreatedAt": "2026-01-28T19:29:32.945Z",
+      "lessonQuality": {
+        "score": 85,
+        "issues": [
+          "NO_CLEAR_DEFINITIONS"
+        ],
+        "signals": {
+          "charCount": 1083,
+          "wordCount": 161,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "ENRICHED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/SALES_PRODUCTIVITY_30_EN/SALES_PRODUCTIVITY_30_EN_DAY_27__2026-01-28T20-20-47-876Z.json",
+        "insertedCount": 7,
+        "deletedInvalidCount": 0,
+        "deletedDuplicateCount": 0,
+        "warnings": [
+          "CRITICAL_THINKING questions: 0 (recommended at least 2)."
+        ],
+        "existingCounts": {
+          "total": 0,
+          "valid": 0,
+          "invalid": 0,
+          "application": 0,
+          "critical": 0,
+          "recall": 0,
+          "duplicates": 0
+        }
+      }
+    },
+    {
+      "courseId": "SALES_PRODUCTIVITY_30_EN",
+      "courseName": "Build Your Sales – 30 Days to More Deals",
+      "language": "en",
+      "dayNumber": 28,
+      "lessonId": "SALES_PRODUCTIVITY_30_EN_DAY_28",
+      "title": "Sales Playbook – Make Your Process Transferable",
+      "lessonCreatedAt": "2026-01-28T19:29:32.988Z",
+      "lessonQuality": {
+        "score": 100,
+        "issues": [],
+        "signals": {
+          "charCount": 1131,
+          "wordCount": 166,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "ENRICHED",
+      "rewrite": {
+        "backupPath": "/Users/moldovancsaba/Projects/amanoba/scripts/quiz-backups/SALES_PRODUCTIVITY_30_EN/SALES_PRODUCTIVITY_30_EN_DAY_28__2026-01-28T20-20-47-876Z.json",
+        "insertedCount": 7,
+        "deletedInvalidCount": 0,
+        "deletedDuplicateCount": 0,
+        "warnings": [
+          "CRITICAL_THINKING questions: 0 (recommended at least 2)."
+        ],
+        "existingCounts": {
+          "total": 0,
+          "valid": 0,
+          "invalid": 0,
+          "application": 0,
+          "critical": 0,
+          "recall": 0,
+          "duplicates": 0
+        }
+      }
+    },
+    {
+      "courseId": "SALES_PRODUCTIVITY_30_EN",
+      "courseName": "Build Your Sales – 30 Days to More Deals",
+      "language": "en",
+      "dayNumber": 29,
+      "lessonId": "SALES_PRODUCTIVITY_30_EN_DAY_29",
+      "title": "Capstone – Run the System for 7 Days",
+      "lessonCreatedAt": "2026-01-28T19:29:33.030Z",
+      "lessonQuality": {
+        "score": 50,
+        "issues": [
+          "TOO_SHORT",
+          "NO_CLEAR_DEFINITIONS",
+          "NO_CONTRASTS_GOOD_BAD"
+        ],
+        "signals": {
+          "charCount": 766,
+          "wordCount": 121,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": true,
+          "hasGoodBadContrast": false,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": true,
+          "addPitfallsSection": true,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "REFINE_LESSON_FIRST",
+      "rewrite": null
+    },
+    {
+      "courseId": "SALES_PRODUCTIVITY_30_EN",
+      "courseName": "Build Your Sales – 30 Days to More Deals",
+      "language": "en",
+      "dayNumber": 30,
+      "lessonId": "SALES_PRODUCTIVITY_30_EN_DAY_30",
+      "title": "Continuous Improvement – Your Monthly Review",
+      "lessonCreatedAt": "2026-01-28T19:29:33.075Z",
+      "lessonQuality": {
+        "score": 45,
+        "issues": [
+          "NO_CLEAR_DEFINITIONS",
+          "NO_EXAMPLES",
+          "NO_CONTRASTS_GOOD_BAD",
+          "NO_METRICS_OR_CRITERIA"
+        ],
+        "signals": {
+          "charCount": 1071,
+          "wordCount": 163,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": false,
+          "hasGoodBadContrast": false,
+          "hasMetricsOrCriteria": false,
+          "hasDefinitionsOrComparisons": false
+        },
+        "refineTemplate": {
+          "addDefinitionSection": true,
+          "addChecklistSection": false,
+          "addExamplesSection": true,
+          "addPitfallsSection": true,
+          "addMetricsSection": true
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "REFINE_LESSON_FIRST",
+      "rewrite": null
+    }
+  ]
+}

@@ -1,0 +1,114 @@
+{
+  "backedUpAt": "2026-01-28T22:58:15.796Z",
+  "course": {
+    "courseId": "DONE_BETTER_2026_EN",
+    "name": "Done is better - Build What Matters",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 22,
+    "title": "Truth Is a Tool",
+    "lessonId": "DONE_BETTER_2026_EN_DAY_22"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "697a92f622596d24dfc12d5c",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "You have a message that might upset someone. What is the best approach?",
+      "options": [
+        "Rewrite it: clear, accurate, and respectful; deliver it directly",
+        "Soften it until it is unclear and the real message is lost",
+        "Avoid delivering it to prevent conflict or discomfort",
+        "Delegate delivery to someone else to avoid responsibility"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a92f622596d24dfc12d5d",
+      "questionType": "application",
+      "difficulty": "EASY",
+      "question": "A manager notices a team member's work quality declining. They schedule a meeting and say: \"I noticed X, Y, and Z. Let's figure out what's happening and fix it together.\" What does this demonstrate?",
+      "options": [
+        "Using truth as a tool: accuracy and candor to fix problems, not to blame",
+        "Saying whatever you think without filter or consideration for impact",
+        "Treating truth as optional when it is hard or uncomfortable",
+        "Using truth as a weapon to win arguments and prove points"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a92f622596d24dfc12d5e",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "A manager needs to deliver difficult feedback. How do they separate truth from tone?",
+      "options": [
+        "You can be direct and respectful; state facts clearly without softening until the message is lost",
+        "Be polite only and avoid stating difficult facts directly to avoid discomfort",
+        "Be blunt only without considering how the message is received or its impact",
+        "Avoid hard truths entirely to maintain relationships and avoid conflict or change"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a92f622596d24dfc12d5f",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Softening the message until it is unclear can lead to:",
+      "options": [
+        "The fix never happens; the recipient does not know what to change",
+        "Better relationships",
+        "Fewer conflicts",
+        "No meaningful effect on outcomes"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a92f622596d24dfc12d60",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Using truth as a weapon rather than a tool tends to:",
+      "options": [
+        "Damage trust and make future candor harder",
+        "Get results faster",
+        "Increase respect",
+        "No significant downside in practice"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a92f622596d24dfc12d61",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Why does accuracy beat politeness in the long run?",
+      "options": [
+        "Accuracy enables correction; unclear messages preserve peace short-term but leave problems intact",
+        "Politeness is always wrong",
+        "Accuracy is always right",
+        "It does not"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a92f622596d24dfc12d62",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "What should you do with a message you have been softening?",
+      "options": [
+        "Identify it; rewrite in one sentence: clear, accurate, respectful; deliver it",
+        "Keep softening until it is so vague that it cannot cause any reaction",
+        "Never deliver it to avoid potential conflict or negative reactions",
+        "Send it anonymously to avoid taking responsibility for the message"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    }
+  ]
+}

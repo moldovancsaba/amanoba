@@ -1,0 +1,164 @@
+{
+  "backedUpAt": "2026-01-28T22:42:11.715Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_ID",
+    "name": "Produktivitas 2026: Cara Mengelola Tim dan Waktu",
+    "language": "id"
+  },
+  "lesson": {
+    "dayNumber": 4,
+    "title": "Kebiasaan vs sistem: mengapa sistem lebih baik dalam skala",
+    "lessonId": "PRODUCTIVITY_2026_ID_DAY_04"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a2adf6e5ec2a4427db7",
+      "uuid": "5be0cc28-2e4f-4926-9d00-46107a7dee0e",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Apa perbedaan utama antara kebiasaan dan sistem?",
+      "options": [
+        "Tidak ada perbedaan",
+        "Kebiasaan dapat diskalakan, sistem tidak",
+        "Sistem dapat diskalakan, kebiasaan tidak",
+        "Keduanya sama"
+      ],
+      "correctIndex": 2,
+      "hashtags": [
+        "#day-04",
+        "#foundation",
+        "#recall",
+        "#id"
+      ]
+    },
+    {
+      "_id": "69776a2adf6e5ec2a4427db8",
+      "uuid": "1ca045ec-7fbb-499d-a25d-4bf52d7a7950",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Kapan Anda harus menggunakan sistem daripada kebiasaan?",
+      "options": [
+        "Selalu",
+        "Ketika perlu bekerja dengan orang lain",
+        "Tidak pernah",
+        "Hanya di akhir pekan"
+      ],
+      "correctIndex": 1,
+      "hashtags": [
+        "#day-04",
+        "#foundation",
+        "#recall",
+        "#id"
+      ]
+    },
+    {
+      "_id": "69776a2adf6e5ec2a4427db9",
+      "uuid": "5ab46c37-60d9-4241-ae97-d677dbb626c7",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Manakah yang BUKAN karakteristik sistem?",
+      "options": [
+        "Dapat didokumentasikan",
+        "Dapat diskalakan",
+        "Hanya bekerja dengan satu orang",
+        "Proses terstruktur"
+      ],
+      "correctIndex": 2,
+      "hashtags": [
+        "#day-04",
+        "#purpose",
+        "#application",
+        "#id"
+      ]
+    },
+    {
+      "_id": "69776a2adf6e5ec2a4427dba",
+      "uuid": "7c2cccc4-c19f-4ada-a239-14b82613cddd",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ Anda memahami perbedaan antara kebiasa...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day4",
+        "#id",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a2adf6e5ec2a4427dbb",
+      "uuid": "2e265d62-8330-48e8-822b-33001db5ac21",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ Anda memahami perbedaan antara kebiasa...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day4",
+        "#id",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a2adf6e5ec2a4427dbc",
+      "uuid": "414ef195-2740-42a5-bbf0-7134fadc1376",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Bagaimana konsep \"Kebiasaan vs sistem: mengapa sistem lebih baik dal...\" yang disebutkan dalam pelajaran mempengaruhi pencapaian goals Anda?",
+      "options": [
+        "Seperti yang dijelaskan secara detail dalam pelajaran, Kebiasaan vs sistem: mengapa s... meningkatkan efektivitas dan mengurangi risiko",
+        "Tidak ada dampak signifikan",
+        "Hanya penting secara teoritis",
+        "Hanya elemen opsional"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day4",
+        "#id",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a2adf6e5ec2a4427dbd",
+      "uuid": "18fbaa92-f7a1-4e56-b9c4-419721dee7c6",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Seberapa penting Sistem dalam konteks Kebiasaan vs sistem: mengapa sistem lebih baik dalam skala seperti yang dibahas dalam pelajaran?",
+      "options": [
+        "Seperti yang dijelaskan secara detail dalam pelajaran, Sistem memainkan peran penting dalam mengoptimalkan proses dan mencapai tujuan",
+        "Hanya informasi periferal tanpa peran signifikan",
+        "Hanya konsep teoretis tanpa aplikasi praktis",
+        "Tidak disebutkan dalam pelajaran"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day4",
+        "#id",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

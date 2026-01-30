@@ -1,0 +1,68 @@
+{
+  "backedUpAt": "2026-01-29T17:00:21.640Z",
+  "course": {
+    "courseId": "B2B_SALES_2026_30",
+    "name": "B2B Értékesítés 2026 Masterclass",
+    "language": "hu"
+  },
+  "lesson": {
+    "dayNumber": 9,
+    "title": "Enrichment és adatellenőrzés",
+    "lessonId": "B2B_SALES_2026_30_DAY_9"
+  },
+  "questionCount": 4,
+  "questions": [
+    {
+      "_id": "697b203dac79ca83bb972234",
+      "difficulty": "MEDIUM",
+      "question": "Miért kritikus a minimum adatmező lista?",
+      "options": [
+        "Dekoráció",
+        "Personalization és relevancia alapja; nélküle zajos az outreach",
+        "Jogilag kötelező",
+        "Kevesebb email kell"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b203dac79ca83bb972235",
+      "difficulty": "MEDIUM",
+      "question": "Mi tartozik a QA checklistbe?",
+      "options": [
+        "Csak a pitch deck",
+        "Duplikáció, hibás domain, hiányzó szerep/trigger",
+        "Csak a weboldal látogatók",
+        "Csak a marketing kampányok"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b203dac79ca83bb972236",
+      "difficulty": "MEDIUM",
+      "question": "Melyik a rossz példa?",
+      "options": [
+        "Account + lead mezők kitöltve, releváns trigger",
+        "Csak email, nincs szerep, nincs trigger, duplikált kontakt",
+        "Van trigger jel",
+        "Van szenioritás mező"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b203dac79ca83bb972237",
+      "difficulty": "MEDIUM",
+      "question": "Mi legyen egy kizárási szabály?",
+      "options": [
+        "Ha nincs szerep vagy trigger, nem küldök ki üzenetet",
+        "Ha túl sok adat van",
+        "Ha van LinkedIn profil",
+        "Ha van ICP illeszkedés"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    }
+  ]
+}

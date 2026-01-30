@@ -1,0 +1,114 @@
+{
+  "backedUpAt": "2026-01-28T22:37:46.391Z",
+  "course": {
+    "courseId": "DONE_BETTER_2026_EN",
+    "name": "Done is better - Build What Matters",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 3,
+    "title": "Understand Before You Move",
+    "lessonId": "DONE_BETTER_2026_EN_DAY_03"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "697a87baa81588c9f41a219d",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Why should you understand before you move?",
+      "options": [
+        "If you do not understand, every action is noise",
+        "Moving is always wrong and should be avoided",
+        "Understanding takes no time and can be skipped",
+        "It is optional when deadlines are tight"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87baa81588c9f41a219e",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "What should you list before acting on a complex situation?",
+      "options": [
+        "What you know for sure and what you do not know yet",
+        "Only what you know and skip unknowns",
+        "Only opinions from stakeholders",
+        "Nothing; act first and learn later"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87baa81588c9f41a219f",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "What is a common mistake when facing uncertainty?",
+      "options": [
+        "Using action as a substitute for understanding",
+        "Asking too many questions before acting",
+        "Writing things down for clarity",
+        "Taking a break to reflect"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87baa81588c9f41a21a0",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "How do unknowns help you?",
+      "options": [
+        "They guide what to learn or validate next",
+        "They are useless and should be ignored",
+        "They should be hidden from stakeholders",
+        "They replace the need to act or decide"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87baa81588c9f41a21a1",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "A stakeholder wants \"fast action.\" What is the best response?",
+      "options": [
+        "One small step to reduce the most important unknown, then decide next",
+        "Do everything at once to show progress",
+        "Refuse to act until everything is clear",
+        "Act without any check or validation"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87baa81588c9f41a21a2",
+      "questionType": "application",
+      "difficulty": "EASY",
+      "question": "In this framework, how is understanding defined before you move?",
+      "options": [
+        "Clarity about what is really going on before taking action",
+        "Agreement with everyone on the plan",
+        "A full report documenting all details",
+        "Intuition only without explicit checks"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87baa81588c9f41a21a3",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Which behavior creates noise rather than progress?",
+      "options": [
+        "Acting first and thinking later on an unclear problem",
+        "Listing unknowns to prioritize learning",
+        "Restating the problem in plain language",
+        "Asking what would have to be true for the symptom"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    }
+  ]
+}

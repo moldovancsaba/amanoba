@@ -1,0 +1,160 @@
+{
+  "backedUpAt": "2026-01-28T22:42:10.895Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_ID",
+    "name": "Produktivitas 2026: Cara Mengelola Tim dan Waktu",
+    "language": "id"
+  },
+  "lesson": {
+    "dayNumber": 2,
+    "title": "Waktu, energi, perhatian: apa yang Anda kelola dalam praktik",
+    "lessonId": "PRODUCTIVITY_2026_ID_DAY_02"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a2adf6e5ec2a4427d79",
+      "uuid": "8b509065-a6cf-4a82-9370-a7a4c3f09da2",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Manakah yang BUKAN sumber daya produktivitas?",
+      "options": [
+        "Waktu",
+        "Energi",
+        "Perhatian",
+        "Uang"
+      ],
+      "correctIndex": 3,
+      "hashtags": [
+        "#day-02",
+        "#scenario",
+        "#application",
+        "#id"
+      ]
+    },
+    {
+      "_id": "69776a2adf6e5ec2a4427d7a",
+      "uuid": "d941aadf-7c83-453e-b83e-f738a4c51c37",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Kapan Anda harus melakukan tugas tersulit?",
+      "options": [
+        "Pada tingkat energi rendah",
+        "Pada tingkat energi puncak",
+        "Tidak masalah kapan",
+        "Malam hari ketika semua orang tidur"
+      ],
+      "correctIndex": 1,
+      "hashtags": [
+        "#day-02",
+        "#purpose",
+        "#application",
+        "#id"
+      ]
+    },
+    {
+      "_id": "69776a2adf6e5ec2a4427d7b",
+      "uuid": "0866e15d-812d-4930-ba42-826785b2ae4c",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Berapa lama waktu yang dibutuhkan untuk memulihkan perhatian setelah gangguan?",
+      "options": [
+        "5 menit",
+        "15-20 menit",
+        "1 jam",
+        "Tidak perlu pemulihan"
+      ],
+      "correctIndex": 1,
+      "hashtags": [
+        "#day-02",
+        "#foundation",
+        "#recall",
+        "#id"
+      ]
+    },
+    {
+      "_id": "69776a2adf6e5ec2a4427d7c",
+      "uuid": "94b67e58-18b2-4883-aa6c-8640f1a328fc",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Berapa banyak waktu penyangga yang harus Anda sisakan dalam jadwal harian?",
+      "options": [
+        "0%",
+        "10%",
+        "20-30%",
+        "50%"
+      ],
+      "correctIndex": 2,
+      "hashtags": [
+        "#day-02",
+        "#foundation",
+        "#recall",
+        "#id"
+      ]
+    },
+    {
+      "_id": "69776a2adf6e5ec2a4427d7d",
+      "uuid": "be668e6f-8c09-4bdf-b2a6-632ef52b49cb",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Berapa panjang ideal blok kerja mendalam?",
+      "options": [
+        "30 menit",
+        "60 menit",
+        "90-120 menit",
+        "4 jam"
+      ],
+      "correctIndex": 2,
+      "hashtags": [
+        "#day-02",
+        "#foundation",
+        "#recall",
+        "#id"
+      ]
+    },
+    {
+      "_id": "69776a2adf6e5ec2a4427d7e",
+      "uuid": "909dd9a4-a7b4-45b8-8305-9ede6bbaba7a",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ Anda memahami bagaimana waktu, energi,...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day2",
+        "#id",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a2adf6e5ec2a4427d7f",
+      "uuid": "fa33cb1e-24af-4f89-b0ee-2315ffa086dc",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Bagaimana konsep \"Waktu, energi, perhatian: apa yang Anda kelola dal...\" yang disebutkan dalam pelajaran mempengaruhi pencapaian goals Anda?",
+      "options": [
+        "Seperti yang dijelaskan secara detail dalam pelajaran, Waktu, energi, perhatian: apa ... meningkatkan efektivitas dan mengurangi risiko",
+        "Tidak ada dampak signifikan",
+        "Hanya penting secara teoritis",
+        "Hanya elemen opsional"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day2",
+        "#id",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    }
+  ]
+}

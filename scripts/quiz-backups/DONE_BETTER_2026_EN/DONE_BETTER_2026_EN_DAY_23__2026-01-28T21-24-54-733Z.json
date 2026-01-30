@@ -1,0 +1,114 @@
+{
+  "backedUpAt": "2026-01-28T21:25:12.326Z",
+  "course": {
+    "courseId": "DONE_BETTER_2026_EN",
+    "name": "Done is better - Build What Matters",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 23,
+    "title": "No Surprises Culture",
+    "lessonId": "DONE_BETTER_2026_EN_DAY_23"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "697a64541d08316389d58891",
+      "questionType": "application",
+      "difficulty": "EASY",
+      "question": "What is the main focus of today's lesson?",
+      "options": [
+        "No surprises",
+        "Motivation only",
+        "Recalling definitions",
+        "Avoiding all risk"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a64541d08316389d58892",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Which action aligns with today's lesson?",
+      "options": [
+        "Share status early",
+        "Do nothing",
+        "Wait for perfect information",
+        "Ignore feedback"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a64541d08316389d58893",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "What is a common mistake that today's lesson addresses?",
+      "options": [
+        "Doing the opposite of the key procedure (e.g. hiding unknowns, defending plan when wrong)",
+        "Working too hard",
+        "Asking for help",
+        "Writing things down"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a64541d08316389d58894",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "How would you apply today's idea in a new situation?",
+      "options": [
+        "Use the procedure: Share status early; Surface bad news with options",
+        "Copy a template only",
+        "Ignore context",
+        "Wait for approval"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a64541d08316389d58895",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "What is the main risk if you skip today's practice?",
+      "options": [
+        "Repeating the same mistakes; no system to improve",
+        "Slower progress only",
+        "No risk",
+        "Too much documentation"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a64541d08316389d58896",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Which outcome shows you applied today's lesson?",
+      "options": [
+        "You have one concrete move or rule from the lesson in use",
+        "You read the lesson",
+        "You agreed with everything",
+        "You bookmarked it"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a64541d08316389d58897",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Why is today's theme important for \"done is better\"?",
+      "options": [
+        "It helps you ship small, test fast, and adjust with evidence",
+        "It is optional",
+        "It only matters for big projects",
+        "It reduces quality"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    }
+  ]
+}

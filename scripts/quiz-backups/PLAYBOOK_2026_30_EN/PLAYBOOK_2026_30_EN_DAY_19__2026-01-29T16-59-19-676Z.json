@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-29T16:59:43.757Z",
+  "course": {
+    "courseId": "PLAYBOOK_2026_30_EN",
+    "name": "The Playbook 2026 – Masterclass for Designers",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 19,
+    "title": "Cross-Platform Consistency",
+    "lessonId": "PLAYBOOK_2026_30_EN_DAY_19"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "697a7f9059c0b6661ee34ae4",
+      "uuid": "d8cd32ea-e424-4c43-93f9-bd9aceaa222a",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you apply the \"Bad:\" concept to a \"Cross-Platform Consistency\" task so the outcome is measurable and verifiable?",
+      "options": [
+        "I create a checklist, apply it to a small scope first, measure the impact, then roll it out to the full scope",
+        "I keep it as a definition and never validate it in practice",
+        "I skip implementation because it seems time-consuming",
+        "I implement it but do not measure or document anything"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day19",
+        "#en",
+        "#all-languages",
+        "#course-playbook_2026_30_en",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "697a7f9059c0b6661ee34ae5",
+      "uuid": "6e9f5548-803a-486c-bedf-ca57b2b89f95",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you apply the \"Good:\" concept to a \"Cross-Platform Consistency\" task so the outcome is measurable and verifiable?",
+      "options": [
+        "I create a checklist, apply it to a small scope first, measure the impact, then roll it out to the full scope",
+        "I keep it as a definition and never validate it in practice",
+        "I skip implementation because it seems time-consuming",
+        "I implement it but do not measure or document anything"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day19",
+        "#en",
+        "#all-languages",
+        "#course-playbook_2026_30_en",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "697a7f9059c0b6661ee34ae6",
+      "uuid": "a91c3ae9-7fc5-4327-a7a8-4759bba451f8",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you apply the \"Cross\" concept to a \"Cross-Platform Consistency\" task so the outcome is measurable and verifiable?",
+      "options": [
+        "I create a checklist, apply it to a small scope first, measure the impact, then roll it out to the full scope",
+        "I keep it as a definition and never validate it in practice",
+        "I skip implementation because it seems time-consuming",
+        "I implement it but do not measure or document anything"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day19",
+        "#en",
+        "#all-languages",
+        "#course-playbook_2026_30_en",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "697a7f9059c0b6661ee34ae7",
+      "uuid": "2a82cef2-0e0c-46cf-9ed8-3ae1154d41a9",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you apply the \"Platform\" concept to a \"Cross-Platform Consistency\" task so the outcome is measurable and verifiable?",
+      "options": [
+        "I create a checklist, apply it to a small scope first, measure the impact, then roll it out to the full scope",
+        "I keep it as a definition and never validate it in practice",
+        "I skip implementation because it seems time-consuming",
+        "I implement it but do not measure or document anything"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day19",
+        "#en",
+        "#all-languages",
+        "#course-playbook_2026_30_en",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "697a7f9059c0b6661ee34ae8",
+      "uuid": "32455512-cb25-4d63-bad0-9737dd9f218e",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you apply the \"Consistency\" concept to a \"Cross-Platform Consistency\" task so the outcome is measurable and verifiable?",
+      "options": [
+        "I create a checklist, apply it to a small scope first, measure the impact, then roll it out to the full scope",
+        "I keep it as a definition and never validate it in practice",
+        "I skip implementation because it seems time-consuming",
+        "I implement it but do not measure or document anything"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day19",
+        "#en",
+        "#all-languages",
+        "#course-playbook_2026_30_en",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "697a7f9059c0b6661ee34ae9",
+      "uuid": "bdd0bfe3-bf7d-4c84-b3bb-ce31c65cfa6b",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you apply the \"Learning Goal\" concept to a \"Cross-Platform Consistency\" task so the outcome is measurable and verifiable?",
+      "options": [
+        "I create a checklist, apply it to a small scope first, measure the impact, then roll it out to the full scope",
+        "I keep it as a definition and never validate it in practice",
+        "I skip implementation because it seems time-consuming",
+        "I implement it but do not measure or document anything"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day19",
+        "#en",
+        "#all-languages",
+        "#course-playbook_2026_30_en",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "697a7f9059c0b6661ee34aea",
+      "uuid": "4e667742-d04e-4be4-a0fb-ecd25c0a654f",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you apply the \"Why This Matters\" concept to a \"Cross-Platform Consistency\" task so the outcome is measurable and verifiable?",
+      "options": [
+        "I create a checklist, apply it to a small scope first, measure the impact, then roll it out to the full scope",
+        "I keep it as a definition and never validate it in practice",
+        "I skip implementation because it seems time-consuming",
+        "I implement it but do not measure or document anything"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day19",
+        "#en",
+        "#all-languages",
+        "#course-playbook_2026_30_en",
+        "#intermediate",
+        "#application"
+      ]
+    }
+  ]
+}

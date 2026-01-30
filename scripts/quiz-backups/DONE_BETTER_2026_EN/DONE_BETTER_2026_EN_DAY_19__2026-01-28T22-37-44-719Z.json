@@ -1,0 +1,114 @@
+{
+  "backedUpAt": "2026-01-28T22:37:48.218Z",
+  "course": {
+    "courseId": "DONE_BETTER_2026_EN",
+    "name": "Done is better - Build What Matters",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 19,
+    "title": "Measure What Matters",
+    "lessonId": "DONE_BETTER_2026_EN_DAY_19"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "697a87bca81588c9f41a2286",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "A team tracks \"page views\" for a goal that is \"increase conversions.\" What is wrong?",
+      "options": [
+        "Page views may be a vanity metric; use a metric that directly reflects the goal",
+        "Nothing; page views are fine",
+        "They need more metrics",
+        "They need fewer metrics"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87bca81588c9f41a2287",
+      "questionType": "application",
+      "difficulty": "EASY",
+      "question": "In this framework, how is \"measure what matters\" defined?",
+      "options": [
+        "Track outcomes that affect the goal, not vanity metrics",
+        "Measure everything you can track",
+        "Measure only cost and not outcomes",
+        "Measure only once at the end"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87bca81588c9f41a2288",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How do you choose a metric for a goal?",
+      "options": [
+        "Identify one metric that directly reflects success; define how you will get the data and how often you will check it",
+        "Pick the easiest to collect",
+        "Pick what the board wants",
+        "Pick the most impressive number"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87bca81588c9f41a2289",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Using data only to justify after the fact (not to decide) leads to:",
+      "options": [
+        "Decisions driven by bias; data becomes theater",
+        "Better decisions",
+        "Faster decisions",
+        "No meaningful effect on outcomes"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87bca81588c9f41a228a",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Opinion over data when both are available can result in:",
+      "options": [
+        "Decisions that ignore evidence and repeat past mistakes",
+        "Faster execution",
+        "More creativity",
+        "No significant downside in practice"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87bca81588c9f41a228b",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "What should you define for a metric besides the number?",
+      "options": [
+        "How you will get the data and how often you will check it; baseline and target if possible",
+        "Only the target",
+        "Only who owns it",
+        "Nothing else"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87bca81588c9f41a228c",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Why avoid vanity metrics?",
+      "options": [
+        "They mislead; they do not reflect the goal",
+        "They are expensive",
+        "They are hard to get",
+        "There is no reason"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    }
+  ]
+}

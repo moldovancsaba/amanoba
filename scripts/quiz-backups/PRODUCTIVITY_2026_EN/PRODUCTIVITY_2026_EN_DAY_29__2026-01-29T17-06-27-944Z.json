@@ -1,0 +1,126 @@
+{
+  "backedUpAt": "2026-01-29T17:06:37.732Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_EN",
+    "name": "Productivity 2026: How to Manage Teams and Time",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 29,
+    "title": "Continuous improvement (learning, feedback, iteration)",
+    "lessonId": "PRODUCTIVITY_2026_EN_DAY_29"
+  },
+  "questionCount": 5,
+  "questions": [
+    {
+      "_id": "69787d9da326286129da90a8",
+      "uuid": "30da01c1-1308-4ac7-aed8-c76b8c18fe79",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "You are applying \"Continuous improvement (learning, feedback, iteration)\" this week. Which next step most directly turns intent into an outcome instead of extra activity?",
+      "options": [
+        "Pick one real scenario, apply the checklist, define a success metric/criterion, and review results at week’s end.",
+        "Add more meetings and messages so progress is visible, then assume the outcome improved.",
+        "Start multiple unrelated tasks to stay busy and increase the feeling of productivity.",
+        "Delay action until the plan is perfect, because execution without certainty risks mistakes."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day29",
+        "#en",
+        "#course-productivity_2026_en",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "69787d9da326286129da90a9",
+      "uuid": "f7f0d629-8727-4bd0-adf0-fcc479ec0f4a",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Which option is the best example of a measurable metric/criterion for \"Continuous improvement (learning, feedback, iteration)\" (so you can prove progress)?",
+      "options": [
+        "A specific number tracked weekly (e.g., decision latency, cycle time, time saved) with a threshold for success.",
+        "A general intention like “be better at this”, without numbers or a deadline.",
+        "A count of messages sent, regardless of whether outcomes improved.",
+        "A feeling-based check (“did it feel productive?”) with no measurable signal."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day29",
+        "#en",
+        "#course-productivity_2026_en",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "69787d9da326286129da90aa",
+      "uuid": "ba581fcb-051b-4034-b05b-7c3cff83efaa",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "In a \"Good vs Bad\" comparison for \"Continuous improvement (learning, feedback, iteration)\", which option is closest to a “Good” implementation?",
+      "options": [
+        "Clear outcomes, explicit owners/criteria, and fewer distractions so execution produces measurable results.",
+        "More activity (more meetings/updates) without decisions, owners, or measurable progress.",
+        "More tools and dashboards without changing the process or defining success criteria.",
+        "More urgency and overtime without adjusting constraints or simplifying the system."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day29",
+        "#en",
+        "#course-productivity_2026_en",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "69787d9da326286129da90ac",
+      "uuid": "8051b04a-30f3-4850-a87d-5c1ce8625f11",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "You want \"Continuous improvement (learning, feedback, iteration)\" to work for a team, not just one person. Which change best makes it a scalable system?",
+      "options": [
+        "Document the checklist, define owners and success criteria, and run a lightweight cadence (review + adjustment).",
+        "Rely on individual willpower and hope everyone copies the best performer’s habits.",
+        "Make the process optional with no shared metrics so nobody feels pressured by measurement.",
+        "Increase coordination time so everyone stays busy and visible, even if execution time drops."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day29",
+        "#en",
+        "#course-productivity_2026_en",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "69787d9da326286129da90ad",
+      "uuid": "31bdd4fe-969c-40ee-a06b-ad3ca376ea88",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "What is the biggest risk if you implement \"Continuous improvement (learning, feedback, iteration)\" incorrectly by adding more activity without changing outcomes?",
+      "options": [
+        "Constraints get consumed (time/energy/attention) while outcomes stagnate, so productivity drops even if work feels intense.",
+        "Outcomes improve automatically because activity volume guarantees results in complex systems.",
+        "Measurement becomes unnecessary because visible effort is a sufficient success signal.",
+        "Decision quality improves because fatigue forces faster thinking and fewer debates."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day29",
+        "#en",
+        "#course-productivity_2026_en",
+        "#productivity",
+        "#advanced",
+        "#critical-thinking"
+      ]
+    }
+  ]
+}

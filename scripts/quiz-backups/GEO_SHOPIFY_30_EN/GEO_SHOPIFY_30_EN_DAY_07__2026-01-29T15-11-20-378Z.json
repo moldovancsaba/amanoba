@@ -1,0 +1,81 @@
+{
+  "backedUpAt": "2026-01-29T15:11:21.101Z",
+  "course": {
+    "courseId": "GEO_SHOPIFY_30_EN",
+    "name": "GEO Shopify – 30-day course",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 7,
+    "title": "Shopify product data audit: title, description, variants",
+    "lessonId": "GEO_SHOPIFY_30_EN_DAY_07"
+  },
+  "questionCount": 5,
+  "questions": [
+    {
+      "_id": "697b200302f89b2246e06ddc",
+      "difficulty": "EASY",
+      "question": "What should you check in the product data audit?",
+      "options": [
+        "Title/subtitle, description, variant labeling, SKU/GTIN/brand",
+        "Only meta title",
+        "Only backlinks",
+        "Only page speed"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b200302f89b2246e06ddd",
+      "difficulty": "MEDIUM",
+      "question": "Why does variant clarity matter?",
+      "options": [
+        "So AI doesn’t mix size/color recommendations",
+        "Only for design",
+        "It does not matter",
+        "Only for SEO keywords"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b200302f89b2246e06dde",
+      "difficulty": "MEDIUM",
+      "question": "What belongs in the audit sheet?",
+      "options": [
+        "Product, variant, SKU, GTIN, brand, notes",
+        "Only product name",
+        "Only price",
+        "Only images"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b200302f89b2246e06ddf",
+      "difficulty": "EASY",
+      "question": "What is a poor example?",
+      "options": [
+        "Short title, missing variant info, no IDs",
+        "All IDs filled",
+        "Clear variant labels",
+        "Consistent SKU/GTIN"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b200302f89b2246e06de0",
+      "difficulty": "MEDIUM",
+      "question": "What should the audit produce?",
+      "options": [
+        "A list of gaps with fixes",
+        "Just a slogan",
+        "Only a screenshot",
+        "Nothing"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    }
+  ]
+}

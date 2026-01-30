@@ -1,0 +1,81 @@
+{
+  "backedUpAt": "2026-01-29T08:56:34.019Z",
+  "course": {
+    "courseId": "GEO_SHOPIFY_30_EN",
+    "name": "GEO Shopify – 30-day course",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 2,
+    "title": "GEO vs SEO on Shopify: what to watch",
+    "lessonId": "GEO_SHOPIFY_30_EN_DAY_02"
+  },
+  "questionCount": 5,
+  "questions": [
+    {
+      "_id": "697b200202f89b2246e06d6a",
+      "difficulty": "EASY",
+      "question": "Which element is GEO-first?",
+      "options": [
+        "Clear price/stock/identifiers rendered on the page",
+        "Only meta description length",
+        "Only backlink count",
+        "Only page speed"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b200202f89b2246e06d6b",
+      "difficulty": "MEDIUM",
+      "question": "What belongs in a GEO checklist?",
+      "options": [
+        "Price, stock, GTIN/SKU, policy, answer capsule, stable URL, alt, schema, internal links, review rules",
+        "Only hero image",
+        "Only a blog link",
+        "Only meta title"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b200202f89b2246e06d6c",
+      "difficulty": "MEDIUM",
+      "question": "Why does structured data matter for GEO?",
+      "options": [
+        "It helps models parse price/availability/identifiers safely",
+        "It is only for breadcrumbs",
+        "It replaces on-page text",
+        "It is only for speed"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b200202f89b2246e06d6d",
+      "difficulty": "EASY",
+      "question": "Which is a poor example?",
+      "options": [
+        "Messy copy, missing IDs, mixed variants",
+        "Top summary with clear price/stock",
+        "Policy link visible",
+        "GTIN and SKU present"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b200202f89b2246e06d6e",
+      "difficulty": "HARD",
+      "question": "What should you do on a second PDP audit?",
+      "options": [
+        "Identify at least 3 gaps and log them",
+        "Ignore findings",
+        "Only change the font",
+        "Delete the page"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    }
+  ]
+}

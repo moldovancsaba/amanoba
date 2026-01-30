@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-29T16:59:43.010Z",
+  "course": {
+    "courseId": "PLAYBOOK_2026_30_EN",
+    "name": "The Playbook 2026 – Masterclass for Designers",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 6,
+    "title": "Color as Meaning, Not Decoration",
+    "lessonId": "PLAYBOOK_2026_30_EN_DAY_6"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "6979db359316e77110ed04cb",
+      "uuid": "c673a6ce-7444-496c-a40f-7c2009cc8256",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you apply the \"Bad:\" concept to a \"Color as Meaning, Not Decoration\" task so the outcome is measurable and verifiable?",
+      "options": [
+        "I create a checklist, apply it to a small scope first, measure the impact, then roll it out to the full scope",
+        "I keep it as a definition and never validate it in practice",
+        "I skip implementation because it seems time-consuming",
+        "I implement it but do not measure or document anything"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day6",
+        "#en",
+        "#all-languages",
+        "#course-playbook_2026_30_en",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "6979db359316e77110ed04cc",
+      "uuid": "28b9faa1-2115-4b89-ab2f-cf4e5ec5a15f",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you apply the \"Good:\" concept to a \"Color as Meaning, Not Decoration\" task so the outcome is measurable and verifiable?",
+      "options": [
+        "I create a checklist, apply it to a small scope first, measure the impact, then roll it out to the full scope",
+        "I keep it as a definition and never validate it in practice",
+        "I skip implementation because it seems time-consuming",
+        "I implement it but do not measure or document anything"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day6",
+        "#en",
+        "#all-languages",
+        "#course-playbook_2026_30_en",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "6979db359316e77110ed04cd",
+      "uuid": "e5ae3c89-79e3-48e6-90eb-34a7fa8fe302",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you apply the \"Color\" concept to a \"Color as Meaning, Not Decoration\" task so the outcome is measurable and verifiable?",
+      "options": [
+        "I create a checklist, apply it to a small scope first, measure the impact, then roll it out to the full scope",
+        "I keep it as a definition and never validate it in practice",
+        "I skip implementation because it seems time-consuming",
+        "I implement it but do not measure or document anything"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day6",
+        "#en",
+        "#all-languages",
+        "#course-playbook_2026_30_en",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "6979db359316e77110ed04ce",
+      "uuid": "521eba74-a045-49bc-9ceb-31e3aeff75cf",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you apply the \"Meaning\" concept to a \"Color as Meaning, Not Decoration\" task so the outcome is measurable and verifiable?",
+      "options": [
+        "I create a checklist, apply it to a small scope first, measure the impact, then roll it out to the full scope",
+        "I keep it as a definition and never validate it in practice",
+        "I skip implementation because it seems time-consuming",
+        "I implement it but do not measure or document anything"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day6",
+        "#en",
+        "#all-languages",
+        "#course-playbook_2026_30_en",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "6979db359316e77110ed04cf",
+      "uuid": "017de5d0-243d-4f39-b9cd-ae2bbd0829f4",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you apply the \"Decoration\" concept to a \"Color as Meaning, Not Decoration\" task so the outcome is measurable and verifiable?",
+      "options": [
+        "I create a checklist, apply it to a small scope first, measure the impact, then roll it out to the full scope",
+        "I keep it as a definition and never validate it in practice",
+        "I skip implementation because it seems time-consuming",
+        "I implement it but do not measure or document anything"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day6",
+        "#en",
+        "#all-languages",
+        "#course-playbook_2026_30_en",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "6979db359316e77110ed04d0",
+      "uuid": "48e92d8a-df48-4120-8045-2d44467d58aa",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you apply the \"Learning Goal\" concept to a \"Color as Meaning, Not Decoration\" task so the outcome is measurable and verifiable?",
+      "options": [
+        "I create a checklist, apply it to a small scope first, measure the impact, then roll it out to the full scope",
+        "I keep it as a definition and never validate it in practice",
+        "I skip implementation because it seems time-consuming",
+        "I implement it but do not measure or document anything"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day6",
+        "#en",
+        "#all-languages",
+        "#course-playbook_2026_30_en",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "6979db359316e77110ed04d1",
+      "uuid": "3970ae33-4150-4630-9925-1509a41a4a8c",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you apply the \"Why This Matters\" concept to a \"Color as Meaning, Not Decoration\" task so the outcome is measurable and verifiable?",
+      "options": [
+        "I create a checklist, apply it to a small scope first, measure the impact, then roll it out to the full scope",
+        "I keep it as a definition and never validate it in practice",
+        "I skip implementation because it seems time-consuming",
+        "I implement it but do not measure or document anything"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day6",
+        "#en",
+        "#all-languages",
+        "#course-playbook_2026_30_en",
+        "#intermediate",
+        "#application"
+      ]
+    }
+  ]
+}

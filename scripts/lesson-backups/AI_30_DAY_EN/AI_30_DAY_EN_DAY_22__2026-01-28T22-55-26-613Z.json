@@ -1,0 +1,10 @@
+{
+  "backedUpAt": "2026-01-28T22:55:28.823Z",
+  "courseId": "AI_30_DAY_EN",
+  "lessonId": "AI_30_DAY_EN_DAY_22",
+  "dayNumber": 22,
+  "title": "Prompt A/B testing and evaluation",
+  "content": "<h1>Prompt A/B testing and evaluation</h1>\n<p><em>Compare prompts and pick the best performer</em></p>\n<hr />\n<h2>Learning goal</h2>\n<ul>\n<li>Create two prompt variants (A/B).</li>\n<li>Define 3–4 evaluation criteria.</li>\n<li>Select the better prompt with evidence.</li>\n</ul>\n<hr />\n<h2>Why it matters</h2>\n<ul>\n<li>Small changes in prompts can change quality.</li>\n<li>Criteria-driven eval reduces guesswork.</li>\n</ul>\n<hr />\n<h2>Explanation</h2>\n<ul>\n<li>Make variants: change format, constraints, role.</li>\n<li>Criteria: accuracy, clarity, brevity, actionability.</li>\n<li>Ask the model to self-score then you verify.</li>\n</ul>\n<hr />\n<h2>Examples</h2>\n<ul>\n<li><strong>Prompt</strong>: “Evaluate A vs B on accuracy/clarity/brevity/actionability; score 1–5; explain.”</li>\n<li><strong>Weak</strong>: “Which is better?”</li>\n<hr />\n<h2>Guided exercise (10–15 min)</h2>\n<ol>\n<li>Pick a task; write prompt A and B.</li>\n<li>Generate outputs; score with criteria; pick winner.</li>\n</ol>\n<h2>Independent exercise (5–10 min)</h2>\n<p>Tweak the weaker prompt and retest.</p>\n<hr />\n<h2>Self-check</h2>\n<ul>\n<li>A/B outputs generated.</li>\n<li>Scores per criterion.</li>\n<li>Winner chosen with reason.</li>\n</ul>\n<hr />\n<h2>Optional deepening</h2>\n<ul>\n<li>Evaluation prompting: <a href=\"https://platform.openai.com/docs/guides/prompt-engineering\" target=\"_blank\" rel=\"noreferrer\">prompt guide</a></li>\n</ul>",
+  "emailSubject": "AI 30-Day – Day 22: Prompt A/B",
+  "emailBody": "<h1>AI 30-Day – Day 22</h1>\n<h2>Prompt A/B testing</h2>\n<p>Today you’ll compare two prompts using clear criteria.</p>\n<p><a href=\"http://localhost:3000/courses/AI_30_DAY_EN/day/{{dayNumber}}\">Open the lesson →</a></p>"
+}

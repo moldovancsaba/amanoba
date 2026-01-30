@@ -1,0 +1,114 @@
+{
+  "backedUpAt": "2026-01-28T22:37:48.989Z",
+  "course": {
+    "courseId": "DONE_BETTER_2026_EN",
+    "name": "Done is better - Build What Matters",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 28,
+    "title": "From Chaos to Clarity",
+    "lessonId": "DONE_BETTER_2026_EN_DAY_28"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "697a87bda81588c9f41a22e9",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "You are handed a messy situation (inbox, project, relationship). What is the first step?",
+      "options": [
+        "Apply: decompose, find leverage, name the next move; write the new structure in 5 bullets or fewer",
+        "Fix everything at once",
+        "Add more process",
+        "Leave it as is"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87bda81588c9f41a22ea",
+      "questionType": "application",
+      "difficulty": "EASY",
+      "question": "In this framework, how is \"chaos to clarity\" defined?",
+      "options": [
+        "Enter a messy situation and create order through structure and priorities; leave it clearer than you found it",
+        "Clean up only without changing structure",
+        "Reorganize only without naming next steps",
+        "Delegate and leave without documenting"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87bda81588c9f41a22eb",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How do you create order in a mess?",
+      "options": [
+        "Decompose, find leverage, name the next move; write the new structure briefly",
+        "Add more steps",
+        "Hold more meetings",
+        "Assign everything"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87bda81588c9f41a22ec",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Trying to fix everything at once in a messy situation often leads to:",
+      "options": [
+        "Overwhelm and no clear progress; focus on structure and one next move",
+        "Faster resolution",
+        "Better results",
+        "No meaningful effect on outcomes"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87bda81588c9f41a22ed",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Adding process for its own sake can result in:",
+      "options": [
+        "More chaos; structure should serve clarity and the next move",
+        "More clarity",
+        "Faster execution",
+        "No significant downside in practice"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87bda81588c9f41a22ee",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "What should you leave behind when you exit a messy situation?",
+      "options": [
+        "A clear next owner or next step; the situation clearer than you found it",
+        "A long report",
+        "Nothing",
+        "Only recommendations"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87bda81588c9f41a22ef",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Pick one messy area. What should you produce?",
+      "options": [
+        "Decompose, find leverage, name the next move; write the new structure in 5 bullets or fewer",
+        "A full plan",
+        "A list of problems",
+        "A meeting invite"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    }
+  ]
+}

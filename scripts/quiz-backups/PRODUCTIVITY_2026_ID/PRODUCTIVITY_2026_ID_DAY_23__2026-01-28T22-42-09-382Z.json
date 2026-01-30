@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-28T22:42:13.486Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_ID",
+    "name": "Produktivitas 2026: Cara Mengelola Tim dan Waktu",
+    "language": "id"
+  },
+  "lesson": {
+    "dayNumber": 23,
+    "title": "Kreativitas dan Inovasi: Pemikiran Ulang, Eksperimen",
+    "lessonId": "PRODUCTIVITY_2026_ID_DAY_23"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a2cdf6e5ec2a4427ea4",
+      "uuid": "5f6a7504-8820-4035-b7a7-f276c430dc76",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Bagaimana konsep \"Kreativitas dan Inovasi: Pemikiran Ulang, Eksperim...\" yang disebutkan dalam pelajaran mempengaruhi pencapaian goals Anda?",
+      "options": [
+        "Seperti yang dijelaskan secara detail dalam pelajaran, Kreativitas dan Inovasi: Pemik... meningkatkan efektivitas dan mengurangi risiko",
+        "Tidak ada dampak signifikan",
+        "Hanya penting secara teoritis",
+        "Hanya elemen opsional"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day23",
+        "#id",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a2cdf6e5ec2a4427ea5",
+      "uuid": "6c5dba48-8182-4661-80c8-4c7bab26880c",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Bagaimana Anda akan menggunakan konsep \"Kreativitas\" seperti yang dijelaskan dalam pelajaran dalam praktik?",
+      "options": [
+        "Saya mengikuti langkah-langkah yang dijelaskan secara detail dalam pelajaran, menguji hasil, dan mendokumentasikan pengalaman saya",
+        "Saya hanya memahaminya secara teoritis",
+        "Saya tidak menerapkannya",
+        "Saya menunggu instruksi lebih lanjut"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day23",
+        "#id",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a2cdf6e5ec2a4427ea6",
+      "uuid": "6ab8de3e-0e1c-46bb-a20a-62c2abd1ba4c",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Bagaimana Anda akan menggunakan konsep \"Inovasi\" seperti yang dijelaskan dalam pelajaran dalam praktik?",
+      "options": [
+        "Saya mengikuti langkah-langkah yang dijelaskan secara detail dalam pelajaran, menguji hasil, dan mendokumentasikan pengalaman saya",
+        "Saya hanya memahaminya secara teoritis",
+        "Saya tidak menerapkannya",
+        "Saya menunggu instruksi lebih lanjut"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day23",
+        "#id",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a2cdf6e5ec2a4427ea7",
+      "uuid": "8d8f84c6-fef6-4175-8c98-4e04ebfae21f",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Bagaimana Anda akan menggunakan konsep \"Pemikiran\" seperti yang dijelaskan dalam pelajaran dalam praktik?",
+      "options": [
+        "Saya mengikuti langkah-langkah yang dijelaskan secara detail dalam pelajaran, menguji hasil, dan mendokumentasikan pengalaman saya",
+        "Saya hanya memahaminya secara teoritis",
+        "Saya tidak menerapkannya",
+        "Saya menunggu instruksi lebih lanjut"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day23",
+        "#id",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a2cdf6e5ec2a4427ea8",
+      "uuid": "efd787c9-d132-4099-bdfb-861ddc73b295",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Seberapa penting Inovasi dalam konteks Kreativitas dan Inovasi: Pemikiran Ulang, Eksperimen seperti yang dibahas dalam pelajaran?",
+      "options": [
+        "Seperti yang dijelaskan secara detail dalam pelajaran, Inovasi memainkan peran penting dalam mengoptimalkan proses dan mencapai tujuan",
+        "Hanya informasi periferal tanpa peran signifikan",
+        "Hanya konsep teoretis tanpa aplikasi praktis",
+        "Tidak disebutkan dalam pelajaran"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day23",
+        "#id",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a2cdf6e5ec2a4427ea9",
+      "uuid": "873925d3-3c1f-4d9f-aac8-d9c4b36aa621",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Seberapa penting Ulang dalam konteks Kreativitas dan Inovasi: Pemikiran Ulang, Eksperimen seperti yang dibahas dalam pelajaran?",
+      "options": [
+        "Seperti yang dijelaskan secara detail dalam pelajaran, Ulang memainkan peran penting dalam mengoptimalkan proses dan mencapai tujuan",
+        "Hanya informasi periferal tanpa peran signifikan",
+        "Hanya konsep teoretis tanpa aplikasi praktis",
+        "Tidak disebutkan dalam pelajaran"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day23",
+        "#id",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a2cdf6e5ec2a4427eaa",
+      "uuid": "40ab11c4-03d5-44c3-9fc9-fb4195c9c60a",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Seberapa penting Kreativitas dalam konteks Kreativitas dan Inovasi: Pemikiran Ulang, Eksperimen seperti yang dibahas dalam pelajaran?",
+      "options": [
+        "Seperti yang dijelaskan secara detail dalam pelajaran, Kreativitas memainkan peran penting dalam mengoptimalkan proses dan mencapai tujuan",
+        "Hanya informasi periferal tanpa peran signifikan",
+        "Hanya konsep teoretis tanpa aplikasi praktis",
+        "Tidak disebutkan dalam pelajaran"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day23",
+        "#id",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "backedUpAt": "2026-01-28T22:55:26.615Z",
+  "courseId": "AI_30_DAY_EN",
+  "lessonId": "AI_30_DAY_EN_DAY_02",
+  "dayNumber": 2,
+  "title": "The 4 parts of a good prompt",
+  "content": "<h1>The 4 parts of a good prompt</h1>\n<p><em>Direct the output with clarity</em></p>\n<hr />\n<h2>Learning goal</h2>\n<ul>\n<li>Use the 4-part structure.</li>\n<li>Write 2 prompts that are clear and cite-ready.</li>\n</ul>\n<hr />\n<h2>Why it matters</h2>\n<ul>\n<li>Ambiguity = random answers.</li>\n<li>Structure makes AI responses usable and consistent.</li>\n</ul>\n<hr />\n<h2>Explanation: 4 parts</h2>\n<ol>\n<li>Goal — what you want.</li>\n<li>Context — background needed.</li>\n<li>Format — bullet/table/short paragraph.</li>\n<li>Style — tone (formal, friendly, technical).</li>\n</ol>\n<hr />\n<h2>Examples</h2>\n<ul>\n<li><strong>Weak</strong>: “Write an email.”</li>\n<li><strong>Good</strong>: “Write a short, polite email to a customer who complained yesterday. Tone: empathetic, professional. Max 4 sentences.”</li>\n</ul>\n<hr />\n<h2>Guided exercise (10–15 min)</h2>\n<ol>\n<li>Write 2 prompts with all 4 parts.</li>\n<li>Generate outputs; check if they match intent.</li>\n</ol>\n<h2>Independent exercise (5–10 min)</h2>\n<p>Refine one prompt to be more specific (add data, format, constraints).</p>\n<hr />\n<h2>Self-check</h2>\n<ul>\n<li>Both prompts include goal, context, format, style.</li>\n<li>Outputs match your intent.</li>\n</ul>\n<hr />\n<h2>Optional deepening</h2>\n<ul>\n<li>OpenAI Prompt Guide: <a href=\"https://platform.openai.com/docs/guides/prompt-engineering\" target=\"_blank\" rel=\"noreferrer\">https://platform.openai.com/docs/guides/prompt-engineering</a></li>\n</ul>",
+  "emailSubject": "AI 30-Day – Day 2: The 4 parts of a prompt",
+  "emailBody": "<h1>AI 30-Day – Day 2</h1>\n<h2>The 4 parts of a prompt</h2>\n<p>Today you’ll write 2 structured prompts and test them.</p>\n<p><a href=\"http://localhost:3000/courses/AI_30_DAY_EN/day/{{dayNumber}}\">Open the lesson →</a></p>"
+}

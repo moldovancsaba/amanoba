@@ -1,0 +1,114 @@
+{
+  "backedUpAt": "2026-01-28T22:37:47.338Z",
+  "course": {
+    "courseId": "DONE_BETTER_2026_EN",
+    "name": "Done is better - Build What Matters",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 9,
+    "title": "Think in Moves, Not Projects",
+    "lessonId": "DONE_BETTER_2026_EN_DAY_09"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "697a87bba81588c9f41a220e",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "A goal is \"double revenue in 12 months.\" What is a good next move?",
+      "options": [
+        "Define the smallest step that could be done and verified soon (e.g. one experiment or one segment test)",
+        "Create a 12-month project plan with no intermediate tests",
+        "Wait until you have a full strategy",
+        "Set a milestone for month 6 only"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87bba81588c9f41a220f",
+      "questionType": "application",
+      "difficulty": "EASY",
+      "question": "What makes a step a \"move\" rather than just activity?",
+      "options": [
+        "It is testable: you can say \"done\" when an observable condition is true",
+        "It is on the project plan",
+        "It takes at least a week",
+        "It is assigned to someone"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87bba81588c9f41a2210",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "After completing one testable step, what should you do?",
+      "options": [
+        "Decide the next step from the evidence you got; do not just continue the old plan blindly",
+        "Immediately start the next task on the list",
+        "Report and wait for approval",
+        "Take a break before the next phase"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87bba81588c9f41a2211",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "What is \"project theater\"?",
+      "options": [
+        "Long plans and deliverables that are too big to test soon; lots of motion, little learning",
+        "A formal kickoff meeting",
+        "Using project management software",
+        "Having a project manager"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87bba81588c9f41a2212",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Why is \"no clear done for the current step\" a problem?",
+      "options": [
+        "You cannot get signal or decide the next move; scope creeps and feedback is delayed",
+        "It makes the step cheaper to execute",
+        "It increases creativity and flexibility",
+        "It has no effect on delivery or learning"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87bba81588c9f41a2213",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How do you distinguish motion from moves?",
+      "options": [
+        "Motion is activity; moves are testable steps with a clear done condition",
+        "Motion is faster to complete than moves",
+        "Moves are always smaller than motion",
+        "There is no meaningful difference between them"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87bba81588c9f41a2214",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "You have an outcome you want. What question should you ask next?",
+      "options": [
+        "What is the smallest step that could be done and verified today or this week?",
+        "What is the full list of tasks?",
+        "Who else should be involved?",
+        "What is the budget?"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    }
+  ]
+}

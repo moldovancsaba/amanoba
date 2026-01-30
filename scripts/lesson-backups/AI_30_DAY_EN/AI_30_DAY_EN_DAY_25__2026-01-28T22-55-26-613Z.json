@@ -1,0 +1,10 @@
+{
+  "backedUpAt": "2026-01-28T22:55:28.912Z",
+  "courseId": "AI_30_DAY_EN",
+  "lessonId": "AI_30_DAY_EN_DAY_25",
+  "dayNumber": 25,
+  "title": "Privacy and compliance guardrails",
+  "content": "<h1>Privacy and compliance guardrails</h1>\n<p><em>Keep sensitive data out and comply with policy</em></p>\n<hr />\n<h2>Learning goal</h2>\n<ul>\n<li>Write a 5-point privacy checklist for prompts.</li>\n<li>Add compliance reminders to templates.</li>\n</ul>\n<hr />\n<h2>Why it matters</h2>\n<ul>\n<li>Protects personal/confidential data.</li>\n<li>Reduces accidental policy violations.</li>\n</ul>\n<hr />\n<h2>Explanation</h2>\n<ul>\n<li>Checklist: no PII, no secrets, no client IDs, anonymize where possible.</li>\n<li>Add “Do not include sensitive data; redact names/IDs.”</li>\n<li>Log “data used” for high-risk tasks.</li>\n</ul>\n<hr />\n<h2>Examples</h2>\n<ul>\n<li><strong>Good</strong>: Prompt includes “Redact names; no PII; if needed, ask for sanitized data.”</li>\n<li><strong>Poor</strong>: Paste full customer records.</li>\n<hr />\n<h2>Guided exercise (10–15 min)</h2>\n<ol>\n<li>Create a 5-point privacy guardrail snippet.</li>\n<li>Insert it into 2 templates you use.</li>\n</ol>\n<h2>Independent exercise (5–10 min)</h2>\n<p>Draft a “data used” note to append when sharing outputs.</p>\n<hr />\n<h2>Self-check</h2>\n<ul>\n<li>Guardrail snippet ready.</li>\n<li>Templates updated.</li>\n<li>Data note drafted.</li>\n</ul>\n<hr />\n<h2>Optional deepening</h2>\n<ul>\n<li>Usage policies: <a href=\"https://openai.com/policies/usage-policies\" target=\"_blank\" rel=\"noreferrer\">https://openai.com/policies/usage-policies</a></li>\n</ul>",
+  "emailSubject": "AI 30-Day – Day 25: Privacy guardrails",
+  "emailBody": "<h1>AI 30-Day – Day 25</h1>\n<h2>Privacy guardrails</h2>\n<p>Today you’ll add privacy/compliance guardrails to your templates.</p>\n<p><a href=\"http://localhost:3000/courses/AI_30_DAY_EN/day/{{dayNumber}}\">Open the lesson →</a></p>"
+}

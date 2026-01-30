@@ -1,0 +1,68 @@
+{
+  "backedUpAt": "2026-01-29T16:59:35.040Z",
+  "course": {
+    "courseId": "B2B_SALES_2026_30_EN",
+    "name": "B2B Sales 2026 Masterclass",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 15,
+    "title": "Discovery Call Structure (5 Blocks)",
+    "lessonId": "B2B_SALES_2026_30_EN_DAY_15"
+  },
+  "questionCount": 4,
+  "questions": [
+    {
+      "_id": "697b1fd28f79f136a28b89fc",
+      "difficulty": "MEDIUM",
+      "question": "One of the 5 blocks?",
+      "options": [
+        "Small talk + pitch",
+        "Pain/impact",
+        "Only pricing",
+        "Only marketing"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b1fd28f79f136a28b89fd",
+      "difficulty": "MEDIUM",
+      "question": "Why are no-go questions bad?",
+      "options": [
+        "They are short",
+        "They waste time and add no decision info",
+        "They are expensive",
+        "They are in another language"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b1fd28f79f136a28b89fe",
+      "difficulty": "MEDIUM",
+      "question": "Why end with a next step?",
+      "options": [
+        "Make the call longer",
+        "Prevent stalls; set owner/time",
+        "Send more emails",
+        "Add small talk"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b1fd28f79f136a28b89ff",
+      "difficulty": "MEDIUM",
+      "question": "Bad example?",
+      "options": [
+        "Agenda upfront, next step",
+        "Small talk + pitch, no pain, no next step",
+        "Security question asked",
+        "Impact explored"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    }
+  ]
+}

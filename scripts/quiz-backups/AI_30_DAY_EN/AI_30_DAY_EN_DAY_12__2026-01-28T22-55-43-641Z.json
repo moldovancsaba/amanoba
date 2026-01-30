@@ -1,0 +1,15 @@
+{
+  "backedUpAt": "2026-01-28T22:55:46.638Z",
+  "course": {
+    "courseId": "AI_30_DAY_EN",
+    "name": "30-Day AI Catch-Up Program (EN)",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 12,
+    "title": "Research helper: questions, not answers",
+    "lessonId": "AI_30_DAY_EN_DAY_12"
+  },
+  "questionCount": 0,
+  "questions": []
+}

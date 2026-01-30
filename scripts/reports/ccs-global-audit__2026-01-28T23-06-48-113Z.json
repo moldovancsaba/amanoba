@@ -1,0 +1,1568 @@
+{
+  "generatedAt": "2026-01-28T23:06:48.929Z",
+  "env": "production (via .env.local)",
+  "filters": {
+    "ccsId": null,
+    "courseId": "DONE_BETTER_2026_EN",
+    "minLessonScore": 70,
+    "includeInactive": false
+  },
+  "totals": {
+    "ccsFamilies": 7,
+    "courses": 1,
+    "coursesMissingCcsId": 0,
+    "coursesMissingCcsIdMappedToKnownCcs": 0,
+    "coursesMissingCcsIdUnmapped": 0,
+    "coursesWithStructuralErrors": 0,
+    "coursesWithStructuralWarnings": 0,
+    "coursesFailingCatalogLanguageIntegrity": 0,
+    "lessons": 30,
+    "duplicateDayLessonGroups": 0,
+    "missingLessonDayEntries": 0,
+    "lessonsFailingLanguageIntegrity": 0,
+    "lessonsBelowQualityThreshold": 0,
+    "lessonsWithQuizErrors": 0,
+    "duplicateQuestionSets": 0,
+    "duplicateQuestionsToDelete": 0,
+    "invalidQuestions": 0,
+    "lessonsGeneratorInsufficient": 0
+  },
+  "ccs": [
+    {
+      "ccsId": "PRODUCTIVITY_2026",
+      "name": "PRODUCTIVITY_2026",
+      "ideaPresent": true,
+      "outlinePresent": true,
+      "relatedDocumentsCount": 0,
+      "courses": []
+    },
+    {
+      "ccsId": "GEO_SHOPIFY_30",
+      "name": "GEO_SHOPIFY_30",
+      "ideaPresent": true,
+      "outlinePresent": true,
+      "relatedDocumentsCount": 0,
+      "courses": []
+    },
+    {
+      "ccsId": "AI_30_DAY",
+      "name": "AI_30_DAY",
+      "ideaPresent": true,
+      "outlinePresent": true,
+      "relatedDocumentsCount": 0,
+      "courses": []
+    },
+    {
+      "ccsId": "B2B_SALES_2026_30",
+      "name": "B2B_SALES_2026_30",
+      "ideaPresent": true,
+      "outlinePresent": true,
+      "relatedDocumentsCount": 0,
+      "courses": []
+    },
+    {
+      "ccsId": "PLAYBOOK_2026_30",
+      "name": "PLAYBOOK_2026_30",
+      "ideaPresent": true,
+      "outlinePresent": true,
+      "relatedDocumentsCount": 0,
+      "courses": []
+    },
+    {
+      "ccsId": "SALES_PRODUCTIVITY_30",
+      "name": "SALES_PRODUCTIVITY_30",
+      "ideaPresent": true,
+      "outlinePresent": true,
+      "relatedDocumentsCount": 0,
+      "courses": []
+    },
+    {
+      "ccsId": "DONE_BETTER_2026",
+      "name": "Done is better - Build What Matters",
+      "ideaPresent": true,
+      "outlinePresent": true,
+      "relatedDocumentsCount": 0,
+      "courses": [
+        {
+          "course": {
+            "courseId": "DONE_BETTER_2026_EN",
+            "name": "Done is better - Build What Matters",
+            "description": "This course trains you to think like a problem-solver, not a task-doer. You will learn how to break any complex situation into elemental parts, choose the right move, ship small, test fast, and speak the truth without distortion. Built on Pólya's thinking framework and modern delivery culture, this is a 30-day mental reset for founders, leaders, and builders who are tired of being busy and want to become effective. You will not \"consume content.\" You will think, decide, and deliver.",
+            "language": "en",
+            "isActive": true,
+            "isDraft": false,
+            "requiresPremium": false,
+            "durationDays": 30,
+            "parentCourseId": null,
+            "courseVariant": null,
+            "structuralErrors": [],
+            "structuralWarnings": [],
+            "catalogLanguageIntegrity": {
+              "ok": true,
+              "errors": [],
+              "warnings": [],
+              "findings": []
+            },
+            "inferredCcsId": null,
+            "duplicateDayGroups": [],
+            "missingDays": [],
+            "lessonsAudited": 30,
+            "lessonsWithErrors": 0
+          },
+          "lessons": [
+            {
+              "dayNumber": 1,
+              "lessonId": "DONE_BETTER_2026_EN_DAY_01",
+              "title": "Welcome to Real Thinking",
+              "createdAt": "2026-01-28T19:32:32.725Z",
+              "lessonQuality": {
+                "score": 100,
+                "issues": [],
+                "signals": {
+                  "charCount": 1888,
+                  "wordCount": 299,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": true,
+                  "hasMetricsOrCriteria": true,
+                  "hasDefinitionsOrComparisons": true
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": false,
+                  "addChecklistSection": false,
+                  "addExamplesSection": false,
+                  "addPitfallsSection": false,
+                  "addMetricsSection": false
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 8,
+                "validExisting": 8,
+                "invalidExisting": 0,
+                "application": 5,
+                "critical": 3,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [],
+              "warnings": []
+            },
+            {
+              "dayNumber": 2,
+              "lessonId": "DONE_BETTER_2026_EN_DAY_02",
+              "title": "What Is a Problem, Really?",
+              "createdAt": "2026-01-28T19:32:33.628Z",
+              "lessonQuality": {
+                "score": 75,
+                "issues": [
+                  "NO_CONTRASTS_GOOD_BAD",
+                  "NO_METRICS_OR_CRITERIA"
+                ],
+                "signals": {
+                  "charCount": 1526,
+                  "wordCount": 254,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": false,
+                  "hasMetricsOrCriteria": false,
+                  "hasDefinitionsOrComparisons": true
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": false,
+                  "addChecklistSection": false,
+                  "addExamplesSection": true,
+                  "addPitfallsSection": true,
+                  "addMetricsSection": true
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 7,
+                "validExisting": 7,
+                "invalidExisting": 0,
+                "application": 5,
+                "critical": 2,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [],
+              "warnings": []
+            },
+            {
+              "dayNumber": 3,
+              "lessonId": "DONE_BETTER_2026_EN_DAY_03",
+              "title": "Understand Before You Move",
+              "createdAt": "2026-01-28T19:32:34.387Z",
+              "lessonQuality": {
+                "score": 100,
+                "issues": [],
+                "signals": {
+                  "charCount": 1905,
+                  "wordCount": 300,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": true,
+                  "hasMetricsOrCriteria": true,
+                  "hasDefinitionsOrComparisons": true
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": false,
+                  "addChecklistSection": false,
+                  "addExamplesSection": false,
+                  "addPitfallsSection": false,
+                  "addMetricsSection": false
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 7,
+                "validExisting": 7,
+                "invalidExisting": 0,
+                "application": 5,
+                "critical": 2,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [],
+              "warnings": []
+            },
+            {
+              "dayNumber": 4,
+              "lessonId": "DONE_BETTER_2026_EN_DAY_04",
+              "title": "Unknowns Are Assets",
+              "createdAt": "2026-01-28T19:32:34.504Z",
+              "lessonQuality": {
+                "score": 100,
+                "issues": [],
+                "signals": {
+                  "charCount": 1640,
+                  "wordCount": 272,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": true,
+                  "hasMetricsOrCriteria": true,
+                  "hasDefinitionsOrComparisons": true
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": false,
+                  "addChecklistSection": false,
+                  "addExamplesSection": false,
+                  "addPitfallsSection": false,
+                  "addMetricsSection": false
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 7,
+                "validExisting": 7,
+                "invalidExisting": 0,
+                "application": 5,
+                "critical": 2,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [],
+              "warnings": []
+            },
+            {
+              "dayNumber": 5,
+              "lessonId": "DONE_BETTER_2026_EN_DAY_05",
+              "title": "Rewriting the Problem",
+              "createdAt": "2026-01-28T19:32:34.623Z",
+              "lessonQuality": {
+                "score": 100,
+                "issues": [],
+                "signals": {
+                  "charCount": 1998,
+                  "wordCount": 331,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": true,
+                  "hasMetricsOrCriteria": true,
+                  "hasDefinitionsOrComparisons": true
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": false,
+                  "addChecklistSection": false,
+                  "addExamplesSection": false,
+                  "addPitfallsSection": false,
+                  "addMetricsSection": false
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 7,
+                "validExisting": 7,
+                "invalidExisting": 0,
+                "application": 5,
+                "critical": 2,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [],
+              "warnings": []
+            },
+            {
+              "dayNumber": 6,
+              "lessonId": "DONE_BETTER_2026_EN_DAY_06",
+              "title": "Decompose Everything",
+              "createdAt": "2026-01-28T19:32:34.717Z",
+              "lessonQuality": {
+                "score": 100,
+                "issues": [],
+                "signals": {
+                  "charCount": 2331,
+                  "wordCount": 370,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": true,
+                  "hasMetricsOrCriteria": true,
+                  "hasDefinitionsOrComparisons": true
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": false,
+                  "addChecklistSection": false,
+                  "addExamplesSection": false,
+                  "addPitfallsSection": false,
+                  "addMetricsSection": false
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 7,
+                "validExisting": 7,
+                "invalidExisting": 0,
+                "application": 5,
+                "critical": 2,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [],
+              "warnings": []
+            },
+            {
+              "dayNumber": 7,
+              "lessonId": "DONE_BETTER_2026_EN_DAY_07",
+              "title": "Find the Leverage Point",
+              "createdAt": "2026-01-28T19:32:34.807Z",
+              "lessonQuality": {
+                "score": 100,
+                "issues": [],
+                "signals": {
+                  "charCount": 1998,
+                  "wordCount": 310,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": true,
+                  "hasMetricsOrCriteria": true,
+                  "hasDefinitionsOrComparisons": true
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": false,
+                  "addChecklistSection": false,
+                  "addExamplesSection": false,
+                  "addPitfallsSection": false,
+                  "addMetricsSection": false
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 7,
+                "validExisting": 7,
+                "invalidExisting": 0,
+                "application": 5,
+                "critical": 2,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [],
+              "warnings": []
+            },
+            {
+              "dayNumber": 8,
+              "lessonId": "DONE_BETTER_2026_EN_DAY_08",
+              "title": "Plans Are Hypotheses",
+              "createdAt": "2026-01-28T19:32:34.921Z",
+              "lessonQuality": {
+                "score": 100,
+                "issues": [],
+                "signals": {
+                  "charCount": 1758,
+                  "wordCount": 299,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": true,
+                  "hasMetricsOrCriteria": true,
+                  "hasDefinitionsOrComparisons": true
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": false,
+                  "addChecklistSection": false,
+                  "addExamplesSection": false,
+                  "addPitfallsSection": false,
+                  "addMetricsSection": false
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 7,
+                "validExisting": 7,
+                "invalidExisting": 0,
+                "application": 5,
+                "critical": 2,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [],
+              "warnings": []
+            },
+            {
+              "dayNumber": 9,
+              "lessonId": "DONE_BETTER_2026_EN_DAY_09",
+              "title": "Think in Moves, Not Projects",
+              "createdAt": "2026-01-28T19:32:35.007Z",
+              "lessonQuality": {
+                "score": 100,
+                "issues": [],
+                "signals": {
+                  "charCount": 2183,
+                  "wordCount": 372,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": true,
+                  "hasMetricsOrCriteria": true,
+                  "hasDefinitionsOrComparisons": true
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": false,
+                  "addChecklistSection": false,
+                  "addExamplesSection": false,
+                  "addPitfallsSection": false,
+                  "addMetricsSection": false
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 7,
+                "validExisting": 7,
+                "invalidExisting": 0,
+                "application": 6,
+                "critical": 1,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [],
+              "warnings": []
+            },
+            {
+              "dayNumber": 10,
+              "lessonId": "DONE_BETTER_2026_EN_DAY_10",
+              "title": "Analogy as a Weapon",
+              "createdAt": "2026-01-28T19:32:35.381Z",
+              "lessonQuality": {
+                "score": 100,
+                "issues": [],
+                "signals": {
+                  "charCount": 1663,
+                  "wordCount": 264,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": true,
+                  "hasMetricsOrCriteria": true,
+                  "hasDefinitionsOrComparisons": true
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": false,
+                  "addChecklistSection": false,
+                  "addExamplesSection": false,
+                  "addPitfallsSection": false,
+                  "addMetricsSection": false
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 7,
+                "validExisting": 7,
+                "invalidExisting": 0,
+                "application": 6,
+                "critical": 1,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [],
+              "warnings": []
+            },
+            {
+              "dayNumber": 11,
+              "lessonId": "DONE_BETTER_2026_EN_DAY_11",
+              "title": "Working Backwards",
+              "createdAt": "2026-01-28T19:32:35.472Z",
+              "lessonQuality": {
+                "score": 75,
+                "issues": [
+                  "NO_CONTRASTS_GOOD_BAD",
+                  "NO_METRICS_OR_CRITERIA"
+                ],
+                "signals": {
+                  "charCount": 1137,
+                  "wordCount": 194,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": false,
+                  "hasMetricsOrCriteria": false,
+                  "hasDefinitionsOrComparisons": true
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": false,
+                  "addChecklistSection": false,
+                  "addExamplesSection": true,
+                  "addPitfallsSection": true,
+                  "addMetricsSection": true
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 7,
+                "validExisting": 7,
+                "invalidExisting": 0,
+                "application": 6,
+                "critical": 1,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [],
+              "warnings": []
+            },
+            {
+              "dayNumber": 12,
+              "lessonId": "DONE_BETTER_2026_EN_DAY_12",
+              "title": "Simplify Until It Breaks",
+              "createdAt": "2026-01-28T19:32:35.582Z",
+              "lessonQuality": {
+                "score": 100,
+                "issues": [],
+                "signals": {
+                  "charCount": 1642,
+                  "wordCount": 267,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": true,
+                  "hasMetricsOrCriteria": true,
+                  "hasDefinitionsOrComparisons": true
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": false,
+                  "addChecklistSection": false,
+                  "addExamplesSection": false,
+                  "addPitfallsSection": false,
+                  "addMetricsSection": false
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 7,
+                "validExisting": 7,
+                "invalidExisting": 0,
+                "application": 5,
+                "critical": 2,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [],
+              "warnings": []
+            },
+            {
+              "dayNumber": 13,
+              "lessonId": "DONE_BETTER_2026_EN_DAY_13",
+              "title": "Multiple Paths Thinking",
+              "createdAt": "2026-01-28T19:32:35.676Z",
+              "lessonQuality": {
+                "score": 100,
+                "issues": [],
+                "signals": {
+                  "charCount": 1697,
+                  "wordCount": 282,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": true,
+                  "hasMetricsOrCriteria": true,
+                  "hasDefinitionsOrComparisons": true
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": false,
+                  "addChecklistSection": false,
+                  "addExamplesSection": false,
+                  "addPitfallsSection": false,
+                  "addMetricsSection": false
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 7,
+                "validExisting": 7,
+                "invalidExisting": 0,
+                "application": 6,
+                "critical": 1,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [],
+              "warnings": []
+            },
+            {
+              "dayNumber": 14,
+              "lessonId": "DONE_BETTER_2026_EN_DAY_14",
+              "title": "Choose with Intent",
+              "createdAt": "2026-01-28T19:32:35.784Z",
+              "lessonQuality": {
+                "score": 100,
+                "issues": [],
+                "signals": {
+                  "charCount": 1895,
+                  "wordCount": 304,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": true,
+                  "hasMetricsOrCriteria": true,
+                  "hasDefinitionsOrComparisons": true
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": false,
+                  "addChecklistSection": false,
+                  "addExamplesSection": false,
+                  "addPitfallsSection": false,
+                  "addMetricsSection": false
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 7,
+                "validExisting": 7,
+                "invalidExisting": 0,
+                "application": 6,
+                "critical": 1,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [],
+              "warnings": []
+            },
+            {
+              "dayNumber": 15,
+              "lessonId": "DONE_BETTER_2026_EN_DAY_15",
+              "title": "Done Means Testable",
+              "createdAt": "2026-01-28T19:32:35.866Z",
+              "lessonQuality": {
+                "score": 100,
+                "issues": [],
+                "signals": {
+                  "charCount": 1805,
+                  "wordCount": 303,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": true,
+                  "hasMetricsOrCriteria": true,
+                  "hasDefinitionsOrComparisons": true
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": false,
+                  "addChecklistSection": false,
+                  "addExamplesSection": false,
+                  "addPitfallsSection": false,
+                  "addMetricsSection": false
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 7,
+                "validExisting": 7,
+                "invalidExisting": 0,
+                "application": 6,
+                "critical": 1,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [],
+              "warnings": []
+            },
+            {
+              "dayNumber": 16,
+              "lessonId": "DONE_BETTER_2026_EN_DAY_16",
+              "title": "Ship the Skeleton",
+              "createdAt": "2026-01-28T19:32:35.946Z",
+              "lessonQuality": {
+                "score": 100,
+                "issues": [],
+                "signals": {
+                  "charCount": 1810,
+                  "wordCount": 293,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": true,
+                  "hasMetricsOrCriteria": true,
+                  "hasDefinitionsOrComparisons": true
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": false,
+                  "addChecklistSection": false,
+                  "addExamplesSection": false,
+                  "addPitfallsSection": false,
+                  "addMetricsSection": false
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 7,
+                "validExisting": 7,
+                "invalidExisting": 0,
+                "application": 6,
+                "critical": 1,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [],
+              "warnings": []
+            },
+            {
+              "dayNumber": 17,
+              "lessonId": "DONE_BETTER_2026_EN_DAY_17",
+              "title": "Fast Feedback Loops",
+              "createdAt": "2026-01-28T19:32:36.036Z",
+              "lessonQuality": {
+                "score": 100,
+                "issues": [],
+                "signals": {
+                  "charCount": 1599,
+                  "wordCount": 257,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": true,
+                  "hasMetricsOrCriteria": true,
+                  "hasDefinitionsOrComparisons": true
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": false,
+                  "addChecklistSection": false,
+                  "addExamplesSection": false,
+                  "addPitfallsSection": false,
+                  "addMetricsSection": false
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 7,
+                "validExisting": 7,
+                "invalidExisting": 0,
+                "application": 7,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [],
+              "warnings": []
+            },
+            {
+              "dayNumber": 18,
+              "lessonId": "DONE_BETTER_2026_EN_DAY_18",
+              "title": "Kill Beautiful Ideas Early",
+              "createdAt": "2026-01-28T19:32:36.124Z",
+              "lessonQuality": {
+                "score": 100,
+                "issues": [],
+                "signals": {
+                  "charCount": 1656,
+                  "wordCount": 279,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": true,
+                  "hasMetricsOrCriteria": true,
+                  "hasDefinitionsOrComparisons": true
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": false,
+                  "addChecklistSection": false,
+                  "addExamplesSection": false,
+                  "addPitfallsSection": false,
+                  "addMetricsSection": false
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 7,
+                "validExisting": 7,
+                "invalidExisting": 0,
+                "application": 6,
+                "critical": 1,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [],
+              "warnings": []
+            },
+            {
+              "dayNumber": 19,
+              "lessonId": "DONE_BETTER_2026_EN_DAY_19",
+              "title": "Measure What Matters",
+              "createdAt": "2026-01-28T19:32:36.216Z",
+              "lessonQuality": {
+                "score": 100,
+                "issues": [],
+                "signals": {
+                  "charCount": 1606,
+                  "wordCount": 259,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": true,
+                  "hasMetricsOrCriteria": true,
+                  "hasDefinitionsOrComparisons": true
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": false,
+                  "addChecklistSection": false,
+                  "addExamplesSection": false,
+                  "addPitfallsSection": false,
+                  "addMetricsSection": false
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 7,
+                "validExisting": 7,
+                "invalidExisting": 0,
+                "application": 7,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [],
+              "warnings": []
+            },
+            {
+              "dayNumber": 20,
+              "lessonId": "DONE_BETTER_2026_EN_DAY_20",
+              "title": "Pivot Without Drama",
+              "createdAt": "2026-01-28T19:32:36.306Z",
+              "lessonQuality": {
+                "score": 100,
+                "issues": [],
+                "signals": {
+                  "charCount": 1843,
+                  "wordCount": 296,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": true,
+                  "hasMetricsOrCriteria": true,
+                  "hasDefinitionsOrComparisons": true
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": false,
+                  "addChecklistSection": false,
+                  "addExamplesSection": false,
+                  "addPitfallsSection": false,
+                  "addMetricsSection": false
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 7,
+                "validExisting": 7,
+                "invalidExisting": 0,
+                "application": 7,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [],
+              "warnings": []
+            },
+            {
+              "dayNumber": 21,
+              "lessonId": "DONE_BETTER_2026_EN_DAY_21",
+              "title": "Momentum Over Comfort",
+              "createdAt": "2026-01-28T19:32:36.415Z",
+              "lessonQuality": {
+                "score": 100,
+                "issues": [],
+                "signals": {
+                  "charCount": 1850,
+                  "wordCount": 295,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": true,
+                  "hasMetricsOrCriteria": true,
+                  "hasDefinitionsOrComparisons": true
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": false,
+                  "addChecklistSection": false,
+                  "addExamplesSection": false,
+                  "addPitfallsSection": false,
+                  "addMetricsSection": false
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 7,
+                "validExisting": 7,
+                "invalidExisting": 0,
+                "application": 7,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [],
+              "warnings": []
+            },
+            {
+              "dayNumber": 22,
+              "lessonId": "DONE_BETTER_2026_EN_DAY_22",
+              "title": "Truth Is a Tool",
+              "createdAt": "2026-01-28T19:32:36.522Z",
+              "lessonQuality": {
+                "score": 100,
+                "issues": [],
+                "signals": {
+                  "charCount": 1648,
+                  "wordCount": 267,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": true,
+                  "hasMetricsOrCriteria": true,
+                  "hasDefinitionsOrComparisons": true
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": false,
+                  "addChecklistSection": false,
+                  "addExamplesSection": false,
+                  "addPitfallsSection": false,
+                  "addMetricsSection": false
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 7,
+                "validExisting": 7,
+                "invalidExisting": 0,
+                "application": 7,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [],
+              "warnings": []
+            },
+            {
+              "dayNumber": 23,
+              "lessonId": "DONE_BETTER_2026_EN_DAY_23",
+              "title": "No Surprises Culture",
+              "createdAt": "2026-01-28T19:32:36.633Z",
+              "lessonQuality": {
+                "score": 70,
+                "issues": [
+                  "NO_EXAMPLES",
+                  "NO_METRICS_OR_CRITERIA"
+                ],
+                "signals": {
+                  "charCount": 1124,
+                  "wordCount": 198,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": false,
+                  "hasGoodBadContrast": true,
+                  "hasMetricsOrCriteria": false,
+                  "hasDefinitionsOrComparisons": true
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": false,
+                  "addChecklistSection": false,
+                  "addExamplesSection": true,
+                  "addPitfallsSection": false,
+                  "addMetricsSection": true
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 7,
+                "validExisting": 7,
+                "invalidExisting": 0,
+                "application": 7,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [],
+              "warnings": []
+            },
+            {
+              "dayNumber": 24,
+              "lessonId": "DONE_BETTER_2026_EN_DAY_24",
+              "title": "Communicate Unknowns",
+              "createdAt": "2026-01-28T19:32:36.746Z",
+              "lessonQuality": {
+                "score": 100,
+                "issues": [],
+                "signals": {
+                  "charCount": 1886,
+                  "wordCount": 317,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": true,
+                  "hasMetricsOrCriteria": true,
+                  "hasDefinitionsOrComparisons": true
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": false,
+                  "addChecklistSection": false,
+                  "addExamplesSection": false,
+                  "addPitfallsSection": false,
+                  "addMetricsSection": false
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 7,
+                "validExisting": 7,
+                "invalidExisting": 0,
+                "application": 7,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [],
+              "warnings": []
+            },
+            {
+              "dayNumber": 25,
+              "lessonId": "DONE_BETTER_2026_EN_DAY_25",
+              "title": "From Client to Partner",
+              "createdAt": "2026-01-28T19:32:36.859Z",
+              "lessonQuality": {
+                "score": 100,
+                "issues": [],
+                "signals": {
+                  "charCount": 2056,
+                  "wordCount": 313,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": true,
+                  "hasMetricsOrCriteria": true,
+                  "hasDefinitionsOrComparisons": true
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": false,
+                  "addChecklistSection": false,
+                  "addExamplesSection": false,
+                  "addPitfallsSection": false,
+                  "addMetricsSection": false
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 7,
+                "validExisting": 7,
+                "invalidExisting": 0,
+                "application": 7,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [],
+              "warnings": []
+            },
+            {
+              "dayNumber": 26,
+              "lessonId": "DONE_BETTER_2026_EN_DAY_26",
+              "title": "Reflect Like a Pro",
+              "createdAt": "2026-01-28T19:32:36.956Z",
+              "lessonQuality": {
+                "score": 100,
+                "issues": [],
+                "signals": {
+                  "charCount": 1725,
+                  "wordCount": 273,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": true,
+                  "hasMetricsOrCriteria": true,
+                  "hasDefinitionsOrComparisons": true
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": false,
+                  "addChecklistSection": false,
+                  "addExamplesSection": false,
+                  "addPitfallsSection": false,
+                  "addMetricsSection": false
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 7,
+                "validExisting": 7,
+                "invalidExisting": 0,
+                "application": 7,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [],
+              "warnings": []
+            },
+            {
+              "dayNumber": 27,
+              "lessonId": "DONE_BETTER_2026_EN_DAY_27",
+              "title": "Build Your Thinking Loop",
+              "createdAt": "2026-01-28T19:32:37.047Z",
+              "lessonQuality": {
+                "score": 100,
+                "issues": [],
+                "signals": {
+                  "charCount": 1830,
+                  "wordCount": 285,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": true,
+                  "hasMetricsOrCriteria": true,
+                  "hasDefinitionsOrComparisons": true
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": false,
+                  "addChecklistSection": false,
+                  "addExamplesSection": false,
+                  "addPitfallsSection": false,
+                  "addMetricsSection": false
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 7,
+                "validExisting": 7,
+                "invalidExisting": 0,
+                "application": 7,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [],
+              "warnings": []
+            },
+            {
+              "dayNumber": 28,
+              "lessonId": "DONE_BETTER_2026_EN_DAY_28",
+              "title": "From Chaos to Clarity",
+              "createdAt": "2026-01-28T19:32:37.138Z",
+              "lessonQuality": {
+                "score": 100,
+                "issues": [],
+                "signals": {
+                  "charCount": 1982,
+                  "wordCount": 312,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": true,
+                  "hasMetricsOrCriteria": true,
+                  "hasDefinitionsOrComparisons": true
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": false,
+                  "addChecklistSection": false,
+                  "addExamplesSection": false,
+                  "addPitfallsSection": false,
+                  "addMetricsSection": false
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 7,
+                "validExisting": 7,
+                "invalidExisting": 0,
+                "application": 7,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [],
+              "warnings": []
+            },
+            {
+              "dayNumber": 29,
+              "lessonId": "DONE_BETTER_2026_EN_DAY_29",
+              "title": "Your Personal Playbook",
+              "createdAt": "2026-01-28T19:32:37.545Z",
+              "lessonQuality": {
+                "score": 100,
+                "issues": [],
+                "signals": {
+                  "charCount": 1932,
+                  "wordCount": 290,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": true,
+                  "hasMetricsOrCriteria": true,
+                  "hasDefinitionsOrComparisons": true
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": false,
+                  "addChecklistSection": false,
+                  "addExamplesSection": false,
+                  "addPitfallsSection": false,
+                  "addMetricsSection": false
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 7,
+                "validExisting": 7,
+                "invalidExisting": 0,
+                "application": 7,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [],
+              "warnings": []
+            },
+            {
+              "dayNumber": 30,
+              "lessonId": "DONE_BETTER_2026_EN_DAY_30",
+              "title": "The Mind That Handles Anything",
+              "createdAt": "2026-01-28T19:32:37.667Z",
+              "lessonQuality": {
+                "score": 100,
+                "issues": [],
+                "signals": {
+                  "charCount": 1991,
+                  "wordCount": 307,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": true,
+                  "hasMetricsOrCriteria": true,
+                  "hasDefinitionsOrComparisons": true
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": false,
+                  "addChecklistSection": false,
+                  "addExamplesSection": false,
+                  "addPitfallsSection": false,
+                  "addMetricsSection": false
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 7,
+                "validExisting": 7,
+                "invalidExisting": 0,
+                "application": 7,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [],
+              "warnings": []
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "coursesMissingCcsId": []
+}

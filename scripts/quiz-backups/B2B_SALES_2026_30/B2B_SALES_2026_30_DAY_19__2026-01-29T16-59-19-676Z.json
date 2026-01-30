@@ -1,0 +1,68 @@
+{
+  "backedUpAt": "2026-01-29T17:00:25.540Z",
+  "course": {
+    "courseId": "B2B_SALES_2026_30",
+    "name": "B2B Értékesítés 2026 Masterclass",
+    "language": "hu"
+  },
+  "lesson": {
+    "dayNumber": 19,
+    "title": "Miért kell CRM és miért nem elég az Excel",
+    "lessonId": "B2B_SALES_2026_30_DAY_19"
+  },
+  "questionCount": 4,
+  "questions": [
+    {
+      "_id": "697b2040ac79ca83bb972282",
+      "difficulty": "MEDIUM",
+      "question": "Miért bukik el az Excel hosszabb távon?",
+      "options": [
+        "Túl színes",
+        "Nincs aktivitás/idő/felelős követés, verziókáosz",
+        "Drága",
+        "Nem lehet számolni benne"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b2040ac79ca83bb972283",
+      "difficulty": "MEDIUM",
+      "question": "Mi tartozik a minimum deal mezők közé?",
+      "options": [
+        "Csak név és ár",
+        "Érték, stage, forrás, next step, felelős",
+        "Csak e-mail",
+        "Csak jegyzet"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b2040ac79ca83bb972284",
+      "difficulty": "MEDIUM",
+      "question": "Mi a jó példa?",
+      "options": [
+        "Excel több verzióban, felelős nélkül",
+        "CRM-ben next step + felelős minden dealhez",
+        "Csak call szám mérése",
+        "Csak marketing lista"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b2040ac79ca83bb972285",
+      "difficulty": "MEDIUM",
+      "question": "Mi a váltási jel?",
+      "options": [
+        "Ha 1 deal van",
+        "Duplikáció, nincs felelős, nincs stage riport",
+        "Ha nincs e-mail",
+        "Ha túl sok ikon van"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    }
+  ]
+}

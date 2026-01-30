@@ -1,0 +1,68 @@
+{
+  "backedUpAt": "2026-01-29T17:00:18.674Z",
+  "course": {
+    "courseId": "B2B_SALES_2026_30",
+    "name": "B2B Értékesítés 2026 Masterclass",
+    "language": "hu"
+  },
+  "lesson": {
+    "dayNumber": 1,
+    "title": "Mi a modern B2B értékesítés 2026-ban",
+    "lessonId": "B2B_SALES_2026_30_DAY_1"
+  },
+  "questionCount": 4,
+  "questions": [
+    {
+      "_id": "697b203bac79ca83bb97216d",
+      "difficulty": "MEDIUM",
+      "question": "Mi a modern B2B sales elsődleges célja a kurzus szerint?",
+      "options": [
+        "Minél több hívás és pitch",
+        "Döntéstámogatás és kockázatcsökkentés, tiszta következő lépéssel",
+        "Csak az ár lealkudása",
+        "CRM kitöltése adminból"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b203bac79ca83bb97216e",
+      "difficulty": "MEDIUM",
+      "question": "Mi különbözteti meg a rendszert a taktikától?",
+      "options": [
+        "A rendszer 1 jó mondat, a taktika 1 pipeline",
+        "A rendszer definíciók, lépések és mérés, a taktika rövid trükk",
+        "Nincs különbség",
+        "A taktika mindig jobb"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b203bac79ca83bb97216f",
+      "difficulty": "MEDIUM",
+      "question": "Mi a „több aktivitás = több eredmény” tévedés fő gondja?",
+      "options": [
+        "ICP és qualification nélkül a több aktivitás csak zajt termel",
+        "Mindig növeli a win rate-et",
+        "Csökkenti a cycle time-ot automatikusan",
+        "Jobb, mint a target lista építés"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b203bac79ca83bb972170",
+      "difficulty": "MEDIUM",
+      "question": "Miért nem elég a pitch?",
+      "options": [
+        "Mert a vevő döntést és kockázatcsökkentést akar, nem termékleírást",
+        "Mert a pitch mindig hosszú",
+        "Mert a pitch csak marketing",
+        "Mert a pitch nem említi az árat"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    }
+  ]
+}

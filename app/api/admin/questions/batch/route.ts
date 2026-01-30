@@ -10,10 +10,11 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { auth } from '@/auth';
 import connectDB from '@/lib/mongodb';
-import { QuizQuestion, QuestionDifficulty, QuizQuestionType } from '@/lib/models';
+import { Course, QuizQuestion, QuestionDifficulty, QuizQuestionType } from '@/lib/models';
 import { logger } from '@/lib/logger';
-import { requireAdmin } from '@/lib/rbac';
+import { getAdminApiActor, requireAdmin } from '@/lib/rbac';
 import { randomUUID } from 'crypto';
+import mongoose from 'mongoose';
 
 /**
  * POST /api/admin/questions/batch
@@ -26,10 +27,14 @@ import { randomUUID } from 'crypto';
 export async function POST(request: NextRequest) {
   try {
     const session = await auth();
-    const adminCheck = requireAdmin(request, session);
-    if (adminCheck) {
-      return adminCheck;
+    const apiActor = getAdminApiActor(request);
+    if (!apiActor) {
+      const adminCheck = requireAdmin(request, session);
+      if (adminCheck) {
+        return adminCheck;
+      }
     }
+    const actor = apiActor || session?.user?.email || session?.user?.id || 'unknown';
 
     await connectDB();
     const body = await request.json();
@@ -50,7 +55,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Validate all questions before inserting
-    const questionsToInsert = questions.map((q, index) => {
+    const questionsToInsert = await Promise.all(questions.map(async (q: any, index: number) => {
       // Validate required fields
       if (!q.question || !q.options || q.correctIndex === undefined) {
         throw new Error(`Question ${index + 1}: Missing required fields (question, options, correctIndex)`);
@@ -72,30 +77,74 @@ export async function POST(request: NextRequest) {
         throw new Error(`Question ${index + 1}: All options must be unique`);
       }
 
+      // Resolve courseId (accept Course.courseId or Course._id)
+      let resolvedCourseId: mongoose.Types.ObjectId | undefined;
+      if (q.courseId) {
+        if (typeof q.courseId !== 'string') {
+          throw new Error(`Question ${index + 1}: courseId must be a string (Course.courseId or Course._id)`);
+        }
+
+        if (mongoose.Types.ObjectId.isValid(q.courseId)) {
+          const course = await Course.findById(q.courseId);
+          if (!course) {
+            throw new Error(`Question ${index + 1}: Course not found (by _id): ${q.courseId}`);
+          }
+          resolvedCourseId = course._id;
+        } else {
+          const course = await Course.findOne({ courseId: q.courseId });
+          if (!course) {
+            throw new Error(`Question ${index + 1}: Course not found: ${q.courseId}`);
+          }
+          resolvedCourseId = course._id;
+        }
+      }
+
+      // Resolve relatedCourseIds (accept Course.courseId or Course._id)
+      let resolvedRelatedCourseIds: mongoose.Types.ObjectId[] = [];
+      if (q.relatedCourseIds !== undefined) {
+        if (!Array.isArray(q.relatedCourseIds)) {
+          throw new Error(`Question ${index + 1}: relatedCourseIds must be an array`);
+        }
+        resolvedRelatedCourseIds = (
+          await Promise.all(
+            q.relatedCourseIds.map(async (relatedId: any) => {
+              if (typeof relatedId !== 'string') return null;
+              if (mongoose.Types.ObjectId.isValid(relatedId)) {
+                const course = await Course.findById(relatedId);
+                return course?._id || null;
+              }
+              const course = await Course.findOne({ courseId: relatedId });
+              return course?._id || null;
+            })
+          )
+        ).filter(Boolean) as mongoose.Types.ObjectId[];
+      }
+
       return {
         uuid: q.uuid || randomUUID(),
         lessonId: q.lessonId || undefined,
-        courseId: q.courseId || undefined,
+        courseId: resolvedCourseId,
         question: q.question.trim(),
         options: q.options.map((opt: string) => opt.trim()),
         correctIndex: q.correctIndex,
         difficulty: (q.difficulty || QuestionDifficulty.MEDIUM) as QuestionDifficulty,
         category: q.category || 'Course Specific',
-        isCourseSpecific: q.isCourseSpecific !== undefined ? q.isCourseSpecific : (q.courseId ? true : false),
+        isCourseSpecific: q.isCourseSpecific !== undefined ? q.isCourseSpecific : (!!resolvedCourseId || !!q.lessonId),
         questionType: q.questionType as QuizQuestionType | undefined,
         hashtags: Array.isArray(q.hashtags) ? q.hashtags : [],
         isActive: q.isActive !== undefined ? q.isActive : true,
+        relatedCourseIds: resolvedRelatedCourseIds,
         showCount: 0,
         correctCount: 0,
         metadata: {
           createdAt: new Date(),
           updatedAt: new Date(),
-          createdBy: session.user.email || session.user.id,
+          createdBy: actor,
           auditedAt: q.auditedAt ? new Date(q.auditedAt) : undefined,
           auditedBy: q.auditedBy || undefined,
         },
       };
-    });
+    }));
 
     // Batch insert using insertMany (10x faster than individual saves)
     const result = await QuizQuestion.insertMany(questionsToInsert, {
@@ -106,7 +155,8 @@ export async function POST(request: NextRequest) {
       {
         count: result.length,
         batchSize: questions.length,
-        createdBy: session.user.email || session.user.id,
+        createdBy: actor,
+        authMode: apiActor ? 'api-key' : 'session',
       },
       'Admin created batch quiz questions'
     );

@@ -1,0 +1,68 @@
+{
+  "backedUpAt": "2026-01-29T16:59:38.758Z",
+  "course": {
+    "courseId": "B2B_SALES_2026_30_EN",
+    "name": "B2B Sales 2026 Masterclass",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 24,
+    "title": "CRM hygiene and daily routine",
+    "lessonId": "B2B_SALES_2026_30_EN_DAY_24"
+  },
+  "questionCount": 4,
+  "questions": [
+    {
+      "_id": "697b1fd58f79f136a28b8a5c",
+      "difficulty": "MEDIUM",
+      "question": "What is the goal of the 10-minute routine?",
+      "options": [
+        "Decoration",
+        "Keep the pipeline real",
+        "Launch marketing campaigns",
+        "Handle HR tasks"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b1fd58f79f136a28b8a5d",
+      "difficulty": "MEDIUM",
+      "question": "Typical stale rule threshold:",
+      "options": [
+        "14 days with no activity → review",
+        "1 day no activity → immediate close",
+        "6 months no activity",
+        "No such thing"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b1fd58f79f136a28b8a5e",
+      "difficulty": "MEDIUM",
+      "question": "What goes in the weekly report?",
+      "options": [
+        "Stage conversion, cycle time, win rate",
+        "Lunch menu",
+        "Office plants count",
+        "Only email volume"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b1fd58f79f136a28b8a5f",
+      "difficulty": "MEDIUM",
+      "question": "Bad example:",
+      "options": [
+        "Cleaning once a month while everything expires",
+        "Updating next steps daily",
+        "Having reminders on",
+        "Having a stale rule"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    }
+  ]
+}

@@ -1,0 +1,114 @@
+{
+  "backedUpAt": "2026-01-28T22:58:15.606Z",
+  "course": {
+    "courseId": "DONE_BETTER_2026_EN",
+    "name": "Done is better - Build What Matters",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 20,
+    "title": "Pivot Without Drama",
+    "lessonId": "DONE_BETTER_2026_EN_DAY_20"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "697a92f622596d24dfc12d46",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Evidence shows the current plan is wrong. What should you do?",
+      "options": [
+        "State it in one sentence; propose the pivot and the new next move; share with stakeholders",
+        "Hide the evidence to avoid admitting the plan was wrong",
+        "Double down and invest more in the failing plan",
+        "Blame the plan itself rather than adapting based on evidence"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a92f622596d24dfc12d47",
+      "questionType": "application",
+      "difficulty": "EASY",
+      "question": "A team planned to launch in the US market, but early tests show stronger demand in Europe. They update their plan, shift resources, and communicate the change transparently. What does this demonstrate?",
+      "options": [
+        "Pivoting without drama: changing direction based on evidence without treating it as failure",
+        "Cancelling the project and moving on without learning or adaptation",
+        "Firing people and restructuring without proper analysis",
+        "Starting over with no learning from the past experience"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a92f622596d24dfc12d48",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How do you pivot in a way that builds trust?",
+      "options": [
+        "Update the plan and the next move; do not hide the pivot; be transparent about the change",
+        "Pivot quietly without communicating the change to avoid questions",
+        "Blame external factors for the need to pivot without taking responsibility",
+        "Delay the announcement until the new direction is fully proven"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a92f622596d24dfc12d49",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Treating pivot as failure can lead to:",
+      "options": [
+        "Sticking to a wrong plan to avoid \"failure\" and wasting resources",
+        "Faster pivots",
+        "Higher morale",
+        "No meaningful effect on outcomes"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a92f622596d24dfc12d4a",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Pivoting without learning (same mistake in new direction) results in:",
+      "options": [
+        "Repeating the same error in a new context",
+        "Faster execution",
+        "More creativity",
+        "No significant downside in practice"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a92f622596d24dfc12d4b",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "A team's plan shows early signs of failure, but the deadline is still months away. When should they change direction?",
+      "options": [
+        "When evidence says the plan is wrong; then pivot and update the next move",
+        "Only at quarterly reviews regardless of what evidence shows in between",
+        "Never; stick to the plan regardless of evidence or outcomes",
+        "When the budget runs out and there are no more resources to continue"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a92f622596d24dfc12d4c",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "What should you share when you pivot?",
+      "options": [
+        "The evidence that led to the pivot, the new direction, and the new next move",
+        "Only the new direction without explaining why or what changed",
+        "Nothing until the new direction is proven to work",
+        "Only that the old plan was wrong without proposing an alternative"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    }
+  ]
+}

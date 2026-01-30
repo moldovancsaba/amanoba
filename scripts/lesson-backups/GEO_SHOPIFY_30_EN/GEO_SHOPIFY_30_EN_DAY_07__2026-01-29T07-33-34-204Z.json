@@ -1,0 +1,19 @@
+{
+  "backedUpAt": "2026-01-29T07:33:34.804Z",
+  "course": {
+    "courseId": "GEO_SHOPIFY_30_EN",
+    "name": "GEO Shopify – 30-day course",
+    "language": "en"
+  },
+  "lesson": {
+    "lessonId": "GEO_SHOPIFY_30_EN_DAY_07",
+    "dayNumber": 7,
+    "title": "Shopify product data audit: title, description, variants",
+    "language": "en",
+    "isActive": true,
+    "createdAt": "2026-01-19T22:01:12.472Z"
+  },
+  "content": "<h1>Shopify product data audit: title, description, variants</h1>\n<p><em>Find gaps in titles, descriptions, variants, and identifiers.</em></p>\n<hr />\n<h2>Learning goal</h2>\n<ul>\n<li>Create an audit template for 10–20 products.</li>\n<li>Assess title/subtitle, description, variants, IDs.</li>\n</ul>\n<hr />\n<h2>Why it matters</h2>\n<ul>\n<li>AI prefers clear, unambiguous data.</li>\n<li>Messy variants lead to wrong recommendations.</li>\n</ul>\n<hr />\n<h2>Explanation</h2>\n<h3>Check</h3>\n<ul>\n<li>Title/subtitle: concise with key attributes.</li>\n<li>Description: short, key specs up top, policy links.</li>\n<li>Variants: size/color clear, no mixing.</li>\n<li>IDs: SKU/GTIN/brand filled.</li>\n</ul>\n<hr />\n<h2>Examples</h2>\n<ul>\n<li><strong>Good</strong>: “Runner Pro, men, blue, GTIN…, SKU…, subtitle: stability, cushioning, shipping 3–5 days.”</li>\n<li><strong>Poor</strong>: “Pro shoe” — missing variant info, no ID.</li>\n</ul>\n<hr />\n<h2>Guided exercise (10–15 min)</h2>\n<ol>\n<li>Create an audit sheet: Product | Title | Description | Variant label | SKU | GTIN | Brand | Notes.</li>\n<li>Fill for 10 products.</li>\n</ol>\n<h2>Independent exercise (5–10 min)</h2>\n<p>Log 5 issues (e.g., missing SKU/GTIN, messy variant) and mark for fix.</p>\n<hr />\n<h2>Self-check</h2>\n<ul>\n<li>Audit template done.</li>\n<li>10 products reviewed.</li>\n<li>5 issues recorded.</li>\n</ul>\n<hr />\n<h2>Optional deepening</h2>\n<ul>\n<li>Shopify product data: <a href=\"https://shopify.dev/docs/api/liquid/objects/product\" target=\"_blank\" rel=\"noreferrer\">https://shopify.dev/docs/api/liquid/objects/product</a></li>\n</ul>",
+  "emailSubject": "GEO Shopify – Day 7: Product data audit",
+  "emailBody": "<h1>GEO Shopify – Day 7</h1>\n<h2>Product data audit</h2>\n<p>Today you audit 10 products for title/description/variant/ID gaps.</p>\n<p><a href=\"http://localhost:3000/courses/GEO_SHOPIFY_30_EN/day/{{dayNumber}}\">Read the lesson →</a></p>"
+}

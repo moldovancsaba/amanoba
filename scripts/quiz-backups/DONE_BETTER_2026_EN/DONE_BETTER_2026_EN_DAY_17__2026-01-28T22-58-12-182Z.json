@@ -1,0 +1,114 @@
+{
+  "backedUpAt": "2026-01-28T22:58:15.376Z",
+  "course": {
+    "courseId": "DONE_BETTER_2026_EN",
+    "name": "Done is better - Build What Matters",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 17,
+    "title": "Fast Feedback Loops",
+    "lessonId": "DONE_BETTER_2026_EN_DAY_17"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "697a92f622596d24dfc12d25",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "A team runs a long cycle with no check until the end. What is the risk?",
+      "options": [
+        "Learning is delayed; reality corrects plans too late when changes are expensive",
+        "They will work harder and produce better results without feedback or validation",
+        "It is cheaper to avoid interim checks and focus only on final delivery",
+        "No significant risk in this case; long cycles without feedback are always better"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a92f622596d24dfc12d26",
+      "questionType": "application",
+      "difficulty": "EASY",
+      "question": "A team launches a feature, waits 3 months, then checks if users like it. What is missing compared to a proper feedback loop?",
+      "options": [
+        "A feedback loop gets real-world signal quickly to adjust the next move, not after months",
+        "Sending a survey at the end without interim checks or adjustments",
+        "Asking for approval without testing actual outcomes or usage",
+        "Reporting status only without gathering signal from real users"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a92f622596d24dfc12d27",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How do you shorten the time between action and signal?",
+      "options": [
+        "Define the next feedback moment: when and how you will get signal; move it earlier if possible",
+        "Work faster to complete everything sooner without interim checks",
+        "Send more emails to stakeholders without gathering actual user feedback",
+        "Meet more often to discuss progress without testing with real users"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a92f622596d24dfc12d28",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Ignoring feedback that contradicts the plan can lead to:",
+      "options": [
+        "Investing in a wrong direction while evidence says otherwise",
+        "Stronger commitment",
+        "Faster execution",
+        "No significant downside in practice"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a92f622596d24dfc12d29",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Measuring only what confirms the plan is risky because:",
+      "options": [
+        "You miss disconfirming signal and update too late",
+        "You save time",
+        "You please stakeholders",
+        "It has no effect on outcomes or learning"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a92f622596d24dfc12d2a",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "For one active initiative, what should you define?",
+      "options": [
+        "The next feedback moment: when and how you will get signal to adjust course",
+        "The final deadline only without interim checkpoints or feedback loops",
+        "The full list of tasks without identifying when to check progress or gather signal",
+        "Who is responsible only without defining how to measure success or get feedback"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a92f622596d24dfc12d2b",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Why is \"reality is your best mentor\" important?",
+      "options": [
+        "Reality corrects plans; fast loops reduce the cost of being wrong and enable learning",
+        "Reality is always right so plans are unnecessary and should be avoided",
+        "Plans are useless and should be replaced entirely by reacting to reality",
+        "It is optional and not necessary for successful project delivery"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    }
+  ]
+}

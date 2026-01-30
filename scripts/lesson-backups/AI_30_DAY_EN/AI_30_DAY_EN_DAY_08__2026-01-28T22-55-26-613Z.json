@@ -1,0 +1,10 @@
+{
+  "backedUpAt": "2026-01-28T22:55:27.876Z",
+  "courseId": "AI_30_DAY_EN",
+  "lessonId": "AI_30_DAY_EN_DAY_08",
+  "dayNumber": 8,
+  "title": "Fact-checking and source requests",
+  "content": "<h1>Fact-checking and source requests</h1>\n<p><em>Reduce hallucinations with verification prompts</em></p>\n<hr />\n<h2>Learning goal</h2>\n<ul>\n<li>Use prompts that ask for sources/uncertainties.</li>\n<li>Apply a quick fact-check routine.</li>\n</ul>\n<hr />\n<h2>Why it matters</h2>\n<ul>\n<li>Models can hallucinate; you must verify claims.</li>\n<li>Sources and uncertainty flags guide your review.</li>\n</ul>\n<hr />\n<h2>Explanation</h2>\n<ul>\n<li>Add: “Cite sources or say if unknown.”</li>\n<li>Ask for “3 risks or missing info.”</li>\n<li>Cross-check numbers/dates with a trusted source.</li>\n</ul>\n<hr />\n<h2>Examples</h2>\n<ul>\n<li><strong>Prompt</strong>: “Summarize X in 120 words. List sources or say ‘no source’. Add 2 risks.”</li>\n<li><strong>QA</strong>: “Check dates vs official site; flag mismatches.”</li>\n</ul>\n<hr />\n<h2>Guided exercise (10–15 min)</h2>\n<ol>\n<li>Pick a factual topic; ask for summary + sources + risks.</li>\n<li>Manually verify 2 claims; note discrepancies.</li>\n</ol>\n<h2>Independent exercise (5–10 min)</h2>\n<p>Rewrite your QA checklist to include “sources/uncertainty” for future prompts.</p>\n<hr />\n<h2>Self-check</h2>\n<ul>\n<li>Sources requested in the prompt.</li>\n<li>Uncertainties/risks listed.</li>\n<li>At least 2 claims verified manually.</li>\n</ul>\n<hr />\n<h2>Optional deepening</h2>\n<ul>\n<li>Safety best practices: <a href=\"https://platform.openai.com/docs/guides/safety-best-practices\" target=\"_blank\" rel=\"noreferrer\">https://platform.openai.com/docs/guides/safety-best-practices</a></li>\n</ul>",
+  "emailSubject": "AI 30-Day – Day 8: Fact-checking",
+  "emailBody": "<h1>AI 30-Day – Day 8</h1>\n<h2>Fact-checking</h2>\n<p>Today you’ll request sources and verify key claims.</p>\n<p><a href=\"http://localhost:3000/courses/AI_30_DAY_EN/day/{{dayNumber}}\">Open the lesson →</a></p>"
+}

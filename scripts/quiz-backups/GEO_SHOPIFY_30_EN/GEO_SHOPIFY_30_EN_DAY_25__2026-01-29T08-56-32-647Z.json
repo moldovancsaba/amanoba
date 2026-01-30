@@ -1,0 +1,81 @@
+{
+  "backedUpAt": "2026-01-29T08:56:35.219Z",
+  "course": {
+    "courseId": "GEO_SHOPIFY_30_EN",
+    "name": "GEO Shopify – 30-day course",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 25,
+    "title": "Off-site GEO: when it helps, when it harms",
+    "lessonId": "GEO_SHOPIFY_30_EN_DAY_25"
+  },
+  "questionCount": 5,
+  "questions": [
+    {
+      "_id": "697b200702f89b2246e06e7a",
+      "difficulty": "EASY",
+      "question": "What makes a useful off-site source?",
+      "options": [
+        "Credible, relevant, real content",
+        "Link farm",
+        "Keyword stuffing",
+        "Paid spam"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b200702f89b2246e06e7b",
+      "difficulty": "MEDIUM",
+      "question": "Why are spammy links harmful?",
+      "options": [
+        "Loss of trust, possible exclusion",
+        "Not harmful",
+        "Only design",
+        "Only page speed"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b200702f89b2246e06e7c",
+      "difficulty": "EASY",
+      "question": "What should you list?",
+      "options": [
+        "Useful vs avoid sources",
+        "Only footer links",
+        "Only meta title",
+        "Only alt text"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b200702f89b2246e06e7d",
+      "difficulty": "MEDIUM",
+      "question": "What is a good outreach step?",
+      "options": [
+        "Draft for partner article/Q&A",
+        "Mass spam email",
+        "Buy link farm",
+        "Do nothing"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b200702f89b2246e06e7e",
+      "difficulty": "HARD",
+      "question": "Which source should you avoid?",
+      "options": [
+        "Link farm, irrelevant directory",
+        "Credible media",
+        "Real review site",
+        "Partner blog"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    }
+  ]
+}

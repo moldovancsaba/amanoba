@@ -1,0 +1,126 @@
+{
+  "backedUpAt": "2026-01-29T17:06:36.620Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_EN",
+    "name": "Productivity 2026: How to Manage Teams and Time",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 17,
+    "title": "Sustaining motivation (tracking progress, celebrating wins)",
+    "lessonId": "PRODUCTIVITY_2026_EN_DAY_17"
+  },
+  "questionCount": 5,
+  "questions": [
+    {
+      "_id": "69787d9ba326286129da9030",
+      "uuid": "3af7a424-59eb-48ed-9332-f1a58e723807",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "You are applying \"Sustaining motivation (tracking progress, celebrating wins)\" this week. Which next step most directly turns intent into an outcome instead of extra activity?",
+      "options": [
+        "Pick one real scenario, apply the checklist, define a success metric/criterion, and review results at week’s end.",
+        "Add more meetings and messages so progress is visible, then assume the outcome improved.",
+        "Start multiple unrelated tasks to stay busy and increase the feeling of productivity.",
+        "Delay action until the plan is perfect, because execution without certainty risks mistakes."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day17",
+        "#en",
+        "#course-productivity_2026_en",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "69787d9ba326286129da9031",
+      "uuid": "7142e239-5d1e-4654-8314-7633a0f8a1e9",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Which option is the best example of a measurable metric/criterion for \"Sustaining motivation (tracking progress, celebrating wins)\" (so you can prove progress)?",
+      "options": [
+        "A specific number tracked weekly (e.g., decision latency, cycle time, time saved) with a threshold for success.",
+        "A general intention like “be better at this”, without numbers or a deadline.",
+        "A count of messages sent, regardless of whether outcomes improved.",
+        "A feeling-based check (“did it feel productive?”) with no measurable signal."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day17",
+        "#en",
+        "#course-productivity_2026_en",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "69787d9ba326286129da9032",
+      "uuid": "07a762df-75a6-44b3-a2c8-b4273a5303d8",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "In a \"Good vs Bad\" comparison for \"Sustaining motivation (tracking progress, celebrating wins)\", which option is closest to a “Good” implementation?",
+      "options": [
+        "Clear outcomes, explicit owners/criteria, and fewer distractions so execution produces measurable results.",
+        "More activity (more meetings/updates) without decisions, owners, or measurable progress.",
+        "More tools and dashboards without changing the process or defining success criteria.",
+        "More urgency and overtime without adjusting constraints or simplifying the system."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day17",
+        "#en",
+        "#course-productivity_2026_en",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "69787d9ba326286129da9034",
+      "uuid": "a669232e-1dfb-4f1f-bad8-9ca4cdd02f1b",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "You want \"Sustaining motivation (tracking progress, celebrating wins)\" to work for a team, not just one person. Which change best makes it a scalable system?",
+      "options": [
+        "Document the checklist, define owners and success criteria, and run a lightweight cadence (review + adjustment).",
+        "Rely on individual willpower and hope everyone copies the best performer’s habits.",
+        "Make the process optional with no shared metrics so nobody feels pressured by measurement.",
+        "Increase coordination time so everyone stays busy and visible, even if execution time drops."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day17",
+        "#en",
+        "#course-productivity_2026_en",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "69787d9ba326286129da9035",
+      "uuid": "95008f5b-3382-45d6-bcd2-023ddade9389",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "What is the biggest risk if you implement \"Sustaining motivation (tracking progress, celebrating wins)\" incorrectly by adding more activity without changing outcomes?",
+      "options": [
+        "Constraints get consumed (time/energy/attention) while outcomes stagnate, so productivity drops even if work feels intense.",
+        "Outcomes improve automatically because activity volume guarantees results in complex systems.",
+        "Measurement becomes unnecessary because visible effort is a sufficient success signal.",
+        "Decision quality improves because fatigue forces faster thinking and fewer debates."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day17",
+        "#en",
+        "#course-productivity_2026_en",
+        "#productivity",
+        "#advanced",
+        "#critical-thinking"
+      ]
+    }
+  ]
+}

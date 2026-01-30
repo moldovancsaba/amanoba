@@ -1,0 +1,68 @@
+{
+  "backedUpAt": "2026-01-29T16:59:34.483Z",
+  "course": {
+    "courseId": "B2B_SALES_2026_30_EN",
+    "name": "B2B Sales 2026 Masterclass",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 14,
+    "title": "Qualification Framework: MEDDPICC (Simplified)",
+    "lessonId": "B2B_SALES_2026_30_EN_DAY_14"
+  },
+  "questionCount": 4,
+  "questions": [
+    {
+      "_id": "697b1fd28f79f136a28b89f4",
+      "difficulty": "MEDIUM",
+      "question": "One core MEDDPICC element?",
+      "options": [
+        "Marketing budget",
+        "Economic buyer (who signs)",
+        "LinkedIn followers",
+        "CSR program"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b1fd28f79f136a28b89f5",
+      "difficulty": "MEDIUM",
+      "question": "Why a question list?",
+      "options": [
+        "Longer meetings",
+        "Early risk detection, clear next steps",
+        "Decoration",
+        "Fewer notes"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b1fd28f79f136a28b89f6",
+      "difficulty": "MEDIUM",
+      "question": "Bad example?",
+      "options": [
+        "Gap marked for economic buyer",
+        "No list, moving on gut feel",
+        "Paper process logged",
+        "Next step written"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b1fd28f79f136a28b89f7",
+      "difficulty": "MEDIUM",
+      "question": "Which belongs to Metrics?",
+      "options": [
+        "Who signs?",
+        "What counts as success?",
+        "What is the legal process?",
+        "Who is the champion?"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    }
+  ]
+}

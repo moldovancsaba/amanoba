@@ -1,0 +1,721 @@
+{
+  "generatedAt": "2026-01-28T21:36:28.029Z",
+  "courseFilter": "PRODUCTIVITY_2026_TR",
+  "total": 30,
+  "failed": 21,
+  "results": [
+    {
+      "courseId": "PRODUCTIVITY_2026_TR",
+      "courseName": "Verimlilik 2026: Ekipler ve Zaman Nasıl Yönetilir",
+      "language": "tr",
+      "dayNumber": 1,
+      "lessonId": "PRODUCTIVITY_2026_TR_DAY_01",
+      "title": "Verimlilik tanımı: çıktı, sonuçlar ve kısıtlamalar",
+      "createdAt": "2026-01-23T19:27:03.117Z",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "findings": []
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_TR",
+      "courseName": "Verimlilik 2026: Ekipler ve Zaman Nasıl Yönetilir",
+      "language": "tr",
+      "dayNumber": 2,
+      "lessonId": "PRODUCTIVITY_2026_TR_DAY_02",
+      "title": "Zaman, enerji, dikkat: pratikte yönettiğiniz şeyler",
+      "createdAt": "2026-01-23T21:18:33.197Z",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "findings": []
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_TR",
+      "courseName": "Verimlilik 2026: Ekipler ve Zaman Nasıl Yönetilir",
+      "language": "tr",
+      "dayNumber": 3,
+      "lessonId": "PRODUCTIVITY_2026_TR_DAY_03",
+      "title": "Hedef hiyerarşisi: vizyon → sonuçlar → projeler → sonraki adımlar",
+      "createdAt": "2026-01-23T21:24:48.585Z",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "findings": []
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_TR",
+      "courseName": "Verimlilik 2026: Ekipler ve Zaman Nasıl Yönetilir",
+      "language": "tr",
+      "dayNumber": 4,
+      "lessonId": "PRODUCTIVITY_2026_TR_DAY_04",
+      "title": "Alışkanlıklar vs sistemler: sistemler neden daha iyi ölçeklenir",
+      "createdAt": "2026-01-23T21:30:00.041Z",
+      "ok": false,
+      "errors": [
+        "Language integrity failed for lesson.content: detected injected English instruction line(s) for tr."
+      ],
+      "warnings": [],
+      "findings": [
+        {
+          "label": "Potential English line",
+          "snippet": "Scott Adams: \"How to Fail at Almost Everything\" — sistemler hakkında"
+        }
+      ]
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_TR",
+      "courseName": "Verimlilik 2026: Ekipler ve Zaman Nasıl Yönetilir",
+      "language": "tr",
+      "dayNumber": 5,
+      "lessonId": "PRODUCTIVITY_2026_TR_DAY_05",
+      "title": "Ölçüm: basit haftalık inceleme metrikleri (throughput, odak blokları, carryover)",
+      "createdAt": "2026-01-23T21:40:13.911Z",
+      "ok": false,
+      "errors": [
+        "Language integrity failed for lesson.content: detected injected English instruction line(s) for tr."
+      ],
+      "warnings": [],
+      "findings": [
+        {
+          "label": "Potential English line",
+          "snippet": "Plan: Gelecek hafta için ne planlıyorsunuz?"
+        },
+        {
+          "label": "Potential English line",
+          "snippet": "Plan : Gelecek hafta ne değiştireceksiniz? Hangi somut adımları atacaksınız?"
+        }
+      ]
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_TR",
+      "courseName": "Verimlilik 2026: Ekipler ve Zaman Nasıl Yönetilir",
+      "language": "tr",
+      "dayNumber": 6,
+      "lessonId": "PRODUCTIVITY_2026_TR_DAY_06",
+      "title": "Yakalama: gelen kutuları, tetikleyici listesi, yakalama alışkanlıkları",
+      "createdAt": "2026-01-23T21:43:43.398Z",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "findings": []
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_TR",
+      "courseName": "Verimlilik 2026: Ekipler ve Zaman Nasıl Yönetilir",
+      "language": "tr",
+      "dayNumber": 7,
+      "lessonId": "PRODUCTIVITY_2026_TR_DAY_07",
+      "title": "Günlük/Haftalık Sistem: sabah ritüeli, günlük huddle, haftalık inceleme",
+      "createdAt": "2026-01-24T08:15:46.926Z",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "findings": []
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_TR",
+      "courseName": "Verimlilik 2026: Ekipler ve Zaman Nasıl Yönetilir",
+      "language": "tr",
+      "dayNumber": 8,
+      "lessonId": "PRODUCTIVITY_2026_TR_DAY_8",
+      "title": "Bağlam Değiştirme Maliyeti: Dikkat Artığı, Toplu İşleme, Derin Çalışma Blokları",
+      "createdAt": "2026-01-24T08:31:19.049Z",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "findings": []
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_TR",
+      "courseName": "Verimlilik 2026: Ekipler ve Zaman Nasıl Yönetilir",
+      "language": "tr",
+      "dayNumber": 9,
+      "lessonId": "PRODUCTIVITY_2026_TR_DAY_9",
+      "title": "Delegasyon vs İlim: Ne Zaman Delege Et, Ne Silin",
+      "createdAt": "2026-01-24T08:36:24.499Z",
+      "ok": false,
+      "errors": [
+        "Language integrity failed for lesson.content: detected injected English instruction line(s) for tr."
+      ],
+      "warnings": [],
+      "findings": [
+        {
+          "label": "Potential English line",
+          "snippet": "Plan : Sonraki 30 gün için 3 delegasyon veya eleme fırsatı tanımlayın."
+        }
+      ]
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_TR",
+      "courseName": "Verimlilik 2026: Ekipler ve Zaman Nasıl Yönetilir",
+      "language": "tr",
+      "dayNumber": 10,
+      "lessonId": "PRODUCTIVITY_2026_TR_DAY_10",
+      "title": "Enerji Yönetimi: Ne Zaman Çalış, Ne Zaman Dinlen, İyileştirme Ritüelleri",
+      "createdAt": "2026-01-24T08:40:14.424Z",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "findings": []
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_TR",
+      "courseName": "Verimlilik 2026: Ekipler ve Zaman Nasıl Yönetilir",
+      "language": "tr",
+      "dayNumber": 11,
+      "lessonId": "PRODUCTIVITY_2026_TR_DAY_11",
+      "title": "Hedef Belirleme ve OKR'ler: Ne Başarmak İstiyorsunuz?",
+      "createdAt": "2026-01-24T08:41:51.517Z",
+      "ok": false,
+      "errors": [
+        "Language integrity failed for lesson.content: detected injected English instruction line(s) for tr.",
+        "Language integrity failed for lesson.emailBody: detected injected English instruction line(s) for tr."
+      ],
+      "warnings": [],
+      "findings": [
+        {
+          "label": "Potential English line",
+          "snippet": "Write one SMART goal that matters."
+        },
+        {
+          "label": "Potential English line",
+          "snippet": "Define 2–4 key results (measurable)."
+        },
+        {
+          "label": "Potential English line",
+          "snippet": "Turn productivity into measurable progress with clear goals and key results."
+        }
+      ]
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_TR",
+      "courseName": "Verimlilik 2026: Ekipler ve Zaman Nasıl Yönetilir",
+      "language": "tr",
+      "dayNumber": 12,
+      "lessonId": "PRODUCTIVITY_2026_TR_DAY_12",
+      "title": "Muhasebeleştirme Yapıları: Sizi Piste Tutacak Sistemler",
+      "createdAt": "2026-01-24T09:15:53.925Z",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "findings": []
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_TR",
+      "courseName": "Verimlilik 2026: Ekipler ve Zaman Nasıl Yönetilir",
+      "language": "tr",
+      "dayNumber": 13,
+      "lessonId": "PRODUCTIVITY_2026_TR_DAY_13",
+      "title": "Karar Verme Çerçeveleri: Hızlı Kararlar, Karar Matrisi, Analiz Felçini Önlemek",
+      "createdAt": "2026-01-24T09:23:08.777Z",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "findings": []
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_TR",
+      "courseName": "Verimlilik 2026: Ekipler ve Zaman Nasıl Yönetilir",
+      "language": "tr",
+      "dayNumber": 14,
+      "lessonId": "PRODUCTIVITY_2026_TR_DAY_14",
+      "title": "Toplantı Verimliliği: Gündem, Zaman Sınırı, Karar Günlüğü",
+      "createdAt": "2026-01-24T09:29:49.166Z",
+      "ok": false,
+      "errors": [
+        "Language integrity failed for lesson.emailBody: detected injected English instruction line(s) for tr."
+      ],
+      "warnings": [],
+      "findings": [
+        {
+          "label": "Potential English line",
+          "snippet": "Turn meetings from time sinks into decision engines with accountable outputs."
+        }
+      ]
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_TR",
+      "courseName": "Verimlilik 2026: Ekipler ve Zaman Nasıl Yönetilir",
+      "language": "tr",
+      "dayNumber": 15,
+      "lessonId": "PRODUCTIVITY_2026_TR_DAY_15",
+      "title": "Takım Çalışması ve Sinerji: Roller, Sorumluluk, Koordinasyon",
+      "createdAt": "2026-01-24T09:29:51.957Z",
+      "ok": false,
+      "errors": [
+        "Language integrity failed for lesson.content: detected injected English instruction line(s) for tr.",
+        "Language integrity failed for lesson.emailBody: detected injected English instruction line(s) for tr."
+      ],
+      "warnings": [],
+      "findings": [
+        {
+          "label": "Potential English line",
+          "snippet": "Define roles and responsibilities for a project."
+        },
+        {
+          "label": "Potential English line",
+          "snippet": "Design a coordination cadence (syncs, async updates)."
+        },
+        {
+          "label": "Potential English line",
+          "snippet": "Write delegation briefs (expected output, due date, success criteria, check-ins)."
+        },
+        {
+          "label": "Potential English line",
+          "snippet": "Execute: eliminate 1 and delegate 1 this week; review impact."
+        },
+        {
+          "label": "Potential English line",
+          "snippet": "Scale productivity through clear roles, ownership, and coordination mechanisms."
+        }
+      ]
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_TR",
+      "courseName": "Verimlilik 2026: Ekipler ve Zaman Nasıl Yönetilir",
+      "language": "tr",
+      "dayNumber": 16,
+      "lessonId": "PRODUCTIVITY_2026_TR_DAY_16",
+      "title": "Stres Yönetimi ve Yorgunluk: Kurtarma, İş-Yaşam Dengesi",
+      "createdAt": "2026-01-24T09:29:55.569Z",
+      "ok": false,
+      "errors": [
+        "Language integrity failed for lesson.emailBody: detected injected English instruction line(s) for tr."
+      ],
+      "warnings": [],
+      "findings": [
+        {
+          "label": "Potential English line",
+          "snippet": "Protect sustainability and decision quality by managing stress and fatigue proactively."
+        }
+      ]
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_TR",
+      "courseName": "Verimlilik 2026: Ekipler ve Zaman Nasıl Yönetilir",
+      "language": "tr",
+      "dayNumber": 17,
+      "lessonId": "PRODUCTIVITY_2026_TR_DAY_17",
+      "title": "Motivasyonu Sürdürme: İlerlemeyi Takip, Kazançları Kutla",
+      "createdAt": "2026-01-24T09:29:58.459Z",
+      "ok": false,
+      "errors": [
+        "Language integrity failed for lesson.content: detected injected English instruction line(s) for tr.",
+        "Language integrity failed for lesson.emailBody: detected injected English instruction line(s) for tr."
+      ],
+      "warnings": [],
+      "findings": [
+        {
+          "label": "Potential English line",
+          "snippet": "Neden önemli? Use feedback loops and small wins to keep execution consistent over months."
+        },
+        {
+          "label": "Potential English line",
+          "snippet": "Define a progress metric that motivates without gaming."
+        },
+        {
+          "label": "Potential English line",
+          "snippet": "Build a reward/celebration routine that reinforces the system."
+        },
+        {
+          "label": "Potential English line",
+          "snippet": "Avoid motivation dependency by relying on systems."
+        },
+        {
+          "label": "Potential English line",
+          "snippet": "Use feedback loops and small wins to keep execution consistent over months."
+        }
+      ]
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_TR",
+      "courseName": "Verimlilik 2026: Ekipler ve Zaman Nasıl Yönetilir",
+      "language": "tr",
+      "dayNumber": 18,
+      "lessonId": "PRODUCTIVITY_2026_TR_DAY_18",
+      "title": "Kriz Yönetimi ve Uyarlanabilirlik: Uyum, Hızlı Öğrenme",
+      "createdAt": "2026-01-24T09:30:01.435Z",
+      "ok": false,
+      "errors": [
+        "Language integrity failed for lesson.content: detected injected English instruction line(s) for tr.",
+        "Language integrity failed for lesson.emailBody: detected injected English instruction line(s) for tr."
+      ],
+      "warnings": [],
+      "findings": [
+        {
+          "label": "Potential English line",
+          "snippet": "Define a short post-mortem template (what happened, what we change)."
+        },
+        {
+          "label": "Potential English line",
+          "snippet": "Define decision category (small/medium/large) based on reversibility and impact."
+        },
+        {
+          "label": "Potential English line",
+          "snippet": "Review outcomes and update your decision rules."
+        },
+        {
+          "label": "Potential English line",
+          "snippet": "Maintain productivity under change by making fast decisions and learning quickly."
+        }
+      ]
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_TR",
+      "courseName": "Verimlilik 2026: Ekipler ve Zaman Nasıl Yönetilir",
+      "language": "tr",
+      "dayNumber": 19,
+      "lessonId": "PRODUCTIVITY_2026_TR_DAY_19",
+      "title": "Uzun Vadeli Planlama: Yıllar İleri, Strateji, Evrim",
+      "createdAt": "2026-01-24T09:30:04.684Z",
+      "ok": false,
+      "errors": [
+        "Language integrity failed for lesson.content: detected injected English instruction line(s) for tr.",
+        "Language integrity failed for lesson.emailBody: detected injected English instruction line(s) for tr."
+      ],
+      "warnings": [],
+      "findings": [
+        {
+          "label": "Potential English line",
+          "snippet": "Neden önemli? Align weekly execution with long-term direction without overplanning."
+        },
+        {
+          "label": "Potential English line",
+          "snippet": "Define leading indicators to track progress."
+        },
+        {
+          "label": "Potential English line",
+          "snippet": "Define decision category (small/medium/large) based on reversibility and impact."
+        },
+        {
+          "label": "Potential English line",
+          "snippet": "Review outcomes and update your decision rules."
+        },
+        {
+          "label": "Potential English line",
+          "snippet": "Align weekly execution with long-term direction without overplanning."
+        }
+      ]
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_TR",
+      "courseName": "Verimlilik 2026: Ekipler ve Zaman Nasıl Yönetilir",
+      "language": "tr",
+      "dayNumber": 20,
+      "lessonId": "PRODUCTIVITY_2026_TR_DAY_20",
+      "title": "Kişisel Yaşam Verimliliği: Ev Düzeni, Kişisel Projeler",
+      "createdAt": "2026-01-24T09:30:07.594Z",
+      "ok": false,
+      "errors": [
+        "Language integrity failed for lesson.content: detected injected English instruction line(s) for tr.",
+        "Language integrity failed for lesson.emailBody: detected injected English instruction line(s) for tr."
+      ],
+      "warnings": [],
+      "findings": [
+        {
+          "label": "Potential English line",
+          "snippet": "Neden önemli? Apply the same systems thinking to personal life to reduce friction and free time."
+        },
+        {
+          "label": "Potential English line",
+          "snippet": "Design one home system (inbox, maintenance, chores)."
+        },
+        {
+          "label": "Potential English line",
+          "snippet": "Define outcomes for a personal project."
+        },
+        {
+          "label": "Potential English line",
+          "snippet": "Apply the same systems thinking to personal life to reduce friction and free time."
+        }
+      ]
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_TR",
+      "courseName": "Verimlilik 2026: Ekipler ve Zaman Nasıl Yönetilir",
+      "language": "tr",
+      "dayNumber": 21,
+      "lessonId": "PRODUCTIVITY_2026_TR_DAY_21",
+      "title": "Topluluk ve Ağ: İlişkiler, Diğerleriyle Öğrenme",
+      "createdAt": "2026-01-24T09:30:10.372Z",
+      "ok": false,
+      "errors": [
+        "Language integrity failed for lesson.content: detected injected English instruction line(s) for tr.",
+        "Language integrity failed for lesson.emailBody: detected injected English instruction line(s) for tr."
+      ],
+      "warnings": [],
+      "findings": [
+        {
+          "label": "Potential English line",
+          "snippet": "Neden önemli? Use relationships as a leverage multiplier for learning and outcomes."
+        },
+        {
+          "label": "Potential English line",
+          "snippet": "Build a lightweight network maintenance system."
+        },
+        {
+          "label": "Potential English line",
+          "snippet": "Create a learning circle/accountability pod."
+        },
+        {
+          "label": "Potential English line",
+          "snippet": "Use relationships as a leverage multiplier for learning and outcomes."
+        }
+      ]
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_TR",
+      "courseName": "Verimlilik 2026: Ekipler ve Zaman Nasıl Yönetilir",
+      "language": "tr",
+      "dayNumber": 22,
+      "lessonId": "PRODUCTIVITY_2026_TR_DAY_22",
+      "title": "Teknoloji ve Araçlar: Otomasyon, Doğru Teknolojiyi Seçme",
+      "createdAt": "2026-01-24T09:30:13.143Z",
+      "ok": false,
+      "errors": [
+        "Language integrity failed for lesson.content: detected injected English instruction line(s) for tr."
+      ],
+      "warnings": [],
+      "findings": [
+        {
+          "label": "Potential English line",
+          "snippet": "Define selection criteria (time saved, error reduction, maintainability)."
+        },
+        {
+          "label": "Potential English line",
+          "snippet": "Avoid tool-driven complexity."
+        }
+      ]
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_TR",
+      "courseName": "Verimlilik 2026: Ekipler ve Zaman Nasıl Yönetilir",
+      "language": "tr",
+      "dayNumber": 23,
+      "lessonId": "PRODUCTIVITY_2026_TR_DAY_23",
+      "title": "Yaratıcılık ve Yenilik: Yeniden Düşünme, Deneyler",
+      "createdAt": "2026-01-24T09:30:15.923Z",
+      "ok": false,
+      "errors": [
+        "Language integrity failed for lesson.content: detected injected English instruction line(s) for tr.",
+        "Language integrity failed for lesson.emailBody: detected injected English instruction line(s) for tr."
+      ],
+      "warnings": [],
+      "findings": [
+        {
+          "label": "Potential English line",
+          "snippet": "Neden önemli? Use experimentation and iteration to improve systems rather than searching for perfect plans."
+        },
+        {
+          "label": "Potential English line",
+          "snippet": "Design one small experiment to improve productivity."
+        },
+        {
+          "label": "Potential English line",
+          "snippet": "Define success metrics and a stop rule."
+        },
+        {
+          "label": "Potential English line",
+          "snippet": "Define decision category (small/medium/large) based on reversibility and impact."
+        },
+        {
+          "label": "Potential English line",
+          "snippet": "Use experimentation and iteration to improve systems rather than searching for perfect plans."
+        }
+      ]
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_TR",
+      "courseName": "Verimlilik 2026: Ekipler ve Zaman Nasıl Yönetilir",
+      "language": "tr",
+      "dayNumber": 24,
+      "lessonId": "PRODUCTIVITY_2026_TR_DAY_24",
+      "title": "Filtreleme ve Öncelikler: Neyi Görmezden Gelir, Önemli Olan",
+      "createdAt": "2026-01-24T09:30:18.760Z",
+      "ok": false,
+      "errors": [
+        "Language integrity failed for lesson.content: detected injected English instruction line(s) for tr."
+      ],
+      "warnings": [],
+      "findings": [
+        {
+          "label": "Potential English line",
+          "snippet": "Define a priority filter (impact, urgency, alignment)."
+        }
+      ]
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_TR",
+      "courseName": "Verimlilik 2026: Ekipler ve Zaman Nasıl Yönetilir",
+      "language": "tr",
+      "dayNumber": 25,
+      "lessonId": "PRODUCTIVITY_2026_TR_DAY_25",
+      "title": "Beceri Geliştirme: Daha Yüksek Seviyeler, Yeni Yetkinlikler",
+      "createdAt": "2026-01-24T09:30:21.308Z",
+      "ok": false,
+      "errors": [
+        "Language integrity failed for lesson.content: detected injected English instruction line(s) for tr."
+      ],
+      "warnings": [],
+      "findings": [
+        {
+          "label": "Potential English line",
+          "snippet": "Choose one skill with leverage impact."
+        },
+        {
+          "label": "Potential English line",
+          "snippet": "Define practice routines and feedback loops."
+        },
+        {
+          "label": "Potential English line",
+          "snippet": "Measure progress with objective signals."
+        }
+      ]
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_TR",
+      "courseName": "Verimlilik 2026: Ekipler ve Zaman Nasıl Yönetilir",
+      "language": "tr",
+      "dayNumber": 26,
+      "lessonId": "PRODUCTIVITY_2026_TR_DAY_26",
+      "title": "Mentorlaştırma ve Öğretim: Bilgi Paylaşma, Başkalarına Yardım",
+      "createdAt": "2026-01-24T09:30:24.052Z",
+      "ok": false,
+      "errors": [
+        "Language integrity failed for lesson.content: detected injected English instruction line(s) for tr.",
+        "Language integrity failed for lesson.emailBody: detected injected English instruction line(s) for tr."
+      ],
+      "warnings": [],
+      "findings": [
+        {
+          "label": "Potential English line",
+          "snippet": "Neden önemli? Scale capability by turning knowledge into repeatable teaching artifacts."
+        },
+        {
+          "label": "Potential English line",
+          "snippet": "Create a small teaching artifact (checklist, template, guide)."
+        },
+        {
+          "label": "Potential English line",
+          "snippet": "Delegate with teaching built in (feedback loops)."
+        },
+        {
+          "label": "Potential English line",
+          "snippet": "Avoid becoming a bottleneck."
+        },
+        {
+          "label": "Potential English line",
+          "snippet": "Scale capability by turning knowledge into repeatable teaching artifacts."
+        }
+      ]
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_TR",
+      "courseName": "Verimlilik 2026: Ekipler ve Zaman Nasıl Yönetilir",
+      "language": "tr",
+      "dayNumber": 27,
+      "lessonId": "PRODUCTIVITY_2026_TR_DAY_27",
+      "title": "Alışkanlıklar ve Ritueller: Günlük Rutinler, Uzun Vadeli Eylem",
+      "createdAt": "2026-01-24T09:30:26.830Z",
+      "ok": false,
+      "errors": [
+        "Language integrity failed for lesson.content: detected injected English instruction line(s) for tr.",
+        "Language integrity failed for lesson.emailBody: detected injected English instruction line(s) for tr."
+      ],
+      "warnings": [],
+      "findings": [
+        {
+          "label": "Potential English line",
+          "snippet": "Neden önemli? Lock in sustainability by converting systems into stable rituals."
+        },
+        {
+          "label": "Potential English line",
+          "snippet": "Track ritual adherence for a week."
+        },
+        {
+          "label": "Potential English line",
+          "snippet": "Lock in sustainability by converting systems into stable rituals."
+        }
+      ]
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_TR",
+      "courseName": "Verimlilik 2026: Ekipler ve Zaman Nasıl Yönetilir",
+      "language": "tr",
+      "dayNumber": 28,
+      "lessonId": "PRODUCTIVITY_2026_TR_DAY_28",
+      "title": "Değerler ve Hedefler: Yaşam Amacı, Uzun Vadeli Vizyon",
+      "createdAt": "2026-01-24T09:30:30.554Z",
+      "ok": false,
+      "errors": [
+        "Language integrity failed for lesson.content: detected injected English instruction line(s) for tr."
+      ],
+      "warnings": [],
+      "findings": [
+        {
+          "label": "Potential English line",
+          "snippet": "Define personal values and non-negotiables."
+        }
+      ]
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_TR",
+      "courseName": "Verimlilik 2026: Ekipler ve Zaman Nasıl Yönetilir",
+      "language": "tr",
+      "dayNumber": 29,
+      "lessonId": "PRODUCTIVITY_2026_TR_DAY_29",
+      "title": "Sürekli İyileştirme: Öğrenme, Geri Bildirim, İterasyon",
+      "createdAt": "2026-01-24T09:30:34.287Z",
+      "ok": false,
+      "errors": [
+        "Language integrity failed for lesson.content: detected injected English instruction line(s) for tr.",
+        "Language integrity failed for lesson.emailBody: detected injected English instruction line(s) for tr."
+      ],
+      "warnings": [],
+      "findings": [
+        {
+          "label": "Potential English line",
+          "snippet": "Avoid over-optimizing and keep changes measurable."
+        },
+        {
+          "label": "Potential English line",
+          "snippet": "Create a continuous improvement loop using metrics and rule changes."
+        }
+      ]
+    },
+    {
+      "courseId": "PRODUCTIVITY_2026_TR",
+      "courseName": "Verimlilik 2026: Ekipler ve Zaman Nasıl Yönetilir",
+      "language": "tr",
+      "dayNumber": 30,
+      "lessonId": "PRODUCTIVITY_2026_TR_DAY_30",
+      "title": "Verimlilik Ustası: Kapsamlı Entegrasyon, Taahhüt",
+      "createdAt": "2026-01-24T09:30:37.635Z",
+      "ok": false,
+      "errors": [
+        "Language integrity failed for lesson.content: detected injected English instruction line(s) for tr.",
+        "Language integrity failed for lesson.emailBody: detected injected English instruction line(s) for tr."
+      ],
+      "warnings": [],
+      "findings": [
+        {
+          "label": "Potential English line",
+          "snippet": "Neden önemli? Integrate the full system into a sustainable commitment plan for the next 90 days."
+        },
+        {
+          "label": "Potential English line",
+          "snippet": "Define 90-day outcomes and constraints."
+        },
+        {
+          "label": "Potential English line",
+          "snippet": "Commit to a weekly review cadence and accountability."
+        },
+        {
+          "label": "Potential English line",
+          "snippet": "Integrate the full system into a sustainable commitment plan for the next 90 days."
+        }
+      ]
+    }
+  ]
+}

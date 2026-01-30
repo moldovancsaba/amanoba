@@ -1,0 +1,68 @@
+{
+  "backedUpAt": "2026-01-29T16:59:36.453Z",
+  "course": {
+    "courseId": "B2B_SALES_2026_30_EN",
+    "name": "B2B Sales 2026 Masterclass",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 19,
+    "title": "Why You Need a CRM (Excel Is Not Enough)",
+    "lessonId": "B2B_SALES_2026_30_EN_DAY_19"
+  },
+  "questionCount": 4,
+  "questions": [
+    {
+      "_id": "697b1fd38f79f136a28b8a1c",
+      "difficulty": "MEDIUM",
+      "question": "Why does Excel break at scale?",
+      "options": [
+        "Too colorful",
+        "No activity/time/owner tracking; version chaos",
+        "Too expensive",
+        "Cannot calculate"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b1fd38f79f136a28b8a1d",
+      "difficulty": "MEDIUM",
+      "question": "What is part of the minimum deal fields?",
+      "options": [
+        "Only name and price",
+        "Value, stage, source, next step, owner",
+        "Only email",
+        "Only notes"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b1fd38f79f136a28b8a1e",
+      "difficulty": "MEDIUM",
+      "question": "Good example?",
+      "options": [
+        "Excel with multiple versions, no owner",
+        "CRM with next step + owner per deal",
+        "Only counting calls",
+        "Just a marketing list"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b1fd38f79f136a28b8a1f",
+      "difficulty": "MEDIUM",
+      "question": "What is a switch signal?",
+      "options": [
+        "Only 1 deal exists",
+        "Duplicates, no owner, no stage reporting",
+        "No email",
+        "Too many icons"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    }
+  ]
+}

@@ -1,0 +1,68 @@
+{
+  "backedUpAt": "2026-01-29T17:00:21.111Z",
+  "course": {
+    "courseId": "B2B_SALES_2026_30",
+    "name": "B2B Értékesítés 2026 Masterclass",
+    "language": "hu"
+  },
+  "lesson": {
+    "dayNumber": 8,
+    "title": "LinkedIn és Sales Navigator alap folyamat",
+    "lessonId": "B2B_SALES_2026_30_DAY_8"
+  },
+  "questionCount": 4,
+  "questions": [
+    {
+      "_id": "697b203dac79ca83bb97222b",
+      "difficulty": "MEDIUM",
+      "question": "Mi a mentett keresés fő előnye?",
+      "options": [
+        "Dekoráció",
+        "Ismételhető, ICP-alapú lista frissítéssel",
+        "Kevesebb üzenet",
+        "Nincs szükség ICP-re"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b203dac79ca83bb97222c",
+      "difficulty": "MEDIUM",
+      "question": "Mi legyen a heti ritmus része?",
+      "options": [
+        "Random mennyiségű új kontakt",
+        "Új kontakt limit + frissítés időpontja",
+        "Csak pitch deck frissítés",
+        "Csak marketing kampány"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b203dac79ca83bb97222d",
+      "difficulty": "MEDIUM",
+      "question": "Miért rossz a kulcsszó nélküli böngészés?",
+      "options": [
+        "Mert lassú",
+        "Mert ICP-fit nélküli lista lesz, gyenge válaszaránnyal",
+        "Mert drága",
+        "Mert nem lehet exportálni"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b203dac79ca83bb97222e",
+      "difficulty": "MEDIUM",
+      "question": "Miért jelölsz ICP-fit okot 5 cégnél?",
+      "options": [
+        "Dekoráció",
+        "Hogy validáld a lista minőségét és megtaláld a fájdalom/trigger jelet",
+        "Hogy több emailt küldj",
+        "Hogy elkerüld a ritmust"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    }
+  ]
+}

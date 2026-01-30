@@ -1,0 +1,81 @@
+{
+  "backedUpAt": "2026-01-29T08:54:05.276Z",
+  "course": {
+    "courseId": "GEO_SHOPIFY_30_EN",
+    "name": "GEO Shopify – 30-day course",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 1,
+    "title": "What GEO is (and is not) for Shopify",
+    "lessonId": "GEO_SHOPIFY_30_EN_DAY_01"
+  },
+  "questionCount": 5,
+  "questions": [
+    {
+      "_id": "697b200102f89b2246e06d22",
+      "difficulty": "EASY",
+      "question": "What is a realistic GEO outcome?",
+      "options": [
+        "Inclusion, citation, and consistency in AI answers",
+        "Guaranteed checkout inside the chatbot",
+        "Higher Google Ads Quality Score",
+        "Instant #1 SEO ranking"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b200102f89b2246e06d23",
+      "difficulty": "MEDIUM",
+      "question": "What distinguishes GEO from SEO?",
+      "options": [
+        "GEO is about being cited in generative answers; SEO is about ranking links",
+        "They are the same",
+        "GEO is only backlink building",
+        "SEO is only about price and stock"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b200102f89b2246e06d24",
+      "difficulty": "MEDIUM",
+      "question": "What should a GEO prompt set capture?",
+      "options": [
+        "Your store’s key categories and target geos",
+        "Only your brand slogan",
+        "Only technical logs",
+        "Only page speed scores"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b200102f89b2246e06d25",
+      "difficulty": "MEDIUM",
+      "question": "Why do clean URLs matter?",
+      "options": [
+        "Stability improves retrieval and citation",
+        "They look nicer only",
+        "They boost ads CPC",
+        "They change page speed only"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b200102f89b2246e06d26",
+      "difficulty": "HARD",
+      "question": "Which is a good first action?",
+      "options": [
+        "Write 5 GEO prompts and note expected inclusion/citation",
+        "Buy backlinks",
+        "Disable canonical tags",
+        "Hide shipping info"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    }
+  ]
+}

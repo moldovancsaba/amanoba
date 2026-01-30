@@ -1,0 +1,114 @@
+{
+  "backedUpAt": "2026-01-28T22:37:47.561Z",
+  "course": {
+    "courseId": "DONE_BETTER_2026_EN",
+    "name": "Done is better - Build What Matters",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 12,
+    "title": "Simplify Until It Breaks",
+    "lessonId": "DONE_BETTER_2026_EN_DAY_12"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "697a87bba81588c9f41a2234",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "A process has 15 steps. How do you find what is essential?",
+      "options": [
+        "Strip to the minimum; find where it breaks; add back only what is necessary",
+        "Remove the last 5 steps",
+        "Survey users on their favorite steps",
+        "Keep all steps but do them faster"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87bba81588c9f41a2235",
+      "questionType": "application",
+      "difficulty": "EASY",
+      "question": "In this framework, how would you describe \"simplify until it breaks\" in practice?",
+      "options": [
+        "Remove everything that does not prove the core; the break point shows the minimum",
+        "Make the product worse on purpose to test limits",
+        "Cut the budget in half and see what survives",
+        "Use fewer words in documentation only"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87bba81588c9f41a2236",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "You have a minimal version. What should you do?",
+      "options": [
+        "Test it; if it achieves the goal, leave elements out; if it breaks, add back only what is necessary",
+        "Add more features before testing",
+        "Ship it without testing",
+        "Archive it"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87bba81588c9f41a2237",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Why is adding features before proving the core risky?",
+      "options": [
+        "You invest in complexity before validating that the core works",
+        "Features are always good",
+        "It pleases more stakeholders",
+        "It has no effect on outcomes or learning"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87bba81588c9f41a2238",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Equating \"simple\" with \"trivial\" can lead to:",
+      "options": [
+        "Dismissing simplification and keeping unnecessary complexity",
+        "Faster delivery",
+        "Higher quality",
+        "Better design"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87bba81588c9f41a2239",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "What is the purpose of finding where the simplified version breaks?",
+      "options": [
+        "To know the minimum needed; then add back only what is necessary",
+        "To prove the idea is bad",
+        "To save money",
+        "To reduce scope arbitrarily"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87bba81588c9f41a223a",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "After stripping one element from a plan, how do you decide whether to keep it out?",
+      "options": [
+        "Can you still achieve the goal? If yes, leave it out; if no, add it back",
+        "Ask the team to vote",
+        "Leave it out to save time",
+        "Always add it back"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    }
+  ]
+}

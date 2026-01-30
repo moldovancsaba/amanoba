@@ -1,0 +1,103 @@
+{
+  "generatedAt": "2026-01-29T17:07:32.941Z",
+  "courseId": "DONE_BETTER_2026_EN",
+  "courseName": "Done is better - Build What Matters",
+  "language": "en",
+  "lessonId": "DONE_BETTER_2026_EN_DAY_01",
+  "dayNumber": 1,
+  "title": "Welcome to Real Thinking",
+  "questionCount": 7,
+  "questions": [
+    {
+      "index": 1,
+      "question": "A structured program trains you to think, decide, and deliver rather than just consume content. What is its primary goal?",
+      "options": [
+        "To be more effective, not just smart or busy",
+        "To become more intelligent without changing behavior",
+        "To do more tasks regardless of outcomes",
+        "To feel more motivated in the short term only"
+      ],
+      "correctIndex": 0,
+      "questionType": "application",
+      "difficulty": "EASY"
+    },
+    {
+      "index": 2,
+      "question": "A manager wants to keep improving after a busy quarter. They are choosing between relying on feeling motivated each morning and setting a daily 5-minute reflection: what did I learn, what do I do next. Which approach is more likely to sustain progress?",
+      "options": [
+        "The daily reflection loop; systems persist when motivation fades",
+        "Relying on feeling motivated each morning; motivation is more powerful",
+        "Doing more activities without tracking what they learned or what to do next",
+        "Setting only a yearly goal with no daily structure or reflection"
+      ],
+      "correctIndex": 0,
+      "questionType": "application",
+      "difficulty": "MEDIUM"
+    },
+    {
+      "index": 3,
+      "question": "A team is busy every day but deliverables slip and priorities keep changing. An advisor says they lack a clear loop that separates understanding the problem, making explicit choices, and then executing and reflecting. Which option best matches that loop?",
+      "options": [
+        "Think (understand and plan), decide (choose with intent), deliver (move, test, reflect)",
+        "Plan everything upfront, execute without adjustment, forget what you learned",
+        "Work continuously, rest only when exhausted, repeat without reflection or learning",
+        "Hope for the best, try without structure, give up when it gets hard"
+      ],
+      "correctIndex": 0,
+      "questionType": "application",
+      "difficulty": "MEDIUM"
+    },
+    {
+      "index": 4,
+      "question": "Which mistake is most likely to block effectiveness?",
+      "options": [
+        "Confusing activity with progress",
+        "Taking too many breaks between focused work",
+        "Asking for help when you are stuck",
+        "Writing things down for later review"
+      ],
+      "correctIndex": 0,
+      "questionType": "critical-thinking",
+      "difficulty": "MEDIUM"
+    },
+    {
+      "index": 5,
+      "question": "A leader says: \"We did 50 meetings this month.\" What is missing for effectiveness?",
+      "options": [
+        "A link to outcomes or results, not just activity",
+        "More meetings to align the team",
+        "Fewer notes so people can focus",
+        "Longer meetings to cover everything"
+      ],
+      "correctIndex": 0,
+      "questionType": "critical-thinking",
+      "difficulty": "HARD"
+    },
+    {
+      "index": 6,
+      "question": "A new manager wants to build sustainable effectiveness habits. They are deciding between a daily reflection loop and waiting for quarterly reviews. What should they choose?",
+      "options": [
+        "One small daily loop that captures what they learned and what they will do next",
+        "A yearly goal only with no daily structure or reflection",
+        "No structure and rely on ad hoc decisions when problems arise",
+        "Only motivation and positive thinking without any systematic approach"
+      ],
+      "correctIndex": 0,
+      "questionType": "application",
+      "difficulty": "MEDIUM"
+    },
+    {
+      "index": 7,
+      "question": "Why is \"system not motivation\" important?",
+      "options": [
+        "Systems are repeatable; motivation fades over time",
+        "Motivation is illegal in professional settings",
+        "Systems are slower than pure motivation",
+        "Motivation is enough for most people long-term"
+      ],
+      "correctIndex": 0,
+      "questionType": "critical-thinking",
+      "difficulty": "HARD"
+    }
+  ]
+}

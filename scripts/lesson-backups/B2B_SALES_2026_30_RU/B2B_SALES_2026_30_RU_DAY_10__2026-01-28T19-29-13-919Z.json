@@ -1,0 +1,9 @@
+{
+  "generatedAt": "2026-01-28T19:29:13.921Z",
+  "courseId": "B2B_SALES_2026_30_RU",
+  "lessonId": "B2B_SALES_2026_30_RU_DAY_10",
+  "title": "Планирование следующего квартала и “pipeline hygiene”",
+  "content": "<h1>Pipeline hygiene и план следующего квартала</h1>\n<p><em>Запланируйте следующий этап: чистый pipeline, новые прогнозы и привычка обновлять статусы.</em></p>\n<hr />\n\n<h2>Цель дня</h2>\n<ul>\n  <li>Составить “pipeline health check”: какие сделки стоят на чем и почему.</li>\n  <li>Определить, какие сделки переносятся, какие надо закрыть и какие требуют внимания.</li>\n  <li>Построить прогноз (next 30/60/90 дней) с KPI и рисками.</li>\n</ul>\n<hr />\n\n<h2>Практика</h2>\n<ul>\n  <li>Разделите сделки на “ready to close”, “on hold”, “needs more data”.</li>\n  <li>Обновите CRM/таблицу: кому нужен follow up, какие документы и кто ответственный.</li>\n  <li>Поделитесь прогнозом команды: что будет закрыто в 30/60/90 дней, какие риски.</li>\n</ul>\n<hr />\n\n<h2>Доп. материалы</h2>\n<ul>\n  <li>Salesforce — Pipeline Management: <a href=\"https://www.salesforce.com/resources/\" target=\"_blank\" rel=\"noopener noreferrer\">https://www.salesforce.com/resources/</a></li>\n  <li>HubSpot — Forecasting Template: <a href=\"https://www.hubspot.com/\" target=\"_blank\" rel=\"noopener noreferrer\">https://www.hubspot.com</a></li>\n</ul>",
+  "emailSubject": "B2B Sales 2026 (RU) — День 10: pipeline hygiene",
+  "emailBody": "<h1>B2B Sales 2026 (RU) — День 10</h1>\n<p>Чистый pipeline — нерв продаж. Сегодня вы:</p>\n<ul>\n  <li>провели health check,</li>\n  <li>обновили статус сделок,</li>\n  <li>составили прогноз на 30/60/90 дней.</li>\n</ul>"
+}

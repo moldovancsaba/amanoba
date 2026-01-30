@@ -1,0 +1,146 @@
+{
+  "backedUpAt": "2026-01-29T17:00:30.831Z",
+  "course": {
+    "courseId": "AI_30_NAP",
+    "name": "30-Day AI Catch-Up Program",
+    "language": "hu"
+  },
+  "lesson": {
+    "dayNumber": 2,
+    "title": "A jó prompt 4 eleme",
+    "lessonId": "AI_30_NAP_DAY_02"
+  },
+  "questionCount": 10,
+  "questions": [
+    {
+      "_id": "697b204e060240540231b2f5",
+      "difficulty": "EASY",
+      "question": "Hány eleme van egy jó promptnak?",
+      "options": [
+        "3",
+        "4",
+        "5",
+        "6"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b204e060240540231b2fa",
+      "difficulty": "EASY",
+      "question": "Melyik NEM tartozik a jó prompt 4 eleméhez?",
+      "options": [
+        "Cél",
+        "Kontextus",
+        "Forma",
+        "Szín"
+      ],
+      "correctIndex": 3,
+      "hashtags": []
+    },
+    {
+      "_id": "697b204e060240540231b2ff",
+      "difficulty": "MEDIUM",
+      "question": "Mi a \"Cél\" elem szerepe?",
+      "options": [
+        "Megmondja, mit szeretnél elérni (pl. írj emailt, összegezz, hasonlíts)",
+        "Leírja a kért hangnemet",
+        "Kiválasztja a formátumot",
+        "Háttérinformációt ad"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b204e060240540231b302",
+      "difficulty": "MEDIUM",
+      "question": "Mi a \"Kontextus\" elem szerepe?",
+      "options": [
+        "Háttér és részletek (pl. 30 perces meeting, ügyfél panasz)",
+        "Megadja a kért hangnemet",
+        "Formátumot határoz meg",
+        "Csak a célt ismétli"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b204e060240540231b305",
+      "difficulty": "MEDIUM",
+      "question": "Mi a \"Forma\" elem szerepe?",
+      "options": [
+        "Milyen struktúrát kérsz (bullet, táblázat, rövid bekezdés)",
+        "Hangnem meghatározása",
+        "Cél kijelölése",
+        "Kontextus részletezése"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b204e060240540231b309",
+      "difficulty": "MEDIUM",
+      "question": "Mi a \"Stílus\" elem szerepe?",
+      "options": [
+        "Hangnem/hangulat (hivatalos, barátságos, technikai)",
+        "Formátum kijelölése",
+        "Cél pontosítása",
+        "Kontextus adása"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b204e060240540231b30c",
+      "difficulty": "HARD",
+      "question": "Melyik prompt tartalmazza mind a 4 elemet?",
+      "options": [
+        "Írj udvarias, rövid emailt időpont-egyeztetéshez. Kontextus: 30 perces online meeting jövő hét kedden 10:00-kor. Stílus: üzleti. Forma: rövid bekezdés.",
+        "Írj emailt időpont-egyeztetéshez.",
+        "Email 30 perces meetinghez.",
+        "Hivatalos email."
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b204e060240540231b30f",
+      "difficulty": "HARD",
+      "question": "Miért fontos mind a 4 elem megadása?",
+      "options": [
+        "Pontos válasz, kevesebb körözés, jobb minőség",
+        "Rövidebb prompt mindig jobb",
+        "Csak a cél számít",
+        "Az AI kitalálja a hiányzó részeket"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b204e060240540231b312",
+      "difficulty": "MEDIUM",
+      "question": "Melyik példára illik legjobban a \"Kontextus\" elem?",
+      "options": [
+        "Ügyfél panasz emailje, 3 napja vár válaszra",
+        "Írj emailt",
+        "Hivatalos hangnem",
+        "Bullet points formátum"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b204e060240540231b314",
+      "difficulty": "MEDIUM",
+      "question": "Mi a napi cél a 2. leckében?",
+      "options": [
+        "Megérteni és gyakorolni a 4 elemet, hogy következetes válaszokat kapj",
+        "Csak elméletet olvasni",
+        "Megtanulni egyetlen prompt sablont",
+        "Promptokat véletlenszerűen próbálgatni"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    }
+  ]
+}

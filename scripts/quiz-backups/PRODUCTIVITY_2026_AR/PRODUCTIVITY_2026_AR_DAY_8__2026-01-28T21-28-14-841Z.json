@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-28T21:28:24.453Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_AR",
+    "name": "الإنتاجية 2026: كيفية إدارة الفرق والوقت",
+    "language": "ar"
+  },
+  "lesson": {
+    "dayNumber": 8,
+    "title": "تكلفة تبديل السياق: بقايا الانتباه ومعالجة الدفعات وكتل العمل العميق",
+    "lessonId": "PRODUCTIVITY_2026_AR_DAY_8"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a613ed20b35fb797295",
+      "uuid": "28a85989-d04a-42fe-800b-70cb03b4ffe6",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ أفهم ما هي بقايا الانتباه.\n✅ لدي جدول ...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day8",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a613ed20b35fb797296",
+      "uuid": "c5c39e97-a413-4c2e-a39b-bb3bed3a5c70",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ أفهم ما هي بقايا الانتباه.\n✅ لدي جدول ...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day8",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a613ed20b35fb797297",
+      "uuid": "a9b4d7b3-c0f3-4c20-8b91-c02f11cd9f5c",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ أفهم ما هي بقايا الانتباه.\n✅ لدي جدول ...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day8",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a613ed20b35fb797298",
+      "uuid": "8929f83a-397d-434c-ada0-6082d5291eea",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "How does the concept \"تكلفة تبديل السياق: بقايا الانتباه ومعالجة الدفعات...\" mentioned in the lesson impact achieving your goals?",
+      "options": [
+        "As described in detail in the lesson, تكلفة تبديل السياق: بقايا الان... increases effectiveness and reduces risk",
+        "No significant impact",
+        "Only matters theoretically",
+        "Only an optional element"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day8",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a613ed20b35fb797299",
+      "uuid": "fd5d8f72-d9a9-4777-b939-56000b2ab12f",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is بقايا الانتباه in the context of تكلفة تبديل السياق: بقايا الانتباه ومعالجة الدفعات وكتل العمل العميق as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, بقايا الانتباه plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day8",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a613ed20b35fb79729a",
+      "uuid": "ca211fbc-bee7-433c-bfb0-0b3e445859c4",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is جودة أقل in the context of تكلفة تبديل السياق: بقايا الانتباه ومعالجة الدفعات وكتل العمل العميق as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, جودة أقل plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day8",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a613ed20b35fb79729b",
+      "uuid": "3fbbade6-a12f-4c62-899b-1bf6e0323732",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is الفوائد in the context of تكلفة تبديل السياق: بقايا الانتباه ومعالجة الدفعات وكتل العمل العميق as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, الفوائد plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day8",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

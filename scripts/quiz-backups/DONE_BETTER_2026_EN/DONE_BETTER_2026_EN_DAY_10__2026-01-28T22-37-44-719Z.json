@@ -1,0 +1,114 @@
+{
+  "backedUpAt": "2026-01-28T22:37:47.428Z",
+  "course": {
+    "courseId": "DONE_BETTER_2026_EN",
+    "name": "Done is better - Build What Matters",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 10,
+    "title": "Analogy as a Weapon",
+    "lessonId": "DONE_BETTER_2026_EN_DAY_10"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "697a87bba81588c9f41a221a",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "You are stuck on a product problem. What can help unlock new paths?",
+      "options": [
+        "Find a similar problem in another domain and extract the structure (not the content)",
+        "Copy the solution from a competitor",
+        "Brainstorm more ideas in the same domain only",
+        "Wait for inspiration"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87bba81588c9f41a221b",
+      "questionType": "application",
+      "difficulty": "EASY",
+      "question": "When using an analogy, what should you transfer?",
+      "options": [
+        "The structure or mechanism, then adapt it to your context",
+        "The exact solution word for word",
+        "The vocabulary only",
+        "The budget and timeline"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87bba81588c9f41a221c",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "A team says \"that analogy does not apply to our industry.\" What is a better approach?",
+      "options": [
+        "Ask what structure maps: often the mechanism transfers even if the content differs",
+        "Dismiss the analogy",
+        "Force the analogy literally",
+        "Look only within the industry"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87bba81588c9f41a221d",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "What is the risk of copying a solution literally from another domain?",
+      "options": [
+        "It may not fit your context; you skip the work of understanding and adapting",
+        "It will work perfectly in your context",
+        "It will be too cheap to implement well",
+        "No significant risk; copy is always faster"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87bba81588c9f41a221e",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Using analogy to avoid doing the work of understanding your own problem leads to:",
+      "options": [
+        "Superficial solutions that do not address the real structure",
+        "Faster decisions",
+        "More creativity",
+        "Better buy-in"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87bba81588c9f41a221f",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Where can you find useful analogies?",
+      "options": [
+        "Other fields: sport, nature, another industry, history—any domain with a similar structure",
+        "Only in your direct competitors",
+        "Only in academic papers",
+        "Only in the same product category"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87bba81588c9f41a2220",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "After finding an analogy, what is the next step?",
+      "options": [
+        "Write how the structure maps to your problem; then one move inspired by it",
+        "Present the analogy and stop there",
+        "Implement the other domain's solution as-is without adapting",
+        "File it for later when you have more time"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    }
+  ]
+}

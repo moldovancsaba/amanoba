@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-28T21:25:29.507Z",
+  "course": {
+    "courseId": "B2B_SALES_2026_30_RU",
+    "name": "B2B Продажи 2026 — мастер‑класс (30 дней) (RU)",
+    "language": "ru"
+  },
+  "lesson": {
+    "dayNumber": 2,
+    "title": "Карта системы B2B‑продаж",
+    "lessonId": "B2B_SALES_2026_30_RU_DAY_2"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a043526e26ccc5171f7",
+      "uuid": "6b5c91e9-397d-4dc8-b6e9-339fe8e77b79",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Sourcing\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day2",
+        "#ru",
+        "#all-languages",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a043526e26ccc5171f8",
+      "uuid": "a76a4226-bcd1-451e-82c2-88782befb7a0",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Qualification\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day2",
+        "#ru",
+        "#all-languages",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a043526e26ccc5171f9",
+      "uuid": "83aed267-4276-4676-bdf9-67b3d6639f3c",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Discovery\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day2",
+        "#ru",
+        "#all-languages",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a043526e26ccc5171fa",
+      "uuid": "eed5d07f-4c90-4133-b518-dece10dbdb7d",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Как концепция \"Карта системы B2B‑продаж Сегодня вы нарисуете “скв...\", упомянутая в уроке, влияет на достижение ваших goals?",
+      "options": [
+        "Как подробно описано в уроке, Карта системы B2B‑продаж Сегод... повышает эффективность и снижает риски",
+        "Нет значительного влияния",
+        "Имеет значение только теоретически",
+        "Только опциональный элемент"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day2",
+        "#ru",
+        "#all-languages",
+        "#sales",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a043526e26ccc5171fb",
+      "uuid": "02d3d3f4-7376-4ed4-b70e-e1b2d5c8007c",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Насколько важен Qualification в контексте Карта системы B2B‑продаж, как обсуждается в уроке?",
+      "options": [
+        "Как подробно описано в уроке, Qualification играет ключевую роль в оптимизации процессов и достижении целей",
+        "Только периферийная информация без значительной роли",
+        "Только теоретическая концепция без практического применения",
+        "Не упоминается в уроке"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day2",
+        "#ru",
+        "#all-languages",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a043526e26ccc5171fc",
+      "uuid": "2484e7ee-06d3-48cc-b756-4a1c81475add",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Насколько важен Proposal в контексте Карта системы B2B‑продаж, как обсуждается в уроке?",
+      "options": [
+        "Как подробно описано в уроке, Proposal играет ключевую роль в оптимизации процессов и достижении целей",
+        "Только периферийная информация без значительной роли",
+        "Только теоретическая концепция без практического применения",
+        "Не упоминается в уроке"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day2",
+        "#ru",
+        "#all-languages",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a043526e26ccc5171fd",
+      "uuid": "e0905ea8-f745-40fe-ba44-eecf37395a45",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Насколько важен Close в контексте Карта системы B2B‑продаж, как обсуждается в уроке?",
+      "options": [
+        "Как подробно описано в уроке, Close играет ключевую роль в оптимизации процессов и достижении целей",
+        "Только периферийная информация без значительной роли",
+        "Только теоретическая концепция без практического применения",
+        "Не упоминается в уроке"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day2",
+        "#ru",
+        "#all-languages",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

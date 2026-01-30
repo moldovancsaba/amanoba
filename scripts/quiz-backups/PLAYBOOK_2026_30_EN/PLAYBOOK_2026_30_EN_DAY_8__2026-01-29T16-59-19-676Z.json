@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-29T16:59:43.363Z",
+  "course": {
+    "courseId": "PLAYBOOK_2026_30_EN",
+    "name": "The Playbook 2026 – Masterclass for Designers",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 8,
+    "title": "Shape, Rhythm, Emotional Cues",
+    "lessonId": "PLAYBOOK_2026_30_EN_DAY_8"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "6979db369316e77110ed04df",
+      "uuid": "fddc09cb-1a74-4ee7-8816-339e2d88d723",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you apply the \"Bad:\" concept to a \"Shape, Rhythm, Emotional Cues\" task so the outcome is measurable and verifiable?",
+      "options": [
+        "I create a checklist, apply it to a small scope first, measure the impact, then roll it out to the full scope",
+        "I keep it as a definition and never validate it in practice",
+        "I skip implementation because it seems time-consuming",
+        "I implement it but do not measure or document anything"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day8",
+        "#en",
+        "#all-languages",
+        "#course-playbook_2026_30_en",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "6979db369316e77110ed04e0",
+      "uuid": "e5f2dd5b-f489-4efc-81d9-539231ff9080",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you apply the \"Good:\" concept to a \"Shape, Rhythm, Emotional Cues\" task so the outcome is measurable and verifiable?",
+      "options": [
+        "I create a checklist, apply it to a small scope first, measure the impact, then roll it out to the full scope",
+        "I keep it as a definition and never validate it in practice",
+        "I skip implementation because it seems time-consuming",
+        "I implement it but do not measure or document anything"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day8",
+        "#en",
+        "#all-languages",
+        "#course-playbook_2026_30_en",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "6979db369316e77110ed04e1",
+      "uuid": "708ac883-6b66-4851-b1b8-432116a84598",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you apply the \"Shape\" concept to a \"Shape, Rhythm, Emotional Cues\" task so the outcome is measurable and verifiable?",
+      "options": [
+        "I create a checklist, apply it to a small scope first, measure the impact, then roll it out to the full scope",
+        "I keep it as a definition and never validate it in practice",
+        "I skip implementation because it seems time-consuming",
+        "I implement it but do not measure or document anything"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day8",
+        "#en",
+        "#all-languages",
+        "#course-playbook_2026_30_en",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "6979db369316e77110ed04e2",
+      "uuid": "755db003-47a8-40cd-84a7-ed678bc76fa0",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you apply the \"Rhythm\" concept to a \"Shape, Rhythm, Emotional Cues\" task so the outcome is measurable and verifiable?",
+      "options": [
+        "I create a checklist, apply it to a small scope first, measure the impact, then roll it out to the full scope",
+        "I keep it as a definition and never validate it in practice",
+        "I skip implementation because it seems time-consuming",
+        "I implement it but do not measure or document anything"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day8",
+        "#en",
+        "#all-languages",
+        "#course-playbook_2026_30_en",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "6979db369316e77110ed04e3",
+      "uuid": "68ba80fa-9495-49f3-9e3b-63789ecb3bcc",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you apply the \"Emotional\" concept to a \"Shape, Rhythm, Emotional Cues\" task so the outcome is measurable and verifiable?",
+      "options": [
+        "I create a checklist, apply it to a small scope first, measure the impact, then roll it out to the full scope",
+        "I keep it as a definition and never validate it in practice",
+        "I skip implementation because it seems time-consuming",
+        "I implement it but do not measure or document anything"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day8",
+        "#en",
+        "#all-languages",
+        "#course-playbook_2026_30_en",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "6979db369316e77110ed04e4",
+      "uuid": "87367f61-537c-4f26-b593-f582e0653fc0",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you apply the \"Cues\" concept to a \"Shape, Rhythm, Emotional Cues\" task so the outcome is measurable and verifiable?",
+      "options": [
+        "I create a checklist, apply it to a small scope first, measure the impact, then roll it out to the full scope",
+        "I keep it as a definition and never validate it in practice",
+        "I skip implementation because it seems time-consuming",
+        "I implement it but do not measure or document anything"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day8",
+        "#en",
+        "#all-languages",
+        "#course-playbook_2026_30_en",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "6979db369316e77110ed04e5",
+      "uuid": "00420819-cae5-482d-b736-6e7d508fc10a",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you apply the \"Learning Goal\" concept to a \"Shape, Rhythm, Emotional Cues\" task so the outcome is measurable and verifiable?",
+      "options": [
+        "I create a checklist, apply it to a small scope first, measure the impact, then roll it out to the full scope",
+        "I keep it as a definition and never validate it in practice",
+        "I skip implementation because it seems time-consuming",
+        "I implement it but do not measure or document anything"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day8",
+        "#en",
+        "#all-languages",
+        "#course-playbook_2026_30_en",
+        "#intermediate",
+        "#application"
+      ]
+    }
+  ]
+}

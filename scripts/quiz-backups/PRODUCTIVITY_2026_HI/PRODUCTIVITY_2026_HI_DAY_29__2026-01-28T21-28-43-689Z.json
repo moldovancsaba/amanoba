@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-28T21:29:05.644Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_HI",
+    "name": "उत्पादकता 2026: टीमों और समय का प्रबंधन कैसे करें",
+    "language": "hi"
+  },
+  "lesson": {
+    "dayNumber": 29,
+    "title": "निरंतर सुधार: सीखना, प्रतिक्रिया, पुनरावृत्ति",
+    "lessonId": "PRODUCTIVITY_2026_HI_DAY_29"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a6a206e4784b9a0c1df",
+      "uuid": "307545c0-5ad8-4458-94f7-4a3d637a95e3",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"उत्पादकता कभी समाप्त नहीं होता—यह विकसित होता है।\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day29",
+        "#hi",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a6a206e4784b9a0c1e0",
+      "uuid": "b55604ec-3295-494b-affb-1c7fcb1b498e",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"उत्पादकता कभी समाप्त नहीं होता—यह विकसित होता है।\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day29",
+        "#hi",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a6a206e4784b9a0c1e1",
+      "uuid": "99337925-c3ec-4fc8-b485-a807924eb981",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"उत्पादकता कभी समाप्त नहीं होता—यह विकसित होता है।\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day29",
+        "#hi",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a6a206e4784b9a0c1e2",
+      "uuid": "e10216d2-7c02-44ba-8519-4fdbfa0a9a04",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "पाठ में उल्लिखित अवधारणा \"निरंतर सुधार: सीखना, प्रतिक्रिया, पुनरावृत्ति उत्प...\" आपके goals प्राप्त करने को कैसे प्रभावित करती है?",
+      "options": [
+        "जैसा कि पाठ में विस्तार से वर्णित है, निरंतर सुधार: सीखना, प्रतिक्रि... प्रभावशीलता बढ़ाता है और जोखिम कम करता है",
+        "कोई महत्वपूर्ण प्रभाव नहीं",
+        "केवल सैद्धांतिक रूप से मायने रखता है",
+        "केवल एक वैकल्पिक तत्व"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day29",
+        "#hi",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a6a206e4784b9a0c1e3",
+      "uuid": "acdcb998-33a8-4467-bc1f-70562fa2f18d",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "पाठ में चर्चा किए गए निरंतर सुधार: सीखना, प्रतिक्रिया, पुनरावृत्ति के संदर्भ में निरंतर कितना महत्वपूर्ण है?",
+      "options": [
+        "जैसा कि पाठ में विस्तार से वर्णित है, निरंतर प्रक्रियाओं को अनुकूलित करने और लक्ष्यों को प्राप्त करने में महत्वपूर्ण भूमिका निभाता है",
+        "केवल परिधीय जानकारी, कोई महत्वपूर्ण भूमिका नहीं",
+        "केवल एक सैद्धांतिक अवधारणा, कोई व्यावहारिक अनुप्रयोग नहीं",
+        "पाठ में उल्लेख नहीं किया गया"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day29",
+        "#hi",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a6a206e4784b9a0c1e4",
+      "uuid": "4341f0a4-ba10-4ea1-bbaf-ab8dcb98810f",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "पाठ में चर्चा किए गए निरंतर सुधार: सीखना, प्रतिक्रिया, पुनरावृत्ति के संदर्भ में सीखना कितना महत्वपूर्ण है?",
+      "options": [
+        "जैसा कि पाठ में विस्तार से वर्णित है, सीखना प्रक्रियाओं को अनुकूलित करने और लक्ष्यों को प्राप्त करने में महत्वपूर्ण भूमिका निभाता है",
+        "केवल परिधीय जानकारी, कोई महत्वपूर्ण भूमिका नहीं",
+        "केवल एक सैद्धांतिक अवधारणा, कोई व्यावहारिक अनुप्रयोग नहीं",
+        "पाठ में उल्लेख नहीं किया गया"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day29",
+        "#hi",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a6a206e4784b9a0c1e5",
+      "uuid": "b73cf5ef-8c22-4750-8f19-70ec675c20c9",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "पाठ में चर्चा किए गए निरंतर सुधार: सीखना, प्रतिक्रिया, पुनरावृत्ति के संदर्भ में पुनरावृत्ति कितना महत्वपूर्ण है?",
+      "options": [
+        "जैसा कि पाठ में विस्तार से वर्णित है, पुनरावृत्ति प्रक्रियाओं को अनुकूलित करने और लक्ष्यों को प्राप्त करने में महत्वपूर्ण भूमिका निभाता है",
+        "केवल परिधीय जानकारी, कोई महत्वपूर्ण भूमिका नहीं",
+        "केवल एक सैद्धांतिक अवधारणा, कोई व्यावहारिक अनुप्रयोग नहीं",
+        "पाठ में उल्लेख नहीं किया गया"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day29",
+        "#hi",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

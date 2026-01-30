@@ -1,0 +1,1034 @@
+{
+  "generatedAt": "2026-01-28T22:55:41.946Z",
+  "minScore": 70,
+  "courseFilter": "AI_30_DAY_EN",
+  "total": 30,
+  "belowThreshold": 0,
+  "results": [
+    {
+      "courseId": "AI_30_DAY_EN",
+      "courseName": "30-Day AI Catch-Up Program (EN)",
+      "language": "en",
+      "dayNumber": 1,
+      "lessonId": "AI_30_DAY_EN_DAY_01",
+      "title": "What AI is (and what it is not)",
+      "createdAt": "2026-01-19T22:35:32.976Z",
+      "score": 70,
+      "issues": [
+        "NO_EXAMPLES",
+        "NO_METRICS_OR_CRITERIA"
+      ],
+      "signals": {
+        "charCount": 1269,
+        "wordCount": 198,
+        "hasBullets": true,
+        "hasNumberedSteps": false,
+        "hasExamples": false,
+        "hasGoodBadContrast": true,
+        "hasMetricsOrCriteria": false,
+        "hasDefinitionsOrComparisons": true
+      },
+      "refineTemplate": {
+        "addDefinitionSection": false,
+        "addChecklistSection": false,
+        "addExamplesSection": true,
+        "addPitfallsSection": false,
+        "addMetricsSection": true
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      }
+    },
+    {
+      "courseId": "AI_30_DAY_EN",
+      "courseName": "30-Day AI Catch-Up Program (EN)",
+      "language": "en",
+      "dayNumber": 2,
+      "lessonId": "AI_30_DAY_EN_DAY_02",
+      "title": "The 4 parts of a good prompt",
+      "createdAt": "2026-01-19T22:35:35.399Z",
+      "score": 100,
+      "issues": [],
+      "signals": {
+        "charCount": 2074,
+        "wordCount": 316,
+        "hasBullets": true,
+        "hasNumberedSteps": false,
+        "hasExamples": true,
+        "hasGoodBadContrast": true,
+        "hasMetricsOrCriteria": true,
+        "hasDefinitionsOrComparisons": true
+      },
+      "refineTemplate": {
+        "addDefinitionSection": false,
+        "addChecklistSection": false,
+        "addExamplesSection": false,
+        "addPitfallsSection": false,
+        "addMetricsSection": false
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      }
+    },
+    {
+      "courseId": "AI_30_DAY_EN",
+      "courseName": "30-Day AI Catch-Up Program (EN)",
+      "language": "en",
+      "dayNumber": 3,
+      "lessonId": "AI_30_DAY_EN_DAY_03",
+      "title": "Iterate: from draft to great output",
+      "createdAt": "2026-01-19T22:35:57.800Z",
+      "score": 100,
+      "issues": [],
+      "signals": {
+        "charCount": 1954,
+        "wordCount": 300,
+        "hasBullets": true,
+        "hasNumberedSteps": false,
+        "hasExamples": true,
+        "hasGoodBadContrast": true,
+        "hasMetricsOrCriteria": true,
+        "hasDefinitionsOrComparisons": true
+      },
+      "refineTemplate": {
+        "addDefinitionSection": false,
+        "addChecklistSection": false,
+        "addExamplesSection": false,
+        "addPitfallsSection": false,
+        "addMetricsSection": false
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      }
+    },
+    {
+      "courseId": "AI_30_DAY_EN",
+      "courseName": "30-Day AI Catch-Up Program (EN)",
+      "language": "en",
+      "dayNumber": 4,
+      "lessonId": "AI_30_DAY_EN_DAY_04",
+      "title": "Break down tasks: workflow thinking",
+      "createdAt": "2026-01-19T22:35:58.023Z",
+      "score": 75,
+      "issues": [
+        "TOO_SHORT"
+      ],
+      "signals": {
+        "charCount": 1047,
+        "wordCount": 157,
+        "hasBullets": true,
+        "hasNumberedSteps": true,
+        "hasExamples": true,
+        "hasGoodBadContrast": true,
+        "hasMetricsOrCriteria": true,
+        "hasDefinitionsOrComparisons": true
+      },
+      "refineTemplate": {
+        "addDefinitionSection": false,
+        "addChecklistSection": false,
+        "addExamplesSection": false,
+        "addPitfallsSection": false,
+        "addMetricsSection": false
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      }
+    },
+    {
+      "courseId": "AI_30_DAY_EN",
+      "courseName": "30-Day AI Catch-Up Program (EN)",
+      "language": "en",
+      "dayNumber": 5,
+      "lessonId": "AI_30_DAY_EN_DAY_05",
+      "title": "Quality and safety: QA and guardrails",
+      "createdAt": "2026-01-19T22:35:58.201Z",
+      "score": 100,
+      "issues": [],
+      "signals": {
+        "charCount": 2104,
+        "wordCount": 324,
+        "hasBullets": true,
+        "hasNumberedSteps": false,
+        "hasExamples": true,
+        "hasGoodBadContrast": true,
+        "hasMetricsOrCriteria": true,
+        "hasDefinitionsOrComparisons": true
+      },
+      "refineTemplate": {
+        "addDefinitionSection": false,
+        "addChecklistSection": false,
+        "addExamplesSection": false,
+        "addPitfallsSection": false,
+        "addMetricsSection": false
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      }
+    },
+    {
+      "courseId": "AI_30_DAY_EN",
+      "courseName": "30-Day AI Catch-Up Program (EN)",
+      "language": "en",
+      "dayNumber": 6,
+      "lessonId": "AI_30_DAY_EN_DAY_06",
+      "title": "Template library: reusable prompts",
+      "createdAt": "2026-01-19T22:49:37.894Z",
+      "score": 100,
+      "issues": [],
+      "signals": {
+        "charCount": 1837,
+        "wordCount": 280,
+        "hasBullets": true,
+        "hasNumberedSteps": false,
+        "hasExamples": true,
+        "hasGoodBadContrast": true,
+        "hasMetricsOrCriteria": true,
+        "hasDefinitionsOrComparisons": true
+      },
+      "refineTemplate": {
+        "addDefinitionSection": false,
+        "addChecklistSection": false,
+        "addExamplesSection": false,
+        "addPitfallsSection": false,
+        "addMetricsSection": false
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      }
+    },
+    {
+      "courseId": "AI_30_DAY_EN",
+      "courseName": "30-Day AI Catch-Up Program (EN)",
+      "language": "en",
+      "dayNumber": 7,
+      "lessonId": "AI_30_DAY_EN_DAY_07",
+      "title": "Role prompts and constraints",
+      "createdAt": "2026-01-19T22:49:38.083Z",
+      "score": 100,
+      "issues": [],
+      "signals": {
+        "charCount": 1816,
+        "wordCount": 276,
+        "hasBullets": true,
+        "hasNumberedSteps": false,
+        "hasExamples": true,
+        "hasGoodBadContrast": true,
+        "hasMetricsOrCriteria": true,
+        "hasDefinitionsOrComparisons": true
+      },
+      "refineTemplate": {
+        "addDefinitionSection": false,
+        "addChecklistSection": false,
+        "addExamplesSection": false,
+        "addPitfallsSection": false,
+        "addMetricsSection": false
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      }
+    },
+    {
+      "courseId": "AI_30_DAY_EN",
+      "courseName": "30-Day AI Catch-Up Program (EN)",
+      "language": "en",
+      "dayNumber": 8,
+      "lessonId": "AI_30_DAY_EN_DAY_08",
+      "title": "Fact-checking and source requests",
+      "createdAt": "2026-01-19T22:49:38.314Z",
+      "score": 100,
+      "issues": [],
+      "signals": {
+        "charCount": 1738,
+        "wordCount": 261,
+        "hasBullets": true,
+        "hasNumberedSteps": false,
+        "hasExamples": true,
+        "hasGoodBadContrast": true,
+        "hasMetricsOrCriteria": true,
+        "hasDefinitionsOrComparisons": true
+      },
+      "refineTemplate": {
+        "addDefinitionSection": false,
+        "addChecklistSection": false,
+        "addExamplesSection": false,
+        "addPitfallsSection": false,
+        "addMetricsSection": false
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      }
+    },
+    {
+      "courseId": "AI_30_DAY_EN",
+      "courseName": "30-Day AI Catch-Up Program (EN)",
+      "language": "en",
+      "dayNumber": 9,
+      "lessonId": "AI_30_DAY_EN_DAY_09",
+      "title": "Summaries that keep the signal",
+      "createdAt": "2026-01-19T22:49:38.503Z",
+      "score": 100,
+      "issues": [],
+      "signals": {
+        "charCount": 1659,
+        "wordCount": 248,
+        "hasBullets": true,
+        "hasNumberedSteps": false,
+        "hasExamples": true,
+        "hasGoodBadContrast": true,
+        "hasMetricsOrCriteria": true,
+        "hasDefinitionsOrComparisons": true
+      },
+      "refineTemplate": {
+        "addDefinitionSection": false,
+        "addChecklistSection": false,
+        "addExamplesSection": false,
+        "addPitfallsSection": false,
+        "addMetricsSection": false
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      }
+    },
+    {
+      "courseId": "AI_30_DAY_EN",
+      "courseName": "30-Day AI Catch-Up Program (EN)",
+      "language": "en",
+      "dayNumber": 10,
+      "lessonId": "AI_30_DAY_EN_DAY_10",
+      "title": "Rewrite and tone shift",
+      "createdAt": "2026-01-19T22:49:38.673Z",
+      "score": 100,
+      "issues": [],
+      "signals": {
+        "charCount": 1692,
+        "wordCount": 254,
+        "hasBullets": true,
+        "hasNumberedSteps": false,
+        "hasExamples": true,
+        "hasGoodBadContrast": true,
+        "hasMetricsOrCriteria": true,
+        "hasDefinitionsOrComparisons": true
+      },
+      "refineTemplate": {
+        "addDefinitionSection": false,
+        "addChecklistSection": false,
+        "addExamplesSection": false,
+        "addPitfallsSection": false,
+        "addMetricsSection": false
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      }
+    },
+    {
+      "courseId": "AI_30_DAY_EN",
+      "courseName": "30-Day AI Catch-Up Program (EN)",
+      "language": "en",
+      "dayNumber": 11,
+      "lessonId": "AI_30_DAY_EN_DAY_11",
+      "title": "Planning with AI: outlines and storyboards",
+      "createdAt": "2026-01-19T22:52:07.793Z",
+      "score": 100,
+      "issues": [],
+      "signals": {
+        "charCount": 1703,
+        "wordCount": 255,
+        "hasBullets": true,
+        "hasNumberedSteps": false,
+        "hasExamples": true,
+        "hasGoodBadContrast": true,
+        "hasMetricsOrCriteria": true,
+        "hasDefinitionsOrComparisons": true
+      },
+      "refineTemplate": {
+        "addDefinitionSection": false,
+        "addChecklistSection": false,
+        "addExamplesSection": false,
+        "addPitfallsSection": false,
+        "addMetricsSection": false
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      }
+    },
+    {
+      "courseId": "AI_30_DAY_EN",
+      "courseName": "30-Day AI Catch-Up Program (EN)",
+      "language": "en",
+      "dayNumber": 12,
+      "lessonId": "AI_30_DAY_EN_DAY_12",
+      "title": "Research helper: questions, not answers",
+      "createdAt": "2026-01-28T15:53:20.291Z",
+      "score": 100,
+      "issues": [],
+      "signals": {
+        "charCount": 1703,
+        "wordCount": 267,
+        "hasBullets": true,
+        "hasNumberedSteps": false,
+        "hasExamples": true,
+        "hasGoodBadContrast": true,
+        "hasMetricsOrCriteria": true,
+        "hasDefinitionsOrComparisons": true
+      },
+      "refineTemplate": {
+        "addDefinitionSection": false,
+        "addChecklistSection": false,
+        "addExamplesSection": false,
+        "addPitfallsSection": false,
+        "addMetricsSection": false
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      }
+    },
+    {
+      "courseId": "AI_30_DAY_EN",
+      "courseName": "30-Day AI Catch-Up Program (EN)",
+      "language": "en",
+      "dayNumber": 13,
+      "lessonId": "AI_30_DAY_EN_DAY_13",
+      "title": "Drafting long-form with sections",
+      "createdAt": "2026-01-28T15:53:20.339Z",
+      "score": 100,
+      "issues": [],
+      "signals": {
+        "charCount": 1606,
+        "wordCount": 237,
+        "hasBullets": true,
+        "hasNumberedSteps": false,
+        "hasExamples": true,
+        "hasGoodBadContrast": true,
+        "hasMetricsOrCriteria": true,
+        "hasDefinitionsOrComparisons": true
+      },
+      "refineTemplate": {
+        "addDefinitionSection": false,
+        "addChecklistSection": false,
+        "addExamplesSection": false,
+        "addPitfallsSection": false,
+        "addMetricsSection": false
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      }
+    },
+    {
+      "courseId": "AI_30_DAY_EN",
+      "courseName": "30-Day AI Catch-Up Program (EN)",
+      "language": "en",
+      "dayNumber": 14,
+      "lessonId": "AI_30_DAY_EN_DAY_14",
+      "title": "Transforming formats: table, bullets, narrative",
+      "createdAt": "2026-01-28T15:53:20.387Z",
+      "score": 100,
+      "issues": [],
+      "signals": {
+        "charCount": 1628,
+        "wordCount": 234,
+        "hasBullets": true,
+        "hasNumberedSteps": false,
+        "hasExamples": true,
+        "hasGoodBadContrast": true,
+        "hasMetricsOrCriteria": true,
+        "hasDefinitionsOrComparisons": true
+      },
+      "refineTemplate": {
+        "addDefinitionSection": false,
+        "addChecklistSection": false,
+        "addExamplesSection": false,
+        "addPitfallsSection": false,
+        "addMetricsSection": false
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      }
+    },
+    {
+      "courseId": "AI_30_DAY_EN",
+      "courseName": "30-Day AI Catch-Up Program (EN)",
+      "language": "en",
+      "dayNumber": 15,
+      "lessonId": "AI_30_DAY_EN_DAY_15",
+      "title": "Automation prep: prompts as pseudo-steps",
+      "createdAt": "2026-01-28T15:53:20.434Z",
+      "score": 100,
+      "issues": [],
+      "signals": {
+        "charCount": 1718,
+        "wordCount": 263,
+        "hasBullets": true,
+        "hasNumberedSteps": false,
+        "hasExamples": true,
+        "hasGoodBadContrast": true,
+        "hasMetricsOrCriteria": true,
+        "hasDefinitionsOrComparisons": true
+      },
+      "refineTemplate": {
+        "addDefinitionSection": false,
+        "addChecklistSection": false,
+        "addExamplesSection": false,
+        "addPitfallsSection": false,
+        "addMetricsSection": false
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      }
+    },
+    {
+      "courseId": "AI_30_DAY_EN",
+      "courseName": "30-Day AI Catch-Up Program (EN)",
+      "language": "en",
+      "dayNumber": 16,
+      "lessonId": "AI_30_DAY_EN_DAY_16",
+      "title": "Brainstorming and idea expansion (without rambling)",
+      "createdAt": "2026-01-28T15:53:20.484Z",
+      "score": 100,
+      "issues": [],
+      "signals": {
+        "charCount": 1566,
+        "wordCount": 231,
+        "hasBullets": true,
+        "hasNumberedSteps": false,
+        "hasExamples": true,
+        "hasGoodBadContrast": true,
+        "hasMetricsOrCriteria": true,
+        "hasDefinitionsOrComparisons": true
+      },
+      "refineTemplate": {
+        "addDefinitionSection": false,
+        "addChecklistSection": false,
+        "addExamplesSection": false,
+        "addPitfallsSection": false,
+        "addMetricsSection": false
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      }
+    },
+    {
+      "courseId": "AI_30_DAY_EN",
+      "courseName": "30-Day AI Catch-Up Program (EN)",
+      "language": "en",
+      "dayNumber": 17,
+      "lessonId": "AI_30_DAY_EN_DAY_17",
+      "title": "Pros/cons and decision support",
+      "createdAt": "2026-01-28T15:53:20.542Z",
+      "score": 100,
+      "issues": [],
+      "signals": {
+        "charCount": 1642,
+        "wordCount": 248,
+        "hasBullets": true,
+        "hasNumberedSteps": false,
+        "hasExamples": true,
+        "hasGoodBadContrast": true,
+        "hasMetricsOrCriteria": true,
+        "hasDefinitionsOrComparisons": true
+      },
+      "refineTemplate": {
+        "addDefinitionSection": false,
+        "addChecklistSection": false,
+        "addExamplesSection": false,
+        "addPitfallsSection": false,
+        "addMetricsSection": false
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      }
+    },
+    {
+      "courseId": "AI_30_DAY_EN",
+      "courseName": "30-Day AI Catch-Up Program (EN)",
+      "language": "en",
+      "dayNumber": 18,
+      "lessonId": "AI_30_DAY_EN_DAY_18",
+      "title": "Data summarization: tables and simple calcs",
+      "createdAt": "2026-01-28T15:53:20.589Z",
+      "score": 100,
+      "issues": [],
+      "signals": {
+        "charCount": 1616,
+        "wordCount": 236,
+        "hasBullets": true,
+        "hasNumberedSteps": false,
+        "hasExamples": true,
+        "hasGoodBadContrast": true,
+        "hasMetricsOrCriteria": true,
+        "hasDefinitionsOrComparisons": true
+      },
+      "refineTemplate": {
+        "addDefinitionSection": false,
+        "addChecklistSection": false,
+        "addExamplesSection": false,
+        "addPitfallsSection": false,
+        "addMetricsSection": false
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      }
+    },
+    {
+      "courseId": "AI_30_DAY_EN",
+      "courseName": "30-Day AI Catch-Up Program (EN)",
+      "language": "en",
+      "dayNumber": 19,
+      "lessonId": "AI_30_DAY_EN_DAY_19",
+      "title": "Adapting to personas and audiences",
+      "createdAt": "2026-01-28T15:53:20.631Z",
+      "score": 100,
+      "issues": [],
+      "signals": {
+        "charCount": 1621,
+        "wordCount": 240,
+        "hasBullets": true,
+        "hasNumberedSteps": false,
+        "hasExamples": true,
+        "hasGoodBadContrast": true,
+        "hasMetricsOrCriteria": true,
+        "hasDefinitionsOrComparisons": true
+      },
+      "refineTemplate": {
+        "addDefinitionSection": false,
+        "addChecklistSection": false,
+        "addExamplesSection": false,
+        "addPitfallsSection": false,
+        "addMetricsSection": false
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      }
+    },
+    {
+      "courseId": "AI_30_DAY_EN",
+      "courseName": "30-Day AI Catch-Up Program (EN)",
+      "language": "en",
+      "dayNumber": 20,
+      "lessonId": "AI_30_DAY_EN_DAY_20",
+      "title": "Team feedback loop: sharing and revising",
+      "createdAt": "2026-01-28T15:53:20.682Z",
+      "score": 100,
+      "issues": [],
+      "signals": {
+        "charCount": 1620,
+        "wordCount": 246,
+        "hasBullets": true,
+        "hasNumberedSteps": false,
+        "hasExamples": true,
+        "hasGoodBadContrast": true,
+        "hasMetricsOrCriteria": true,
+        "hasDefinitionsOrComparisons": true
+      },
+      "refineTemplate": {
+        "addDefinitionSection": false,
+        "addChecklistSection": false,
+        "addExamplesSection": false,
+        "addPitfallsSection": false,
+        "addMetricsSection": false
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      }
+    },
+    {
+      "courseId": "AI_30_DAY_EN",
+      "courseName": "30-Day AI Catch-Up Program (EN)",
+      "language": "en",
+      "dayNumber": 21,
+      "lessonId": "AI_30_DAY_EN_DAY_21",
+      "title": "Building FAQs and knowledge bases",
+      "createdAt": "2026-01-28T15:53:20.724Z",
+      "score": 100,
+      "issues": [],
+      "signals": {
+        "charCount": 1592,
+        "wordCount": 244,
+        "hasBullets": true,
+        "hasNumberedSteps": false,
+        "hasExamples": true,
+        "hasGoodBadContrast": true,
+        "hasMetricsOrCriteria": true,
+        "hasDefinitionsOrComparisons": true
+      },
+      "refineTemplate": {
+        "addDefinitionSection": false,
+        "addChecklistSection": false,
+        "addExamplesSection": false,
+        "addPitfallsSection": false,
+        "addMetricsSection": false
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      }
+    },
+    {
+      "courseId": "AI_30_DAY_EN",
+      "courseName": "30-Day AI Catch-Up Program (EN)",
+      "language": "en",
+      "dayNumber": 22,
+      "lessonId": "AI_30_DAY_EN_DAY_22",
+      "title": "Prompt A/B testing and evaluation",
+      "createdAt": "2026-01-28T15:53:20.789Z",
+      "score": 100,
+      "issues": [],
+      "signals": {
+        "charCount": 1638,
+        "wordCount": 263,
+        "hasBullets": true,
+        "hasNumberedSteps": false,
+        "hasExamples": true,
+        "hasGoodBadContrast": true,
+        "hasMetricsOrCriteria": true,
+        "hasDefinitionsOrComparisons": true
+      },
+      "refineTemplate": {
+        "addDefinitionSection": false,
+        "addChecklistSection": false,
+        "addExamplesSection": false,
+        "addPitfallsSection": false,
+        "addMetricsSection": false
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      }
+    },
+    {
+      "courseId": "AI_30_DAY_EN",
+      "courseName": "30-Day AI Catch-Up Program (EN)",
+      "language": "en",
+      "dayNumber": 23,
+      "lessonId": "AI_30_DAY_EN_DAY_23",
+      "title": "Rubrics and scoring AI outputs",
+      "createdAt": "2026-01-28T15:53:20.845Z",
+      "score": 100,
+      "issues": [],
+      "signals": {
+        "charCount": 1619,
+        "wordCount": 243,
+        "hasBullets": true,
+        "hasNumberedSteps": false,
+        "hasExamples": true,
+        "hasGoodBadContrast": true,
+        "hasMetricsOrCriteria": true,
+        "hasDefinitionsOrComparisons": true
+      },
+      "refineTemplate": {
+        "addDefinitionSection": false,
+        "addChecklistSection": false,
+        "addExamplesSection": false,
+        "addPitfallsSection": false,
+        "addMetricsSection": false
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      }
+    },
+    {
+      "courseId": "AI_30_DAY_EN",
+      "courseName": "30-Day AI Catch-Up Program (EN)",
+      "language": "en",
+      "dayNumber": 24,
+      "lessonId": "AI_30_DAY_EN_DAY_24",
+      "title": "Handling refusals and hallucinations",
+      "createdAt": "2026-01-28T15:53:20.901Z",
+      "score": 100,
+      "issues": [],
+      "signals": {
+        "charCount": 1759,
+        "wordCount": 257,
+        "hasBullets": true,
+        "hasNumberedSteps": true,
+        "hasExamples": true,
+        "hasGoodBadContrast": true,
+        "hasMetricsOrCriteria": true,
+        "hasDefinitionsOrComparisons": true
+      },
+      "refineTemplate": {
+        "addDefinitionSection": false,
+        "addChecklistSection": false,
+        "addExamplesSection": false,
+        "addPitfallsSection": false,
+        "addMetricsSection": false
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      }
+    },
+    {
+      "courseId": "AI_30_DAY_EN",
+      "courseName": "30-Day AI Catch-Up Program (EN)",
+      "language": "en",
+      "dayNumber": 25,
+      "lessonId": "AI_30_DAY_EN_DAY_25",
+      "title": "Privacy and compliance guardrails",
+      "createdAt": "2026-01-28T15:53:20.949Z",
+      "score": 100,
+      "issues": [],
+      "signals": {
+        "charCount": 1861,
+        "wordCount": 276,
+        "hasBullets": true,
+        "hasNumberedSteps": true,
+        "hasExamples": true,
+        "hasGoodBadContrast": true,
+        "hasMetricsOrCriteria": true,
+        "hasDefinitionsOrComparisons": true
+      },
+      "refineTemplate": {
+        "addDefinitionSection": false,
+        "addChecklistSection": false,
+        "addExamplesSection": false,
+        "addPitfallsSection": false,
+        "addMetricsSection": false
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      }
+    },
+    {
+      "courseId": "AI_30_DAY_EN",
+      "courseName": "30-Day AI Catch-Up Program (EN)",
+      "language": "en",
+      "dayNumber": 26,
+      "lessonId": "AI_30_DAY_EN_DAY_26",
+      "title": "Working with tables and CSVs (small-scale)",
+      "createdAt": "2026-01-28T15:53:20.999Z",
+      "score": 100,
+      "issues": [],
+      "signals": {
+        "charCount": 1496,
+        "wordCount": 222,
+        "hasBullets": true,
+        "hasNumberedSteps": false,
+        "hasExamples": true,
+        "hasGoodBadContrast": true,
+        "hasMetricsOrCriteria": true,
+        "hasDefinitionsOrComparisons": true
+      },
+      "refineTemplate": {
+        "addDefinitionSection": false,
+        "addChecklistSection": false,
+        "addExamplesSection": false,
+        "addPitfallsSection": false,
+        "addMetricsSection": false
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      }
+    },
+    {
+      "courseId": "AI_30_DAY_EN",
+      "courseName": "30-Day AI Catch-Up Program (EN)",
+      "language": "en",
+      "dayNumber": 27,
+      "lessonId": "AI_30_DAY_EN_DAY_27",
+      "title": "Email and outreach sequences with personalization",
+      "createdAt": "2026-01-28T15:53:21.043Z",
+      "score": 100,
+      "issues": [],
+      "signals": {
+        "charCount": 1732,
+        "wordCount": 253,
+        "hasBullets": true,
+        "hasNumberedSteps": false,
+        "hasExamples": true,
+        "hasGoodBadContrast": true,
+        "hasMetricsOrCriteria": true,
+        "hasDefinitionsOrComparisons": true
+      },
+      "refineTemplate": {
+        "addDefinitionSection": false,
+        "addChecklistSection": false,
+        "addExamplesSection": false,
+        "addPitfallsSection": false,
+        "addMetricsSection": false
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      }
+    },
+    {
+      "courseId": "AI_30_DAY_EN",
+      "courseName": "30-Day AI Catch-Up Program (EN)",
+      "language": "en",
+      "dayNumber": 28,
+      "lessonId": "AI_30_DAY_EN_DAY_28",
+      "title": "Slides/briefs: from outline to draft",
+      "createdAt": "2026-01-28T15:53:21.094Z",
+      "score": 100,
+      "issues": [],
+      "signals": {
+        "charCount": 1569,
+        "wordCount": 243,
+        "hasBullets": true,
+        "hasNumberedSteps": false,
+        "hasExamples": true,
+        "hasGoodBadContrast": true,
+        "hasMetricsOrCriteria": true,
+        "hasDefinitionsOrComparisons": true
+      },
+      "refineTemplate": {
+        "addDefinitionSection": false,
+        "addChecklistSection": false,
+        "addExamplesSection": false,
+        "addPitfallsSection": false,
+        "addMetricsSection": false
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      }
+    },
+    {
+      "courseId": "AI_30_DAY_EN",
+      "courseName": "30-Day AI Catch-Up Program (EN)",
+      "language": "en",
+      "dayNumber": 29,
+      "lessonId": "AI_30_DAY_EN_DAY_29",
+      "title": "Personal daily workflow with AI",
+      "createdAt": "2026-01-28T15:53:21.133Z",
+      "score": 100,
+      "issues": [],
+      "signals": {
+        "charCount": 1651,
+        "wordCount": 254,
+        "hasBullets": true,
+        "hasNumberedSteps": false,
+        "hasExamples": true,
+        "hasGoodBadContrast": true,
+        "hasMetricsOrCriteria": true,
+        "hasDefinitionsOrComparisons": true
+      },
+      "refineTemplate": {
+        "addDefinitionSection": false,
+        "addChecklistSection": false,
+        "addExamplesSection": false,
+        "addPitfallsSection": false,
+        "addMetricsSection": false
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      }
+    },
+    {
+      "courseId": "AI_30_DAY_EN",
+      "courseName": "30-Day AI Catch-Up Program (EN)",
+      "language": "en",
+      "dayNumber": 30,
+      "lessonId": "AI_30_DAY_EN_DAY_30",
+      "title": "Capstone: your end-to-end AI workflow",
+      "createdAt": "2026-01-28T15:53:21.178Z",
+      "score": 100,
+      "issues": [],
+      "signals": {
+        "charCount": 1702,
+        "wordCount": 271,
+        "hasBullets": true,
+        "hasNumberedSteps": false,
+        "hasExamples": true,
+        "hasGoodBadContrast": true,
+        "hasMetricsOrCriteria": true,
+        "hasDefinitionsOrComparisons": true
+      },
+      "refineTemplate": {
+        "addDefinitionSection": false,
+        "addChecklistSection": false,
+        "addExamplesSection": false,
+        "addPitfallsSection": false,
+        "addMetricsSection": false
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      }
+    }
+  ]
+}

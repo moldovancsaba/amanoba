@@ -1,0 +1,114 @@
+{
+  "backedUpAt": "2026-01-28T22:37:48.503Z",
+  "course": {
+    "courseId": "DONE_BETTER_2026_EN",
+    "name": "Done is better - Build What Matters",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 22,
+    "title": "Truth Is a Tool",
+    "lessonId": "DONE_BETTER_2026_EN_DAY_22"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "697a87bca81588c9f41a22a7",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "You have a message that might upset someone. What is the best approach?",
+      "options": [
+        "Rewrite it: clear, accurate, and respectful; deliver it",
+        "Soften it until it is unclear",
+        "Avoid delivering it",
+        "Delegate delivery"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87bca81588c9f41a22a8",
+      "questionType": "application",
+      "difficulty": "EASY",
+      "question": "In this framework, how is \"truth is a tool\" defined?",
+      "options": [
+        "Use accuracy and candor as operating principles; be direct and respectful; use truth to fix, not to blame",
+        "Say whatever you think without filter",
+        "Truth is optional when it is hard",
+        "Truth is a weapon to win arguments"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87bca81588c9f41a22a9",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How do you separate truth from tone?",
+      "options": [
+        "You can be direct and respectful; state facts clearly without softening until the message is lost",
+        "Be polite only",
+        "Be blunt only",
+        "Avoid hard truths"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87bca81588c9f41a22aa",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Softening the message until it is unclear can lead to:",
+      "options": [
+        "The fix never happens; the recipient does not know what to change",
+        "Better relationships",
+        "Fewer conflicts",
+        "No meaningful effect on outcomes"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87bca81588c9f41a22ab",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Using truth as a weapon rather than a tool tends to:",
+      "options": [
+        "Damage trust and make future candor harder",
+        "Get results faster",
+        "Increase respect",
+        "No significant downside in practice"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87bca81588c9f41a22ac",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Why does accuracy beat politeness in the long run?",
+      "options": [
+        "Accuracy enables correction; unclear messages preserve peace short-term but leave problems intact",
+        "Politeness is always wrong",
+        "Accuracy is always right",
+        "It does not"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87bca81588c9f41a22ad",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "What should you do with a message you have been softening?",
+      "options": [
+        "Identify it; rewrite in one sentence: clear, accurate, respectful; deliver it",
+        "Keep softening",
+        "Never deliver it",
+        "Send it anonymously"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    }
+  ]
+}

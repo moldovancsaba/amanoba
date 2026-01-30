@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-28T22:55:46.120Z",
+  "course": {
+    "courseId": "AI_30_DAY_EN",
+    "name": "30-Day AI Catch-Up Program (EN)",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 6,
+    "title": "Template library: reusable prompts",
+    "lessonId": "AI_30_DAY_EN_DAY_06"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "697769fb27e27f61ac4143ab",
+      "uuid": "da5b1992-6e8a-4e26-a833-35fae2495ad1",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"exercise (10–15 min)\n\nList 5 repetitive ...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day6",
+        "#en",
+        "#all-languages",
+        "#ai",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "697769fb27e27f61ac4143ac",
+      "uuid": "2e007083-4898-4a02-9591-701326869c33",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"exercise (5–10 min)\nRun one template on ...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day6",
+        "#en",
+        "#all-languages",
+        "#ai",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "697769fb27e27f61ac4143ad",
+      "uuid": "d163e261-01d5-4a3a-9d37-f1ab8d34a996",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"exercise (10–15 min)\n\nList 5 repetitive ...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day6",
+        "#en",
+        "#all-languages",
+        "#ai",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "697769fb27e27f61ac4143ae",
+      "uuid": "5d65cb22-cbc4-40b1-b4cd-a9b3df7afaee",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "How does the concept \"Template library: reusable prompts Save time by st...\" mentioned in the lesson impact achieving your goals?",
+      "options": [
+        "As described in detail in the lesson, Template library: reusable pro... increases effectiveness and reduces risk",
+        "No significant impact",
+        "Only matters theoretically",
+        "Only an optional element"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day6",
+        "#en",
+        "#all-languages",
+        "#ai",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "697769fb27e27f61ac4143af",
+      "uuid": "dd2b5b09-a109-431f-adcc-29492430a28c",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is Template in the context of Template library: reusable prompts as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, Template plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day6",
+        "#en",
+        "#all-languages",
+        "#ai",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "697769fb27e27f61ac4143b0",
+      "uuid": "fe95ac16-c0c9-4dd4-963b-5f78c9d5dc2c",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is {tone} in the context of Template library: reusable prompts as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, {tone} plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day6",
+        "#en",
+        "#all-languages",
+        "#ai",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "697769fb27e27f61ac4143b1",
+      "uuid": "1e8a6e1a-d743-478b-9972-ea047631c8e7",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is {topic} in the context of Template library: reusable prompts as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, {topic} plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day6",
+        "#en",
+        "#all-languages",
+        "#ai",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

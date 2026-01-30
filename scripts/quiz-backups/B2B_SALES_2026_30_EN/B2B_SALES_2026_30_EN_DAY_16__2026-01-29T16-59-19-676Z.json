@@ -1,0 +1,68 @@
+{
+  "backedUpAt": "2026-01-29T16:59:35.462Z",
+  "course": {
+    "courseId": "B2B_SALES_2026_30_EN",
+    "name": "B2B Sales 2026 Masterclass",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 16,
+    "title": "AI Meeting Prep and Notes",
+    "lessonId": "B2B_SALES_2026_30_EN_DAY_16"
+  },
+  "questionCount": 4,
+  "questions": [
+    {
+      "_id": "697b1fd28f79f136a28b8a04",
+      "difficulty": "MEDIUM",
+      "question": "Prep prompt output?",
+      "options": [
+        "Long transcript",
+        "3 hypotheses/pains, 3 questions, 1 recommended next step",
+        "Just a price list",
+        "Just a pitch deck"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b1fd28f79f136a28b8a05",
+      "difficulty": "MEDIUM",
+      "question": "Goal of the summary prompt?",
+      "options": [
+        "Copy transcript",
+        "Capture decisions, risks, next step",
+        "Make email longer",
+        "Launch a marketing campaign"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b1fd28f79f136a28b8a06",
+      "difficulty": "MEDIUM",
+      "question": "Bad example?",
+      "options": [
+        "Summary with next step and date",
+        "Transcript pasted, no next step",
+        "Risks listed",
+        "Pain/impact summarized"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b1fd28f79f136a28b8a07",
+      "difficulty": "MEDIUM",
+      "question": "What do you do after the summary?",
+      "options": [
+        "Nothing",
+        "Put it in CRM and set a reminder for the next step",
+        "Add to email list",
+        "Delete it"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    }
+  ]
+}

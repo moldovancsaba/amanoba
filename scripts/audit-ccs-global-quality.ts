@@ -30,7 +30,7 @@ config({ path: resolve(process.cwd(), '.env.local') });
 import connectDB from '../app/lib/mongodb';
 import { CCS, Course, Lesson, QuizQuestion, QuizQuestionType, QuestionDifficulty } from '../app/lib/models';
 import { assessLessonQuality } from './lesson-quality';
-import { validateLessonRecordLanguageIntegrity } from './language-integrity';
+import { validateLessonRecordLanguageIntegrity, validateLessonTextLanguageIntegrity } from './language-integrity';
 import { validateQuestionQuality } from './question-quality-validator';
 import { generateContentBasedQuestions } from './content-based-question-generator';
 import { locales } from '../app/lib/i18n/locales';
@@ -125,7 +125,9 @@ async function main() {
   const missingCcsIdCoursesAll = await Course.find({
     $or: [{ ccsId: { $exists: false } }, { ccsId: null }, { ccsId: '' }],
   })
-    .select('courseId name language durationDays isActive isDraft requiresPremium parentCourseId selectedLessonIds courseVariant ccsId createdAt updatedAt')
+    .select(
+      'courseId name description translations language durationDays isActive isDraft requiresPremium parentCourseId selectedLessonIds courseVariant ccsId createdAt updatedAt'
+    )
     .sort({ createdAt: 1, _id: 1 })
     .lean();
 
@@ -160,6 +162,7 @@ async function main() {
       coursesMissingCcsIdUnmapped: missingCcsUnmapped.length,
       coursesWithStructuralErrors: 0,
       coursesWithStructuralWarnings: 0,
+      coursesFailingCatalogLanguageIntegrity: 0,
       lessons: 0,
       duplicateDayLessonGroups: 0,
       missingLessonDayEntries: 0,
@@ -227,8 +230,10 @@ async function main() {
     if (COURSE_ID) courseFilter.courseId = String(COURSE_ID).toUpperCase();
 
     // Include both parent courses and shorts; they are part of the CCS family.
-      const courses = await Course.find(courseFilter)
-      .select('courseId name language durationDays isActive isDraft requiresPremium parentCourseId selectedLessonIds courseVariant ccsId createdAt updatedAt')
+    const courses = await Course.find(courseFilter)
+      .select(
+        'courseId name description translations language durationDays isActive isDraft requiresPremium parentCourseId selectedLessonIds courseVariant ccsId createdAt updatedAt'
+      )
       .sort({ parentCourseId: 1, language: 1, courseId: 1 })
       .lean();
 
@@ -321,6 +326,88 @@ async function main() {
       if (courseErrors.length > 0) report.totals.coursesWithStructuralErrors++;
       if (courseWarnings.length > 0) report.totals.coursesWithStructuralWarnings++;
 
+      const catalogLanguageIntegrity = (() => {
+        const aggregate = { ok: true, errors: [] as string[], warnings: [] as string[], findings: [] as any[] };
+        const name = String((course as any).name || '');
+        const description = String((course as any).description || '');
+        const translationsRaw = (course as any).translations;
+
+        if (name) {
+          const r = validateLessonTextLanguageIntegrity({ language, text: name, contextLabel: 'course.name' });
+          if (!r.ok) aggregate.ok = false;
+          aggregate.errors.push(...r.errors);
+          aggregate.warnings.push(...r.warnings);
+          aggregate.findings.push(...r.findings);
+        }
+
+        if (description) {
+          const r = validateLessonTextLanguageIntegrity({ language, text: description, contextLabel: 'course.description' });
+          if (!r.ok) aggregate.ok = false;
+          aggregate.errors.push(...r.errors);
+          aggregate.warnings.push(...r.warnings);
+          aggregate.findings.push(...r.findings);
+        }
+
+        const translations: Record<string, { name?: string; description?: string }> =
+          translationsRaw && typeof translationsRaw === 'object'
+            ? translationsRaw instanceof Map
+              ? Object.fromEntries(Array.from(translationsRaw.entries()))
+              : translationsRaw
+            : {};
+
+        for (const [translationLocale, translation] of Object.entries(translations)) {
+          const loc = String(translationLocale || '').toLowerCase();
+          if (!(locales as readonly string[]).includes(loc)) {
+            if (translation && (translation.name || translation.description)) {
+              aggregate.warnings.push(`COURSE_TRANSLATION_UNKNOWN_LOCALE: ${translationLocale}`);
+            }
+            continue;
+          }
+
+          const translatedName = String(translation?.name || '');
+          const translatedDescription = String(translation?.description || '');
+
+          if (translatedName) {
+            const r = validateLessonTextLanguageIntegrity({
+              language: loc,
+              text: translatedName,
+              contextLabel: `course.translations.${loc}.name`,
+            });
+            if (!r.ok) aggregate.ok = false;
+            aggregate.errors.push(...r.errors);
+            aggregate.warnings.push(...r.warnings);
+            aggregate.findings.push(...r.findings);
+          } else if (translatedDescription) {
+            aggregate.warnings.push(`COURSE_TRANSLATION_NAME_MISSING: ${loc}`);
+          }
+
+          if (translatedDescription) {
+            const r = validateLessonTextLanguageIntegrity({
+              language: loc,
+              text: translatedDescription,
+              contextLabel: `course.translations.${loc}.description`,
+            });
+            if (!r.ok) aggregate.ok = false;
+            aggregate.errors.push(...r.errors);
+            aggregate.warnings.push(...r.warnings);
+            aggregate.findings.push(...r.findings);
+          } else if (translatedName) {
+            aggregate.warnings.push(`COURSE_TRANSLATION_DESCRIPTION_MISSING: ${loc}`);
+          }
+        }
+
+        aggregate.errors = Array.from(new Set(aggregate.errors));
+        aggregate.warnings = Array.from(new Set(aggregate.warnings));
+        return aggregate as {
+          ok: boolean;
+          errors: string[];
+          warnings: string[];
+          findings: Array<{ label: string; snippet: string }>;
+        };
+      })();
+
+      if (!catalogLanguageIntegrity.ok) report.totals.coursesFailingCatalogLanguageIntegrity++;
+
       const lessonFilter: any = { courseId: course._id };
       if (!INCLUDE_INACTIVE) lessonFilter.isActive = true;
 
@@ -354,10 +441,13 @@ async function main() {
       const expectedDays = Number((course as any).durationDays || 30) || 30;
       const seenDays = new Set<number>(lessons.map(l => Number(l.dayNumber)).filter(n => Number.isFinite(n) && n > 0));
       const missingDays: number[] = [];
-      for (let d = 1; d <= expectedDays; d++) {
-        if (!seenDays.has(d)) missingDays.push(d);
+      const isShortCourse = Boolean(parentCourseId);
+      if (!isShortCourse) {
+        for (let d = 1; d <= expectedDays; d++) {
+          if (!seenDays.has(d)) missingDays.push(d);
+        }
+        report.totals.missingLessonDayEntries += missingDays.length;
       }
-      report.totals.missingLessonDayEntries += missingDays.length;
 
       const lessonAudits: LessonAudit[] = [];
       for (const lesson of lessons) {
@@ -583,6 +673,7 @@ async function main() {
       const courseSummary = {
         courseId,
         name: course.name,
+        description: (course as any).description || null,
         language,
         isActive: Boolean(course.isActive),
         isDraft: Boolean(course.isDraft),
@@ -592,6 +683,7 @@ async function main() {
         courseVariant: course.courseVariant || null,
         structuralErrors: courseErrors,
         structuralWarnings: courseWarnings,
+        catalogLanguageIntegrity,
         inferredCcsId: isInferred ? ccsId : null,
         duplicateDayGroups,
         missingDays,
@@ -623,6 +715,17 @@ async function main() {
         }
       }
 
+      if (!catalogLanguageIntegrity.ok) {
+        taskLines.push(``);
+        taskLines.push(`**Course catalog language integrity errors (name/description; affects catalog display + emails)**`);
+        for (const e of catalogLanguageIntegrity.errors) {
+          taskLines.push(`- [ ] **${courseId}** — ${mdEscape(e)}`);
+        }
+        for (const f of (catalogLanguageIntegrity.findings || []).slice(0, 3)) {
+          taskLines.push(`  - Finding: ${mdEscape(f.label)} — ${mdEscape(f.snippet)}`);
+        }
+      }
+
       if (missingDays.length > 0) {
         taskLines.push(``);
         taskLines.push(`**Missing lesson days (must be created)**`);
@@ -643,9 +746,24 @@ async function main() {
         }
       }
 
-      const courseTaskCount = lessonAudits.reduce((sum, l) => sum + (l.errors.length ? 1 : 0), 0);
-      if (courseTaskCount === 0) {
+      const hasAnyIssues =
+        courseErrors.length > 0 ||
+        courseWarnings.length > 0 ||
+        !catalogLanguageIntegrity.ok ||
+        missingDays.length > 0 ||
+        duplicateDayGroups.length > 0 ||
+        lessonAudits.some(l => l.errors.length > 0);
+
+      if (!hasAnyIssues) {
         taskLines.push(`- ✅ No issues detected by this audit.`);
+        taskLines.push(``);
+        continue;
+      }
+
+      if (!lessonAudits.some(l => l.errors.length > 0)) {
+        taskLines.push(``);
+        taskLines.push(`**Action items**`);
+        taskLines.push(`- ✅ No lesson/quiz issues for this course detected by this audit.`);
         taskLines.push(``);
         continue;
       }

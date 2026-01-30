@@ -1,0 +1,114 @@
+{
+  "backedUpAt": "2026-01-28T22:37:49.082Z",
+  "course": {
+    "courseId": "DONE_BETTER_2026_EN",
+    "name": "Done is better - Build What Matters",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 29,
+    "title": "Your Personal Playbook",
+    "lessonId": "DONE_BETTER_2026_EN_DAY_29"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "697a87bda81588c9f41a22f4",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "You want to codify how you work. What should you create?",
+      "options": [
+        "A playbook: principles, checklists, and rules; include problem separation, restatement, moves, feedback, reflection",
+        "A long document",
+        "A vision statement only",
+        "A list of goals only"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87bda81588c9f41a22f5",
+      "questionType": "application",
+      "difficulty": "EASY",
+      "question": "What is a \"personal playbook\"?",
+      "options": [
+        "Your codified way of thinking, deciding, and delivering",
+        "A daily to-do list",
+        "A project plan",
+        "A job description"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87bda81588c9f41a22f6",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "What should the playbook include from this kind of course?",
+      "options": [
+        "Problem separation, restatement, moves, feedback, reflection; one improvement you will follow",
+        "Only motivational quotes",
+        "Only definitions",
+        "Only examples"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87bda81588c9f41a22f7",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "A playbook that is too generic to use can lead to:",
+      "options": [
+        "It never influences daily decisions; make it concrete enough to apply",
+        "Flexibility",
+        "Easier updates",
+        "No meaningful effect on outcomes"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87bda81588c9f41a22f8",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Writing the playbook once and never using or updating it tends to:",
+      "options": [
+        "No connection between playbook and decisions; it becomes shelf-ware",
+        "Consistency",
+        "Faster execution",
+        "No significant downside in practice"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87bda81588c9f41a22f9",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "What should you add for the next 90 days?",
+      "options": [
+        "One rule you will follow from the playbook",
+        "Everything you learned",
+        "Nothing",
+        "Only goals"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87bda81588c9f41a22fa",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How long should a first playbook draft be?",
+      "options": [
+        "One page: principles and one checklist",
+        "As long as possible",
+        "Only bullet points",
+        "Only one sentence"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "backedUpAt": "2026-01-28T22:55:28.615Z",
+  "courseId": "AI_30_DAY_EN",
+  "lessonId": "AI_30_DAY_EN_DAY_14",
+  "dayNumber": 14,
+  "title": "Transforming formats: table, bullets, narrative",
+  "content": "<h1>Transforming formats: table, bullets, narrative</h1>\n<p><em>Convert content across formats to fit the audience</em></p>\n<hr />\n<h2>Learning goal</h2>\n<ul>\n<li>Convert one piece of content into table, bullets, and short narrative.</li>\n<li>Preserve facts across formats.</li>\n</ul>\n<hr />\n<h2>Why it matters</h2>\n<ul>\n<li>Different audiences prefer different formats.</li>\n<li>Format shifts reveal missing or inconsistent data.</li>\n</ul>\n<hr />\n<h2>Explanation</h2>\n<ul>\n<li>Prompt: “Turn this into a 3-column table (item/detail/action).”</li>\n<li>Then: “Convert to 5 bullets” and “Convert to 120-word narrative.”</li>\n<li>Check that numbers/claims stay consistent.</li>\n</ul>\n<hr />\n<h2>Examples</h2>\n<ul>\n<li><strong>Good</strong>: Table with clear columns; bullets concise; narrative keeps facts.</li>\n<li><strong>Poor</strong>: Format changes but loses data.</li>\n</ul>\n<hr />\n<h2>Guided exercise (10–15 min)</h2>\n<ol>\n<li>Pick content from Day 13; transform to table, bullets, narrative.</li>\n<li>Compare for fact consistency.</li>\n</ol>\n<h2>Independent exercise (5–10 min)</h2>\n<p>Create a reusable “format switch” prompt for future use.</p>\n<hr />\n<h2>Self-check</h2>\n<ul>\n<li>All formats preserve key facts.</li>\n<li>Audience needs matched.</li>\n<li>Format switch prompt saved.</li>\n</ul>\n<hr />\n<h2>Optional deepening</h2>\n<ul>\n<li>Formatting prompts: <a href=\"https://platform.openai.com/docs/guides/prompt-engineering\" target=\"_blank\" rel=\"noreferrer\">https://platform.openai.com/docs/guides/prompt-engineering</a></li>\n</ul>",
+  "emailSubject": "AI 30-Day – Day 14: Transform formats",
+  "emailBody": "<h1>AI 30-Day – Day 14</h1>\n<h2>Transform formats</h2>\n<p>Today you’ll convert the same content into table, bullets, and narrative while keeping facts.</p>\n<p><a href=\"http://localhost:3000/courses/AI_30_DAY_EN/day/{{dayNumber}}\">Open the lesson →</a></p>"
+}

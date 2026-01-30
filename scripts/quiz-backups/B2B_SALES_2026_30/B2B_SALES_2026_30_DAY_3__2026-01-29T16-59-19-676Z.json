@@ -1,0 +1,68 @@
+{
+  "backedUpAt": "2026-01-29T17:00:19.391Z",
+  "course": {
+    "courseId": "B2B_SALES_2026_30",
+    "name": "B2B Értékesítés 2026 Masterclass",
+    "language": "hu"
+  },
+  "lesson": {
+    "dayNumber": 3,
+    "title": "ICP 2026: probléma, nem iparág",
+    "lessonId": "B2B_SALES_2026_30_DAY_3"
+  },
+  "questionCount": 4,
+  "questions": [
+    {
+      "_id": "697b203cac79ca83bb9721d4",
+      "difficulty": "MEDIUM",
+      "question": "Miért veszélyes az iparág-alapú ICP önmagában?",
+      "options": [
+        "Mert túl hosszú",
+        "Mert nem kötődik konkrét problémához, így rossz fókuszú lesz az outreach",
+        "Mert túl drága",
+        "Mert nincs benne marketing"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b203cac79ca83bb9721d5",
+      "difficulty": "MEDIUM",
+      "question": "Melyik elem nem része a probléma-alapú ICP-nek?",
+      "options": [
+        "Fájdalom/probléma",
+        "Trigger",
+        "Érettség",
+        "LinkedIn posztok száma"
+      ],
+      "correctIndex": 3,
+      "hashtags": []
+    },
+    {
+      "_id": "697b203cac79ca83bb9721d6",
+      "difficulty": "MEDIUM",
+      "question": "Mi a „rossz illeszkedés” egyik jele?",
+      "options": [
+        "Van fájdalom tulajdonos",
+        "Nincs döntéshozó vagy költségkeret",
+        "Van GTM csapat",
+        "Van trigger esemény"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b203cac79ca83bb9721d7",
+      "difficulty": "MEDIUM",
+      "question": "Mi a legfontosabb kimenet a mai nap végére?",
+      "options": [
+        "Egy iparáglista",
+        "Egy probléma-alapú ICP definíció és 5 tesztkérdés",
+        "Egy pitch deck",
+        "Egy marketing kampányterv"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    }
+  ]
+}

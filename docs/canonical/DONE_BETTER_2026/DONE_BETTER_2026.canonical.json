@@ -1,0 +1,842 @@
+{
+  "schemaVersion": "ccs.v1",
+  "courseIdBase": "DONE_BETTER_2026",
+  "courseName": "Done is better - Build What Matters",
+  "version": 1,
+  "createdAt": "2026-01-28",
+  "canonicalScope": "language_neutral",
+  "supportedLanguages": ["en"],
+  "intent": {
+    "oneSentence": "Train learners to think like problem-solvers, not task-doers: break complex situations into parts, choose the right move, ship small, test fast, and speak the truth without distortion.",
+    "outcomes": [
+      "Separate symptoms from the real problem and understand before acting.",
+      "Treat unknowns as assets and restate problems until you own them.",
+      "Decompose big problems and find leverage points.",
+      "Treat plans as hypotheses; think in moves, not projects; use analogy and working backwards.",
+      "Simplify until it breaks; maintain multiple paths; choose with intent.",
+      "Define done as testable; ship the skeleton; build fast feedback loops; kill bad ideas early; measure what matters.",
+      "Pivot without drama; prefer momentum over comfort.",
+      "Use truth as a tool; build no-surprises culture; communicate unknowns; turn clients into partners.",
+      "Reflect like a pro; build a repeatable thinking loop; codify a personal playbook.",
+      "Leave with a system, not motivation."
+    ],
+    "nonGoals": [
+      "Not inspirational only; operational.",
+      "Not a generic leadership course; delivery-first, test-driven.",
+      "Not tool-specific; thinking and decision frameworks apply regardless of tools."
+    ]
+  },
+  "qualityGates": {
+    "lessonMinQualityScore": 70,
+    "quiz": {
+      "minValidQuestionsPerLesson": 7,
+      "minApplicationPerLesson": 5,
+      "minCriticalThinkingPerLesson": 2,
+      "forbiddenQuestionTypes": ["RECALL"],
+      "standaloneRequired": true,
+      "bannedPatterns": [
+        "references to the lesson instead of stating the answer",
+        "title-based crutches",
+        "throwaway options (e.g. no impact, only theoretical, not mentioned)",
+        "options that are too short to be educational"
+      ],
+      "metadataRequired": ["uuid", "hashtags", "difficulty", "questionType"]
+    }
+  },
+  "concepts": {
+    "Problem": {
+      "definition": "A gap between a current state and a desired state that requires action to close.",
+      "notes": ["Real problems are actionable; symptoms are what you see first."]
+    },
+    "Symptom": {
+      "definition": "An observable sign of something wrong; often confused with the root cause.",
+      "notes": ["Treating symptoms without finding the real problem leads to noise, not progress."]
+    },
+    "Understanding": {
+      "definition": "Clarity about what is really going on before taking action.",
+      "notes": ["Without understanding, every action is noise."]
+    },
+    "Unknowns": {
+      "definition": "What you do not yet know; treated in this course as assets that guide inquiry.",
+      "notes": ["Unknowns are your map; naming them is leadership."]
+    },
+    "Restatement": {
+      "definition": "Rewriting the problem in your own words until it is clear and actionable.",
+      "notes": ["If you cannot restate it clearly, you do not own it."]
+    },
+    "Decomposition": {
+      "definition": "Breaking a big problem into smaller, elemental parts.",
+      "notes": ["Big problems dissolve when cut into parts."]
+    },
+    "LeveragePoint": {
+      "definition": "A part of the system where a small change produces a large effect.",
+      "notes": ["Not every piece matters equally; spot the hinge."]
+    },
+    "PlanAsHypothesis": {
+      "definition": "A plan is a bet, not truth; it should be tested and updated with evidence.",
+      "notes": ["Plans are hypotheses; execution is the experiment."]
+    },
+    "Move": {
+      "definition": "A single, testable next step that advances toward an outcome.",
+      "notes": ["Replace big delivery with next testable step."]
+    },
+    "TestableStep": {
+      "definition": "A step whose completion or success can be verified.",
+      "notes": ["If it cannot be tested, it does not exist as done."]
+    },
+    "Analogy": {
+      "definition": "Using patterns from other domains to unlock new paths in the current problem.",
+      "notes": ["Borrow structure, not literal copy."]
+    },
+    "WorkingBackwards": {
+      "definition": "Starting from the desired result and reverse-engineering the path.",
+      "notes": ["Clarifies what done looks like before you build."]
+    },
+    "Simplification": {
+      "definition": "Removing everything that does not prove the core.",
+      "notes": ["Simplify until it breaks; then you know the minimum."]
+    },
+    "MultiplePaths": {
+      "definition": "Having more than one plan so that failure of one does not mean failure of the goal.",
+      "notes": ["One plan is hope; three plans is control."]
+    },
+    "DecisionAsSkill": {
+      "definition": "Choosing with intent using criteria and boundaries, not drift.",
+      "notes": ["Decision is a skill; you stop drifting when you practice it."]
+    },
+    "DoneTestable": {
+      "definition": "Done means the outcome can be verified or tested.",
+      "notes": ["If it cannot be tested, it does not exist."]
+    },
+    "SkeletonFirst": {
+      "definition": "Building the minimal structure before adding detail.",
+      "notes": ["Build the bones before you paint the skin."]
+    },
+    "FeedbackLoop": {
+      "definition": "Getting real-world signal quickly to adjust the next move.",
+      "notes": ["Reality is your best mentor."]
+    },
+    "KillEarly": {
+      "definition": "Stopping bad or wrong ideas as soon as evidence shows they do not work.",
+      "notes": ["The earlier it dies, the cheaper it is."]
+    },
+    "MeasureWhatMatters": {
+      "definition": "Tracking outcomes that affect the goal, not vanity metrics.",
+      "notes": ["Opinion ends where data begins."]
+    },
+    "Pivot": {
+      "definition": "Changing direction based on evidence without treating it as failure.",
+      "notes": ["Changing direction is strength, not failure."]
+    },
+    "Momentum": {
+      "definition": "Progress over time; preferred over waiting for certainty.",
+      "notes": ["Progress beats certainty."]
+    },
+    "TruthAsTool": {
+      "definition": "Using accuracy and candor as operating principles.",
+      "notes": ["Accuracy beats politeness in the long run."]
+    },
+    "NoSurprises": {
+      "definition": "Surfacing risks and bad news early so trust is built before problems blow up.",
+      "notes": ["Trust is built before problems appear."]
+    },
+    "CommunicateUnknowns": {
+      "definition": "Explicitly stating what you do not know yet and when you will know it.",
+      "notes": ["Saying I don't know yet is leadership."]
+    },
+    "Transparency": {
+      "definition": "Sharing status, constraints, and unknowns so others can align.",
+      "notes": ["Transparency turns transactions into alliances."]
+    },
+    "Reflection": {
+      "definition": "Extracting lessons from outcomes so experience becomes skill.",
+      "notes": ["Every outcome teaches; only reflection turns it into skill."]
+    },
+    "ThinkingLoop": {
+      "definition": "A repeatable process: understand, plan, move, test, reflect, adjust.",
+      "notes": ["You design your own repeatable problem engine."]
+    },
+    "ChaosToClarity": {
+      "definition": "Entering a messy situation and creating order through structure and priorities.",
+      "notes": ["Learn to enter any mess and create order."]
+    },
+    "PersonalPlaybook": {
+      "definition": "Your codified way of thinking, deciding, and delivering.",
+      "notes": ["Codify how you think, decide, and deliver."]
+    },
+    "SystemNotMotivation": {
+      "definition": "Relying on a repeatable system rather than mood or motivation.",
+      "notes": ["You leave with a system, not motivation."]
+    }
+  },
+  "procedures": [
+    {
+      "id": "P1_SEPARATE_SYMPTOM_FROM_PROBLEM",
+      "name": "Separate symptom from problem",
+      "steps": [
+        "List what you observe (symptoms).",
+        "Ask: what would have to be true for this to happen?",
+        "Identify the gap between current and desired state.",
+        "State the problem in one sentence.",
+        "Check: is this actionable?"
+      ],
+      "usedInDays": [2, 3]
+    },
+    {
+      "id": "P2_RESTATE_AND_OWN",
+      "name": "Restate the problem until you own it",
+      "steps": [
+        "Write the problem as given.",
+        "Rewrite it in your own words (no jargon).",
+        "Ask: what would solving this look like?",
+        "If you cannot explain it to someone else in 30 seconds, simplify again.",
+        "Lock the restatement as the working problem."
+      ],
+      "usedInDays": [5, 6]
+    },
+    {
+      "id": "P3_DECOMPOSE_AND_LEVERAGE",
+      "name": "Decompose and find leverage",
+      "steps": [
+        "List sub-problems or components.",
+        "For each: can it be solved or tested independently?",
+        "Identify which component, if fixed, would ease the rest (leverage point).",
+        "Pick the first move on the leverage point or the smallest testable slice."
+      ],
+      "usedInDays": [6, 7]
+    },
+    {
+      "id": "P4_PLAN_AS_HYPOTHESIS",
+      "name": "Plan as hypothesis",
+      "steps": [
+        "Write the plan as a bet: if we do X, we expect Y.",
+        "Define the smallest test of that bet (one move).",
+        "Set a time or signal to evaluate: did Y happen?",
+        "If not, update the hypothesis; do not defend the plan."
+      ],
+      "usedInDays": [8, 9]
+    },
+    {
+      "id": "P5_NEXT_TESTABLE_STEP",
+      "name": "Next testable step",
+      "steps": [
+        "State the outcome you want.",
+        "What is the smallest step that could be done and verified today or this week?",
+        "Define done for that step (testable).",
+        "Do it; then decide the next step from evidence."
+      ],
+      "usedInDays": [9, 15, 16]
+    },
+    {
+      "id": "P6_WORKING_BACKWARDS",
+      "name": "Working backwards",
+      "steps": [
+        "Describe the end state in concrete terms.",
+        "What must be true the step before that?",
+        "Repeat until you reach today.",
+        "First move = the step that gets you one notch toward the end state."
+      ],
+      "usedInDays": [11]
+    },
+    {
+      "id": "P7_MULTIPLE_PATHS",
+      "name": "Multiple paths",
+      "steps": [
+        "Define the goal.",
+        "List at least three different ways to get there.",
+        "For each: main risk and cost.",
+        "Choose one to execute first; keep one as backup; park the third.",
+        "Revisit when you have new evidence."
+      ],
+      "usedInDays": [13, 14]
+    },
+    {
+      "id": "P8_REFLECT_AND_ADJUST",
+      "name": "Reflect and adjust",
+      "steps": [
+        "What happened? (facts)",
+        "What did we learn? (insight)",
+        "What do we change next time? (rule or behavior)",
+        "Update your playbook or checklist with one change."
+      ],
+      "usedInDays": [26, 27, 29, 30]
+    },
+    {
+      "id": "P9_NO_SURPRISES",
+      "name": "No-surprises culture",
+      "steps": [
+        "Share status early: on track / at risk / blocked.",
+        "Communicate unknowns: what you do not know, when you will know it.",
+        "Escalate bad news with a proposed fix or options.",
+        "Never hide a miss until the last moment."
+      ],
+      "usedInDays": [23, 24, 25]
+    }
+  ],
+  "assessmentBlueprint": {
+    "defaults": {
+      "minQuestions": 7,
+      "minApplication": 5,
+      "minCriticalThinking": 2,
+      "forbiddenQuestionTypes": ["RECALL"],
+      "difficultyMix": {
+        "easyMaxPercent": 15,
+        "mediumTargetPercent": 55,
+        "hardTargetPercent": 30
+      }
+    },
+    "questionArchetypes": {
+      "application": [
+        "Given a scenario, choose the next best action from the procedure.",
+        "Classify an example (symptom vs problem; move vs project; testable vs vague).",
+        "Diagnose what went wrong and choose a fix.",
+        "Select the best leverage point or next testable step.",
+        "Translate a vague goal into a testable move."
+      ],
+      "criticalThinking": [
+        "Trade-off: choose between two strategies and justify criteria.",
+        "Failure mode: identify the most likely risk if implemented wrong and how to mitigate.",
+        "System design: propose a rule or loop that scales and identify governance.",
+        "Second-order effects: predict unintended consequences and adjust the plan."
+      ]
+    },
+    "distractorGuidelines": [
+      "Wrong options must be plausible, aligned with common mistakes, and teach why they fail.",
+      "Avoid extreme/absurd distractors; avoid none of the above.",
+      "Each option must be self-contained and educational."
+    ]
+  },
+  "lessons": [
+    {
+      "dayNumber": 1,
+      "canonicalTitle": "Welcome to Real Thinking",
+      "intent": "Establish that effectiveness, not smartness, is the goal; set the tone for operational thinking.",
+      "goals": [
+        "Distinguish being effective from being busy or smart.",
+        "Commit to think, decide, and deliver as a loop.",
+        "See the course as a system, not motivation."
+      ],
+      "requiredConcepts": ["Understanding", "SystemNotMotivation"],
+      "commonMistakes": [
+        "Confusing activity with progress.",
+        "Waiting for motivation instead of using a system.",
+        "Treating the course as inspiration only."
+      ]
+    },
+    {
+      "dayNumber": 2,
+      "canonicalTitle": "What Is a Problem, Really?",
+      "intent": "Teach learners to separate symptoms from the real challenge.",
+      "goals": [
+        "Define problem vs symptom.",
+        "Identify the real challenge behind observable signs.",
+        "Apply the separation in one real situation."
+      ],
+      "requiredConcepts": ["Problem", "Symptom"],
+      "requiredProcedures": ["P1_SEPARATE_SYMPTOM_FROM_PROBLEM"],
+      "canonicalExample": {
+        "scenario": "A team keeps missing deadlines.",
+        "diagnosis": "Missing deadlines is a symptom; the problem might be unclear scope, no buffer, or wrong capacity.",
+        "betterApproach": "Ask what would have to be true for deadlines to be missed; find the gap (e.g. scope creep); state the problem as an actionable gap."
+      },
+      "commonMistakes": [
+        "Treating the first observable sign as the problem.",
+        "Solving symptoms repeatedly without finding the cause.",
+        "Stating the problem in vague or non-actionable terms."
+      ]
+    },
+    {
+      "dayNumber": 3,
+      "canonicalTitle": "Understand Before You Move",
+      "intent": "If you do not understand the problem, every action is noise.",
+      "goals": [
+        "Clarify understanding before acting.",
+        "List what you know and what you do not know.",
+        "Avoid action as a substitute for understanding."
+      ],
+      "requiredConcepts": ["Understanding", "Problem"],
+      "requiredProcedures": ["P1_SEPARATE_SYMPTOM_FROM_PROBLEM"],
+      "commonMistakes": [
+        "Acting first and thinking later.",
+        "Assuming understanding without checking.",
+        "Ignoring unknowns."
+      ]
+    },
+    {
+      "dayNumber": 4,
+      "canonicalTitle": "Unknowns Are Assets",
+      "intent": "What you do not know is not weakness; it is your map.",
+      "goals": [
+        "List unknowns explicitly.",
+        "Use unknowns to guide inquiry and next steps.",
+        "Reduce the cost of not knowing by naming it."
+      ],
+      "requiredConcepts": ["Unknowns"],
+      "commonMistakes": [
+        "Hiding or avoiding unknowns.",
+        "Treating not knowing as failure.",
+        "Making decisions as if unknowns do not exist."
+      ]
+    },
+    {
+      "dayNumber": 5,
+      "canonicalTitle": "Rewriting the Problem",
+      "intent": "If you cannot restate it clearly, you do not own it.",
+      "goals": [
+        "Restate the problem in your own words.",
+        "Make it clear enough to explain in 30 seconds.",
+        "Lock the restatement as the working problem."
+      ],
+      "requiredConcepts": ["Restatement", "Problem"],
+      "requiredProcedures": ["P2_RESTATE_AND_OWN"],
+      "commonMistakes": [
+        "Using jargon or someone else's wording without internalizing.",
+        "Keeping the problem fuzzy.",
+        "Skipping restatement and going straight to solutions."
+      ]
+    },
+    {
+      "dayNumber": 6,
+      "canonicalTitle": "Decompose Everything",
+      "intent": "Big problems dissolve when cut into elemental parts.",
+      "goals": [
+        "Break the problem into sub-problems or components.",
+        "Identify which parts can be tested or solved independently.",
+        "Choose the first slice to work on."
+      ],
+      "requiredConcepts": ["Decomposition", "Problem"],
+      "requiredProcedures": ["P2_RESTATE_AND_OWN", "P3_DECOMPOSE_AND_LEVERAGE"],
+      "commonMistakes": [
+        "Trying to solve the whole thing at once.",
+        "Decomposing into too many tiny pieces with no prioritization.",
+        "Ignoring dependencies between parts."
+      ]
+    },
+    {
+      "dayNumber": 7,
+      "canonicalTitle": "Find the Leverage Point",
+      "intent": "Not every piece matters equally; learn to spot the hinge.",
+      "goals": [
+        "Identify where a small change would have large effect.",
+        "Prioritize moves that address the leverage point.",
+        "Avoid spreading effort evenly everywhere."
+      ],
+      "requiredConcepts": ["LeveragePoint", "Decomposition"],
+      "requiredProcedures": ["P3_DECOMPOSE_AND_LEVERAGE"],
+      "commonMistakes": [
+        "Treating all parts as equally important.",
+        "Working on what is easy instead of what matters most.",
+        "Confusing activity at the leverage point with busywork elsewhere."
+      ]
+    },
+    {
+      "dayNumber": 8,
+      "canonicalTitle": "Plans Are Hypotheses",
+      "intent": "A plan is not truth; it is a bet.",
+      "goals": [
+        "Frame plans as hypotheses to be tested.",
+        "Define what would confirm or disprove the plan.",
+        "Update the plan when evidence contradicts it."
+      ],
+      "requiredConcepts": ["PlanAsHypothesis"],
+      "requiredProcedures": ["P4_PLAN_AS_HYPOTHESIS"],
+      "commonMistakes": [
+        "Treating the plan as fixed and defending it.",
+        "No clear criterion for success or failure.",
+        "Confusing planning with execution."
+      ]
+    },
+    {
+      "dayNumber": 9,
+      "canonicalTitle": "Think in Moves, Not Projects",
+      "intent": "Replace big delivery with next testable step.",
+      "goals": [
+        "Define a move: one testable step.",
+        "Choose the next move from the current state.",
+        "Avoid project theater: long plans with no small wins."
+      ],
+      "requiredConcepts": ["Move", "TestableStep"],
+      "requiredProcedures": ["P4_PLAN_AS_HYPOTHESIS", "P5_NEXT_TESTABLE_STEP"],
+      "commonMistakes": [
+        "Defining deliverables that are too big to test soon.",
+        "Confusing motion (lots of activity) with moves (testable steps).",
+        "No clear done for the current step."
+      ]
+    },
+    {
+      "dayNumber": 10,
+      "canonicalTitle": "Analogy as a Weapon",
+      "intent": "Borrow patterns from other domains to unlock new paths.",
+      "goals": [
+        "Find a similar problem in another domain.",
+        "Extract the structure (not the content).",
+        "Apply the structure to your problem."
+      ],
+      "requiredConcepts": ["Analogy"],
+      "commonMistakes": [
+        "Copying solutions literally without adapting.",
+        "Dismissing analogies as irrelevant.",
+        "Using analogy to avoid doing the work of understanding."
+      ]
+    },
+    {
+      "dayNumber": 11,
+      "canonicalTitle": "Working Backwards",
+      "intent": "Start from the result and reverse-engineer the path.",
+      "goals": [
+        "Describe the end state concretely.",
+        "Work backwards step by step to today.",
+        "Use the first backwards step as the first move."
+      ],
+      "requiredConcepts": ["WorkingBackwards", "Move"],
+      "requiredProcedures": ["P6_WORKING_BACKWARDS"],
+      "commonMistakes": [
+        "Vague end state (we will be better).",
+        "Skipping steps in the backwards chain.",
+        "Starting from today and hoping to reach the goal."
+      ]
+    },
+    {
+      "dayNumber": 12,
+      "canonicalTitle": "Simplify Until It Breaks",
+      "intent": "Remove everything that does not prove the core.",
+      "goals": [
+        "Strip the problem or solution to the minimum.",
+        "Find the point where it breaks (too simple).",
+        "Add back only what is necessary."
+      ],
+      "requiredConcepts": ["Simplification"],
+      "commonMistakes": [
+        "Adding features or steps before proving the core.",
+        "Equating simple with trivial.",
+        "Not testing the simplified version."
+      ]
+    },
+    {
+      "dayNumber": 13,
+      "canonicalTitle": "Multiple Paths Thinking",
+      "intent": "One plan is hope; three plans is control.",
+      "goals": [
+        "Generate at least three different paths to the goal.",
+        "Assess risk and cost for each.",
+        "Choose one to execute; keep a backup."
+      ],
+      "requiredConcepts": ["MultiplePaths"],
+      "requiredProcedures": ["P7_MULTIPLE_PATHS"],
+      "commonMistakes": [
+        "Betting everything on one plan.",
+        "Treating backup plans as lack of commitment.",
+        "Never revisiting plans when evidence changes."
+      ]
+    },
+    {
+      "dayNumber": 14,
+      "canonicalTitle": "Choose with Intent",
+      "intent": "Decision is a skill; you will stop drifting.",
+      "goals": [
+        "Use criteria and boundaries to decide.",
+        "Make the decision explicit (what we chose and why).",
+        "Avoid drift: defaulting without choosing."
+      ],
+      "requiredConcepts": ["DecisionAsSkill", "MultiplePaths"],
+      "requiredProcedures": ["P7_MULTIPLE_PATHS"],
+      "commonMistakes": [
+        "Delaying decision by asking for more data indefinitely.",
+        "Implicit decisions that no one wrote down.",
+        "Confusing consensus with a clear decision."
+      ]
+    },
+    {
+      "dayNumber": 15,
+      "canonicalTitle": "Done Means Testable",
+      "intent": "If it cannot be tested, it does not exist.",
+      "goals": [
+        "Define done as a testable condition.",
+        "Refuse vague done (e.g. when it feels right).",
+        "Use testability to scope the next move."
+      ],
+      "requiredConcepts": ["DoneTestable", "TestableStep"],
+      "requiredProcedures": ["P5_NEXT_TESTABLE_STEP"],
+      "commonMistakes": [
+        "Accepting done without a clear test.",
+        "Moving on before the test is run.",
+        "Defining tests that are too expensive to run."
+      ]
+    },
+    {
+      "dayNumber": 16,
+      "canonicalTitle": "Ship the Skeleton",
+      "intent": "Build the bones before you paint the skin.",
+      "goals": [
+        "Identify the minimal structure that could work.",
+        "Ship or test that first.",
+        "Add detail only after the skeleton is validated."
+      ],
+      "requiredConcepts": ["SkeletonFirst", "DoneTestable"],
+      "requiredProcedures": ["P5_NEXT_TESTABLE_STEP"],
+      "commonMistakes": [
+        "Polishing before proving.",
+        "Confusing skeleton with incomplete or shoddy work.",
+        "Never shipping the skeleton because it is not perfect."
+      ]
+    },
+    {
+      "dayNumber": 17,
+      "canonicalTitle": "Fast Feedback Loops",
+      "intent": "Reality is your best mentor.",
+      "goals": [
+        "Shorten the time between action and signal.",
+        "Use feedback to adjust the next move.",
+        "Avoid long cycles with no learning."
+      ],
+      "requiredConcepts": ["FeedbackLoop"],
+      "commonMistakes": [
+        "Waiting too long before checking reality.",
+        "Ignoring feedback that contradicts the plan.",
+        "Measuring only what confirms the plan."
+      ]
+    },
+    {
+      "dayNumber": 18,
+      "canonicalTitle": "Kill Beautiful Ideas Early",
+      "intent": "The earlier it dies, the cheaper it is.",
+      "goals": [
+        "Define a test or signal that would kill the idea.",
+        "Run the test as soon as possible.",
+        "Stop investing when the idea fails the test."
+      ],
+      "requiredConcepts": ["KillEarly"],
+      "commonMistakes": [
+        "Sunk cost: continuing because we already invested.",
+        "No clear kill criterion.",
+        "Treating killing an idea as personal failure."
+      ]
+    },
+    {
+      "dayNumber": 19,
+      "canonicalTitle": "Measure What Matters",
+      "intent": "Opinion ends where data begins.",
+      "goals": [
+        "Identify metrics that reflect the goal.",
+        "Avoid vanity metrics.",
+        "Use data to decide, not to justify after the fact."
+      ],
+      "requiredConcepts": ["MeasureWhatMatters"],
+      "commonMistakes": [
+        "Measuring what is easy instead of what matters.",
+        "Opinion over data when both are available.",
+        "No baseline or target for the metric."
+      ]
+    },
+    {
+      "dayNumber": 20,
+      "canonicalTitle": "Pivot Without Drama",
+      "intent": "Changing direction is strength, not failure.",
+      "goals": [
+        "Recognize when evidence says to change direction.",
+        "Pivot without blame or drama.",
+        "Update the plan and the next move; do not hide the pivot."
+      ],
+      "requiredConcepts": ["Pivot", "PlanAsHypothesis"],
+      "commonMistakes": [
+        "Treating pivot as failure.",
+        "Sticking to the plan when it is clearly wrong.",
+        "Pivoting without learning (same mistake in new direction)."
+      ]
+    },
+    {
+      "dayNumber": 21,
+      "canonicalTitle": "Momentum Over Comfort",
+      "intent": "Progress beats certainty.",
+      "goals": [
+        "Prefer a small step with uncertainty over waiting for certainty.",
+        "Use momentum to learn, not to avoid thinking.",
+        "Balance: move when you have enough to test, not when you have zero risk."
+      ],
+      "requiredConcepts": ["Momentum", "Move"],
+      "commonMistakes": [
+        "Waiting for perfect information before acting.",
+        "Confusing momentum with recklessness.",
+        "No learning from the moves you make."
+      ]
+    },
+    {
+      "dayNumber": 22,
+      "canonicalTitle": "Truth Is a Tool",
+      "intent": "Accuracy beats politeness.",
+      "goals": [
+        "State facts and assessments clearly.",
+        "Separate truth from tone (you can be direct and respectful).",
+        "Use truth to fix problems, not to blame."
+      ],
+      "requiredConcepts": ["TruthAsTool"],
+      "commonMistakes": [
+        "Softening the message until it is unclear.",
+        "Using truth as a weapon rather than a tool.",
+        "Avoiding hard truths to keep peace short-term."
+      ]
+    },
+    {
+      "dayNumber": 23,
+      "canonicalTitle": "No Surprises Culture",
+      "intent": "Trust is built before problems appear.",
+      "goals": [
+        "Share status early: on track, at risk, blocked.",
+        "Surface bad news with options or a proposed fix.",
+        "Never hide a miss until the last moment."
+      ],
+      "requiredConcepts": ["NoSurprises", "TruthAsTool"],
+      "requiredProcedures": ["P9_NO_SURPRISES"],
+      "commonMistakes": [
+        "Hoping the problem will go away.",
+        "Surprising stakeholders at the deadline.",
+        "No clear escalation path."
+      ]
+    },
+    {
+      "dayNumber": 24,
+      "canonicalTitle": "Communicate Unknowns",
+      "intent": "Saying I don't know yet is leadership.",
+      "goals": [
+        "Name what you do not know.",
+        "Say when you will know it (or how you will find out).",
+        "Reduce anxiety by making unknowns explicit."
+      ],
+      "requiredConcepts": ["CommunicateUnknowns", "Unknowns"],
+      "requiredProcedures": ["P9_NO_SURPRISES"],
+      "commonMistakes": [
+        "Faking certainty when you do not know.",
+        "Hiding unknowns to look in control.",
+        "Never updating when you do learn."
+      ]
+    },
+    {
+      "dayNumber": 25,
+      "canonicalTitle": "From Client to Partner",
+      "intent": "Transparency turns transactions into alliances.",
+      "goals": [
+        "Share constraints, timelines, and trade-offs with clients or partners.",
+        "Invite them into the problem, not just the deliverable.",
+        "Build trust through transparency, not through overpromising."
+      ],
+      "requiredConcepts": ["Transparency", "NoSurprises"],
+      "requiredProcedures": ["P9_NO_SURPRISES"],
+      "commonMistakes": [
+        "Hiding problems to preserve the relationship short-term.",
+        "Treating the client as someone to please rather than to align with.",
+        "No clear communication cadence."
+      ]
+    },
+    {
+      "dayNumber": 26,
+      "canonicalTitle": "Reflect Like a Pro",
+      "intent": "Every outcome teaches; only reflection turns it into skill.",
+      "goals": [
+        "Run a short reflection: what happened, what we learned, what we change.",
+        "Extract one rule or checklist item.",
+        "Do it regularly, not only after failure."
+      ],
+      "requiredConcepts": ["Reflection"],
+      "requiredProcedures": ["P8_REFLECT_AND_ADJUST"],
+      "commonMistakes": [
+        "Skipping reflection when things go well.",
+        "Blaming instead of learning.",
+        "No concrete change (only insights, no new behavior)."
+      ]
+    },
+    {
+      "dayNumber": 27,
+      "canonicalTitle": "Build Your Thinking Loop",
+      "intent": "You will design your own repeatable problem engine.",
+      "goals": [
+        "Define your loop: understand, plan, move, test, reflect, adjust.",
+        "Document it in a checklist or playbook.",
+        "Use it on the next problem."
+      ],
+      "requiredConcepts": ["ThinkingLoop", "Reflection"],
+      "requiredProcedures": ["P8_REFLECT_AND_ADJUST"],
+      "commonMistakes": [
+        "No written loop (only in your head).",
+        "One-size-fits-all for every problem type.",
+        "Never updating the loop after use."
+      ]
+    },
+    {
+      "dayNumber": 28,
+      "canonicalTitle": "From Chaos to Clarity",
+      "intent": "Learn to enter any mess and create order.",
+      "goals": [
+        "Apply the full loop to a messy situation.",
+        "Create order through structure (decompose, leverage, moves).",
+        "Leave the situation clearer than you found it."
+      ],
+      "requiredConcepts": ["ChaosToClarity", "ThinkingLoop", "Decomposition"],
+      "commonMistakes": [
+        "Trying to fix everything at once.",
+        "Adding process for its own sake.",
+        "Leaving without a clear next owner or next step."
+      ]
+    },
+    {
+      "dayNumber": 29,
+      "canonicalTitle": "Your Personal Playbook",
+      "intent": "Codify how you think, decide, and deliver.",
+      "goals": [
+        "Write your playbook: principles, checklists, and rules.",
+        "Include problem separation, restatement, moves, feedback, reflection.",
+        "Commit to one improvement in the playbook from this course."
+      ],
+      "requiredConcepts": ["PersonalPlaybook", "ThinkingLoop"],
+      "requiredProcedures": ["P8_REFLECT_AND_ADJUST"],
+      "commonMistakes": [
+        "Playbook that is too generic to use.",
+        "Writing it once and never using or updating it.",
+        "No connection between playbook and daily decisions."
+      ]
+    },
+    {
+      "dayNumber": 30,
+      "canonicalTitle": "The Mind That Handles Anything",
+      "intent": "You leave with a system, not motivation.",
+      "goals": [
+        "Summarize your system: think, decide, deliver.",
+        "Commit to the next 90 days using the playbook.",
+        "Define one accountability or review cadence."
+      ],
+      "requiredConcepts": ["SystemNotMotivation", "PersonalPlaybook", "ThinkingLoop"],
+      "requiredProcedures": ["P8_REFLECT_AND_ADJUST"],
+      "commonMistakes": [
+        "Relying on motivation to sustain the system.",
+        "No review cadence.",
+        "Treating the course as a one-time event rather than the start of a practice."
+      ]
+    }
+  ],
+  "bibliography": [
+    {
+      "id": "B1",
+      "type": "book",
+      "citation": "George Pólya. How to Solve It. 1945.",
+      "usedFor": ["Problem", "Understanding", "Decomposition", "Restatement"]
+    },
+    {
+      "id": "B2",
+      "type": "book",
+      "citation": "Andy Grove. High Output Management. 1983.",
+      "usedFor": ["FeedbackLoop", "MeasureWhatMatters", "LeveragePoint"]
+    },
+    {
+      "id": "B3",
+      "type": "resource",
+      "citation": "Amazon Working Backwards (product development practice).",
+      "usedFor": ["WorkingBackwards"]
+    },
+    {
+      "id": "B4",
+      "type": "book",
+      "citation": "Ray Dalio. Principles. 2017.",
+      "usedFor": ["TruthAsTool", "Reflection", "PersonalPlaybook"]
+    }
+  ],
+  "evidenceGaps": []
+}

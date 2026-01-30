@@ -1,0 +1,114 @@
+{
+  "backedUpAt": "2026-01-28T22:58:15.519Z",
+  "course": {
+    "courseId": "DONE_BETTER_2026_EN",
+    "name": "Done is better - Build What Matters",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 19,
+    "title": "Measure What Matters",
+    "lessonId": "DONE_BETTER_2026_EN_DAY_19"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "697a92f622596d24dfc12d3b",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "A team tracks \"page views\" for a goal that is \"increase conversions.\" What is wrong?",
+      "options": [
+        "Page views may be a vanity metric; use a metric that directly reflects the goal",
+        "Nothing; page views are fine and accurately measure conversion success",
+        "They need more metrics to track everything regardless of relevance",
+        "They need fewer metrics to simplify their measurement approach"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a92f622596d24dfc12d3c",
+      "questionType": "application",
+      "difficulty": "EASY",
+      "question": "A team tracks \"page views\" for a goal of increasing sales. After three months, page views are up 50% but sales are flat. What is the problem?",
+      "options": [
+        "They are measuring vanity metrics instead of outcomes that affect the goal",
+        "They are measuring everything they can track regardless of relevance",
+        "They are measuring only cost and not outcomes or effectiveness",
+        "They are measuring only once at the end without interim checks"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a92f622596d24dfc12d3d",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "A team wants to measure progress toward their goal. How do they choose the right metric?",
+      "options": [
+        "Identify one metric that directly reflects success; define how you will get the data and how often you will check it",
+        "Pick the easiest to collect regardless of whether it reflects the goal or outcomes",
+        "Pick what the board wants even if it does not measure actual success or value",
+        "Pick the most impressive number to show progress regardless of relevance or accuracy"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a92f622596d24dfc12d3e",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Using data only to justify after the fact (not to decide) leads to:",
+      "options": [
+        "Decisions driven by bias; data becomes theater",
+        "Better decisions",
+        "Faster decisions",
+        "No meaningful effect on outcomes"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a92f622596d24dfc12d3f",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Opinion over data when both are available can result in:",
+      "options": [
+        "Decisions that ignore evidence and repeat past mistakes",
+        "Faster execution",
+        "More creativity",
+        "No significant downside in practice"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a92f622596d24dfc12d40",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "What should you define for a metric besides the number?",
+      "options": [
+        "How you will get the data and how often you will check it; baseline and target if possible",
+        "Only the target number without defining how to measure or track it",
+        "Only who owns it without defining how to collect or verify the data",
+        "Nothing else; the number alone is sufficient for decision-making"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a92f622596d24dfc12d41",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Why avoid vanity metrics?",
+      "options": [
+        "They mislead; they do not reflect the goal and can lead to wrong decisions",
+        "They are expensive to collect and track compared to useful metrics",
+        "They are hard to get and require significant effort to measure",
+        "There is no reason; vanity metrics are as useful as any other metric"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    }
+  ]
+}

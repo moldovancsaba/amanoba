@@ -1,0 +1,530 @@
+{
+  "generatedAt": "2026-01-28T21:08:49.756Z",
+  "courseFilter": "B2B_SALES_2026_30_RU",
+  "total": 30,
+  "failed": 8,
+  "results": [
+    {
+      "courseId": "B2B_SALES_2026_30_RU",
+      "courseName": "B2B Продажи 2026 — мастер‑класс (30 дней) (RU)",
+      "language": "ru",
+      "dayNumber": 1,
+      "lessonId": "B2B_SALES_2026_30_RU_DAY_1",
+      "title": "Что означает современная B2B‑продажа в 2026 году",
+      "createdAt": "2026-01-22T09:54:56.648Z",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "findings": []
+    },
+    {
+      "courseId": "B2B_SALES_2026_30_RU",
+      "courseName": "B2B Продажи 2026 — мастер‑класс (30 дней) (RU)",
+      "language": "ru",
+      "dayNumber": 2,
+      "lessonId": "B2B_SALES_2026_30_RU_DAY_2",
+      "title": "Карта системы B2B‑продаж",
+      "createdAt": "2026-01-22T09:54:57.278Z",
+      "ok": false,
+      "errors": [
+        "Language integrity failed for lesson.content: contains long Latin segments for ru."
+      ],
+      "warnings": [],
+      "findings": [
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "Собрать карту: sourcing → qualification → discovery → proposal → negotiation → close → expansion ."
+        },
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "Qualification : быстрый “да/нет” на ICP + триггер + реальная проблема."
+        },
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "Negotiation : финальные риски (юристы/ИБ/закупки), пакет, сроки, SLA."
+        },
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "Expansion : onboarding, adoption, upsell, продление, кейс/реферальная петля."
+        },
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "Qualification → вход: компания в ICP + подтверждённый триггер + контакт роли “пользователь/инициатор”."
+        }
+      ]
+    },
+    {
+      "courseId": "B2B_SALES_2026_30_RU",
+      "courseName": "B2B Продажи 2026 — мастер‑класс (30 дней) (RU)",
+      "language": "ru",
+      "dayNumber": 3,
+      "lessonId": "B2B_SALES_2026_30_RU_DAY_3",
+      "title": "Диагностируйте проблемы, чтобы управлять покупателем",
+      "createdAt": "2026-01-22T11:08:18.156Z",
+      "ok": false,
+      "errors": [
+        "Language integrity failed for lesson.content: contains long Latin segments for ru.",
+        "Language integrity failed for lesson.emailBody: contains long Latin segments for ru."
+      ],
+      "warnings": [],
+      "findings": [
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "Освоить SPIN‑подход (Situation, Problem, Implication, Need-Payoff) в 2026 B2B."
+        },
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "Составьте 4 вопроса: 2 Problem, 1 Implication, 1 Need-Payoff."
+        },
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "Запишите последствия, которые клиент озвучит после Implication‑вопроса."
+        },
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "“Problem”: “Сколько времени уходило на ручное согласование?”. “Implication”: “Каждая задержка — потеря KPI + риск штрафа от регулятора”. “Need-Payoff”: “Предложим решение, которое сократит согласование на 35% и выдаст прозрачный регламент”."
+        },
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "SPIN Selling — https://www.spinselling.com"
+        },
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "Сформулируйте 2 Problem, 1 Implication, 1 Need-Payoff"
+        }
+      ]
+    },
+    {
+      "courseId": "B2B_SALES_2026_30_RU",
+      "courseName": "B2B Продажи 2026 — мастер‑класс (30 дней) (RU)",
+      "language": "ru",
+      "dayNumber": 4,
+      "lessonId": "B2B_SALES_2026_30_RU_DAY_4",
+      "title": "ROI, бизнес‑кейсы и согласование бюджета",
+      "createdAt": "2026-01-22T11:08:18.255Z",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "findings": []
+    },
+    {
+      "courseId": "B2B_SALES_2026_30_RU",
+      "courseName": "B2B Продажи 2026 — мастер‑класс (30 дней) (RU)",
+      "language": "ru",
+      "dayNumber": 5,
+      "lessonId": "B2B_SALES_2026_30_RU_DAY_5",
+      "title": "Стратегии работы с DMU и кто влияет",
+      "createdAt": "2026-01-22T11:31:13.182Z",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "findings": []
+    },
+    {
+      "courseId": "B2B_SALES_2026_30_RU",
+      "courseName": "B2B Продажи 2026 — мастер‑класс (30 дней) (RU)",
+      "language": "ru",
+      "dayNumber": 6,
+      "lessonId": "B2B_SALES_2026_30_RU_DAY_6",
+      "title": "Переговоры, объективные критерии и “необходимая цена”",
+      "createdAt": "2026-01-22T11:31:13.278Z",
+      "ok": false,
+      "errors": [
+        "Language integrity failed for lesson.content: contains long Latin segments for ru."
+      ],
+      "warnings": [],
+      "findings": [
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "Negotiation Mastery — https://www.pon.harvard.edu"
+        },
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "Sales Hacker — https://www.saleshacker.com"
+        }
+      ]
+    },
+    {
+      "courseId": "B2B_SALES_2026_30_RU",
+      "courseName": "B2B Продажи 2026 — мастер‑класс (30 дней) (RU)",
+      "language": "ru",
+      "dayNumber": 7,
+      "lessonId": "B2B_SALES_2026_30_RU_DAY_7",
+      "title": "Команда и enablement: как масштабировать успех",
+      "createdAt": "2026-01-22T11:31:13.386Z",
+      "ok": false,
+      "errors": [
+        "Language integrity failed for lesson.content: contains long Latin segments for ru.",
+        "Language integrity failed for lesson.emailSubject: contains long Latin segments for ru.",
+        "Language integrity failed for lesson.emailBody: contains long Latin segments for ru."
+      ],
+      "warnings": [],
+      "findings": [
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "Команда, enablement и внутренние “послы”"
+        },
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "Ваша команда — это оркестр: enablement помогает каждому играть в такт. Сегодня вы фиксируете подход к обучению и передачам знаний."
+        },
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "Определить, какие документы/чек‑листы нужны для onboarding клиента."
+        },
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "Поделитесь планом enablement: кто и когда получит training/session."
+        },
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "Sales Enablement PRO — https://www.salesenablementpro.com"
+        },
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "B2B Sales 2026 (RU) — День 7: enablement и команда"
+        },
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "Enablement ускоряет принятие решения. Сегодня вы:"
+        }
+      ]
+    },
+    {
+      "courseId": "B2B_SALES_2026_30_RU",
+      "courseName": "B2B Продажи 2026 — мастер‑класс (30 дней) (RU)",
+      "language": "ru",
+      "dayNumber": 8,
+      "lessonId": "B2B_SALES_2026_30_RU_DAY_8",
+      "title": "Карты клиентского пути и точки контакта",
+      "createdAt": "2026-01-22T11:32:03.024Z",
+      "ok": false,
+      "errors": [
+        "Language integrity failed for lesson.content: contains long Latin segments for ru."
+      ],
+      "warnings": [],
+      "findings": [
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "Salesforce — Journey Builder: https://www.salesforce.com"
+        }
+      ]
+    },
+    {
+      "courseId": "B2B_SALES_2026_30_RU",
+      "courseName": "B2B Продажи 2026 — мастер‑класс (30 дней) (RU)",
+      "language": "ru",
+      "dayNumber": 9,
+      "lessonId": "B2B_SALES_2026_30_RU_DAY_9",
+      "title": "Референсы, кейсы и путь доверия",
+      "createdAt": "2026-01-22T11:32:03.127Z",
+      "ok": false,
+      "errors": [
+        "Language integrity failed for lesson.content: contains long Latin segments for ru."
+      ],
+      "warnings": [],
+      "findings": [
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "Gong.io — Real Deal Scorecards: https://www.gong.io"
+        },
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "CustomerThink — Reference Selling: https://customerthink.com"
+        }
+      ]
+    },
+    {
+      "courseId": "B2B_SALES_2026_30_RU",
+      "courseName": "B2B Продажи 2026 — мастер‑класс (30 дней) (RU)",
+      "language": "ru",
+      "dayNumber": 10,
+      "lessonId": "B2B_SALES_2026_30_RU_DAY_10",
+      "title": "Планирование следующего квартала и “pipeline hygiene”",
+      "createdAt": "2026-01-22T11:32:03.222Z",
+      "ok": false,
+      "errors": [
+        "Language integrity failed for lesson.content: contains long Latin segments for ru.",
+        "Language integrity failed for lesson.emailSubject: expected Cyrillic text for ru (ratio 0.14)."
+      ],
+      "warnings": [],
+      "findings": [
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "Salesforce — Pipeline Management: https://www.salesforce.com/resources/"
+        },
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "HubSpot — Forecasting Template: https://www.hubspot.com"
+        }
+      ]
+    },
+    {
+      "courseId": "B2B_SALES_2026_30_RU",
+      "courseName": "B2B Продажи 2026 — мастер‑класс (30 дней) (RU)",
+      "language": "ru",
+      "dayNumber": 11,
+      "lessonId": "B2B_SALES_2026_30_RU_DAY_11",
+      "title": "Метрики и триггеры: как мониторить прогресс",
+      "createdAt": "2026-01-22T11:33:53.608Z",
+      "ok": false,
+      "errors": [
+        "Language integrity failed for lesson.content: contains long Latin segments for ru."
+      ],
+      "warnings": [],
+      "findings": [
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "Winning by Design — Pipeline Metrics: https://winningbydesign.com"
+        }
+      ]
+    },
+    {
+      "courseId": "B2B_SALES_2026_30_RU",
+      "courseName": "B2B Продажи 2026 — мастер‑класс (30 дней) (RU)",
+      "language": "ru",
+      "dayNumber": 12,
+      "lessonId": "B2B_SALES_2026_30_RU_DAY_12",
+      "title": "Очистка списка и гигиена лидов",
+      "createdAt": "2026-01-28T19:40:31.038Z",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "findings": []
+    },
+    {
+      "courseId": "B2B_SALES_2026_30_RU",
+      "courseName": "B2B Продажи 2026 — мастер‑класс (30 дней) (RU)",
+      "language": "ru",
+      "dayNumber": 13,
+      "lessonId": "B2B_SALES_2026_30_RU_DAY_13",
+      "title": "MQL vs SQL и “ворота” квалификации",
+      "createdAt": "2026-01-28T19:40:31.476Z",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "findings": []
+    },
+    {
+      "courseId": "B2B_SALES_2026_30_RU",
+      "courseName": "B2B Продажи 2026 — мастер‑класс (30 дней) (RU)",
+      "language": "ru",
+      "dayNumber": 14,
+      "lessonId": "B2B_SALES_2026_30_RU_DAY_14",
+      "title": "Фреймворк квалификации: MEDDPICC (упрощённо)",
+      "createdAt": "2026-01-28T19:40:32.224Z",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "findings": []
+    },
+    {
+      "courseId": "B2B_SALES_2026_30_RU",
+      "courseName": "B2B Продажи 2026 — мастер‑класс (30 дней) (RU)",
+      "language": "ru",
+      "dayNumber": 15,
+      "lessonId": "B2B_SALES_2026_30_RU_DAY_15",
+      "title": "Структура дискавери (5 блоков)",
+      "createdAt": "2026-01-28T19:40:32.490Z",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "findings": []
+    },
+    {
+      "courseId": "B2B_SALES_2026_30_RU",
+      "courseName": "B2B Продажи 2026 — мастер‑класс (30 дней) (RU)",
+      "language": "ru",
+      "dayNumber": 16,
+      "lessonId": "B2B_SALES_2026_30_RU_DAY_16",
+      "title": "Подготовка к встрече и заметки с помощью ИИ",
+      "createdAt": "2026-01-28T19:40:32.652Z",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "findings": []
+    },
+    {
+      "courseId": "B2B_SALES_2026_30_RU",
+      "courseName": "B2B Продажи 2026 — мастер‑класс (30 дней) (RU)",
+      "language": "ru",
+      "dayNumber": 17,
+      "lessonId": "B2B_SALES_2026_30_RU_DAY_17",
+      "title": "Следующий шаг и обязательство",
+      "createdAt": "2026-01-28T19:40:33.130Z",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "findings": []
+    },
+    {
+      "courseId": "B2B_SALES_2026_30_RU",
+      "courseName": "B2B Продажи 2026 — мастер‑класс (30 дней) (RU)",
+      "language": "ru",
+      "dayNumber": 18,
+      "lessonId": "B2B_SALES_2026_30_RU_DAY_18",
+      "title": "Nurture и реактивация",
+      "createdAt": "2026-01-28T19:40:33.198Z",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "findings": []
+    },
+    {
+      "courseId": "B2B_SALES_2026_30_RU",
+      "courseName": "B2B Продажи 2026 — мастер‑класс (30 дней) (RU)",
+      "language": "ru",
+      "dayNumber": 19,
+      "lessonId": "B2B_SALES_2026_30_RU_DAY_19",
+      "title": "Зачем нужен CRM (и почему Excel не хватает)",
+      "createdAt": "2026-01-28T19:40:33.272Z",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "findings": []
+    },
+    {
+      "courseId": "B2B_SALES_2026_30_RU",
+      "courseName": "B2B Продажи 2026 — мастер‑класс (30 дней) (RU)",
+      "language": "ru",
+      "dayNumber": 20,
+      "lessonId": "B2B_SALES_2026_30_RU_DAY_20",
+      "title": "Дизайн воронки: определения стадий",
+      "createdAt": "2026-01-28T19:40:33.331Z",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "findings": []
+    },
+    {
+      "courseId": "B2B_SALES_2026_30_RU",
+      "courseName": "B2B Продажи 2026 — мастер‑класс (30 дней) (RU)",
+      "language": "ru",
+      "dayNumber": 21,
+      "lessonId": "B2B_SALES_2026_30_RU_DAY_21",
+      "title": "Pipedrive: сильные стороны и когда выбирать",
+      "createdAt": "2026-01-28T19:40:33.395Z",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "findings": []
+    },
+    {
+      "courseId": "B2B_SALES_2026_30_RU",
+      "courseName": "B2B Продажи 2026 — мастер‑класс (30 дней) (RU)",
+      "language": "ru",
+      "dayNumber": 22,
+      "lessonId": "B2B_SALES_2026_30_RU_DAY_22",
+      "title": "HubSpot: сильные стороны и когда выбирать",
+      "createdAt": "2026-01-28T19:40:33.442Z",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "findings": []
+    },
+    {
+      "courseId": "B2B_SALES_2026_30_RU",
+      "courseName": "B2B Продажи 2026 — мастер‑класс (30 дней) (RU)",
+      "language": "ru",
+      "dayNumber": 23,
+      "lessonId": "B2B_SALES_2026_30_RU_DAY_23",
+      "title": "Интеграции и основы потока данных",
+      "createdAt": "2026-01-28T19:40:33.495Z",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "findings": []
+    },
+    {
+      "courseId": "B2B_SALES_2026_30_RU",
+      "courseName": "B2B Продажи 2026 — мастер‑класс (30 дней) (RU)",
+      "language": "ru",
+      "dayNumber": 24,
+      "lessonId": "B2B_SALES_2026_30_RU_DAY_24",
+      "title": "Гигиена CRM и ежедневная рутина",
+      "createdAt": "2026-01-28T19:40:33.542Z",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "findings": []
+    },
+    {
+      "courseId": "B2B_SALES_2026_30_RU",
+      "courseName": "B2B Продажи 2026 — мастер‑класс (30 дней) (RU)",
+      "language": "ru",
+      "dayNumber": 25,
+      "lessonId": "B2B_SALES_2026_30_RU_DAY_25",
+      "title": "Структура предложения: готово к решению",
+      "createdAt": "2026-01-28T19:40:33.585Z",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "findings": []
+    },
+    {
+      "courseId": "B2B_SALES_2026_30_RU",
+      "courseName": "B2B Продажи 2026 — мастер‑класс (30 дней) (RU)",
+      "language": "ru",
+      "dayNumber": 26,
+      "lessonId": "B2B_SALES_2026_30_RU_DAY_26",
+      "title": "Ценообразование 2026: упаковка и ценность",
+      "createdAt": "2026-01-28T19:40:33.636Z",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "findings": []
+    },
+    {
+      "courseId": "B2B_SALES_2026_30_RU",
+      "courseName": "B2B Продажи 2026 — мастер‑класс (30 дней) (RU)",
+      "language": "ru",
+      "dayNumber": 27,
+      "lessonId": "B2B_SALES_2026_30_RU_DAY_27",
+      "title": "Закупки, юристы и безопасность",
+      "createdAt": "2026-01-28T19:40:33.694Z",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "findings": []
+    },
+    {
+      "courseId": "B2B_SALES_2026_30_RU",
+      "courseName": "B2B Продажи 2026 — мастер‑класс (30 дней) (RU)",
+      "language": "ru",
+      "dayNumber": 28,
+      "lessonId": "B2B_SALES_2026_30_RU_DAY_28",
+      "title": "Работа с возражениями: паттерны и уточнение",
+      "createdAt": "2026-01-28T19:40:33.736Z",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "findings": []
+    },
+    {
+      "courseId": "B2B_SALES_2026_30_RU",
+      "courseName": "B2B Продажи 2026 — мастер‑класс (30 дней) (RU)",
+      "language": "ru",
+      "dayNumber": 29,
+      "lessonId": "B2B_SALES_2026_30_RU_DAY_29",
+      "title": "Закрытие: решение и следующий шаг",
+      "createdAt": "2026-01-28T19:40:33.796Z",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "findings": []
+    },
+    {
+      "courseId": "B2B_SALES_2026_30_RU",
+      "courseName": "B2B Продажи 2026 — мастер‑класс (30 дней) (RU)",
+      "language": "ru",
+      "dayNumber": 30,
+      "lessonId": "B2B_SALES_2026_30_RU_DAY_30",
+      "title": "Итоговый спринт: полный цикл B2B‑продаж",
+      "createdAt": "2026-01-28T19:40:33.847Z",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "findings": []
+    }
+  ]
+}

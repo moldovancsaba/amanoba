@@ -1,0 +1,114 @@
+{
+  "backedUpAt": "2026-01-28T22:08:18.530Z",
+  "course": {
+    "courseId": "DONE_BETTER_2026_EN",
+    "name": "Done is better - Build What Matters",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 11,
+    "title": "Working Backwards",
+    "lessonId": "DONE_BETTER_2026_EN_DAY_11"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "697a87bba81588c9f41a2227",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "You have a goal but keep drifting. What is a good first step?",
+      "options": [
+        "Describe the end state in concrete terms, then work backwards to today",
+        "Start with whatever is urgent",
+        "List all possible actions",
+        "Set a distant deadline"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87bba81588c9f41a2228",
+      "questionType": "application",
+      "difficulty": "EASY",
+      "question": "What is \"working backwards\" in practice?",
+      "options": [
+        "Starting from the desired result and reverse-engineering the path step by step to today",
+        "Planning from today forward only",
+        "Reviewing past projects only",
+        "Asking the client what they want last"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87bba81588c9f41a2229",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "The first move when working backwards should be:",
+      "options": [
+        "The step that gets you one notch toward the end state",
+        "The most impressive-sounding action",
+        "Whatever is already in the backlog",
+        "The cheapest option"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87bba81588c9f41a222a",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Why is a vague end state (e.g. \"we will be better\") a problem?",
+      "options": [
+        "You cannot work backwards reliably; the path and first move stay fuzzy",
+        "It motivates people more",
+        "It is easier to communicate",
+        "It has no effect on outcomes or learning"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87bba81588c9f41a222b",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Skipping steps in the backwards chain tends to result in:",
+      "options": [
+        "Missing dependencies or an unrealistic first move",
+        "Faster execution",
+        "More creativity",
+        "Lower cost"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87bba81588c9f41a222c",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How do you make the end state concrete?",
+      "options": [
+        "Define what \"done\" looks like in observable terms before planning the path",
+        "Write a vision statement only",
+        "Copy another company's goal",
+        "Let the team interpret freely"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87bba81588c9f41a222d",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "After working backwards 3 steps, what should you do?",
+      "options": [
+        "Use the step that reaches from today toward that end as your first move",
+        "Document the full chain and wait for approval",
+        "Start from the end and hope the team catches up",
+        "Revise the end state again"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    }
+  ]
+}

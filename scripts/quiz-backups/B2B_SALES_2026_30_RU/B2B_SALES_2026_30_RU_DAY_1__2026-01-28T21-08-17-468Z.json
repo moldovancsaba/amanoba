@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-28T21:08:18.117Z",
+  "course": {
+    "courseId": "B2B_SALES_2026_30_RU",
+    "name": "B2B Продажи 2026 — мастер‑класс (30 дней) (RU)",
+    "language": "ru"
+  },
+  "lesson": {
+    "dayNumber": 1,
+    "title": "Что означает современная B2B‑продажа в 2026 году",
+    "lessonId": "B2B_SALES_2026_30_RU_DAY_1"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a033526e26ccc5171ad",
+      "uuid": "688491cf-07d7-48f3-9874-3fc52b445665",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Решения стали “многопоточными”\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day1",
+        "#ru",
+        "#all-languages",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a033526e26ccc5171ae",
+      "uuid": "75bf9e14-cd3f-4d23-a790-669ae1a7ef53",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Покупатель информирован\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day1",
+        "#ru",
+        "#all-languages",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a033526e26ccc5171af",
+      "uuid": "d3221bf7-00ae-4cba-9c23-441a9332c802",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Цена ошибки выросла\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day1",
+        "#ru",
+        "#all-languages",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a033526e26ccc5171b0",
+      "uuid": "024f8f9a-c073-45b1-a3e1-defee60a418b",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Как концепция \"Что означает современная B2B‑продажа в 2026 году П...\", упомянутая в уроке, влияет на достижение ваших goals?",
+      "options": [
+        "Как подробно описано в уроке, Что означает современная B2B‑п... повышает эффективность и снижает риски",
+        "Нет значительного влияния",
+        "Имеет значение только теоретически",
+        "Только опциональный элемент"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day1",
+        "#ru",
+        "#all-languages",
+        "#sales",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a033526e26ccc5171b1",
+      "uuid": "eb314175-323e-4fb2-a8b8-20832c232496",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Какую роль играет Покупатель информирован в уроке \"Что означает современная B2B‑продажа в 2026 году\"?",
+      "options": [
+        "Как подробно описано в уроке, Покупатель информирован играет ключевую роль в оптимизации процессов и достижении целей",
+        "Только периферийная информация без значительной роли",
+        "Только теоретическая концепция без практического применения",
+        "Не упоминается в уроке"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day1",
+        "#ru",
+        "#all-languages",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a033526e26ccc5171b2",
+      "uuid": "7ae3fa8c-bc76-43ac-b977-497d11dc5528",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Какую роль играет От продавца ждут ясности в уроке \"Что означает современная B2B‑продажа в 2026 году\"?",
+      "options": [
+        "Как подробно описано в уроке, От продавца ждут ясности играет ключевую роль в оптимизации процессов и достижении целей",
+        "Только периферийная информация без значительной роли",
+        "Только теоретическая концепция без практического применения",
+        "Не упоминается в уроке"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day1",
+        "#ru",
+        "#all-languages",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a033526e26ccc5171b3",
+      "uuid": "0901d1a2-48a4-428f-b156-fbf3b9ad7efd",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Насколько важен Миф: в контексте Что означает современная B2B‑продажа в 2026 году, как обсуждается в уроке?",
+      "options": [
+        "Как подробно описано в уроке, Миф: играет ключевую роль в оптимизации процессов и достижении целей",
+        "Только периферийная информация без значительной роли",
+        "Только теоретическая концепция без практического применения",
+        "Не упоминается в уроке"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day1",
+        "#ru",
+        "#all-languages",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

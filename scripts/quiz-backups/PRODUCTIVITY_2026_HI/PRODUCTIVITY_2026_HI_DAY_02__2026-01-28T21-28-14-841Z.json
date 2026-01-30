@@ -1,0 +1,162 @@
+{
+  "backedUpAt": "2026-01-28T21:28:25.562Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_HI",
+    "name": "उत्पादकता 2026: टीमों और समय का प्रबंधन कैसे करें",
+    "language": "hi"
+  },
+  "lesson": {
+    "dayNumber": 2,
+    "title": "समय, ऊर्जा, ध्यान: आप व्यवहार में क्या प्रबंधित करते हैं",
+    "lessonId": "PRODUCTIVITY_2026_HI_DAY_02"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a67206e4784b9a0c07b",
+      "uuid": "1c51a9f6-06e8-40b7-97f9-78248726a08d",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "निम्नलिखित में से कौन सा उत्पादकता संसाधन नहीं है?",
+      "options": [
+        "समय",
+        "ऊर्जा",
+        "ध्यान",
+        "पैसा"
+      ],
+      "correctIndex": 3,
+      "hashtags": [
+        "#day-02",
+        "#purpose",
+        "#application",
+        "#hi"
+      ]
+    },
+    {
+      "_id": "69776a67206e4784b9a0c07c",
+      "uuid": "279920b3-4a0f-4932-99f8-7c5fce92bf3d",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "रुकावट के बाद ध्यान बहाल करने में कितना समय लगता है?",
+      "options": [
+        "5 मिनट",
+        "15-20 मिनट",
+        "1 घंटा",
+        "बहाली की आवश्यकता नहीं"
+      ],
+      "correctIndex": 1,
+      "hashtags": [
+        "#day-02",
+        "#scenario",
+        "#application",
+        "#hi"
+      ]
+    },
+    {
+      "_id": "69776a67206e4784b9a0c07d",
+      "uuid": "f2e3c840-31a3-4796-9f6c-d9ece15ca996",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "आपको अपने दैनिक अनुसूची में कितना बफर समय छोड़ना चाहिए?",
+      "options": [
+        "0%",
+        "10%",
+        "20-30%",
+        "50%"
+      ],
+      "correctIndex": 2,
+      "hashtags": [
+        "#day-02",
+        "#foundation",
+        "#recall",
+        "#hi"
+      ]
+    },
+    {
+      "_id": "69776a67206e4784b9a0c07e",
+      "uuid": "4a058deb-693f-4bc6-9046-d83cfe2ba8a9",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "गहरे कार्य ब्लॉक की आदर्श लंबाई क्या है?",
+      "options": [
+        "30 मिनट",
+        "60 मिनट",
+        "90-120 मिनट",
+        "4 घंटे"
+      ],
+      "correctIndex": 2,
+      "hashtags": [
+        "#day-02",
+        "#foundation",
+        "#recall",
+        "#hi"
+      ]
+    },
+    {
+      "_id": "69776a67206e4784b9a0c07f",
+      "uuid": "ef4f86e2-0202-4b2f-8e1d-9150204e3de0",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ आप समझते हैं कि समय, ऊर्जा और ध्यान एक...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day2",
+        "#hi",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a67206e4784b9a0c080",
+      "uuid": "7d080d31-421c-45df-9ea9-e8a95d6a6858",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "पाठ में उल्लिखित अवधारणा \"महत्वपूर्ण है\n\nसमय: सीमित संसाधन। आप अधिक नहीं बना...\" आपके goals प्राप्त करने को कैसे प्रभावित करती है?",
+      "options": [
+        "जैसा कि पाठ में विस्तार से वर्णित है, महत्वपूर्ण है\n\nसमय: सीमित संसा... प्रभावशीलता बढ़ाता है और जोखिम कम करता है",
+        "कोई महत्वपूर्ण प्रभाव नहीं",
+        "केवल सैद्धांतिक रूप से मायने रखता है",
+        "केवल एक वैकल्पिक तत्व"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day2",
+        "#hi",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a67206e4784b9a0c081",
+      "uuid": "9bd551b1-df08-4244-abcf-ac430cbf4044",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "पाठ में चर्चा किए गए समय, ऊर्जा, ध्यान: आप व्यवहार में क्या प्रबंधित करते हैं के संदर्भ में समय ब्लॉकिंग कितना महत्वपूर्ण है?",
+      "options": [
+        "जैसा कि पाठ में विस्तार से वर्णित है, समय ब्लॉकिंग प्रक्रियाओं को अनुकूलित करने और लक्ष्यों को प्राप्त करने में महत्वपूर्ण भूमिका निभाता है",
+        "केवल परिधीय जानकारी, कोई महत्वपूर्ण भूमिका नहीं",
+        "केवल एक सैद्धांतिक अवधारणा, कोई व्यावहारिक अनुप्रयोग नहीं",
+        "पाठ में उल्लेख नहीं किया गया"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day2",
+        "#hi",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

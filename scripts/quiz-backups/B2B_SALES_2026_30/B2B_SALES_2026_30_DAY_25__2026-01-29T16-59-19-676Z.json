@@ -1,0 +1,68 @@
+{
+  "backedUpAt": "2026-01-29T17:00:27.890Z",
+  "course": {
+    "courseId": "B2B_SALES_2026_30",
+    "name": "B2B Értékesítés 2026 Masterclass",
+    "language": "hu"
+  },
+  "lesson": {
+    "dayNumber": 25,
+    "title": "Ajánlat struktúra: dönthető proposal",
+    "lessonId": "B2B_SALES_2026_30_DAY_25"
+  },
+  "questionCount": 4,
+  "questions": [
+    {
+      "_id": "697b2043ac79ca83bb9722ac",
+      "difficulty": "MEDIUM",
+      "question": "Mi a dönthető ajánlat célja?",
+      "options": [
+        "Csak árlistát adni",
+        "Döntést támogatni: cél, scope, kockázat, proof, next step",
+        "Szórakoztatni",
+        "Hosszú dokumentumot gyártani"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b2043ac79ca83bb9722ad",
+      "difficulty": "MEDIUM",
+      "question": "Mi a red flag?",
+      "options": [
+        "Nincs döntési határidő és következő lépés",
+        "Van döntési email",
+        "Van proof pont",
+        "Van scope"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b2043ac79ca83bb9722ae",
+      "difficulty": "MEDIUM",
+      "question": "Mi a kötelező blokk?",
+      "options": [
+        "CTA nélküli ár",
+        "Cél, scope, idő, kockázat, proof, next step",
+        "Csak színes grafika",
+        "Csak NDA"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b2043ac79ca83bb9722af",
+      "difficulty": "MEDIUM",
+      "question": "Mi a jó CRM mező az ajánlat stage-hez?",
+      "options": [
+        "Decision dátum",
+        "Profilkép",
+        "Emoji",
+        "Kedvenc étel"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    }
+  ]
+}

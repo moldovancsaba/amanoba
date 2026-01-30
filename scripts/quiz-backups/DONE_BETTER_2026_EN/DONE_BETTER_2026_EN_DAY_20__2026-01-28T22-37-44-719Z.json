@@ -1,0 +1,114 @@
+{
+  "backedUpAt": "2026-01-28T22:37:48.312Z",
+  "course": {
+    "courseId": "DONE_BETTER_2026_EN",
+    "name": "Done is better - Build What Matters",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 20,
+    "title": "Pivot Without Drama",
+    "lessonId": "DONE_BETTER_2026_EN_DAY_20"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "697a87bca81588c9f41a2291",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Evidence shows the current plan is wrong. What should you do?",
+      "options": [
+        "State it in one sentence; propose the pivot and the new next move; share with stakeholders",
+        "Hide the evidence",
+        "Double down",
+        "Blame the plan"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87bca81588c9f41a2292",
+      "questionType": "application",
+      "difficulty": "EASY",
+      "question": "In this framework, how is \"pivot without drama\" defined?",
+      "options": [
+        "Changing direction based on evidence without treating it as failure; update the plan and next move",
+        "Cancelling the project and moving on",
+        "Firing people and restructuring",
+        "Starting over with no learning from the past"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87bca81588c9f41a2293",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How do you pivot in a way that builds trust?",
+      "options": [
+        "Update the plan and the next move; do not hide the pivot; be transparent",
+        "Pivot quietly",
+        "Blame external factors",
+        "Delay the announcement"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87bca81588c9f41a2294",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Treating pivot as failure can lead to:",
+      "options": [
+        "Sticking to a wrong plan to avoid \"failure\" and wasting resources",
+        "Faster pivots",
+        "Higher morale",
+        "No meaningful effect on outcomes"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87bca81588c9f41a2295",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Pivoting without learning (same mistake in new direction) results in:",
+      "options": [
+        "Repeating the same error in a new context",
+        "Faster execution",
+        "More creativity",
+        "No significant downside in practice"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87bca81588c9f41a2296",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "When should you change direction?",
+      "options": [
+        "When evidence says the plan is wrong; then pivot and update the next move",
+        "Only at quarterly reviews",
+        "Never; stick to the plan",
+        "When the budget runs out"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87bca81588c9f41a2297",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "What should you share when you pivot?",
+      "options": [
+        "The evidence, the new direction, and the new next move",
+        "Only the new direction",
+        "Nothing until it works",
+        "Only the old plan was wrong"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    }
+  ]
+}

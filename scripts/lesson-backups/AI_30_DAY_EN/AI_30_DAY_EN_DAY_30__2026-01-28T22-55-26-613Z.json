@@ -1,0 +1,10 @@
+{
+  "backedUpAt": "2026-01-28T22:55:29.035Z",
+  "courseId": "AI_30_DAY_EN",
+  "lessonId": "AI_30_DAY_EN_DAY_30",
+  "dayNumber": 30,
+  "title": "Capstone: your end-to-end AI workflow",
+  "content": "<h1>Capstone: your end-to-end AI workflow</h1>\n<p><em>Apply everything to one real workflow</em></p>\n<hr />\n<h2>Learning goal</h2>\n<ul>\n<li>Select one real process and map prompts to each step.</li>\n<li>Run it end-to-end and document results.</li>\n</ul>\n<hr />\n<h2>Why it matters</h2>\n<ul>\n<li>Proves your AI workflow works in practice.</li>\n<li>Creates a reusable playbook.</li>\n</ul>\n<hr />\n<h2>Explanation</h2>\n<ul>\n<li>Pick a process (report, campaign, support flow).</li>\n<li>Use prompts from days 6–29 (templates, QA, roles, data, personas, safety).</li>\n<li>Document inputs/outputs/guardrails and lessons learned.</li>\n</ul>\n<hr />\n<h2>Guided exercise (10–15 min)</h2>\n<ol>\n<li>Choose the process; list steps.</li>\n<li>Assign prompts/guardrails per step; run the workflow.</li>\n<li>Capture outcomes and issues.</li>\n</ol>\n<h2>Independent exercise (5–10 min)</h2>\n<p>Write a one-page playbook and next-iteration improvements.</p>\n<hr />\n<h2>Self-check</h2>\n<ul>\n<li>Workflow run end-to-end.</li>\n<li>Playbook written.</li>\n<li>Next improvements logged.</li>\n</ul>\n<hr />\n<h2>Optional deepening</h2>\n<ul>\n<li>Iteration ideas: <a href=\"https://platform.openai.com/docs/guides/prompt-engineering\" target=\"_blank\" rel=\"noreferrer\">prompt guide</a></li>\n</ul>",
+  "emailSubject": "AI 30-Day – Day 30: Capstone workflow",
+  "emailBody": "<h1>AI 30-Day – Day 30</h1>\n<h2>Capstone workflow</h2>\n<p>Today you’ll run a full workflow with prompts, QA, and guardrails, then write your playbook.</p>\n<p><a href=\"http://localhost:3000/courses/AI_30_DAY_EN/day/{{dayNumber}}\">Open the lesson →</a></p>"
+}

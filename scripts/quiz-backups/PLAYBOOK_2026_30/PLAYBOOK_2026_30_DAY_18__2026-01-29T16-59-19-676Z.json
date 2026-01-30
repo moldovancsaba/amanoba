@@ -1,0 +1,68 @@
+{
+  "backedUpAt": "2026-01-29T17:00:17.862Z",
+  "course": {
+    "courseId": "PLAYBOOK_2026_30",
+    "name": "The Playbook 2026 – Mesterkurzus Designereknek",
+    "language": "hu"
+  },
+  "lesson": {
+    "dayNumber": 18,
+    "title": "Variánsok és állapotlogika",
+    "lessonId": "PLAYBOOK_2026_30_DAY_18"
+  },
+  "questionCount": 4,
+  "questions": [
+    {
+      "_id": "697b2034d8669994531f74cc",
+      "difficulty": "MEDIUM",
+      "question": "Mi a variáns-állapot mátrix?",
+      "options": [
+        "Színes táblázat véletlen adatokkal",
+        "Variánsok x állapotok táblázata szabályokkal",
+        "Árlista",
+        "Nincs ilyen"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b2034d8669994531f74cd",
+      "difficulty": "MEDIUM",
+      "question": "Mi nem változik jó esetben?",
+      "options": [
+        "Radius és tipó konszisztens marad",
+        "Minden össze-vissza változik",
+        "Komponens neve",
+        "Csak a border"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b2034d8669994531f74ce",
+      "difficulty": "MEDIUM",
+      "question": "Mi a disabled szabály?",
+      "options": [
+        "Nincs szabály",
+        "Kontraszt csökkent, kurzor default, shadow off, interakció tiltva",
+        "Hover animáció erősítése",
+        "Véletlen"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b2034d8669994531f74cf",
+      "difficulty": "MEDIUM",
+      "question": "Miért kell dokumentálni?",
+      "options": [
+        "Nem kell",
+        "Fejlesztő táblázatból tud dolgozni, egységes marad",
+        "Marketing okból",
+        "Csak design review miatt"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    }
+  ]
+}

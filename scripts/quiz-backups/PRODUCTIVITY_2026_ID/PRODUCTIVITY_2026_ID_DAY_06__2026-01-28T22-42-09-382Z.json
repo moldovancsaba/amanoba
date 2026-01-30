@@ -1,0 +1,164 @@
+{
+  "backedUpAt": "2026-01-28T22:42:11.915Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_ID",
+    "name": "Produktivitas 2026: Cara Mengelola Tim dan Waktu",
+    "language": "id"
+  },
+  "lesson": {
+    "dayNumber": 6,
+    "title": "Penangkapan: kotak masuk, daftar pemicu, kebiasaan penangkapan",
+    "lessonId": "PRODUCTIVITY_2026_ID_DAY_06"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a2adf6e5ec2a4427dde",
+      "uuid": "0e4973a7-e451-4098-b813-1712c919ffc0",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Seberapa sering Anda harus mengosongkan kotak masuk?",
+      "options": [
+        "Sekali seminggu",
+        "Sekali sebulan",
+        "Setidaknya sekali sehari",
+        "Tidak pernah"
+      ],
+      "correctIndex": 2,
+      "hashtags": [
+        "#day-06",
+        "#scenario",
+        "#application",
+        "#id"
+      ]
+    },
+    {
+      "_id": "69776a2adf6e5ec2a4427ddf",
+      "uuid": "663943bd-5adb-4216-9b6d-98849f974036",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Apa yang terjadi jika sesuatu tidak ditangkap?",
+      "options": [
+        "Dikelola secara otomatis",
+        "Hilang",
+        "Dihapus secara otomatis",
+        "Tidak ada"
+      ],
+      "correctIndex": 1,
+      "hashtags": [
+        "#day-06",
+        "#foundation",
+        "#recall",
+        "#id"
+      ]
+    },
+    {
+      "_id": "69776a2adf6e5ec2a4427de0",
+      "uuid": "84cb384c-5f6a-4c7f-bd02-2e7fcf2decd4",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Bagaimana Anda mengembangkan kebiasaan penangkapan?",
+      "options": [
+        "Gunakan sekali",
+        "Ulangi sampai menjadi otomatis",
+        "Jangan pernah gunakan",
+        "Hanya gunakan di akhir pekan"
+      ],
+      "correctIndex": 1,
+      "hashtags": [
+        "#day-06",
+        "#purpose",
+        "#application",
+        "#id"
+      ]
+    },
+    {
+      "_id": "69776a2adf6e5ec2a4427de1",
+      "uuid": "53cd8186-30af-43cb-ac64-fc43667b5e73",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ Anda memiliki sistem kotak masuk yang ...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day6",
+        "#id",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a2adf6e5ec2a4427de2",
+      "uuid": "8328934a-2f7c-4ffd-a921-f0d04dfaf760",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Bagaimana konsep \"penting ditangkap, tidak ada yang hilang...\" yang disebutkan dalam pelajaran mempengaruhi pencapaian goals Anda?",
+      "options": [
+        "Seperti yang dijelaskan secara detail dalam pelajaran, penting ditangkap, tidak ada y... meningkatkan efektivitas dan mengurangi risiko",
+        "Tidak ada dampak signifikan",
+        "Hanya penting secara teoritis",
+        "Hanya elemen opsional"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day6",
+        "#id",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a2adf6e5ec2a4427de3",
+      "uuid": "fda4a1f4-859a-407c-bbc7-d2ebebe907a6",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Seberapa penting Daftar pemicu dalam konteks Penangkapan: kotak masuk, daftar pemicu, kebiasaan penangkapan seperti yang dibahas dalam pelajaran?",
+      "options": [
+        "Seperti yang dijelaskan secara detail dalam pelajaran, Daftar pemicu memainkan peran penting dalam mengoptimalkan proses dan mencapai tujuan",
+        "Hanya informasi periferal tanpa peran signifikan",
+        "Hanya konsep teoretis tanpa aplikasi praktis",
+        "Tidak disebutkan dalam pelajaran"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day6",
+        "#id",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a2adf6e5ec2a4427de4",
+      "uuid": "04c147f0-dc48-41be-b590-98de91531aa4",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Seberapa penting Definisi dalam konteks Penangkapan: kotak masuk, daftar pemicu, kebiasaan penangkapan seperti yang dibahas dalam pelajaran?",
+      "options": [
+        "Seperti yang dijelaskan secara detail dalam pelajaran, Definisi memainkan peran penting dalam mengoptimalkan proses dan mencapai tujuan",
+        "Hanya informasi periferal tanpa peran signifikan",
+        "Hanya konsep teoretis tanpa aplikasi praktis",
+        "Tidak disebutkan dalam pelajaran"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day6",
+        "#id",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

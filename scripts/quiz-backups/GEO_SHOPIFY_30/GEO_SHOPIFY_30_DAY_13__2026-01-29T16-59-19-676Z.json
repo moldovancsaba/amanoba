@@ -1,0 +1,81 @@
+{
+  "backedUpAt": "2026-01-29T17:00:11.723Z",
+  "course": {
+    "courseId": "GEO_SHOPIFY_30",
+    "name": "GEO Shopify – 30 napos kurzus",
+    "language": "hu"
+  },
+  "lesson": {
+    "dayNumber": 13,
+    "title": "Idézhető termékoldal blueprint",
+    "lessonId": "GEO_SHOPIFY_30_DAY_13"
+  },
+  "questionCount": 5,
+  "questions": [
+    {
+      "_id": "697b1ff9de117f992bb9be7b",
+      "difficulty": "EASY",
+      "question": "Mi a GEO-ready PDP első blokkja?",
+      "options": [
+        "Answer capsule a hajtás felett",
+        "Hosszú leírás legalján",
+        "Csak képgaléria",
+        "Véletlen sorrend"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b1ff9de117f992bb9be7c",
+      "difficulty": "MEDIUM",
+      "question": "Miért fontos a policy blokk a felső részen?",
+      "options": [
+        "Az AI és a vevő gyorsan látja a szállítás/retour infót",
+        "Csak dizájn",
+        "Nem szükséges",
+        "Csak SEO kulcsszó miatt"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b1ff9de117f992bb9be7d",
+      "difficulty": "MEDIUM",
+      "question": "Mi legyen a PDP sorrendben a kapszula után?",
+      "options": [
+        "Fő kép + variáns vizuál, majd ár/készlet/CTA",
+        "Footer linkek",
+        "Blog bejegyzések",
+        "Csak véletlen sorrend"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b1ff9de117f992bb9be7e",
+      "difficulty": "EASY",
+      "question": "Mi a jó példa a blueprintre?",
+      "options": [
+        "Kapszula + ár/készlet + policy + specifikáció táblázat",
+        "Egy mondat ár nélkül",
+        "Nincs CTA",
+        "Csak képek"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b1ff9de117f992bb9be7f",
+      "difficulty": "HARD",
+      "question": "Miért kell a trust elemeket a hajtás felett elhelyezni?",
+      "options": [
+        "Bizalom és idézhetőség nő",
+        "Csak esztétika",
+        "Nem számít",
+        "Csak a footerben fontos"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    }
+  ]
+}

@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-29T06:08:42.753Z",
+  "course": {
+    "courseId": "B2B_SALES_2026_30_RU",
+    "name": "B2B Продажи 2026 — мастер‑класс (30 дней) (RU)",
+    "language": "ru"
+  },
+  "lesson": {
+    "dayNumber": 6,
+    "title": "Переговоры, объективные критерии и “необходимая цена”",
+    "lessonId": "B2B_SALES_2026_30_RU_DAY_6"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a043526e26ccc51725e",
+      "uuid": "0314351e-e7f2-4410-a1fb-41c4b0fe0018",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Факт 1:\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day6",
+        "#ru",
+        "#all-languages",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a043526e26ccc51725f",
+      "uuid": "15bf72e1-087d-4d6d-9412-bc1d704ec9c4",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Факт 2:\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day6",
+        "#ru",
+        "#all-languages",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a043526e26ccc517260",
+      "uuid": "44c941d7-dcda-4888-aeb2-6d4ba7f3dfd0",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Факт 3:\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day6",
+        "#ru",
+        "#all-languages",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a043526e26ccc517261",
+      "uuid": "16a3ec4a-a83a-4b1b-bd74-b24d25f680d9",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Как концепция \"Переговоры с уважением к объективности Ваши перего...\", упомянутая в уроке, влияет на достижение ваших goals?",
+      "options": [
+        "Как подробно описано в уроке, Переговоры с уважением к объек... повышает эффективность и снижает риски",
+        "Нет значительного влияния",
+        "Имеет значение только теоретически",
+        "Только опциональный элемент"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day6",
+        "#ru",
+        "#all-languages",
+        "#sales",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a043526e26ccc517262",
+      "uuid": "82b8cfe6-7e61-4865-ae06-9c651710e6ed",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Насколько важен Факт 2: в контексте Переговоры, объективные критерии и “необходимая цена”, как обсуждается в уроке?",
+      "options": [
+        "Как подробно описано в уроке, Факт 2: играет ключевую роль в оптимизации процессов и достижении целей",
+        "Только периферийная информация без значительной роли",
+        "Только теоретическая концепция без практического применения",
+        "Не упоминается в уроке"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day6",
+        "#ru",
+        "#all-languages",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a043526e26ccc517263",
+      "uuid": "f8c7f19f-626b-4756-8113-0d189fabe0fb",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Насколько важен Переговоры в контексте Переговоры, объективные критерии и “необходимая цена”, как обсуждается в уроке?",
+      "options": [
+        "Как подробно описано в уроке, Переговоры играет ключевую роль в оптимизации процессов и достижении целей",
+        "Только периферийная информация без значительной роли",
+        "Только теоретическая концепция без практического применения",
+        "Не упоминается в уроке"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day6",
+        "#ru",
+        "#all-languages",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a043526e26ccc517264",
+      "uuid": "ad4c24c5-34a4-483a-ada9-c4fabe22636e",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Насколько важен критерии в контексте Переговоры, объективные критерии и “необходимая цена”, как обсуждается в уроке?",
+      "options": [
+        "Как подробно описано в уроке, критерии играет ключевую роль в оптимизации процессов и достижении целей",
+        "Только периферийная информация без значительной роли",
+        "Только теоретическая концепция без практического применения",
+        "Не упоминается в уроке"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day6",
+        "#ru",
+        "#all-languages",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

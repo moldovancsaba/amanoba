@@ -1,0 +1,10 @@
+{
+  "backedUpAt": "2026-01-28T22:37:34.592Z",
+  "courseId": "DONE_BETTER_2026_EN",
+  "lessonId": "DONE_BETTER_2026_EN_DAY_04",
+  "dayNumber": 4,
+  "title": "Unknowns Are Assets",
+  "content": "<h1>Unknowns Are Assets</h1>\n<p><em>What you do not know is not weakness. It is your map.</em></p>\n<hr />\n<h2>Learning goal</h2>\n<ul>\n<li>List unknowns explicitly.</li>\n<li>Use unknowns to guide inquiry and next steps.</li>\n<li>Reduce the cost of not knowing by naming it.</li>\n</ul>\n<hr />\n<h2>Why it matters</h2>\n<ul>\n<li>Hidden unknowns cause surprises and rework.</li>\n<li>Naming unknowns turns them into a checklist.</li>\n<li>Saying \"I don't know yet\" is leadership.</li>\n</ul>\n<hr />\n<h2>Key idea</h2>\n<p>Unknowns are what you do not yet know. Treat them as assets: they tell you what to learn or validate next. Communicate them so others can align.</p>\n<hr />\n<h2>Common mistakes</h2>\n<ul>\n<li>Hiding or avoiding unknowns.</li>\n<li>Treating not knowing as failure.</li>\n<li>Making decisions as if unknowns do not exist.</li>\n</ul>\n<hr />\n<h2>Today's move</h2>\n<p>For one current project, write a short \"unknowns list\": what you do not know yet and when or how you will find out. Share it with one stakeholder.</p>\n<hr />\n<h2>Self-check</h2>\n<ul>\n<li>You can explain the key idea in one sentence.</li>\n<li>You have one concrete move to do today.</li>\n</ul>",
+  "emailSubject": "Done is better – Day {{dayNumber}}: {{lessonTitle}}",
+  "emailBody": "<h1>Done is better - Build What Matters</h1><h2>Day {{dayNumber}}: {{lessonTitle}}</h2><p>{{lessonContent}}</p><p><a href=\"http://localhost:3000/courses/DONE_BETTER_2026_EN/day/{{dayNumber}}\">Open the lesson →</a></p>"
+}

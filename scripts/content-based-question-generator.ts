@@ -1,8 +1,12 @@
 /**
  * Content-Based Question Generator
- * 
- * Purpose: Generate questions by analyzing actual lesson content
- * This avoids generic templates and creates context-rich, content-specific questions
+ *
+ * Purpose: Generate questions by analyzing actual lesson content.
+ * This avoids generic templates and creates context-rich, content-specific questions.
+ *
+ * Gold-standard (see docs/QUIZ_QUALITY_PIPELINE_PLAYBOOK.md): every question must be
+ * standalone, grounded in the lesson, scenario-based, ask for a concrete deliverable/outcome,
+ * and use concrete educational distractors (plausible domain mistakes, no generic filler).
  */
 
 import { QuestionDifficulty, QuizQuestionType } from '../app/lib/models';
@@ -15,6 +19,1184 @@ export interface ContentBasedQuestion {
   category: string;
   questionType: QuizQuestionType;
   hashtags: string[];
+}
+
+function stableHash32(input: string) {
+  // FNV-1a 32-bit
+  let hash = 0x811c9dc5;
+  const s = String(input || '');
+  for (let i = 0; i < s.length; i++) {
+    hash ^= s.charCodeAt(i);
+    hash = Math.imul(hash, 0x01000193);
+  }
+  return hash >>> 0;
+}
+
+function pickUniqueFromPool(seed: string, pool: string[], count: number): string[] {
+  const cleanPool = pool.map(s => String(s || '').trim()).filter(Boolean);
+  if (count <= 0) return [];
+  if (cleanPool.length <= count) return cleanPool.slice(0, count);
+
+  const picked: string[] = [];
+  const used = new Set<number>();
+  let idx = stableHash32(seed) % cleanPool.length;
+  // Use an odd step derived from seed to walk the pool deterministically.
+  let step = (stableHash32(seed + '::step') % cleanPool.length) | 1;
+  if (step % 2 === 0) step += 1;
+  for (let guard = 0; guard < cleanPool.length * 3 && picked.length < count; guard++) {
+    if (!used.has(idx)) {
+      used.add(idx);
+      picked.push(cleanPool[idx]);
+    }
+    idx = (idx + step) % cleanPool.length;
+  }
+  // Fallback (should rarely happen)
+  for (let i = 0; i < cleanPool.length && picked.length < count; i++) {
+    if (!used.has(i)) picked.push(cleanPool[i]);
+  }
+  return picked.slice(0, count);
+}
+
+function shuffleWithSeed<T>(items: T[], seed: string): T[] {
+  const arr = items.slice();
+  let state = stableHash32(seed) || 1;
+  const rand = () => {
+    // xorshift32
+    state ^= state << 13;
+    state ^= state >>> 17;
+    state ^= state << 5;
+    return (state >>> 0) / 0xffffffff;
+  };
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(rand() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
+}
+
+function buildVariedOptions(params: {
+  correct: string;
+  distractorPool: string[];
+  seed: string;
+}): { options: [string, string, string, string]; correctIndex: 0 | 1 | 2 | 3 } {
+  const distractors = pickUniqueFromPool(params.seed, params.distractorPool, 3);
+  const base = [params.correct, ...distractors].map(s => String(s || '').trim()).filter(Boolean);
+  const padded = base.length >= 4 ? base.slice(0, 4) : [...base, ...Array.from({ length: 4 - base.length }).map(() => params.correct)];
+  return {
+    // Important: keep correct answer at index 0; we shuffle later in the generator.
+    options: [padded[0], padded[1], padded[2], padded[3]],
+    correctIndex: 0,
+  };
+}
+
+function shuffleOptionsWithCorrectIndex(params: {
+  correct: string;
+  options: [string, string, string, string];
+  seed: string;
+}): { options: [string, string, string, string]; correctIndex: 0 | 1 | 2 | 3 } {
+  const base = params.options.map(s => String(s || '').trim());
+  const correct = String(params.correct || '').trim();
+  const shuffled = shuffleWithSeed(base, params.seed);
+  const idx = Math.max(0, shuffled.findIndex(o => o === correct));
+  return { options: [shuffled[0], shuffled[1], shuffled[2], shuffled[3]], correctIndex: idx as 0 | 1 | 2 | 3 };
+}
+
+function generateGeoShopify30Day7QuestionsEN(day: number, title: string, courseId: string): ContentBasedQuestion[] {
+  const normalizedCourseId = String(courseId || '').toLowerCase();
+  const baseTags = [`#day${day}`, '#en', ...(normalizedCourseId ? [`#course-${normalizedCourseId}`] : []), '#geo', '#shopify'];
+  const tags = (type: QuizQuestionType, diff: QuestionDifficulty) => [
+    ...baseTags,
+    diff === QuestionDifficulty.HARD ? '#advanced' : '#intermediate',
+    type === QuizQuestionType.APPLICATION ? '#application' : '#critical-thinking',
+  ];
+
+  const make = (p: {
+    question: string;
+    correct: string;
+    distractors: [string, string, string];
+    difficulty: QuestionDifficulty;
+    questionType: QuizQuestionType;
+    seed: string;
+  }): ContentBasedQuestion => {
+    const optionsRaw: [string, string, string, string] = [p.correct, ...p.distractors];
+    const shuffled = shuffleOptionsWithCorrectIndex({ correct: p.correct, options: optionsRaw, seed: p.seed });
+    return {
+      question: p.question,
+      options: shuffled.options,
+      correctIndex: shuffled.correctIndex,
+      difficulty: p.difficulty,
+      category: 'Course Specific',
+      questionType: p.questionType,
+      hashtags: tags(p.questionType, p.difficulty),
+    };
+  };
+
+  return [
+    make({
+      question:
+        'You audit a Shopify store and notice two products are titled “Runner Pro” with no distinguishing attributes. What change most improves clarity for shoppers and AI systems?',
+      correct:
+        'Add the minimum distinguishing attributes into the title (e.g., model + gender/use-case + key material), so products are not ambiguous.',
+      distractors: [
+        'Keep titles short and move all distinguishing attributes to the bottom of the description to avoid clutter.',
+        'Use vague marketing titles (“Best Runner Ever”) because they are easier to remember than attributes.',
+        'Rely on product images only; titles do not matter for structured understanding or recommendations.',
+      ],
+      difficulty: QuestionDifficulty.MEDIUM,
+      questionType: QuizQuestionType.APPLICATION,
+      seed: `${courseId}::day7::title-clarity`,
+    }),
+    make({
+      question:
+        'A product has variants labeled “Blue / Size M / Pack of 2” as a single option value. What is the best fix for variant clarity?',
+      correct:
+        'Split attributes into separate option dimensions (e.g., Color, Size, Pack size) so each variant is consistent and unambiguous.',
+      distractors: [
+        'Add more mixed strings per option value so every detail is visible in one place.',
+        'Remove variants entirely and force customers to choose via the description text.',
+        'Keep the mixed label but shorten it; mixing attributes is fine as long as the text is shorter.',
+      ],
+      difficulty: QuestionDifficulty.MEDIUM,
+      questionType: QuizQuestionType.APPLICATION,
+      seed: `${courseId}::day7::variant-structure`,
+    }),
+    make({
+      question:
+        'While auditing identifiers, you find SKUs missing for many variants. What is the most measurable next step to reduce future duplication and tracking errors?',
+      correct:
+        'Define SKU coverage as a metric and fill SKUs for every variant, prioritizing best-selling products first until coverage reaches 100%.',
+      distractors: [
+        'Fill SKUs only for new products going forward; past variants can remain blank without impact.',
+        'Use the same SKU for all variants to keep the catalog simpler and reduce maintenance.',
+        'Skip SKUs and rely on product titles as identifiers; titles are unique enough for operations.',
+      ],
+      difficulty: QuestionDifficulty.MEDIUM,
+      questionType: QuizQuestionType.APPLICATION,
+      seed: `${courseId}::day7::sku-coverage`,
+    }),
+    make({
+      question:
+        'You want to measure “description usefulness” for a product audit. Which criterion is most aligned with a measurable check?',
+      correct:
+        'Verify the first 3–5 lines contain key specs and decision info (materials, dimensions, compatibility, constraints) rather than only marketing copy.',
+      distractors: [
+        'Count total words and ensure the description is long enough; longer always means more useful.',
+        'Ensure the description includes at least three adjectives; vivid language is the best proxy for usefulness.',
+        'Place policies and shipping information first; product specs can be omitted to keep it short.',
+      ],
+      difficulty: QuestionDifficulty.MEDIUM,
+      questionType: QuizQuestionType.APPLICATION,
+      seed: `${courseId}::day7::description-top`,
+    }),
+    make({
+      question:
+        'During an audit you see GTIN is missing. Which action best balances correctness and practicality?',
+      correct:
+        'Fill GTIN where it genuinely exists for the product/variant, and track GTIN coverage separately from SKU coverage.',
+      distractors: [
+        'Generate random GTIN values so every variant has a number and looks complete.',
+        'Copy one GTIN across all variants because the product is “basically the same”.',
+        'Ignore GTIN entirely because it has no impact on any downstream commerce system.',
+      ],
+      difficulty: QuestionDifficulty.MEDIUM,
+      questionType: QuizQuestionType.APPLICATION,
+      seed: `${courseId}::day7::gtin`,
+    }),
+    make({
+      question:
+        'A team optimizes product data by increasing the number of edited fields per day, but customer confusion and returns rise. What is the most likely failure mode?',
+      correct:
+        'They optimized “busy output” (activity) instead of clarity metrics (ambiguity reduction, SKU/GTIN coverage, variant consistency).',
+      distractors: [
+        'Editing more fields always improves outcomes; the returns increase must be unrelated to data quality.',
+        'More edits mean better SEO, so customer confusion is expected and cannot be reduced by data changes.',
+        'The only real issue is speed; if edits were faster, clarity would automatically improve.',
+      ],
+      difficulty: QuestionDifficulty.HARD,
+      questionType: QuizQuestionType.CRITICAL_THINKING,
+      seed: `${courseId}::day7::busy-output`,
+    }),
+    make({
+      question:
+        'You run a product data audit, but you never compute SKU/GTIN coverage or count ambiguous titles. What is the typical consequence?',
+      correct:
+        'You can’t verify improvement, so fixes drift into subjective edits and the same issues reappear across the catalog.',
+      distractors: [
+        'Metrics are unnecessary because the team can “feel” whether product data is clean after editing.',
+        'Not measuring reduces bias, so the audit becomes more accurate and consistent over time.',
+        'Skipping metrics speeds up work and guarantees outcomes because the team touches more items per day.',
+      ],
+      difficulty: QuestionDifficulty.HARD,
+      questionType: QuizQuestionType.CRITICAL_THINKING,
+      seed: `${courseId}::day7::no-metrics`,
+    }),
+    make({
+      question:
+        'You want fast feedback from a catalog audit. Which plan best creates a tight loop of measure → fix → verify?',
+      correct:
+        'Audit 10 products, compute coverage/ambiguity counts, fix the top recurring issue type, then re-check the same sample after the change.',
+      distractors: [
+        'Audit all products first without metrics, then fix everything at once and assume the changes worked.',
+        'Fix one product fully and never look for recurring patterns, because every product is unique.',
+        'Only update descriptions (marketing copy) and skip variants and identifiers to avoid operational work.',
+      ],
+      difficulty: QuestionDifficulty.MEDIUM,
+      questionType: QuizQuestionType.APPLICATION,
+      seed: `${courseId}::day7::feedback-loop`,
+    }),
+    make({
+      question:
+        'A product title includes key attributes, but the variant labels are inconsistent and unclear. What is the most likely impact on recommendations and fulfillment?',
+      correct:
+        'Recommendations may be wrong and fulfillment errors rise because the purchasable options are ambiguous and hard to match to what the customer expects.',
+      distractors: [
+        'Titles alone fully determine recommendations and fulfillment, so variant clarity does not matter.',
+        'Variant clarity only affects design aesthetics; operations and recommendations remain accurate.',
+        'Inconsistent variants improve discovery because the store shows more unique strings to search systems.',
+      ],
+      difficulty: QuestionDifficulty.MEDIUM,
+      questionType: QuizQuestionType.APPLICATION,
+      seed: `${courseId}::day7::variant-impact`,
+    }),
+  ];
+}
+
+function generateGeoShopify30Day2QuestionsEN(day: number, title: string, courseId: string): ContentBasedQuestion[] {
+  const normalizedCourseId = String(courseId || '').toLowerCase();
+  const baseTags = [`#day${day}`, '#en', ...(normalizedCourseId ? [`#course-${normalizedCourseId}`] : []), '#geo', '#shopify'];
+  const tags = (type: QuizQuestionType, diff: QuestionDifficulty) => [
+    ...baseTags,
+    diff === QuestionDifficulty.HARD ? '#advanced' : '#intermediate',
+    type === QuizQuestionType.APPLICATION ? '#application' : '#critical-thinking',
+  ];
+
+  const make = (p: {
+    question: string;
+    correct: string;
+    distractors: [string, string, string];
+    difficulty: QuestionDifficulty;
+    questionType: QuizQuestionType;
+    seed: string;
+  }): ContentBasedQuestion => {
+    const optionsRaw: [string, string, string, string] = [p.correct, ...p.distractors];
+    const shuffled = shuffleOptionsWithCorrectIndex({ correct: p.correct, options: optionsRaw, seed: p.seed });
+    return {
+      question: p.question,
+      options: shuffled.options,
+      correctIndex: shuffled.correctIndex,
+      difficulty: p.difficulty,
+      category: 'Course Specific',
+      questionType: p.questionType,
+      hashtags: tags(p.questionType, p.difficulty),
+    };
+  };
+
+  return [
+    make({
+      question:
+        'On a Shopify product page, which element is the most GEO-first (helps AI answers summarize correctly) rather than SEO-first?',
+      correct:
+        'Accurate, plainly rendered product facts (price, stock, SKU/GTIN) visible near the top of the page.',
+      distractors: [
+        'Tuning meta title length and keyword density for the HTML head tags only.',
+        'Adding more backlinks from unrelated sites to increase domain authority.',
+        'Writing a long blog-style paragraph before showing the product facts and options.',
+      ],
+      difficulty: QuestionDifficulty.MEDIUM,
+      questionType: QuizQuestionType.APPLICATION,
+      seed: `${courseId}::day2::geo-first-facts`,
+    }),
+    make({
+      question:
+        'A merchant has strong SEO (speed, canonical tags, internal links) but AI answers still omit key product info. What is the most likely missing GEO-first piece?',
+      correct:
+        'A short, answer-ready summary block (answer capsule) plus verifiable product facts and policies that can be quoted.',
+      distractors: [
+        'More long-form content on the homepage; product pages do not matter for generative answers.',
+        'More keyword repetition in meta descriptions; facts and policies are optional for AI answers.',
+        'Removing all structured data; AI systems only use plain text and ignore machine-readable signals.',
+      ],
+      difficulty: QuestionDifficulty.MEDIUM,
+      questionType: QuizQuestionType.APPLICATION,
+      seed: `${courseId}::day2::answer-capsule`,
+    }),
+    make({
+      question:
+        'You create a 10-point GEO checklist for a product detail page. Which check is the clearest “verifiable policy” item?',
+      correct:
+        'Shipping and returns policy is easy to find, specific (time/conditions), and linked from the product page with a stable URL.',
+      distractors: [
+        'A vague claim like “fast shipping” with no timeframe, conditions, or policy page.',
+        'A policy hidden in an image or PDF that changes URL frequently and is hard to quote.',
+        'Only a discount banner; no policy details because it “hurts conversions”.',
+      ],
+      difficulty: QuestionDifficulty.MEDIUM,
+      questionType: QuizQuestionType.APPLICATION,
+      seed: `${courseId}::day2::policy-verifiable`,
+    }),
+    make({
+      question:
+        'During a GEO audit, you find product facts exist but are scattered and inconsistent across variants. What is the best fix to improve quotability?',
+      correct:
+        'Make facts consistent per variant (IDs, price, stock) and present them clearly in one place near the purchase decision area.',
+      distractors: [
+        'Move facts deeper into long marketing copy so they are “discoverable” for humans who read everything.',
+        'Replace all facts with lifestyle storytelling; AI can infer price and stock from context.',
+        'Hide identifiers because they look technical; only brand adjectives should remain visible.',
+      ],
+      difficulty: QuestionDifficulty.MEDIUM,
+      questionType: QuizQuestionType.APPLICATION,
+      seed: `${courseId}::day2::variant-consistency`,
+    }),
+    make({
+      question:
+        'Which item is most SEO-first (classic SEO) rather than GEO-first on Shopify?',
+      correct:
+        'Meta title/description tuning and internal link structure for crawling and ranking signals.',
+      distractors: [
+        'Displaying SKU/GTIN and stock status clearly so AI can quote product facts.',
+        'Adding an answer capsule with the key product facts near the top of the page.',
+        'Linking shipping/returns policies with stable URLs so claims are verifiable.',
+      ],
+      difficulty: QuestionDifficulty.MEDIUM,
+      questionType: QuizQuestionType.APPLICATION,
+      seed: `${courseId}::day2::seo-first`,
+    }),
+    make({
+      question:
+        'A team says: “GEO is ranking, so we should chase keywords harder.” What is the most accurate correction?',
+      correct:
+        'GEO is primarily about clarity and quotability of facts/policies so AI can summarize correctly; it complements SEO but is not the same as ranking.',
+      distractors: [
+        'GEO replaces SEO entirely; rankings do not matter if you have an answer capsule.',
+        'GEO is only about backlinks; product facts and policies do not affect AI answers.',
+        'GEO is just page speed; if the site is fast, AI will always quote the right details.',
+      ],
+      difficulty: QuestionDifficulty.HARD,
+      questionType: QuizQuestionType.CRITICAL_THINKING,
+      seed: `${courseId}::day2::geo-not-ranking`,
+    }),
+    make({
+      question:
+        'You build a GEO checklist but never apply it to a real product page or mark “OK vs missing”. What typically happens?',
+      correct:
+        'It becomes documentation without feedback; gaps persist because there is no concrete audit loop to turn checks into fixes.',
+      distractors: [
+        'The checklist still guarantees improvement because writing it changes outcomes automatically.',
+        'Applying the checklist is unnecessary; once created, AI systems will “figure it out”.',
+        'Marking OK vs missing is optional because subjective judgment is more reliable than checks.',
+      ],
+      difficulty: QuestionDifficulty.HARD,
+      questionType: QuizQuestionType.CRITICAL_THINKING,
+      seed: `${courseId}::day2::checklist-without-application`,
+    }),
+    make({
+      question:
+        'When comparing SEO-first vs GEO-first work, what is the most useful way to think about them?',
+      correct:
+        'SEO-first improves discovery and ranking signals; GEO-first improves the clarity, completeness, and quotability of product facts and policies for AI answers.',
+      distractors: [
+        'SEO-first is only for blogs and GEO-first is only for homepages; product pages are unaffected.',
+        'SEO-first and GEO-first are identical; you should do only one checklist to cover both.',
+        'GEO-first is only about adding more text; facts and identifiers are secondary.',
+      ],
+      difficulty: QuestionDifficulty.MEDIUM,
+      questionType: QuizQuestionType.APPLICATION,
+      seed: `${courseId}::day2::complement`,
+    }),
+  ];
+}
+
+function generateGeoShopify30Day3QuestionsEN(day: number, title: string, courseId: string): ContentBasedQuestion[] {
+  const normalizedCourseId = String(courseId || '').toLowerCase();
+  const baseTags = [`#day${day}`, '#en', ...(normalizedCourseId ? [`#course-${normalizedCourseId}`] : []), '#geo', '#shopify'];
+  const tags = (type: QuizQuestionType, diff: QuestionDifficulty) => [
+    ...baseTags,
+    diff === QuestionDifficulty.HARD ? '#advanced' : '#intermediate',
+    type === QuizQuestionType.APPLICATION ? '#application' : '#critical-thinking',
+  ];
+
+  const make = (p: {
+    question: string;
+    correct: string;
+    distractors: [string, string, string];
+    difficulty: QuestionDifficulty;
+    questionType: QuizQuestionType;
+    seed: string;
+  }): ContentBasedQuestion => {
+    const optionsRaw: [string, string, string, string] = [p.correct, ...p.distractors];
+    const shuffled = shuffleOptionsWithCorrectIndex({ correct: p.correct, options: optionsRaw, seed: p.seed });
+    return {
+      question: p.question,
+      options: shuffled.options,
+      correctIndex: shuffled.correctIndex,
+      difficulty: p.difficulty,
+      category: 'Course Specific',
+      questionType: p.questionType,
+      hashtags: tags(p.questionType, p.difficulty),
+    };
+  };
+
+  return [
+    make({
+      question:
+        'A shopper asks a generative system: “Which running shoes are best for flat feet under $120?” According to the new buying journey, what happens before they click a store?',
+      correct:
+        'They often see an AI summary/recommendation first, then click later with clearer intent based on the summarized facts.',
+      distractors: [
+        'They always see a classic search results list first and only then get AI help after purchase.',
+        'They must click a store before any summary exists; AI cannot recommend without opening product pages.',
+        'They skip summaries entirely and decide only from ad copy in the first result.',
+      ],
+      difficulty: QuestionDifficulty.MEDIUM,
+      questionType: QuizQuestionType.APPLICATION,
+      seed: `${courseId}::day3::new-journey`,
+    }),
+    make({
+      question:
+        'You add an “answer capsule” at the top of a Shopify product page. Which capsule content is most aligned with the lesson?',
+      correct:
+        'Who it is for / who it is not for, pros/cons, price and stock status, plus a clear link to shipping/returns policy.',
+      distractors: [
+        'A long brand story paragraph and a newsletter signup; price and policy can stay lower on the page.',
+        'Only a list of SEO keywords and internal links; shoppers can infer policies elsewhere.',
+        'A gallery of lifestyle images with no text; AI prefers images over facts.',
+      ],
+      difficulty: QuestionDifficulty.MEDIUM,
+      questionType: QuizQuestionType.APPLICATION,
+      seed: `${courseId}::day3::capsule-contents`,
+    }),
+    make({
+      question:
+        'Why does the lesson warn that short answers can magnify wrong price/stock/policy information?',
+      correct:
+        'Because AI summaries may quote a few key facts; if those facts are wrong or missing, the user’s decision is misled at high leverage.',
+      distractors: [
+        'Because longer pages automatically rank better, so short answers reduce SEO rankings no matter what.',
+        'Because policies never affect buying decisions; only images matter in generative answers.',
+        'Because AI systems refuse to show any product unless the description is extremely long.',
+      ],
+      difficulty: QuestionDifficulty.MEDIUM,
+      questionType: QuizQuestionType.APPLICATION,
+      seed: `${courseId}::day3::magnify`,
+    }),
+    make({
+      question:
+        'You are mapping AI touchpoints for your store. Which set best matches the lesson’s examples of touchpoint questions?',
+      correct:
+        'Sizing, shipping, returns, best-for use cases, and alternatives/comparisons.',
+      distractors: [
+        'Company history, investor deck, employee bios, office location, and press mentions.',
+        'Only discount codes and slogans; informational questions do not appear in AI journeys.',
+        'Random trivia about the category; shoppers do not ask practical questions.',
+      ],
+      difficulty: QuestionDifficulty.MEDIUM,
+      questionType: QuizQuestionType.APPLICATION,
+      seed: `${courseId}::day3::touchpoints`,
+    }),
+    make({
+      question:
+        'A product page has long unstructured copy and missing policy links. In the new journey, what is the most likely outcome?',
+      correct:
+        'AI summaries struggle to quote verifiable details, so the store is less likely to be included or the summary may omit crucial info.',
+      distractors: [
+        'The page always performs better because long text guarantees clear recommendations.',
+        'Policy links reduce trust, so hiding them increases inclusion in AI answers.',
+        'Unstructured copy has no downside because AI ignores product pages and uses only ads.',
+      ],
+      difficulty: QuestionDifficulty.MEDIUM,
+      questionType: QuizQuestionType.APPLICATION,
+      seed: `${courseId}::day3::poor-page`,
+    }),
+    make({
+      question:
+        'A team says: “We’ll focus on ranking first; answer capsules can wait.” Under the new journey, what is the key risk of this plan?',
+      correct:
+        'Users may form a decision from an AI summary before clicking; without clear, quotable facts/policies, you lose attention even if you rank well.',
+      distractors: [
+        'Answer capsules reduce SEO so much that rankings collapse immediately; never add them.',
+        'AI summaries only appear after checkout, so delaying capsules has no effect on discovery or intent.',
+        'GEO is only about backlinks; page structure and policies do not affect summaries.',
+      ],
+      difficulty: QuestionDifficulty.HARD,
+      questionType: QuizQuestionType.CRITICAL_THINKING,
+      seed: `${courseId}::day3::risk-delay`,
+    }),
+    make({
+      question:
+        'You draft an answer capsule but it omits “who it’s not for” and downsides. What is the most likely downside in AI-driven recommendations?',
+      correct:
+        'The summary becomes one-sided, increasing mismatched purchases and returns because constraints and trade-offs are not made explicit.',
+      distractors: [
+        'Omitting downsides always increases trust; trade-offs should never be mentioned.',
+        'AI systems prefer only positive claims; including constraints prevents the product from being shown.',
+        'Who-not-for details only matter for SEO keywords and do not affect buying decisions.',
+      ],
+      difficulty: QuestionDifficulty.HARD,
+      questionType: QuizQuestionType.CRITICAL_THINKING,
+      seed: `${courseId}::day3::who-not-for`,
+    }),
+  ];
+}
+
+function generateGeoShopify30Day4QuestionsEN(day: number, title: string, courseId: string): ContentBasedQuestion[] {
+  const normalizedCourseId = String(courseId || '').toLowerCase();
+  const baseTags = [`#day${day}`, '#en', ...(normalizedCourseId ? [`#course-${normalizedCourseId}`] : []), '#geo', '#shopify'];
+  const tags = (type: QuizQuestionType, diff: QuestionDifficulty) => [
+    ...baseTags,
+    diff === QuestionDifficulty.HARD ? '#advanced' : '#intermediate',
+    type === QuizQuestionType.APPLICATION ? '#application' : '#critical-thinking',
+  ];
+
+  const make = (p: {
+    question: string;
+    correct: string;
+    distractors: [string, string, string];
+    difficulty: QuestionDifficulty;
+    questionType: QuizQuestionType;
+    seed: string;
+  }): ContentBasedQuestion => {
+    const optionsRaw: [string, string, string, string] = [p.correct, ...p.distractors];
+    const shuffled = shuffleOptionsWithCorrectIndex({ correct: p.correct, options: optionsRaw, seed: p.seed });
+    return {
+      question: p.question,
+      options: shuffled.options,
+      correctIndex: shuffled.correctIndex,
+      difficulty: p.difficulty,
+      category: 'Course Specific',
+      questionType: p.questionType,
+      hashtags: tags(p.questionType, p.difficulty),
+    };
+  };
+
+  return [
+    make({
+      question:
+        'A customer sees an AI answer recommending your product and asks for a quick summary. In this lesson, what is the primary goal of “sell in chat”?',
+      correct:
+        'Influence the choice with a clear, accurate summary (who it’s for, trade-offs, facts), while the transaction/checkout happens on your site.',
+      distractors: [
+        'Complete payment inside the AI chat; the storefront checkout is secondary.',
+        'Avoid mentioning facts like price/stock/policies because they reduce conversions.',
+        'Use only hype (“best product!”) because AI surfaces rank enthusiasm above clarity.',
+      ],
+      difficulty: QuestionDifficulty.MEDIUM,
+      questionType: QuizQuestionType.APPLICATION,
+      seed: `${courseId}::day4::goal`,
+    }),
+    make({
+      question:
+        'Which statement best distinguishes “influence” from “transaction” in an AI-driven buying flow?',
+      correct:
+        'Influence happens in summaries/comparisons that sway intent; transaction happens at storefront checkout where price/stock/policies must be correct.',
+      distractors: [
+        'Influence is only SEO metadata; transaction is only backlinks and page speed.',
+        'Influence is the payment step; transaction is the recommendation step.',
+        'Influence and transaction are the same; accuracy is optional as long as messaging is persuasive.',
+      ],
+      difficulty: QuestionDifficulty.MEDIUM,
+      questionType: QuizQuestionType.APPLICATION,
+      seed: `${courseId}::day4::distinguish`,
+    }),
+    make({
+      question:
+        'You draft a 3–4 line “sell in chat” snippet for one product. Which version best matches the lesson’s “good” example structure?',
+      correct:
+        'Ideal for [who], not for [who not]; price [x], in stock; shipping 3–5 days; free returns 30 days (or your real policy).',
+      distractors: [
+        'Best product ever! Everyone loves it. Buy now. Limited time only.',
+        'High-quality and stylish. Great for everyone. Shipping details available somewhere on the site.',
+        'We have amazing customer service. Prices vary. Returns depend on many factors.',
+      ],
+      difficulty: QuestionDifficulty.MEDIUM,
+      questionType: QuizQuestionType.APPLICATION,
+      seed: `${courseId}::day4::snippet`,
+    }),
+    make({
+      question:
+        'Why does the lesson say wrong price/stock/shipping in an AI answer hurts conversion and support?',
+      correct:
+        'Because it sets incorrect expectations; users arrive with mismatched intent and create failed checkouts, extra tickets, and trust loss.',
+      distractors: [
+        'Because policy accuracy only affects SEO rankings, not customer decisions or support volume.',
+        'Because users never read summaries; only the checkout page affects expectations.',
+        'Because inaccurate details increase curiosity and therefore always boost conversions.',
+      ],
+      difficulty: QuestionDifficulty.MEDIUM,
+      questionType: QuizQuestionType.APPLICATION,
+      seed: `${courseId}::day4::wrong-info`,
+    }),
+    make({
+      question:
+        'You need to write 5 statements/policies that an AI must quote correctly. Which list is most aligned with the lesson?',
+      correct:
+        'Price, stock status, shipping timeframe/conditions, returns rules, and warranty terms (as applicable).',
+      distractors: [
+        'Brand mission, founder story, office location, and fun facts; policies are not important.',
+        'Only discount codes and slogans; stock and returns can be handled later by support.',
+        'Competitor gossip and marketing adjectives; accuracy of policy details is optional.',
+      ],
+      difficulty: QuestionDifficulty.MEDIUM,
+      questionType: QuizQuestionType.APPLICATION,
+      seed: `${courseId}::day4::five-statements`,
+    }),
+    make({
+      question:
+        'A team tries to “sell in chat” but omits who-not-for and trade-offs to stay positive. What is the most likely consequence?',
+      correct:
+        'More mismatched buyers and returns because constraints are hidden; support load rises and trust drops when reality differs from the summary.',
+      distractors: [
+        'Fewer returns because positive messaging always attracts the right customers automatically.',
+        'Higher rankings because AI systems reward one-sided claims with no caveats.',
+        'It only changes tone, not outcomes, because buyers decide exclusively at checkout and ignore summaries.',
+      ],
+      difficulty: QuestionDifficulty.HARD,
+      questionType: QuizQuestionType.CRITICAL_THINKING,
+      seed: `${courseId}::day4::omit-tradeoffs`,
+    }),
+    make({
+      question:
+        'The lesson notes merchant programs can depend on region/eligibility. What is the best implication for snippets and policies?',
+      correct:
+        'Avoid absolute claims; make eligibility and regional constraints explicit and link to a stable policy/terms page that can be verified.',
+      distractors: [
+        'Always claim universal availability; constraints confuse buyers and reduce conversion.',
+        'Never mention policies; the AI will infer eligibility correctly without explicit terms.',
+        'Use different claims for each chat without documentation so it feels personalized.',
+      ],
+      difficulty: QuestionDifficulty.HARD,
+      questionType: QuizQuestionType.CRITICAL_THINKING,
+      seed: `${courseId}::day4::eligibility`,
+    }),
+  ];
+}
+
+function generateGeoShopify30Day5QuestionsEN(day: number, title: string, courseId: string): ContentBasedQuestion[] {
+  const normalizedCourseId = String(courseId || '').toLowerCase();
+  const baseTags = [`#day${day}`, '#en', ...(normalizedCourseId ? [`#course-${normalizedCourseId}`] : []), '#geo', '#shopify'];
+  const tags = (type: QuizQuestionType, diff: QuestionDifficulty) => [
+    ...baseTags,
+    diff === QuestionDifficulty.HARD ? '#advanced' : '#intermediate',
+    type === QuizQuestionType.APPLICATION ? '#application' : '#critical-thinking',
+  ];
+
+  const make = (p: {
+    question: string;
+    correct: string;
+    distractors: [string, string, string];
+    difficulty: QuestionDifficulty;
+    questionType: QuizQuestionType;
+    seed: string;
+  }): ContentBasedQuestion => {
+    const optionsRaw: [string, string, string, string] = [p.correct, ...p.distractors];
+    const shuffled = shuffleOptionsWithCorrectIndex({ correct: p.correct, options: optionsRaw, seed: p.seed });
+    return {
+      question: p.question,
+      options: shuffled.options,
+      correctIndex: shuffled.correctIndex,
+      difficulty: p.difficulty,
+      category: 'Course Specific',
+      questionType: p.questionType,
+      hashtags: tags(p.questionType, p.difficulty),
+    };
+  };
+
+  return [
+    make({
+      question:
+        'You compare ChatGPT, Copilot, and Google AI surfaces for shopping. What is the best “platform map” deliverable from this lesson?',
+      correct:
+        'A 1-page summary listing each platform’s requirements, region/program constraints, and concrete actions (data, policy, URL/schema) for your store.',
+      distractors: [
+        'A long blog post about AI history; platform requirements do not affect shopping surfaces.',
+        'A single SEO checklist; the three platforms behave identically so one list is enough.',
+        'A list of competitor ads; platform constraints can be ignored if you spend more on marketing.',
+      ],
+      difficulty: QuestionDifficulty.MEDIUM,
+      questionType: QuizQuestionType.APPLICATION,
+      seed: `${courseId}::day5::deliverable`,
+    }),
+    make({
+      question:
+        'A merchant program is available only in certain regions. What is the most practical implication for your rollout plan?',
+      correct:
+        'Treat eligibility as a constraint: map region/program status per platform and prioritize the platform you are closest to meeting in your region.',
+      distractors: [
+        'Assume all platforms work in all regions; ignore constraints and focus only on brand messaging.',
+        'Pick platforms based only on personal preference; region rules do not affect access.',
+        'Delay all work until every platform is available everywhere; otherwise it is not worth improving data.',
+      ],
+      difficulty: QuestionDifficulty.MEDIUM,
+      questionType: QuizQuestionType.APPLICATION,
+      seed: `${courseId}::day5::region`,
+    }),
+    make({
+      question:
+        'Which set best matches the lesson’s “keys” for the three platforms?',
+      correct:
+        'ChatGPT: accurate data + quotability; Copilot: feed quality + policy clarity; Google AI: product data + schema + policy.',
+      distractors: [
+        'All three: only backlinks and meta keywords; product facts and policies are optional.',
+        'ChatGPT: only images; Copilot: only reviews; Google AI: only slogans; data fields do not matter.',
+        'ChatGPT: speed only; Copilot: speed only; Google AI: speed only; the rest is irrelevant.',
+      ],
+      difficulty: QuestionDifficulty.MEDIUM,
+      questionType: QuizQuestionType.APPLICATION,
+      seed: `${courseId}::day5::keys`,
+    }),
+    make({
+      question:
+        'Your store shows conflicting prices across surfaces (PDP vs feed vs summary). According to the lesson’s example, what is the best fix?',
+      correct:
+        'Make price/stock/policy uniform and consistent everywhere, with a stable feed and clean schema so summaries quote the same facts.',
+      distractors: [
+        'Keep conflicts; different prices per surface increase conversions by letting AI pick the cheapest.',
+        'Hide prices and stock entirely; facts confuse AI answers so it is better to be vague.',
+        'Only update the homepage meta tags; price conflicts on product pages do not affect shopping surfaces.',
+      ],
+      difficulty: QuestionDifficulty.MEDIUM,
+      questionType: QuizQuestionType.APPLICATION,
+      seed: `${courseId}::day5::conflicts`,
+    }),
+    make({
+      question:
+        'You choose one platform and write three concrete tasks for it. Which task list best matches the lesson’s examples?',
+      correct:
+        'Run a GTIN/SKU check, refresh a clear policy block/link, and add an answer capsule to the product page.',
+      distractors: [
+        'Rewrite your brand slogan, change your logo colors, and add more emojis to product titles.',
+        'Delete structured data, remove policies from pages, and hide identifiers to keep pages “clean”.',
+        'Focus only on backlinks and ignore product data fields, because feeds are never used in shopping answers.',
+      ],
+      difficulty: QuestionDifficulty.MEDIUM,
+      questionType: QuizQuestionType.APPLICATION,
+      seed: `${courseId}::day5::three-tasks`,
+    }),
+    make({
+      question:
+        'A team tries to “optimize for one platform” by using different prices/policies per surface. What is the most likely failure mode?',
+      correct:
+        'Inconsistent facts reduce trust and quotability; AI answers may cite conflicting details, increasing support load and hurting conversion.',
+      distractors: [
+        'Inconsistency increases personalization and always improves outcomes; accuracy is secondary.',
+        'Different policies per platform are invisible to users, so there is no risk of confusion.',
+        'Only SEO rankings are affected; customer support and conversions are unrelated to policy accuracy.',
+      ],
+      difficulty: QuestionDifficulty.HARD,
+      questionType: QuizQuestionType.CRITICAL_THINKING,
+      seed: `${courseId}::day5::inconsistent`,
+    }),
+    make({
+      question:
+        'Why does the lesson emphasize “content expectations differ” across platforms?',
+      correct:
+        'Because some surfaces rely heavily on structured data/schema, others on feed quality or policy clarity; you must meet the right expectations to be included accurately.',
+      distractors: [
+        'Because content never matters; only advertising budgets determine whether you show up.',
+        'Because platforms require completely different products; your catalog cannot be reused.',
+        'Because structured data is forbidden; plain text only is allowed everywhere.',
+      ],
+      difficulty: QuestionDifficulty.HARD,
+      questionType: QuizQuestionType.CRITICAL_THINKING,
+      seed: `${courseId}::day5::expectations`,
+    }),
+  ];
+}
+
+function generateGeoShopify30Day6QuestionsEN(day: number, title: string, courseId: string): ContentBasedQuestion[] {
+  const normalizedCourseId = String(courseId || '').toLowerCase();
+  const baseTags = [`#day${day}`, '#en', ...(normalizedCourseId ? [`#course-${normalizedCourseId}`] : []), '#geo', '#shopify'];
+  const tags = (type: QuizQuestionType, diff: QuestionDifficulty) => [
+    ...baseTags,
+    diff === QuestionDifficulty.HARD ? '#advanced' : '#intermediate',
+    type === QuizQuestionType.APPLICATION ? '#application' : '#critical-thinking',
+  ];
+
+  const make = (p: {
+    question: string;
+    correct: string;
+    distractors: [string, string, string];
+    difficulty: QuestionDifficulty;
+    questionType: QuizQuestionType;
+    seed: string;
+  }): ContentBasedQuestion => {
+    const optionsRaw: [string, string, string, string] = [p.correct, ...p.distractors];
+    const shuffled = shuffleOptionsWithCorrectIndex({ correct: p.correct, options: optionsRaw, seed: p.seed });
+    return {
+      question: p.question,
+      options: shuffled.options,
+      correctIndex: shuffled.correctIndex,
+      difficulty: p.difficulty,
+      category: 'Course Specific',
+      questionType: p.questionType,
+      hashtags: tags(p.questionType, p.difficulty),
+    };
+  };
+
+  return [
+    make({
+      question:
+        'You want to measure GEO progress over time. What is the best definition of a “prompt set” from this lesson?',
+      correct:
+        'A 30–50 question test set across categories (best, vs, alternatives, policy, sizing/shipping) used repeatedly to check inclusion/citation/coverage/consistency.',
+      distractors: [
+        'A single generic question you ask once; if the answer looks good, the work is done.',
+        'A list of marketing slogans; measurement is unnecessary if the copy sounds persuasive.',
+        'Only a single “best product” query; comparisons, policies, and sizing are irrelevant.',
+      ],
+      difficulty: QuestionDifficulty.MEDIUM,
+      questionType: QuizQuestionType.APPLICATION,
+      seed: `${courseId}::day6::prompt-set`,
+    }),
+    make({
+      question:
+        'Which set best matches the GEO KPIs the lesson suggests tracking weekly?',
+      correct:
+        'Inclusion, citation, coverage, and consistency (tracked weekly on your prompt set).',
+      distractors: [
+        'Only total word count of product descriptions and number of blog posts published.',
+        'Only backlinks and domain authority; inclusion and citation do not matter for GEO.',
+        'Only average order value; GEO cannot be measured directly.',
+      ],
+      difficulty: QuestionDifficulty.MEDIUM,
+      questionType: QuizQuestionType.APPLICATION,
+      seed: `${courseId}::day6::geo-kpis`,
+    }),
+    make({
+      question:
+        'You also need commercial impact KPIs. Which list matches the lesson?',
+      correct:
+        'AI referral traffic, conversion, add-to-cart rate, and returns (alongside GEO KPIs).',
+      distractors: [
+        'Logo recognition, brand “vibes”, and number of adjectives in the answer capsule.',
+        'Only inventory count; conversion and returns are unrelated to AI summaries.',
+        'Only time on site; add-to-cart and returns are not measurable outcomes.',
+      ],
+      difficulty: QuestionDifficulty.MEDIUM,
+      questionType: QuizQuestionType.APPLICATION,
+      seed: `${courseId}::day6::commercial-kpis`,
+    }),
+    make({
+      question:
+        'You build the prompt table. Which column set best matches the guided exercise structure?',
+      correct:
+        'Prompt | Type (best/vs/policy) | Expected inclusion/citation | Notes (and later: results).',
+      distractors: [
+        'Prompt | Emoji score | Brand adjectives | “Feels premium” rating.',
+        'Prompt | Meta keywords | Backlink target | Generic confidence score only.',
+        'Prompt | Product photos | Social likes | Founder story rating.',
+      ],
+      difficulty: QuestionDifficulty.MEDIUM,
+      questionType: QuizQuestionType.APPLICATION,
+      seed: `${courseId}::day6::table`,
+    }),
+    make({
+      question:
+        'A team has only 5 generic questions and no metrics. According to the lesson’s examples, what is the most likely problem?',
+      correct:
+        'They cannot detect improvement or regressions; the set is too small and unstructured to measure inclusion/citation and drive iteration.',
+      distractors: [
+        'Five questions are always enough; adding categories and metrics only slows execution.',
+        'Metrics are harmful because they reduce creativity; GEO cannot be improved systematically.',
+        'Generic questions are better than specific ones because they cover every product equally well.',
+      ],
+      difficulty: QuestionDifficulty.MEDIUM,
+      questionType: QuizQuestionType.APPLICATION,
+      seed: `${courseId}::day6::poor-example`,
+    }),
+    make({
+      question:
+        'A team tracks conversion but not inclusion/citation/consistency. What is the typical failure mode?',
+      correct:
+        'They won’t know whether changes affect AI answers (visibility/accuracy), so commercial swings are hard to attribute and the iteration loop breaks.',
+      distractors: [
+        'Commercial KPIs automatically imply inclusion and citation, so GEO KPIs are redundant.',
+        'Inclusion and citation are subjective, so tracking them always produces worse outcomes.',
+        'Tracking fewer metrics always improves decision quality because there is less data.',
+      ],
+      difficulty: QuestionDifficulty.HARD,
+      questionType: QuizQuestionType.CRITICAL_THINKING,
+      seed: `${courseId}::day6::missing-geo-kpis`,
+    }),
+    make({
+      question:
+        'You expand the prompt set to 30–50 and add A/B/C priorities. Why is prioritization important?',
+      correct:
+        'It focuses measurement and fixes on the highest-value queries first (best/vs/policy) so progress is visible and actionable week to week.',
+      distractors: [
+        'Prioritization is only cosmetic; all prompts are equally important and should be handled randomly.',
+        'Priorities should follow personal preference only; commercial value and risk do not matter.',
+        'Prioritization replaces measurement; once A/B/C is set, you can stop tracking KPIs.',
+      ],
+      difficulty: QuestionDifficulty.HARD,
+      questionType: QuizQuestionType.CRITICAL_THINKING,
+      seed: `${courseId}::day6::priorities`,
+    }),
+  ];
+}
+
+function generateGeoShopify30Day8QuestionsEN(day: number, title: string, courseId: string): ContentBasedQuestion[] {
+  const normalizedCourseId = String(courseId || '').toLowerCase();
+  const baseTags = [`#day${day}`, '#en', ...(normalizedCourseId ? [`#course-${normalizedCourseId}`] : []), '#geo', '#shopify'];
+  const tags = (type: QuizQuestionType, diff: QuestionDifficulty) => [
+    ...baseTags,
+    diff === QuestionDifficulty.HARD ? '#advanced' : '#intermediate',
+    type === QuizQuestionType.APPLICATION ? '#application' : '#critical-thinking',
+  ];
+
+  const make = (p: {
+    question: string;
+    correct: string;
+    distractors: [string, string, string];
+    difficulty: QuestionDifficulty;
+    questionType: QuizQuestionType;
+    seed: string;
+  }): ContentBasedQuestion => {
+    const optionsRaw: [string, string, string, string] = [p.correct, ...p.distractors];
+    const shuffled = shuffleOptionsWithCorrectIndex({ correct: p.correct, options: optionsRaw, seed: p.seed });
+    return {
+      question: p.question,
+      options: shuffled.options,
+      correctIndex: shuffled.correctIndex,
+      difficulty: p.difficulty,
+      category: 'Course Specific',
+      questionType: p.questionType,
+      hashtags: tags(p.questionType, p.difficulty),
+    };
+  };
+
+  return [
+    make({
+      question:
+        'You audit a product offer and want “offer truth” between feed and PDP. Which set of fields must match most directly according to the lesson?',
+      correct:
+        'Price, stock/availability, policy links (shipping/returns), and identifiers (SKU per variant; GTIN where available).',
+      distractors: [
+        'Only marketing adjectives and lifestyle images; factual fields can differ without consequences.',
+        'Only meta title/description and backlinks; offers do not need consistent facts across surfaces.',
+        'Only the homepage content; product-level fields do not affect shopping surfaces.',
+      ],
+      difficulty: QuestionDifficulty.MEDIUM,
+      questionType: QuizQuestionType.APPLICATION,
+      seed: `${courseId}::day8::fields`,
+    }),
+    make({
+      question:
+        'You find feed price differs from PDP price for several products. What is the most likely operational consequence?',
+      correct:
+        'Users see conflicting facts, which reduces trust and can trigger failed checkouts and extra support tickets when expectations don’t match.',
+      distractors: [
+        'Conflicts are beneficial because different prices per surface increase conversion automatically.',
+        'Price conflicts only affect blog SEO, not offer eligibility or customer decisions.',
+        'The mismatch is harmless because AI systems never quote price from feeds or pages.',
+      ],
+      difficulty: QuestionDifficulty.MEDIUM,
+      questionType: QuizQuestionType.APPLICATION,
+      seed: `${courseId}::day8::price-mismatch`,
+    }),
+    make({
+      question:
+        'Which metric definition best matches “mismatch rate” for a feed vs PDP audit?',
+      correct:
+        'Mismatches divided by (products audited × fields checked), so you can track improvement over time.',
+      distractors: [
+        'Total number of products in your catalog; bigger catalogs always have worse offer truth.',
+        'Average word count of descriptions; longer descriptions imply fewer mismatches.',
+        'Number of edits made per day; more edits guarantees fewer mismatches.',
+      ],
+      difficulty: QuestionDifficulty.MEDIUM,
+      questionType: QuizQuestionType.APPLICATION,
+      seed: `${courseId}::day8::mismatch-rate`,
+    }),
+    make({
+      question:
+        'During an audit, which is the best “critical mismatch” to prioritize fixing first?',
+      correct:
+        'A broken shipping/returns policy link or a wrong price/stock status that directly misleads the buying decision.',
+      distractors: [
+        'A minor wording difference in the brand story; policies can be fixed later by support.',
+        'A missing emoji in the product title; identifiers and stock can stay inconsistent.',
+        'A different font size between feed and PDP; factual mismatches are less important than design.',
+      ],
+      difficulty: QuestionDifficulty.MEDIUM,
+      questionType: QuizQuestionType.APPLICATION,
+      seed: `${courseId}::day8::critical`,
+    }),
+    make({
+      question:
+        'You audit 5 products and record mismatches but never re-check after a fix. What is the main problem with this workflow?',
+      correct:
+        'You can’t verify the mismatch was actually eliminated; regressions persist because there is no measure → fix → verify loop.',
+      distractors: [
+        'Verification is unnecessary; once you edit anything, feeds and pages automatically sync perfectly.',
+        'Re-checking reduces speed and therefore makes outcomes worse; it is better to keep changing quickly.',
+        'Fixing is optional because mismatches do not affect policy accuracy or customer trust.',
+      ],
+      difficulty: QuestionDifficulty.MEDIUM,
+      questionType: QuizQuestionType.APPLICATION,
+      seed: `${courseId}::day8::verify`,
+    }),
+    make({
+      question:
+        'A team tracks mismatch rate but does not track “critical mismatch count” (price/stock/policy links). What is the risk?',
+      correct:
+        'They may reduce minor discrepancies while leaving high-impact errors that still break trust and conversion.',
+      distractors: [
+        'Critical mismatches are less important than minor text differences; buyers do not notice price or stock.',
+        'Tracking more than one metric always creates worse outcomes, so only mismatch rate should exist.',
+        'Critical mismatches will always be caught by SEO tools, so separate tracking is redundant.',
+      ],
+      difficulty: QuestionDifficulty.HARD,
+      questionType: QuizQuestionType.CRITICAL_THINKING,
+      seed: `${courseId}::day8::critical-count`,
+    }),
+    make({
+      question:
+        'Why does the lesson emphasize keeping identifiers (SKU/GTIN) consistent across feed and PDP?',
+      correct:
+        'Because identifiers support accurate matching across variants and systems; inconsistencies create duplicates and incorrect summaries or fulfillment errors.',
+      distractors: [
+        'Identifiers are purely cosmetic; inconsistencies improve discoverability by adding more unique strings.',
+        'Identifiers should be hidden everywhere; technical fields reduce inclusion in shopping surfaces.',
+        'Identifiers matter only for blogs, not for product offers or merchant programs.',
+      ],
+      difficulty: QuestionDifficulty.HARD,
+      questionType: QuizQuestionType.CRITICAL_THINKING,
+      seed: `${courseId}::day8::identifiers`,
+    }),
+  ];
+}
+
+function generateGeoShopify30Day9QuestionsEN(day: number, title: string, courseId: string): ContentBasedQuestion[] {
+  const normalizedCourseId = String(courseId || '').toLowerCase();
+  const baseTags = [`#day${day}`, '#en', ...(normalizedCourseId ? [`#course-${normalizedCourseId}`] : []), '#geo', '#shopify'];
+  const tags = (type: QuizQuestionType, diff: QuestionDifficulty) => [
+    ...baseTags,
+    diff === QuestionDifficulty.HARD ? '#advanced' : '#intermediate',
+    type === QuizQuestionType.APPLICATION ? '#application' : '#critical-thinking',
+  ];
+
+  const make = (p: {
+    question: string;
+    correct: string;
+    distractors: [string, string, string];
+    difficulty: QuestionDifficulty;
+    questionType: QuizQuestionType;
+    seed: string;
+  }): ContentBasedQuestion => {
+    const optionsRaw: [string, string, string, string] = [p.correct, ...p.distractors];
+    const shuffled = shuffleOptionsWithCorrectIndex({ correct: p.correct, options: optionsRaw, seed: p.seed });
+    return {
+      question: p.question,
+      options: shuffled.options,
+      correctIndex: shuffled.correctIndex,
+      difficulty: p.difficulty,
+      category: 'Course Specific',
+      questionType: p.questionType,
+      hashtags: tags(p.questionType, p.difficulty),
+    };
+  };
+
+  return [
+    make({
+      question:
+        'You are auditing identifiers for 10 variants. Which SKU rule is most aligned with the lesson?',
+      correct:
+        'Each purchasable variant should have a non-empty SKU and SKUs must be unique (no reuse across colors/sizes/packs).',
+      distractors: [
+        'Use one SKU for the entire product to keep reporting simple; variants do not need unique identifiers.',
+        'Leave SKUs blank for now and rely on the product title as the identifier across systems.',
+        'Reuse the same SKU for similar colors so inventory looks cleaner; uniqueness is optional.',
+      ],
+      difficulty: QuestionDifficulty.MEDIUM,
+      questionType: QuizQuestionType.APPLICATION,
+      seed: `${courseId}::day9::sku-rule`,
+    }),
+    make({
+      question:
+        'A catalog shows duplicate SKUs across different variants. What is the most likely downstream failure mode?',
+      correct:
+        'Variants get merged or mis-matched in feeds/analytics/fulfillment, leading to wrong recommendations and operational errors.',
+      distractors: [
+        'Duplicate SKUs improve disambiguation because systems prefer fewer unique values.',
+        'Duplicates only affect visual design; feeds and operations ignore SKU entirely.',
+        'Duplicate SKUs only hurt blog SEO; product recommendations are unaffected.',
+      ],
+      difficulty: QuestionDifficulty.MEDIUM,
+      questionType: QuizQuestionType.APPLICATION,
+      seed: `${courseId}::day9::dup-sku`,
+    }),
+    make({
+      question:
+        'Which approach best matches the lesson’s stance on GTIN?',
+      correct:
+        'Use GTIN only when you genuinely have it for the item; never invent or copy GTINs across unrelated variants.',
+      distractors: [
+        'Generate placeholder GTINs so every variant has a number and looks “complete”.',
+        'Copy the same GTIN across all variants because the product is “basically the same”.',
+        'Avoid GTIN everywhere; identifiers reduce inclusion in shopping surfaces.',
+      ],
+      difficulty: QuestionDifficulty.MEDIUM,
+      questionType: QuizQuestionType.APPLICATION,
+      seed: `${courseId}::day9::gtin-rule`,
+    }),
+    make({
+      question:
+        'A brand field is inconsistent (“RunPro” vs “Run Pro” vs blank). What is the best fix according to the lesson’s intent?',
+      correct:
+        'Make brand present and consistent across the catalog using one normalized format so systems can disambiguate reliably.',
+      distractors: [
+        'Randomize brand formatting to make listings look unique; consistency is a low priority.',
+        'Remove brand everywhere; the product title alone is enough for matching.',
+        'Keep it inconsistent; AI systems always infer brand correctly from images.',
+      ],
+      difficulty: QuestionDifficulty.MEDIUM,
+      questionType: QuizQuestionType.APPLICATION,
+      seed: `${courseId}::day9::brand`,
+    }),
+    make({
+      question:
+        'A variant label reads “42 blue or black?” What is the best correction for variant clarity?',
+      correct:
+        'Split attributes into clean option dimensions (Color, Size) with single-attribute values, avoiding mixed strings.',
+      distractors: [
+        'Make the label longer by adding more attributes into the same value so nothing is missed.',
+        'Remove variant options and describe choices only in the long description text.',
+        'Use ambiguous labels; shoppers can decide after checkout and support can clarify later.',
+      ],
+      difficulty: QuestionDifficulty.MEDIUM,
+      questionType: QuizQuestionType.APPLICATION,
+      seed: `${courseId}::day9::variant-clarity`,
+    }),
+    make({
+      question:
+        'You track SKU coverage but not SKU uniqueness (duplicate count). What is the risk?',
+      correct:
+        'You might fill SKUs but still have duplicates that merge variants and break matching; coverage can look good while quality stays poor.',
+      distractors: [
+        'Uniqueness does not matter once coverage is 100%; duplicates are harmless.',
+        'Duplicate counts are subjective so they can’t be measured; only coverage is real.',
+        'Uniqueness only affects page speed; matching and recommendations are unrelated.',
+      ],
+      difficulty: QuestionDifficulty.HARD,
+      questionType: QuizQuestionType.CRITICAL_THINKING,
+      seed: `${courseId}::day9::coverage-vs-unique`,
+    }),
+    make({
+      question:
+        'Why does the lesson emphasize disambiguation (clean IDs + clean variants) for feeds and AI answers?',
+      correct:
+        'Because identifiers and consistent variants let systems match the correct offer; without them, summaries and recommendations can refer to the wrong item.',
+      distractors: [
+        'Because disambiguation is only a branding exercise; systems do not use identifiers for matching.',
+        'Because IDs mainly improve aesthetics; recommendations depend only on marketing copy.',
+        'Because fewer identifiers always reduce confusion; removing SKUs and GTINs is the safest approach.',
+      ],
+      difficulty: QuestionDifficulty.HARD,
+      questionType: QuizQuestionType.CRITICAL_THINKING,
+      seed: `${courseId}::day9::disambiguation`,
+    }),
+  ];
 }
 
 /**
@@ -35,16 +1217,92 @@ function extractKeyConcepts(content: string, title: string): {
   // Extract headings (h2, h3)
   const h2Matches = content.match(/<h2[^>]*>(.*?)<\/h2>/gi) || [];
   const h3Matches = content.match(/<h3[^>]*>(.*?)<\/h3>/gi) || [];
-  
+
+  const normalizeHeading = (s: string) =>
+    s
+      .replace(/<[^>]+>/g, '')
+      .trim()
+      .toLowerCase()
+      .replace(/[\u2018\u2019\u201C\u201D]/g, "'")
+      .replace(/[^a-z0-9\u00C0-\u024F\u0400-\u04FF\u0600-\u06FF\u0900-\u097F\u0100-\u017F\s-]/g, '')
+      .replace(/\s+/g, ' ')
+      .trim();
+
+  // Avoid heading “scaffolding” that produces generic, ungrounded questions (Examples, Practice, Self-check, etc.)
+  const ignoredHeadings = new Set<string>([
+    // EN
+    'what you will learn today',
+    "what you'll learn today",
+    'what youll learn today',
+    'learning goal',
+    'what youll learn',
+    'what you will learn',
+    'why it matters',
+    'definitions',
+    'success criteria',
+    'metrics',
+    'explanation',
+    'key idea',
+    'examples',
+    'example',
+    'practice',
+    'guided exercise',
+    'independent exercise',
+    'self-check',
+    'self check',
+    'optional deep dive',
+    'if you want to go deeper',
+    // HU
+    'tanulási cél',
+    'miért számít',
+    'példa',
+    'példák',
+    'gyakorlat',
+    'önellenőrzés',
+    // PL
+    'cel nauki',
+    'dlaczego to ważne',
+    'przykład',
+    'przykłady',
+    // PT
+    'objetivo de aprendizagem',
+    'por que isso importa',
+    'exemplo',
+    'exemplos',
+    // VI
+    'mục tiêu học tập',
+    'tại sao điều này quan trọng',
+    'ví dụ',
+    // ID
+    'tujuan belajar',
+    'mengapa ini penting',
+    'contoh',
+    // RU/BG
+    'пример',
+    'примери',
+    // AR
+    'الأهداف',
+    'لماذا يهم',
+    'مثال',
+    // HI
+    'लक्ष्य',
+    'क्यों महत्वपूर्ण है',
+    'उदाहरण',
+  ]);
+
   const mainTopics: string[] = [];
   h2Matches.forEach(match => {
     const text = match.replace(/<[^>]+>/g, '').trim();
+    const norm = normalizeHeading(text);
+    if (ignoredHeadings.has(norm)) return;
     if (text && text.length < 100 && text.length > 5) {
       mainTopics.push(text);
     }
   });
   h3Matches.forEach(match => {
     const text = match.replace(/<[^>]+>/g, '').trim();
+    const norm = normalizeHeading(text);
+    if (ignoredHeadings.has(norm)) return;
     if (text && text.length < 100 && text.length > 5 && !mainTopics.includes(text)) {
       mainTopics.push(text);
     }
@@ -56,7 +1314,12 @@ function extractKeyConcepts(content: string, title: string): {
   }
   
   // Extract words from title as key terms if content is sparse
-  const titleWords = titleClean.split(/[\s,;:–—\-]+/).filter(w => w.length > 3 && w.length < 30);
+  const titleWordsRaw = titleClean.split(/[\s,;:–—\-]+/).filter(w => w.length > 3 && w.length < 30);
+  const enStop = new Set(['what', 'with', 'from', 'your', 'into', 'when', 'then', 'this', 'that', 'will', 'have', 'you', 'they']);
+  const titleWords =
+    String(contentLower || '').length >= 0 && /[a-z]/i.test(titleClean)
+      ? titleWordsRaw.filter(w => !enStop.has(w.toLowerCase()))
+      : titleWordsRaw;
   
   // Extract key terms (bold, strong, or emphasized text)
   const keyTerms: string[] = [];
@@ -2046,10 +3309,10 @@ function getLanguageTemplates(language: string, title: string): LanguageTemplate
         question: (concept, goal) =>
           `Руководитель принимает решение по принципу: «${concept}». Какой эффект наиболее вероятен для достижения ${goal}, и какой типичный риск возникает при неправильной интерпретации или измерении?`,
         options: (concept) => [
-          'Фокус усиливает результативность, потому что оптимизирует выход (output) под ограничения; риск: оптимизация «не той метрики» даёт видимость прогресса без результата (outcome).',
-          'Достаточно увеличить количество задач, потому что больше действий = больше результата; риск: растёт активность и шум, но падает качество и ценность для клиента.',
-          'Ограничения (время/энергия/внимание) не важны, если «стараться сильнее»; риск: перегрузка, ошибки и выгорание ухудшают итоговый outcome.',
-          'Главное — скорость; качество можно исправить потом; риск: переделки и возвраты съедают throughput и ломают доверие.',
+          'Фокус усиливает результат, потому что вы выбираете одну ключевую метрику и устраняете “шум” в действиях; риск: выбор неверной метрики даёт видимость прогресса без реального эффекта.',
+          'Достаточно увеличить количество задач и звонков, потому что активность всегда равна результату; риск: растёт занятость, но падают качество, приоритизация и ценность для клиента.',
+          'Ограничения времени, энергии и внимания не важны, если “стараться сильнее”; риск: перегрузка, ошибки и выгорание ухудшают итоговый результат.',
+          'Главное — максимальная скорость любой ценой; риск: переделки, ошибки и потеря доверия съедают время и замедляют достижение цели.',
         ]
       },
       application: {
@@ -2059,16 +3322,16 @@ function getLanguageTemplates(language: string, title: string): LanguageTemplate
           `В проекте нужно перевести «${keyTerm}» в действия. Какой подход делает выход измеримым и проверяемым?`,
         options: {
           practice: [
-            'Внедряю по шагам: задаю критерии/метрики, делаю пилот на малом объёме, фиксирую результат и корректирую один rule за раз.',
-            'Меняю всё сразу без метрик и без контрольных точек, а потом «угадываю», что сработало.',
-            'Оставляю как есть и надеюсь, что проблема решится сама, без измерения и контроля.',
-            'Делаю формально, но не проверяю эффект (нет до/после), поэтому качество результата неизвестно.',
+            'Внедряю по шагам: задаю критерии и метрики, делаю пилот на малом объёме, фиксирую “до/после” и корректирую одно правило за раз.',
+            'Меняю всё сразу без метрик и контрольных точек, а потом пытаюсь “угадать”, что сработало.',
+            'Делаю действия нерегулярно и без владельца, надеясь на эффект без измерения и контроля.',
+            'Делаю формально, но не проверяю результат по “до/после”, поэтому нельзя доказать улучшение.',
           ],
           keyTerm: [
-            'Определяю «готово» (критерий), выбираю одну метрику, применяю на одном кейсе и расширяю только после подтверждения эффекта.',
-            'Использую термин как лозунг, но без чек‑листа и измерения — поэтому выход не проверяем и не повторяем.',
-            'Пытаюсь сделать «идеально», откладывая запуск; риск: потеря throughput и накопление carryover.',
-            'Выполняю действия, но без владельца/срока/порогов — результат расплывается и не влияет на outcome.',
+            'Определяю критерий “готово”, выбираю одну метрику, применяю на одном кейсе и расширяю только после подтверждения эффекта.',
+            'Использую термин как лозунг без чек‑листа и измерения, поэтому результат не проверяем и не повторяем.',
+            'Откладываю запуск, пытаясь сделать “идеально”; риск: теряется темп, копятся незавершённые задачи и падает качество решения.',
+            'Выполняю действия без владельца, сроков и порогов успеха; результат расплывается и не влияет на итоговую цель.',
           ]
         }
       },
@@ -2084,22 +3347,22 @@ function getLanguageTemplates(language: string, title: string): LanguageTemplate
         fallback: (title) => `Какой элемент является частью методологии, подробно описанной в уроке "${title}"?`,
         options: {
           keyTerm: (keyTerm) => [
-            `Как подробно описано в уроке, ${keyTerm} играет ключевую роль в оптимизации процессов и достижении целей`,
-            'Только периферийная информация без значительной роли',
-            'Только теоретическая концепция без практического применения',
-            'Не упоминается в уроке'
+            `${keyTerm} помогает принимать решения и измерять прогресс через критерии, метрики и конкретные шаги.`,
+            `${keyTerm} относится только к “мотивирующим словам” и не влияет на практические действия.`,
+            `${keyTerm} полезен лишь в теории и не предполагает проверяемого применения.`,
+            `${keyTerm} не связан с решениями и не влияет на достижение целей.`,
           ],
           topic: (topic) => [
-            `Конкретная информация, методы и примеры, связанные с ${topic.toLowerCase()}, как подробно описано в уроке`,
-            'Только общая информация',
-            'Только теоретические знания',
-            'Нет конкретного содержания'
+            `Практические методы, примеры и шаги, которые помогают применить “${topic}” и проверить результат.`,
+            `Общие рассуждения без критериев успеха и без применимых шагов.`,
+            `Только определения без примеров и без способов проверить применение.`,
+            `Набор несвязанных фактов, которые не помогают принять решение.`,
           ],
           fallback: [
-            'Конкретные шаги и лучшие практики, упомянутые и подробно описанные в уроке',
-            'Только общие принципы',
-            'Только теоретические знания',
-            'Нет конкретной методологии'
+            'Конкретные шаги, критерии успеха и проверка результата через “до/после”.',
+            'Общие принципы без метрик и без правил применения.',
+            'Теория без практических сценариев и без проверки.',
+            'Действия “на удачу” без структуры и без контроля результата.',
           ]
         }
       }
@@ -2513,31 +3776,31 @@ function getLanguageTemplates(language: string, title: string): LanguageTemplate
     return {
       criticalThinking: {
         question: (concept, goal) =>
-          `एक लीडर इस सिद्धांत पर निर्णय लेता है: “${concept}”. ${goal} हासिल करने में सबसे संभावित प्रभाव क्या है, और गलत अर्थ/गलत माप होने पर सामान्य जोखिम क्या होगा?`,
-        options: (concept) => [
-          'सही फोकस सीमाओं के भीतर output को बेहतर बनाता है; जोखिम: गलत metric पर optimize करके “busy output” बनना, outcome नहीं।',
-          'बस अधिक काम करना ही पर्याप्त है क्योंकि activity = result; जोखिम: शोर बढ़ता है और गुणवत्ता/ग्राहक‑मूल्य घटता है।',
-          'सीमाएँ (समय/ऊर्जा/ध्यान) महत्वपूर्ण नहीं; जोखिम: overload, गलतियाँ और burnout outcome बिगाड़ते हैं।',
-          'पहले गति, गुणवत्ता बाद में; जोखिम: rework बढ़ता है और throughput गिरता है।',
+          `एक नेता इस सिद्धांत पर निर्णय लेता है: “${concept}”. ${goal} हासिल करने पर सबसे संभावित असर क्या होगा, और गलत लागू/गलत मापने पर कौन-सा सामान्य जोखिम होगा?`,
+        options: () => [
+          'सही फोकस मापने योग्य परिणाम बढ़ाता है; जोखिम: गलत मानदंड चुनने से प्रगति दिखती है, पर वास्तविक सुधार नहीं होता।',
+          'सिर्फ काम और गतिविधि बढ़ा देने से ही परिणाम मिलेंगे; जोखिम: शोर बढ़ता है और गुणवत्ता व मूल्य घटते हैं।',
+          'समय/ऊर्जा/ध्यान जैसी सीमाएँ महत्व नहीं रखतीं; जोखिम: थकान और गलतियाँ परिणाम को नुकसान पहुँचाती हैं।',
+          'केवल गति सबसे महत्वपूर्ण है और गुणवत्ता बाद में; जोखिम: दोबारा काम बढ़ता है और भरोसा घटता है।',
         ]
       },
       application: {
         practice: (practice) =>
-          `आप एक नई प्रैक्टिस लागू कर रहे हैं: “${practice}”. कौन सा प्लान मापने योग्य output और तेज़ feedback देता है?`,
+          `आप एक नई प्रैक्टिस लागू कर रहे हैं: “${practice}”. कौन-सी योजना मापने योग्य परिणाम और तेज़ प्रतिक्रिया देगी?`,
         keyTerm: (keyTerm) =>
-          `एक प्रोजेक्ट में आपको “${keyTerm}” को actions में बदलना है। कौन सा तरीका output को measurable और verifiable बनाता है?`,
+          `आप “${keyTerm}” को ठोस कदमों में बदलना चाहते हैं. कौन-सा तरीका परिणाम को मापने योग्य और जाँचने योग्य बनाता है?`,
         options: {
           practice: [
-            'मैं चरण‑दर‑चरण लागू करता हूँ: criteria/metrics तय करता हूँ, छोटा pilot करता हूँ, before/after मापता हूँ, परिणाम लिखता हूँ और एक‑एक rule बदलता हूँ।',
-            'मैं सब कुछ एक साथ बदल देता हूँ बिना metrics/checkpoints के, फिर अंदाज़ा लगाता हूँ कि क्या काम किया।',
-            'मैं शुरू तो करता हूँ, पर impact नहीं मापता (before/after नहीं), इसलिए गुणवत्ता पता नहीं चलती।',
-            'मैं बिना owner/deadline/threshold के कर देता हूँ, इसलिए output outcome से नहीं जुड़ता।',
+            'मैं चरणबद्ध लागू करता हूँ: सफलता-मानदंड तय, छोटे दायरे में पायलट, पहले/बाद में माप, और हर बार एक बदलाव।',
+            'मैं सब कुछ एक साथ बदल देता हूँ, बिना माप और समीक्षा बिंदुओं के, फिर बाद में अनुमान लगाता हूँ कि क्या चला।',
+            'मैं औपचारिक रूप से करता हूँ, पर पहले/बाद में तुलना नहीं करता, इसलिए सुधार साबित नहीं कर पाता।',
+            'मैं बिना जिम्मेदारी, समयसीमा और सफलता-सीमा के करता हूँ, इसलिए परिणाम लक्ष्य से नहीं जुड़ता।',
           ],
           keyTerm: [
-            'मैं “done” criteria लिखता हूँ, एक metric चुनता हूँ, एक case पर लागू करता हूँ और प्रभाव पुष्टि होने पर ही scale करता हूँ।',
-            'मैं term को slogan की तरह उपयोग करता हूँ; checklist/measurement नहीं होने से output verify नहीं होता।',
-            'मैं “perfect” होने तक टालता हूँ; throughput गिरता है और carryover बढ़ता है।',
-            'मैं actions करता हूँ पर measure/document नहीं करता, इसलिए improvement अज्ञात रहता है।',
+            'मैं “हो गया” का मानदंड लिखता हूँ, एक मीट्रिक चुनता हूँ, एक केस पर लागू करता हूँ, फिर असर साबित होने पर विस्तार करता हूँ।',
+            'मैं इसे नारे की तरह उपयोग करता हूँ; सूची और माप नहीं होने से परिणाम न सत्यापित होता है न दोहराने योग्य।',
+            'मैं परफेक्ट होने तक टालता रहता हूँ; जोखिम: गति गिरती है और अधूरे काम जमा होते जाते हैं।',
+            'मैं कुछ कदम चलाता हूँ, पर माप और लिखित रिकॉर्ड नहीं रखता, इसलिए सुधार अज्ञात रहता है।',
           ]
         }
       },
@@ -2545,38 +3808,130 @@ function getLanguageTemplates(language: string, title: string): LanguageTemplate
         keyTerm: (keyTerm, titleParam?: string) => {
           const lessonTitle = titleParam || title;
           if (keyTerm.length > 15) {
-            return `${keyTerm} "${lessonTitle}" पाठ में क्या भूमिका निभाता है?`;
+            return `“${lessonTitle}” विषय में ${keyTerm} की व्यावहारिक भूमिका क्या है?`;
           }
-          return `पाठ में चर्चा किए गए ${lessonTitle} के संदर्भ में ${keyTerm} कितना महत्वपूर्ण है?`;
+          return `“${lessonTitle}” विषय में ${keyTerm} निर्णय और माप को कैसे बेहतर बनाता है?`;
         },
-        topic: (topic) => `"${topic}" अनुभाग में पाठ में क्या शामिल है?`,
-        fallback: (title) => `कौन सा तत्व "${title}" पाठ में विस्तार से वर्णित पद्धति का हिस्सा है?`,
+        topic: (topic) => `“${topic}” को लागू करने के लिए कौन-सा तत्व सबसे ज़रूरी है?`,
+        fallback: (title) => `“${title}” को मापने योग्य बनाने के लिए कौन-सा कदम सबसे सही है?`,
         options: {
           keyTerm: (keyTerm) => [
-            `जैसा कि पाठ में विस्तार से वर्णित है, ${keyTerm} प्रक्रियाओं को अनुकूलित करने और लक्ष्यों को प्राप्त करने में महत्वपूर्ण भूमिका निभाता है`,
-            'केवल परिधीय जानकारी, कोई महत्वपूर्ण भूमिका नहीं',
-            'केवल एक सैद्धांतिक अवधारणा, कोई व्यावहारिक अनुप्रयोग नहीं',
-            'पाठ में उल्लेख नहीं किया गया'
+            `${keyTerm} को मानदंड, मीट्रिक और स्पष्ट कदमों से जोड़कर प्रगति को सत्यापित किया जा सकता है।`,
+            `${keyTerm} केवल सामान्य सलाह है; इसे माप या कदमों की जरूरत नहीं, इसलिए परिणाम नहीं बदलते।`,
+            `${keyTerm} सिर्फ सिद्धांत के लिए है और वास्तविक स्थितियों में इसका परीक्षण संभव नहीं।`,
+            `${keyTerm} व्यस्तता बढ़ाता है, पर परिणाम साबित करने का तरीका नहीं देता।`,
           ],
           topic: (topic) => [
-            `पाठ में विस्तार से वर्णित ${topic.toLowerCase()} से संबंधित विशिष्ट जानकारी, विधियां और उदाहरण`,
-            'केवल सामान्य जानकारी',
-            'केवल सैद्धांतिक ज्ञान',
-            'कोई विशिष्ट सामग्री नहीं'
+            `स्पष्ट कदम + सफलता-मानदंड + पहले/बाद में तुलना ताकि “${topic}” का असर साबित हो सके।`,
+            'सामान्य बातें, बिना मानदंड और बिना माप के।',
+            'परिभाषाएँ, पर उदाहरण और लागू करने योग्य कदम नहीं।',
+            'सिर्फ गतिविधि-गिनती जो वास्तविक परिणाम से नहीं जुड़ती।',
           ],
           fallback: [
-            'पाठ में उल्लिखित और विस्तार से वर्णित विशिष्ट चरण और सर्वोत्तम प्रथाएं',
-            'केवल सामान्य सिद्धांत',
-            'केवल सैद्धांतिक ज्ञान',
-            'कोई विशिष्ट पद्धति नहीं'
+            'ठोस कदम, जिम्मेदारी, और मापने का तरीका (पहले/बाद) ताकि असर साबित हो।',
+            'सिर्फ सिद्धांत, बिना लागू करने की योजना के।',
+            'अनिश्चित प्रयास, बिना जाँच और बिना मानदंड के।',
+            'ऐसा काम जो व्यस्तता बढ़ाए, पर परिणाम नहीं दिखाए।',
           ]
         }
       }
     };
   }
+
+  // Arabic templates
+  // Notes:
+  // - Must avoid long Latin segments (Arabic script integrity check).
+  // - Must NOT reference the lesson explicitly (e.g., "في الدرس" is disallowed by the validator).
+  if (lang === 'ar') {
+    return {
+      criticalThinking: {
+        question: (concept, goal) =>
+          `يتخذ قائد قرارًا وفق مبدأ: «${concept}». ما الأثر الأكثر احتمالًا لتحقيق ${goal}، وما الخطر المعتاد إذا طُبّق بشكل خاطئ أو تم قياسه بطريقة خاطئة؟`,
+        options: () => [
+          'يزداد الأثر لأن التركيز يوجّه الجهد نحو نتيجة قابلة للقياس؛ الخطر: اختيار معيار خاطئ يعطي شعورًا بالتقدم دون تحسن حقيقي.',
+          'يكفي زيادة عدد المهام لأن النشاط يساوي النتيجة دائمًا؛ الخطر: ترتفع الضوضاء وتقل الجودة والقيمة الفعلية.',
+          'القيود (الوقت/الطاقة/الانتباه) غير مهمة إذا بذلت جهدًا أكبر؛ الخطر: الإرهاق والأخطاء تقلل النتيجة النهائية.',
+          'الأهم هو السرعة فقط ثم نصحح الجودة لاحقًا؛ الخطر: تزداد إعادة العمل ويضيع الوقت وتضعف الثقة.',
+        ],
+      },
+      application: {
+        practice: (practice) =>
+          `ستطبق ممارسة جديدة: «${practice}». أي خطة تمنح نتيجة قابلة للقياس وتغذية راجعة سريعة؟`,
+        keyTerm: (keyTerm) =>
+          `تريد تحويل «${keyTerm}» إلى خطوات عملية. أي نهج يجعل النتيجة قابلة للتحقق والقياس؟`,
+        options: {
+          practice: [
+            'أطبقها تدريجيًا: أعرّف معيار النجاح، أجرب على نطاق صغير، أقيس قبل/بعد، ثم أعدل خطوة واحدة في كل مرة.',
+            'أغير كل شيء دفعة واحدة دون قياس أو نقاط مراجعة، ثم أحاول تخمين ما الذي نجح لاحقًا.',
+            'أقوم بها بشكل غير منتظم ودون مسؤول واضح، وأتوقع تحسنًا دون قياس أو متابعة.',
+            'أطبقها شكليًا لكن دون مقارنة قبل/بعد، لذلك لا أستطيع إثبات أي تحسن.',
+          ],
+          keyTerm: [
+            'أحدد معيار "تم" وأختار مؤشرًا واحدًا، أطبقه على حالة واحدة ثم أوسع بعد تأكيد الأثر.',
+            'أستخدم المصطلح كشعار دون قائمة تحقق أو قياس، فتظل النتيجة غير قابلة للتحقق أو التكرار.',
+            'أؤجل التنفيذ حتى يصبح مثاليًا؛ الخطر: يتباطأ التقدم وتتراكم مهام غير منجزة.',
+            'أنفذ خطوات بلا مالك أو موعد أو عتبة نجاح، فتتشتت النتيجة ولا ترتبط بالهدف.',
+          ],
+        },
+      },
+      recall: {
+        keyTerm: (keyTerm, titleParam?: string) => {
+          const lessonTitle = titleParam || title;
+          if (keyTerm.length > 15) return `ما الدور العملي لـ ${keyTerm} ضمن موضوع: «${lessonTitle}»؟`;
+          return `كيف يؤثر ${keyTerm} على اتخاذ القرار والقياس ضمن موضوع: «${lessonTitle}»؟`;
+        },
+        topic: (topic) => `ما الذي يميّز تطبيق «${topic}» بشكل قابل للقياس والتحقق؟`,
+        fallback: (title) => `أي خيار يوضح تطبيقًا عمليًا قابلًا للقياس لموضوع: «${title}»؟`,
+        options: {
+          keyTerm: (keyTerm) => [
+            `${keyTerm} يساعد على تحويل الهدف إلى معيار نجاح وخطوات قابلة للقياس والمتابعة.`,
+            `${keyTerm} مجرد فكرة عامة لا تتطلب خطوات أو قياسًا، لذلك لا يغير النتيجة.`,
+            `${keyTerm} مفيد نظريًا فقط ولا يمكن التحقق منه في الواقع العملي.`,
+            `${keyTerm} يزيد النشاط فقط دون أي طريقة لإثبات تحسن النتيجة.`,
+          ],
+          topic: (topic) => [
+            `أساليب وخطوات قابلة للتطبيق تساعد على استخدام «${topic}» مع مؤشر واضح لقياس التقدم.`,
+            'معلومات عامة دون معايير نجاح أو طريقة لقياس الأثر.',
+            'تعريفات فقط دون أمثلة أو خطوات قابلة للتنفيذ.',
+            'مؤشرات نشاط (عدد الرسائل/الاجتماعات) دون ارتباط بنتيجة قابلة للقياس.',
+          ],
+          fallback: [
+            'خطوات محددة مع معيار نجاح وقياس قبل/بعد للتحقق من الأثر.',
+            'مبادئ عامة دون قياس أو مسؤوليات أو مراجعة.',
+            'نظرية دون تطبيق عملي أو سيناريوهات واقعية.',
+            'تنفيذ عشوائي دون متابعة أو إثبات للنتيجة.',
+          ],
+        },
+      },
+    };
+  }
   
   // Hungarian templates (existing)
   if (lang === 'hu') {
+    const practiceCorrect =
+      'Lépésről lépésre bevezetem: előtte/utána mérőpontokat állítok be, pilotot futtatok kis scope-on, dokumentálok, és egy változót módosítok egyszerre.';
+    const practiceDistractors = [
+      'Túl nagy scope-pal indulok (minden csapat/folyamat), így nincs gyors visszacsatolás és nem látszik, mi okozza az eredményt.',
+      'Bevezetem, de nem definiálok előre metrikát és küszöböt; csak benyomás alapján döntünk, hogy „jobb lett-e”.',
+      'Kijelölök metrikát, de nincs review időpont és nincs döntési szabály, ezért a mérés nem vezet változáshoz.',
+      'Csak eszközt cserélünk (app/board), de a munkaszabályokat (WIP, definíciók, handoff) nem, így a kimenet nem lesz mérhető.',
+      'Kiadom a csapatnak, de nem tisztázom a „done” kritériumot és a felelőst, ezért nő a rework és a félreértés.',
+      'Pilot nélkül kiterítem mindenkire, majd egyszerre több szabályt változtatok, így nem tudjuk izolálni a hatást.',
+      'Sok meetinget indítok a bevezetéshez, de nem védem a fókuszblokkokat, így romlik a végrehajtás és nő a carryover.',
+    ];
+
+    const keyTermCorrect =
+      'Konkrét ellenőrzőlistát készítek, implementálom egy kis scope-on, mérek előtte/utána, majd csak validált hatás után terjesztem ki.';
+    const keyTermDistractors = [
+      'Csak definícióként kezelem, így nem derül ki, működik-e a gyakorlatban, és nincs ellenőrizhető kimenet.',
+      'Bevezetem, de nem rendelek hozzá metrikát/küszöböt és nincs owner — a kimenet nem lesz verifikálható.',
+      'Túl sok mindent akarok egyszerre optimalizálni, ezért nincs egyetlen változó és nincs tiszta tanulság.',
+      'Megcsinálom egyszer, de nincs dokumentáció és ismételhető lépéssor, ezért nem skálázható és nem auditálható.',
+      'A fogalmat címkének használom, de nem bontom lépésekre és nem jelölök felelőst/határidőt, ezért elcsúszik a végrehajtás.',
+      'Döntést hozok, de nem mérek és nem review-zok, így nem derül ki, hogy nőtt-e a throughput vagy csökkent-e a carryover.',
+      'A gyorsaságot prioritizálom és a minőséget „későbbre” hagyom; a rework és újranyitás elviszi a kapacitást.',
+    ];
+
     return {
       criticalThinking: {
         question: (concept, goal) => {
@@ -2601,18 +3956,18 @@ function getLanguageTemplates(language: string, title: string): LanguageTemplate
         keyTerm: (keyTerm) =>
           `Egy projektben a „${keyTerm}” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?`,
         options: {
-          practice: [
-            'Lépésről lépésre bevezetem, előtte/utána mérőpontokat állítok be, dokumentálom az eredményt, és iterálok a hibák alapján',
-            'Egyszerre mindent átállítok, majd nem ellenőrzöm, mi romlott el',
-            'Csak elolvasom, de nem építem be a folyamatomba',
-            'Megvárom, hogy valaki más készítsen helyettem megoldást'
-          ],
-          keyTerm: [
-            'Konkrét ellenőrzőlistát készítek, implementálom egy kis scope-on, tesztelem a hatást, majd kiterjesztem a teljes scope-ra',
-            'Csak definícióként kezelem, ezért nem derül ki, működik-e a gyakorlatban',
-            'Kihagyom az implementációt, mert túl időigényesnek tűnik',
-            'Végrehajtom, de nem mérek és nem dokumentálok semmit'
-          ]
+          practice: (seedText: string) =>
+            buildVariedOptions({
+              correct: practiceCorrect,
+              distractorPool: practiceDistractors,
+              seed: `hu::practice::${seedText}`,
+            }).options,
+          keyTerm: (seedText: string) =>
+            buildVariedOptions({
+              correct: keyTermCorrect,
+              distractorPool: keyTermDistractors,
+              seed: `hu::keyterm::${seedText}`,
+            }).options,
         }
       },
       recall: {
@@ -2651,35 +4006,66 @@ function getLanguageTemplates(language: string, title: string): LanguageTemplate
   }
   
   // Default to English templates
+  const enPracticeCorrect =
+    'I roll it out step by step: define a success threshold, run a small pilot, measure before/after, and change one variable at a time.';
+  const enPracticeDistractors = [
+    'I roll it out broadly without a baseline, then attribute outcomes to the change without evidence.',
+    'I set a metric but do not define a decision rule or review cadence, so measurement never turns into improvement.',
+    'I change the tool and the process at the same time, so I cannot tell what actually caused the outcome shift.',
+    'I optimize for “activity” (more tasks touched) instead of a measurable outcome, so value and quality may drop.',
+    'I skip constraints (time/attention/energy) and overcommit, creating carryover and quality decay.',
+    'I add more meetings/status updates as the control mechanism, shrinking execution time and slowing throughput.',
+  ];
+
+  const enKeyTermCorrect =
+    'I make it measurable: write a “done” criterion, pick one metric, apply it to a small scope, and expand only after verified impact.';
+  const enKeyTermDistractors = [
+    'I treat it as a slogan and never operationalize it into steps, owner, and a measurable threshold.',
+    'I implement it once but do not document the steps, so it is not repeatable or auditable across the team.',
+    'I optimize the wrong metric (busy output), which increases activity while customer value and quality fall.',
+    'I move fast and postpone quality, which increases rework and re-opened tasks that consume capacity.',
+    'I keep changing multiple variables at once, so results are noisy and learning is unclear.',
+  ];
+
+  const enCriticalCorrect =
+    'Correctly applied, it focuses effort on high-impact outcomes under constraints; misapplied, it drives optimization to the wrong metric and produces “busy output”.';
+  const enCriticalDistractors = [
+    'It mainly increases activity volume (more tasks closed), which is enough on its own; the risk is only that people feel tired.',
+    'Constraints can be ignored if the team has enough willpower; the risk is minimal because effort fixes everything.',
+    'Speed is the primary goal and quality can be fixed later; the risk is low because rework is easy to absorb.',
+    'It means documenting more, so results improve automatically; the risk is only extra paperwork.',
+    'It pushes measurement but not execution, so it rarely affects outcomes; the risk is overthinking.',
+  ];
+
   return {
     criticalThinking: {
       question: (concept, goal) =>
-        `In a "${title}" scenario, how would applying "${concept.substring(0, 50)}..." change your ability to achieve ${goal}, and what is the most likely risk if you implement it incorrectly?`,
-      options: (concept) => [
-        `${concept.substring(0, 30)}... applied correctly improves outcome quality and reduces risk; applied poorly it increases errors and downstream rework`,
-        'No significant impact',
-        'Only matters theoretically',
-        'Only an optional element'
-      ]
+        `In a "${title}" scenario, how would applying "${concept.substring(0, 50)}" change your ability to achieve ${goal}, and what is the most likely risk if you implement it incorrectly?`,
+      options: (seedText: string) =>
+        buildVariedOptions({
+          correct: enCriticalCorrect,
+          distractorPool: enCriticalDistractors,
+          seed: `en::critical::${seedText}`,
+        }).options
     },
     application: {
       practice: (practice) =>
-        `In your own workflow, how would you implement the "${practice.substring(0, 40)}..." step from "${title}" (specific steps + a way to verify it worked)?`,
+        `You want to implement this practice in your own workflow: "${practice.substring(0, 60)}". Which plan produces measurable output and fast feedback?`,
       keyTerm: (keyTerm) =>
-        `How would you apply the "${keyTerm}" concept to a "${title}" task so the outcome is measurable and verifiable?`,
+        `You are working on "${title}". A teammate mentions "${keyTerm}" but you need it operational. Which approach makes the output measurable and verifiable?`,
       options: {
-        practice: [
-          'I implement it step by step, define before/after checks, document results, and iterate based on what fails',
-          'I change everything at once and skip verification',
-          'I only read about it but never integrate it into my process',
-          'I wait for someone else to produce the solution'
-        ],
-        keyTerm: [
-          'I create a checklist, apply it to a small scope first, measure the impact, then roll it out to the full scope',
-          'I keep it as a definition and never validate it in practice',
-          'I skip implementation because it seems time-consuming',
-          'I implement it but do not measure or document anything'
-        ]
+        practice: (seedText: string) =>
+          buildVariedOptions({
+            correct: enPracticeCorrect,
+            distractorPool: enPracticeDistractors,
+            seed: `en::practice::${seedText}`,
+          }).options,
+        keyTerm: (seedText: string) =>
+          buildVariedOptions({
+            correct: enKeyTermCorrect,
+            distractorPool: enKeyTermDistractors,
+            seed: `en::keyterm::${seedText}`,
+          }).options,
       }
     },
       recall: {
@@ -2727,9 +4113,52 @@ export function generateContentBasedQuestions(
   language: string,
   courseId: string,
   existingQuestions: any[],
-  needed: number
+  needed: number,
+  opts?: { seed?: string }
 ): ContentBasedQuestion[] {
   const questions: ContentBasedQuestion[] = [];
+  const seedBase = String(opts?.seed || `${courseId}::${language}::${day}`);
+
+  // Special-case: GEO Shopify (EN) Day 7 — needs concrete product-data audit scenarios.
+  if (String(language || '').toLowerCase() === 'en' && String(courseId || '') === 'GEO_SHOPIFY_30_EN' && day === 7) {
+    const pool = generateGeoShopify30Day7QuestionsEN(day, title, courseId);
+    return pool.slice(0, Math.max(needed, 9));
+  }
+  // Special-case: GEO Shopify (EN) Day 2 — GEO-first vs SEO-first must be grounded.
+  if (String(language || '').toLowerCase() === 'en' && String(courseId || '') === 'GEO_SHOPIFY_30_EN' && day === 2) {
+    const pool = generateGeoShopify30Day2QuestionsEN(day, title, courseId);
+    return pool.slice(0, Math.max(needed, 9));
+  }
+  // Special-case: GEO Shopify (EN) Day 3 — AI journey + answer capsule needs concrete scenarios.
+  if (String(language || '').toLowerCase() === 'en' && String(courseId || '') === 'GEO_SHOPIFY_30_EN' && day === 3) {
+    const pool = generateGeoShopify30Day3QuestionsEN(day, title, courseId);
+    return pool.slice(0, Math.max(needed, 9));
+  }
+  // Special-case: GEO Shopify (EN) Day 4 — influence vs transaction must be concrete and policy-grounded.
+  if (String(language || '').toLowerCase() === 'en' && String(courseId || '') === 'GEO_SHOPIFY_30_EN' && day === 4) {
+    const pool = generateGeoShopify30Day4QuestionsEN(day, title, courseId);
+    return pool.slice(0, Math.max(needed, 9));
+  }
+  // Special-case: GEO Shopify (EN) Day 5 — platform map must be grounded in constraints and requirements.
+  if (String(language || '').toLowerCase() === 'en' && String(courseId || '') === 'GEO_SHOPIFY_30_EN' && day === 5) {
+    const pool = generateGeoShopify30Day5QuestionsEN(day, title, courseId);
+    return pool.slice(0, Math.max(needed, 9));
+  }
+  // Special-case: GEO Shopify (EN) Day 6 — prompt set + KPI logic must be concrete and measurable.
+  if (String(language || '').toLowerCase() === 'en' && String(courseId || '') === 'GEO_SHOPIFY_30_EN' && day === 6) {
+    const pool = generateGeoShopify30Day6QuestionsEN(day, title, courseId);
+    return pool.slice(0, Math.max(needed, 9));
+  }
+  // Special-case: GEO Shopify (EN) Day 8 — offer truth (feed vs PDP) must be factual and measurable.
+  if (String(language || '').toLowerCase() === 'en' && String(courseId || '') === 'GEO_SHOPIFY_30_EN' && day === 8) {
+    const pool = generateGeoShopify30Day8QuestionsEN(day, title, courseId);
+    return pool.slice(0, Math.max(needed, 9));
+  }
+  // Special-case: GEO Shopify (EN) Day 9 — identifiers must be concrete and operational.
+  if (String(language || '').toLowerCase() === 'en' && String(courseId || '') === 'GEO_SHOPIFY_30_EN' && day === 9) {
+    const pool = generateGeoShopify30Day9QuestionsEN(day, title, courseId);
+    return pool.slice(0, Math.max(needed, 9));
+  }
 
   const sanitizeSnippet = (input: string) =>
     String(input || '')
@@ -2844,9 +4273,20 @@ export function generateContentBasedQuestions(
   const targetApplication = Math.max(0, needed - targetCritical);
 
   const seen = new Set<string>();
+  const normalizeQuestionText = (text: string) =>
+    String(text || '')
+      .trim()
+      .toLowerCase()
+      .replace(/\s+/g, ' ');
+  const existingSeen = new Set<string>(
+    Array.isArray(existingQuestions)
+      ? existingQuestions.map(q => normalizeQuestionText(q?.question)).filter(Boolean)
+      : []
+  );
   const addQuestion = (q: ContentBasedQuestion) => {
     const normalized = q.question.trim().toLowerCase();
     if (seen.has(normalized)) return false;
+    if (existingSeen.has(normalized)) return false;
     seen.add(normalized);
     questions.push(q);
     return true;
@@ -2876,16 +4316,34 @@ export function generateContentBasedQuestions(
     ...keyTerms,
     title,
   ].filter(Boolean);
+  const criticalSourcesShuffled = shuffleWithSeed(criticalSources, `${seedBase}::critical-sources`);
 
   // Generate CRITICAL_THINKING
   for (let i = 0; i < targetCritical; i++) {
-    const source = criticalSources[i] || title;
+    const source = criticalSourcesShuffled[i] || title;
     const concept = sanitizeSnippet(String(source)).substring(0, 80);
     const questionText = templates.criticalThinking.question(concept, goalLabel);
+    const criticalBaseOptionsRaw = templates.criticalThinking.options(concept.substring(0, 40));
+    const criticalBaseOptions =
+      typeof criticalBaseOptionsRaw === 'function' ? criticalBaseOptionsRaw(concept.substring(0, 40)) : criticalBaseOptionsRaw;
+    const criticalCorrect = String(criticalBaseOptions[0] || '').trim();
+    const criticalShuffled = shuffleWithSeed(
+      criticalBaseOptions,
+      `${courseId}::${language}::${day}::${questionText}::critical-options`
+    );
+    const criticalCorrectIndex = Math.max(
+      0,
+      criticalShuffled.findIndex(o => String(o || '').trim() === criticalCorrect)
+    );
     addQuestion({
       question: questionText,
-      options: templates.criticalThinking.options(concept.substring(0, 40)),
-      correctIndex: 0,
+      options: [
+        String(criticalShuffled[0] || ''),
+        String(criticalShuffled[1] || ''),
+        String(criticalShuffled[2] || ''),
+        String(criticalShuffled[3] || ''),
+      ] as any,
+      correctIndex: (criticalCorrectIndex as 0 | 1 | 2 | 3),
       difficulty: QuestionDifficulty.HARD,
       category: 'Course Specific',
       questionType: QuizQuestionType.CRITICAL_THINKING,
@@ -2901,10 +4359,11 @@ export function generateContentBasedQuestions(
   mainTopics.forEach(t => appSources.push({ kind: 'keyTerm', value: t }));
   concepts.forEach(c => appSources.push({ kind: 'keyTerm', value: c }));
   appSources.push({ kind: 'keyTerm', value: title });
+  const appSourcesShuffled = shuffleWithSeed(appSources, `${seedBase}::app-sources`);
 
   let appIndex = 0;
-  while (questions.length < targetCritical + targetApplication && appIndex < appSources.length * 3) {
-    const source = appSources[appIndex % appSources.length];
+  while (questions.length < targetCritical + targetApplication && appIndex < appSourcesShuffled.length * 3) {
+    const source = appSourcesShuffled[appIndex % appSourcesShuffled.length];
     const raw = sanitizeSnippet(String(source.value));
     const snippet = raw.substring(0, source.kind === 'practice' ? 60 : 80);
     const questionText =
@@ -2912,10 +4371,18 @@ export function generateContentBasedQuestions(
         ? templates.application.practice(snippet)
         : templates.application.keyTerm(snippet);
 
+    const baseOptionsRaw =
+      source.kind === 'practice' ? templates.application.options.practice : templates.application.options.keyTerm;
+    const baseOptions =
+      typeof baseOptionsRaw === 'function' ? baseOptionsRaw(snippet) : baseOptionsRaw;
+    const correct = String(baseOptions[0] || '').trim();
+    const shuffled = shuffleWithSeed(baseOptions, `${courseId}::${language}::${day}::${questionText}::options`);
+    const correctIndex = Math.max(0, shuffled.findIndex(o => String(o || '').trim() === correct));
+
     addQuestion({
       question: questionText,
-      options: source.kind === 'practice' ? templates.application.options.practice : templates.application.options.keyTerm,
-      correctIndex: 0,
+      options: [String(shuffled[0] || ''), String(shuffled[1] || ''), String(shuffled[2] || ''), String(shuffled[3] || '')] as any,
+      correctIndex: (correctIndex as 0 | 1 | 2 | 3),
       difficulty: QuestionDifficulty.MEDIUM,
       category: 'Course Specific',
       questionType: QuizQuestionType.APPLICATION,

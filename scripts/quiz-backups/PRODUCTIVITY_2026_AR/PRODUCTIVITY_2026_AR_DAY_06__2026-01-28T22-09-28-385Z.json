@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-28T22:09:38.257Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_AR",
+    "name": "الإنتاجية 2026: كيفية إدارة الفرق والوقت",
+    "language": "ar"
+  },
+  "lesson": {
+    "dayNumber": 6,
+    "title": "التقاط: صناديق الوارد، قائمة المحفزات، عادات التقاط",
+    "lessonId": "PRODUCTIVITY_2026_AR_DAY_06"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a603ed20b35fb797274",
+      "uuid": "ece201a3-5fee-4891-9e5f-65c09fc0b533",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ لديك نظام صناديق وارد موثوق.\n✅ لديك قا...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day6",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a603ed20b35fb797275",
+      "uuid": "0cf1a35a-19bb-4888-ba7c-f0f146462a0d",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ لديك نظام صناديق وارد موثوق.\n✅ لديك قا...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day6",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a603ed20b35fb797276",
+      "uuid": "052d4144-0afb-4935-849a-bd124ada0e48",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ لديك نظام صناديق وارد موثوق.\n✅ لديك قا...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day6",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a603ed20b35fb797277",
+      "uuid": "65a67571-e319-4c00-9257-37753c8075c1",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "How does the concept \"التقاط: صناديق الوارد، قائمة المحفزات، عادات التقا...\" mentioned in the lesson impact achieving your goals?",
+      "options": [
+        "As described in detail in the lesson, التقاط: صناديق الوارد، قائمة ا... increases effectiveness and reduces risk",
+        "No significant impact",
+        "Only matters theoretically",
+        "Only an optional element"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day6",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a603ed20b35fb797278",
+      "uuid": "ee84232b-7459-4f32-bc20-9dd002d283a8",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is صناديق الوارد in the context of التقاط: صناديق الوارد، قائمة المحفزات، عادات التقاط as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, صناديق الوارد plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day6",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a603ed20b35fb797279",
+      "uuid": "4e8bf858-0325-4ea5-a93c-9978bf8b6ae0",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is عادات التقاط in the context of التقاط: صناديق الوارد، قائمة المحفزات، عادات التقاط as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, عادات التقاط plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day6",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a603ed20b35fb79727a",
+      "uuid": "d1a28021-0f08-464a-b13e-2fd8492af4f1",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is القاعدة in the context of التقاط: صناديق الوارد، قائمة المحفزات، عادات التقاط as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, القاعدة plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day6",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

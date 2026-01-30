@@ -1,0 +1,68 @@
+{
+  "backedUpAt": "2026-01-29T17:00:29.460Z",
+  "course": {
+    "courseId": "B2B_SALES_2026_30",
+    "name": "B2B Értékesítés 2026 Masterclass",
+    "language": "hu"
+  },
+  "lesson": {
+    "dayNumber": 29,
+    "title": "Closing: döntés és következő lépés",
+    "lessonId": "B2B_SALES_2026_30_DAY_29"
+  },
+  "questionCount": 4,
+  "questions": [
+    {
+      "_id": "697b2044ac79ca83bb9722c8",
+      "difficulty": "MEDIUM",
+      "question": "Mi a closing fókusza?",
+      "options": [
+        "Árcsökkentés mindenáron",
+        "Döntésvezetés, kockázatkezelés, következő lépés",
+        "Marketing kampány",
+        "HR feladat"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b2044ac79ca83bb9722c9",
+      "difficulty": "MEDIUM",
+      "question": "Mi a decision email lényege?",
+      "options": [
+        "Összefoglaló + kockázat + next step + döntési határidő",
+        "Csak ár",
+        "Csak logó",
+        "Csak NDA"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b2044ac79ca83bb9722ca",
+      "difficulty": "MEDIUM",
+      "question": "Mi a rossz példa?",
+      "options": [
+        "„Küldtem ajánlatot, várom a választ.”",
+        "Összefoglaló és határidő",
+        "Kickoff dátum egyeztetése",
+        "Aláírás folyamat tisztázása"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b2044ac79ca83bb9722cb",
+      "difficulty": "MEDIUM",
+      "question": "Mit tartalmaz a close checklist?",
+      "options": [
+        "Döntéshozó, kockázatkezelés, aláírás folyamata, next step",
+        "Csak emoji",
+        "Csak ár",
+        "Csak marketing"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    }
+  ]
+}

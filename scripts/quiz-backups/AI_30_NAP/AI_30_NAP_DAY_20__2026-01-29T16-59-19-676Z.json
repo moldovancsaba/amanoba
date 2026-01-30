@@ -1,0 +1,94 @@
+{
+  "backedUpAt": "2026-01-29T17:00:37.308Z",
+  "course": {
+    "courseId": "AI_30_NAP",
+    "name": "30-Day AI Catch-Up Program",
+    "language": "hu"
+  },
+  "lesson": {
+    "dayNumber": 20,
+    "title": "Skill-check & szintlépés",
+    "lessonId": "AI_30_NAP_DAY_20"
+  },
+  "questionCount": 6,
+  "questions": [
+    {
+      "_id": "697b2058060240540231b43d",
+      "difficulty": "EASY",
+      "question": "Mi a skill-check célja?",
+      "options": [
+        "Felmérni az erősségeket/hiányokat és kijelölni a következő célokat",
+        "Csak hosszabb szöveget írni",
+        "Mindig nulláról kezdeni",
+        "Nem kell mérni a fejlődést"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b2058060240540231b43f",
+      "difficulty": "MEDIUM",
+      "question": "Mely területeket érdemes értékelni?",
+      "options": [
+        "Prompt, workflow, sablon, QA/hibakezelés, szerep-specifikus, biztonság",
+        "Csak a stílust",
+        "Csak a dátumot",
+        "Csak a hosszot"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b2058060240540231b441",
+      "difficulty": "MEDIUM",
+      "question": "Mi tartozik az akciótervbe?",
+      "options": [
+        "Konkrét lépések, határidők, mely sablont/workflow-t frissíted",
+        "Csak egy mondat",
+        "Semmi, mert nincs szükség rá",
+        "Csak a címsor"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b2058060240540231b443",
+      "difficulty": "HARD",
+      "question": "Miért válassz kevés fejlesztendő célt egyszerre?",
+      "options": [
+        "Könnyebb végigvinni és valódi fejlődést látni",
+        "Hogy sose fejezd be",
+        "Csak dísz",
+        "Nem számít"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b2058060240540231b445",
+      "difficulty": "MEDIUM",
+      "question": "Milyen KPI-ket érdemes nézni a fejlődéshez?",
+      "options": [
+        "Időspórolás, iterációk száma, hibaarány",
+        "Csak a logó mérete",
+        "Csak a betűtípus",
+        "Csak a dátum"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b2059060240540231b447",
+      "difficulty": "MEDIUM",
+      "question": "Miért jobb kevés fejlesztési célt választani?",
+      "options": [
+        "Fókuszáltan tudsz haladni és valódi eredményt látsz",
+        "Mert tilos a sok cél",
+        "Mindig végtelen célt kell felvenni",
+        "Csak dísz"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    }
+  ]
+}

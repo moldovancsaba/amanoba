@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-28T21:29:00.582Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_AR",
+    "name": "الإنتاجية 2026: كيفية إدارة الفرق والوقت",
+    "language": "ar"
+  },
+  "lesson": {
+    "dayNumber": 11,
+    "title": "تحديد الأهداف و OKR: ماذا تريد أن تحقق؟",
+    "lessonId": "PRODUCTIVITY_2026_AR_DAY_11"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a613ed20b35fb7972ba",
+      "uuid": "dd0c2069-c2a5-4743-8fa2-4108a4413d26",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"الإنتاجية بدون هدف = مجرد انشغال.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day11",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a613ed20b35fb7972bb",
+      "uuid": "f0860042-b621-4cab-9b75-d2b6c56fc594",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"الاتجاه\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day11",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a613ed20b35fb7972bc",
+      "uuid": "f98e7fab-9fdf-43a0-9d82-e7ec9c52b8e3",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"الدافع\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day11",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a613ed20b35fb7972bd",
+      "uuid": "0bd4c36c-6250-49c9-9d70-1b08dd4efa39",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "How does the concept \"تحديد الأهداف و OKR: ماذا تريد أن تحقق؟ الإنتاجية ...\" mentioned in the lesson impact achieving your goals?",
+      "options": [
+        "As described in detail in the lesson, تحديد الأهداف و OKR: ماذا تريد... increases effectiveness and reduces risk",
+        "No significant impact",
+        "Only matters theoretically",
+        "Only an optional element"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day11",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a613ed20b35fb7972be",
+      "uuid": "62fe2ad5-b766-43f8-a5f9-597bea6512d1",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is الاتجاه in the context of تحديد الأهداف و OKR: ماذا تريد أن تحقق؟ as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, الاتجاه plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day11",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a613ed20b35fb7972bf",
+      "uuid": "449f5ca5-2e99-4873-9220-83dcb356dc3a",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is الأهداف in the context of تحديد الأهداف و OKR: ماذا تريد أن تحقق؟ as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, الأهداف plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day11",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a613ed20b35fb7972c0",
+      "uuid": "7b4e6b4a-c8e6-476b-b9c4-76a0043b6891",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is تريد in the context of تحديد الأهداف و OKR: ماذا تريد أن تحقق؟ as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, تريد plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day11",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "backedUpAt": "2026-01-28T22:55:47.150Z",
+  "course": {
+    "courseId": "AI_30_DAY_EN",
+    "name": "30-Day AI Catch-Up Program (EN)",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 22,
+    "title": "Prompt A/B testing and evaluation",
+    "lessonId": "AI_30_DAY_EN_DAY_22"
+  },
+  "questionCount": 0,
+  "questions": []
+}

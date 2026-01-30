@@ -1,0 +1,114 @@
+{
+  "backedUpAt": "2026-01-28T22:58:15.444Z",
+  "course": {
+    "courseId": "DONE_BETTER_2026_EN",
+    "name": "Done is better - Build What Matters",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 18,
+    "title": "Kill Beautiful Ideas Early",
+    "lessonId": "DONE_BETTER_2026_EN_DAY_18"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "697a92f622596d24dfc12d30",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "You have an idea you have invested in. How should you treat it?",
+      "options": [
+        "Define a kill criterion: we stop if [observable condition]; run the test; stop investing when it fails",
+        "Double down and invest more regardless of evidence or test results that show it is failing",
+        "Hide the results if they are negative to avoid admitting failure or making changes",
+        "Extend the timeline indefinitely until the idea eventually succeeds without validation"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a92f622596d24dfc12d31",
+      "questionType": "application",
+      "difficulty": "EASY",
+      "question": "A team tests a new feature with 100 users. After two weeks, only 2% use it. They decide to stop investing and move resources elsewhere. What does this demonstrate?",
+      "options": [
+        "Killing early: stopping bad or wrong ideas as soon as evidence shows they do not work",
+        "Cancelling all projects regardless of evidence or outcomes",
+        "Firing people early in the project without proper evaluation",
+        "Cutting budget only and not scope or deliverables"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a92f622596d24dfc12d32",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Why define a kill criterion before running the test?",
+      "options": [
+        "So you know when to stop investing; otherwise sunk cost takes over and wastes resources",
+        "To please stakeholders by appearing thorough and well-planned",
+        "To look rigorous and professional without actually using it",
+        "It is optional and not necessary for making good decisions"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a92f622596d24dfc12d33",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Sunk cost (continuing because we already invested) leads to:",
+      "options": [
+        "More waste; you keep investing in an idea that evidence says is wrong",
+        "Faster payoff through continued investment",
+        "Higher commitment to the original plan",
+        "No significant downside in most business cases"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a92f622596d24dfc12d34",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Treating killing an idea as personal failure can result in:",
+      "options": [
+        "Keeping bad ideas alive and wasting resources",
+        "Better ideas",
+        "Higher morale",
+        "No meaningful effect on outcomes"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a92f622596d24dfc12d35",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "When should you check the kill criterion?",
+      "options": [
+        "At a set time or signal; decide when you will check before you start the work",
+        "Only at the end when all resources have been invested and it is too late to pivot",
+        "When someone asks about progress or results without a predetermined schedule",
+        "Never; kill criteria are not meant to be actually used or enforced"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a92f622596d24dfc12d36",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "For one idea or project, what should you write down?",
+      "options": [
+        "The kill criterion: we stop if [observable condition]; and when you will check it",
+        "Only the success criteria without defining when to stop if it fails or shows no progress",
+        "Only the budget without criteria for when to stop investing if evidence contradicts",
+        "Only the deadline without conditions for killing the project if it is not working"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    }
+  ]
+}

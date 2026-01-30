@@ -6,6 +6,14 @@
  *
  * Usage:
  *   npx tsx --env-file=.env.local scripts/quiz-quality-pipeline.ts [--course COURSE_ID] [--min-lesson-score 70] [--dry-run]
+ *   npx tsx --env-file=.env.local scripts/quiz-quality-pipeline.ts --course COURSE_ID --lesson-id LESSON_ID [--question-index I] [--dry-run]
+ *
+ * Tiny-loop (per question): use --lesson-id and --question-index to validate/replace only one question.
+ *
+ * TINY LOOP (default): All quiz fixes run one question at a time. For each invalid question we generate
+ * a replacement, validate it, replace in DB, then move to the next. For each missing slot we generate
+ * one question, validate, insert, then move to the next. No batch delete/batch insert — quality is higher
+ * when each question is managed individually.
  *
  * Notes:
  * - Does NOT invent lesson content; if a lesson is too weak, it is flagged for refinement and quiz rewrite is skipped.
@@ -33,6 +41,13 @@ function getArgValue(flag: string): string | undefined {
 }
 
 const COURSE_ID = getArgValue('--course');
+const LESSON_ID = getArgValue('--lesson-id');
+const QUESTION_INDEX = (() => {
+  const v = getArgValue('--question-index');
+  if (v === undefined) return undefined;
+  const n = Number(v);
+  return Number.isFinite(n) && n >= 0 ? n : undefined;
+})();
 const MIN_LESSON_SCORE = Number(getArgValue('--min-lesson-score') || '70');
 const DRY_RUN = process.argv.includes('--dry-run');
 const OUT_DIR = getArgValue('--out-dir') || join(process.cwd(), 'scripts', 'reports');
@@ -95,6 +110,7 @@ async function main() {
     dryRun: DRY_RUN,
     minLessonScore: MIN_LESSON_SCORE,
     courseFilter: COURSE_ID || null,
+    lessonFilter: LESSON_ID || null,
     totals: {
       courses: courses.length,
       lessonsEvaluated: 0,
@@ -130,6 +146,7 @@ async function main() {
     }
 
     for (const lesson of byDay.values()) {
+      if (LESSON_ID && lesson.lessonId !== LESSON_ID) continue;
       pipelineReport.totals.lessonsEvaluated++;
 
       const lessonQuality = assessLessonQuality({
@@ -191,8 +208,99 @@ async function main() {
         courseId: course._id,
         lessonId: lesson.lessonId,
       })
-        .sort({ _id: 1 })
+        .sort({ displayOrder: 1, _id: 1 })
         .lean();
+
+      // Tiny-loop: validate or replace only one question by index.
+      if (LESSON_ID && QUESTION_INDEX !== undefined) {
+        const atIndex = existing[QUESTION_INDEX];
+        if (!atIndex) {
+          lessonRow.action = 'NO_QUESTION_AT_INDEX';
+          lessonRow.rewrite = { questionIndex: QUESTION_INDEX, existingCount: existing.length };
+          pipelineReport.lessons.push(lessonRow);
+          continue;
+        }
+        const singleValidation = validateQuestionQuality(
+          atIndex.question || '',
+          atIndex.options || [],
+          (atIndex.questionType as any) || 'application',
+          (atIndex.difficulty as any) || 'MEDIUM',
+          course.language,
+          lesson.title,
+          lesson.content
+        );
+        if (singleValidation.isValid) {
+          lessonRow.action = DRY_RUN ? 'VALIDATED_ONE' : 'VALIDATED_ONE';
+          lessonRow.rewrite = { questionIndex: QUESTION_INDEX, validated: true, errors: [] };
+          pipelineReport.lessons.push(lessonRow);
+          continue;
+        }
+        // Generate one replacement and replace only this question.
+        const generated = generateContentBasedQuestions(
+          lesson.dayNumber,
+          lesson.title || '',
+          lesson.content || '',
+          course.language,
+          course.courseId,
+          existing.filter((_, i) => i !== QUESTION_INDEX),
+          15,
+          { seed: `${course.courseId}::${lesson.lessonId}::q${QUESTION_INDEX}::${isoStamp()}` }
+        );
+        let replaced = false;
+        for (const q of generated) {
+          const v = validateQuestionQuality(
+            q.question,
+            q.options,
+            q.questionType as any,
+            q.difficulty as any,
+            course.language,
+            lesson.title,
+            lesson.content
+          );
+          if (!v.isValid) continue;
+          if (!DRY_RUN) {
+            await QuizQuestion.deleteOne({ _id: atIndex._id });
+            await QuizQuestion.insertMany([
+              {
+                uuid: randomUUID(),
+                lessonId: lesson.lessonId,
+                courseId: course._id,
+                question: q.question,
+                options: q.options,
+                correctIndex: q.correctIndex,
+                difficulty: q.difficulty,
+                category: q.category ?? 'Course Specific',
+                isCourseSpecific: true,
+                questionType: q.questionType as string,
+                hashtags: q.hashtags,
+                isActive: true,
+                displayOrder: QUESTION_INDEX + 1,
+                showCount: 0,
+                correctCount: 0,
+                metadata: {
+                  createdAt: new Date(),
+                  updatedAt: new Date(),
+                  auditedAt: new Date(),
+                  auditedBy: 'quiz-quality-pipeline-single',
+                },
+              },
+            ]);
+            pipelineReport.totals.questionsDeleted += 1;
+            pipelineReport.totals.questionsInserted += 1;
+          }
+          replaced = true;
+          lessonRow.action = DRY_RUN ? 'WOULD_REPLACE_ONE' : 'REPLACED_ONE';
+          lessonRow.rewrite = { questionIndex: QUESTION_INDEX, validated: false, errors: singleValidation.errors, replaced: true };
+          pipelineReport.lessons.push(lessonRow);
+          break;
+        }
+        if (!replaced) {
+          lessonRow.action = 'REPLACE_ONE_FAILED';
+          lessonRow.rewrite = { questionIndex: QUESTION_INDEX, errors: singleValidation.errors, replaced: false };
+          pipelineReport.lessons.push(lessonRow);
+        }
+        continue;
+      }
 
       const validExisting: any[] = [];
       const invalidExisting: any[] = [];
@@ -252,8 +360,9 @@ async function main() {
         duplicates: duplicatesToDelete.length,
       };
 
-      // If we already have enough valid questions (>=7) and enough application (>=5), don't rewrite.
-      if (dedupedCounts.valid >= 7 && dedupedCounts.application >= 5 && dedupedCounts.recall === 0) {
+      // If we already have enough valid questions (>=7), enough application (>=5),
+      // and enough critical thinking (>=2), don't rewrite.
+      if (dedupedCounts.valid >= 7 && dedupedCounts.application >= 5 && dedupedCounts.critical >= 2 && dedupedCounts.recall === 0) {
         // Optionally clean up invalid questions and duplicates (do not delete just because there are >7).
         let backupPath: string | null = null;
         if (!DRY_RUN && (dedupedCounts.invalid > 0 || dedupedCounts.duplicates > 0)) {
@@ -287,107 +396,11 @@ async function main() {
         continue;
       }
 
-      // Generate additional questions (do not delete valid ones; only remove invalid ones).
-      const neededTotal = Math.max(0, 7 - dedupedCounts.valid);
-      const neededApp = Math.max(0, 5 - dedupedCounts.application);
-      // Generate more than the bare minimum: strict QC can reject a large fraction of candidates.
-      const generateTarget = Math.max(neededTotal, neededApp, GENERATE_TARGET_MIN);
+      // ——— TINY LOOP: one question at a time. Replace each invalid individually, then fill missing slots one by one. ———
+      const MAX_REPLACE_ATTEMPTS = 5;
+      const MAX_FILL_ATTEMPTS_PER_SLOT = 25;
+      const CANDIDATES_PER_ATTEMPT = 12;
 
-      const generated = generateContentBasedQuestions(
-        lesson.dayNumber,
-        lesson.title || '',
-        lesson.content || '',
-        course.language,
-        course.courseId,
-        dedupedValidExisting,
-        generateTarget
-      );
-
-      const validatedNew: any[] = [];
-      for (const q of generated) {
-        const v = validateQuestionQuality(
-          q.question,
-          q.options,
-          q.questionType as any,
-          q.difficulty as any,
-          course.language,
-          lesson.title,
-          lesson.content
-        );
-        if (v.isValid) validatedNew.push(q);
-      }
-
-      const existingTextKeys = new Set<string>(dedupedValidExisting.map(q => normalizeQuestionText(q.question)));
-
-      // Select additions to satisfy both constraints:
-      // - total valid >= 7
-      // - application >= 5
-      // Prefer adding APPLICATION first when needed, then fill total.
-      const additions: any[] = [];
-      let remainingNeededTotal = neededTotal;
-      let remainingNeededApp = neededApp;
-
-      const tryAdd = (q: any) => {
-        const key = normalizeQuestionText(q.question);
-        if (!key) return false;
-        if (existingTextKeys.has(key)) return false;
-        existingTextKeys.add(key);
-        additions.push(q);
-        return true;
-      };
-
-      if (remainingNeededApp > 0) {
-        for (const q of validatedNew) {
-          if (remainingNeededApp <= 0) break;
-          if (q.questionType !== 'application') continue;
-          if (tryAdd(q)) {
-            remainingNeededApp--;
-            if (remainingNeededTotal > 0) remainingNeededTotal--;
-          }
-        }
-      }
-
-      if (remainingNeededTotal > 0) {
-        for (const q of validatedNew) {
-          if (remainingNeededTotal <= 0) break;
-          if (tryAdd(q)) {
-            remainingNeededTotal--;
-          }
-        }
-      }
-
-      const toAdd = additions;
-      const combinedForValidation = [
-        ...dedupedValidExisting.map(q => ({
-          question: q.question,
-          options: q.options,
-          questionType: q.questionType,
-          difficulty: q.difficulty,
-        })),
-        ...additions.map(q => ({
-          question: q.question,
-          options: q.options,
-          questionType: q.questionType,
-          difficulty: q.difficulty,
-        })),
-      ];
-
-      const batchValidation = validateLessonQuestions(combinedForValidation as any, course.language, lesson.title);
-
-      if (!batchValidation.isValid) {
-        pipelineReport.totals.lessonsFailedRewrite++;
-        lessonRow.action = 'REWRITE_FAILED';
-        lessonRow.rewrite = { errors: batchValidation.errors, warnings: batchValidation.warnings, existingCounts, generateTarget };
-        rewriteFailureTasks.push(
-          `- [ ] **${course.courseId}** Day ${lesson.dayNumber} — ${lesson.title} (lessonId: \`${lesson.lessonId}\`)\n` +
-            `  - Failed quiz rewrite under strict QC\n` +
-            `  - First error: ${batchValidation.errors[0] || 'Unknown'}\n`
-        );
-        pipelineReport.lessons.push(lessonRow);
-        continue;
-      }
-
-      // Backup existing questions (before deleting invalid ones or inserting new ones)
       const backupPath = writeQuizBackup({
         backupDir: BACKUP_DIR,
         stamp,
@@ -397,51 +410,195 @@ async function main() {
       });
 
       if (!DRY_RUN) {
-        // Delete only invalid questions (never delete just for being >7)
-        if (invalidExisting.length > 0) {
-          const delInvalid = await QuizQuestion.deleteMany({ _id: { $in: invalidExisting.map(q => q._id) } });
-          pipelineReport.totals.questionsDeleted += delInvalid.deletedCount || 0;
-        }
-        // Delete duplicates among valid questions.
         if (duplicatesToDelete.length > 0) {
           const delDup = await QuizQuestion.deleteMany({ _id: { $in: duplicatesToDelete.map(q => q._id) } });
           pipelineReport.totals.questionsDeleted += delDup.deletedCount || 0;
         }
+      }
 
-        const toInsert = toAdd.map(q => ({
-          uuid: randomUUID(),
-          lessonId: lesson.lessonId,
-          courseId: course._id,
-          question: q.question,
-          options: q.options,
-          correctIndex: q.correctIndex,
-          difficulty: q.difficulty,
-          category: q.category,
-          isCourseSpecific: true,
-          questionType: q.questionType as string,
-          hashtags: q.hashtags,
-          isActive: true,
-          showCount: 0,
-          correctCount: 0,
-          metadata: {
-            createdAt: new Date(),
-            updatedAt: new Date(),
-            auditedAt: new Date(),
-            auditedBy: 'quiz-quality-pipeline',
-          },
-        }));
+      let insertedCount = 0;
+      let replacedCount = 0;
+      let currentValid = [...dedupedValidExisting];
+      const existingTextKeys = new Set<string>(currentValid.map(q => normalizeQuestionText(q.question)));
 
-        if (toInsert.length > 0) {
-          await QuizQuestion.insertMany(toInsert);
-          pipelineReport.totals.questionsInserted += toInsert.length;
+      // Phase 1: Replace each invalid question one at a time (generate → validate → replace).
+      for (let i = 0; i < invalidExisting.length; i++) {
+        const invalidQ = invalidExisting[i];
+        const displayOrder = (invalidQ as any).displayOrder ?? currentValid.length + i + 1;
+        let replaced = false;
+        for (let attempt = 0; attempt < MAX_REPLACE_ATTEMPTS && !replaced; attempt++) {
+          const candidates = generateContentBasedQuestions(
+            lesson.dayNumber,
+            lesson.title || '',
+            lesson.content || '',
+            course.language,
+            course.courseId,
+            currentValid,
+            CANDIDATES_PER_ATTEMPT,
+            { seed: `${course.courseId}::${lesson.lessonId}::replace${i}::${stamp}::a${attempt}` }
+          );
+          for (const q of candidates) {
+            const v = validateQuestionQuality(
+              q.question,
+              q.options,
+              q.questionType as any,
+              q.difficulty as any,
+              course.language,
+              lesson.title,
+              lesson.content
+            );
+            if (!v.isValid) continue;
+            const key = normalizeQuestionText(q.question);
+            if (!key || existingTextKeys.has(key)) continue;
+            if (!DRY_RUN) {
+              await QuizQuestion.deleteOne({ _id: invalidQ._id });
+              await QuizQuestion.insertMany([
+                {
+                  uuid: randomUUID(),
+                  lessonId: lesson.lessonId,
+                  courseId: course._id,
+                  question: q.question,
+                  options: q.options,
+                  correctIndex: q.correctIndex,
+                  difficulty: q.difficulty,
+                  category: q.category ?? 'Course Specific',
+                  isCourseSpecific: true,
+                  questionType: q.questionType as string,
+                  hashtags: q.hashtags,
+                  isActive: true,
+                  displayOrder,
+                  showCount: 0,
+                  correctCount: 0,
+                  metadata: {
+                    createdAt: new Date(),
+                    updatedAt: new Date(),
+                    auditedAt: new Date(),
+                    auditedBy: 'quiz-quality-pipeline-tiny-loop',
+                  },
+                },
+              ]);
+              pipelineReport.totals.questionsDeleted += 1;
+              pipelineReport.totals.questionsInserted += 1;
+            }
+            existingTextKeys.add(key);
+            currentValid.push({ ...q, displayOrder, _id: null });
+            replaced = true;
+            replacedCount++;
+            break;
+          }
         }
+        if (!replaced && !DRY_RUN) {
+          await QuizQuestion.deleteOne({ _id: invalidQ._id });
+          pipelineReport.totals.questionsDeleted += 1;
+        }
+      }
+
+      // Phase 2: Fill missing slots one at a time until we meet 7 total, 5 application, 2 critical.
+      let remainingNeededTotal = Math.max(0, 7 - currentValid.length);
+      let remainingNeededApp = Math.max(0, 5 - currentValid.filter(q => q.questionType === 'application').length);
+      let remainingNeededCritical = Math.max(0, 2 - currentValid.filter(q => q.questionType === 'critical-thinking').length);
+      let nextDisplayOrder = Math.max(0, ...currentValid.map(q => (q as any).displayOrder ?? 0)) + 1;
+      let fillAttempts = 0;
+      const maxFillAttempts = (remainingNeededTotal + 2) * MAX_FILL_ATTEMPTS_PER_SLOT;
+
+      while ((remainingNeededTotal > 0 || remainingNeededApp > 0 || remainingNeededCritical > 0) && fillAttempts < maxFillAttempts) {
+        fillAttempts++;
+        const preferApp = remainingNeededApp > 0;
+        const preferCritical = !preferApp && remainingNeededCritical > 0;
+        const candidates = generateContentBasedQuestions(
+          lesson.dayNumber,
+          lesson.title || '',
+          lesson.content || '',
+          course.language,
+          course.courseId,
+          currentValid,
+          CANDIDATES_PER_ATTEMPT,
+          { seed: `${course.courseId}::${lesson.lessonId}::fill::${stamp}::${fillAttempts}` }
+        );
+        let added = false;
+        for (const q of candidates) {
+          const v = validateQuestionQuality(
+            q.question,
+            q.options,
+            q.questionType as any,
+            q.difficulty as any,
+            course.language,
+            lesson.title,
+            lesson.content
+          );
+          if (!v.isValid) continue;
+          const key = normalizeQuestionText(q.question);
+          if (!key || existingTextKeys.has(key)) continue;
+          if (preferApp && q.questionType !== 'application') continue;
+          if (preferCritical && q.questionType !== 'critical-thinking') continue;
+          if (!DRY_RUN) {
+            await QuizQuestion.insertMany([
+              {
+                uuid: randomUUID(),
+                lessonId: lesson.lessonId,
+                courseId: course._id,
+                question: q.question,
+                options: q.options,
+                correctIndex: q.correctIndex,
+                difficulty: q.difficulty,
+                category: q.category ?? 'Course Specific',
+                isCourseSpecific: true,
+                questionType: q.questionType as string,
+                hashtags: q.hashtags,
+                isActive: true,
+                displayOrder: nextDisplayOrder++,
+                showCount: 0,
+                correctCount: 0,
+                metadata: {
+                  createdAt: new Date(),
+                  updatedAt: new Date(),
+                  auditedAt: new Date(),
+                  auditedBy: 'quiz-quality-pipeline-tiny-loop',
+                },
+              },
+            ]);
+            pipelineReport.totals.questionsInserted += 1;
+          }
+          existingTextKeys.add(key);
+          currentValid.push({ ...q, displayOrder: nextDisplayOrder - 1, _id: null });
+          insertedCount++;
+          if (q.questionType === 'application' && remainingNeededApp > 0) remainingNeededApp--;
+          if (q.questionType === 'critical-thinking' && remainingNeededCritical > 0) remainingNeededCritical--;
+          if (remainingNeededTotal > 0) remainingNeededTotal--;
+          added = true;
+          break;
+        }
+        if (!added) continue;
+      }
+
+      const combinedForValidation = currentValid.map(q => ({
+        question: q.question,
+        options: q.options ?? [],
+        questionType: (q as any).questionType ?? 'application',
+        difficulty: (q as any).difficulty ?? 'MEDIUM',
+        correctIndex: (q as any).correctIndex ?? 0,
+      }));
+      const batchValidation = validateLessonQuestions(combinedForValidation as any, course.language, lesson.title);
+
+      if (!batchValidation.isValid) {
+        pipelineReport.totals.lessonsFailedRewrite++;
+        lessonRow.action = 'REWRITE_FAILED';
+        lessonRow.rewrite = { errors: batchValidation.errors, warnings: batchValidation.warnings, existingCounts: dedupedCounts };
+        rewriteFailureTasks.push(
+          `- [ ] **${course.courseId}** Day ${lesson.dayNumber} — ${lesson.title} (lessonId: \`${lesson.lessonId}\`)\n` +
+            `  - Failed quiz rewrite under strict QC\n` +
+            `  - First error: ${batchValidation.errors[0] || 'Unknown'}\n`
+        );
+        pipelineReport.lessons.push(lessonRow);
+        continue;
       }
 
       pipelineReport.totals.lessonsRewritten++;
       lessonRow.action = DRY_RUN ? 'VALIDATED' : 'ENRICHED';
       lessonRow.rewrite = {
         backupPath,
-        insertedCount: toAdd.length,
+        insertedCount,
+        replacedCount,
         deletedInvalidCount: invalidExisting.length,
         deletedDuplicateCount: duplicatesToDelete.length,
         warnings: batchValidation.warnings,

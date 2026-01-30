@@ -1,0 +1,94 @@
+{
+  "backedUpAt": "2026-01-29T17:00:36.848Z",
+  "course": {
+    "courseId": "AI_30_NAP",
+    "name": "30-Day AI Catch-Up Program",
+    "language": "hu"
+  },
+  "lesson": {
+    "dayNumber": 19,
+    "title": "Tipikus csapdák az adott szerepben",
+    "lessonId": "AI_30_NAP_DAY_19"
+  },
+  "questionCount": 6,
+  "questions": [
+    {
+      "_id": "697b2058060240540231b42e",
+      "difficulty": "EASY",
+      "question": "Miért kell csapdalistát írni szerep szerint?",
+      "options": [
+        "Hogy felismerd és elkerüld a tipikus hibákat a saját feladataidban",
+        "Hogy hosszabb legyen a dokumentum",
+        "Mert kötelező, de hasztalan",
+        "Csak díszítés"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b2058060240540231b430",
+      "difficulty": "MEDIUM",
+      "question": "Melyik jelzi, hogy marketing output hibás lehet?",
+      "options": [
+        "Kitalált statisztikák, forrás nélkül",
+        "Pontos, hivatkozott számok",
+        "Persona-alapú üzenetek",
+        "Valódi mérőszámokkal ellátott ajánlat"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b2058060240540231b432",
+      "difficulty": "MEDIUM",
+      "question": "Mi a jó elkerülés sales csapdára?",
+      "options": [
+        "Kérj 3 személyre szabott variánst [persona]-ra",
+        "Általános üzenet mindenkihez",
+        "Csak terméklistát küldeni",
+        "Semmi ellenőrzés"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b2058060240540231b434",
+      "difficulty": "HARD",
+      "question": "Milyen ellenőrzést kérnél Dev feladatnál?",
+      "options": [
+        "Unit teszt/edge case lista, hiba jelzése",
+        "Csak kód magyarázat",
+        "Semmi, küldd el",
+        "Csak kommentek"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b2058060240540231b436",
+      "difficulty": "MEDIUM",
+      "question": "Mi legyen minden csapdapontnál a dokumentumban?",
+      "options": [
+        "Jelzés, elkerülés (prompt), ellenőrzés (kérdés)",
+        "Csak a cím",
+        "Csak a dátum",
+        "Csak egy emoji"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b2058060240540231b438",
+      "difficulty": "HARD",
+      "question": "Miért „élő” a csapdalista?",
+      "options": [
+        "Folyamatosan frissíted új hibákkal, és összekötöd a sablonjaiddal",
+        "Soha nem változik",
+        "Csak egyszer írod meg",
+        "Nem tárolod el"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    }
+  ]
+}

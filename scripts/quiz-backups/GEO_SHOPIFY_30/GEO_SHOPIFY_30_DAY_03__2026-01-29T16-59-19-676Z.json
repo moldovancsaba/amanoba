@@ -1,0 +1,81 @@
+{
+  "backedUpAt": "2026-01-29T17:00:09.135Z",
+  "course": {
+    "courseId": "GEO_SHOPIFY_30",
+    "name": "GEO Shopify – 30 napos kurzus",
+    "language": "hu"
+  },
+  "lesson": {
+    "dayNumber": 3,
+    "title": "Hogyan változtatja meg az AI a vásárlói utat?",
+    "lessonId": "GEO_SHOPIFY_30_DAY_03"
+  },
+  "questionCount": 5,
+  "questions": [
+    {
+      "_id": "697b1ff7de117f992bb9bdee",
+      "difficulty": "EASY",
+      "question": "Mi az AI által befolyásolt új vásárlói út egyik jellemzője?",
+      "options": [
+        "Válasz + ajánlás érkezik a listanézet előtt",
+        "Mindig csak 10 kék linket lát a user",
+        "Nincs hatása az útra",
+        "Csak page speed számít"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b1ff7de117f992bb9bdef",
+      "difficulty": "MEDIUM",
+      "question": "Mi az answer capsule célja a PDP tetején?",
+      "options": [
+        "Kinek, mire jó, mire nem, ár/stock röviden, idézhetően",
+        "Csak hosszabb leírás másolása",
+        "Dekoráció",
+        "SEO kulcsszó halmozás"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b1ff7de117f992bb9bdf0",
+      "difficulty": "MEDIUM",
+      "question": "Miért készíts AI touchpoint listát?",
+      "options": [
+        "Hogy tudd, milyen kérdésekre kell választ adnod a PDP-n",
+        "Csak marketing okból",
+        "Nem szükséges",
+        "Csak belső használatra, de nem befolyásol semmit"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b1ff7de117f992bb9bdf1",
+      "difficulty": "EASY",
+      "question": "Melyik lépés része a vezetett gyakorlatnak?",
+      "options": [
+        "Rajzold fel a jelenlegi vásárlói utat és jelöld az AI érintési pontokat",
+        "Csak meta title írása",
+        "Csak backlink keresés",
+        "Semmit nem kell tenni"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b1ff7de117f992bb9bdf2",
+      "difficulty": "HARD",
+      "question": "Mi a legnagyobb kockázat, ha nincs tiszta policy a PDP-n?",
+      "options": [
+        "Az AI félrevezetheti a vásárlót ár/stock/policy tekintetében",
+        "Semmi kockázat",
+        "Csak SEO büntetés",
+        "Csak design gond"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    }
+  ]
+}

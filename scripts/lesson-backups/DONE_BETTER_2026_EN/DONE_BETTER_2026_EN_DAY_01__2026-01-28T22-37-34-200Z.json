@@ -1,0 +1,10 @@
+{
+  "backedUpAt": "2026-01-28T22:37:34.203Z",
+  "courseId": "DONE_BETTER_2026_EN",
+  "lessonId": "DONE_BETTER_2026_EN_DAY_01",
+  "dayNumber": 1,
+  "title": "Welcome to Real Thinking",
+  "content": "<h1>Welcome to Real Thinking</h1>\n<p><em>This is not about being smart. It is about being effective.</em></p>\n<hr />\n<h2>Learning goal</h2>\n<ul>\n<li>Distinguish being effective from being busy or smart.</li>\n<li>Commit to think, decide, and deliver as a loop.</li>\n<li>See the course as a system, not motivation.</li>\n</ul>\n<hr />\n<h2>Why it matters</h2>\n<ul>\n<li>Activity is not progress.</li>\n<li>Motivation fades; systems persist.</li>\n<li>Operational thinking beats inspiration for delivery.</li>\n</ul>\n<hr />\n<h2>Key idea</h2>\n<p>Effectiveness means outcomes over activity. You will build a repeatable loop: understand, decide, deliver, then reflect and adjust.</p>\n<hr />\n<h2>Common mistakes</h2>\n<ul>\n<li>Confusing activity with progress.</li>\n<li>Waiting for motivation instead of using a system.</li>\n<li>Treating the course as inspiration only.</li>\n</ul>\n<hr />\n<h2>Today's move</h2>\n<p>Write one sentence: What does being effective mean for you this month? Commit to one small loop you will run daily (e.g. 5 min: what did I learn, what do I do next).</p>\n<hr />\n<h2>Self-check</h2>\n<ul>\n<li>You can explain the key idea in one sentence.</li>\n<li>You have one concrete move to do today.</li>\n</ul>",
+  "emailSubject": "Done is better – Day {{dayNumber}}: {{lessonTitle}}",
+  "emailBody": "<h1>Done is better - Build What Matters</h1><h2>Day {{dayNumber}}: {{lessonTitle}}</h2><p>{{lessonContent}}</p><p><a href=\"http://localhost:3000/courses/DONE_BETTER_2026_EN/day/{{dayNumber}}\">Open the lesson →</a></p>"
+}

@@ -1,0 +1,10 @@
+{
+  "backedUpAt": "2026-01-28T22:55:29.005Z",
+  "courseId": "AI_30_DAY_EN",
+  "lessonId": "AI_30_DAY_EN_DAY_29",
+  "dayNumber": 29,
+  "title": "Personal daily workflow with AI",
+  "content": "<h1>Personal daily workflow with AI</h1>\n<p><em>Use AI to plan, prioritize, and recap your day</em></p>\n<hr />\n<h2>Learning goal</h2>\n<ul>\n<li>Create a morning plan prompt and an end-of-day recap prompt.</li>\n<li>Include priorities, blockers, and next actions.</li>\n</ul>\n<hr />\n<h2>Why it matters</h2>\n<ul>\n<li>Consistent planning improves focus.</li>\n<li>Recaps capture learnings and follow-ups.</li>\n</ul>\n<hr />\n<h2>Explanation</h2>\n<ul>\n<li>Morning: “List top 3 priorities, key meetings, prep tasks, risks.”</li>\n<li>Evening: “Summarize wins, blockers, decisions, next steps with owners.”</li>\n<li>Add: “If missing info, ask.”</li>\n</ul>\n<hr />\n<h2>Examples</h2>\n<ul>\n<li><strong>Morning prompt</strong>: “Given my calendar/tasks, list 3 priorities, prep steps, risks; keep under 120 words.”</li>\n<li><strong>Evening prompt</strong>: “Summarize today: wins, blockers, decisions, next actions (who/when).”</li>\n<hr />\n<h2>Guided exercise (10–15 min)</h2>\n<ol>\n<li>Write your morning and evening prompts.</li>\n<li>Test both; adjust for brevity and clarity.</li>\n</ol>\n<h2>Independent exercise (5–10 min)</h2>\n<p>Add a weekly review prompt (what to start/stop/continue).</p>\n<hr />\n<h2>Self-check</h2>\n<ul>\n<li>Morning prompt ready.</li>\n<li>Evening prompt ready.</li>\n<li>Next actions clear with owners.</li>\n</ul>\n<hr />\n<h2>Optional deepening</h2>\n<ul>\n<li>Productivity prompts: <a href=\"https://www.oneusefulthing.org\" target=\"_blank\" rel=\"noreferrer\">https://www.oneusefulthing.org</a></li>\n</ul>",
+  "emailSubject": "AI 30-Day – Day 29: Daily workflow",
+  "emailBody": "<h1>AI 30-Day – Day 29</h1>\n<h2>Daily workflow</h2>\n<p>Today you’ll build morning and evening prompts for your day.</p>\n<p><a href=\"http://localhost:3000/courses/AI_30_DAY_EN/day/{{dayNumber}}\">Open the lesson →</a></p>"
+}

@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-28T22:55:46.011Z",
+  "course": {
+    "courseId": "AI_30_DAY_EN",
+    "name": "30-Day AI Catch-Up Program (EN)",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 5,
+    "title": "Quality and safety: QA and guardrails",
+    "lessonId": "AI_30_DAY_EN_DAY_05"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "697769fb27e27f61ac414398",
+      "uuid": "45402b9d-23f6-4d2a-95c6-e63e9e15bc8d",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"exercise (10–15 min)\n\nWrite a 5-point QA...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day5",
+        "#en",
+        "#all-languages",
+        "#ai",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "697769fb27e27f61ac414399",
+      "uuid": "a059fe65-97d8-488b-9ad8-8633b7f483a9",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"exercise (5–10 min)\nApply the checklist ...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day5",
+        "#en",
+        "#all-languages",
+        "#ai",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "697769fb27e27f61ac41439a",
+      "uuid": "9ff8971d-acee-4c15-b0ac-2d5107cae5d3",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"exercise (10–15 min)\n\nWrite a 5-point QA...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day5",
+        "#en",
+        "#all-languages",
+        "#ai",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "697769fb27e27f61ac41439b",
+      "uuid": "8c03447c-11d4-46be-9660-5e1d76da998b",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "How does the concept \"Quality and safety: QA and guardrails Build a simp...\" mentioned in the lesson impact achieving your goals?",
+      "options": [
+        "As described in detail in the lesson, Quality and safety: QA and gua... increases effectiveness and reduces risk",
+        "No significant impact",
+        "Only matters theoretically",
+        "Only an optional element"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day5",
+        "#en",
+        "#all-languages",
+        "#ai",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "697769fb27e27f61ac41439c",
+      "uuid": "a054d253-8f03-4663-ae2a-446b058d4654",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is QA prompt in the context of Quality and safety: QA and guardrails as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, QA prompt plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day5",
+        "#en",
+        "#all-languages",
+        "#ai",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "697769fb27e27f61ac41439d",
+      "uuid": "7370e302-c156-4985-9014-9b454d4d317c",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is Quality in the context of Quality and safety: QA and guardrails as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, Quality plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day5",
+        "#en",
+        "#all-languages",
+        "#ai",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "697769fb27e27f61ac41439e",
+      "uuid": "1ba5f4c0-1e0b-48e7-8310-cad42df690b0",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is guardrails in the context of Quality and safety: QA and guardrails as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, guardrails plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day5",
+        "#en",
+        "#all-languages",
+        "#ai",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

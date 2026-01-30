@@ -1,0 +1,68 @@
+{
+  "question": {
+    "_id": "69748dcb963721474820541f",
+    "uuid": "53dbb7f0-9ef6-4d40-b7fd-830cd5fd3a18",
+    "question": "ماذا يجب أن تفعل إذا فاتتك معلم؟",
+    "options": [
+      "تخلى عن الهدف",
+      "قم بعمل استعراض وتعديل الخطة",
+      "اختر هدفاً مختلفاً تماماً",
+      "لا تفعل شيئا"
+    ],
+    "correctIndex": 1,
+    "difficulty": "MEDIUM",
+    "category": "Course Specific",
+    "questionType": "application",
+    "hashtags": [
+      "#day-12",
+      "#scenario",
+      "#application",
+      "#ar"
+    ],
+    "isActive": true,
+    "isCourseSpecific": true,
+    "lessonId": "PRODUCTIVITY_2026_AR_DAY_12",
+    "metadata": {
+      "createdAt": "2026-01-24T09:15:55.227Z",
+      "updatedAt": "2026-01-24T12:34:23.787Z",
+      "auditedAt": "2026-01-24T12:34:23.787Z",
+      "auditedBy": "AI Developer"
+    },
+    "showCount": 0,
+    "correctCount": 0
+  },
+  "evaluation": {
+    "questionId": "69748dcb963721474820541f",
+    "violations": [
+      {
+        "code": "QUESTION_TOO_SHORT",
+        "message": "Question is shorter than 40 characters.",
+        "fields": [
+          "question"
+        ],
+        "severity": "error",
+        "docRef": "docs/QUIZ_QUALITY_PIPELINE_PLAYBOOK.md#gold-standard-question-type"
+      },
+      {
+        "code": "OPTION_TOO_SHORT",
+        "message": "Option 1 is shorter than 25 characters.",
+        "fields": [
+          "options[0]"
+        ],
+        "severity": "warning",
+        "docRef": "docs/QUIZ_QUALITY_PIPELINE_PLAYBOOK.md#gold-standard-question-type"
+      },
+      {
+        "code": "OPTION_TOO_SHORT",
+        "message": "Option 4 is shorter than 25 characters.",
+        "fields": [
+          "options[3]"
+        ],
+        "severity": "warning",
+        "docRef": "docs/QUIZ_QUALITY_PIPELINE_PLAYBOOK.md#gold-standard-question-type"
+      }
+    ],
+    "needsUpdate": true,
+    "autoPatch": {}
+  }
+}

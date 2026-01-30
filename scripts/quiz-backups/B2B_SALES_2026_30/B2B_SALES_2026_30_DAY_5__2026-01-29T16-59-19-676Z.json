@@ -1,0 +1,68 @@
+{
+  "backedUpAt": "2026-01-29T17:00:20.136Z",
+  "course": {
+    "courseId": "B2B_SALES_2026_30",
+    "name": "B2B Értékesítés 2026 Masterclass",
+    "language": "hu"
+  },
+  "lesson": {
+    "dayNumber": 5,
+    "title": "Value proposition: mérhető, ellenőrizhető állítások",
+    "lessonId": "B2B_SALES_2026_30_DAY_5"
+  },
+  "questionCount": 4,
+  "questions": [
+    {
+      "_id": "697b203dac79ca83bb972200",
+      "difficulty": "MEDIUM",
+      "question": "Miért kevés a „Segítünk növekedni AI-val” állítás?",
+      "options": [
+        "Mert túl hosszú",
+        "Mert nincs ICP, probléma és proof",
+        "Mert túl drága",
+        "Mert nem említ CRM-et"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b203dac79ca83bb972201",
+      "difficulty": "MEDIUM",
+      "question": "Mi a 3 mondatos value egyik kötelező eleme?",
+      "options": [
+        "Egy marketing szlogen",
+        "ICP + probléma + eredmény/kockázat",
+        "Csak a termék feature lista",
+        "Egy árkedvezmény"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b203dac79ca83bb972202",
+      "difficulty": "MEDIUM",
+      "question": "Mi a proof pont lényege?",
+      "options": [
+        "Hogy hosszú legyen",
+        "Hogy a vevő ellenőrizhesse (szám/forrás/benchmark)",
+        "Hogy marketingnek tűnjön",
+        "Hogy elkerüljük az ICP-t"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b203dac79ca83bb972203",
+      "difficulty": "MEDIUM",
+      "question": "Mit kell tenned a proof pontokkal?",
+      "options": [
+        "Önálló listába tenni ICP nélkül",
+        "Összekötni őket az ICP fájdalmakkal",
+        "Csak a honlapra kitenni",
+        "Csak a sales deckben használni"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    }
+  ]
+}

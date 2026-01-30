@@ -1,0 +1,81 @@
+{
+  "backedUpAt": "2026-01-29T15:05:40.880Z",
+  "course": {
+    "courseId": "GEO_SHOPIFY_30_EN",
+    "name": "GEO Shopify – 30-day course",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 3,
+    "title": "How AI reshapes the buying journey",
+    "lessonId": "GEO_SHOPIFY_30_EN_DAY_03"
+  },
+  "questionCount": 5,
+  "questions": [
+    {
+      "_id": "697b200302f89b2246e06d91",
+      "difficulty": "EASY",
+      "question": "What is the new AI-driven journey pattern?",
+      "options": [
+        "Question → AI summary/reco → click/chat continue",
+        "Search → list only",
+        "Only social ads",
+        "Only email marketing"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b200302f89b2246e06d92",
+      "difficulty": "MEDIUM",
+      "question": "Why place an answer capsule at the top?",
+      "options": [
+        "Models read the top first and need concise facts",
+        "For decoration",
+        "To slow the page",
+        "It is an SEO trick only"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b200302f89b2246e06d93",
+      "difficulty": "MEDIUM",
+      "question": "Which touchpoint is valid?",
+      "options": [
+        "“Which size should I pick?”",
+        "“What is SEO?”",
+        "“Tell me a joke”",
+        "“How to write HTML?”"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b200302f89b2246e06d94",
+      "difficulty": "EASY",
+      "question": "What belongs in a good capsule?",
+      "options": [
+        "Who for/who not, price/stock, shipping link",
+        "Only a slogan",
+        "Hidden price",
+        "No policy"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b200302f89b2246e06d95",
+      "difficulty": "HARD",
+      "question": "Why note AI touchpoints?",
+      "options": [
+        "They guide which questions you must answer upfront",
+        "It is optional trivia",
+        "Only for branding",
+        "Only for ads copy"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    }
+  ]
+}

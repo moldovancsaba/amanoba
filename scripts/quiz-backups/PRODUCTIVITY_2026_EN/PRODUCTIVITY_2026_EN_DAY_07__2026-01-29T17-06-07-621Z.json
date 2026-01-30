@@ -1,0 +1,82 @@
+{
+  "backedUpAt": "2026-01-29T17:06:09.499Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_EN",
+    "name": "Productivity 2026: How to Manage Teams and Time",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 7,
+    "title": "Daily/Weekly System: morning ritual, daily huddle, weekly review",
+    "lessonId": "PRODUCTIVITY_2026_EN_DAY_07"
+  },
+  "questionCount": 3,
+  "questions": [
+    {
+      "_id": "69787d9aa326286129da8fb9",
+      "uuid": "80130045-ff52-4b88-a671-544c5c9fea8c",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "In a daily/weekly system, what is the primary purpose of a short daily huddle (5–10 minutes)?",
+      "options": [
+        "To choose today’s priority outcomes and align the day’s blocks, not to add more tasks or hold long discussions.",
+        "To debate every open topic until consensus is perfect, even if execution time disappears.",
+        "To track who is working the hardest by counting messages and visible activity.",
+        "To replace weekly review, because daily planning makes reflection unnecessary."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day7",
+        "#en",
+        "#course-productivity_2026_en",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "69787d9aa326286129da8fbc",
+      "uuid": "464fc94f-c2e4-4ae3-b1d3-1fc789dd8ee6",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Which choice best integrates time blocking and weekly review into one coherent system?",
+      "options": [
+        "Use weekly review to choose outcomes, then block deep work windows and batch shallow work so the plan matches constraints.",
+        "Block every hour with meetings so the calendar is full and nothing unexpected can occur.",
+        "Avoid blocking time; flexibility is more important than protecting deep work or outcomes.",
+        "Plan only in your head; writing schedules reduces creativity and therefore reduces outcomes."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day7",
+        "#en",
+        "#course-productivity_2026_en",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "69787d9aa326286129da8fbe",
+      "uuid": "acf580cf-b777-4913-9774-559c1c20434b",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "If a team runs daily huddles but never clarifies outcomes or next actions, what will most likely happen?",
+      "options": [
+        "Coordination time increases, but execution remains unclear, so activity rises while outcomes stagnate.",
+        "Outcomes accelerate automatically because daily meetings always produce completed work.",
+        "Deep work time increases because huddles reduce interruptions by default.",
+        "Carryover becomes irrelevant because talking about tasks completes them."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day7",
+        "#en",
+        "#course-productivity_2026_en",
+        "#productivity",
+        "#advanced",
+        "#critical-thinking"
+      ]
+    }
+  ]
+}

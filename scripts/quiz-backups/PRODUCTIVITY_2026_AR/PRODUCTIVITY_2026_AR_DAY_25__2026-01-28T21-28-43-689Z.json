@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-28T21:29:01.854Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_AR",
+    "name": "الإنتاجية 2026: كيفية إدارة الفرق والوقت",
+    "language": "ar"
+  },
+  "lesson": {
+    "dayNumber": 25,
+    "title": "تطوير المهارات: مستويات أعلى، كفاءات جديدة",
+    "lessonId": "PRODUCTIVITY_2026_AR_DAY_25"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a633ed20b35fb797350",
+      "uuid": "890bfe11-dd8e-4651-aa5c-896fca9fbce0",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"طور كفاءاتك الأساسية وخبرتك.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day25",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a633ed20b35fb797351",
+      "uuid": "453a4cec-c61d-4e20-9b44-2bf93f1f4527",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"طور كفاءاتك الأساسية وخبرتك.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day25",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a633ed20b35fb797352",
+      "uuid": "4ad7c9b9-792d-4203-a51e-0ea91159a4ab",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"طور كفاءاتك الأساسية وخبرتك.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day25",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a633ed20b35fb797353",
+      "uuid": "bf1ab981-89ce-4a1b-ad5b-7cb242151099",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "How does the concept \"تطوير المهارات: مستويات أعلى، كفاءات جديدة طور كفا...\" mentioned in the lesson impact achieving your goals?",
+      "options": [
+        "As described in detail in the lesson, تطوير المهارات: مستويات أعلى، ... increases effectiveness and reduces risk",
+        "No significant impact",
+        "Only matters theoretically",
+        "Only an optional element"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day25",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a633ed20b35fb797354",
+      "uuid": "a3c19b90-b457-40b0-8b9d-3692434444e2",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is تطوير in the context of تطوير المهارات: مستويات أعلى، كفاءات جديدة as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, تطوير plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day25",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a633ed20b35fb797355",
+      "uuid": "1698495e-e547-4f5f-9648-fc4db4c8d5c1",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is مستويات in the context of تطوير المهارات: مستويات أعلى، كفاءات جديدة as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, مستويات plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day25",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a633ed20b35fb797356",
+      "uuid": "ec2ce8d7-f262-4d01-8e3b-8c9a106fa22a",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is كفاءات in the context of تطوير المهارات: مستويات أعلى، كفاءات جديدة as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, كفاءات plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day25",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

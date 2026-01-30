@@ -1,0 +1,68 @@
+{
+  "backedUpAt": "2026-01-29T16:59:40.227Z",
+  "course": {
+    "courseId": "B2B_SALES_2026_30_EN",
+    "name": "B2B Sales 2026 Masterclass",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 27,
+    "title": "Procurement, Legal, and Security Questions",
+    "lessonId": "B2B_SALES_2026_30_EN_DAY_27"
+  },
+  "questionCount": 4,
+  "questions": [
+    {
+      "_id": "697b1fd68f79f136a28b8a74",
+      "difficulty": "MEDIUM",
+      "question": "Purpose of the procurement pack?",
+      "options": [
+        "Decoration",
+        "Speed legal/IT review and reduce risk concerns",
+        "Marketing",
+        "HR"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b1fd68f79f136a28b8a75",
+      "difficulty": "MEDIUM",
+      "question": "What do you send early?",
+      "options": [
+        "Security one-pager + DPA/SLA template",
+        "Only price",
+        "Only logo",
+        "Only NDA"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b1fd68f79f136a28b8a76",
+      "difficulty": "MEDIUM",
+      "question": "Bad example?",
+      "options": [
+        "Discovering DPA need after the proposal",
+        "Sending one-pager post-discovery",
+        "Booking a review",
+        "Sharing checklist"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b1fd68f79f136a28b8a77",
+      "difficulty": "MEDIUM",
+      "question": "What goes in the one-pager?",
+      "options": [
+        "Data handling, hosting, access, audit",
+        "Only colors",
+        "Marketing photo",
+        "HR policy"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    }
+  ]
+}

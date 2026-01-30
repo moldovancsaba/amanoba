@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-28T22:55:44.396Z",
+  "course": {
+    "courseId": "AI_30_DAY_EN",
+    "name": "30-Day AI Catch-Up Program (EN)",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 2,
+    "title": "The 4 parts of a good prompt",
+    "lessonId": "AI_30_DAY_EN_DAY_02"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "697769fa27e27f61ac41433f",
+      "uuid": "65232ce0-8dd1-42e8-abf6-12d58e20e883",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"exercise (10–15 min)\n\nWrite 2 prompts wi...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day2",
+        "#en",
+        "#all-languages",
+        "#ai",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "697769fa27e27f61ac414340",
+      "uuid": "6a9507e5-db73-4709-8f96-92439ca50f76",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"exercise (5–10 min)\nRefine one prompt to...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day2",
+        "#en",
+        "#all-languages",
+        "#ai",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "697769fa27e27f61ac414341",
+      "uuid": "c880ddd6-3ff6-454e-9c19-ad31ebd15a9c",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"exercise (10–15 min)\n\nWrite 2 prompts wi...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day2",
+        "#en",
+        "#all-languages",
+        "#ai",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "697769fa27e27f61ac414342",
+      "uuid": "4cc692e1-1148-4f69-b1fd-41eb79095686",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "How does the concept \"The 4 parts of a good prompt Direct the output wit...\" mentioned in the lesson impact achieving your goals?",
+      "options": [
+        "As described in detail in the lesson, The 4 parts of a good prompt D... increases effectiveness and reduces risk",
+        "No significant impact",
+        "Only matters theoretically",
+        "Only an optional element"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day2",
+        "#en",
+        "#all-languages",
+        "#ai",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "697769fa27e27f61ac414343",
+      "uuid": "21374a03-8016-4275-8096-ff5923e2733e",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is Weak in the context of The 4 parts of a good prompt as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, Weak plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day2",
+        "#en",
+        "#all-languages",
+        "#ai",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "697769fa27e27f61ac414344",
+      "uuid": "61191e85-c198-4d07-b6d0-9d7b04e508aa",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is parts in the context of The 4 parts of a good prompt as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, parts plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day2",
+        "#en",
+        "#all-languages",
+        "#ai",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "697769fa27e27f61ac414345",
+      "uuid": "6f8adb84-e688-49ed-b54a-fb414742a906",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is prompt in the context of The 4 parts of a good prompt as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, prompt plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day2",
+        "#en",
+        "#all-languages",
+        "#ai",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

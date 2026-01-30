@@ -1,0 +1,81 @@
+{
+  "backedUpAt": "2026-01-29T08:56:34.749Z",
+  "course": {
+    "courseId": "GEO_SHOPIFY_30_EN",
+    "name": "GEO Shopify – 30-day course",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 5,
+    "title": "Platform map: ChatGPT, Copilot, Google AI",
+    "lessonId": "GEO_SHOPIFY_30_EN_DAY_05"
+  },
+  "questionCount": 5,
+  "questions": [
+    {
+      "_id": "697b200302f89b2246e06dbe",
+      "difficulty": "MEDIUM",
+      "question": "What differs by platform?",
+      "options": [
+        "Programs, regions, data/policy expectations",
+        "All identical",
+        "Only fonts",
+        "Only button color"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b200302f89b2246e06dbf",
+      "difficulty": "EASY",
+      "question": "What is a good 1-pager element?",
+      "options": [
+        "Platform, requirement, region/program, actions, status",
+        "Only logo",
+        "Only meta keywords",
+        "Only a hero image"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b200302f89b2246e06dc0",
+      "difficulty": "MEDIUM",
+      "question": "Why unify price/stock/policy across platforms?",
+      "options": [
+        "To avoid conflicting data and exclusion",
+        "Only for looks",
+        "Not needed",
+        "Only for ads"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b200302f89b2246e06dc1",
+      "difficulty": "MEDIUM",
+      "question": "Which task fits Copilot/ChatGPT/Google differences?",
+      "options": [
+        "GTIN check, policy block refresh, add answer capsule",
+        "Buy backlinks",
+        "Delete schema",
+        "Hide price"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b200302f89b2246e06dc2",
+      "difficulty": "HARD",
+      "question": "What is a poor example?",
+      "options": [
+        "Conflicting prices, missing policy, messy feed",
+        "Stable feed and schema",
+        "Clear policy links",
+        "Consistent IDs"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    }
+  ]
+}

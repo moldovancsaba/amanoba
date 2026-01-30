@@ -1,0 +1,71 @@
+{
+  "generatedAt": "2026-01-29T15:13:58.528Z",
+  "dryRun": true,
+  "minLessonScore": 70,
+  "courseFilter": "GEO_SHOPIFY_30_EN",
+  "lessonFilter": "GEO_SHOPIFY_30_EN_DAY_08",
+  "totals": {
+    "courses": 1,
+    "lessonsEvaluated": 1,
+    "lessonsNeedingRefine": 0,
+    "lessonsRewritten": 0,
+    "lessonsFailedRewrite": 1,
+    "questionsDeleted": 0,
+    "questionsInserted": 0
+  },
+  "lessons": [
+    {
+      "courseId": "GEO_SHOPIFY_30_EN",
+      "courseName": "GEO Shopify – 30-day course",
+      "language": "en",
+      "dayNumber": 8,
+      "lessonId": "GEO_SHOPIFY_30_EN_DAY_08",
+      "title": "Why feeds matter: “offer truth”",
+      "lessonCreatedAt": "2026-01-19T22:01:12.654Z",
+      "lessonQuality": {
+        "score": 100,
+        "issues": [],
+        "signals": {
+          "charCount": 2510,
+          "wordCount": 375,
+          "hasBullets": true,
+          "hasNumberedSteps": false,
+          "hasExamples": true,
+          "hasGoodBadContrast": true,
+          "hasMetricsOrCriteria": true,
+          "hasDefinitionsOrComparisons": true
+        },
+        "refineTemplate": {
+          "addDefinitionSection": false,
+          "addChecklistSection": false,
+          "addExamplesSection": false,
+          "addPitfallsSection": false,
+          "addMetricsSection": false
+        }
+      },
+      "languageIntegrity": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "findings": []
+      },
+      "action": "REWRITE_FAILED",
+      "rewrite": {
+        "errors": [
+          "Must have at least 7 questions per lesson, found 6",
+          "APPLICATION questions: 4 (must be at least 5). Regenerate/add questions."
+        ],
+        "warnings": [],
+        "existingCounts": {
+          "total": 5,
+          "valid": 0,
+          "invalid": 5,
+          "application": 0,
+          "critical": 0,
+          "recall": 0
+        },
+        "generateTarget": 40
+      }
+    }
+  ]
+}

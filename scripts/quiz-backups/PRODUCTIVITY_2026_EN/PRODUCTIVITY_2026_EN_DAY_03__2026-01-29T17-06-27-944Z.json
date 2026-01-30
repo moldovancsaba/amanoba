@@ -1,0 +1,126 @@
+{
+  "backedUpAt": "2026-01-29T17:06:35.321Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_EN",
+    "name": "Productivity 2026: How to Manage Teams and Time",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 3,
+    "title": "Goal hierarchy: vision → outcomes → projects → next actions",
+    "lessonId": "PRODUCTIVITY_2026_EN_DAY_03"
+  },
+  "questionCount": 5,
+  "questions": [
+    {
+      "_id": "69787d99a326286129da8f68",
+      "uuid": "1ca47ea0-723d-401e-a670-f7dd3c4a2e0a",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "In the “goal hierarchy”, which mapping correctly connects vision → outcome → project → next action?",
+      "options": [
+        "Vision: become a lead developer; Outcome: ship a feature by Q2; Project: redesign onboarding; Next action: schedule a kickoff and write the first draft.",
+        "Vision: answer emails faster; Outcome: attend more meetings; Project: read productivity tips; Next action: add more tasks to the backlog.",
+        "Vision: do many tasks; Outcome: feel busy; Project: keep calendar full; Next action: reply instantly to every message.",
+        "Vision: avoid stress; Outcome: never decide; Project: infinite research; Next action: postpone choosing until you feel certain."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day3",
+        "#en",
+        "#course-productivity_2026_en",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "69787d99a326286129da8f69",
+      "uuid": "da2f94c1-adca-4e2e-9948-967b7c80cfb2",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "You have a project plan but nothing moves forward. Which missing element is the most likely root cause in the hierarchy?",
+      "options": [
+        "Next actions: concrete steps for today/tomorrow that turn planning into execution.",
+        "More vision statements: rewriting the vision weekly until it feels inspiring enough.",
+        "More tools: switching task apps so the plan looks cleaner.",
+        "More meetings: adding coordination to replace direct action."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day3",
+        "#en",
+        "#course-productivity_2026_en",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "69787d99a326286129da8f6a",
+      "uuid": "0bc38ac8-ab9b-49fa-a53f-a7302285ca0c",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Which option is an outcome (measurable change) rather than a project (body of work) in the hierarchy?",
+      "options": [
+        "Increase customer satisfaction by 15% by end of Q2, measured by support survey scores.",
+        "Redesign the onboarding flow over the next month with multiple stakeholder reviews.",
+        "Write meeting notes and share them after every sync to keep everyone informed.",
+        "Create a new folder structure in the drive so documentation looks organized."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day3",
+        "#en",
+        "#course-productivity_2026_en",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "69787d99a326286129da8f6d",
+      "uuid": "64cdb0b8-e5b9-4e7a-a74a-a2e98bcfec95",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "If a team runs many projects without defining measurable outcomes, what is the most likely failure pattern?",
+      "options": [
+        "High activity and frequent updates, but unclear progress because nobody can prove whether the intended change actually happened.",
+        "Lower activity but guaranteed results, because projects automatically create outcomes regardless of measurement.",
+        "Better prioritization, because lacking outcomes prevents conflict between competing goals.",
+        "Less need for next actions, because planning itself completes the work."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day3",
+        "#en",
+        "#course-productivity_2026_en",
+        "#productivity",
+        "#advanced",
+        "#critical-thinking"
+      ]
+    },
+    {
+      "_id": "69787d99a326286129da8f6e",
+      "uuid": "6386f6fd-1df0-473c-9dbb-50c3577e9115",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "You wrote an inspiring vision but your week is still chaotic. What is the most course-aligned “next action” step to fix execution?",
+      "options": [
+        "Pick one outcome for the next 6–12 months, then define a project and write the first concrete next action for today.",
+        "Rewrite the vision again until it feels perfect, then wait for motivation to appear before acting.",
+        "Start three new projects so you have options, then decide later which one feels best.",
+        "Avoid defining outcomes because measurement creates pressure and reduces creativity."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day3",
+        "#en",
+        "#course-productivity_2026_en",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    }
+  ]
+}

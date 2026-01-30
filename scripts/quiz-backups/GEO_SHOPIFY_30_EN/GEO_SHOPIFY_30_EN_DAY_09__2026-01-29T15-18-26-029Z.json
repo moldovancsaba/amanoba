@@ -1,0 +1,81 @@
+{
+  "backedUpAt": "2026-01-29T15:18:26.619Z",
+  "course": {
+    "courseId": "GEO_SHOPIFY_30_EN",
+    "name": "GEO Shopify – 30-day course",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 9,
+    "title": "Identifiers clean: SKU, GTIN, brand, variants",
+    "lessonId": "GEO_SHOPIFY_30_EN_DAY_09"
+  },
+  "questionCount": 5,
+  "questions": [
+    {
+      "_id": "697b200402f89b2246e06df2",
+      "difficulty": "EASY",
+      "question": "What to check in the ID audit?",
+      "options": [
+        "SKU unique, GTIN correct/not duplicated, brand filled, variant name clear",
+        "Only price",
+        "Only images",
+        "Only meta title"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b200402f89b2246e06df3",
+      "difficulty": "MEDIUM",
+      "question": "Why does variant naming clarity matter?",
+      "options": [
+        "So AI doesn’t mix size/color variants",
+        "Only for design",
+        "Not important",
+        "Only for SEO"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b200402f89b2246e06df4",
+      "difficulty": "EASY",
+      "question": "What is a poor example for IDs?",
+      "options": [
+        "Missing GTIN, duplicate SKU, confusing variant name",
+        "All filled",
+        "Unique SKU",
+        "Clear variant label"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b200402f89b2246e06df5",
+      "difficulty": "MEDIUM",
+      "question": "What belongs in the fix list?",
+      "options": [
+        "Fix duplicate SKU, add GTIN, clean variant naming",
+        "Only meta title length",
+        "Only backlink",
+        "Nothing"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b200402f89b2246e06df6",
+      "difficulty": "HARD",
+      "question": "Why be consistent with brand?",
+      "options": [
+        "AI and feeds identify the manufacturer/brand clearly",
+        "Does not matter",
+        "Only design",
+        "Only SEO keyword"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    }
+  ]
+}

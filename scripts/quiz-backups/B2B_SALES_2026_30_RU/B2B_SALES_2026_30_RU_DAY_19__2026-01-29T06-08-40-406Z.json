@@ -1,0 +1,15 @@
+{
+  "backedUpAt": "2026-01-29T06:08:43.873Z",
+  "course": {
+    "courseId": "B2B_SALES_2026_30_RU",
+    "name": "B2B Продажи 2026 — мастер‑класс (30 дней) (RU)",
+    "language": "ru"
+  },
+  "lesson": {
+    "dayNumber": 19,
+    "title": "Зачем нужен CRM (и почему Excel не хватает)",
+    "lessonId": "B2B_SALES_2026_30_RU_DAY_19"
+  },
+  "questionCount": 0,
+  "questions": []
+}

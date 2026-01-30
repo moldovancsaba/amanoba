@@ -1,0 +1,10 @@
+{
+  "backedUpAt": "2026-01-28T22:55:28.194Z",
+  "courseId": "AI_30_DAY_EN",
+  "lessonId": "AI_30_DAY_EN_DAY_12",
+  "dayNumber": 12,
+  "title": "Research helper: questions, not answers",
+  "content": "<h1>Research helper: questions, not answers</h1>\n<p><em>Use AI to frame research, not to accept facts blindly</em></p>\n<hr />\n<h2>Learning goal</h2>\n<ul>\n<li>Create research questions and angles.</li>\n<li>Generate a reading/verification list.</li>\n</ul>\n<hr />\n<h2>Why it matters</h2>\n<ul>\n<li>AI can suggest what to investigate; you must verify.</li>\n<li>Good questions prevent shallow research.</li>\n</ul>\n<hr />\n<h2>Explanation</h2>\n<ul>\n<li>Prompt: “Give 5 questions to investigate X, with suggested sources/formats.”</li>\n<li>Ask for counterpoints and pitfalls.</li>\n<li>Build a to-check list (sources/people/data).</li>\n</ul>\n<hr />\n<h2>Examples</h2>\n<ul>\n<li><strong>Good</strong>: “List 5 angles to evaluate tool X for small teams; suggest data to collect; list 3 risks.”</li>\n<li><strong>Poor</strong>: “Tell me everything about X” (no scope).</li>\n</ul>\n<hr />\n<h2>Guided exercise (10–15 min)</h2>\n<ol>\n<li>Pick a topic; ask for 5 research questions + sources + pitfalls.</li>\n<li>Create a checklist of what you will verify manually.</li>\n</ol>\n<h2>Independent exercise (5–10 min)</h2>\n<p>Run a quick source scan on 2 items and jot findings/uncertainties.</p>\n<hr />\n<h2>Self-check</h2>\n<ul>\n<li>Questions/angles listed.</li>\n<li>Sources/pitfalls captured.</li>\n<li>Manual verification plan noted.</li>\n</ul>\n<hr />\n<h2>Optional deepening</h2>\n<ul>\n<li>Safety best practices: <a href=\"https://platform.openai.com/docs/guides/safety-best-practices\" target=\"_blank\" rel=\"noreferrer\">https://platform.openai.com/docs/guides/safety-best-practices</a></li>\n</ul>",
+  "emailSubject": "AI 30-Day – Day 12: Research helper",
+  "emailBody": "<h1>AI 30-Day – Day 12</h1>\n<h2>Research helper</h2>\n<p>Today you’ll generate research questions, sources, and pitfalls for your topic.</p>\n<p><a href=\"http://localhost:3000/courses/AI_30_DAY_EN/day/{{dayNumber}}\">Open the lesson →</a></p>"
+}

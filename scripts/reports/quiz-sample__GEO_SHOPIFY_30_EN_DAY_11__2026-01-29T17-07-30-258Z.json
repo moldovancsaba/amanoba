@@ -1,0 +1,142 @@
+{
+  "generatedAt": "2026-01-29T17:07:30.258Z",
+  "courseId": "GEO_SHOPIFY_30_EN",
+  "courseName": "GEO Shopify – 30-day course",
+  "language": "en",
+  "lessonId": "GEO_SHOPIFY_30_EN_DAY_11",
+  "dayNumber": 11,
+  "title": "Trust signals: identity, support, proof",
+  "questionCount": 10,
+  "questions": [
+    {
+      "index": 1,
+      "question": "In a \"Trust signals: identity, support, proof\" scenario, how would applying \"Guided exercise (10–15 min)\" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?",
+      "options": [
+        "Constraints can be ignored if the team has enough willpower; the risk is minimal because effort fixes everything.",
+        "It mainly increases activity volume (more tasks closed), which is enough on its own; the risk is only that people feel tired.",
+        "Correctly applied, it focuses effort on high-impact outcomes under constraints; misapplied, it drives optimization to the wrong metric and produces “busy output”.",
+        "Speed is the primary goal and quality can be fixed later; the risk is low because rework is easy to absorb."
+      ],
+      "correctIndex": 2,
+      "questionType": "critical-thinking",
+      "difficulty": "HARD"
+    },
+    {
+      "index": 2,
+      "question": "In a \"Trust signals: identity, support, proof\" scenario, how would applying \"Poor\" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?",
+      "options": [
+        "It mainly increases activity volume (more tasks closed), which is enough on its own; the risk is only that people feel tired.",
+        "Correctly applied, it focuses effort on high-impact outcomes under constraints; misapplied, it drives optimization to the wrong metric and produces “busy output”.",
+        "Speed is the primary goal and quality can be fixed later; the risk is low because rework is easy to absorb.",
+        "It pushes measurement but not execution, so it rarely affects outcomes; the risk is overthinking."
+      ],
+      "correctIndex": 1,
+      "questionType": "critical-thinking",
+      "difficulty": "HARD"
+    },
+    {
+      "index": 3,
+      "question": "In a \"Trust signals: identity, support, proof\" scenario, how would applying \"Learning goal Build a trust block (identity/suppor\" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?",
+      "options": [
+        "Correctly applied, it focuses effort on high-impact outcomes under constraints; misapplied, it drives optimization to the wrong metric and produces “busy output”.",
+        "It means documenting more, so results improve automatically; the risk is only extra paperwork.",
+        "Speed is the primary goal and quality can be fixed later; the risk is low because rework is easy to absorb.",
+        "It pushes measurement but not execution, so it rarely affects outcomes; the risk is overthinking."
+      ],
+      "correctIndex": 0,
+      "questionType": "critical-thinking",
+      "difficulty": "HARD"
+    },
+    {
+      "index": 4,
+      "question": "In a \"Trust signals: identity, support, proof\" scenario, how would applying \"support\" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?",
+      "options": [
+        "It mainly increases activity volume (more tasks closed), which is enough on its own; the risk is only that people feel tired.",
+        "Correctly applied, it focuses effort on high-impact outcomes under constraints; misapplied, it drives optimization to the wrong metric and produces “busy output”.",
+        "Speed is the primary goal and quality can be fixed later; the risk is low because rework is easy to absorb.",
+        "Constraints can be ignored if the team has enough willpower; the risk is minimal because effort fixes everything."
+      ],
+      "correctIndex": 1,
+      "questionType": "critical-thinking",
+      "difficulty": "HARD"
+    },
+    {
+      "index": 5,
+      "question": "In a \"Trust signals: identity, support, proof\" scenario, how would applying \"identity\" change your ability to achieve goals, and what is the most likely risk if you implement it incorrectly?",
+      "options": [
+        "It means documenting more, so results improve automatically; the risk is only extra paperwork.",
+        "It mainly increases activity volume (more tasks closed), which is enough on its own; the risk is only that people feel tired.",
+        "It pushes measurement but not execution, so it rarely affects outcomes; the risk is overthinking.",
+        "Correctly applied, it focuses effort on high-impact outcomes under constraints; misapplied, it drives optimization to the wrong metric and produces “busy output”."
+      ],
+      "correctIndex": 3,
+      "questionType": "critical-thinking",
+      "difficulty": "HARD"
+    },
+    {
+      "index": 6,
+      "question": "You are working on \"Trust signals: identity, support, proof\". A teammate mentions \"Guided exercise (10–15 min)\" but you need it operational. Which approach makes the output measurable and verifiable?",
+      "options": [
+        "I move fast and postpone quality, which increases rework and re-opened tasks that consume capacity.",
+        "I keep changing multiple variables at once, so results are noisy and learning is unclear.",
+        "I optimize the wrong metric (busy output), which increases activity while customer value and quality fall.",
+        "I make it measurable: write a “done” criterion, pick one metric, apply it to a small scope, and expand only after verified impact."
+      ],
+      "correctIndex": 3,
+      "questionType": "application",
+      "difficulty": "MEDIUM"
+    },
+    {
+      "index": 7,
+      "question": "You are working on \"Trust signals: identity, support, proof\". A teammate mentions \"Poor\" but you need it operational. Which approach makes the output measurable and verifiable?",
+      "options": [
+        "I keep changing multiple variables at once, so results are noisy and learning is unclear.",
+        "I implement it once but do not document the steps, so it is not repeatable or auditable across the team.",
+        "I make it measurable: write a “done” criterion, pick one metric, apply it to a small scope, and expand only after verified impact.",
+        "I treat it as a slogan and never operationalize it into steps, owner, and a measurable threshold."
+      ],
+      "correctIndex": 2,
+      "questionType": "application",
+      "difficulty": "MEDIUM"
+    },
+    {
+      "index": 8,
+      "question": "You are working on \"Trust signals: identity, support, proof\". A teammate mentions \"signals\" but you need it operational. Which approach makes the output measurable and verifiable?",
+      "options": [
+        "I keep changing multiple variables at once, so results are noisy and learning is unclear.",
+        "I treat it as a slogan and never operationalize it into steps, owner, and a measurable threshold.",
+        "I optimize the wrong metric (busy output), which increases activity while customer value and quality fall.",
+        "I make it measurable: write a “done” criterion, pick one metric, apply it to a small scope, and expand only after verified impact."
+      ],
+      "correctIndex": 3,
+      "questionType": "application",
+      "difficulty": "MEDIUM"
+    },
+    {
+      "index": 9,
+      "question": "You are working on \"Trust signals: identity, support, proof\". A teammate mentions \"proof\" but you need it operational. Which approach makes the output measurable and verifiable?",
+      "options": [
+        "I optimize the wrong metric (busy output), which increases activity while customer value and quality fall.",
+        "I implement it once but do not document the steps, so it is not repeatable or auditable across the team.",
+        "I make it measurable: write a “done” criterion, pick one metric, apply it to a small scope, and expand only after verified impact.",
+        "I treat it as a slogan and never operationalize it into steps, owner, and a measurable threshold."
+      ],
+      "correctIndex": 2,
+      "questionType": "application",
+      "difficulty": "MEDIUM"
+    },
+    {
+      "index": 10,
+      "question": "You are working on \"Trust signals: identity, support, proof\". A teammate mentions \"Independent exercise (5–10 min)\" but you need it operational. Which approach makes the output measurable and verifiable?",
+      "options": [
+        "I implement it once but do not document the steps, so it is not repeatable or auditable across the team.",
+        "I optimize the wrong metric (busy output), which increases activity while customer value and quality fall.",
+        "I make it measurable: write a “done” criterion, pick one metric, apply it to a small scope, and expand only after verified impact.",
+        "I treat it as a slogan and never operationalize it into steps, owner, and a measurable threshold."
+      ],
+      "correctIndex": 2,
+      "questionType": "application",
+      "difficulty": "MEDIUM"
+    }
+  ]
+}

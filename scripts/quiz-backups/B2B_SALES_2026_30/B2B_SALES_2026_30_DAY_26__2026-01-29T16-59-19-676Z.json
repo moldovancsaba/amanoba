@@ -1,0 +1,68 @@
+{
+  "backedUpAt": "2026-01-29T17:00:28.249Z",
+  "course": {
+    "courseId": "B2B_SALES_2026_30",
+    "name": "B2B Értékesítés 2026 Masterclass",
+    "language": "hu"
+  },
+  "lesson": {
+    "dayNumber": 26,
+    "title": "Árazás 2026-ban: csomagolás és érték",
+    "lessonId": "B2B_SALES_2026_30_DAY_26"
+  },
+  "questionCount": 4,
+  "questions": [
+    {
+      "_id": "697b2043ac79ca83bb9722b3",
+      "difficulty": "MEDIUM",
+      "question": "Miért kell diszkont szabály?",
+      "options": [
+        "Színesebb legyen az árlista",
+        "Margin védelme és következetesség",
+        "Marketing célból",
+        "HR okból"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b2043ac79ca83bb9722b4",
+      "difficulty": "MEDIUM",
+      "question": "Mi a minimum csomag elve?",
+      "options": [
+        "A lehető legkisebb ár mindenáron",
+        "Elég a sikerhez, nincs alulméretezve",
+        "Mindig ingyen",
+        "Csak enterprise"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b2043ac79ca83bb9722b5",
+      "difficulty": "MEDIUM",
+      "question": "Mi a jó opció példa?",
+      "options": [
+        "Support szint, integráció, onboarding plusz",
+        "Emoji csomag",
+        "Toll ajándék",
+        "Nincs opció"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b2043ac79ca83bb9722b6",
+      "difficulty": "MEDIUM",
+      "question": "Ki adhat diszkontot?",
+      "options": [
+        "Bárki bármikor",
+        "Szabály szerint kijelölt jóváhagyó",
+        "Csak marketing",
+        "Csak ügyfélszolgálat"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    }
+  ]
+}

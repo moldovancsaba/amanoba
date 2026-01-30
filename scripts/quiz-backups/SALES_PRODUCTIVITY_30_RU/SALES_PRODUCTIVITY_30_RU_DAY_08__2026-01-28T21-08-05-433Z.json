@@ -1,0 +1,177 @@
+{
+  "backedUpAt": "2026-01-28T21:08:08.326Z",
+  "course": {
+    "courseId": "SALES_PRODUCTIVITY_30_RU",
+    "name": "Постройте свои продажи – 30 дней к большему количеству сделок",
+    "language": "ru"
+  },
+  "lesson": {
+    "dayNumber": 8,
+    "title": "Вопросы квалификации и скрипты – Что спрашивать для квалификации?",
+    "lessonId": "SALES_PRODUCTIVITY_30_RU_DAY_08"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a5583229aca24a6d665",
+      "uuid": "479a508b-d2bf-4a46-8f91-e96cf170a8d5",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Лучшая квалификация = лучшие результаты.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day8",
+        "#ru",
+        "#all-languages",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5583229aca24a6d666",
+      "uuid": "4d22eb74-6d48-4dd5-a5d0-726f7591bbf1",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Экономия времени:\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day8",
+        "#ru",
+        "#all-languages",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5583229aca24a6d667",
+      "uuid": "7cf83a05-b1e8-4390-a887-efe5c10e3555",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Лучшее прогнозирование:\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day8",
+        "#ru",
+        "#all-languages",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5583229aca24a6d668",
+      "uuid": "9d4436d0-17ce-4515-9674-4c80ad0f3ec4",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Как концепция \"важно сейчас?\" (углубление)\n  Закрывающие вопросы:...\", упомянутая в уроке, влияет на достижение ваших goals?",
+      "options": [
+        "Как подробно описано в уроке, важно сейчас?\" (углубление)\n  ... повышает эффективность и снижает риски",
+        "Нет значительного влияния",
+        "Имеет значение только теоретически",
+        "Только опциональный элемент"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day8",
+        "#ru",
+        "#all-languages",
+        "#productivity",
+        "#sales",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5583229aca24a6d669",
+      "uuid": "962dafa1-39f7-476a-9531-7f540ad680fe",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Какую роль играет Экономия времени: в уроке \"Вопросы квалификации и скрипты – Что спрашивать для квалификации?\"?",
+      "options": [
+        "Как подробно описано в уроке, Экономия времени: играет ключевую роль в оптимизации процессов и достижении целей",
+        "Только периферийная информация без значительной роли",
+        "Только теоретическая концепция без практического применения",
+        "Не упоминается в уроке"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day8",
+        "#ru",
+        "#all-languages",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5583229aca24a6d66a",
+      "uuid": "0961eaff-3b22-4e00-98c7-7bad19810933",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Какую роль играет Профессиональный вид: в уроке \"Вопросы квалификации и скрипты – Что спрашивать для квалификации?\"?",
+      "options": [
+        "Как подробно описано в уроке, Профессиональный вид: играет ключевую роль в оптимизации процессов и достижении целей",
+        "Только периферийная информация без значительной роли",
+        "Только теоретическая концепция без практического применения",
+        "Не упоминается в уроке"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day8",
+        "#ru",
+        "#all-languages",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5583229aca24a6d66b",
+      "uuid": "34926a2d-3267-43d1-86c3-bc1a12c5a6b0",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Какую роль играет Уточняющие вопросы: в уроке \"Вопросы квалификации и скрипты – Что спрашивать для квалификации?\"?",
+      "options": [
+        "Как подробно описано в уроке, Уточняющие вопросы: играет ключевую роль в оптимизации процессов и достижении целей",
+        "Только периферийная информация без значительной роли",
+        "Только теоретическая концепция без практического применения",
+        "Не упоминается в уроке"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day8",
+        "#ru",
+        "#all-languages",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

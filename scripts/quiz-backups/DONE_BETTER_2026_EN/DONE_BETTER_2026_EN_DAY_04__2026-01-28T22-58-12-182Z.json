@@ -1,0 +1,114 @@
+{
+  "backedUpAt": "2026-01-28T22:58:14.042Z",
+  "course": {
+    "courseId": "DONE_BETTER_2026_EN",
+    "name": "Done is better - Build What Matters",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 4,
+    "title": "Unknowns Are Assets",
+    "lessonId": "DONE_BETTER_2026_EN_DAY_04"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "697a92f422596d24dfc12c78",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "A team faces several unknowns before starting a project. How should they treat these unknowns?",
+      "options": [
+        "As assets that guide inquiry and next steps to validate before committing",
+        "As weaknesses to hide from others to maintain confidence",
+        "As reasons not to act until certainty and complete information",
+        "As irrelevant to the decision at hand and should be ignored"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a92f422596d24dfc12c79",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "A project lead explicitly states: \"We do not know yet if the API can handle this load.\" Why is naming unknowns like this important?",
+      "options": [
+        "It reduces the cost of not knowing and aligns others on what needs validation",
+        "It makes you look smart and in control of all project details",
+        "It is required by law or policy in most organizations",
+        "It has no effect on outcomes or project success"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a92f422596d24dfc12c7a",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "A stakeholder asks about project risks. What is a good way to communicate unknowns?",
+      "options": [
+        "What you do not know yet, and when or how you will find out",
+        "Only what you know and skip the rest to avoid appearing uncertain",
+        "Vague statements to avoid commitment or specific timelines",
+        "Nothing; keep them to yourself to maintain confidence"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a92f422596d24dfc12c7b",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Saying \"I don't know yet\" in a project context is best described as:",
+      "options": [
+        "Leadership: it builds trust and sets expectations",
+        "Weakness that undermines authority",
+        "Rude or unprofessional behavior",
+        "Unnecessary if you have a plan"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a92f422596d24dfc12c7c",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "What is the risk of making decisions as if unknowns do not exist?",
+      "options": [
+        "Surprises and rework when reality diverges from assumptions",
+        "Faster decisions with no downside",
+        "No significant risk in most cases",
+        "Higher confidence and team alignment"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a92f422596d24dfc12c7d",
+      "questionType": "application",
+      "difficulty": "EASY",
+      "question": "A product team lists unknowns: \"We do not know if users will pay for this feature\" and \"We do not know the technical complexity.\" How should they use these unknowns?",
+      "options": [
+        "As a map showing what to learn or validate next before committing resources",
+        "As a physical map of the project timeline and dependencies",
+        "As a replacement for the need for a formal project plan",
+        "They should ignore unknowns as they are irrelevant to decision-making"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a92f422596d24dfc12c7e",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Which behavior undermines trust?",
+      "options": [
+        "Hiding unknowns to look in control",
+        "Listing what you don't know yet",
+        "Setting a date to revisit the question",
+        "Asking for input from stakeholders"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    }
+  ]
+}

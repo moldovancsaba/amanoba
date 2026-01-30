@@ -1,0 +1,10 @@
+{
+  "backedUpAt": "2026-01-28T22:37:36.286Z",
+  "courseId": "DONE_BETTER_2026_EN",
+  "lessonId": "DONE_BETTER_2026_EN_DAY_16",
+  "dayNumber": 16,
+  "title": "Ship the Skeleton",
+  "content": "<h1>Ship the Skeleton</h1>\n<p><em>Build the bones before you paint the skin.</em></p>\n<hr />\n<h2>Learning goal</h2>\n<ul>\n<li>Identify the minimal structure that could work.</li>\n<li>Ship or test that first.</li>\n<li>Add detail only after the skeleton is validated.</li>\n</ul>\n<hr />\n<h2>Why it matters</h2>\n<ul>\n<li>Polish before proof wastes time.</li>\n<li>Skeleton first reduces risk.</li>\n<li>Detail after validation is efficient.</li>\n</ul>\n<hr />\n<h2>Key idea</h2>\n<p>Skeleton first means building the minimal structure before adding detail. Build the bones before you paint the skin. Add detail only after the skeleton is validated.</p>\n<hr />\n<h2>Common mistakes</h2>\n<ul>\n<li>Polishing before proving.</li>\n<li>Confusing skeleton with incomplete or shoddy work.</li>\n<li>Never shipping the skeleton because it is not perfect.</li>\n</ul>\n<hr />\n<h2>Today's move</h2>\n<p>Identify one deliverable you are working on. Strip it to the skeleton: the minimum that could be tested. Ship or test that this week.</p>\n<hr />\n<h2>Self-check</h2>\n<ul>\n<li>You can explain the key idea in one sentence.</li>\n<li>You have one concrete move to do today.</li>\n</ul>",
+  "emailSubject": "Done is better – Day {{dayNumber}}: {{lessonTitle}}",
+  "emailBody": "<h1>Done is better - Build What Matters</h1><h2>Day {{dayNumber}}: {{lessonTitle}}</h2><p>{{lessonContent}}</p><p><a href=\"http://localhost:3000/courses/DONE_BETTER_2026_EN/day/{{dayNumber}}\">Open the lesson →</a></p>"
+}

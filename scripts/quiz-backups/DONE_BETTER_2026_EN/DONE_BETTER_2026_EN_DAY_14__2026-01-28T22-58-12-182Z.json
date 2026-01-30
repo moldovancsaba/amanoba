@@ -1,0 +1,114 @@
+{
+  "backedUpAt": "2026-01-28T22:58:15.156Z",
+  "course": {
+    "courseId": "DONE_BETTER_2026_EN",
+    "name": "Done is better - Build What Matters",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 14,
+    "title": "Choose with Intent",
+    "lessonId": "DONE_BETTER_2026_EN_DAY_14"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "697a92f522596d24dfc12d04",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "A decision has been discussed but not written down. What is the risk?",
+      "options": [
+        "Implicit decisions cause misalignment; write what we chose and why to prevent drift",
+        "None; everyone was in the room so they will remember it correctly",
+        "It will be forgotten but that is not a significant problem",
+        "Writing takes too long and slows down decision-making unnecessarily"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a92f522596d24dfc12d05",
+      "questionType": "application",
+      "difficulty": "EASY",
+      "question": "A team is choosing between three marketing strategies. They write down: \"We chose Option A because it targets our core segment and fits our budget. We are not doing B or C.\" What does this demonstrate?",
+      "options": [
+        "Choosing with intent: using criteria and boundaries to make the decision explicit",
+        "Letting the loudest person decide for the team without structure",
+        "Voting on everything and following the majority without criteria",
+        "Delegating all decisions to someone else without involvement"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a92f522596d24dfc12d06",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How do you avoid drift on decisions?",
+      "options": [
+        "Make the decision explicit: what we chose, why, and what we are not doing",
+        "Meet more often to discuss the decision repeatedly",
+        "Assign a single decider to avoid discussion and alignment",
+        "Avoid hard choices by deferring decisions indefinitely"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a92f522596d24dfc12d07",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Delaying decision by asking for more data indefinitely leads to:",
+      "options": [
+        "Drift; the default option or inaction wins without intent",
+        "Better decisions with more complete information",
+        "More alignment through extended discussion",
+        "Lower risk through thorough analysis"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a92f522596d24dfc12d08",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Confusing consensus with a clear decision can result in:",
+      "options": [
+        "No one owns the outcome; \"everyone agreed\" but no one wrote what was chosen",
+        "Faster execution",
+        "Higher satisfaction",
+        "No significant downside in practice"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a92f522596d24dfc12d09",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "What should you write down when you make a decision?",
+      "options": [
+        "What we chose, why, and what we are not doing to prevent future confusion",
+        "Only the outcome and not the rationale or reasoning behind it",
+        "Only the date and not the rationale or what was decided",
+        "Only who was present at the meeting without recording the decision"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a92f522596d24dfc12d0a",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "A team keeps revisiting the same choice. What is likely missing?",
+      "options": [
+        "An explicit decision with criteria and boundaries that prevents revisiting",
+        "More data to make the decision clearer and more certain",
+        "A different leader who can make the decision without discussion",
+        "A longer meeting to discuss the choice more thoroughly"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    }
+  ]
+}

@@ -1,0 +1,68 @@
+{
+  "backedUpAt": "2026-01-29T17:00:22.680Z",
+  "course": {
+    "courseId": "B2B_SALES_2026_30",
+    "name": "B2B Értékesítés 2026 Masterclass",
+    "language": "hu"
+  },
+  "lesson": {
+    "dayNumber": 12,
+    "title": "Lista tisztítás és lead hygiene",
+    "lessonId": "B2B_SALES_2026_30_DAY_12"
+  },
+  "questionCount": 4,
+  "questions": [
+    {
+      "_id": "697b203eac79ca83bb972250",
+      "difficulty": "MEDIUM",
+      "question": "Mi a lead hygiene egyik fő célja?",
+      "options": [
+        "Több marketing email",
+        "Valós pipeline és pontos mérés",
+        "Kevesebb státusz",
+        "Nagyobb spam arány"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b203eac79ca83bb972251",
+      "difficulty": "MEDIUM",
+      "question": "Mi legyen a dedupe szabály alapja?",
+      "options": [
+        "Random",
+        "Email/domain + név kombináció",
+        "Csak keresztnév",
+        "Csak iparág"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b203eac79ca83bb972252",
+      "difficulty": "MEDIUM",
+      "question": "Miért kell DNC lista?",
+      "options": [
+        "Dekoráció",
+        "Bounce/spam/jogi kérés kezelése, kockázatcsökkentés",
+        "Kevesebb kampány",
+        "Drágább szoftver"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b203eac79ca83bb972253",
+      "difficulty": "MEDIUM",
+      "question": "Mi a rossz példa?",
+      "options": [
+        "Státusz egységes, duplikátum jelölve",
+        "Duplikált leadek, vegyes státusznevek, nincs DNC",
+        "DNC lista vezetve",
+        "QA ritmus beállítva"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    }
+  ]
+}

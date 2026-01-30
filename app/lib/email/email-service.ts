@@ -11,9 +11,21 @@ import connectDB from '../mongodb';
 import { Player, Course, Lesson } from '@/app/lib/models';
 import type { ILesson } from '@/app/lib/models/lesson';
 import type { IPlayer } from '@/app/lib/models/player';
-import type { Locale } from '@/app/lib/i18n/locales';
+import { locales, type Locale } from '@/app/lib/i18n/locales';
 import { generateSecureToken } from '../security';
 import { APP_URL } from '@/app/lib/constants/app-url';
+import {
+  renderLessonUnsubscribeFooterHtml,
+  renderPaymentUnsubscribeFooterHtml,
+  renderWelcomeEmailHtml,
+  renderWelcomeEmailSubject,
+  renderCompletionEmailHtml,
+  renderCompletionEmailSubject,
+  renderReminderEmailHtml,
+  renderReminderEmailSubject,
+  renderPaymentConfirmationEmail,
+} from './email-localization';
+import { validateLessonTextLanguageIntegrity } from '@/app/lib/quality/language-integrity';
 
 // Initialize Resend client
 // Why: Resend is modern, developer-friendly email service
@@ -41,6 +53,50 @@ const EMAIL_TOKENS = {
   muted: '#666666',
   border: '#dddddd',
 } as const;
+
+function normalizeLocale(candidate: unknown, fallback: unknown): Locale {
+  const cand = String(candidate || '').toLowerCase();
+  if (locales.includes(cand as Locale)) return cand as Locale;
+  const fb = String(fallback || '').toLowerCase();
+  if (locales.includes(fb as Locale)) return fb as Locale;
+  return 'en';
+}
+
+function scrubForLanguageIntegrity(text: string, exemptStrings?: Array<string | null | undefined>) {
+  let s = String(text || '');
+  for (const raw of exemptStrings || []) {
+    const token = String(raw || '').trim();
+    if (!token) continue;
+    s = s.split(token).join(' ');
+  }
+  return s;
+}
+
+function ensureEmailLanguageIntegrity(params: {
+  locale: Locale;
+  subject: string;
+  html: string;
+  context: string;
+  exemptStrings?: Array<string | null | undefined>;
+}) {
+  const { locale, subject, html, context, exemptStrings } = params;
+  const scrubbedSubject = scrubForLanguageIntegrity(subject, exemptStrings);
+  const scrubbedHtml = scrubForLanguageIntegrity(html, exemptStrings);
+
+  const subjectCheck = validateLessonTextLanguageIntegrity({
+    language: locale,
+    text: scrubbedSubject,
+    contextLabel: `${context}.subject`,
+  });
+  if (!subjectCheck.ok) return subjectCheck;
+
+  const bodyCheck = validateLessonTextLanguageIntegrity({
+    language: locale,
+    text: scrubbedHtml,
+    contextLabel: `${context}.html`,
+  });
+  return bodyCheck;
+}
 
 /**
  * Get or generate unsubscribe token for a player
@@ -109,7 +165,7 @@ export async function sendLessonEmail(
     }
 
     // Determine language for email (use provided locale, player locale, or lesson language)
-    const emailLocale = locale || (player.locale as Locale) || lesson.language || 'hu';
+    const emailLocale = normalizeLocale(locale || player.locale, lesson.language || 'en');
 
     // Get translated content if available
     let emailSubject = lesson.emailSubject;
@@ -165,19 +221,31 @@ export async function sendLessonEmail(
       );
     }
 
-    // Append unsubscribe footer if not already in body
-    if (!body.includes('unsubscribe') && !body.includes('{{unsubscribeUrl}}')) {
-      const unsubscribeFooter = `
-        <hr style="margin: 20px 0; border: none; border-top: 1px solid ${EMAIL_TOKENS.border};">
-        <p style="font-size: 12px; color: ${EMAIL_TOKENS.muted}; text-align: center;">
-          You're receiving this email because you're enrolled in ${courseName}. 
-          <a href="${unsubscribeUrl}" style="color: ${EMAIL_TOKENS.muted};">Unsubscribe from lesson emails</a>
-        </p>
-      `;
-      body = body + unsubscribeFooter;
-    } else {
-      // Replace placeholder if present
+    // Ensure unsubscribe URL is present. Prefer explicit placeholder; otherwise append a localized footer.
+    if (body.includes('{{unsubscribeUrl}}')) {
       body = body.replace('{{unsubscribeUrl}}', unsubscribeUrl);
+    } else {
+      const hasUnsubscribeLink = /\/api\/email\/unsubscribe\?token=/.test(body);
+      if (!hasUnsubscribeLink) {
+        body =
+          body +
+          renderLessonUnsubscribeFooterHtml({
+            locale: emailLocale,
+            unsubscribeUrl,
+            courseName,
+            tokens: EMAIL_TOKENS,
+          });
+      }
+    }
+
+    // Delivery hard gate: do not send if language integrity fails for the final subject/body.
+    const integrity = ensureEmailLanguageIntegrity({ locale: emailLocale, subject, html: body, context: 'sendLessonEmail' });
+    if (!integrity.ok) {
+      logger.error(
+        { playerId, courseId, lessonId: lesson._id, locale: emailLocale, errors: integrity.errors, findings: integrity.findings },
+        'Blocked lesson email send due to language integrity failure'
+      );
+      return { success: false, error: integrity.errors[0] || 'Language integrity failure' };
     }
 
     // Check if Resend is initialized
@@ -240,28 +308,38 @@ export async function sendWelcomeEmail(
       return { success: false, error: 'No email address' };
     }
 
-    const subject = `Welcome to ${course.name}!`;
-    const body = `
-      <html>
-        <body style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
-          <h1>Welcome to ${course.name}!</h1>
-          <p>Hi ${player.displayName},</p>
-          <p>You've successfully enrolled in <strong>${course.name}</strong>. Get ready for an amazing 30-day learning journey!</p>
-          <p>Starting tomorrow, you'll receive daily lessons via email. Each lesson takes about 10-15 minutes to complete.</p>
-          <p><strong>What to expect:</strong></p>
-          <ul>
-            <li>📧 Daily lesson emails at 8 AM (your timezone)</li>
-            <li>📚 30 structured lessons</li>
-            <li>🎮 Interactive assessments</li>
-            <li>🏆 Points and XP rewards</li>
-            <li>📊 Progress tracking</li>
-          </ul>
-          <p>You can also access all lessons in your <a href="${APP_URL}/my-courses">course dashboard</a>.</p>
-          <p>Happy learning!</p>
-          <p>— The Amanoba Team</p>
-        </body>
-      </html>
-    `;
+    const emailLocale = normalizeLocale(player.locale, course.language || 'en');
+
+    let courseName = course.name;
+    if (emailLocale !== course.language && course.translations?.has(emailLocale)) {
+      const translation = course.translations.get(emailLocale);
+      if (translation) courseName = translation.name;
+    }
+
+    const subject = renderWelcomeEmailSubject({ locale: emailLocale, courseName });
+    const body = renderWelcomeEmailHtml({
+      locale: emailLocale,
+      playerName: player.displayName,
+      courseName,
+      durationDays: Number(course.durationDays || 30) || 30,
+      appUrl: APP_URL,
+      tokens: EMAIL_TOKENS,
+    });
+
+    const integrity = ensureEmailLanguageIntegrity({
+      locale: emailLocale,
+      subject,
+      html: body,
+      context: 'sendWelcomeEmail',
+      exemptStrings: [player.displayName, courseName],
+    });
+    if (!integrity.ok) {
+      logger.error(
+        { playerId, courseId, locale: emailLocale, errors: integrity.errors, findings: integrity.findings },
+        'Blocked welcome email send due to language integrity failure'
+      );
+      return { success: false, error: integrity.errors[0] || 'Language integrity failure' };
+    }
 
     // Check if Resend is initialized
     if (!resend) {
@@ -318,24 +396,38 @@ export async function sendCompletionEmail(
       return { success: false, error: 'No email address' };
     }
 
-    const subject = `🎉 Congratulations! You've completed ${course.name}!`;
-    const body = `
-      <html>
-        <body style="font-family: Arial, sans-serif; line-height: 1.6; color: ${EMAIL_TOKENS.bodyText};">
-          <h1>🎉 Congratulations, ${player.displayName}!</h1>
-          <p>You've successfully completed <strong>${course.name}</strong>!</p>
-          <p>You've completed all 30 days of learning. That's an incredible achievement!</p>
-          <p><strong>What's next?</strong></p>
-          <ul>
-            <li>📚 Explore more courses in your <a href="${APP_URL}/courses">course library</a></li>
-            <li>🏆 Check out your achievements and progress</li>
-            <li>💬 Share your success with friends</li>
-          </ul>
-          <p>Thank you for being part of the Amanoba learning community!</p>
-          <p>— The Amanoba Team</p>
-        </body>
-      </html>
-    `;
+    const emailLocale = normalizeLocale(player.locale, course.language || 'en');
+
+    let courseName = course.name;
+    if (emailLocale !== course.language && course.translations?.has(emailLocale)) {
+      const translation = course.translations.get(emailLocale);
+      if (translation) courseName = translation.name;
+    }
+
+    const subject = renderCompletionEmailSubject({ locale: emailLocale, courseName });
+    const body = renderCompletionEmailHtml({
+      locale: emailLocale,
+      playerName: player.displayName,
+      courseName,
+      durationDays: Number(course.durationDays || 30) || 30,
+      appUrl: APP_URL,
+      tokens: EMAIL_TOKENS,
+    });
+
+    const integrity = ensureEmailLanguageIntegrity({
+      locale: emailLocale,
+      subject,
+      html: body,
+      context: 'sendCompletionEmail',
+      exemptStrings: [player.displayName, courseName],
+    });
+    if (!integrity.ok) {
+      logger.error(
+        { playerId, courseId, locale: emailLocale, errors: integrity.errors, findings: integrity.findings },
+        'Blocked completion email send due to language integrity failure'
+      );
+      return { success: false, error: integrity.errors[0] || 'Language integrity failure' };
+    }
 
     // Check if Resend is initialized
     if (!resend) {
@@ -394,19 +486,42 @@ export async function sendReminderEmail(
       return { success: false, error: 'No email address' };
     }
 
-    const subject = `📚 Don't miss Day ${dayNumber} of ${course.name}`;
-    const body = `
-      <html>
-        <body style="font-family: Arial, sans-serif; line-height: 1.6; color: ${EMAIL_TOKENS.bodyText};">
-          <h1>Hi ${player.displayName}!</h1>
-          <p>You haven't completed Day ${dayNumber} of <strong>${course.name}</strong> yet.</p>
-          <p>Keep your learning streak going! Complete today's lesson to earn points and XP.</p>
-          <p><a href="${APP_URL}/courses/${courseId}/day/${dayNumber}" style="background-color: ${EMAIL_TOKENS.ctaBg}; color: ${EMAIL_TOKENS.ctaText}; padding: 10px 20px; text-decoration: none; border-radius: 5px; display: inline-block; font-weight: bold;">Complete Day ${dayNumber}</a></p>
-          <p>Happy learning!</p>
-          <p>— The Amanoba Team</p>
-        </body>
-      </html>
-    `;
+    const emailLocale = normalizeLocale(player.locale, course.language || 'en');
+
+    let courseName = course.name;
+    if (emailLocale !== course.language && course.translations?.has(emailLocale)) {
+      const translation = course.translations.get(emailLocale);
+      if (translation) courseName = translation.name;
+    }
+
+    const courseSlug = typeof course.courseId === 'string' ? course.courseId : null;
+    if (!courseSlug) return { success: false, error: 'Course slug missing' };
+
+    const subject = renderReminderEmailSubject({ locale: emailLocale, dayNumber, courseName });
+    const body = renderReminderEmailHtml({
+      locale: emailLocale,
+      playerName: player.displayName,
+      courseName,
+      dayNumber,
+      courseSlug,
+      appUrl: APP_URL,
+      tokens: EMAIL_TOKENS,
+    });
+
+    const integrity = ensureEmailLanguageIntegrity({
+      locale: emailLocale,
+      subject,
+      html: body,
+      context: 'sendReminderEmail',
+      exemptStrings: [player.displayName, courseName],
+    });
+    if (!integrity.ok) {
+      logger.error(
+        { playerId, courseId, dayNumber, locale: emailLocale, errors: integrity.errors, findings: integrity.findings },
+        'Blocked reminder email send due to language integrity failure'
+      );
+      return { success: false, error: integrity.errors[0] || 'Language integrity failure' };
+    }
 
     // Check if Resend is initialized
     if (!resend) {
@@ -478,26 +593,20 @@ export async function sendPaymentConfirmationEmail(
     }
 
     // Determine language for email
-    const emailLocale = locale || (player.locale as Locale) || 'hu';
+    const emailLocale = normalizeLocale(locale || player.locale, 'en');
 
-    // Format amount based on currency
-    const formattedAmount = new Intl.NumberFormat(
-      emailLocale === 'hu' ? 'hu-HU' : 'en-US',
-      {
-        style: 'currency',
-        currency: currency.toUpperCase(),
-      }
-    ).format(amount / 100);
+    // Format amount based on locale/currency
+    const formattedAmount = new Intl.NumberFormat(emailLocale, {
+      style: 'currency',
+      currency: currency.toUpperCase(),
+    }).format(amount / 100);
 
-    // Format premium expiration date
-    const formattedExpiryDate = new Intl.DateTimeFormat(
-      emailLocale === 'hu' ? 'hu-HU' : 'en-US',
-      {
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric',
-      }
-    ).format(premiumExpiresAt);
+    // Format premium expiration date based on locale
+    const formattedExpiryDate = new Intl.DateTimeFormat(emailLocale, {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+    }).format(premiumExpiresAt);
 
     // Get course name
     let courseName = course?.name || 'Premium Access';
@@ -508,137 +617,59 @@ export async function sendPaymentConfirmationEmail(
       }
     }
 
-    // Email content based on locale
-    const isHungarian = emailLocale === 'hu';
-    
-    const subject = isHungarian
-      ? `✅ Fizetés megerősítve - ${courseName}`
-      : `✅ Payment Confirmed - ${courseName}`;
-
-    const body = isHungarian
-      ? `
-        <html>
-          <body style="font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto; padding: 20px;">
-            <div style="background-color: #FAB908; padding: 20px; text-align: center; border-radius: 8px 8px 0 0;">
-              <h1 style="color: #000; margin: 0;">✅ Fizetés sikeres!</h1>
-            </div>
-            <div style="background-color: #fff; padding: 30px; border: 2px solid #FAB908; border-top: none; border-radius: 0 0 8px 8px;">
-              <p>Kedves ${player.displayName},</p>
-              <p>Köszönjük a fizetésed! A prémium hozzáférésed aktiválva lett.</p>
-              
-              <div style="background-color: #f5f5f5; padding: 20px; border-radius: 8px; margin: 20px 0;">
-                <h2 style="margin-top: 0; color: #000;">Fizetési részletek</h2>
-                <table style="width: 100%; border-collapse: collapse;">
-                  <tr>
-                    <td style="padding: 8px 0; color: #666;"><strong>Termék:</strong></td>
-                    <td style="padding: 8px 0; text-align: right; color: #000;">${courseName}</td>
-                  </tr>
-                  <tr>
-                    <td style="padding: 8px 0; color: #666;"><strong>Összeg:</strong></td>
-                    <td style="padding: 8px 0; text-align: right; color: #000; font-weight: bold;">${formattedAmount}</td>
-                  </tr>
-                  <tr>
-                    <td style="padding: 8px 0; color: #666;"><strong>Prémium lejárat:</strong></td>
-                    <td style="padding: 8px 0; text-align: right; color: #000;">${formattedExpiryDate}</td>
-                  </tr>
-                  <tr>
-                    <td style="padding: 8px 0; color: #666;"><strong>Tranzakció ID:</strong></td>
-                    <td style="padding: 8px 0; text-align: right; color: #666; font-size: 12px;">${transactionId}</td>
-                  </tr>
-                </table>
-              </div>
-
-              ${courseId ? `
-                <p style="margin-top: 30px;">
-                  <a href="${APP_URL}/courses/${courseId}" style="background-color: #FAB908; color: #000; padding: 12px 24px; text-decoration: none; border-radius: 5px; display: inline-block; font-weight: bold;">Kurzus megtekintése</a>
-                </p>
-              ` : `
-                <p style="margin-top: 30px;">
-                  <a href="${APP_URL}/courses" style="background-color: #FAB908; color: #000; padding: 12px 24px; text-decoration: none; border-radius: 5px; display: inline-block; font-weight: bold;">Kurzusok böngészése</a>
-                </p>
-              `}
-
-              <p style="margin-top: 30px; font-size: 14px; color: #666;">
-                Ha bármilyen kérdésed van, vedd fel velünk a kapcsolatot: 
-                <a href="mailto:${EMAIL_CONFIG.replyTo}" style="color: #FAB908;">${EMAIL_CONFIG.replyTo}</a>
-              </p>
-
-              <p style="margin-top: 20px;">Köszönjük, hogy az Amanobával tanulsz!</p>
-              <p>— Az Amanoba csapat</p>
-            </div>
-          </body>
-        </html>
-      `
-      : `
-        <html>
-          <body style="font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto; padding: 20px;">
-            <div style="background-color: #FAB908; padding: 20px; text-align: center; border-radius: 8px 8px 0 0;">
-              <h1 style="color: #000; margin: 0;">✅ Payment Successful!</h1>
-            </div>
-            <div style="background-color: #fff; padding: 30px; border: 2px solid #FAB908; border-top: none; border-radius: 0 0 8px 8px;">
-              <p>Hi ${player.displayName},</p>
-              <p>Thank you for your payment! Your premium access has been activated.</p>
-              
-              <div style="background-color: #f5f5f5; padding: 20px; border-radius: 8px; margin: 20px 0;">
-                <h2 style="margin-top: 0; color: #000;">Payment Details</h2>
-                <table style="width: 100%; border-collapse: collapse;">
-                  <tr>
-                    <td style="padding: 8px 0; color: #666;"><strong>Product:</strong></td>
-                    <td style="padding: 8px 0; text-align: right; color: #000;">${courseName}</td>
-                  </tr>
-                  <tr>
-                    <td style="padding: 8px 0; color: #666;"><strong>Amount:</strong></td>
-                    <td style="padding: 8px 0; text-align: right; color: #000; font-weight: bold;">${formattedAmount}</td>
-                  </tr>
-                  <tr>
-                    <td style="padding: 8px 0; color: #666;"><strong>Premium expires:</strong></td>
-                    <td style="padding: 8px 0; text-align: right; color: #000;">${formattedExpiryDate}</td>
-                  </tr>
-                  <tr>
-                    <td style="padding: 8px 0; color: #666;"><strong>Transaction ID:</strong></td>
-                    <td style="padding: 8px 0; text-align: right; color: #666; font-size: 12px;">${transactionId}</td>
-                  </tr>
-                </table>
-              </div>
-
-              ${courseId ? `
-                <p style="margin-top: 30px;">
-                  <a href="${APP_URL}/courses/${courseId}" style="background-color: #FAB908; color: #000; padding: 12px 24px; text-decoration: none; border-radius: 5px; display: inline-block; font-weight: bold;">View Course</a>
-                </p>
-              ` : `
-                <p style="margin-top: 30px;">
-                  <a href="${APP_URL}/courses" style="background-color: #FAB908; color: #000; padding: 12px 24px; text-decoration: none; border-radius: 5px; display: inline-block; font-weight: bold;">Browse Courses</a>
-                </p>
-              `}
-
-              <p style="margin-top: 30px; font-size: 14px; color: #666;">
-                If you have any questions, please contact us at: 
-                <a href="mailto:${EMAIL_CONFIG.replyTo}" style="color: #FAB908;">${EMAIL_CONFIG.replyTo}</a>
-              </p>
-
-              <p style="margin-top: 20px;">Thank you for learning with Amanoba!</p>
-              <p>— The Amanoba Team</p>
-            </div>
-          </body>
-        </html>
-      `;
+    const courseSlug = course?.courseId ? String(course.courseId) : null;
+    const rendered = renderPaymentConfirmationEmail({
+      locale: emailLocale,
+      playerName: player.displayName,
+      courseName,
+      courseSlug: courseSlug,
+      appUrl: APP_URL,
+      tokens: {
+        border: EMAIL_TOKENS.border,
+        muted: EMAIL_TOKENS.muted,
+        bodyText: EMAIL_TOKENS.bodyText,
+        ctaBg: EMAIL_TOKENS.ctaBg,
+        ctaText: EMAIL_TOKENS.ctaText,
+      },
+      formattedAmount,
+      formattedExpiryDate,
+      transactionId,
+      supportEmail: EMAIL_CONFIG.replyTo,
+    });
 
     // Get or generate unsubscribe token
     const unsubscribeToken = await getOrGenerateUnsubscribeToken(player);
     const unsubscribeUrl = `${APP_URL}/api/email/unsubscribe?token=${unsubscribeToken}`;
 
-    // Append unsubscribe footer
-    const unsubscribeFooter = `
-      <hr style="margin: 20px 0; border: none; border-top: 1px solid ${EMAIL_TOKENS.border};">
-      <p style="font-size: 12px; color: ${EMAIL_TOKENS.muted}; text-align: center;">
-        ${isHungarian 
-          ? `Ezt az emailt azért kaptad, mert fizetést végeztél az Amanobán. <a href="${unsubscribeUrl}" style="color: ${EMAIL_TOKENS.muted};">Leiratkozás az email értesítésekről</a>`
-          : `You're receiving this email because you made a payment on Amanoba. <a href="${unsubscribeUrl}" style="color: ${EMAIL_TOKENS.muted};">Unsubscribe from email notifications</a>`
-        }
-      </p>
-    `;
+    const finalBody =
+      rendered.html +
+      renderPaymentUnsubscribeFooterHtml({
+        locale: emailLocale,
+        unsubscribeUrl,
+        tokens: EMAIL_TOKENS,
+      });
 
-    const finalBody = body + unsubscribeFooter;
+    const integrity = ensureEmailLanguageIntegrity({
+      locale: emailLocale,
+      subject: rendered.subject,
+      html: finalBody,
+      context: 'sendPaymentConfirmationEmail',
+      exemptStrings: [
+        player.displayName,
+        courseName,
+        formattedAmount,
+        formattedExpiryDate,
+        transactionId,
+        EMAIL_CONFIG.replyTo,
+      ],
+    });
+    if (!integrity.ok) {
+      logger.error(
+        { playerId, courseId, transactionId, locale: emailLocale, errors: integrity.errors, findings: integrity.findings },
+        'Blocked payment confirmation email send due to language integrity failure'
+      );
+      return { success: false, error: integrity.errors[0] || 'Language integrity failure' };
+    }
 
     // Check if Resend is initialized
     if (!resend) {
@@ -649,7 +680,7 @@ export async function sendPaymentConfirmationEmail(
     const { data, error } = await resend.emails.send({
       from: `${EMAIL_CONFIG.fromName} <${EMAIL_CONFIG.from}>`,
       to: player.email,
-      subject,
+      subject: rendered.subject,
       html: finalBody,
       replyTo: EMAIL_CONFIG.replyTo,
     });

@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-28T21:28:24.582Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_AR",
+    "name": "الإنتاجية 2026: كيفية إدارة الفرق والوقت",
+    "language": "ar"
+  },
+  "lesson": {
+    "dayNumber": 12,
+    "title": "هياكل المساءلة: الأنظمة التي تبقيك على المسار الصحيح",
+    "lessonId": "PRODUCTIVITY_2026_AR_DAY_12"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a613ed20b35fb7972c6",
+      "uuid": "ebbb9e85-1873-4a02-bce6-cef5644be99b",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ لدي هدف واضح لمدة 4-8 أسابيع للمساءلة....\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day12",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a613ed20b35fb7972c7",
+      "uuid": "b73ecc33-eae7-4657-8e60-ed518fb69781",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ شريك المساءلة الخاص بي يعرف عن الخطة....\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day12",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a613ed20b35fb7972c8",
+      "uuid": "022cb5b3-d402-4f6c-a909-b00524fc94a2",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ لدي هدف واضح لمدة 4-8 أسابيع للمساءلة....\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day12",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a613ed20b35fb7972c9",
+      "uuid": "704019b6-d9ac-421a-bb9d-f5260073f8fe",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "How does the concept \"هياكل المساءلة: الأنظمة التي تبقيك على المسار الصح...\" mentioned in the lesson impact achieving your goals?",
+      "options": [
+        "As described in detail in the lesson, هياكل المساءلة: الأنظمة التي ت... increases effectiveness and reduces risk",
+        "No significant impact",
+        "Only matters theoretically",
+        "Only an optional element"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day12",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a613ed20b35fb7972ca",
+      "uuid": "ada0c3dc-30dc-4ae3-b751-d608ea29aa6a",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is قوة الشفافية in the context of هياكل المساءلة: الأنظمة التي تبقيك على المسار الصحيح as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, قوة الشفافية plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day12",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a613ed20b35fb7972cb",
+      "uuid": "93a45927-6127-485a-949e-485efb49c938",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is التصحيح المنهجي in the context of هياكل المساءلة: الأنظمة التي تبقيك على المسار الصحيح as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, التصحيح المنهجي plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day12",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a613ed20b35fb7972cc",
+      "uuid": "611f3033-4313-438f-918b-67a110dacb64",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is التقنية in the context of هياكل المساءلة: الأنظمة التي تبقيك على المسار الصحيح as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, التقنية plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day12",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

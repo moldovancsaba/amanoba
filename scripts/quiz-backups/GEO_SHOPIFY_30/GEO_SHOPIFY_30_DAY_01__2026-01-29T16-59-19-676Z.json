@@ -1,0 +1,81 @@
+{
+  "backedUpAt": "2026-01-29T17:00:08.319Z",
+  "course": {
+    "courseId": "GEO_SHOPIFY_30",
+    "name": "GEO Shopify – 30 napos kurzus",
+    "language": "hu"
+  },
+  "lesson": {
+    "dayNumber": 1,
+    "title": "Mi a GEO, és mi nem az (Shopify kontextusban)",
+    "lessonId": "GEO_SHOPIFY_30_DAY_01"
+  },
+  "questionCount": 5,
+  "questions": [
+    {
+      "_id": "697b1ff6de117f992bb9bd84",
+      "difficulty": "EASY",
+      "question": "Mi a GEO fő célja Shopify bolt esetén?",
+      "options": [
+        "Az AI válaszokban való megjelenés és idézhetőség",
+        "Csak a Google rangsor növelése",
+        "Csak a page speed javítása",
+        "Csak a backlink gyűjtés"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b1ff6de117f992bb9bd85",
+      "difficulty": "MEDIUM",
+      "question": "Mi a három fő GEO-kimenet, amit nézni kell?",
+      "options": [
+        "Inklúzió, idézés, konzisztencia",
+        "Bounce rate, bármilyen link, social like",
+        "Meta title, meta description, H1",
+        "Csak átkattintási arány"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b1ff6de117f992bb9bd86",
+      "difficulty": "EASY",
+      "question": "Mi különbözteti meg a GEO-t az SEO-tól?",
+      "options": [
+        "GEO az AI válaszokra, SEO a 10 kék link rangsorra fókuszál",
+        "GEO csak a backlinkről szól",
+        "SEO csak AI-ra vonatkozik",
+        "Nincs különbség"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b1ff6de117f992bb9bd87",
+      "difficulty": "MEDIUM",
+      "question": "Miért kritikus a pontos termékadat GEO-ban?",
+      "options": [
+        "Az AI csak biztonságos, tiszta adatot idéz szívesen",
+        "Csak a design számít",
+        "Mert a készlet nem fontos",
+        "Az árak mindegy, hogy pontosak-e"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b1ff6de117f992bb9bd88",
+      "difficulty": "MEDIUM",
+      "question": "Mit tartalmazzon az első prompt lista?",
+      "options": [
+        "Legalább 5 saját boltra szabott GEO promptot",
+        "Csak egy általános promptot",
+        "Csak meta title ötleteket",
+        "Csak képeket"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    }
+  ]
+}

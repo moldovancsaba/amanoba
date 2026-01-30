@@ -1,0 +1,10 @@
+{
+  "backedUpAt": "2026-01-28T22:55:28.696Z",
+  "courseId": "AI_30_DAY_EN",
+  "lessonId": "AI_30_DAY_EN_DAY_17",
+  "dayNumber": 17,
+  "title": "Pros/cons and decision support",
+  "content": "<h1>Pros/cons and decision support</h1>\n<p><em>Use structured pros/cons to inform choices</em></p>\n<hr />\n<h2>Learning goal</h2>\n<ul>\n<li>Create a pros/cons table with decision criteria.</li>\n<li>Write a short recommendation with caveats.</li>\n</ul>\n<hr />\n<h2>Why it matters</h2>\n<ul>\n<li>Balanced pros/cons reduce biased decisions.</li>\n<li>Caveats keep stakeholders aware of risks.</li>\n</ul>\n<hr />\n<h2>Explanation</h2>\n<ul>\n<li>Ask for 3 pros/3 cons per option.</li>\n<li>Add decision criteria: cost/time/impact/risk.</li>\n<li>Request a 100-word recommendation + caveats.</li>\n</ul>\n<hr />\n<h2>Examples</h2>\n<ul>\n<li><strong>Prompt</strong>: “Compare Option A vs B: 3 pros/cons each, criteria score (1–5) for cost/time/impact/risk). Recommend with caveats.”</li>\n<li><strong>Weak</strong>: “Which is best?”</li>\n<hr />\n<h2>Guided exercise (10–15 min)</h2>\n<ol>\n<li>Pick two options; generate pros/cons table + scores.</li>\n<li>Ask for a short recommendation and note caveats.</li>\n</ol>\n<h2>Independent exercise (5–10 min)</h2>\n<p>Adjust criteria weights and rerun; see if choice changes.</p>\n<hr />\n<h2>Self-check</h2>\n<ul>\n<li>Pros/cons balanced.</li>\n<li>Scores present for criteria.</li>\n<li>Caveats explicitly listed.</li>\n</ul>\n<hr />\n<h2>Optional deepening</h2>\n<ul>\n<li>Decision prompts: <a href=\"https://platform.openai.com/docs/guides/prompt-engineering\" target=\"_blank\" rel=\"noreferrer\">prompt guide</a></li>\n</ul>",
+  "emailSubject": "AI 30-Day – Day 17: Pros/cons",
+  "emailBody": "<h1>AI 30-Day – Day 17</h1>\n<h2>Pros/cons</h2>\n<p>Today you’ll build a pros/cons table, score criteria, and write a recommendation with caveats.</p>\n<p><a href=\"http://localhost:3000/courses/AI_30_DAY_EN/day/{{dayNumber}}\">Open the lesson →</a></p>"
+}

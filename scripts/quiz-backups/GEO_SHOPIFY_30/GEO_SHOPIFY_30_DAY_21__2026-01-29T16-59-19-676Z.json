@@ -1,0 +1,81 @@
+{
+  "backedUpAt": "2026-01-29T17:00:12.676Z",
+  "course": {
+    "courseId": "GEO_SHOPIFY_30",
+    "name": "GEO Shopify – 30 napos kurzus",
+    "language": "hu"
+  },
+  "lesson": {
+    "dayNumber": 21,
+    "title": "Prompt intent térkép: best / vs / alternatives / policy",
+    "lessonId": "GEO_SHOPIFY_30_DAY_21"
+  },
+  "questionCount": 5,
+  "questions": [
+    {
+      "_id": "697b1ffbde117f992bb9bebb",
+      "difficulty": "EASY",
+      "question": "Milyen fő intent kategóriákkal dolgozunk?",
+      "options": [
+        "best, vs, alternatives, policy/fit",
+        "Csak brand név",
+        "Csak meta title",
+        "Csak backlink"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b1ffbde117f992bb9bebc",
+      "difficulty": "MEDIUM",
+      "question": "Miért kell minden prompthoz céloldal?",
+      "options": [
+        "Hogy az AI és a mérés tudja, hova mutasson",
+        "Nem kell",
+        "Csak dísz",
+        "Csak SEO miatt"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b1ffbde117f992bb9bebd",
+      "difficulty": "EASY",
+      "question": "Mi a jó best típusú kérdés példa?",
+      "options": [
+        "„Legjobb [termék] [ország/cél]”",
+        "„Ki az eladó?”",
+        "„Mi a blogod neve?”",
+        "„Mi a CSS?”"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b1ffbde117f992bb9bebe",
+      "difficulty": "MEDIUM",
+      "question": "Miért priorizálj A/B/C szerint?",
+      "options": [
+        "Hogy tudd, mely kérdések a legfontosabbak a tesztben",
+        "Csak színezés miatt",
+        "Nem kell prioritás",
+        "Csak design"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b1ffbde117f992bb9bebf",
+      "difficulty": "HARD",
+      "question": "Mi a rossz gyakorlat az intent térképnél?",
+      "options": [
+        "Random kérdések céloldal nélkül",
+        "Minden prompthoz céloldal és jegyzet",
+        "Priorizált lista",
+        "Mérési jegyzet"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    }
+  ]
+}

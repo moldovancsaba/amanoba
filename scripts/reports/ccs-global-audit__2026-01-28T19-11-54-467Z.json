@@ -1,0 +1,710 @@
+{
+  "generatedAt": "2026-01-28T19:11:55.280Z",
+  "env": "production (via .env.local)",
+  "filters": {
+    "ccsId": null,
+    "courseId": "SALES_PRODUCTIVITY_30_EN",
+    "minLessonScore": 70,
+    "includeInactive": false
+  },
+  "totals": {
+    "ccsFamilies": 6,
+    "courses": 1,
+    "coursesMissingCcsId": 0,
+    "coursesMissingCcsIdMappedToKnownCcs": 0,
+    "coursesMissingCcsIdUnmapped": 0,
+    "coursesWithStructuralErrors": 0,
+    "coursesWithStructuralWarnings": 0,
+    "coursesFailingCatalogLanguageIntegrity": 0,
+    "lessons": 11,
+    "duplicateDayLessonGroups": 0,
+    "missingLessonDayEntries": 19,
+    "lessonsFailingLanguageIntegrity": 0,
+    "lessonsBelowQualityThreshold": 1,
+    "lessonsWithQuizErrors": 1,
+    "duplicateQuestionSets": 1,
+    "duplicateQuestionsToDelete": 1,
+    "invalidQuestions": 7,
+    "lessonsGeneratorInsufficient": 0
+  },
+  "ccs": [
+    {
+      "ccsId": "PRODUCTIVITY_2026",
+      "name": "PRODUCTIVITY_2026",
+      "ideaPresent": true,
+      "outlinePresent": true,
+      "relatedDocumentsCount": 0,
+      "courses": []
+    },
+    {
+      "ccsId": "GEO_SHOPIFY_30",
+      "name": "GEO_SHOPIFY_30",
+      "ideaPresent": true,
+      "outlinePresent": true,
+      "relatedDocumentsCount": 0,
+      "courses": []
+    },
+    {
+      "ccsId": "AI_30_DAY",
+      "name": "AI_30_DAY",
+      "ideaPresent": true,
+      "outlinePresent": true,
+      "relatedDocumentsCount": 0,
+      "courses": []
+    },
+    {
+      "ccsId": "B2B_SALES_2026_30",
+      "name": "B2B_SALES_2026_30",
+      "ideaPresent": true,
+      "outlinePresent": true,
+      "relatedDocumentsCount": 0,
+      "courses": []
+    },
+    {
+      "ccsId": "PLAYBOOK_2026_30",
+      "name": "PLAYBOOK_2026_30",
+      "ideaPresent": true,
+      "outlinePresent": true,
+      "relatedDocumentsCount": 0,
+      "courses": []
+    },
+    {
+      "ccsId": "SALES_PRODUCTIVITY_30",
+      "name": "SALES_PRODUCTIVITY_30",
+      "ideaPresent": true,
+      "outlinePresent": true,
+      "relatedDocumentsCount": 0,
+      "courses": [
+        {
+          "course": {
+            "courseId": "SALES_PRODUCTIVITY_30_EN",
+            "name": "Build Your Sales – 30 Days to More Deals",
+            "description": "30-day practical B2B sales course for beginners. Learn to play the numbers game, qualify leads, and use value-based pricing – all with daily practical exercises and templates.",
+            "language": "en",
+            "isActive": true,
+            "isDraft": false,
+            "requiresPremium": false,
+            "durationDays": 30,
+            "parentCourseId": null,
+            "courseVariant": null,
+            "structuralErrors": [],
+            "structuralWarnings": [],
+            "catalogLanguageIntegrity": {
+              "ok": true,
+              "errors": [],
+              "warnings": [],
+              "findings": []
+            },
+            "inferredCcsId": null,
+            "duplicateDayGroups": [],
+            "missingDays": [
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30
+            ],
+            "lessonsAudited": 11,
+            "lessonsWithErrors": 1
+          },
+          "lessons": [
+            {
+              "dayNumber": 1,
+              "lessonId": "SALES_PRODUCTIVITY_30_EN_DAY_01",
+              "title": "Sales Funnel Fundamentals – Why Numbers Matter",
+              "createdAt": "2026-01-22T13:11:10.133Z",
+              "lessonQuality": {
+                "score": 100,
+                "issues": [],
+                "signals": {
+                  "charCount": 3904,
+                  "wordCount": 620,
+                  "hasBullets": true,
+                  "hasNumberedSteps": true,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": true,
+                  "hasMetricsOrCriteria": true,
+                  "hasDefinitionsOrComparisons": true
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": false,
+                  "addChecklistSection": false,
+                  "addExamplesSection": false,
+                  "addPitfallsSection": false,
+                  "addMetricsSection": false
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 7,
+                "validExisting": 7,
+                "invalidExisting": 0,
+                "application": 7,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [],
+              "warnings": []
+            },
+            {
+              "dayNumber": 2,
+              "lessonId": "SALES_PRODUCTIVITY_30_EN_DAY_02",
+              "title": "Setting KPIs and Targets – How to Work Backwards",
+              "createdAt": "2026-01-22T13:19:45.030Z",
+              "lessonQuality": {
+                "score": 85,
+                "issues": [
+                  "NO_CLEAR_DEFINITIONS"
+                ],
+                "signals": {
+                  "charCount": 3355,
+                  "wordCount": 555,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": true,
+                  "hasMetricsOrCriteria": true,
+                  "hasDefinitionsOrComparisons": false
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": true,
+                  "addChecklistSection": false,
+                  "addExamplesSection": false,
+                  "addPitfallsSection": false,
+                  "addMetricsSection": false
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 7,
+                "validExisting": 7,
+                "invalidExisting": 0,
+                "application": 7,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [],
+              "warnings": []
+            },
+            {
+              "dayNumber": 3,
+              "lessonId": "SALES_PRODUCTIVITY_30_EN_DAY_03",
+              "title": "Multi-Channel Lead Generation – Where Do You Find Customers?",
+              "createdAt": "2026-01-22T13:35:32.260Z",
+              "lessonQuality": {
+                "score": 85,
+                "issues": [
+                  "NO_METRICS_OR_CRITERIA"
+                ],
+                "signals": {
+                  "charCount": 2592,
+                  "wordCount": 387,
+                  "hasBullets": true,
+                  "hasNumberedSteps": true,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": true,
+                  "hasMetricsOrCriteria": false,
+                  "hasDefinitionsOrComparisons": true
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": false,
+                  "addChecklistSection": false,
+                  "addExamplesSection": false,
+                  "addPitfallsSection": false,
+                  "addMetricsSection": true
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 7,
+                "validExisting": 7,
+                "invalidExisting": 0,
+                "application": 7,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [],
+              "warnings": []
+            },
+            {
+              "dayNumber": 4,
+              "lessonId": "SALES_PRODUCTIVITY_30_EN_DAY_04",
+              "title": "Conversion Rate Optimization – How to Improve Your Numbers",
+              "createdAt": "2026-01-22T13:41:59.555Z",
+              "lessonQuality": {
+                "score": 75,
+                "issues": [
+                  "NO_CONTRASTS_GOOD_BAD",
+                  "NO_METRICS_OR_CRITERIA"
+                ],
+                "signals": {
+                  "charCount": 2710,
+                  "wordCount": 415,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": false,
+                  "hasMetricsOrCriteria": false,
+                  "hasDefinitionsOrComparisons": true
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": false,
+                  "addChecklistSection": false,
+                  "addExamplesSection": true,
+                  "addPitfallsSection": true,
+                  "addMetricsSection": true
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 7,
+                "validExisting": 7,
+                "invalidExisting": 0,
+                "application": 7,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [],
+              "warnings": []
+            },
+            {
+              "dayNumber": 5,
+              "lessonId": "SALES_PRODUCTIVITY_30_EN_DAY_05",
+              "title": "Weekly/Monthly Forecasting – How to Predict the Future",
+              "createdAt": "2026-01-22T13:44:13.633Z",
+              "lessonQuality": {
+                "score": 70,
+                "issues": [
+                  "NO_CLEAR_DEFINITIONS",
+                  "NO_METRICS_OR_CRITERIA"
+                ],
+                "signals": {
+                  "charCount": 2590,
+                  "wordCount": 394,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": true,
+                  "hasMetricsOrCriteria": false,
+                  "hasDefinitionsOrComparisons": false
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": true,
+                  "addChecklistSection": false,
+                  "addExamplesSection": false,
+                  "addPitfallsSection": false,
+                  "addMetricsSection": true
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 7,
+                "validExisting": 7,
+                "invalidExisting": 0,
+                "application": 7,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [],
+              "warnings": []
+            },
+            {
+              "dayNumber": 6,
+              "lessonId": "SALES_PRODUCTIVITY_30_EN_DAY_06",
+              "title": "Qualification Framework (BANT, MEDDIC) – How to Qualify Leads?",
+              "createdAt": "2026-01-22T13:46:48.313Z",
+              "lessonQuality": {
+                "score": 100,
+                "issues": [],
+                "signals": {
+                  "charCount": 2731,
+                  "wordCount": 412,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": true,
+                  "hasMetricsOrCriteria": true,
+                  "hasDefinitionsOrComparisons": true
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": false,
+                  "addChecklistSection": false,
+                  "addExamplesSection": false,
+                  "addPitfallsSection": false,
+                  "addMetricsSection": false
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 7,
+                "validExisting": 7,
+                "invalidExisting": 0,
+                "application": 7,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [],
+              "warnings": []
+            },
+            {
+              "dayNumber": 7,
+              "lessonId": "SALES_PRODUCTIVITY_30_EN_DAY_07",
+              "title": "Ideal Customer Profile (ICP) – Who Do You Work With?",
+              "createdAt": "2026-01-22T13:49:20.458Z",
+              "lessonQuality": {
+                "score": 75,
+                "issues": [
+                  "NO_CONTRASTS_GOOD_BAD",
+                  "NO_METRICS_OR_CRITERIA"
+                ],
+                "signals": {
+                  "charCount": 2493,
+                  "wordCount": 386,
+                  "hasBullets": true,
+                  "hasNumberedSteps": true,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": false,
+                  "hasMetricsOrCriteria": false,
+                  "hasDefinitionsOrComparisons": true
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": false,
+                  "addChecklistSection": false,
+                  "addExamplesSection": true,
+                  "addPitfallsSection": true,
+                  "addMetricsSection": true
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 7,
+                "validExisting": 7,
+                "invalidExisting": 0,
+                "application": 7,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [],
+              "warnings": []
+            },
+            {
+              "dayNumber": 8,
+              "lessonId": "SALES_PRODUCTIVITY_30_EN_DAY_08",
+              "title": "Qualification Questions & Scripts – What to Ask to Qualify?",
+              "createdAt": "2026-01-22T13:51:48.437Z",
+              "lessonQuality": {
+                "score": 85,
+                "issues": [
+                  "NO_METRICS_OR_CRITERIA"
+                ],
+                "signals": {
+                  "charCount": 2915,
+                  "wordCount": 429,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": true,
+                  "hasMetricsOrCriteria": false,
+                  "hasDefinitionsOrComparisons": true
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": false,
+                  "addChecklistSection": false,
+                  "addExamplesSection": false,
+                  "addPitfallsSection": false,
+                  "addMetricsSection": true
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 7,
+                "validExisting": 7,
+                "invalidExisting": 0,
+                "application": 7,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [],
+              "warnings": []
+            },
+            {
+              "dayNumber": 9,
+              "lessonId": "SALES_PRODUCTIVITY_30_EN_DAY_09",
+              "title": "Lead Scoring & Prioritization – Which Lead Do You Handle First?",
+              "createdAt": "2026-01-22T13:54:20.064Z",
+              "lessonQuality": {
+                "score": 60,
+                "issues": [
+                  "NO_CLEAR_DEFINITIONS",
+                  "NO_CONTRASTS_GOOD_BAD",
+                  "NO_METRICS_OR_CRITERIA"
+                ],
+                "signals": {
+                  "charCount": 2291,
+                  "wordCount": 371,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": false,
+                  "hasMetricsOrCriteria": false,
+                  "hasDefinitionsOrComparisons": false
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": true,
+                  "addChecklistSection": false,
+                  "addExamplesSection": true,
+                  "addPitfallsSection": true,
+                  "addMetricsSection": true
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 7,
+                "validExisting": 0,
+                "invalidExisting": 7,
+                "application": 0,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 1,
+                "duplicatesToDelete": 1,
+                "invalidSamples": [
+                  {
+                    "_id": "69776a0a934727fc0613f49a",
+                    "firstError": "Contains lesson-referential wording (EN: in/as described in the lesson). Questions and answers must be fully standalone and must not refer to the lesson/course."
+                  },
+                  {
+                    "_id": "69776a0a934727fc0613f49b",
+                    "firstError": "Contains lesson-referential wording (EN: in/as described in the lesson). Questions and answers must be fully standalone and must not refer to the lesson/course."
+                  },
+                  {
+                    "_id": "69776a0a934727fc0613f49c",
+                    "firstError": "Contains lesson-referential wording (EN: in/as described in the lesson). Questions and answers must be fully standalone and must not refer to the lesson/course."
+                  }
+                ],
+                "duplicateSamples": [
+                  {
+                    "question": "How would you implement the practice \"Practice 1 – Lead scoring system (20 min...\" described in the lesson in your own work?",
+                    "keepId": "69776a0a934727fc0613f49a",
+                    "deleteIds": [
+                      "69776a0a934727fc0613f49c"
+                    ]
+                  }
+                ]
+              },
+              "generator": null,
+              "errors": [
+                "LESSON_QUALITY_BELOW_THRESHOLD",
+                "QUIZ_TOO_FEW_VALID",
+                "QUIZ_TOO_FEW_APPLICATION",
+                "QUIZ_HAS_INVALID_QUESTIONS",
+                "QUIZ_HAS_DUPLICATES"
+              ],
+              "warnings": []
+            },
+            {
+              "dayNumber": 10,
+              "lessonId": "SALES_PRODUCTIVITY_30_EN_DAY_10",
+              "title": "Qualification in Practice – How to Qualify in a Real Conversation?",
+              "createdAt": "2026-01-22T13:56:52.125Z",
+              "lessonQuality": {
+                "score": 70,
+                "issues": [
+                  "NO_CLEAR_DEFINITIONS",
+                  "NO_METRICS_OR_CRITERIA"
+                ],
+                "signals": {
+                  "charCount": 3179,
+                  "wordCount": 493,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": true,
+                  "hasMetricsOrCriteria": false,
+                  "hasDefinitionsOrComparisons": false
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": true,
+                  "addChecklistSection": false,
+                  "addExamplesSection": false,
+                  "addPitfallsSection": false,
+                  "addMetricsSection": true
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 7,
+                "validExisting": 7,
+                "invalidExisting": 0,
+                "application": 7,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [],
+              "warnings": []
+            },
+            {
+              "dayNumber": 11,
+              "lessonId": "SALES_PRODUCTIVITY_30_EN_DAY_11",
+              "title": "Pricing Psychology – How Does Price Affect Buying Decisions?",
+              "createdAt": "2026-01-22T13:59:04.631Z",
+              "lessonQuality": {
+                "score": 85,
+                "issues": [
+                  "NO_METRICS_OR_CRITERIA"
+                ],
+                "signals": {
+                  "charCount": 2531,
+                  "wordCount": 383,
+                  "hasBullets": true,
+                  "hasNumberedSteps": true,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": true,
+                  "hasMetricsOrCriteria": false,
+                  "hasDefinitionsOrComparisons": true
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": false,
+                  "addChecklistSection": false,
+                  "addExamplesSection": false,
+                  "addPitfallsSection": false,
+                  "addMetricsSection": true
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 7,
+                "validExisting": 7,
+                "invalidExisting": 0,
+                "application": 7,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [],
+              "warnings": []
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "coursesMissingCcsId": []
+}

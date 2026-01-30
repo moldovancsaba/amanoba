@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-29T16:59:58.698Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_EN",
+    "name": "Productivity 2026: How to Manage Teams and Time",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 5,
+    "title": "Measurement: simple weekly review metrics (throughput, focus blocks, carryover)",
+    "lessonId": "PRODUCTIVITY_2026_EN_DAY_05"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69787d9aa326286129da8f96",
+      "uuid": "168b4030-6853-476d-91c5-3bc3bf74e03d",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "In the weekly review metrics, what does throughput measure in this course (as opposed to “being busy”)?",
+      "options": [
+        "Completed important outcomes/tasks finished, not just activity volume or time spent.",
+        "Total number of emails sent and meetings attended, regardless of whether outcomes changed.",
+        "Hours worked in the week, regardless of output quality or results achieved.",
+        "How many tasks were started, even if none were finished by the end of the week."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day5",
+        "#en",
+        "#course-productivity_2026_en",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "69787d9aa326286129da8f97",
+      "uuid": "8e346d59-d927-4729-b879-81004987d54b",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "You had high focus blocks but low throughput. Which interpretation is most consistent with the course metrics?",
+      "options": [
+        "You may be focusing on the wrong tasks or not defining outcomes clearly; deep work is happening, but not on high-impact deliverables.",
+        "Deep work always guarantees throughput, so the metrics must be wrong and should be ignored.",
+        "Throughput is irrelevant; only focus time matters because outcomes are subjective.",
+        "You should add more meetings to increase throughput because coordination creates finished outcomes."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day5",
+        "#en",
+        "#course-productivity_2026_en",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "69787d9aa326286129da8f98",
+      "uuid": "e70b2d63-6cf3-414f-90c2-be7f0203520a",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Carryover is high for three weeks in a row. Which change best matches the course’s interpretation of carryover?",
+      "options": [
+        "Reduce weekly scope and improve prioritization so planned tasks match real capacity and constraints.",
+        "Add more tasks to “push harder”, because carryover means you are not planning enough work.",
+        "Stop tracking carryover, because metrics create stress and therefore reduce productivity.",
+        "Increase task granularity into micro-steps so the list looks fuller and more active."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day5",
+        "#en",
+        "#course-productivity_2026_en",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "69787d9aa326286129da8f99",
+      "uuid": "158ae6fa-4cea-46ac-899c-5b2fac89004d",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Which weekly review sequence best reflects the course’s 30-minute review method?",
+      "options": [
+        "Review completed outcomes (throughput), count deep work blocks, count carryover, reflect briefly, then adjust next week’s plan.",
+        "Skim your calendar quickly, then create a longer to-do list to ensure nothing is forgotten.",
+        "Focus only on feelings about the week, then keep the same plan without making any rule changes.",
+        "Count tasks started and messages answered, then schedule more meetings to create accountability."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day5",
+        "#en",
+        "#course-productivity_2026_en",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    },
+    {
+      "_id": "69787d9aa326286129da8f9a",
+      "uuid": "4ad079d7-c6cf-4284-9336-d8adcd93701d",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Why are these metrics (throughput, focus blocks, carryover) a stronger feedback loop than “I feel productive”?",
+      "options": [
+        "They create objective signals of outcomes and constraints, so you can change one rule at a time and verify improvement.",
+        "They remove the need for planning because once you have metrics, the system runs itself automatically.",
+        "They guarantee high performance even if you never review or reflect on the numbers.",
+        "They measure motivation directly, which is the only reliable driver of productivity."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day5",
+        "#en",
+        "#course-productivity_2026_en",
+        "#productivity",
+        "#advanced",
+        "#critical-thinking"
+      ]
+    },
+    {
+      "_id": "69787d9aa326286129da8f9b",
+      "uuid": "be0e9911-7941-42a3-9116-5f4e693c850b",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "A team increases throughput by closing easy tasks while ignoring hard outcomes. What is the most likely downside of that strategy?",
+      "options": [
+        "The metric gets gamed: activity rises but meaningful outcomes lag, so real productivity and customer impact do not improve.",
+        "The strategy cannot work because easy tasks are impossible to complete in practice.",
+        "Focus blocks will automatically increase because easy tasks require deep work by definition.",
+        "Carryover will always go to zero because closing any tasks eliminates overplanning."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day5",
+        "#en",
+        "#course-productivity_2026_en",
+        "#productivity",
+        "#advanced",
+        "#critical-thinking"
+      ]
+    },
+    {
+      "_id": "69787d9aa326286129da8f9c",
+      "uuid": "708f3a02-db47-42e7-bb1a-77471f1c5b30",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "You can improve only one metric next week. Which choice best matches the course’s “change one rule, then measure” approach?",
+      "options": [
+        "Increase focus blocks by scheduling one protected 90–120 minute deep work block daily, then compare throughput and carryover.",
+        "Change five tools and routines at once so improvements happen faster even if you cannot attribute the cause.",
+        "Stop tracking metrics for a week to reduce stress, then assume performance improved if you feel better.",
+        "Increase meeting frequency so progress is visible, then assume outcomes improved without measuring."
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day5",
+        "#en",
+        "#course-productivity_2026_en",
+        "#productivity",
+        "#intermediate",
+        "#application"
+      ]
+    }
+  ]
+}

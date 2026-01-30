@@ -1,0 +1,592 @@
+{
+  "generatedAt": "2026-01-28T19:36:16.649Z",
+  "courseFilter": "SALES_PRODUCTIVITY_30_RU",
+  "total": 30,
+  "failed": 11,
+  "results": [
+    {
+      "courseId": "SALES_PRODUCTIVITY_30_RU",
+      "courseName": "Постройте свои продажи – 30 дней к большему количеству сделок",
+      "language": "ru",
+      "dayNumber": 1,
+      "lessonId": "SALES_PRODUCTIVITY_30_RU_DAY_01",
+      "title": "Основы воронки продаж – Почему важны цифры",
+      "createdAt": "2026-01-22T13:11:10.334Z",
+      "ok": false,
+      "errors": [
+        "Language integrity failed for lesson.content: contains long Latin segments for ru.",
+        "Language integrity failed for lesson.emailSubject: contains long Latin segments for ru.",
+        "Language integrity failed for lesson.emailBody: contains long Latin segments for ru."
+      ],
+      "warnings": [],
+      "findings": [
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "Salesforce – Метрики воронки: – Метрики и KPI"
+        },
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "{{courseName}} – День 1: Основы воронки продаж"
+        },
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "{{courseName}}"
+        }
+      ]
+    },
+    {
+      "courseId": "SALES_PRODUCTIVITY_30_RU",
+      "courseName": "Постройте свои продажи – 30 дней к большему количеству сделок",
+      "language": "ru",
+      "dayNumber": 2,
+      "lessonId": "SALES_PRODUCTIVITY_30_RU_DAY_02",
+      "title": "Установка KPI и целей – Как работать в обратном направлении",
+      "createdAt": "2026-01-22T13:19:45.276Z",
+      "ok": false,
+      "errors": [
+        "Language integrity failed for lesson.content: contains long Latin segments for ru.",
+        "Language integrity failed for lesson.emailSubject: contains long Latin segments for ru.",
+        "Language integrity failed for lesson.emailBody: contains long Latin segments for ru."
+      ],
+      "warnings": [],
+      "findings": [
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "Salesforce – Sales KPIs: – Какие KPI важны"
+        },
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "{{courseName}} – День 2: Установка KPI и целей"
+        },
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "{{courseName}}"
+        }
+      ]
+    },
+    {
+      "courseId": "SALES_PRODUCTIVITY_30_RU",
+      "courseName": "Постройте свои продажи – 30 дней к большему количеству сделок",
+      "language": "ru",
+      "dayNumber": 3,
+      "lessonId": "SALES_PRODUCTIVITY_30_RU_DAY_03",
+      "title": "Многоканальная генерация лидов – Где найти клиентов?",
+      "createdAt": "2026-01-22T13:35:32.460Z",
+      "ok": false,
+      "errors": [
+        "Language integrity failed for lesson.content: contains long Latin segments for ru.",
+        "Language integrity failed for lesson.emailSubject: contains long Latin segments for ru.",
+        "Language integrity failed for lesson.emailBody: contains long Latin segments for ru."
+      ],
+      "warnings": [],
+      "findings": [
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "Форма на сайте, блог, загрузка whitepaper"
+        },
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "Salesforce – Многоканальная стратегия: – Многоканальная стратегия"
+        },
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "{{courseName}} – День 3: Многоканальная генерация лидов"
+        },
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "{{courseName}}"
+        }
+      ]
+    },
+    {
+      "courseId": "SALES_PRODUCTIVITY_30_RU",
+      "courseName": "Постройте свои продажи – 30 дней к большему количеству сделок",
+      "language": "ru",
+      "dayNumber": 4,
+      "lessonId": "SALES_PRODUCTIVITY_30_RU_DAY_04",
+      "title": "Оптимизация коэффициента конверсии – Как улучшить цифры",
+      "createdAt": "2026-01-22T13:41:59.811Z",
+      "ok": false,
+      "errors": [
+        "Language integrity failed for lesson.content: contains long Latin segments for ru.",
+        "Language integrity failed for lesson.emailSubject: contains long Latin segments for ru.",
+        "Language integrity failed for lesson.emailBody: contains long Latin segments for ru."
+      ],
+      "warnings": [],
+      "findings": [
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "Salesforce – Оптимизация воронки продаж: – Оптимизация воронки"
+        },
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "{{courseName}} – День 4: Оптимизация коэффициента конверсии"
+        },
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "{{courseName}}"
+        }
+      ]
+    },
+    {
+      "courseId": "SALES_PRODUCTIVITY_30_RU",
+      "courseName": "Постройте свои продажи – 30 дней к большему количеству сделок",
+      "language": "ru",
+      "dayNumber": 5,
+      "lessonId": "SALES_PRODUCTIVITY_30_RU_DAY_05",
+      "title": "Недельное/месячное прогнозирование – Как предсказать будущее",
+      "createdAt": "2026-01-22T13:44:13.830Z",
+      "ok": false,
+      "errors": [
+        "Language integrity failed for lesson.content: contains long Latin segments for ru.",
+        "Language integrity failed for lesson.emailSubject: contains long Latin segments for ru.",
+        "Language integrity failed for lesson.emailBody: contains long Latin segments for ru."
+      ],
+      "warnings": [],
+      "findings": [
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "Salesforce – Лучшие практики прогнозирования: – Лучшие практики прогнозирования"
+        },
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "{{courseName}} – День 5: Недельное/месячное прогнозирование"
+        },
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "{{courseName}}"
+        }
+      ]
+    },
+    {
+      "courseId": "SALES_PRODUCTIVITY_30_RU",
+      "courseName": "Постройте свои продажи – 30 дней к большему количеству сделок",
+      "language": "ru",
+      "dayNumber": 6,
+      "lessonId": "SALES_PRODUCTIVITY_30_RU_DAY_06",
+      "title": "Фреймворк квалификации (BANT, MEDDIC) – Как квалифицировать лиды?",
+      "createdAt": "2026-01-22T13:46:48.558Z",
+      "ok": false,
+      "errors": [
+        "Language integrity failed for lesson.content: contains long Latin segments for ru.",
+        "Language integrity failed for lesson.emailSubject: contains long Latin segments for ru.",
+        "Language integrity failed for lesson.emailBody: contains long Latin segments for ru."
+      ],
+      "warnings": [],
+      "findings": [
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "Запишите, какой тип сделок вы закрываете (малый бизнес, enterprise и т.д.)"
+        },
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "Salesforce – Фреймворк MEDDIC: – Фреймворк MEDDIC"
+        },
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "{{courseName}} – День 6: Фреймворк квалификации"
+        },
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "{{courseName}}"
+        }
+      ]
+    },
+    {
+      "courseId": "SALES_PRODUCTIVITY_30_RU",
+      "courseName": "Постройте свои продажи – 30 дней к большему количеству сделок",
+      "language": "ru",
+      "dayNumber": 7,
+      "lessonId": "SALES_PRODUCTIVITY_30_RU_DAY_07",
+      "title": "Идеальный профиль клиента (ICP) – С кем вы работаете?",
+      "createdAt": "2026-01-22T13:49:20.675Z",
+      "ok": false,
+      "errors": [
+        "Language integrity failed for lesson.content: contains long Latin segments for ru.",
+        "Language integrity failed for lesson.emailSubject: contains long Latin segments for ru.",
+        "Language integrity failed for lesson.emailBody: contains long Latin segments for ru."
+      ],
+      "warnings": [],
+      "findings": [
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "Технология: Используют CRM (Salesforce, HubSpot)"
+        },
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "Salesforce – Построение вашего ICP: – Построение ICP"
+        },
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "{{courseName}} – День 7: Идеальный профиль клиента"
+        },
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "{{courseName}}"
+        }
+      ]
+    },
+    {
+      "courseId": "SALES_PRODUCTIVITY_30_RU",
+      "courseName": "Постройте свои продажи – 30 дней к большему количеству сделок",
+      "language": "ru",
+      "dayNumber": 8,
+      "lessonId": "SALES_PRODUCTIVITY_30_RU_DAY_08",
+      "title": "Вопросы квалификации и скрипты – Что спрашивать для квалификации?",
+      "createdAt": "2026-01-22T13:51:48.636Z",
+      "ok": false,
+      "errors": [
+        "Language integrity failed for lesson.content: contains long Latin segments for ru.",
+        "Language integrity failed for lesson.emailSubject: contains long Latin segments for ru.",
+        "Language integrity failed for lesson.emailBody: contains long Latin segments for ru."
+      ],
+      "warnings": [],
+      "findings": [
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "Salesforce – Скрипт исследовательского звонка: – Скрипт исследовательского звонка"
+        },
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "{{courseName}} – День 8: Вопросы квалификации и скрипты"
+        },
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "{{courseName}}"
+        }
+      ]
+    },
+    {
+      "courseId": "SALES_PRODUCTIVITY_30_RU",
+      "courseName": "Постройте свои продажи – 30 дней к большему количеству сделок",
+      "language": "ru",
+      "dayNumber": 9,
+      "lessonId": "SALES_PRODUCTIVITY_30_RU_DAY_09",
+      "title": "Скоринг лидов и приоритизация – Какой лид обработать первым?",
+      "createdAt": "2026-01-22T13:54:20.278Z",
+      "ok": false,
+      "errors": [
+        "Language integrity failed for lesson.content: contains long Latin segments for ru.",
+        "Language integrity failed for lesson.emailSubject: contains long Latin segments for ru.",
+        "Language integrity failed for lesson.emailBody: contains long Latin segments for ru."
+      ],
+      "warnings": [],
+      "findings": [
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "Salesforce – Приоритизация лидов: – Приоритизация лидов"
+        },
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "{{courseName}} – День 9: Скоринг лидов и приоритизация"
+        },
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "{{courseName}}"
+        }
+      ]
+    },
+    {
+      "courseId": "SALES_PRODUCTIVITY_30_RU",
+      "courseName": "Постройте свои продажи – 30 дней к большему количеству сделок",
+      "language": "ru",
+      "dayNumber": 10,
+      "lessonId": "SALES_PRODUCTIVITY_30_RU_DAY_10",
+      "title": "Квалификация на практике – Как квалифицировать в реальном разговоре?",
+      "createdAt": "2026-01-22T13:56:52.356Z",
+      "ok": false,
+      "errors": [
+        "Language integrity failed for lesson.content: contains long Latin segments for ru.",
+        "Language integrity failed for lesson.emailSubject: contains long Latin segments for ru.",
+        "Language integrity failed for lesson.emailBody: contains long Latin segments for ru."
+      ],
+      "warnings": [],
+      "findings": [
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "Salesforce – Техники квалификации: – Техники квалификации"
+        },
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "{{courseName}} – День 10: Квалификация на практике"
+        },
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "{{courseName}}"
+        }
+      ]
+    },
+    {
+      "courseId": "SALES_PRODUCTIVITY_30_RU",
+      "courseName": "Постройте свои продажи – 30 дней к большему количеству сделок",
+      "language": "ru",
+      "dayNumber": 11,
+      "lessonId": "SALES_PRODUCTIVITY_30_RU_DAY_11",
+      "title": "Психология ценообразования – Как цена влияет на решения о покупке?",
+      "createdAt": "2026-01-22T13:59:04.851Z",
+      "ok": false,
+      "errors": [
+        "Language integrity failed for lesson.emailSubject: contains long Latin segments for ru.",
+        "Language integrity failed for lesson.emailBody: contains long Latin segments for ru."
+      ],
+      "warnings": [],
+      "findings": [
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "{{courseName}} – День 11: Психология ценообразования"
+        },
+        {
+          "label": "Latin segment >= 10",
+          "snippet": "{{courseName}}"
+        }
+      ]
+    },
+    {
+      "courseId": "SALES_PRODUCTIVITY_30_RU",
+      "courseName": "Постройте свои продажи – 30 дней к большему количеству сделок",
+      "language": "ru",
+      "dayNumber": 12,
+      "lessonId": "SALES_PRODUCTIVITY_30_RU_DAY_12",
+      "title": "Работа с возражениями — “нет” как данные",
+      "createdAt": "2026-01-28T19:30:03.588Z",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "findings": []
+    },
+    {
+      "courseId": "SALES_PRODUCTIVITY_30_RU",
+      "courseName": "Постройте свои продажи – 30 дней к большему количеству сделок",
+      "language": "ru",
+      "dayNumber": 13,
+      "lessonId": "SALES_PRODUCTIVITY_30_RU_DAY_13",
+      "title": "Дискавери‑звонок — сначала диагностика",
+      "createdAt": "2026-01-28T19:30:04.034Z",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "findings": []
+    },
+    {
+      "courseId": "SALES_PRODUCTIVITY_30_RU",
+      "courseName": "Постройте свои продажи – 30 дней к большему количеству сделок",
+      "language": "ru",
+      "dayNumber": 14,
+      "lessonId": "SALES_PRODUCTIVITY_30_RU_DAY_14",
+      "title": "Коммерческое предложение — упростите решение",
+      "createdAt": "2026-01-28T19:30:04.803Z",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "findings": []
+    },
+    {
+      "courseId": "SALES_PRODUCTIVITY_30_RU",
+      "courseName": "Постройте свои продажи – 30 дней к большему количеству сделок",
+      "language": "ru",
+      "dayNumber": 15,
+      "lessonId": "SALES_PRODUCTIVITY_30_RU_DAY_15",
+      "title": "Переговоры — торгуйтесь, а не “дарите”",
+      "createdAt": "2026-01-28T19:30:05.061Z",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "findings": []
+    },
+    {
+      "courseId": "SALES_PRODUCTIVITY_30_RU",
+      "courseName": "Постройте свои продажи – 30 дней к большему количеству сделок",
+      "language": "ru",
+      "dayNumber": 16,
+      "lessonId": "SALES_PRODUCTIVITY_30_RU_DAY_16",
+      "title": "Закрытие сделки — проведите путь решения",
+      "createdAt": "2026-01-28T19:30:05.168Z",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "findings": []
+    },
+    {
+      "courseId": "SALES_PRODUCTIVITY_30_RU",
+      "courseName": "Постройте свои продажи – 30 дней к большему количеству сделок",
+      "language": "ru",
+      "dayNumber": 17,
+      "lessonId": "SALES_PRODUCTIVITY_30_RU_DAY_17",
+      "title": "Передача в внедрение — выполните обещанное",
+      "createdAt": "2026-01-28T19:30:05.590Z",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "findings": []
+    },
+    {
+      "courseId": "SALES_PRODUCTIVITY_30_RU",
+      "courseName": "Постройте свои продажи – 30 дней к большему количеству сделок",
+      "language": "ru",
+      "dayNumber": 18,
+      "lessonId": "SALES_PRODUCTIVITY_30_RU_DAY_18",
+      "title": "Управление аккаунтом — делайте ценность видимой",
+      "createdAt": "2026-01-28T19:30:05.638Z",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "findings": []
+    },
+    {
+      "courseId": "SALES_PRODUCTIVITY_30_RU",
+      "courseName": "Постройте свои продажи – 30 дней к большему количеству сделок",
+      "language": "ru",
+      "dayNumber": 19,
+      "lessonId": "SALES_PRODUCTIVITY_30_RU_DAY_19",
+      "title": "Расширение — рост через следующий результат",
+      "createdAt": "2026-01-28T19:30:05.690Z",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "findings": []
+    },
+    {
+      "courseId": "SALES_PRODUCTIVITY_30_RU",
+      "courseName": "Постройте свои продажи – 30 дней к большему количеству сделок",
+      "language": "ru",
+      "dayNumber": 20,
+      "lessonId": "SALES_PRODUCTIVITY_30_RU_DAY_20",
+      "title": "Продление и удержание — план спасения",
+      "createdAt": "2026-01-28T19:30:05.731Z",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "findings": []
+    },
+    {
+      "courseId": "SALES_PRODUCTIVITY_30_RU",
+      "courseName": "Постройте свои продажи – 30 дней к большему количеству сделок",
+      "language": "ru",
+      "dayNumber": 21,
+      "lessonId": "SALES_PRODUCTIVITY_30_RU_DAY_21",
+      "title": "Холодные письма — персонализация без потери времени",
+      "createdAt": "2026-01-28T19:30:05.778Z",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "findings": []
+    },
+    {
+      "courseId": "SALES_PRODUCTIVITY_30_RU",
+      "courseName": "Постройте свои продажи – 30 дней к большему количеству сделок",
+      "language": "ru",
+      "dayNumber": 22,
+      "lessonId": "SALES_PRODUCTIVITY_30_RU_DAY_22",
+      "title": "Холодные звонки — получите разрешение быстро",
+      "createdAt": "2026-01-28T19:30:05.827Z",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "findings": []
+    },
+    {
+      "courseId": "SALES_PRODUCTIVITY_30_RU",
+      "courseName": "Постройте свои продажи – 30 дней к большему количеству сделок",
+      "language": "ru",
+      "dayNumber": 23,
+      "lessonId": "SALES_PRODUCTIVITY_30_RU_DAY_23",
+      "title": "Фоллоу‑ап — превратите разговор в обязательства",
+      "createdAt": "2026-01-28T19:30:05.868Z",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "findings": []
+    },
+    {
+      "courseId": "SALES_PRODUCTIVITY_30_RU",
+      "courseName": "Постройте свои продажи – 30 дней к большему количеству сделок",
+      "language": "ru",
+      "dayNumber": 24,
+      "lessonId": "SALES_PRODUCTIVITY_30_RU_DAY_24",
+      "title": "Гигиена воронки — держите данные реальными",
+      "createdAt": "2026-01-28T19:30:05.915Z",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "findings": []
+    },
+    {
+      "courseId": "SALES_PRODUCTIVITY_30_RU",
+      "courseName": "Постройте свои продажи – 30 дней к большему количеству сделок",
+      "language": "ru",
+      "dayNumber": 25,
+      "lessonId": "SALES_PRODUCTIVITY_30_RU_DAY_25",
+      "title": "Управление временем — защищайте фокус",
+      "createdAt": "2026-01-28T19:30:05.964Z",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "findings": []
+    },
+    {
+      "courseId": "SALES_PRODUCTIVITY_30_RU",
+      "courseName": "Постройте свои продажи – 30 дней к большему количеству сделок",
+      "language": "ru",
+      "dayNumber": 26,
+      "lessonId": "SALES_PRODUCTIVITY_30_RU_DAY_26",
+      "title": "ИИ в продажах — скорость с проверкой",
+      "createdAt": "2026-01-28T19:30:06.008Z",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "findings": []
+    },
+    {
+      "courseId": "SALES_PRODUCTIVITY_30_RU",
+      "courseName": "Постройте свои продажи – 30 дней к большему количеству сделок",
+      "language": "ru",
+      "dayNumber": 27,
+      "lessonId": "SALES_PRODUCTIVITY_30_RU_DAY_27",
+      "title": "Метрики — ведущие показатели, которые вы контролируете",
+      "createdAt": "2026-01-28T19:30:06.051Z",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "findings": []
+    },
+    {
+      "courseId": "SALES_PRODUCTIVITY_30_RU",
+      "courseName": "Постройте свои продажи – 30 дней к большему количеству сделок",
+      "language": "ru",
+      "dayNumber": 28,
+      "lessonId": "SALES_PRODUCTIVITY_30_RU_DAY_28",
+      "title": "Руководство по продажам — сделайте процесс переносимым",
+      "createdAt": "2026-01-28T19:30:06.108Z",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "findings": []
+    },
+    {
+      "courseId": "SALES_PRODUCTIVITY_30_RU",
+      "courseName": "Постройте свои продажи – 30 дней к большему количеству сделок",
+      "language": "ru",
+      "dayNumber": 29,
+      "lessonId": "SALES_PRODUCTIVITY_30_RU_DAY_29",
+      "title": "Итоговый проект — запустите систему на 7 дней",
+      "createdAt": "2026-01-28T19:30:06.171Z",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "findings": []
+    },
+    {
+      "courseId": "SALES_PRODUCTIVITY_30_RU",
+      "courseName": "Постройте свои продажи – 30 дней к большему количеству сделок",
+      "language": "ru",
+      "dayNumber": 30,
+      "lessonId": "SALES_PRODUCTIVITY_30_RU_DAY_30",
+      "title": "Постоянное улучшение — ежемесячный обзор",
+      "createdAt": "2026-01-28T19:30:06.238Z",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "findings": []
+    }
+  ]
+}

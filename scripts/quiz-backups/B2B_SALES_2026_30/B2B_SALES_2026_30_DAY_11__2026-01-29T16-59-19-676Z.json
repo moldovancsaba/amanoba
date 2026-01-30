@@ -1,0 +1,68 @@
+{
+  "backedUpAt": "2026-01-29T17:00:22.347Z",
+  "course": {
+    "courseId": "B2B_SALES_2026_30",
+    "name": "B2B Értékesítés 2026 Masterclass",
+    "language": "hu"
+  },
+  "lesson": {
+    "dayNumber": 11,
+    "title": "Outbound üzenet: személyre szabás nélkül nincs válasz",
+    "lessonId": "B2B_SALES_2026_30_DAY_11"
+  },
+  "questionCount": 4,
+  "questions": [
+    {
+      "_id": "697b203eac79ca83bb972247",
+      "difficulty": "MEDIUM",
+      "question": "Mi a jó outbound üzenet 3 eleme?",
+      "options": [
+        "Hosszú bemutatkozás, ár, link",
+        "Relevancia jel, probléma, konkrét next step",
+        "Marketing szlogen, CTA, logó",
+        "Feature lista, CTA, ár"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b203eac79ca83bb972248",
+      "difficulty": "MEDIUM",
+      "question": "Mi a relevancia jel szerepe?",
+      "options": [
+        "Dekoráció",
+        "Bizonyítja, hogy figyeltél (tény/trigger)",
+        "Növeli a szócountot",
+        "Kiváltja az ICP-t"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b203eac79ca83bb972249",
+      "difficulty": "MEDIUM",
+      "question": "Mi a rossz példa?",
+      "options": [
+        "Relevancia jel + probléma + konkrét 15 perces lépés",
+        "„Segítünk növekedni AI-val, beszéljünk.”",
+        "Trigger említése",
+        "Stage definíciók említése"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b203eac79ca83bb97224a",
+      "difficulty": "MEDIUM",
+      "question": "Miért kell next step?",
+      "options": [
+        "Hogy hosszabb legyen az email",
+        "Hogy a döntés gyorsuljon és konkrét legyen az elköteleződés",
+        "Hogy több marketing anyagot küldj",
+        "Hogy ne kelljen ICP"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    }
+  ]
+}

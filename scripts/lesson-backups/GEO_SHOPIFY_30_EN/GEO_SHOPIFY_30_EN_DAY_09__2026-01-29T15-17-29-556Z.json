@@ -1,0 +1,19 @@
+{
+  "backedUpAt": "2026-01-29T15:17:29.820Z",
+  "course": {
+    "courseId": "GEO_SHOPIFY_30_EN",
+    "name": "GEO Shopify – 30-day course",
+    "language": "en"
+  },
+  "lesson": {
+    "lessonId": "GEO_SHOPIFY_30_EN_DAY_09",
+    "dayNumber": 9,
+    "title": "Identifiers clean: SKU, GTIN, brand, variants",
+    "language": "en",
+    "isActive": true,
+    "createdAt": "2026-01-19T22:01:12.851Z"
+  },
+  "content": "<h1>Identifiers clean: SKU, GTIN, brand, variants</h1>\n<p><em>Clean up product identifiers so AI and feeds don’t confuse items.</em></p>\n<hr />\n<h2>Learning goal</h2>\n<ul>\n<li>Audit 10 products/variants for SKU/GTIN/brand/variant naming.</li>\n<li>List missing/incorrect IDs.</li>\n</ul>\n<hr />\n<h2>Why it matters</h2>\n<ul>\n<li>AI and feeds disambiguate with IDs; bad IDs → wrong recos.</li>\n<li>Brand/variant clarity reduces mis-match.</li>\n</ul>\n<hr />\n<h2>Explanation</h2>\n<h3>Check</h3>\n<ul>\n<li>SKU unique per variant.</li>\n<li>GTIN (if present) correct, not duplicated.</li>\n<li>Brand populated, consistent.</li>\n<li>Variant name clear: size/color, no mixing.</li>\n</ul>\n<hr />\n<h2>Examples</h2>\n<ul>\n<li><strong>Good</strong>: “SKU: RUNPRO-BLU-42, GTIN: 123…, Brand: RunPro, Variant: men, blue, 42”.</li>\n<li><strong>Poor</strong>: missing GTIN, duplicate SKU, variant “42 blue or black?”.</li>\n</ul>\n<hr />\n<h2>Guided exercise (10–15 min)</h2>\n<ol>\n<li>Audit sheet: Product | Variant | SKU | GTIN | Brand | Notes.</li>\n<li>Fill for 10 products/variants.</li>\n</ol>\n<h2>Independent exercise (5–10 min)</h2>\n<p>Write 5 fixes (duplicate SKU, GTIN missing, variant name cleanup).</p>\n<hr />\n<h2>Self-check</h2>\n<ul>\n<li>Audit sheet filled.</li>\n<li>10 products/variants reviewed.</li>\n<li>5 fixes listed.</li>\n</ul>\n<hr />\n<h2>Optional deepening</h2>\n<ul>\n<li>GTIN guide (GS1): <a href=\"https://www.gs1.org/standards/id-keys/gtin\" target=\"_blank\" rel=\"noreferrer\">https://www.gs1.org/standards/id-keys/gtin</a></li>\n</ul>",
+  "emailSubject": "GEO Shopify – Day 9: Identifiers",
+  "emailBody": "<h1>GEO Shopify – Day 9</h1>\n<h2>Identifiers clean</h2>\n<p>Today you audit SKU/GTIN/brand/variants and log fixes.</p>\n<p><a href=\"http://localhost:3000/courses/GEO_SHOPIFY_30_EN/day/{{dayNumber}}\">Read the lesson →</a></p>"
+}

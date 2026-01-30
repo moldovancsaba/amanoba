@@ -1,0 +1,114 @@
+{
+  "backedUpAt": "2026-01-28T22:58:15.229Z",
+  "course": {
+    "courseId": "DONE_BETTER_2026_EN",
+    "name": "Done is better - Build What Matters",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 15,
+    "title": "Done Means Testable",
+    "lessonId": "DONE_BETTER_2026_EN_DAY_15"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "697a92f622596d24dfc12d0f",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "A stakeholder says a task is \"done when it feels right.\" What should you do?",
+      "options": [
+        "Define done as a testable, observable condition; refuse vague done criteria",
+        "Accept their definition even though it cannot be verified or tested",
+        "Set an arbitrary deadline without defining what done actually means",
+        "Leave it undefined and hope everyone agrees on when it is complete"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a92f622596d24dfc12d10",
+      "questionType": "application",
+      "difficulty": "EASY",
+      "question": "A developer says a feature is \"done\" but cannot describe how to verify it works. According to this approach, what is the problem?",
+      "options": [
+        "Done means testable: if you cannot verify or test it, it does not exist as done",
+        "Done means the deadline passed regardless of quality or outcomes",
+        "Done means the person in charge says so without verification",
+        "Done means no one is complaining about it at the moment"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a92f622596d24dfc12d11",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Your next move is \"improve the onboarding flow.\" How do you make it testable?",
+      "options": [
+        "Write: we are done when [observable condition], e.g. user completes steps 1–3 in under 2 minutes",
+        "Leave it as is and do not define done criteria or testability",
+        "Set a due date only without other criteria or observable conditions",
+        "Assign it to a team and do not define done or how to verify completion"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a92f622596d24dfc12d12",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Why is vague done dangerous?",
+      "options": [
+        "Scope creep and no feedback; you never know when to stop or what to test",
+        "It is faster to avoid defining clear criteria or testable conditions",
+        "It is more flexible and allows for creative interpretation",
+        "It has no effect on outcomes or learning compared to clear definitions"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a92f622596d24dfc12d13",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Moving on before the test is run can lead to:",
+      "options": [
+        "False confidence; the move may not be done or may not produce the expected result",
+        "Faster delivery with no downside",
+        "Lower cost with the same outcome",
+        "No significant risk in most cases"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a92f622596d24dfc12d14",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "If you cannot write an observable condition for \"done,\" what should you do?",
+      "options": [
+        "Narrow the move until you can define a testable condition that can be verified",
+        "Proceed anyway without a testable condition and hope it works out",
+        "Skip the move and do something else that is easier to define",
+        "Ask someone else to define it for you without understanding it yourself"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a92f622596d24dfc12d15",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "What is the role of testability in scoping the next move?",
+      "options": [
+        "It defines the boundary of the move and when you can get signal",
+        "It is only for QA and not for planning",
+        "It increases scope and flexibility",
+        "It has no role in scoping or delivery"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    }
+  ]
+}

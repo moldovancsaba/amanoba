@@ -1,14 +1,17 @@
 /**
  * Process All Courses with Quality Validation
- * 
+ *
  * Purpose: Generate all missing questions and fix broken/generic questions
- * WITH QUALITY VALIDATION to ensure no generic templates or poor quality
- * 
+ * WITH QUALITY VALIDATION to ensure no generic templates or poor quality.
+ *
+ * TINY LOOP: Each question is managed individually. Broken questions are replaced
+ * one at a time (generate → validate → replace); missing slots are filled one at a time.
+ * No batch delete/batch insert — quality is higher when each question is handled separately.
+ *
  * This script:
- * 1. Finds all missing questions
- * 2. Finds all broken/generic questions
- * 3. Generates proper questions with quality validation
- * 4. Replaces broken questions with quality-validated ones
+ * 1. Finds broken/generic questions per lesson
+ * 2. Replaces each broken question one at a time with a validated replacement
+ * 3. Fills missing slots one at a time until 7 total (5 application, 2 critical)
  */
 
 import { config } from 'dotenv';
@@ -20,10 +23,7 @@ config({ path: resolve(process.cwd(), '.env.local') });
 import { default as connectDB } from '../app/lib/mongodb';
 import { Course, Lesson, QuizQuestion, QuestionDifficulty, QuestionType } from '../app/lib/models';
 import { validateQuestionQuality, validateLessonQuestions } from './question-quality-validator';
-import { generateAdditionalQuestions } from './process-course-questions-generic';
-
-// Import the question generation function from the generic script
-// (We'll need to extract it or import it)
+import { generateContentBasedQuestions } from './content-based-question-generator';
 
 async function processAllCoursesWithQuality() {
   try {
@@ -77,146 +77,202 @@ async function processAllCoursesWithQuality() {
           isActive: true,
         }).lean();
 
-        // Validate existing questions and find broken ones
         const brokenQuestions: any[] = [];
         const validQuestions: any[] = [];
-
         for (const q of existingQuestions) {
           const validation = validateQuestionQuality(
-            q.question,
+            q.question ?? '',
             q.options || [],
-            q.questionType as QuestionType || QuestionType.RECALL,
-            q.difficulty || QuestionDifficulty.EASY,
+            (q.questionType as QuestionType) || QuestionType.RECALL,
+            (q.difficulty as QuestionDifficulty) || QuestionDifficulty.EASY,
             course.language,
-            lesson.title,
-            lesson.content
+            lesson.title ?? '',
+            lesson.content ?? ''
           );
-
-          if (!validation.isValid) {
-            brokenQuestions.push(q);
-          } else {
-            validQuestions.push(q);
-          }
+          if (!validation.isValid) brokenQuestions.push(q);
+          else validQuestions.push(q);
         }
 
-        // Delete broken questions
-        if (brokenQuestions.length > 0) {
-          const brokenIds = brokenQuestions.map(q => q._id);
-          await QuizQuestion.deleteMany({ _id: { $in: brokenIds } });
-          courseQuestionsDeleted += brokenQuestions.length;
-          totalQuestionsDeleted += brokenQuestions.length;
-          console.log(`   Day ${lesson.dayNumber}: Deleted ${brokenQuestions.length} broken/generic questions`);
-        }
+        const normalizeQuestionText = (text: string) =>
+          String(text || '').trim().toLowerCase().replace(/\s+/g, ' ');
+        const MAX_REPLACE_ATTEMPTS = 5;
+        const MAX_FILL_ATTEMPTS_PER_SLOT = 10;
+        const CANDIDATES_PER_ATTEMPT = 8;
+        const stamp = new Date().toISOString().replace(/[:.]/g, '-');
 
-        // Enhance valid questions with metadata
-        const enhancedQuestions = validQuestions.map(q => {
-          // Ensure proper metadata
-          const questionType = q.questionType || QuestionType.RECALL;
-          const hashtags = q.hashtags && q.hashtags.length > 0 ? q.hashtags : [];
-          
-          return {
-            question: q.question,
-            options: q.options as [string, string, string, string],
-            correctIndex: q.correctIndex as 0 | 1 | 2 | 3,
-            difficulty: q.difficulty || QuestionDifficulty.EASY,
-            category: q.category || 'Course Specific',
-            questionType,
-            hashtags,
-          };
-        });
+        let currentValid = [...validQuestions];
+        const existingTextKeys = new Set<string>(currentValid.map(q => normalizeQuestionText(q.question ?? '')));
+        let insertedCount = 0;
+        let replacedCount = 0;
 
-        // Generate additional questions to reach 7
-        const needed = 7 - enhancedQuestions.length;
-        let newQuestions: any[] = [];
-
-        if (needed > 0) {
-          // Use the question generation from process-course-questions-generic.ts
-          // For now, we'll generate them and validate
-          const additional = generateAdditionalQuestions(
-            lesson.dayNumber,
-            lesson.title,
-            lesson.content || '',
-            enhancedQuestions,
-            needed,
-            course.language
-          );
-
-          // Validate each new question before adding
-          for (const newQ of additional) {
-            const validation = validateQuestionQuality(
-              newQ.question,
-              newQ.options,
-              newQ.questionType,
-              newQ.difficulty,
+        // Phase 1: Replace each broken question one at a time.
+        for (let i = 0; i < brokenQuestions.length; i++) {
+          const invalidQ = brokenQuestions[i];
+          const displayOrder = (invalidQ as any).displayOrder ?? currentValid.length + i + 1;
+          let replaced = false;
+          for (let attempt = 0; attempt < MAX_REPLACE_ATTEMPTS && !replaced; attempt++) {
+            const candidates = generateContentBasedQuestions(
+              lesson.dayNumber,
+              lesson.title ?? '',
+              lesson.content ?? '',
               course.language,
-              lesson.title,
-              lesson.content
+              course.courseId,
+              currentValid,
+              CANDIDATES_PER_ATTEMPT,
+              { seed: `${course.courseId}::${lesson.lessonId}::replace${i}::${stamp}::a${attempt}` }
             );
-
-            if (validation.isValid) {
-              newQuestions.push(newQ);
-            } else {
-              console.log(`   ⚠️  Rejected question: ${validation.errors.join('; ')}`);
-              courseErrors++;
+            for (const q of candidates) {
+              const v = validateQuestionQuality(
+                q.question,
+                q.options,
+                q.questionType as any,
+                q.difficulty as any,
+                course.language,
+                lesson.title ?? '',
+                lesson.content ?? ''
+              );
+              if (!v.isValid) continue;
+              const key = normalizeQuestionText(q.question);
+              if (!key || existingTextKeys.has(key)) continue;
+              await QuizQuestion.deleteOne({ _id: invalidQ._id });
+              await QuizQuestion.insertMany([
+                {
+                  uuid: randomUUID(),
+                  lessonId: lesson.lessonId,
+                  courseId: course._id,
+                  question: q.question,
+                  options: q.options,
+                  correctIndex: q.correctIndex,
+                  difficulty: q.difficulty,
+                  category: q.category ?? 'Course Specific',
+                  isCourseSpecific: true,
+                  questionType: q.questionType as string,
+                  hashtags: q.hashtags,
+                  isActive: true,
+                  displayOrder,
+                  showCount: 0,
+                  correctCount: 0,
+                  metadata: {
+                    createdAt: new Date(),
+                    updatedAt: new Date(),
+                    auditedAt: new Date(),
+                    auditedBy: 'process-all-courses-tiny-loop',
+                  },
+                },
+              ]);
+              courseQuestionsDeleted += 1;
+              totalQuestionsDeleted += 1;
+              courseQuestionsCreated += 1;
+              totalQuestionsCreated += 1;
+              existingTextKeys.add(key);
+              currentValid.push({ ...q, displayOrder, _id: null });
+              replaced = true;
+              replacedCount++;
+              break;
             }
           }
+          if (!replaced) {
+            await QuizQuestion.deleteOne({ _id: invalidQ._id });
+            courseQuestionsDeleted += 1;
+            totalQuestionsDeleted += 1;
+          }
         }
 
-        const allQuestions = [...enhancedQuestions, ...newQuestions];
+        // Phase 2: Fill missing slots one at a time (7 total, 5 application, 2 critical).
+        let remainingNeededTotal = Math.max(0, 7 - currentValid.length);
+        let remainingNeededApp = Math.max(0, 5 - currentValid.filter(q => q.questionType === 'application').length);
+        let remainingNeededCritical = Math.max(0, 2 - currentValid.filter(q => q.questionType === 'critical-thinking').length);
+        let nextDisplayOrder = Math.max(0, ...currentValid.map(q => (q as any).displayOrder ?? 0)) + 1;
+        let fillAttempts = 0;
+        const maxFillAttempts = (remainingNeededTotal + 2) * MAX_FILL_ATTEMPTS_PER_SLOT;
 
-        // Final validation of the complete set
-        const lessonValidation = validateLessonQuestions(
-          allQuestions,
-          course.language,
-          lesson.title
-        );
-
-        if (lessonValidation.isValid && allQuestions.length === 7) {
-          // Delete all existing and create new
-          await QuizQuestion.deleteMany({
-            lessonId: lesson.lessonId,
-            courseId: course._id,
-            isCourseSpecific: true,
-          });
-
-          // Create all 7 questions
-          const questionsToInsert = allQuestions.map(q => ({
-            uuid: randomUUID(),
-            lessonId: lesson.lessonId,
-            courseId: course._id,
-            question: q.question,
-            options: q.options,
-            correctIndex: q.correctIndex,
-            difficulty: q.difficulty,
-            category: q.category,
-            isCourseSpecific: true,
-            questionType: q.questionType as string,
-            hashtags: q.hashtags,
-            isActive: true,
-            showCount: 0,
-            correctCount: 0,
-            metadata: {
-              createdAt: new Date(),
-              updatedAt: new Date(),
-              auditedAt: new Date(),
-              auditedBy: 'AI-Developer-Quality-Validated',
-            },
-          }));
-
-          await QuizQuestion.insertMany(questionsToInsert);
-          courseQuestionsCreated += newQuestions.length;
-          courseQuestionsFixed += enhancedQuestions.length;
-          totalQuestionsCreated += newQuestions.length;
-          totalQuestionsFixed += enhancedQuestions.length;
-
-          if (lessonValidation.warnings.length > 0) {
-            console.log(`   Day ${lesson.dayNumber}: ✅ Created 7 questions (warnings: ${lessonValidation.warnings.length})`);
-          } else {
-            console.log(`   Day ${lesson.dayNumber}: ✅ Created 7 perfect questions`);
+        while ((remainingNeededTotal > 0 || remainingNeededApp > 0 || remainingNeededCritical > 0) && fillAttempts < maxFillAttempts) {
+          fillAttempts++;
+          const preferApp = remainingNeededApp > 0;
+          const preferCritical = !preferApp && remainingNeededCritical > 0;
+          const candidates = generateContentBasedQuestions(
+            lesson.dayNumber,
+            lesson.title ?? '',
+            lesson.content ?? '',
+            course.language,
+            course.courseId,
+            currentValid,
+            CANDIDATES_PER_ATTEMPT,
+            { seed: `${course.courseId}::${lesson.lessonId}::fill::${stamp}::${fillAttempts}` }
+          );
+          let added = false;
+          for (const q of candidates) {
+            const v = validateQuestionQuality(
+              q.question,
+              q.options,
+              q.questionType as any,
+              q.difficulty as any,
+              course.language,
+              lesson.title ?? '',
+              lesson.content ?? ''
+            );
+            if (!v.isValid) continue;
+            const key = normalizeQuestionText(q.question);
+            if (!key || existingTextKeys.has(key)) continue;
+            if (preferApp && q.questionType !== 'application') continue;
+            if (preferCritical && q.questionType !== 'critical-thinking') continue;
+            await QuizQuestion.insertMany([
+              {
+                uuid: randomUUID(),
+                lessonId: lesson.lessonId,
+                courseId: course._id,
+                question: q.question,
+                options: q.options,
+                correctIndex: q.correctIndex,
+                difficulty: q.difficulty,
+                category: q.category ?? 'Course Specific',
+                isCourseSpecific: true,
+                questionType: q.questionType as string,
+                hashtags: q.hashtags,
+                isActive: true,
+                displayOrder: nextDisplayOrder++,
+                showCount: 0,
+                correctCount: 0,
+                metadata: {
+                  createdAt: new Date(),
+                  updatedAt: new Date(),
+                  auditedAt: new Date(),
+                  auditedBy: 'process-all-courses-tiny-loop',
+                },
+              },
+            ]);
+            courseQuestionsCreated += 1;
+            totalQuestionsCreated += 1;
+            existingTextKeys.add(key);
+            currentValid.push({ ...q, displayOrder: nextDisplayOrder - 1, _id: null });
+            insertedCount++;
+            if (q.questionType === 'application' && remainingNeededApp > 0) remainingNeededApp--;
+            if (q.questionType === 'critical-thinking' && remainingNeededCritical > 0) remainingNeededCritical--;
+            if (remainingNeededTotal > 0) remainingNeededTotal--;
+            added = true;
+            break;
           }
-        } else {
-          console.log(`   Day ${lesson.dayNumber}: ⚠️  Only ${allQuestions.length}/7 questions (${lessonValidation.errors.length} errors)`);
+          if (!added) continue;
+        }
+
+        const allQuestions = currentValid.map(q => ({
+          question: q.question,
+          options: q.options,
+          questionType: q.questionType,
+          difficulty: q.difficulty,
+          correctIndex: q.correctIndex,
+        }));
+        const lessonValidation = validateLessonQuestions(allQuestions as any, course.language, lesson.title ?? '');
+
+        if (!lessonValidation.isValid) {
+          console.log(`   Day ${lesson.dayNumber}: ⚠️  Validation issues (${lessonValidation.errors.length} errors)`);
           courseErrors += lessonValidation.errors.length;
+        } else if (currentValid.length >= 7) {
+          courseQuestionsFixed += validQuestions.length;
+          totalQuestionsFixed += validQuestions.length;
+          console.log(`   Day ${lesson.dayNumber}: ✅ Replaced ${replacedCount}, added ${insertedCount} (7 questions)`);
+        } else {
+          console.log(`   Day ${lesson.dayNumber}: ⚠️  Only ${currentValid.length}/7 questions`);
         }
       }
 
@@ -248,6 +304,4 @@ async function processAllCoursesWithQuality() {
   }
 }
 
-// Note: This script needs the generateAdditionalQuestions function to be exported
-// from process-course-questions-generic.ts or imported here
 processAllCoursesWithQuality();

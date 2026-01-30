@@ -1,0 +1,10 @@
+{
+  "backedUpAt": "2026-01-28T22:55:28.844Z",
+  "courseId": "AI_30_DAY_EN",
+  "lessonId": "AI_30_DAY_EN_DAY_23",
+  "dayNumber": 23,
+  "title": "Rubrics and scoring AI outputs",
+  "content": "<h1>Rubrics and scoring AI outputs</h1>\n<p><em>Judge outputs with a checklist and weights</em></p>\n<hr />\n<h2>Learning goal</h2>\n<ul>\n<li>Build a rubric with 4–5 criteria and weights.</li>\n<li>Score one AI output with it.</li>\n</ul>\n<hr />\n<h2>Why it matters</h2>\n<ul>\n<li>Rubrics make evaluation repeatable.</li>\n<li>Weights reflect what matters most.</li>\n</ul>\n<hr />\n<h2>Explanation</h2>\n<ul>\n<li>Criteria examples: correctness, completeness, clarity, tone, actionability.</li>\n<li>Weights add up to 100%.</li>\n<li>Ask model to self-score and justify; you confirm.</li>\n</ul>\n<hr />\n<h2>Examples</h2>\n<ul>\n<li><strong>Prompt</strong>: “Use this rubric (criteria + weights) to score the output; give per-criterion notes.”</li>\n<li><strong>Weak</strong>: “Is this good?”</li>\n<hr />\n<h2>Guided exercise (10–15 min)</h2>\n<ol>\n<li>Create a rubric (5 items, weights total 100%).</li>\n<li>Apply it to one AI output; record scores and notes.</li>\n</ol>\n<h2>Independent exercise (5–10 min)</h2>\n<p>Adjust weights to match your team’s priorities and rescore.</p>\n<hr />\n<h2>Self-check</h2>\n<ul>\n<li>Rubric created with weights.</li>\n<li>Output scored with notes.</li>\n<li>Weights reflect priorities.</li>\n</ul>\n<hr />\n<h2>Optional deepening</h2>\n<ul>\n<li>Evaluation templates: <a href=\"https://platform.openai.com/docs/guides/prompt-engineering\" target=\"_blank\" rel=\"noreferrer\">prompt guide</a></li>\n</ul>",
+  "emailSubject": "AI 30-Day – Day 23: Rubrics",
+  "emailBody": "<h1>AI 30-Day – Day 23</h1>\n<h2>Rubrics</h2>\n<p>Today you’ll build a rubric and score an AI output.</p>\n<p><a href=\"http://localhost:3000/courses/AI_30_DAY_EN/day/{{dayNumber}}\">Open the lesson →</a></p>"
+}

@@ -1,0 +1,68 @@
+{
+  "backedUpAt": "2026-01-29T17:00:14.385Z",
+  "course": {
+    "courseId": "PLAYBOOK_2026_30",
+    "name": "The Playbook 2026 – Mesterkurzus Designereknek",
+    "language": "hu"
+  },
+  "lesson": {
+    "dayNumber": 3,
+    "title": "A Design Playbook anatómiája",
+    "lessonId": "PLAYBOOK_2026_30_DAY_3"
+  },
+  "questionCount": 4,
+  "questions": [
+    {
+      "_id": "697b2031d8669994531f742d",
+      "difficulty": "MEDIUM",
+      "question": "Miért kell frissítési ritmus a Playbookhoz?",
+      "options": [
+        "Dekoráció miatt",
+        "Hogy ne avuljon el, legyen tulajdonosa a változásnak",
+        "Hogy hosszabb legyen a dokumentum",
+        "Hogy ne kelljen használni"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b2031d8669994531f742e",
+      "difficulty": "MEDIUM",
+      "question": "Melyik tartozik a 6 fő fejezet közé?",
+      "options": [
+        "Capstone & Példatár",
+        "Marketing kampányok",
+        "HR kézikönyv",
+        "Sales funnel"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b2031d8669994531f742f",
+      "difficulty": "MEDIUM",
+      "question": "Mi a jó példa?",
+      "options": [
+        "Szabályok Slackben szétszórva",
+        "Tartalomjegyzék + felelős + ritmus + Doc link",
+        "Csak képek Figma boardon",
+        "Csak árlista"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b2031d8669994531f7430",
+      "difficulty": "MEDIUM",
+      "question": "Mit tartalmazzon a Release Notes sablon?",
+      "options": [
+        "Változás leírása, dátum, felelős, hatás",
+        "Csak logók",
+        "Csak dátum",
+        "Csak szerző neve"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    }
+  ]
+}

@@ -1,0 +1,166 @@
+{
+  "backedUpAt": "2026-01-28T21:29:02.774Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_HI",
+    "name": "उत्पादकता 2026: टीमों और समय का प्रबंधन कैसे करें",
+    "language": "hi"
+  },
+  "lesson": {
+    "dayNumber": 1,
+    "title": "उत्पादकता की परिभाषा: आउटपुट, आउटकम और बाधाएं",
+    "lessonId": "PRODUCTIVITY_2026_HI_DAY_01"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a66206e4784b9a0c034",
+      "uuid": "c7ae0eba-ad29-4afe-b1d4-de98c1679cb7",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "उत्पादकता के लिए कौन सा बाधा नहीं माना जाता?",
+      "options": [
+        "समय",
+        "ऊर्जा",
+        "ध्यान",
+        "गतिविधियों की संख्या"
+      ],
+      "correctIndex": 3,
+      "hashtags": [
+        "#day-01",
+        "#purpose",
+        "#application",
+        "#hi"
+      ]
+    },
+    {
+      "_id": "69776a66206e4784b9a0c035",
+      "uuid": "711cbf6e-3872-4128-8eab-ba9d26649439",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "आउटपुट फोकस के बजाय आउटकम फोकस क्यों महत्वपूर्ण है?",
+      "options": [
+        "क्योंकि उच्च आउटपुट स्वचालित रूप से अच्छे परिणाम की गारंटी देता है",
+        "क्योंकि आउटकम वास्तविक मूल्य लाता है, गतिविधियों की मात्रा नहीं",
+        "क्योंकि आउटपुट मापना आसान है",
+        "क्योंकि कोई अंतर नहीं है"
+      ],
+      "correctIndex": 1,
+      "hashtags": [
+        "#day-01",
+        "#foundation",
+        "#recall",
+        "#hi"
+      ]
+    },
+    {
+      "_id": "69776a66206e4784b9a0c036",
+      "uuid": "c63c57d3-538d-48e5-a066-c765e628934a",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ आप आउटपुट और आउटकम के बीच अंतर करते है...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day1",
+        "#hi",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a66206e4784b9a0c037",
+      "uuid": "6c85cb6a-2c6f-4e2f-a27b-6915528457ad",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ आप आउटपुट और आउटकम के बीच अंतर करते है...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day1",
+        "#hi",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a66206e4784b9a0c038",
+      "uuid": "b6068c94-b621-413c-b312-d937912003cc",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "पाठ में उल्लिखित अवधारणा \"महत्वपूर्ण है\n\nआउटपुट गतिविधियों की मात्रा है (कित...\" आपके goals प्राप्त करने को कैसे प्रभावित करती है?",
+      "options": [
+        "जैसा कि पाठ में विस्तार से वर्णित है, महत्वपूर्ण है\n\nआउटपुट गतिविधिय... प्रभावशीलता बढ़ाता है और जोखिम कम करता है",
+        "कोई महत्वपूर्ण प्रभाव नहीं",
+        "केवल सैद्धांतिक रूप से मायने रखता है",
+        "केवल एक वैकल्पिक तत्व"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day1",
+        "#hi",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a66206e4784b9a0c039",
+      "uuid": "38f0b1f3-0619-497a-85a1-34e3b4f71c71",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "पाठ में चर्चा किए गए उत्पादकता की परिभाषा: आउटपुट, आउटकम और बाधाएं के संदर्भ में सही दृष्टिकोण कितना महत्वपूर्ण है?",
+      "options": [
+        "जैसा कि पाठ में विस्तार से वर्णित है, सही दृष्टिकोण प्रक्रियाओं को अनुकूलित करने और लक्ष्यों को प्राप्त करने में महत्वपूर्ण भूमिका निभाता है",
+        "केवल परिधीय जानकारी, कोई महत्वपूर्ण भूमिका नहीं",
+        "केवल एक सैद्धांतिक अवधारणा, कोई व्यावहारिक अनुप्रयोग नहीं",
+        "पाठ में उल्लेख नहीं किया गया"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day1",
+        "#hi",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a66206e4784b9a0c03a",
+      "uuid": "543b35c7-ddb1-408b-b25e-dd680f6cfb05",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "पाठ में चर्चा किए गए उत्पादकता की परिभाषा: आउटपुट, आउटकम और बाधाएं के संदर्भ में आउटकम सूची कितना महत्वपूर्ण है?",
+      "options": [
+        "जैसा कि पाठ में विस्तार से वर्णित है, आउटकम सूची प्रक्रियाओं को अनुकूलित करने और लक्ष्यों को प्राप्त करने में महत्वपूर्ण भूमिका निभाता है",
+        "केवल परिधीय जानकारी, कोई महत्वपूर्ण भूमिका नहीं",
+        "केवल एक सैद्धांतिक अवधारणा, कोई व्यावहारिक अनुप्रयोग नहीं",
+        "पाठ में उल्लेख नहीं किया गया"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day1",
+        "#hi",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

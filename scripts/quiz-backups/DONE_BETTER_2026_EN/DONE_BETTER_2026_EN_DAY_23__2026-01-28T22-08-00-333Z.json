@@ -1,0 +1,114 @@
+{
+  "backedUpAt": "2026-01-28T22:08:18.585Z",
+  "course": {
+    "courseId": "DONE_BETTER_2026_EN",
+    "name": "Done is better - Build What Matters",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 23,
+    "title": "No Surprises Culture",
+    "lessonId": "DONE_BETTER_2026_EN_DAY_23"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "697a87bda81588c9f41a22b2",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "A project is at risk but the stakeholder will find out only at the deadline. What is wrong?",
+      "options": [
+        "Surprises destroy trust; share status early: on track, at risk, or blocked",
+        "Nothing; avoid worrying them",
+        "They should have asked",
+        "It is too late"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87bda81588c9f41a22b3",
+      "questionType": "application",
+      "difficulty": "EASY",
+      "question": "In this framework, how is \"no surprises\" culture defined?",
+      "options": [
+        "Share status early; surface bad news with options or a proposed fix; never hide a miss until the last moment",
+        "Never share bad news with anyone",
+        "Only share good news and hide risks",
+        "Share everything daily regardless of relevance"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87bda81588c9f41a22b4",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "If you are blocked, what should you do?",
+      "options": [
+        "Share status (at risk/blocked) and add one sentence on what you need or what you propose",
+        "Wait until you are unblocked",
+        "Blame others",
+        "Work longer hours"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87bda81588c9f41a22b5",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Hoping the problem will go away often leads to:",
+      "options": [
+        "Surprising stakeholders at the deadline and losing trust",
+        "The problem resolving",
+        "Faster execution",
+        "No meaningful effect on outcomes"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87bda81588c9f41a22b6",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Surprising stakeholders at the deadline can result in:",
+      "options": [
+        "Loss of trust; they could have helped or adjusted if they had known earlier",
+        "Faster resolution",
+        "Higher accountability",
+        "No significant downside in practice"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87bda81588c9f41a22b7",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "What should you send for one project as a minimum?",
+      "options": [
+        "A one-line status: on track / at risk / blocked; if at risk or blocked, add what you need or propose",
+        "A full report",
+        "Nothing until the end",
+        "Only good news"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87bda81588c9f41a22b8",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Why escalate bad news with a proposed fix?",
+      "options": [
+        "So the recipient can act or align; options reduce anxiety and build trust",
+        "To shift blame",
+        "To look competent",
+        "It is optional"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    }
+  ]
+}

@@ -1,0 +1,114 @@
+{
+  "backedUpAt": "2026-01-29T16:59:09.311Z",
+  "course": {
+    "courseId": "DONE_BETTER_2026_EN",
+    "name": "Done is better - Build What Matters",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 11,
+    "title": "Working Backwards",
+    "lessonId": "DONE_BETTER_2026_EN_DAY_11"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "697b0d23b2df7b6c12d00276",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "You have a goal but keep drifting between different approaches. What is a good first step to get focused?",
+      "options": [
+        "Describe the end state in concrete, observable terms, then work backwards to identify today's first move",
+        "Start with whatever is urgent or feels most pressing",
+        "List all possible actions without prioritization or filtering",
+        "Set a distant deadline and hope motivation arrives"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b0d23b2df7b6c12d00277",
+      "questionType": "application",
+      "difficulty": "EASY",
+      "question": "A product team wants to launch a new feature in 6 months. They start by describing what success looks like on launch day, then work backwards to today. What is this approach called?",
+      "options": [
+        "Working backwards: starting from the desired result and reverse-engineering the path step by step",
+        "Planning from today forward only without considering the end state or desired outcome",
+        "Reviewing past projects only without forward planning or goal-setting",
+        "Asking the client what they want last without planning ahead or defining success"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b0d23b2df7b6c12d00278",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "After working backwards from your goal, you have identified several possible first steps. Which one should you choose?",
+      "options": [
+        "The step that gets you one notch toward the end state and can be tested soon",
+        "The most impressive-sounding action regardless of actual impact or testability",
+        "Whatever is already in the backlog without prioritization or evaluation",
+        "The cheapest option regardless of effectiveness or alignment with the goal"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b0d23b2df7b6c12d00279",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Why is a vague end state (e.g. \"we will be better\") a problem?",
+      "options": [
+        "You cannot work backwards reliably; the path and first move stay fuzzy",
+        "It motivates people more",
+        "It is easier to communicate",
+        "It has no effect on outcomes or learning"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b0d23b2df7b6c12d0027a",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Skipping steps in the backwards chain tends to result in:",
+      "options": [
+        "Missing dependencies or an unrealistic first move",
+        "Faster execution without proper planning",
+        "More creativity without structure",
+        "Lower cost but reduced effectiveness"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b0d23b2df7b6c12d0027b",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "A team's goal is \"improve customer satisfaction.\" How should they make this end state concrete before planning the path?",
+      "options": [
+        "Define what \"done\" looks like in observable terms: e.g. \"80% of customers rate us 4+ stars\"",
+        "Write a vision statement only without measurable criteria or testable outcomes",
+        "Copy another company's goal without adapting to their context or situation",
+        "Let the team interpret freely without alignment or shared understanding of success"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b0d23b2df7b6c12d0027c",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "A team has worked backwards from their goal and identified three steps. What should they do next?",
+      "options": [
+        "Use the step that reaches from today toward that end as the first move and execute it",
+        "Document the full chain and wait for approval before taking any action",
+        "Start from the end and hope the team catches up without clear guidance or structure",
+        "Revise the end state again without testing whether the path actually works"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    }
+  ]
+}

@@ -1,0 +1,68 @@
+{
+  "backedUpAt": "2026-01-29T17:00:20.815Z",
+  "course": {
+    "courseId": "B2B_SALES_2026_30",
+    "name": "B2B Értékesítés 2026 Masterclass",
+    "language": "hu"
+  },
+  "lesson": {
+    "dayNumber": 7,
+    "title": "Lead forrás térkép 2026",
+    "lessonId": "B2B_SALES_2026_30_DAY_7"
+  },
+  "questionCount": 4,
+  "questions": [
+    {
+      "_id": "697b203dac79ca83bb972220",
+      "difficulty": "MEDIUM",
+      "question": "Miért kell limitálni a csatornák számát?",
+      "options": [
+        "Kevesebb emailt kell írni",
+        "Fókusz és mérhető kísérlet nélkül szétesik a tanulás",
+        "Mert jogi okokból kötelező",
+        "Mert így nincs szükség ICP-re"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b203dac79ca83bb972221",
+      "difficulty": "MEDIUM",
+      "question": "Mi legyen egy channel briefben?",
+      "options": [
+        "Csak egy szlogen",
+        "ICP illeszkedés, erőforrás, metrika, cutoff",
+        "Csak a költségkeret",
+        "Csak a pitch deck"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b203dac79ca83bb972222",
+      "difficulty": "MEDIUM",
+      "question": "Mi a jó 2 hetes kísérleti metrika példa?",
+      "options": [
+        "Weboldal látogatók száma",
+        "Válasz, meeting, SQL konverzió csatornánként",
+        "Facebook lájkok száma",
+        "LinkedIn követők"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b203dac79ca83bb972223",
+      "difficulty": "MEDIUM",
+      "question": "Mikor állítasz le egy csatornát?",
+      "options": [
+        "Soha",
+        "Ha a cutoff szabály szerint nem hoz elég meeting/SQL",
+        "Ha elfogy a pitch deck",
+        "Ha nincs új marketing kampány"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    }
+  ]
+}

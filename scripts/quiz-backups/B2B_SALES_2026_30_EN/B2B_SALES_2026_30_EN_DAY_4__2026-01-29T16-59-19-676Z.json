@@ -1,0 +1,68 @@
+{
+  "backedUpAt": "2026-01-29T16:59:27.919Z",
+  "course": {
+    "courseId": "B2B_SALES_2026_30_EN",
+    "name": "B2B Sales 2026 Masterclass",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 4,
+    "title": "Buyer Persona and the Decision Unit",
+    "lessonId": "B2B_SALES_2026_30_EN_DAY_4"
+  },
+  "questionCount": 4,
+  "questions": [
+    {
+      "_id": "697b1fcf8f79f136a28b8985",
+      "difficulty": "MEDIUM",
+      "question": "Why is relying only on a champion risky?",
+      "options": [
+        "Takes too long",
+        "Decisions are multi-threaded; blockers surface late",
+        "Champions always say no",
+        "It removes the need for a CRM"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b1fcf8f79f136a28b8986",
+      "difficulty": "MEDIUM",
+      "question": "Which role is cost/ROI focused?",
+      "options": [
+        "User",
+        "Finance/Procurement",
+        "Legal",
+        "IT/Security"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b1fcf8f79f136a28b8987",
+      "difficulty": "MEDIUM",
+      "question": "Benefit of early blocker mapping?",
+      "options": [
+        "Fewer meetings",
+        "Faster negotiation and less slip risk",
+        "Higher price automatically",
+        "No documentation"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b1fcf8f79f136a28b8988",
+      "difficulty": "MEDIUM",
+      "question": "What is missing in a “bad” approach?",
+      "options": [
+        "Pitch deck",
+        "Decision-unit map and roles",
+        "Email template",
+        "Marketing list"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    }
+  ]
+}

@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-28T21:28:24.522Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_AR",
+    "name": "الإنتاجية 2026: كيفية إدارة الفرق والوقت",
+    "language": "ar"
+  },
+  "lesson": {
+    "dayNumber": 10,
+    "title": "إدارة الطاقة: متى تعمل، متى تستريح، طقوس الاستعادة",
+    "lessonId": "PRODUCTIVITY_2026_AR_DAY_10"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a613ed20b35fb7972ae",
+      "uuid": "dd6dbddd-daf5-4fc7-b237-0c99d0da4641",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ أعرف ساعات ذروة الطاقة لدي.\n✅ لقد جدول...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day10",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a613ed20b35fb7972af",
+      "uuid": "4e6aedbe-76a8-4cc2-8e5e-9f5f67a0d26d",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ لا يتم التضحية بالنوم أبداً من أجل الإ...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day10",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a613ed20b35fb7972b0",
+      "uuid": "495812f7-9c1d-4d21-9390-853d012886f6",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ أعرف ساعات ذروة الطاقة لدي.\n✅ لقد جدول...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day10",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a613ed20b35fb7972b1",
+      "uuid": "fa75d750-4bfa-43f4-a3d7-b725c601fa79",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "How does the concept \"إدارة الطاقة: متى تعمل، متى تستريح، طقوس الاستعادة...\" mentioned in the lesson impact achieving your goals?",
+      "options": [
+        "As described in detail in the lesson, إدارة الطاقة: متى تعمل، متى تس... increases effectiveness and reduces risk",
+        "No significant impact",
+        "Only matters theoretically",
+        "Only an optional element"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day10",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a613ed20b35fb7972b2",
+      "uuid": "1ec16977-5d05-4b5f-9b7a-0a655d7cdb1a",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is منع الإرهاق in the context of إدارة الطاقة: متى تعمل، متى تستريح، طقوس الاستعادة as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, منع الإرهاق plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day10",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a613ed20b35fb7972b3",
+      "uuid": "852700f7-e8ac-4865-9d08-f028fde52b56",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "In the \"إدارة الطاقة: متى تعمل، متى تستريح، طقوس الاستعادة\" lesson, what role does الإنتاج المستدام play?",
+      "options": [
+        "As described in detail in the lesson, الإنتاج المستدام plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day10",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a613ed20b35fb7972b4",
+      "uuid": "a20706be-b796-4143-8d9f-f19e0f806d38",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is الدورة اليومية in the context of إدارة الطاقة: متى تعمل، متى تستريح، طقوس الاستعادة as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, الدورة اليومية plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day10",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

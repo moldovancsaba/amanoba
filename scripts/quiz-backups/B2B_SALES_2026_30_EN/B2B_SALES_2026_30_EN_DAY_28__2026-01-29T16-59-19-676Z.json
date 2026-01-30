@@ -1,0 +1,68 @@
+{
+  "backedUpAt": "2026-01-29T16:59:40.654Z",
+  "course": {
+    "courseId": "B2B_SALES_2026_30_EN",
+    "name": "B2B Sales 2026 Masterclass",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 28,
+    "title": "Objection Handling: Patterns and Probing",
+    "lessonId": "B2B_SALES_2026_30_EN_DAY_28"
+  },
+  "questionCount": 4,
+  "questions": [
+    {
+      "_id": "697b1fd68f79f136a28b8a7c",
+      "difficulty": "MEDIUM",
+      "question": "First step of the 3-step flow?",
+      "options": [
+        "Immediate discount",
+        "Clarify the concern",
+        "Argue on price",
+        "Send NDA"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b1fd68f79f136a28b8a7d",
+      "difficulty": "MEDIUM",
+      "question": "Bad example?",
+      "options": [
+        "Discount without clarifying",
+        "Clarify → cause → proof/swap",
+        "Code lost reason",
+        "Use proof"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b1fd68f79f136a28b8a7e",
+      "difficulty": "MEDIUM",
+      "question": "Why code lost reasons?",
+      "options": [
+        "Decoration",
+        "Learn from trends",
+        "HR",
+        "Marketing"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b1fd68f79f136a28b8a7f",
+      "difficulty": "MEDIUM",
+      "question": "Typical response to “too expensive”?",
+      "options": [
+        "Proof + smaller scope or conditional discount",
+        "Huge discount instantly",
+        "No answer",
+        "Change subject"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    }
+  ]
+}

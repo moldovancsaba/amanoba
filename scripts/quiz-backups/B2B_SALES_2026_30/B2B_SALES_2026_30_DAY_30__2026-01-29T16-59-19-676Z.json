@@ -1,0 +1,68 @@
+{
+  "backedUpAt": "2026-01-29T17:00:29.801Z",
+  "course": {
+    "courseId": "B2B_SALES_2026_30",
+    "name": "B2B Értékesítés 2026 Masterclass",
+    "language": "hu"
+  },
+  "lesson": {
+    "dayNumber": 30,
+    "title": "Capstone sprint: teljes B2B sales kör",
+    "lessonId": "B2B_SALES_2026_30_DAY_30"
+  },
+  "questionCount": 4,
+  "questions": [
+    {
+      "_id": "697b2044ac79ca83bb9722cf",
+      "difficulty": "MEDIUM",
+      "question": "Mi a capstone fő célja?",
+      "options": [
+        "Olvasás",
+        "Valós folyamat lefuttatása és dokumentálása",
+        "Marketing anyag készítése",
+        "HR interjú"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b2044ac79ca83bb9722d0",
+      "difficulty": "MEDIUM",
+      "question": "Mi kötelező elem?",
+      "options": [
+        "Account brief, outreach log, discovery notes, qualification döntés",
+        "Csak logó",
+        "Csak NDA",
+        "Csak ár"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b2044ac79ca83bb9722d1",
+      "difficulty": "MEDIUM",
+      "question": "Miért kell riport?",
+      "options": [
+        "Dekoráció",
+        "Tanulság és következő lépés kijelölése",
+        "HR",
+        "Marketing"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b2044ac79ca83bb9722d2",
+      "difficulty": "MEDIUM",
+      "question": "Mi a rossz példa?",
+      "options": [
+        "Nem futtatod le a folyamatot, csak olvasol",
+        "Dokumentálsz és futtatsz",
+        "Backlogot írsz",
+        "Kockázatot jelölsz"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    }
+  ]
+}

@@ -1,0 +1,68 @@
+{
+  "backedUpAt": "2026-01-29T16:59:29.511Z",
+  "course": {
+    "courseId": "B2B_SALES_2026_30_EN",
+    "name": "B2B Sales 2026 Masterclass",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 6,
+    "title": "Ideal Sales Process and Weekly Metrics",
+    "lessonId": "B2B_SALES_2026_30_EN_DAY_6"
+  },
+  "questionCount": 4,
+  "questions": [
+    {
+      "_id": "697b1fd08f79f136a28b89aa",
+      "difficulty": "MEDIUM",
+      "question": "What is a required element of a qualified discovery?",
+      "options": [
+        "A demo video",
+        "Pain, impact, and next step captured",
+        "A price list",
+        "A LinkedIn post"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b1fd08f79f136a28b89ab",
+      "difficulty": "MEDIUM",
+      "question": "What does pipeline coverage 3–4x mean?",
+      "options": [
+        "3–4x more meetings",
+        "Pipeline value is 3–4x the revenue target",
+        "3–4x more emails",
+        "3–4x more demos"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b1fd08f79f136a28b89ac",
+      "difficulty": "MEDIUM",
+      "question": "Why code lost reasons?",
+      "options": [
+        "Decoration",
+        "To see improvable trends (top 5)",
+        "Legal requirement",
+        "To send more emails"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b1fd08f79f136a28b89ad",
+      "difficulty": "MEDIUM",
+      "question": "Key output today?",
+      "options": [
+        "Marketing campaign",
+        "Weekly sheet + definitions + bottleneck",
+        "New landing page",
+        "New CRM"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    }
+  ]
+}

@@ -25,6 +25,14 @@ const COURSE_NAME = '30-Day AI Catch-Up Program (EN)';
 const COURSE_DESCRIPTION =
   '30-day practical AI program for beginners and late adopters: short, focused lessons with concrete examples, guided and independent exercises, and QA habits to make AI useful and safe in everyday work.';
 
+function hasFlag(flag: string) {
+  return process.argv.includes(flag);
+}
+
+const APPLY = hasFlag('--apply');
+const ONLY_MISSING_LESSONS = !hasFlag('--update-existing-lessons');
+const INCLUDE_QUIZZES = hasFlag('--include-quizzes');
+
 type LessonEntry = {
   day: number;
   title: string;
@@ -1725,6 +1733,9 @@ async function seed() {
 
   let brand = await Brand.findOne({ slug: 'amanoba' });
   if (!brand) {
+    if (!APPLY) {
+      throw new Error('Brand amanoba not found (dry-run). Re-run with --apply or create the brand first.');
+    }
     brand = await Brand.create({
       name: 'Amanoba',
       slug: 'amanoba',
@@ -1740,42 +1751,55 @@ async function seed() {
     console.log('✅ Brand created');
   }
 
-  const course = await Course.findOneAndUpdate(
-    { courseId: COURSE_ID },
-    {
-      $set: {
-        courseId: COURSE_ID,
-        name: COURSE_NAME,
-        description: COURSE_DESCRIPTION,
-        language: 'en',
-        durationDays: 30,
-        isActive: true,
-        requiresPremium: false,
-        brandId: brand._id,
-        pointsConfig: {
-          completionPoints: 1000,
-          lessonPoints: 50,
-          perfectCourseBonus: 500
-        },
-        xpConfig: {
-          completionXP: 500,
-          lessonXP: 25
-        },
-        metadata: {
-          category: 'education',
-          difficulty: 'beginner',
-          estimatedHours: 10,
-          tags: ['ai', 'productivity', 'prompting'],
-          instructor: 'Amanoba'
-        }
-      }
+  const courseUpdate = {
+    courseId: COURSE_ID,
+    name: COURSE_NAME,
+    description: COURSE_DESCRIPTION,
+    language: 'en',
+    durationDays: 30,
+    isActive: true,
+    requiresPremium: false,
+    brandId: brand._id,
+    pointsConfig: {
+      completionPoints: 1000,
+      lessonPoints: 50,
+      perfectCourseBonus: 500
     },
-    { upsert: true, new: true, setDefaultsOnInsert: true }
-  );
-  console.log(`✅ Course ${COURSE_ID} created/updated`);
+    xpConfig: {
+      completionXP: 500,
+      lessonXP: 25
+    },
+    metadata: {
+      category: 'education',
+      difficulty: 'beginner',
+      estimatedHours: 10,
+      tags: ['ai', 'productivity', 'prompting'],
+      instructor: 'Amanoba'
+    }
+  };
+
+  const course =
+    APPLY
+      ? await Course.findOneAndUpdate(
+          { courseId: COURSE_ID },
+          { $set: courseUpdate },
+          { upsert: true, new: true, setDefaultsOnInsert: true }
+        )
+      : await Course.findOne({ courseId: COURSE_ID });
+
+  if (!course) {
+    throw new Error(`Course ${COURSE_ID} not found (dry-run). Re-run with --apply to create it.`);
+  }
+
+  console.log(`✅ Course ${COURSE_ID} ${APPLY ? 'created/updated' : 'loaded (dry-run)'}`);
+  console.log(`- Mode: ${APPLY ? 'APPLY' : 'DRY-RUN'}`);
+  console.log(`- onlyMissingLessons: ${ONLY_MISSING_LESSONS}`);
+  console.log(`- includeQuizzes: ${INCLUDE_QUIZZES}`);
 
   for (const entry of lessonPlan) {
     const lessonId = `${COURSE_ID}_DAY_${String(entry.day).padStart(2, '0')}`;
+    const existing = await Lesson.findOne({ lessonId }).select('_id').lean();
+    if (existing && ONLY_MISSING_LESSONS) continue;
     const content = buildLessonContent(entry);
 
     const emailSubject = entry.emailSubject || `{{courseName}} – Day {{dayNumber}}: {{lessonTitle}}`;
@@ -1792,35 +1816,37 @@ async function seed() {
       .replace(/\{\{APP_URL\}\}/g, appUrl)
       .replace(/\{\{COURSE_ID\}\}/g, COURSE_ID);
 
-    const lesson = await Lesson.findOneAndUpdate(
-      { lessonId },
-      {
-        $set: {
-          lessonId,
-          courseId: course._id,
-          dayNumber: entry.day,
-          language: 'en',
-          isActive: true,
-          title: entry.title,
-          content,
-          emailSubject,
-          emailBody,
-          quizConfig: {
-            questionCount: 5,
-            poolSize: 5,
-            shuffleQuestions: true,
-            shuffleOptions: true
-          },
-          metadata: {
-            estimatedMinutes: 20,
-            xpReward: 25,
-            pointsReward: 50,
-            difficulty: 'beginner'
-          }
-        }
+    const lessonUpdate = {
+      lessonId,
+      courseId: course._id,
+      dayNumber: entry.day,
+      language: 'en',
+      isActive: true,
+      title: entry.title,
+      content,
+      emailSubject,
+      emailBody,
+      quizConfig: {
+        questionCount: 5,
+        poolSize: 5,
+        shuffleQuestions: true,
+        shuffleOptions: true
       },
-      { upsert: true, new: true, setDefaultsOnInsert: true }
-    );
+      metadata: {
+        estimatedMinutes: 20,
+        xpReward: 25,
+        pointsReward: 50,
+        difficulty: 'beginner'
+      }
+    };
+
+    if (APPLY) {
+      await Lesson.findOneAndUpdate(
+        { lessonId },
+        { $set: lessonUpdate },
+        { upsert: true, new: true, setDefaultsOnInsert: true }
+      );
+    }
 
     const quizzes: Array<{
       question: string;
@@ -3722,26 +3748,36 @@ async function seed() {
       );
     }
 
-    await QuizQuestion.deleteMany({ lessonId });
-    await QuizQuestion.insertMany(
-      quizzes.map((q, index) => ({
-        ...q,
-        lessonId,
-        courseId: course._id,
-        language: 'en',
-        isActive: true,
-        isCourseSpecific: true,
-        displayOrder: index + 1,
-        showCount: 0,
-        correctCount: 0,
-        incorrectCount: 0,
-        averageResponseTime: 0
-      }))
-    );
-    console.log(`✅ Lesson ${lessonId} upserted with ${quizzes.length} questions`);
+    if (INCLUDE_QUIZZES) {
+      if (APPLY) {
+        await QuizQuestion.deleteMany({ lessonId });
+        await QuizQuestion.insertMany(
+          quizzes.map((q, index) => ({
+            ...q,
+            lessonId,
+            courseId: course._id,
+            language: 'en',
+            isActive: true,
+            isCourseSpecific: true,
+            displayOrder: index + 1,
+            showCount: 0,
+            correctCount: 0,
+            incorrectCount: 0,
+            averageResponseTime: 0
+          }))
+        );
+      }
+      console.log(`${APPLY ? '✅' : '📝'} Quiz reset for ${lessonId} (${quizzes.length} questions)`);
+    }
+
+    if (APPLY) {
+      console.log(`✅ Lesson ${lessonId} upserted`);
+    } else {
+      console.log(`📝 Would upsert lesson ${lessonId}${existing ? ' (update)' : ' (create)'}`);
+    }
   }
 
-  console.log('🎉 AI 30-Day EN course seeded (lessons updated).');
+  console.log(`🎉 AI 30-Day EN course processed (${APPLY ? 'APPLY' : 'DRY-RUN'}).`);
   await mongoose.disconnect();
   console.log('✅ Disconnected');
 }

@@ -1,0 +1,166 @@
+{
+  "backedUpAt": "2026-01-28T21:29:02.953Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_HI",
+    "name": "उत्पादकता 2026: टीमों और समय का प्रबंधन कैसे करें",
+    "language": "hi"
+  },
+  "lesson": {
+    "dayNumber": 3,
+    "title": "लक्ष्य पदानुक्रम: दृष्टि → परिणाम → परियोजनाएं → अगले कार्य",
+    "lessonId": "PRODUCTIVITY_2026_HI_DAY_03"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a67206e4784b9a0c09f",
+      "uuid": "af60d568-ed01-4a0f-94f8-3eedebec7c1b",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "लक्ष्य पदानुक्रम में सबसे ऊंचा स्तर कौन सा है?",
+      "options": [
+        "अगले कार्य",
+        "परियोजनाएं",
+        "परिणाम",
+        "दृष्टि"
+      ],
+      "correctIndex": 3,
+      "hashtags": [
+        "#day-03",
+        "#scenario",
+        "#application",
+        "#hi"
+      ]
+    },
+    {
+      "_id": "69776a67206e4784b9a0c0a0",
+      "uuid": "9410b873-802d-4d20-b691-0ee1103b24d9",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "दृष्टि के बिना परियोजनाएं करते समय सामान्य गलती क्या है?",
+      "options": [
+        "आप बहुत धीरे-धीरे आगे बढ़ते हैं",
+        "आप नहीं जानते कि आप ऐसा क्यों कर रहे हैं",
+        "आप बहुत तेजी से आगे बढ़ते हैं",
+        "कोई गलती नहीं है"
+      ],
+      "correctIndex": 1,
+      "hashtags": [
+        "#day-03",
+        "#foundation",
+        "#recall",
+        "#hi"
+      ]
+    },
+    {
+      "_id": "69776a67206e4784b9a0c0a1",
+      "uuid": "e5375432-42c9-4cb1-8a17-6986ebb9daa9",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ आपके पास एक दृष्टि है (3-5 वर्ष)।\n✅ आप...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day3",
+        "#hi",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a67206e4784b9a0c0a2",
+      "uuid": "ad42315e-d018-487d-882e-04d7472b93fb",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ पदानुक्रम तार्किक रूप से जुड़ता है: दृ...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day3",
+        "#hi",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a67206e4784b9a0c0a3",
+      "uuid": "ae1ccc9c-4883-4132-a06e-c090164caec9",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "पाठ में उल्लिखित अवधारणा \"महत्वपूर्ण है\n\nदृष्टि: दीर्घकालिक दिशा (3-5 वर्ष)।...\" आपके goals प्राप्त करने को कैसे प्रभावित करती है?",
+      "options": [
+        "जैसा कि पाठ में विस्तार से वर्णित है, महत्वपूर्ण है\n\nदृष्टि: दीर्घका... प्रभावशीलता बढ़ाता है और जोखिम कम करता है",
+        "कोई महत्वपूर्ण प्रभाव नहीं",
+        "केवल सैद्धांतिक रूप से मायने रखता है",
+        "केवल एक वैकल्पिक तत्व"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day3",
+        "#hi",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a67206e4784b9a0c0a4",
+      "uuid": "4d23d77b-b921-4b49-87d9-4ed0cdaebc10",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "पाठ में चर्चा किए गए लक्ष्य पदानुक्रम: दृष्टि → परिणाम → परियोजनाएं → अगले कार्य के संदर्भ में परियोजनाएं कितना महत्वपूर्ण है?",
+      "options": [
+        "जैसा कि पाठ में विस्तार से वर्णित है, परियोजनाएं प्रक्रियाओं को अनुकूलित करने और लक्ष्यों को प्राप्त करने में महत्वपूर्ण भूमिका निभाता है",
+        "केवल परिधीय जानकारी, कोई महत्वपूर्ण भूमिका नहीं",
+        "केवल एक सैद्धांतिक अवधारणा, कोई व्यावहारिक अनुप्रयोग नहीं",
+        "पाठ में उल्लेख नहीं किया गया"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day3",
+        "#hi",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a67206e4784b9a0c0a5",
+      "uuid": "9bf9d036-0910-46d8-ab29-4361b38e65b9",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "1. दृष्टि (3-5 वर्ष) \"लक्ष्य पदानुक्रम: दृष्टि → परिणाम → परियोजनाएं → अगले कार्य\" पाठ में क्या भूमिका निभाता है?",
+      "options": [
+        "जैसा कि पाठ में विस्तार से वर्णित है, 1. दृष्टि (3-5 वर्ष) प्रक्रियाओं को अनुकूलित करने और लक्ष्यों को प्राप्त करने में महत्वपूर्ण भूमिका निभाता है",
+        "केवल परिधीय जानकारी, कोई महत्वपूर्ण भूमिका नहीं",
+        "केवल एक सैद्धांतिक अवधारणा, कोई व्यावहारिक अनुप्रयोग नहीं",
+        "पाठ में उल्लेख नहीं किया गया"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day3",
+        "#hi",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

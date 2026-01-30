@@ -1,0 +1,10 @@
+{
+  "backedUpAt": "2026-01-28T22:58:01.798Z",
+  "courseId": "DONE_BETTER_2026_EN",
+  "lessonId": "DONE_BETTER_2026_EN_DAY_09",
+  "dayNumber": 9,
+  "title": "Think in Moves, Not Projects",
+  "content": "<h1>Think in Moves, Not Projects</h1>\n<p><em>Replace \"big delivery\" with \"next testable step.\"</em></p>\n<hr />\n<h2>Learning goal</h2>\n<ul>\n<li>Define a move: one testable step.</li>\n<li>Choose the next move from the current state.</li>\n<li>Avoid project theater: long plans with no small wins.</li>\n</ul>\n<hr />\n<h2>Why it matters</h2>\n<ul>\n<li>Big deliverables delay feedback.</li>\n<li>Moves create momentum and learning.</li>\n<li>Testable steps reduce risk.</li>\n</ul>\n<hr />\n<h2>Key idea</h2>\n<p>A move is a single, testable next step that advances toward an outcome. Replace big delivery with next testable step. No move = no progress.</p>\n<hr />\n<h2>Procedure</h2>\n<ol><li>State the outcome you want.</li><li>What is the smallest step that could be done and verified today or this week?</li><li>Define done for that step (testable).</li><li>Do it; then decide the next step from evidence.</li></ol>\n<hr />\n<h2>Common mistakes</h2>\n<ul>\n<li>Defining deliverables that are too big to test soon.</li>\n<li>Confusing motion (lots of activity) with moves (testable steps).</li>\n<li>No clear done for the current step.</li>\n</ul>\n<hr />\n<h2>Today's move</h2>\n<p>For your current goal, write the next move in one sentence. Make it testable: you can say \"done\" when X is true.</p>\n<hr />\n<h2>Self-check</h2>\n<ul>\n<li>You can explain the key idea in one sentence.</li>\n<li>You have one concrete move to do today.</li>\n</ul>",
+  "emailSubject": "Done is better – Day {{dayNumber}}: {{lessonTitle}}",
+  "emailBody": "<h1>Done is better - Build What Matters</h1><h2>Day {{dayNumber}}: {{lessonTitle}}</h2><p>{{lessonContent}}</p><p><a href=\"http://localhost:3000/courses/DONE_BETTER_2026_EN/day/{{dayNumber}}\">Open the lesson →</a></p>"
+}

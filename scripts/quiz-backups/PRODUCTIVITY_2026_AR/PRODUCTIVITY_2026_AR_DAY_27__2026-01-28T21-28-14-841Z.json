@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-28T21:28:24.991Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_AR",
+    "name": "الإنتاجية 2026: كيفية إدارة الفرق والوقت",
+    "language": "ar"
+  },
+  "lesson": {
+    "dayNumber": 27,
+    "title": "العادات والطقوس: الروتين اليومي والعمل طويل الأجل",
+    "lessonId": "PRODUCTIVITY_2026_AR_DAY_27"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a633ed20b35fb797364",
+      "uuid": "459346a6-4d04-4912-9a9c-02d4c9b7b839",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"بناء العادات التي تتراكم بمرور الوقت.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day27",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a633ed20b35fb797365",
+      "uuid": "65a1b4b8-01a6-451f-b1ec-bb2bfbaf14cf",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"بناء العادات التي تتراكم بمرور الوقت.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day27",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a633ed20b35fb797366",
+      "uuid": "33467ccb-6e6f-4699-a2d0-d3854b666a1f",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"بناء العادات التي تتراكم بمرور الوقت.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day27",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a633ed20b35fb797367",
+      "uuid": "3bcf5960-739f-497c-ac4d-bfc51f63ec71",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "How does the concept \"العادات والطقوس: الروتين اليومي والعمل طويل الأجل ...\" mentioned in the lesson impact achieving your goals?",
+      "options": [
+        "As described in detail in the lesson, العادات والطقوس: الروتين اليوم... increases effectiveness and reduces risk",
+        "No significant impact",
+        "Only matters theoretically",
+        "Only an optional element"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day27",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a633ed20b35fb797368",
+      "uuid": "11ebb077-9eab-472d-a9b8-4eb12f833c4a",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is العادات in the context of العادات والطقوس: الروتين اليومي والعمل طويل الأجل as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, العادات plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day27",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a633ed20b35fb797369",
+      "uuid": "984e8985-1ea5-4041-bec7-c7c1d767ed8c",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is الروتين in the context of العادات والطقوس: الروتين اليومي والعمل طويل الأجل as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, الروتين plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day27",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a633ed20b35fb79736a",
+      "uuid": "9c138c7c-b126-498e-8c3f-64d37059e621",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is والعمل in the context of العادات والطقوس: الروتين اليومي والعمل طويل الأجل as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, والعمل plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day27",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

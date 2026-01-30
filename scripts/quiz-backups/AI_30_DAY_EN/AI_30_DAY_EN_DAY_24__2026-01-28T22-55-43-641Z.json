@@ -1,0 +1,15 @@
+{
+  "backedUpAt": "2026-01-28T22:55:47.272Z",
+  "course": {
+    "courseId": "AI_30_DAY_EN",
+    "name": "30-Day AI Catch-Up Program (EN)",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 24,
+    "title": "Handling refusals and hallucinations",
+    "lessonId": "AI_30_DAY_EN_DAY_24"
+  },
+  "questionCount": 0,
+  "questions": []
+}

@@ -1,0 +1,114 @@
+{
+  "backedUpAt": "2026-01-28T22:37:47.676Z",
+  "course": {
+    "courseId": "DONE_BETTER_2026_EN",
+    "name": "Done is better - Build What Matters",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 13,
+    "title": "Multiple Paths Thinking",
+    "lessonId": "DONE_BETTER_2026_EN_DAY_13"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "697a87bba81588c9f41a2241",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "You have one plan for an important goal. What should you do?",
+      "options": [
+        "Generate at least two more paths; assess risk and cost; choose one to run and one as backup",
+        "Commit fully to the one plan",
+        "Abandon the goal",
+        "Wait until the plan fails"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87bba81588c9f41a2242",
+      "questionType": "application",
+      "difficulty": "EASY",
+      "question": "Why is \"one plan is hope\" a problem?",
+      "options": [
+        "Single point of failure; when evidence changes you have no alternative",
+        "One plan is easier to communicate",
+        "Backup plans reduce commitment",
+        "It is not a problem"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87bba81588c9f41a2243",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How many paths should you have for an important goal?",
+      "options": [
+        "At least three; choose one to execute, keep one backup, park the third",
+        "Exactly one",
+        "As many as the team can imagine",
+        "One per stakeholder"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87bba81588c9f41a2244",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Betting everything on one plan is risky because:",
+      "options": [
+        "When the plan fails or evidence contradicts, you have no pivot path",
+        "Plans always succeed",
+        "Backup plans are expensive",
+        "It is not risky"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87bba81588c9f41a2245",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Treating backup plans as \"lack of commitment\" can lead to:",
+      "options": [
+        "Avoiding alternatives and then having no option when the main plan fails",
+        "Stronger execution",
+        "Faster decisions",
+        "Better morale"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87bba81588c9f41a2246",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "When should you revisit your chosen path and backup?",
+      "options": [
+        "When you have new evidence (e.g. a test result or market signal)",
+        "Only at quarterly reviews",
+        "Never; stick to the choice",
+        "When someone complains"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87bba81588c9f41a2247",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "For each path you list, what should you assess?",
+      "options": [
+        "Main risk and cost; then choose one to run first and one as backup",
+        "Only cost and not risk or timeline",
+        "Only timeline and not risk or cost",
+        "Only who will do it and not criteria"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    }
+  ]
+}

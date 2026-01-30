@@ -1,0 +1,10 @@
+{
+  "backedUpAt": "2026-01-28T22:58:01.469Z",
+  "courseId": "DONE_BETTER_2026_EN",
+  "lessonId": "DONE_BETTER_2026_EN_DAY_06",
+  "dayNumber": 6,
+  "title": "Decompose Everything",
+  "content": "<h1>Decompose Everything</h1>\n<p><em>Big problems dissolve when cut into elemental parts.</em></p>\n<hr />\n<h2>Learning goal</h2>\n<ul>\n<li>Break the problem into sub-problems or components.</li>\n<li>Identify which parts can be tested or solved independently.</li>\n<li>Choose the first slice to work on.</li>\n</ul>\n<hr />\n<h2>Why it matters</h2>\n<ul>\n<li>One big blob is paralyzing.</li>\n<li>Small parts can be completed and tested.</li>\n<li>Decomposition reveals leverage points.</li>\n</ul>\n<hr />\n<h2>Key idea</h2>\n<p>Decomposition is breaking a big problem into smaller, elemental parts. Big problems dissolve when cut into parts. Then pick the first slice or the leverage point.</p>\n<hr />\n<h2>Procedure</h2>\n<ol><li>List sub-problems or components.</li><li>For each: can it be solved or tested independently?</li><li>Identify which component, if fixed, would ease the rest (leverage point).</li><li>Pick the first move on the leverage point or the smallest testable slice.</li></ol>\n<hr />\n<h2>Common mistakes</h2>\n<ul>\n<li>Trying to solve the whole thing at once.</li>\n<li>Decomposing into too many tiny pieces with no prioritization.</li>\n<li>Ignoring dependencies between parts.</li>\n</ul>\n<hr />\n<h2>Today's move</h2>\n<p>Decompose your working problem into 3–5 sub-parts. Mark which one is the leverage point or the smallest testable slice. Choose the first move on that.</p>\n<hr />\n<h2>Self-check</h2>\n<ul>\n<li>You can explain the key idea in one sentence.</li>\n<li>You have one concrete move to do today.</li>\n</ul>",
+  "emailSubject": "Done is better – Day {{dayNumber}}: {{lessonTitle}}",
+  "emailBody": "<h1>Done is better - Build What Matters</h1><h2>Day {{dayNumber}}: {{lessonTitle}}</h2><p>{{lessonContent}}</p><p><a href=\"http://localhost:3000/courses/DONE_BETTER_2026_EN/day/{{dayNumber}}\">Open the lesson →</a></p>"
+}

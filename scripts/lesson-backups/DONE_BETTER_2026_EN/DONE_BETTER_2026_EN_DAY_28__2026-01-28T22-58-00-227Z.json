@@ -1,0 +1,10 @@
+{
+  "backedUpAt": "2026-01-28T22:58:02.712Z",
+  "courseId": "DONE_BETTER_2026_EN",
+  "lessonId": "DONE_BETTER_2026_EN_DAY_28",
+  "dayNumber": 28,
+  "title": "From Chaos to Clarity",
+  "content": "<h1>From Chaos to Clarity</h1>\n<p><em>Learn to enter any mess and create order.</em></p>\n<hr />\n<h2>Learning goal</h2>\n<ul>\n<li>Apply the full loop to a messy situation.</li>\n<li>Create order through structure (decompose, leverage, moves).</li>\n<li>Leave the situation clearer than you found it.</li>\n</ul>\n<hr />\n<h2>Why it matters</h2>\n<ul>\n<li>Chaos is costly.</li>\n<li>Structure creates clarity.</li>\n<li>Leaving things clearer is leadership.</li>\n</ul>\n<hr />\n<h2>Key idea</h2>\n<p>Chaos to clarity means entering a messy situation and creating order through structure and priorities. Use decompose, leverage, moves. Leave the situation clearer than you found it.</p>\n<hr />\n<h2>Common mistakes</h2>\n<ul>\n<li>Trying to fix everything at once.</li>\n<li>Adding process for its own sake.</li>\n<li>Leaving without a clear next owner or next step.</li>\n</ul>\n<hr />\n<h2>Today's move</h2>\n<p>Pick one messy area (inbox, project, relationship). Apply: decompose, find leverage, name the next move. Write the new structure in 5 bullets or fewer.</p>\n<hr />\n<h2>Self-check</h2>\n<ul>\n<li>You can explain the key idea in one sentence.</li>\n<li>You have one concrete move to do today.</li>\n</ul>",
+  "emailSubject": "Done is better – Day {{dayNumber}}: {{lessonTitle}}",
+  "emailBody": "<h1>Done is better - Build What Matters</h1><h2>Day {{dayNumber}}: {{lessonTitle}}</h2><p>{{lessonContent}}</p><p><a href=\"http://localhost:3000/courses/DONE_BETTER_2026_EN/day/{{dayNumber}}\">Open the lesson →</a></p>"
+}

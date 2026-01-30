@@ -1,0 +1,10 @@
+{
+  "backedUpAt": "2026-01-28T22:58:02.660Z",
+  "courseId": "DONE_BETTER_2026_EN",
+  "lessonId": "DONE_BETTER_2026_EN_DAY_26",
+  "dayNumber": 26,
+  "title": "Reflect Like a Pro",
+  "content": "<h1>Reflect Like a Pro</h1>\n<p><em>Every outcome teaches. Only reflection turns it into skill.</em></p>\n<hr />\n<h2>Learning goal</h2>\n<ul>\n<li>Run a short reflection: what happened, what we learned, what we change.</li>\n<li>Extract one rule or checklist item.</li>\n<li>Do it regularly, not only after failure.</li>\n</ul>\n<hr />\n<h2>Why it matters</h2>\n<ul>\n<li>Without reflection, experience stays anecdotal.</li>\n<li>Reflection turns outcomes into reusable skill.</li>\n<li>Do it after wins and losses.</li>\n</ul>\n<hr />\n<h2>Key idea</h2>\n<p>Reflection is extracting lessons from outcomes so experience becomes skill. Every outcome teaches; only reflection turns it into skill. Run it regularly; extract one rule or checklist item.</p>\n<hr />\n<h2>Procedure</h2>\n<ol><li>What happened? (facts)</li><li>What did we learn? (insight)</li><li>What do we change next time? (rule or behavior)</li><li>Update your playbook or checklist with one change.</li></ol>\n<hr />\n<h2>Common mistakes</h2>\n<ul>\n<li>Skipping reflection when things go well.</li>\n<li>Blaming instead of learning.</li>\n<li>No concrete change (only insights, no new behavior).</li>\n</ul>\n<hr />\n<h2>Today's move</h2>\n<p>Run a 5-minute reflection on one recent outcome. Write: what happened, one lesson, one thing you will do differently next time.</p>\n<hr />\n<h2>Self-check</h2>\n<ul>\n<li>You can explain the key idea in one sentence.</li>\n<li>You have one concrete move to do today.</li>\n</ul>",
+  "emailSubject": "Done is better – Day {{dayNumber}}: {{lessonTitle}}",
+  "emailBody": "<h1>Done is better - Build What Matters</h1><h2>Day {{dayNumber}}: {{lessonTitle}}</h2><p>{{lessonContent}}</p><p><a href=\"http://localhost:3000/courses/DONE_BETTER_2026_EN/day/{{dayNumber}}\">Open the lesson →</a></p>"
+}

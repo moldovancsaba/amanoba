@@ -1,0 +1,68 @@
+{
+  "backedUpAt": "2026-01-29T17:00:26.370Z",
+  "course": {
+    "courseId": "B2B_SALES_2026_30",
+    "name": "B2B Értékesítés 2026 Masterclass",
+    "language": "hu"
+  },
+  "lesson": {
+    "dayNumber": 21,
+    "title": "Pipedrive: erősségek, mikor jó választás",
+    "lessonId": "B2B_SALES_2026_30_DAY_21"
+  },
+  "questionCount": 4,
+  "questions": [
+    {
+      "_id": "697b2041ac79ca83bb972290",
+      "difficulty": "MEDIUM",
+      "question": "Miben erős a Pipedrive?",
+      "options": [
+        "Komplex marketing automatizmus",
+        "Gyors pipeline és aktivitás kezelés",
+        "ERP",
+        "HR rendszer"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b2041ac79ca83bb972291",
+      "difficulty": "MEDIUM",
+      "question": "Mi a minimál setup része?",
+      "options": [
+        "Pipeline stage + kötelező mezők + aktivitás emlékeztető",
+        "Csak logó",
+        "Csak árlista",
+        "Csak e-mail sablon"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b2041ac79ca83bb972292",
+      "difficulty": "MEDIUM",
+      "question": "Mikor nem ideális Pipedrive?",
+      "options": [
+        "Ha gyors pipeline-t akarsz",
+        "Ha komplex marketing automatizmust és lifecycle-t akarsz",
+        "Ha mobil app kell",
+        "Ha aktivitás emlékeztetőt akarsz"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b2041ac79ca83bb972293",
+      "difficulty": "MEDIUM",
+      "question": "Mi a jó példa?",
+      "options": [
+        "Döntési kritérium leírva, pipeline beállítva, 5 deal feltöltve",
+        "Eszközválasztás kritérium nélkül",
+        "Nincs emlékeztető",
+        "Nincs kötelező mező"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    }
+  ]
+}

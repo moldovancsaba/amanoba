@@ -1,0 +1,146 @@
+{
+  "backedUpAt": "2026-01-29T17:00:32.545Z",
+  "course": {
+    "courseId": "AI_30_NAP",
+    "name": "30-Day AI Catch-Up Program",
+    "language": "hu"
+  },
+  "lesson": {
+    "dayNumber": 6,
+    "title": "Email percek alatt – profi hangon",
+    "lessonId": "AI_30_NAP_DAY_06"
+  },
+  "questionCount": 10,
+  "questions": [
+    {
+      "_id": "697b2050060240540231b35d",
+      "difficulty": "EASY",
+      "question": "Mi tartozik egy jó email promptba?",
+      "options": [
+        "Cél, kontextus, forma, stílus, hossz",
+        "Csak a téma",
+        "Csak a hossz",
+        "Csak a köszönés"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b2050060240540231b35f",
+      "difficulty": "MEDIUM",
+      "question": "Miért kérj CTA-t az email végére?",
+      "options": [
+        "Hogy a címzett tudja, mit tegyen (válasz, időpont, jóváhagyás)",
+        "Hogy hosszabb legyen az email",
+        "Hogy elkerüld a válaszadást",
+        "Csak dísznek"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b2051060240540231b361",
+      "difficulty": "MEDIUM",
+      "question": "Melyik jó prompt határidő módosításra?",
+      "options": [
+        "„Írj udvarias, rövid emailt a határidő módosításáról. Kontextus: 2 nap csúszás, ok: beszállító. Stílus: empatikus, de határozott. Hossz: max 4 mondat. Adj új dátumot és CTA-t.”",
+        "„Írj emailt a határidőről.”",
+        "„Írj valamit.”",
+        "„Írj hosszú regényt a csúszásról.”"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b2051060240540231b363",
+      "difficulty": "MEDIUM",
+      "question": "Miért jó két hangnemet kérni ugyanarra az emailre?",
+      "options": [
+        "Hogy választhass a stílusok közül és pontosíthass",
+        "Csak duplázza a munkát",
+        "Felesleges, mert az első mindig jó",
+        "Hogy elkerüld a CTA-t"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b2051060240540231b365",
+      "difficulty": "MEDIUM",
+      "question": "Mi egy jó projekt státusz email struktúrája?",
+      "options": [
+        "Bevezető, helyzet, kockázat, következő lépés/CTA",
+        "Csak köszönés és aláírás",
+        "Csak dátum",
+        "Hosszú történet kontextus nélkül"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b2051060240540231b367",
+      "difficulty": "MEDIUM",
+      "question": "Mikor használsz bullet listát emailben?",
+      "options": [
+        "Ha teendőket, kockázatokat vagy opciókat kell tisztán felsorolni",
+        "Ha nincs információ",
+        "Ha regényt akarsz",
+        "Ha el akarod rejteni a lényeget"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b2051060240540231b369",
+      "difficulty": "EASY",
+      "question": "Mi a jó lépés, ha túl hosszú az AI emailje?",
+      "options": [
+        "Kérd, hogy rövidítse X%-kal vagy max N mondatra",
+        "Fogadd el és küldd el",
+        "Dobd ki az egészet",
+        "Írj egy teljesen más témát"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b2051060240540231b36b",
+      "difficulty": "HARD",
+      "question": "Miért érdemes sign-off alternatívákat kérni?",
+      "options": [
+        "Hogy illeszkedjen a címzetthez és a helyzethez",
+        "Hogy hosszabb legyen a levél",
+        "Hogy elkerüld a CTA-t",
+        "Csak díszítésként"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b2051060240540231b36d",
+      "difficulty": "MEDIUM",
+      "question": "Mi gyorsítja az email írást legjobban?",
+      "options": [
+        "Prompt sablon cél/kontextus/stílus/hossz változókkal",
+        "Mindig nulláról kezdeni",
+        "Hosszú magyarázat nélkül",
+        "Csak a tárgy megadása"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b2051060240540231b36f",
+      "difficulty": "EASY",
+      "question": "Mi a legfontosabb megadni email promptnál?",
+      "options": [
+        "Mit akarsz elérni és kinek szól (cél + kontextus)",
+        "Csak a formátumot",
+        "Csak a dátumot",
+        "Csak az aláírást"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    }
+  ]
+}

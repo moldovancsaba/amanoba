@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-28T21:28:24.663Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_AR",
+    "name": "الإنتاجية 2026: كيفية إدارة الفرق والوقت",
+    "language": "ar"
+  },
+  "lesson": {
+    "dayNumber": 15,
+    "title": "العمل الجماعي والتآزر: الأدوار والمسؤولية والتنسيق",
+    "lessonId": "PRODUCTIVITY_2026_AR_DAY_15"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a613ed20b35fb7972e8",
+      "uuid": "8174c075-a715-4441-a8c6-610ba2aed8f1",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"تنظيم الفرق لتحسين الأداء.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day15",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a613ed20b35fb7972e9",
+      "uuid": "05cb66e9-b187-41f7-a03b-d279da3c5147",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"تنظيم الفرق لتحسين الأداء.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day15",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a613ed20b35fb7972ea",
+      "uuid": "4625f81d-fab0-42f2-b383-82c2dc57cc46",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"تنظيم الفرق لتحسين الأداء.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day15",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a613ed20b35fb7972eb",
+      "uuid": "db7abffd-a17e-46d3-87f3-92f88ac60fe4",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "How does the concept \"العمل الجماعي والتآزر: الأدوار والمسؤولية والتنسيق...\" mentioned in the lesson impact achieving your goals?",
+      "options": [
+        "As described in detail in the lesson, العمل الجماعي والتآزر: الأدوار... increases effectiveness and reduces risk",
+        "No significant impact",
+        "Only matters theoretically",
+        "Only an optional element"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day15",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a613ed20b35fb7972ec",
+      "uuid": "d3ae4710-fba7-4f9b-aeef-87162f488e56",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is العمل in the context of العمل الجماعي والتآزر: الأدوار والمسؤولية والتنسيق as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, العمل plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day15",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a613ed20b35fb7972ed",
+      "uuid": "1668b365-bedd-4cbf-882a-5f33af852c21",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is والتآزر in the context of العمل الجماعي والتآزر: الأدوار والمسؤولية والتنسيق as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, والتآزر plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day15",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a613ed20b35fb7972ee",
+      "uuid": "cbc12166-b842-4b32-b972-838ac1acb66a",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is والمسؤولية in the context of العمل الجماعي والتآزر: الأدوار والمسؤولية والتنسيق as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, والمسؤولية plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day15",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

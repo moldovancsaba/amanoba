@@ -1,0 +1,114 @@
+{
+  "backedUpAt": "2026-01-28T22:58:14.893Z",
+  "course": {
+    "courseId": "DONE_BETTER_2026_EN",
+    "name": "Done is better - Build What Matters",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 10,
+    "title": "Analogy as a Weapon",
+    "lessonId": "DONE_BETTER_2026_EN_DAY_10"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "697a92f522596d24dfc12cd3",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "You are stuck on a product problem. What can help unlock new paths?",
+      "options": [
+        "Find a similar problem in another domain and extract the structure (not the content)",
+        "Copy the solution from a competitor",
+        "Brainstorm more ideas in the same domain only",
+        "Wait for inspiration"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a92f522596d24dfc12cd4",
+      "questionType": "application",
+      "difficulty": "EASY",
+      "question": "A team studies how a restaurant manages reservations and wants to apply it to their booking system. What should they transfer from the restaurant example?",
+      "options": [
+        "The structure or mechanism of how reservations work, then adapt it to their context",
+        "The exact solution word for word without changes or adaptation",
+        "The vocabulary only and skip the underlying logic or structure",
+        "The budget and timeline from that project without understanding the mechanism"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a92f522596d24dfc12cd5",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "A team says \"that analogy does not apply to our industry.\" What is a better approach?",
+      "options": [
+        "Ask what structure maps: often the mechanism transfers even if the content differs",
+        "Dismiss the analogy",
+        "Force the analogy literally",
+        "Look only within the industry"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a92f522596d24dfc12cd6",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "What is the risk of copying a solution literally from another domain?",
+      "options": [
+        "It may not fit your context; you skip the work of understanding and adapting",
+        "It will work perfectly in your context",
+        "It will be too cheap to implement well",
+        "No significant risk; copy is always faster"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a92f522596d24dfc12cd7",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Using analogy to avoid doing the work of understanding your own problem leads to:",
+      "options": [
+        "Superficial solutions that do not address the real structure",
+        "Faster decisions",
+        "More creativity",
+        "Better buy-in"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a92f522596d24dfc12cd8",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "A team is stuck on a problem. Where can they find useful analogies to unlock new approaches?",
+      "options": [
+        "Other fields: sport, nature, another industry, history—any domain with a similar structure",
+        "Only in your direct competitors who face the same challenges",
+        "Only in academic papers without practical application",
+        "Only in the same product category without cross-domain learning"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a92f522596d24dfc12cd9",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "After finding an analogy, what is the next step?",
+      "options": [
+        "Write how the structure maps to your problem; then one move inspired by it",
+        "Present the analogy and stop there",
+        "Implement the other domain's solution as-is without adapting",
+        "File it for later when you have more time"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    }
+  ]
+}

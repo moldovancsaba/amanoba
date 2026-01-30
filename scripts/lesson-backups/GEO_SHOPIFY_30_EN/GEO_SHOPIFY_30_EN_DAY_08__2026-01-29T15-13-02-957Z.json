@@ -1,0 +1,19 @@
+{
+  "backedUpAt": "2026-01-29T15:13:03.197Z",
+  "course": {
+    "courseId": "GEO_SHOPIFY_30_EN",
+    "name": "GEO Shopify – 30-day course",
+    "language": "en"
+  },
+  "lesson": {
+    "lessonId": "GEO_SHOPIFY_30_EN_DAY_08",
+    "dayNumber": 8,
+    "title": "Why feeds matter: “offer truth”",
+    "language": "en",
+    "isActive": true,
+    "createdAt": "2026-01-19T22:01:12.654Z"
+  },
+  "content": "<h1>Why feeds matter: “offer truth”</h1>\n<p><em>Ensure feed and PDP match on price, stock, shipping, returns, identifiers.</em></p>\n<hr />\n<h2>Learning goal</h2>\n<ul>\n<li>List the offer truth elements (price, stock, shipping, returns, IDs).</li>\n<li>Check feed vs PDP gaps on 5 products.</li>\n</ul>\n<hr />\n<h2>Why it matters</h2>\n<ul>\n<li>AI and merchant programs rely on both feed and PDP.</li>\n<li>Conflicting price/stock/policy → exclusion or bad recommendations.</li>\n</ul>\n<hr />\n<h2>Explanation</h2>\n<h3>Offer truth</h3>\n<ul>\n<li>Price accurate, discounts handled.</li>\n<li>Stock current, variant-level.</li>\n<li>Shipping/returns clear, linked.</li>\n<li>IDs consistent (GTIN/SKU/brand).</li>\n</ul>\n<hr />\n<h2>Examples</h2>\n<ul>\n<li><strong>Good</strong>: feed and PDP show same price/stock/policy.</li>\n<li><strong>Poor</strong>: mismatched price, missing policy, no IDs.</li>\n</ul>\n<hr />\n<h2>Guided exercise (10–15 min)</h2>\n<ol>\n<li>Pick 5 products: compare feed export vs PDP for price/stock/policy.</li>\n<li>Note discrepancies and fixes.</li>\n</ol>\n<h2>Independent exercise (5–10 min)</h2>\n<p>Write 3 fixes (price sync, stock sync, unified policy block).</p>\n<hr />\n<h2>Self-check</h2>\n<ul>\n<li>Offer truth list done.</li>\n<li>5 products checked feed vs PDP.</li>\n<li>3 fixes logged.</li>\n</ul>\n<hr />\n<h2>Optional deepening</h2>\n<ul>\n<li>GMC product data spec: <a href=\"https://support.google.com/merchants/answer/7052112\" target=\"_blank\" rel=\"noreferrer\">https://support.google.com/merchants/answer/7052112</a></li>\n</ul>",
+  "emailSubject": "GEO Shopify – Day 8: Offer truth",
+  "emailBody": "<h1>GEO Shopify – Day 8</h1>\n<h2>Offer truth</h2>\n<p>Today you compare feed vs PDP for 5 products and log fixes.</p>\n<p><a href=\"http://localhost:3000/courses/GEO_SHOPIFY_30_EN/day/{{dayNumber}}\">Read the lesson →</a></p>"
+}

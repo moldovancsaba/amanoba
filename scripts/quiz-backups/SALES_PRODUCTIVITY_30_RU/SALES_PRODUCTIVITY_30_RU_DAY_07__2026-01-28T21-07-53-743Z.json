@@ -1,0 +1,177 @@
+{
+  "backedUpAt": "2026-01-28T21:07:55.517Z",
+  "course": {
+    "courseId": "SALES_PRODUCTIVITY_30_RU",
+    "name": "Постройте свои продажи – 30 дней к большему количеству сделок",
+    "language": "ru"
+  },
+  "lesson": {
+    "dayNumber": 7,
+    "title": "Идеальный профиль клиента (ICP) – С кем вы работаете?",
+    "lessonId": "SALES_PRODUCTIVITY_30_RU_DAY_07"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a5583229aca24a6d656",
+      "uuid": "328ecb8d-f5fb-4e94-ab42-98cc726a15f9",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Фокус = лучшие результаты.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day7",
+        "#ru",
+        "#all-languages",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5583229aca24a6d657",
+      "uuid": "2601790e-9cde-4220-a474-691d8b23c5d7",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Более высокая конверсия:\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day7",
+        "#ru",
+        "#all-languages",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5583229aca24a6d658",
+      "uuid": "17245140-8f16-4133-bde2-e2bfd397a0bc",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Быстрее продажи:\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day7",
+        "#ru",
+        "#all-languages",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5583229aca24a6d659",
+      "uuid": "98e301f1-8fac-4fdb-850c-95860e0f8571",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Как концепция \"Идеальный профиль клиента (ICP) – С кем вы работае...\", упомянутая в уроке, влияет на достижение ваших goals?",
+      "options": [
+        "Как подробно описано в уроке, Идеальный профиль клиента (ICP... повышает эффективность и снижает риски",
+        "Нет значительного влияния",
+        "Имеет значение только теоретически",
+        "Только опциональный элемент"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day7",
+        "#ru",
+        "#all-languages",
+        "#productivity",
+        "#sales",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5583229aca24a6d65a",
+      "uuid": "7f2a2ce8-9a11-470d-9a91-cd16c74077c5",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Какую роль играет Более высокая конверсия: в уроке \"Идеальный профиль клиента (ICP) – С кем вы работаете?\"?",
+      "options": [
+        "Как подробно описано в уроке, Более высокая конверсия: играет ключевую роль в оптимизации процессов и достижении целей",
+        "Только периферийная информация без значительной роли",
+        "Только теоретическая концепция без практического применения",
+        "Не упоминается в уроке"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day7",
+        "#ru",
+        "#all-languages",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5583229aca24a6d65b",
+      "uuid": "3b34caee-eb2d-413d-b46b-b21c452b56ea",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Какую роль играет Лучший опыт клиента: в уроке \"Идеальный профиль клиента (ICP) – С кем вы работаете?\"?",
+      "options": [
+        "Как подробно описано в уроке, Лучший опыт клиента: играет ключевую роль в оптимизации процессов и достижении целей",
+        "Только периферийная информация без значительной роли",
+        "Только теоретическая концепция без практического применения",
+        "Не упоминается в уроке"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day7",
+        "#ru",
+        "#all-languages",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5583229aca24a6d65c",
+      "uuid": "b72141bd-a6c1-4dc9-8720-898df9a063d9",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Какую роль играет 1. Размер компании в уроке \"Идеальный профиль клиента (ICP) – С кем вы работаете?\"?",
+      "options": [
+        "Как подробно описано в уроке, 1. Размер компании играет ключевую роль в оптимизации процессов и достижении целей",
+        "Только периферийная информация без значительной роли",
+        "Только теоретическая концепция без практического применения",
+        "Не упоминается в уроке"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day7",
+        "#ru",
+        "#all-languages",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

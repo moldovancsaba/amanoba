@@ -1,0 +1,94 @@
+{
+  "backedUpAt": "2026-01-29T17:00:33.911Z",
+  "course": {
+    "courseId": "AI_30_NAP",
+    "name": "30-Day AI Catch-Up Program",
+    "language": "hu"
+  },
+  "lesson": {
+    "dayNumber": 9,
+    "title": "Táblázat-gondolkodás AI-val",
+    "lessonId": "AI_30_NAP_DAY_09"
+  },
+  "questionCount": 6,
+  "questions": [
+    {
+      "_id": "697b2052060240540231b398",
+      "difficulty": "EASY",
+      "question": "Mi az első lépés táblázat kérésénél?",
+      "options": [
+        "Oszlopok definiálása (fejlécek)",
+        "Azonnal CSV export kérése oszlopok nélkül",
+        "Véletlenszerű formátum",
+        "Nincs szükség bemenetre"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b2052060240540231b39a",
+      "difficulty": "EASY",
+      "question": "Melyik oszlopkészlet ad jó feladat táblát?",
+      "options": [
+        "Feladat | Felelős | Határidő | Prioritás | Státusz",
+        "Csak Feladat",
+        "Csak Határidő",
+        "Csak Prioritás"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b2052060240540231b39c",
+      "difficulty": "MEDIUM",
+      "question": "Miért kérj CSV-t is?",
+      "options": [
+        "Könnyű export/spreadsheet import",
+        "Hosszabb szövegért",
+        "Hogy elrejtsd az adatot",
+        "Nem érdemes kérni"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b2053060240540231b39e",
+      "difficulty": "MEDIUM",
+      "question": "Mi a jó prompt pro/kontra táblára?",
+      "options": [
+        "„Adj pro/kontra táblát: Opció | Előny | Hátrány | Kockázat | Ajánlás.”",
+        "„Írj valamit.”",
+        "„Csak előnyöket írj.”",
+        "„Csak hátrányokat írj.”"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b2053060240540231b3a0",
+      "difficulty": "HARD",
+      "question": "Miért hasznos előre megadni prioritást/státuszt oszlopként?",
+      "options": [
+        "Jobban átlátható és azonnal használható, kevesebb kézi munka",
+        "Hogy több hibát okozzon",
+        "Csak dísz",
+        "Nem hasznos"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b2053060240540231b3a2",
+      "difficulty": "MEDIUM",
+      "question": "Mitől lesz használható a táblázat?",
+      "options": [
+        "Pontos oszlopnevek, teljes sorok, jól formázott adat",
+        "Véletlenszerű elrendezés",
+        "Hiányzó felelősök",
+        "Csak szöveges bekezdés"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    }
+  ]
+}

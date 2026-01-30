@@ -1,0 +1,168 @@
+{
+  "backedUpAt": "2026-01-28T21:28:24.393Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_AR",
+    "name": "الإنتاجية 2026: كيفية إدارة الفرق والوقت",
+    "language": "ar"
+  },
+  "lesson": {
+    "dayNumber": 3,
+    "title": "تسلسل الهدف: الرؤية → النتائج → المشاريع → الإجراءات التالية",
+    "lessonId": "PRODUCTIVITY_2026_AR_DAY_03"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a603ed20b35fb79722f",
+      "uuid": "6e412c72-efe5-4075-9b66-d948d82b2411",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "ما الخطأ الشائع عند القيام بمشاريع بدون رؤية؟",
+      "options": [
+        "تتقدم ببطء شديد",
+        "لا تعرف لماذا تفعل ذلك",
+        "تتقدم بسرعة شديدة",
+        "لا يوجد خطأ"
+      ],
+      "correctIndex": 1,
+      "hashtags": [
+        "#day-03",
+        "#foundation",
+        "#recall",
+        "#ar"
+      ]
+    },
+    {
+      "_id": "69776a603ed20b35fb797230",
+      "uuid": "754fdf57-2870-4e85-9ddf-e1f16708cb03",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ لديك رؤية (3-5 سنوات).\n✅ لديك 2-3 نتائ...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day3",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a603ed20b35fb797231",
+      "uuid": "06199588-af65-4af5-9360-f36d8d90b959",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ لديك رؤية (3-5 سنوات).\n✅ لديك 2-3 نتائ...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day3",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a603ed20b35fb797232",
+      "uuid": "96120193-8dc2-4b56-b2c8-51266a915880",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ لديك رؤية (3-5 سنوات).\n✅ لديك 2-3 نتائ...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day3",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a603ed20b35fb797233",
+      "uuid": "da7dd35c-a1f0-43f3-9659-a1099939844f",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "How does the concept \"تسلسل الهدف: الرؤية → النتائج → المشاريع → الإجراء...\" mentioned in the lesson impact achieving your goals?",
+      "options": [
+        "As described in detail in the lesson, تسلسل الهدف: الرؤية → النتائج ... increases effectiveness and reduces risk",
+        "No significant impact",
+        "Only matters theoretically",
+        "Only an optional element"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day3",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a603ed20b35fb797234",
+      "uuid": "87858a46-b0e4-436d-b32a-f60e1096ec88",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is النتائج in the context of تسلسل الهدف: الرؤية → النتائج → المشاريع → الإجراءات التالية as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, النتائج plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day3",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a603ed20b35fb797235",
+      "uuid": "fafee84d-03ab-4511-814d-41078c525707",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "In the \"تسلسل الهدف: الرؤية → النتائج → المشاريع → الإجراءات التالية\" lesson, what role does الإجراءات التالية play?",
+      "options": [
+        "As described in detail in the lesson, الإجراءات التالية plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day3",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

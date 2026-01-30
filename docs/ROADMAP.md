@@ -399,6 +399,14 @@ EMAIL_FROM_NAME=Amanoba Learning
 - **Course Social Features**: 
   - Add Google/Facebook/other social feedback star ranking to courses
   - Add "Share this course" functionality to course pages
+- **Course authorship & attribution**
+  - **Author of the course**: Select registered user(s) as course authors (stored and displayed per course).
+  - **Checked and reviewed by quality assurance**: Select registered user(s) as QA reviewers (stored and displayed per course).
+  - **Course advisor**: Select registered user(s) as course advisors (stored and displayed per course).
+- **Course & content voting**
+  - Up/down vote for course (aggregate score and optional display).
+  - Up/down vote for lessons (per-lesson score).
+  - Up/down vote for questions (per-question score; e.g. quiz feedback).
 - ~~**Referral System Fix & Enable**: Fix and enable the referral system for course sharing and rewards~~ ✅ COMPLETE (v2.8.2)
 - ~~**SSO Integration**: Implement SSO via sso.doneisbetter.com for enterprise/partner authentication~~ ✅ COMPLETE (v2.8.2 - 100% SSO-aligned, Facebook removed)
 

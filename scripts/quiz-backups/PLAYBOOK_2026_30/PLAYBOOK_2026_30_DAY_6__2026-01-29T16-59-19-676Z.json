@@ -1,0 +1,68 @@
+{
+  "backedUpAt": "2026-01-29T17:00:15.536Z",
+  "course": {
+    "courseId": "PLAYBOOK_2026_30",
+    "name": "The Playbook 2026 – Mesterkurzus Designereknek",
+    "language": "hu"
+  },
+  "lesson": {
+    "dayNumber": 6,
+    "title": "Szín mint jelentés, nem dekoráció",
+    "lessonId": "PLAYBOOK_2026_30_DAY_6"
+  },
+  "questionCount": 4,
+  "questions": [
+    {
+      "_id": "697b2032d8669994531f7464",
+      "difficulty": "MEDIUM",
+      "question": "Miért nem elég a brand szín mindenre?",
+      "options": [
+        "Mert túl szép lenne",
+        "Mert elveszíti a jelentést és kontraszt-problémát okozhat",
+        "Mert drága",
+        "Mert csak sötét módban működik"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b2032d8669994531f7465",
+      "difficulty": "MEDIUM",
+      "question": "Mit jelent a szemantikus színtér?",
+      "options": [
+        "Dekoratív paletta",
+        "Brand + funkcionális státuszok + felület + szöveg szerepek",
+        "Csak háttérszín",
+        "Csak logó színei"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b2032d8669994531f7466",
+      "difficulty": "MEDIUM",
+      "question": "Mi a minimum kontraszt ajánlás szövegre?",
+      "options": [
+        "1:1",
+        "4.5:1 normál szövegre (7:1 kicsi szövegre)",
+        "2:1 mindenre",
+        "Nincs szabály"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b2032d8669994531f7467",
+      "difficulty": "MEDIUM",
+      "question": "Mi a jó példa tiltásra?",
+      "options": [
+        "Brand sárga hiba állapotban",
+        "Brand sárga csak primary CTA, hiba piros, warning borostyán",
+        "Minden gomb szivárvány",
+        "Semmire nincs tiltás"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    }
+  ]
+}

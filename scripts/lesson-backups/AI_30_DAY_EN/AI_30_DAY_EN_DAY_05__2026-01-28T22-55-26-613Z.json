@@ -1,0 +1,10 @@
+{
+  "backedUpAt": "2026-01-28T22:55:27.023Z",
+  "courseId": "AI_30_DAY_EN",
+  "lessonId": "AI_30_DAY_EN_DAY_05",
+  "dayNumber": 5,
+  "title": "Quality and safety: QA and guardrails",
+  "content": "<h1>Quality and safety: QA and guardrails</h1>\n<p><em>Build a simple QA habit for every AI output</em></p>\n<hr />\n<h2>Learning goal</h2>\n<ul>\n<li>Create a 5-point QA checklist.</li>\n<li>Apply it to two AI outputs.</li>\n</ul>\n<hr />\n<h2>Why it matters</h2>\n<ul>\n<li>Even good prompts can produce errors or bias.</li>\n<li>QA reduces risk before sharing.</li>\n</ul>\n<hr />\n<h2>Explanation</h2>\n<ul>\n<li>Check facts, numbers, dates.</li>\n<li>Check tone and audience fit.</li>\n<li>Ask for sources/disclaimers when needed.</li>\n<li>Spot sensitive data; redact if required.</li>\n</ul>\n<hr />\n<h2>Examples</h2>\n<ul>\n<li><strong>QA prompt</strong>: “Review the draft for accuracy; list uncertainties; suggest fixes.”</li>\n<li><strong>Guardrail</strong>: “Do not fabricate data; if unsure, say what’s missing.”</li>\n</ul>\n<hr />\n<h2>Guided exercise (10–15 min)</h2>\n<ol>\n<li>Write a 5-point QA checklist (facts, tone, sources, risks, sensitive data).</li>\n<li>Apply it to one output from Day 4.</li>\n</ol>\n<h2>Independent exercise (5–10 min)</h2>\n<p>Apply the checklist to a second output; add a guardrail instruction and compare results.</p>\n<hr />\n<h2>Self-check</h2>\n<ul>\n<li>QA checklist exists.</li>\n<li>Two outputs reviewed and improved.</li>\n<li>Guardrail instruction tested.</li>\n</ul>\n<hr />\n<h2>Optional deepening</h2>\n<ul>\n<li>OpenAI Safety Best Practices: <a href=\"https://platform.openai.com/docs/guides/safety-best-practices\" target=\"_blank\" rel=\"noreferrer\">https://platform.openai.com/docs/guides/safety-best-practices</a></li>\n</ul>",
+  "emailSubject": "AI 30-Day – Day 5: QA & guardrails",
+  "emailBody": "<h1>AI 30-Day – Day 5</h1>\n<h2>QA & guardrails</h2>\n<p>Today you build a 5-point QA checklist and apply it to two outputs.</p>\n<p><a href=\"http://localhost:3000/courses/AI_30_DAY_EN/day/{{dayNumber}}\">Open the lesson →</a></p>"
+}

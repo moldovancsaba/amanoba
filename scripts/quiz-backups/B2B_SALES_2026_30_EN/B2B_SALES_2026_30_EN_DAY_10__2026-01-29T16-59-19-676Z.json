@@ -1,0 +1,68 @@
+{
+  "backedUpAt": "2026-01-29T16:59:32.651Z",
+  "course": {
+    "courseId": "B2B_SALES_2026_30_EN",
+    "name": "B2B Sales 2026 Masterclass",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 10,
+    "title": "AI-Powered Research: Company, Persona, Trigger",
+    "lessonId": "B2B_SALES_2026_30_EN_DAY_10"
+  },
+  "questionCount": 4,
+  "questions": [
+    {
+      "_id": "697b1fd18f79f136a28b89d4",
+      "difficulty": "MEDIUM",
+      "question": "Why 3 facts + 1 trigger?",
+      "options": [
+        "Decoration",
+        "It’s the base for relevant, concise outreach",
+        "To write longer emails",
+        "Legal requirement"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b1fd18f79f136a28b89d5",
+      "difficulty": "MEDIUM",
+      "question": "What belongs in the account brief?",
+      "options": [
+        "Only the website link",
+        "Company short, 3 facts, 1 trigger, pain, next step",
+        "Only the pitch deck",
+        "Only the price list"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b1fd18f79f136a28b89d6",
+      "difficulty": "MEDIUM",
+      "question": "Why a persona prompt?",
+      "options": [
+        "To make the response longer",
+        "To get role/KPI/pain relevance",
+        "Legal necessity",
+        "To avoid ICP"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b1fd18f79f136a28b89d7",
+      "difficulty": "MEDIUM",
+      "question": "What is the bad approach?",
+      "options": [
+        "Brief with 3 facts + trigger",
+        "Website pasted without trigger or next step",
+        "Recommending a next step",
+        "Noting the persona role"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    }
+  ]
+}

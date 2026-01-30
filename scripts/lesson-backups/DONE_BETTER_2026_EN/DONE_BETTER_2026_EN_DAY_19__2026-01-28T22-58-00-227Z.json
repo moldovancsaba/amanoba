@@ -1,0 +1,10 @@
+{
+  "backedUpAt": "2026-01-28T22:58:02.493Z",
+  "courseId": "DONE_BETTER_2026_EN",
+  "lessonId": "DONE_BETTER_2026_EN_DAY_19",
+  "dayNumber": 19,
+  "title": "Measure What Matters",
+  "content": "<h1>Measure What Matters</h1>\n<p><em>Opinion ends where data begins.</em></p>\n<hr />\n<h2>Learning goal</h2>\n<ul>\n<li>Identify metrics that reflect the goal.</li>\n<li>Avoid vanity metrics.</li>\n<li>Use data to decide, not to justify after the fact.</li>\n</ul>\n<hr />\n<h2>Why it matters</h2>\n<ul>\n<li>Vanity metrics mislead.</li>\n<li>Data enables better decisions.</li>\n<li>Opinion ends where data begins.</li>\n</ul>\n<hr />\n<h2>Key idea</h2>\n<p>Measure what matters means tracking outcomes that affect the goal, not vanity metrics. Use data to decide; do not use data only to justify after the fact.</p>\n<hr />\n<h2>Common mistakes</h2>\n<ul>\n<li>Measuring what is easy instead of what matters.</li>\n<li>Opinion over data when both are available.</li>\n<li>No baseline or target for the metric.</li>\n</ul>\n<hr />\n<h2>Today's move</h2>\n<p>For one goal, name one metric that directly reflects success. Define how you will get the data and how often you will check it.</p>\n<hr />\n<h2>Self-check</h2>\n<ul>\n<li>You can explain the key idea in one sentence.</li>\n<li>You have one concrete move to do today.</li>\n</ul>",
+  "emailSubject": "Done is better – Day {{dayNumber}}: {{lessonTitle}}",
+  "emailBody": "<h1>Done is better - Build What Matters</h1><h2>Day {{dayNumber}}: {{lessonTitle}}</h2><p>{{lessonContent}}</p><p><a href=\"http://localhost:3000/courses/DONE_BETTER_2026_EN/day/{{dayNumber}}\">Open the lesson →</a></p>"
+}

@@ -1,0 +1,10 @@
+{
+  "backedUpAt": "2026-01-28T22:55:28.772Z",
+  "courseId": "AI_30_DAY_EN",
+  "lessonId": "AI_30_DAY_EN_DAY_20",
+  "dayNumber": 20,
+  "title": "Team feedback loop: sharing and revising",
+  "content": "<h1>Team feedback loop: sharing and revising</h1>\n<p><em>Close the loop with human feedback</em></p>\n<hr />\n<h2>Learning goal</h2>\n<ul>\n<li>Set a simple review checklist for peers.</li>\n<li>Incorporate human feedback into AI drafts.</li>\n</ul>\n<hr />\n<h2>Why it matters</h2>\n<ul>\n<li>Human review catches context the model misses.</li>\n<li>A repeatable loop speeds future drafts.</li>\n</ul>\n<hr />\n<h2>Explanation</h2>\n<ul>\n<li>Share v1 + prompt + constraints with a teammate.</li>\n<li>Ask for: clarity, correctness, tone fit, missing context.</li>\n<li>Re-prompt with their feedback; produce v2.</li>\n</ul>\n<hr />\n<h2>Examples</h2>\n<ul>\n<li><strong>Checklist</strong>: “What’s unclear? Any factual issues? Tone fit? Missing stakeholder needs?”</li>\n<li><strong>Weak</strong>: “Thoughts?”</li>\n<hr />\n<h2>Guided exercise (10–15 min)</h2>\n<ol>\n<li>Pick a draft from earlier days; share with a peer or imagine peer notes.</li>\n<li>Summarize feedback into 3 bullets; re-run the model with that feedback.</li>\n</ol>\n<h2>Independent exercise (5–10 min)</h2>\n<p>Create a reusable “peer review” prompt to attach to drafts.</p>\n<hr />\n<h2>Self-check</h2>\n<ul>\n<li>Peer feedback captured.</li>\n<li>v2 incorporates the feedback.</li>\n<li>Review prompt saved.</li>\n</ul>\n<hr />\n<h2>Optional deepening</h2>\n<ul>\n<li>Feedback prompts: <a href=\"https://www.oneusefulthing.org\" target=\"_blank\" rel=\"noreferrer\">https://www.oneusefulthing.org</a></li>\n</ul>",
+  "emailSubject": "AI 30-Day – Day 20: Team feedback",
+  "emailBody": "<h1>AI 30-Day – Day 20</h1>\n<h2>Team feedback</h2>\n<p>Today you’ll set a feedback checklist and re-run the model with human notes.</p>\n<p><a href=\"http://localhost:3000/courses/AI_30_DAY_EN/day/{{dayNumber}}\">Open the lesson →</a></p>"
+}

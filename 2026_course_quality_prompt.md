@@ -19,6 +19,7 @@ Hard rules (must do first, no exceptions):
 1) Immediately read and treat as the active rulebook: `agent_working_loop_canonical_operating_document.md`.
 2) Immediately read and follow: `docs/QUIZ_QUALITY_PIPELINE_HANDOVER.md` and `docs/QUIZ_QUALITY_PIPELINE_PLAYBOOK.md`.
    - Also read: `docs/COURSE_BUILDING_RULES.md`.
+   - For manual per-question fixes (one Q/A at a time), use `/<locale>/admin/questions` or the CRUD API under `/api/admin/questions` (API-token mode supported via `ADMIN_API_TOKEN` / `ADMIN_API_TOKENS`).
 3) No autonomous assumptions: confirm DB environment + scope before any DB write.
    - Current default for this runbook: **production** (via `.env.local`) — still confirm explicitly before apply-mode.
 4) Provide a Safety Rollback Plan before any destructive DB change.
@@ -95,6 +96,14 @@ From now on, quality control must enforce **Language Integrity** for both lesson
 For every lesson content and email body/subject that will be served to users:
 - Must be in the **course language**.
 - **No English injection** into non-EN lessons is allowed (not even in “why it matters / goals / steps” sections).
+- **End-to-end email integrity**: the final HTML the user receives must be in-language.
+  - If send-time code appends content (e.g., unsubscribe footers), that appended content must also be localized (no English leakage).
+  - This applies to **all email flows**, not only lesson emails:
+    - Lesson email (`sendLessonEmail`): lesson emailSubject/emailBody + any appended footer
+    - Transactional emails: welcome / completion / reminder / payment confirmation
+- **Catalog language integrity** (course discovery + emails):
+  - `course.name` + `course.description` must match `course.language`
+  - Every `course.translations.<locale>.name/description` must match `<locale>` (no mixed-language leaks in the catalog UI)
 
 Hard detection requirements (minimum):
 - `hu`: reject if lesson contains long Latin segments (e.g., `[A-Za-z]{10,}`) or obvious English instruction lines (`Create …`, `Scale …`, `Avoid …`, `Delegate …`).
@@ -106,6 +115,26 @@ If this gate fails:
 - Do **not** refine/apply the lesson.
 - Do **not** generate/apply quizzes for that lesson.
 - Create an action item that includes the offending snippet(s) and the repair plan.
+
+### Communication Flows Audit (Required)
+
+Run these audits as part of the global process:
+- CCS master audit (DB; read-only): `npx tsx --env-file=.env.local scripts/audit-ccs-global-quality.ts --min-lesson-score 70`
+- Email communications audit (code-level; read-only): `npx tsx scripts/audit-email-communications-language-integrity.ts`
+
+## Multi-language Authoring Strategy (A: EN-first, then localize)
+
+When a course family exists in multiple languages and any language is missing days:
+1) Complete the **EN variant first** (Day 1–30 lessons).
+2) Localize other languages (HU/RU/etc.) from the EN baseline.
+
+Rules:
+- No placeholders. Localized lessons must be written in the target language (no English leakage).
+- Default behavior is **create missing days only** (do not overwrite existing lessons unless explicitly requested).
+- Always backup lessons before applying changes:
+  - `npx tsx --env-file=.env.local scripts/backup-course-lessons.ts --course <COURSE_ID>`
+- After completing a family, refresh CCS idea/outline (with backup):
+  - `npx tsx --env-file=.env.local scripts/backfill-ccs-idea-outline.ts --force --apply`
 
 ### Language Integrity Gate — Quizzes (HARD ERROR)
 
@@ -136,16 +165,69 @@ Shorts must be **read-only derived content**. They must not modify the parent co
   - `Lesson` documents (`content`, `emailSubject`, `emailBody`)
 - If a parent lesson fails Language Integrity, Shorts generation must **block publishing** (and create an action item), but still must not alter the parent content.
 
+**NO QUALITY EXCEPTION ACCEPTED** for any content. No course, lesson, or quiz may bypass or receive exceptions from the quality gates below.
+
+## Gold-standard question type (only acceptable form)
+
+**Only questions that match this form are acceptable.** See `docs/QUIZ_QUALITY_PIPELINE_PLAYBOOK.md` for the full section.
+
+**Canonical example:** *"What is the concrete document or list needed to define the ICP according to different problem groups?"*
+
+**Five rules (all required):** (1) **Standalone** — no "this course", "today", "the lesson". (2) **Grounded** — tests what the lesson actually teaches; uses lesson domain/terminology. (3) **Scenario-based** — clear situation (who, context, stakes). (4) **Concrete deliverable/outcome** — asks for a specific artifact, step, or decision, not vague "how/why". (5) **Concrete distractors** — wrong answers are plausible domain mistakes, not generic filler ("no significant impact", "only theoretical").
+
+**Why only this type works:** Tests application; random-order safe; no course dependency; clear right/wrong.
+
+**Why other types fail:** Lesson/course-referential → not standalone. Generic/disconnected → not grounded. Self-answering stem → no real test. Vague distractors → not educational. Padding/filler → same question, no scenario.
+
+**Bottom line:** Accept only questions that are standalone, grounded, scenario-based, ask for a concrete deliverable/outcome, and have concrete educational distractors. Reject or rewrite everything else.
+
+## Root cause (why quiz fixes often fail)
+
+**The root cause:** When fixing quiz questions (e.g. making them "standalone"), the work often optimizes for **one rule** (e.g. "no course reference") and breaks **two others**: (1) **Groundedness** — questions must be based on what the lesson actually teaches; (2) **Concrete distractors** — wrong answers must never be generic ("No significant downside", "Faster execution", "No meaningful effect", etc.); every distractor must be a concrete, plausible mistake in the domain. A question can give away the answer in the stem if that serves the scenario; what is never acceptable is a generic question that doesn't test the lesson, or generic bad answers.
+
+**Correct approach:** Keep questions **scenario-based** and **grounded in the lesson**. When removing "this course" / "the lesson", replace with a **concrete situation** (who, context, stakes) that still tests the same concept. Replace any generic wrong answer with a **concrete, plausible mistake** someone might make.
+
+## CRITICAL: What Quality Improvement Means (Anti-Patterns)
+
+**FORBIDDEN LAZY APPROACHES:**
+- ❌ **DO NOT** just add words to meet length requirements (e.g., "What should you commit to?" → "What should you commit to from Day 1 to build a sustainable system?"). This is padding, not quality.
+- ❌ **DO NOT** repeat the same schema/pattern across questions (e.g., "In this framework, how is X defined?" repeated 10 times).
+- ❌ **DO NOT** extend questions with generic phrases like "in this framework", "in practice", "to build X" just to hit character counts.
+- ❌ **DO NOT** lengthen options by adding filler words without adding educational value.
+
+**REQUIRED QUALITY APPROACHES:**
+- ✅ **REWRITE** questions as concrete, scenario-based situations students might actually face.
+- ✅ **CREATE** educational distractors that teach common mistakes or misconceptions.
+- ✅ **VARY** question structures: use scenarios, case studies, "what would you do if...", "a team is facing...", "you observe...".
+- ✅ **ENSURE** each question tests real understanding and application, not just pattern matching.
+- ✅ **MAKE** wrong answers plausible and educational - they should represent real mistakes people make.
+
+**Example of BAD (lazy padding):**
+- Q: "What should you commit to?" → "What should you commit to from Day 1 to build a sustainable system?"
+- This is the SAME question with filler words.
+
+**Example of GOOD (real quality):**
+- Q: "A leader says: 'We did 50 meetings this month.' What is missing for effectiveness?"
+- This is a concrete scenario that tests understanding through application.
+
 Quality requirements (hard):
 - 0 `RECALL` questions (hard disallow; if present, remove and replace with APPLICATION/CRITICAL_THINKING).
 - Per lesson minimum: **>= 7 valid questions** (pool may be larger; never delete just because >7).
 - Per lesson minimum: **>= 5 APPLICATION** questions.
+- **Standalone & random-order safe**: Questions are shown in **random order** and may be used **standalone**. Each question must be **self-contained**: no "this course", "this kind of course", "from the lesson", "the playbook" (unless the question defines it), "from this course", or any wording that assumes the learner just read a specific lesson. The learner must be able to understand and answer without that lesson in recent context.
+- **Root cause — why "standalone" fixes often fail**: When removing course/lesson references, do **not** make questions generic or disconnect them from the lesson. Standalone = no "this course" / "the lesson"; the question must **still** be grounded in what the lesson actually teaches and **scenario-based**. Bad: "Someone finished a structured learning program. How should they sustain progress?" (generic; doesn't test the lesson). Good: concrete scenario that tests the same concept (e.g. system vs motivation, think-decide-deliver) without naming the course.
 - Standalone wording: no “as described in the lesson / course”, no “A leckében…”, no title-based crutches.
 - No checklist-snippet crutches: reject questions that quote `✅ ...` or quoted `...` snippets.
+- **NEVER general bad answers**: Wrong answers (distractors) must **never** be generic or throwaway. Forbidden: "No significant downside", "Faster execution", "No meaningful effect", "Consistency", "Higher morale", "It has no effect", "No significant risk", etc. Every distractor must be a **concrete, plausible mistake** someone might make in the domain — educational and realistic.
 - Options must be detailed and educational (wrong answers plausible; no throwaway options like “no impact / only theoretical / not mentioned”, and no “I just read / wait for others” type answers).
+- Correct answer position must vary: do not put the correct answer always as option A; shuffle option order and audit for correctIndex imbalance.
 - Proper language match for the course language.
 - Proper metadata (uuid, hashtags, difficulty, questionType).
 - Remove duplicates by normalized question text: keep first by `_id`, delete others, and log an action item if the kept one is low-quality.
+
+Workflow requirement (non-negotiable):
+- Generate quizzes **one question at a time**: generate → validate (question + all options) → accept/reject → repeat until the set satisfies the hard rules (>=7, >=5 application, 0 recall).
+- Never batch-approve questions “because the lesson needs 7”. If a candidate is low-quality, reject and regenerate with a different seed/source.
 
 Process (recursive; stop/continue supported):
 

@@ -1,0 +1,10 @@
+{
+  "backedUpAt": "2026-01-28T22:58:01.718Z",
+  "courseId": "DONE_BETTER_2026_EN",
+  "lessonId": "DONE_BETTER_2026_EN_DAY_08",
+  "dayNumber": 8,
+  "title": "Plans Are Hypotheses",
+  "content": "<h1>Plans Are Hypotheses</h1>\n<p><em>A plan is not truth. It is a bet.</em></p>\n<hr />\n<h2>Learning goal</h2>\n<ul>\n<li>Frame plans as hypotheses to be tested.</li>\n<li>Define what would confirm or disprove the plan.</li>\n<li>Update the plan when evidence contradicts it.</li>\n</ul>\n<hr />\n<h2>Why it matters</h2>\n<ul>\n<li>Plans are guesses about the future.</li>\n<li>Evidence should update the plan.</li>\n<li>Defending a failed plan wastes resources.</li>\n</ul>\n<hr />\n<h2>Key idea</h2>\n<p>A plan is a bet: if we do X, we expect Y. Define the smallest test of that bet. When evidence says otherwise, update the hypothesis; do not defend the plan.</p>\n<hr />\n<h2>Procedure</h2>\n<ol><li>Write the plan as a bet: if we do X, we expect Y.</li><li>Define the smallest test of that bet (one move).</li><li>Set a time or signal to evaluate: did Y happen?</li><li>If not, update the hypothesis; do not defend the plan.</li></ol>\n<hr />\n<h2>Common mistakes</h2>\n<ul>\n<li>Treating the plan as fixed and defending it.</li>\n<li>No clear criterion for success or failure.</li>\n<li>Confusing planning with execution.</li>\n</ul>\n<hr />\n<h2>Today's move</h2>\n<p>Turn one current plan into a hypothesis: \"If we [do X], we expect [Y].\" Define one test you can run this week to check it.</p>\n<hr />\n<h2>Self-check</h2>\n<ul>\n<li>You can explain the key idea in one sentence.</li>\n<li>You have one concrete move to do today.</li>\n</ul>",
+  "emailSubject": "Done is better – Day {{dayNumber}}: {{lessonTitle}}",
+  "emailBody": "<h1>Done is better - Build What Matters</h1><h2>Day {{dayNumber}}: {{lessonTitle}}</h2><p>{{lessonContent}}</p><p><a href=\"http://localhost:3000/courses/DONE_BETTER_2026_EN/day/{{dayNumber}}\">Open the lesson →</a></p>"
+}

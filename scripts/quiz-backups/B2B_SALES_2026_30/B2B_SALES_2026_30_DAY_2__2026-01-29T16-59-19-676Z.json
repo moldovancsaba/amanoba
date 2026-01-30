@@ -1,0 +1,68 @@
+{
+  "backedUpAt": "2026-01-29T17:00:19.023Z",
+  "course": {
+    "courseId": "B2B_SALES_2026_30",
+    "name": "B2B Értékesítés 2026 Masterclass",
+    "language": "hu"
+  },
+  "lesson": {
+    "dayNumber": 2,
+    "title": "A B2B sales rendszer térképe",
+    "lessonId": "B2B_SALES_2026_30_DAY_2"
+  },
+  "questionCount": 4,
+  "questions": [
+    {
+      "_id": "697b203cac79ca83bb9721b5",
+      "difficulty": "MEDIUM",
+      "question": "Mi a Sales System Map elsődleges célja?",
+      "options": [
+        "Dekoráció a csapatfalra",
+        "Közös nyelv és definíció a folyamat minden lépésére",
+        "Csak a KPI-k listázása",
+        "CRM nélküli működés"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b203cac79ca83bb9721b6",
+      "difficulty": "MEDIUM",
+      "question": "Mi az SQL definíció egyik kulcseleme?",
+      "options": [
+        "Csak az, hogy van email cím",
+        "Megfelel az ICP-nek és van releváns probléma",
+        "Van LinkedIn profil",
+        "Van backlog task"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b203cac79ca83bb9721b7",
+      "difficulty": "MEDIUM",
+      "question": "Miért veszélyes a „Lead → Call → Proposal → Close” négyes önmagában?",
+      "options": [
+        "Mert túl hosszú",
+        "Mert nincs belépési/kilépési definíció, ezért véleményalapú a pipeline",
+        "Mert túl sok mérés van benne",
+        "Mert nincs benne marketing"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b203cac79ca83bb9721b8",
+      "difficulty": "MEDIUM",
+      "question": "Mit kell mérni stagenként?",
+      "options": [
+        "Csak a win rate-et",
+        "Stage konverziót és cycle time-ot",
+        "Csak a call számot",
+        "Csak a bevételt"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    }
+  ]
+}

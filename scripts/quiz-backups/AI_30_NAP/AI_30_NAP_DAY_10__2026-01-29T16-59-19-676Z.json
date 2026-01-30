@@ -1,0 +1,107 @@
+{
+  "backedUpAt": "2026-01-29T17:00:34.428Z",
+  "course": {
+    "courseId": "AI_30_NAP",
+    "name": "30-Day AI Catch-Up Program",
+    "language": "hu"
+  },
+  "lesson": {
+    "dayNumber": 10,
+    "title": "Ismétlés & prompt-debug nap",
+    "lessonId": "AI_30_NAP_DAY_10"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "697b2053060240540231b3a7",
+      "difficulty": "EASY",
+      "question": "Mi a leggyakoribb prompt hiba?",
+      "options": [
+        "Hiányzik a kontextus/cél/forma/stílus",
+        "Túl sok kontextus",
+        "Mindig rossz a hossz",
+        "Nincs ilyen"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b2053060240540231b3a9",
+      "difficulty": "EASY",
+      "question": "Mi a 3 lépéses debug folyamat első lépése?",
+      "options": [
+        "Diagnózis: mi hiányzik a promptból",
+        "Kérj új választ magyarázat nélkül",
+        "Adj véletlen feedbacket",
+        "Másold be ugyanazt újra"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b2053060240540231b3ab",
+      "difficulty": "MEDIUM",
+      "question": "Melyik jó pontosítás hosszra?",
+      "options": [
+        "„Rövidítsd 30%-kal, max 4 mondat.”",
+        "„Írj hosszabbat.”",
+        "„Legyen sokkal több szó.”",
+        "„Írj, amit akarsz.”"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b2053060240540231b3ad",
+      "difficulty": "HARD",
+      "question": "Miért érdemes A/B tesztelni két promptot?",
+      "options": [
+        "Hogy lásd, melyik ad jobb, használhatóbb választ",
+        "Hogy hosszabb legyen a folyamat",
+        "Nem érdemes, elég egy",
+        "Mert az AI úgyis mindegy"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b2053060240540231b3af",
+      "difficulty": "MEDIUM",
+      "question": "Melyik jó feedback egy „rossz” válaszra?",
+      "options": [
+        "„Hiányzik a CTA és túl hosszú. Rövidítsd 50%-kal, adj egyértelmű kérést a végére.”",
+        "„Nem jó.”",
+        "„Írj mást.”",
+        "„Legyen szebb.”"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b2053060240540231b3b1",
+      "difficulty": "MEDIUM",
+      "question": "Miért kérj formátumváltást (bullet vs bekezdés)?",
+      "options": [
+        "Más formátum gyakran használhatóbb, gyorsabban áttekinthető",
+        "Mindig rosszabb",
+        "Felesleges",
+        "Csak díszítés miatt"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b2053060240540231b3b3",
+      "difficulty": "HARD",
+      "question": "Mit vizsgálj két válasz összehasonlításakor?",
+      "options": [
+        "Pontosság, tömörség, hiányzó elemek (cél/kontextus/forma/stílus/CTA)",
+        "Csak a hosszt",
+        "Csak a dátumot",
+        "Csak a szóközöket"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    }
+  ]
+}

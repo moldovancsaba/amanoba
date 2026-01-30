@@ -1,0 +1,164 @@
+{
+  "backedUpAt": "2026-01-28T21:29:03.049Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_HI",
+    "name": "उत्पादकता 2026: टीमों और समय का प्रबंधन कैसे करें",
+    "language": "hi"
+  },
+  "lesson": {
+    "dayNumber": 4,
+    "title": "आदतें बनाम सिस्टम: सिस्टम बेहतर क्यों स्केल करते हैं",
+    "lessonId": "PRODUCTIVITY_2026_HI_DAY_04"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a67206e4784b9a0c0b6",
+      "uuid": "af6819e7-3ba7-4133-9859-ceb3a519ddc0",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "आदतों और सिस्टम के बीच मुख्य अंतर क्या है?",
+      "options": [
+        "कोई अंतर नहीं",
+        "आदतें स्केल करती हैं, सिस्टम नहीं",
+        "सिस्टम स्केल करते हैं, आदतें नहीं",
+        "दोनों समान हैं"
+      ],
+      "correctIndex": 2,
+      "hashtags": [
+        "#day-04",
+        "#foundation",
+        "#recall",
+        "#hi"
+      ]
+    },
+    {
+      "_id": "69776a67206e4784b9a0c0b7",
+      "uuid": "b219822a-4716-4548-96df-ab640c7120d4",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "आपको आदत के बजाय सिस्टम कब उपयोग करना चाहिए?",
+      "options": [
+        "हमेशा",
+        "जब इसे दूसरों के साथ काम करने की आवश्यकता हो",
+        "कभी नहीं",
+        "केवल सप्ताहांत में"
+      ],
+      "correctIndex": 1,
+      "hashtags": [
+        "#day-04",
+        "#foundation",
+        "#recall",
+        "#hi"
+      ]
+    },
+    {
+      "_id": "69776a67206e4784b9a0c0b8",
+      "uuid": "559a06f9-aa7f-4380-bef2-371c4928cba2",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "निम्नलिखित में से कौन सा सिस्टम की विशेषता नहीं है?",
+      "options": [
+        "दस्तावेजीकरण योग्य",
+        "स्केलेबल",
+        "केवल एक व्यक्ति के साथ काम करता है",
+        "संरचित प्रक्रिया"
+      ],
+      "correctIndex": 2,
+      "hashtags": [
+        "#day-04",
+        "#foundation",
+        "#recall",
+        "#hi"
+      ]
+    },
+    {
+      "_id": "69776a67206e4784b9a0c0b9",
+      "uuid": "5f0df162-a9cb-4bd8-a5c3-dce77d27e0a1",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ आप आदतों और सिस्टम के बीच अंतर को समझत...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day4",
+        "#hi",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a67206e4784b9a0c0ba",
+      "uuid": "3448d258-c6e8-4cc4-a807-3db68b5df3ea",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ आप आदतों और सिस्टम के बीच अंतर को समझत...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day4",
+        "#hi",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a67206e4784b9a0c0bb",
+      "uuid": "3dbe76dd-51f2-47f6-85df-9cc01ff5c09b",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ आप आदतों और सिस्टम के बीच अंतर को समझत...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day4",
+        "#hi",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a67206e4784b9a0c0bc",
+      "uuid": "d50500bc-ad69-4993-8588-c16d48816574",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "पाठ में उल्लिखित अवधारणा \"महत्वपूर्ण है\n\nआदतें: व्यक्तिगत व्यवहार पैटर्न। वे...\" आपके goals प्राप्त करने को कैसे प्रभावित करती है?",
+      "options": [
+        "जैसा कि पाठ में विस्तार से वर्णित है, महत्वपूर्ण है\n\nआदतें: व्यक्तिग... प्रभावशीलता बढ़ाता है और जोखिम कम करता है",
+        "कोई महत्वपूर्ण प्रभाव नहीं",
+        "केवल सैद्धांतिक रूप से मायने रखता है",
+        "केवल एक वैकल्पिक तत्व"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day4",
+        "#hi",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    }
+  ]
+}

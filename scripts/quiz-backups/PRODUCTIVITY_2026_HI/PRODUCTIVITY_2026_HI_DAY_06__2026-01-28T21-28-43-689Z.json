@@ -1,0 +1,166 @@
+{
+  "backedUpAt": "2026-01-28T21:29:03.226Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_HI",
+    "name": "उत्पादकता 2026: टीमों और समय का प्रबंधन कैसे करें",
+    "language": "hi"
+  },
+  "lesson": {
+    "dayNumber": 6,
+    "title": "कैप्चर: इनबॉक्स, ट्रिगर सूची, कैप्चर आदतें",
+    "lessonId": "PRODUCTIVITY_2026_HI_DAY_06"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a67206e4784b9a0c0df",
+      "uuid": "44e80cb3-cc1d-4116-81ac-265cba57394c",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "आपको इनबॉक्स को कितनी बार खाली करना चाहिए?",
+      "options": [
+        "सप्ताह में एक बार",
+        "महीने में एक बार",
+        "दिन में कम से कम एक बार",
+        "कभी नहीं"
+      ],
+      "correctIndex": 2,
+      "hashtags": [
+        "#day-06",
+        "#foundation",
+        "#recall",
+        "#hi"
+      ]
+    },
+    {
+      "_id": "69776a67206e4784b9a0c0e0",
+      "uuid": "8e144c00-feb6-46f1-a9f4-87d6106110c3",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "यदि कुछ कैप्चर नहीं किया गया तो क्या होता है?",
+      "options": [
+        "यह स्वचालित रूप से प्रबंधित होता है",
+        "यह खो जाता है",
+        "यह स्वचालित रूप से हटा दिया जाता है",
+        "कुछ नहीं"
+      ],
+      "correctIndex": 1,
+      "hashtags": [
+        "#day-06",
+        "#scenario",
+        "#application",
+        "#hi"
+      ]
+    },
+    {
+      "_id": "69776a67206e4784b9a0c0e1",
+      "uuid": "7285e84c-8738-4953-baa0-408c60b1f7a0",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ आपके पास एक विश्वसनीय इनबॉक्स सिस्टम ह...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day6",
+        "#hi",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a67206e4784b9a0c0e2",
+      "uuid": "98b5563a-3ba8-4816-9391-b370f0342f1c",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ सभी महत्वपूर्ण जानकारी कैप्चर हो गई है...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day6",
+        "#hi",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a67206e4784b9a0c0e3",
+      "uuid": "4899f64c-d411-498c-8071-340aa3290840",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "पाठ में उल्लिखित अवधारणा \"महत्वपूर्ण है\n\nइनबॉक्स: सभी आने वाली जानकारी एक स्...\" आपके goals प्राप्त करने को कैसे प्रभावित करती है?",
+      "options": [
+        "जैसा कि पाठ में विस्तार से वर्णित है, महत्वपूर्ण है\n\nइनबॉक्स: सभी आन... प्रभावशीलता बढ़ाता है और जोखिम कम करता है",
+        "कोई महत्वपूर्ण प्रभाव नहीं",
+        "केवल सैद्धांतिक रूप से मायने रखता है",
+        "केवल एक वैकल्पिक तत्व"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day6",
+        "#hi",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a67206e4784b9a0c0e4",
+      "uuid": "571782ef-da40-43dc-a9d8-4229e8a4539b",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "पाठ में चर्चा किए गए कैप्चर: इनबॉक्स, ट्रिगर सूची, कैप्चर आदतें के संदर्भ में ट्रिगर सूची कितना महत्वपूर्ण है?",
+      "options": [
+        "जैसा कि पाठ में विस्तार से वर्णित है, ट्रिगर सूची प्रक्रियाओं को अनुकूलित करने और लक्ष्यों को प्राप्त करने में महत्वपूर्ण भूमिका निभाता है",
+        "केवल परिधीय जानकारी, कोई महत्वपूर्ण भूमिका नहीं",
+        "केवल एक सैद्धांतिक अवधारणा, कोई व्यावहारिक अनुप्रयोग नहीं",
+        "पाठ में उल्लेख नहीं किया गया"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day6",
+        "#hi",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a67206e4784b9a0c0e5",
+      "uuid": "f0997730-e163-46da-8b91-b843f8d5a771",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "पाठ में चर्चा किए गए कैप्चर: इनबॉक्स, ट्रिगर सूची, कैप्चर आदतें के संदर्भ में परिभाषा कितना महत्वपूर्ण है?",
+      "options": [
+        "जैसा कि पाठ में विस्तार से वर्णित है, परिभाषा प्रक्रियाओं को अनुकूलित करने और लक्ष्यों को प्राप्त करने में महत्वपूर्ण भूमिका निभाता है",
+        "केवल परिधीय जानकारी, कोई महत्वपूर्ण भूमिका नहीं",
+        "केवल एक सैद्धांतिक अवधारणा, कोई व्यावहारिक अनुप्रयोग नहीं",
+        "पाठ में उल्लेख नहीं किया गया"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day6",
+        "#hi",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

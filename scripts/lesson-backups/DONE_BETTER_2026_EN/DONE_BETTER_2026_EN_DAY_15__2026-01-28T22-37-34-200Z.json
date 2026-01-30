@@ -1,0 +1,10 @@
+{
+  "backedUpAt": "2026-01-28T22:37:36.227Z",
+  "courseId": "DONE_BETTER_2026_EN",
+  "lessonId": "DONE_BETTER_2026_EN_DAY_15",
+  "dayNumber": 15,
+  "title": "Done Means Testable",
+  "content": "<h1>Done Means Testable</h1>\n<p><em>If it cannot be tested, it does not exist.</em></p>\n<hr />\n<h2>Learning goal</h2>\n<ul>\n<li>Define done as a testable condition.</li>\n<li>Refuse vague done (e.g. when it feels right).</li>\n<li>Use testability to scope the next move.</li>\n</ul>\n<hr />\n<h2>Why it matters</h2>\n<ul>\n<li>Vague done leads to endless scope creep.</li>\n<li>Testable done enables feedback.</li>\n<li>If it cannot be tested, it does not exist as done.</li>\n</ul>\n<hr />\n<h2>Key idea</h2>\n<p>Done means the outcome can be verified or tested. Refuse vague done. Use testability to scope the next move and to know when to stop.</p>\n<hr />\n<h2>Common mistakes</h2>\n<ul>\n<li>Accepting done without a clear test.</li>\n<li>Moving on before the test is run.</li>\n<li>Defining tests that are too expensive to run.</li>\n</ul>\n<hr />\n<h2>Today's move</h2>\n<p>For your current next move, write the test: \"We are done when [observable condition].\" If you cannot write it, the move is too vague; narrow it.</p>\n<hr />\n<h2>Self-check</h2>\n<ul>\n<li>You can explain the key idea in one sentence.</li>\n<li>You have one concrete move to do today.</li>\n</ul>",
+  "emailSubject": "Done is better – Day {{dayNumber}}: {{lessonTitle}}",
+  "emailBody": "<h1>Done is better - Build What Matters</h1><h2>Day {{dayNumber}}: {{lessonTitle}}</h2><p>{{lessonContent}}</p><p><a href=\"http://localhost:3000/courses/DONE_BETTER_2026_EN/day/{{dayNumber}}\">Open the lesson →</a></p>"
+}

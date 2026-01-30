@@ -1,0 +1,10 @@
+{
+  "backedUpAt": "2026-01-28T22:55:28.671Z",
+  "courseId": "AI_30_DAY_EN",
+  "lessonId": "AI_30_DAY_EN_DAY_16",
+  "dayNumber": 16,
+  "title": "Brainstorming and idea expansion (without rambling)",
+  "content": "<h1>Brainstorming and idea expansion (without rambling)</h1>\n<p><em>Generate options, then converge with filters</em></p>\n<hr />\n<h2>Learning goal</h2>\n<ul>\n<li>Run an expand → cluster → select loop.</li>\n<li>Produce 5–10 ideas and narrow to 3.</li>\n</ul>\n<hr />\n<h2>Why it matters</h2>\n<ul>\n<li>Unstructured brainstorming produces noise.</li>\n<li>Filters keep only feasible ideas.</li>\n</ul>\n<hr />\n<h2>Explanation</h2>\n<ul>\n<li>Prompt 1 (expand): “List 10 ideas for X; keep them specific.”</li>\n<li>Prompt 2 (cluster): “Group by theme; label each cluster.”</li>\n<li>Prompt 3 (select): “Pick top 3 based on criteria A/B/C; explain why.”</li>\n</ul>\n<hr />\n<h2>Examples</h2>\n<ul>\n<li><strong>Good</strong>: 10 ideas → 3 clusters → 3 picks with reasons.</li>\n<li><strong>Poor</strong>: endless list, no selection.</li>\n<hr />\n<h2>Guided exercise (10–15 min)</h2>\n<ol>\n<li>Run expand/cluster/select for a real topic.</li>\n<li>Write the selection criteria (budget/time/impact).</li>\n</ol>\n<h2>Independent exercise (5–10 min)</h2>\n<p>Ask for 2 risks/assumptions for each selected idea.</p>\n<hr />\n<h2>Self-check</h2>\n<ul>\n<li>10 ideas generated.</li>\n<li>Cluster labels present.</li>\n<li>Top 3 chosen with reasons and risks.</li>\n</ul>\n<hr />\n<h2>Optional deepening</h2>\n<ul>\n<li>Brainstorm prompts: <a href=\"https://platform.openai.com/docs/guides/prompt-engineering\" target=\"_blank\" rel=\"noreferrer\">prompt guide</a></li>\n</ul>",
+  "emailSubject": "AI 30-Day – Day 16: Brainstorm & select",
+  "emailBody": "<h1>AI 30-Day – Day 16</h1>\n<h2>Brainstorm & select</h2>\n<p>Today you’ll expand ideas, cluster them, and select top 3 with criteria.</p>\n<p><a href=\"http://localhost:3000/courses/AI_30_DAY_EN/day/{{dayNumber}}\">Open the lesson →</a></p>"
+}

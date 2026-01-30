@@ -1,0 +1,434 @@
+{
+  "generatedAt": "2026-01-28T21:45:18.882Z",
+  "courseFilter": "GEO_SHOPIFY_30",
+  "total": 30,
+  "failed": 4,
+  "results": [
+    {
+      "courseId": "GEO_SHOPIFY_30",
+      "courseName": "GEO Shopify – 30 napos kurzus",
+      "language": "hu",
+      "dayNumber": 1,
+      "lessonId": "GEO_SHOPIFY_30_DAY_01",
+      "title": "Mi a GEO, és mi nem az (Shopify kontextusban)",
+      "createdAt": "2026-01-25T20:02:15.369Z",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "findings": []
+    },
+    {
+      "courseId": "GEO_SHOPIFY_30",
+      "courseName": "GEO Shopify – 30 napos kurzus",
+      "language": "hu",
+      "dayNumber": 2,
+      "lessonId": "GEO_SHOPIFY_30_DAY_02",
+      "title": "GEO vs SEO Shopify-n: mire figyelj?",
+      "createdAt": "2026-01-25T20:02:18.593Z",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "findings": []
+    },
+    {
+      "courseId": "GEO_SHOPIFY_30",
+      "courseName": "GEO Shopify – 30 napos kurzus",
+      "language": "hu",
+      "dayNumber": 3,
+      "lessonId": "GEO_SHOPIFY_30_DAY_03",
+      "title": "Hogyan változtatja meg az AI a vásárlói utat?",
+      "createdAt": "2026-01-25T19:57:26.761Z",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "findings": []
+    },
+    {
+      "courseId": "GEO_SHOPIFY_30",
+      "courseName": "GEO Shopify – 30 napos kurzus",
+      "language": "hu",
+      "dayNumber": 4,
+      "lessonId": "GEO_SHOPIFY_30_DAY_04",
+      "title": "„Sell in chat\": befolyás vs tranzakció",
+      "createdAt": "2026-01-25T19:58:01.154Z",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "findings": []
+    },
+    {
+      "courseId": "GEO_SHOPIFY_30",
+      "courseName": "GEO Shopify – 30 napos kurzus",
+      "language": "hu",
+      "dayNumber": 5,
+      "lessonId": "GEO_SHOPIFY_30_DAY_05",
+      "title": "Platform térkép: ChatGPT, Copilot, Google AI",
+      "createdAt": "2026-01-25T19:58:26.661Z",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "findings": []
+    },
+    {
+      "courseId": "GEO_SHOPIFY_30",
+      "courseName": "GEO Shopify – 30 napos kurzus",
+      "language": "hu",
+      "dayNumber": 6,
+      "lessonId": "GEO_SHOPIFY_30_DAY_06",
+      "title": "Sikerdefiníció: GEO prompt set + KPI-k",
+      "createdAt": "2026-01-25T20:00:24.990Z",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "findings": []
+    },
+    {
+      "courseId": "GEO_SHOPIFY_30",
+      "courseName": "GEO Shopify – 30 napos kurzus",
+      "language": "hu",
+      "dayNumber": 7,
+      "lessonId": "GEO_SHOPIFY_30_DAY_07",
+      "title": "Shopify termékadat audit: cím, leírás, variánsok",
+      "createdAt": "2026-01-25T20:00:42.422Z",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "findings": []
+    },
+    {
+      "courseId": "GEO_SHOPIFY_30",
+      "courseName": "GEO Shopify – 30 napos kurzus",
+      "language": "hu",
+      "dayNumber": 8,
+      "lessonId": "GEO_SHOPIFY_30_DAY_08",
+      "title": "Miért fontos a feed és az „offer truth\"",
+      "createdAt": "2026-01-25T20:01:02.333Z",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "findings": []
+    },
+    {
+      "courseId": "GEO_SHOPIFY_30",
+      "courseName": "GEO Shopify – 30 napos kurzus",
+      "language": "hu",
+      "dayNumber": 9,
+      "lessonId": "GEO_SHOPIFY_30_DAY_09",
+      "title": "Azonosítók rendben: SKU, GTIN, brand, variáns",
+      "createdAt": "2026-01-25T20:02:25.532Z",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "findings": []
+    },
+    {
+      "courseId": "GEO_SHOPIFY_30",
+      "courseName": "GEO Shopify – 30 napos kurzus",
+      "language": "hu",
+      "dayNumber": 10,
+      "lessonId": "GEO_SHOPIFY_30_DAY_10",
+      "title": "Szállítás és visszaküldés: egyértelműség",
+      "createdAt": "2026-01-25T20:03:17.066Z",
+      "ok": false,
+      "errors": [
+        "Language integrity failed for lesson.content: detected injected English sentence(s) in HU."
+      ],
+      "warnings": [],
+      "findings": [
+        {
+          "label": "HU: English sentence/bullet detected",
+          "snippet": "Ha a feed támogatja, ugyanez az információ legyen a feed-ben is, hogy a feed és a PDP egyezzen."
+        }
+      ]
+    },
+    {
+      "courseId": "GEO_SHOPIFY_30",
+      "courseName": "GEO Shopify – 30 napos kurzus",
+      "language": "hu",
+      "dayNumber": 11,
+      "lessonId": "GEO_SHOPIFY_30_DAY_11",
+      "title": "Bizalom és bizonyíték: identity, support, proof",
+      "createdAt": "2026-01-25T20:03:56.107Z",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "findings": []
+    },
+    {
+      "courseId": "GEO_SHOPIFY_30",
+      "courseName": "GEO Shopify – 30 napos kurzus",
+      "language": "hu",
+      "dayNumber": 12,
+      "lessonId": "GEO_SHOPIFY_30_DAY_12",
+      "title": "Merchant readiness checklist: top 10 javítás",
+      "createdAt": "2026-01-25T20:04:22.773Z",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "findings": []
+    },
+    {
+      "courseId": "GEO_SHOPIFY_30",
+      "courseName": "GEO Shopify – 30 napos kurzus",
+      "language": "hu",
+      "dayNumber": 13,
+      "lessonId": "GEO_SHOPIFY_30_DAY_13",
+      "title": "Idézhető termékoldal blueprint",
+      "createdAt": "2026-01-25T20:04:44.880Z",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "findings": []
+    },
+    {
+      "courseId": "GEO_SHOPIFY_30",
+      "courseName": "GEO Shopify – 30 napos kurzus",
+      "language": "hu",
+      "dayNumber": 14,
+      "lessonId": "GEO_SHOPIFY_30_DAY_14",
+      "title": "Answer capsule: 5 soros összegzés a PDP tetején",
+      "createdAt": "2026-01-25T20:05:05.690Z",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "findings": []
+    },
+    {
+      "courseId": "GEO_SHOPIFY_30",
+      "courseName": "GEO Shopify – 30 napos kurzus",
+      "language": "hu",
+      "dayNumber": 15,
+      "lessonId": "GEO_SHOPIFY_30_DAY_15",
+      "title": "Variáns tisztaság: méret/szín keveredés nélkül",
+      "createdAt": "2026-01-25T20:05:32.777Z",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "findings": []
+    },
+    {
+      "courseId": "GEO_SHOPIFY_30",
+      "courseName": "GEO Shopify – 30 napos kurzus",
+      "language": "hu",
+      "dayNumber": 16,
+      "lessonId": "GEO_SHOPIFY_30_DAY_16",
+      "title": "Kollekció-oldal mint guide, nem csak grid",
+      "createdAt": "2026-01-25T20:06:04.560Z",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "findings": []
+    },
+    {
+      "courseId": "GEO_SHOPIFY_30",
+      "courseName": "GEO Shopify – 30 napos kurzus",
+      "language": "hu",
+      "dayNumber": 17,
+      "lessonId": "GEO_SHOPIFY_30_DAY_17",
+      "title": "Strukturált adatok ellenőrzése (schema)",
+      "createdAt": "2026-01-25T20:06:30.626Z",
+      "ok": false,
+      "errors": [
+        "Language integrity failed for lesson.content: detected injected English sentence(s) in HU."
+      ],
+      "warnings": [],
+      "findings": [
+        {
+          "label": "HU: English sentence/bullet detected",
+          "snippet": "review – valós review-k (ha vannak)"
+        },
+        {
+          "label": "HU: English sentence/bullet detected",
+          "snippet": "Review-k (ha vannak)"
+        }
+      ]
+    },
+    {
+      "courseId": "GEO_SHOPIFY_30",
+      "courseName": "GEO Shopify – 30 napos kurzus",
+      "language": "hu",
+      "dayNumber": 18,
+      "lessonId": "GEO_SHOPIFY_30_DAY_18",
+      "title": "Árak, ajánlatok, review-k biztonságosan",
+      "createdAt": "2026-01-25T20:07:10.060Z",
+      "ok": false,
+      "errors": [
+        "Language integrity failed for lesson.content: detected injected English sentence(s) in HU."
+      ],
+      "warnings": [],
+      "findings": [
+        {
+          "label": "HU: English sentence/bullet detected",
+          "snippet": "Review blokk átnézése:"
+        },
+        {
+          "label": "HU: English sentence/bullet detected",
+          "snippet": "Review-k (valós, ellenőrizhető)"
+        }
+      ]
+    },
+    {
+      "courseId": "GEO_SHOPIFY_30",
+      "courseName": "GEO Shopify – 30 napos kurzus",
+      "language": "hu",
+      "dayNumber": 19,
+      "lessonId": "GEO_SHOPIFY_30_DAY_19",
+      "title": "Képek és videó GEO: alt, fájlnév, variáns vizuál",
+      "createdAt": "2026-01-25T20:07:42.751Z",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "findings": []
+    },
+    {
+      "courseId": "GEO_SHOPIFY_30",
+      "courseName": "GEO Shopify – 30 napos kurzus",
+      "language": "hu",
+      "dayNumber": 20,
+      "lessonId": "GEO_SHOPIFY_30_DAY_20",
+      "title": "Minimum tartalom: nincs „thin\" PDP",
+      "createdAt": "2026-01-25T20:08:13.912Z",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "findings": []
+    },
+    {
+      "courseId": "GEO_SHOPIFY_30",
+      "courseName": "GEO Shopify – 30 napos kurzus",
+      "language": "hu",
+      "dayNumber": 21,
+      "lessonId": "GEO_SHOPIFY_30_DAY_21",
+      "title": "Prompt intent térkép: best / vs / alternatives / policy",
+      "createdAt": "2026-01-25T20:08:57.527Z",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "findings": []
+    },
+    {
+      "courseId": "GEO_SHOPIFY_30",
+      "courseName": "GEO Shopify – 30 napos kurzus",
+      "language": "hu",
+      "dayNumber": 22,
+      "lessonId": "GEO_SHOPIFY_30_DAY_22",
+      "title": "Buying guide: AI-barát szerkezet",
+      "createdAt": "2026-01-25T20:09:34.506Z",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "findings": []
+    },
+    {
+      "courseId": "GEO_SHOPIFY_30",
+      "courseName": "GEO Shopify – 30 napos kurzus",
+      "language": "hu",
+      "dayNumber": 23,
+      "lessonId": "GEO_SHOPIFY_30_DAY_23",
+      "title": "Összehasonlító oldalak: őszinte tradeoff",
+      "createdAt": "2026-01-25T20:10:18.564Z",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "findings": []
+    },
+    {
+      "courseId": "GEO_SHOPIFY_30",
+      "courseName": "GEO Shopify – 30 napos kurzus",
+      "language": "hu",
+      "dayNumber": 24,
+      "lessonId": "GEO_SHOPIFY_30_DAY_24",
+      "title": "Use-case landing: ajándék, szezon, sport, budget",
+      "createdAt": "2026-01-25T20:12:28.037Z",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "findings": []
+    },
+    {
+      "courseId": "GEO_SHOPIFY_30",
+      "courseName": "GEO Shopify – 30 napos kurzus",
+      "language": "hu",
+      "dayNumber": 25,
+      "lessonId": "GEO_SHOPIFY_30_DAY_25",
+      "title": "Off-site GEO: mikor segít, mikor árt",
+      "createdAt": "2026-01-25T20:12:58.081Z",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "findings": []
+    },
+    {
+      "courseId": "GEO_SHOPIFY_30",
+      "courseName": "GEO Shopify – 30 napos kurzus",
+      "language": "hu",
+      "dayNumber": 26,
+      "lessonId": "GEO_SHOPIFY_30_DAY_26",
+      "title": "Anti-spam és minőség: AI-asszisztált tartalom",
+      "createdAt": "2026-01-25T20:16:03.021Z",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "findings": []
+    },
+    {
+      "courseId": "GEO_SHOPIFY_30",
+      "courseName": "GEO Shopify – 30 napos kurzus",
+      "language": "hu",
+      "dayNumber": 27,
+      "lessonId": "GEO_SHOPIFY_30_DAY_27",
+      "title": "Feed műveletek: frissítés, monitor, hibakezelés",
+      "createdAt": "2026-01-25T20:16:29.971Z",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "findings": []
+    },
+    {
+      "courseId": "GEO_SHOPIFY_30",
+      "courseName": "GEO Shopify – 30 napos kurzus",
+      "language": "hu",
+      "dayNumber": 28,
+      "lessonId": "GEO_SHOPIFY_30_DAY_28",
+      "title": "Merchant programok: jogosultság és onboarding",
+      "createdAt": "2026-01-25T20:16:56.287Z",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "findings": []
+    },
+    {
+      "courseId": "GEO_SHOPIFY_30",
+      "courseName": "GEO Shopify – 30 napos kurzus",
+      "language": "hu",
+      "dayNumber": 29,
+      "lessonId": "GEO_SHOPIFY_30_DAY_29",
+      "title": "Mérési rendszer: heti GEO futtatás és riport",
+      "createdAt": "2026-01-25T20:17:25.094Z",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "findings": []
+    },
+    {
+      "courseId": "GEO_SHOPIFY_30",
+      "courseName": "GEO Shopify – 30 napos kurzus",
+      "language": "hu",
+      "dayNumber": 30,
+      "lessonId": "GEO_SHOPIFY_30_DAY_30",
+      "title": "Capstone sprint: 1 kollekció teljes GEO ciklus",
+      "createdAt": "2026-01-25T20:17:51.893Z",
+      "ok": false,
+      "errors": [
+        "Language integrity failed for lesson.content: detected injected English sentence(s) in HU."
+      ],
+      "warnings": [],
+      "findings": [
+        {
+          "label": "HU: English sentence/bullet detected",
+          "snippet": "Alkalmazd a blueprintet és a kapszulát mind a 10 termékre."
+        }
+      ]
+    }
+  ]
+}

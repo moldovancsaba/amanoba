@@ -1,0 +1,177 @@
+{
+  "backedUpAt": "2026-01-28T21:07:55.618Z",
+  "course": {
+    "courseId": "SALES_PRODUCTIVITY_30_RU",
+    "name": "Постройте свои продажи – 30 дней к большему количеству сделок",
+    "language": "ru"
+  },
+  "lesson": {
+    "dayNumber": 9,
+    "title": "Скоринг лидов и приоритизация – Какой лид обработать первым?",
+    "lessonId": "SALES_PRODUCTIVITY_30_RU_DAY_09"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a5583229aca24a6d672",
+      "uuid": "c7fa2a38-c268-4e03-8ef0-92b7cc4e0092",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Оптимизация времени:\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day9",
+        "#ru",
+        "#all-languages",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5583229aca24a6d673",
+      "uuid": "d6d94b6f-354f-493a-a130-7b1b7ab5b4e9",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Лучшая конверсия:\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day9",
+        "#ru",
+        "#all-languages",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5583229aca24a6d674",
+      "uuid": "0951e51e-ecf9-4ee0-85ce-2e0d05fab2ff",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Лучшее прогнозирование:\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day9",
+        "#ru",
+        "#all-languages",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5583229aca24a6d675",
+      "uuid": "7ad49929-7ea3-4328-b34b-508331909142",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Как концепция \"Скоринг лидов и приоритизация – Какой лид обработа...\", упомянутая в уроке, влияет на достижение ваших goals?",
+      "options": [
+        "Как подробно описано в уроке, Скоринг лидов и приоритизация ... повышает эффективность и снижает риски",
+        "Нет значительного влияния",
+        "Имеет значение только теоретически",
+        "Только опциональный элемент"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day9",
+        "#ru",
+        "#all-languages",
+        "#productivity",
+        "#sales",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5583229aca24a6d676",
+      "uuid": "196f80f6-09df-4c44-aeae-9c2be16b7a89",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Какую роль играет Лучшая конверсия: в уроке \"Скоринг лидов и приоритизация – Какой лид обработать первым?\"?",
+      "options": [
+        "Как подробно описано в уроке, Лучшая конверсия: играет ключевую роль в оптимизации процессов и достижении целей",
+        "Только периферийная информация без значительной роли",
+        "Только теоретическая концепция без практического применения",
+        "Не упоминается в уроке"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day9",
+        "#ru",
+        "#all-languages",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5583229aca24a6d677",
+      "uuid": "55194190-8d45-4816-bfa0-5c3b6e595905",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Какую роль играет Снижение стресса: в уроке \"Скоринг лидов и приоритизация – Какой лид обработать первым?\"?",
+      "options": [
+        "Как подробно описано в уроке, Снижение стресса: играет ключевую роль в оптимизации процессов и достижении целей",
+        "Только периферийная информация без значительной роли",
+        "Только теоретическая концепция без практического применения",
+        "Не упоминается в уроке"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day9",
+        "#ru",
+        "#all-languages",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a5583229aca24a6d678",
+      "uuid": "388d43e0-d9a3-45c5-9d8d-54eba44f82df",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Какую роль играет Сила потребности в уроке \"Скоринг лидов и приоритизация – Какой лид обработать первым?\"?",
+      "options": [
+        "Как подробно описано в уроке, Сила потребности играет ключевую роль в оптимизации процессов и достижении целей",
+        "Только периферийная информация без значительной роли",
+        "Только теоретическая концепция без практического применения",
+        "Не упоминается в уроке"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day9",
+        "#ru",
+        "#all-languages",
+        "#productivity",
+        "#sales",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

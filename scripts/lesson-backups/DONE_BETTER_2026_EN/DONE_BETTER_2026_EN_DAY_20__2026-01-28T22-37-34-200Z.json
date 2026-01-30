@@ -1,0 +1,10 @@
+{
+  "backedUpAt": "2026-01-28T22:37:36.402Z",
+  "courseId": "DONE_BETTER_2026_EN",
+  "lessonId": "DONE_BETTER_2026_EN_DAY_20",
+  "dayNumber": 20,
+  "title": "Pivot Without Drama",
+  "content": "<h1>Pivot Without Drama</h1>\n<p><em>Changing direction is strength, not failure.</em></p>\n<hr />\n<h2>Learning goal</h2>\n<ul>\n<li>Recognize when evidence says to change direction.</li>\n<li>Pivot without blame or drama.</li>\n<li>Update the plan and the next move; do not hide the pivot.</li>\n</ul>\n<hr />\n<h2>Why it matters</h2>\n<ul>\n<li>Sticking to a wrong plan is failure.</li>\n<li>Pivoting is learning.</li>\n<li>Transparency about pivot builds trust.</li>\n</ul>\n<hr />\n<h2>Key idea</h2>\n<p>Pivot means changing direction based on evidence without treating it as failure. Update the plan and the next move; do not hide the pivot. Changing direction is strength.</p>\n<hr />\n<h2>Common mistakes</h2>\n<ul>\n<li>Treating pivot as failure.</li>\n<li>Sticking to the plan when it is clearly wrong.</li>\n<li>Pivoting without learning (same mistake in new direction).</li>\n</ul>\n<hr />\n<h2>Today's move</h2>\n<p>If you have evidence that one plan is wrong, state it in one sentence. Propose the pivot and the new next move. Share with one stakeholder.</p>\n<hr />\n<h2>Self-check</h2>\n<ul>\n<li>You can explain the key idea in one sentence.</li>\n<li>You have one concrete move to do today.</li>\n</ul>",
+  "emailSubject": "Done is better – Day {{dayNumber}}: {{lessonTitle}}",
+  "emailBody": "<h1>Done is better - Build What Matters</h1><h2>Day {{dayNumber}}: {{lessonTitle}}</h2><p>{{lessonContent}}</p><p><a href=\"http://localhost:3000/courses/DONE_BETTER_2026_EN/day/{{dayNumber}}\">Open the lesson →</a></p>"
+}

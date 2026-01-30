@@ -1,0 +1,68 @@
+{
+  "backedUpAt": "2026-01-29T17:00:27.134Z",
+  "course": {
+    "courseId": "B2B_SALES_2026_30",
+    "name": "B2B Értékesítés 2026 Masterclass",
+    "language": "hu"
+  },
+  "lesson": {
+    "dayNumber": 23,
+    "title": "Integrációk és adatáramlás alapok",
+    "lessonId": "B2B_SALES_2026_30_DAY_23"
+  },
+  "questionCount": 4,
+  "questions": [
+    {
+      "_id": "697b2043ac79ca83bb97229e",
+      "difficulty": "MEDIUM",
+      "question": "Miért fontos a deduplikáció?",
+      "options": [
+        "Mert szebb a CRM",
+        "Hogy ne legyen duplikált contact és hibás riport",
+        "Mert olcsóbb a licenc",
+        "Mert így több email megy ki"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b2043ac79ca83bb97229f",
+      "difficulty": "MEDIUM",
+      "question": "Mi a jó adatút példa?",
+      "options": [
+        "Form → webhook → enrichment → dedup → CRM + activity log",
+        "CSV export → email → manuális import",
+        "Slack üzenet → semmi",
+        "Random táblázat → semmi"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b2043ac79ca83bb9722a0",
+      "difficulty": "MEDIUM",
+      "question": "Mi a kötelező mező tipikus listája?",
+      "options": [
+        "Forrás, tulajdonos, next step",
+        "Emoji, fotó, hangulat",
+        "Csak név",
+        "Csak telefonszám"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b2043ac79ca83bb9722a1",
+      "difficulty": "MEDIUM",
+      "question": "Mi az enrichment célja?",
+      "options": [
+        "Díszítés",
+        "Adatminőség javítása (iparág, cégméret, domain)",
+        "Szórakoztatás",
+        "Ár emelése"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    }
+  ]
+}

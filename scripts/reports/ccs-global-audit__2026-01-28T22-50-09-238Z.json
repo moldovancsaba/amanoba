@@ -1,0 +1,2094 @@
+{
+  "generatedAt": "2026-01-28T22:50:10.080Z",
+  "env": "production (via .env.local)",
+  "filters": {
+    "ccsId": null,
+    "courseId": "DONE_BETTER_2026_EN",
+    "minLessonScore": 70,
+    "includeInactive": false
+  },
+  "totals": {
+    "ccsFamilies": 7,
+    "courses": 1,
+    "coursesMissingCcsId": 0,
+    "coursesMissingCcsIdMappedToKnownCcs": 0,
+    "coursesMissingCcsIdUnmapped": 0,
+    "coursesWithStructuralErrors": 0,
+    "coursesWithStructuralWarnings": 0,
+    "coursesFailingCatalogLanguageIntegrity": 0,
+    "lessons": 30,
+    "duplicateDayLessonGroups": 0,
+    "missingLessonDayEntries": 0,
+    "lessonsFailingLanguageIntegrity": 0,
+    "lessonsBelowQualityThreshold": 27,
+    "lessonsWithQuizErrors": 26,
+    "duplicateQuestionSets": 0,
+    "duplicateQuestionsToDelete": 0,
+    "invalidQuestions": 61,
+    "lessonsGeneratorInsufficient": 0
+  },
+  "ccs": [
+    {
+      "ccsId": "PRODUCTIVITY_2026",
+      "name": "PRODUCTIVITY_2026",
+      "ideaPresent": true,
+      "outlinePresent": true,
+      "relatedDocumentsCount": 0,
+      "courses": []
+    },
+    {
+      "ccsId": "GEO_SHOPIFY_30",
+      "name": "GEO_SHOPIFY_30",
+      "ideaPresent": true,
+      "outlinePresent": true,
+      "relatedDocumentsCount": 0,
+      "courses": []
+    },
+    {
+      "ccsId": "AI_30_DAY",
+      "name": "AI_30_DAY",
+      "ideaPresent": true,
+      "outlinePresent": true,
+      "relatedDocumentsCount": 0,
+      "courses": []
+    },
+    {
+      "ccsId": "B2B_SALES_2026_30",
+      "name": "B2B_SALES_2026_30",
+      "ideaPresent": true,
+      "outlinePresent": true,
+      "relatedDocumentsCount": 0,
+      "courses": []
+    },
+    {
+      "ccsId": "PLAYBOOK_2026_30",
+      "name": "PLAYBOOK_2026_30",
+      "ideaPresent": true,
+      "outlinePresent": true,
+      "relatedDocumentsCount": 0,
+      "courses": []
+    },
+    {
+      "ccsId": "SALES_PRODUCTIVITY_30",
+      "name": "SALES_PRODUCTIVITY_30",
+      "ideaPresent": true,
+      "outlinePresent": true,
+      "relatedDocumentsCount": 0,
+      "courses": []
+    },
+    {
+      "ccsId": "DONE_BETTER_2026",
+      "name": "Done is better - Build What Matters",
+      "ideaPresent": true,
+      "outlinePresent": true,
+      "relatedDocumentsCount": 0,
+      "courses": [
+        {
+          "course": {
+            "courseId": "DONE_BETTER_2026_EN",
+            "name": "Done is better - Build What Matters",
+            "description": "This course trains you to think like a problem-solver, not a task-doer. You will learn how to break any complex situation into elemental parts, choose the right move, ship small, test fast, and speak the truth without distortion. Built on Pólya's thinking framework and modern delivery culture, this is a 30-day mental reset for founders, leaders, and builders who are tired of being busy and want to become effective. You will not \"consume content.\" You will think, decide, and deliver.",
+            "language": "en",
+            "isActive": true,
+            "isDraft": false,
+            "requiresPremium": false,
+            "durationDays": 30,
+            "parentCourseId": null,
+            "courseVariant": null,
+            "structuralErrors": [],
+            "structuralWarnings": [],
+            "catalogLanguageIntegrity": {
+              "ok": true,
+              "errors": [],
+              "warnings": [],
+              "findings": []
+            },
+            "inferredCcsId": null,
+            "duplicateDayGroups": [],
+            "missingDays": [],
+            "lessonsAudited": 30,
+            "lessonsWithErrors": 30
+          },
+          "lessons": [
+            {
+              "dayNumber": 1,
+              "lessonId": "DONE_BETTER_2026_EN_DAY_01",
+              "title": "Welcome to Real Thinking",
+              "createdAt": "2026-01-28T19:32:32.725Z",
+              "lessonQuality": {
+                "score": 50,
+                "issues": [
+                  "TOO_SHORT",
+                  "NO_CONTRASTS_GOOD_BAD",
+                  "NO_METRICS_OR_CRITERIA"
+                ],
+                "signals": {
+                  "charCount": 931,
+                  "wordCount": 152,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": false,
+                  "hasMetricsOrCriteria": false,
+                  "hasDefinitionsOrComparisons": true
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": false,
+                  "addChecklistSection": false,
+                  "addExamplesSection": true,
+                  "addPitfallsSection": true,
+                  "addMetricsSection": true
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 7,
+                "validExisting": 7,
+                "invalidExisting": 0,
+                "application": 4,
+                "critical": 3,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [
+                "LESSON_QUALITY_BELOW_THRESHOLD",
+                "QUIZ_TOO_FEW_APPLICATION"
+              ],
+              "warnings": []
+            },
+            {
+              "dayNumber": 2,
+              "lessonId": "DONE_BETTER_2026_EN_DAY_02",
+              "title": "What Is a Problem, Really?",
+              "createdAt": "2026-01-28T19:32:33.628Z",
+              "lessonQuality": {
+                "score": 75,
+                "issues": [
+                  "NO_CONTRASTS_GOOD_BAD",
+                  "NO_METRICS_OR_CRITERIA"
+                ],
+                "signals": {
+                  "charCount": 1526,
+                  "wordCount": 254,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": false,
+                  "hasMetricsOrCriteria": false,
+                  "hasDefinitionsOrComparisons": true
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": false,
+                  "addChecklistSection": false,
+                  "addExamplesSection": true,
+                  "addPitfallsSection": true,
+                  "addMetricsSection": true
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 7,
+                "validExisting": 6,
+                "invalidExisting": 1,
+                "application": 4,
+                "critical": 2,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [
+                  {
+                    "_id": "697a9291ff2aef877f52463d",
+                    "firstError": "Option 1 is too short (22 chars). Options must be detailed and educational."
+                  }
+                ],
+                "duplicateSamples": []
+              },
+              "generator": {
+                "attempted": true,
+                "generateTarget": 40,
+                "validatedNew": 15,
+                "canSatisfyMinimums": true,
+                "reasonIfNot": null
+              },
+              "errors": [
+                "QUIZ_TOO_FEW_VALID",
+                "QUIZ_TOO_FEW_APPLICATION",
+                "QUIZ_HAS_INVALID_QUESTIONS"
+              ],
+              "warnings": []
+            },
+            {
+              "dayNumber": 3,
+              "lessonId": "DONE_BETTER_2026_EN_DAY_03",
+              "title": "Understand Before You Move",
+              "createdAt": "2026-01-28T19:32:34.387Z",
+              "lessonQuality": {
+                "score": 35,
+                "issues": [
+                  "TOO_SHORT",
+                  "NO_EXAMPLES",
+                  "NO_CONTRASTS_GOOD_BAD",
+                  "NO_METRICS_OR_CRITERIA"
+                ],
+                "signals": {
+                  "charCount": 907,
+                  "wordCount": 147,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": false,
+                  "hasGoodBadContrast": false,
+                  "hasMetricsOrCriteria": false,
+                  "hasDefinitionsOrComparisons": true
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": false,
+                  "addChecklistSection": false,
+                  "addExamplesSection": true,
+                  "addPitfallsSection": true,
+                  "addMetricsSection": true
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 7,
+                "validExisting": 7,
+                "invalidExisting": 0,
+                "application": 5,
+                "critical": 2,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [
+                "LESSON_QUALITY_BELOW_THRESHOLD"
+              ],
+              "warnings": []
+            },
+            {
+              "dayNumber": 4,
+              "lessonId": "DONE_BETTER_2026_EN_DAY_04",
+              "title": "Unknowns Are Assets",
+              "createdAt": "2026-01-28T19:32:34.504Z",
+              "lessonQuality": {
+                "score": 20,
+                "issues": [
+                  "TOO_SHORT",
+                  "NO_CLEAR_DEFINITIONS",
+                  "NO_EXAMPLES",
+                  "NO_CONTRASTS_GOOD_BAD",
+                  "NO_METRICS_OR_CRITERIA"
+                ],
+                "signals": {
+                  "charCount": 884,
+                  "wordCount": 156,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": false,
+                  "hasGoodBadContrast": false,
+                  "hasMetricsOrCriteria": false,
+                  "hasDefinitionsOrComparisons": false
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": true,
+                  "addChecklistSection": false,
+                  "addExamplesSection": true,
+                  "addPitfallsSection": true,
+                  "addMetricsSection": true
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 7,
+                "validExisting": 5,
+                "invalidExisting": 2,
+                "application": 3,
+                "critical": 2,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [
+                  {
+                    "_id": "697a9291ff2aef877f52468b",
+                    "firstError": "Question too short (30 chars, minimum 40). Must provide full context."
+                  },
+                  {
+                    "_id": "697a9291ff2aef877f524691",
+                    "firstError": "Question too short (32 chars, minimum 40). Must provide full context."
+                  }
+                ],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [
+                "LESSON_QUALITY_BELOW_THRESHOLD",
+                "QUIZ_TOO_FEW_VALID",
+                "QUIZ_TOO_FEW_APPLICATION",
+                "QUIZ_HAS_INVALID_QUESTIONS"
+              ],
+              "warnings": []
+            },
+            {
+              "dayNumber": 5,
+              "lessonId": "DONE_BETTER_2026_EN_DAY_05",
+              "title": "Rewriting the Problem",
+              "createdAt": "2026-01-28T19:32:34.623Z",
+              "lessonQuality": {
+                "score": 45,
+                "issues": [
+                  "NO_CLEAR_DEFINITIONS",
+                  "NO_EXAMPLES",
+                  "NO_CONTRASTS_GOOD_BAD",
+                  "NO_METRICS_OR_CRITERIA"
+                ],
+                "signals": {
+                  "charCount": 1175,
+                  "wordCount": 194,
+                  "hasBullets": true,
+                  "hasNumberedSteps": true,
+                  "hasExamples": false,
+                  "hasGoodBadContrast": false,
+                  "hasMetricsOrCriteria": false,
+                  "hasDefinitionsOrComparisons": false
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": true,
+                  "addChecklistSection": false,
+                  "addExamplesSection": true,
+                  "addPitfallsSection": true,
+                  "addMetricsSection": true
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 7,
+                "validExisting": 6,
+                "invalidExisting": 1,
+                "application": 4,
+                "critical": 2,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [
+                  {
+                    "_id": "697a9292ff2aef877f52469e",
+                    "firstError": "Question too short (36 chars, minimum 40). Must provide full context."
+                  }
+                ],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [
+                "LESSON_QUALITY_BELOW_THRESHOLD",
+                "QUIZ_TOO_FEW_VALID",
+                "QUIZ_TOO_FEW_APPLICATION",
+                "QUIZ_HAS_INVALID_QUESTIONS"
+              ],
+              "warnings": []
+            },
+            {
+              "dayNumber": 6,
+              "lessonId": "DONE_BETTER_2026_EN_DAY_06",
+              "title": "Decompose Everything",
+              "createdAt": "2026-01-28T19:32:34.717Z",
+              "lessonQuality": {
+                "score": 45,
+                "issues": [
+                  "NO_CLEAR_DEFINITIONS",
+                  "NO_EXAMPLES",
+                  "NO_CONTRASTS_GOOD_BAD",
+                  "NO_METRICS_OR_CRITERIA"
+                ],
+                "signals": {
+                  "charCount": 1188,
+                  "wordCount": 188,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": false,
+                  "hasGoodBadContrast": false,
+                  "hasMetricsOrCriteria": false,
+                  "hasDefinitionsOrComparisons": false
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": true,
+                  "addChecklistSection": false,
+                  "addExamplesSection": true,
+                  "addPitfallsSection": true,
+                  "addMetricsSection": true
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 7,
+                "validExisting": 7,
+                "invalidExisting": 0,
+                "application": 5,
+                "critical": 2,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [
+                "LESSON_QUALITY_BELOW_THRESHOLD"
+              ],
+              "warnings": []
+            },
+            {
+              "dayNumber": 7,
+              "lessonId": "DONE_BETTER_2026_EN_DAY_07",
+              "title": "Find the Leverage Point",
+              "createdAt": "2026-01-28T19:32:34.807Z",
+              "lessonQuality": {
+                "score": 20,
+                "issues": [
+                  "TOO_SHORT",
+                  "NO_CLEAR_DEFINITIONS",
+                  "NO_EXAMPLES",
+                  "NO_CONTRASTS_GOOD_BAD",
+                  "NO_METRICS_OR_CRITERIA"
+                ],
+                "signals": {
+                  "charCount": 924,
+                  "wordCount": 148,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": false,
+                  "hasGoodBadContrast": false,
+                  "hasMetricsOrCriteria": false,
+                  "hasDefinitionsOrComparisons": false
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": true,
+                  "addChecklistSection": false,
+                  "addExamplesSection": true,
+                  "addPitfallsSection": true,
+                  "addMetricsSection": true
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 7,
+                "validExisting": 7,
+                "invalidExisting": 0,
+                "application": 5,
+                "critical": 2,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [
+                "LESSON_QUALITY_BELOW_THRESHOLD"
+              ],
+              "warnings": []
+            },
+            {
+              "dayNumber": 8,
+              "lessonId": "DONE_BETTER_2026_EN_DAY_08",
+              "title": "Plans Are Hypotheses",
+              "createdAt": "2026-01-28T19:32:34.921Z",
+              "lessonQuality": {
+                "score": 45,
+                "issues": [
+                  "NO_CLEAR_DEFINITIONS",
+                  "NO_EXAMPLES",
+                  "NO_CONTRASTS_GOOD_BAD",
+                  "NO_METRICS_OR_CRITERIA"
+                ],
+                "signals": {
+                  "charCount": 1078,
+                  "wordCount": 198,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": false,
+                  "hasGoodBadContrast": false,
+                  "hasMetricsOrCriteria": false,
+                  "hasDefinitionsOrComparisons": false
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": true,
+                  "addChecklistSection": false,
+                  "addExamplesSection": true,
+                  "addPitfallsSection": true,
+                  "addMetricsSection": true
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 7,
+                "validExisting": 5,
+                "invalidExisting": 2,
+                "application": 3,
+                "critical": 2,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [
+                  {
+                    "_id": "697a9292ff2aef877f5246c1",
+                    "firstError": "Option 3 is too short (17 chars). Options must be detailed and educational."
+                  },
+                  {
+                    "_id": "697a9292ff2aef877f5246c4",
+                    "firstError": "Option 4 is too short (21 chars). Options must be detailed and educational."
+                  }
+                ],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [
+                "LESSON_QUALITY_BELOW_THRESHOLD",
+                "QUIZ_TOO_FEW_VALID",
+                "QUIZ_TOO_FEW_APPLICATION",
+                "QUIZ_HAS_INVALID_QUESTIONS"
+              ],
+              "warnings": []
+            },
+            {
+              "dayNumber": 9,
+              "lessonId": "DONE_BETTER_2026_EN_DAY_09",
+              "title": "Think in Moves, Not Projects",
+              "createdAt": "2026-01-28T19:32:35.007Z",
+              "lessonQuality": {
+                "score": 60,
+                "issues": [
+                  "NO_EXAMPLES",
+                  "NO_CONTRASTS_GOOD_BAD",
+                  "NO_METRICS_OR_CRITERIA"
+                ],
+                "signals": {
+                  "charCount": 1082,
+                  "wordCount": 185,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": false,
+                  "hasGoodBadContrast": false,
+                  "hasMetricsOrCriteria": false,
+                  "hasDefinitionsOrComparisons": true
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": false,
+                  "addChecklistSection": false,
+                  "addExamplesSection": true,
+                  "addPitfallsSection": true,
+                  "addMetricsSection": true
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 7,
+                "validExisting": 6,
+                "invalidExisting": 1,
+                "application": 5,
+                "critical": 1,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [
+                  {
+                    "_id": "697a9292ff2aef877f5246cf",
+                    "firstError": "Question too short (26 chars, minimum 40). Must provide full context."
+                  }
+                ],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [
+                "LESSON_QUALITY_BELOW_THRESHOLD",
+                "QUIZ_TOO_FEW_VALID",
+                "QUIZ_HAS_INVALID_QUESTIONS"
+              ],
+              "warnings": []
+            },
+            {
+              "dayNumber": 10,
+              "lessonId": "DONE_BETTER_2026_EN_DAY_10",
+              "title": "Analogy as a Weapon",
+              "createdAt": "2026-01-28T19:32:35.381Z",
+              "lessonQuality": {
+                "score": 20,
+                "issues": [
+                  "TOO_SHORT",
+                  "NO_CLEAR_DEFINITIONS",
+                  "NO_EXAMPLES",
+                  "NO_CONTRASTS_GOOD_BAD",
+                  "NO_METRICS_OR_CRITERIA"
+                ],
+                "signals": {
+                  "charCount": 910,
+                  "wordCount": 141,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": false,
+                  "hasGoodBadContrast": false,
+                  "hasMetricsOrCriteria": false,
+                  "hasDefinitionsOrComparisons": false
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": true,
+                  "addChecklistSection": false,
+                  "addExamplesSection": true,
+                  "addPitfallsSection": true,
+                  "addMetricsSection": true
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 7,
+                "validExisting": 3,
+                "invalidExisting": 4,
+                "application": 2,
+                "critical": 1,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [
+                  {
+                    "_id": "697a9292ff2aef877f5246d9",
+                    "firstError": "Option 4 is too short (20 chars). Options must be detailed and educational."
+                  },
+                  {
+                    "_id": "697a9292ff2aef877f5246db",
+                    "firstError": "Option 2 is too short (19 chars). Options must be detailed and educational."
+                  },
+                  {
+                    "_id": "697a9292ff2aef877f5246dd",
+                    "firstError": "Option 2 is too short (16 chars). Options must be detailed and educational."
+                  }
+                ],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [
+                "LESSON_QUALITY_BELOW_THRESHOLD",
+                "QUIZ_TOO_FEW_VALID",
+                "QUIZ_TOO_FEW_APPLICATION",
+                "QUIZ_HAS_INVALID_QUESTIONS"
+              ],
+              "warnings": []
+            },
+            {
+              "dayNumber": 11,
+              "lessonId": "DONE_BETTER_2026_EN_DAY_11",
+              "title": "Working Backwards",
+              "createdAt": "2026-01-28T19:32:35.472Z",
+              "lessonQuality": {
+                "score": 75,
+                "issues": [
+                  "NO_CONTRASTS_GOOD_BAD",
+                  "NO_METRICS_OR_CRITERIA"
+                ],
+                "signals": {
+                  "charCount": 1137,
+                  "wordCount": 194,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": false,
+                  "hasMetricsOrCriteria": false,
+                  "hasDefinitionsOrComparisons": true
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": false,
+                  "addChecklistSection": false,
+                  "addExamplesSection": true,
+                  "addPitfallsSection": true,
+                  "addMetricsSection": true
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 7,
+                "validExisting": 6,
+                "invalidExisting": 1,
+                "application": 5,
+                "critical": 1,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [
+                  {
+                    "_id": "697a9292ff2aef877f5246e7",
+                    "firstError": "Option 2 is too short (24 chars). Options must be detailed and educational."
+                  }
+                ],
+                "duplicateSamples": []
+              },
+              "generator": {
+                "attempted": true,
+                "generateTarget": 40,
+                "validatedNew": 16,
+                "canSatisfyMinimums": true,
+                "reasonIfNot": null
+              },
+              "errors": [
+                "QUIZ_TOO_FEW_VALID",
+                "QUIZ_HAS_INVALID_QUESTIONS"
+              ],
+              "warnings": []
+            },
+            {
+              "dayNumber": 12,
+              "lessonId": "DONE_BETTER_2026_EN_DAY_12",
+              "title": "Simplify Until It Breaks",
+              "createdAt": "2026-01-28T19:32:35.582Z",
+              "lessonQuality": {
+                "score": 20,
+                "issues": [
+                  "TOO_SHORT",
+                  "NO_CLEAR_DEFINITIONS",
+                  "NO_EXAMPLES",
+                  "NO_CONTRASTS_GOOD_BAD",
+                  "NO_METRICS_OR_CRITERIA"
+                ],
+                "signals": {
+                  "charCount": 924,
+                  "wordCount": 156,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": false,
+                  "hasGoodBadContrast": false,
+                  "hasMetricsOrCriteria": false,
+                  "hasDefinitionsOrComparisons": false
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": true,
+                  "addChecklistSection": false,
+                  "addExamplesSection": true,
+                  "addPitfallsSection": true,
+                  "addMetricsSection": true
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 7,
+                "validExisting": 7,
+                "invalidExisting": 0,
+                "application": 5,
+                "critical": 2,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [
+                "LESSON_QUALITY_BELOW_THRESHOLD"
+              ],
+              "warnings": []
+            },
+            {
+              "dayNumber": 13,
+              "lessonId": "DONE_BETTER_2026_EN_DAY_13",
+              "title": "Multiple Paths Thinking",
+              "createdAt": "2026-01-28T19:32:35.676Z",
+              "lessonQuality": {
+                "score": 60,
+                "issues": [
+                  "NO_EXAMPLES",
+                  "NO_CONTRASTS_GOOD_BAD",
+                  "NO_METRICS_OR_CRITERIA"
+                ],
+                "signals": {
+                  "charCount": 1108,
+                  "wordCount": 191,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": false,
+                  "hasGoodBadContrast": false,
+                  "hasMetricsOrCriteria": false,
+                  "hasDefinitionsOrComparisons": true
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": false,
+                  "addChecklistSection": false,
+                  "addExamplesSection": true,
+                  "addPitfallsSection": true,
+                  "addMetricsSection": true
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 7,
+                "validExisting": 5,
+                "invalidExisting": 2,
+                "application": 4,
+                "critical": 1,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [
+                  {
+                    "_id": "697a9293ff2aef877f5246fe",
+                    "firstError": "Option 2 is too short (18 chars). Options must be detailed and educational."
+                  },
+                  {
+                    "_id": "697a9293ff2aef877f5246ff",
+                    "firstError": "Option 4 is too short (22 chars). Options must be detailed and educational."
+                  }
+                ],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [
+                "LESSON_QUALITY_BELOW_THRESHOLD",
+                "QUIZ_TOO_FEW_VALID",
+                "QUIZ_TOO_FEW_APPLICATION",
+                "QUIZ_HAS_INVALID_QUESTIONS"
+              ],
+              "warnings": []
+            },
+            {
+              "dayNumber": 14,
+              "lessonId": "DONE_BETTER_2026_EN_DAY_14",
+              "title": "Choose with Intent",
+              "createdAt": "2026-01-28T19:32:35.784Z",
+              "lessonQuality": {
+                "score": 50,
+                "issues": [
+                  "TOO_SHORT",
+                  "NO_EXAMPLES",
+                  "NO_CONTRASTS_GOOD_BAD"
+                ],
+                "signals": {
+                  "charCount": 915,
+                  "wordCount": 148,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": false,
+                  "hasGoodBadContrast": false,
+                  "hasMetricsOrCriteria": true,
+                  "hasDefinitionsOrComparisons": true
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": false,
+                  "addChecklistSection": false,
+                  "addExamplesSection": true,
+                  "addPitfallsSection": true,
+                  "addMetricsSection": false
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 7,
+                "validExisting": 5,
+                "invalidExisting": 2,
+                "application": 4,
+                "critical": 1,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [
+                  {
+                    "_id": "697a9293ff2aef877f524707",
+                    "firstError": "Question too short (36 chars, minimum 40). Must provide full context."
+                  },
+                  {
+                    "_id": "697a9293ff2aef877f524709",
+                    "firstError": "Option 2 is too short (16 chars). Options must be detailed and educational."
+                  }
+                ],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [
+                "LESSON_QUALITY_BELOW_THRESHOLD",
+                "QUIZ_TOO_FEW_VALID",
+                "QUIZ_TOO_FEW_APPLICATION",
+                "QUIZ_HAS_INVALID_QUESTIONS"
+              ],
+              "warnings": []
+            },
+            {
+              "dayNumber": 15,
+              "lessonId": "DONE_BETTER_2026_EN_DAY_15",
+              "title": "Done Means Testable",
+              "createdAt": "2026-01-28T19:32:35.866Z",
+              "lessonQuality": {
+                "score": 50,
+                "issues": [
+                  "TOO_SHORT",
+                  "NO_CONTRASTS_GOOD_BAD",
+                  "NO_METRICS_OR_CRITERIA"
+                ],
+                "signals": {
+                  "charCount": 869,
+                  "wordCount": 156,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": false,
+                  "hasMetricsOrCriteria": false,
+                  "hasDefinitionsOrComparisons": true
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": false,
+                  "addChecklistSection": false,
+                  "addExamplesSection": true,
+                  "addPitfallsSection": true,
+                  "addMetricsSection": true
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 7,
+                "validExisting": 6,
+                "invalidExisting": 1,
+                "application": 5,
+                "critical": 1,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [
+                  {
+                    "_id": "697a9293ff2aef877f524713",
+                    "firstError": "Question too short (28 chars, minimum 40). Must provide full context."
+                  }
+                ],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [
+                "LESSON_QUALITY_BELOW_THRESHOLD",
+                "QUIZ_TOO_FEW_VALID",
+                "QUIZ_HAS_INVALID_QUESTIONS"
+              ],
+              "warnings": []
+            },
+            {
+              "dayNumber": 16,
+              "lessonId": "DONE_BETTER_2026_EN_DAY_16",
+              "title": "Ship the Skeleton",
+              "createdAt": "2026-01-28T19:32:35.946Z",
+              "lessonQuality": {
+                "score": 35,
+                "issues": [
+                  "TOO_SHORT",
+                  "NO_EXAMPLES",
+                  "NO_CONTRASTS_GOOD_BAD",
+                  "NO_METRICS_OR_CRITERIA"
+                ],
+                "signals": {
+                  "charCount": 878,
+                  "wordCount": 143,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": false,
+                  "hasGoodBadContrast": false,
+                  "hasMetricsOrCriteria": false,
+                  "hasDefinitionsOrComparisons": true
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": false,
+                  "addChecklistSection": false,
+                  "addExamplesSection": true,
+                  "addPitfallsSection": true,
+                  "addMetricsSection": true
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 7,
+                "validExisting": 6,
+                "invalidExisting": 1,
+                "application": 5,
+                "critical": 1,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [
+                  {
+                    "_id": "697a9293ff2aef877f52471f",
+                    "firstError": "Option 2 is too short (20 chars). Options must be detailed and educational."
+                  }
+                ],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [
+                "LESSON_QUALITY_BELOW_THRESHOLD",
+                "QUIZ_TOO_FEW_VALID",
+                "QUIZ_HAS_INVALID_QUESTIONS"
+              ],
+              "warnings": []
+            },
+            {
+              "dayNumber": 17,
+              "lessonId": "DONE_BETTER_2026_EN_DAY_17",
+              "title": "Fast Feedback Loops",
+              "createdAt": "2026-01-28T19:32:36.036Z",
+              "lessonQuality": {
+                "score": 20,
+                "issues": [
+                  "TOO_SHORT",
+                  "NO_CLEAR_DEFINITIONS",
+                  "NO_EXAMPLES",
+                  "NO_CONTRASTS_GOOD_BAD",
+                  "NO_METRICS_OR_CRITERIA"
+                ],
+                "signals": {
+                  "charCount": 821,
+                  "wordCount": 135,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": false,
+                  "hasGoodBadContrast": false,
+                  "hasMetricsOrCriteria": false,
+                  "hasDefinitionsOrComparisons": false
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": true,
+                  "addChecklistSection": false,
+                  "addExamplesSection": true,
+                  "addPitfallsSection": true,
+                  "addMetricsSection": true
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 7,
+                "validExisting": 5,
+                "invalidExisting": 2,
+                "application": 5,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [
+                  {
+                    "_id": "697a9293ff2aef877f524729",
+                    "firstError": "Option 2 is too short (19 chars). Options must be detailed and educational."
+                  },
+                  {
+                    "_id": "697a9293ff2aef877f52472a",
+                    "firstError": "Option 2 is too short (13 chars). Options must be detailed and educational."
+                  }
+                ],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [
+                "LESSON_QUALITY_BELOW_THRESHOLD",
+                "QUIZ_TOO_FEW_VALID",
+                "QUIZ_HAS_INVALID_QUESTIONS"
+              ],
+              "warnings": []
+            },
+            {
+              "dayNumber": 18,
+              "lessonId": "DONE_BETTER_2026_EN_DAY_18",
+              "title": "Kill Beautiful Ideas Early",
+              "createdAt": "2026-01-28T19:32:36.124Z",
+              "lessonQuality": {
+                "score": 45,
+                "issues": [
+                  "TOO_SHORT",
+                  "NO_EXAMPLES",
+                  "NO_METRICS_OR_CRITERIA"
+                ],
+                "signals": {
+                  "charCount": 856,
+                  "wordCount": 149,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": false,
+                  "hasGoodBadContrast": true,
+                  "hasMetricsOrCriteria": false,
+                  "hasDefinitionsOrComparisons": true
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": false,
+                  "addChecklistSection": false,
+                  "addExamplesSection": true,
+                  "addPitfallsSection": false,
+                  "addMetricsSection": true
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 7,
+                "validExisting": 6,
+                "invalidExisting": 1,
+                "application": 5,
+                "critical": 1,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [
+                  {
+                    "_id": "697a9293ff2aef877f524735",
+                    "firstError": "Option 2 is too short (12 chars). Options must be detailed and educational."
+                  }
+                ],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [
+                "LESSON_QUALITY_BELOW_THRESHOLD",
+                "QUIZ_TOO_FEW_VALID",
+                "QUIZ_HAS_INVALID_QUESTIONS"
+              ],
+              "warnings": []
+            },
+            {
+              "dayNumber": 19,
+              "lessonId": "DONE_BETTER_2026_EN_DAY_19",
+              "title": "Measure What Matters",
+              "createdAt": "2026-01-28T19:32:36.216Z",
+              "lessonQuality": {
+                "score": 50,
+                "issues": [
+                  "TOO_SHORT",
+                  "NO_EXAMPLES",
+                  "NO_CONTRASTS_GOOD_BAD"
+                ],
+                "signals": {
+                  "charCount": 828,
+                  "wordCount": 141,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": false,
+                  "hasGoodBadContrast": false,
+                  "hasMetricsOrCriteria": true,
+                  "hasDefinitionsOrComparisons": true
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": false,
+                  "addChecklistSection": false,
+                  "addExamplesSection": true,
+                  "addPitfallsSection": true,
+                  "addMetricsSection": false
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 7,
+                "validExisting": 3,
+                "invalidExisting": 4,
+                "application": 3,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [
+                  {
+                    "_id": "697a9293ff2aef877f52473e",
+                    "firstError": "Question too short (38 chars, minimum 40). Must provide full context."
+                  },
+                  {
+                    "_id": "697a9293ff2aef877f52473f",
+                    "firstError": "Option 2 is too short (16 chars). Options must be detailed and educational."
+                  },
+                  {
+                    "_id": "697a9293ff2aef877f524740",
+                    "firstError": "Option 2 is too short (16 chars). Options must be detailed and educational."
+                  }
+                ],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [
+                "LESSON_QUALITY_BELOW_THRESHOLD",
+                "QUIZ_TOO_FEW_VALID",
+                "QUIZ_TOO_FEW_APPLICATION",
+                "QUIZ_HAS_INVALID_QUESTIONS"
+              ],
+              "warnings": []
+            },
+            {
+              "dayNumber": 20,
+              "lessonId": "DONE_BETTER_2026_EN_DAY_20",
+              "title": "Pivot Without Drama",
+              "createdAt": "2026-01-28T19:32:36.306Z",
+              "lessonQuality": {
+                "score": 35,
+                "issues": [
+                  "TOO_SHORT",
+                  "NO_EXAMPLES",
+                  "NO_CONTRASTS_GOOD_BAD",
+                  "NO_METRICS_OR_CRITERIA"
+                ],
+                "signals": {
+                  "charCount": 908,
+                  "wordCount": 152,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": false,
+                  "hasGoodBadContrast": false,
+                  "hasMetricsOrCriteria": false,
+                  "hasDefinitionsOrComparisons": true
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": false,
+                  "addChecklistSection": false,
+                  "addExamplesSection": true,
+                  "addPitfallsSection": true,
+                  "addMetricsSection": true
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 7,
+                "validExisting": 4,
+                "invalidExisting": 3,
+                "application": 4,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [
+                  {
+                    "_id": "697a9294ff2aef877f52474a",
+                    "firstError": "Question too short (38 chars, minimum 40). Must provide full context."
+                  },
+                  {
+                    "_id": "697a9294ff2aef877f52474b",
+                    "firstError": "Option 2 is too short (16 chars). Options must be detailed and educational."
+                  },
+                  {
+                    "_id": "697a9294ff2aef877f52474d",
+                    "firstError": "Question too short (37 chars, minimum 40). Must provide full context."
+                  }
+                ],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [
+                "LESSON_QUALITY_BELOW_THRESHOLD",
+                "QUIZ_TOO_FEW_VALID",
+                "QUIZ_TOO_FEW_APPLICATION",
+                "QUIZ_HAS_INVALID_QUESTIONS"
+              ],
+              "warnings": []
+            },
+            {
+              "dayNumber": 21,
+              "lessonId": "DONE_BETTER_2026_EN_DAY_21",
+              "title": "Momentum Over Comfort",
+              "createdAt": "2026-01-28T19:32:36.415Z",
+              "lessonQuality": {
+                "score": 20,
+                "issues": [
+                  "TOO_SHORT",
+                  "NO_CLEAR_DEFINITIONS",
+                  "NO_EXAMPLES",
+                  "NO_CONTRASTS_GOOD_BAD",
+                  "NO_METRICS_OR_CRITERIA"
+                ],
+                "signals": {
+                  "charCount": 894,
+                  "wordCount": 144,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": false,
+                  "hasGoodBadContrast": false,
+                  "hasMetricsOrCriteria": false,
+                  "hasDefinitionsOrComparisons": false
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": true,
+                  "addChecklistSection": false,
+                  "addExamplesSection": true,
+                  "addPitfallsSection": true,
+                  "addMetricsSection": true
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 7,
+                "validExisting": 3,
+                "invalidExisting": 4,
+                "application": 3,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [
+                  {
+                    "_id": "697a9294ff2aef877f524754",
+                    "firstError": "Question too short (37 chars, minimum 40). Must provide full context."
+                  },
+                  {
+                    "_id": "697a9294ff2aef877f524755",
+                    "firstError": "Option 2 is too short (16 chars). Options must be detailed and educational."
+                  },
+                  {
+                    "_id": "697a9294ff2aef877f524756",
+                    "firstError": "Option 2 is too short (15 chars). Options must be detailed and educational."
+                  }
+                ],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [
+                "LESSON_QUALITY_BELOW_THRESHOLD",
+                "QUIZ_TOO_FEW_VALID",
+                "QUIZ_TOO_FEW_APPLICATION",
+                "QUIZ_HAS_INVALID_QUESTIONS"
+              ],
+              "warnings": []
+            },
+            {
+              "dayNumber": 22,
+              "lessonId": "DONE_BETTER_2026_EN_DAY_22",
+              "title": "Truth Is a Tool",
+              "createdAt": "2026-01-28T19:32:36.522Z",
+              "lessonQuality": {
+                "score": 35,
+                "issues": [
+                  "TOO_SHORT",
+                  "NO_EXAMPLES",
+                  "NO_CONTRASTS_GOOD_BAD",
+                  "NO_METRICS_OR_CRITERIA"
+                ],
+                "signals": {
+                  "charCount": 875,
+                  "wordCount": 147,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": false,
+                  "hasGoodBadContrast": false,
+                  "hasMetricsOrCriteria": false,
+                  "hasDefinitionsOrComparisons": true
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": false,
+                  "addChecklistSection": false,
+                  "addExamplesSection": true,
+                  "addPitfallsSection": true,
+                  "addMetricsSection": true
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 7,
+                "validExisting": 3,
+                "invalidExisting": 4,
+                "application": 3,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [
+                  {
+                    "_id": "697a9294ff2aef877f52475f",
+                    "firstError": "Question too short (36 chars, minimum 40). Must provide full context."
+                  },
+                  {
+                    "_id": "697a9294ff2aef877f524760",
+                    "firstError": "Option 2 is too short (20 chars). Options must be detailed and educational."
+                  },
+                  {
+                    "_id": "697a9294ff2aef877f524761",
+                    "firstError": "Option 2 is too short (18 chars). Options must be detailed and educational."
+                  }
+                ],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [
+                "LESSON_QUALITY_BELOW_THRESHOLD",
+                "QUIZ_TOO_FEW_VALID",
+                "QUIZ_TOO_FEW_APPLICATION",
+                "QUIZ_HAS_INVALID_QUESTIONS"
+              ],
+              "warnings": []
+            },
+            {
+              "dayNumber": 23,
+              "lessonId": "DONE_BETTER_2026_EN_DAY_23",
+              "title": "No Surprises Culture",
+              "createdAt": "2026-01-28T19:32:36.633Z",
+              "lessonQuality": {
+                "score": 70,
+                "issues": [
+                  "NO_EXAMPLES",
+                  "NO_METRICS_OR_CRITERIA"
+                ],
+                "signals": {
+                  "charCount": 1124,
+                  "wordCount": 198,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": false,
+                  "hasGoodBadContrast": true,
+                  "hasMetricsOrCriteria": false,
+                  "hasDefinitionsOrComparisons": true
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": false,
+                  "addChecklistSection": false,
+                  "addExamplesSection": true,
+                  "addPitfallsSection": false,
+                  "addMetricsSection": true
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 7,
+                "validExisting": 4,
+                "invalidExisting": 3,
+                "application": 4,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [
+                  {
+                    "_id": "697a9294ff2aef877f52476a",
+                    "firstError": "Question too short (39 chars, minimum 40). Must provide full context."
+                  },
+                  {
+                    "_id": "697a9294ff2aef877f52476b",
+                    "firstError": "Option 2 is too short (21 chars). Options must be detailed and educational."
+                  },
+                  {
+                    "_id": "697a9294ff2aef877f52476c",
+                    "firstError": "Option 2 is too short (17 chars). Options must be detailed and educational."
+                  }
+                ],
+                "duplicateSamples": []
+              },
+              "generator": {
+                "attempted": true,
+                "generateTarget": 40,
+                "validatedNew": 17,
+                "canSatisfyMinimums": true,
+                "reasonIfNot": null
+              },
+              "errors": [
+                "QUIZ_TOO_FEW_VALID",
+                "QUIZ_TOO_FEW_APPLICATION",
+                "QUIZ_HAS_INVALID_QUESTIONS"
+              ],
+              "warnings": []
+            },
+            {
+              "dayNumber": 24,
+              "lessonId": "DONE_BETTER_2026_EN_DAY_24",
+              "title": "Communicate Unknowns",
+              "createdAt": "2026-01-28T19:32:36.746Z",
+              "lessonQuality": {
+                "score": 35,
+                "issues": [
+                  "TOO_SHORT",
+                  "NO_EXAMPLES",
+                  "NO_CONTRASTS_GOOD_BAD",
+                  "NO_METRICS_OR_CRITERIA"
+                ],
+                "signals": {
+                  "charCount": 870,
+                  "wordCount": 152,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": false,
+                  "hasGoodBadContrast": false,
+                  "hasMetricsOrCriteria": false,
+                  "hasDefinitionsOrComparisons": true
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": false,
+                  "addChecklistSection": false,
+                  "addExamplesSection": true,
+                  "addPitfallsSection": true,
+                  "addMetricsSection": true
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 7,
+                "validExisting": 4,
+                "invalidExisting": 3,
+                "application": 4,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [
+                  {
+                    "_id": "697a9294ff2aef877f524776",
+                    "firstError": "Option 2 is too short (17 chars). Options must be detailed and educational."
+                  },
+                  {
+                    "_id": "697a9294ff2aef877f524777",
+                    "firstError": "Option 2 is too short (11 chars). Options must be detailed and educational."
+                  },
+                  {
+                    "_id": "697a9294ff2aef877f524778",
+                    "firstError": "Option 2 is too short (17 chars). Options must be detailed and educational."
+                  }
+                ],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [
+                "LESSON_QUALITY_BELOW_THRESHOLD",
+                "QUIZ_TOO_FEW_VALID",
+                "QUIZ_TOO_FEW_APPLICATION",
+                "QUIZ_HAS_INVALID_QUESTIONS"
+              ],
+              "warnings": []
+            },
+            {
+              "dayNumber": 25,
+              "lessonId": "DONE_BETTER_2026_EN_DAY_25",
+              "title": "From Client to Partner",
+              "createdAt": "2026-01-28T19:32:36.859Z",
+              "lessonQuality": {
+                "score": 35,
+                "issues": [
+                  "TOO_SHORT",
+                  "NO_EXAMPLES",
+                  "NO_CONTRASTS_GOOD_BAD",
+                  "NO_METRICS_OR_CRITERIA"
+                ],
+                "signals": {
+                  "charCount": 993,
+                  "wordCount": 144,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": false,
+                  "hasGoodBadContrast": false,
+                  "hasMetricsOrCriteria": false,
+                  "hasDefinitionsOrComparisons": true
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": false,
+                  "addChecklistSection": false,
+                  "addExamplesSection": true,
+                  "addPitfallsSection": true,
+                  "addMetricsSection": true
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 7,
+                "validExisting": 5,
+                "invalidExisting": 2,
+                "application": 5,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [
+                  {
+                    "_id": "697a9294ff2aef877f524781",
+                    "firstError": "Option 2 is too short (21 chars). Options must be detailed and educational."
+                  },
+                  {
+                    "_id": "697a9294ff2aef877f524782",
+                    "firstError": "Option 2 is too short (19 chars). Options must be detailed and educational."
+                  }
+                ],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [
+                "LESSON_QUALITY_BELOW_THRESHOLD",
+                "QUIZ_TOO_FEW_VALID",
+                "QUIZ_HAS_INVALID_QUESTIONS"
+              ],
+              "warnings": []
+            },
+            {
+              "dayNumber": 26,
+              "lessonId": "DONE_BETTER_2026_EN_DAY_26",
+              "title": "Reflect Like a Pro",
+              "createdAt": "2026-01-28T19:32:36.956Z",
+              "lessonQuality": {
+                "score": 45,
+                "issues": [
+                  "NO_CLEAR_DEFINITIONS",
+                  "NO_EXAMPLES",
+                  "NO_CONTRASTS_GOOD_BAD",
+                  "NO_METRICS_OR_CRITERIA"
+                ],
+                "signals": {
+                  "charCount": 1117,
+                  "wordCount": 177,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": false,
+                  "hasGoodBadContrast": false,
+                  "hasMetricsOrCriteria": false,
+                  "hasDefinitionsOrComparisons": false
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": true,
+                  "addChecklistSection": false,
+                  "addExamplesSection": true,
+                  "addPitfallsSection": true,
+                  "addMetricsSection": true
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 7,
+                "validExisting": 3,
+                "invalidExisting": 4,
+                "application": 3,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [
+                  {
+                    "_id": "697a9294ff2aef877f52478c",
+                    "firstError": "Option 2 is too short (15 chars). Options must be detailed and educational."
+                  },
+                  {
+                    "_id": "697a9294ff2aef877f52478d",
+                    "firstError": "Question too short (37 chars, minimum 40). Must provide full context."
+                  },
+                  {
+                    "_id": "697a9294ff2aef877f52478e",
+                    "firstError": "Question too short (31 chars, minimum 40). Must provide full context."
+                  }
+                ],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [
+                "LESSON_QUALITY_BELOW_THRESHOLD",
+                "QUIZ_TOO_FEW_VALID",
+                "QUIZ_TOO_FEW_APPLICATION",
+                "QUIZ_HAS_INVALID_QUESTIONS"
+              ],
+              "warnings": []
+            },
+            {
+              "dayNumber": 27,
+              "lessonId": "DONE_BETTER_2026_EN_DAY_27",
+              "title": "Build Your Thinking Loop",
+              "createdAt": "2026-01-28T19:32:37.047Z",
+              "lessonQuality": {
+                "score": 20,
+                "issues": [
+                  "TOO_SHORT",
+                  "NO_CLEAR_DEFINITIONS",
+                  "NO_EXAMPLES",
+                  "NO_CONTRASTS_GOOD_BAD",
+                  "NO_METRICS_OR_CRITERIA"
+                ],
+                "signals": {
+                  "charCount": 906,
+                  "wordCount": 154,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": false,
+                  "hasGoodBadContrast": false,
+                  "hasMetricsOrCriteria": false,
+                  "hasDefinitionsOrComparisons": false
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": true,
+                  "addChecklistSection": false,
+                  "addExamplesSection": true,
+                  "addPitfallsSection": true,
+                  "addMetricsSection": true
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 7,
+                "validExisting": 3,
+                "invalidExisting": 4,
+                "application": 3,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [
+                  {
+                    "_id": "697a9294ff2aef877f524795",
+                    "firstError": "Question too short (26 chars, minimum 40). Must provide full context."
+                  },
+                  {
+                    "_id": "697a9294ff2aef877f524797",
+                    "firstError": "Option 2 is too short (11 chars). Options must be detailed and educational."
+                  },
+                  {
+                    "_id": "697a9294ff2aef877f524798",
+                    "firstError": "Option 2 is too short (10 chars). Options must be detailed and educational."
+                  }
+                ],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [
+                "LESSON_QUALITY_BELOW_THRESHOLD",
+                "QUIZ_TOO_FEW_VALID",
+                "QUIZ_TOO_FEW_APPLICATION",
+                "QUIZ_HAS_INVALID_QUESTIONS"
+              ],
+              "warnings": []
+            },
+            {
+              "dayNumber": 28,
+              "lessonId": "DONE_BETTER_2026_EN_DAY_28",
+              "title": "From Chaos to Clarity",
+              "createdAt": "2026-01-28T19:32:37.138Z",
+              "lessonQuality": {
+                "score": 35,
+                "issues": [
+                  "TOO_SHORT",
+                  "NO_EXAMPLES",
+                  "NO_CONTRASTS_GOOD_BAD",
+                  "NO_METRICS_OR_CRITERIA"
+                ],
+                "signals": {
+                  "charCount": 909,
+                  "wordCount": 147,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": false,
+                  "hasGoodBadContrast": false,
+                  "hasMetricsOrCriteria": false,
+                  "hasDefinitionsOrComparisons": true
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": false,
+                  "addChecklistSection": false,
+                  "addExamplesSection": true,
+                  "addPitfallsSection": true,
+                  "addMetricsSection": true
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 7,
+                "validExisting": 4,
+                "invalidExisting": 3,
+                "application": 4,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [
+                  {
+                    "_id": "697a9295ff2aef877f5247a1",
+                    "firstError": "Question too short (34 chars, minimum 40). Must provide full context."
+                  },
+                  {
+                    "_id": "697a9295ff2aef877f5247a2",
+                    "firstError": "Option 2 is too short (17 chars). Options must be detailed and educational."
+                  },
+                  {
+                    "_id": "697a9295ff2aef877f5247a3",
+                    "firstError": "Option 2 is too short (12 chars). Options must be detailed and educational."
+                  }
+                ],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [
+                "LESSON_QUALITY_BELOW_THRESHOLD",
+                "QUIZ_TOO_FEW_VALID",
+                "QUIZ_TOO_FEW_APPLICATION",
+                "QUIZ_HAS_INVALID_QUESTIONS"
+              ],
+              "warnings": []
+            },
+            {
+              "dayNumber": 29,
+              "lessonId": "DONE_BETTER_2026_EN_DAY_29",
+              "title": "Your Personal Playbook",
+              "createdAt": "2026-01-28T19:32:37.545Z",
+              "lessonQuality": {
+                "score": 20,
+                "issues": [
+                  "TOO_SHORT",
+                  "NO_CLEAR_DEFINITIONS",
+                  "NO_EXAMPLES",
+                  "NO_CONTRASTS_GOOD_BAD",
+                  "NO_METRICS_OR_CRITERIA"
+                ],
+                "signals": {
+                  "charCount": 982,
+                  "wordCount": 153,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": false,
+                  "hasGoodBadContrast": false,
+                  "hasMetricsOrCriteria": false,
+                  "hasDefinitionsOrComparisons": false
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": true,
+                  "addChecklistSection": false,
+                  "addExamplesSection": true,
+                  "addPitfallsSection": true,
+                  "addMetricsSection": true
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 7,
+                "validExisting": 4,
+                "invalidExisting": 3,
+                "application": 4,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [
+                  {
+                    "_id": "697a9295ff2aef877f5247ab",
+                    "firstError": "Question too short (30 chars, minimum 40). Must provide full context."
+                  },
+                  {
+                    "_id": "697a9295ff2aef877f5247ad",
+                    "firstError": "Option 2 is too short (11 chars). Options must be detailed and educational."
+                  },
+                  {
+                    "_id": "697a9295ff2aef877f5247ae",
+                    "firstError": "Option 2 is too short (11 chars). Options must be detailed and educational."
+                  }
+                ],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [
+                "LESSON_QUALITY_BELOW_THRESHOLD",
+                "QUIZ_TOO_FEW_VALID",
+                "QUIZ_TOO_FEW_APPLICATION",
+                "QUIZ_HAS_INVALID_QUESTIONS"
+              ],
+              "warnings": []
+            },
+            {
+              "dayNumber": 30,
+              "lessonId": "DONE_BETTER_2026_EN_DAY_30",
+              "title": "The Mind That Handles Anything",
+              "createdAt": "2026-01-28T19:32:37.667Z",
+              "lessonQuality": {
+                "score": 20,
+                "issues": [
+                  "TOO_SHORT",
+                  "NO_CLEAR_DEFINITIONS",
+                  "NO_EXAMPLES",
+                  "NO_CONTRASTS_GOOD_BAD",
+                  "NO_METRICS_OR_CRITERIA"
+                ],
+                "signals": {
+                  "charCount": 947,
+                  "wordCount": 153,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": false,
+                  "hasGoodBadContrast": false,
+                  "hasMetricsOrCriteria": false,
+                  "hasDefinitionsOrComparisons": false
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": true,
+                  "addChecklistSection": false,
+                  "addExamplesSection": true,
+                  "addPitfallsSection": true,
+                  "addMetricsSection": true
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 7,
+                "validExisting": 4,
+                "invalidExisting": 3,
+                "application": 4,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [
+                  {
+                    "_id": "697a9295ff2aef877f5247b7",
+                    "firstError": "Question too short (36 chars, minimum 40). Must provide full context."
+                  },
+                  {
+                    "_id": "697a9295ff2aef877f5247b8",
+                    "firstError": "Option 2 is too short (17 chars). Options must be detailed and educational."
+                  },
+                  {
+                    "_id": "697a9295ff2aef877f5247b9",
+                    "firstError": "Question too short (32 chars, minimum 40). Must provide full context."
+                  }
+                ],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [
+                "LESSON_QUALITY_BELOW_THRESHOLD",
+                "QUIZ_TOO_FEW_VALID",
+                "QUIZ_TOO_FEW_APPLICATION",
+                "QUIZ_HAS_INVALID_QUESTIONS"
+              ],
+              "warnings": []
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "coursesMissingCcsId": []
+}

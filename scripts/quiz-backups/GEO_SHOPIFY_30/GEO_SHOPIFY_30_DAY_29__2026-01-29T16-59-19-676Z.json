@@ -1,0 +1,81 @@
+{
+  "backedUpAt": "2026-01-29T17:00:13.156Z",
+  "course": {
+    "courseId": "GEO_SHOPIFY_30",
+    "name": "GEO Shopify – 30 napos kurzus",
+    "language": "hu"
+  },
+  "lesson": {
+    "dayNumber": 29,
+    "title": "Mérési rendszer: heti GEO futtatás és riport",
+    "lessonId": "GEO_SHOPIFY_30_DAY_29"
+  },
+  "questionCount": 5,
+  "questions": [
+    {
+      "_id": "697b1ffdde117f992bb9befb",
+      "difficulty": "MEDIUM",
+      "question": "Mit mérj a heti GEO futtatáskor?",
+      "options": [
+        "Inklúzió, idézés, konzisztencia, AI referral KPI",
+        "Csak oldalsebességet",
+        "Csak backlink számot",
+        "Csak meta title hosszát"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b1ffdde117f992bb9befc",
+      "difficulty": "EASY",
+      "question": "Mi a riportsablon egyik mezője?",
+      "options": [
+        "Prompt | Inklúzió | Idézés | Konzisztencia | Jegyzet",
+        "Csak egy emoji",
+        "Csak ár",
+        "Csak képek"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b1ffdde117f992bb9befd",
+      "difficulty": "MEDIUM",
+      "question": "Miért fontos az ütemezés rögzítése?",
+      "options": [
+        "Hogy rendszeres legyen a mérés, ne ad hoc",
+        "Nem fontos",
+        "Csak design",
+        "Csak SEO miatt"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b1ffdde117f992bb9befe",
+      "difficulty": "EASY",
+      "question": "Mi a rossz példa mérésre?",
+      "options": [
+        "„Érzésre jobb” jegyzet nélkül",
+        "Dokumentált eredmények",
+        "Sablon kitöltve",
+        "Linkelt promptok"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b1ffdde117f992bb9beff",
+      "difficulty": "HARD",
+      "question": "Mit kezdj az első 5 mérés eredményével?",
+      "options": [
+        "Rögzítsd és használd baseline-nak",
+        "Töröld",
+        "Elrejtsd",
+        "Csak marketingben említsd"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    }
+  ]
+}

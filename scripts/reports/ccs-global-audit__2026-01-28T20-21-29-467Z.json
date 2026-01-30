@@ -1,0 +1,1775 @@
+{
+  "generatedAt": "2026-01-28T20:21:30.318Z",
+  "env": "production (via .env.local)",
+  "filters": {
+    "ccsId": null,
+    "courseId": "SALES_PRODUCTIVITY_30_HU",
+    "minLessonScore": 70,
+    "includeInactive": false
+  },
+  "totals": {
+    "ccsFamilies": 7,
+    "courses": 1,
+    "coursesMissingCcsId": 0,
+    "coursesMissingCcsIdMappedToKnownCcs": 0,
+    "coursesMissingCcsIdUnmapped": 0,
+    "coursesWithStructuralErrors": 0,
+    "coursesWithStructuralWarnings": 0,
+    "coursesFailingCatalogLanguageIntegrity": 0,
+    "lessons": 30,
+    "duplicateDayLessonGroups": 0,
+    "missingLessonDayEntries": 0,
+    "lessonsFailingLanguageIntegrity": 1,
+    "lessonsBelowQualityThreshold": 18,
+    "lessonsWithQuizErrors": 19,
+    "duplicateQuestionSets": 1,
+    "duplicateQuestionsToDelete": 1,
+    "invalidQuestions": 3,
+    "lessonsGeneratorInsufficient": 0
+  },
+  "ccs": [
+    {
+      "ccsId": "PRODUCTIVITY_2026",
+      "name": "PRODUCTIVITY_2026",
+      "ideaPresent": true,
+      "outlinePresent": true,
+      "relatedDocumentsCount": 0,
+      "courses": []
+    },
+    {
+      "ccsId": "GEO_SHOPIFY_30",
+      "name": "GEO_SHOPIFY_30",
+      "ideaPresent": true,
+      "outlinePresent": true,
+      "relatedDocumentsCount": 0,
+      "courses": []
+    },
+    {
+      "ccsId": "AI_30_DAY",
+      "name": "AI_30_DAY",
+      "ideaPresent": true,
+      "outlinePresent": true,
+      "relatedDocumentsCount": 0,
+      "courses": []
+    },
+    {
+      "ccsId": "B2B_SALES_2026_30",
+      "name": "B2B_SALES_2026_30",
+      "ideaPresent": true,
+      "outlinePresent": true,
+      "relatedDocumentsCount": 0,
+      "courses": []
+    },
+    {
+      "ccsId": "PLAYBOOK_2026_30",
+      "name": "PLAYBOOK_2026_30",
+      "ideaPresent": true,
+      "outlinePresent": true,
+      "relatedDocumentsCount": 0,
+      "courses": []
+    },
+    {
+      "ccsId": "SALES_PRODUCTIVITY_30",
+      "name": "SALES_PRODUCTIVITY_30",
+      "ideaPresent": true,
+      "outlinePresent": true,
+      "relatedDocumentsCount": 0,
+      "courses": [
+        {
+          "course": {
+            "courseId": "SALES_PRODUCTIVITY_30_HU",
+            "name": "Értékesítés 2026 - Sales Reset",
+            "description": "30 nap alatt új pályára állítja az értékesítésed! Gyakorlati B2B értékesítési kurzus kezdőknek és újrakezdőknek. Tanulj meg számokkal játszani, minősíteni a leadeket, és értékalapú árazást alkalmazni - gyakorlati feladatokkal és sablonokkal.",
+            "language": "hu",
+            "isActive": true,
+            "isDraft": false,
+            "requiresPremium": false,
+            "durationDays": 30,
+            "parentCourseId": null,
+            "courseVariant": null,
+            "structuralErrors": [],
+            "structuralWarnings": [],
+            "catalogLanguageIntegrity": {
+              "ok": true,
+              "errors": [],
+              "warnings": [],
+              "findings": []
+            },
+            "inferredCcsId": null,
+            "duplicateDayGroups": [],
+            "missingDays": [],
+            "lessonsAudited": 30,
+            "lessonsWithErrors": 19
+          },
+          "lessons": [
+            {
+              "dayNumber": 1,
+              "lessonId": "SALES_PRODUCTIVITY_30_HU_DAY_01",
+              "title": "Az értékesítési tölcsér alapjai – Miért számítanak a számok?",
+              "createdAt": "2026-01-22T13:11:09.324Z",
+              "lessonQuality": {
+                "score": 100,
+                "issues": [],
+                "signals": {
+                  "charCount": 4125,
+                  "wordCount": 592,
+                  "hasBullets": true,
+                  "hasNumberedSteps": true,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": true,
+                  "hasMetricsOrCriteria": true,
+                  "hasDefinitionsOrComparisons": true
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": false,
+                  "addChecklistSection": false,
+                  "addExamplesSection": false,
+                  "addPitfallsSection": false,
+                  "addMetricsSection": false
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 7,
+                "validExisting": 7,
+                "invalidExisting": 0,
+                "application": 5,
+                "critical": 2,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [],
+              "warnings": []
+            },
+            {
+              "dayNumber": 2,
+              "lessonId": "SALES_PRODUCTIVITY_30_HU_DAY_02",
+              "title": "KPI-k és célok beállítása – Hogyan számolj visszafelé?",
+              "createdAt": "2026-01-22T13:19:44.600Z",
+              "lessonQuality": {
+                "score": 85,
+                "issues": [
+                  "NO_CLEAR_DEFINITIONS"
+                ],
+                "signals": {
+                  "charCount": 3442,
+                  "wordCount": 514,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": true,
+                  "hasMetricsOrCriteria": true,
+                  "hasDefinitionsOrComparisons": false
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": true,
+                  "addChecklistSection": false,
+                  "addExamplesSection": false,
+                  "addPitfallsSection": false,
+                  "addMetricsSection": false
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 7,
+                "validExisting": 7,
+                "invalidExisting": 0,
+                "application": 5,
+                "critical": 2,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [],
+              "warnings": []
+            },
+            {
+              "dayNumber": 3,
+              "lessonId": "SALES_PRODUCTIVITY_30_HU_DAY_03",
+              "title": "Többcsatornás lead generálás – Hol találod meg az ügyfeleket?",
+              "createdAt": "2026-01-22T13:35:32.037Z",
+              "lessonQuality": {
+                "score": 100,
+                "issues": [],
+                "signals": {
+                  "charCount": 2720,
+                  "wordCount": 365,
+                  "hasBullets": true,
+                  "hasNumberedSteps": true,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": true,
+                  "hasMetricsOrCriteria": true,
+                  "hasDefinitionsOrComparisons": true
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": false,
+                  "addChecklistSection": false,
+                  "addExamplesSection": false,
+                  "addPitfallsSection": false,
+                  "addMetricsSection": false
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 7,
+                "validExisting": 7,
+                "invalidExisting": 0,
+                "application": 5,
+                "critical": 2,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [],
+              "warnings": []
+            },
+            {
+              "dayNumber": 4,
+              "lessonId": "SALES_PRODUCTIVITY_30_HU_DAY_04",
+              "title": "Konverziós arány optimalizálás – Hogyan javítsd a számokat?",
+              "createdAt": "2026-01-22T13:41:59.310Z",
+              "lessonQuality": {
+                "score": 75,
+                "issues": [
+                  "NO_CLEAR_DEFINITIONS",
+                  "NO_CONTRASTS_GOOD_BAD"
+                ],
+                "signals": {
+                  "charCount": 2766,
+                  "wordCount": 376,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": false,
+                  "hasMetricsOrCriteria": true,
+                  "hasDefinitionsOrComparisons": false
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": true,
+                  "addChecklistSection": false,
+                  "addExamplesSection": true,
+                  "addPitfallsSection": true,
+                  "addMetricsSection": false
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 7,
+                "validExisting": 7,
+                "invalidExisting": 0,
+                "application": 5,
+                "critical": 2,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [],
+              "warnings": []
+            },
+            {
+              "dayNumber": 5,
+              "lessonId": "SALES_PRODUCTIVITY_30_HU_DAY_05",
+              "title": "Heti/havi előrejelzés – Hogyan jósold meg a jövőt?",
+              "createdAt": "2026-01-22T13:44:13.412Z",
+              "lessonQuality": {
+                "score": 70,
+                "issues": [
+                  "NO_CLEAR_DEFINITIONS",
+                  "NO_METRICS_OR_CRITERIA"
+                ],
+                "signals": {
+                  "charCount": 2693,
+                  "wordCount": 373,
+                  "hasBullets": true,
+                  "hasNumberedSteps": true,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": true,
+                  "hasMetricsOrCriteria": false,
+                  "hasDefinitionsOrComparisons": false
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": true,
+                  "addChecklistSection": false,
+                  "addExamplesSection": false,
+                  "addPitfallsSection": false,
+                  "addMetricsSection": true
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 7,
+                "validExisting": 7,
+                "invalidExisting": 0,
+                "application": 5,
+                "critical": 2,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [],
+              "warnings": []
+            },
+            {
+              "dayNumber": 6,
+              "lessonId": "SALES_PRODUCTIVITY_30_HU_DAY_06",
+              "title": "Minősítési keretrendszer (BANT, MEDDIC) – Hogyan minősítsd a lead-eket?",
+              "createdAt": "2026-01-22T13:46:48.057Z",
+              "lessonQuality": {
+                "score": 100,
+                "issues": [],
+                "signals": {
+                  "charCount": 2883,
+                  "wordCount": 379,
+                  "hasBullets": true,
+                  "hasNumberedSteps": true,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": true,
+                  "hasMetricsOrCriteria": true,
+                  "hasDefinitionsOrComparisons": true
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": false,
+                  "addChecklistSection": false,
+                  "addExamplesSection": false,
+                  "addPitfallsSection": false,
+                  "addMetricsSection": false
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 7,
+                "validExisting": 7,
+                "invalidExisting": 0,
+                "application": 5,
+                "critical": 2,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [],
+              "warnings": []
+            },
+            {
+              "dayNumber": 7,
+              "lessonId": "SALES_PRODUCTIVITY_30_HU_DAY_07",
+              "title": "Ideális ügyfélprofil (ICP) – Kik azok, akikkel dolgozol?",
+              "createdAt": "2026-01-22T13:49:20.257Z",
+              "lessonQuality": {
+                "score": 90,
+                "issues": [
+                  "NO_CONTRASTS_GOOD_BAD"
+                ],
+                "signals": {
+                  "charCount": 2629,
+                  "wordCount": 351,
+                  "hasBullets": true,
+                  "hasNumberedSteps": true,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": false,
+                  "hasMetricsOrCriteria": true,
+                  "hasDefinitionsOrComparisons": true
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": false,
+                  "addChecklistSection": false,
+                  "addExamplesSection": true,
+                  "addPitfallsSection": true,
+                  "addMetricsSection": false
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 7,
+                "validExisting": 7,
+                "invalidExisting": 0,
+                "application": 5,
+                "critical": 2,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [],
+              "warnings": []
+            },
+            {
+              "dayNumber": 8,
+              "lessonId": "SALES_PRODUCTIVITY_30_HU_DAY_08",
+              "title": "Minősítési kérdések és szkriptek – Mit kérdezz, hogy minősíts?",
+              "createdAt": "2026-01-22T13:51:48.236Z",
+              "lessonQuality": {
+                "score": 100,
+                "issues": [],
+                "signals": {
+                  "charCount": 2913,
+                  "wordCount": 389,
+                  "hasBullets": true,
+                  "hasNumberedSteps": true,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": true,
+                  "hasMetricsOrCriteria": true,
+                  "hasDefinitionsOrComparisons": true
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": false,
+                  "addChecklistSection": false,
+                  "addExamplesSection": false,
+                  "addPitfallsSection": false,
+                  "addMetricsSection": false
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 7,
+                "validExisting": 7,
+                "invalidExisting": 0,
+                "application": 5,
+                "critical": 2,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [],
+              "warnings": []
+            },
+            {
+              "dayNumber": 9,
+              "lessonId": "SALES_PRODUCTIVITY_30_HU_DAY_09",
+              "title": "Lead pontozás és prioritizálás – Melyik lead-et kezeld először?",
+              "createdAt": "2026-01-22T13:54:19.824Z",
+              "lessonQuality": {
+                "score": 60,
+                "issues": [
+                  "NO_CLEAR_DEFINITIONS",
+                  "NO_CONTRASTS_GOOD_BAD",
+                  "NO_METRICS_OR_CRITERIA"
+                ],
+                "signals": {
+                  "charCount": 2513,
+                  "wordCount": 366,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": false,
+                  "hasMetricsOrCriteria": false,
+                  "hasDefinitionsOrComparisons": false
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": true,
+                  "addChecklistSection": false,
+                  "addExamplesSection": true,
+                  "addPitfallsSection": true,
+                  "addMetricsSection": true
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 3,
+                "validExisting": 0,
+                "invalidExisting": 3,
+                "application": 0,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 1,
+                "duplicatesToDelete": 1,
+                "invalidSamples": [
+                  {
+                    "_id": "697766ee29aeba81b8fa8ad5",
+                    "firstError": "Contains lesson-referential wording (HU: a/az/lecke/leckében). Questions and answers must be fully standalone and must not refer to the lesson/course."
+                  },
+                  {
+                    "_id": "697766ee29aeba81b8fa8ad6",
+                    "firstError": "Contains lesson-referential wording (HU: a/az/lecke/leckében). Questions and answers must be fully standalone and must not refer to the lesson/course."
+                  },
+                  {
+                    "_id": "697766ee29aeba81b8fa8ad7",
+                    "firstError": "Contains lesson-referential wording (HU: a/az/lecke/leckében). Questions and answers must be fully standalone and must not refer to the lesson/course."
+                  }
+                ],
+                "duplicateSamples": [
+                  {
+                    "question": "A leckében leírt \"Gyakorlat 1 – Lead scoring rendszer (20 ...\" gyakorlatot hogyan implementálnád a saját munkádban?",
+                    "keepId": "697766ee29aeba81b8fa8ad5",
+                    "deleteIds": [
+                      "697766ee29aeba81b8fa8ad7"
+                    ]
+                  }
+                ]
+              },
+              "generator": null,
+              "errors": [
+                "LESSON_QUALITY_BELOW_THRESHOLD",
+                "QUIZ_TOO_FEW_VALID",
+                "QUIZ_TOO_FEW_APPLICATION",
+                "QUIZ_HAS_INVALID_QUESTIONS",
+                "QUIZ_HAS_DUPLICATES"
+              ],
+              "warnings": []
+            },
+            {
+              "dayNumber": 10,
+              "lessonId": "SALES_PRODUCTIVITY_30_HU_DAY_10",
+              "title": "Minősítés gyakorlatban – Hogyan minősítsd egy valódi beszélgetésben?",
+              "createdAt": "2026-01-22T13:56:51.912Z",
+              "lessonQuality": {
+                "score": 70,
+                "issues": [
+                  "NO_CLEAR_DEFINITIONS",
+                  "NO_METRICS_OR_CRITERIA"
+                ],
+                "signals": {
+                  "charCount": 3316,
+                  "wordCount": 434,
+                  "hasBullets": true,
+                  "hasNumberedSteps": true,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": true,
+                  "hasMetricsOrCriteria": false,
+                  "hasDefinitionsOrComparisons": false
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": true,
+                  "addChecklistSection": false,
+                  "addExamplesSection": false,
+                  "addPitfallsSection": false,
+                  "addMetricsSection": true
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 7,
+                "validExisting": 7,
+                "invalidExisting": 0,
+                "application": 5,
+                "critical": 2,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [],
+              "warnings": []
+            },
+            {
+              "dayNumber": 11,
+              "lessonId": "SALES_PRODUCTIVITY_30_HU_DAY_11",
+              "title": "Árazási pszichológia – Hogyan hat az ár a vásárlási döntésre?",
+              "createdAt": "2026-01-22T13:59:04.404Z",
+              "lessonQuality": {
+                "score": 85,
+                "issues": [
+                  "NO_METRICS_OR_CRITERIA"
+                ],
+                "signals": {
+                  "charCount": 2471,
+                  "wordCount": 356,
+                  "hasBullets": true,
+                  "hasNumberedSteps": true,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": true,
+                  "hasMetricsOrCriteria": false,
+                  "hasDefinitionsOrComparisons": true
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": false,
+                  "addChecklistSection": false,
+                  "addExamplesSection": false,
+                  "addPitfallsSection": false,
+                  "addMetricsSection": true
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 7,
+                "validExisting": 7,
+                "invalidExisting": 0,
+                "application": 5,
+                "critical": 2,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [],
+              "warnings": []
+            },
+            {
+              "dayNumber": 12,
+              "lessonId": "SALES_PRODUCTIVITY_30_HU_DAY_12",
+              "title": "Kifogáskezelés – A “nem” adat, nem támadás",
+              "createdAt": "2026-01-28T19:29:48.833Z",
+              "lessonQuality": {
+                "score": 75,
+                "issues": [
+                  "NO_CLEAR_DEFINITIONS",
+                  "NO_CONTRASTS_GOOD_BAD"
+                ],
+                "signals": {
+                  "charCount": 1638,
+                  "wordCount": 234,
+                  "hasBullets": true,
+                  "hasNumberedSteps": true,
+                  "hasExamples": true,
+                  "hasGoodBadContrast": false,
+                  "hasMetricsOrCriteria": true,
+                  "hasDefinitionsOrComparisons": false
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": true,
+                  "addChecklistSection": false,
+                  "addExamplesSection": true,
+                  "addPitfallsSection": true,
+                  "addMetricsSection": false
+                }
+              },
+              "languageIntegrity": {
+                "ok": false,
+                "errors": [
+                  "Language integrity failed for lesson.content: detected injected English sentence(s) in HU."
+                ],
+                "warnings": [],
+                "findings": [
+                  {
+                    "label": "HU: English sentence/bullet detected",
+                    "snippet": "Sorold be őket a 4 csoport egyikébe."
+                  }
+                ]
+              },
+              "quiz": {
+                "totalExisting": 0,
+                "validExisting": 0,
+                "invalidExisting": 0,
+                "application": 0,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [
+                "LESSON_LANGUAGE_INTEGRITY_FAIL",
+                "QUIZ_TOO_FEW_VALID",
+                "QUIZ_TOO_FEW_APPLICATION"
+              ],
+              "warnings": []
+            },
+            {
+              "dayNumber": 13,
+              "lessonId": "SALES_PRODUCTIVITY_30_HU_DAY_13",
+              "title": "Discovery hívás – Diagnózis a “recept” előtt",
+              "createdAt": "2026-01-28T19:29:49.249Z",
+              "lessonQuality": {
+                "score": 70,
+                "issues": [
+                  "NO_CLEAR_DEFINITIONS",
+                  "NO_EXAMPLES"
+                ],
+                "signals": {
+                  "charCount": 1180,
+                  "wordCount": 166,
+                  "hasBullets": true,
+                  "hasNumberedSteps": true,
+                  "hasExamples": false,
+                  "hasGoodBadContrast": true,
+                  "hasMetricsOrCriteria": true,
+                  "hasDefinitionsOrComparisons": false
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": true,
+                  "addChecklistSection": false,
+                  "addExamplesSection": true,
+                  "addPitfallsSection": false,
+                  "addMetricsSection": false
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 7,
+                "validExisting": 7,
+                "invalidExisting": 0,
+                "application": 5,
+                "critical": 2,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [],
+              "warnings": []
+            },
+            {
+              "dayNumber": 14,
+              "lessonId": "SALES_PRODUCTIVITY_30_HU_DAY_14",
+              "title": "Ajánlatírás – Tedd könnyűvé a következő lépést",
+              "createdAt": "2026-01-28T19:29:50.008Z",
+              "lessonQuality": {
+                "score": 45,
+                "issues": [
+                  "TOO_SHORT",
+                  "NO_CLEAR_DEFINITIONS",
+                  "NO_EXAMPLES"
+                ],
+                "signals": {
+                  "charCount": 856,
+                  "wordCount": 112,
+                  "hasBullets": true,
+                  "hasNumberedSteps": true,
+                  "hasExamples": false,
+                  "hasGoodBadContrast": true,
+                  "hasMetricsOrCriteria": true,
+                  "hasDefinitionsOrComparisons": false
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": true,
+                  "addChecklistSection": false,
+                  "addExamplesSection": true,
+                  "addPitfallsSection": false,
+                  "addMetricsSection": false
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 0,
+                "validExisting": 0,
+                "invalidExisting": 0,
+                "application": 0,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [
+                "LESSON_QUALITY_BELOW_THRESHOLD",
+                "QUIZ_TOO_FEW_VALID",
+                "QUIZ_TOO_FEW_APPLICATION"
+              ],
+              "warnings": []
+            },
+            {
+              "dayNumber": 15,
+              "lessonId": "SALES_PRODUCTIVITY_30_HU_DAY_15",
+              "title": "Tárgyalás – Cserélj, ne adj",
+              "createdAt": "2026-01-28T19:29:50.263Z",
+              "lessonQuality": {
+                "score": 35,
+                "issues": [
+                  "TOO_SHORT",
+                  "NO_CLEAR_DEFINITIONS",
+                  "NO_EXAMPLES",
+                  "NO_CONTRASTS_GOOD_BAD"
+                ],
+                "signals": {
+                  "charCount": 799,
+                  "wordCount": 112,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": false,
+                  "hasGoodBadContrast": false,
+                  "hasMetricsOrCriteria": true,
+                  "hasDefinitionsOrComparisons": false
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": true,
+                  "addChecklistSection": false,
+                  "addExamplesSection": true,
+                  "addPitfallsSection": true,
+                  "addMetricsSection": false
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 0,
+                "validExisting": 0,
+                "invalidExisting": 0,
+                "application": 0,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [
+                "LESSON_QUALITY_BELOW_THRESHOLD",
+                "QUIZ_TOO_FEW_VALID",
+                "QUIZ_TOO_FEW_APPLICATION"
+              ],
+              "warnings": []
+            },
+            {
+              "dayNumber": 16,
+              "lessonId": "SALES_PRODUCTIVITY_30_HU_DAY_16",
+              "title": "Zárás – Vezesd le a döntési folyamatot",
+              "createdAt": "2026-01-28T19:29:50.372Z",
+              "lessonQuality": {
+                "score": 35,
+                "issues": [
+                  "TOO_SHORT",
+                  "NO_CLEAR_DEFINITIONS",
+                  "NO_EXAMPLES",
+                  "NO_CONTRASTS_GOOD_BAD"
+                ],
+                "signals": {
+                  "charCount": 705,
+                  "wordCount": 98,
+                  "hasBullets": true,
+                  "hasNumberedSteps": true,
+                  "hasExamples": false,
+                  "hasGoodBadContrast": false,
+                  "hasMetricsOrCriteria": true,
+                  "hasDefinitionsOrComparisons": false
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": true,
+                  "addChecklistSection": false,
+                  "addExamplesSection": true,
+                  "addPitfallsSection": true,
+                  "addMetricsSection": false
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 0,
+                "validExisting": 0,
+                "invalidExisting": 0,
+                "application": 0,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [
+                "LESSON_QUALITY_BELOW_THRESHOLD",
+                "QUIZ_TOO_FEW_VALID",
+                "QUIZ_TOO_FEW_APPLICATION"
+              ],
+              "warnings": []
+            },
+            {
+              "dayNumber": 17,
+              "lessonId": "SALES_PRODUCTIVITY_30_HU_DAY_17",
+              "title": "Átadás és onboarding – Azt szállítsd, amit eladtál",
+              "createdAt": "2026-01-28T19:29:50.834Z",
+              "lessonQuality": {
+                "score": 45,
+                "issues": [
+                  "TOO_SHORT",
+                  "NO_CLEAR_DEFINITIONS",
+                  "NO_EXAMPLES"
+                ],
+                "signals": {
+                  "charCount": 731,
+                  "wordCount": 105,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": false,
+                  "hasGoodBadContrast": true,
+                  "hasMetricsOrCriteria": true,
+                  "hasDefinitionsOrComparisons": false
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": true,
+                  "addChecklistSection": false,
+                  "addExamplesSection": true,
+                  "addPitfallsSection": false,
+                  "addMetricsSection": false
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 0,
+                "validExisting": 0,
+                "invalidExisting": 0,
+                "application": 0,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [
+                "LESSON_QUALITY_BELOW_THRESHOLD",
+                "QUIZ_TOO_FEW_VALID",
+                "QUIZ_TOO_FEW_APPLICATION"
+              ],
+              "warnings": []
+            },
+            {
+              "dayNumber": 18,
+              "lessonId": "SALES_PRODUCTIVITY_30_HU_DAY_18",
+              "title": "Account menedzsment – Tedd láthatóvá az értéket",
+              "createdAt": "2026-01-28T19:29:50.881Z",
+              "lessonQuality": {
+                "score": 50,
+                "issues": [
+                  "TOO_SHORT",
+                  "NO_EXAMPLES",
+                  "NO_CONTRASTS_GOOD_BAD"
+                ],
+                "signals": {
+                  "charCount": 635,
+                  "wordCount": 87,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": false,
+                  "hasGoodBadContrast": false,
+                  "hasMetricsOrCriteria": true,
+                  "hasDefinitionsOrComparisons": true
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": false,
+                  "addChecklistSection": false,
+                  "addExamplesSection": true,
+                  "addPitfallsSection": true,
+                  "addMetricsSection": false
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 0,
+                "validExisting": 0,
+                "invalidExisting": 0,
+                "application": 0,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [
+                "LESSON_QUALITY_BELOW_THRESHOLD",
+                "QUIZ_TOO_FEW_VALID",
+                "QUIZ_TOO_FEW_APPLICATION"
+              ],
+              "warnings": []
+            },
+            {
+              "dayNumber": 19,
+              "lessonId": "SALES_PRODUCTIVITY_30_HU_DAY_19",
+              "title": "Bővítés (upsell) – Bizonyítékból, nem nyomásból",
+              "createdAt": "2026-01-28T19:29:50.931Z",
+              "lessonQuality": {
+                "score": 45,
+                "issues": [
+                  "TOO_SHORT",
+                  "NO_CLEAR_DEFINITIONS",
+                  "NO_EXAMPLES"
+                ],
+                "signals": {
+                  "charCount": 732,
+                  "wordCount": 98,
+                  "hasBullets": true,
+                  "hasNumberedSteps": true,
+                  "hasExamples": false,
+                  "hasGoodBadContrast": true,
+                  "hasMetricsOrCriteria": true,
+                  "hasDefinitionsOrComparisons": false
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": true,
+                  "addChecklistSection": false,
+                  "addExamplesSection": true,
+                  "addPitfallsSection": false,
+                  "addMetricsSection": false
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 0,
+                "validExisting": 0,
+                "invalidExisting": 0,
+                "application": 0,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [
+                "LESSON_QUALITY_BELOW_THRESHOLD",
+                "QUIZ_TOO_FEW_VALID",
+                "QUIZ_TOO_FEW_APPLICATION"
+              ],
+              "warnings": []
+            },
+            {
+              "dayNumber": 20,
+              "lessonId": "SALES_PRODUCTIVITY_30_HU_DAY_20",
+              "title": "Megújítás és megtartás – Készíts mentő tervet",
+              "createdAt": "2026-01-28T19:29:50.970Z",
+              "lessonQuality": {
+                "score": 35,
+                "issues": [
+                  "TOO_SHORT",
+                  "NO_CLEAR_DEFINITIONS",
+                  "NO_EXAMPLES",
+                  "NO_CONTRASTS_GOOD_BAD"
+                ],
+                "signals": {
+                  "charCount": 620,
+                  "wordCount": 85,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": false,
+                  "hasGoodBadContrast": false,
+                  "hasMetricsOrCriteria": true,
+                  "hasDefinitionsOrComparisons": false
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": true,
+                  "addChecklistSection": false,
+                  "addExamplesSection": true,
+                  "addPitfallsSection": true,
+                  "addMetricsSection": false
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 0,
+                "validExisting": 0,
+                "invalidExisting": 0,
+                "application": 0,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [
+                "LESSON_QUALITY_BELOW_THRESHOLD",
+                "QUIZ_TOO_FEW_VALID",
+                "QUIZ_TOO_FEW_APPLICATION"
+              ],
+              "warnings": []
+            },
+            {
+              "dayNumber": 21,
+              "lessonId": "SALES_PRODUCTIVITY_30_HU_DAY_21",
+              "title": "Outbound e-mail – Személyre szabás időpazarlás nélkül",
+              "createdAt": "2026-01-28T19:29:51.013Z",
+              "lessonQuality": {
+                "score": 30,
+                "issues": [
+                  "TOO_SHORT",
+                  "NO_CLEAR_DEFINITIONS",
+                  "NO_EXAMPLES",
+                  "NO_METRICS_OR_CRITERIA"
+                ],
+                "signals": {
+                  "charCount": 463,
+                  "wordCount": 68,
+                  "hasBullets": true,
+                  "hasNumberedSteps": true,
+                  "hasExamples": false,
+                  "hasGoodBadContrast": true,
+                  "hasMetricsOrCriteria": false,
+                  "hasDefinitionsOrComparisons": false
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": true,
+                  "addChecklistSection": false,
+                  "addExamplesSection": true,
+                  "addPitfallsSection": false,
+                  "addMetricsSection": true
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 0,
+                "validExisting": 0,
+                "invalidExisting": 0,
+                "application": 0,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [
+                "LESSON_QUALITY_BELOW_THRESHOLD",
+                "QUIZ_TOO_FEW_VALID",
+                "QUIZ_TOO_FEW_APPLICATION"
+              ],
+              "warnings": []
+            },
+            {
+              "dayNumber": 22,
+              "lessonId": "SALES_PRODUCTIVITY_30_HU_DAY_22",
+              "title": "Cold call – Szerezz engedélyt gyorsan",
+              "createdAt": "2026-01-28T19:29:51.055Z",
+              "lessonQuality": {
+                "score": 20,
+                "issues": [
+                  "TOO_SHORT",
+                  "NO_CLEAR_DEFINITIONS",
+                  "NO_EXAMPLES",
+                  "NO_CONTRASTS_GOOD_BAD",
+                  "NO_METRICS_OR_CRITERIA"
+                ],
+                "signals": {
+                  "charCount": 354,
+                  "wordCount": 50,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": false,
+                  "hasGoodBadContrast": false,
+                  "hasMetricsOrCriteria": false,
+                  "hasDefinitionsOrComparisons": false
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": true,
+                  "addChecklistSection": false,
+                  "addExamplesSection": true,
+                  "addPitfallsSection": true,
+                  "addMetricsSection": true
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 0,
+                "validExisting": 0,
+                "invalidExisting": 0,
+                "application": 0,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [
+                "LESSON_QUALITY_BELOW_THRESHOLD",
+                "QUIZ_TOO_FEW_VALID",
+                "QUIZ_TOO_FEW_APPLICATION"
+              ],
+              "warnings": []
+            },
+            {
+              "dayNumber": 23,
+              "lessonId": "SALES_PRODUCTIVITY_30_HU_DAY_23",
+              "title": "Follow-up – A beszélgetésből elköteleződés",
+              "createdAt": "2026-01-28T19:29:51.098Z",
+              "lessonQuality": {
+                "score": 20,
+                "issues": [
+                  "TOO_SHORT",
+                  "NO_CLEAR_DEFINITIONS",
+                  "NO_EXAMPLES",
+                  "NO_CONTRASTS_GOOD_BAD",
+                  "NO_METRICS_OR_CRITERIA"
+                ],
+                "signals": {
+                  "charCount": 488,
+                  "wordCount": 65,
+                  "hasBullets": true,
+                  "hasNumberedSteps": true,
+                  "hasExamples": false,
+                  "hasGoodBadContrast": false,
+                  "hasMetricsOrCriteria": false,
+                  "hasDefinitionsOrComparisons": false
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": true,
+                  "addChecklistSection": false,
+                  "addExamplesSection": true,
+                  "addPitfallsSection": true,
+                  "addMetricsSection": true
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 0,
+                "validExisting": 0,
+                "invalidExisting": 0,
+                "application": 0,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [
+                "LESSON_QUALITY_BELOW_THRESHOLD",
+                "QUIZ_TOO_FEW_VALID",
+                "QUIZ_TOO_FEW_APPLICATION"
+              ],
+              "warnings": []
+            },
+            {
+              "dayNumber": 24,
+              "lessonId": "SALES_PRODUCTIVITY_30_HU_DAY_24",
+              "title": "Pipeline higiénia – Tartsd valósnak a CRM-et",
+              "createdAt": "2026-01-28T19:29:51.146Z",
+              "lessonQuality": {
+                "score": 45,
+                "issues": [
+                  "TOO_SHORT",
+                  "NO_CLEAR_DEFINITIONS",
+                  "NO_EXAMPLES"
+                ],
+                "signals": {
+                  "charCount": 392,
+                  "wordCount": 53,
+                  "hasBullets": true,
+                  "hasNumberedSteps": true,
+                  "hasExamples": false,
+                  "hasGoodBadContrast": true,
+                  "hasMetricsOrCriteria": true,
+                  "hasDefinitionsOrComparisons": false
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": true,
+                  "addChecklistSection": false,
+                  "addExamplesSection": true,
+                  "addPitfallsSection": false,
+                  "addMetricsSection": false
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 0,
+                "validExisting": 0,
+                "invalidExisting": 0,
+                "application": 0,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [
+                "LESSON_QUALITY_BELOW_THRESHOLD",
+                "QUIZ_TOO_FEW_VALID",
+                "QUIZ_TOO_FEW_APPLICATION"
+              ],
+              "warnings": []
+            },
+            {
+              "dayNumber": 25,
+              "lessonId": "SALES_PRODUCTIVITY_30_HU_DAY_25",
+              "title": "Időmenedzsment salesben – Védd a fókuszt",
+              "createdAt": "2026-01-28T19:29:51.191Z",
+              "lessonQuality": {
+                "score": 20,
+                "issues": [
+                  "TOO_SHORT",
+                  "NO_CLEAR_DEFINITIONS",
+                  "NO_EXAMPLES",
+                  "NO_CONTRASTS_GOOD_BAD",
+                  "NO_METRICS_OR_CRITERIA"
+                ],
+                "signals": {
+                  "charCount": 329,
+                  "wordCount": 47,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": false,
+                  "hasGoodBadContrast": false,
+                  "hasMetricsOrCriteria": false,
+                  "hasDefinitionsOrComparisons": false
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": true,
+                  "addChecklistSection": false,
+                  "addExamplesSection": true,
+                  "addPitfallsSection": true,
+                  "addMetricsSection": true
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 0,
+                "validExisting": 0,
+                "invalidExisting": 0,
+                "application": 0,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [
+                "LESSON_QUALITY_BELOW_THRESHOLD",
+                "QUIZ_TOO_FEW_VALID",
+                "QUIZ_TOO_FEW_APPLICATION"
+              ],
+              "warnings": []
+            },
+            {
+              "dayNumber": 26,
+              "lessonId": "SALES_PRODUCTIVITY_30_HU_DAY_26",
+              "title": "AI használata salesben – Gyorsítás QA-val",
+              "createdAt": "2026-01-28T19:29:51.244Z",
+              "lessonQuality": {
+                "score": 20,
+                "issues": [
+                  "TOO_SHORT",
+                  "NO_CLEAR_DEFINITIONS",
+                  "NO_EXAMPLES",
+                  "NO_CONTRASTS_GOOD_BAD",
+                  "NO_METRICS_OR_CRITERIA"
+                ],
+                "signals": {
+                  "charCount": 380,
+                  "wordCount": 53,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": false,
+                  "hasGoodBadContrast": false,
+                  "hasMetricsOrCriteria": false,
+                  "hasDefinitionsOrComparisons": false
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": true,
+                  "addChecklistSection": false,
+                  "addExamplesSection": true,
+                  "addPitfallsSection": true,
+                  "addMetricsSection": true
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 0,
+                "validExisting": 0,
+                "invalidExisting": 0,
+                "application": 0,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [
+                "LESSON_QUALITY_BELOW_THRESHOLD",
+                "QUIZ_TOO_FEW_VALID",
+                "QUIZ_TOO_FEW_APPLICATION"
+              ],
+              "warnings": []
+            },
+            {
+              "dayNumber": 27,
+              "lessonId": "SALES_PRODUCTIVITY_30_HU_DAY_27",
+              "title": "Mérőszámok – Vezető indikátorok, amiket irányítasz",
+              "createdAt": "2026-01-28T19:29:51.286Z",
+              "lessonQuality": {
+                "score": 50,
+                "issues": [
+                  "TOO_SHORT",
+                  "NO_EXAMPLES",
+                  "NO_CONTRASTS_GOOD_BAD"
+                ],
+                "signals": {
+                  "charCount": 358,
+                  "wordCount": 45,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": false,
+                  "hasGoodBadContrast": false,
+                  "hasMetricsOrCriteria": true,
+                  "hasDefinitionsOrComparisons": true
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": false,
+                  "addChecklistSection": false,
+                  "addExamplesSection": true,
+                  "addPitfallsSection": true,
+                  "addMetricsSection": false
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 0,
+                "validExisting": 0,
+                "invalidExisting": 0,
+                "application": 0,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [
+                "LESSON_QUALITY_BELOW_THRESHOLD",
+                "QUIZ_TOO_FEW_VALID",
+                "QUIZ_TOO_FEW_APPLICATION"
+              ],
+              "warnings": []
+            },
+            {
+              "dayNumber": 28,
+              "lessonId": "SALES_PRODUCTIVITY_30_HU_DAY_28",
+              "title": "Értékesítési kézikönyv – Tedd átadhatóvá a folyamatot",
+              "createdAt": "2026-01-28T19:29:51.330Z",
+              "lessonQuality": {
+                "score": 20,
+                "issues": [
+                  "TOO_SHORT",
+                  "NO_CLEAR_DEFINITIONS",
+                  "NO_EXAMPLES",
+                  "NO_CONTRASTS_GOOD_BAD",
+                  "NO_METRICS_OR_CRITERIA"
+                ],
+                "signals": {
+                  "charCount": 380,
+                  "wordCount": 45,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": false,
+                  "hasGoodBadContrast": false,
+                  "hasMetricsOrCriteria": false,
+                  "hasDefinitionsOrComparisons": false
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": true,
+                  "addChecklistSection": false,
+                  "addExamplesSection": true,
+                  "addPitfallsSection": true,
+                  "addMetricsSection": true
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 0,
+                "validExisting": 0,
+                "invalidExisting": 0,
+                "application": 0,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [
+                "LESSON_QUALITY_BELOW_THRESHOLD",
+                "QUIZ_TOO_FEW_VALID",
+                "QUIZ_TOO_FEW_APPLICATION"
+              ],
+              "warnings": []
+            },
+            {
+              "dayNumber": 29,
+              "lessonId": "SALES_PRODUCTIVITY_30_HU_DAY_29",
+              "title": "Záró projekt – Futtasd a rendszert 7 napig",
+              "createdAt": "2026-01-28T19:29:51.373Z",
+              "lessonQuality": {
+                "score": 35,
+                "issues": [
+                  "TOO_SHORT",
+                  "NO_CLEAR_DEFINITIONS",
+                  "NO_EXAMPLES",
+                  "NO_CONTRASTS_GOOD_BAD"
+                ],
+                "signals": {
+                  "charCount": 334,
+                  "wordCount": 49,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": false,
+                  "hasGoodBadContrast": false,
+                  "hasMetricsOrCriteria": true,
+                  "hasDefinitionsOrComparisons": false
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": true,
+                  "addChecklistSection": false,
+                  "addExamplesSection": true,
+                  "addPitfallsSection": true,
+                  "addMetricsSection": false
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 0,
+                "validExisting": 0,
+                "invalidExisting": 0,
+                "application": 0,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [
+                "LESSON_QUALITY_BELOW_THRESHOLD",
+                "QUIZ_TOO_FEW_VALID",
+                "QUIZ_TOO_FEW_APPLICATION"
+              ],
+              "warnings": []
+            },
+            {
+              "dayNumber": 30,
+              "lessonId": "SALES_PRODUCTIVITY_30_HU_DAY_30",
+              "title": "Folyamatos fejlődés – Havi áttekintő rutin",
+              "createdAt": "2026-01-28T19:29:51.430Z",
+              "lessonQuality": {
+                "score": 20,
+                "issues": [
+                  "TOO_SHORT",
+                  "NO_CLEAR_DEFINITIONS",
+                  "NO_EXAMPLES",
+                  "NO_CONTRASTS_GOOD_BAD",
+                  "NO_METRICS_OR_CRITERIA"
+                ],
+                "signals": {
+                  "charCount": 353,
+                  "wordCount": 44,
+                  "hasBullets": true,
+                  "hasNumberedSteps": false,
+                  "hasExamples": false,
+                  "hasGoodBadContrast": false,
+                  "hasMetricsOrCriteria": false,
+                  "hasDefinitionsOrComparisons": false
+                },
+                "refineTemplate": {
+                  "addDefinitionSection": true,
+                  "addChecklistSection": false,
+                  "addExamplesSection": true,
+                  "addPitfallsSection": true,
+                  "addMetricsSection": true
+                }
+              },
+              "languageIntegrity": {
+                "ok": true,
+                "errors": [],
+                "warnings": [],
+                "findings": []
+              },
+              "quiz": {
+                "totalExisting": 0,
+                "validExisting": 0,
+                "invalidExisting": 0,
+                "application": 0,
+                "critical": 0,
+                "recall": 0,
+                "duplicateSets": 0,
+                "duplicatesToDelete": 0,
+                "invalidSamples": [],
+                "duplicateSamples": []
+              },
+              "generator": null,
+              "errors": [
+                "LESSON_QUALITY_BELOW_THRESHOLD",
+                "QUIZ_TOO_FEW_VALID",
+                "QUIZ_TOO_FEW_APPLICATION"
+              ],
+              "warnings": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ccsId": "DONE_BETTER_2026",
+      "name": "Done is better - Build What Matters",
+      "ideaPresent": true,
+      "outlinePresent": true,
+      "relatedDocumentsCount": 0,
+      "courses": []
+    }
+  ],
+  "coursesMissingCcsId": []
+}

@@ -1,0 +1,120 @@
+{
+  "backedUpAt": "2026-01-29T17:00:33.391Z",
+  "course": {
+    "courseId": "AI_30_NAP",
+    "name": "30-Day AI Catch-Up Program",
+    "language": "hu"
+  },
+  "lesson": {
+    "dayNumber": 7,
+    "title": "Meeting jegyzetből teendőlista",
+    "lessonId": "AI_30_NAP_DAY_07"
+  },
+  "questionCount": 8,
+  "questions": [
+    {
+      "_id": "697b2051060240540231b374",
+      "difficulty": "EASY",
+      "question": "Melyik a három ajánlott kimeneti blokk meeting jegyzetből?",
+      "options": [
+        "Összefoglaló, Döntések, Teendők",
+        "Bevezető, Marketing, Footer",
+        "Csak egy hosszú bekezdés",
+        "Kizárólag teendők"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b2051060240540231b376",
+      "difficulty": "MEDIUM",
+      "question": "Mi legyen a teendő sorban?",
+      "options": [
+        "Feladat | Felelős | Határidő | Státusz/Next",
+        "Csak a feladat neve",
+        "Csak a dátum",
+        "Csak a felelős"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b2051060240540231b378",
+      "difficulty": "MEDIUM",
+      "question": "Miért fontos külön „Döntések” szekció?",
+      "options": [
+        "Hogy ne keveredjen a teendőkkel és visszakereshető legyen, mi dőlt el",
+        "Hogy hosszabb legyen a dokumentum",
+        "Hogy ne kelljen teendőket írni",
+        "Csak díszítés miatt"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b2051060240540231b37a",
+      "difficulty": "MEDIUM",
+      "question": "Mi a jó prompt minta meeting összefoglalóra?",
+      "options": [
+        "„Összefoglaló 3–5 pontban, külön Döntések, külön Teendők (feladat | felelős | határidő | státusz). Jegyzet: [szöveg].”",
+        "„Foglalj össze mindent.”",
+        "„Írj valamit.”",
+        "„Adj egy random listát.”"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b2051060240540231b37c",
+      "difficulty": "HARD",
+      "question": "Miért érdemes hiányzó határidőt javasoltatni az AI-val?",
+      "options": [
+        "Gyors baseline, amit ember átnéz és jóváhagy",
+        "Hogy az AI döntsön helyetted véglegesen",
+        "Hogy elkerüld a felelős kijelölését",
+        "Mert mindegy, mikorra készül el"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b2051060240540231b37e",
+      "difficulty": "EASY",
+      "question": "Melyik input segít jó kimenetet adni?",
+      "options": [
+        "Résztvevők/felelősök neve, téma, jegyzetek",
+        "Csak a meeting címe",
+        "Semmi, elég egy szó",
+        "Csak a dátum"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b2052060240540231b380",
+      "difficulty": "HARD",
+      "question": "Mikor hasznos státusz mező (TODO/IN PROGRESS/BLOCKED)?",
+      "options": [
+        "Ha követni akarod a feladat állapotát az akciólista mellett",
+        "Ha nincs feladat",
+        "Csak kreatív íráshoz",
+        "Sosem hasznos"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b2052060240540231b382",
+      "difficulty": "MEDIUM",
+      "question": "Miért jobb bullet formát kérni?",
+      "options": [
+        "Átláthatóbb, gyorsan scannelhető",
+        "Mindig hosszabb lesz",
+        "Csak esztétika miatt",
+        "Nem jobb, mindig bekezdés kell"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    }
+  ]
+}

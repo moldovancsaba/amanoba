@@ -1,0 +1,81 @@
+{
+  "backedUpAt": "2026-01-29T17:00:31.499Z",
+  "course": {
+    "courseId": "AI_30_NAP",
+    "name": "30-Day AI Catch-Up Program",
+    "language": "hu"
+  },
+  "lesson": {
+    "dayNumber": 3,
+    "title": "Hogyan kérdezz vissza az AI-tól?",
+    "lessonId": "AI_30_NAP_DAY_03"
+  },
+  "questionCount": 5,
+  "questions": [
+    {
+      "_id": "697b204e060240540231b31c",
+      "difficulty": "EASY",
+      "question": "Mi az iteráció az AI használatában?",
+      "options": [
+        "A visszakérdezés és pontosítás folyamata",
+        "Egyszer használjuk az AI-t",
+        "Várjuk, hogy tökéletes legyen",
+        "Nem kell semmit csinálni"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b204e060240540231b31e",
+      "difficulty": "MEDIUM",
+      "question": "Hogyan pontosíthatunk egy promptot?",
+      "options": [
+        "\"Rövidítsd 50%-kal\" → \"Rövidítsd 50%-kal, de tartsd meg a 3 fő üzenetet\"",
+        "Egyszerűen újra kérdezzük",
+        "Nem lehet pontosítani",
+        "Töröljük és kezdjük újra"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b204f060240540231b321",
+      "difficulty": "MEDIUM",
+      "question": "Mit jelent \"Kérj példákat\"?",
+      "options": [
+        "\"Adj 3 változatot: 1) rövid, 2) részletes, 3) bullet points\"",
+        "Kérj egy példát",
+        "Ne kérj semmit",
+        "Várj, amíg az AI ad egyet"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b204f060240540231b324",
+      "difficulty": "HARD",
+      "question": "Miért fontos megadni a korlátokat?",
+      "options": [
+        "Hogy az AI pontosan azt adja, amit szeretnénk (pl. \"Max 100 szó\")",
+        "Hogy ne legyen túl hosszú",
+        "Hogy ne legyen túl rövid",
+        "Nem fontos"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b204f060240540231b327",
+      "difficulty": "HARD",
+      "question": "Melyik NEM tartozik az iterációhoz?",
+      "options": [
+        "Egyszer használjuk, aztán elfelejtjük",
+        "Pontosítunk",
+        "Kérünk példákat",
+        "Megadjuk a korlátokat"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    }
+  ]
+}

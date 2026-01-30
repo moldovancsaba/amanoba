@@ -1,0 +1,81 @@
+{
+  "backedUpAt": "2026-01-29T08:56:34.560Z",
+  "course": {
+    "courseId": "GEO_SHOPIFY_30_EN",
+    "name": "GEO Shopify – 30-day course",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 4,
+    "title": "Sell in chat: influence vs transaction",
+    "lessonId": "GEO_SHOPIFY_30_EN_DAY_04"
+  },
+  "questionCount": 5,
+  "questions": [
+    {
+      "_id": "697b200302f89b2246e06da9",
+      "difficulty": "MEDIUM",
+      "question": "What is “influence” in chat?",
+      "options": [
+        "Recommendation/summary in AI answers",
+        "Payment capture in chat",
+        "Only SEO ranking",
+        "Only ad bidding"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b200302f89b2246e06daa",
+      "difficulty": "MEDIUM",
+      "question": "Why list price/stock/policy in the snippet?",
+      "options": [
+        "To avoid wrong promises in the AI answer",
+        "Only for design",
+        "Not needed",
+        "Only for page speed"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b200302f89b2246e06dab",
+      "difficulty": "EASY",
+      "question": "Which is a good snippet element?",
+      "options": [
+        "Who it is for / who not for",
+        "Only emojis",
+        "Random claims",
+        "No price"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b200302f89b2246e06dac",
+      "difficulty": "HARD",
+      "question": "What should the 5 statements cover?",
+      "options": [
+        "Price, stock, shipping, returns, warranty",
+        "Only brand story",
+        "Only meta title",
+        "Only backlinks"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b200302f89b2246e06dad",
+      "difficulty": "MEDIUM",
+      "question": "Why is checkout off-chat?",
+      "options": [
+        "Policies and payments live on your site; AI surfaces are influence layers",
+        "Because SEO says so",
+        "It is impossible technically",
+        "There is no reason"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    }
+  ]
+}

@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-28T22:42:14.113Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_ID",
+    "name": "Produktivitas 2026: Cara Mengelola Tim dan Waktu",
+    "language": "id"
+  },
+  "lesson": {
+    "dayNumber": 30,
+    "title": "Master Produktivitas: Integrasi Komprehensif, Komitmen",
+    "lessonId": "PRODUCTIVITY_2026_ID_DAY_30"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a2ddf6e5ec2a4427eea",
+      "uuid": "9f0967fc-09e7-421d-ad95-216732682853",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Sintesis, refleksi, dan melihat ke depan.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day30",
+        "#id",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a2ddf6e5ec2a4427eeb",
+      "uuid": "f020db88-82c0-4440-a61e-c4cd03da39ab",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Sintesis, refleksi, dan melihat ke depan.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day30",
+        "#id",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a2ddf6e5ec2a4427eec",
+      "uuid": "4270829c-8937-4943-935f-b507d3ae8f6e",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"Sintesis, refleksi, dan melihat ke depan.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day30",
+        "#id",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a2ddf6e5ec2a4427eed",
+      "uuid": "e7676aaf-22ac-41fd-868a-1e286f91e00c",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Bagaimana konsep \"Master Produktivitas: Integrasi Komprehensif, Komi...\" yang disebutkan dalam pelajaran mempengaruhi pencapaian goals Anda?",
+      "options": [
+        "Seperti yang dijelaskan secara detail dalam pelajaran, Master Produktivitas: Integras... meningkatkan efektivitas dan mengurangi risiko",
+        "Tidak ada dampak signifikan",
+        "Hanya penting secara teoritis",
+        "Hanya elemen opsional"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day30",
+        "#id",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a2ddf6e5ec2a4427eee",
+      "uuid": "8238f4b0-0d6b-4095-b220-c8c9e5432f78",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Seberapa penting Master dalam konteks Master Produktivitas: Integrasi Komprehensif, Komitmen seperti yang dibahas dalam pelajaran?",
+      "options": [
+        "Seperti yang dijelaskan secara detail dalam pelajaran, Master memainkan peran penting dalam mengoptimalkan proses dan mencapai tujuan",
+        "Hanya informasi periferal tanpa peran signifikan",
+        "Hanya konsep teoretis tanpa aplikasi praktis",
+        "Tidak disebutkan dalam pelajaran"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day30",
+        "#id",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a2ddf6e5ec2a4427eef",
+      "uuid": "85c8a3ec-43d9-4cbf-b2ad-6fc8a9575ea6",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Seberapa penting Integrasi dalam konteks Master Produktivitas: Integrasi Komprehensif, Komitmen seperti yang dibahas dalam pelajaran?",
+      "options": [
+        "Seperti yang dijelaskan secara detail dalam pelajaran, Integrasi memainkan peran penting dalam mengoptimalkan proses dan mencapai tujuan",
+        "Hanya informasi periferal tanpa peran signifikan",
+        "Hanya konsep teoretis tanpa aplikasi praktis",
+        "Tidak disebutkan dalam pelajaran"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day30",
+        "#id",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a2ddf6e5ec2a4427ef0",
+      "uuid": "c4707fb5-ff6e-4787-8cfe-bc29dd6238e0",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Seberapa penting Komitmen dalam konteks Master Produktivitas: Integrasi Komprehensif, Komitmen seperti yang dibahas dalam pelajaran?",
+      "options": [
+        "Seperti yang dijelaskan secara detail dalam pelajaran, Komitmen memainkan peran penting dalam mengoptimalkan proses dan mencapai tujuan",
+        "Hanya informasi periferal tanpa peran signifikan",
+        "Hanya konsep teoretis tanpa aplikasi praktis",
+        "Tidak disebutkan dalam pelajaran"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day30",
+        "#id",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

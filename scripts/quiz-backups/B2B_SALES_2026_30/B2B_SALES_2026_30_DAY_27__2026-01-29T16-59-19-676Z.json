@@ -1,0 +1,68 @@
+{
+  "backedUpAt": "2026-01-29T17:00:28.632Z",
+  "course": {
+    "courseId": "B2B_SALES_2026_30",
+    "name": "B2B Értékesítés 2026 Masterclass",
+    "language": "hu"
+  },
+  "lesson": {
+    "dayNumber": 27,
+    "title": "Beszerzés, jog és biztonság kérdések",
+    "lessonId": "B2B_SALES_2026_30_DAY_27"
+  },
+  "questionCount": 4,
+  "questions": [
+    {
+      "_id": "697b2043ac79ca83bb9722ba",
+      "difficulty": "MEDIUM",
+      "question": "Mi a procurement pack célja?",
+      "options": [
+        "Dekoráció",
+        "Gyorsítani a jog/IT döntést és csökkenteni a kockázatérzetet",
+        "Marketing kampány",
+        "HR dokumentum"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b2043ac79ca83bb9722bb",
+      "difficulty": "MEDIUM",
+      "question": "Mit küldesz előre?",
+      "options": [
+        "Security one-pager + DPA/SLA minta",
+        "Csak árat",
+        "Csak logót",
+        "Csak NDA-t"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b2043ac79ca83bb9722bc",
+      "difficulty": "MEDIUM",
+      "question": "Mi a rossz példa?",
+      "options": [
+        "Ajánlat után derül ki a DPA igény",
+        "Discovery után küldesz anyagot",
+        "Review dátumot egyeztetsz",
+        "Checklistet küldesz"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b2043ac79ca83bb9722bd",
+      "difficulty": "MEDIUM",
+      "question": "Mit tartalmaz a one-pager?",
+      "options": [
+        "Adatkezelés, hosting, hozzáférés, audit",
+        "Csak színek",
+        "Marketing fotó",
+        "HR szabályzat"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    }
+  ]
+}

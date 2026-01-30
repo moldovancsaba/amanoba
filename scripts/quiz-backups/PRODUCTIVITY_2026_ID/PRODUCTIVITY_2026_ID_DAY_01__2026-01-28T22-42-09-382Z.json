@@ -1,0 +1,162 @@
+{
+  "backedUpAt": "2026-01-28T22:42:10.050Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_ID",
+    "name": "Produktivitas 2026: Cara Mengelola Tim dan Waktu",
+    "language": "id"
+  },
+  "lesson": {
+    "dayNumber": 1,
+    "title": "Definisi produktivitas: output, outcome, dan kendala",
+    "lessonId": "PRODUCTIVITY_2026_ID_DAY_01"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a29df6e5ec2a4427d34",
+      "uuid": "a5182d5e-c812-4b9f-b0f3-b9beb0be66dd",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Apa perbedaan antara output dan outcome?",
+      "options": [
+        "Output adalah jumlah aktivitas, outcome adalah perubahan atau dampak aktual",
+        "Output dan outcome adalah hal yang sama",
+        "Outcome adalah jumlah aktivitas, output adalah dampak aktual",
+        "Tidak ada perbedaan di antara keduanya"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day-01",
+        "#foundation",
+        "#recall",
+        "#id"
+      ]
+    },
+    {
+      "_id": "69776a29df6e5ec2a4427d35",
+      "uuid": "6123b222-b46c-486d-a313-f389166b17a2",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Contoh mana yang menunjukkan fokus pada outcome?",
+      "options": [
+        "\"Hari ini saya akan mengirim 100 email!\"",
+        "\"Hari ini saya akan menyelesaikan 3 masalah kritis klien, yang meningkatkan kepuasan sebesar 15%\"",
+        "\"Hari ini saya akan memiliki 8 jam rapat\"",
+        "\"Hari ini saya akan menulis 20 dokumen\""
+      ],
+      "correctIndex": 1,
+      "hashtags": [
+        "#day-01",
+        "#foundation",
+        "#recall",
+        "#id"
+      ]
+    },
+    {
+      "_id": "69776a29df6e5ec2a4427d36",
+      "uuid": "3236eed6-93c7-4ba7-9b48-b978e3bb0ec2",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Manakah yang TIDAK dianggap sebagai kendala untuk produktivitas?",
+      "options": [
+        "Waktu",
+        "Energi",
+        "Perhatian",
+        "Jumlah aktivitas"
+      ],
+      "correctIndex": 3,
+      "hashtags": [
+        "#day-01",
+        "#purpose",
+        "#application",
+        "#id"
+      ]
+    },
+    {
+      "_id": "69776a29df6e5ec2a4427d37",
+      "uuid": "369539fc-2214-4061-91fd-352ece3c73ce",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Mengapa fokus pada outcome penting daripada fokus pada output?",
+      "options": [
+        "Karena output tinggi secara otomatis menjamin hasil yang baik",
+        "Karena outcome membawa nilai aktual, bukan jumlah aktivitas",
+        "Karena output lebih mudah diukur",
+        "Karena tidak ada perbedaan"
+      ],
+      "correctIndex": 1,
+      "hashtags": [
+        "#day-01",
+        "#scenario",
+        "#application",
+        "#id"
+      ]
+    },
+    {
+      "_id": "69776a29df6e5ec2a4427d38",
+      "uuid": "7736359a-d377-40d0-8d60-122a39584c6e",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ Anda membedakan antara output dan outc...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day1",
+        "#id",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a29df6e5ec2a4427d39",
+      "uuid": "4b289c58-3845-47ca-bc39-fb1d65c278ae",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Bagaimana konsep \"Definisi produktivitas: output, outcome, dan kenda...\" yang disebutkan dalam pelajaran mempengaruhi pencapaian goals Anda?",
+      "options": [
+        "Seperti yang dijelaskan secara detail dalam pelajaran, Definisi produktivitas: output... meningkatkan efektivitas dan mengurangi risiko",
+        "Tidak ada dampak signifikan",
+        "Hanya penting secara teoritis",
+        "Hanya elemen opsional"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day1",
+        "#id",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a29df6e5ec2a4427d3a",
+      "uuid": "215b1a1e-d7f2-4ab5-807a-9bbe056fbc51",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "Seberapa penting Outcome dalam konteks Definisi produktivitas: output, outcome, dan kendala seperti yang dibahas dalam pelajaran?",
+      "options": [
+        "Seperti yang dijelaskan secara detail dalam pelajaran, Outcome memainkan peran penting dalam mengoptimalkan proses dan mencapai tujuan",
+        "Hanya informasi periferal tanpa peran signifikan",
+        "Hanya konsep teoretis tanpa aplikasi praktis",
+        "Tidak disebutkan dalam pelajaran"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day1",
+        "#id",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

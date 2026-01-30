@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-28T21:29:05.759Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_HI",
+    "name": "उत्पादकता 2026: टीमों और समय का प्रबंधन कैसे करें",
+    "language": "hi"
+  },
+  "lesson": {
+    "dayNumber": 30,
+    "title": "उत्पादकता का मास्टर: व्यापक एकीकरण, प्रतिबद्धता",
+    "lessonId": "PRODUCTIVITY_2026_HI_DAY_30"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a6a206e4784b9a0c1e9",
+      "uuid": "401ca470-1749-49c8-9a15-a8cc9ab68702",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"संश्लेषण, प्रतिबिंब और भविष्य की ओर देखना।\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day30",
+        "#hi",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a6a206e4784b9a0c1ea",
+      "uuid": "71ed31a0-b22d-437a-9889-75aa4b230bda",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"संश्लेषण, प्रतिबिंब और भविष्य की ओर देखना।\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day30",
+        "#hi",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a6a206e4784b9a0c1eb",
+      "uuid": "9e3b93d9-dee5-4151-9504-24eaa6033950",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"संश्लेषण, प्रतिबिंब और भविष्य की ओर देखना।\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day30",
+        "#hi",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a6a206e4784b9a0c1ec",
+      "uuid": "9c3b084f-2725-46b0-91fa-b97f8d468f88",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "पाठ में उल्लिखित अवधारणा \"उत्पादकता का मास्टर: व्यापक एकीकरण, प्रतिबद्धता सं...\" आपके goals प्राप्त करने को कैसे प्रभावित करती है?",
+      "options": [
+        "जैसा कि पाठ में विस्तार से वर्णित है, उत्पादकता का मास्टर: व्यापक एक... प्रभावशीलता बढ़ाता है और जोखिम कम करता है",
+        "कोई महत्वपूर्ण प्रभाव नहीं",
+        "केवल सैद्धांतिक रूप से मायने रखता है",
+        "केवल एक वैकल्पिक तत्व"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day30",
+        "#hi",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a6a206e4784b9a0c1ed",
+      "uuid": "88ab36ff-2a9f-4fb9-9858-ba09d2332c0b",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "पाठ में चर्चा किए गए उत्पादकता का मास्टर: व्यापक एकीकरण, प्रतिबद्धता के संदर्भ में उत्पादकता कितना महत्वपूर्ण है?",
+      "options": [
+        "जैसा कि पाठ में विस्तार से वर्णित है, उत्पादकता प्रक्रियाओं को अनुकूलित करने और लक्ष्यों को प्राप्त करने में महत्वपूर्ण भूमिका निभाता है",
+        "केवल परिधीय जानकारी, कोई महत्वपूर्ण भूमिका नहीं",
+        "केवल एक सैद्धांतिक अवधारणा, कोई व्यावहारिक अनुप्रयोग नहीं",
+        "पाठ में उल्लेख नहीं किया गया"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day30",
+        "#hi",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a6a206e4784b9a0c1ee",
+      "uuid": "7e44316d-d29b-48c7-aa3c-3f639447480f",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "पाठ में चर्चा किए गए उत्पादकता का मास्टर: व्यापक एकीकरण, प्रतिबद्धता के संदर्भ में व्यापक कितना महत्वपूर्ण है?",
+      "options": [
+        "जैसा कि पाठ में विस्तार से वर्णित है, व्यापक प्रक्रियाओं को अनुकूलित करने और लक्ष्यों को प्राप्त करने में महत्वपूर्ण भूमिका निभाता है",
+        "केवल परिधीय जानकारी, कोई महत्वपूर्ण भूमिका नहीं",
+        "केवल एक सैद्धांतिक अवधारणा, कोई व्यावहारिक अनुप्रयोग नहीं",
+        "पाठ में उल्लेख नहीं किया गया"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day30",
+        "#hi",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a6a206e4784b9a0c1ef",
+      "uuid": "9863047f-8d58-4811-a4d5-124f1490d051",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "पाठ में चर्चा किए गए उत्पादकता का मास्टर: व्यापक एकीकरण, प्रतिबद्धता के संदर्भ में प्रतिबद्धता कितना महत्वपूर्ण है?",
+      "options": [
+        "जैसा कि पाठ में विस्तार से वर्णित है, प्रतिबद्धता प्रक्रियाओं को अनुकूलित करने और लक्ष्यों को प्राप्त करने में महत्वपूर्ण भूमिका निभाता है",
+        "केवल परिधीय जानकारी, कोई महत्वपूर्ण भूमिका नहीं",
+        "केवल एक सैद्धांतिक अवधारणा, कोई व्यावहारिक अनुप्रयोग नहीं",
+        "पाठ में उल्लेख नहीं किया गया"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day30",
+        "#hi",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

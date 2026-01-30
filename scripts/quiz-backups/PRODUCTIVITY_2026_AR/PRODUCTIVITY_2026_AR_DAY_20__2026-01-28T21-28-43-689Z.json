@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-28T21:29:01.402Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_AR",
+    "name": "الإنتاجية 2026: كيفية إدارة الفرق والوقت",
+    "language": "ar"
+  },
+  "lesson": {
+    "dayNumber": 20,
+    "title": "إنتاجية الحياة الشخصية: تنظيم المنزل والمشاريع الشخصية",
+    "lessonId": "PRODUCTIVITY_2026_AR_DAY_20"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a623ed20b35fb79731e",
+      "uuid": "6bf73bae-2068-4be8-91d7-f368f714e945",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"وسع الإنتاجية إلى جميع مجالات الحياة.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day20",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a623ed20b35fb79731f",
+      "uuid": "e899bad6-828c-470f-b545-970e6051cdcb",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"وسع الإنتاجية إلى جميع مجالات الحياة.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day20",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a623ed20b35fb797320",
+      "uuid": "873f6cb8-c697-42ea-b317-a31084393339",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"وسع الإنتاجية إلى جميع مجالات الحياة.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day20",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a623ed20b35fb797321",
+      "uuid": "3f843db0-5cdb-4521-9a61-6c407670431c",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "How does the concept \"إنتاجية الحياة الشخصية: تنظيم المنزل والمشاريع الش...\" mentioned in the lesson impact achieving your goals?",
+      "options": [
+        "As described in detail in the lesson, إنتاجية الحياة الشخصية: تنظيم ... increases effectiveness and reduces risk",
+        "No significant impact",
+        "Only matters theoretically",
+        "Only an optional element"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day20",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a623ed20b35fb797322",
+      "uuid": "420b4387-239a-4271-a7db-0ffe1db680cf",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is إنتاجية in the context of إنتاجية الحياة الشخصية: تنظيم المنزل والمشاريع الشخصية as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, إنتاجية plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day20",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a623ed20b35fb797323",
+      "uuid": "29639e57-5f02-4072-9631-b9e029626072",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is الشخصية in the context of إنتاجية الحياة الشخصية: تنظيم المنزل والمشاريع الشخصية as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, الشخصية plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day20",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a623ed20b35fb797324",
+      "uuid": "8b93b9f2-839a-4491-8d21-4dfdf889623e",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is المنزل in the context of إنتاجية الحياة الشخصية: تنظيم المنزل والمشاريع الشخصية as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, المنزل plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day20",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,114 @@
+{
+  "backedUpAt": "2026-01-28T22:37:48.808Z",
+  "course": {
+    "courseId": "DONE_BETTER_2026_EN",
+    "name": "Done is better - Build What Matters",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 26,
+    "title": "Reflect Like a Pro",
+    "lessonId": "DONE_BETTER_2026_EN_DAY_26"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "697a87bda81588c9f41a22d3",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "A project just ended. What should you do next?",
+      "options": [
+        "Run a short reflection: what happened, what we learned, what we change; extract one rule or checklist item",
+        "Celebrate only",
+        "Move to the next project",
+        "Write a long report"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87bda81588c9f41a22d4",
+      "questionType": "application",
+      "difficulty": "EASY",
+      "question": "In this framework, how is \"reflect like a pro\" defined?",
+      "options": [
+        "Run what happened / what we learned / what we change; extract one rule or checklist item; do it regularly",
+        "Think about the project once at the end",
+        "Blame and praise without extracting rules",
+        "Only document facts without lessons"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87bda81588c9f41a22d5",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "When should you run reflection?",
+      "options": [
+        "After wins and losses; regularly, not only after failure",
+        "Only after failure",
+        "Only at year-end",
+        "Never"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87bda81588c9f41a22d6",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Skipping reflection when things go well can lead to:",
+      "options": [
+        "Missing lessons; experience stays anecdotal",
+        "Faster delivery",
+        "Higher morale",
+        "No meaningful effect on outcomes"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87bda81588c9f41a22d7",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Blaming instead of learning tends to:",
+      "options": [
+        "No concrete change; the same mistake repeats",
+        "Accountability",
+        "Faster resolution",
+        "No significant downside in practice"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87bda81588c9f41a22d8",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "What should reflection produce?",
+      "options": [
+        "One concrete change: a rule or behavior for next time, not only insights",
+        "Only insights",
+        "Only a report",
+        "Only praise"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87bda81588c9f41a22d9",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How long can a useful reflection be?",
+      "options": [
+        "Short: e.g. 5 minutes; what happened, one lesson, one thing you will do differently",
+        "At least an hour",
+        "Only written",
+        "Only in a meeting"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    }
+  ]
+}

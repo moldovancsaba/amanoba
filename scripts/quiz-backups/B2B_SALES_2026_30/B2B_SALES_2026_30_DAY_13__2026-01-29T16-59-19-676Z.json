@@ -1,0 +1,68 @@
+{
+  "backedUpAt": "2026-01-29T17:00:23.412Z",
+  "course": {
+    "courseId": "B2B_SALES_2026_30",
+    "name": "B2B Értékesítés 2026 Masterclass",
+    "language": "hu"
+  },
+  "lesson": {
+    "dayNumber": 13,
+    "title": "MQL vs SQL és a qualification döntési pont",
+    "lessonId": "B2B_SALES_2026_30_DAY_13"
+  },
+  "questionCount": 4,
+  "questions": [
+    {
+      "_id": "697b203eac79ca83bb972258",
+      "difficulty": "MEDIUM",
+      "question": "Mi az SQL egyik kulcseleme?",
+      "options": [
+        "Csak egy letöltés",
+        "ICP + probléma + döntéshozó/kapuőr elérhető",
+        "Csak egy event részvétel",
+        "Csak web traffic"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b203eac79ca83bb972259",
+      "difficulty": "MEDIUM",
+      "question": "Miért kell gyors „nem”?",
+      "options": [
+        "Kevesebb munka",
+        "Fókusz, jobb pipeline minőség, időmegtakarítás",
+        "Nagyobb lista",
+        "Kötelező jogilag"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b203eac79ca83bb97225a",
+      "difficulty": "MEDIUM",
+      "question": "Mi a rossz példa?",
+      "options": [
+        "Minden feliratkozót discoveryre hívsz",
+        "ICP + probléma + döntéshozó esetén discovery",
+        "„Nem” sablon használata",
+        "Trigger keresése"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b203eac79ca83bb97225b",
+      "difficulty": "MEDIUM",
+      "question": "Mit tartalmazzon a döntési pont?",
+      "options": [
+        "Árlista",
+        "ICP, probléma, döntéshozó, trigger, időkeret",
+        "Pitch deck",
+        "Marketing kampány"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    }
+  ]
+}

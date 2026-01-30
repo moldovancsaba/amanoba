@@ -1,0 +1,81 @@
+{
+  "backedUpAt": "2026-01-29T17:00:10.828Z",
+  "course": {
+    "courseId": "GEO_SHOPIFY_30",
+    "name": "GEO Shopify – 30 napos kurzus",
+    "language": "hu"
+  },
+  "lesson": {
+    "dayNumber": 6,
+    "title": "Sikerdefiníció: GEO prompt set + KPI-k",
+    "lessonId": "GEO_SHOPIFY_30_DAY_06"
+  },
+  "questionCount": 5,
+  "questions": [
+    {
+      "_id": "697b1ff8de117f992bb9be32",
+      "difficulty": "EASY",
+      "question": "Hány promptot céloz a GEO prompt set?",
+      "options": [
+        "30–50 kérdést a bolt kategóriáira szabva",
+        "5 általános kérdést",
+        "Csak 1 kérdést",
+        "200 random kérdést"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b1ff8de117f992bb9be33",
+      "difficulty": "MEDIUM",
+      "question": "Milyen kérdéstípusokat érdemes beletenni?",
+      "options": [
+        "best/vs/alternatives/policy/méret/szállítás",
+        "Csak brand név",
+        "Csak meta title",
+        "Csak backlink forrás"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b1ff8de117f992bb9be34",
+      "difficulty": "MEDIUM",
+      "question": "Milyen KPI-ket mérj GEO esetén?",
+      "options": [
+        "Inklúzió, idézés, lefedettség, konzisztencia",
+        "Csak bounce rate",
+        "Csak page speed",
+        "Csak meta title hossza"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b1ff8de117f992bb9be35",
+      "difficulty": "HARD",
+      "question": "Milyen kereskedelmi KPI-ket kövess AI referralra?",
+      "options": [
+        "AI referral forgalom, konverzió, add-to-cart, visszaküldés",
+        "Csak social like",
+        "Csak backlink szám",
+        "Csak meta description hossza"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b1ff8de117f992bb9be36",
+      "difficulty": "MEDIUM",
+      "question": "Miért adj prioritást a promptoknak (A/B/C)?",
+      "options": [
+        "Hogy tud, melyek a legfontosabb kérdések a teszteléshez",
+        "Csak színezés miatt",
+        "Nem kell prioritás",
+        "Csak dísz"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    }
+  ]
+}

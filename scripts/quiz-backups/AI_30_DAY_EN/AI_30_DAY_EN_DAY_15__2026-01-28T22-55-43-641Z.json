@@ -1,0 +1,15 @@
+{
+  "backedUpAt": "2026-01-28T22:55:46.796Z",
+  "course": {
+    "courseId": "AI_30_DAY_EN",
+    "name": "30-Day AI Catch-Up Program (EN)",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 15,
+    "title": "Automation prep: prompts as pseudo-steps",
+    "lessonId": "AI_30_DAY_EN_DAY_15"
+  },
+  "questionCount": 0,
+  "questions": []
+}

@@ -38,6 +38,22 @@ Centralized quiz question management system with admin UI, API endpoints, and ad
 - Full validation
 - Admin-only access with `requireAdmin` middleware
 
+### 1.1 Script/Bot Access (API token) ✅
+
+The endpoints above can also be used from scripts (no browser session) by setting an admin API token.
+
+**Env**
+- `ADMIN_API_TOKEN` (single token) or `ADMIN_API_TOKENS` (comma-separated list)
+
+**Headers (either is accepted)**
+- `Authorization: Bearer <token>`
+- `X-Admin-Api-Key: <token>`
+- Optional: `X-Admin-Actor: <name>` (used in `metadata.createdBy` / audit logs)
+
+**Notes**
+- `courseId` and `relatedCourseIds` accept either `Course.courseId` (e.g. `GEO_SHOPIFY_30_EN`) or `Course._id` (Mongo ObjectId string).
+- `PATCH /api/admin/questions/[questionId]` supports `audit: true` to stamp `metadata.auditedAt` + `metadata.auditedBy` with the actor.
+
 ### 2. Admin UI ✅
 
 **Page**: `/admin/questions`

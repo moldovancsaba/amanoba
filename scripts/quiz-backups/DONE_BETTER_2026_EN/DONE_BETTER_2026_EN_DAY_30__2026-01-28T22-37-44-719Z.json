@@ -1,0 +1,114 @@
+{
+  "backedUpAt": "2026-01-28T22:37:49.175Z",
+  "course": {
+    "courseId": "DONE_BETTER_2026_EN",
+    "name": "Done is better - Build What Matters",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 30,
+    "title": "The Mind That Handles Anything",
+    "lessonId": "DONE_BETTER_2026_EN_DAY_30"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "697a87bda81588c9f41a22ff",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "The course is over. How do you sustain progress?",
+      "options": [
+        "Summarize your system (think, decide, deliver); commit to 90 days using the playbook; define one review cadence",
+        "Rely on motivation",
+        "Set a yearly goal only",
+        "Wait for the next course"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87bda81588c9f41a2300",
+      "questionType": "application",
+      "difficulty": "EASY",
+      "question": "In this framework, how is \"system not motivation\" defined for the long term?",
+      "options": [
+        "Rely on a repeatable system; motivation fades, systems persist",
+        "Motivation is bad and should be avoided",
+        "Systems are boring compared to motivation",
+        "It only applies during the course itself"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87bda81588c9f41a2301",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "What should you schedule in 30 days?",
+      "options": [
+        "One review: how is the system working? what do you change?",
+        "Nothing",
+        "A full replan",
+        "Only a celebration"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87bda81588c9f41a2302",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Relying on motivation to sustain the system often leads to:",
+      "options": [
+        "The system fades when motivation drops; build review and accountability",
+        "Higher motivation",
+        "Faster execution",
+        "No meaningful effect on outcomes"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87bda81588c9f41a2303",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "No review cadence can result in:",
+      "options": [
+        "The system drifting; schedule at least one review to keep it alive",
+        "More flexibility",
+        "Less overhead",
+        "No significant downside in practice"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87bda81588c9f41a2304",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How do you write your system in three lines?",
+      "options": [
+        "Think (how you understand and plan), decide (how you choose), deliver (how you move, test, reflect)",
+        "Goals, tasks, deadlines",
+        "Mission, vision, values",
+        "Past, present, future"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a87bda81588c9f41a2305",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "What should you commit to for the next 90 days?",
+      "options": [
+        "Using the playbook and one accountability or review cadence",
+        "Only the playbook",
+        "Only the review",
+        "Nothing specific"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    }
+  ]
+}

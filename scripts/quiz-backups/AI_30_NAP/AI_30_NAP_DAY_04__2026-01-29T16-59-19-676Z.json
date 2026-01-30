@@ -1,0 +1,146 @@
+{
+  "backedUpAt": "2026-01-29T17:00:31.931Z",
+  "course": {
+    "courseId": "AI_30_NAP",
+    "name": "30-Day AI Catch-Up Program",
+    "language": "hu"
+  },
+  "lesson": {
+    "dayNumber": 4,
+    "title": "Stílus és hang – tanítsd meg \"úgy írni, mint te\"",
+    "lessonId": "AI_30_NAP_DAY_04"
+  },
+  "questionCount": 10,
+  "questions": [
+    {
+      "_id": "697b204f060240540231b32e",
+      "difficulty": "EASY",
+      "question": "Miért tanítsd meg az AI-nak a stílusodat?",
+      "options": [
+        "Következetes márkahang és kevesebb kézi átírás",
+        "Hogy az AI önállóan döntsön helyetted",
+        "Hogy hosszabb szövegeket írjon",
+        "Hogy ne kelljen példát adnod"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b204f060240540231b331",
+      "difficulty": "EASY",
+      "question": "Mi az első lépés stílustanításnál?",
+      "options": [
+        "Adj 1-2 saját mintaszöveget példának",
+        "Azonnal kérj új szöveget",
+        "Csak egy szóban írd le a hangot",
+        "Kérj forrást a modellhez"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b204f060240540231b333",
+      "difficulty": "MEDIUM",
+      "question": "Melyik jó stílus brief?",
+      "options": [
+        "„Írj úgy, mint ebben a példában: [szöveg]. Hang: barátságos, tömör, példákkal. Struktúra: probléma, 3 bullet megoldás, CTA.”",
+        "„Írj úgy, mint én.”",
+        "„Legyen jobb a szöveg.”",
+        "„Ne írj semmit.”"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b204f060240540231b335",
+      "difficulty": "MEDIUM",
+      "question": "Miért adj struktúrát (pl. bevezető–fő rész–zárás)?",
+      "options": [
+        "Hogy az AI ne improvizáljon formátumot és kevesebb legyen az utómunka",
+        "Hogy hosszabb legyen a szöveg",
+        "Hogy elkerüld a CTA-t",
+        "Hogy ne kelljen példát adni"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b204f060240540231b337",
+      "difficulty": "MEDIUM",
+      "question": "Melyik a jó visszajelzés stílus finomítására?",
+      "options": [
+        "„Túl hivatalos, legyen közvetlenebb és rövidebb.”",
+        "„Nem tetszik.”",
+        "„Írj mást.”",
+        "„Hosszabb legyen, de nem tudom hogyan.”"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b204f060240540231b339",
+      "difficulty": "MEDIUM",
+      "question": "Mi tartozik egy stílusprofilhoz?",
+      "options": [
+        "Hang, mondathossz, szóhasználat, forma",
+        "Csak a témakör",
+        "Csak a CTA",
+        "Csak a képek felsorolása"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b204f060240540231b33b",
+      "difficulty": "EASY",
+      "question": "Mit kérj a modell elemzésétől a mintaszövegre?",
+      "options": [
+        "Hang, formalitás, mondathossz, szóhasználat, szókincs",
+        "Csak a szavak számát",
+        "Csak a dátumot",
+        "Csak a címet"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b204f060240540231b33d",
+      "difficulty": "HARD",
+      "question": "Mi a jó gyakorlat a stílustanításnál?",
+      "options": [
+        "Adj több mintát, nevezd meg a hangot, adj struktúrát, majd adj feedbacket",
+        "Ne adj mintát, csak kérést",
+        "Kerüld a visszajelzést",
+        "Mindig újrakezdés minta nélkül"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b204f060240540231b33f",
+      "difficulty": "HARD",
+      "question": "Mi a haszna a „hang útmutatónak”?",
+      "options": [
+        "Újrahasználható brief, hogy konzisztensen úgy írjon, mint te",
+        "Csak egyszeri szöveghez jó",
+        "Csak kézzel írható",
+        "Nem érdemes elmenteni"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b204f060240540231b341",
+      "difficulty": "MEDIUM",
+      "question": "Mit jelez egy jó stílus briefben a „CTA” rész?",
+      "options": [
+        "Milyen cselekvést kérsz a végén (pl. válasz, időpont, letöltés)",
+        "Hogy mennyi legyen a szöveg hossza",
+        "Hogy milyen legyen a dátumformátum",
+        "Hogy mit ne írjon bele"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    }
+  ]
+}

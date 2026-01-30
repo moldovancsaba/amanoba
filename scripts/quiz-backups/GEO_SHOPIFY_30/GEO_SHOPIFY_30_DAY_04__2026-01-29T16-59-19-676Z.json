@@ -1,0 +1,81 @@
+{
+  "backedUpAt": "2026-01-29T17:00:09.540Z",
+  "course": {
+    "courseId": "GEO_SHOPIFY_30",
+    "name": "GEO Shopify – 30 napos kurzus",
+    "language": "hu"
+  },
+  "lesson": {
+    "dayNumber": 4,
+    "title": "„Sell in chat”: befolyás vs tranzakció",
+    "lessonId": "GEO_SHOPIFY_30_DAY_04"
+  },
+  "questionCount": 5,
+  "questions": [
+    {
+      "_id": "697b1ff8de117f992bb9be08",
+      "difficulty": "EASY",
+      "question": "Mi a „sell in chat” lényege GEO szempontból?",
+      "options": [
+        "Befolyásolod a választást, de a tranzakció a boltban történik",
+        "Közvetlenül a chatben történik a checkout",
+        "Csak SEO kulcsszavakról szól",
+        "Nem számít a bolt adata"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b1ff8de117f992bb9be09",
+      "difficulty": "MEDIUM",
+      "question": "Mit kell az AI-nak biztonságosan idézni?",
+      "options": [
+        "Ár, készlet, szállítás, visszaküldés, garancia",
+        "Csak a meta title-t",
+        "Csak a design elemeket",
+        "Csak a backlinkeket"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b1ff8de117f992bb9be0a",
+      "difficulty": "MEDIUM",
+      "question": "Mi a jó chat-blokk tartalma?",
+      "options": [
+        "Kinek jó, mire jó/nem jó, ár/stock, policy röviden",
+        "Hosszú marketing szöveg ár nélkül",
+        "Csak képek",
+        "Csak egy szlogen"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b1ff8de117f992bb9be0b",
+      "difficulty": "HARD",
+      "question": "Mi a fő kockázat pontatlan policy esetén?",
+      "options": [
+        "Félrevezető AI válasz → rossz élmény, support terhelés",
+        "Nincs kockázat",
+        "Csak SEO büntetés",
+        "Csak design hiba"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697b1ff8de117f992bb9be0c",
+      "difficulty": "MEDIUM",
+      "question": "Mit tegyél a chat-blokkal a PDP-n?",
+      "options": [
+        "Helyezd el az answer capsule-ban vagy snippetként",
+        "Csak megosztod Slackben",
+        "Nem kell elhelyezni",
+        "Csak a footerben tünteted fel"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    }
+  ]
+}

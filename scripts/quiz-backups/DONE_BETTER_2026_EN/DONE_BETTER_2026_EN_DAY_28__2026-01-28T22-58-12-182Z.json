@@ -1,0 +1,114 @@
+{
+  "backedUpAt": "2026-01-28T22:58:16.277Z",
+  "course": {
+    "courseId": "DONE_BETTER_2026_EN",
+    "name": "Done is better - Build What Matters",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 28,
+    "title": "From Chaos to Clarity",
+    "lessonId": "DONE_BETTER_2026_EN_DAY_28"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "697a92f822596d24dfc12d9e",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "You are handed a messy situation (inbox, project, relationship). What is the first step?",
+      "options": [
+        "Apply: decompose, find leverage, name the next move; write the new structure in 5 bullets or fewer",
+        "Fix everything at once without understanding what matters most or prioritizing",
+        "Add more process and structure without identifying the core issues or leverage points",
+        "Leave it as is and hope it resolves itself over time without intervention"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a92f822596d24dfc12d9f",
+      "questionType": "application",
+      "difficulty": "EASY",
+      "question": "A manager inherits a chaotic project with 50 open tasks, no priorities, and unclear ownership. They decompose it into 5 areas, identify the leverage point, and name the next move. What does this demonstrate?",
+      "options": [
+        "Moving from chaos to clarity: creating order through structure and priorities",
+        "Cleaning up only without changing the underlying structure",
+        "Reorganizing only without naming next steps or ownership",
+        "Delegating and leaving without documenting or clarifying"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a92f822596d24dfc12da0",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "You inherit a chaotic project with unclear priorities and no structure. How do you create order?",
+      "options": [
+        "Decompose, find leverage, name the next move; write the new structure briefly",
+        "Add more steps and process without understanding what is essential or testable",
+        "Hold more meetings to discuss the mess without taking action or creating structure",
+        "Assign everything to others without creating structure or priorities or next steps"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a92f822596d24dfc12da1",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Trying to fix everything at once in a messy situation often leads to:",
+      "options": [
+        "Overwhelm and no clear progress; focus on structure and one next move",
+        "Faster resolution",
+        "Better results",
+        "No meaningful effect on outcomes"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a92f822596d24dfc12da2",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Adding process for its own sake can result in:",
+      "options": [
+        "More chaos; structure should serve clarity and the next move",
+        "More clarity",
+        "Faster execution",
+        "No significant downside in practice"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a92f822596d24dfc12da3",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "What should you leave behind when you exit a messy situation?",
+      "options": [
+        "A clear next owner or next step; the situation clearer than you found it",
+        "A long report documenting everything without clear next steps or actionable items",
+        "Nothing; move on without leaving any structure or guidance for the next person",
+        "Only recommendations without identifying who will act on them or what comes next"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a92f822596d24dfc12da4",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Pick one messy area. What should you produce?",
+      "options": [
+        "Decompose, find leverage, name the next move; write the new structure in 5 bullets or fewer",
+        "A full plan with all details before taking any action or testing assumptions",
+        "A list of problems without identifying solutions or priorities or next steps",
+        "A meeting invite to discuss the mess without creating structure or clarity"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    }
+  ]
+}

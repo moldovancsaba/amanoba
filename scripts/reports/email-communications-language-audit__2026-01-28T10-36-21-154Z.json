@@ -1,0 +1,111 @@
+{
+  "generatedAt": "2026-01-28T10:36:21.158Z",
+  "scope": "code-level email communications",
+  "totals": {
+    "locales": 11,
+    "unsubscribeFooterFailingLocales": 0
+  },
+  "unsubscribeFooter": [
+    {
+      "locale": "hu",
+      "ok": true,
+      "errors": [],
+      "findings": []
+    },
+    {
+      "locale": "en",
+      "ok": true,
+      "errors": [],
+      "findings": []
+    },
+    {
+      "locale": "ar",
+      "ok": true,
+      "errors": [],
+      "findings": []
+    },
+    {
+      "locale": "hi",
+      "ok": true,
+      "errors": [],
+      "findings": []
+    },
+    {
+      "locale": "id",
+      "ok": true,
+      "errors": [],
+      "findings": []
+    },
+    {
+      "locale": "pt",
+      "ok": true,
+      "errors": [],
+      "findings": []
+    },
+    {
+      "locale": "vi",
+      "ok": true,
+      "errors": [],
+      "findings": []
+    },
+    {
+      "locale": "tr",
+      "ok": true,
+      "errors": [],
+      "findings": []
+    },
+    {
+      "locale": "bg",
+      "ok": true,
+      "errors": [],
+      "findings": []
+    },
+    {
+      "locale": "pl",
+      "ok": true,
+      "errors": [],
+      "findings": []
+    },
+    {
+      "locale": "ru",
+      "ok": true,
+      "errors": [],
+      "findings": []
+    }
+  ],
+  "communicationFlows": {
+    "dailyLessonEmail": {
+      "auditedHere": true,
+      "risk": "high",
+      "note": "Daily lesson emails append an unsubscribe footer at send-time. This audit verifies the footer is localized for all supported locales."
+    },
+    "welcomeEmail": {
+      "auditedHere": false,
+      "risk": "high",
+      "note": "Welcome email content is currently English-only in code (not localized per player/course locale)."
+    },
+    "completionEmail": {
+      "auditedHere": false,
+      "risk": "high",
+      "note": "Completion email content is currently English-only in code (not localized per player/course locale)."
+    },
+    "reminderEmail": {
+      "auditedHere": false,
+      "risk": "high",
+      "note": "Reminder email content is currently English-only in code (not localized per player/course locale)."
+    },
+    "paymentConfirmationEmail": {
+      "auditedHere": false,
+      "risk": "medium",
+      "note": "Payment confirmation email is localized for HU; other locales currently receive English content."
+    }
+  },
+  "actionItems": [
+    {
+      "id": "EMAIL_TEMPLATES_LOCALIZATION_MISSING",
+      "severity": "P0",
+      "title": "Localize all transactional emails (welcome/completion/reminder/payment) for all supported locales",
+      "details": "Current code contains English-only templates for multiple email flows. This can cause cross-language leakage to users (e.g., English content sent to AR/PL)."
+    }
+  ]
+}

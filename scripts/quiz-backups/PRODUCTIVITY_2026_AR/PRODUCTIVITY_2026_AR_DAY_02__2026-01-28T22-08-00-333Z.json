@@ -1,0 +1,166 @@
+{
+  "backedUpAt": "2026-01-28T22:08:14.185Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_AR",
+    "name": "الإنتاجية 2026: كيفية إدارة الفرق والوقت",
+    "language": "ar"
+  },
+  "lesson": {
+    "dayNumber": 2,
+    "title": "الوقت والطاقة والانتباه: ما تديره في الممارسة",
+    "lessonId": "PRODUCTIVITY_2026_AR_DAY_02"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a603ed20b35fb79720f",
+      "uuid": "17b05860-a666-44b0-9362-28c0bd527459",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "كم من الوقت يستغرق استعادة الانتباه بعد الانقطاع؟",
+      "options": [
+        "5 دقائق",
+        "15-20 دقيقة",
+        "1 ساعة",
+        "لا حاجة للاستعادة"
+      ],
+      "correctIndex": 1,
+      "hashtags": [
+        "#day-02",
+        "#foundation",
+        "#recall",
+        "#ar"
+      ]
+    },
+    {
+      "_id": "69776a603ed20b35fb797210",
+      "uuid": "04c97453-f338-40e2-9d11-14cd75664526",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "كم من وقت العازل يجب أن تترك في جدولك اليومي؟",
+      "options": [
+        "0%",
+        "10%",
+        "20-30%",
+        "50%"
+      ],
+      "correctIndex": 2,
+      "hashtags": [
+        "#day-02",
+        "#foundation",
+        "#recall",
+        "#ar"
+      ]
+    },
+    {
+      "_id": "69776a603ed20b35fb797211",
+      "uuid": "cc7c63d2-1a99-40af-beab-c87b03f3433b",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ تفهم كيف يعمل الوقت والطاقة والانتباه ...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day2",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a603ed20b35fb797212",
+      "uuid": "ab9cde89-018b-4e9d-b001-c60ea60d6f6e",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ تفهم كيف يعمل الوقت والطاقة والانتباه ...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day2",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a603ed20b35fb797213",
+      "uuid": "47ea7d64-f782-40d1-a376-84b29d249dcf",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you implement the practice \"✅ تفهم كيف يعمل الوقت والطاقة والانتباه ...\" described in the lesson in your own work?",
+      "options": [
+        "I follow the method described in the lesson step by step, document the results, and refine the process",
+        "I try everything at once",
+        "I only read, I don't apply",
+        "I wait for others to do it"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day2",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a603ed20b35fb797214",
+      "uuid": "44dee19f-28c3-4f53-9e72-02c75aa06899",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "How does the concept \"الوقت والطاقة والانتباه: ما تديره في الممارسة الأع...\" mentioned in the lesson impact achieving your goals?",
+      "options": [
+        "As described in detail in the lesson, الوقت والطاقة والانتباه: ما تد... increases effectiveness and reduces risk",
+        "No significant impact",
+        "Only matters theoretically",
+        "Only an optional element"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day2",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a603ed20b35fb797215",
+      "uuid": "1db30fce-a841-46f8-a0bf-7ddcd67c68d1",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is حظر الوقت in the context of الوقت والطاقة والانتباه: ما تديره في الممارسة as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, حظر الوقت plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day2",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,114 @@
+{
+  "backedUpAt": "2026-01-28T22:58:15.950Z",
+  "course": {
+    "courseId": "DONE_BETTER_2026_EN",
+    "name": "Done is better - Build What Matters",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 24,
+    "title": "Communicate Unknowns",
+    "lessonId": "DONE_BETTER_2026_EN_DAY_24"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "697a92f722596d24dfc12d72",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "You do not know yet when a deliverable will be ready. What should you do?",
+      "options": [
+        "Name what you do not know and when or how you will find out; say it out loud",
+        "Give a fake date to avoid appearing uncertain or unprepared",
+        "Stay silent and hope no one asks about the timeline",
+        "Blame others for the uncertainty without taking responsibility"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a92f722596d24dfc12d73",
+      "questionType": "application",
+      "difficulty": "EASY",
+      "question": "A client asks when a feature will be ready. The team lead says: \"I do not know yet. We are testing X this week and will know by Friday.\" What does this demonstrate?",
+      "options": [
+        "Communicating unknowns: explicitly stating what you do not know yet and when you will know it",
+        "Never admitting you do not know to stakeholders to maintain control",
+        "Only sharing certainties and hiding gaps or uncertainties",
+        "Sharing everything including speculation without clarity"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a92f722596d24dfc12d74",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "In your next meeting or update, what could you do?",
+      "options": [
+        "Name one thing you do not know yet and when or how you will find out",
+        "Avoid the topic entirely to prevent questions about uncertainties",
+        "Give a vague answer that does not commit to finding out",
+        "Promise to know soon without a specific date or method"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a92f722596d24dfc12d75",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Faking certainty when you do not know can lead to:",
+      "options": [
+        "Lost trust when reality diverges; others make plans on false assumptions",
+        "Higher confidence",
+        "Faster decisions",
+        "No meaningful effect on outcomes"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a92f722596d24dfc12d76",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "Hiding unknowns to look in control tends to:",
+      "options": [
+        "Create surprises and erode trust when the unknown becomes visible",
+        "Build trust",
+        "Reduce anxiety",
+        "No significant downside in practice"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a92f722596d24dfc12d77",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "Why is saying \"I don't know yet\" leadership?",
+      "options": [
+        "It sets expectations and builds trust; others can align or help",
+        "It shows humility",
+        "It is required",
+        "It is not"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    },
+    {
+      "_id": "697a92f722596d24dfc12d78",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "When you learn something new about an unknown, what should you do?",
+      "options": [
+        "Update and communicate; do not leave people with stale \"I don't know\" information",
+        "Only update your own plan without communicating the change to others",
+        "Wait until you know everything before sharing any updates",
+        "No need to update; the original \"I don't know\" is still accurate"
+      ],
+      "correctIndex": 0,
+      "hashtags": []
+    }
+  ]
+}

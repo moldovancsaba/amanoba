@@ -1,0 +1,68 @@
+{
+  "backedUpAt": "2026-01-29T16:59:28.995Z",
+  "course": {
+    "courseId": "B2B_SALES_2026_30_EN",
+    "name": "B2B Sales 2026 Masterclass",
+    "language": "en"
+  },
+  "lesson": {
+    "dayNumber": 5,
+    "title": "Value Proposition: Measurable, Verifiable Claims",
+    "lessonId": "B2B_SALES_2026_30_EN_DAY_5"
+  },
+  "questionCount": 4,
+  "questions": [
+    {
+      "_id": "697b1fcf8f79f136a28b899c",
+      "difficulty": "MEDIUM",
+      "question": "Why is “We help you grow with AI” weak?",
+      "options": [
+        "Too long",
+        "No ICP, no problem, no proof",
+        "Too expensive",
+        "Does not mention CRM"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b1fcf8f79f136a28b899d",
+      "difficulty": "MEDIUM",
+      "question": "What is a required element of the 3-sentence value?",
+      "options": [
+        "A slogan",
+        "ICP + pain + outcome/risk",
+        "A feature list",
+        "A discount"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b1fcf8f79f136a28b899e",
+      "difficulty": "MEDIUM",
+      "question": "What makes a proof point credible?",
+      "options": [
+        "Length",
+        "Buyer can verify it (number/source/benchmark)",
+        "Marketing tone",
+        "Avoiding ICP"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    },
+    {
+      "_id": "697b1fcf8f79f136a28b899f",
+      "difficulty": "MEDIUM",
+      "question": "What should you do with proof points?",
+      "options": [
+        "Keep them separate from ICP",
+        "Tie them to ICP pains",
+        "Only put them on the website",
+        "Use them only in the sales deck"
+      ],
+      "correctIndex": 1,
+      "hashtags": []
+    }
+  ]
+}

@@ -1,0 +1,170 @@
+{
+  "backedUpAt": "2026-01-28T21:29:02.210Z",
+  "course": {
+    "courseId": "PRODUCTIVITY_2026_AR",
+    "name": "الإنتاجية 2026: كيفية إدارة الفرق والوقت",
+    "language": "ar"
+  },
+  "lesson": {
+    "dayNumber": 29,
+    "title": "التحسين المستمر: التعلم والتغذية الراجعة والتكرار",
+    "lessonId": "PRODUCTIVITY_2026_AR_DAY_29"
+  },
+  "questionCount": 7,
+  "questions": [
+    {
+      "_id": "69776a633ed20b35fb797378",
+      "uuid": "46cd06e7-df9f-4d0d-b7d9-e7ad532b70b7",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"الإنتاجية لا تنتهي أبداً—تتطور.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day29",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a633ed20b35fb797379",
+      "uuid": "7f6223b1-66cf-4992-8836-39be92b753fd",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"الإنتاجية لا تنتهي أبداً—تتطور.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day29",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a633ed20b35fb79737a",
+      "uuid": "620a8adb-6aeb-47de-aed3-c3820c11d768",
+      "questionType": "application",
+      "difficulty": "MEDIUM",
+      "question": "How would you use the \"الإنتاجية لا تنتهي أبداً—تتطور.\" concept as described in the lesson in practice?",
+      "options": [
+        "I follow the steps described in detail in the lesson, test the results, and document my experiences",
+        "I only understand it theoretically",
+        "I don't apply it",
+        "I wait for further instructions"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day29",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a633ed20b35fb79737b",
+      "uuid": "0d4fff78-f0c6-4636-a8bc-4d542d569419",
+      "questionType": "critical-thinking",
+      "difficulty": "HARD",
+      "question": "How does the concept \"التحسين المستمر: التعلم والتغذية الراجعة والتكرار ...\" mentioned in the lesson impact achieving your goals?",
+      "options": [
+        "As described in detail in the lesson, التحسين المستمر: التعلم والتغذ... increases effectiveness and reduces risk",
+        "No significant impact",
+        "Only matters theoretically",
+        "Only an optional element"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day29",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#advanced",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a633ed20b35fb79737c",
+      "uuid": "39999497-9d2a-48d9-9713-5f73a06945d3",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is التحسين in the context of التحسين المستمر: التعلم والتغذية الراجعة والتكرار as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, التحسين plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day29",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a633ed20b35fb79737d",
+      "uuid": "ca08b026-af90-4e81-858e-f9e12cd57985",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is التعلم in the context of التحسين المستمر: التعلم والتغذية الراجعة والتكرار as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, التعلم plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day29",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    },
+    {
+      "_id": "69776a633ed20b35fb79737e",
+      "uuid": "dce78a52-90e4-42a9-bc6e-44db41868cf8",
+      "questionType": "recall",
+      "difficulty": "MEDIUM",
+      "question": "How important is الراجعة in the context of التحسين المستمر: التعلم والتغذية الراجعة والتكرار as discussed in the lesson?",
+      "options": [
+        "As described in detail in the lesson, الراجعة plays a crucial role in optimizing processes and achieving goals",
+        "Only peripheral information with no significant role",
+        "Only a theoretical concept with no practical application",
+        "Not mentioned in the lesson"
+      ],
+      "correctIndex": 0,
+      "hashtags": [
+        "#day29",
+        "#ar",
+        "#all-languages",
+        "#productivity",
+        "#intermediate",
+        "#recall"
+      ]
+    }
+  ]
+}
