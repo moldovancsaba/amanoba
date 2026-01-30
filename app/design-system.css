@@ -78,6 +78,9 @@
   --cta-bg-hover: #fbbf24;
   --cta-text: #111827;
   --cta-shadow: 0 10px 20px -10px rgba(250, 185, 8, 0.45);
+
+  /* Heading text (near black, aligned with brand) */
+  --color-heading: #141414;
 }
 
 /* ============================================

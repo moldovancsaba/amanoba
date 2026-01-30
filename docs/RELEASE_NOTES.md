@@ -1,11 +1,37 @@
 # Amanoba Release Notes
 
-**Current Version**: 2.9.21  
+**Current Version**: 2.9.22  
 **Last Updated**: 2026-01-28
 
 ---
 
 All completed tasks are documented here in reverse chronological order. This file follows the Changelog format and is updated with every version bump.
+
+---
+
+## [v2.9.22] — 2026-01-28 🛠️
+
+**Status**: P1 Tech debt — design system/globals, client debug logs, Facebook cleanup  
+**Type**: Tech debt (ROADMAP § P1; TASKLIST Recommended Next 3 #3)
+
+### Design system / globals alignment (gold/black)
+
+- **design-system.css**: Added `--color-heading: #141414`. **globals.css**: h1–h4 use `color: var(--color-heading)`.
+- **app/lib/constants/app-url.ts**: Added `SECONDARY_HEX = '#2D2D2D'`. Certificate image routes (`api/profile/[playerId]/certificate/[courseId]/image`, `api/certificates/[slug]/image`) use `SECONDARY_HEX` for `bgMid` instead of inline hex.
+
+### Client debug logs
+
+- **components/Icon.tsx**: Removed the only remaining client `console.warn` (was gated by NODE_ENV). Production client bundle has no console from app/components.
+
+### Facebook cleanup (wording only; model already SSO-only)
+
+- **app/[locale]/data-deletion/page.tsx**: “Account Information” → “SSO identifier”; “Method 3: Facebook Disconnection” → “Method 3: Revoke SSO Access” (SSO copy); “Third-Party Data” → “SSO or other third-party services”.
+- **app/api/auth/anonymous/route.ts**: Comment “Facebook login” → “SSO login”. **docs/SSO_MIGRATION_COMPLETE.md**: Noted data-deletion and auth SSO wording.
+
+**Documentation**: `docs/2026-01-28_P1_TECH_DEBT_DELIVERY.md`; ROADMAP and TASKLIST updated (P1 tech debt done).
+
+**Build Status**: Lint passes (`npx next lint` zero warnings).  
+**Status**: ✅ P1 Tech debt delivered
 
 ---
 

@@ -24,11 +24,12 @@ import {
   Brand,
 } from '@/lib/models';
 import { logger } from '@/lib/logger';
+import { SECONDARY_HEX } from '@/app/lib/constants/app-url';
 
 /** Default certificate image colors (used when Brand themeColors not available) */
 const CERT_COLORS_DEFAULT = {
   bgStart: '#1a1a1a',
-  bgMid: '#2d2d2d',
+  bgMid: SECONDARY_HEX,
   border: '#FFD700',
   borderMuted: 'rgba(255, 215, 0, 0.3)',
   titleGradientEnd: '#FFA500',

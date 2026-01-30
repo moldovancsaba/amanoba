@@ -1,6 +1,6 @@
 # Amanoba Roadmap — Future Plans & Strategic Directions
 
-**Version**: 2.9.21  
+**Version**: 2.9.22  
 **Last Updated**: 2026-01-28  
 **Vision**: Transform Amanoba into a unified 30-day learning platform with gamified education, assessment tools, email-based lesson delivery, and monetization
 
@@ -34,10 +34,10 @@ Completed items are in **RELEASE_NOTES.md** — roadmap and tasklist contain onl
    - Localize transactional emails (welcome/completion/reminder/payment) and gate sending on language integrity
 
 ### P1 — Open (Medium Priority)
-2. Reconcile `design-system.css` palette with `globals.css` gold/black; remove straggler per-page styles  
-3. Remove client debug logs (dashboard, games, achievements, etc.) before production builds  
-4. **Design system**: Use CTA token (#FAB908) for all primary CTAs; replace inline styles and hardcoded hex with Tailwind/design tokens  
-5. **Facebook cleanup** (post-migration): Remove `facebookId`/`authProvider: 'facebook'` once migration complete (see `docs/SSO_MIGRATION_COMPLETE.md`)
+2. ~~Reconcile `design-system.css` palette with `globals.css` gold/black; remove straggler per-page styles~~ — **Done** (2026-01-28): `--color-heading` in design-system; globals uses it; certificate routes use `SECONDARY_HEX`. See `docs/2026-01-28_P1_TECH_DEBT_DELIVERY.md`.  
+3. ~~Remove client debug logs (dashboard, games, achievements, etc.) before production builds~~ — **Done**: Icon.tsx console.warn removed; no client console in production bundle.  
+4. **Design system**: Use CTA token (#FAB908) for all primary CTAs; replace inline styles and hardcoded hex with Tailwind/design tokens — (partially done in tech audit; CTA audit doc exists.)  
+5. ~~**Facebook cleanup** (post-migration): Remove `facebookId`/`authProvider: 'facebook'` once migration complete~~ — **Done**: Player model already SSO-only; data-deletion page and auth comment updated to SSO wording. See `docs/SSO_MIGRATION_COMPLETE.md` and `docs/2026-01-28_P1_TECH_DEBT_DELIVERY.md`.
 
 ### P2 — Open (Low Priority)
 6. Add minimal test harness (`npm test`), smoke tests for dashboard, courses, critical APIs  

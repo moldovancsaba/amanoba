@@ -34,7 +34,7 @@ export default async function DataDeletionPage({
             <h2 className="text-2xl font-bold text-gray-900 mb-4">What Data Will Be Deleted</h2>
             <p className="mb-2">When you request account deletion, the following data will be permanently removed:</p>
             <ul className="list-disc pl-6 space-y-2">
-              <li><strong>Account Information:</strong> Email address, display name, Facebook ID</li>
+              <li><strong>Account Information:</strong> Email address, display name, SSO identifier</li>
               <li><strong>Profile Data:</strong> Avatar, bio, preferences, settings</li>
               <li><strong>Game Progress:</strong> Scores, achievements, levels, streaks</li>
               <li><strong>Rewards:</strong> Points balance, unlocked rewards, redemption history</li>
@@ -88,20 +88,10 @@ export default async function DataDeletionPage({
               </p>
             </div>
 
-            <div className="bg-red-50 border-l-4 border-red-600 p-6">
-              <h3 className="text-lg font-bold text-gray-900 mb-2">Method 3: Facebook Disconnection</h3>
+            <div className="bg-gray-50 border-l-4 border-gray-400 p-6">
+              <h3 className="text-lg font-bold text-gray-900 mb-2">Method 3: Revoke SSO Access</h3>
               <p className="mb-2">
-                If you signed in using Facebook, you can also manage your data through Facebook:
-              </p>
-              <ol className="list-decimal pl-6 space-y-2">
-                <li>Go to your Facebook Settings & Privacy</li>
-                <li>Click &quot;Settings&quot;</li>
-                <li>Click &quot;Apps and Websites&quot;</li>
-                <li>Find &quot;Amanoba&quot; in the list</li>
-                <li>Click &quot;Remove&quot; to disconnect and request data deletion</li>
-              </ol>
-              <p className="mt-4 text-sm font-semibold">
-                Note: This will disconnect Amanoba from Facebook and trigger our data deletion process.
+                If you signed in using SSO (e.g. Google, Microsoft, or your organisation&apos;s provider), you can revoke Amanoba&apos;s access in your provider&apos;s account settings. That may trigger a data-deletion request depending on the provider.
               </p>
             </div>
           </section>
@@ -172,7 +162,7 @@ export default async function DataDeletionPage({
                 </li>
                 <li className="flex items-start">
                   <span className="font-bold mr-2">⚠️</span>
-                  <span><strong>Third-Party Data:</strong> Data shared with Facebook or other services must be managed through those platforms</span>
+                  <span><strong>Third-Party Data:</strong> Data shared with SSO or other third-party services must be managed through those platforms</span>
                 </li>
               </ul>
             </div>

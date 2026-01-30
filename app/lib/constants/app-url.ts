@@ -31,3 +31,6 @@ export function getAuthBaseUrl(): string {
 
 /** Theme color for viewport/manifest (e.g. #FAB908). Override with NEXT_PUBLIC_THEME_COLOR in .env. */
 export const THEME_COLOR = process.env.NEXT_PUBLIC_THEME_COLOR || '#FAB908';
+
+/** Dark grey / secondary brand color (#2D2D2D). Aligns with design-system --color-secondary-800 and Tailwind brand.darkGrey. */
+export const SECONDARY_HEX = '#2D2D2D';

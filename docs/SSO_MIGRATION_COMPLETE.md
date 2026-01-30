@@ -4,7 +4,7 @@
 
 The system has been successfully refactored to be **100% SSO-aligned**. All Facebook authentication code has been removed.
 
-**App code:** No references to `facebookId` or `authProvider: 'facebook'` in application code. The Player model does not define `facebookId`; migration script `scripts/migrate-remove-facebookid.ts` exists for cleaning legacy DB documents. Run when ready (see Database Cleanup below).
+**App code:** No references to `facebookId` or `authProvider: 'facebook'` in application code. The Player model does not define `facebookId`; migration script `scripts/migrate-remove-facebookid.ts` exists for cleaning legacy DB documents. Run when ready (see Database Cleanup below). Data-deletion page and auth comments updated to SSO wording (no Facebook copy).
 
 ---
 

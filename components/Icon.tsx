@@ -110,8 +110,7 @@ export default function Icon({ emoji, icon, className = '', size = 24 }: IconPro
     if (IconComponent) {
       return <IconComponent className={className} size={size} />;
     }
-    // Fallback: return the emoji if no mapping exists
-    if (process.env.NODE_ENV === 'development') console.warn(`No icon mapping found for emoji: ${emoji}`);
+    // Fallback: return the emoji if no mapping exists (no client console in production)
     return <span className={className} style={{ fontSize: size }}>{emoji}</span>;
   }
 

@@ -2,7 +2,7 @@
  * Anonymous Guest Login API
  * 
  * Creates or retrieves an anonymous guest player account and signs them in.
- * Uses NextAuth session for consistency with Facebook login.
+ * Uses NextAuth session for consistency with SSO login.
  * 
  * Why: Frictionless onboarding - let users play without registration
  */

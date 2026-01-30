@@ -1,6 +1,6 @@
 # Amanoba Task List
 
-**Version**: 2.9.21  
+**Version**: 2.9.22  
 **Last Updated**: 2026-01-28
 
 ---
@@ -21,7 +21,7 @@ No open P0 tasks. Completed work (Certificate v0.1, Editor User, User profile cu
 
 - **P0 — Global audit**: Communication + catalog language integrity. See ROADMAP § Tech Debt, RECOMMENDED NEXT.
 - **P2 — Onboarding Survey / Email Automation / Multi-Format Forking**: As per ROADMAP.
-- **P1 — Tech debt**: Design system/CTA cleanup, remove client debug logs, Facebook cleanup. See ROADMAP § Tech Debt.
+- **P1 — Tech debt**: Design system/CTA cleanup, remove client debug logs, Facebook cleanup. See ROADMAP § Tech Debt. **Delivered 2026-01-28**: design-system/globals alignment, client debug log removed, Facebook wording removed from data-deletion and auth; see `docs/2026-01-28_P1_TECH_DEBT_DELIVERY.md`.
 - **P1 — Tech audit follow-up (Jan 2026)**: npm audit, fix critical lint errors, hardcoded URLs/colors, debug route, Next Image in admin. **TypeScript (P1.7)**: ✅ Complete — see `docs/2026-01-28_TYPESCRIPT_AUDIT_COMPLETE.md`. Track: `docs/2026-01-30_TECH_AUDIT_JANUARY.md` and `docs/tasklists/TECH_AUDIT_JANUARY__2026-01-30.md`.
 
 ---
@@ -30,7 +30,7 @@ No open P0 tasks. Completed work (Certificate v0.1, Editor User, User profile cu
 
 1. **Global audit (P0)** — Communication + catalog language integrity. See ROADMAP § RECOMMENDED NEXT.
 2. **Onboarding Survey / Email Automation / Multi-Format Forking (P2)** — As per ROADMAP.
-3. **P1 Tech debt** — Design system, debug logs, Facebook cleanup. See ROADMAP § Tech Debt.
+3. ~~**P1 Tech debt**~~ — Design system, debug logs, Facebook cleanup. **Done** (2026-01-28). See `docs/2026-01-28_P1_TECH_DEBT_DELIVERY.md`.
 
 ---
 
@@ -46,4 +46,4 @@ No open P0 tasks. Completed work (Certificate v0.1, Editor User, User profile cu
 
 **Maintained By**: AI Agent  
 **Review Cycle**: Updated after each major release  
-**Last Major Update**: v2.9.21 (TypeScript audit complete; P1.7 done)
+**Last Major Update**: v2.9.22 (P1 Tech debt delivered; design-system/globals, debug logs, Facebook wording)
