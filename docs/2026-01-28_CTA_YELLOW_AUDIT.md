@@ -33,6 +33,9 @@
 
 - **Admin rewards**: "Premium only" badge → neutral (e.g. `bg-neutral-600 text-neutral-200` or `bg-slate-600 text-slate-200`) so primary yellow is reserved for CTAs.
 - **Admin games**: Status badge (e.g. featured/visibility) → neutral where it is not a primary action.
+- **Tailwind → design-system (2026-01-28)**: `tailwind.config.ts` now uses CSS variables for CTA/primary: `brand.accent` = `var(--cta-bg)`, `brand.primary.400` = `var(--cta-bg-hover)`, `primary.*` = `var(--color-primary-*)` / `var(--cta-bg)`. Single source of truth: `app/design-system.css`.
+- **Admin quests**: "Premium Only" label → neutral badge (`bg-neutral-600/80 text-neutral-200 rounded`).
+- **Admin rewards**: Total redemptions stat number → `text-neutral-200` (was `text-yellow-400`) so yellow is reserved for CTAs.
 
 ---
 
@@ -43,4 +46,4 @@
 
 ---
 
-**Updated**: 2026-01-28
+**Updated**: 2026-01-28 (design-system wiring, admin quests/rewards neutral)

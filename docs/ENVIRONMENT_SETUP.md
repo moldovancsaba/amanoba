@@ -174,23 +174,17 @@ STRIPE_WEBHOOK_SECRET=[YOUR_STRIPE_WEBHOOK_SECRET]
 
 ---
 
-## Facebook App Configuration
+## SSO / Auth Configuration
 
-### App Settings
+Authentication uses SSO (OIDC) and anonymous sign-up. No Facebook login.
 
-1. **App Domains**: 
-   - Development: `localhost`
-   - Production: `amanoba.com` (or your domain)
+1. **Valid OAuth Redirect URIs** (from your SSO provider):
+   - Development: `http://localhost:3000/api/auth/sso/callback`
+   - Production: `https://www.amanoba.com/api/auth/sso/callback` (or your domain)
 
-2. **Valid OAuth Redirect URIs**:
-   - Development: `http://localhost:3000/api/auth/facebook/callback`
-   - Production: `https://amanoba.com/api/auth/facebook/callback`
+2. **Site URL**: Your production domain (e.g. `https://www.amanoba.com`)
 
-3. **Site URL**: Your production domain
-
-### Required Permissions
-- `public_profile`
-- `email`
+See `docs/SSO_MIGRATION_COMPLETE.md` for details.
 
 ---
 
@@ -202,7 +196,7 @@ STRIPE_WEBHOOK_SECRET=[YOUR_STRIPE_WEBHOOK_SECRET]
 - `.env.local`
 - `.env.production`
 - Any file containing `MONGODB_URI`
-- Any file containing `FACEBOOK_APP_SECRET`
+- Any file containing SSO/OAuth secrets (e.g. `SSO_CLIENT_SECRET`, `NEXTAUTH_SECRET`)
 - Any file containing `VAPID_PRIVATE_KEY`
 - Any file containing `ADMIN_PASSWORD`
 
@@ -211,7 +205,7 @@ STRIPE_WEBHOOK_SECRET=[YOUR_STRIPE_WEBHOOK_SECRET]
 Rotate secrets regularly:
 
 1. **Admin Password**: Every 90 days
-2. **Facebook App Secret**: When compromised
+2. **SSO/OAuth secrets**: When compromised
 3. **VAPID Keys**: When compromised
 4. **MongoDB Password**: Every 180 days
 

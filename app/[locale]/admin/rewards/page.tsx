@@ -235,7 +235,7 @@ export default function AdminRewardsPage() {
         </div>
         <div className="bg-gray-800 rounded-xl p-4 border border-gray-700">
           <div className="text-gray-400 text-sm mb-1">{t('totalRedemptions')}</div>
-          <div className="text-2xl font-bold text-yellow-400">
+          <div className="text-2xl font-bold text-neutral-200">
             {rewards.reduce((sum, r) => sum + r.metadata.totalRedemptions, 0)}
           </div>
         </div>

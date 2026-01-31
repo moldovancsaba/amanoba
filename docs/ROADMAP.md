@@ -36,20 +36,20 @@ Completed items are in **RELEASE_NOTES.md** — roadmap and tasklist contain onl
 ### P1 — Open (Medium Priority)
 2. ~~Reconcile `design-system.css` palette with `globals.css` gold/black; remove straggler per-page styles~~ — **Done** (2026-01-28): `--color-heading` in design-system; globals uses it; certificate routes use `SECONDARY_HEX`. See `docs/2026-01-28_P1_TECH_DEBT_DELIVERY.md`.  
 3. ~~Remove client debug logs (dashboard, games, achievements, etc.) before production builds~~ — **Done**: Icon.tsx console.warn removed; no client console in production bundle.  
-4. **Design system**: Use CTA token (#FAB908) for all primary CTAs; replace inline styles and hardcoded hex with Tailwind/design tokens — (partially done in tech audit; CTA audit doc exists.)  
+4. ~~**Design system**~~: Use CTA token (#FAB908) for all primary CTAs; replace inline styles and hardcoded hex with Tailwind/design tokens — **Done** (2026-01-28): Tailwind `brand.accent` and `primary.*` now use `var(--cta-bg)` / design-system.css; admin quests/rewards non-CTA yellow → neutral. See `docs/2026-01-28_CTA_YELLOW_AUDIT.md`.  
 5. ~~**Facebook cleanup** (post-migration): Remove `facebookId`/`authProvider: 'facebook'` once migration complete~~ — **Done**: Player model already SSO-only; data-deletion page and auth comment updated to SSO wording. See `docs/SSO_MIGRATION_COMPLETE.md` and `docs/2026-01-28_P1_TECH_DEBT_DELIVERY.md`.
 
 ### P2 — Open (Low Priority)
 6. Add minimal test harness (`npm test`), smoke tests for dashboard, courses, critical APIs  
-7. Single APP_URL constant for all env fallbacks  
-8. Certificate image route: source colors from CertificationSettings/Brand  
-9. CSP: Remove Facebook domains when Facebook fully removed  
+7. ~~Single APP_URL constant for all env fallbacks~~ — **Done**: `app/lib/constants/app-url.ts` is single source; app code uses `APP_URL`/`getAuthBaseUrl()`; scripts documented.  
+8. ~~Certificate image route: source colors from CertificationSettings/Brand~~ — **Done**: Default palette in `app/lib/constants/certificate-colors.ts` (design-system aligned); both certificate image APIs use it; Brand.themeColors override at runtime.  
+9. ~~CSP: Remove Facebook domains when Facebook fully removed~~ — **Done**: `app/lib/security.ts` has no Facebook; frame-src `'none'`. See AUDIT11 in RELEASE_NOTES.  
 
 ### Tech audit follow-up (Jan 2026) — priority order P0 → P1 → P2 → P3
 10. **P0 — Security**: Run `npm audit fix`; evaluate Next.js upgrade; restrict debug API; env for origin allowlists; gate SSO DEBUG logs.  
 11. **P1 — Lint/TS**: Fix critical ESLint errors (Sparkles, unescaped entities); fix Hook deps and high-impact `any`; re-enable lint (and optionally TS) in build; migrate from deprecated `next lint`. **P1.7 TypeScript**: ✅ Complete — all app-level TS errors fixed; `tsc --noEmit` passes; see `docs/2026-01-28_TYPESCRIPT_AUDIT_COMPLETE.md`.  
 12. **P2 — Deprecated/hardcoded**: Update/remove baseline-browser-mapping and @emnapi/runtime; centralise certificate/email/analytics colors; use env for production allowlists.  
-13. **P3 — Known issues, UI, consistency**: Resolve or ticket profile stats, admin settings, system-info, game status API, challenge retry; replace admin `<img>` with Next Image; audit CTA yellow; standardise imports and logging.  
+13. **P3 — Known issues, UI, consistency**: Resolve or ticket profile stats, admin settings, system-info, game status API, challenge retry; replace admin `<img>` with Next Image; ~~audit CTA yellow~~ (done — CTA audit doc + Tailwind wiring); standardise imports and logging.  
 *Full list: `docs/2026-01-30_TECH_AUDIT_JANUARY.md` §12; tasklist: `docs/tasklists/TECH_AUDIT_JANUARY__2026-01-30.md`.*
 
 

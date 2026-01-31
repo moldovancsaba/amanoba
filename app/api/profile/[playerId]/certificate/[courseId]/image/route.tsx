@@ -24,22 +24,7 @@ import {
   Brand,
 } from '@/lib/models';
 import { logger } from '@/lib/logger';
-import { SECONDARY_HEX } from '@/app/lib/constants/app-url';
-
-/** Default certificate image colors (used when Brand themeColors not available) */
-const CERT_COLORS_DEFAULT = {
-  bgStart: '#1a1a1a',
-  bgMid: SECONDARY_HEX,
-  border: '#FFD700',
-  borderMuted: 'rgba(255, 215, 0, 0.3)',
-  titleGradientEnd: '#FFA500',
-  textPrimary: '#FFFFFF',
-  textSecondary: '#CCCCCC',
-  accent: '#FFD700',
-  footer: '#999999',
-} as const;
-
-type CertColors = { [K in keyof typeof CERT_COLORS_DEFAULT]: string };
+import { CERT_COLORS_DEFAULT, type CertColors } from '@/app/lib/constants/certificate-colors';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';

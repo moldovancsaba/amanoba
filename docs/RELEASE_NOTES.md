@@ -1,11 +1,51 @@
 # Amanoba Release Notes
 
-**Current Version**: 2.9.23  
+**Current Version**: 2.9.25  
 **Last Updated**: 2026-01-28
 
 ---
 
 All completed tasks are documented here in reverse chronological order. This file follows the Changelog format and is updated with every version bump.
+
+---
+
+## [v2.9.25] — 2026-01-28 🛠️
+
+**Status**: P2 tech debt — APP_URL, certificate colors, auth analytics, docs (Facebook→SSO), CSP  
+**Type**: Tech debt (ROADMAP § P2 items 7–9; optional follow-up from Top 5)
+
+### P2 tech debt delivery
+
+- **APP_URL**: Single source in `app/lib/constants/app-url.ts`; comment added for scripts (use NEXT_PUBLIC_APP_URL or CANONICAL_APP_URL). App code already used APP_URL/getAuthBaseUrl().
+- **Certificate colors**: New `app/lib/constants/certificate-colors.ts` — default palette uses THEME_COLOR and SECONDARY_HEX (design-system aligned). Both certificate image APIs (`api/profile/[playerId]/certificate/[courseId]/image`, `api/certificates/[slug]/image`) import from it; Brand.themeColors override at runtime.
+- **Auth analytics**: `app/lib/analytics/event-logger.ts` — logAuthEvent `method` changed from `'facebook_oauth'` to `'sso'`.
+- **Docs**: `docs/ENVIRONMENT_SETUP.md` — "Facebook App Configuration" replaced with "SSO / Auth Configuration" (SSO callback URIs, no Facebook); secrets list and Secret Rotation updated to SSO/OAuth. `docs/VERCEL_DEPLOYMENT.md` — support step "Verify Facebook App settings" → "Verify SSO provider redirect URIs and secrets".
+- **CSP**: Already done (AUDIT11) — no Facebook in `app/lib/security.ts`; frame-src `'none'`.
+
+**Documentation**: ROADMAP P2 items 7–9 marked done; TASKLIST unchanged (P2 backlog).
+
+**Status**: ✅ P2 tech debt (optional) delivered
+
+---
+
+## [v2.9.24] — 2026-01-28 📋
+
+**Status**: Multi-Format Course Forking (Shorts) — documented and verified  
+**Type**: Feature (already implemented); docs/tasklist alignment  
+**Source**: `docs/2026-01-27_RAPID_CHILDREN_COURSES_DELIVERY_PLAN.md`, `docs/2026-01-27_RAPID_CHILDREN_COURSES_ACTION_PLAN_AND_HANDOVER.md`
+
+### Multi-Format Course Forking (Shorts)
+
+- **Create short (fork)**: Admin creates child courses from a parent (language-variant) course via **Shorts** on the course editor: checkbox lesson selection, reorder, cert question count, Save → `POST /api/admin/courses/fork` creates child with `courseId = {parentCourseId}_{courseVariant}`, `selectedLessonIds`, `durationDays`, `certQuestionCount`; child is created as **draft** until published.
+- **Short types** (by lesson count): 1–3 Essentials, 4–7 Beginner, 8–12 Foundations, 13–20 Core Skills, 21+ Full Program.
+- **Child course editor**: Read-only lessons and quiz (managed in parent); course-level fields (name, description, thumbnail, certification, certQuestionCount) editable; notice: “Lesson and quiz content are managed in the parent course.”
+- **Day and progress**: `GET /api/courses/[courseId]/day/[dayNumber]` resolves lesson via `resolveLessonForChildDay` for child courses; progress and completion use child’s `durationDays`.
+- **Final exam and certificate**: Child final exam uses ≤ `certQuestionCount` questions from parent pool; certificate issued when pass rule is met.
+- **Catalog and enrollment**: Child courses appear in catalog and “my courses” only when **published** (not draft); enrollment creates progress with child `courseId` and `durationDays`.
+
+**Documentation**: `docs/2026-01-27_RAPID_CHILDREN_COURSES_DELIVERY_PLAN.md` — Post-Delivery Checklist RELEASE_NOTES item and Acceptance Criteria marked complete.
+
+**Status**: ✅ Multi-Format Course Forking (Shorts) release note and delivery plan checklist complete
 
 ---
 

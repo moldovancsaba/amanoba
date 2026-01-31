@@ -395,7 +395,7 @@ export async function logAuthEvent(
     eventType,
     eventData: {
       timestamp: new Date().toISOString(),
-      method: 'facebook_oauth',
+      method: 'sso',
     },
     context,
   });

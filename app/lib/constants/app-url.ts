@@ -5,7 +5,8 @@
  * Why: Avoids inconsistent fallbacks (www.amanoba.com vs amanoba.com vs localhost) across the codebase
  *
  * Canonical production URL: https://www.amanoba.com
- * Set NEXT_PUBLIC_APP_URL in production; NEXTAUTH_URL for auth redirects when different
+ * Set NEXT_PUBLIC_APP_URL in .env for production; NEXTAUTH_URL for auth callbacks when different.
+ * Scripts (tsx): use NEXT_PUBLIC_APP_URL or CANONICAL_APP_URL for consistency.
  */
 
 /**

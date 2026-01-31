@@ -236,7 +236,7 @@ If issues persist:
 
 1. Check Vercel deployment logs
 2. Check MongoDB Atlas logs
-3. Verify Facebook App settings at developers.facebook.com
+3. Verify SSO provider redirect URIs and secrets
 4. Review LEARNINGS.md for known issues
 5. Check GitHub issues for similar problems
 

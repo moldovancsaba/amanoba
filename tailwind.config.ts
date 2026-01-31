@@ -27,34 +27,32 @@ const config: Config = {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
-        // Amanoba brand colors
+        // Amanoba brand colors — source of truth: app/design-system.css (--cta-bg, --color-primary-*)
         brand: {
           black: '#000000',
           darkGrey: '#2D2D2D',
           white: '#FFFFFF',
-          accent: '#FAB908', // Yellow/Gold accent
-          // Primary color variants (for hover states)
+          accent: 'var(--cta-bg)', // CTA token from design-system.css
           primary: {
-            400: '#FBBF24', // Lighter yellow for hover
+            400: 'var(--cta-bg-hover)', // Hover from design-system.css
           },
-          // Secondary color variants (for hover states)
           secondary: {
-            700: '#374151', // Darker grey for hover
+            700: '#374151',
           },
         },
-        // Primary uses accent color
+        // Primary palette from design-system.css (CTAs and primary actions)
         primary: {
-          DEFAULT: '#FAB908',
-          50: '#FEF9E7',
-          100: '#FEF3C7',
-          200: '#FDE68A',
-          300: '#FCD34D',
-          400: '#FBBF24',
-          500: '#FAB908',
-          600: '#D97706',
-          700: '#B45309',
-          800: '#92400E',
-          900: '#78350F',
+          DEFAULT: 'var(--cta-bg)',
+          50: 'var(--color-primary-50)',
+          100: 'var(--color-primary-100)',
+          200: 'var(--color-primary-200)',
+          300: 'var(--color-primary-300)',
+          400: 'var(--cta-bg-hover)',
+          500: 'var(--color-primary-500)',
+          600: 'var(--color-primary-600)',
+          700: 'var(--color-primary-700)',
+          800: 'var(--color-primary-800)',
+          900: 'var(--color-primary-900)',
         },
         // Secondary uses dark grey
         secondary: {

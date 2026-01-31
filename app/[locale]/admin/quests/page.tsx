@@ -156,7 +156,7 @@ export default function AdminQuestsPage() {
                   <span>{quest.rewards.completionPoints} points</span>
                 </div>
                 {quest.requirements.isPremiumOnly && (
-                  <div className="text-xs text-yellow-400">Premium Only</div>
+                  <span className="text-xs px-2 py-0.5 bg-neutral-600/80 text-neutral-200 rounded">Premium Only</span>
                 )}
               </div>
 
