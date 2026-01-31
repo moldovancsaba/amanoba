@@ -8,7 +8,7 @@
 
 ## Executive summary
 
-- **Build**: ✅ Passes (Next.js 15.5.9). One non-blocking warning: `baseline-browser-mapping` data is over two months old.
+- **Build**: ✅ Passes (Next.js 15.5.11). ~~One non-blocking warning: `baseline-browser-mapping` data is over two months old.~~ **Fixed 2026-01-28**: Added override `baseline-browser-mapping: ^2.9.0` in package.json; build warning cleared.
 - **Dependencies**: 4 npm audit vulnerabilities (2 high, 2 moderate). One extraneous package (`@emnapi/runtime`). Optional deps (WebAuthn, nodemailer) unmet — acceptable if not used.
 - **Deprecated**: `next lint` is deprecated (removal in Next.js 16). Lesson model field `assessmentGameId` is deprecated (use `quizConfig`).
 - **Lint**: **ESLint** — warnings remain (build has `eslint.ignoreDuringBuilds: false`; build passes with warnings). **TypeScript**: Application-level TS errors fixed (2026-01-28); `npx tsc --noEmit` passes; see `docs/2026-01-28_TYPESCRIPT_AUDIT_COMPLETE.md`. Build still has `typescript.ignoreBuildErrors: true` until team opts to enforce TS in build.
