@@ -78,7 +78,7 @@ export async function reSyncChildFromParent(
     },
     { new: true, runValidators: true }
   ).lean();
-  return updated ? { course: updated as ICourse, removedLessonIds: removed } : null;
+  return updated ? { course: updated as unknown as ICourse, removedLessonIds: removed } : null;
 }
 
 /**

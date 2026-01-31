@@ -94,7 +94,7 @@ const certificateStrings: Record<CertificateLocale, CertificateStrings> = {
 };
 
 const DEFAULT_LOCALE: CertificateLocale = 'en';
-const SUPPORTED_LOCALES = new Set<CertificateLocale>(Object.keys(certificateStrings) as CertificateLocale[]);
+const _SUPPORTED_LOCALES = new Set<CertificateLocale>(Object.keys(certificateStrings) as CertificateLocale[]);
 
 export function getCertificateStrings(locale: string): CertificateStrings {
   const normalized = locale?.toLowerCase().slice(0, 2) as CertificateLocale;

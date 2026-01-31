@@ -25,6 +25,10 @@ const nextConfig: NextConfig = {
         protocol: 'https',
         hostname: '**.imgbb.com',
       },
+      {
+        protocol: 'https',
+        hostname: 'api.qrserver.com',
+      },
     ],
     formats: ['image/webp', 'image/avif'],
   },

@@ -534,7 +534,7 @@ export async function checkAndUnlockCourseAchievements(
     const { Course, CourseProgress, PlayerProgression } = await import('@/lib/models');
     const course = await Course.findOne({ courseId: courseIdUpper }).lean();
     if (!course) return results;
-    const courseObjectId = (course as { _id: mongoose.Types.ObjectId })._id;
+    const courseObjectId = new mongoose.Types.ObjectId(String((course as { _id: unknown })._id));
 
     const progress = await CourseProgress.findOne({
       playerId,
@@ -571,7 +571,7 @@ export async function checkAndUnlockCourseAchievements(
 
     const context: AchievementCheckContext = {
       playerId,
-      progression: progression as IPlayerProgression,
+      progression: progression as unknown as IPlayerProgression,
       courseId: courseIdUpper,
       courseProgress: { lessonsCompleted, status },
     };

@@ -14,6 +14,7 @@ import { useTranslations } from 'next-intl';
 import { useLocale } from 'next-intl';
 import { CheckCircle, XCircle, Download, Link as LinkIcon, Check, Share2, QrCode } from 'lucide-react';
 import { useRouter } from 'next/navigation';
+import Image from 'next/image';
 import { trackGAEvent } from '@/app/lib/analytics/ga-events';
 
 // Force dynamic rendering
@@ -434,12 +435,13 @@ export default function CertificatePage({
                           <QrCode className="w-5 h-5" />
                           Scan to verify
                         </h4>
-                        <img
+                        <Image
                           src={`https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${encodeURIComponent(verificationUrlForShare)}`}
                           alt="QR code to verify certificate"
                           width={150}
                           height={150}
                           className="mx-auto border-2 border-brand-accent/50 rounded-lg bg-white p-1"
+                          unoptimized
                         />
                       </div>
                     )}

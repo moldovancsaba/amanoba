@@ -279,7 +279,7 @@ export async function sendLessonEmail(
     }
 
     // Send email via Resend
-    const { data, error } = await resend.emails.send({
+    const { data: _data, error } = await resend.emails.send({
       from: `${EMAIL_CONFIG.fromName} <${EMAIL_CONFIG.from}>`,
       to: player.email,
       subject,
@@ -386,7 +386,7 @@ export async function sendWelcomeEmail(
       return { success: false, error: 'Email service not configured' };
     }
 
-    const { data, error } = await resend.emails.send({
+    const { data: _data, error } = await resend.emails.send({
       from: `${EMAIL_CONFIG.fromName} <${EMAIL_CONFIG.from}>`,
       to: player.email,
       subject,
@@ -507,7 +507,7 @@ export async function sendCompletionEmail(
       return { success: false, error: 'Email service not configured' };
     }
 
-    const { data, error } = await resend.emails.send({
+    const { data: _data, error } = await resend.emails.send({
       from: `${EMAIL_CONFIG.fromName} <${EMAIL_CONFIG.from}>`,
       to: player.email,
       subject,

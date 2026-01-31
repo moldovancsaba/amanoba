@@ -114,7 +114,7 @@ export async function PATCH(
     }
 
     try {
-      await resetVotesForLesson(lesson, course._id);
+      await resetVotesForLesson(lesson, course._id as mongoose.Types.ObjectId);
     } catch (voteErr) {
       logger.warn({ error: voteErr, courseId, lessonId }, 'Vote reset on lesson update failed');
     }

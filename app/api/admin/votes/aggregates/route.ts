@@ -5,6 +5,7 @@
  */
 
 import { NextRequest, NextResponse } from 'next/server';
+import type { PipelineStage } from 'mongoose';
 import { auth } from '@/auth';
 import connectDB from '@/lib/mongodb';
 import { ContentVote } from '@/lib/models';
@@ -29,7 +30,7 @@ export async function GET(request: NextRequest) {
       match.targetType = targetType;
     }
 
-    const pipeline: Record<string, unknown>[] = [{ $match: Object.keys(match).length ? match : {} }];
+    const pipeline: PipelineStage[] = [{ $match: Object.keys(match).length ? match : {} }];
     pipeline.push({
       $group: {
         _id: { targetType: '$targetType', targetId: '$targetId' },
@@ -54,7 +55,7 @@ export async function GET(request: NextRequest) {
     }));
 
     return NextResponse.json({ success: true, aggregates: list });
-  } catch (error) {
+  } catch (_error) {
     return NextResponse.json({ error: 'Failed to get vote aggregates' }, { status: 500 });
   }
 }

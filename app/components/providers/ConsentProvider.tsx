@@ -175,10 +175,10 @@ export function useConsent() {
   return context;
 }
 
-// Extend Window interface for gtag
+// Extend Window interface for gtag (must match ga-events.ts: gtag optional)
 declare global {
   interface Window {
-    dataLayer: unknown[];
-    gtag: (...args: unknown[]) => void;
+    dataLayer?: unknown[];
+    gtag?: (...args: unknown[]) => void;
   }
 }

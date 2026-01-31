@@ -20,6 +20,8 @@ import {
   Calendar,
   Download,
   Upload,
+  AlertTriangle,
+  RefreshCw,
 } from 'lucide-react';
 import Image from 'next/image';
 import RichTextEditor from '@/app/components/ui/rich-text-editor';

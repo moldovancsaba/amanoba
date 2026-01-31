@@ -53,7 +53,7 @@ export async function GET(
       computedStatus: status.status,
       missingLessonIds: status.missingLessonIds ?? [],
     });
-  } catch (error) {
+  } catch (_error) {
     return NextResponse.json({ error: 'Failed to get sync status' }, { status: 500 });
   }
 }
