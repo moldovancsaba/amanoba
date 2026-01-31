@@ -33,11 +33,11 @@ Completed items (formerly 1–4, 6–11) are not listed here; they live only in 
 
 | # | Action item | Status |
 |---|-------------|--------|
-| 1 | Add up/down voting for courses (in addition to existing content voting). | ⏳ PENDING |
-| 2 | Store and expose aggregate vote scores for courses. | ⏳ PENDING |
-| 3 | Display aggregate scores (or indicators) on course cards and lesson headers. | ⏳ PENDING |
-| 4 | Admin view: list/view vote aggregates for courses and content. | ⏳ PENDING |
-| 5 | Reset votes when lesson content is updated (per policy). | ⏳ PENDING |
+| 1 | ~~Add up/down voting for courses~~ — Done: ContentVoteWidget (targetType=course) on course detail. | ✅ |
+| 2 | ~~Store and expose aggregate vote scores for courses~~ — Done: GET /api/votes; GET /api/courses?includeVoteAggregates=1. | ✅ |
+| 3 | ~~Display aggregate scores on course cards~~ — Done: course cards show ↑/↓ count when voteAggregate present. | ✅ |
+| 4 | ~~Admin view~~ — Done: /admin/votes. | ✅ |
+| 5 | ~~Reset votes when lesson content is updated~~ — Done: resetVotesForLesson from admin lesson PATCH. | ✅ |
 
 ---
 
@@ -47,8 +47,8 @@ Completed items (formerly 1–4, 6–11) are not listed here; they live only in 
 
 | # | Action item | Status |
 |---|-------------|--------|
-| 1 | Improve course cards (layout, info, responsiveness). | ⏳ PENDING |
-| 2 | Improve lesson viewer and progress visualisation. | ⏳ PENDING |
+| 1 | ~~Improve course cards~~ — Done: vote aggregate (↑/↓) on cards; layout already responsive. | ✅ |
+| 2 | ~~Improve lesson viewer and progress visualisation~~ — Done: "Day X / Y" + thin progress bar in header. | ✅ |
 | 3 | Improve mobile responsiveness across course/lesson flows. | ⏳ PENDING |
 | 4 | Improve email templates (layout, clarity, branding). | ⏳ PENDING |
 | 5 | Improve assessment result visuals (feedback, scores, explanations). | ⏳ PENDING |

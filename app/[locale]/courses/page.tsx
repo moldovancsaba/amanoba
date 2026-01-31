@@ -19,6 +19,8 @@ import {
   Search,
   ArrowLeft,
   CreditCard,
+  ThumbsUp,
+  ThumbsDown,
 } from 'lucide-react';
 import Image from 'next/image';
 import Logo from '@/components/Logo';
@@ -48,6 +50,7 @@ interface Course {
   certification?: {
     enabled?: boolean;
   };
+  voteAggregate?: { up: number; down: number; score: number; count: number };
 }
 
 export default function CoursesPage() {
@@ -66,6 +69,7 @@ export default function CoursesPage() {
       const params = new URLSearchParams();
       params.append('status', 'active');
       params.append('locale', locale);
+      params.append('includeVoteAggregates', '1');
       // SHOW ALL COURSES: No language filter
       // Each course card displays in requested locale when translations exist (P0 catalog language integrity)
       if (search) {
@@ -364,7 +368,7 @@ export default function CoursesPage() {
                   <p className="text-brand-darkGrey text-sm sm:text-base mb-5 line-clamp-2 leading-relaxed">
                     {course.description}
                   </p>
-                  <div className="flex items-center gap-4 text-sm sm:text-base text-brand-darkGrey mb-5">
+                  <div className="flex items-center gap-4 text-sm sm:text-base text-brand-darkGrey mb-3">
                     <div className="flex items-center gap-1">
                       <Calendar className="w-4 h-4" />
                       <span>
@@ -378,6 +382,14 @@ export default function CoursesPage() {
                       </span>
                     </div>
                   </div>
+                  {course.voteAggregate && course.voteAggregate.count > 0 && (
+                    <div className="flex items-center gap-2 text-sm text-brand-darkGrey mb-5">
+                      <ThumbsUp className="w-4 h-4 text-green-600" />
+                      <span>{course.voteAggregate.up}</span>
+                      <ThumbsDown className="w-4 h-4 text-amber-600" />
+                      <span>{course.voteAggregate.down}</span>
+                    </div>
+                  )}
                   <div className="bg-brand-accent text-brand-black px-5 py-3 rounded-lg font-bold text-center hover:bg-brand-primary-400 transition-colors text-base w-full">
                     {courseTexts.viewCourse} →
                   </div>

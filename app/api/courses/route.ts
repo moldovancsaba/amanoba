@@ -7,7 +7,7 @@
 
 import { NextRequest, NextResponse } from 'next/server';
 import connectDB from '@/lib/mongodb';
-import { Course, Brand } from '@/lib/models';
+import { Course, Brand, ContentVote } from '@/lib/models';
 import { logger } from '@/lib/logger';
 import { resolveCourseNameForLocale, resolveCourseDescriptionForLocale } from '@/app/lib/utils/course-i18n';
 import type { Locale } from '@/app/lib/i18n/locales';
@@ -32,6 +32,7 @@ export async function GET(request: NextRequest) {
     const language = searchParams.get('language');
     const search = searchParams.get('search');
     const locale = parseLocale(searchParams.get('locale'));
+    const includeVoteAggregates = searchParams.get('includeVoteAggregates') === '1' || searchParams.get('includeVoteAggregates') === 'true';
 
     // Build query - only show active courses to students
     const query: Record<string, unknown> = {};
@@ -80,7 +81,7 @@ export async function GET(request: NextRequest) {
     }
 
     // Add default thumbnail; resolve name/description for locale when requested (P0 catalog language integrity)
-    const coursesWithThumbnails = courses.map((course) => {
+    let coursesWithThumbnails = courses.map((course) => {
       const base = {
         ...course,
         thumbnail: course.thumbnail || defaultThumbnail || null,
@@ -96,6 +97,21 @@ export async function GET(request: NextRequest) {
       const { translations: _t, ...rest } = base as typeof base & { translations?: unknown };
       return _t != null ? rest : base;
     });
+
+    if (includeVoteAggregates && coursesWithThumbnails.length > 0) {
+      const courseIds = coursesWithThumbnails.map((c) => (c as { courseId?: string }).courseId).filter(Boolean) as string[];
+      const aggregates = await ContentVote.aggregate([
+        { $match: { targetType: 'course', targetId: { $in: courseIds } } },
+        { $group: { _id: '$targetId', up: { $sum: { $cond: [{ $eq: ['$value', 1] }, 1, 0] } }, down: { $sum: { $cond: [{ $eq: ['$value', -1] }, 1, 0] } }, count: { $sum: 1 } } },
+        { $project: { targetId: '$_id', up: 1, down: 1, count: 1, score: { $subtract: ['$up', '$down'] } } },
+      ]).exec();
+      const aggMap = new Map(aggregates.map((a: { targetId: string; up: number; down: number; count: number; score: number }) => [a.targetId, { up: a.up, down: a.down, count: a.count, score: a.score }]));
+      coursesWithThumbnails = coursesWithThumbnails.map((c) => {
+        const courseId = (c as { courseId?: string }).courseId;
+        const voteAggregate = courseId ? aggMap.get(courseId) ?? { up: 0, down: 0, count: 0, score: 0 } : { up: 0, down: 0, count: 0, score: 0 };
+        return { ...c, voteAggregate };
+      });
+    }
 
     logger.info({ 
       count: courses.length, 

@@ -369,6 +369,7 @@ export default function DailyLessonPage({
   const [dayNumber, setDayNumber] = useState<number>(0);
   const [quizPassed, setQuizPassed] = useState(false);
   const [courseLanguage, setCourseLanguage] = useState<string>('en');
+  const [totalDays, setTotalDays] = useState<number>(30);
   const searchParams = useSearchParams();
   const _locale = useLocale();
 
@@ -389,6 +390,7 @@ export default function DailyLessonPage({
 
         setLesson(data.lesson);
         setNavigation(data.navigation);
+        if (data.progress?.totalDays != null) setTotalDays(data.progress.totalDays);
         // Refresh quiz passed flag from localStorage (set by quiz page)
         // Include player ID in key to make it user-specific
         const user = session?.user as { id?: string; playerId?: string } | undefined;
@@ -531,11 +533,16 @@ export default function DailyLessonPage({
                 {getDayPageText('backToCourse', courseLanguage)}
               </LocaleLink>
             </div>
-            <div className="flex items-center gap-2 text-brand-white">
-              <Calendar className="w-5 h-5" />
-              <span className="font-bold">
-                {getDayPageText('dayNumber', courseLanguage, { day: lesson.dayNumber })}
+            <div className="flex flex-col items-end gap-1">
+              <span className="font-bold text-brand-white">
+                {getDayPageText('dayNumber', courseLanguage, { day: lesson.dayNumber })} / {totalDays}
               </span>
+              <div className="w-24 sm:w-32 h-1.5 bg-brand-darkGrey/40 rounded-full overflow-hidden">
+                <div
+                  className="h-full bg-brand-accent rounded-full transition-all"
+                  style={{ width: `${Math.min(100, (lesson.dayNumber / totalDays) * 100)}%` }}
+                />
+              </div>
             </div>
           </div>
         </div>

@@ -37,7 +37,17 @@ All completed tasks are documented here in reverse chronological order. This fil
 
 - **Course detail page** (`app/[locale]/courses/[courseId]/page.tsx`): "Course leaderboard" section fetches `GET /api/leaderboards/course/[courseId]?period=all_time&metric=course_points&limit=10` and displays top 10 by course points (rank, display name, score). Translations: `courseLeaderboard`, `noLeaderboardYet` (en, hu).
 
-**Status**: ✅ Perfect Assessment, Consistent Learner, dashboard/critical API smoke tests, course leaderboard UI delivered
+### Course voting: aggregates on course cards
+
+- **GET /api/courses**: Optional `includeVoteAggregates=1` — aggregates ContentVote for targetType=course, attaches `voteAggregate: { up, down, score, count }` per course.
+- **Courses list page** (`app/[locale]/courses/page.tsx`): Fetches with `includeVoteAggregates=1`; each course card shows thumbs up/down count when `voteAggregate.count > 0`. Course voting (widget on detail), admin view (/admin/votes), and vote reset on lesson update were already in place.
+
+### UI/UX: course cards and lesson progress
+
+- **Course cards**: Vote aggregate (↑/↓) displayed on each card when present; layout already responsive.
+- **Lesson viewer** (`app/[locale]/courses/[courseId]/day/[dayNumber]/page.tsx`): Header shows "Day X / Y" and a thin progress bar (dayNumber/totalDays); totalDays from API `progress.totalDays`.
+
+**Status**: ✅ Perfect Assessment, Consistent Learner, dashboard/critical API smoke tests, course leaderboard UI, course voting aggregates on cards, course cards + lesson progress UI delivered
 
 ---
 
