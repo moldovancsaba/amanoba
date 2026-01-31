@@ -8,7 +8,7 @@
 
 ## Summary
 
-All TypeScript errors in application code were fixed so that the project compiles with strict TypeScript checking. The build continues to use `typescript.ignoreBuildErrors: true` in `next.config.ts` until the team opts to re-enable type checking in the build; running `npx tsc --noEmit` locally or in CI now passes.
+All TypeScript errors in application code were fixed so that the project compiles with strict TypeScript checking. As of 2026-01-28 the build enforces TypeScript: `next.config.ts` has `typescript: { ignoreBuildErrors: false }`; `npm run build` fails on type errors. Running `npx tsc --noEmit` locally or in CI passes for app code (scripts excluded).
 
 ---
 

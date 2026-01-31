@@ -60,22 +60,12 @@
 
 - **Status**: ✅ Compiles successfully.
 - **Warning**: `[baseline-browser-mapping] The data in this module is over two months old.` — Update or remove dependency.
-- **Config**: `next.config.ts` has `eslint: { ignoreDuringBuilds: true }` and `typescript: { ignoreBuildErrors: true }` — builds do not fail on lint/type errors.
+- **Config** (updated 2026-01-28): `next.config.ts` has `eslint: { ignoreDuringBuilds: false }` and `typescript: { ignoreBuildErrors: false }` — **builds now fail on lint and TypeScript errors**. Lint: 0 warnings/errors; `npx tsc --noEmit` passes for app code (scripts excluded).
 
 ### 3.2 ESLint
 
-- **Total**: ~366 findings (~175 errors, ~191 warnings).
-- **Recurring themes**:
-  - **@typescript-eslint/no-explicit-any**: Many `any` types (admin achievements, analytics, session-manager, hooks, LocaleLink, queue, i18n, etc.). Replace with proper types.
-  - **@typescript-eslint/no-unused-vars**: Unused imports (e.g. Trophy, Filter, Ban, RotateCcw, Trash2, BookOpen), unused variables (e.g. router, locale, t, addingEditor, playerTimezone, dateRange).
-  - **react-hooks/exhaustive-deps**: `useEffect` missing dependencies (e.g. fetchAchievements, fetchCertificates, fetchChallenges, fetchCourses, fetchGames, fetchQuestions). Add deps or use callback/ref pattern.
-  - **react/jsx-no-undef**: `Sparkles` not defined in `app/[locale]/achievements/page.tsx` (missing import).
-  - **react/no-unescaped-entities**: Unescaped `"` in JSX in admin courses page.
-  - **@next/next/no-img-element**: Use Next.js `<Image />` instead of `<img>` (admin courses, admin games, admin rewards).
-  - **@next/next/no-before-interactive-script-outside-document**: `GoogleAnalytics.tsx` uses `beforeInteractive` outside `_document`.
-  - **import/no-anonymous-default-export**: achievement-worker default export.
-
-**Recommendation**: Re-enable lint (and ideally TypeScript) during build after fixing or narrowing rules; start with errors (e.g. `Sparkles`, unescaped entities, critical `any`).
+- **Total** (updated 2026-01-28): **0** warnings and **0** errors.
+- **Fixes applied**: All prior errors and warnings resolved (Sparkles, unescaped entities, no-img-element, no-unused-vars, anonymous default export, beforeInteractive). `@typescript-eslint/no-unused-vars` uses `argsIgnorePattern`/`varsIgnorePattern`/`caughtErrorsIgnorePattern` `^_`. See `docs/tasklists/TECH_AUDIT_JANUARY__2026-01-30.md`.
 
 ---
 

@@ -15,9 +15,9 @@ const nextConfig: NextConfig = {
     ignoreDuringBuilds: false,
   },
   
-  // Why: Enforce TypeScript during build (P1.7) — set true until remaining TS errors fixed
+  // Why: Enforce TypeScript during build (P1.7) — app code passes tsc --noEmit; scripts excluded per tsconfig
   typescript: {
-    ignoreBuildErrors: true,
+    ignoreBuildErrors: false,
   },
   
   // Configure image optimization domains if needed

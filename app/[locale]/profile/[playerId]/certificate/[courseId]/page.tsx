@@ -174,7 +174,7 @@ export default function CertificatePage({
           )}
           <div className="flex gap-3 justify-center">
             <button
-              onClick={() => router.push(`/${locale}/profile/${playerId}`)}
+              onClick={() => router.push(`/${_locale}/profile/${playerId}`)}
               className="bg-brand-accent text-brand-black px-6 py-2 rounded-lg font-bold hover:opacity-90"
             >
               Back to Profile
@@ -236,10 +236,10 @@ export default function CertificatePage({
     let verificationUrl: string;
     if (certificateData?.verificationSlug) {
       // Use new slug-based verification URL
-      verificationUrl = `${window.location.origin}/${locale}/certificate/${certificateData.verificationSlug}`;
+      verificationUrl = `${window.location.origin}/${_locale}/certificate/${certificateData.verificationSlug}`;
     } else {
       // Fallback to old format for backward compatibility
-      verificationUrl = `${window.location.origin}/${locale}/certificate/verify/${playerId}/${courseId}`;
+      verificationUrl = `${window.location.origin}/${_locale}/certificate/verify/${playerId}/${courseId}`;
     }
     
     try {
@@ -266,7 +266,7 @@ export default function CertificatePage({
         {/* Header */}
         <div className="mb-6">
           <button
-            onClick={() => router.push(`/${locale}/profile/${playerId}`)}
+            onClick={() => router.push(`/${_locale}/profile/${playerId}`)}
             className="text-brand-accent hover:underline mb-4 inline-block flex items-center gap-2"
           >
             ← Back to Profile

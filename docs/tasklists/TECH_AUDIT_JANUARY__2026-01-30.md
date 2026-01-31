@@ -25,7 +25,7 @@
 - [x] P1.4 Fix or document React Hook exhaustive-deps — **documented**: left as warnings; intentional run-on-mount / filter-driven fetch pattern
 - [x] P1.5 Replace high-impact `any` types — **done**: admin, session-manager, LocaleLink, i18n, API routes typed
 - [x] P1.6 Re-enable ESLint during build — **done**: `eslint.ignoreDuringBuilds: false` in next.config.ts; build passes (warnings only)
-- [x] P1.7 (Optional) Re-enable TypeScript errors during build — **done**: All application-level TypeScript errors fixed; `npx tsc --noEmit` passes (scripts excluded). See `docs/2026-01-28_TYPESCRIPT_AUDIT_COMPLETE.md`. Build still uses `typescript.ignoreBuildErrors: true`; can set to `false` when ready to enforce TS in build.
+- [x] P1.7 (Optional) Re-enable TypeScript errors during build — **done**: All application-level TypeScript errors fixed; `npx tsc --noEmit` passes (scripts excluded). **Build now enforces TS**: `typescript.ignoreBuildErrors: false` in next.config.ts (2026-01-28). See `docs/2026-01-28_TYPESCRIPT_AUDIT_COMPLETE.md`.
 - [x] P1.8 Migrate from deprecated `next lint` to ESLint CLI — **documented**: use `npx @next/codemod@canary next-lint-to-eslint-cli .` when ready; current `next lint` still used
 
 ---
@@ -52,4 +52,4 @@
 
 ---
 
-**Follow-up (2026-01-28)**: Remaining non-admin `<img>` replaced with Next.js `<Image />` (dashboard, courses, my-courses, course detail, PlayerAvatar). Unused imports/vars removed or prefixed across app/api and app/lib. `useCourseTranslations` now uses `logger` instead of `console.error`. **ESLint**: Added `@typescript-eslint/no-unused-vars` with `argsIgnorePattern`/`varsIgnorePattern`/`caughtErrorsIgnorePattern` `^_` in `.eslintrc.json`; fixed remaining no-unused-vars, anonymous default export (achievement-worker), and GoogleAnalytics beforeInteractive (eslint-disable with comment). **`npx next lint` now reports zero ESLint warnings or errors.**
+**Follow-up (2026-01-28)**: Remaining non-admin `<img>` replaced with Next.js `<Image />` (dashboard, courses, my-courses, course detail, PlayerAvatar). Unused imports/vars removed or prefixed across app/api and app/lib. `useCourseTranslations` now uses `logger` instead of `console.error`. **ESLint**: Added `@typescript-eslint/no-unused-vars` with `argsIgnorePattern`/`varsIgnorePattern`/`caughtErrorsIgnorePattern` `^_` in `.eslintrc.json`; fixed remaining no-unused-vars, anonymous default export (achievement-worker), and GoogleAnalytics beforeInteractive (eslint-disable with comment). **`npx next lint` now reports zero ESLint warnings or errors.** **P1.7 remaining**: TypeScript enforced during build — `next.config.ts` has `typescript: { ignoreBuildErrors: false }`; fixed build-time type errors (dashboard Image alt, madoku catch, profile certificate _locale usage); `npm run build` passes.

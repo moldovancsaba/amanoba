@@ -457,7 +457,7 @@ export default function Dashboard() {
                       <div className="relative w-full h-32 bg-brand-darkGrey rounded-lg mb-3 overflow-hidden">
                         <Image
                           src={course.thumbnail}
-                          alt={course.name}
+                          alt={course.name ?? 'Course'}
                           fill
                           className="object-cover"
                           sizes="(max-width: 768px) 100vw, 20rem"

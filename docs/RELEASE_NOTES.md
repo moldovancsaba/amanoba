@@ -1,11 +1,32 @@
 # Amanoba Release Notes
 
-**Current Version**: 2.9.22  
+**Current Version**: 2.9.23  
 **Last Updated**: 2026-01-28
 
 ---
 
 All completed tasks are documented here in reverse chronological order. This file follows the Changelog format and is updated with every version bump.
+
+---
+
+## [v2.9.23] — 2026-01-28 🛠️
+
+**Status**: P1 Tech audit follow-up (remaining) — TypeScript enforced in build  
+**Type**: Tech debt (P1.7; tasklist `docs/tasklists/TECH_AUDIT_JANUARY__2026-01-30.md`)
+
+### TypeScript enforced during build
+
+- **next.config.ts**: Set `typescript: { ignoreBuildErrors: false }` so the build fails on type errors (P1.7 complete).
+- **Build-time type fixes**: `app/[locale]/dashboard/page.tsx` — Image `alt={course.name ?? 'Course'}`; `app/[locale]/games/madoku/page.tsx` — catch `err` (was `_e`) used in `console.error`; `app/[locale]/profile/[playerId]/certificate/[courseId]/page.tsx` — use `_locale` in router.push and verification URL (variable was renamed to `_locale` for ESLint; usages updated).
+
+### Documentation
+
+- **docs/2026-01-30_TECH_AUDIT_JANUARY.md**: §3.1 Build config and §3.2 ESLint updated to current state (ESLint 0 warnings/errors; TS enforced in build).
+- **docs/tasklists/TECH_AUDIT_JANUARY__2026-01-30.md**: P1.7 note updated (build now enforces TS); follow-up note added (P1.7 remaining).
+- **docs/2026-01-28_TYPESCRIPT_AUDIT_COMPLETE.md**: Build now enforces TypeScript (`ignoreBuildErrors: false`).
+
+**Build Status**: `npm run build` passes with TypeScript and ESLint enforced.  
+**Status**: ✅ P1 Tech audit follow-up (remaining) delivered
 
 ---
 

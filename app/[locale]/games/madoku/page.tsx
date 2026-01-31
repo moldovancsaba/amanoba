@@ -222,8 +222,8 @@ export default function MadokuGame() {
         const data = await res.json();
         setGhostMode(data.recommended.isGhost);
         await startNewGame(data.recommended.aiLevel as AILevel);
-      } catch (_e) {
-        console.error('Auto-match failed, falling back to Medium', e);
+      } catch (err) {
+        console.error('Auto-match failed, falling back to Medium', err);
         setGhostMode(false);
         await startNewGame(2);
       }
