@@ -3,7 +3,7 @@
 **Version**: 2.9.33  
 **Last Updated**: 2026-01-28
 
-This document describes **what we want to build in the future** and **what benefits we want to give to clients**. It is not a task list. Actionable tasks derived from this roadmap live in **TASKLIST.md**. Completed work is in **RELEASE_NOTES.md**.
+This document describes **what we want to build in the future** and **what benefits we want to give to clients**. It is not a task list. **Rules:** Do not list anything that is already delivered (see **RELEASE_NOTES.md**). Do not list anything that has been turned into tasks (see **TASKLIST.md**). Only future vision that is not yet broken down into tasks belongs here.
 
 ---
 
@@ -28,24 +28,13 @@ This document describes **what we want to build in the future** and **what benef
 
 ## Future Functions We Want to Implement
 
-_Already delivered (see RELEASE_NOTES): User profile customization (v2.9.19), Editor User (v2.9.18), Certificate v0.1 (v2.9.20), Multi-Format Forking / Shorts (v2.9.24), Onboarding Survey, Email Automation Phase 1 (v2.9.28), Email tracking lesson/reminder/welcome/payment (v2.9.30), Selective unsync/re-sync for child courses (v2.9.31), Course-specific achievements and leaderboards (v2.9.32), Content voting (v2.9.32), Certificate enhancements — per-child overrides/templates, localized certs, LinkedIn share, QR codes (v2.9.33). Below = not yet delivered._
+_(Nothing delivered or already on TASKLIST appears here. Delivered work: RELEASE_NOTES.md. Current tasks: TASKLIST.md.)_
 
 ---
 
-### Email automation — Phase 2 and beyond
+### Certificate enhancements (remaining)
 
-**What we want:** A/B testing for key emails; optional integration with MailerLite/ActiveCampaign for advanced workflows, drip campaigns, and richer analytics.
-
-**Client benefits:**
-
-- Learners receive more relevant, personalised emails
-- Admins get better analytics and automation to improve engagement and conversions
-
----
-
-### Certificate enhancements
-
-**What we want:** Per-child certificate overrides; multiple templates per course; localized certificates; dynamic pass rules; LinkedIn Add-to-Profile; QR codes; A/B testing of certificate designs.
+**What we want:** Dynamic pass rules; A/B testing of certificate designs.
 
 **Client benefits:**
 
@@ -62,39 +51,6 @@ _Already delivered (see RELEASE_NOTES): User profile customization (v2.9.19), Ed
 
 - Learners can choose 7-day, weekend, 1-day, or 1-hour formats that fit their pace
 - Admins can create and maintain short-format courses with less friction
-
----
-
-### Course-specific achievements and leaderboards
-
-**What we want:** Further course achievements (e.g. Perfect Assessment, Consistent Learner) and richer leaderboard metrics; course-specific leaderboards (completion speed, scores, points, consistency).
-
-**Client benefits:**
-
-- Learners get clear milestones and recognition per course
-- Learners can compare progress with others on the same course
-
----
-
-### Course and content voting
-
-**What we want:** Up/down voting for courses, lessons, and questions; aggregate scores; display on course cards and lesson headers; admin view of aggregates; vote reset when lesson content is updated.
-
-**Client benefits:**
-
-- Learners and admins see which content is most helpful
-- Content quality improves from feedback
-
----
-
-### UI/UX polish and reliability
-
-**What we want:** Improved course cards, lesson viewer, and progress visualisation; mobile responsiveness; better email templates and assessment result visuals; test coverage (e.g. smoke tests for dashboard, courses, critical APIs) so the product stays reliable.
-
-**Client benefits:**
-
-- Learners get a clearer, more consistent experience on all devices
-- Fewer regressions and faster, safer releases
 
 ---
 
@@ -118,12 +74,12 @@ _Already delivered (see RELEASE_NOTES): User profile customization (v2.9.19), Ed
 
 ---
 
-## Client Benefits Summary
+## Client Benefits Summary (future only)
 
-| Who            | Benefits we want to deliver |
-|----------------|-----------------------------|
-| **Learners**   | Certificates they can share; short-format options (7d, weekend, 1d, 1h); course achievements and leaderboards; better email relevance; voting and feedback; mobile and offline; live and community features |
-| **Admins**     | Email analytics and A/B testing; course and content voting insights; multi-format and certificate tooling; reliable releases via tests |
+| Who            | Benefits we want to deliver (not yet delivered or on TASKLIST) |
+|----------------|----------------------------------------------------------------|
+| **Learners**   | Short-format options (7d, weekend, 1d, 1h); mobile and offline; live and community features |
+| **Admins**     | Multi-format and certificate tooling |
 | **Business**   | Higher engagement, completion, and retention; clearer product direction; scalable course and content creation |
 
 ---

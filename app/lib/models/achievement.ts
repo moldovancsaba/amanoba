@@ -28,7 +28,7 @@ export interface IAchievement extends Document {
   isHidden: boolean; // Secret achievements
   criteria: {
     type: 'games_played' | 'wins' | 'streak' | 'points_earned' | 'level_reached' | 'perfect_score' | 'speed' | 'accuracy' | 'custom'
-      | 'first_lesson' | 'lessons_completed' | 'course_completed' | 'course_master'; // Course-specific
+      | 'first_lesson' | 'lessons_completed' | 'course_completed' | 'course_master' | 'perfect_assessment' | 'lesson_streak'; // Course-specific
     gameId?: mongoose.Types.ObjectId; // Optional: achievement specific to one game
     courseId?: string; // Optional: achievement specific to one course (courseId string)
     target: number; // Target value to unlock (e.g. 1 for first_lesson, 7 for week one, 30 for course)
@@ -104,7 +104,7 @@ const AchievementSchema = new Schema<IAchievement>(
       type: {
         type: String,
         enum: {
-          values: ['games_played', 'wins', 'streak', 'points_earned', 'level_reached', 'perfect_score', 'speed', 'accuracy', 'custom', 'first_lesson', 'lessons_completed', 'course_completed', 'course_master'],
+          values: ['games_played', 'wins', 'streak', 'points_earned', 'level_reached', 'perfect_score', 'speed', 'accuracy', 'custom', 'first_lesson', 'lessons_completed', 'course_completed', 'course_master', 'perfect_assessment', 'lesson_streak'],
           message: 'Criteria type must be valid',
         },
         required: [true, 'Criteria type is required'],

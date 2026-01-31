@@ -8,6 +8,8 @@ import {
   FinalExamAttempt,
   Player,
 } from '@/lib/models';
+import { checkAndUnlockCourseAchievements } from '@/lib/gamification';
+import { logger } from '@/lib/logger';
 import crypto from 'crypto';
 import mongoose from 'mongoose';
 
@@ -123,6 +125,25 @@ export async function POST(request: NextRequest) {
       ? 'requirements_not_met' 
       : 'score_below_threshold';
     await existing.save();
+  }
+
+  // Check course achievements (e.g. Perfect Assessment for 100% on final exam)
+  try {
+    const courseIdStr = (course as { courseId?: string }).courseId;
+    if (courseIdStr) {
+      const unlocked = await checkAndUnlockCourseAchievements(
+        new mongoose.Types.ObjectId(session.user.id),
+        courseIdStr
+      );
+      if (unlocked.length > 0) {
+        logger.info(
+          { playerId: session.user.id, courseId: courseIdStr, unlocked: unlocked.length },
+          'Course achievements unlocked after final exam'
+        );
+      }
+    }
+  } catch (_err) {
+    // Do not fail the request if achievement check fails
   }
 
   return NextResponse.json({

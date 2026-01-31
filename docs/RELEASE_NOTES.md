@@ -1,13 +1,39 @@
 # Amanoba Release Notes
 
-**Current Version**: 2.9.33  
-**Last Updated**: 2026-01-28
+**Current Version**: 2.9.34  
+**Last Updated**: 2026-01-31
 
 **Rule:** Each task exists in exactly one place. Completed work lives **only here** (not in ROADMAP or TASKLIST). Open/future work → ROADMAP.md or TASKLIST.md only.
 
 ---
 
 All completed tasks are documented here in reverse chronological order. This file follows the Changelog format and is updated with every version bump.
+
+---
+
+## [v2.9.34] — 2026-01-31 🛠️
+
+**Status**: Further course achievements (TASKLIST) — Perfect Assessment, Consistent Learner; smoke tests for dashboard/critical APIs  
+**Type**: Feature + Quality (ROADMAP § Further course achievements, UI/UX reliability)
+
+### Perfect Assessment achievement
+
+- **Achievement model**: New criteria type `perfect_assessment`; optional `finalExamScorePercent` in achievement check context.
+- **Achievement engine**: `evaluateAchievementCriteria` handles `perfect_assessment` (course completed and final exam score 100%). `checkAndUnlockCourseAchievements` loads latest GRADED final exam attempt and passes `finalExamScorePercent` when course is completed.
+- **Final exam submit**: After grading, calls `checkAndUnlockCourseAchievements` so Perfect Assessment can unlock on 100% final exam.
+- **Seed**: "Perfect Assessment" achievement (mastery, gold, 100% on final exam) added to `scripts/seed-achievements.ts`.
+
+### Consistent Learner achievement
+
+- **Achievement model**: New criteria type `lesson_streak`; `courseProgress.lessonStreak` in context (longest consecutive lesson streak).
+- **Achievement engine**: Helper `computeLessonStreak(completedDays)`; `checkAndUnlockCourseAchievements` computes streak from `completedDays` and passes it; `evaluateAchievementCriteria` handles `lesson_streak`.
+- **Seed**: "Consistent Learner" achievement (streak, silver, target 7 lessons in a row) added to `scripts/seed-achievements.ts`.
+
+### Smoke tests for dashboard and critical APIs
+
+- **New test file**: `__tests__/smoke/dashboard-apis.test.ts` — GET /api/profile and GET /api/my-courses return 401 when unauthenticated (auth and security mocks). All smoke tests (health, courses, feature-flags, dashboard-apis) pass.
+
+**Status**: ✅ Perfect Assessment, Consistent Learner, dashboard/critical API smoke tests delivered
 
 ---
 
@@ -3005,29 +3031,9 @@ This release represents the completion of the core platform infrastructure, data
 
 ---
 
-## Upcoming Releases
+## Historical roadmap (archived)
 
-### [v1.1.0] — TBD
-**Phase 2: Database Layer**
-- MongoDB connection and logger setup
-- 17 Mongoose models with validation and indexes
-- Database seed scripts and initialization
-
-### [v1.2.0] — TBD
-**Phase 3: Gamification Core**
-- Points system with transaction logging
-- Achievement system with unlock tracking
-- XP and leveling with player titles
-- Streak system with daily tracking
-- Progressive disclosure gating (threshold: 3 games)
-
-### [v2.0.0] — TBD
-**Major Release: Full Platform Launch**
-- All games integrated (QUIZZZ, WHACKPOP, Madoku)
-- Complete analytics dashboard
-- Admin tools and management
-- PWA with push notifications
-- Production deployment to Vercel
+For current roadmap see **ROADMAP.md**. The section below was an old placeholder and has been removed; completed work is documented above in this file.
 
 ---
 

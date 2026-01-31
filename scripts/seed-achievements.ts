@@ -419,6 +419,58 @@ async function seedAchievements() {
         isActive: true,
       },
     },
+
+    // Course mastery: 100% on final exam
+    {
+      name: 'Perfect Assessment',
+      description: 'Score 100% on a course final exam',
+      category: 'mastery',
+      tier: 'gold',
+      icon: '💯',
+      isHidden: false,
+      criteria: {
+        type: 'perfect_assessment',
+        target: 1,
+        condition: 'Complete the course and score 100% on the final exam',
+      },
+      rewards: {
+        points: 500,
+        xp: 1000,
+        title: 'Perfect Score',
+      },
+      metadata: {
+        createdAt: new Date(),
+        updatedAt: new Date(),
+        unlockCount: 0,
+        isActive: true,
+      },
+    },
+
+    // Course streak: complete N lessons in a row
+    {
+      name: 'Consistent Learner',
+      description: 'Complete 7 lessons in a row in a course',
+      category: 'streak',
+      tier: 'silver',
+      icon: '🔥',
+      isHidden: false,
+      criteria: {
+        type: 'lesson_streak',
+        target: 7,
+        condition: 'Complete 7 consecutive lesson days in a course',
+      },
+      rewards: {
+        points: 200,
+        xp: 400,
+        title: 'Consistent',
+      },
+      metadata: {
+        createdAt: new Date(),
+        updatedAt: new Date(),
+        unlockCount: 0,
+        isActive: true,
+      },
+    },
   ];
   
   for (const achievementData of achievements) {

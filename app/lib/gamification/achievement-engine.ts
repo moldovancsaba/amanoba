@@ -32,12 +32,16 @@ export interface AchievementCheckContext {
     duration: number;
     outcome: 'win' | 'loss' | 'draw';
   };
-  /** For course-specific achievements (first_lesson, lessons_completed, course_completed, course_master). */
+  /** For course-specific achievements (first_lesson, lessons_completed, course_completed, course_master, perfect_assessment, lesson_streak). */
   courseId?: string;
   courseProgress?: {
     lessonsCompleted: number;
     status: string;
+    /** Longest consecutive lesson streak (e.g. days 1,2,3,4 -> 4). Used for lesson_streak. */
+    lessonStreak?: number;
   };
+  /** Final exam score (0–100). Used for perfect_assessment (100% on final exam). */
+  finalExamScorePercent?: number;
 }
 
 /**
@@ -53,6 +57,26 @@ export interface AchievementUnlockResult {
     title?: string;
   };
   wasAlreadyUnlocked: boolean;
+}
+
+/**
+ * Longest consecutive lesson streak from completed day numbers.
+ * E.g. [1,2,3,5,6] -> 3 (days 1,2,3 or 5,6; max is 3).
+ */
+function computeLessonStreak(completedDays: number[]): number {
+  if (completedDays.length === 0) return 0;
+  const sorted = [...completedDays].sort((a, b) => a - b);
+  let max = 1;
+  let current = 1;
+  for (let i = 1; i < sorted.length; i++) {
+    if (sorted[i] === sorted[i - 1] + 1) {
+      current += 1;
+      max = Math.max(max, current);
+    } else {
+      current = 1;
+    }
+  }
+  return max;
 }
 
 /**
@@ -181,7 +205,7 @@ export function evaluateAchievementCriteria(
   }
 
   // Course-specific achievements: require courseProgress when criteria is course-scoped
-  const courseCriteriaTypes = ['first_lesson', 'lessons_completed', 'course_completed', 'course_master'];
+  const courseCriteriaTypes = ['first_lesson', 'lessons_completed', 'course_completed', 'course_master', 'perfect_assessment', 'lesson_streak'];
   if (courseCriteriaTypes.includes(criteria.type)) {
     const criteriaCourseId = (criteria as { courseId?: string }).courseId?.toUpperCase?.();
     if (criteriaCourseId && context.courseId && criteriaCourseId !== context.courseId.toUpperCase()) {
@@ -203,6 +227,15 @@ export function evaluateAchievementCriteria(
         break;
       case 'course_master':
         currentValue = status === 'completed' ? 1 : 0; // Same as course_completed; can later add perfect/final-exam
+        break;
+      case 'perfect_assessment':
+        // 100% on final exam and course completed
+        currentValue =
+          status === 'completed' && context.finalExamScorePercent === 100 ? 1 : 0;
+        break;
+      case 'lesson_streak':
+        // Longest consecutive lesson streak (e.g. complete days 1,2,3,4 -> 4)
+        currentValue = context.courseProgress?.lessonStreak ?? 0;
         break;
       default:
         break;
@@ -545,12 +578,31 @@ export async function checkAndUnlockCourseAchievements(
     const progression = await PlayerProgression.findOne({ playerId }).lean();
     if (!progression) return results;
 
-    const lessonsCompleted = Array.isArray((progress as { completedDays?: number[] }).completedDays)
-      ? (progress as { completedDays: number[] }).completedDays.length
-      : 0;
+    const completedDays = Array.isArray((progress as { completedDays?: number[] }).completedDays)
+      ? (progress as { completedDays: number[] }).completedDays
+      : [];
+    const lessonsCompleted = completedDays.length;
     const status = String((progress as { status?: string }).status ?? 'not_started');
 
-    const courseCriteriaTypes = ['first_lesson', 'lessons_completed', 'course_completed', 'course_master'];
+    // Longest consecutive lesson streak (e.g. days 1,2,3,4 -> 4)
+    const lessonStreak = computeLessonStreak(completedDays);
+
+    let finalExamScorePercent: number | undefined;
+    if (status === 'completed') {
+      const { FinalExamAttempt } = await import('@/lib/models');
+      const latestAttempt = await FinalExamAttempt.findOne({
+        playerId,
+        courseId: courseObjectId,
+        status: 'GRADED',
+      })
+        .sort({ submittedAtISO: -1 })
+        .limit(1)
+        .lean();
+      const score = (latestAttempt as { scorePercentInteger?: number } | null)?.scorePercentInteger;
+      if (typeof score === 'number') finalExamScorePercent = score;
+    }
+
+    const courseCriteriaTypes = ['first_lesson', 'lessons_completed', 'course_completed', 'course_master', 'perfect_assessment', 'lesson_streak'];
     const achievements = await Achievement.find({
       'metadata.isActive': true,
       'criteria.type': { $in: courseCriteriaTypes },
@@ -573,7 +625,8 @@ export async function checkAndUnlockCourseAchievements(
       playerId,
       progression: progression as unknown as IPlayerProgression,
       courseId: courseIdUpper,
-      courseProgress: { lessonsCompleted, status },
+      courseProgress: { lessonsCompleted, status, lessonStreak },
+      ...(finalExamScorePercent !== undefined && { finalExamScorePercent }),
     };
 
     for (const achievement of achievements) {
