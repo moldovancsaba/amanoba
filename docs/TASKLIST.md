@@ -18,12 +18,12 @@ Completed items (formerly 1–4, 6–11) are not listed here; they live only in 
 
 ### Further course achievements and leaderboards (from ROADMAP)
 
-**User story:** As a learner I want additional course achievements and richer course-specific leaderboards (completion speed, scores, points, consistency) so that I have clear milestones and can compare my progress with others on the same course.
+**User story:** As a learner I want additional course achievements and richer course-specific leaderboards so that I have clear milestones and can compare my progress with others on the same course.
 
 | # | Action item | Status |
 |---|-------------|--------|
-| 1 | Add richer leaderboard metrics (completion speed, scores, points, consistency) for courses. | ⏳ PENDING |
-| 2 | Expose course-specific leaderboards (completion speed, scores, points, consistency) in UI. | ⏳ PENDING |
+| 1 | (Optional) Add more leaderboard metrics (e.g. consistency) — course_points and course_completion_speed already exist. | ⏳ PENDING |
+| 2 | ~~Expose course-specific leaderboards in UI~~ — Done: course detail page shows course leaderboard (top 10 by points). | ✅ |
 
 ---
 

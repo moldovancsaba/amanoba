@@ -33,7 +33,11 @@ All completed tasks are documented here in reverse chronological order. This fil
 
 - **New test file**: `__tests__/smoke/dashboard-apis.test.ts` — GET /api/profile and GET /api/my-courses return 401 when unauthenticated (auth and security mocks). All smoke tests (health, courses, feature-flags, dashboard-apis) pass.
 
-**Status**: ✅ Perfect Assessment, Consistent Learner, dashboard/critical API smoke tests delivered
+### Course leaderboard on course detail page
+
+- **Course detail page** (`app/[locale]/courses/[courseId]/page.tsx`): "Course leaderboard" section fetches `GET /api/leaderboards/course/[courseId]?period=all_time&metric=course_points&limit=10` and displays top 10 by course points (rank, display name, score). Translations: `courseLeaderboard`, `noLeaderboardYet` (en, hu).
+
+**Status**: ✅ Perfect Assessment, Consistent Learner, dashboard/critical API smoke tests, course leaderboard UI delivered
 
 ---
 

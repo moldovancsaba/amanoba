@@ -21,6 +21,7 @@ import {
   CheckCircle,
   Play,
   CreditCard,
+  Trophy,
 } from 'lucide-react';
 import Image from 'next/image';
 import Logo from '@/components/Logo';
@@ -102,7 +103,9 @@ export default function CourseDetailPage({
   const [lessons, setLessons] = useState<Lesson[]>([]);
   const [loadingLessons, setLoadingLessons] = useState(false);
   const [thumbnailError, setThumbnailError] = useState(false);
-  
+  const [leaderboardEntries, setLeaderboardEntries] = useState<Array<{ rank: number; score: number; player?: { displayName?: string } | null }>>([]);
+  const [leaderboardLoading, setLeaderboardLoading] = useState(false);
+
   // All translations use course language via getCourseDetailText()
 
   // Static course detail page translations (like courseCardTranslations)
@@ -152,6 +155,8 @@ export default function CourseDetailPage({
       certificationUnlocked: 'Tanúsítvány feloldva',
       redeemPointsCert: 'Pontok beváltása ({{points}})',
       startFinalExam: 'Végső vizsga indítása',
+      courseLeaderboard: 'Ranglista',
+      noLeaderboardYet: 'Még nincs rangsor. Teljesíts leckéket, hogy pontokat szerezve itt jelenj meg.',
     },
     en: {
       aboutThisCourse: 'Course Overview',
@@ -197,6 +202,8 @@ export default function CourseDetailPage({
       certificationUnlocked: 'Certification unlocked',
       redeemPointsCert: 'Redeem points ({{points}})',
       startFinalExam: 'Start final exam',
+      courseLeaderboard: 'Course leaderboard',
+      noLeaderboardYet: 'No rankings yet. Complete lessons to earn points and appear here.',
     },
     tr: {
       aboutThisCourse: 'Kurs Özeti',
@@ -753,6 +760,21 @@ export default function CourseDetailPage({
     void loadData();
   }, [checkEnrollment, checkPremiumStatus, fetchCourse, fetchEntitlement, fetchLessons, params, session]);
 
+  useEffect(() => {
+    if (!courseId) return;
+    let cancelled = false;
+    setLeaderboardLoading(true);
+    fetch(`/api/leaderboards/course/${encodeURIComponent(courseId)}?period=all_time&metric=course_points&limit=10`, { cache: 'no-store' })
+      .then((res) => (res.ok ? res.json() : null))
+      .then((data) => {
+        if (cancelled || !data?.entries) return;
+        setLeaderboardEntries(data.entries);
+      })
+      .catch(() => { if (!cancelled) setLeaderboardEntries([]); })
+      .finally(() => { if (!cancelled) setLeaderboardLoading(false); });
+    return () => { cancelled = true; };
+  }, [courseId]);
+
   const formatCurrency = (amount: number, currency: string): string => {
     const formatter = new Intl.NumberFormat(
       currency === 'huf' ? 'hu-HU' : currency === 'eur' ? 'de-DE' : currency === 'gbp' ? 'en-GB' : 'en-US',
@@ -1016,6 +1038,29 @@ export default function CourseDetailPage({
                   </div>
                 </div>
               </div>
+            </div>
+
+            {/* Course leaderboard (points) */}
+            <div className="bg-brand-white rounded-2xl p-8 border-2 border-brand-accent shadow-lg">
+              <h2 className="text-2xl sm:text-3xl font-bold text-brand-black mb-4 flex items-center gap-2">
+                <Trophy className="w-8 h-8 text-amber-500" />
+                {getCourseDetailText('courseLeaderboard') || 'Course leaderboard'}
+              </h2>
+              {leaderboardLoading ? (
+                <div className="text-brand-darkGrey text-center py-6">{getCourseDetailText('loading')}</div>
+              ) : leaderboardEntries.length === 0 ? (
+                <p className="text-brand-darkGrey">{getCourseDetailText('noLeaderboardYet') || 'No rankings yet. Complete lessons to earn points and appear here.'}</p>
+              ) : (
+                <ul className="space-y-2">
+                  {leaderboardEntries.map((entry) => (
+                    <li key={entry.rank} className="flex items-center gap-4 p-3 rounded-lg bg-brand-darkGrey/5 border border-brand-darkGrey/15">
+                      <span className="w-8 font-bold text-brand-black">{entry.rank}</span>
+                      <span className="flex-1 truncate text-brand-black font-medium">{entry.player?.displayName ?? '—'}</span>
+                      <span className="font-semibold text-brand-accent">{entry.score} {getCourseDetailText('points') || 'pts'}</span>
+                    </li>
+                  ))}
+                </ul>
+              )}
             </div>
 
             {/* Table of Contents */}

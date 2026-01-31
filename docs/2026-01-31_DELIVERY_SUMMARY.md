@@ -37,9 +37,15 @@
 
 ---
 
+### 5. Course leaderboard on course detail page (TASKLIST)
+
+- **Course detail page** (`app/[locale]/courses/[courseId]/page.tsx`): "Course leaderboard" section that fetches `GET /api/leaderboards/course/[courseId]?period=all_time&metric=course_points&limit=10` and shows top 10 by course points (rank, displayName, score). Translations: `courseLeaderboard`, `noLeaderboardYet` (en, hu).
+
+---
+
 ## Next (TASKLIST priority)
 
-1. **Further course achievements**: Richer leaderboard metrics; expose course leaderboards in UI.
+1. **Further course achievements**: Richer leaderboard metrics (optional; course_points and course_completion_speed already exist); remaining: optional extra metrics.
 2. **Course voting (additional)**: Course up/down voting, aggregates, display, admin view, vote reset.
 3. **UI/UX**: Course cards, lesson viewer, mobile, email templates, assessment visuals.
 
