@@ -18,7 +18,6 @@ import {
   Lock,
   Award,
   Play,
-  Calendar,
 } from 'lucide-react';
 import { useSearchParams } from 'next/navigation';
 import { useLocale } from 'next-intl';
