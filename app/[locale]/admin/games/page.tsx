@@ -46,7 +46,7 @@ export default function AdminGamesPage() {
   const fetchGames = useCallback(async () => {
     try {
       setLoading(true);
-      const response = await fetch('/api/games');
+      const response = await fetch('/api/admin/games');
       const data = await response.json();
 
       if (data.success) {
@@ -71,14 +71,22 @@ export default function AdminGamesPage() {
     void fetchGames();
   }, [fetchGames]);
 
-  const toggleGameStatus = async (_gameId: string, _currentStatus: boolean) => {
+  const toggleGameStatus = async (gameId: string, currentStatus: boolean) => {
     try {
-      // TODO: Create API endpoint for updating game status
-      // For now, just refresh the list
-      alert('Game status update coming soon');
-      fetchGames();
+      const response = await fetch(`/api/admin/games/${encodeURIComponent(gameId)}`, {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ isActive: !currentStatus }),
+      });
+      const data = await response.json();
+      if (data.success) {
+        void fetchGames();
+      } else {
+        alert(data.error || 'Failed to update game status');
+      }
     } catch (error) {
       console.error('Failed to toggle game status:', error);
+      alert('Failed to update game status. Please try again.');
     }
   };
 
@@ -183,7 +191,7 @@ export default function AdminGamesPage() {
                     </td>
                     <td className="px-6 py-4">
                       <button
-                        onClick={() => toggleGameStatus(game._id, game.isActive)}
+                        onClick={() => toggleGameStatus(game.gameId, game.isActive)}
                         className={`flex items-center gap-1 px-3 py-1 rounded-full text-xs font-medium ${
                           game.isActive
                             ? 'bg-green-500/20 text-green-400'

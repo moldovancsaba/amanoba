@@ -231,6 +231,7 @@ function getLocaleStrings(locale: Locale) {
       completionHeading: (playerName: string) => string;
       completionBody: (courseName: string, durationDays: number) => string;
       completionCta: string;
+      completionUpsellHeading: string;
 
       reminderSubject: (dayNumber: number, courseName: string) => string;
       reminderHeading: (playerName: string) => string;
@@ -270,6 +271,7 @@ function getLocaleStrings(locale: Locale) {
       completionBody: (courseName, durationDays) =>
         `You’ve successfully completed ${courseName}. Finishing all ${durationDays} days is a real achievement.`,
       completionCta: 'Browse more courses',
+      completionUpsellHeading: 'Recommended for you',
 
       reminderSubject: (dayNumber, courseName) => `Don’t miss Day ${dayNumber} of ${courseName}`,
       reminderHeading: playerName => `Hi ${playerName}!`,
@@ -308,6 +310,7 @@ function getLocaleStrings(locale: Locale) {
       completionBody: (courseName, durationDays) =>
         `Sikeresen teljesítetted a(z) ${courseName} kurzust. ${durationDays} nap végigcsinálása komoly eredmény.`,
       completionCta: 'További kurzusok böngészése',
+      completionUpsellHeading: 'Javasolt következő kurzusok',
 
       reminderSubject: (dayNumber, courseName) => `Ne maradj le! ${dayNumber}. nap — ${courseName}`,
       reminderHeading: playerName => `Szia ${playerName}!`,
@@ -345,6 +348,7 @@ function getLocaleStrings(locale: Locale) {
       completionBody: (courseName, durationDays) =>
         `لقد أكملت بنجاح ${courseName}. إن إنهاء جميع أيام التعلم (${durationDays} يومًا) إنجاز رائع.`,
       completionCta: 'تصفح دورات أخرى',
+      completionUpsellHeading: 'موصى به لك',
 
       reminderSubject: (dayNumber, courseName) => `لا تفوّت اليوم ${dayNumber} من ${courseName}`,
       reminderHeading: playerName => `مرحبًا ${playerName}!`,
@@ -382,6 +386,7 @@ function getLocaleStrings(locale: Locale) {
       completionBody: (courseName, durationDays) =>
         `आपने ${courseName} सफलतापूर्वक पूरा कर लिया है। पूरे ${durationDays} दिन पूरे करना एक बड़ी उपलब्धि है।`,
       completionCta: 'और कोर्स देखें',
+      completionUpsellHeading: 'आपके लिए अनुशंसित',
 
       reminderSubject: (dayNumber, courseName) => `${courseName} का दिन ${dayNumber} मिस न करें`,
       reminderHeading: playerName => `नमस्ते ${playerName}!`,
@@ -419,6 +424,7 @@ function getLocaleStrings(locale: Locale) {
       completionBody: (courseName, durationDays) =>
         `Kamu berhasil menyelesaikan ${courseName}. Menuntaskan semua ${durationDays} hari adalah pencapaian besar.`,
       completionCta: 'Jelajahi kursus lain',
+      completionUpsellHeading: 'Direkomendasikan untuk Anda',
 
       reminderSubject: (dayNumber, courseName) => `Jangan lewatkan Hari ${dayNumber} dari ${courseName}`,
       reminderHeading: playerName => `Halo ${playerName}!`,
@@ -456,6 +462,7 @@ function getLocaleStrings(locale: Locale) {
       completionBody: (courseName, durationDays) =>
         `Você concluiu ${courseName} com sucesso. Completar todos os ${durationDays} dias é uma grande conquista.`,
       completionCta: 'Ver mais cursos',
+      completionUpsellHeading: 'Recomendado para você',
 
       reminderSubject: (dayNumber, courseName) => `Não perca o Dia ${dayNumber} de ${courseName}`,
       reminderHeading: playerName => `Olá ${playerName}!`,
@@ -493,6 +500,7 @@ function getLocaleStrings(locale: Locale) {
       completionBody: (courseName, durationDays) =>
         `Bạn đã hoàn thành ${courseName}. Hoàn thành đầy đủ ${durationDays} ngày là một thành tích đáng tự hào.`,
       completionCta: 'Khám phá khóa học khác',
+      completionUpsellHeading: 'Đề xuất cho bạn',
 
       reminderSubject: (dayNumber, courseName) => `Đừng bỏ lỡ Ngày ${dayNumber} của ${courseName}`,
       reminderHeading: playerName => `Chào ${playerName}!`,
@@ -530,6 +538,7 @@ function getLocaleStrings(locale: Locale) {
       completionBody: (courseName, durationDays) =>
         `${courseName} kursunu başarıyla tamamladın. Tüm ${durationDays} günü bitirmek büyük bir başarı.`,
       completionCta: 'Diğer kurslara göz at',
+      completionUpsellHeading: 'Sizin için önerilenler',
 
       reminderSubject: (dayNumber, courseName) => `${courseName} kursunun ${dayNumber}. gününü kaçırma`,
       reminderHeading: playerName => `Merhaba ${playerName}!`,
@@ -567,6 +576,7 @@ function getLocaleStrings(locale: Locale) {
       completionBody: (courseName, durationDays) =>
         `Успешно завършихте ${courseName}. Да преминете през всички ${durationDays} дни е сериозно постижение.`,
       completionCta: 'Разгледайте още курсове',
+      completionUpsellHeading: 'Препоръчано за вас',
 
       reminderSubject: (dayNumber, courseName) => `Не пропускайте Ден ${dayNumber} от ${courseName}`,
       reminderHeading: playerName => `Здравейте ${playerName}!`,
@@ -604,6 +614,7 @@ function getLocaleStrings(locale: Locale) {
       completionBody: (courseName, durationDays) =>
         `Ukończyłeś(-aś) ${courseName}. Przejście przez wszystkie ${durationDays} dni to duże osiągnięcie.`,
       completionCta: 'Zobacz więcej kursów',
+      completionUpsellHeading: 'Polecane dla Ciebie',
 
       reminderSubject: (dayNumber, courseName) => `Nie przegap Dnia ${dayNumber} kursu ${courseName}`,
       reminderHeading: playerName => `Cześć ${playerName}!`,
@@ -641,6 +652,7 @@ function getLocaleStrings(locale: Locale) {
       completionBody: (courseName, durationDays) =>
         `Вы успешно завершили «${courseName}». Пройти все ${durationDays} дней — это большое достижение.`,
       completionCta: 'Посмотреть другие курсы',
+      completionUpsellHeading: 'Рекомендуем вам',
 
       reminderSubject: (dayNumber, courseName) => `Не пропустите день ${dayNumber} курса «${courseName}»`,
       reminderHeading: playerName => `Здравствуйте, ${playerName}!`,
@@ -708,31 +720,61 @@ export function renderWelcomeEmailSubject(params: { locale: Locale; courseName: 
   return s.welcomeSubject(params.courseName);
 }
 
-export function renderCompletionEmailHtml(params: BasicEmailParams & { durationDays: number }) {
-  const { locale, playerName, courseName, durationDays, appUrl, tokens } = params;
+export type RecommendedCourse = { name: string; courseId: string };
+
+export function renderCompletionEmailHtml(
+  params: BasicEmailParams & { durationDays: number; recommendedCourses?: RecommendedCourse[] }
+) {
+  const { locale, playerName, courseName, durationDays, appUrl, tokens, recommendedCourses } = params;
   const s = getLocaleStrings(locale);
   const dir = getDirection(locale);
 
   const ctaBg = tokens.ctaBg || '#FAB908';
   const ctaText = tokens.ctaText || '#111827';
   const bodyText = tokens.bodyText || '#333333';
+  const muted = tokens.muted || '#666666';
 
   const browseUrl = `${appUrl}/${locale}/courses`;
+
+  const upsellSection =
+    recommendedCourses && recommendedCourses.length > 0
+      ? `
+        <hr style="margin: 24px 0; border: none; border-top: 1px solid ${tokens.border};">
+        <p style="font-weight: bold; color: ${bodyText};">${s.completionUpsellHeading}</p>
+        <ul style="list-style: none; padding: 0; margin: 12px 0;">
+          ${recommendedCourses
+            .map(
+              (c) =>
+                `<li style="margin: 8px 0;"><a href="${appUrl}/${locale}/courses/${encodeURIComponent(c.courseId)}" style="color: ${ctaBg}; text-decoration: none;">${escapeHtml(c.name)}</a></li>`
+            )
+            .join('')}
+        </ul>
+      `
+      : '';
 
   return `
     <html>
       <body dir="${dir}" style="font-family: Arial, sans-serif; line-height: 1.6; color: ${bodyText};">
-        <h1>${s.completionHeading(playerName)}</h1>
-        <p>${s.completionBody(courseName, durationDays)}</p>
+        <h1>${escapeHtml(s.completionHeading(playerName))}</h1>
+        <p>${escapeHtml(s.completionBody(courseName, durationDays))}</p>
         <p style="margin-top: 24px;">
           <a href="${browseUrl}" style="background-color: ${ctaBg}; color: ${ctaText}; padding: 10px 20px; text-decoration: none; border-radius: 6px; display: inline-block; font-weight: bold;">
-            ${s.completionCta}
+            ${escapeHtml(s.completionCta)}
           </a>
         </p>
-        <p style="margin-top: 20px;">${s.teamSignoff}</p>
+        ${upsellSection}
+        <p style="margin-top: 20px; color: ${muted};">${escapeHtml(s.teamSignoff)}</p>
       </body>
     </html>
   `;
+}
+
+function escapeHtml(text: string): string {
+  return text
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
 }
 
 export function renderCompletionEmailSubject(params: { locale: Locale; courseName: string }) {

@@ -9,6 +9,13 @@ export interface QuizItemQAConfig {
   itemsPerRun: number;
   dryRun: boolean;
   courseSpecificOnly: boolean;
+  /**
+   * When true, pick/loop will skip questionIds already present in
+   * docs/QUIZ_ITEM_QA_HANDOVER_NEW2OLD.md (i.e., already "checked").
+   *
+   * Why: Enables a true "check remaining" pass without reprocessing already-logged items.
+   */
+  skipAlreadyLoggedIds: boolean;
   // Optional MongoDB ObjectId (24-hex) to restrict processing to a single course.
   courseObjectId?: string;
 }
@@ -31,6 +38,9 @@ export function loadConfig(overrides?: Partial<QuizItemQAConfig>): QuizItemQACon
     itemsPerRun: Math.max(1, parseNumber(env.QUIZ_ITEM_ITEMS_PER_RUN, 1)),
     dryRun: env.QUIZ_ITEM_DRY_RUN === 'true',
     courseSpecificOnly: env.QUIZ_ITEM_QA_COURSE_ONLY !== 'false',
+    // Default to "true" so loop runs always reduce `toCheck` unless explicitly disabled.
+    // Set `QUIZ_ITEM_QA_SKIP_LOGGED=false` to force re-checking already-logged ids.
+    skipAlreadyLoggedIds: env.QUIZ_ITEM_QA_SKIP_LOGGED !== 'false',
     courseObjectId: env.QUIZ_ITEM_QA_COURSE_ID?.trim() || undefined,
   };
 

@@ -684,7 +684,38 @@ export async function completeGameSession(
           },
           'Phase 2 failure: Daily challenge update failed (game data still saved)'
         );
-        // TODO Phase 4: Queue challenge progress update for retry
+        // Phase 4: Queue challenge progress update for retry (worker processes when available)
+        try {
+          const challengeContext: ChallengeProgressContext = {
+            playerId: session.playerId,
+            brandId: session.brandId,
+            gameId: session.gameId,
+            sessionData: {
+              outcome: input.outcome,
+              pointsEarned: pointsResult.totalPoints,
+              xpEarned: xpResult.totalXP,
+              isPerfect: input.accuracy === 100,
+            },
+            streakData: {
+              currentStreak: streakResult.currentStreak,
+            },
+          };
+          const { enqueueJob } = await import('../queue/job-queue-manager');
+          await enqueueJob({
+            jobType: 'challenge',
+            playerId: session.playerId,
+            sessionId: session._id as mongoose.Types.ObjectId,
+            brandId: session.brandId,
+            gameId: session.gameId,
+            payload: {
+              sessionData: challengeContext.sessionData,
+              streakData: challengeContext.streakData,
+            },
+          });
+          logger.info({ sessionId: session._id, playerId: session.playerId }, 'Challenge progress queued for retry');
+        } catch (queueError) {
+          logger.error({ err: queueError, sessionId: session._id }, 'Failed to queue challenge progress for retry');
+        }
       }
     }
     

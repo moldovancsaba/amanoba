@@ -17,6 +17,17 @@ import { validateQuestionQuality } from '../question-quality-validator';
 const HANDOVER_DOC = 'docs/QUIZ_ITEM_QA_HANDOVER.md';
 const HANDOVER_NEW2OLD_DOC = 'docs/QUIZ_ITEM_QA_HANDOVER_NEW2OLD.md';
 
+function loadLoggedIdsFromNew2Old(): Set<string> {
+  if (!existsSync(HANDOVER_NEW2OLD_DOC)) return new Set();
+  const raw = readFileSync(HANDOVER_NEW2OLD_DOC, 'utf-8');
+  const re = /^##\s+\d{4}-\d{2}-\d{2}T.*—\s+([0-9a-f]{24})\s*$/gim;
+  const ids = new Set<string>();
+  for (const match of raw.matchAll(re)) {
+    ids.add(match[1]);
+  }
+  return ids;
+}
+
 function ensureNew2OldDocExists() {
   if (existsSync(HANDOVER_NEW2OLD_DOC)) return;
 
@@ -121,10 +132,23 @@ export async function auditLastModified(overrides?: Partial<QuizItemQAConfig>) {
 }
 
 export async function pickNext(overrides?: Partial<QuizItemQAConfig>) {
+  const config = loadConfig(overrides);
   const state = loadState();
   const allSorted = await getOldestByUpdatedAt(overrides);
   if (!allSorted || allSorted.length === 0) {
     return { next: null, reason: 'No quiz items found' };
+  }
+  if (config.skipAlreadyLoggedIds) {
+    const loggedIds = loadLoggedIdsFromNew2Old();
+    const filtered = allSorted.filter((q) => !loggedIds.has(q._id));
+    if (filtered.length === 0) {
+      return { next: null, reason: 'All course-specific items are already logged in NEW2OLD' };
+    }
+    const resolved = resolveNextFromList(filtered, state);
+    if (!resolved.next && resolved.reason === 'No newer items found') {
+      return { next: filtered[0], reason: 'Wrapped (skip-logged coverage: starting from oldest unchecked)' };
+    }
+    return resolved;
   }
   return resolveNextFromList(allSorted, state);
 }
@@ -170,7 +194,7 @@ export function recordHandover(
   question: QuizItem,
   evaluation: EvaluationResult,
   notes?: string[],
-  options?: { agent?: string; cursorUpdatedAt?: string; cursorItemId?: string }
+  options?: { agent?: string; cursorUpdatedAt?: string; cursorItemId?: string; updateState?: boolean }
 ) {
   const timestamp = new Date().toISOString();
   const cursorUpdatedAt = options?.cursorUpdatedAt;
@@ -201,6 +225,10 @@ export function recordHandover(
   appendFileSync(HANDOVER_DOC, `${entry.join('\n')}\n`);
   recordNew2OldEntry(entry, question._id);
 
+  if (options?.updateState === false) {
+    return loadState();
+  }
+
   // Keep a stable scan cursor for pick:next even when updatedAt changes due to patching.
   const resolvedCursorUpdatedAt = options?.cursorUpdatedAt || question.metadata.updatedAt;
   const resolvedCursorItemId = options?.cursorItemId || question._id;
@@ -222,9 +250,11 @@ export async function loopRun(
 ) {
   const config = loadConfig(overrides);
   const allSorted = await getOldestByUpdatedAt(overrides);
+  const loggedIds = config.skipAlreadyLoggedIds ? loadLoggedIdsFromNew2Old() : null;
+  const processingList = loggedIds ? allSorted.filter((q) => !loggedIds.has(q._id)) : allSorted;
   const courseQuestionCount = new Map<string, Map<string, number>>();
   const courseQuestionIds = new Map<string, Map<string, string[]>>();
-  for (const item of allSorted) {
+  for (const item of processingList) {
     if (!item.isCourseSpecific || !item.courseId) continue;
     const perCourse = courseQuestionCount.get(item.courseId) || new Map<string, number>();
     perCourse.set(item.question, (perCourse.get(item.question) || 0) + 1);
@@ -316,7 +346,7 @@ export async function loopRun(
   for (let processed = 0; processed < itemsToProcess; processed += 1) {
     try {
       const state = loadState();
-      const { next, reason } = resolveNextFromList(allSorted, state);
+      const { next, reason } = resolveNextFromList(processingList, state);
       if (!next) {
         // If we hit the end of the updatedAt-ordered stream, wrap once and keep going.
         // This enables continuous processing even when updates change updatedAt values.

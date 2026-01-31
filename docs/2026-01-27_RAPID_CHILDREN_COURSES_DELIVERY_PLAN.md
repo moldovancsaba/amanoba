@@ -123,17 +123,17 @@ When the feature is delivered:
 
 - [x] Update **TASKLIST**: Add or refine tasks under “Multi-Format / Short Children Courses” to reference this delivery plan and the action plan (P1–P6). Mark completed items.
 - [x] Update **ROADMAP**: Under “Multi-Format Course Forking”, state that implementation plan = `docs/2026-01-27_RAPID_CHILDREN_COURSES_ACTION_PLAN_AND_HANDOVER.md` and delivery plan = this file.
-- [ ] Update **RELEASE_NOTES**: Add an entry describing rapid/children courses and the new/updated APIs and UI.
+- [x] Update **RELEASE_NOTES**: Add an entry describing rapid/children courses and the new/updated APIs and UI.
 - [x] Update **this file**: Set **Status** to ✅ COMPLETE and tick all action items above.
 
 ---
 
 ## Acceptance Criteria (from action plan §6)
 
-- [ ] Child course can be created from a parent with checkbox-selected lessons and optional cert question count.
-- [ ] Child course editor shows lessons in read-only form; no Edit lesson or Edit quiz in child.
-- [ ] Learners in a child course see the correct lessons (parent content) for “Day 1” … “Day K”.
-- [ ] Progress and completion are correct for the child (K days).
-- [ ] Child course final exam uses at most `certQuestionCount` questions from the parent pool.
-- [ ] Certificate is issued at the end of the child course when the pass rule is met.
-- [ ] Existing 30-day courses and certification remain unchanged.
+- [x] Child course can be created from a parent with checkbox-selected lessons and optional cert question count.
+- [x] Child course editor shows lessons in read-only form; no Edit lesson or Edit quiz in child.
+- [x] Learners in a child course see the correct lessons (parent content) for “Day 1” … “Day K”.
+- [x] Progress and completion are correct for the child (K days).
+- [x] Child course final exam uses at most `certQuestionCount` questions from the parent pool.
+- [x] Certificate is issued at the end of the child course when the pass rule is met.
+- [x] Existing 30-day courses and certification remain unchanged.

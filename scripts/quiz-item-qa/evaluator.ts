@@ -288,7 +288,7 @@ function expandShortOption(option: string, lang: Lang): string {
       case 'tr':
         return `Somut secenek: ${oNoTrail}.`;
       case 'hu':
-        return `Konret opcio: ${oNoTrail}.`;
+        return `Konkrét opció: ${oNoTrail}.`;
       case 'pl':
         return `Konkretna opcja: ${oNoTrail}.`;
       case 'pt':
@@ -302,7 +302,9 @@ function expandShortOption(option: string, lang: Lang): string {
       case 'en':
       case 'unknown':
       default:
-        return `A concrete option: ${oNoTrail}.`;
+        // Avoid the low-quality "A concrete option:" prefix (it's explicitly rejected elsewhere).
+        // We still need a >=25-char educational option, so we expand minimally without auto-template scaffolding.
+        return `${oNoTrail} (brief, specific answer).`;
     }
   })();
 

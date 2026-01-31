@@ -8,12 +8,12 @@
 
 ## Executive summary
 
-- **Build**: ✅ Passes (Next.js 15.5.11). ~~One non-blocking warning: `baseline-browser-mapping` data is over two months old.~~ **Fixed 2026-01-28**: Added override `baseline-browser-mapping: ^2.9.0` in package.json; build warning cleared.
-- **Dependencies**: 4 npm audit vulnerabilities (2 high, 2 moderate). One extraneous package (`@emnapi/runtime`). Optional deps (WebAuthn, nodemailer) unmet — acceptable if not used.
-- **Deprecated**: `next lint` is deprecated (removal in Next.js 16). Lesson model field `assessmentGameId` is deprecated (use `quizConfig`).
-- **Lint**: **ESLint** — warnings remain (build has `eslint.ignoreDuringBuilds: false`; build passes with warnings). **TypeScript**: Application-level TS errors fixed (2026-01-28); `npx tsc --noEmit` passes; see `docs/2026-01-28_TYPESCRIPT_AUDIT_COMPLETE.md`. Build still has `typescript.ignoreBuildErrors: true` until team opts to enforce TS in build.
-- **Hardcoded values**: URLs, hex colors, and magic values appear in certificate image routes, security allowlists, email service, analytics charts, and layout. Centralised tokens/constants used in places but not everywhere.
-- **Security**: Audit vulnerabilities in js-yaml, jws, next, next-auth. Security headers present (X-Frame-Options, X-Content-Type-Options, Referrer-Policy). Env used for secrets; some fallback URLs hardcoded.
+- **Build**: ✅ Passes (Next.js 16.1.6, Turbopack). Baseline-browser-mapping override in package.json.
+- **Dependencies**: Next 16.1.6, React 19.2; **0 npm audit vulnerabilities**. One extraneous package (`@emnapi/runtime`, transitive). Optional deps (WebAuthn, nodemailer) unmet — acceptable if not used.
+- **Deprecated**: `next lint` removed in Next 16 (use `npm run lint`). Lesson model field `assessmentGameId` deprecated (use `quizConfig`).
+- **Lint**: **ESLint** — **0 errors, 0 warnings** (scripts/public ignored; auth, i18n, middleware fixed). **TypeScript**: Enforced in build (`typescript.ignoreBuildErrors: false`); see `docs/2026-01-28_TYPESCRIPT_AUDIT_COMPLETE.md`.
+- **Hardcoded values**: Centralised in `app/lib/constants/theme-colors.ts` where done; some fallbacks remain (cert, email, analytics).
+- **Security**: **0 vulnerabilities**. Security headers present. Env used for secrets; some fallback URLs hardcoded.
 - **UI**: Some `<img>` without Next.js `<Image />`; inline hex in admin analytics; progress widths use inline `style` (acceptable for dynamic values). CTA and design tokens documented in `layout_grammar.md` / `DESIGN_UPDATE.md` but not fully applied everywhere.
 
 ---
@@ -75,11 +75,11 @@
 
 | Location | Issue |
 |----------|--------|
-| `app/api/profile/[playerId]/route.ts` | `highestScore: 0`, `perfectGames: 0` — TODO: Add to model if needed |
-| `app/[locale]/admin/settings/page.tsx` | TODO: Implement settings save |
-| `app/api/admin/system-info/route.ts` | `uptime = '99.9%'` — TODO: Calculate actual uptime from server start time |
-| `app/[locale]/admin/games/page.tsx` | TODO: Create API endpoint for updating game status |
-| `app/lib/gamification/session-manager.ts` | TODO Phase 4: Queue challenge progress update for retry |
+| `app/api/profile/[playerId]/route.ts` | **Done**: highestScore/perfectGames aggregated from PlayerSession (max score; perfect = win + 100% accuracy or score === maxScore). |
+| `app/[locale]/admin/settings/page.tsx` | **Done**: Certification settings and default thumbnail save implemented. |
+| `app/api/admin/system-info/route.ts` | **Done**: Uses `process.uptime()` and `formatUptime()`. |
+| `app/[locale]/admin/games/page.tsx` | **Done**: GET /api/admin/games, PATCH /api/admin/games/[gameId] (isActive); page wired. |
+| `app/lib/gamification/session-manager.ts` | **Done**: On challenge update failure, job enqueued (jobType: 'challenge'); worker planned. |
 
 ### 4.2 Debug logging (client/server)
 

@@ -25,6 +25,7 @@ import {
   renderReminderEmailSubject,
   renderPaymentConfirmationEmail,
 } from './email-localization';
+import { getCourseRecommendations } from '@/app/lib/course-recommendations';
 import { validateLessonTextLanguageIntegrity } from '@/app/lib/quality/language-integrity';
 
 // Initialize Resend client
@@ -404,6 +405,19 @@ export async function sendCompletionEmail(
       if (translation) courseName = translation.name;
     }
 
+    // P2 Email Automation: upsell — recommend 3 courses (exclude the one just completed)
+    const excludeId = (course._id as { toString(): string }).toString();
+    const recommendedCourses = await getCourseRecommendations(
+      {
+        _id: player._id,
+        skillLevel: (player as { skillLevel?: string }).skillLevel,
+        interests: (player as { interests?: string[] }).interests,
+      },
+      3,
+      emailLocale,
+      excludeId
+    ).catch(() => []);
+
     const subject = renderCompletionEmailSubject({ locale: emailLocale, courseName });
     const body = renderCompletionEmailHtml({
       locale: emailLocale,
@@ -412,6 +426,10 @@ export async function sendCompletionEmail(
       durationDays: Number(course.durationDays || 30) || 30,
       appUrl: APP_URL,
       tokens: EMAIL_TOKENS,
+      recommendedCourses:
+        recommendedCourses.length > 0
+          ? recommendedCourses.map((c) => ({ name: c.name, courseId: c.courseId }))
+          : undefined,
     });
 
     const integrity = ensureEmailLanguageIntegrity({

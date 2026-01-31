@@ -9,11 +9,11 @@
 
 | Item | Location | Status |
 |------|----------|--------|
-| Profile `highestScore` / `perfectGames` | `app/api/profile/[playerId]/route.ts` — currently hardcoded `0` | Backlog: Add to model/aggregation if needed |
-| Admin settings save | `app/[locale]/admin/settings/page.tsx` — TODO: Implement settings save | Backlog |
+| Profile `highestScore` / `perfectGames` | `app/api/profile/[playerId]/route.ts` | **Done**: Aggregated from PlayerSession (max score; perfect = win + 100% accuracy or score === maxScore). |
+| Admin settings save | `app/[locale]/admin/settings/page.tsx` | **Done**: Certification settings and default thumbnail save implemented. |
 | System-info uptime | `app/api/admin/system-info/route.ts` | **Done**: Uses `process.uptime()` and `formatUptime()`; returns `uptime` (e.g. "2h 30m") and `uptimeSeconds`. |
-| Game status API | `app/[locale]/admin/games/page.tsx` — TODO: Create API endpoint for updating game status | Backlog |
-| Challenge retry queue | `app/lib/gamification/session-manager.ts` — TODO Phase 4: Queue challenge progress update for retry | Backlog |
+| Game status API | `app/[locale]/admin/games/page.tsx` | **Done**: GET /api/admin/games (all games), PATCH /api/admin/games/[gameId] (isActive); admin games page wired. |
+| Challenge retry queue | `app/lib/gamification/session-manager.ts` | **Done**: On daily challenge update failure, job enqueued (jobType: challenge); challenge-worker to process jobs is planned. |
 
 ---
 

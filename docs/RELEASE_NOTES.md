@@ -1,11 +1,28 @@
 # Amanoba Release Notes
 
-**Current Version**: 2.9.25  
+**Current Version**: 2.9.26  
 **Last Updated**: 2026-01-28
 
 ---
 
 All completed tasks are documented here in reverse chronological order. This file follows the Changelog format and is updated with every version bump.
+
+---
+
+## [v2.9.26] — 2026-01-28 📋
+
+**Status**: Documentation and codebase sync per agent operating document  
+**Type**: Docs/code alignment (DOCUMENTATION = CODE)
+
+### Operating document and repo hygiene
+
+- **agent_working_loop_canonical_operating_document.md**: "As of last update" updated to include P1/P2 tech debt and CTA audit delivered; pointer to TASKLIST for recommended next. "Last Updated" set to 2026-01-28.
+- **.gitignore**: Added `.state/` so local QA/quiz-item state is not committed.
+- **Docs/code sync**: Remaining tracked changes (admin games page, course recommendations API, profile API, email service/localization, gamification session-manager, achievement-worker, quiz-item-qa scripts and handover docs, tech audit and P2 status docs, next.config, tsconfig) and new files (admin games API, course-recommendations lib, quiz-item-qa audit/repair scripts, tasklist QUIZ_QA_TODO) committed so code and documentation reflect current state.
+
+**Rollback**: Baseline `79f17ed`. To roll back: `git reset --hard 79f17ed`. Verify: `npm run build`.
+
+**Status**: ✅ Docs and codebase sync delivered
 
 ---
 

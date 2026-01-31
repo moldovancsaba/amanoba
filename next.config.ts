@@ -10,19 +10,12 @@ const nextConfig: NextConfig = {
   // Enable React strict mode for better development experience
   reactStrictMode: true,
   
-  // Why: Run ESLint during build; errors are fixed, warnings (e.g. exhaustive-deps) do not fail build
-  eslint: {
-    ignoreDuringBuilds: false,
-  },
-  
-  // Why: Enforce TypeScript during build (P1.7) — app code passes tsc --noEmit; scripts excluded per tsconfig
+  // Why: Enforce TypeScript during build (P1.7). Next 16: eslint option removed; run `npm run lint` in CI.
   typescript: {
     ignoreBuildErrors: false,
   },
-  
-  // Configure image optimization domains if needed
+  // Configure image optimization (Next 16: use remotePatterns only; domains deprecated)
   images: {
-    domains: ['i.ibb.co', 'i.imgbb.com'],
     remotePatterns: [
       {
         protocol: 'https',

@@ -84,6 +84,41 @@ export async function GET(
 
     await connectDB();
 
+    const playerIdObj = new mongoose.Types.ObjectId(playerId);
+
+    // Aggregate highestScore and perfectGames from completed sessions
+    const statsAgg = await PlayerSession.aggregate<{ highestScore: number; perfectGames: number }>([
+      { $match: { playerId: playerIdObj, status: 'completed' } },
+      {
+        $group: {
+          _id: null,
+          highestScore: { $max: '$gameData.score' },
+          perfectGames: {
+            $sum: {
+              $cond: [
+                {
+                  $and: [
+                    { $eq: ['$gameData.outcome', 'win'] },
+                    {
+                      $or: [
+                        { $eq: ['$gameData.accuracy', 100] },
+                        { $and: [{ $gt: ['$gameData.maxScore', 0] }, { $eq: ['$gameData.score', '$gameData.maxScore'] }] },
+                      ],
+                    },
+                  ],
+                },
+                1,
+                0,
+              ],
+            },
+          },
+        },
+      },
+      { $project: { _id: 0, highestScore: 1, perfectGames: 1 } },
+    ]).exec();
+    const highestScore = statsAgg[0]?.highestScore ?? 0;
+    const perfectGames = statsAgg[0]?.perfectGames ?? 0;
+
     // Fetch all profile data in parallel
     const [player, progression, wallet, achievements, recentSessions, streaks] = await Promise.all([
       Player.findById(playerId).lean(),
@@ -202,8 +237,8 @@ export async function GET(
         winRate,
         totalPlayTime: progression?.statistics?.totalPlayTime || 0,
         averageSessionTime: progression?.statistics?.averageSessionTime || 0,
-        highestScore: 0, // TODO: Add to model if needed
-        perfectGames: 0, // TODO: Add to model if needed
+        highestScore,
+        perfectGames,
       },
       // Wallet data is private - only include if viewing own profile or admin
       ...(canViewPrivateData && {

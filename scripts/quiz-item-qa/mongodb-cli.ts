@@ -25,11 +25,26 @@ function parseArgs(argv: string[]) {
   return args;
 }
 
+function parseBooleanFlag(value: string | undefined): boolean | undefined {
+  if (value === undefined || value === '') return undefined;
+  const v = value.trim().toLowerCase();
+  if (v === 'true' || v === '1' || v === 'yes') return true;
+  if (v === 'false' || v === '0' || v === 'no') return false;
+  return undefined;
+}
+
 async function run() {
   const [,, command, ...rest] = process.argv;
   const args = parseArgs(rest);
   const courseObjectId = args['course-id'] || args['course-object-id'];
-  const overrides = courseObjectId ? { courseObjectId } : undefined;
+  const skipLoggedArg = parseBooleanFlag(args['skip-logged']);
+  if (skipLoggedArg !== undefined) {
+    process.env.QUIZ_ITEM_QA_SKIP_LOGGED = skipLoggedArg ? 'true' : 'false';
+  }
+  const overrides = {
+    ...(courseObjectId ? { courseObjectId } : {}),
+    ...(skipLoggedArg !== undefined ? { skipAlreadyLoggedIds: skipLoggedArg } : {}),
+  };
   switch (command) {
     case 'audit:last-modified': {
       const last = await auditLastModified(overrides);
@@ -50,6 +65,9 @@ async function run() {
       }
       console.log(`Next item: ${result.next._id}`);
       console.log(`Reason: ${result.reason}`);
+      if (skipLoggedArg !== undefined) {
+        console.log(`Mode: skip-logged=${String(skipLoggedArg)}`);
+      }
       console.log(`Question preview: ${result.next.question.slice(0, 120)}`);
       return;
     }
@@ -105,6 +123,7 @@ async function run() {
       const cursorUpdatedAt = args['cursor-updated-at'];
       const cursorItemId = args['cursor-item-id'];
       const useLastEvalCursor = args['use-last-eval-updated-at'] === 'true';
+      const noStateUpdate = args['no-state-update'] === 'true';
       if (!id) {
         throw new Error('Missing --id');
       }
@@ -123,6 +142,7 @@ async function run() {
         agent,
         cursorUpdatedAt: resolvedCursorUpdatedAt,
         cursorItemId: resolvedCursorItemId,
+        updateState: !noStateUpdate,
       });
       console.log(`State updated: ${JSON.stringify(state, null, 2)}`);
       return;
@@ -134,6 +154,9 @@ async function run() {
       const dry = args['dry-run'] === 'true';
       if (dry) {
         process.env.QUIZ_ITEM_DRY_RUN = 'true';
+      }
+      if (skipLoggedArg !== undefined) {
+        console.log(`Mode: skip-logged=${String(skipLoggedArg)}`);
       }
       await loopRun(items, overrides);
       return;
